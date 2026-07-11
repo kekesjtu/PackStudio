@@ -1,0 +1,78 @@
+:root {
+  color-scheme: light;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+.app-shell {
+  min-height: 100vh;
+}
+
+.workspace {
+  display: grid;
+  grid-template-columns: minmax(190px, 0.7fr) minmax(320px, 1.2fr) minmax(360px, 1.6fr);
+  gap: 16px;
+  min-height: calc(100vh - 64px);
+  padding: 16px;
+}
+
+.workflow-panel,
+.parameter-panel,
+.preview-panel {
+  padding: 20px;
+}
+
+.preview-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.package-preview {
+  position: relative;
+  display: grid;
+  flex: 1;
+  min-height: 360px;
+  place-items: center;
+  overflow: hidden;
+  border: 1px solid #d8e1e7;
+  border-radius: 8px;
+  background: linear-gradient(145deg, #ffffff, #edf3f6);
+  perspective: 900px;
+}
+
+.package-layer {
+  position: absolute;
+  border: 1px solid rgba(12, 42, 57, 0.45);
+  transform: rotateX(58deg) rotateZ(-35deg);
+  box-shadow: 14px 18px 24px rgba(28, 65, 83, 0.2);
+}
+
+.package-substrate {
+  width: 240px;
+  height: 180px;
+  background: #6371dc;
+}
+
+.package-die {
+  width: 92px;
+  height: 72px;
+  background: #a239d1;
+  transform: translateY(-22px) rotateX(58deg) rotateZ(-35deg);
+}
+
+@media (max-width: 1000px) {
+  .workspace {
+    grid-template-columns: 1fr;
+  }
+
+  .package-preview {
+    min-height: 300px;
+  }
+}
