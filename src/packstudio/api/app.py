@@ -1,5 +1,7 @@
 from fastapi import FastAPI
 
+from packstudio.api.routes.templates import router as templates_router
+
 
 def create_app() -> FastAPI:
     application = FastAPI(
@@ -12,6 +14,7 @@ def create_app() -> FastAPI:
     def health() -> dict[str, str]:
         return {"status": "ok", "service": "packstudio"}
 
+    application.include_router(templates_router)
     return application
 
 

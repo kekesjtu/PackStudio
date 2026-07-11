@@ -66,6 +66,10 @@
 
 ### 阶段 3：Flip Chip CBGA / BGA 模板
 
+**状态**：已完成（TASK2，2026-07-11）。实现说明见
+[Flip Chip CBGA / BGA 模板](templates/flip-chip-cbga.md)，关键模型与精简 PTA 契约见
+[ADR-0002](decisions/0002-Flip-Chip-CBGA-模型与-PTA-导出约定.md)。
+
 **目标**：覆盖参考产品中最有代表性的阵列封装工作流。
 
 任务：

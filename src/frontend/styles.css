@@ -16,7 +16,7 @@ body {
 
 .workspace {
   display: grid;
-  grid-template-columns: minmax(190px, 0.7fr) minmax(320px, 1.2fr) minmax(360px, 1.6fr);
+  grid-template-columns: minmax(190px, 0.55fr) minmax(390px, 1.2fr) minmax(440px, 1.55fr);
   gap: 16px;
   min-height: calc(100vh - 64px);
   padding: 16px;
@@ -24,47 +24,172 @@ body {
 
 .workflow-panel,
 .parameter-panel,
-.preview-panel {
+.preview-panel,
+.tree-panel {
   padding: 20px;
+}
+
+.workflow-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-self: start;
+  position: sticky;
+  top: 16px;
+}
+
+.export-note {
+  margin-top: auto;
+}
+
+.parameter-panel {
+  min-width: 0;
+  max-height: calc(100vh - 96px);
+  overflow: hidden;
+  position: sticky;
+  top: 16px;
+}
+
+.parameter-scroll {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  height: 100%;
+  overflow: auto;
+  padding-right: 5px;
+}
+
+.parameter-section {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 16px;
+}
+
+.field-grid {
+  display: grid;
+  gap: 12px;
+}
+
+.field-grid-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.field-grid-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.material-fields,
+.sub-parameter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.material-fields {
+  border-left: 3px solid #c7d7de;
+  padding-left: 12px;
+}
+
+.action-bar {
+  position: sticky;
+  bottom: 0;
+  z-index: 2;
+  padding: 14px 0 4px;
+  background: linear-gradient(transparent, #fff 22%);
+}
+
+.inspection-column {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 0;
 }
 
 .preview-panel {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 16px;
 }
 
-.package-preview {
+.model-canvas,
+.preview-empty {
   position: relative;
-  display: grid;
-  flex: 1;
-  min-height: 360px;
-  place-items: center;
+  min-height: 460px;
   overflow: hidden;
   border: 1px solid #d8e1e7;
-  border-radius: 8px;
-  background: linear-gradient(145deg, #ffffff, #edf3f6);
-  perspective: 900px;
+  border-radius: 10px;
+  background: #f7fafb;
 }
 
-.package-layer {
+.preview-empty {
+  display: grid;
+  place-items: center;
+}
+
+.axis-hint {
   position: absolute;
-  border: 1px solid rgba(12, 42, 57, 0.45);
-  transform: rotateX(58deg) rotateZ(-35deg);
-  box-shadow: 14px 18px 24px rgba(28, 65, 83, 0.2);
+  right: 12px;
+  bottom: 10px;
+  padding: 5px 8px;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.82);
+  color: #3e5662;
+  font-size: 0.75rem;
+  pointer-events: none;
 }
 
-.package-substrate {
-  width: 240px;
-  height: 180px;
-  background: #6371dc;
+.tree-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
-.package-die {
-  width: 92px;
-  height: 72px;
-  background: #a239d1;
-  transform: translateY(-22px) rotateX(58deg) rotateZ(-35deg);
+.model-tree {
+  max-height: 380px;
+  margin-top: 8px;
+  overflow: auto;
+}
+
+.tree-group {
+  margin-left: calc(var(--tree-depth) * 15px);
+  border-left: 1px solid #d8e1e7;
+  padding: 4px 0 4px 12px;
+}
+
+.tree-group-label {
+  min-height: 32px;
+}
+
+.tree-block {
+  display: flex !important;
+  width: 100%;
+  justify-content: space-between !important;
+  gap: 8px;
+  border-radius: 5px !important;
+  padding: 6px 9px !important;
+  color: #304550 !important;
+  text-align: left !important;
+}
+
+.tree-block:hover,
+.tree-block[data-selected='true'] {
+  background: #e6f3f6;
+}
+
+.tree-block small {
+  color: #6b7f89;
+  font-size: 0.69rem;
+}
+
+@media (max-width: 1320px) {
+  .workspace {
+    grid-template-columns: 190px minmax(360px, 1fr) minmax(400px, 1.2fr);
+  }
+
+  .field-grid-3 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 1000px) {
@@ -72,7 +197,29 @@ body {
     grid-template-columns: 1fr;
   }
 
-  .package-preview {
-    min-height: 300px;
+  .workflow-panel,
+  .parameter-panel {
+    position: static;
+    max-height: none;
+  }
+
+  .parameter-scroll {
+    overflow: visible;
+  }
+
+  .model-canvas,
+  .preview-empty {
+    min-height: 360px;
+  }
+}
+
+@media (max-width: 540px) {
+  .workspace {
+    padding: 8px;
+  }
+
+  .field-grid-2,
+  .field-grid-3 {
+    grid-template-columns: 1fr;
   }
 }

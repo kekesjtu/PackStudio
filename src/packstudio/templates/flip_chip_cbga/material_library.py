@@ -1,0 +1,69 @@
+from packstudio.domain.materials import Material
+
+
+def default_materials() -> dict[str, Material]:
+    return {
+        "air": Material(
+            id="air",
+            name="Air",
+            conductivity=0.026,
+            density=1.225,
+            specific_heat=1005,
+            color="#DDEAF2",
+            source="PackStudio engineering default",
+        ),
+        "alumina": Material(
+            id="alumina",
+            name="Alumina (typical)",
+            conductivity=25,
+            density=3900,
+            specific_heat=880,
+            color="#6975DC",
+            source="PackStudio engineering default",
+        ),
+        "silicon": Material(
+            id="silicon",
+            name="Silicon",
+            conductivity=130,
+            density=2330,
+            specific_heat=700,
+            color="#A33BD0",
+            source="PackStudio engineering default",
+        ),
+        "solder": Material(
+            id="solder",
+            name="Solder (typical)",
+            conductivity=50,
+            density=8400,
+            specific_heat=230,
+            color="#4A82D8",
+            source="PackStudio engineering default",
+        ),
+        "underfill": Material(
+            id="underfill",
+            name="Flip-chip underfill (typical)",
+            conductivity=0.8,
+            density=1600,
+            specific_heat=1000,
+            color="#7CC5B8",
+            source="PackStudio engineering default",
+        ),
+        "copper": Material(
+            id="copper",
+            name="Copper",
+            conductivity=400,
+            density=8960,
+            specific_heat=385,
+            color="#C87533",
+            source="PackStudio engineering default",
+        ),
+        "tim": Material(
+            id="tim",
+            name="Thermal interface material",
+            conductivity=3,
+            density=2500,
+            specific_heat=1000,
+            color="#E1B84B",
+            source="PackStudio engineering default",
+        ),
+    }
