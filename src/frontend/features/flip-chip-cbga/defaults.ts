@@ -18,6 +18,14 @@ const material = (
 
 const alumina = material('alumina', 'Alumina (typical)', 25, 3900, 880, '#6975DC')
 const silicon = material('silicon', 'Silicon', 130, 2330, 700, '#A33BD0')
+const encapsulant = material(
+  'encapsulant',
+  'Epoxy molding compound (typical)',
+  0.9,
+  1900,
+  1000,
+  '#5A5AA8',
+)
 const solder = material('solder', 'Solder (typical)', 50, 8400, 230, '#4A82D8')
 const underfill = material(
   'underfill',
@@ -34,6 +42,7 @@ const defaults: FlipChipCbgaParameters = {
   design_name: 'Flip Chip CBGA',
   substrate: { length: 6, width: 6, thickness: 1.15, material: alumina },
   die: { length: 1.8, width: 1.8, thickness: 0.61, power_w: 1, material: silicon },
+  encapsulant: { enabled: false, length: 5, width: 5, material: encapsulant },
   flip_chip_bumps: {
     rows: 7,
     columns: 7,

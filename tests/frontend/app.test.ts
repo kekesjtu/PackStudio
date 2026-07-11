@@ -1,5 +1,5 @@
 import { createElement } from 'react'
-import { render, screen } from '@testing-library/react'
+import { fireEvent, render, screen, waitFor } from '@testing-library/react'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 import App from '../../src/frontend/App'
@@ -66,22 +66,49 @@ describe('Flip Chip CBGA workspace', () => {
 
   afterEach(() => vi.unstubAllGlobals())
 
-  it('generates the default model and exposes the guided export workflow', async () => {
+  it('renders the four-column workspace and generates the default model', async () => {
     render(createElement(App))
 
     expect(screen.getByRole('heading', { name: 'PackStudio' })).toBeInTheDocument()
-    expect(screen.getByRole('heading', { name: '封装参数' })).toBeInTheDocument()
-    expect(screen.getByRole('heading', { name: '三维预览' })).toBeInTheDocument()
+    expect(screen.getByRole('navigation', { name: '封装结构属性' })).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: '汇总' })).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: '三维建模区' })).toBeInTheDocument()
+    const resizer = screen.getByRole('separator', { name: '调整属性与三维视图宽度' })
+    expect(resizer).toHaveAttribute('aria-valuenow', '380')
+    fireEvent.keyDown(resizer, { key: 'ArrowRight' })
+    expect(resizer).toHaveAttribute('aria-valuenow', '400')
+    expect(screen.getByRole('tab', { name: '材料库' })).toBeInTheDocument()
+    expect(screen.getByRole('tab', { name: '模型树' })).toBeInTheDocument()
     expect(screen.getByRole('button', { name: '导出精简 PTA XML' })).toBeInTheDocument()
     expect(screen.getByText(/PTA 文件不包含网格和求解结果/)).toBeInTheDocument()
 
     expect(await screen.findByText('1 个块')).toBeInTheDocument()
-    expect(screen.getByText('49 个物理焊球')).toBeInTheDocument()
+    expect(screen.getByText('物理焊球')).toBeInTheDocument()
+    fireEvent.click(screen.getByRole('tab', { name: '模型树' }))
     expect(screen.getByText('Package substrate')).toBeInTheDocument()
     expect(fetch).toHaveBeenCalledWith(
       '/api/templates/flip-chip-cbga/generate',
       expect.objectContaining({ method: 'POST' }),
     )
+  })
+
+  it('enables encapsulant parameters and supports model-tree visibility actions', async () => {
+    render(createElement(App))
+    await screen.findByText('1 个块')
+
+    fireEvent.click(screen.getByRole('button', { name: '塑封' }))
+    fireEvent.click(screen.getByRole('switch', { name: '包含塑封' }))
+    fireEvent.click(screen.getByRole('button', { name: '生成模型' }))
+
+    await waitFor(() => expect(fetch).toHaveBeenCalledTimes(2))
+    const request = vi.mocked(fetch).mock.calls[1]
+    const body = JSON.parse(String(request[1]?.body)) as { encapsulant: { enabled: boolean } }
+    expect(body.encapsulant.enabled).toBe(true)
+
+    fireEvent.click(screen.getByRole('tab', { name: '模型树' }))
+    fireEvent.contextMenu(screen.getByRole('button', { name: /Package substrate/ }))
+    fireEvent.click(screen.getByRole('menuitem', { name: '隐藏这个模型' }))
+    expect(screen.getByText('隐藏 1')).toBeInTheDocument()
   })
 
   it('shows backend validation errors without hiding the workspace', async () => {
@@ -94,6 +121,6 @@ describe('Flip Chip CBGA workspace', () => {
     render(createElement(App))
 
     expect(await screen.findByText('焊球直径必须小于 pitch')).toBeInTheDocument()
-    expect(screen.getByRole('heading', { name: '模型树' })).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: '三维建模区' })).toBeInTheDocument()
   })
 })

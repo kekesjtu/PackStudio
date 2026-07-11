@@ -4,6 +4,7 @@ from enum import StrEnum
 class StructureType(StrEnum):
     SUBSTRATE = "substrate"
     DIE = "die"
+    ENCAPSULANT = "encapsulant"
     FLIP_CHIP_BUMP = "flip_chip_bump"
     UNDERFILL = "underfill"
     SOLDER_BALL = "solder_ball"

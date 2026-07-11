@@ -44,6 +44,15 @@ class DieParameters(RectangularPartParameters):
     power_w: float = Field(default=1, ge=0)
 
 
+class EncapsulantParameters(BaseModel):
+    model_config = ConfigDict(frozen=True)
+
+    enabled: bool = False
+    length: float = Field(default=5, gt=0, description="x footprint in mm")
+    width: float = Field(default=5, gt=0, description="y footprint in mm")
+    material: Material = Field(default_factory=lambda: default_materials()["encapsulant"])
+
+
 class ArrayLayerParameters(BaseModel):
     model_config = ConfigDict(frozen=True)
 
@@ -123,6 +132,7 @@ class FlipChipCbgaParameters(BaseModel):
     design_name: str = Field(default="Flip Chip CBGA", min_length=1, max_length=120)
     substrate: RectangularPartParameters = Field(default_factory=lambda: _default_substrate())
     die: DieParameters = Field(default_factory=lambda: _default_die())
+    encapsulant: EncapsulantParameters = Field(default_factory=EncapsulantParameters)
     flip_chip_bumps: ArrayLayerParameters = Field(default_factory=lambda: _default_bumps())
     solder_balls: ArrayLayerParameters = Field(default_factory=lambda: _default_solder_balls())
     heat_slug: HeatSlugParameters = Field(default_factory=lambda: _default_heat_slug())
@@ -136,6 +146,17 @@ class FlipChipCbgaParameters(BaseModel):
             self.substrate.width + tolerance
         ):
             raise ValueError("die footprint must fit inside the substrate")
+        if self.encapsulant.enabled:
+            if (
+                self.encapsulant.length <= self.die.length + tolerance
+                or self.encapsulant.width <= self.die.width + tolerance
+            ):
+                raise ValueError("encapsulant footprint must extend beyond the die on every side")
+            if (
+                self.encapsulant.length > self.substrate.length + tolerance
+                or self.encapsulant.width > self.substrate.width + tolerance
+            ):
+                raise ValueError("encapsulant footprint must fit inside the substrate")
         if self.flip_chip_bumps.footprint_x > self.die.length + tolerance or (
             self.flip_chip_bumps.footprint_y > self.die.width + tolerance
         ):

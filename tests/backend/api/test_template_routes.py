@@ -21,6 +21,7 @@ def test_defaults_generate_reference_model() -> None:
     )
 
     assert defaults.status_code == 200
+    assert defaults.json()["encapsulant"]["enabled"] is False
     assert generated.status_code == 200
     assert generated.json()["metadata"]["solder_ball_equivalent_regions"] == 5
     assert len(generated.json()["blocks"]) == 8

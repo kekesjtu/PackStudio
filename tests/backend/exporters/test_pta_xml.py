@@ -103,6 +103,25 @@ def test_pta_template_layers_are_visible_generic_layers() -> None:
     assert all(layer.xpath("./m:Blocks/m:Block", namespaces=namespace) for layer in layers)
 
 
+def test_pta_export_places_encapsulant_rings_in_existing_bump_and_die_layers() -> None:
+    defaults = FlipChipCbgaParameters()
+    parameters = FlipChipCbgaParameters(
+        encapsulant=defaults.encapsulant.model_copy(update={"enabled": True})
+    )
+    root = etree.fromstring(export_pta_xml(generate_flip_chip_cbga(parameters)))
+    namespace = {"m": MODEL_NAMESPACE, "a": ARRAY_NAMESPACE}
+    layers = root.xpath("./m:Layers/m:Layer", namespaces=namespace)
+    layer_blocks = [
+        layer.xpath("./m:Blocks/m:Block/m:Name/text()", namespaces=namespace) for layer in layers
+    ]
+    material_ids = root.xpath("./m:Materials/a:*/a:Key/text()", namespaces=namespace)
+
+    assert len(layers) == 4
+    assert sum(name.startswith("Encapsulant upper") for name in layer_blocks[0]) == 4
+    assert sum(name.startswith("Encapsulant lower") for name in layer_blocks[1]) == 4
+    assert "encapsulant" in material_ids
+
+
 def test_pta_export_rejects_non_contiguous_layer_stack() -> None:
     model = generate_flip_chip_cbga(FlipChipCbgaParameters())
     moved_die = next(block for block in model.blocks if block.id == "die").model_copy(

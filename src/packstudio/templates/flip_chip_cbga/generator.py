@@ -3,6 +3,7 @@ from packstudio.domain.geometry import AxisAlignedBlock, Point3D, Size3D
 from packstudio.domain.materials import Material
 from packstudio.domain.model import ModelGroup, PackageModel
 from packstudio.domain.thermal import BoundaryCondition, HeatSource, SurfaceReference
+from packstudio.templates.flip_chip_cbga.encapsulant_builder import build_encapsulant
 from packstudio.templates.flip_chip_cbga.layer_builder import (
     BuiltArrayLayer,
     build_array_layer,
@@ -20,6 +21,7 @@ def generate_flip_chip_cbga(parameters: FlipChipCbgaParameters) -> PackageModel:
     group_blocks: dict[str, list[str]] = {
         "substrate": [],
         "die": [],
+        "encapsulant": [],
         "fc-bumps": [],
         "solder-ball": [],
         "center-sball": [],
@@ -78,6 +80,12 @@ def generate_flip_chip_cbga(parameters: FlipChipCbgaParameters) -> PackageModel:
     group_blocks["die"].append(die.id)
     _register_material(materials, parameters.die.material)
 
+    encapsulant_blocks = build_encapsulant(parameters, substrate.max_z, "encapsulant")
+    blocks.extend(encapsulant_blocks)
+    group_blocks["encapsulant"].extend(block.id for block in encapsulant_blocks)
+    if encapsulant_blocks:
+        _register_material(materials, parameters.encapsulant.material)
+
     ball_layer = build_array_layer(
         parameters=parameters.solder_balls,
         base_z=-parameters.solder_balls.height,
@@ -108,10 +116,16 @@ def generate_flip_chip_cbga(parameters: FlipChipCbgaParameters) -> PackageModel:
             power_w=parameters.die.power_w,
         )
     ]
+    top_surface_block_ids = top_stack.top_surface_block_ids
+    if encapsulant_blocks and not top_stack.blocks:
+        top_surface_block_ids = [
+            *top_surface_block_ids,
+            *(block.id for block in encapsulant_blocks if abs(block.max_z - die.max_z) <= 1e-9),
+        ]
     boundaries = _build_boundaries(
         parameters,
         ball_layer,
-        top_stack.top_surface_block_ids,
+        top_surface_block_ids,
     )
     groups = _build_groups(group_blocks)
 
@@ -128,6 +142,7 @@ def generate_flip_chip_cbga(parameters: FlipChipCbgaParameters) -> PackageModel:
             "solder_ball_count": ball_layer.physical_element_count,
             "flip_chip_equivalent_regions": bump_layer.equivalent_region_count,
             "solder_ball_equivalent_regions": ball_layer.equivalent_region_count,
+            "encapsulant_block_count": len(encapsulant_blocks),
             "mesh_data_included": False,
             "solver_results_included": False,
         },
@@ -164,13 +179,15 @@ def _build_groups(group_blocks: dict[str, list[str]]) -> list[ModelGroup]:
     labels = {
         "substrate": "Substrate",
         "die": "Die",
+        "encapsulant": "Encapsulant",
         "fc-bumps": "fc_bumps",
         "solder-ball": "Solder_ball",
         "center-sball": "Center_SBall",
         "top": "Top structures",
     }
     for group_id, label in labels.items():
-        if group_id == "center-sball" and not group_blocks[group_id]:
+        optional_groups = {"center-sball", "encapsulant", "top"}
+        if group_id in optional_groups and not group_blocks[group_id]:
             continue
         parent_id = "solder-ball" if group_id == "center-sball" else "package"
         groups.append(

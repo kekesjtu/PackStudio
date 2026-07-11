@@ -25,6 +25,8 @@ def test_default_model_matches_reference_tree_partition() -> None:
     assert model.metadata["solder_ball_equivalent_regions"] == 5
     assert len(groups["solder-ball"].block_ids) == 4
     assert len(groups["center-sball"].block_ids) == 1
+    assert "encapsulant" not in groups
+    assert "top" not in groups
     assert model.metadata["mesh_data_included"] is False
     assert model.metadata["solver_results_included"] is False
 
@@ -122,6 +124,56 @@ def test_heat_slug_and_lid_form_a_contiguous_non_overlapping_top_stack() -> None
     assert all(left.max_z == pytest.approx(right.origin.z) for left, right in pairwise(top_blocks))
 
 
+def test_optional_encapsulant_builds_two_non_overlapping_rectangular_rings() -> None:
+    defaults = FlipChipCbgaParameters()
+    parameters = FlipChipCbgaParameters(
+        encapsulant=defaults.encapsulant.model_copy(update={"enabled": True})
+    )
+
+    model = generate_flip_chip_cbga(parameters)
+    encapsulant_blocks = [
+        block for block in model.blocks if block.structure_type is StructureType.ENCAPSULANT
+    ]
+    groups = {group.id: group for group in model.groups}
+    lower = [block for block in encapsulant_blocks if block.metadata["tier"] == "lower"]
+    upper = [block for block in encapsulant_blocks if block.metadata["tier"] == "upper"]
+    ring_area = (
+        parameters.encapsulant.length * parameters.encapsulant.width
+        - parameters.die.length * parameters.die.width
+    )
+
+    assert len(encapsulant_blocks) == 8
+    assert groups["encapsulant"].block_ids == [block.id for block in encapsulant_blocks]
+    assert model.metadata["encapsulant_block_count"] == 8
+    assert sum(block.size.x * block.size.y for block in lower) == pytest.approx(ring_area)
+    assert sum(block.size.x * block.size.y for block in upper) == pytest.approx(ring_area)
+    assert {block.origin.z for block in lower} == {parameters.substrate.thickness}
+    assert {block.max_z for block in upper} == {
+        parameters.substrate.thickness
+        + parameters.flip_chip_bumps.height
+        + parameters.die.thickness
+    }
+
+
+def test_top_convection_includes_exposed_encapsulant_ring() -> None:
+    defaults = FlipChipCbgaParameters()
+    parameters = FlipChipCbgaParameters(
+        encapsulant=defaults.encapsulant.model_copy(update={"enabled": True}),
+        environment=EnvironmentParameters(top_convection_coefficient_w_m2k=20),
+    )
+
+    model = generate_flip_chip_cbga(parameters)
+    boundary = next(item for item in model.boundaries if item.id == "top-convection")
+
+    assert {target.block_id for target in boundary.targets} == {
+        "die",
+        "encapsulant-upper-front",
+        "encapsulant-upper-back",
+        "encapsulant-upper-left",
+        "encapsulant-upper-right",
+    }
+
+
 def test_environment_parameters_generate_top_and_bottom_boundaries() -> None:
     parameters = FlipChipCbgaParameters(
         environment=EnvironmentParameters(
@@ -156,3 +208,19 @@ def test_heat_slug_outside_substrate_envelope_is_rejected() -> None:
 
     with pytest.raises(ValidationError, match="heat slug must fit"):
         FlipChipCbgaParameters(heat_slug=oversized_slug)
+
+
+@pytest.mark.parametrize(
+    ("update", "message"),
+    [
+        ({"enabled": True, "length": 1.8}, "extend beyond the die"),
+        ({"enabled": True, "length": 6.5}, "fit inside the substrate"),
+    ],
+)
+def test_invalid_encapsulant_envelopes_are_rejected(
+    update: dict[str, object], message: str
+) -> None:
+    defaults = FlipChipCbgaParameters()
+
+    with pytest.raises(ValidationError, match=message):
+        FlipChipCbgaParameters(encapsulant=defaults.encapsulant.model_copy(update=update))

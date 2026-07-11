@@ -25,6 +25,13 @@ export interface DieParameters extends RectangularPartParameters {
   power_w: number
 }
 
+export interface EncapsulantParameters {
+  enabled: boolean
+  length: number
+  width: number
+  material: Material
+}
+
 export type ArrayRepresentation = 'discrete' | 'equivalent'
 export type ArrayPattern =
   | 'full'
@@ -79,6 +86,7 @@ export interface FlipChipCbgaParameters {
   design_name: string
   substrate: RectangularPartParameters
   die: DieParameters
+  encapsulant: EncapsulantParameters
   flip_chip_bumps: ArrayLayerParameters
   solder_balls: ArrayLayerParameters
   heat_slug: HeatSlugParameters
@@ -89,6 +97,7 @@ export interface FlipChipCbgaParameters {
 export type StructureType =
   | 'substrate'
   | 'die'
+  | 'encapsulant'
   | 'flip_chip_bump'
   | 'underfill'
   | 'solder_ball'

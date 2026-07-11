@@ -6,9 +6,14 @@ import type { Material } from './types'
 interface MaterialFieldsProps {
   material: Material
   onChange: (material: Material) => void
+  showTitle?: boolean
 }
 
-export default function MaterialFields({ material, onChange }: MaterialFieldsProps) {
+export default function MaterialFields({
+  material,
+  onChange,
+  showTitle = true,
+}: MaterialFieldsProps) {
   const updateConductivity = (axis: 'x' | 'y' | 'z', value: number | null) => {
     onChange({
       ...material,
@@ -18,7 +23,7 @@ export default function MaterialFields({ material, onChange }: MaterialFieldsPro
 
   return (
     <Box className="material-fields">
-      <Typography variant="subtitle2">{material.name}</Typography>
+      {showTitle && <Typography variant="subtitle2">{material.name}</Typography>}
       <Box className="field-grid field-grid-3">
         <NumberInput
           label="kx"

@@ -14,6 +14,7 @@ import type { AxisAlignedBlock, Material, PackageModel } from './types'
 interface ModelPreviewProps {
   model: PackageModel | null
   selectedBlockId: string | null
+  hiddenBlockIds: ReadonlySet<string>
   onSelectBlock: (blockId: string | null) => void
 }
 
@@ -24,7 +25,7 @@ interface PackageBlockProps {
   onSelect: (blockId: string) => void
 }
 
-const translucentStructures = new Set(['underfill', 'solder_ball_matrix'])
+const translucentStructures = new Set(['underfill', 'solder_ball_matrix', 'encapsulant'])
 
 function PackageBlock({ block, material, selected, onSelect }: PackageBlockProps) {
   const { position, size } = toNativeXyzBlockTransform(block)
@@ -53,6 +54,7 @@ function PackageBlock({ block, material, selected, onSelect }: PackageBlockProps
 export default function ModelPreview({
   model,
   selectedBlockId,
+  hiddenBlockIds,
   onSelectBlock,
 }: ModelPreviewProps) {
   if (model === null) {
@@ -64,6 +66,7 @@ export default function ModelPreview({
   }
 
   const materials = new Map(model.materials.map((material) => [material.id, material]))
+  const visibleBlocks = model.blocks.filter((block) => !hiddenBlockIds.has(block.id))
 
   return (
     <Box className="model-canvas" aria-label="Flip Chip CBGA 三维模型">
@@ -81,17 +84,19 @@ export default function ModelPreview({
         <ambientLight intensity={1.15} />
         <directionalLight position={[5, -7, 10]} intensity={1.8} />
         <directionalLight position={[-5, 4, 2]} intensity={0.6} />
-        <Bounds fit clip observe margin={1.22}>
-          {model.blocks.map((block) => (
-            <PackageBlock
-              key={block.id}
-              block={block}
-              material={materials.get(block.material_id)}
-              selected={block.id === selectedBlockId}
-              onSelect={onSelectBlock}
-            />
-          ))}
-        </Bounds>
+        {visibleBlocks.length > 0 && (
+          <Bounds fit clip observe margin={1.22}>
+            {visibleBlocks.map((block) => (
+              <PackageBlock
+                key={block.id}
+                block={block}
+                material={materials.get(block.material_id)}
+                selected={block.id === selectedBlockId}
+                onSelect={onSelectBlock}
+              />
+            ))}
+          </Bounds>
+        )}
         <OrbitControls makeDefault enableDamping />
         <GizmoHelper alignment="bottom-right" margin={[72, 72]}>
           <GizmoViewport
@@ -103,6 +108,9 @@ export default function ModelPreview({
           />
         </GizmoHelper>
       </Canvas>
+      {visibleBlocks.length === 0 && (
+        <Box className="preview-visibility-note">所有模型均已隐藏</Box>
+      )}
     </Box>
   )
 }

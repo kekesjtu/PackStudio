@@ -30,6 +30,15 @@ def default_materials() -> dict[str, Material]:
             color="#A33BD0",
             source="PackStudio engineering default",
         ),
+        "encapsulant": Material(
+            id="encapsulant",
+            name="Epoxy molding compound (typical)",
+            conductivity=0.9,
+            density=1900,
+            specific_heat=1000,
+            color="#5A5AA8",
+            source="PackStudio engineering default",
+        ),
         "solder": Material(
             id="solder",
             name="Solder (typical)",
