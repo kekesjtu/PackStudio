@@ -1,7 +1,14 @@
-import { Bounds, Edges, OrbitControls } from '@react-three/drei'
+import {
+  Bounds,
+  Edges,
+  GizmoHelper,
+  GizmoViewport,
+  OrbitControls,
+} from '@react-three/drei'
 import { Canvas, type ThreeEvent } from '@react-three/fiber'
 import { Box, Typography } from '@mui/material'
 
+import { toNativeXyzBlockTransform } from './previewGeometry'
 import type { AxisAlignedBlock, Material, PackageModel } from './types'
 
 interface ModelPreviewProps {
@@ -20,12 +27,7 @@ interface PackageBlockProps {
 const translucentStructures = new Set(['underfill', 'solder_ball_matrix'])
 
 function PackageBlock({ block, material, selected, onSelect }: PackageBlockProps) {
-  const position: [number, number, number] = [
-    block.origin.x + block.size.x / 2,
-    block.origin.z + block.size.z / 2,
-    -(block.origin.y + block.size.y / 2),
-  ]
-  const size: [number, number, number] = [block.size.x, block.size.z, block.size.y]
+  const { position, size } = toNativeXyzBlockTransform(block)
   const translucent = translucentStructures.has(block.structure_type)
 
   const handlePointerDown = (event: ThreeEvent<PointerEvent>) => {
@@ -62,22 +64,23 @@ export default function ModelPreview({
   }
 
   const materials = new Map(model.materials.map((material) => [material.id, material]))
-  const minimumZ = Math.min(...model.blocks.map((block) => block.origin.z))
-  const gridSize = Math.max(
-    2,
-    ...model.blocks.flatMap((block) => [block.size.x, block.size.y]),
-  ) * 1.8
 
   return (
     <Box className="model-canvas" aria-label="Flip Chip CBGA 三维模型">
       <Canvas
-        camera={{ position: [8, 6.5, 9], fov: 38, near: 0.01, far: 1000 }}
+        camera={{
+          position: [8, -9, 6.5],
+          up: [0, 0, 1],
+          fov: 38,
+          near: 0.01,
+          far: 1000,
+        }}
         onPointerMissed={() => onSelectBlock(null)}
       >
         <color attach="background" args={['#f7fafb']} />
         <ambientLight intensity={1.15} />
-        <directionalLight position={[5, 10, 7]} intensity={1.8} />
-        <directionalLight position={[-5, 2, -4]} intensity={0.6} />
+        <directionalLight position={[5, -7, 10]} intensity={1.8} />
+        <directionalLight position={[-5, 4, 2]} intensity={0.6} />
         <Bounds fit clip observe margin={1.22}>
           {model.blocks.map((block) => (
             <PackageBlock
@@ -89,15 +92,17 @@ export default function ModelPreview({
             />
           ))}
         </Bounds>
-        <gridHelper
-          args={[gridSize, 28, '#9fb2bc', '#d9e3e8']}
-          position={[0, minimumZ - 0.02, 0]}
-        />
         <OrbitControls makeDefault enableDamping />
+        <GizmoHelper alignment="bottom-right" margin={[72, 72]}>
+          <GizmoViewport
+            axisColors={['#e53935', '#43a047', '#1e88e5']}
+            labels={['X', 'Y', 'Z']}
+            labelColor="#ffffff"
+            axisHeadScale={1.05}
+            hideNegativeAxes
+          />
+        </GizmoHelper>
       </Canvas>
-      <Box className="axis-hint" aria-hidden="true">
-        X → · Y ↗ · Z ↑
-      </Box>
     </Box>
   )
 }

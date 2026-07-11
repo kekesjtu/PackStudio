@@ -19,6 +19,8 @@
 - 新增模板目录、默认参数、JSON 模型生成和 PTA XML 下载接口。
 - 按 PTA DataContract 示例导出分层几何、材料、体热源和已启用边界。
 - 将内部负 Z 焊球层整体平移到 PTA 非负层坐标，保持所有相对位置不变。
+- 修正 PTA 层序为顶层到底层，并统一 `TopLayerIndex` 与 `IsTopLayer` 标记。
+- 将焊球、芯片和 TIM 作为普通可见层导出，避免 PTA 模型树隐藏结构。
 - 明确排除全部 `Mesh*` 网格数据、`Results`、`LayerPBResults`、
   `ThermalMaskResults` 和其他求解产物。
 
@@ -27,6 +29,7 @@
 - 将 TASK1 占位页替换为 Flip Chip CBGA 引导式参数面板。
 - 增加阵列模式、离散/等效表达、材料、顶层结构和对流边界输入。
 - 增加可旋转缩放的 React Three Fiber 三维矩形块预览、透明基体显示和块选择高亮。
+- 使用原生 XYZ 右手坐标，移除底面网格并增加可旋转/点击的右下角三轴控件。
 - 增加参考结构对应的模型树、模型摘要、参数变更提示、校验错误和 XML 下载操作。
 
 ### 测试与文档
@@ -45,9 +48,9 @@
 
 ## 备注
 
-- 后端：pytest 30 项通过；Ruff 检查及格式检查通过。
-- 前端：Vitest 2 项通过；ESLint、TypeScript 和 Vite 生产构建通过。
+- 后端：pytest 32 项通过；Ruff 检查及格式检查通过。
+- 前端：Vitest 3 项通过；ESLint、TypeScript 和 Vite 生产构建通过。
 - 默认导出冒烟结果：8 个块、6 种材料、30,742 bytes；XML 中无网格和结果节点。
-- 自动兼容性验收基于仓库 `output_format/cases_for_PTA/` 示例；本环境未启动外部 PTA GUI。
+- 用户已在 PTA GUI 中验证初版并反馈隐藏层和 Z 方向问题；本次按实际导入结果修复并增加回归测试。
 - Vite 对包含 Material UI 与 Three.js 的单入口包给出体积优化提示，不影响构建产物生成。
 - 本次仅生成提交说明并暂存文件，不执行 `git commit`。

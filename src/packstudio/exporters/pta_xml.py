@@ -102,8 +102,9 @@ def export_pta_xml(model: PackageModel) -> bytes:
 
 def append_layers(parent: etree._Element, model: PackageModel, z_shift: float) -> None:
     container = etree.SubElement(parent, etree.QName(MODEL_NAMESPACE, "Layers"))
-    layers = _group_layers(model.blocks)
-    _validate_contiguous_layers(layers, z_shift)
+    bottom_to_top_layers = _group_layers(model.blocks)
+    _validate_contiguous_layers(bottom_to_top_layers, z_shift)
+    layers = list(reversed(bottom_to_top_layers))
     source_density = _source_density_by_block(model)
     materials = {material.id: material for material in model.materials}
 
@@ -120,15 +121,15 @@ def append_layers(parent: etree._Element, model: PackageModel, z_shift: float) -
         structures = {block.structure_type for block in blocks}
         _text(layer, "CreatedByTopLayer", "false")
         _text(layer, "IsBasic", "false")
-        _text(layer, "IsBottomPackaging", _boolean(StructureType.SOLDER_BALL in structures))
-        _text(layer, "IsDie", _boolean(StructureType.DIE in structures))
+        _text(layer, "IsBottomPackaging", "false")
+        _text(layer, "IsDie", "false")
         _text(layer, "IsDoule", "false")
         _text(layer, "IsIDTSawModel", "false")
         _text(layer, "IsNotIDTSawModel", "false")
         _text(layer, "IsSingle", "false")
         _text(layer, "IsSubstrate", _boolean(StructureType.SUBSTRATE in structures))
-        _text(layer, "IsTIM", _boolean(StructureType.THERMAL_INTERFACE in structures))
-        _text(layer, "IsTopLayer", _boolean(index == len(layers) - 1))
+        _text(layer, "IsTIM", "false")
+        _text(layer, "IsTopLayer", _boolean(index == 0))
         _text(layer, "MetalConversionRate", 0.4)
         _text(layer, "Name", f"Layer {index + 1} @ {_number(base_z + z_shift)} mm")
         _text(layer, "PeriodWidth", 10)
