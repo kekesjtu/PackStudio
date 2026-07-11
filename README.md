@@ -46,6 +46,28 @@ PackStudio/
 - conda
 - Node.js 22.12+ 与 npm
 
+### 一键启动（推荐）
+
+在仓库根目录运行：
+
+```powershell
+.\start.ps1
+```
+
+脚本会基于自身位置定位仓库，不依赖用户名或固定安装路径；首次运行时会自动创建
+`PackStudio` conda 环境并安装前端依赖，随后启动前后端并打开浏览器。按 `Ctrl+C` 会同时停止
+两个服务。
+
+依赖文件变更后可强制刷新环境；也可只执行一次启动健康检查或自定义端口：
+
+```powershell
+.\start.ps1 -Setup
+.\start.ps1 -Check -NoBrowser
+.\start.ps1 -BackendPort 18000 -FrontendPort 15173
+```
+
+### 手动启动
+
 ### 1. 配置 Python 环境
 
 在仓库根目录运行：
