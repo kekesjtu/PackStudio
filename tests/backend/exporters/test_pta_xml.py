@@ -1,13 +1,19 @@
 import pytest
 from lxml import etree
 
-from packstudio.exporters.pta_constants import ARRAY_NAMESPACE, MODEL_NAMESPACE
+from packstudio.exporters.pta_constants import (
+    ARRAY_NAMESPACE,
+    BOUNDARY_NAMESPACE,
+    MODEL_NAMESPACE,
+    XSI_NAMESPACE,
+)
 from packstudio.exporters.pta_xml import export_pta_xml
 from packstudio.templates.flip_chip_cbga.generator import generate_flip_chip_cbga
 from packstudio.templates.flip_chip_cbga.parameters import (
     ArrayRepresentation,
-    EnvironmentParameters,
     FlipChipCbgaParameters,
+    MeshParameters,
+    MeshResolution,
 )
 
 
@@ -23,7 +29,8 @@ def test_pta_export_contains_only_input_model_data() -> None:
     assert "Results" not in local_names
     assert "LayerPBResults" not in local_names
     assert "ThermalMaskResults" not in local_names
-    assert not any(name.startswith("Mesh") for name in local_names)
+    assert "Mesh" not in local_names
+    assert "MeshSizeXExpression" in local_names
 
 
 def test_pta_export_preserves_blocks_materials_and_anisotropy() -> None:
@@ -57,19 +64,73 @@ def test_pta_export_converts_total_die_power_to_volumetric_source() -> None:
 
 
 def test_pta_export_writes_convection_face_keys() -> None:
-    parameters = FlipChipCbgaParameters(
-        environment=EnvironmentParameters(
-            ambient_temperature_k=300,
-            bottom_convection_coefficient_w_m2k=10,
-            top_convection_coefficient_w_m2k=20,
-        )
-    )
+    parameters = FlipChipCbgaParameters()
     root = etree.fromstring(export_pta_xml(generate_flip_chip_cbga(parameters)))
     namespace = {"m": MODEL_NAMESPACE, "a": ARRAY_NAMESPACE}
     face_keys = root.xpath(".//m:Boundaries//a:string/text()", namespaces=namespace)
 
     assert face_keys
     assert all(key.startswith("Z|E|") for key in face_keys)
+    assert len(face_keys) == 2
+
+
+def test_pta_export_writes_mesh_controls_without_mesh_entities() -> None:
+    root = etree.fromstring(export_pta_xml(generate_flip_chip_cbga(FlipChipCbgaParameters())))
+    namespace = {"m": MODEL_NAMESPACE}
+    layers = root.xpath("./m:Layers/m:Layer", namespaces=namespace)
+    blocks = root.xpath(".//m:Layers/m:Layer/m:Blocks/m:Block", namespaces=namespace)
+
+    for layer in layers:
+        assert all(
+            float(layer.findtext(f"{{{MODEL_NAMESPACE}}}MeshSize{axis}Expression")) > 0
+            for axis in "XYZ"
+        )
+    for block in blocks:
+        assert all(
+            block.findtext(f"{{{MODEL_NAMESPACE}}}MeshSize{axis}Expression") == "0"
+            for axis in "XYZ"
+        )
+    assert not root.xpath(".//m:Mesh", namespaces=namespace)
+
+
+def test_fine_mesh_profile_is_smaller_than_coarse_profile() -> None:
+    coarse = FlipChipCbgaParameters(mesh=MeshParameters(resolution=MeshResolution.COARSE))
+    fine = FlipChipCbgaParameters(mesh=MeshParameters(resolution=MeshResolution.FINE))
+    namespace = {"m": MODEL_NAMESPACE}
+    coarse_root = etree.fromstring(export_pta_xml(generate_flip_chip_cbga(coarse)))
+    fine_root = etree.fromstring(export_pta_xml(generate_flip_chip_cbga(fine)))
+    coarse_sizes = [
+        float(value)
+        for value in coarse_root.xpath(
+            "./m:Layers/m:Layer/m:MeshSizeXExpression/text()", namespaces=namespace
+        )
+    ]
+    fine_sizes = [
+        float(value)
+        for value in fine_root.xpath(
+            "./m:Layers/m:Layer/m:MeshSizeXExpression/text()", namespaces=namespace
+        )
+    ]
+
+    assert len(coarse_sizes) == len(fine_sizes)
+    assert all(
+        fine_size < coarse_size
+        for fine_size, coarse_size in zip(fine_sizes, coarse_sizes, strict=True)
+    )
+
+
+def test_pta_export_has_default_exterior_convection_and_key_surfaces() -> None:
+    parameters = FlipChipCbgaParameters()
+    root = etree.fromstring(export_pta_xml(generate_flip_chip_cbga(parameters)))
+    namespace = {"m": MODEL_NAMESPACE, "b": BOUNDARY_NAMESPACE}
+    default_boundary = root.find(f"{{{MODEL_NAMESPACE}}}OtherThermalBondary")
+    names = root.xpath("./m:Boundaries/m:Boundary/m:Name/text()", namespaces=namespace)
+
+    assert default_boundary is not None
+    assert default_boundary.get(f"{{{XSI_NAMESPACE}}}type") == "a:ThirdTypeThermalBoundary"
+    assert default_boundary.findtext(f"{{{BOUNDARY_NAMESPACE}}}ConvectionCoefficient") == "10"
+    assert default_boundary.findtext(f"{{{BOUNDARY_NAMESPACE}}}EnvironmentTemperature") == "300"
+    assert names == ["PCB-side equivalent cooling", "Top surface cooling"]
 
 
 def test_pta_layers_are_top_to_bottom_with_a_consistent_top_marker() -> None:
@@ -84,7 +145,9 @@ def test_pta_layers_are_top_to_bottom_with_a_consistent_top_marker() -> None:
 
     assert len(layers) == 8
     assert layer_blocks[0] == ["Package lid"]
-    assert all(name.startswith("solder-ball row") for name in layer_blocks[-1])
+    assert any(name.startswith("solder-ball row") for name in layer_blocks[-1])
+    assert all(name.startswith("solder-ball") for name in layer_blocks[-1])
+    assert not any(name.startswith("BGA static air") for name in layer_blocks[-1])
     assert layers[0].findtext(f"{{{MODEL_NAMESPACE}}}Name") == "Layer 1 @ 2.61 mm"
     assert layers[-1].findtext(f"{{{MODEL_NAMESPACE}}}Name") == "Layer 8 @ 0 mm"
     assert root.findtext(f"{{{MODEL_NAMESPACE}}}TopLayerIndex") == "0"
@@ -103,7 +166,7 @@ def test_pta_template_layers_are_visible_generic_layers() -> None:
     assert all(layer.xpath("./m:Blocks/m:Block", namespaces=namespace) for layer in layers)
 
 
-def test_pta_export_places_encapsulant_rings_in_existing_bump_and_die_layers() -> None:
+def test_pta_export_places_encapsulant_rings_and_cover_in_contiguous_layers() -> None:
     defaults = FlipChipCbgaParameters()
     parameters = FlipChipCbgaParameters(
         encapsulant=defaults.encapsulant.model_copy(update={"enabled": True})
@@ -116,9 +179,10 @@ def test_pta_export_places_encapsulant_rings_in_existing_bump_and_die_layers() -
     ]
     material_ids = root.xpath("./m:Materials/a:*/a:Key/text()", namespaces=namespace)
 
-    assert len(layers) == 4
-    assert sum(name.startswith("Encapsulant upper") for name in layer_blocks[0]) == 4
-    assert sum(name.startswith("Encapsulant lower") for name in layer_blocks[1]) == 4
+    assert len(layers) == 5
+    assert layer_blocks[0] == ["Encapsulant top cover"]
+    assert sum(name.startswith("Encapsulant upper") for name in layer_blocks[1]) == 4
+    assert sum(name.startswith("Encapsulant lower") for name in layer_blocks[2]) == 4
     assert "encapsulant" in material_ids
 
 
@@ -145,7 +209,6 @@ def _model_matching_manual_pta_case():
             solder_balls=defaults.solder_balls.model_copy(
                 update={
                     "representation": ArrayRepresentation.DISCRETE,
-                    "emit_matrix_blocks": False,
                 }
             ),
             heat_slug=defaults.heat_slug.model_copy(update={"enabled": True}),

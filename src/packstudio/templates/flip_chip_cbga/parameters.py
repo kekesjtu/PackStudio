@@ -24,6 +24,12 @@ class VoidFillMode(StrEnum):
     MATRIX = "matrix"
 
 
+class MeshResolution(StrEnum):
+    COARSE = "coarse"
+    STANDARD = "standard"
+    FINE = "fine"
+
+
 class CellIndex(BaseModel):
     model_config = ConfigDict(frozen=True)
 
@@ -50,6 +56,7 @@ class EncapsulantParameters(BaseModel):
     enabled: bool = False
     length: float = Field(default=5, gt=0, description="x footprint in mm")
     width: float = Field(default=5, gt=0, description="y footprint in mm")
+    cover_thickness: float = Field(default=0.3, gt=0, description="cover above die in mm")
     material: Material = Field(default_factory=lambda: default_materials()["encapsulant"])
 
 
@@ -118,12 +125,19 @@ class LidParameters(RectangularPartParameters):
     interface_material: Material = Field(default_factory=lambda: default_materials()["tim"])
 
 
+class MeshParameters(BaseModel):
+    model_config = ConfigDict(frozen=True, extra="forbid")
+
+    resolution: MeshResolution = MeshResolution.STANDARD
+
+
 class EnvironmentParameters(BaseModel):
-    model_config = ConfigDict(frozen=True)
+    model_config = ConfigDict(frozen=True, extra="forbid")
 
     ambient_temperature_k: float = Field(default=300, gt=0)
-    bottom_convection_coefficient_w_m2k: float | None = Field(default=None, gt=0)
-    top_convection_coefficient_w_m2k: float | None = Field(default=None, gt=0)
+    default_convection_coefficient_w_m2k: float = Field(default=10, gt=0)
+    board_to_ambient_thermal_resistance_k_w: float = Field(default=20, gt=0)
+    top_to_ambient_thermal_resistance_k_w: float | None = Field(default=None, gt=0)
 
 
 class FlipChipCbgaParameters(BaseModel):
@@ -137,11 +151,20 @@ class FlipChipCbgaParameters(BaseModel):
     solder_balls: ArrayLayerParameters = Field(default_factory=lambda: _default_solder_balls())
     heat_slug: HeatSlugParameters = Field(default_factory=lambda: _default_heat_slug())
     lid: LidParameters = Field(default_factory=lambda: _default_lid())
+    mesh: MeshParameters = Field(default_factory=MeshParameters)
     environment: EnvironmentParameters = Field(default_factory=EnvironmentParameters)
 
     @model_validator(mode="after")
     def validate_package_envelopes(self) -> "FlipChipCbgaParameters":
         tolerance = 1e-9
+        if self.flip_chip_bumps.representation is not ArrayRepresentation.EQUIVALENT:
+            raise ValueError("flip-chip bumps only support anisotropic equivalent representation")
+        if self.solder_balls.matrix_material.id != "air":
+            raise ValueError("BGA matrix material must be static air")
+        if not self.solder_balls.emit_matrix_blocks:
+            raise ValueError("BGA arrays must emit static-air matrix blocks")
+        if self.solder_balls.void_fill is not VoidFillMode.MATRIX:
+            raise ValueError("BGA omitted cells must be filled with static air")
         if self.die.length > self.substrate.length + tolerance or self.die.width > (
             self.substrate.width + tolerance
         ):
@@ -167,9 +190,12 @@ class FlipChipCbgaParameters(BaseModel):
             raise ValueError("solder-ball array must fit inside the substrate footprint")
 
         target_length, target_width = self.die.length, self.die.width
+        if self.encapsulant.enabled:
+            target_length = self.encapsulant.length
+            target_width = self.encapsulant.width
         if self.heat_slug.enabled:
             if self.heat_slug.length < target_length or self.heat_slug.width < target_width:
-                raise ValueError("heat slug must cover the die footprint")
+                raise ValueError("heat slug must cover the top-side target")
             if (
                 self.heat_slug.length > self.substrate.length + tolerance
                 or self.heat_slug.width > self.substrate.width + tolerance
@@ -228,11 +254,9 @@ def _default_solder_balls() -> ArrayLayerParameters:
         pitch_y=0.8,
         diameter=0.5,
         height=0.4,
-        pattern=ArrayPattern.CENTER_POPULATED,
-        center_rows=3,
-        center_columns=3,
+        pattern=ArrayPattern.FULL,
         element_material=materials["solder"],
-        matrix_material=materials["underfill"],
+        matrix_material=materials["air"],
     )
 
 

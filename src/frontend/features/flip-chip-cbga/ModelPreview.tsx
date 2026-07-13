@@ -25,7 +25,7 @@ interface PackageBlockProps {
   onSelect: (blockId: string) => void
 }
 
-const translucentStructures = new Set(['underfill', 'solder_ball_matrix', 'encapsulant'])
+const translucentStructures = new Set(['underfill', 'static_air', 'encapsulant'])
 
 function PackageBlock({ block, material, selected, onSelect }: PackageBlockProps) {
   const { position, size } = toNativeXyzBlockTransform(block)

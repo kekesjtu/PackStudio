@@ -3,6 +3,9 @@ import { useRef, type PointerEvent } from 'react'
 interface ColumnResizerProps {
   value: number
   onChange: (value: number) => void
+  ariaLabel: string
+  placement: 'property' | 'inspector'
+  deltaDirection?: 1 | -1
   minimum?: number
   maximum?: number
 }
@@ -10,6 +13,9 @@ interface ColumnResizerProps {
 export default function ColumnResizer({
   value,
   onChange,
+  ariaLabel,
+  placement,
+  deltaDirection = 1,
   minimum = 300,
   maximum = 600,
 }: ColumnResizerProps) {
@@ -22,7 +28,8 @@ export default function ColumnResizer({
   }
   const moveDrag = (event: PointerEvent<HTMLDivElement>) => {
     if (dragStart.current === null) return
-    onChange(clamp(dragStart.current.width + event.clientX - dragStart.current.pointerX))
+    const pointerDelta = event.clientX - dragStart.current.pointerX
+    onChange(clamp(dragStart.current.width + pointerDelta * deltaDirection))
   }
   const stopDrag = (event: PointerEvent<HTMLDivElement>) => {
     dragStart.current = null
@@ -33,9 +40,9 @@ export default function ColumnResizer({
 
   return (
     <div
-      className="column-resizer"
+      className={`column-resizer column-resizer-${placement}`}
       role="separator"
-      aria-label="调整属性与三维视图宽度"
+      aria-label={ariaLabel}
       aria-orientation="vertical"
       aria-valuemin={minimum}
       aria-valuemax={maximum}
@@ -46,8 +53,8 @@ export default function ColumnResizer({
       onPointerUp={stopDrag}
       onPointerCancel={stopDrag}
       onKeyDown={(event) => {
-        if (event.key === 'ArrowLeft') onChange(clamp(value - 20))
-        if (event.key === 'ArrowRight') onChange(clamp(value + 20))
+        if (event.key === 'ArrowLeft') onChange(clamp(value - 20 * deltaDirection))
+        if (event.key === 'ArrowRight') onChange(clamp(value + 20 * deltaDirection))
       }}
     />
   )

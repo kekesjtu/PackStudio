@@ -73,23 +73,42 @@ describe('Flip Chip CBGA workspace', () => {
     expect(screen.getByRole('navigation', { name: '封装结构属性' })).toBeInTheDocument()
     expect(screen.getByRole('heading', { name: '汇总' })).toBeInTheDocument()
     expect(screen.getByRole('heading', { name: '三维建模区' })).toBeInTheDocument()
-    const resizer = screen.getByRole('separator', { name: '调整属性与三维视图宽度' })
-    expect(resizer).toHaveAttribute('aria-valuenow', '380')
-    fireEvent.keyDown(resizer, { key: 'ArrowRight' })
-    expect(resizer).toHaveAttribute('aria-valuenow', '400')
+    const propertyResizer = screen.getByRole('separator', { name: '调整属性栏宽度' })
+    const inspectorResizer = screen.getByRole('separator', { name: '调整检查器宽度' })
+    expect(propertyResizer).toHaveAttribute('aria-valuenow', '380')
+    expect(inspectorResizer).toHaveAttribute('aria-valuenow', '320')
+    fireEvent.keyDown(propertyResizer, { key: 'ArrowRight' })
+    fireEvent.keyDown(inspectorResizer, { key: 'ArrowLeft' })
+    expect(propertyResizer).toHaveAttribute('aria-valuenow', '400')
+    expect(inspectorResizer).toHaveAttribute('aria-valuenow', '340')
     expect(screen.getByRole('tab', { name: '材料库' })).toBeInTheDocument()
     expect(screen.getByRole('tab', { name: '模型树' })).toBeInTheDocument()
-    expect(screen.getByRole('button', { name: '导出精简 PTA XML' })).toBeInTheDocument()
-    expect(screen.getByText(/PTA 文件不包含网格和求解结果/)).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: '导出 PTA XML' })).toBeInTheDocument()
+    expect(screen.queryByText(/PTA 文件不包含网格和求解结果/)).not.toBeInTheDocument()
+    expect(screen.getByRole('button', { name: '焊球样式' })).toBeInTheDocument()
+    expect(screen.queryByRole('button', { name: '焊球去除' })).not.toBeInTheDocument()
+    expect(screen.queryByRole('button', { name: '中央焊球' })).not.toBeInTheDocument()
+    expect(screen.getByRole('button', { name: '网格尺寸' })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: '边界条件' })).toBeInTheDocument()
 
     expect(await screen.findByText('1 个块')).toBeInTheDocument()
     expect(screen.getByText('物理焊球')).toBeInTheDocument()
     fireEvent.click(screen.getByRole('tab', { name: '模型树' }))
     expect(screen.getByText('Package substrate')).toBeInTheDocument()
+    expect(screen.queryByText('substrate')).not.toBeInTheDocument()
     expect(fetch).toHaveBeenCalledWith(
       '/api/templates/flip-chip-cbga/generate',
       expect.objectContaining({ method: 'POST' }),
     )
+    const defaultBody = JSON.parse(String(vi.mocked(fetch).mock.calls[0][1]?.body)) as {
+      solder_balls: { pattern: string; matrix_material: { id: string } }
+      flip_chip_bumps: { representation: string }
+      mesh: { resolution: string }
+    }
+    expect(defaultBody.solder_balls.pattern).toBe('full')
+    expect(defaultBody.solder_balls.matrix_material.id).toBe('air')
+    expect(defaultBody.flip_chip_bumps.representation).toBe('equivalent')
+    expect(defaultBody.mesh.resolution).toBe('standard')
   })
 
   it('enables encapsulant parameters and supports model-tree visibility actions', async () => {

@@ -7,7 +7,7 @@ export type MaterialSlot =
   | 'flip_chip_element'
   | 'flip_chip_matrix'
   | 'solder_ball_element'
-  | 'solder_ball_matrix'
+  | 'solder_ball_static_air'
   | 'heat_slug'
   | 'heat_slug_interface'
   | 'lid'
@@ -20,7 +20,7 @@ export const materialSlotLabels: Record<MaterialSlot, string> = {
   flip_chip_element: '倒装芯片凸块',
   flip_chip_matrix: 'Underfill',
   solder_ball_element: '焊球',
-  solder_ball_matrix: '焊球层基体',
+  solder_ball_static_air: 'BGA 静态空气',
   heat_slug: '插入式散热块',
   heat_slug_interface: '散热块界面层',
   lid: '顶盖',
@@ -45,7 +45,7 @@ export function getMaterialForSlot(
     flip_chip_element: parameters.flip_chip_bumps.element_material,
     flip_chip_matrix: parameters.flip_chip_bumps.matrix_material,
     solder_ball_element: parameters.solder_balls.element_material,
-    solder_ball_matrix: parameters.solder_balls.matrix_material,
+    solder_ball_static_air: parameters.solder_balls.matrix_material,
     heat_slug: parameters.heat_slug.material,
     heat_slug_interface: parameters.heat_slug.interface_material,
     lid: parameters.lid.material,
@@ -81,7 +81,7 @@ export function assignMaterialToSlot(
         ...parameters,
         solder_balls: { ...parameters.solder_balls, element_material: material },
       }
-    case 'solder_ball_matrix':
+    case 'solder_ball_static_air':
       return {
         ...parameters,
         solder_balls: { ...parameters.solder_balls, matrix_material: material },

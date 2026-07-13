@@ -29,6 +29,7 @@ export interface EncapsulantParameters {
   enabled: boolean
   length: number
   width: number
+  cover_thickness: number
   material: Material
 }
 
@@ -78,8 +79,15 @@ export interface LidParameters extends RectangularPartParameters {
 
 export interface EnvironmentParameters {
   ambient_temperature_k: number
-  bottom_convection_coefficient_w_m2k: number | null
-  top_convection_coefficient_w_m2k: number | null
+  default_convection_coefficient_w_m2k: number
+  board_to_ambient_thermal_resistance_k_w: number
+  top_to_ambient_thermal_resistance_k_w: number | null
+}
+
+export type MeshResolution = 'coarse' | 'standard' | 'fine'
+
+export interface MeshParameters {
+  resolution: MeshResolution
 }
 
 export interface FlipChipCbgaParameters {
@@ -91,6 +99,7 @@ export interface FlipChipCbgaParameters {
   solder_balls: ArrayLayerParameters
   heat_slug: HeatSlugParameters
   lid: LidParameters
+  mesh: MeshParameters
   environment: EnvironmentParameters
 }
 
@@ -101,7 +110,7 @@ export type StructureType =
   | 'flip_chip_bump'
   | 'underfill'
   | 'solder_ball'
-  | 'solder_ball_matrix'
+  | 'static_air'
   | 'thermal_interface'
   | 'heat_slug'
   | 'lid'

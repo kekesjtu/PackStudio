@@ -3,10 +3,11 @@ import { Box, Button, CircularProgress, Divider, Stack, Typography } from '@mui/
 import { propertySection, type PropertySectionId } from './propertySections'
 import ArrayGeometryProperties from './properties/ArrayGeometryProperties'
 import BasicStructureProperties from './properties/BasicStructureProperties'
-import CenterSolderProperties from './properties/CenterSolderProperties'
+import BoundaryProperties from './properties/BoundaryProperties'
 import EncapsulantProperties from './properties/EncapsulantProperties'
+import MeshProperties from './properties/MeshProperties'
 import ModelingOptionsProperties from './properties/ModelingOptionsProperties'
-import SolderRemovalProperties from './properties/SolderRemovalProperties'
+import SolderPatternProperties from './properties/SolderPatternProperties'
 import SummaryProperties from './properties/SummaryProperties'
 import TopStructureProperties from './properties/TopStructureProperties'
 import type { FlipChipCbgaParameters, Material, PackageModel } from './types'
@@ -30,9 +31,6 @@ export default function PropertyPanel(props: PropertyPanelProps) {
         <Typography variant="h5" component="h2">
           {section.label}
         </Typography>
-        <Typography variant="body2" color="text.secondary">
-          {section.description}
-        </Typography>
       </Box>
       <Divider />
       <Box className="property-content">{renderProperties(props)}</Box>
@@ -41,7 +39,7 @@ export default function PropertyPanel(props: PropertyPanelProps) {
           {props.busy ? <CircularProgress size={21} color="inherit" /> : '生成模型'}
         </Button>
         <Button variant="outlined" onClick={props.onExport} disabled={props.busy || !props.model}>
-          导出精简 PTA XML
+          导出 PTA XML
         </Button>
       </Stack>
     </Box>
@@ -67,14 +65,16 @@ function renderProperties(props: PropertyPanelProps) {
       return <ArrayGeometryProperties {...shared} target="flip_chip_bumps" />
     case 'solder_balls':
       return <ArrayGeometryProperties {...shared} target="solder_balls" />
-    case 'solder_removal':
-      return <SolderRemovalProperties {...shared} />
-    case 'center_solder':
-      return <CenterSolderProperties {...shared} />
+    case 'solder_pattern':
+      return <SolderPatternProperties {...shared} />
     case 'lid':
       return <TopStructureProperties {...shared} target="lid" />
     case 'heat_slug':
       return <TopStructureProperties {...shared} target="heat_slug" />
+    case 'mesh':
+      return <MeshProperties {...shared} />
+    case 'boundaries':
+      return <BoundaryProperties {...shared} />
     case 'modeling_options':
       return <ModelingOptionsProperties {...shared} />
   }

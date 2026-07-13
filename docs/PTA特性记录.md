@@ -22,15 +22,19 @@ PackStudio 因此只导出：
 - 材料、密度和比热；
 - 体热源；
 - 已启用的热边界条件；
+- 层级最大网格尺寸；
 - 稳态热传递的基础配置。
 
 以下内容由 PTA 的网格和求解阶段生成，PackStudio 不导出：
 
-- 所有 `Mesh*` 节点和网格实体；
+- `<Mesh>` 以及节点、单元等离散网格实体；
 - `Results`；
 - `LayerPBResults`；
 - `ThermalMaskResults`；
 - 温度场、热流场及其他求解派生数据。
+
+`MeshSizeXExpression`、`MeshSizeYExpression` 和 `MeshSizeZExpression` 是求解前的最大网格
+尺寸设置，不是网格实体。TASK4 起 PackStudio 会导出这些设置。
 
 ## 2. 层顺序与 Z 方向
 
@@ -44,10 +48,11 @@ lid
 → lid interface (TIM)
 → heat slug
 → die interface (TIM)
+→ encapsulant top cover（启用塑封时）
 → die
 → flip-chip bumps / underfill
 → substrate
-→ solder balls
+→ solder balls / in-array static air
 ```
 
 PackStudio 领域模型仍采用标准 XYZ 右手坐标，Z 向上。XML 的层集合顺序只是 PTA 的序列化
@@ -138,7 +143,22 @@ PackStudio JSON 模型和块名称中。
 TiReyuan = power_w / (block_volume_mm3 × 1e-9)
 ```
 
-## 5. 热边界
+## 5. 最大网格尺寸
+
+**样例**：PTA 的 `Layer` 和 `Block` 都包含以下字段，顺序位于 `IsTopLayer` 与
+`MetalConversionRate` 之间（块中位于 `MaterialName` 与 `Name` 之间）：
+
+```xml
+<MeshSizeXExpression>0.25</MeshSizeXExpression>
+<MeshSizeYExpression>0.25</MeshSizeYExpression>
+<MeshSizeZExpression>0.2</MeshSizeZExpression>
+```
+
+**PackStudio 约束**：层级三个值必须大于 0；块级三个值写 0，表示继承层设置。粗、标准、细
+预设分别按每层包络在 XY 方向约分 12、24、40 份，在 Z 方向约分 1、2、4 份。自动化测试
+明确允许 `MeshSize*Expression`，但继续拒绝 `<Mesh>` 实体。
+
+## 6. 热边界
 
 **样例**：PTA 热边界使用以下 DataContract 类型：
 
@@ -148,10 +168,30 @@ TiReyuan = power_w / (block_volume_mm3 × 1e-9)
 | 热流 | `SecondTypeThermalBoundary` |
 | 对流 | `ThirdTypeThermalBoundary` |
 
-默认外表面可使用零热流的 `SecondTypeThermalBoundary` 表示绝热。表面通过 `FaceKeys`
-定位；Z 表面键包含表面 Z 坐标及其 X/Y 范围。边界坐标必须使用与几何相同的 Z 平移。
+表面通过 `FaceKeys` 定位；Z 表面键包含表面 Z 坐标及其 X/Y 范围。边界坐标必须使用与几何
+相同的 Z 平移。
 
-## 6. 当前人工验收清单
+### 6.1 TASK4 默认边界
+
+**PackStudio 约束**：导出文件始终具有三层边界覆盖：
+
+1. `OtherThermalBondary` 使用 `ThirdTypeThermalBoundary`，默认 300 K、
+   10 W/(m²·K)，接管未单独指定的外表面；
+2. `PCB-side equivalent cooling` 作用于焊球接触底面；用户输入 PCB 到环境的总热阻，导出器
+   按目标总面积换算 `h = 1 / (R × A)`；
+3. `Top surface cooling` 作用于最高结构顶面，默认沿用外表面对流；启用顶部关键散热面后，
+   同样由总热阻换算对流系数。
+
+默认 PCB 到环境热阻 20 K/W 是无 PCB 几何时让模型具备有限主要散热路径的工程初值，并不
+等同于 `RθJB`。TI 的封装热指标说明指出，JEDEC 静止空气测试中大部分热量经测试板散出，且
+板设计会强烈影响结果；因此 PackStudio 不把纯封装自然对流作为默认的唯一散热路径。自然
+对流 10 W/(m²·K) 的量级参考 COMSOL 电子芯片冷却示例。正式结果必须用实际 PCB 或实测
+热阻校准。
+
+- [TI：Semiconductor and IC Package Thermal Metrics](https://www.ti.com/lit/an/spra953d/spra953d.pdf)
+- [COMSOL：Electronic Chip Cooling](https://doc.comsol.com/6.4/doc/com.comsol.help.models.heat.chip_cooling/chip_cooling.html)
+
+## 7. 当前人工验收清单
 
 重新导出 PTA XML 后，应在 PTA GUI 中确认：
 
@@ -159,13 +199,16 @@ TiReyuan = power_w / (block_volume_mm3 × 1e-9)
 - 层从 lid 到 solder balls 排列；
 - `TopLayerIndex` 指向唯一的 `IsTopLayer=true` 层；
 - 标准视图中的 +Z 方向与 PackStudio 的“封装底部到顶部”一致；
-- 材料、热源和已启用边界存在；
-- 文件中没有网格和求解结果节点。
+- 材料、热源、PCB 侧边界、顶部边界和默认外表面边界存在；
+- 每个层的 `MeshSizeX/Y/ZExpression` 均大于 0；
+- 文件中没有 `<Mesh>` 网格实体和求解结果节点；
+- 执行 PTA 网格生成并完成一次稳态求解，确认没有缺失设置提示。
 
 旧 XML 不会因导出器更新而自动变化，修复后必须重新导出并在 PTA 中重新打开。
 
-## 7. 相关文档
+## 8. 相关文档
 
 - [PTA 输出示例说明](../output_format/README.md)
 - [ADR-0002：Flip Chip CBGA 模型与 PTA 导出约定](decisions/0002-Flip-Chip-CBGA-模型与-PTA-导出约定.md)
+- [ADR-0004：TASK4 仿真就绪导出约定](decisions/0004-TASK4-仿真就绪导出约定.md)
 - [Flip Chip CBGA / BGA 模板说明](templates/flip-chip-cbga.md)

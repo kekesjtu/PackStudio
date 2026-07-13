@@ -8,7 +8,7 @@ class StructureType(StrEnum):
     FLIP_CHIP_BUMP = "flip_chip_bump"
     UNDERFILL = "underfill"
     SOLDER_BALL = "solder_ball"
-    SOLDER_BALL_MATRIX = "solder_ball_matrix"
+    STATIC_AIR = "static_air"
     THERMAL_INTERFACE = "thermal_interface"
     HEAT_SLUG = "heat_slug"
     LID = "lid"

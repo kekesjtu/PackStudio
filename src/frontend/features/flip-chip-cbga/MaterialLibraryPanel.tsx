@@ -36,7 +36,6 @@ export default function MaterialLibraryPanel({
   return (
     <Box className="material-library-panel">
       <Box className="material-library-list">
-        <Typography variant="subtitle2">材料库</Typography>
         <List dense disablePadding>
           {materials.map((material) => (
             <ListItemButton

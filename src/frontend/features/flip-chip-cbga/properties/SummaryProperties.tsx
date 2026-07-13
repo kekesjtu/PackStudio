@@ -1,4 +1,4 @@
-import { Alert, Box, Stack, TextField, Typography } from '@mui/material'
+import { Box, Stack, TextField, Typography } from '@mui/material'
 
 import type { FlipChipCbgaParameters, PackageModel } from '../types'
 
@@ -28,9 +28,6 @@ export default function SummaryProperties({
         <SummaryValue label="物理焊球" value={model?.metadata.solder_ball_count ?? '—'} />
         <SummaryValue label="塑封块" value={model?.metadata.encapsulant_block_count ?? 0} />
       </Box>
-      <Alert severity="info" icon={false}>
-        坐标原点位于基板底面中心，使用 mm 和 XYZ 右手坐标，Z 向上。
-      </Alert>
     </Stack>
   )
 }

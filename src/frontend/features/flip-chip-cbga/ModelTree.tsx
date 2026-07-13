@@ -65,7 +65,7 @@ function GroupNode({
             onContextMenu={(event) => onOpenContextMenu(event, block.id)}
           >
             <span>{block.name}</span>
-            <small>{hidden ? `已隐藏 · ${block.structure_type}` : block.structure_type}</small>
+            {hidden && <small>已隐藏</small>}
           </ButtonBase>
         )
       })}
@@ -104,9 +104,6 @@ export default function ModelTree(props: ModelTreeProps) {
 
   return (
     <Box className="model-tree">
-      <Typography variant="caption" color="text.secondary">
-        右键模型可隐藏、独显或恢复全部。
-      </Typography>
       {rootGroups.map((group) => (
         <GroupNode
           key={group.id}

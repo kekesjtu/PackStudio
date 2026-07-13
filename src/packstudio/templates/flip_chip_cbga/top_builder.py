@@ -15,15 +15,17 @@ class BuiltTopStack:
 
 def build_top_stack(
     parameters: FlipChipCbgaParameters,
-    die_top_z: float,
+    base_z: float,
+    base_length: float,
+    base_width: float,
     group_id: str,
 ) -> BuiltTopStack:
     blocks: list[AxisAlignedBlock] = []
     materials: list[Material] = []
-    current_z = die_top_z
-    current_length = parameters.die.length
-    current_width = parameters.die.width
-    top_surface_block_ids = ["die"]
+    current_z = base_z
+    current_length = base_length
+    current_width = base_width
+    top_surface_block_ids: list[str] = []
 
     if parameters.heat_slug.enabled:
         interface = _interface_block(

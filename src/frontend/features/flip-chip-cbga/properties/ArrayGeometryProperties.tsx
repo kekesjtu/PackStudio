@@ -1,4 +1,4 @@
-import { Box, FormControl, InputLabel, MenuItem, Select, Stack } from '@mui/material'
+import { Box, FormControl, InputLabel, MenuItem, Select, Stack, Typography } from '@mui/material'
 
 import MaterialSelect from '../MaterialSelect'
 import NumberInput from '../NumberInput'
@@ -68,17 +68,20 @@ export default function ArrayGeometryProperties({
         />
       </Box>
       {isBump && (
-        <FormControl size="small" fullWidth>
-          <InputLabel>凸块排列</InputLabel>
-          <Select
-            label="凸块排列"
-            value={value.pattern}
-            onChange={(event) => update({ pattern: event.target.value as ArrayPattern })}
-          >
-            <MenuItem value="full">全阵列</MenuItem>
-            <MenuItem value="staggered">交错阵列</MenuItem>
-          </Select>
-        </FormControl>
+        <>
+          <FormControl size="small" fullWidth>
+            <InputLabel>凸块排列</InputLabel>
+            <Select
+              label="凸块排列"
+              value={value.pattern}
+              onChange={(event) => update({ pattern: event.target.value as ArrayPattern })}
+            >
+              <MenuItem value="full">全阵列</MenuItem>
+              <MenuItem value="staggered">交错阵列</MenuItem>
+            </Select>
+          </FormControl>
+          <Typography variant="body2">建模方式：正交各向异性等效层</Typography>
+        </>
       )}
       <MaterialSelect
         label={isBump ? '凸块材料' : '焊球材料'}
@@ -86,12 +89,16 @@ export default function ArrayGeometryProperties({
         materials={materials}
         onChange={(element_material) => update({ element_material })}
       />
-      <MaterialSelect
-        label={isBump ? 'Underfill 材料' : '焊球层基体材料'}
-        value={value.matrix_material}
-        materials={materials}
-        onChange={(matrix_material) => update({ matrix_material })}
-      />
+      {isBump ? (
+        <MaterialSelect
+          label="Underfill 材料"
+          value={value.matrix_material}
+          materials={materials}
+          onChange={(matrix_material) => update({ matrix_material })}
+        />
+      ) : (
+        <Typography variant="body2">焊球单元间隙与去球区域固定填充静态空气。</Typography>
+      )}
     </Stack>
   )
 }

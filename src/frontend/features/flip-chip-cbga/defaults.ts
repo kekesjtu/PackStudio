@@ -18,6 +18,7 @@ const material = (
 
 const alumina = material('alumina', 'Alumina (typical)', 25, 3900, 880, '#6975DC')
 const silicon = material('silicon', 'Silicon', 130, 2330, 700, '#A33BD0')
+const air = material('air', 'Air', 0.026, 1.225, 1005, '#DDEAF2')
 const encapsulant = material(
   'encapsulant',
   'Epoxy molding compound (typical)',
@@ -42,7 +43,13 @@ const defaults: FlipChipCbgaParameters = {
   design_name: 'Flip Chip CBGA',
   substrate: { length: 6, width: 6, thickness: 1.15, material: alumina },
   die: { length: 1.8, width: 1.8, thickness: 0.61, power_w: 1, material: silicon },
-  encapsulant: { enabled: false, length: 5, width: 5, material: encapsulant },
+  encapsulant: {
+    enabled: false,
+    length: 5,
+    width: 5,
+    cover_thickness: 0.3,
+    material: encapsulant,
+  },
   flip_chip_bumps: {
     rows: 7,
     columns: 7,
@@ -68,14 +75,14 @@ const defaults: FlipChipCbgaParameters = {
     diameter: 0.5,
     height: 0.4,
     representation: 'equivalent',
-    pattern: 'center_populated',
-    center_rows: 3,
-    center_columns: 3,
+    pattern: 'full',
+    center_rows: 0,
+    center_columns: 0,
     omitted_cells: [],
     void_fill: 'matrix',
     emit_matrix_blocks: true,
     element_material: solder,
-    matrix_material: underfill,
+    matrix_material: air,
   },
   heat_slug: {
     enabled: false,
@@ -95,10 +102,12 @@ const defaults: FlipChipCbgaParameters = {
     interface_thickness: 0.05,
     interface_material: tim,
   },
+  mesh: { resolution: 'standard' },
   environment: {
     ambient_temperature_k: 300,
-    bottom_convection_coefficient_w_m2k: null,
-    top_convection_coefficient_w_m2k: null,
+    default_convection_coefficient_w_m2k: 10,
+    board_to_ambient_thermal_resistance_k_w: 20,
+    top_to_ambient_thermal_resistance_k_w: null,
   },
 }
 

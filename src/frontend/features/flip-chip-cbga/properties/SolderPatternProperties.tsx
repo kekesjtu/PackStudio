@@ -1,14 +1,5 @@
 import { useState } from 'react'
-import {
-  Box,
-  FormControl,
-  InputLabel,
-  MenuItem,
-  Select,
-  Stack,
-  TextField,
-  Typography,
-} from '@mui/material'
+import { Box, FormControl, InputLabel, MenuItem, Select, Stack, TextField } from '@mui/material'
 
 import NumberInput from '../NumberInput'
 import type {
@@ -16,31 +7,33 @@ import type {
   ArrayPattern,
   CellIndex,
   FlipChipCbgaParameters,
-  VoidFillMode,
 } from '../types'
 
-interface SolderRemovalPropertiesProps {
+interface SolderPatternPropertiesProps {
   parameters: FlipChipCbgaParameters
   onChange: (parameters: FlipChipCbgaParameters) => void
 }
 
-export default function SolderRemovalProperties({
+export default function SolderPatternProperties({
   parameters,
   onChange,
-}: SolderRemovalPropertiesProps) {
+}: SolderPatternPropertiesProps) {
   const value = parameters.solder_balls
   const [omittedText, setOmittedText] = useState(formatOmittedCells(value.omitted_cells))
   const update = (patch: Partial<ArrayLayerParameters>) =>
     onChange({ ...parameters, solder_balls: { ...value, ...patch } })
+  const centerPattern =
+    value.pattern === 'center_depopulated' || value.pattern === 'center_populated'
 
   const changePattern = (pattern: ArrayPattern) => {
     const patch: Partial<ArrayLayerParameters> = { pattern }
-    if (
-      (pattern === 'center_depopulated' || pattern === 'center_populated') &&
-      (!value.center_rows || !value.center_columns)
-    ) {
-      patch.center_rows = defaultCenterSize(value.rows)
-      patch.center_columns = defaultCenterSize(value.columns)
+    const nextCenterPattern = pattern === 'center_depopulated' || pattern === 'center_populated'
+    if (nextCenterPattern) {
+      patch.center_rows = value.center_rows || defaultCenterSize(value.rows)
+      patch.center_columns = value.center_columns || defaultCenterSize(value.columns)
+    } else {
+      patch.center_rows = 0
+      patch.center_columns = 0
     }
     if (pattern !== 'custom') patch.omitted_cells = []
     update(patch)
@@ -49,29 +42,29 @@ export default function SolderRemovalProperties({
   return (
     <Stack spacing={2}>
       <FormControl size="small" fullWidth>
-        <InputLabel>焊球分布</InputLabel>
+        <InputLabel>焊球样式</InputLabel>
         <Select
-          label="焊球分布"
+          label="焊球样式"
           value={value.pattern}
           onChange={(event) => changePattern(event.target.value as ArrayPattern)}
         >
-          <MenuItem value="full">无去球（全阵列）</MenuItem>
+          <MenuItem value="full">全阵列（默认）</MenuItem>
           <MenuItem value="staggered">交错阵列</MenuItem>
           <MenuItem value="center_depopulated">中央去球</MenuItem>
           <MenuItem value="center_populated">中央焊球分区</MenuItem>
           <MenuItem value="custom">自定义去球</MenuItem>
         </Select>
       </FormControl>
-      {value.pattern === 'center_depopulated' && (
+      {centerPattern && (
         <Box className="field-grid field-grid-2">
           <NumberInput
-            label="去除区域行数"
+            label="中央区域行数"
             value={value.center_rows}
             integer
             onChange={(center_rows) => update({ center_rows: center_rows ?? 0 })}
           />
           <NumberInput
-            label="去除区域列数"
+            label="中央区域列数"
             value={value.center_columns}
             integer
             onChange={(center_columns) => update({ center_columns: center_columns ?? 0 })}
@@ -89,20 +82,6 @@ export default function SolderRemovalProperties({
           fullWidth
         />
       )}
-      <FormControl size="small" fullWidth>
-        <InputLabel>空缺区域</InputLabel>
-        <Select
-          label="空缺区域"
-          value={value.void_fill}
-          onChange={(event) => update({ void_fill: event.target.value as VoidFillMode })}
-        >
-          <MenuItem value="matrix">填充均匀基体材料</MenuItem>
-          <MenuItem value="omit">不建模</MenuItem>
-        </Select>
-      </FormControl>
-      <Typography variant="body2" color="text.secondary">
-        均匀保留区域会自动拆分为无重叠矩形等效块。
-      </Typography>
     </Stack>
   )
 }

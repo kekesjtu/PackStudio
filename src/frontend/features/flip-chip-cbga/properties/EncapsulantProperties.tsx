@@ -18,7 +18,8 @@ export default function EncapsulantProperties({
   const value = parameters.encapsulant
   const update = (patch: Partial<typeof value>) =>
     onChange({ ...parameters, encapsulant: { ...value, ...patch } })
-  const derivedHeight = parameters.flip_chip_bumps.height + parameters.die.thickness
+  const derivedHeight =
+    parameters.flip_chip_bumps.height + parameters.die.thickness + value.cover_thickness
 
   return (
     <Stack spacing={2}>
@@ -44,6 +45,12 @@ export default function EncapsulantProperties({
           unit="mm"
           onChange={(width) => update({ width: width ?? 0 })}
         />
+        <NumberInput
+          label="芯片顶部覆盖厚度"
+          value={value.cover_thickness}
+          unit="mm"
+          onChange={(cover_thickness) => update({ cover_thickness: cover_thickness ?? 0 })}
+        />
       </Box>
       <MaterialSelect
         label="塑封材料"
@@ -52,8 +59,7 @@ export default function EncapsulantProperties({
         onChange={(material) => update({ material })}
       />
       <Typography variant="body2" color="text.secondary">
-        塑封高度自动跟随凸块层与芯片厚度：{derivedHeight.toFixed(3)} mm。
-        几何拆分为上下两层外围矩形环。
+        塑封总高度：{derivedHeight.toFixed(3)} mm，顶部盖层完整覆盖芯片。
       </Typography>
     </Stack>
   )

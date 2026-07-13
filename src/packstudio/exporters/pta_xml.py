@@ -5,15 +5,18 @@ from lxml import etree
 from packstudio.domain.enums import StructureType
 from packstudio.domain.geometry import AxisAlignedBlock
 from packstudio.domain.model import PackageModel
-from packstudio.exporters.pta_boundaries import append_boundaries
+from packstudio.exporters.pta_boundaries import (
+    append_boundaries,
+    append_default_exterior_boundary,
+)
 from packstudio.exporters.pta_constants import (
     ARRAY_NAMESPACE,
-    BOUNDARY_NAMESPACE,
     DIALOG_NAMESPACE,
     MODEL_NAMESPACE,
     XSI_NAMESPACE,
 )
 from packstudio.exporters.pta_materials import append_block_color, append_materials
+from packstudio.exporters.pta_mesh import layer_mesh_sizes
 
 
 def export_pta_xml(model: PackageModel) -> bytes:
@@ -65,7 +68,11 @@ def export_pta_xml(model: PackageModel) -> bytes:
     _text(root, "MechanicalDampingFactor", 0)
     etree.SubElement(root, etree.QName(MODEL_NAMESPACE, "ObservePoints2D"))
     etree.SubElement(root, etree.QName(MODEL_NAMESPACE, "ObservePoints3D"))
-    _append_default_adiabatic_boundary(root)
+    append_default_exterior_boundary(
+        root,
+        float(model.metadata.get("default_convection_coefficient_w_m2k", 10)),
+        ambient_temperature,
+    )
     for name, value in (
         ("SawFrequency", 0),
         ("SawFrequencySolveMode", "SinglePoint"),
@@ -130,6 +137,10 @@ def append_layers(parent: etree._Element, model: PackageModel, z_shift: float) -
         _text(layer, "IsSubstrate", _boolean(StructureType.SUBSTRATE in structures))
         _text(layer, "IsTIM", "false")
         _text(layer, "IsTopLayer", _boolean(index == 0))
+        mesh_x, mesh_y, mesh_z = layer_mesh_sizes(model, blocks, thickness)
+        _text(layer, "MeshSizeXExpression", mesh_x)
+        _text(layer, "MeshSizeYExpression", mesh_y)
+        _text(layer, "MeshSizeZExpression", mesh_z)
         _text(layer, "MetalConversionRate", 0.4)
         _text(layer, "Name", f"Layer {index + 1} @ {_number(base_z + z_shift)} mm")
         _text(layer, "PeriodWidth", 10)
@@ -178,6 +189,9 @@ def _append_block(
         _text(element, name, "false")
     _text(element, "IsVisible", "true")
     _text(element, "MaterialName", block.material_id)
+    _text(element, "MeshSizeXExpression", 0)
+    _text(element, "MeshSizeYExpression", 0)
+    _text(element, "MeshSizeZExpression", 0)
     _text(element, "Name", block.name)
     _text(element, "NetDonorConcentration", 0)
     _text(element, "NotChargeConservation", "true")
@@ -222,17 +236,10 @@ def _source_density_by_block(model: PackageModel) -> dict[str, float]:
     return dict(density)
 
 
-def _append_default_adiabatic_boundary(parent: etree._Element) -> None:
-    element = etree.SubElement(
-        parent,
-        etree.QName(MODEL_NAMESPACE, "OtherThermalBondary"),
-        nsmap={"a": BOUNDARY_NAMESPACE},
-    )
-    element.set(etree.QName(XSI_NAMESPACE, "type"), "a:SecondTypeThermalBoundary")
-    etree.SubElement(element, etree.QName(BOUNDARY_NAMESPACE, "HeatFlux")).text = "0"
-
-
 def _ambient_temperature(model: PackageModel) -> float:
+    metadata_value = model.metadata.get("ambient_temperature_k")
+    if metadata_value is not None:
+        return float(metadata_value)
     for boundary in model.boundaries:
         if boundary.ambient_temperature_k is not None:
             return boundary.ambient_temperature_k

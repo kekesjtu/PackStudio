@@ -1,12 +1,4 @@
-import {
-  Alert,
-  Divider,
-  List,
-  ListItemButton,
-  ListItemText,
-  Paper,
-  Typography,
-} from '@mui/material'
+import { Divider, List, ListItemButton, ListItemText, Paper, Typography } from '@mui/material'
 
 import { propertySections, type PropertySectionId } from './propertySections'
 
@@ -25,9 +17,6 @@ export default function PropertyNavigation({
         当前模板
       </Typography>
       <Typography variant="h6">Flip Chip CBGA</Typography>
-      <Typography variant="body2" color="text.secondary">
-        选择结构以编辑属性
-      </Typography>
       <Divider />
       <List disablePadding dense>
         {propertySections.map((section) => (
@@ -40,9 +29,6 @@ export default function PropertyNavigation({
           </ListItemButton>
         ))}
       </List>
-      <Alert severity="info" icon={false} className="export-note">
-        PTA 文件不包含网格和求解结果。
-      </Alert>
     </Paper>
   )
 }

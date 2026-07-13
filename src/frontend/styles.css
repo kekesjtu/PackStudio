@@ -14,10 +14,11 @@ body {
   min-height: 100vh;
 }
 
-.task3-workspace {
+.template-workspace {
   display: grid;
-  grid-template-areas: 'navigation properties resizer preview inspector';
-  grid-template-columns: 176px var(--property-width) 8px minmax(390px, 1fr) 320px;
+  grid-template-areas: 'navigation properties property-resizer preview inspector-resizer inspector';
+  grid-template-columns:
+    176px var(--property-width) 8px minmax(390px, 1fr) 8px var(--inspector-width);
   gap: 12px;
   height: calc(100vh - 64px);
   min-height: 640px;
@@ -52,10 +53,6 @@ body {
   padding: 6px 10px;
 }
 
-.export-note {
-  margin-top: auto;
-}
-
 .property-panel {
   grid-area: properties;
   overflow: hidden;
@@ -78,11 +75,18 @@ body {
 }
 
 .column-resizer {
-  grid-area: resizer;
   position: relative;
   border-radius: 5px;
   cursor: col-resize;
   touch-action: none;
+}
+
+.column-resizer-property {
+  grid-area: property-resizer;
+}
+
+.column-resizer-inspector {
+  grid-area: inspector-resizer;
 }
 
 .column-resizer::after {
@@ -192,13 +196,14 @@ body {
 }
 
 @media (max-width: 1300px) {
-  .task3-workspace {
-    grid-template-columns: 164px var(--property-width) 8px minmax(360px, 1fr) 286px;
+  .template-workspace {
+    grid-template-columns:
+      164px var(--property-width) 8px minmax(330px, 1fr) 8px var(--inspector-width);
   }
 }
 
 @media (max-width: 1100px) {
-  .task3-workspace {
+  .template-workspace {
     grid-template-areas:
       'navigation properties'
       'preview preview'
@@ -224,7 +229,7 @@ body {
 }
 
 @media (max-width: 650px) {
-  .task3-workspace {
+  .template-workspace {
     grid-template-areas: 'navigation' 'properties' 'preview' 'inspector';
     grid-template-columns: 1fr;
     padding: 8px;

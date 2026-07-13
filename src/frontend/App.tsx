@@ -1,7 +1,6 @@
 import {
   AppBar,
   Box,
-  Chip,
   CssBaseline,
   ThemeProvider,
   Toolbar,
@@ -36,7 +35,6 @@ export default function App() {
                 参数化 IC 封装热模型
               </Typography>
             </Box>
-            <Chip label="TASK3 · Flip Chip CBGA" color="default" size="small" />
           </Toolbar>
         </AppBar>
         <Workspace />

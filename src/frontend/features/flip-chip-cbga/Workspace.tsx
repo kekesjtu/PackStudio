@@ -26,6 +26,7 @@ export default function Workspace() {
   const [selectedBlockId, setSelectedBlockId] = useState<string | null>(null)
   const [hiddenBlockIds, setHiddenBlockIds] = useState<Set<string>>(() => new Set())
   const [propertyWidth, setPropertyWidth] = useState(380)
+  const [inspectorWidth, setInspectorWidth] = useState(320)
   const [busy, setBusy] = useState(true)
   const [dirty, setDirty] = useState(false)
   const [error, setError] = useState<string | null>(null)
@@ -109,10 +110,13 @@ export default function Workspace() {
     setSelectedBlockId(blockId)
   }
 
-  const layoutStyle = { '--property-width': `${propertyWidth}px` } as CSSProperties
+  const layoutStyle = {
+    '--property-width': `${propertyWidth}px`,
+    '--inspector-width': `${inspectorWidth}px`,
+  } as CSSProperties
 
   return (
-    <Box component="main" className="task3-workspace" style={layoutStyle}>
+    <Box component="main" className="template-workspace" style={layoutStyle}>
       <PropertyNavigation activeSection={activeSection} onChange={setActiveSection} />
       <Paper component="section" className="property-panel">
         <PropertyPanel
@@ -126,19 +130,19 @@ export default function Workspace() {
           busy={busy}
         />
       </Paper>
-      <ColumnResizer value={propertyWidth} onChange={setPropertyWidth} />
+      <ColumnResizer
+        value={propertyWidth}
+        onChange={setPropertyWidth}
+        ariaLabel="调整属性栏宽度"
+        placement="property"
+      />
       <Box className="preview-column">
         {error !== null && <Alert severity="error">{error}</Alert>}
         <Paper component="section" className="preview-panel">
           <Stack direction="row" justifyContent="space-between" spacing={1}>
-            <Box>
-              <Typography variant="h5" component="h2">
-                三维建模区
-              </Typography>
-              <Typography variant="body2" color="text.secondary">
-                左键选择，拖动旋转，右侧模型树右键控制显隐。
-              </Typography>
-            </Box>
+            <Typography variant="h5" component="h2">
+              三维建模区
+            </Typography>
             <Stack direction="row" spacing={0.75} flexWrap="wrap" useFlexGap>
               {model !== null && <Chip label={`${model.blocks.length} 个块`} size="small" />}
               {hiddenBlockIds.size > 0 && (
@@ -155,6 +159,15 @@ export default function Workspace() {
           />
         </Paper>
       </Box>
+      <ColumnResizer
+        value={inspectorWidth}
+        onChange={setInspectorWidth}
+        ariaLabel="调整检查器宽度"
+        placement="inspector"
+        deltaDirection={-1}
+        minimum={280}
+        maximum={520}
+      />
       <Paper component="aside" className="inspector-panel">
         <InspectorPanel
           model={model}

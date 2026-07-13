@@ -1,8 +1,9 @@
-from packstudio.domain.enums import BlockFace, BoundaryKind, StructureType
+from packstudio.domain.enums import StructureType
 from packstudio.domain.geometry import AxisAlignedBlock, Point3D, Size3D
 from packstudio.domain.materials import Material
 from packstudio.domain.model import ModelGroup, PackageModel
-from packstudio.domain.thermal import BoundaryCondition, HeatSource, SurfaceReference
+from packstudio.domain.thermal import HeatSource
+from packstudio.templates.flip_chip_cbga.boundary_builder import build_thermal_boundaries
 from packstudio.templates.flip_chip_cbga.encapsulant_builder import build_encapsulant
 from packstudio.templates.flip_chip_cbga.layer_builder import (
     BuiltArrayLayer,
@@ -91,7 +92,7 @@ def generate_flip_chip_cbga(parameters: FlipChipCbgaParameters) -> PackageModel:
         base_z=-parameters.solder_balls.height,
         prefix="solder-ball",
         element_structure=StructureType.SOLDER_BALL,
-        matrix_structure=StructureType.SOLDER_BALL_MATRIX,
+        matrix_structure=StructureType.STATIC_AIR,
         group_ids={
             "default": "solder-ball",
             "array": "solder-ball",
@@ -102,7 +103,20 @@ def generate_flip_chip_cbga(parameters: FlipChipCbgaParameters) -> PackageModel:
     )
     _append_layer(blocks, group_blocks, materials, ball_layer, parameters.solder_balls)
 
-    top_stack = build_top_stack(parameters, die.max_z, "top")
+    top_base_z = die.max_z
+    top_base_length = parameters.die.length
+    top_base_width = parameters.die.width
+    if encapsulant_blocks:
+        top_base_z = max(block.max_z for block in encapsulant_blocks)
+        top_base_length = parameters.encapsulant.length
+        top_base_width = parameters.encapsulant.width
+    top_stack = build_top_stack(
+        parameters,
+        top_base_z,
+        top_base_length,
+        top_base_width,
+        "top",
+    )
     blocks.extend(top_stack.blocks)
     group_blocks["top"].extend(block.id for block in top_stack.blocks)
     for material in top_stack.materials:
@@ -117,14 +131,12 @@ def generate_flip_chip_cbga(parameters: FlipChipCbgaParameters) -> PackageModel:
         )
     ]
     top_surface_block_ids = top_stack.top_surface_block_ids
-    if encapsulant_blocks and not top_stack.blocks:
-        top_surface_block_ids = [
-            *top_surface_block_ids,
-            *(block.id for block in encapsulant_blocks if abs(block.max_z - die.max_z) <= 1e-9),
-        ]
-    boundaries = _build_boundaries(
+    if not top_surface_block_ids:
+        top_surface_block_ids = ["encapsulant-cap"] if encapsulant_blocks else [die.id]
+    boundaries = build_thermal_boundaries(
         parameters,
         ball_layer,
+        blocks,
         top_surface_block_ids,
     )
     groups = _build_groups(group_blocks)
@@ -143,6 +155,17 @@ def generate_flip_chip_cbga(parameters: FlipChipCbgaParameters) -> PackageModel:
             "flip_chip_equivalent_regions": bump_layer.equivalent_region_count,
             "solder_ball_equivalent_regions": ball_layer.equivalent_region_count,
             "encapsulant_block_count": len(encapsulant_blocks),
+            "mesh_resolution": parameters.mesh.resolution.value,
+            "ambient_temperature_k": parameters.environment.ambient_temperature_k,
+            "default_convection_coefficient_w_m2k": (
+                parameters.environment.default_convection_coefficient_w_m2k
+            ),
+            "board_to_ambient_thermal_resistance_k_w": (
+                parameters.environment.board_to_ambient_thermal_resistance_k_w
+            ),
+            "top_surface_override_enabled": (
+                parameters.environment.top_to_ambient_thermal_resistance_k_w is not None
+            ),
             "mesh_data_included": False,
             "solver_results_included": False,
         },
@@ -199,46 +222,3 @@ def _build_groups(group_blocks: dict[str, list[str]]) -> list[ModelGroup]:
             )
         )
     return groups
-
-
-def _build_boundaries(
-    parameters: FlipChipCbgaParameters,
-    ball_layer: BuiltArrayLayer,
-    top_surface_block_ids: list[str],
-) -> list[BoundaryCondition]:
-    boundaries: list[BoundaryCondition] = []
-    environment = parameters.environment
-    if environment.bottom_convection_coefficient_w_m2k is not None:
-        bottom_ids = [
-            block.id
-            for block in ball_layer.blocks
-            if abs(block.origin.z + parameters.solder_balls.height) <= 1e-9
-        ]
-        boundaries.append(
-            BoundaryCondition(
-                id="bottom-convection",
-                name="Bottom convection",
-                kind=BoundaryKind.CONVECTION,
-                targets=[
-                    SurfaceReference(block_id=block_id, face=BlockFace.Z_MIN)
-                    for block_id in bottom_ids
-                ],
-                convection_coefficient_w_m2k=(environment.bottom_convection_coefficient_w_m2k),
-                ambient_temperature_k=environment.ambient_temperature_k,
-            )
-        )
-    if environment.top_convection_coefficient_w_m2k is not None:
-        boundaries.append(
-            BoundaryCondition(
-                id="top-convection",
-                name="Top convection",
-                kind=BoundaryKind.CONVECTION,
-                targets=[
-                    SurfaceReference(block_id=block_id, face=BlockFace.Z_MAX)
-                    for block_id in top_surface_block_ids
-                ],
-                convection_coefficient_w_m2k=environment.top_convection_coefficient_w_m2k,
-                ambient_temperature_k=environment.ambient_temperature_k,
-            )
-        )
-    return boundaries

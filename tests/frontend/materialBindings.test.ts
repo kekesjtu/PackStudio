@@ -13,6 +13,7 @@ describe('material bindings', () => {
 
     expect(library.filter((material) => material.id === 'solder')).toHaveLength(1)
     expect(library.some((material) => material.id === 'encapsulant')).toBe(true)
+    expect(library.some((material) => material.id === 'air')).toBe(true)
   })
 
   it('propagates an edited material to every structure using its id', () => {

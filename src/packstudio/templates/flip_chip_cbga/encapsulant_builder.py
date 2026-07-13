@@ -8,7 +8,7 @@ def build_encapsulant(
     substrate_top_z: float,
     group_id: str,
 ) -> list[AxisAlignedBlock]:
-    """Build a die-shaped cavity as two PTA-compatible rectangular rings."""
+    """Build two cavity rings plus a cap that submerges the die."""
     if not parameters.encapsulant.enabled:
         return []
 
@@ -26,7 +26,25 @@ def build_encapsulant(
         height=parameters.die.thickness,
         group_id=group_id,
     )
-    return [*lower_ring, *upper_ring]
+    cap = AxisAlignedBlock(
+        id="encapsulant-cap",
+        name="Encapsulant top cover",
+        structure_type=StructureType.ENCAPSULANT,
+        origin=Point3D(
+            x=-parameters.encapsulant.length / 2,
+            y=-parameters.encapsulant.width / 2,
+            z=substrate_top_z + parameters.flip_chip_bumps.height + parameters.die.thickness,
+        ),
+        size=Size3D(
+            x=parameters.encapsulant.length,
+            y=parameters.encapsulant.width,
+            z=parameters.encapsulant.cover_thickness,
+        ),
+        material_id=parameters.encapsulant.material.id,
+        parent_group_id=group_id,
+        metadata={"tier": "cap"},
+    )
+    return [*lower_ring, *upper_ring, cap]
 
 
 def _ring_blocks(
