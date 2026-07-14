@@ -81,7 +81,13 @@ def generate_flip_chip_cbga(parameters: FlipChipCbgaParameters) -> PackageModel:
     group_blocks["die"].append(die.id)
     _register_material(materials, parameters.die.material)
 
-    encapsulant_blocks = build_encapsulant(parameters, substrate.max_z, "encapsulant")
+    has_top_structure = parameters.heat_slug.enabled or parameters.lid.enabled
+    encapsulant_blocks = build_encapsulant(
+        parameters,
+        substrate.max_z,
+        "encapsulant",
+        cover_die=not has_top_structure,
+    )
     blocks.extend(encapsulant_blocks)
     group_blocks["encapsulant"].extend(block.id for block in encapsulant_blocks)
     if encapsulant_blocks:
@@ -103,18 +109,11 @@ def generate_flip_chip_cbga(parameters: FlipChipCbgaParameters) -> PackageModel:
     )
     _append_layer(blocks, group_blocks, materials, ball_layer, parameters.solder_balls)
 
-    top_base_z = die.max_z
-    top_base_length = parameters.die.length
-    top_base_width = parameters.die.width
-    if encapsulant_blocks:
-        top_base_z = max(block.max_z for block in encapsulant_blocks)
-        top_base_length = parameters.encapsulant.length
-        top_base_width = parameters.encapsulant.width
     top_stack = build_top_stack(
         parameters,
-        top_base_z,
-        top_base_length,
-        top_base_width,
+        die.max_z,
+        parameters.die.length,
+        parameters.die.width,
         "top",
     )
     blocks.extend(top_stack.blocks)
@@ -153,6 +152,9 @@ def generate_flip_chip_cbga(parameters: FlipChipCbgaParameters) -> PackageModel:
             "flip_chip_bump_count": bump_layer.physical_element_count,
             "solder_ball_count": ball_layer.physical_element_count,
             "flip_chip_equivalent_regions": bump_layer.equivalent_region_count,
+            "flip_chip_bump_cell_density_per_mm2": 1
+            / (parameters.flip_chip_bumps.pitch_x * parameters.flip_chip_bumps.pitch_y),
+            "flip_chip_bump_fill_fraction": bump_layer.blocks[0].metadata["fill_fraction"],
             "solder_ball_equivalent_regions": ball_layer.equivalent_region_count,
             "encapsulant_block_count": len(encapsulant_blocks),
             "mesh_resolution": parameters.mesh.resolution.value,
@@ -160,11 +162,11 @@ def generate_flip_chip_cbga(parameters: FlipChipCbgaParameters) -> PackageModel:
             "default_convection_coefficient_w_m2k": (
                 parameters.environment.default_convection_coefficient_w_m2k
             ),
-            "board_to_ambient_thermal_resistance_k_w": (
-                parameters.environment.board_to_ambient_thermal_resistance_k_w
+            "pcb_convection_coefficient_w_m2k": (
+                parameters.environment.pcb_convection_coefficient_w_m2k
             ),
-            "top_surface_override_enabled": (
-                parameters.environment.top_to_ambient_thermal_resistance_k_w is not None
+            "top_convection_coefficient_w_m2k": (
+                parameters.environment.top_convection_coefficient_w_m2k
             ),
             "mesh_data_included": False,
             "solver_results_included": False,

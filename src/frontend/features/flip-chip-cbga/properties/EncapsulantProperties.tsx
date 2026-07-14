@@ -18,8 +18,8 @@ export default function EncapsulantProperties({
   const value = parameters.encapsulant
   const update = (patch: Partial<typeof value>) =>
     onChange({ ...parameters, encapsulant: { ...value, ...patch } })
-  const derivedHeight =
-    parameters.flip_chip_bumps.height + parameters.die.thickness + value.cover_thickness
+  const exposesDie = parameters.heat_slug.enabled || parameters.lid.enabled
+  const derivedHeight = parameters.flip_chip_bumps.height + parameters.die.thickness
 
   return (
     <Stack spacing={2}>
@@ -45,12 +45,14 @@ export default function EncapsulantProperties({
           unit="mm"
           onChange={(width) => update({ width: width ?? 0 })}
         />
-        <NumberInput
-          label="芯片顶部覆盖厚度"
-          value={value.cover_thickness}
-          unit="mm"
-          onChange={(cover_thickness) => update({ cover_thickness: cover_thickness ?? 0 })}
-        />
+        {!exposesDie && (
+          <NumberInput
+            label="芯片顶部覆盖厚度"
+            value={value.cover_thickness}
+            unit="mm"
+            onChange={(cover_thickness) => update({ cover_thickness: cover_thickness ?? 0 })}
+          />
+        )}
       </Box>
       <MaterialSelect
         label="塑封材料"
@@ -59,7 +61,9 @@ export default function EncapsulantProperties({
         onChange={(material) => update({ material })}
       />
       <Typography variant="body2" color="text.secondary">
-        塑封总高度：{derivedHeight.toFixed(3)} mm，顶部盖层完整覆盖芯片。
+        {exposesDie
+          ? `塑封高度：${derivedHeight.toFixed(3)} mm，芯片顶部开口用于接触散热结构。`
+          : `塑封总高度：${(derivedHeight + value.cover_thickness).toFixed(3)} mm，顶部盖层完整覆盖芯片。`}
       </Typography>
     </Stack>
   )

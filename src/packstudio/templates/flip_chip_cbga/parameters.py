@@ -4,24 +4,12 @@ from pydantic import BaseModel, ConfigDict, Field, model_validator
 
 from packstudio.domain.materials import Material
 from packstudio.templates.flip_chip_cbga.material_library import default_materials
+from packstudio.templates.flip_chip_cbga.solder_style import validate_solder_style
 
 
 class ArrayRepresentation(StrEnum):
     DISCRETE = "discrete"
     EQUIVALENT = "equivalent"
-
-
-class ArrayPattern(StrEnum):
-    FULL = "full"
-    STAGGERED = "staggered"
-    CENTER_DEPOPULATED = "center_depopulated"
-    CENTER_POPULATED = "center_populated"
-    CUSTOM = "custom"
-
-
-class VoidFillMode(StrEnum):
-    OMIT = "omit"
-    MATRIX = "matrix"
 
 
 class MeshResolution(StrEnum):
@@ -61,7 +49,7 @@ class EncapsulantParameters(BaseModel):
 
 
 class ArrayLayerParameters(BaseModel):
-    model_config = ConfigDict(frozen=True)
+    model_config = ConfigDict(frozen=True, extra="forbid")
 
     rows: int = Field(ge=1, le=50)
     columns: int = Field(ge=1, le=50)
@@ -70,19 +58,12 @@ class ArrayLayerParameters(BaseModel):
     diameter: float = Field(gt=0)
     height: float = Field(gt=0)
     representation: ArrayRepresentation = ArrayRepresentation.EQUIVALENT
-    pattern: ArrayPattern = ArrayPattern.FULL
-    center_rows: int = Field(default=0, ge=0)
-    center_columns: int = Field(default=0, ge=0)
-    omitted_cells: list[CellIndex] = Field(default_factory=list)
-    void_fill: VoidFillMode = VoidFillMode.MATRIX
-    emit_matrix_blocks: bool = True
     element_material: Material
     matrix_material: Material
 
     @property
     def footprint_x(self) -> float:
-        stagger_allowance = self.pitch_x / 2 if self.pattern is ArrayPattern.STAGGERED else 0
-        return self.columns * self.pitch_x + stagger_allowance
+        return self.columns * self.pitch_x
 
     @property
     def footprint_y(self) -> float:
@@ -92,24 +73,21 @@ class ArrayLayerParameters(BaseModel):
     def validate_layout(self) -> "ArrayLayerParameters":
         if self.diameter > min(self.pitch_x, self.pitch_y):
             raise ValueError("element diameter must not exceed either array pitch")
+        return self
 
-        center_patterns = {ArrayPattern.CENTER_DEPOPULATED, ArrayPattern.CENTER_POPULATED}
-        if self.pattern in center_patterns:
-            if not 0 < self.center_rows < self.rows or not 0 < self.center_columns < self.columns:
-                raise ValueError("center pattern requires a smaller positive center region")
-            if (self.rows - self.center_rows) % 2 or (self.columns - self.center_columns) % 2:
-                raise ValueError("center region must be symmetric about the array center")
 
-        if self.pattern is not ArrayPattern.CUSTOM and self.omitted_cells:
-            raise ValueError("omitted_cells are only valid for the custom pattern")
+class SolderBallParameters(ArrayLayerParameters):
+    center_solder_enabled: bool = False
+    center_solder_rows: int = Field(default=3, ge=1)
+    center_solder_columns: int = Field(default=3, ge=1)
+    solder_removal_enabled: bool = False
+    removal_rows: int = Field(default=5, ge=1)
+    removal_columns: int = Field(default=5, ge=1)
+    omitted_cells: list[CellIndex] = Field(default_factory=list)
 
-        locations = [(cell.row, cell.column) for cell in self.omitted_cells]
-        if len(locations) != len(set(locations)):
-            raise ValueError("omitted_cells must be unique")
-        if any(row >= self.rows or column >= self.columns for row, column in locations):
-            raise ValueError("omitted cell lies outside the array")
-        if self.pattern is ArrayPattern.CUSTOM and len(locations) == self.rows * self.columns:
-            raise ValueError("custom pattern must retain at least one array element")
+    @model_validator(mode="after")
+    def validate_solder_style(self) -> "SolderBallParameters":
+        validate_solder_style(self)
         return self
 
 
@@ -136,8 +114,8 @@ class EnvironmentParameters(BaseModel):
 
     ambient_temperature_k: float = Field(default=300, gt=0)
     default_convection_coefficient_w_m2k: float = Field(default=10, gt=0)
-    board_to_ambient_thermal_resistance_k_w: float = Field(default=20, gt=0)
-    top_to_ambient_thermal_resistance_k_w: float | None = Field(default=None, gt=0)
+    pcb_convection_coefficient_w_m2k: float = Field(default=1600, gt=0)
+    top_convection_coefficient_w_m2k: float = Field(default=10, gt=0)
 
 
 class FlipChipCbgaParameters(BaseModel):
@@ -148,7 +126,7 @@ class FlipChipCbgaParameters(BaseModel):
     die: DieParameters = Field(default_factory=lambda: _default_die())
     encapsulant: EncapsulantParameters = Field(default_factory=EncapsulantParameters)
     flip_chip_bumps: ArrayLayerParameters = Field(default_factory=lambda: _default_bumps())
-    solder_balls: ArrayLayerParameters = Field(default_factory=lambda: _default_solder_balls())
+    solder_balls: SolderBallParameters = Field(default_factory=lambda: _default_solder_balls())
     heat_slug: HeatSlugParameters = Field(default_factory=lambda: _default_heat_slug())
     lid: LidParameters = Field(default_factory=lambda: _default_lid())
     mesh: MeshParameters = Field(default_factory=MeshParameters)
@@ -161,10 +139,6 @@ class FlipChipCbgaParameters(BaseModel):
             raise ValueError("flip-chip bumps only support anisotropic equivalent representation")
         if self.solder_balls.matrix_material.id != "air":
             raise ValueError("BGA matrix material must be static air")
-        if not self.solder_balls.emit_matrix_blocks:
-            raise ValueError("BGA arrays must emit static-air matrix blocks")
-        if self.solder_balls.void_fill is not VoidFillMode.MATRIX:
-            raise ValueError("BGA omitted cells must be filled with static air")
         if self.die.length > self.substrate.length + tolerance or self.die.width > (
             self.substrate.width + tolerance
         ):
@@ -190,9 +164,6 @@ class FlipChipCbgaParameters(BaseModel):
             raise ValueError("solder-ball array must fit inside the substrate footprint")
 
         target_length, target_width = self.die.length, self.die.width
-        if self.encapsulant.enabled:
-            target_length = self.encapsulant.length
-            target_width = self.encapsulant.width
         if self.heat_slug.enabled:
             if self.heat_slug.length < target_length or self.heat_slug.width < target_width:
                 raise ValueError("heat slug must cover the top-side target")
@@ -245,16 +216,15 @@ def _default_bumps() -> ArrayLayerParameters:
     )
 
 
-def _default_solder_balls() -> ArrayLayerParameters:
+def _default_solder_balls() -> SolderBallParameters:
     materials = default_materials()
-    return ArrayLayerParameters(
+    return SolderBallParameters(
         rows=7,
         columns=7,
         pitch_x=0.8,
         pitch_y=0.8,
         diameter=0.5,
         height=0.4,
-        pattern=ArrayPattern.FULL,
         element_material=materials["solder"],
         matrix_material=materials["air"],
     )

@@ -17,7 +17,7 @@ export const materialSlotLabels: Record<MaterialSlot, string> = {
   substrate: '封装基底',
   die: '芯片',
   encapsulant: '塑封',
-  flip_chip_element: '倒装芯片凸块',
+  flip_chip_element: '倒装芯片凸点',
   flip_chip_matrix: 'Underfill',
   solder_ball_element: '焊球',
   solder_ball_static_air: 'BGA 静态空气',

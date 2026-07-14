@@ -195,6 +195,16 @@ body {
   background: #f8fafb;
 }
 
+.array-metrics {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px 12px;
+  padding: 10px;
+  border: 1px solid #dce5e9;
+  border-radius: 7px;
+  background: #f8fafb;
+}
+
 @media (max-width: 1300px) {
   .template-workspace {
     grid-template-columns:
@@ -236,7 +246,8 @@ body {
   }
 
   .field-grid-2,
-  .field-grid-3 {
+  .field-grid-3,
+  .array-metrics {
     grid-template-columns: 1fr;
   }
 }

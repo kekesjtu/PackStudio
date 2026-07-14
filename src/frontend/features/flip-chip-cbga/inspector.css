@@ -18,9 +18,33 @@
 
 .material-library-panel {
   display: grid;
-  grid-template-rows: minmax(170px, 40%) 1px minmax(0, 1fr);
-  gap: 10px;
+  grid-template-rows: var(--material-list-height) 8px minmax(0, 1fr);
+  gap: 6px;
   height: 100%;
+}
+
+.row-resizer {
+  position: relative;
+  border-radius: 4px;
+  cursor: row-resize;
+  touch-action: none;
+}
+
+.row-resizer::after {
+  position: absolute;
+  top: 2px;
+  right: 35%;
+  bottom: 2px;
+  left: 35%;
+  border-radius: 2px;
+  background: #92aab5;
+  content: '';
+}
+
+.row-resizer:hover,
+.row-resizer:focus-visible {
+  background: #d7e9ef;
+  outline: none;
 }
 
 .material-library-list,

@@ -4,7 +4,6 @@ from packstudio.domain.model import PackageModel
 from packstudio.exporters.pta_xml import export_pta_xml
 from packstudio.templates.flip_chip_cbga.generator import generate_flip_chip_cbga
 from packstudio.templates.flip_chip_cbga.parameters import (
-    ArrayPattern,
     ArrayRepresentation,
     FlipChipCbgaParameters,
 )
@@ -18,7 +17,8 @@ def list_templates() -> list[dict[str, object]]:
         {
             "id": "flip-chip-cbga",
             "name": "Flip Chip CBGA / BGA",
-            "supported_patterns": [pattern.value for pattern in ArrayPattern],
+            "solder_style_options": ["center_solder", "solder_removal"],
+            "flip_chip_layout": "full",
             "supported_representations": [item.value for item in ArrayRepresentation],
         }
     ]

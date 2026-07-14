@@ -7,8 +7,9 @@ def build_encapsulant(
     parameters: FlipChipCbgaParameters,
     substrate_top_z: float,
     group_id: str,
+    cover_die: bool,
 ) -> list[AxisAlignedBlock]:
-    """Build two cavity rings plus a cap that submerges the die."""
+    """Build cavity rings and optionally a cap that submerges the die."""
     if not parameters.encapsulant.enabled:
         return []
 
@@ -26,6 +27,8 @@ def build_encapsulant(
         height=parameters.die.thickness,
         group_id=group_id,
     )
+    if not cover_die:
+        return [*lower_ring, *upper_ring]
     cap = AxisAlignedBlock(
         id="encapsulant-cap",
         name="Encapsulant top cover",

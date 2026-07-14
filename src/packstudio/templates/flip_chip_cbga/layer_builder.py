@@ -17,7 +17,6 @@ from packstudio.templates.flip_chip_cbga.layout import (
 from packstudio.templates.flip_chip_cbga.parameters import (
     ArrayLayerParameters,
     ArrayRepresentation,
-    VoidFillMode,
 )
 
 
@@ -91,7 +90,6 @@ def _build_equivalent_layer(
             parent_group_id=group_id,
             metadata={
                 "representation": parameters.representation.value,
-                "pattern": parameters.pattern.value,
                 "fill_fraction": properties.fill_fraction,
                 "physical_elements": region.row_count * region.column_count,
             },
@@ -167,18 +165,17 @@ def _build_discrete_layer(
         )
         blocks.append(element)
         block_ids_by_group.setdefault(group_id, []).append(element.id)
-        if parameters.emit_matrix_blocks:
-            _append_cell_matrix_blocks(
-                blocks,
-                block_ids_by_group,
-                parameters,
-                cell,
-                properties.replacement_side,
-                base_z,
-                prefix,
-                matrix_structure,
-                group_id,
-            )
+        _append_cell_matrix_blocks(
+            blocks,
+            block_ids_by_group,
+            parameters,
+            cell,
+            properties.replacement_side,
+            base_z,
+            prefix,
+            matrix_structure,
+            group_id,
+        )
 
     _append_void_region_blocks(
         blocks,
@@ -259,8 +256,6 @@ def _append_void_region_blocks(
     matrix_structure: StructureType,
     group_ids: dict[str, str],
 ) -> None:
-    if parameters.void_fill is not VoidFillMode.MATRIX:
-        return
     group_id = _resolve_group_id(group_ids, "void")
     for index, region in enumerate(unoccupied_regions(parameters), start=1):
         origin_x, origin_y, size_x, size_y = region_geometry(parameters, region)

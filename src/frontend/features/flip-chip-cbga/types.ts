@@ -34,13 +34,6 @@ export interface EncapsulantParameters {
 }
 
 export type ArrayRepresentation = 'discrete' | 'equivalent'
-export type ArrayPattern =
-  | 'full'
-  | 'staggered'
-  | 'center_depopulated'
-  | 'center_populated'
-  | 'custom'
-export type VoidFillMode = 'omit' | 'matrix'
 
 export interface CellIndex {
   row: number
@@ -55,14 +48,18 @@ export interface ArrayLayerParameters {
   diameter: number
   height: number
   representation: ArrayRepresentation
-  pattern: ArrayPattern
-  center_rows: number
-  center_columns: number
-  omitted_cells: CellIndex[]
-  void_fill: VoidFillMode
-  emit_matrix_blocks: boolean
   element_material: Material
   matrix_material: Material
+}
+
+export interface SolderBallParameters extends ArrayLayerParameters {
+  center_solder_enabled: boolean
+  center_solder_rows: number
+  center_solder_columns: number
+  solder_removal_enabled: boolean
+  removal_rows: number
+  removal_columns: number
+  omitted_cells: CellIndex[]
 }
 
 export interface HeatSlugParameters extends RectangularPartParameters {
@@ -80,8 +77,8 @@ export interface LidParameters extends RectangularPartParameters {
 export interface EnvironmentParameters {
   ambient_temperature_k: number
   default_convection_coefficient_w_m2k: number
-  board_to_ambient_thermal_resistance_k_w: number
-  top_to_ambient_thermal_resistance_k_w: number | null
+  pcb_convection_coefficient_w_m2k: number
+  top_convection_coefficient_w_m2k: number
 }
 
 export type MeshResolution = 'coarse' | 'standard' | 'fine'
@@ -96,7 +93,7 @@ export interface FlipChipCbgaParameters {
   die: DieParameters
   encapsulant: EncapsulantParameters
   flip_chip_bumps: ArrayLayerParameters
-  solder_balls: ArrayLayerParameters
+  solder_balls: SolderBallParameters
   heat_slug: HeatSlugParameters
   lid: LidParameters
   mesh: MeshParameters

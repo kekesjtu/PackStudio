@@ -20,7 +20,7 @@ export const propertySections: Array<{
   { id: 'substrate', label: '封装基底' },
   { id: 'die', label: '芯片' },
   { id: 'encapsulant', label: '塑封' },
-  { id: 'flip_chip_bumps', label: '倒装芯片凸块' },
+  { id: 'flip_chip_bumps', label: '倒装芯片凸点' },
   { id: 'solder_balls', label: '焊球' },
   { id: 'solder_pattern', label: '焊球样式' },
   { id: 'lid', label: '顶盖' },

@@ -48,12 +48,15 @@ lid
 → lid interface (TIM)
 → heat slug
 → die interface (TIM)
-→ encapsulant top cover（启用塑封时）
-→ die
-→ flip-chip bumps / underfill
+→ encapsulant top cover（仅启用塑封且没有顶部散热结构时）
+→ die / encapsulant upper ring
+→ flip-chip bumps / underfill / encapsulant lower ring
 → substrate
 → solder balls / in-array static air
 ```
+
+塑封与 lid 或 heat slug 同时启用时，不存在 `encapsulant top cover` 层；塑封上环与 die 同层并
+止于芯片顶面，后续 TIM 从 die 顶面开始。该差异不改变 PTA 顶层到底层的排序规则。
 
 PackStudio 领域模型仍采用标准 XYZ 右手坐标，Z 向上。XML 的层集合顺序只是 PTA 的序列化
 约定，不代表领域模型的 Z 方向被反转。
@@ -171,22 +174,23 @@ TiReyuan = power_w / (block_volume_mm3 × 1e-9)
 表面通过 `FaceKeys` 定位；Z 表面键包含表面 Z 坐标及其 X/Y 范围。边界坐标必须使用与几何
 相同的 Z 平移。
 
-### 6.1 TASK4 默认边界
+### 6.1 TASK5 当前默认边界
 
 **PackStudio 约束**：导出文件始终具有三层边界覆盖：
 
 1. `OtherThermalBondary` 使用 `ThirdTypeThermalBoundary`，默认 300 K、
    10 W/(m²·K)，接管未单独指定的外表面；
-2. `PCB-side equivalent cooling` 作用于焊球接触底面；用户输入 PCB 到环境的总热阻，导出器
-   按目标总面积换算 `h = 1 / (R × A)`；
-3. `Top surface cooling` 作用于最高结构顶面，默认沿用外表面对流；启用顶部关键散热面后，
-   同样由总热阻换算对流系数。
+2. `PCB-side equivalent cooling` 作用于焊球接触底面，直接写入用户输入的 PCB 侧换热系数，
+   默认 1600 W/(m²·K)；
+3. `Top surface cooling` 作用于最高结构顶面，直接写入用户输入的顶部换热系数，默认
+   10 W/(m²·K)。
 
-默认 PCB 到环境热阻 20 K/W 是无 PCB 几何时让模型具备有限主要散热路径的工程初值，并不
-等同于 `RθJB`。TI 的封装热指标说明指出，JEDEC 静止空气测试中大部分热量经测试板散出，且
-板设计会强烈影响结果；因此 PackStudio 不把纯封装自然对流作为默认的唯一散热路径。自然
-对流 10 W/(m²·K) 的量级参考 COMSOL 电子芯片冷却示例。正式结果必须用实际 PCB 或实测
-热阻校准。
+TASK5 起 PCB 和顶部均不再输入总热阻，也不执行 `h = 1 / (R × A)` 面积换算；JSON、领域模型
+和 PTA `ConvectionCoefficient` 保存同一个值。PCB 侧 1600 W/(m²·K) 约等于 TASK4 默认
+6×6 mm、7×7 焊球模型的 20 K/W 路径对应系数，用于在无 PCB 几何时提供有限主要散热路径，
+并不等同于 `RθJB` 或真实流体对流。TI 的封装热指标说明指出，JEDEC 静止空气测试中大部分
+热量经测试板散出，且板设计会强烈影响结果；因此正式结果必须用实际 PCB 或实测数据校准。
+普通外表面和默认顶部的 10 W/(m²·K) 量级参考 COMSOL 电子芯片冷却示例。
 
 - [TI：Semiconductor and IC Package Thermal Metrics](https://www.ti.com/lit/an/spra953d/spra953d.pdf)
 - [COMSOL：Electronic Chip Cooling](https://doc.comsol.com/6.4/doc/com.comsol.help.models.heat.chip_cooling/chip_cooling.html)
@@ -199,7 +203,7 @@ TiReyuan = power_w / (block_volume_mm3 × 1e-9)
 - 层从 lid 到 solder balls 排列；
 - `TopLayerIndex` 指向唯一的 `IsTopLayer=true` 层；
 - 标准视图中的 +Z 方向与 PackStudio 的“封装底部到顶部”一致；
-- 材料、热源、PCB 侧边界、顶部边界和默认外表面边界存在；
+- 材料、热源、PCB 侧边界、顶部边界和默认外表面边界存在，两个显式换热系数与 UI 输入一致；
 - 每个层的 `MeshSizeX/Y/ZExpression` 均大于 0；
 - 文件中没有 `<Mesh>` 网格实体和求解结果节点；
 - 执行 PTA 网格生成并完成一次稳态求解，确认没有缺失设置提示。
@@ -211,4 +215,5 @@ TiReyuan = power_w / (block_volume_mm3 × 1e-9)
 - [PTA 输出示例说明](../output_format/README.md)
 - [ADR-0002：Flip Chip CBGA 模型与 PTA 导出约定](decisions/0002-Flip-Chip-CBGA-模型与-PTA-导出约定.md)
 - [ADR-0004：TASK4 仿真就绪导出约定](decisions/0004-TASK4-仿真就绪导出约定.md)
+- [ADR-0005：TASK5 组合焊球与尺寸预设](decisions/0005-TASK5-组合焊球与尺寸预设.md)
 - [Flip Chip CBGA / BGA 模板说明](templates/flip-chip-cbga.md)

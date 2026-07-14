@@ -125,12 +125,17 @@ def test_pta_export_has_default_exterior_convection_and_key_surfaces() -> None:
     namespace = {"m": MODEL_NAMESPACE, "b": BOUNDARY_NAMESPACE}
     default_boundary = root.find(f"{{{MODEL_NAMESPACE}}}OtherThermalBondary")
     names = root.xpath("./m:Boundaries/m:Boundary/m:Name/text()", namespaces=namespace)
+    coefficients = root.xpath(
+        "./m:Boundaries/m:Boundary/m:ThermalBoundary/b:ConvectionCoefficient/text()",
+        namespaces=namespace,
+    )
 
     assert default_boundary is not None
     assert default_boundary.get(f"{{{XSI_NAMESPACE}}}type") == "a:ThirdTypeThermalBoundary"
     assert default_boundary.findtext(f"{{{BOUNDARY_NAMESPACE}}}ConvectionCoefficient") == "10"
     assert default_boundary.findtext(f"{{{BOUNDARY_NAMESPACE}}}EnvironmentTemperature") == "300"
     assert names == ["PCB-side equivalent cooling", "Top surface cooling"]
+    assert coefficients == ["1600", "10"]
 
 
 def test_pta_layers_are_top_to_bottom_with_a_consistent_top_marker() -> None:

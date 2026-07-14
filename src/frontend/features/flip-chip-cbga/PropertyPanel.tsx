@@ -19,6 +19,7 @@ interface PropertyPanelProps {
   model: PackageModel | null
   onChange: (parameters: FlipChipCbgaParameters) => void
   onGenerate: () => void
+  onSaveParameters: () => void
   onExport: () => void
   busy: boolean
 }
@@ -37,6 +38,9 @@ export default function PropertyPanel(props: PropertyPanelProps) {
       <Stack direction={{ xs: 'column', sm: 'row' }} spacing={1} className="action-bar">
         <Button variant="contained" onClick={props.onGenerate} disabled={props.busy}>
           {props.busy ? <CircularProgress size={21} color="inherit" /> : '生成模型'}
+        </Button>
+        <Button variant="outlined" onClick={props.onSaveParameters}>
+          保存参数
         </Button>
         <Button variant="outlined" onClick={props.onExport} disabled={props.busy || !props.model}>
           导出 PTA XML

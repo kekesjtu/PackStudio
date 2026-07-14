@@ -1,7 +1,7 @@
+import { useRef, useState, type CSSProperties } from 'react'
 import {
   Box,
   Chip,
-  Divider,
   List,
   ListItemButton,
   ListItemText,
@@ -12,6 +12,7 @@ import {
 
 import { materialUsageLabels } from './materialBindings'
 import MaterialFields from './MaterialFields'
+import RowResizer from './RowResizer'
 import type { FlipChipCbgaParameters, Material } from './types'
 
 interface MaterialLibraryPanelProps {
@@ -29,12 +30,15 @@ export default function MaterialLibraryPanel({
   onSelect,
   onChange,
 }: MaterialLibraryPanelProps) {
+  const [listHeight, setListHeight] = useState(240)
+  const panelRef = useRef<HTMLDivElement>(null)
   const selected = materials.find((material) => material.id === selectedMaterialId) ?? materials[0]
   if (selected === undefined) return null
   const usages = materialUsageLabels(parameters, selected.id)
+  const layoutStyle = { '--material-list-height': `${listHeight}px` } as CSSProperties
 
   return (
-    <Box className="material-library-panel">
+    <Box ref={panelRef} className="material-library-panel" style={layoutStyle}>
       <Box className="material-library-list">
         <List dense disablePadding>
           {materials.map((material) => (
@@ -49,7 +53,12 @@ export default function MaterialLibraryPanel({
           ))}
         </List>
       </Box>
-      <Divider />
+      <RowResizer
+        value={listHeight}
+        onChange={setListHeight}
+        containerRef={panelRef}
+        ariaLabel="调整材料列表和属性区域高度"
+      />
       <Box className="material-property-editor">
         <Typography variant="subtitle2">材料属性</Typography>
         <TextField

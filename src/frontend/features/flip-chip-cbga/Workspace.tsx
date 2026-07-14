@@ -10,16 +10,19 @@ import {
   replaceMaterialDefinition,
 } from './materialBindings'
 import ModelPreview from './ModelPreview'
+import { loadSavedParameters, saveParameters } from './parameterStorage'
 import PropertyNavigation from './PropertyNavigation'
 import PropertyPanel from './PropertyPanel'
 import type { PropertySectionId } from './propertySections'
 import type { FlipChipCbgaParameters, Material, PackageModel } from './types'
 
 export default function Workspace() {
-  const [parameters, setParameters] = useState(createDefaultParameters)
-  const [materials, setMaterials] = useState(() =>
-    collectMaterialLibrary(createDefaultParameters()),
-  )
+  const [initialState] = useState(() => {
+    const saved = loadSavedParameters()
+    return { parameters: saved ?? createDefaultParameters(), restored: saved !== null }
+  })
+  const [parameters, setParameters] = useState(initialState.parameters)
+  const [materials, setMaterials] = useState(() => collectMaterialLibrary(initialState.parameters))
   const [model, setModel] = useState<PackageModel | null>(null)
   const [activeSection, setActiveSection] = useState<PropertySectionId>('summary')
   const [selectedMaterialId, setSelectedMaterialId] = useState('alumina')
@@ -29,11 +32,12 @@ export default function Workspace() {
   const [inspectorWidth, setInspectorWidth] = useState(320)
   const [busy, setBusy] = useState(true)
   const [dirty, setDirty] = useState(false)
+  const [parametersSaved, setParametersSaved] = useState(initialState.restored)
   const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
     let cancelled = false
-    generateModel(createDefaultParameters())
+    generateModel(initialState.parameters)
       .then((generated) => {
         if (cancelled) return
         setModel(generated)
@@ -48,11 +52,12 @@ export default function Workspace() {
     return () => {
       cancelled = true
     }
-  }, [])
+  }, [initialState.parameters])
 
   const changeParameters = (next: FlipChipCbgaParameters) => {
     setParameters(next)
     setDirty(true)
+    setParametersSaved(false)
   }
 
   const changeMaterial = (material: Material) => {
@@ -61,6 +66,17 @@ export default function Workspace() {
     )
     setParameters((current) => replaceMaterialDefinition(current, material))
     setDirty(true)
+    setParametersSaved(false)
+  }
+
+  const handleSaveParameters = () => {
+    setError(null)
+    try {
+      saveParameters(parameters)
+      setParametersSaved(true)
+    } catch (reason: unknown) {
+      setError(errorMessage(reason))
+    }
   }
 
   const handleGenerate = async () => {
@@ -126,6 +142,7 @@ export default function Workspace() {
           model={model}
           onChange={changeParameters}
           onGenerate={handleGenerate}
+          onSaveParameters={handleSaveParameters}
           onExport={handleExport}
           busy={busy}
         />
@@ -149,6 +166,7 @@ export default function Workspace() {
                 <Chip label={`隐藏 ${hiddenBlockIds.size}`} size="small" color="warning" />
               )}
               {dirty && <Chip label="参数已修改" size="small" color="warning" />}
+              {parametersSaved && <Chip label="参数已保存" size="small" color="success" />}
             </Stack>
           </Stack>
           <ModelPreview

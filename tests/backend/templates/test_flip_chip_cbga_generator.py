@@ -7,11 +7,9 @@ from pydantic import ValidationError
 from packstudio.domain.enums import StructureType
 from packstudio.templates.flip_chip_cbga.generator import generate_flip_chip_cbga
 from packstudio.templates.flip_chip_cbga.parameters import (
-    ArrayPattern,
     ArrayRepresentation,
     EnvironmentParameters,
     FlipChipCbgaParameters,
-    VoidFillMode,
 )
 
 
@@ -21,6 +19,10 @@ def test_default_model_uses_one_full_bga_equivalent_layer() -> None:
 
     assert len(model.blocks) == 4
     assert model.metadata["flip_chip_bump_count"] == 49
+    assert model.metadata["flip_chip_bump_cell_density_per_mm2"] == pytest.approx(16)
+    assert model.metadata["flip_chip_bump_fill_fraction"] == pytest.approx(
+        pi * (0.12 / 2) ** 2 / 0.25**2
+    )
     assert model.metadata["solder_ball_count"] == 49
     assert model.metadata["solder_ball_equivalent_regions"] == 1
     assert len(groups["solder-ball"].block_ids) == 1
@@ -67,14 +69,13 @@ def test_default_reference_geometry_has_expected_coordinates_and_envelope() -> N
     assert max(block.max_z for block in model.blocks) == pytest.approx(1.86)
 
 
-def test_center_depopulation_is_filled_with_static_air() -> None:
+def test_center_removal_is_filled_with_static_air() -> None:
     defaults = FlipChipCbgaParameters()
     depopulated = defaults.solder_balls.model_copy(
         update={
-            "pattern": ArrayPattern.CENTER_DEPOPULATED,
-            "center_rows": 3,
-            "center_columns": 3,
-            "void_fill": VoidFillMode.MATRIX,
+            "solder_removal_enabled": True,
+            "removal_rows": 3,
+            "removal_columns": 3,
         }
     )
     model = generate_flip_chip_cbga(FlipChipCbgaParameters(solder_balls=depopulated))
@@ -85,10 +86,32 @@ def test_center_depopulation_is_filled_with_static_air() -> None:
     assert center_air.structure_type is StructureType.STATIC_AIR
     assert center_air.material_id == "air"
 
-    with pytest.raises(ValidationError, match="filled with static air"):
-        FlipChipCbgaParameters(
-            solder_balls=depopulated.model_copy(update={"void_fill": VoidFillMode.OMIT})
-        )
+    assert depopulated.matrix_material.id == "air"
+
+
+def test_center_solder_and_removal_generate_perimeter_air_gap_and_center_groups() -> None:
+    defaults = FlipChipCbgaParameters()
+    solder_style = defaults.solder_balls.model_copy(
+        update={
+            "solder_removal_enabled": True,
+            "removal_rows": 5,
+            "removal_columns": 5,
+            "center_solder_enabled": True,
+            "center_solder_rows": 3,
+            "center_solder_columns": 3,
+        }
+    )
+
+    model = generate_flip_chip_cbga(FlipChipCbgaParameters(solder_balls=solder_style))
+    groups = {group.id: group for group in model.groups}
+    air_blocks = [
+        block for block in model.blocks if block.structure_type is StructureType.STATIC_AIR
+    ]
+
+    assert model.metadata["solder_ball_count"] == 33
+    assert len(groups["solder-ball"].block_ids) == 8
+    assert len(groups["center-sball"].block_ids) == 1
+    assert len(air_blocks) == 4
 
 
 def test_discrete_bga_elements_are_equal_volume_square_prisms_in_static_air() -> None:
@@ -152,7 +175,7 @@ def test_heat_slug_and_lid_form_a_contiguous_non_overlapping_top_stack() -> None
     assert all(left.max_z == pytest.approx(right.origin.z) for left, right in pairwise(top_blocks))
 
 
-def test_optional_encapsulant_submerges_die_with_a_top_cover() -> None:
+def test_optional_encapsulant_submerges_die_without_a_top_structure() -> None:
     defaults = FlipChipCbgaParameters()
     parameters = FlipChipCbgaParameters(
         encapsulant=defaults.encapsulant.model_copy(update={"enabled": True})
@@ -203,7 +226,7 @@ def test_top_boundary_targets_the_encapsulant_cover() -> None:
     assert {target.block_id for target in boundary.targets} == {"encapsulant-cap"}
 
 
-def test_lid_stacks_above_the_encapsulant_cover() -> None:
+def test_lid_exposes_the_die_through_an_encapsulant_opening() -> None:
     defaults = FlipChipCbgaParameters()
     parameters = FlipChipCbgaParameters(
         encapsulant=defaults.encapsulant.model_copy(update={"enabled": True}),
@@ -214,10 +237,32 @@ def test_lid_stacks_above_the_encapsulant_cover() -> None:
     blocks = {block.id: block for block in model.blocks}
     boundary = next(item for item in model.boundaries if item.id == "top-surface-cooling")
 
-    assert blocks["top-to-lid-interface"].origin.z == pytest.approx(blocks["encapsulant-cap"].max_z)
-    assert blocks["top-to-lid-interface"].size.x == pytest.approx(parameters.encapsulant.length)
-    assert blocks["top-to-lid-interface"].size.y == pytest.approx(parameters.encapsulant.width)
+    assert "encapsulant-cap" not in blocks
+    assert model.metadata["encapsulant_block_count"] == 8
+    die_top = blocks["die"].max_z
+    assert blocks["top-to-lid-interface"].origin.z == pytest.approx(die_top)
+    assert blocks["top-to-lid-interface"].size.x == pytest.approx(parameters.die.length)
+    assert blocks["top-to-lid-interface"].size.y == pytest.approx(parameters.die.width)
     assert {target.block_id for target in boundary.targets} == {"lid"}
+
+
+def test_heat_slug_exposes_the_die_through_an_encapsulant_opening() -> None:
+    defaults = FlipChipCbgaParameters()
+    parameters = FlipChipCbgaParameters(
+        encapsulant=defaults.encapsulant.model_copy(update={"enabled": True}),
+        heat_slug=defaults.heat_slug.model_copy(update={"enabled": True}),
+    )
+
+    model = generate_flip_chip_cbga(parameters)
+    blocks = {block.id: block for block in model.blocks}
+    boundary = next(item for item in model.boundaries if item.id == "top-surface-cooling")
+
+    assert "encapsulant-cap" not in blocks
+    assert model.metadata["encapsulant_block_count"] == 8
+    assert blocks["die-to-slug-interface"].origin.z == pytest.approx(blocks["die"].max_z)
+    assert blocks["die-to-slug-interface"].size.x == pytest.approx(parameters.die.length)
+    assert blocks["die-to-slug-interface"].size.y == pytest.approx(parameters.die.width)
+    assert {target.block_id for target in boundary.targets} == {"heat-slug"}
 
 
 def test_environment_parameters_generate_simulation_ready_boundaries() -> None:
@@ -225,8 +270,8 @@ def test_environment_parameters_generate_simulation_ready_boundaries() -> None:
         environment=EnvironmentParameters(
             ambient_temperature_k=298,
             default_convection_coefficient_w_m2k=12,
-            board_to_ambient_thermal_resistance_k_w=25,
-            top_to_ambient_thermal_resistance_k_w=8,
+            pcb_convection_coefficient_w_m2k=1800,
+            top_convection_coefficient_w_m2k=25,
         )
     )
 
@@ -239,10 +284,8 @@ def test_environment_parameters_generate_simulation_ready_boundaries() -> None:
     assert all(boundary.targets for boundary in model.boundaries)
     board = next(boundary for boundary in model.boundaries if boundary.id == "pcb-side-cooling")
     top = next(boundary for boundary in model.boundaries if boundary.id == "top-surface-cooling")
-    board_area_m2 = parameters.solder_balls.footprint_x * parameters.solder_balls.footprint_y * 1e-6
-    top_area_m2 = parameters.die.length * parameters.die.width * 1e-6
-    assert board.convection_coefficient_w_m2k == pytest.approx(1 / (25 * board_area_m2))
-    assert top.convection_coefficient_w_m2k == pytest.approx(1 / (8 * top_area_m2))
+    assert board.convection_coefficient_w_m2k == pytest.approx(1800)
+    assert top.convection_coefficient_w_m2k == pytest.approx(25)
 
 
 def test_array_outside_parent_envelope_is_rejected() -> None:

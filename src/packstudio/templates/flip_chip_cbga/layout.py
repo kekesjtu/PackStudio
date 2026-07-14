@@ -2,8 +2,9 @@ from dataclasses import dataclass
 
 from packstudio.templates.flip_chip_cbga.parameters import (
     ArrayLayerParameters,
-    ArrayPattern,
+    SolderBallParameters,
 )
+from packstudio.templates.flip_chip_cbga.solder_style import center_bounds, is_in_bounds
 
 
 @dataclass(frozen=True)
@@ -23,7 +24,6 @@ class CellRegion:
     column_start: int
     column_end: int
     group: str
-    x_shift: float = 0
 
     @property
     def row_count(self) -> int:
@@ -35,17 +35,13 @@ class CellRegion:
 
 
 def build_array_cells(parameters: ArrayLayerParameters) -> list[ArrayCell]:
-    omitted = {(cell.row, cell.column) for cell in parameters.omitted_cells}
-    center_bounds = _center_bounds(parameters)
     cells: list[ArrayCell] = []
 
     for row in range(parameters.rows):
         center_y = (row - (parameters.rows - 1) / 2) * parameters.pitch_y
-        row_shift = _staggered_row_shift(parameters, row)
         for column in range(parameters.columns):
-            center_x = (column - (parameters.columns - 1) / 2) * parameters.pitch_x + row_shift
-            in_center = _is_in_center(row, column, center_bounds)
-            present, group = _cell_state(parameters, row, column, in_center, omitted)
+            center_x = (column - (parameters.columns - 1) / 2) * parameters.pitch_x
+            present, group = _cell_state(parameters, row, column)
             cells.append(
                 ArrayCell(
                     row=row,
@@ -60,19 +56,6 @@ def build_array_cells(parameters: ArrayLayerParameters) -> list[ArrayCell]:
 
 
 def occupied_regions(parameters: ArrayLayerParameters) -> list[CellRegion]:
-    if parameters.pattern is ArrayPattern.STAGGERED:
-        return [
-            CellRegion(
-                row_start=row,
-                row_end=row + 1,
-                column_start=0,
-                column_end=parameters.columns,
-                group="array",
-                x_shift=_staggered_row_shift(parameters, row),
-            )
-            for row in range(parameters.rows)
-        ]
-
     cells = build_array_cells(parameters)
     groups = sorted({cell.group for cell in cells if cell.present})
     regions: list[CellRegion] = []
@@ -90,8 +73,6 @@ def occupied_regions(parameters: ArrayLayerParameters) -> list[CellRegion]:
 
 
 def unoccupied_regions(parameters: ArrayLayerParameters) -> list[CellRegion]:
-    if parameters.pattern is ArrayPattern.STAGGERED:
-        return []
     cells = build_array_cells(parameters)
     mask = [
         [
@@ -107,9 +88,7 @@ def region_geometry(
     parameters: ArrayLayerParameters, region: CellRegion
 ) -> tuple[float, float, float, float]:
     origin_x = (
-        -parameters.columns * parameters.pitch_x / 2
-        + region.column_start * parameters.pitch_x
-        + region.x_shift
+        -parameters.columns * parameters.pitch_x / 2 + region.column_start * parameters.pitch_x
     )
     origin_y = -parameters.rows * parameters.pitch_y / 2 + (region.row_start * parameters.pitch_y)
     return (
@@ -124,43 +103,32 @@ def _cell_state(
     parameters: ArrayLayerParameters,
     row: int,
     column: int,
-    in_center: bool,
-    omitted: set[tuple[int, int]],
 ) -> tuple[bool, str]:
-    if parameters.pattern is ArrayPattern.CENTER_DEPOPULATED:
-        return (not in_center, "void" if in_center else "perimeter")
-    if parameters.pattern is ArrayPattern.CENTER_POPULATED:
-        return (True, "center" if in_center else "perimeter")
-    if parameters.pattern is ArrayPattern.CUSTOM and (row, column) in omitted:
+    if not isinstance(parameters, SolderBallParameters):
+        return (True, "array")
+
+    omitted = {(cell.row, cell.column) for cell in parameters.omitted_cells}
+    if (row, column) in omitted:
         return (False, "void")
-    return (True, "array")
-
-
-def _center_bounds(parameters: ArrayLayerParameters) -> tuple[int, int, int, int] | None:
-    center_patterns = {ArrayPattern.CENTER_DEPOPULATED, ArrayPattern.CENTER_POPULATED}
-    if parameters.pattern not in center_patterns:
-        return None
-    row_start = (parameters.rows - parameters.center_rows) // 2
-    column_start = (parameters.columns - parameters.center_columns) // 2
-    return (
-        row_start,
-        row_start + parameters.center_rows,
-        column_start,
-        column_start + parameters.center_columns,
+    center = center_bounds(
+        parameters.rows,
+        parameters.columns,
+        parameters.center_solder_rows,
+        parameters.center_solder_columns,
     )
-
-
-def _is_in_center(row: int, column: int, bounds: tuple[int, int, int, int] | None) -> bool:
-    if bounds is None:
-        return False
-    row_start, row_end, column_start, column_end = bounds
-    return row_start <= row < row_end and column_start <= column < column_end
-
-
-def _staggered_row_shift(parameters: ArrayLayerParameters, row: int) -> float:
-    if parameters.pattern is not ArrayPattern.STAGGERED:
-        return 0
-    return (-0.25 if row % 2 == 0 else 0.25) * parameters.pitch_x
+    if parameters.center_solder_enabled and is_in_bounds(row, column, center):
+        return (True, "center")
+    removal = center_bounds(
+        parameters.rows,
+        parameters.columns,
+        parameters.removal_rows,
+        parameters.removal_columns,
+    )
+    if parameters.solder_removal_enabled and is_in_bounds(row, column, removal):
+        return (False, "void")
+    if parameters.center_solder_enabled or parameters.solder_removal_enabled:
+        return (True, "perimeter")
+    return (True, "array")
 
 
 def _cell_at(cells: list[ArrayCell], columns: int, row: int, column: int) -> ArrayCell:

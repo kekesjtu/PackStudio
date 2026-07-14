@@ -11,6 +11,8 @@ def test_template_catalog_lists_only_flip_chip_cbga() -> None:
 
     assert response.status_code == 200
     assert [template["id"] for template in response.json()] == ["flip-chip-cbga"]
+    assert response.json()[0]["solder_style_options"] == ["center_solder", "solder_removal"]
+    assert "supported_patterns" not in response.json()[0]
 
 
 def test_defaults_generate_reference_model() -> None:
@@ -22,7 +24,9 @@ def test_defaults_generate_reference_model() -> None:
 
     assert defaults.status_code == 200
     assert defaults.json()["encapsulant"]["enabled"] is False
-    assert defaults.json()["solder_balls"]["pattern"] == "full"
+    assert "pattern" not in defaults.json()["solder_balls"]
+    assert defaults.json()["solder_balls"]["center_solder_enabled"] is False
+    assert defaults.json()["solder_balls"]["solder_removal_enabled"] is False
     assert defaults.json()["solder_balls"]["matrix_material"]["id"] == "air"
     assert defaults.json()["mesh"]["resolution"] == "standard"
     assert generated.status_code == 200
@@ -64,3 +68,13 @@ def test_discrete_flip_chip_bumps_return_422() -> None:
 
     assert response.status_code == 422
     assert "only support anisotropic equivalent" in response.text
+
+
+def test_removed_array_pattern_is_rejected() -> None:
+    defaults = client.get("/api/templates/flip-chip-cbga/defaults").json()
+    defaults["solder_balls"]["pattern"] = "staggered"
+
+    response = client.post("/api/templates/flip-chip-cbga/generate", json=defaults)
+
+    assert response.status_code == 422
+    assert "pattern" in response.text

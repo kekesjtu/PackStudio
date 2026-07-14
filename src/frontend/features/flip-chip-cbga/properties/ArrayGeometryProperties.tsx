@@ -1,10 +1,9 @@
-import { Box, FormControl, InputLabel, MenuItem, Select, Stack, Typography } from '@mui/material'
+import { Box, Stack, Typography } from '@mui/material'
 
 import MaterialSelect from '../MaterialSelect'
 import NumberInput from '../NumberInput'
 import type {
   ArrayLayerParameters,
-  ArrayPattern,
   FlipChipCbgaParameters,
   Material,
 } from '../types'
@@ -26,6 +25,12 @@ export default function ArrayGeometryProperties({
   const update = (patch: Partial<ArrayLayerParameters>) =>
     onChange({ ...parameters, [target]: { ...value, ...patch } })
   const isBump = target === 'flip_chip_bumps'
+  const elementCount = value.rows * value.columns
+  const footprintX = value.columns * value.pitch_x
+  const footprintY = value.rows * value.pitch_y
+  const cellDensity = 1 / (value.pitch_x * value.pitch_y)
+  const fillFraction =
+    (Math.PI * (value.diameter / 2) ** 2) / (value.pitch_x * value.pitch_y)
 
   return (
     <Stack spacing={2}>
@@ -69,22 +74,23 @@ export default function ArrayGeometryProperties({
       </Box>
       {isBump && (
         <>
-          <FormControl size="small" fullWidth>
-            <InputLabel>凸块排列</InputLabel>
-            <Select
-              label="凸块排列"
-              value={value.pattern}
-              onChange={(event) => update({ pattern: event.target.value as ArrayPattern })}
-            >
-              <MenuItem value="full">全阵列</MenuItem>
-              <MenuItem value="staggered">交错阵列</MenuItem>
-            </Select>
-          </FormControl>
+          <Box className="array-metrics">
+            <Typography variant="body2">凸点数量：{elementCount}</Typography>
+            <Typography variant="body2">
+              阵列包络：{footprintX.toFixed(3)} × {footprintY.toFixed(3)} mm
+            </Typography>
+            <Typography variant="body2">
+              单元密度：{Number.isFinite(cellDensity) ? cellDensity.toFixed(2) : '—'} 个/mm²
+            </Typography>
+            <Typography variant="body2">
+              截面填充率：{Number.isFinite(fillFraction) ? (fillFraction * 100).toFixed(2) : '—'}%
+            </Typography>
+          </Box>
           <Typography variant="body2">建模方式：正交各向异性等效层</Typography>
         </>
       )}
       <MaterialSelect
-        label={isBump ? '凸块材料' : '焊球材料'}
+        label={isBump ? '凸点材料' : '焊球材料'}
         value={value.element_material}
         materials={materials}
         onChange={(element_material) => update({ element_material })}

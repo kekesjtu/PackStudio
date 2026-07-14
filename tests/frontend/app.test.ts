@@ -3,6 +3,9 @@ import { fireEvent, render, screen, waitFor } from '@testing-library/react'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 import App from '../../src/frontend/App'
+import { createDefaultParameters } from '../../src/frontend/features/flip-chip-cbga/defaults'
+import { applyPackagePreset } from '../../src/frontend/features/flip-chip-cbga/packagePresets'
+import { saveParameters } from '../../src/frontend/features/flip-chip-cbga/parameterStorage'
 import type { PackageModel } from '../../src/frontend/features/flip-chip-cbga/types'
 
 vi.mock('../../src/frontend/features/flip-chip-cbga/ModelPreview', () => ({
@@ -58,13 +61,17 @@ const generatedModel: PackageModel = {
 
 describe('Flip Chip CBGA workspace', () => {
   beforeEach(() => {
+    window.localStorage.clear()
     vi.stubGlobal(
       'fetch',
       vi.fn().mockResolvedValue({ ok: true, json: async () => generatedModel }),
     )
   })
 
-  afterEach(() => vi.unstubAllGlobals())
+  afterEach(() => {
+    window.localStorage.clear()
+    vi.unstubAllGlobals()
+  })
 
   it('renders the four-column workspace and generates the default model', async () => {
     render(createElement(App))
@@ -83,6 +90,13 @@ describe('Flip Chip CBGA workspace', () => {
     expect(inspectorResizer).toHaveAttribute('aria-valuenow', '340')
     expect(screen.getByRole('tab', { name: '材料库' })).toBeInTheDocument()
     expect(screen.getByRole('tab', { name: '模型树' })).toBeInTheDocument()
+    const materialResizer = screen.getByRole('separator', {
+      name: '调整材料列表和属性区域高度',
+    })
+    expect(materialResizer).toHaveAttribute('aria-valuenow', '240')
+    fireEvent.keyDown(materialResizer, { key: 'ArrowDown' })
+    expect(materialResizer).toHaveAttribute('aria-valuenow', '260')
+    expect(screen.getByRole('button', { name: '保存参数' })).toBeInTheDocument()
     expect(screen.getByRole('button', { name: '导出 PTA XML' })).toBeInTheDocument()
     expect(screen.queryByText(/PTA 文件不包含网格和求解结果/)).not.toBeInTheDocument()
     expect(screen.getByRole('button', { name: '焊球样式' })).toBeInTheDocument()
@@ -90,6 +104,11 @@ describe('Flip Chip CBGA workspace', () => {
     expect(screen.queryByRole('button', { name: '中央焊球' })).not.toBeInTheDocument()
     expect(screen.getByRole('button', { name: '网格尺寸' })).toBeInTheDocument()
     expect(screen.getByRole('button', { name: '边界条件' })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: '倒装芯片凸点' })).toBeInTheDocument()
+    expect(screen.getByRole('combobox', { name: '基本尺寸预设' })).toHaveTextContent(
+      'CBGAFC_49_6X6mm',
+    )
+    expect(screen.getByText(/切换预设会覆盖/)).toBeInTheDocument()
 
     expect(await screen.findByText('1 个块')).toBeInTheDocument()
     expect(screen.getByText('物理焊球')).toBeInTheDocument()
@@ -101,14 +120,109 @@ describe('Flip Chip CBGA workspace', () => {
       expect.objectContaining({ method: 'POST' }),
     )
     const defaultBody = JSON.parse(String(vi.mocked(fetch).mock.calls[0][1]?.body)) as {
-      solder_balls: { pattern: string; matrix_material: { id: string } }
+      solder_balls: {
+        center_solder_enabled: boolean
+        solder_removal_enabled: boolean
+        matrix_material: { id: string }
+        pattern?: string
+      }
       flip_chip_bumps: { representation: string }
       mesh: { resolution: string }
     }
-    expect(defaultBody.solder_balls.pattern).toBe('full')
+    expect(defaultBody.solder_balls.pattern).toBeUndefined()
+    expect(defaultBody.solder_balls.center_solder_enabled).toBe(false)
+    expect(defaultBody.solder_balls.solder_removal_enabled).toBe(false)
     expect(defaultBody.solder_balls.matrix_material.id).toBe('air')
     expect(defaultBody.flip_chip_bumps.representation).toBe('equivalent')
     expect(defaultBody.mesh.resolution).toBe('standard')
+
+    fireEvent.click(screen.getByRole('button', { name: '倒装芯片凸点' }))
+    expect(screen.getByText('凸点数量：49')).toBeInTheDocument()
+    expect(screen.getByText('单元密度：16.00 个/mm²')).toBeInTheDocument()
+    expect(screen.getByText('截面填充率：18.10%')).toBeInTheDocument()
+    expect(screen.queryByText('凸块排列')).not.toBeInTheDocument()
+
+    fireEvent.click(screen.getByRole('button', { name: '边界条件' }))
+    expect(screen.getByLabelText('PCB 侧对流换热系数')).toHaveValue(1600)
+    expect(screen.getByLabelText('顶部对流换热系数')).toHaveValue(10)
+    expect(screen.queryByText(/热阻/)).not.toBeInTheDocument()
+
+    fireEvent.click(screen.getByRole('button', { name: '焊球样式' }))
+    expect(screen.getByRole('checkbox', { name: '中央焊球' })).not.toBeChecked()
+    expect(screen.getByRole('checkbox', { name: '焊球去除' })).not.toBeChecked()
+    expect(screen.queryByText(/交错阵列|全阵列/)).not.toBeInTheDocument()
+  })
+
+  it('combines center solder with removal and sends both settings', async () => {
+    render(createElement(App))
+    await screen.findByText('1 个块')
+
+    fireEvent.click(screen.getByRole('button', { name: '焊球样式' }))
+    fireEvent.click(screen.getByRole('checkbox', { name: '焊球去除' }))
+    fireEvent.click(screen.getByRole('checkbox', { name: '中央焊球' }))
+
+    expect(screen.getByLabelText('中央去球区行数')).toHaveValue(5)
+    expect(screen.getByLabelText('中央焊球行数')).toHaveValue(3)
+    expect(screen.getByText(/中央焊球会在中央去球区内重新加入/)).toBeInTheDocument()
+
+    fireEvent.click(screen.getByRole('button', { name: '生成模型' }))
+    await waitFor(() => expect(fetch).toHaveBeenCalledTimes(2))
+    const body = JSON.parse(String(vi.mocked(fetch).mock.calls[1][1]?.body)) as {
+      solder_balls: {
+        center_solder_enabled: boolean
+        solder_removal_enabled: boolean
+        center_solder_rows: number
+        removal_rows: number
+      }
+    }
+    expect(body.solder_balls).toMatchObject({
+      center_solder_enabled: true,
+      solder_removal_enabled: true,
+      center_solder_rows: 3,
+      removal_rows: 5,
+    })
+  })
+
+  it('applies a footprint preset and saves it in the browser', async () => {
+    render(createElement(App))
+    await screen.findByText('1 个块')
+
+    const presetSelect = screen.getByRole('combobox', { name: '基本尺寸预设' })
+    fireEvent.mouseDown(presetSelect)
+    fireEvent.click(await screen.findByRole('option', { name: 'CBGAFC_64_7X7mm' }))
+    expect(presetSelect).toHaveTextContent('CBGAFC_64_7X7mm')
+
+    fireEvent.click(screen.getByRole('button', { name: '保存参数' }))
+    expect(window.localStorage.getItem('packstudio.flip-chip-cbga.parameters.v1')).not.toBeNull()
+    expect(screen.getByText('参数已保存')).toBeInTheDocument()
+
+    fireEvent.click(screen.getByRole('button', { name: '生成模型' }))
+    await waitFor(() => expect(fetch).toHaveBeenCalledTimes(2))
+    const body = JSON.parse(String(vi.mocked(fetch).mock.calls[1][1]?.body)) as {
+      substrate: { length: number }
+      solder_balls: { rows: number; columns: number }
+    }
+    expect(body.substrate.length).toBe(7)
+    expect(body.solder_balls).toMatchObject({ rows: 8, columns: 8 })
+  })
+
+  it('restores explicitly saved parameters on the next page load', async () => {
+    const saved = applyPackagePreset(createDefaultParameters(), 'cbgafc-64-7x7')
+    saveParameters(saved)
+
+    render(createElement(App))
+    await screen.findByText('1 个块')
+
+    expect(screen.getByRole('combobox', { name: '基本尺寸预设' })).toHaveTextContent(
+      'CBGAFC_64_7X7mm',
+    )
+    const body = JSON.parse(String(vi.mocked(fetch).mock.calls[0][1]?.body)) as {
+      substrate: { length: number; width: number }
+      solder_balls: { rows: number; columns: number }
+    }
+    expect(body.substrate).toMatchObject({ length: 7, width: 7 })
+    expect(body.solder_balls).toMatchObject({ rows: 8, columns: 8 })
+    expect(screen.getByText('参数已保存')).toBeInTheDocument()
   })
 
   it('enables encapsulant parameters and supports model-tree visibility actions', async () => {

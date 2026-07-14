@@ -1,4 +1,4 @@
-import { Alert, FormControlLabel, Stack, Switch } from '@mui/material'
+import { Alert, Stack } from '@mui/material'
 
 import NumberInput from '../NumberInput'
 import type { FlipChipCbgaParameters } from '../types'
@@ -15,7 +15,6 @@ export default function BoundaryProperties({
   const value = parameters.environment
   const update = (patch: Partial<typeof value>) =>
     onChange({ ...parameters, environment: { ...value, ...patch } })
-  const topOverride = value.top_to_ambient_thermal_resistance_k_w !== null
 
   return (
     <Stack spacing={2}>
@@ -28,7 +27,7 @@ export default function BoundaryProperties({
         }
       />
       <NumberInput
-        label="默认外表面对流系数"
+        label="默认外表面对流换热系数"
         value={value.default_convection_coefficient_w_m2k}
         unit="W/(m²·K)"
         onChange={(default_convection_coefficient_w_m2k) =>
@@ -39,39 +38,23 @@ export default function BoundaryProperties({
         }
       />
       <NumberInput
-        label="PCB→环境等效热阻"
-        value={value.board_to_ambient_thermal_resistance_k_w}
-        unit="K/W"
-        onChange={(board_to_ambient_thermal_resistance_k_w) =>
-          update({
-            board_to_ambient_thermal_resistance_k_w:
-              board_to_ambient_thermal_resistance_k_w ?? 0,
-          })
+        label="PCB 侧对流换热系数"
+        value={value.pcb_convection_coefficient_w_m2k}
+        unit="W/(m²·K)"
+        onChange={(pcb_convection_coefficient_w_m2k) =>
+          update({ pcb_convection_coefficient_w_m2k: pcb_convection_coefficient_w_m2k ?? 0 })
         }
       />
-      <FormControlLabel
-        control={
-          <Switch
-            checked={topOverride}
-            onChange={(event) =>
-              update({ top_to_ambient_thermal_resistance_k_w: event.target.checked ? 10 : null })
-            }
-          />
+      <NumberInput
+        label="顶部对流换热系数"
+        value={value.top_convection_coefficient_w_m2k}
+        unit="W/(m²·K)"
+        onChange={(top_convection_coefficient_w_m2k) =>
+          update({ top_convection_coefficient_w_m2k: top_convection_coefficient_w_m2k ?? 0 })
         }
-        label="设置顶部关键散热面"
       />
-      {topOverride && (
-        <NumberInput
-          label="顶部→环境等效热阻"
-          value={value.top_to_ambient_thermal_resistance_k_w}
-          unit="K/W"
-          onChange={(top_to_ambient_thermal_resistance_k_w) =>
-            update({ top_to_ambient_thermal_resistance_k_w })
-          }
-        />
-      )}
       <Alert severity="warning" icon={false}>
-        PCB 等效热阻是无 PCB 几何时的工程初值，正式结果需按实际板级条件校准。
+        PCB 侧 1600 W/(m²·K) 是无 PCB 几何时的工程初值；正式结果需按实际板级条件校准。
       </Alert>
     </Stack>
   )
