@@ -209,20 +209,45 @@ def _append_block(
 def _group_layers(
     blocks: list[AxisAlignedBlock],
 ) -> list[tuple[tuple[float, float], list[AxisAlignedBlock]]]:
-    grouped: dict[tuple[float, float], list[AxisAlignedBlock]] = defaultdict(list)
-    for block in blocks:
-        grouped[(block.origin.z, block.size.z)].append(block)
-    return sorted(grouped.items(), key=lambda item: item[0][0])
+    z_coordinates = sorted(
+        {coordinate for block in blocks for coordinate in (block.origin.z, block.max_z)}
+    )
+    layers: list[tuple[tuple[float, float], list[AxisAlignedBlock]]] = []
+    for base_z, maximum_z in zip(z_coordinates, z_coordinates[1:], strict=False):
+        thickness = maximum_z - base_z
+        if thickness <= 1e-12:
+            continue
+        active = [
+            block
+            for block in blocks
+            if block.origin.z <= base_z + 1e-9 and block.max_z >= maximum_z - 1e-9
+        ]
+        if not active:
+            layers.append(((base_z, thickness), []))
+            continue
+        slices = [
+            block.model_copy(
+                update={
+                    "origin": block.origin.model_copy(update={"z": base_z}),
+                    "size": block.size.model_copy(update={"z": thickness}),
+                }
+            )
+            for block in active
+        ]
+        layers.append(((base_z, thickness), slices))
+    return layers
 
 
 def _validate_contiguous_layers(
     layers: list[tuple[tuple[float, float], list[AxisAlignedBlock]]], z_shift: float
 ) -> None:
     cursor = 0.0
-    for (base_z, thickness), _ in layers:
+    for (base_z, thickness), blocks in layers:
         shifted_z = base_z + z_shift
         if abs(shifted_z - cursor) > 1e-8:
             raise ValueError("PTA export requires contiguous z layers")
+        if not blocks:
+            raise ValueError("PTA export requires a contiguous stack without empty z intervals")
         cursor = shifted_z + thickness
 
 

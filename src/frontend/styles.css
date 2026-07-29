@@ -205,6 +205,19 @@ body {
   background: #f8fafb;
 }
 
+.package-loading {
+  display: grid;
+  min-height: calc(100vh - 64px);
+  place-items: center;
+  padding: 24px;
+}
+
+.package-materials {
+  height: 100%;
+  overflow: auto;
+  padding-right: 3px;
+}
+
 @media (max-width: 1300px) {
   .template-workspace {
     grid-template-columns:

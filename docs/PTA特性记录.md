@@ -161,6 +161,13 @@ TiReyuan = power_w / (block_volume_mm3 × 1e-9)
 预设分别按每层包络在 XY 方向约分 12、24、40 份，在 Z 方向约分 1、2、4 份。自动化测试
 明确允许 `MeshSize*Expression`，但继续拒绝 `<Mesh>` 实体。
 
+### 5.1 TASK6 多跨度 Z 分层
+
+八类参考模型包含跨越多个高度区间的基板、封装体、引线框和嵌入结构。导出器先收集所有块
+的 Z 起止边界，再把跨区间矩形块切成逐层片段，使每个 PTA `Layer` 只覆盖一个确定高度区间。
+相邻全局区间必须连续；若存在没有任何结构覆盖的空 Z 区间，导出前直接拒绝。切片不改变
+总体体积、材料、热源功率和表面边界语义。
+
 ## 6. 热边界
 
 **样例**：PTA 热边界使用以下 DataContract 类型：
@@ -216,4 +223,5 @@ TASK5 起 PCB 和顶部均不再输入总热阻，也不执行 `h = 1 / (R × A)
 - [ADR-0002：Flip Chip CBGA 模型与 PTA 导出约定](decisions/0002-Flip-Chip-CBGA-模型与-PTA-导出约定.md)
 - [ADR-0004：TASK4 仿真就绪导出约定](decisions/0004-TASK4-仿真就绪导出约定.md)
 - [ADR-0005：TASK5 组合焊球与尺寸预设](decisions/0005-TASK5-组合焊球与尺寸预设.md)
+- [ADR-0006：TASK6 八类证据驱动模板](decisions/0006-TASK6-八类证据驱动模板.md)
 - [Flip Chip CBGA / BGA 模板说明](templates/flip-chip-cbga.md)

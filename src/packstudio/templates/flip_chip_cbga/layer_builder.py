@@ -10,6 +10,7 @@ from packstudio.templates.flip_chip_cbga.equivalent import (
 from packstudio.templates.flip_chip_cbga.layout import (
     ArrayCell,
     build_array_cells,
+    cell_geometry,
     occupied_regions,
     region_geometry,
     unoccupied_regions,
@@ -206,26 +207,31 @@ def _append_cell_matrix_blocks(
     matrix_structure: StructureType,
     group_id: str,
 ) -> None:
-    half_gap_x = (parameters.pitch_x - element_side) / 2
-    half_gap_y = (parameters.pitch_y - element_side) / 2
-    cell_x = cell.center_x - parameters.pitch_x / 2
-    cell_y = cell.center_y - parameters.pitch_y / 2
+    cell_x, cell_y, cell_width, cell_depth = cell_geometry(
+        parameters,
+        cell.row,
+        cell.column,
+    )
+    left_gap = cell.center_x - element_side / 2 - cell_x
+    right_gap = cell_x + cell_width - (cell.center_x + element_side / 2)
+    front_gap = cell.center_y - element_side / 2 - cell_y
+    back_gap = cell_y + cell_depth - (cell.center_y + element_side / 2)
     parts = [
-        ("left", cell_x, cell_y, half_gap_x, parameters.pitch_y),
+        ("left", cell_x, cell_y, left_gap, cell_depth),
         (
             "right",
             cell.center_x + element_side / 2,
             cell_y,
-            half_gap_x,
-            parameters.pitch_y,
+            right_gap,
+            cell_depth,
         ),
-        ("front", cell.center_x - element_side / 2, cell_y, element_side, half_gap_y),
+        ("front", cell.center_x - element_side / 2, cell_y, element_side, front_gap),
         (
             "back",
             cell.center_x - element_side / 2,
             cell.center_y + element_side / 2,
             element_side,
-            half_gap_y,
+            back_gap,
         ),
     ]
     for suffix, origin_x, origin_y, size_x, size_y in parts:

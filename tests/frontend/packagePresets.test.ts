@@ -33,10 +33,20 @@ describe('Flip Chip CBGA package presets', () => {
       const bumps = parameters.flip_chip_bumps
 
       expect(balls.rows * balls.columns).toBe(preset.ballCount)
-      expect(balls.columns * balls.pitch_x).toBeLessThanOrEqual(parameters.substrate.length)
-      expect(balls.rows * balls.pitch_y).toBeLessThanOrEqual(parameters.substrate.width)
-      expect(bumps.columns * bumps.pitch_x).toBeLessThanOrEqual(parameters.die.length)
-      expect(bumps.rows * bumps.pitch_y).toBeLessThanOrEqual(parameters.die.width)
+      expect((balls.columns - 1) * balls.pitch_x + balls.diameter).toBeLessThanOrEqual(
+        parameters.substrate.length,
+      )
+      expect((balls.rows - 1) * balls.pitch_y + balls.diameter).toBeLessThanOrEqual(
+        parameters.substrate.width,
+      )
+      expect((bumps.columns - 1) * bumps.pitch_x + bumps.diameter).toBeLessThanOrEqual(
+        parameters.die.length,
+      )
+      expect((bumps.rows - 1) * bumps.pitch_y + bumps.diameter).toBeLessThanOrEqual(
+        parameters.die.width,
+      )
+      expect(bumps.footprint_x_override).toBe(parameters.die.length)
+      expect(bumps.footprint_y_override).toBe(parameters.die.width)
       expect(parameters.encapsulant.length).toBeGreaterThan(parameters.die.length)
       expect(parameters.encapsulant.width).toBeGreaterThan(parameters.die.width)
       expect(detectPackagePreset(parameters)).toBe(preset.id)

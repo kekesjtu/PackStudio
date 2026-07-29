@@ -12,6 +12,15 @@ class StructureType(StrEnum):
     THERMAL_INTERFACE = "thermal_interface"
     HEAT_SLUG = "heat_slug"
     LID = "lid"
+    DIE_ATTACH = "die_attach"
+    LEAD_FRAME = "lead_frame"
+    BOND_WIRE = "bond_wire"
+    SOLDER_MASK = "solder_mask"
+    TRACE = "trace"
+    VIA = "via"
+    EXPOSED_PAD = "exposed_pad"
+    SOLDER = "solder"
+    GENERIC = "generic"
 
 
 class BlockFace(StrEnum):

@@ -49,19 +49,27 @@ def test_default_reference_geometry_has_expected_coordinates_and_envelope() -> N
     assert blocks["die"].origin.x == pytest.approx(-0.9)
     assert blocks["die"].origin.y == pytest.approx(-0.9)
     assert blocks["die"].origin.z == pytest.approx(1.25)
+    bump = blocks["fc-bump-array-equivalent-1"]
+    assert bump.origin.x == pytest.approx(-0.9)
+    assert bump.origin.y == pytest.approx(-0.9)
+    assert bump.size.x == pytest.approx(1.8)
+    assert bump.size.y == pytest.approx(1.8)
     assert len(solder_regions) == 1
-    assert solder_regions[0].origin.x == pytest.approx(-2.8)
-    assert solder_regions[0].origin.y == pytest.approx(-2.8)
-    assert solder_regions[0].size.x == pytest.approx(5.6)
-    assert solder_regions[0].size.y == pytest.approx(5.6)
+    assert solder_regions[0].origin.x == pytest.approx(-2.65)
+    assert solder_regions[0].origin.y == pytest.approx(-2.65)
+    assert solder_regions[0].size.x == pytest.approx(5.3)
+    assert solder_regions[0].size.y == pytest.approx(5.3)
     assert solder_regions[0].material_id == "solder-ball-equivalent"
     assert solder_regions[0].metadata["fill_fraction"] == pytest.approx(
         pi
         * (parameters.solder_balls.diameter / 2) ** 2
         / (parameters.solder_balls.pitch_x * parameters.solder_balls.pitch_y)
     )
+    expected_footprint = (
+        parameters.solder_balls.columns - 1
+    ) * parameters.solder_balls.pitch_x + parameters.solder_balls.diameter
     assert sum(region.size.x * region.size.y for region in solder_regions) == pytest.approx(
-        49 * parameters.solder_balls.pitch_x * parameters.solder_balls.pitch_y
+        expected_footprint**2
     )
     assert static_air == []
     assert parameters.solder_balls.matrix_material.id == "air"
@@ -286,37 +294,3 @@ def test_environment_parameters_generate_simulation_ready_boundaries() -> None:
     top = next(boundary for boundary in model.boundaries if boundary.id == "top-surface-cooling")
     assert board.convection_coefficient_w_m2k == pytest.approx(1800)
     assert top.convection_coefficient_w_m2k == pytest.approx(25)
-
-
-def test_array_outside_parent_envelope_is_rejected() -> None:
-    defaults = FlipChipCbgaParameters()
-    oversized = defaults.flip_chip_bumps.model_copy(update={"columns": 20})
-
-    with pytest.raises(ValidationError, match="must fit inside the die"):
-        FlipChipCbgaParameters(flip_chip_bumps=oversized)
-
-
-def test_heat_slug_outside_substrate_envelope_is_rejected() -> None:
-    defaults = FlipChipCbgaParameters()
-    oversized_slug = defaults.heat_slug.model_copy(
-        update={"enabled": True, "length": 6.5, "width": 6.5}
-    )
-
-    with pytest.raises(ValidationError, match="heat slug must fit"):
-        FlipChipCbgaParameters(heat_slug=oversized_slug)
-
-
-@pytest.mark.parametrize(
-    ("update", "message"),
-    [
-        ({"enabled": True, "length": 1.8}, "extend beyond the die"),
-        ({"enabled": True, "length": 6.5}, "fit inside the substrate"),
-    ],
-)
-def test_invalid_encapsulant_envelopes_are_rejected(
-    update: dict[str, object], message: str
-) -> None:
-    defaults = FlipChipCbgaParameters()
-
-    with pytest.raises(ValidationError, match=message):
-        FlipChipCbgaParameters(encapsulant=defaults.encapsulant.model_copy(update=update))

@@ -69,6 +69,8 @@ export function applyPackagePreset(
       pitch_y: bumpPitch,
       diameter: 0.12,
       height: 0.1,
+      footprint_x_override: dieLength,
+      footprint_y_override: dieWidth,
       representation: 'equivalent',
     },
     solder_balls: {
@@ -79,6 +81,8 @@ export function applyPackagePreset(
       pitch_y: selected.ballPitch,
       diameter: ballGeometry.diameter,
       height: ballGeometry.height,
+      footprint_x_override: null,
+      footprint_y_override: null,
       center_solder_enabled: false,
       center_solder_rows: centeredSize(selected.ballRows, 4),
       center_solder_columns: centeredSize(selected.ballColumns, 4),

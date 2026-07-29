@@ -2,7 +2,9 @@
 
 ## 功能范围
 
-当前只提供 `flip-chip-cbga` 模板。它把封装表达为与坐标轴平行的矩形块，支持：
+本页说明 TASK2–5 的 `flip-chip-cbga` 兼容工作区，以及 TASK6 对 Flip Chip CBGA 的基准
+复核结果。PackStudio 主界面现已提供 8 类模板；该封装仍把所有结构表达为与坐标轴平行的
+矩形块，支持：
 
 - 基板、芯片、倒装芯片凸点、underfill、BGA 焊球及静态空气；
 - 可选的塑封体；
@@ -44,6 +46,17 @@ Flip Chip CBGA
 
 默认凸点和焊球物理数量均为 49，焊球样式为隐式全阵列。BGA 等效块内部以焊料/空气体积分数计算
 物性，因此 BGA 层没有 underfill。等效块仅覆盖阵列包络，不在阵列与基板边缘之间建立空气。
+
+TASK6 依据 PACK 2504 基准 FloXML 修正后的默认关键尺寸为：
+
+| 结构 | 原点 (mm) | 尺寸 (mm) |
+| --- | --- | --- |
+| 基板 | `(-3, -3, 0)` | `(6, 6, 1.15)` |
+| BGA 层 | `(-2.65, -2.65, -0.4)` | `(5.3, 5.3, 0.4)` |
+| bumps + underfill | `(-0.9, -0.9, 1.15)` | `(1.8, 1.8, 0.1)` |
+
+BGA 外包络采用 `(count - 1) × pitch + diameter`，不再使用 `count × pitch`。凸点等效层
+外包络由已验证 die 包络 1.8 × 1.8 mm 驱动，层顶与芯片底面在 Z = 1.25 mm 连续接触。
 
 ## 可选塑封体
 
@@ -117,10 +130,14 @@ Z 向导热率按并联混合，X/Y 向分别按等体积方柱的串并联热�
 
 | 方法 | 路径 | 用途 |
 | --- | --- | --- |
-| `GET` | `/api/templates` | 返回当前唯一模板、焊球样式功能和支持的表达 |
+| `GET` | `/api/templates` | 返回 8 类模板及各自能力声明 |
 | `GET` | `/api/templates/flip-chip-cbga/defaults` | 返回完整默认参数 |
 | `POST` | `/api/templates/flip-chip-cbga/generate` | 校验参数并返回 JSON 领域模型 |
 | `POST` | `/api/templates/flip-chip-cbga/export/pta` | 生成可下载的 PTA XML |
+| `GET` | `/api/templates/flip_chip_cbga/schema` | 返回原生向导字段、范围和条件 |
+| `GET` | `/api/templates/flip_chip_cbga/defaults` | 返回生产模板默认请求 |
+| `POST` | `/api/templates/flip_chip_cbga/generate` | 生成经基准复核的原生领域模型 |
+| `POST` | `/api/templates/flip_chip_cbga/export/pta` | 导出原生 PTA XML |
 
 前端使用“生成模型”刷新三维预览和模型树，使用“保存参数”写入当前浏览器，使用“导出
 PTA XML”按当前参数直接生成 XML。参数修改后，预览会标记为待重新生成。三维预览直接使用
@@ -181,3 +198,7 @@ npm run lint
 npm test
 npm run build
 ```
+
+八类证据驱动实现与可信度边界见
+[ADR-0006](../decisions/0006-TASK6-八类证据驱动模板.md)，生产运行时解耦见
+[ADR-0007](../decisions/0007-TASK7-生产模板与参考数据解耦.md)。

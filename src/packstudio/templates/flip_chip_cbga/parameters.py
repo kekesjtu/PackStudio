@@ -57,17 +57,19 @@ class ArrayLayerParameters(BaseModel):
     pitch_y: float = Field(gt=0)
     diameter: float = Field(gt=0)
     height: float = Field(gt=0)
+    footprint_x_override: float | None = Field(default=None, gt=0)
+    footprint_y_override: float | None = Field(default=None, gt=0)
     representation: ArrayRepresentation = ArrayRepresentation.EQUIVALENT
     element_material: Material
     matrix_material: Material
 
     @property
     def footprint_x(self) -> float:
-        return self.columns * self.pitch_x
+        return self.footprint_x_override or ((self.columns - 1) * self.pitch_x + self.diameter)
 
     @property
     def footprint_y(self) -> float:
-        return self.rows * self.pitch_y
+        return self.footprint_y_override or ((self.rows - 1) * self.pitch_y + self.diameter)
 
     @model_validator(mode="after")
     def validate_layout(self) -> "ArrayLayerParameters":
@@ -158,6 +160,16 @@ class FlipChipCbgaParameters(BaseModel):
             self.flip_chip_bumps.footprint_y > self.die.width + tolerance
         ):
             raise ValueError("flip-chip bump array must fit inside the die footprint")
+        bump_physical_x = (
+            self.flip_chip_bumps.columns - 1
+        ) * self.flip_chip_bumps.pitch_x + self.flip_chip_bumps.diameter
+        bump_physical_y = (
+            self.flip_chip_bumps.rows - 1
+        ) * self.flip_chip_bumps.pitch_y + self.flip_chip_bumps.diameter
+        if bump_physical_x > self.die.length + tolerance or (
+            bump_physical_y > self.die.width + tolerance
+        ):
+            raise ValueError("flip-chip bump array must fit inside the die footprint")
         if self.solder_balls.footprint_x > self.substrate.length + tolerance or (
             self.solder_balls.footprint_y > self.substrate.width + tolerance
         ):
@@ -211,6 +223,8 @@ def _default_bumps() -> ArrayLayerParameters:
         pitch_y=0.25,
         diameter=0.12,
         height=0.1,
+        footprint_x_override=1.8,
+        footprint_y_override=1.8,
         element_material=materials["solder"],
         matrix_material=materials["underfill"],
     )

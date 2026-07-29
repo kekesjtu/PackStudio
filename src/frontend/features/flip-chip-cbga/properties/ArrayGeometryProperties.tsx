@@ -26,8 +26,10 @@ export default function ArrayGeometryProperties({
     onChange({ ...parameters, [target]: { ...value, ...patch } })
   const isBump = target === 'flip_chip_bumps'
   const elementCount = value.rows * value.columns
-  const footprintX = value.columns * value.pitch_x
-  const footprintY = value.rows * value.pitch_y
+  const footprintX =
+    value.footprint_x_override ?? (value.columns - 1) * value.pitch_x + value.diameter
+  const footprintY =
+    value.footprint_y_override ?? (value.rows - 1) * value.pitch_y + value.diameter
   const cellDensity = 1 / (value.pitch_x * value.pitch_y)
   const fillFraction =
     (Math.PI * (value.diameter / 2) ** 2) / (value.pitch_x * value.pitch_y)

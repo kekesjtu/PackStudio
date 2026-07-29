@@ -3,14 +3,108 @@ import { fireEvent, render, screen, waitFor } from '@testing-library/react'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 import App from '../../src/frontend/App'
-import { createDefaultParameters } from '../../src/frontend/features/flip-chip-cbga/defaults'
-import { applyPackagePreset } from '../../src/frontend/features/flip-chip-cbga/packagePresets'
-import { saveParameters } from '../../src/frontend/features/flip-chip-cbga/parameterStorage'
-import type { PackageModel } from '../../src/frontend/features/flip-chip-cbga/types'
+import type {
+  PackageModel,
+  TemplateRequest,
+  TemplateSchema,
+  TemplateCatalogItem,
+} from '../../src/frontend/features/package-library/types'
 
 vi.mock('../../src/frontend/features/flip-chip-cbga/ModelPreview', () => ({
   default: () => createElement('div', { 'aria-label': '测试三维模型' }),
 }))
+
+const catalog: TemplateCatalogItem[] = [
+  template('flip_chip_cbga', 'Flip Chip CBGA', true),
+  template('bare_die', 'Bare Die', false),
+]
+
+const schema: TemplateSchema = {
+  schema_version: 'packstudio.wizard/v2',
+  template_id: 'flip_chip_cbga',
+  has_bga: true,
+  special_rules: {
+    bga_pattern: 'implicit_full_with_center_and_removal',
+    flip_chip_bumps: 'thick_orthotropic_equivalent',
+  },
+  steps: [
+    {
+      id: 'die',
+      label: 'Die',
+      fields: [
+        {
+          target_id: 'flip_chip_cbga.cover.type',
+          ui_location: 'die',
+          component: 'package',
+          label: '顶部结构',
+          control: 'select',
+          default: 'bare_die',
+          options: ['bare_die', 'lid'],
+          classification: 'enum_option',
+          property_name: 'cover.type',
+          supported_values: ['bare_die', 'lid'],
+          evidence_status: 'implemented',
+          editable: true,
+        },
+        {
+          target_id: 'flip_chip_cbga.lid.thickness',
+          ui_location: 'die',
+          component: 'package',
+          label: '顶盖厚度',
+          control: 'number',
+          default: 0.3,
+          options: [],
+          classification: 'numeric_parameter',
+          property_name: 'lid.thickness',
+          supported_values: [0.05, 3],
+          evidence_status: 'implemented',
+          editable: true,
+          visible_when: { 'cover.type': 'lid' },
+        },
+        {
+          target_id: 'flip_chip_cbga.die.length',
+          ui_location: 'die',
+          component: 'die',
+          label: 'Die Length Ld',
+          control: 'number',
+          default: 1.8,
+          options: [],
+          classification: 'numeric_parameter',
+          property_name: 'dieLengthLd',
+          supported_values: [1.62, 1.8, 1.98],
+          evidence_status: 'implemented',
+          editable: true,
+        },
+      ],
+    },
+  ],
+}
+
+const defaults: TemplateRequest = {
+  template_id: 'flip_chip_cbga',
+  design_name: 'Flip Chip CBGA',
+  overrides: {},
+  bga: {
+    representation: 'equivalent',
+    center_solder_enabled: false,
+    center_solder_rows: 1,
+    center_solder_columns: 1,
+    solder_removal_enabled: false,
+    removal_rows: 3,
+    removal_columns: 3,
+    omitted_cells: [],
+  },
+  material_assignments: {},
+  custom_materials: [],
+  die_power_w: null,
+  mesh: { resolution: 'standard' },
+  environment: {
+    ambient_temperature_k: 300,
+    default_convection_coefficient_w_m2k: 10,
+    pcb_convection_coefficient_w_m2k: 1600,
+    top_convection_coefficient_w_m2k: 10,
+  },
+}
 
 const generatedModel: PackageModel = {
   schema_version: 'packstudio.model/v1',
@@ -27,9 +121,9 @@ const generatedModel: PackageModel = {
     {
       id: 'alumina',
       name: 'Alumina',
-      conductivity: { x: 25, y: 25, z: 25 },
-      density: 3900,
-      specific_heat: 880,
+      conductivity: { x: 16, y: 16, z: 16 },
+      density: 3970,
+      specific_heat: 765,
       color: '#6975DC',
     },
   ],
@@ -41,14 +135,14 @@ const generatedModel: PackageModel = {
       origin: { x: -3, y: -3, z: 0 },
       size: { x: 6, y: 6, z: 1.15 },
       material_id: 'alumina',
-      parent_group_id: 'substrate-group',
+      parent_group_id: 'group-substrate',
       metadata: {},
     },
   ],
   groups: [
     { id: 'package', name: 'Flip Chip CBGA', parent_id: null, block_ids: [] },
     {
-      id: 'substrate-group',
+      id: 'group-substrate',
       name: 'Substrate',
       parent_id: 'package',
       block_ids: ['substrate'],
@@ -56,204 +150,111 @@ const generatedModel: PackageModel = {
   ],
   heat_sources: [],
   boundaries: [],
-  metadata: { solder_ball_count: 49 },
+  metadata: { solder_ball_footprint_x_mm: 5.3 },
 }
 
-describe('Flip Chip CBGA workspace', () => {
+describe('eight-template production workspace', () => {
   beforeEach(() => {
     window.localStorage.clear()
-    vi.stubGlobal(
-      'fetch',
-      vi.fn().mockResolvedValue({ ok: true, json: async () => generatedModel }),
-    )
+    vi.stubGlobal('fetch', vi.fn(fetchResponse))
   })
 
   afterEach(() => {
-    window.localStorage.clear()
     vi.unstubAllGlobals()
+    window.localStorage.clear()
   })
 
-  it('renders the four-column workspace and generates the default model', async () => {
+  it('loads the native wizard, preview, model tree and four-column controls', async () => {
     render(createElement(App))
 
     expect(screen.getByRole('heading', { name: 'PackStudio' })).toBeInTheDocument()
-    expect(screen.getByRole('navigation', { name: '封装结构属性' })).toBeInTheDocument()
-    expect(screen.getByRole('heading', { name: '汇总' })).toBeInTheDocument()
-    expect(screen.getByRole('heading', { name: '三维建模区' })).toBeInTheDocument()
-    const propertyResizer = screen.getByRole('separator', { name: '调整属性栏宽度' })
-    const inspectorResizer = screen.getByRole('separator', { name: '调整检查器宽度' })
-    expect(propertyResizer).toHaveAttribute('aria-valuenow', '380')
-    expect(inspectorResizer).toHaveAttribute('aria-valuenow', '320')
-    fireEvent.keyDown(propertyResizer, { key: 'ArrowRight' })
-    fireEvent.keyDown(inspectorResizer, { key: 'ArrowLeft' })
-    expect(propertyResizer).toHaveAttribute('aria-valuenow', '400')
-    expect(inspectorResizer).toHaveAttribute('aria-valuenow', '340')
-    expect(screen.getByRole('tab', { name: '材料库' })).toBeInTheDocument()
-    expect(screen.getByRole('tab', { name: '模型树' })).toBeInTheDocument()
-    const materialResizer = screen.getByRole('separator', {
-      name: '调整材料列表和属性区域高度',
-    })
-    expect(materialResizer).toHaveAttribute('aria-valuenow', '240')
-    fireEvent.keyDown(materialResizer, { key: 'ArrowDown' })
-    expect(materialResizer).toHaveAttribute('aria-valuenow', '260')
-    expect(screen.getByRole('button', { name: '保存参数' })).toBeInTheDocument()
-    expect(screen.getByRole('button', { name: '导出 PTA XML' })).toBeInTheDocument()
-    expect(screen.queryByText(/PTA 文件不包含网格和求解结果/)).not.toBeInTheDocument()
-    expect(screen.getByRole('button', { name: '焊球样式' })).toBeInTheDocument()
-    expect(screen.queryByRole('button', { name: '焊球去除' })).not.toBeInTheDocument()
-    expect(screen.queryByRole('button', { name: '中央焊球' })).not.toBeInTheDocument()
-    expect(screen.getByRole('button', { name: '网格尺寸' })).toBeInTheDocument()
-    expect(screen.getByRole('button', { name: '边界条件' })).toBeInTheDocument()
-    expect(screen.getByRole('button', { name: '倒装芯片凸点' })).toBeInTheDocument()
-    expect(screen.getByRole('combobox', { name: '基本尺寸预设' })).toHaveTextContent(
-      'CBGAFC_49_6X6mm',
-    )
-    expect(screen.getByText(/切换预设会覆盖/)).toBeInTheDocument()
-
     expect(await screen.findByText('1 个块')).toBeInTheDocument()
-    expect(screen.getByText('物理焊球')).toBeInTheDocument()
+    expect(screen.getByRole('navigation')).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: 'Die' })).toBeInTheDocument()
+    expect(screen.getByLabelText('Die Length Ld')).toHaveValue(1.8)
+    expect(screen.getByRole('separator', { name: '调整属性栏宽度' })).toHaveAttribute(
+      'aria-valuenow',
+      '390',
+    )
+    expect(screen.getByRole('tab', { name: '材料配置' })).toBeInTheDocument()
     fireEvent.click(screen.getByRole('tab', { name: '模型树' }))
     expect(screen.getByText('Package substrate')).toBeInTheDocument()
-    expect(screen.queryByText('substrate')).not.toBeInTheDocument()
-    expect(fetch).toHaveBeenCalledWith(
-      '/api/templates/flip-chip-cbga/generate',
-      expect.objectContaining({ method: 'POST' }),
-    )
-    const defaultBody = JSON.parse(String(vi.mocked(fetch).mock.calls[0][1]?.body)) as {
-      solder_balls: {
-        center_solder_enabled: boolean
-        solder_removal_enabled: boolean
-        matrix_material: { id: string }
-        pattern?: string
-      }
-      flip_chip_bumps: { representation: string }
-      mesh: { resolution: string }
-    }
-    expect(defaultBody.solder_balls.pattern).toBeUndefined()
-    expect(defaultBody.solder_balls.center_solder_enabled).toBe(false)
-    expect(defaultBody.solder_balls.solder_removal_enabled).toBe(false)
-    expect(defaultBody.solder_balls.matrix_material.id).toBe('air')
-    expect(defaultBody.flip_chip_bumps.representation).toBe('equivalent')
-    expect(defaultBody.mesh.resolution).toBe('standard')
-
-    fireEvent.click(screen.getByRole('button', { name: '倒装芯片凸点' }))
-    expect(screen.getByText('凸点数量：49')).toBeInTheDocument()
-    expect(screen.getByText('单元密度：16.00 个/mm²')).toBeInTheDocument()
-    expect(screen.getByText('截面填充率：18.10%')).toBeInTheDocument()
-    expect(screen.queryByText('凸块排列')).not.toBeInTheDocument()
-
-    fireEvent.click(screen.getByRole('button', { name: '边界条件' }))
-    expect(screen.getByLabelText('PCB 侧对流换热系数')).toHaveValue(1600)
-    expect(screen.getByLabelText('顶部对流换热系数')).toHaveValue(10)
-    expect(screen.queryByText(/热阻/)).not.toBeInTheDocument()
-
-    fireEvent.click(screen.getByRole('button', { name: '焊球样式' }))
-    expect(screen.getByRole('checkbox', { name: '中央焊球' })).not.toBeChecked()
-    expect(screen.getByRole('checkbox', { name: '焊球去除' })).not.toBeChecked()
-    expect(screen.queryByText(/交错阵列|全阵列/)).not.toBeInTheDocument()
   })
 
-  it('combines center solder with removal and sends both settings', async () => {
+  it('combines BGA removal and center solder without exposing staggered patterns', async () => {
     render(createElement(App))
     await screen.findByText('1 个块')
 
-    fireEvent.click(screen.getByRole('button', { name: '焊球样式' }))
-    fireEvent.click(screen.getByRole('checkbox', { name: '焊球去除' }))
-    fireEvent.click(screen.getByRole('checkbox', { name: '中央焊球' }))
-
-    expect(screen.getByLabelText('中央去球区行数')).toHaveValue(5)
-    expect(screen.getByLabelText('中央焊球行数')).toHaveValue(3)
-    expect(screen.getByText(/中央焊球会在中央去球区内重新加入/)).toBeInTheDocument()
-
+    fireEvent.click(screen.getByRole('button', { name: 'BGA 焊球配置' }))
+    fireEvent.click(screen.getByRole('switch', { name: '焊球去除' }))
+    fireEvent.click(screen.getByRole('switch', { name: '中央焊球' }))
+    expect(screen.queryByText(/交错阵列/)).not.toBeInTheDocument()
     fireEvent.click(screen.getByRole('button', { name: '生成模型' }))
-    await waitFor(() => expect(fetch).toHaveBeenCalledTimes(2))
-    const body = JSON.parse(String(vi.mocked(fetch).mock.calls[1][1]?.body)) as {
-      solder_balls: {
-        center_solder_enabled: boolean
-        solder_removal_enabled: boolean
-        center_solder_rows: number
-        removal_rows: number
-      }
-    }
-    expect(body.solder_balls).toMatchObject({
-      center_solder_enabled: true,
+
+    await waitFor(() => expect(generateCalls()).toHaveLength(2))
+    const body = requestBody(generateCalls().at(-1))
+    expect(body.bga).toMatchObject({
+      representation: 'equivalent',
       solder_removal_enabled: true,
-      center_solder_rows: 3,
-      removal_rows: 5,
+      center_solder_enabled: true,
     })
   })
 
-  it('applies a footprint preset and saves it in the browser', async () => {
+  it('sends native numeric overrides inside the implemented range and persists them', async () => {
     render(createElement(App))
     await screen.findByText('1 个块')
 
-    const presetSelect = screen.getByRole('combobox', { name: '基本尺寸预设' })
-    fireEvent.mouseDown(presetSelect)
-    fireEvent.click(await screen.findByRole('option', { name: 'CBGAFC_64_7X7mm' }))
-    expect(presetSelect).toHaveTextContent('CBGAFC_64_7X7mm')
-
+    fireEvent.change(screen.getByLabelText('Die Length Ld'), { target: { value: '1.9' } })
     fireEvent.click(screen.getByRole('button', { name: '保存参数' }))
-    expect(window.localStorage.getItem('packstudio.flip-chip-cbga.parameters.v1')).not.toBeNull()
-    expect(screen.getByText('参数已保存')).toBeInTheDocument()
-
+    expect(localStorage.getItem('packstudio.library.v2.flip_chip_cbga')).toContain('1.9')
     fireEvent.click(screen.getByRole('button', { name: '生成模型' }))
-    await waitFor(() => expect(fetch).toHaveBeenCalledTimes(2))
-    const body = JSON.parse(String(vi.mocked(fetch).mock.calls[1][1]?.body)) as {
-      substrate: { length: number }
-      solder_balls: { rows: number; columns: number }
-    }
-    expect(body.substrate.length).toBe(7)
-    expect(body.solder_balls).toMatchObject({ rows: 8, columns: 8 })
+
+    await waitFor(() => expect(generateCalls()).toHaveLength(2))
+    expect(requestBody(generateCalls().at(-1)).overrides).toEqual({
+      'flip_chip_cbga.die.length': 1.9,
+    })
   })
 
-  it('restores explicitly saved parameters on the next page load', async () => {
-    const saved = applyPackagePreset(createDefaultParameters(), 'cbgafc-64-7x7')
-    saveParameters(saved)
-
+  it('links fields through the native production condition key', async () => {
     render(createElement(App))
     await screen.findByText('1 个块')
 
-    expect(screen.getByRole('combobox', { name: '基本尺寸预设' })).toHaveTextContent(
-      'CBGAFC_64_7X7mm',
-    )
-    const body = JSON.parse(String(vi.mocked(fetch).mock.calls[0][1]?.body)) as {
-      substrate: { length: number; width: number }
-      solder_balls: { rows: number; columns: number }
-    }
-    expect(body.substrate).toMatchObject({ length: 7, width: 7 })
-    expect(body.solder_balls).toMatchObject({ rows: 8, columns: 8 })
-    expect(screen.getByText('参数已保存')).toBeInTheDocument()
-  })
-
-  it('enables encapsulant parameters and supports model-tree visibility actions', async () => {
-    render(createElement(App))
-    await screen.findByText('1 个块')
-
-    fireEvent.click(screen.getByRole('button', { name: '塑封' }))
-    fireEvent.click(screen.getByRole('switch', { name: '包含塑封' }))
-    fireEvent.click(screen.getByRole('button', { name: '生成模型' }))
-
-    await waitFor(() => expect(fetch).toHaveBeenCalledTimes(2))
-    const request = vi.mocked(fetch).mock.calls[1]
-    const body = JSON.parse(String(request[1]?.body)) as { encapsulant: { enabled: boolean } }
-    expect(body.encapsulant.enabled).toBe(true)
-
-    fireEvent.click(screen.getByRole('tab', { name: '模型树' }))
-    fireEvent.contextMenu(screen.getByRole('button', { name: /Package substrate/ }))
-    fireEvent.click(screen.getByRole('menuitem', { name: '隐藏这个模型' }))
-    expect(screen.getByText('隐藏 1')).toBeInTheDocument()
-  })
-
-  it('shows backend validation errors without hiding the workspace', async () => {
-    vi.mocked(fetch).mockResolvedValueOnce({
-      ok: false,
-      status: 422,
-      json: async () => ({ detail: '焊球直径必须小于 pitch' }),
-    } as Response)
-
-    render(createElement(App))
-
-    expect(await screen.findByText('焊球直径必须小于 pitch')).toBeInTheDocument()
-    expect(screen.getByRole('heading', { name: '三维建模区' })).toBeInTheDocument()
+    expect(screen.queryByLabelText('顶盖厚度')).not.toBeInTheDocument()
+    fireEvent.change(screen.getByLabelText('顶部结构'), {
+      target: { value: 'lid' },
+    })
+    expect(screen.getByLabelText('顶盖厚度')).toBeInTheDocument()
   })
 })
+
+function template(id: string, display_name: string, has_bga: boolean): TemplateCatalogItem {
+  return {
+    id,
+    display_name,
+    category: has_bga ? 'Ball Grid Arrays' : 'Other Parts',
+    has_bga,
+    bga_representations: has_bga ? ['equivalent', 'discrete'] : [],
+    implementation_status: 'packstudio_native',
+    runtime_reference_data_required: false,
+  }
+}
+
+function fetchResponse(input: RequestInfo | URL) {
+  const url = String(input)
+  if (url === '/api/templates') return jsonResponse(catalog)
+  if (url.endsWith('/schema')) return jsonResponse(schema)
+  if (url.endsWith('/defaults')) return jsonResponse(defaults)
+  if (url.endsWith('/materials')) return jsonResponse(generatedModel.materials)
+  if (url.endsWith('/generate')) return jsonResponse(generatedModel)
+  return Promise.resolve(new Response('', { status: 404 }))
+}
+
+const jsonResponse = (value: unknown) =>
+  Promise.resolve({ ok: true, status: 200, json: async () => value } as Response)
+
+const generateCalls = () =>
+  vi.mocked(fetch).mock.calls.filter(([url]) => String(url).endsWith('/generate'))
+
+function requestBody(call: [RequestInfo | URL, RequestInit?] | undefined) {
+  return JSON.parse(String(call?.[1]?.body)) as TemplateRequest
+}

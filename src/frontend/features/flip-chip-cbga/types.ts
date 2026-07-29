@@ -47,6 +47,8 @@ export interface ArrayLayerParameters {
   pitch_y: number
   diameter: number
   height: number
+  footprint_x_override: number | null
+  footprint_y_override: number | null
   representation: ArrayRepresentation
   element_material: Material
   matrix_material: Material
@@ -111,6 +113,15 @@ export type StructureType =
   | 'thermal_interface'
   | 'heat_slug'
   | 'lid'
+  | 'die_attach'
+  | 'lead_frame'
+  | 'bond_wire'
+  | 'solder_mask'
+  | 'trace'
+  | 'via'
+  | 'exposed_pad'
+  | 'solder'
+  | 'generic'
 
 export interface AxisAlignedBlock {
   id: string
@@ -146,7 +157,7 @@ export interface BoundaryCondition {
 
 export interface PackageModel {
   schema_version: 'packstudio.model/v1'
-  template_id: 'flip-chip-cbga'
+  template_id: string
   name: string
   length_unit: 'mm'
   coordinate_system: {

@@ -54,8 +54,18 @@ export default function BasicStructureProperties({
   }
 
   const value = parameters.die
-  const update = (patch: Partial<typeof value>) =>
-    onChange({ ...parameters, die: { ...value, ...patch } })
+  const update = (patch: Partial<typeof value>) => {
+    const die = { ...value, ...patch }
+    onChange({
+      ...parameters,
+      die,
+      flip_chip_bumps: {
+        ...parameters.flip_chip_bumps,
+        footprint_x_override: die.length,
+        footprint_y_override: die.width,
+      },
+    })
+  }
   return (
     <Stack spacing={2}>
       <Box className="field-grid field-grid-2">

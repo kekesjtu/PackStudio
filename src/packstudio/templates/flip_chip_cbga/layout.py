@@ -87,16 +87,56 @@ def unoccupied_regions(parameters: ArrayLayerParameters) -> list[CellRegion]:
 def region_geometry(
     parameters: ArrayLayerParameters, region: CellRegion
 ) -> tuple[float, float, float, float]:
-    origin_x = (
-        -parameters.columns * parameters.pitch_x / 2 + region.column_start * parameters.pitch_x
+    x_edges = cell_partition_edges(
+        parameters.columns,
+        parameters.pitch_x,
+        parameters.footprint_x,
     )
-    origin_y = -parameters.rows * parameters.pitch_y / 2 + (region.row_start * parameters.pitch_y)
+    y_edges = cell_partition_edges(
+        parameters.rows,
+        parameters.pitch_y,
+        parameters.footprint_y,
+    )
+    origin_x = x_edges[region.column_start]
+    origin_y = y_edges[region.row_start]
     return (
         origin_x,
         origin_y,
-        region.column_count * parameters.pitch_x,
-        region.row_count * parameters.pitch_y,
+        x_edges[region.column_end] - origin_x,
+        y_edges[region.row_end] - origin_y,
     )
+
+
+def cell_geometry(
+    parameters: ArrayLayerParameters,
+    row: int,
+    column: int,
+) -> tuple[float, float, float, float]:
+    x_edges = cell_partition_edges(
+        parameters.columns,
+        parameters.pitch_x,
+        parameters.footprint_x,
+    )
+    y_edges = cell_partition_edges(
+        parameters.rows,
+        parameters.pitch_y,
+        parameters.footprint_y,
+    )
+    return (
+        x_edges[column],
+        y_edges[row],
+        x_edges[column + 1] - x_edges[column],
+        y_edges[row + 1] - y_edges[row],
+    )
+
+
+def cell_partition_edges(count: int, pitch: float, footprint: float) -> list[float]:
+    """Partition the verified edge-to-edge envelope at center-line midpoints."""
+    centers = [(index - (count - 1) / 2) * pitch for index in range(count)]
+    edges = [-footprint / 2]
+    edges.extend((left + right) / 2 for left, right in zip(centers, centers[1:], strict=False))
+    edges.append(footprint / 2)
+    return edges
 
 
 def _cell_state(
