@@ -1,0 +1,156 @@
+{
+  "schema_version": "2.0",
+  "comparison": {
+    "baseline": "flotherm_pack_data/templates/qfp_family/baseline/model.xml",
+    "variation": "flotherm_pack_data/templates/qfp_family/xml_variations/param_sweeps/par_v2_c001_lengthd_8_1/model.xml",
+    "baseline_bytes": 39733,
+    "variation_bytes": 39733,
+    "baseline_sha256": "BF1D9D963234111DFE5AAE319D1F83A3DBD9AF609C4B3C4A4BC7AA5BBA4082FF",
+    "variation_sha256": "578E648085DB24BE263D1E1C536598313314409D70EC87FDB56F9AEA22D7C1EE"
+  },
+  "semantic_change": true,
+  "summary": {
+    "changed_value_count": 9,
+    "added_leaf_count": 0,
+    "removed_leaf_count": 0
+  },
+  "materials": {
+    "added": [],
+    "removed": [],
+    "changed": []
+  },
+  "entities": {
+    "added": [],
+    "removed": [],
+    "changed": [
+      {
+        "name": "assembly:LeadFrame",
+        "before": [
+          "6aab72f69ace04c1"
+        ],
+        "after": [
+          "937ed707c2566732"
+        ]
+      },
+      {
+        "name": "cuboid:ldf_exter_left",
+        "before": [
+          "dd66cce87a4491e2"
+        ],
+        "after": [
+          "1a7631ad524ba221"
+        ]
+      },
+      {
+        "name": "cuboid:ldf_exter_right",
+        "before": [
+          "51279a3e8273ee6c"
+        ],
+        "after": [
+          "78ffd9538702542f"
+        ]
+      },
+      {
+        "name": "cuboid:ldf_vert_left",
+        "before": [
+          "cae097ba19d7581b"
+        ],
+        "after": [
+          "161b892765142810"
+        ]
+      },
+      {
+        "name": "cuboid:ldf_vert_right",
+        "before": [
+          "6070a6e0b84c1b66"
+        ],
+        "after": [
+          "ee145b3d2f809c91"
+        ]
+      },
+      {
+        "name": "cuboid:leadft_left",
+        "before": [
+          "ff8969b555bfa6a4"
+        ],
+        "after": [
+          "db55d2bb27145983"
+        ]
+      },
+      {
+        "name": "cuboid:leadft_right",
+        "before": [
+          "07d703fdd1436835"
+        ],
+        "after": [
+          "dceb7e248d00a9db"
+        ]
+      },
+      {
+        "name": "region:z_bottom",
+        "before": [
+          "bb259bd88b8fe1ed"
+        ],
+        "after": [
+          "648fa29ed54843bc"
+        ]
+      }
+    ]
+  },
+  "changed_values": [
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_exter_left]/position/x",
+      "before": "-0.0042499999999999994",
+      "after": "-0.0037999999999999996"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_exter_left]/size/x",
+      "before": "0.00074999999999999937",
+      "after": "0.00029999999999999949"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_exter_right]/size/x",
+      "before": "0.00074999999999999937",
+      "after": "0.00029999999999999949"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_vert_left]/position/x",
+      "before": "-0.0042500000000000003",
+      "after": "-0.0037999999999999996"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_vert_right]/position/x",
+      "before": "0.0040999999999999995",
+      "after": "0.0036499999999999996"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=leadft_left]/position/x",
+      "before": "-0.0044999999999999997",
+      "after": "-0.0040499999999999998"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=leadft_right]/position/x",
+      "before": "0.0042499999999999994",
+      "after": "0.0037999999999999996"
+    },
+    {
+      "path": "xml_case/geometry/region[name=z_bottom]/position/x",
+      "before": "-0.0044999999999999997",
+      "after": "-0.0040499999999999998"
+    },
+    {
+      "path": "xml_case/geometry/region[name=z_bottom]/size/x",
+      "before": "0.0089999999999999993",
+      "after": "0.0080999999999999996"
+    }
+  ],
+  "added_leaf_paths": [],
+  "removed_leaf_paths": [],
+  "numeric_formatting_differences_ignored": true,
+  "template_id": "qfp_family",
+  "variation_id": "par_v2_c001_lengthd_8_1",
+  "variation_kind": "numeric_parameter",
+  "comparison_baseline": "baseline/model.xml",
+  "outcome": "semantic_change",
+  "floxml_effect_expectation": null
+}

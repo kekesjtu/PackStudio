@@ -1,0 +1,31 @@
+{
+  "schema_version": "2.0",
+  "template_id": "soic_family",
+  "variation_id": "opt_v2_c005_dietype_thermaldie",
+  "kind": "enum_option",
+  "coverage_policy": "all_non_default_values",
+  "target": {
+    "component": "new_package",
+    "property": "dieType",
+    "label": "Die Type",
+    "baseline": "actualDie",
+    "value": "thermalDie"
+  },
+  "comparison_baseline": "baseline/model.xml",
+  "branch_preconditions": [],
+  "required_dependent_initialization": {},
+  "single_variable_relative_to_comparison_baseline": true,
+  "material_policy": "default_only",
+  "property_evidence": [
+    "recorded_new_package",
+    "installed_dll_ascii_string"
+  ],
+  "execution_status": "pending_replay",
+  "floxml_effect_expectation": {
+    "expectation": "no_change_at_default_substate",
+    "reason": "PACK accepts thermalDie, but with the default uniform heat source the exported FloXML is identical to actualDie.",
+    "evidence": [
+      "templates/soic_family/xml_variations.json"
+    ]
+  }
+}

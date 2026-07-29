@@ -1,0 +1,226 @@
+{
+  "schema_version": "2.0",
+  "comparison": {
+    "baseline": "flotherm_pack_data/templates/qfn/baseline/model.xml",
+    "variation": "flotherm_pack_data/templates/qfn/xml_variations/param_sweeps/par_v2_c014_diewidthwd_5_94/model.xml",
+    "baseline_bytes": 193768,
+    "variation_bytes": 193656,
+    "baseline_sha256": "2F110872211DE5E1BB69ECBB6E6780A8DF0704F526CCE1958D971BA39C569889",
+    "variation_sha256": "FC8F408A64EB50CFCEDC33E2C1C830B5A575251E103340764A5E59EA3D12B914"
+  },
+  "semantic_change": true,
+  "summary": {
+    "changed_value_count": 17,
+    "added_leaf_count": 0,
+    "removed_leaf_count": 0
+  },
+  "materials": {
+    "added": [],
+    "removed": [],
+    "changed": [
+      {
+        "name": "bondwirey0",
+        "before": {
+          "type": "orthotropic_material_att",
+          "density": "3049.25006978",
+          "specific_heat": "50.8380029317",
+          "x_conductivity": "0.88",
+          "y_conductivity": "18.618778519",
+          "z_conductivity": "18.618778519"
+        },
+        "after": {
+          "type": "orthotropic_material_att",
+          "density": "3162.3942306",
+          "specific_heat": "54.2866818565",
+          "x_conductivity": "0.88",
+          "y_conductivity": "20.5500165029",
+          "z_conductivity": "20.5500165029"
+        }
+      },
+      {
+        "name": "bondwireyz",
+        "before": {
+          "type": "orthotropic_material_att",
+          "density": "3049.25006978",
+          "specific_heat": "50.8380029317",
+          "x_conductivity": "0.88",
+          "y_conductivity": "18.618778519",
+          "z_conductivity": "18.618778519"
+        },
+        "after": {
+          "type": "orthotropic_material_att",
+          "density": "3162.3942306",
+          "specific_heat": "54.2866818565",
+          "x_conductivity": "0.88",
+          "y_conductivity": "20.5500165029",
+          "z_conductivity": "20.5500165029"
+        }
+      }
+    ]
+  },
+  "entities": {
+    "added": [],
+    "removed": [],
+    "changed": [
+      {
+        "name": "assembly:Bondwires",
+        "before": [
+          "f53914c4de3d8909"
+        ],
+        "after": [
+          "ce23c8d32745281c"
+        ]
+      },
+      {
+        "name": "assembly:Die",
+        "before": [
+          "9b760d6dfee889e0"
+        ],
+        "after": [
+          "5d05c9d6f3d31469"
+        ]
+      },
+      {
+        "name": "cuboid:bw_h0_lower",
+        "before": [
+          "659c1447d6c6b313"
+        ],
+        "after": [
+          "619a7da5e9580063"
+        ]
+      },
+      {
+        "name": "cuboid:bw_h0_upper",
+        "before": [
+          "2260aebe6360f575"
+        ],
+        "after": [
+          "84e1e718ed222eb3"
+        ]
+      },
+      {
+        "name": "cuboid:die",
+        "before": [
+          "6da5cf3cfe619499"
+        ],
+        "after": [
+          "17d49a1a5e562560"
+        ]
+      },
+      {
+        "name": "cuboid:die_attach",
+        "before": [
+          "0faa2b87723f846c"
+        ],
+        "after": [
+          "2cc5d00bd9852f93"
+        ]
+      },
+      {
+        "name": "source:DieSource",
+        "before": [
+          "66896ebf5cf587b2"
+        ],
+        "after": [
+          "16cddba28841a8f8"
+        ]
+      }
+    ]
+  },
+  "changed_values": [
+    {
+      "path": "xml_case/attributes/materials/orthotropic_material_att[name=bondwirey0]/density",
+      "before": "3049.2500697812661",
+      "after": "3162.3942306042263"
+    },
+    {
+      "path": "xml_case/attributes/materials/orthotropic_material_att[name=bondwirey0]/specific_heat",
+      "before": "50.838002931677366",
+      "after": "54.286681856507499"
+    },
+    {
+      "path": "xml_case/attributes/materials/orthotropic_material_att[name=bondwirey0]/y_conductivity",
+      "before": "18.618778519019507",
+      "after": "20.550016502945013"
+    },
+    {
+      "path": "xml_case/attributes/materials/orthotropic_material_att[name=bondwirey0]/z_conductivity",
+      "before": "18.618778519019507",
+      "after": "20.550016502945013"
+    },
+    {
+      "path": "xml_case/attributes/materials/orthotropic_material_att[name=bondwireyz]/density",
+      "before": "3049.2500697812661",
+      "after": "3162.3942306042263"
+    },
+    {
+      "path": "xml_case/attributes/materials/orthotropic_material_att[name=bondwireyz]/specific_heat",
+      "before": "50.838002931677366",
+      "after": "54.286681856507499"
+    },
+    {
+      "path": "xml_case/attributes/materials/orthotropic_material_att[name=bondwireyz]/y_conductivity",
+      "before": "18.618778519019507",
+      "after": "20.550016502945013"
+    },
+    {
+      "path": "xml_case/attributes/materials/orthotropic_material_att[name=bondwireyz]/z_conductivity",
+      "before": "18.618778519019507",
+      "after": "20.550016502945013"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Bondwires]/geometry/cuboid[name=bw_h0_lower]/size/y",
+      "before": "0.0027499999999999998",
+      "after": "0.00248"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Bondwires]/geometry/cuboid[name=bw_h0_upper]/position/y",
+      "before": "0.0027000000000000006",
+      "after": "0.0029700000000000004"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Bondwires]/geometry/cuboid[name=bw_h0_upper]/size/y",
+      "before": "0.0027499999999999998",
+      "after": "0.00248"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Die]/geometry/cuboid[name=die]/position/y",
+      "before": "-0.0027000000000000001",
+      "after": "-0.00297"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Die]/geometry/cuboid[name=die]/size/y",
+      "before": "0.0054000000000000003",
+      "after": "0.00594"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Die]/geometry/source[name=DieSource]/position/y",
+      "before": "-0.0027000000000000001",
+      "after": "-0.00297"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Die]/geometry/source[name=DieSource]/size/y",
+      "before": "0.0054000000000000003",
+      "after": "0.00594"
+    },
+    {
+      "path": "xml_case/geometry/cuboid[name=die_attach]/position/y",
+      "before": "-0.0027000000000000001",
+      "after": "-0.00297"
+    },
+    {
+      "path": "xml_case/geometry/cuboid[name=die_attach]/size/y",
+      "before": "0.0054000000000000003",
+      "after": "0.00594"
+    }
+  ],
+  "added_leaf_paths": [],
+  "removed_leaf_paths": [],
+  "numeric_formatting_differences_ignored": true,
+  "template_id": "qfn",
+  "variation_id": "par_v2_c014_diewidthwd_5_94",
+  "variation_kind": "numeric_parameter",
+  "comparison_baseline": "baseline/model.xml",
+  "outcome": "semantic_change",
+  "floxml_effect_expectation": null
+}

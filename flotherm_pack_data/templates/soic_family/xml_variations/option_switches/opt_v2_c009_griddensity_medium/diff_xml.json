@@ -1,0 +1,68 @@
+{
+  "schema_version": "2.0",
+  "comparison": {
+    "baseline": "flotherm_pack_data/templates/soic_family/baseline/model.xml",
+    "variation": "flotherm_pack_data/templates/soic_family/xml_variations/option_switches/opt_v2_c009_griddensity_medium/model.xml",
+    "baseline_bytes": 24418,
+    "variation_bytes": 24373,
+    "baseline_sha256": "2602CC4C884EDBD1E1FBA39F5D4A1BB441413956B57D9FAFBBC1B131DA198A3E",
+    "variation_sha256": "8A1C2C08BD3B40DFB5FC34FF0380E3CCB0898BF04911FBC9ECDE454C2690B65B"
+  },
+  "semantic_change": true,
+  "summary": {
+    "changed_value_count": 6,
+    "added_leaf_count": 0,
+    "removed_leaf_count": 0
+  },
+  "materials": {
+    "added": [],
+    "removed": [],
+    "changed": []
+  },
+  "entities": {
+    "added": [],
+    "removed": [],
+    "changed": []
+  },
+  "changed_values": [
+    {
+      "path": "xml_case/attributes/grid_constraints/grid_constraint_att[name=keypoint]/high_inflation/max_size",
+      "before": "0.00030000000000000003",
+      "after": "0.00060000000000000006"
+    },
+    {
+      "path": "xml_case/attributes/grid_constraints/grid_constraint_att[name=keypoint]/low_inflation/max_size",
+      "before": "0.00030000000000000003",
+      "after": "0.00060000000000000006"
+    },
+    {
+      "path": "xml_case/attributes/grid_constraints/grid_constraint_att[name=keypoint]/max_size",
+      "before": "0.00030000000000000003",
+      "after": "0.00060000000000000006"
+    },
+    {
+      "path": "xml_case/attributes/grid_constraints/grid_constraint_att[name=keypoint_z]/high_inflation/max_size",
+      "before": "0.00016199999999999998",
+      "after": "0.00027"
+    },
+    {
+      "path": "xml_case/attributes/grid_constraints/grid_constraint_att[name=keypoint_z]/low_inflation/max_size",
+      "before": "0.00016199999999999998",
+      "after": "0.00027"
+    },
+    {
+      "path": "xml_case/attributes/grid_constraints/grid_constraint_att[name=keypoint_z]/max_size",
+      "before": "0.00016199999999999998",
+      "after": "0.00027"
+    }
+  ],
+  "added_leaf_paths": [],
+  "removed_leaf_paths": [],
+  "numeric_formatting_differences_ignored": true,
+  "template_id": "soic_family",
+  "variation_id": "opt_v2_c009_griddensity_medium",
+  "variation_kind": "enum_option",
+  "comparison_baseline": "baseline/model.xml",
+  "outcome": "semantic_change",
+  "floxml_effect_expectation": null
+}

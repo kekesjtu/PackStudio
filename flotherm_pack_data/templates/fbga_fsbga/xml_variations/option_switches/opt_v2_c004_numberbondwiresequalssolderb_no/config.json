@@ -1,0 +1,29 @@
+{
+  "schema_version": "2.0",
+  "template_id": "fbga_fsbga",
+  "variation_id": "opt_v2_c004_numberbondwiresequalssolderb_no",
+  "kind": "enum_option",
+  "coverage_policy": "all_non_default_values",
+  "target": {
+    "component": "bondWires",
+    "property": "numberBondWiresEqualsSolderBalls",
+    "label": "Number of Bond Wires equals Solder Balls",
+    "baseline": "yes",
+    "value": "no"
+  },
+  "comparison_baseline": "validation/branch_baselines/br_v2_bondwires_numberbondwiresequalssolderballs/model.xml",
+  "branch_preconditions": [
+    {
+      "component": "bondWires",
+      "property": "numberOfBondWiresNw",
+      "value": 16
+    }
+  ],
+  "required_dependent_initialization": {},
+  "single_variable_relative_to_comparison_baseline": true,
+  "material_policy": "default_only",
+  "property_evidence": [
+    "installed_dll_ascii_string"
+  ],
+  "execution_status": "pending_replay"
+}

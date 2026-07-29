@@ -1,0 +1,71 @@
+{
+  "schema_version": "2.0",
+  "comparison": {
+    "baseline": "flotherm_pack_data/templates/wirebond_pbga/validation/branch_baselines/br_v2_centralballs_staggeredmatrix/model.xml",
+    "variation": "flotherm_pack_data/templates/wirebond_pbga/xml_variations/option_switches/opt_v2_c007_staggeredmatrix_true/model.xml",
+    "baseline_bytes": 42375,
+    "variation_bytes": 42376,
+    "baseline_sha256": "C638E9A3366C2860739F59298BAC30EA5EB00253F663E812BEEA61A616B2E548",
+    "variation_sha256": "BBA88A6FE2D1D751E0E44539F792DF008D495B3FE7821C7A23008DAE921ABDBA"
+  },
+  "semantic_change": true,
+  "summary": {
+    "changed_value_count": 3,
+    "added_leaf_count": 0,
+    "removed_leaf_count": 0
+  },
+  "materials": {
+    "added": [],
+    "removed": [],
+    "changed": [
+      {
+        "name": "centerSolder",
+        "before": {
+          "type": "biaxial_material_att",
+          "density": "3638.54325595",
+          "specific_heat": "150.15507997",
+          "in_plane_conductivity": "0.0261",
+          "normal_conductivity": "22.0586463572"
+        },
+        "after": {
+          "type": "biaxial_material_att",
+          "density": "1819.85232797",
+          "specific_heat": "150.428492179",
+          "in_plane_conductivity": "0.0261",
+          "normal_conductivity": "11.0423731786"
+        }
+      }
+    ]
+  },
+  "entities": {
+    "added": [],
+    "removed": [],
+    "changed": []
+  },
+  "changed_values": [
+    {
+      "path": "xml_case/attributes/materials/biaxial_material_att[name=centerSolder]/density",
+      "before": "3638.5432559457622",
+      "after": "1819.8523279728811"
+    },
+    {
+      "path": "xml_case/attributes/materials/biaxial_material_att[name=centerSolder]/normal_conductivity",
+      "before": "22.05864635720695",
+      "after": "11.042373178603475"
+    },
+    {
+      "path": "xml_case/attributes/materials/biaxial_material_att[name=centerSolder]/specific_heat",
+      "before": "150.15507997027439",
+      "after": "150.42849217928347"
+    }
+  ],
+  "added_leaf_paths": [],
+  "removed_leaf_paths": [],
+  "numeric_formatting_differences_ignored": true,
+  "template_id": "wirebond_pbga",
+  "variation_id": "opt_v2_c007_staggeredmatrix_true",
+  "variation_kind": "boolean_option",
+  "comparison_baseline": "validation/branch_baselines/br_v2_centralballs_staggeredmatrix/model.xml",
+  "outcome": "semantic_change",
+  "floxml_effect_expectation": null
+}

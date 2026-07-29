@@ -1,0 +1,49 @@
+{
+  "schema_version": "2.0",
+  "template_id": "wirebond_pbga",
+  "variation_id": "par_v2_c075_spreaderthicknesstspr_0_45",
+  "kind": "numeric_parameter",
+  "coverage_policy": "conditional_low_and_high",
+  "target": {
+    "component": "backsideSpreader",
+    "property": "spreaderThicknessTspr",
+    "label": "Spreader Thickness tspr",
+    "baseline": 0.5,
+    "value": 0.45
+  },
+  "comparison_baseline": "validation/branch_baselines/br_v2_backsidespreader_spreaderthicknesstspr/model.xml",
+  "branch_preconditions": [
+    {
+      "component": "backsideSpreader",
+      "property": "includeBacksideSpreader",
+      "value": true
+    },
+    {
+      "component": "backsideSpreader",
+      "property": "spreaderLengthLspr",
+      "value": 8
+    },
+    {
+      "component": "backsideSpreader",
+      "property": "spreaderWidthWspr",
+      "value": 8
+    },
+    {
+      "component": "backsideSpreader",
+      "property": "bottomTraceHoleLengthLbt",
+      "value": 5
+    },
+    {
+      "component": "backsideSpreader",
+      "property": "bottomTraceHoleWidthWbt",
+      "value": 5
+    }
+  ],
+  "required_dependent_initialization": {},
+  "single_variable_relative_to_comparison_baseline": true,
+  "material_policy": "default_only",
+  "property_evidence": [
+    "installed_dll_ascii_string"
+  ],
+  "execution_status": "pending_replay"
+}

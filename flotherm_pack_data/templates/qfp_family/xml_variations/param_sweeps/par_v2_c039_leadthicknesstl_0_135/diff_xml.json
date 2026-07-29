@@ -1,0 +1,698 @@
+{
+  "schema_version": "2.0",
+  "comparison": {
+    "baseline": "flotherm_pack_data/templates/qfp_family/baseline/model.xml",
+    "variation": "flotherm_pack_data/templates/qfp_family/xml_variations/param_sweeps/par_v2_c039_leadthicknesstl_0_135/model.xml",
+    "baseline_bytes": 39733,
+    "variation_bytes": 39447,
+    "baseline_sha256": "BF1D9D963234111DFE5AAE319D1F83A3DBD9AF609C4B3C4A4BC7AA5BBA4082FF",
+    "variation_sha256": "D2F367B351755ADBD21EF649212BA0845DCD21C1D37E1F118B70AAE06A43F2DD"
+  },
+  "semantic_change": true,
+  "summary": {
+    "changed_value_count": 59,
+    "added_leaf_count": 0,
+    "removed_leaf_count": 0
+  },
+  "materials": {
+    "added": [],
+    "removed": [],
+    "changed": []
+  },
+  "entities": {
+    "added": [],
+    "removed": [],
+    "changed": [
+      {
+        "name": "assembly:BondWires",
+        "before": [
+          "a821aeca887453ba"
+        ],
+        "after": [
+          "3341e25b94de7ce7"
+        ]
+      },
+      {
+        "name": "assembly:Die",
+        "before": [
+          "d51326fbd18bfa08"
+        ],
+        "after": [
+          "86ec414c565bcd39"
+        ]
+      },
+      {
+        "name": "assembly:Die_Flag",
+        "before": [
+          "cfb5caf13343b7b8"
+        ],
+        "after": [
+          "13b78ca6aaf21460"
+        ]
+      },
+      {
+        "name": "assembly:LeadFrame",
+        "before": [
+          "6aab72f69ace04c1"
+        ],
+        "after": [
+          "9751c1b3e6aa487b"
+        ]
+      },
+      {
+        "name": "assembly:tie_bars",
+        "before": [
+          "393c9e649fb02f0f"
+        ],
+        "after": [
+          "646fe932d31caa7f"
+        ]
+      },
+      {
+        "name": "assembly:tiebar_plt",
+        "before": [
+          "910d3361d9b8e74d"
+        ],
+        "after": [
+          "ab8725dded93e0c8"
+        ]
+      },
+      {
+        "name": "cuboid:bd_wires_left",
+        "before": [
+          "4234b0edb984c184"
+        ],
+        "after": [
+          "48276f43b534c8c5"
+        ]
+      },
+      {
+        "name": "cuboid:bd_wires_lower",
+        "before": [
+          "88638b028d791ae9"
+        ],
+        "after": [
+          "6618f58a4177a009"
+        ]
+      },
+      {
+        "name": "cuboid:bd_wires_right",
+        "before": [
+          "488a567fc72b477d"
+        ],
+        "after": [
+          "8f903d37849162eb"
+        ]
+      },
+      {
+        "name": "cuboid:bd_wires_upper",
+        "before": [
+          "47e7473040a42958"
+        ],
+        "after": [
+          "647469c525637aa3"
+        ]
+      },
+      {
+        "name": "cuboid:bdw_v_left",
+        "before": [
+          "61b3fea01265e3db"
+        ],
+        "after": [
+          "9eb323e931f84183"
+        ]
+      },
+      {
+        "name": "cuboid:bdw_v_lower",
+        "before": [
+          "985da1147a647241"
+        ],
+        "after": [
+          "3666adf375806263"
+        ]
+      },
+      {
+        "name": "cuboid:bdw_v_right",
+        "before": [
+          "8d8437554d4b0d60"
+        ],
+        "after": [
+          "16943398aa0d6aae"
+        ]
+      },
+      {
+        "name": "cuboid:bdw_v_upper",
+        "before": [
+          "5cfca72fa3a3fc85"
+        ],
+        "after": [
+          "b1d9ae4f339f78a4"
+        ]
+      },
+      {
+        "name": "cuboid:die",
+        "before": [
+          "5fb7ae80e18a072a"
+        ],
+        "after": [
+          "81de5fe9093e9895"
+        ]
+      },
+      {
+        "name": "cuboid:die_attach",
+        "before": [
+          "89f81bea4b79325a"
+        ],
+        "after": [
+          "7bb8806b4a2a40ce"
+        ]
+      },
+      {
+        "name": "cuboid:die_flag",
+        "before": [
+          "3641680a20fc30a2"
+        ],
+        "after": [
+          "cd128ea38ed17aa5"
+        ]
+      },
+      {
+        "name": "cuboid:ldf_exter_left",
+        "before": [
+          "dd66cce87a4491e2"
+        ],
+        "after": [
+          "e3cd7e1a30bd1aa5"
+        ]
+      },
+      {
+        "name": "cuboid:ldf_exter_lower",
+        "before": [
+          "7f0604881b856a0e"
+        ],
+        "after": [
+          "6aeeca74cf0ac36a"
+        ]
+      },
+      {
+        "name": "cuboid:ldf_exter_right",
+        "before": [
+          "51279a3e8273ee6c"
+        ],
+        "after": [
+          "b8e86b33d795ae4b"
+        ]
+      },
+      {
+        "name": "cuboid:ldf_exter_upper",
+        "before": [
+          "c972a59ee7c30448"
+        ],
+        "after": [
+          "83ff07d47706cc05"
+        ]
+      },
+      {
+        "name": "cuboid:ldf_inter_left",
+        "before": [
+          "8954caecba32116b"
+        ],
+        "after": [
+          "80e771e9beb7a49d"
+        ]
+      },
+      {
+        "name": "cuboid:ldf_inter_lower",
+        "before": [
+          "f42e41a3d654ab13"
+        ],
+        "after": [
+          "3b1868623cdb6693"
+        ]
+      },
+      {
+        "name": "cuboid:ldf_inter_right",
+        "before": [
+          "23fca5f5e48825a2"
+        ],
+        "after": [
+          "a1b40f4da7bcea86"
+        ]
+      },
+      {
+        "name": "cuboid:ldf_inter_upper",
+        "before": [
+          "cd4f29bf1e394d31"
+        ],
+        "after": [
+          "aabff217f43b628a"
+        ]
+      },
+      {
+        "name": "cuboid:ldf_vert_left",
+        "before": [
+          "cae097ba19d7581b"
+        ],
+        "after": [
+          "6ec7aff1dc90f909"
+        ]
+      },
+      {
+        "name": "cuboid:ldf_vert_lower",
+        "before": [
+          "4f93cffa01a5a0e4"
+        ],
+        "after": [
+          "8b3ce65cd0349035"
+        ]
+      },
+      {
+        "name": "cuboid:ldf_vert_right",
+        "before": [
+          "6070a6e0b84c1b66"
+        ],
+        "after": [
+          "c2709eb10db2d736"
+        ]
+      },
+      {
+        "name": "cuboid:ldf_vert_upper",
+        "before": [
+          "266ec3fc55526d89"
+        ],
+        "after": [
+          "0c6da1cbfba962fc"
+        ]
+      },
+      {
+        "name": "cuboid:leadft_left",
+        "before": [
+          "ff8969b555bfa6a4"
+        ],
+        "after": [
+          "551b955fa828c711"
+        ]
+      },
+      {
+        "name": "cuboid:leadft_lower",
+        "before": [
+          "476659a8891e799d"
+        ],
+        "after": [
+          "826d7f8a66f35475"
+        ]
+      },
+      {
+        "name": "cuboid:leadft_right",
+        "before": [
+          "07d703fdd1436835"
+        ],
+        "after": [
+          "9dd30da2dbec4ccc"
+        ]
+      },
+      {
+        "name": "cuboid:leadft_upper",
+        "before": [
+          "4b093661ed5738fc"
+        ],
+        "after": [
+          "8f170303d7d042c6"
+        ]
+      },
+      {
+        "name": "cuboid:tie_bars_h1",
+        "before": [
+          "21bfa326e9f74fc0"
+        ],
+        "after": [
+          "ac445539539c21b4"
+        ]
+      },
+      {
+        "name": "cuboid:tie_bars_h2",
+        "before": [
+          "56144bcd1105094b"
+        ],
+        "after": [
+          "726608844c27ba16"
+        ]
+      },
+      {
+        "name": "cuboid:tie_bars_h3",
+        "before": [
+          "b77ae005bd12deb2"
+        ],
+        "after": [
+          "dc109734f94ebb20"
+        ]
+      },
+      {
+        "name": "cuboid:tie_bars_h4",
+        "before": [
+          "b9e240fcb0c9c8ec"
+        ],
+        "after": [
+          "155b90fb323e9cd4"
+        ]
+      },
+      {
+        "name": "cuboid:tie_bars_v1",
+        "before": [
+          "55d64a76475c5452"
+        ],
+        "after": [
+          "0c31ef60937e5df5"
+        ]
+      },
+      {
+        "name": "cuboid:tie_bars_v2",
+        "before": [
+          "f8ea20647209d191"
+        ],
+        "after": [
+          "3d16e05b27c9767e"
+        ]
+      },
+      {
+        "name": "cuboid:tie_bars_v3",
+        "before": [
+          "2e3ffc5caaf7c2da"
+        ],
+        "after": [
+          "ff7c3039ee15bf05"
+        ]
+      },
+      {
+        "name": "cuboid:tie_bars_v4",
+        "before": [
+          "541dce3f3fd30668"
+        ],
+        "after": [
+          "846a1f511c1b2979"
+        ]
+      },
+      {
+        "name": "cuboid:tiebar_plt_h1",
+        "before": [
+          "481c3e9cf465b9da"
+        ],
+        "after": [
+          "5278021c6117b856"
+        ]
+      },
+      {
+        "name": "cuboid:tiebar_plt_h2",
+        "before": [
+          "bd8412e2e16a317a"
+        ],
+        "after": [
+          "990b7292b91adf55"
+        ]
+      },
+      {
+        "name": "cuboid:tiebar_plt_h3",
+        "before": [
+          "97e639a0aed4151b"
+        ],
+        "after": [
+          "f5a5984e49854e97"
+        ]
+      },
+      {
+        "name": "cuboid:tiebar_plt_h4",
+        "before": [
+          "27fddcb48089d3ab"
+        ],
+        "after": [
+          "3067a7467f573517"
+        ]
+      },
+      {
+        "name": "cuboid:tiebar_plt_v1",
+        "before": [
+          "d4b039434b2d9817"
+        ],
+        "after": [
+          "bb29022a8282d0ff"
+        ]
+      },
+      {
+        "name": "cuboid:tiebar_plt_v2",
+        "before": [
+          "c7c1f9e6002c7238"
+        ],
+        "after": [
+          "640983418e469608"
+        ]
+      },
+      {
+        "name": "cuboid:tiebar_plt_v3",
+        "before": [
+          "12c6f472314d07c8"
+        ],
+        "after": [
+          "949e36337a2636dc"
+        ]
+      },
+      {
+        "name": "cuboid:tiebar_plt_v4",
+        "before": [
+          "5e6c6d953ad1409e"
+        ],
+        "after": [
+          "abb5a701955f081e"
+        ]
+      },
+      {
+        "name": "monitor_point:DieJunction_Temp",
+        "before": [
+          "afc209edf3f8064f"
+        ],
+        "after": [
+          "93dc3b54a46985f2"
+        ]
+      },
+      {
+        "name": "source:DieSource",
+        "before": [
+          "a3947fe933650306"
+        ],
+        "after": [
+          "59ef5592e8424095"
+        ]
+      }
+    ]
+  },
+  "changed_values": [
+    {
+      "path": "xml_case/geometry/assembly[name=BondWires]/geometry/cuboid[name=bd_wires_left]/position/z",
+      "before": "0.00098299999999999993",
+      "after": "0.00096800000000000022"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=BondWires]/geometry/cuboid[name=bd_wires_lower]/position/z",
+      "before": "0.00098299999999999993",
+      "after": "0.00096800000000000022"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=BondWires]/geometry/cuboid[name=bd_wires_right]/position/z",
+      "before": "0.00098299999999999993",
+      "after": "0.00096800000000000022"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=BondWires]/geometry/cuboid[name=bd_wires_upper]/position/z",
+      "before": "0.00098299999999999993",
+      "after": "0.00096800000000000022"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=BondWires]/geometry/cuboid[name=bdw_v_left]/position/z",
+      "before": "0.00087500000000000002",
+      "after": "0.00086000000000000009"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=BondWires]/geometry/cuboid[name=bdw_v_lower]/position/z",
+      "before": "0.00087500000000000002",
+      "after": "0.00086000000000000009"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=BondWires]/geometry/cuboid[name=bdw_v_right]/position/z",
+      "before": "0.00087500000000000002",
+      "after": "0.00086000000000000009"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=BondWires]/geometry/cuboid[name=bdw_v_upper]/position/z",
+      "before": "0.00087500000000000002",
+      "after": "0.00086000000000000009"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Die]/geometry/cuboid[name=die]/position/z",
+      "before": "0.00066299999999999996",
+      "after": "0.00064800000000000014"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Die]/geometry/monitor_point[name=DieJunction_Temp]/position/z",
+      "before": "0.00101125",
+      "after": "0.00099625000000000017"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Die]/geometry/source[name=DieSource]/position/z",
+      "before": "0.00066299999999999996",
+      "after": "0.00064800000000000014"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Die_Flag]/geometry/cuboid[name=die_flag]/size/z",
+      "before": "0.00014999999999999999",
+      "after": "0.000135"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_exter_left]/position/x",
+      "before": "-0.0042499999999999994",
+      "after": "-0.0042349999999999992"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_exter_left]/size/x",
+      "before": "0.00074999999999999937",
+      "after": "0.00073499999999999911"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_exter_left]/size/z",
+      "before": "0.00014999999999999999",
+      "after": "0.000135"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_exter_lower]/position/y",
+      "before": "-0.0042499999999999994",
+      "after": "-0.0042349999999999992"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_exter_lower]/size/y",
+      "before": "0.00074999999999999937",
+      "after": "0.00073499999999999911"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_exter_lower]/size/z",
+      "before": "0.00014999999999999999",
+      "after": "0.000135"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_exter_right]/size/x",
+      "before": "0.00074999999999999937",
+      "after": "0.00073499999999999911"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_exter_right]/size/z",
+      "before": "0.00014999999999999999",
+      "after": "0.000135"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_exter_upper]/size/y",
+      "before": "0.00074999999999999937",
+      "after": "0.00073499999999999911"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_exter_upper]/size/z",
+      "before": "0.00014999999999999999",
+      "after": "0.000135"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_inter_left]/size/z",
+      "before": "0.00014999999999999999",
+      "after": "0.000135"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_inter_lower]/size/z",
+      "before": "0.00014999999999999999",
+      "after": "0.000135"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_inter_right]/size/z",
+      "before": "0.00014999999999999999",
+      "after": "0.000135"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_inter_upper]/size/z",
+      "before": "0.00014999999999999999",
+      "after": "0.000135"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_vert_left]/position/x",
+      "before": "-0.0042500000000000003",
+      "after": "-0.0042349999999999992"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_vert_left]/size/x",
+      "before": "0.00014999999999999996",
+      "after": "0.0001349999999999997"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_vert_lower]/position/y",
+      "before": "-0.0042500000000000003",
+      "after": "-0.0042349999999999992"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_vert_lower]/size/y",
+      "before": "0.00014999999999999996",
+      "after": "0.0001349999999999997"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_vert_right]/size/x",
+      "before": "0.00014999999999999996",
+      "after": "0.0001349999999999997"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_vert_upper]/size/y",
+      "before": "0.00014999999999999996",
+      "after": "0.0001349999999999997"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=leadft_left]/size/x",
+      "before": "0.00025000000000000022",
+      "after": "0.00026500000000000048"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=leadft_left]/size/z",
+      "before": "0.00014999999999999999",
+      "after": "0.000135"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=leadft_lower]/size/y",
+      "before": "0.00025000000000000022",
+      "after": "0.00026500000000000048"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=leadft_lower]/size/z",
+      "before": "0.00014999999999999999",
+      "after": "0.000135"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=leadft_right]/position/x",
+      "before": "0.0042499999999999994",
+      "after": "0.0042349999999999992"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=leadft_right]/size/x",
+      "before": "0.00025000000000000022",
+      "after": "0.00026500000000000048"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=leadft_right]/size/z",
+      "before": "0.00014999999999999999",
+      "after": "0.000135"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=leadft_upper]/position/y",
+      "before": "0.0042499999999999994",
+      "after": "0.0042349999999999992"
+    }
+  ],
+  "added_leaf_paths": [],
+  "removed_leaf_paths": [],
+  "numeric_formatting_differences_ignored": true,
+  "template_id": "qfp_family",
+  "variation_id": "par_v2_c039_leadthicknesstl_0_135",
+  "variation_kind": "numeric_parameter",
+  "comparison_baseline": "baseline/model.xml",
+  "outcome": "semantic_change",
+  "floxml_effect_expectation": null
+}

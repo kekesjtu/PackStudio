@@ -1,0 +1,43 @@
+{
+  "schema_version": "2.0",
+  "comparison": {
+    "baseline": "flotherm_pack_data/templates/bare_die/baseline/model.xml",
+    "variation": "flotherm_pack_data/templates/bare_die/xml_variations/option_switches/opt_v2_c003_localizegrid_false/model.xml",
+    "baseline_bytes": 5153,
+    "variation_bytes": 5154,
+    "baseline_sha256": "E37813453237BEA80A1CF3D7B2CE81F0530EFA09D115E996233A9633C3F83F2D",
+    "variation_sha256": "BDBBDD2EB03D19A9B4C6102F9BF298D97E15292C0B2F34821FD6694F31CEC2C6"
+  },
+  "semantic_change": true,
+  "summary": {
+    "changed_value_count": 1,
+    "added_leaf_count": 0,
+    "removed_leaf_count": 0
+  },
+  "materials": {
+    "added": [],
+    "removed": [],
+    "changed": []
+  },
+  "entities": {
+    "added": [],
+    "removed": [],
+    "changed": []
+  },
+  "changed_values": [
+    {
+      "path": "xml_case/localized_grid",
+      "before": "true",
+      "after": "false"
+    }
+  ],
+  "added_leaf_paths": [],
+  "removed_leaf_paths": [],
+  "numeric_formatting_differences_ignored": true,
+  "template_id": "bare_die",
+  "variation_id": "opt_v2_c003_localizegrid_false",
+  "variation_kind": "boolean_option",
+  "comparison_baseline": "baseline/model.xml",
+  "outcome": "semantic_change",
+  "floxml_effect_expectation": null
+}

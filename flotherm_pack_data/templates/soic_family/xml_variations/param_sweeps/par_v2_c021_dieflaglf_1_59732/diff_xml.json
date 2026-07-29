@@ -1,0 +1,193 @@
+{
+  "schema_version": "2.0",
+  "comparison": {
+    "baseline": "flotherm_pack_data/templates/soic_family/baseline/model.xml",
+    "variation": "flotherm_pack_data/templates/soic_family/xml_variations/param_sweeps/par_v2_c021_dieflaglf_1_59732/model.xml",
+    "baseline_bytes": 24418,
+    "variation_bytes": 24408,
+    "baseline_sha256": "2602CC4C884EDBD1E1FBA39F5D4A1BB441413956B57D9FAFBBC1B131DA198A3E",
+    "variation_sha256": "4DCFD77AB46488422B3DE77540D1EBD2ABA9E9F25A7F457AD84FD983DA4189D8"
+  },
+  "semantic_change": true,
+  "summary": {
+    "changed_value_count": 11,
+    "added_leaf_count": 0,
+    "removed_leaf_count": 0
+  },
+  "materials": {
+    "added": [],
+    "removed": [],
+    "changed": []
+  },
+  "entities": {
+    "added": [],
+    "removed": [],
+    "changed": [
+      {
+        "name": "assembly:BondWires",
+        "before": [
+          "4264f46baec87e9c"
+        ],
+        "after": [
+          "130bcea70f868654"
+        ]
+      },
+      {
+        "name": "assembly:Die_Flag",
+        "before": [
+          "37ad4af693db3915"
+        ],
+        "after": [
+          "19590ce4a1493377"
+        ]
+      },
+      {
+        "name": "assembly:LeadFrame",
+        "before": [
+          "e8057a7b9dac29af"
+        ],
+        "after": [
+          "ca807609e100a177"
+        ]
+      },
+      {
+        "name": "assembly:Tiebar",
+        "before": [
+          "5bcbd37bca33d5c2"
+        ],
+        "after": [
+          "6a99f0b2e9bf753b"
+        ]
+      },
+      {
+        "name": "cuboid:bd_wires_left",
+        "before": [
+          "c00a49729bf9bd26"
+        ],
+        "after": [
+          "d938590ee30c6302"
+        ]
+      },
+      {
+        "name": "cuboid:bd_wires_right",
+        "before": [
+          "5bf3f0c9da44a9bf"
+        ],
+        "after": [
+          "cec2b0b372ca7147"
+        ]
+      },
+      {
+        "name": "cuboid:die_flag",
+        "before": [
+          "dd1ba359a15801f7"
+        ],
+        "after": [
+          "52943909d54d1d76"
+        ]
+      },
+      {
+        "name": "cuboid:ldf_inter_left",
+        "before": [
+          "fcfad2c49e21c9ea"
+        ],
+        "after": [
+          "361b787f474a8efe"
+        ]
+      },
+      {
+        "name": "cuboid:ldf_inter_right",
+        "before": [
+          "31786e178b628ade"
+        ],
+        "after": [
+          "ee070251ab96da6c"
+        ]
+      },
+      {
+        "name": "cuboid:tie_bar_left",
+        "before": [
+          "dfe2d9deca5d8eb7"
+        ],
+        "after": [
+          "f4e85d7a07d2dbe6"
+        ]
+      },
+      {
+        "name": "cuboid:tie_bar_right",
+        "before": [
+          "59e8a82376931d89"
+        ],
+        "after": [
+          "310e00ebbe33edb3"
+        ]
+      }
+    ]
+  },
+  "changed_values": [
+    {
+      "path": "xml_case/geometry/assembly[name=BondWires]/geometry/cuboid[name=bd_wires_left]/position/x",
+      "before": "-0.0010013999999999999",
+      "after": "-0.00091266000000000003"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=BondWires]/geometry/cuboid[name=bd_wires_left]/size/x",
+      "before": "0.00026189999999999991",
+      "after": "0.00017316"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=BondWires]/geometry/cuboid[name=bd_wires_right]/size/x",
+      "before": "0.00026189999999999991",
+      "after": "0.00017316"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Die_Flag]/geometry/cuboid[name=die_flag]/position/x",
+      "before": "-0.00088739999999999999",
+      "after": "-0.00079866000000000008"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Die_Flag]/geometry/cuboid[name=die_flag]/size/x",
+      "before": "0.0017748",
+      "after": "0.0015973200000000002"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_inter_left]/size/x",
+      "before": "0.0011036000000000002",
+      "after": "0.0011923400000000001"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_inter_right]/position/x",
+      "before": "0.0010013999999999999",
+      "after": "0.00091266000000000003"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_inter_right]/size/x",
+      "before": "0.0011036000000000002",
+      "after": "0.0011923400000000001"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Tiebar]/geometry/cuboid[name=tie_bar_left]/size/x",
+      "before": "0.0015775999999999997",
+      "after": "0.0016663399999999997"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Tiebar]/geometry/cuboid[name=tie_bar_right]/position/x",
+      "before": "0.00088739999999999999",
+      "after": "0.00079866000000000008"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Tiebar]/geometry/cuboid[name=tie_bar_right]/size/x",
+      "before": "0.0015775999999999997",
+      "after": "0.0016663399999999997"
+    }
+  ],
+  "added_leaf_paths": [],
+  "removed_leaf_paths": [],
+  "numeric_formatting_differences_ignored": true,
+  "template_id": "soic_family",
+  "variation_id": "par_v2_c021_dieflaglf_1_59732",
+  "variation_kind": "numeric_parameter",
+  "comparison_baseline": "baseline/model.xml",
+  "outcome": "semantic_change",
+  "floxml_effect_expectation": null
+}

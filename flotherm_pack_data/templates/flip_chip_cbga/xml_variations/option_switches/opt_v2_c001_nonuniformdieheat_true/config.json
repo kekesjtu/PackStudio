@@ -1,0 +1,24 @@
+{
+  "schema_version": "2.0",
+  "template_id": "flip_chip_cbga",
+  "variation_id": "opt_v2_c001_nonuniformdieheat_true",
+  "kind": "boolean_option",
+  "coverage_policy": "alternate_value",
+  "target": {
+    "component": "die",
+    "property": "nonUniformDieHeat",
+    "label": "Non-uniform Die Heat",
+    "baseline": false,
+    "value": true
+  },
+  "comparison_baseline": "baseline/model.xml",
+  "branch_preconditions": [],
+  "required_dependent_initialization": {},
+  "single_variable_relative_to_comparison_baseline": true,
+  "material_policy": "default_only",
+  "property_evidence": [
+    "recorded_modify_component",
+    "installed_dll_ascii_string"
+  ],
+  "execution_status": "pending_replay"
+}

@@ -1,0 +1,69 @@
+{
+  "schema_version": "2.0",
+  "comparison": {
+    "baseline": "flotherm_pack_data/templates/qfp_family/baseline/model.xml",
+    "variation": "flotherm_pack_data/templates/qfp_family/xml_variations/param_sweeps/par_v2_c028_metalcoveragefordieflagcf_66_0/model.xml",
+    "baseline_bytes": 39733,
+    "variation_bytes": 39747,
+    "baseline_sha256": "BF1D9D963234111DFE5AAE319D1F83A3DBD9AF609C4B3C4A4BC7AA5BBA4082FF",
+    "variation_sha256": "1A48D9A956EA34E0B73620EFD326AE321B48C1AFE0405ED86E622BCACA074B4E"
+  },
+  "semantic_change": true,
+  "summary": {
+    "changed_value_count": 3,
+    "added_leaf_count": 0,
+    "removed_leaf_count": 0
+  },
+  "materials": {
+    "added": [],
+    "removed": [],
+    "changed": [
+      {
+        "name": "die_flag",
+        "before": {
+          "type": "isotropic_material_att",
+          "density": "6068",
+          "specific_heat": "444.626895188",
+          "conductivity": "180.9"
+        },
+        "after": {
+          "type": "isotropic_material_att",
+          "density": "6492.8",
+          "specific_heat": "432.366867915",
+          "conductivity": "198.99"
+        }
+      }
+    ]
+  },
+  "entities": {
+    "added": [],
+    "removed": [],
+    "changed": []
+  },
+  "changed_values": [
+    {
+      "path": "xml_case/attributes/materials/isotropic_material_att[name=die_flag]/conductivity",
+      "before": "180.90000000000001",
+      "after": "198.99000000000001"
+    },
+    {
+      "path": "xml_case/attributes/materials/isotropic_material_att[name=die_flag]/density",
+      "before": "6068",
+      "after": "6492.8000000000002"
+    },
+    {
+      "path": "xml_case/attributes/materials/isotropic_material_att[name=die_flag]/specific_heat",
+      "before": "444.62689518787079",
+      "after": "432.36686791522919"
+    }
+  ],
+  "added_leaf_paths": [],
+  "removed_leaf_paths": [],
+  "numeric_formatting_differences_ignored": true,
+  "template_id": "qfp_family",
+  "variation_id": "par_v2_c028_metalcoveragefordieflagcf_66_0",
+  "variation_kind": "numeric_parameter",
+  "comparison_baseline": "baseline/model.xml",
+  "outcome": "semantic_change",
+  "floxml_effect_expectation": null
+}

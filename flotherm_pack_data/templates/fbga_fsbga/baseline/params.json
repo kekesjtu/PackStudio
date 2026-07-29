@@ -1,0 +1,124 @@
+{
+  "schema_version": "1.0",
+  "template_id": "fbga_fsbga",
+  "capture_source": {
+    "method": "computer_use_and_floxml",
+    "software_version": "2504",
+    "floxml": "model.xml"
+  },
+  "starter": {
+    "designName": "Chip Array",
+    "outlineType": "standardOutline",
+    "jedecFootprint": "ChipArray_24_4X4mm_0_8",
+    "dieType": "actualDie",
+    "substrateLayer": "2-Layer",
+    "topSignalLayerThickness_mm": 0.018,
+    "bottomSignalLayerThickness_mm": 0.018
+  },
+  "summary": {
+    "designName": "Chip Array",
+    "partNumber": "",
+    "vendorName": "",
+    "maxPower_W": null,
+    "maxOperatingJunctionTemperature_degC": null,
+    "maxCaseTemperature_degC": null,
+    "notes": ""
+  },
+  "overallPackage": {
+    "length_D_mm": 4,
+    "width_E_mm": 4,
+    "substrateThickness_A2_mm": 0.36,
+    "materialGroup": "Substrate Dielectrics",
+    "dielectricMaterial": "BT"
+  },
+  "die": {
+    "packagePower_W": 0,
+    "nonUniformDieHeat": false,
+    "length_Ld_mm": 1.2,
+    "width_Wd_mm": 1.2,
+    "thickness_td_mm": 0.3,
+    "dieAttachThickness_tda_mm": 0.025,
+    "dieAttachMaterialGroup": "Attachment Materials",
+    "dieAttachMaterial": "QMI 595"
+  },
+  "encapsulant": {
+    "thickness_te_mm": 0.65,
+    "materialGroup": "Resins",
+    "material": "Epoxy Overmold (Typical)",
+    "solderMaskThickness_tsm_mm": 0.05,
+    "solderMaskMaterialGroup": "Others",
+    "solderMaskMaterial": "Solder Mask Material"
+  },
+  "bondWires": {
+    "bondWirePadExtentLength_Lw_mm": 2,
+    "bondWirePadExtentWidth_Ww_mm": 2,
+    "diameter_dw_mm": 0.025,
+    "materialGroup": "Metals",
+    "material": "Gold (Pure)",
+    "numberEqualsSolderBalls": true
+  },
+  "vias": {
+    "diameter_dv_mm": 0.2,
+    "filledVias": false,
+    "platingThickness_tpl_mm": 0.025
+  },
+  "metalLayers": {
+    "materialGroup": "Metals",
+    "material": "Copper (Pure)",
+    "substrateLayer": "2-Layer",
+    "rows": [
+      {"depth_Zn_mm": null, "thickness_tzn_mm": 0.018, "coverage_percent": 20},
+      {"depth_Zn_mm": null, "thickness_tzn_mm": 0.018, "coverage_percent": 10}
+    ],
+    "topMetalLayerHole": {
+      "length_Lml_mm": null,
+      "width_Wml_mm": null,
+      "materialGroup": "Alloys (Leadframe)",
+      "conductivityMaterial": "Alloy-42"
+    }
+  },
+  "solderBalls": {
+    "numberInX_MD": 5,
+    "numberInY_ME": 5,
+    "ballDiameter_b_mm": 0.46,
+    "pitch_e_mm": 0.8,
+    "substrateStandOff_A1_mm": 0.4,
+    "materialGroup": "Alloys (Solders)",
+    "solderMaterial": "Solder (Sn63/Pb37)",
+    "staggeredMatrix": false,
+    "solderBallMap": false
+  },
+  "solderBallDepopulation": {
+    "depopulatedCenter": false,
+    "fullyPopulatedRows_MDp": null,
+    "fullyPopulatedRows_MEp": null
+  },
+  "centralBalls": {
+    "enabled": false,
+    "centralRows_MDc": null,
+    "centralRows_MEc": null,
+    "staggeredMatrix": false
+  },
+  "modelingOptions": {
+    "modelSolderBallArrayAs": "discreteCuboids",
+    "viaModeling": "accurate",
+    "viaOffsetX_mm": 0.4,
+    "viaOffsetY_mm": 0.4,
+    "bondWireModeling": "include",
+    "localizeGrid": true,
+    "gridDensity": "fine"
+  },
+  "realizedGeometry": [
+    {"name": "Encapsulant", "children": ["encapsulant"]},
+    {"name": "Die", "children": ["die", "DieSource", "DieJunction_Temp"]},
+    {"name": "Solder_Mask", "children": ["solder_mask"]},
+    {"name": "Dielectric & Traces", "children": ["dielectric", "trace_0", "trace_1"]},
+    {"name": "BondWires", "children": ["bw_h_right", "bw_h_left", "bw_h_upper", "bw_h_lower", "bw_v_right", "bw_v_left", "bw_v_upper", "bw_v_lower"]},
+    {"name": "Solder_ball", "pattern": "solder_ball_<x>_<y>", "count": 25},
+    {"name": "Thermal_Via", "pattern": "thermal_via_<x>_<y>", "count": 25},
+    "die_attach",
+    "CaseTemp",
+    "z_bottom",
+    "z_top"
+  ]
+}

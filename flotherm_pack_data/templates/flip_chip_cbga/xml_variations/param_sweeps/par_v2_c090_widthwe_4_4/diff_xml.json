@@ -1,0 +1,86 @@
+{
+  "schema_version": "2.0",
+  "comparison": {
+    "baseline": "flotherm_pack_data/templates/flip_chip_cbga/validation/branch_baselines/br_v2_topcover_widthwe/model.xml",
+    "variation": "flotherm_pack_data/templates/flip_chip_cbga/xml_variations/param_sweeps/par_v2_c090_widthwe_4_4/model.xml",
+    "baseline_bytes": 11344,
+    "variation_bytes": 11376,
+    "baseline_sha256": "1295F1EA8869869B4633C04BC86992C8A9B7599E5E2154C8C29F21D6A417C1D9",
+    "variation_sha256": "CB50952AE9A6BA414983E5A07AACF82FC83053BF64C6A69033F7E65C582590D0"
+  },
+  "semantic_change": true,
+  "summary": {
+    "changed_value_count": 4,
+    "added_leaf_count": 0,
+    "removed_leaf_count": 0
+  },
+  "materials": {
+    "added": [],
+    "removed": [],
+    "changed": []
+  },
+  "entities": {
+    "added": [],
+    "removed": [],
+    "changed": [
+      {
+        "name": "assembly:Encapsulant",
+        "before": [
+          "00ab336c35c2ff1a"
+        ],
+        "after": [
+          "09c041bf52e560cc"
+        ]
+      },
+      {
+        "name": "cuboid:encapsulant",
+        "before": [
+          "ed9379cfa0b0b85a"
+        ],
+        "after": [
+          "32855a965535925c"
+        ]
+      },
+      {
+        "name": "region:z_top",
+        "before": [
+          "62d50519ecadf228"
+        ],
+        "after": [
+          "0507023157e04a6f"
+        ]
+      }
+    ]
+  },
+  "changed_values": [
+    {
+      "path": "xml_case/geometry/assembly[name=Encapsulant]/geometry/cuboid[name=encapsulant]/position/y",
+      "before": "-0.002",
+      "after": "-0.0022000000000000001"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Encapsulant]/geometry/cuboid[name=encapsulant]/size/y",
+      "before": "0.0040000000000000001",
+      "after": "0.0044000000000000003"
+    },
+    {
+      "path": "xml_case/geometry/region[name=z_top]/position/y",
+      "before": "-0.002",
+      "after": "-0.0022000000000000001"
+    },
+    {
+      "path": "xml_case/geometry/region[name=z_top]/size/y",
+      "before": "0.0040000000000000001",
+      "after": "0.0044000000000000003"
+    }
+  ],
+  "added_leaf_paths": [],
+  "removed_leaf_paths": [],
+  "numeric_formatting_differences_ignored": true,
+  "template_id": "flip_chip_cbga",
+  "variation_id": "par_v2_c090_widthwe_4_4",
+  "variation_kind": "numeric_parameter",
+  "comparison_baseline": "validation/branch_baselines/br_v2_topcover_widthwe/model.xml",
+  "outcome": "semantic_change",
+  "floxml_effect_expectation": null
+}

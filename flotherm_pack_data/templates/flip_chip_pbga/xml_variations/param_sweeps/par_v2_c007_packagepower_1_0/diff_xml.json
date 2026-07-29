@@ -1,0 +1,43 @@
+{
+  "schema_version": "2.0",
+  "comparison": {
+    "baseline": "flotherm_pack_data/templates/flip_chip_pbga/baseline/model.xml",
+    "variation": "flotherm_pack_data/templates/flip_chip_pbga/xml_variations/param_sweeps/par_v2_c007_packagepower_1_0/model.xml",
+    "baseline_bytes": 10211,
+    "variation_bytes": 10211,
+    "baseline_sha256": "517D8D2C0D3C887AFCC71083841F9D502BA2338414DBA1CC9F8DE769783CF520",
+    "variation_sha256": "BD3E433D471EB1F46B17EBC9A387D9D326446B518B27889FCC4F6C9512AC839B"
+  },
+  "semantic_change": true,
+  "summary": {
+    "changed_value_count": 1,
+    "added_leaf_count": 0,
+    "removed_leaf_count": 0
+  },
+  "materials": {
+    "added": [],
+    "removed": [],
+    "changed": []
+  },
+  "entities": {
+    "added": [],
+    "removed": [],
+    "changed": []
+  },
+  "changed_values": [
+    {
+      "path": "xml_case/attributes/sources/source_att[name=dieHeat]/power",
+      "before": "0",
+      "after": "1"
+    }
+  ],
+  "added_leaf_paths": [],
+  "removed_leaf_paths": [],
+  "numeric_formatting_differences_ignored": true,
+  "template_id": "flip_chip_pbga",
+  "variation_id": "par_v2_c007_packagepower_1_0",
+  "variation_kind": "numeric_parameter",
+  "comparison_baseline": "baseline/model.xml",
+  "outcome": "semantic_change",
+  "floxml_effect_expectation": null
+}

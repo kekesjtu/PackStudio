@@ -1,0 +1,163 @@
+{
+  "schema_version": "2.0",
+  "comparison": {
+    "baseline": "flotherm_pack_data/templates/flip_chip_cbga/validation/branch_baselines/br_v2_dropinslug_slugdiameterds/model.xml",
+    "variation": "flotherm_pack_data/templates/flip_chip_cbga/xml_variations/param_sweeps/par_v2_c050_slugdiameterds_2_2/model.xml",
+    "baseline_bytes": 18362,
+    "variation_bytes": 18368,
+    "baseline_sha256": "F2258D6973A3AC8A986E007E18D4BDD2E82E721F9D9E69EC6AAF3C6D8D8F0480",
+    "variation_sha256": "9BB722155D63FA69B3A625FFE43E944649CE9CB79CF29FE36AC344E3A7D048CE"
+  },
+  "semantic_change": true,
+  "summary": {
+    "changed_value_count": 14,
+    "added_leaf_count": 0,
+    "removed_leaf_count": 0
+  },
+  "materials": {
+    "added": [],
+    "removed": [],
+    "changed": []
+  },
+  "entities": {
+    "added": [],
+    "removed": [],
+    "changed": [
+      {
+        "name": "assembly:Slug",
+        "before": [
+          "ac6f681fd64b72f5"
+        ],
+        "after": [
+          "530736b9fb888d7d"
+        ]
+      },
+      {
+        "name": "cuboid:slug_h1",
+        "before": [
+          "94fc2670fc5fceb1"
+        ],
+        "after": [
+          "0e388e512419d755"
+        ]
+      },
+      {
+        "name": "cuboid:slug_h2",
+        "before": [
+          "a98dfeefd96a145f"
+        ],
+        "after": [
+          "f65a8559917f1be2"
+        ]
+      },
+      {
+        "name": "cuboid:slug_h3",
+        "before": [
+          "0713d004fdca94b0"
+        ],
+        "after": [
+          "8ef983b4f615cb74"
+        ]
+      },
+      {
+        "name": "cuboid:slug_h4",
+        "before": [
+          "ef2a1080d0d5c767"
+        ],
+        "after": [
+          "fb74f470ca31e64e"
+        ]
+      },
+      {
+        "name": "cuboid:slug_top",
+        "before": [
+          "3de7accc7738840a"
+        ],
+        "after": [
+          "ebd972d4087a4692"
+        ]
+      }
+    ]
+  },
+  "changed_values": [
+    {
+      "path": "xml_case/geometry/assembly[name=Slug]/geometry/cuboid[name=slug_h1]/size/x",
+      "before": "0.0011137730745472421",
+      "after": "0.0010251503820019664"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Slug]/geometry/cuboid[name=slug_h2]/position/x",
+      "before": "0.0008862269254527581",
+      "after": "0.00097484961799803368"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Slug]/geometry/cuboid[name=slug_h2]/size/x",
+      "before": "0.0011137730745472421",
+      "after": "0.0010251503820019664"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Slug]/geometry/cuboid[name=slug_h3]/position/x",
+      "before": "-0.00088622692545275799",
+      "after": "-0.00097484961799803379"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Slug]/geometry/cuboid[name=slug_h3]/size/x",
+      "before": "0.001772453850905516",
+      "after": "0.0019496992359960676"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Slug]/geometry/cuboid[name=slug_h3]/size/y",
+      "before": "0.0011137730745472421",
+      "after": "0.0010251503820019664"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Slug]/geometry/cuboid[name=slug_h4]/position/x",
+      "before": "-0.00088622692545275799",
+      "after": "-0.00097484961799803379"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Slug]/geometry/cuboid[name=slug_h4]/position/y",
+      "before": "0.0008862269254527581",
+      "after": "0.00097484961799803368"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Slug]/geometry/cuboid[name=slug_h4]/size/x",
+      "before": "0.001772453850905516",
+      "after": "0.0019496992359960676"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Slug]/geometry/cuboid[name=slug_h4]/size/y",
+      "before": "0.0011137730745472421",
+      "after": "0.0010251503820019664"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Slug]/geometry/cuboid[name=slug_top]/position/x",
+      "before": "-0.00088622692545275799",
+      "after": "-0.00097484961799803379"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Slug]/geometry/cuboid[name=slug_top]/position/y",
+      "before": "-0.00088622692545275799",
+      "after": "-0.00097484961799803379"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Slug]/geometry/cuboid[name=slug_top]/size/x",
+      "before": "0.001772453850905516",
+      "after": "0.0019496992359960676"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Slug]/geometry/cuboid[name=slug_top]/size/y",
+      "before": "0.001772453850905516",
+      "after": "0.0019496992359960676"
+    }
+  ],
+  "added_leaf_paths": [],
+  "removed_leaf_paths": [],
+  "numeric_formatting_differences_ignored": true,
+  "template_id": "flip_chip_cbga",
+  "variation_id": "par_v2_c050_slugdiameterds_2_2",
+  "variation_kind": "numeric_parameter",
+  "comparison_baseline": "validation/branch_baselines/br_v2_dropinslug_slugdiameterds/model.xml",
+  "outcome": "semantic_change",
+  "floxml_effect_expectation": null
+}

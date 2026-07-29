@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<flopack_xml_log_file version="1.0">
+    <new_package package_type="pbga_wb">
+        <new_value new_value="Wirebond PBGA" property_name="designName" />
+        <new_value new_value="standardOutline" property_name="outlineType" />
+        <new_value new_value="PBGA_121_15X15mm" property_name="jedecFootprint" />
+        <new_value new_value="actualDie" property_name="dieType" />
+        <new_value new_value="2-Layer" property_name="substrateLayer" />
+        <new_value new_value="0.018" property_name="topSignalLayerThickness" />
+        <new_value new_value="0.018" property_name="bottomSignalLayerThickness" />
+        <new_value new_value="false" property_name="includeSlug" />
+    </new_package>
+    <modify_component name="die" new_value="0.33" property_name="dieThicknessTd" />
+    <export_floxml filename="E:\Users\mydearlong\Desktop\PackStudio\flotherm_pack_data\templates\wirebond_pbga\xml_variations\param_sweeps\par_v2_c032_diethicknesstd_0_33\model.xml" />
+</flopack_xml_log_file>

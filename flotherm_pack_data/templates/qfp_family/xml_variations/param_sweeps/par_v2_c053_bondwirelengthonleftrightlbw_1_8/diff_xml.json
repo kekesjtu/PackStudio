@@ -1,0 +1,78 @@
+{
+  "schema_version": "2.0",
+  "comparison": {
+    "baseline": "flotherm_pack_data/templates/qfp_family/baseline/model.xml",
+    "variation": "flotherm_pack_data/templates/qfp_family/xml_variations/param_sweeps/par_v2_c053_bondwirelengthonleftrightlbw_1_8/model.xml",
+    "baseline_bytes": 39733,
+    "variation_bytes": 39735,
+    "baseline_sha256": "BF1D9D963234111DFE5AAE319D1F83A3DBD9AF609C4B3C4A4BC7AA5BBA4082FF",
+    "variation_sha256": "669E5D266E6AC04591AE92E8C0440C616E1581438C895F17D61A9717796B66DA"
+  },
+  "semantic_change": true,
+  "summary": {
+    "changed_value_count": 4,
+    "added_leaf_count": 0,
+    "removed_leaf_count": 0
+  },
+  "materials": {
+    "added": [],
+    "removed": [],
+    "changed": [
+      {
+        "name": "bondwire1",
+        "before": {
+          "type": "orthotropic_material_att",
+          "density": "5028.59126992",
+          "specific_heat": "353.621418579",
+          "x_conductivity": "54.8883051392",
+          "y_conductivity": "0.68",
+          "z_conductivity": "54.8883051392"
+        },
+        "after": {
+          "type": "orthotropic_material_att",
+          "density": "4707.73214293",
+          "specific_heat": "374.048430758",
+          "x_conductivity": "49.4674746253",
+          "y_conductivity": "0.68",
+          "z_conductivity": "49.4674746253"
+        }
+      }
+    ]
+  },
+  "entities": {
+    "added": [],
+    "removed": [],
+    "changed": []
+  },
+  "changed_values": [
+    {
+      "path": "xml_case/attributes/materials/orthotropic_material_att[name=bondwire1]/density",
+      "before": "5028.5912699240189",
+      "after": "4707.7321429316162"
+    },
+    {
+      "path": "xml_case/attributes/materials/orthotropic_material_att[name=bondwire1]/specific_heat",
+      "before": "353.62141857915032",
+      "after": "374.04843075803581"
+    },
+    {
+      "path": "xml_case/attributes/materials/orthotropic_material_att[name=bondwire1]/x_conductivity",
+      "before": "54.88830513924264",
+      "after": "49.467474625318367"
+    },
+    {
+      "path": "xml_case/attributes/materials/orthotropic_material_att[name=bondwire1]/z_conductivity",
+      "before": "54.88830513924264",
+      "after": "49.467474625318367"
+    }
+  ],
+  "added_leaf_paths": [],
+  "removed_leaf_paths": [],
+  "numeric_formatting_differences_ignored": true,
+  "template_id": "qfp_family",
+  "variation_id": "par_v2_c053_bondwirelengthonleftrightlbw_1_8",
+  "variation_kind": "numeric_parameter",
+  "comparison_baseline": "baseline/model.xml",
+  "outcome": "semantic_change",
+  "floxml_effect_expectation": null
+}

@@ -1,0 +1,110 @@
+{
+  "schema_version": "2.0",
+  "comparison": {
+    "baseline": "flotherm_pack_data/templates/qfp_family/baseline/model.xml",
+    "variation": "flotherm_pack_data/templates/qfp_family/xml_variations/param_sweeps/par_v2_c011_thicknessa2_1_26/model.xml",
+    "baseline_bytes": 39733,
+    "variation_bytes": 39722,
+    "baseline_sha256": "BF1D9D963234111DFE5AAE319D1F83A3DBD9AF609C4B3C4A4BC7AA5BBA4082FF",
+    "variation_sha256": "DD2FB72463C6331C2A671504072EE304EB21AC08E02688E7828BE822B02A3E56"
+  },
+  "semantic_change": true,
+  "summary": {
+    "changed_value_count": 7,
+    "added_leaf_count": 0,
+    "removed_leaf_count": 0
+  },
+  "materials": {
+    "added": [],
+    "removed": [],
+    "changed": []
+  },
+  "entities": {
+    "added": [],
+    "removed": [],
+    "changed": [
+      {
+        "name": "assembly:Encapsulant",
+        "before": [
+          "d4969151b2a125b0"
+        ],
+        "after": [
+          "68cc0c1a54b9b9cd"
+        ]
+      },
+      {
+        "name": "cuboid:encapsulant",
+        "before": [
+          "56d370a3f8a849c9"
+        ],
+        "after": [
+          "119156e24573ab05"
+        ]
+      },
+      {
+        "name": "monitor_point:CaseTemp",
+        "before": [
+          "b62de7b0b18ea214"
+        ],
+        "after": [
+          "b8a9e0d0f6d67680"
+        ]
+      },
+      {
+        "name": "region:z_top",
+        "before": [
+          "fc60e99537df0499"
+        ],
+        "after": [
+          "ad005b287efeab07"
+        ]
+      }
+    ]
+  },
+  "changed_values": [
+    {
+      "path": "xml_case/attributes/grid_constraints/grid_constraint_att[name=keypoint_z]/high_inflation/inflation_size",
+      "before": "0.0030000000000000001",
+      "after": "0.0027200000000000002"
+    },
+    {
+      "path": "xml_case/attributes/grid_constraints/grid_constraint_att[name=keypoint_z]/high_inflation/max_size",
+      "before": "0.00015000000000000001",
+      "after": "0.000136"
+    },
+    {
+      "path": "xml_case/attributes/grid_constraints/grid_constraint_att[name=keypoint_z]/low_inflation/max_size",
+      "before": "0.00015000000000000001",
+      "after": "0.000136"
+    },
+    {
+      "path": "xml_case/attributes/grid_constraints/grid_constraint_att[name=keypoint_z]/max_size",
+      "before": "0.00015000000000000001",
+      "after": "0.000136"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Encapsulant]/geometry/cuboid[name=encapsulant]/size/z",
+      "before": "0.0014",
+      "after": "0.0012600000000000001"
+    },
+    {
+      "path": "xml_case/geometry/monitor_point[name=CaseTemp]/position/z",
+      "before": "0.001485",
+      "after": "0.0013464"
+    },
+    {
+      "path": "xml_case/geometry/region[name=z_top]/position/z",
+      "before": "0.0015",
+      "after": "0.0013600000000000001"
+    }
+  ],
+  "added_leaf_paths": [],
+  "removed_leaf_paths": [],
+  "numeric_formatting_differences_ignored": true,
+  "template_id": "qfp_family",
+  "variation_id": "par_v2_c011_thicknessa2_1_26",
+  "variation_kind": "numeric_parameter",
+  "comparison_baseline": "baseline/model.xml",
+  "outcome": "semantic_change",
+  "floxml_effect_expectation": null
+}

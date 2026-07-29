@@ -1,0 +1,279 @@
+{
+  "schema_version": "2.0",
+  "comparison": {
+    "baseline": "flotherm_pack_data/templates/flip_chip_cbga/validation/branch_baselines/br_v2_topcover_stiffenerwidthws/model.xml",
+    "variation": "flotherm_pack_data/templates/flip_chip_cbga/xml_variations/param_sweeps/par_v2_c073_stiffenerwidthws_5_4/model.xml",
+    "baseline_bytes": 22102,
+    "variation_bytes": 22192,
+    "baseline_sha256": "F597AD4DAD251C20025BCCAAC37D3DF5EB4D3BEE52ECF12FED3B9AEA645C6BCD",
+    "variation_sha256": "B414CD7869709EF5CBDB3B911841467E5DB82CD21F21576AF5F1AF1BC0055CAA"
+  },
+  "semantic_change": true,
+  "summary": {
+    "changed_value_count": 21,
+    "added_leaf_count": 0,
+    "removed_leaf_count": 0
+  },
+  "materials": {
+    "added": [],
+    "removed": [],
+    "changed": []
+  },
+  "entities": {
+    "added": [],
+    "removed": [],
+    "changed": [
+      {
+        "name": "assembly:Lid_Adhesive",
+        "before": [
+          "5cadf6873ae51862"
+        ],
+        "after": [
+          "b2916fe5266c8f9c"
+        ]
+      },
+      {
+        "name": "assembly:Stiffener",
+        "before": [
+          "551c6fb7314fe7de"
+        ],
+        "after": [
+          "eae7bd47ca5c8c9a"
+        ]
+      },
+      {
+        "name": "assembly:Stiffener_Adhesive",
+        "before": [
+          "5f9207d652585046"
+        ],
+        "after": [
+          "58ad946a094e9a1c"
+        ]
+      },
+      {
+        "name": "cuboid:lid_adhesive1",
+        "before": [
+          "c82a9cff80ea8a38"
+        ],
+        "after": [
+          "94aeb6cf740e2689"
+        ]
+      },
+      {
+        "name": "cuboid:lid_adhesive2",
+        "before": [
+          "a24b838fe822b57d"
+        ],
+        "after": [
+          "f5d3cc955c8cd3ab"
+        ]
+      },
+      {
+        "name": "cuboid:lid_adhesive3",
+        "before": [
+          "fc29202be1b01c62"
+        ],
+        "after": [
+          "d9dd7951e8d7313f"
+        ]
+      },
+      {
+        "name": "cuboid:lid_adhesive4",
+        "before": [
+          "2df21725aec513ae"
+        ],
+        "after": [
+          "28a93d9f5199df37"
+        ]
+      },
+      {
+        "name": "cuboid:stiffener1",
+        "before": [
+          "d70f4f543dbe545d"
+        ],
+        "after": [
+          "58c889f365787a75"
+        ]
+      },
+      {
+        "name": "cuboid:stiffener2",
+        "before": [
+          "380570aba20e2902"
+        ],
+        "after": [
+          "21bbaf0cc1d7d91f"
+        ]
+      },
+      {
+        "name": "cuboid:stiffener3",
+        "before": [
+          "7a9e7d1410743dc9"
+        ],
+        "after": [
+          "87e6992207352a40"
+        ]
+      },
+      {
+        "name": "cuboid:stiffener4",
+        "before": [
+          "913e5472e07e75ba"
+        ],
+        "after": [
+          "ce9bc10b6d1d750f"
+        ]
+      },
+      {
+        "name": "cuboid:stiffener_adhesive1",
+        "before": [
+          "ed5ffcc551b024e5"
+        ],
+        "after": [
+          "4c71fe5bc48b8524"
+        ]
+      },
+      {
+        "name": "cuboid:stiffener_adhesive2",
+        "before": [
+          "e8b0210e3dcbf613"
+        ],
+        "after": [
+          "61842c391fe4f379"
+        ]
+      },
+      {
+        "name": "cuboid:stiffener_adhesive3",
+        "before": [
+          "25575a1319e099e9"
+        ],
+        "after": [
+          "c7b1ca4a922b6317"
+        ]
+      },
+      {
+        "name": "cuboid:stiffener_adhesive4",
+        "before": [
+          "2aa4d5df9e739653"
+        ],
+        "after": [
+          "e7f0fd596dd78e02"
+        ]
+      }
+    ]
+  },
+  "changed_values": [
+    {
+      "path": "xml_case/geometry/assembly[name=Lid_Adhesive]/geometry/cuboid[name=lid_adhesive1]/position/y",
+      "before": "-0.0030000000000000001",
+      "after": "-0.0027000000000000001"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Lid_Adhesive]/geometry/cuboid[name=lid_adhesive1]/size/y",
+      "before": "0.0060000000000000001",
+      "after": "0.0054000000000000003"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Lid_Adhesive]/geometry/cuboid[name=lid_adhesive2]/position/y",
+      "before": "-0.0030000000000000001",
+      "after": "-0.0027000000000000001"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Lid_Adhesive]/geometry/cuboid[name=lid_adhesive2]/size/y",
+      "before": "0.0060000000000000001",
+      "after": "0.0054000000000000003"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Lid_Adhesive]/geometry/cuboid[name=lid_adhesive3]/position/y",
+      "before": "-0.0030000000000000001",
+      "after": "-0.0027000000000000001"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Lid_Adhesive]/geometry/cuboid[name=lid_adhesive3]/size/y",
+      "before": "0.0015",
+      "after": "0.0012000000000000001"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Lid_Adhesive]/geometry/cuboid[name=lid_adhesive4]/size/y",
+      "before": "0.0015",
+      "after": "0.0012000000000000001"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Stiffener]/geometry/cuboid[name=stiffener1]/position/y",
+      "before": "-0.0030000000000000001",
+      "after": "-0.0027000000000000001"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Stiffener]/geometry/cuboid[name=stiffener1]/size/y",
+      "before": "0.0060000000000000001",
+      "after": "0.0054000000000000003"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Stiffener]/geometry/cuboid[name=stiffener2]/position/y",
+      "before": "-0.0030000000000000001",
+      "after": "-0.0027000000000000001"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Stiffener]/geometry/cuboid[name=stiffener2]/size/y",
+      "before": "0.0060000000000000001",
+      "after": "0.0054000000000000003"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Stiffener]/geometry/cuboid[name=stiffener3]/position/y",
+      "before": "-0.0030000000000000001",
+      "after": "-0.0027000000000000001"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Stiffener]/geometry/cuboid[name=stiffener3]/size/y",
+      "before": "0.0015",
+      "after": "0.0012000000000000001"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Stiffener]/geometry/cuboid[name=stiffener4]/size/y",
+      "before": "0.0015",
+      "after": "0.0012000000000000001"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Stiffener_Adhesive]/geometry/cuboid[name=stiffener_adhesive1]/position/y",
+      "before": "-0.0030000000000000001",
+      "after": "-0.0027000000000000001"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Stiffener_Adhesive]/geometry/cuboid[name=stiffener_adhesive1]/size/y",
+      "before": "0.0060000000000000001",
+      "after": "0.0054000000000000003"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Stiffener_Adhesive]/geometry/cuboid[name=stiffener_adhesive2]/position/y",
+      "before": "-0.0030000000000000001",
+      "after": "-0.0027000000000000001"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Stiffener_Adhesive]/geometry/cuboid[name=stiffener_adhesive2]/size/y",
+      "before": "0.0060000000000000001",
+      "after": "0.0054000000000000003"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Stiffener_Adhesive]/geometry/cuboid[name=stiffener_adhesive3]/position/y",
+      "before": "-0.0030000000000000001",
+      "after": "-0.0027000000000000001"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Stiffener_Adhesive]/geometry/cuboid[name=stiffener_adhesive3]/size/y",
+      "before": "0.0015",
+      "after": "0.0012000000000000001"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Stiffener_Adhesive]/geometry/cuboid[name=stiffener_adhesive4]/size/y",
+      "before": "0.0015",
+      "after": "0.0012000000000000001"
+    }
+  ],
+  "added_leaf_paths": [],
+  "removed_leaf_paths": [],
+  "numeric_formatting_differences_ignored": true,
+  "template_id": "flip_chip_cbga",
+  "variation_id": "par_v2_c073_stiffenerwidthws_5_4",
+  "variation_kind": "numeric_parameter",
+  "comparison_baseline": "validation/branch_baselines/br_v2_topcover_stiffenerwidthws/model.xml",
+  "outcome": "semantic_change",
+  "floxml_effect_expectation": null
+}

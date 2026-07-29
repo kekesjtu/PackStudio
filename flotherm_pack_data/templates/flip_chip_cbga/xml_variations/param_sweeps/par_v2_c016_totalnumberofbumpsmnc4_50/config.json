@@ -1,0 +1,23 @@
+{
+  "schema_version": "2.0",
+  "template_id": "flip_chip_cbga",
+  "variation_id": "par_v2_c016_totalnumberofbumpsmnc4_50",
+  "kind": "numeric_parameter",
+  "coverage_policy": "low_and_high",
+  "target": {
+    "component": "flipChipBumps",
+    "property": "totalNumberOfBumpsMNC4",
+    "label": "Total Number of Bumps MNC4",
+    "baseline": 49,
+    "value": 50
+  },
+  "comparison_baseline": "baseline/model.xml",
+  "branch_preconditions": [],
+  "required_dependent_initialization": {},
+  "single_variable_relative_to_comparison_baseline": true,
+  "material_policy": "default_only",
+  "property_evidence": [
+    "installed_dll_ascii_string"
+  ],
+  "execution_status": "pending_replay"
+}

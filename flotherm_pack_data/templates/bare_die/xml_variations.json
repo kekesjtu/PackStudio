@@ -1,0 +1,619 @@
+{
+  "schema_version": "2.0",
+  "template_id": "bare_die",
+  "generated_at": "2026-07-29T16:06:56+08:00",
+  "status": "complete",
+  "baseline": {
+    "model": "baseline/model.xml",
+    "sha256": "E37813453237BEA80A1CF3D7B2CE81F0530EFA09D115E996233A9633C3F83F2D"
+  },
+  "comparison_policy": {
+    "manifest_selected_variations_only": true,
+    "single_variable_relative_to_comparison_baseline": true,
+    "conditional_targets_use_branch_baselines": true,
+    "numeric_formatting_differences_ignored": true
+  },
+  "comparison_baselines": [
+    "baseline/model.xml"
+  ],
+  "variation_count": 13,
+  "expected_variation_count": 13,
+  "semantic_change_count": 13,
+  "accepted_no_floxml_effect_count": 0,
+  "unexpected_no_change_count": 0,
+  "variations": [
+    {
+      "variation_id": "opt_v2_c001_griddensity_coarse",
+      "kind": "enum_option",
+      "coverage_policy": "all_non_default_values",
+      "target": {
+        "component": "modelingOptions",
+        "property": "gridDensity",
+        "label": "Grid Density",
+        "baseline": "fine",
+        "value": "coarse"
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "artifacts": {
+        "config": "xml_variations/option_switches/opt_v2_c001_griddensity_coarse/config.json",
+        "script": "xml_variations/option_switches/opt_v2_c001_griddensity_coarse/script.xml",
+        "model": "xml_variations/option_switches/opt_v2_c001_griddensity_coarse/model.xml",
+        "diff": "xml_variations/option_switches/opt_v2_c001_griddensity_coarse/diff_xml.json"
+      },
+      "semantic_change": true,
+      "outcome": "semantic_change",
+      "floxml_effect_expectation": null,
+      "summary": {
+        "changed_value_count": 6,
+        "added_leaf_count": 6,
+        "removed_leaf_count": 6
+      },
+      "materials": {
+        "added_count": 0,
+        "removed_count": 0,
+        "changed_count": 0,
+        "added": [],
+        "removed": [],
+        "changed": []
+      },
+      "entities": {
+        "added_count": 0,
+        "removed_count": 0,
+        "changed_count": 0,
+        "added": [],
+        "removed": [],
+        "changed": []
+      }
+    },
+    {
+      "variation_id": "opt_v2_c001_nonuniformdieheat_true",
+      "kind": "boolean_option",
+      "coverage_policy": "alternate_value",
+      "target": {
+        "component": "die",
+        "property": "nonUniformDieHeat",
+        "label": "Non-uniform Die Heat",
+        "baseline": false,
+        "value": true
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "artifacts": {
+        "config": "xml_variations/option_switches/opt_v2_c001_nonuniformdieheat_true/config.json",
+        "script": "xml_variations/option_switches/opt_v2_c001_nonuniformdieheat_true/script.xml",
+        "model": "xml_variations/option_switches/opt_v2_c001_nonuniformdieheat_true/model.xml",
+        "diff": "xml_variations/option_switches/opt_v2_c001_nonuniformdieheat_true/diff_xml.json"
+      },
+      "semantic_change": true,
+      "outcome": "semantic_change",
+      "floxml_effect_expectation": null,
+      "summary": {
+        "changed_value_count": 0,
+        "added_leaf_count": 1,
+        "removed_leaf_count": 14
+      },
+      "materials": {
+        "added_count": 0,
+        "removed_count": 0,
+        "changed_count": 0,
+        "added": [],
+        "removed": [],
+        "changed": []
+      },
+      "entities": {
+        "added_count": 0,
+        "removed_count": 1,
+        "changed_count": 1,
+        "added": [],
+        "removed": [
+          "source:DieSource"
+        ],
+        "changed": [
+          "assembly:Die"
+        ]
+      }
+    },
+    {
+      "variation_id": "opt_v2_c002_flippeddie_true",
+      "kind": "boolean_option",
+      "coverage_policy": "alternate_value",
+      "target": {
+        "component": "die",
+        "property": "flippedDie",
+        "label": "Flipped Die",
+        "baseline": false,
+        "value": true
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "artifacts": {
+        "config": "xml_variations/option_switches/opt_v2_c002_flippeddie_true/config.json",
+        "script": "xml_variations/option_switches/opt_v2_c002_flippeddie_true/script.xml",
+        "model": "xml_variations/option_switches/opt_v2_c002_flippeddie_true/model.xml",
+        "diff": "xml_variations/option_switches/opt_v2_c002_flippeddie_true/diff_xml.json"
+      },
+      "semantic_change": true,
+      "outcome": "semantic_change",
+      "floxml_effect_expectation": null,
+      "summary": {
+        "changed_value_count": 3,
+        "added_leaf_count": 0,
+        "removed_leaf_count": 0
+      },
+      "materials": {
+        "added_count": 0,
+        "removed_count": 0,
+        "changed_count": 0,
+        "added": [],
+        "removed": [],
+        "changed": []
+      },
+      "entities": {
+        "added_count": 0,
+        "removed_count": 0,
+        "changed_count": 3,
+        "added": [],
+        "removed": [],
+        "changed": [
+          "assembly:Die",
+          "monitor_point:DieJunction_Temp",
+          "source:DieSource"
+        ]
+      }
+    },
+    {
+      "variation_id": "opt_v2_c002_griddensity_medium",
+      "kind": "enum_option",
+      "coverage_policy": "all_non_default_values",
+      "target": {
+        "component": "modelingOptions",
+        "property": "gridDensity",
+        "label": "Grid Density",
+        "baseline": "fine",
+        "value": "medium"
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "artifacts": {
+        "config": "xml_variations/option_switches/opt_v2_c002_griddensity_medium/config.json",
+        "script": "xml_variations/option_switches/opt_v2_c002_griddensity_medium/script.xml",
+        "model": "xml_variations/option_switches/opt_v2_c002_griddensity_medium/model.xml",
+        "diff": "xml_variations/option_switches/opt_v2_c002_griddensity_medium/diff_xml.json"
+      },
+      "semantic_change": true,
+      "outcome": "semantic_change",
+      "floxml_effect_expectation": null,
+      "summary": {
+        "changed_value_count": 6,
+        "added_leaf_count": 0,
+        "removed_leaf_count": 0
+      },
+      "materials": {
+        "added_count": 0,
+        "removed_count": 0,
+        "changed_count": 0,
+        "added": [],
+        "removed": [],
+        "changed": []
+      },
+      "entities": {
+        "added_count": 0,
+        "removed_count": 0,
+        "changed_count": 0,
+        "added": [],
+        "removed": [],
+        "changed": []
+      }
+    },
+    {
+      "variation_id": "opt_v2_c003_localizegrid_false",
+      "kind": "boolean_option",
+      "coverage_policy": "alternate_value",
+      "target": {
+        "component": "modelingOptions",
+        "property": "localizeGrid",
+        "label": "Localize Grid",
+        "baseline": true,
+        "value": false
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "artifacts": {
+        "config": "xml_variations/option_switches/opt_v2_c003_localizegrid_false/config.json",
+        "script": "xml_variations/option_switches/opt_v2_c003_localizegrid_false/script.xml",
+        "model": "xml_variations/option_switches/opt_v2_c003_localizegrid_false/model.xml",
+        "diff": "xml_variations/option_switches/opt_v2_c003_localizegrid_false/diff_xml.json"
+      },
+      "semantic_change": true,
+      "outcome": "semantic_change",
+      "floxml_effect_expectation": null,
+      "summary": {
+        "changed_value_count": 1,
+        "added_leaf_count": 0,
+        "removed_leaf_count": 0
+      },
+      "materials": {
+        "added_count": 0,
+        "removed_count": 0,
+        "changed_count": 0,
+        "added": [],
+        "removed": [],
+        "changed": []
+      },
+      "entities": {
+        "added_count": 0,
+        "removed_count": 0,
+        "changed_count": 0,
+        "added": [],
+        "removed": [],
+        "changed": []
+      }
+    },
+    {
+      "variation_id": "par_v2_c001_packagepower_1_8",
+      "kind": "numeric_parameter",
+      "coverage_policy": "low_and_high",
+      "target": {
+        "component": "die",
+        "property": "packagePower",
+        "label": "Package Power",
+        "baseline": 2,
+        "value": 1.8
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "artifacts": {
+        "config": "xml_variations/param_sweeps/par_v2_c001_packagepower_1_8/config.json",
+        "script": "xml_variations/param_sweeps/par_v2_c001_packagepower_1_8/script.xml",
+        "model": "xml_variations/param_sweeps/par_v2_c001_packagepower_1_8/model.xml",
+        "diff": "xml_variations/param_sweeps/par_v2_c001_packagepower_1_8/diff_xml.json"
+      },
+      "semantic_change": true,
+      "outcome": "semantic_change",
+      "floxml_effect_expectation": null,
+      "summary": {
+        "changed_value_count": 1,
+        "added_leaf_count": 0,
+        "removed_leaf_count": 0
+      },
+      "materials": {
+        "added_count": 0,
+        "removed_count": 0,
+        "changed_count": 0,
+        "added": [],
+        "removed": [],
+        "changed": []
+      },
+      "entities": {
+        "added_count": 0,
+        "removed_count": 0,
+        "changed_count": 0,
+        "added": [],
+        "removed": [],
+        "changed": []
+      }
+    },
+    {
+      "variation_id": "par_v2_c002_packagepower_2_2",
+      "kind": "numeric_parameter",
+      "coverage_policy": "low_and_high",
+      "target": {
+        "component": "die",
+        "property": "packagePower",
+        "label": "Package Power",
+        "baseline": 2,
+        "value": 2.2
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "artifacts": {
+        "config": "xml_variations/param_sweeps/par_v2_c002_packagepower_2_2/config.json",
+        "script": "xml_variations/param_sweeps/par_v2_c002_packagepower_2_2/script.xml",
+        "model": "xml_variations/param_sweeps/par_v2_c002_packagepower_2_2/model.xml",
+        "diff": "xml_variations/param_sweeps/par_v2_c002_packagepower_2_2/diff_xml.json"
+      },
+      "semantic_change": true,
+      "outcome": "semantic_change",
+      "floxml_effect_expectation": null,
+      "summary": {
+        "changed_value_count": 1,
+        "added_leaf_count": 0,
+        "removed_leaf_count": 0
+      },
+      "materials": {
+        "added_count": 0,
+        "removed_count": 0,
+        "changed_count": 0,
+        "added": [],
+        "removed": [],
+        "changed": []
+      },
+      "entities": {
+        "added_count": 0,
+        "removed_count": 0,
+        "changed_count": 0,
+        "added": [],
+        "removed": [],
+        "changed": []
+      }
+    },
+    {
+      "variation_id": "par_v2_c003_dielengthld_4_41",
+      "kind": "numeric_parameter",
+      "coverage_policy": "low_and_high",
+      "target": {
+        "component": "die",
+        "property": "dieLengthLd",
+        "label": "Die Length Ld",
+        "baseline": 4.9,
+        "value": 4.41
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "artifacts": {
+        "config": "xml_variations/param_sweeps/par_v2_c003_dielengthld_4_41/config.json",
+        "script": "xml_variations/param_sweeps/par_v2_c003_dielengthld_4_41/script.xml",
+        "model": "xml_variations/param_sweeps/par_v2_c003_dielengthld_4_41/model.xml",
+        "diff": "xml_variations/param_sweeps/par_v2_c003_dielengthld_4_41/diff_xml.json"
+      },
+      "semantic_change": true,
+      "outcome": "semantic_change",
+      "floxml_effect_expectation": null,
+      "summary": {
+        "changed_value_count": 4,
+        "added_leaf_count": 0,
+        "removed_leaf_count": 0
+      },
+      "materials": {
+        "added_count": 0,
+        "removed_count": 0,
+        "changed_count": 0,
+        "added": [],
+        "removed": [],
+        "changed": []
+      },
+      "entities": {
+        "added_count": 0,
+        "removed_count": 0,
+        "changed_count": 3,
+        "added": [],
+        "removed": [],
+        "changed": [
+          "assembly:Die",
+          "cuboid:die",
+          "source:DieSource"
+        ]
+      }
+    },
+    {
+      "variation_id": "par_v2_c004_dielengthld_5_39",
+      "kind": "numeric_parameter",
+      "coverage_policy": "low_and_high",
+      "target": {
+        "component": "die",
+        "property": "dieLengthLd",
+        "label": "Die Length Ld",
+        "baseline": 4.9,
+        "value": 5.39
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "artifacts": {
+        "config": "xml_variations/param_sweeps/par_v2_c004_dielengthld_5_39/config.json",
+        "script": "xml_variations/param_sweeps/par_v2_c004_dielengthld_5_39/script.xml",
+        "model": "xml_variations/param_sweeps/par_v2_c004_dielengthld_5_39/model.xml",
+        "diff": "xml_variations/param_sweeps/par_v2_c004_dielengthld_5_39/diff_xml.json"
+      },
+      "semantic_change": true,
+      "outcome": "semantic_change",
+      "floxml_effect_expectation": null,
+      "summary": {
+        "changed_value_count": 7,
+        "added_leaf_count": 0,
+        "removed_leaf_count": 0
+      },
+      "materials": {
+        "added_count": 0,
+        "removed_count": 0,
+        "changed_count": 0,
+        "added": [],
+        "removed": [],
+        "changed": []
+      },
+      "entities": {
+        "added_count": 0,
+        "removed_count": 0,
+        "changed_count": 3,
+        "added": [],
+        "removed": [],
+        "changed": [
+          "assembly:Die",
+          "cuboid:die",
+          "source:DieSource"
+        ]
+      }
+    },
+    {
+      "variation_id": "par_v2_c005_diewidthwd_4_41",
+      "kind": "numeric_parameter",
+      "coverage_policy": "low_and_high",
+      "target": {
+        "component": "die",
+        "property": "dieWidthWd",
+        "label": "Die Width Wd",
+        "baseline": 4.9,
+        "value": 4.41
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "artifacts": {
+        "config": "xml_variations/param_sweeps/par_v2_c005_diewidthwd_4_41/config.json",
+        "script": "xml_variations/param_sweeps/par_v2_c005_diewidthwd_4_41/script.xml",
+        "model": "xml_variations/param_sweeps/par_v2_c005_diewidthwd_4_41/model.xml",
+        "diff": "xml_variations/param_sweeps/par_v2_c005_diewidthwd_4_41/diff_xml.json"
+      },
+      "semantic_change": true,
+      "outcome": "semantic_change",
+      "floxml_effect_expectation": null,
+      "summary": {
+        "changed_value_count": 4,
+        "added_leaf_count": 0,
+        "removed_leaf_count": 0
+      },
+      "materials": {
+        "added_count": 0,
+        "removed_count": 0,
+        "changed_count": 0,
+        "added": [],
+        "removed": [],
+        "changed": []
+      },
+      "entities": {
+        "added_count": 0,
+        "removed_count": 0,
+        "changed_count": 3,
+        "added": [],
+        "removed": [],
+        "changed": [
+          "assembly:Die",
+          "cuboid:die",
+          "source:DieSource"
+        ]
+      }
+    },
+    {
+      "variation_id": "par_v2_c006_diewidthwd_5_39",
+      "kind": "numeric_parameter",
+      "coverage_policy": "low_and_high",
+      "target": {
+        "component": "die",
+        "property": "dieWidthWd",
+        "label": "Die Width Wd",
+        "baseline": 4.9,
+        "value": 5.39
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "artifacts": {
+        "config": "xml_variations/param_sweeps/par_v2_c006_diewidthwd_5_39/config.json",
+        "script": "xml_variations/param_sweeps/par_v2_c006_diewidthwd_5_39/script.xml",
+        "model": "xml_variations/param_sweeps/par_v2_c006_diewidthwd_5_39/model.xml",
+        "diff": "xml_variations/param_sweeps/par_v2_c006_diewidthwd_5_39/diff_xml.json"
+      },
+      "semantic_change": true,
+      "outcome": "semantic_change",
+      "floxml_effect_expectation": null,
+      "summary": {
+        "changed_value_count": 7,
+        "added_leaf_count": 0,
+        "removed_leaf_count": 0
+      },
+      "materials": {
+        "added_count": 0,
+        "removed_count": 0,
+        "changed_count": 0,
+        "added": [],
+        "removed": [],
+        "changed": []
+      },
+      "entities": {
+        "added_count": 0,
+        "removed_count": 0,
+        "changed_count": 3,
+        "added": [],
+        "removed": [],
+        "changed": [
+          "assembly:Die",
+          "cuboid:die",
+          "source:DieSource"
+        ]
+      }
+    },
+    {
+      "variation_id": "par_v2_c007_diethicknesstd_0_198",
+      "kind": "numeric_parameter",
+      "coverage_policy": "low_and_high",
+      "target": {
+        "component": "die",
+        "property": "dieThicknessTd",
+        "label": "Die Thickness td",
+        "baseline": 0.22,
+        "value": 0.198
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "artifacts": {
+        "config": "xml_variations/param_sweeps/par_v2_c007_diethicknesstd_0_198/config.json",
+        "script": "xml_variations/param_sweeps/par_v2_c007_diethicknesstd_0_198/script.xml",
+        "model": "xml_variations/param_sweeps/par_v2_c007_diethicknesstd_0_198/model.xml",
+        "diff": "xml_variations/param_sweeps/par_v2_c007_diethicknesstd_0_198/diff_xml.json"
+      },
+      "semantic_change": true,
+      "outcome": "semantic_change",
+      "floxml_effect_expectation": null,
+      "summary": {
+        "changed_value_count": 7,
+        "added_leaf_count": 0,
+        "removed_leaf_count": 0
+      },
+      "materials": {
+        "added_count": 0,
+        "removed_count": 0,
+        "changed_count": 0,
+        "added": [],
+        "removed": [],
+        "changed": []
+      },
+      "entities": {
+        "added_count": 0,
+        "removed_count": 0,
+        "changed_count": 4,
+        "added": [],
+        "removed": [],
+        "changed": [
+          "assembly:Die",
+          "cuboid:die",
+          "monitor_point:DieJunction_Temp",
+          "source:DieSource"
+        ]
+      }
+    },
+    {
+      "variation_id": "par_v2_c008_diethicknesstd_0_242",
+      "kind": "numeric_parameter",
+      "coverage_policy": "low_and_high",
+      "target": {
+        "component": "die",
+        "property": "dieThicknessTd",
+        "label": "Die Thickness td",
+        "baseline": 0.22,
+        "value": 0.242
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "artifacts": {
+        "config": "xml_variations/param_sweeps/par_v2_c008_diethicknesstd_0_242/config.json",
+        "script": "xml_variations/param_sweeps/par_v2_c008_diethicknesstd_0_242/script.xml",
+        "model": "xml_variations/param_sweeps/par_v2_c008_diethicknesstd_0_242/model.xml",
+        "diff": "xml_variations/param_sweeps/par_v2_c008_diethicknesstd_0_242/diff_xml.json"
+      },
+      "semantic_change": true,
+      "outcome": "semantic_change",
+      "floxml_effect_expectation": null,
+      "summary": {
+        "changed_value_count": 7,
+        "added_leaf_count": 0,
+        "removed_leaf_count": 0
+      },
+      "materials": {
+        "added_count": 0,
+        "removed_count": 0,
+        "changed_count": 0,
+        "added": [],
+        "removed": [],
+        "changed": []
+      },
+      "entities": {
+        "added_count": 0,
+        "removed_count": 0,
+        "changed_count": 4,
+        "added": [],
+        "removed": [],
+        "changed": [
+          "assembly:Die",
+          "cuboid:die",
+          "monitor_point:DieJunction_Temp",
+          "source:DieSource"
+        ]
+      }
+    }
+  ]
+}

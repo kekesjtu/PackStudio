@@ -1,0 +1,68 @@
+{
+  "schema_version": "2.0",
+  "comparison": {
+    "baseline": "flotherm_pack_data/templates/fbga_fsbga/baseline/model.xml",
+    "variation": "flotherm_pack_data/templates/fbga_fsbga/xml_variations/option_switches/opt_v2_c009_griddensity_medium/model.xml",
+    "baseline_bytes": 49732,
+    "variation_bytes": 49762,
+    "baseline_sha256": "BB8855B47DDB172F6D5C3E7056F3229923EC67BF23A86252DB33EAC6B5664226",
+    "variation_sha256": "D8C66F89B3001FD60F8E94FC83EE6EF7F60D06C1921F64532E53181934CE8ADA"
+  },
+  "semantic_change": true,
+  "summary": {
+    "changed_value_count": 6,
+    "added_leaf_count": 0,
+    "removed_leaf_count": 0
+  },
+  "materials": {
+    "added": [],
+    "removed": [],
+    "changed": []
+  },
+  "entities": {
+    "added": [],
+    "removed": [],
+    "changed": []
+  },
+  "changed_values": [
+    {
+      "path": "xml_case/attributes/grid_constraints/grid_constraint_att[name=keypoint]/high_inflation/max_size",
+      "before": "0.00020000000000000001",
+      "after": "0.00040000000000000002"
+    },
+    {
+      "path": "xml_case/attributes/grid_constraints/grid_constraint_att[name=keypoint]/low_inflation/max_size",
+      "before": "0.00020000000000000001",
+      "after": "0.00040000000000000002"
+    },
+    {
+      "path": "xml_case/attributes/grid_constraints/grid_constraint_att[name=keypoint]/max_size",
+      "before": "0.00020000000000000001",
+      "after": "0.00040000000000000002"
+    },
+    {
+      "path": "xml_case/attributes/grid_constraints/grid_constraint_att[name=keypoint_z]/high_inflation/max_size",
+      "before": "0.00014100000000000001",
+      "after": "0.00023499999999999999"
+    },
+    {
+      "path": "xml_case/attributes/grid_constraints/grid_constraint_att[name=keypoint_z]/low_inflation/max_size",
+      "before": "0.00014100000000000001",
+      "after": "0.00023499999999999999"
+    },
+    {
+      "path": "xml_case/attributes/grid_constraints/grid_constraint_att[name=keypoint_z]/max_size",
+      "before": "0.00014100000000000001",
+      "after": "0.00023499999999999999"
+    }
+  ],
+  "added_leaf_paths": [],
+  "removed_leaf_paths": [],
+  "numeric_formatting_differences_ignored": true,
+  "template_id": "fbga_fsbga",
+  "variation_id": "opt_v2_c009_griddensity_medium",
+  "variation_kind": "enum_option",
+  "comparison_baseline": "baseline/model.xml",
+  "outcome": "semantic_change",
+  "floxml_effect_expectation": null
+}

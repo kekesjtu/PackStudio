@@ -1,0 +1,200 @@
+{
+  "schema_version": "2.0",
+  "comparison": {
+    "baseline": "flotherm_pack_data/templates/qfp_family/baseline/model.xml",
+    "variation": "flotherm_pack_data/templates/qfp_family/xml_variations/param_sweeps/par_v2_c048_numberofleadsontopbottommd_9/model.xml",
+    "baseline_bytes": 39733,
+    "variation_bytes": 39733,
+    "baseline_sha256": "BF1D9D963234111DFE5AAE319D1F83A3DBD9AF609C4B3C4A4BC7AA5BBA4082FF",
+    "variation_sha256": "E6FB6BF55C65DF4877CBFC7021EFE73CCFD466973AC0574E71AF9026B7836831"
+  },
+  "semantic_change": true,
+  "summary": {
+    "changed_value_count": 16,
+    "added_leaf_count": 0,
+    "removed_leaf_count": 0
+  },
+  "materials": {
+    "added": [],
+    "removed": [],
+    "changed": []
+  },
+  "entities": {
+    "added": [],
+    "removed": [],
+    "changed": [
+      {
+        "name": "assembly:LeadFrame",
+        "before": [
+          "6aab72f69ace04c1"
+        ],
+        "after": [
+          "ac1db3c9141352f2"
+        ]
+      },
+      {
+        "name": "cuboid:ldf_exter_lower",
+        "before": [
+          "7f0604881b856a0e"
+        ],
+        "after": [
+          "a335c77a89596ed4"
+        ]
+      },
+      {
+        "name": "cuboid:ldf_exter_upper",
+        "before": [
+          "c972a59ee7c30448"
+        ],
+        "after": [
+          "64f6edee1fb6c7d1"
+        ]
+      },
+      {
+        "name": "cuboid:ldf_inter_lower",
+        "before": [
+          "f42e41a3d654ab13"
+        ],
+        "after": [
+          "242b8124cdccbd59"
+        ]
+      },
+      {
+        "name": "cuboid:ldf_inter_upper",
+        "before": [
+          "cd4f29bf1e394d31"
+        ],
+        "after": [
+          "a34884e41b6fd0a8"
+        ]
+      },
+      {
+        "name": "cuboid:ldf_vert_lower",
+        "before": [
+          "4f93cffa01a5a0e4"
+        ],
+        "after": [
+          "f08d09f7b4bcda88"
+        ]
+      },
+      {
+        "name": "cuboid:ldf_vert_upper",
+        "before": [
+          "266ec3fc55526d89"
+        ],
+        "after": [
+          "4f25c6470c306149"
+        ]
+      },
+      {
+        "name": "cuboid:leadft_lower",
+        "before": [
+          "476659a8891e799d"
+        ],
+        "after": [
+          "de16dde09bc37ac1"
+        ]
+      },
+      {
+        "name": "cuboid:leadft_upper",
+        "before": [
+          "4b093661ed5738fc"
+        ],
+        "after": [
+          "68ce715599239828"
+        ]
+      }
+    ]
+  },
+  "changed_values": [
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_exter_lower]/position/x",
+      "before": "-0.0030000000000000001",
+      "after": "-0.0034000000000000002"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_exter_lower]/size/x",
+      "before": "0.0060000000000000001",
+      "after": "0.0068000000000000005"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_exter_upper]/position/x",
+      "before": "-0.0030000000000000001",
+      "after": "-0.0034000000000000002"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_exter_upper]/size/x",
+      "before": "0.0060000000000000001",
+      "after": "0.0068000000000000005"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_inter_lower]/position/x",
+      "before": "-0.0030000000000000001",
+      "after": "-0.0034000000000000002"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_inter_lower]/size/x",
+      "before": "0.0060000000000000001",
+      "after": "0.0068000000000000005"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_inter_upper]/position/x",
+      "before": "-0.0030000000000000001",
+      "after": "-0.0034000000000000002"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_inter_upper]/size/x",
+      "before": "0.0060000000000000001",
+      "after": "0.0068000000000000005"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_vert_lower]/position/x",
+      "before": "-0.0030000000000000001",
+      "after": "-0.0034000000000000002"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_vert_lower]/size/x",
+      "before": "0.0060000000000000001",
+      "after": "0.0068000000000000005"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_vert_upper]/position/x",
+      "before": "-0.0030000000000000001",
+      "after": "-0.0034000000000000002"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_vert_upper]/size/x",
+      "before": "0.0060000000000000001",
+      "after": "0.0068000000000000005"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=leadft_lower]/position/x",
+      "before": "-0.0030000000000000001",
+      "after": "-0.0034000000000000002"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=leadft_lower]/size/x",
+      "before": "0.0060000000000000001",
+      "after": "0.0068000000000000005"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=leadft_upper]/position/x",
+      "before": "-0.0030000000000000001",
+      "after": "-0.0034000000000000002"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=leadft_upper]/size/x",
+      "before": "0.0060000000000000001",
+      "after": "0.0068000000000000005"
+    }
+  ],
+  "added_leaf_paths": [],
+  "removed_leaf_paths": [],
+  "numeric_formatting_differences_ignored": true,
+  "template_id": "qfp_family",
+  "variation_id": "par_v2_c048_numberofleadsontopbottommd_9",
+  "variation_kind": "numeric_parameter",
+  "comparison_baseline": "baseline/model.xml",
+  "outcome": "semantic_change",
+  "floxml_effect_expectation": null
+}

@@ -1,0 +1,23 @@
+{
+  "schema_version": "2.0",
+  "template_id": "qfp_family",
+  "variation_id": "par_v2_c020_diethicknesstd_0_385",
+  "kind": "numeric_parameter",
+  "coverage_policy": "low_and_high",
+  "target": {
+    "component": "die",
+    "property": "dieThicknessTd",
+    "label": "Die Thickness td",
+    "baseline": 0.35,
+    "value": 0.385
+  },
+  "comparison_baseline": "baseline/model.xml",
+  "branch_preconditions": [],
+  "required_dependent_initialization": {},
+  "single_variable_relative_to_comparison_baseline": true,
+  "material_policy": "default_only",
+  "property_evidence": [
+    "installed_dll_ascii_string"
+  ],
+  "execution_status": "pending_replay"
+}

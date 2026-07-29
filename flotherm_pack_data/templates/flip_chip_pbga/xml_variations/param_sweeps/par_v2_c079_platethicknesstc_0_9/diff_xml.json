@@ -1,0 +1,110 @@
+{
+  "schema_version": "2.0",
+  "comparison": {
+    "baseline": "flotherm_pack_data/templates/flip_chip_pbga/validation/branch_baselines/br_v2_topcover_platethicknesstc/model.xml",
+    "variation": "flotherm_pack_data/templates/flip_chip_pbga/xml_variations/param_sweeps/par_v2_c079_platethicknesstc_0_9/model.xml",
+    "baseline_bytes": 12371,
+    "variation_bytes": 12374,
+    "baseline_sha256": "E771B903908C1D4D2A47FE4DCE77998A4D84E8503341B2D8418A3FB59EB64AF2",
+    "variation_sha256": "489CEB2F96DDB2E67227F775640172BFBDF8EADF3AD85A60CE8C4746E9C3E978"
+  },
+  "semantic_change": true,
+  "summary": {
+    "changed_value_count": 7,
+    "added_leaf_count": 0,
+    "removed_leaf_count": 0
+  },
+  "materials": {
+    "added": [],
+    "removed": [],
+    "changed": []
+  },
+  "entities": {
+    "added": [],
+    "removed": [],
+    "changed": [
+      {
+        "name": "assembly:Thermal_Plate",
+        "before": [
+          "ffd7d05cbc18339f"
+        ],
+        "after": [
+          "2a9cf4b62c37cc6d"
+        ]
+      },
+      {
+        "name": "cuboid:thermal_plate",
+        "before": [
+          "a5205e46321c537f"
+        ],
+        "after": [
+          "1e7a0a45106d458f"
+        ]
+      },
+      {
+        "name": "monitor_point:CaseTemp",
+        "before": [
+          "2cce9bf4e512b009"
+        ],
+        "after": [
+          "5f49397768cfa1be"
+        ]
+      },
+      {
+        "name": "region:z_top",
+        "before": [
+          "632cf5c7b2a06195"
+        ],
+        "after": [
+          "3fff98fd3c21914d"
+        ]
+      }
+    ]
+  },
+  "changed_values": [
+    {
+      "path": "xml_case/attributes/grid_constraints/grid_constraint_att[name=keypoint_z]/high_inflation/inflation_size",
+      "before": "0.0065200000000000006",
+      "after": "0.0063200000000000001"
+    },
+    {
+      "path": "xml_case/attributes/grid_constraints/grid_constraint_att[name=keypoint_z]/high_inflation/max_size",
+      "before": "0.00032600000000000001",
+      "after": "0.00031599999999999998"
+    },
+    {
+      "path": "xml_case/attributes/grid_constraints/grid_constraint_att[name=keypoint_z]/low_inflation/max_size",
+      "before": "0.00032600000000000001",
+      "after": "0.00031599999999999998"
+    },
+    {
+      "path": "xml_case/attributes/grid_constraints/grid_constraint_att[name=keypoint_z]/max_size",
+      "before": "0.00032600000000000001",
+      "after": "0.00031599999999999998"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Thermal_Plate]/geometry/cuboid[name=thermal_plate]/size/z",
+      "before": "0.001",
+      "after": "0.00089999999999999998"
+    },
+    {
+      "path": "xml_case/geometry/monitor_point[name=CaseTemp]/position/z",
+      "before": "0.0032274000000000005",
+      "after": "0.0031283999999999999"
+    },
+    {
+      "path": "xml_case/geometry/region[name=z_top]/position/z",
+      "before": "0.0032600000000000003",
+      "after": "0.00316"
+    }
+  ],
+  "added_leaf_paths": [],
+  "removed_leaf_paths": [],
+  "numeric_formatting_differences_ignored": true,
+  "template_id": "flip_chip_pbga",
+  "variation_id": "par_v2_c079_platethicknesstc_0_9",
+  "variation_kind": "numeric_parameter",
+  "comparison_baseline": "validation/branch_baselines/br_v2_topcover_platethicknesstc/model.xml",
+  "outcome": "semantic_change",
+  "floxml_effect_expectation": null
+}

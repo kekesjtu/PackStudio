@@ -1,0 +1,58 @@
+{
+  "schema_version": "2.0",
+  "comparison": {
+    "baseline": "flotherm_pack_data/templates/qfp_family/validation/branch_baselines/br_v2_thermallandandsolder_landthickness/model.xml",
+    "variation": "flotherm_pack_data/templates/qfp_family/xml_variations/param_sweeps/par_v2_c062_landthickness_0_055/model.xml",
+    "baseline_bytes": 40519,
+    "variation_bytes": 40519,
+    "baseline_sha256": "52800487025AA26F411492122C702A7FE1416303F2B0659960914621ACF3C2C2",
+    "variation_sha256": "DE7012C496ADF2CE245577F30C1F360C8684C875663ECA0E7F6CA92BD8CA12BA"
+  },
+  "semantic_change": true,
+  "summary": {
+    "changed_value_count": 2,
+    "added_leaf_count": 0,
+    "removed_leaf_count": 0
+  },
+  "materials": {
+    "added": [],
+    "removed": [],
+    "changed": []
+  },
+  "entities": {
+    "added": [],
+    "removed": [],
+    "changed": [
+      {
+        "name": "cuboid:land",
+        "before": [
+          "809dd6807475331e"
+        ],
+        "after": [
+          "84d635b85c47b14a"
+        ]
+      }
+    ]
+  },
+  "changed_values": [
+    {
+      "path": "xml_case/geometry/cuboid[name=land]/position/z",
+      "before": "-5.0000000000000002e-05",
+      "after": "-5.5000000000000002e-05"
+    },
+    {
+      "path": "xml_case/geometry/cuboid[name=land]/size/z",
+      "before": "5.0000000000000002e-05",
+      "after": "5.5000000000000002e-05"
+    }
+  ],
+  "added_leaf_paths": [],
+  "removed_leaf_paths": [],
+  "numeric_formatting_differences_ignored": true,
+  "template_id": "qfp_family",
+  "variation_id": "par_v2_c062_landthickness_0_055",
+  "variation_kind": "numeric_parameter",
+  "comparison_baseline": "validation/branch_baselines/br_v2_thermallandandsolder_landthickness/model.xml",
+  "outcome": "semantic_change",
+  "floxml_effect_expectation": null
+}

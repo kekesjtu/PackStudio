@@ -1,0 +1,464 @@
+{
+  "schema_version": "2.0",
+  "comparison": {
+    "baseline": "flotherm_pack_data/templates/wirebond_pbga/baseline/model.xml",
+    "variation": "flotherm_pack_data/templates/wirebond_pbga/xml_variations/param_sweeps/par_v2_c049_viapitchev_1_143/model.xml",
+    "baseline_bytes": 41072,
+    "variation_bytes": 41162,
+    "baseline_sha256": "9479526808CCC33C8AD535F728A6CBBAC0F010BC1E06E77A60FD3E26427F56B2",
+    "variation_sha256": "23230AB765397BB8662BE8B0CD93A05EC089020530E62C04C9D549EBA795DB7B"
+  },
+  "semantic_change": true,
+  "summary": {
+    "changed_value_count": 40,
+    "added_leaf_count": 0,
+    "removed_leaf_count": 0
+  },
+  "materials": {
+    "added": [],
+    "removed": [],
+    "changed": []
+  },
+  "entities": {
+    "added": [],
+    "removed": [],
+    "changed": [
+      {
+        "name": "assembly:Thermal_via",
+        "before": [
+          "cd87b14e77a414a1"
+        ],
+        "after": [
+          "05736ae16c13b484"
+        ]
+      },
+      {
+        "name": "cuboid:thermal_via_1_1",
+        "before": [
+          "96b53fd36e26d3f6"
+        ],
+        "after": [
+          "d9c2e6baae5bdaef"
+        ]
+      },
+      {
+        "name": "cuboid:thermal_via_1_2",
+        "before": [
+          "f832d33d68fa82f6"
+        ],
+        "after": [
+          "47ccd1dd02b58262"
+        ]
+      },
+      {
+        "name": "cuboid:thermal_via_1_3",
+        "before": [
+          "f4a9eedf4cb74fa7"
+        ],
+        "after": [
+          "a39204749b2a2706"
+        ]
+      },
+      {
+        "name": "cuboid:thermal_via_1_4",
+        "before": [
+          "00bb097edb489fac"
+        ],
+        "after": [
+          "e390d4325b9f7053"
+        ]
+      },
+      {
+        "name": "cuboid:thermal_via_1_5",
+        "before": [
+          "6d2e5a9cf82418aa"
+        ],
+        "after": [
+          "58e37662cd008d08"
+        ]
+      },
+      {
+        "name": "cuboid:thermal_via_2_1",
+        "before": [
+          "8f2c4ba6b4fdc2aa"
+        ],
+        "after": [
+          "df0f7a24f731557e"
+        ]
+      },
+      {
+        "name": "cuboid:thermal_via_2_2",
+        "before": [
+          "88c5e24f3d9d849a"
+        ],
+        "after": [
+          "67d6bced48975abd"
+        ]
+      },
+      {
+        "name": "cuboid:thermal_via_2_3",
+        "before": [
+          "97c69dc0f4bf8f64"
+        ],
+        "after": [
+          "0b1c407c3481eee7"
+        ]
+      },
+      {
+        "name": "cuboid:thermal_via_2_4",
+        "before": [
+          "6bcbde8989642a7f"
+        ],
+        "after": [
+          "db2221683b8b59dc"
+        ]
+      },
+      {
+        "name": "cuboid:thermal_via_2_5",
+        "before": [
+          "5845b2b446d81927"
+        ],
+        "after": [
+          "8191aa50e4e0f6cf"
+        ]
+      },
+      {
+        "name": "cuboid:thermal_via_3_1",
+        "before": [
+          "cc2c9666c0f56583"
+        ],
+        "after": [
+          "61575ce6e5858caf"
+        ]
+      },
+      {
+        "name": "cuboid:thermal_via_3_2",
+        "before": [
+          "2faab38ff721fcb4"
+        ],
+        "after": [
+          "f533f35f2632fdc0"
+        ]
+      },
+      {
+        "name": "cuboid:thermal_via_3_4",
+        "before": [
+          "8b74b6820c2b4f20"
+        ],
+        "after": [
+          "0bae39289bfae5e2"
+        ]
+      },
+      {
+        "name": "cuboid:thermal_via_3_5",
+        "before": [
+          "076801a7523efe5e"
+        ],
+        "after": [
+          "5f147bc539c36a95"
+        ]
+      },
+      {
+        "name": "cuboid:thermal_via_4_1",
+        "before": [
+          "f8f36650ca130c4c"
+        ],
+        "after": [
+          "e4b4f822e558e2a9"
+        ]
+      },
+      {
+        "name": "cuboid:thermal_via_4_2",
+        "before": [
+          "1000f9b6ee5cfea6"
+        ],
+        "after": [
+          "222b3fd85eb0ef4e"
+        ]
+      },
+      {
+        "name": "cuboid:thermal_via_4_3",
+        "before": [
+          "805d32eba26c29f8"
+        ],
+        "after": [
+          "60888962874cb0d9"
+        ]
+      },
+      {
+        "name": "cuboid:thermal_via_4_4",
+        "before": [
+          "a80968c6fbb368eb"
+        ],
+        "after": [
+          "8250b6f231ea2e15"
+        ]
+      },
+      {
+        "name": "cuboid:thermal_via_4_5",
+        "before": [
+          "df266edf4c8c0a55"
+        ],
+        "after": [
+          "eb77b23a4713f233"
+        ]
+      },
+      {
+        "name": "cuboid:thermal_via_5_1",
+        "before": [
+          "0bf383561a677cdb"
+        ],
+        "after": [
+          "66a3a888e9db0f1f"
+        ]
+      },
+      {
+        "name": "cuboid:thermal_via_5_2",
+        "before": [
+          "3f49acf13ad8ca34"
+        ],
+        "after": [
+          "55beb7bfedd81f85"
+        ]
+      },
+      {
+        "name": "cuboid:thermal_via_5_3",
+        "before": [
+          "916114bffede7f92"
+        ],
+        "after": [
+          "efc6c2b172baa091"
+        ]
+      },
+      {
+        "name": "cuboid:thermal_via_5_4",
+        "before": [
+          "24b61c3e561cfa97"
+        ],
+        "after": [
+          "5e5b7dd67c2edd00"
+        ]
+      },
+      {
+        "name": "cuboid:thermal_via_5_5",
+        "before": [
+          "77c894404a88d527"
+        ],
+        "after": [
+          "9aba3a5686d12c87"
+        ]
+      }
+    ]
+  },
+  "changed_values": [
+    {
+      "path": "xml_case/geometry/assembly[name=Thermal_via]/geometry/cuboid[name=thermal_via_1_1]/position/x",
+      "before": "-0.0026507783656815947",
+      "after": "-0.0023967783656815944"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Thermal_via]/geometry/cuboid[name=thermal_via_1_1]/position/y",
+      "before": "-0.0026507783656815947",
+      "after": "-0.0023967783656815944"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Thermal_via]/geometry/cuboid[name=thermal_via_1_2]/position/x",
+      "before": "-0.0026507783656815947",
+      "after": "-0.0023967783656815944"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Thermal_via]/geometry/cuboid[name=thermal_via_1_2]/position/y",
+      "before": "-0.0013807783656815949",
+      "after": "-0.0012537783656815947"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Thermal_via]/geometry/cuboid[name=thermal_via_1_3]/position/x",
+      "before": "-0.0026507783656815947",
+      "after": "-0.0023967783656815944"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Thermal_via]/geometry/cuboid[name=thermal_via_1_4]/position/x",
+      "before": "-0.0026507783656815947",
+      "after": "-0.0023967783656815944"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Thermal_via]/geometry/cuboid[name=thermal_via_1_4]/position/y",
+      "before": "0.0011592216343184051",
+      "after": "0.0010322216343184051"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Thermal_via]/geometry/cuboid[name=thermal_via_1_5]/position/x",
+      "before": "-0.0026507783656815947",
+      "after": "-0.0023967783656815944"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Thermal_via]/geometry/cuboid[name=thermal_via_1_5]/position/y",
+      "before": "0.0024292216343184056",
+      "after": "0.0021752216343184053"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Thermal_via]/geometry/cuboid[name=thermal_via_2_1]/position/x",
+      "before": "-0.0013807783656815949",
+      "after": "-0.0012537783656815947"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Thermal_via]/geometry/cuboid[name=thermal_via_2_1]/position/y",
+      "before": "-0.0026507783656815947",
+      "after": "-0.0023967783656815944"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Thermal_via]/geometry/cuboid[name=thermal_via_2_2]/position/x",
+      "before": "-0.0013807783656815949",
+      "after": "-0.0012537783656815947"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Thermal_via]/geometry/cuboid[name=thermal_via_2_2]/position/y",
+      "before": "-0.0013807783656815949",
+      "after": "-0.0012537783656815947"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Thermal_via]/geometry/cuboid[name=thermal_via_2_3]/position/x",
+      "before": "-0.0013807783656815949",
+      "after": "-0.0012537783656815947"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Thermal_via]/geometry/cuboid[name=thermal_via_2_4]/position/x",
+      "before": "-0.0013807783656815949",
+      "after": "-0.0012537783656815947"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Thermal_via]/geometry/cuboid[name=thermal_via_2_4]/position/y",
+      "before": "0.0011592216343184051",
+      "after": "0.0010322216343184051"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Thermal_via]/geometry/cuboid[name=thermal_via_2_5]/position/x",
+      "before": "-0.0013807783656815949",
+      "after": "-0.0012537783656815947"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Thermal_via]/geometry/cuboid[name=thermal_via_2_5]/position/y",
+      "before": "0.0024292216343184056",
+      "after": "0.0021752216343184053"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Thermal_via]/geometry/cuboid[name=thermal_via_3_1]/position/y",
+      "before": "-0.0026507783656815947",
+      "after": "-0.0023967783656815944"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Thermal_via]/geometry/cuboid[name=thermal_via_3_2]/position/y",
+      "before": "-0.0013807783656815949",
+      "after": "-0.0012537783656815947"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Thermal_via]/geometry/cuboid[name=thermal_via_3_4]/position/y",
+      "before": "0.0011592216343184051",
+      "after": "0.0010322216343184051"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Thermal_via]/geometry/cuboid[name=thermal_via_3_5]/position/y",
+      "before": "0.0024292216343184056",
+      "after": "0.0021752216343184053"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Thermal_via]/geometry/cuboid[name=thermal_via_4_1]/position/x",
+      "before": "0.0011592216343184051",
+      "after": "0.0010322216343184051"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Thermal_via]/geometry/cuboid[name=thermal_via_4_1]/position/y",
+      "before": "-0.0026507783656815947",
+      "after": "-0.0023967783656815944"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Thermal_via]/geometry/cuboid[name=thermal_via_4_2]/position/x",
+      "before": "0.0011592216343184051",
+      "after": "0.0010322216343184051"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Thermal_via]/geometry/cuboid[name=thermal_via_4_2]/position/y",
+      "before": "-0.0013807783656815949",
+      "after": "-0.0012537783656815947"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Thermal_via]/geometry/cuboid[name=thermal_via_4_3]/position/x",
+      "before": "0.0011592216343184051",
+      "after": "0.0010322216343184051"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Thermal_via]/geometry/cuboid[name=thermal_via_4_4]/position/x",
+      "before": "0.0011592216343184051",
+      "after": "0.0010322216343184051"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Thermal_via]/geometry/cuboid[name=thermal_via_4_4]/position/y",
+      "before": "0.0011592216343184051",
+      "after": "0.0010322216343184051"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Thermal_via]/geometry/cuboid[name=thermal_via_4_5]/position/x",
+      "before": "0.0011592216343184051",
+      "after": "0.0010322216343184051"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Thermal_via]/geometry/cuboid[name=thermal_via_4_5]/position/y",
+      "before": "0.0024292216343184056",
+      "after": "0.0021752216343184053"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Thermal_via]/geometry/cuboid[name=thermal_via_5_1]/position/x",
+      "before": "0.0024292216343184056",
+      "after": "0.0021752216343184053"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Thermal_via]/geometry/cuboid[name=thermal_via_5_1]/position/y",
+      "before": "-0.0026507783656815947",
+      "after": "-0.0023967783656815944"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Thermal_via]/geometry/cuboid[name=thermal_via_5_2]/position/x",
+      "before": "0.0024292216343184056",
+      "after": "0.0021752216343184053"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Thermal_via]/geometry/cuboid[name=thermal_via_5_2]/position/y",
+      "before": "-0.0013807783656815949",
+      "after": "-0.0012537783656815947"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Thermal_via]/geometry/cuboid[name=thermal_via_5_3]/position/x",
+      "before": "0.0024292216343184056",
+      "after": "0.0021752216343184053"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Thermal_via]/geometry/cuboid[name=thermal_via_5_4]/position/x",
+      "before": "0.0024292216343184056",
+      "after": "0.0021752216343184053"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Thermal_via]/geometry/cuboid[name=thermal_via_5_4]/position/y",
+      "before": "0.0011592216343184051",
+      "after": "0.0010322216343184051"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Thermal_via]/geometry/cuboid[name=thermal_via_5_5]/position/x",
+      "before": "0.0024292216343184056",
+      "after": "0.0021752216343184053"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Thermal_via]/geometry/cuboid[name=thermal_via_5_5]/position/y",
+      "before": "0.0024292216343184056",
+      "after": "0.0021752216343184053"
+    }
+  ],
+  "added_leaf_paths": [],
+  "removed_leaf_paths": [],
+  "numeric_formatting_differences_ignored": true,
+  "template_id": "wirebond_pbga",
+  "variation_id": "par_v2_c049_viapitchev_1_143",
+  "variation_kind": "numeric_parameter",
+  "comparison_baseline": "baseline/model.xml",
+  "outcome": "semantic_change",
+  "floxml_effect_expectation": null
+}

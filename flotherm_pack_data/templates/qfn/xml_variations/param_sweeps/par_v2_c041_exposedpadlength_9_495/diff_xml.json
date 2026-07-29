@@ -1,0 +1,95 @@
+{
+  "schema_version": "2.0",
+  "comparison": {
+    "baseline": "flotherm_pack_data/templates/qfn/baseline/model.xml",
+    "variation": "flotherm_pack_data/templates/qfn/xml_variations/param_sweeps/par_v2_c041_exposedpadlength_9_495/model.xml",
+    "baseline_bytes": 193768,
+    "variation_bytes": 193746,
+    "baseline_sha256": "2F110872211DE5E1BB69ECBB6E6780A8DF0704F526CCE1958D971BA39C569889",
+    "variation_sha256": "909D5E748E86A6E645CB94EC537BE5B6B8F169108A835FC54C4DCA8A4DAC32B4"
+  },
+  "semantic_change": true,
+  "summary": {
+    "changed_value_count": 4,
+    "added_leaf_count": 0,
+    "removed_leaf_count": 0
+  },
+  "materials": {
+    "added": [],
+    "removed": [],
+    "changed": []
+  },
+  "entities": {
+    "added": [],
+    "removed": [],
+    "changed": [
+      {
+        "name": "assembly:DAP",
+        "before": [
+          "b09950face22a70f"
+        ],
+        "after": [
+          "d651b3ecd755fbab"
+        ]
+      },
+      {
+        "name": "assembly:Solder",
+        "before": [
+          "84b32100d8575be5"
+        ],
+        "after": [
+          "261ded54b8bd6e86"
+        ]
+      },
+      {
+        "name": "cuboid:centersolder",
+        "before": [
+          "83c9e7c496874ba7"
+        ],
+        "after": [
+          "a957328973dea51e"
+        ]
+      },
+      {
+        "name": "cuboid:exposed pad",
+        "before": [
+          "3d91b93ac9f240b6"
+        ],
+        "after": [
+          "1b070690662e919b"
+        ]
+      }
+    ]
+  },
+  "changed_values": [
+    {
+      "path": "xml_case/geometry/assembly[name=DAP]/geometry/cuboid[name=exposed pad]/position/x",
+      "before": "-0.0052750000000000002",
+      "after": "-0.0047475"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=DAP]/geometry/cuboid[name=exposed pad]/size/x",
+      "before": "0.01055",
+      "after": "0.009495"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Solder]/geometry/cuboid[name=centersolder]/position/x",
+      "before": "-0.0052750000000000002",
+      "after": "-0.0047475"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Solder]/geometry/cuboid[name=centersolder]/size/x",
+      "before": "0.01055",
+      "after": "0.009495"
+    }
+  ],
+  "added_leaf_paths": [],
+  "removed_leaf_paths": [],
+  "numeric_formatting_differences_ignored": true,
+  "template_id": "qfn",
+  "variation_id": "par_v2_c041_exposedpadlength_9_495",
+  "variation_kind": "numeric_parameter",
+  "comparison_baseline": "baseline/model.xml",
+  "outcome": "semantic_change",
+  "floxml_effect_expectation": null
+}

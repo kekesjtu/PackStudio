@@ -1,0 +1,138 @@
+{
+  "schema_version": "1.0",
+  "template_id": "flip_chip_pbga",
+  "capture_source": {
+    "method": "computer_use_and_floxml",
+    "software_version": "2504",
+    "floxml": "model.xml"
+  },
+  "starter": {
+    "designName": "Flip Chip PBGA",
+    "outlineType": "standardOutline",
+    "jedecFootprint": "PBGAFC_49_6X6mm",
+    "topCover": "bareDie"
+  },
+  "summary": {
+    "designName": "Flip Chip PBGA",
+    "partNumber": "",
+    "vendorName": "",
+    "maxPower_W": null,
+    "maxOperatingJunctionTemperature_degC": null,
+    "maxCaseTemperature_degC": null,
+    "notes": ""
+  },
+  "packageSubstrate": {
+    "length_D_mm": 6,
+    "width_E_mm": 6,
+    "thickness_A2_mm": 1.15,
+    "materialGroup": "Substrate Dielectrics",
+    "dielectricMaterial": "Substrate PBGAFC (Typical)"
+  },
+  "die": {
+    "packagePower_W": 0,
+    "nonUniformDieHeat": false,
+    "length_Ld_mm": 1.8,
+    "width_Wd_mm": 1.8,
+    "thickness_td_mm": 0.61,
+    "material": "Silicon (Pure)"
+  },
+  "flipChipBumps": {
+    "arrayType": "nonRegularArray",
+    "totalNumberOfBumps_MNC4": 49,
+    "bumpDiameter_mm": 0.12,
+    "bumpHeight_mm": 0.1,
+    "solderMaterialGroup": "Alloys (Solders)",
+    "c4SolderMaterial": "Solder (Pb90/Sn10)",
+    "underfill": true,
+    "underfillMaterialGroup": "Others",
+    "underfillMaterial": "Flip-Chip Underfill (Typical)",
+    "generatedEquivalentMaterial": "Bumps"
+  },
+  "coreVias": {
+    "numberInX": null,
+    "numberInY": null,
+    "viaDiameter_mm": null,
+    "viaPitch_mm": null,
+    "viaPlatingThickness_mm": null,
+    "viaDepopulationEnabled": false
+  },
+  "metalLayers": {
+    "materialGroup": "Metals",
+    "material": "Copper (Pure)",
+    "rows": []
+  },
+  "upperBuiltUpRegion": {
+    "thickness_A2b1_mm": null,
+    "dielectricMaterialGroup": "Alloys (Leadframe)",
+    "dielectricMaterial": "No Attachment",
+    "totalMicroVias_Nb1": null,
+    "microViaDiameter_dvb1_mm": null,
+    "filledVias": true,
+    "metalLayers": []
+  },
+  "lowerBuiltUpRegion": {
+    "thickness_A2b2_mm": null,
+    "dielectricMaterialGroup": "Alloys (Leadframe)",
+    "dielectricMaterial": "No Attachment",
+    "totalMicroVias_Nb2": null,
+    "microViaDiameter_dvb2_mm": null,
+    "filledVias": true,
+    "metalLayers": []
+  },
+  "solderBalls": {
+    "numberInX_MD": 7,
+    "numberInY_ME": 7,
+    "ballDiameter_mm": 0.5,
+    "pitch_mm": 0.8,
+    "substrateStandOff_A1_mm": 0.4,
+    "materialGroup": "Alloys (Solders)",
+    "solderMaterial": "Solder (Sn63/Pb37)",
+    "staggeredMatrix": false,
+    "solderBallMap": false,
+    "generatedEquivalentMaterial": "Solder_ball"
+  },
+  "solderBallDepopulation": {
+    "depopulatedCenter": false,
+    "fullyPopulatedRows_MDp": null,
+    "fullyPopulatedRows_MEp": null
+  },
+  "centralBalls": {
+    "enabled": false,
+    "centralRows_MDc": null,
+    "centralRows_MEc": null,
+    "staggeredMatrix": false
+  },
+  "topCover": {
+    "type": "bareDie"
+  },
+  "dropInSlug": {
+    "includeSlug": false,
+    "enabled": false,
+    "disabledReason": "Top Cover is Bare Die"
+  },
+  "modelingOptions": {
+    "modelSolderBallArrayAs": "orthotropicCuboid",
+    "modelCoreViasAs": "discreteCuboids",
+    "modelFlipChipBumpsAs": "isotropicCuboid",
+    "localizeGrid": true,
+    "gridDensity": "fine"
+  },
+  "realizedGeometry": [
+    {
+      "name": "Dielectric & Traces",
+      "children": ["core_dielectric"]
+    },
+    {
+      "name": "Die",
+      "children": ["die", "DieSource", "DieJunction_Temp"]
+    },
+    "fc_bumps",
+    {
+      "name": "Solder_ball",
+      "children": ["solder_ball"]
+    },
+    "CaseTemp",
+    "z_bottom",
+    "z_top"
+  ]
+}

@@ -1,0 +1,321 @@
+{
+  "schema_version": "2.0",
+  "comparison": {
+    "baseline": "flotherm_pack_data/templates/qfp_family/baseline/model.xml",
+    "variation": "flotherm_pack_data/templates/qfp_family/xml_variations/param_sweeps/par_v2_c031_tiebarwidthwtb_0_45/model.xml",
+    "baseline_bytes": 39733,
+    "variation_bytes": 39725,
+    "baseline_sha256": "BF1D9D963234111DFE5AAE319D1F83A3DBD9AF609C4B3C4A4BC7AA5BBA4082FF",
+    "variation_sha256": "EF42D0FB2A6299DA5E46821256343694F942F19BB07E212C7180291F513036DE"
+  },
+  "semantic_change": true,
+  "summary": {
+    "changed_value_count": 24,
+    "added_leaf_count": 0,
+    "removed_leaf_count": 0
+  },
+  "materials": {
+    "added": [],
+    "removed": [],
+    "changed": []
+  },
+  "entities": {
+    "added": [],
+    "removed": [],
+    "changed": [
+      {
+        "name": "assembly:tie_bars",
+        "before": [
+          "393c9e649fb02f0f"
+        ],
+        "after": [
+          "f88716b22cd250cb"
+        ]
+      },
+      {
+        "name": "assembly:tiebar_plt",
+        "before": [
+          "910d3361d9b8e74d"
+        ],
+        "after": [
+          "4edbdeb5ae169ca8"
+        ]
+      },
+      {
+        "name": "cuboid:tie_bars_h1",
+        "before": [
+          "21bfa326e9f74fc0"
+        ],
+        "after": [
+          "c6bfa86d7adc2a20"
+        ]
+      },
+      {
+        "name": "cuboid:tie_bars_h2",
+        "before": [
+          "56144bcd1105094b"
+        ],
+        "after": [
+          "bc676983bdd29425"
+        ]
+      },
+      {
+        "name": "cuboid:tie_bars_h3",
+        "before": [
+          "b77ae005bd12deb2"
+        ],
+        "after": [
+          "f4c8e7ed823cd7aa"
+        ]
+      },
+      {
+        "name": "cuboid:tie_bars_h4",
+        "before": [
+          "b9e240fcb0c9c8ec"
+        ],
+        "after": [
+          "4703308c7b3dc810"
+        ]
+      },
+      {
+        "name": "cuboid:tie_bars_v1",
+        "before": [
+          "55d64a76475c5452"
+        ],
+        "after": [
+          "9e789c4bcd559726"
+        ]
+      },
+      {
+        "name": "cuboid:tie_bars_v2",
+        "before": [
+          "f8ea20647209d191"
+        ],
+        "after": [
+          "9b5476db66c289f9"
+        ]
+      },
+      {
+        "name": "cuboid:tie_bars_v3",
+        "before": [
+          "2e3ffc5caaf7c2da"
+        ],
+        "after": [
+          "09609a271eaf115d"
+        ]
+      },
+      {
+        "name": "cuboid:tie_bars_v4",
+        "before": [
+          "541dce3f3fd30668"
+        ],
+        "after": [
+          "c2064a9ba9638b6b"
+        ]
+      },
+      {
+        "name": "cuboid:tiebar_plt_h1",
+        "before": [
+          "481c3e9cf465b9da"
+        ],
+        "after": [
+          "05c6328f91c1e63f"
+        ]
+      },
+      {
+        "name": "cuboid:tiebar_plt_h2",
+        "before": [
+          "bd8412e2e16a317a"
+        ],
+        "after": [
+          "998a476922efb1d2"
+        ]
+      },
+      {
+        "name": "cuboid:tiebar_plt_h3",
+        "before": [
+          "97e639a0aed4151b"
+        ],
+        "after": [
+          "c35daa52a75182b4"
+        ]
+      },
+      {
+        "name": "cuboid:tiebar_plt_h4",
+        "before": [
+          "27fddcb48089d3ab"
+        ],
+        "after": [
+          "d4e097b756ad20f5"
+        ]
+      },
+      {
+        "name": "cuboid:tiebar_plt_v1",
+        "before": [
+          "d4b039434b2d9817"
+        ],
+        "after": [
+          "76b2ec7744bc0ac1"
+        ]
+      },
+      {
+        "name": "cuboid:tiebar_plt_v2",
+        "before": [
+          "c7c1f9e6002c7238"
+        ],
+        "after": [
+          "10e323c84a816feb"
+        ]
+      },
+      {
+        "name": "cuboid:tiebar_plt_v3",
+        "before": [
+          "12c6f472314d07c8"
+        ],
+        "after": [
+          "944a270c34ac15bd"
+        ]
+      },
+      {
+        "name": "cuboid:tiebar_plt_v4",
+        "before": [
+          "5e6c6d953ad1409e"
+        ],
+        "after": [
+          "d3dfe179b350942c"
+        ]
+      }
+    ]
+  },
+  "changed_values": [
+    {
+      "path": "xml_case/geometry/assembly[name=tie_bars]/geometry/cuboid[name=tie_bars_h1]/position/y",
+      "before": "0.00096999999999999994",
+      "after": "0.0010200000000000001"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=tie_bars]/geometry/cuboid[name=tie_bars_h1]/size/y",
+      "before": "0.00050000000000000001",
+      "after": "0.00044999999999999999"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=tie_bars]/geometry/cuboid[name=tie_bars_h2]/position/y",
+      "before": "0.00096999999999999994",
+      "after": "0.0010200000000000001"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=tie_bars]/geometry/cuboid[name=tie_bars_h2]/size/y",
+      "before": "0.00050000000000000001",
+      "after": "0.00044999999999999999"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=tie_bars]/geometry/cuboid[name=tie_bars_h3]/size/y",
+      "before": "0.00050000000000000001",
+      "after": "0.00044999999999999999"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=tie_bars]/geometry/cuboid[name=tie_bars_h4]/size/y",
+      "before": "0.00050000000000000001",
+      "after": "0.00044999999999999999"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=tie_bars]/geometry/cuboid[name=tie_bars_v1]/position/x",
+      "before": "0.00096999999999999994",
+      "after": "0.0010200000000000001"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=tie_bars]/geometry/cuboid[name=tie_bars_v1]/size/x",
+      "before": "0.00050000000000000001",
+      "after": "0.00044999999999999999"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=tie_bars]/geometry/cuboid[name=tie_bars_v2]/size/x",
+      "before": "0.00050000000000000001",
+      "after": "0.00044999999999999999"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=tie_bars]/geometry/cuboid[name=tie_bars_v3]/size/x",
+      "before": "0.00050000000000000001",
+      "after": "0.00044999999999999999"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=tie_bars]/geometry/cuboid[name=tie_bars_v4]/position/x",
+      "before": "0.00096999999999999994",
+      "after": "0.0010200000000000001"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=tie_bars]/geometry/cuboid[name=tie_bars_v4]/size/x",
+      "before": "0.00050000000000000001",
+      "after": "0.00044999999999999999"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=tiebar_plt]/geometry/cuboid[name=tiebar_plt_h1]/position/y",
+      "before": "0.00096999999999999994",
+      "after": "0.0010200000000000001"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=tiebar_plt]/geometry/cuboid[name=tiebar_plt_h1]/size/y",
+      "before": "0.00050000000000000001",
+      "after": "0.00044999999999999999"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=tiebar_plt]/geometry/cuboid[name=tiebar_plt_h2]/position/y",
+      "before": "0.00096999999999999994",
+      "after": "0.0010200000000000001"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=tiebar_plt]/geometry/cuboid[name=tiebar_plt_h2]/size/y",
+      "before": "0.00050000000000000001",
+      "after": "0.00044999999999999999"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=tiebar_plt]/geometry/cuboid[name=tiebar_plt_h3]/size/y",
+      "before": "0.00050000000000000001",
+      "after": "0.00044999999999999999"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=tiebar_plt]/geometry/cuboid[name=tiebar_plt_h4]/size/y",
+      "before": "0.00050000000000000001",
+      "after": "0.00044999999999999999"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=tiebar_plt]/geometry/cuboid[name=tiebar_plt_v1]/position/x",
+      "before": "0.00096999999999999994",
+      "after": "0.0010200000000000001"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=tiebar_plt]/geometry/cuboid[name=tiebar_plt_v1]/size/x",
+      "before": "0.00050000000000000001",
+      "after": "0.00044999999999999999"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=tiebar_plt]/geometry/cuboid[name=tiebar_plt_v2]/size/x",
+      "before": "0.00050000000000000001",
+      "after": "0.00044999999999999999"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=tiebar_plt]/geometry/cuboid[name=tiebar_plt_v3]/size/x",
+      "before": "0.00050000000000000001",
+      "after": "0.00044999999999999999"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=tiebar_plt]/geometry/cuboid[name=tiebar_plt_v4]/position/x",
+      "before": "0.00096999999999999994",
+      "after": "0.0010200000000000001"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=tiebar_plt]/geometry/cuboid[name=tiebar_plt_v4]/size/x",
+      "before": "0.00050000000000000001",
+      "after": "0.00044999999999999999"
+    }
+  ],
+  "added_leaf_paths": [],
+  "removed_leaf_paths": [],
+  "numeric_formatting_differences_ignored": true,
+  "template_id": "qfp_family",
+  "variation_id": "par_v2_c031_tiebarwidthwtb_0_45",
+  "variation_kind": "numeric_parameter",
+  "comparison_baseline": "baseline/model.xml",
+  "outcome": "semantic_change",
+  "floxml_effect_expectation": null
+}

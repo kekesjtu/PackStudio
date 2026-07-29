@@ -1,0 +1,139 @@
+{
+  "schema_version": "2.0",
+  "comparison": {
+    "baseline": "flotherm_pack_data/templates/flip_chip_pbga/baseline/model.xml",
+    "variation": "flotherm_pack_data/templates/flip_chip_pbga/xml_variations/param_sweeps/par_v2_c041_ballpitche_0_72/model.xml",
+    "baseline_bytes": 10211,
+    "variation_bytes": 10211,
+    "baseline_sha256": "517D8D2C0D3C887AFCC71083841F9D502BA2338414DBA1CC9F8DE769783CF520",
+    "variation_sha256": "4384A0FDFE88DE33B8793903601B1E7816BB33F139509A659C6DFCA6BD57D6B7"
+  },
+  "semantic_change": true,
+  "summary": {
+    "changed_value_count": 11,
+    "added_leaf_count": 0,
+    "removed_leaf_count": 0
+  },
+  "materials": {
+    "added": [],
+    "removed": [],
+    "changed": [
+      {
+        "name": "Solder_ball",
+        "before": {
+          "type": "biaxial_material_att",
+          "density": "2877.85406772",
+          "specific_heat": "150.227395842",
+          "in_plane_conductivity": "0.0261",
+          "normal_conductivity": "17.4509586118"
+        },
+        "after": {
+          "type": "biaxial_material_att",
+          "density": "3479.33399672",
+          "specific_heat": "150.167598904",
+          "in_plane_conductivity": "0.0261",
+          "normal_conductivity": "21.0942754104"
+        }
+      }
+    ]
+  },
+  "entities": {
+    "added": [],
+    "removed": [],
+    "changed": [
+      {
+        "name": "assembly:Solder_ball",
+        "before": [
+          "22c2a270a8fa61b7"
+        ],
+        "after": [
+          "9cf5d8ab3c036f1f"
+        ]
+      },
+      {
+        "name": "cuboid:solder_ball",
+        "before": [
+          "0fdfcd40a5c71f7b"
+        ],
+        "after": [
+          "d40324363b84b8a8"
+        ]
+      },
+      {
+        "name": "region:z_bottom",
+        "before": [
+          "abb4faad56ef786a"
+        ],
+        "after": [
+          "b5b7f33b75305b78"
+        ]
+      }
+    ]
+  },
+  "changed_values": [
+    {
+      "path": "xml_case/attributes/materials/biaxial_material_att[name=Solder_ball]/density",
+      "before": "2877.8540677150945",
+      "after": "3479.3339967234142"
+    },
+    {
+      "path": "xml_case/attributes/materials/biaxial_material_att[name=Solder_ball]/normal_conductivity",
+      "before": "17.450958611769362",
+      "after": "21.094275410401064"
+    },
+    {
+      "path": "xml_case/attributes/materials/biaxial_material_att[name=Solder_ball]/specific_heat",
+      "before": "150.22739584234949",
+      "after": "150.16759890436279"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball]/position/x",
+      "before": "-0.0026500000000000004",
+      "after": "-0.0024099999999999998"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball]/position/y",
+      "before": "-0.0026500000000000004",
+      "after": "-0.0024099999999999998"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball]/size/x",
+      "before": "0.0053000000000000009",
+      "after": "0.0048199999999999996"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball]/size/y",
+      "before": "0.0053000000000000009",
+      "after": "0.0048199999999999996"
+    },
+    {
+      "path": "xml_case/geometry/region[name=z_bottom]/position/x",
+      "before": "-0.0026500000000000004",
+      "after": "-0.0024099999999999998"
+    },
+    {
+      "path": "xml_case/geometry/region[name=z_bottom]/position/y",
+      "before": "-0.0026500000000000004",
+      "after": "-0.0024099999999999998"
+    },
+    {
+      "path": "xml_case/geometry/region[name=z_bottom]/size/x",
+      "before": "0.0053000000000000009",
+      "after": "0.0048199999999999996"
+    },
+    {
+      "path": "xml_case/geometry/region[name=z_bottom]/size/y",
+      "before": "0.0053000000000000009",
+      "after": "0.0048199999999999996"
+    }
+  ],
+  "added_leaf_paths": [],
+  "removed_leaf_paths": [],
+  "numeric_formatting_differences_ignored": true,
+  "template_id": "flip_chip_pbga",
+  "variation_id": "par_v2_c041_ballpitche_0_72",
+  "variation_kind": "numeric_parameter",
+  "comparison_baseline": "baseline/model.xml",
+  "outcome": "semantic_change",
+  "floxml_effect_expectation": null
+}

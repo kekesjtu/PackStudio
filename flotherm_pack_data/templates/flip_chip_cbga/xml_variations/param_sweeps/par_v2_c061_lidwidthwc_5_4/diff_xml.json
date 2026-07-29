@@ -1,0 +1,227 @@
+{
+  "schema_version": "2.0",
+  "comparison": {
+    "baseline": "flotherm_pack_data/templates/flip_chip_cbga/validation/branch_baselines/br_v2_topcover_lidwidthwc/model.xml",
+    "variation": "flotherm_pack_data/templates/flip_chip_cbga/xml_variations/param_sweeps/par_v2_c061_lidwidthwc_5_4/model.xml",
+    "baseline_bytes": 18315,
+    "variation_bytes": 18315,
+    "baseline_sha256": "66975DE106D07DD6098F3C9CD36AA24FB3E9F19B9ACE2909D166A554565B8830",
+    "variation_sha256": "BA9F5235F8EF559824E1CC40563A47A6C734BB3BEC8258D7A9B9568C2996CD3B"
+  },
+  "semantic_change": true,
+  "summary": {
+    "changed_value_count": 16,
+    "added_leaf_count": 0,
+    "removed_leaf_count": 0
+  },
+  "materials": {
+    "added": [],
+    "removed": [],
+    "changed": []
+  },
+  "entities": {
+    "added": [],
+    "removed": [],
+    "changed": [
+      {
+        "name": "assembly:Lid",
+        "before": [
+          "ae1d83086374ad7f"
+        ],
+        "after": [
+          "5962e3c8bae27fe4"
+        ]
+      },
+      {
+        "name": "assembly:Lid_Adhesive",
+        "before": [
+          "4435dff265a00586"
+        ],
+        "after": [
+          "ed413bfc492f50f4"
+        ]
+      },
+      {
+        "name": "cuboid:lid",
+        "before": [
+          "30dedab36c632414"
+        ],
+        "after": [
+          "55d7c700218f909e"
+        ]
+      },
+      {
+        "name": "cuboid:lid_adhesive1",
+        "before": [
+          "6656b7bb8d3e367f"
+        ],
+        "after": [
+          "4ae07288fa51889b"
+        ]
+      },
+      {
+        "name": "cuboid:lid_adhesive2",
+        "before": [
+          "652d2763b414dcb5"
+        ],
+        "after": [
+          "c5069a787865b5b5"
+        ]
+      },
+      {
+        "name": "cuboid:lid_adhesive3",
+        "before": [
+          "0f347cd1bb262112"
+        ],
+        "after": [
+          "817823e8050d8ee8"
+        ]
+      },
+      {
+        "name": "cuboid:lid_adhesive4",
+        "before": [
+          "fda46b86f9436612"
+        ],
+        "after": [
+          "3aabfd0737ba1af9"
+        ]
+      },
+      {
+        "name": "cuboid:lid_v1",
+        "before": [
+          "08a6d6a5fd2181b8"
+        ],
+        "after": [
+          "e424584a3d94b790"
+        ]
+      },
+      {
+        "name": "cuboid:lid_v2",
+        "before": [
+          "22c22cb488edb2f5"
+        ],
+        "after": [
+          "4a6308be52a18642"
+        ]
+      },
+      {
+        "name": "cuboid:lid_v3",
+        "before": [
+          "a730f8bfaf0cd3c5"
+        ],
+        "after": [
+          "135d692bd74f342c"
+        ]
+      },
+      {
+        "name": "cuboid:lid_v4",
+        "before": [
+          "a0b863a907237d0d"
+        ],
+        "after": [
+          "7f36ffda5b63c524"
+        ]
+      },
+      {
+        "name": "region:z_top",
+        "before": [
+          "632cf5c7b2a06195"
+        ],
+        "after": [
+          "3c7158fea48ead0c"
+        ]
+      }
+    ]
+  },
+  "changed_values": [
+    {
+      "path": "xml_case/geometry/assembly[name=Lid]/geometry/cuboid[name=lid]/position/y",
+      "before": "-0.0030000000000000001",
+      "after": "-0.0027000000000000001"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Lid]/geometry/cuboid[name=lid]/size/y",
+      "before": "0.0060000000000000001",
+      "after": "0.0054000000000000003"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Lid]/geometry/cuboid[name=lid_v1]/position/y",
+      "before": "-0.0030000000000000001",
+      "after": "-0.0027000000000000001"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Lid]/geometry/cuboid[name=lid_v1]/size/y",
+      "before": "0.0060000000000000001",
+      "after": "0.0054000000000000003"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Lid]/geometry/cuboid[name=lid_v2]/position/y",
+      "before": "-0.0030000000000000001",
+      "after": "-0.0027000000000000001"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Lid]/geometry/cuboid[name=lid_v2]/size/y",
+      "before": "0.0060000000000000001",
+      "after": "0.0054000000000000003"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Lid]/geometry/cuboid[name=lid_v3]/position/y",
+      "before": "-0.0030000000000000001",
+      "after": "-0.0027000000000000001"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Lid]/geometry/cuboid[name=lid_v4]/position/y",
+      "before": "0.00050000000000000001",
+      "after": "0.00020000000000000009"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Lid_Adhesive]/geometry/cuboid[name=lid_adhesive1]/position/y",
+      "before": "-0.0030000000000000001",
+      "after": "-0.0027000000000000001"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Lid_Adhesive]/geometry/cuboid[name=lid_adhesive1]/size/y",
+      "before": "0.0060000000000000001",
+      "after": "0.0054000000000000003"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Lid_Adhesive]/geometry/cuboid[name=lid_adhesive2]/position/y",
+      "before": "-0.0030000000000000001",
+      "after": "-0.0027000000000000001"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Lid_Adhesive]/geometry/cuboid[name=lid_adhesive2]/size/y",
+      "before": "0.0060000000000000001",
+      "after": "0.0054000000000000003"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Lid_Adhesive]/geometry/cuboid[name=lid_adhesive3]/position/y",
+      "before": "-0.0030000000000000001",
+      "after": "-0.0027000000000000001"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Lid_Adhesive]/geometry/cuboid[name=lid_adhesive4]/position/y",
+      "before": "0.00050000000000000001",
+      "after": "0.00020000000000000009"
+    },
+    {
+      "path": "xml_case/geometry/region[name=z_top]/position/y",
+      "before": "-0.0030000000000000001",
+      "after": "-0.0027000000000000001"
+    },
+    {
+      "path": "xml_case/geometry/region[name=z_top]/size/y",
+      "before": "0.0060000000000000001",
+      "after": "0.0054000000000000003"
+    }
+  ],
+  "added_leaf_paths": [],
+  "removed_leaf_paths": [],
+  "numeric_formatting_differences_ignored": true,
+  "template_id": "flip_chip_cbga",
+  "variation_id": "par_v2_c061_lidwidthwc_5_4",
+  "variation_kind": "numeric_parameter",
+  "comparison_baseline": "validation/branch_baselines/br_v2_topcover_lidwidthwc/model.xml",
+  "outcome": "semantic_change",
+  "floxml_effect_expectation": null
+}

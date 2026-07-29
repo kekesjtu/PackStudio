@@ -1,0 +1,33 @@
+{
+  "schema_version": "1.0",
+  "template_id": "bare_die",
+  "display_name": "Bare Die",
+  "category": "Bare Die",
+  "software_version": "2504",
+  "package_type": "Die",
+  "capture_status": "complete",
+  "starter_defaults": {
+    "design_name": "Die"
+  },
+  "navigation_steps": [
+    "Summary",
+    "Die",
+    "Bumped Die",
+    "Modeling Options"
+  ],
+  "baseline": {
+    "flo_script": "baseline/script.xml",
+    "flo_xml": "baseline/model.xml",
+    "parameters": "baseline/params.json",
+    "recording_logs": [
+      "logs/ui_capture_session.xml",
+      "logs/ui_capture_session_02.xml"
+    ]
+  },
+  "capture_notes": [
+    "All four navigation pages, both die materials, material-group choices, leadframe-material pages, resin-material pages, modeling choices, and conditional states were inspected.",
+    "The non-uniform die-heat editor was captured for both Type 1 and Type 2 layouts.",
+    "The first historical recording contains the project-creation command and a quit command; the continuation recording contains the remaining UI actions and baseline export. The clean baseline script intentionally keeps only the replay-safe creation and export commands.",
+    "The current FloTHERM PACK process remained open throughout capture."
+  ]
+}

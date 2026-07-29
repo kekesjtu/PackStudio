@@ -1,0 +1,110 @@
+{
+  "schema_version": "2.0",
+  "comparison": {
+    "baseline": "flotherm_pack_data/templates/flip_chip_cbga/validation/branch_baselines/br_v2_topcover_thicknesste/model.xml",
+    "variation": "flotherm_pack_data/templates/flip_chip_cbga/xml_variations/param_sweeps/par_v2_c091_thicknesste_1_08/model.xml",
+    "baseline_bytes": 11344,
+    "variation_bytes": 11330,
+    "baseline_sha256": "1295F1EA8869869B4633C04BC86992C8A9B7599E5E2154C8C29F21D6A417C1D9",
+    "variation_sha256": "7658A7C2653A93DA92E757693CF74B09E8C045A19022AD472898CFC63614D429"
+  },
+  "semantic_change": true,
+  "summary": {
+    "changed_value_count": 7,
+    "added_leaf_count": 0,
+    "removed_leaf_count": 0
+  },
+  "materials": {
+    "added": [],
+    "removed": [],
+    "changed": []
+  },
+  "entities": {
+    "added": [],
+    "removed": [],
+    "changed": [
+      {
+        "name": "assembly:Encapsulant",
+        "before": [
+          "00ab336c35c2ff1a"
+        ],
+        "after": [
+          "96aef182626733aa"
+        ]
+      },
+      {
+        "name": "cuboid:encapsulant",
+        "before": [
+          "ed9379cfa0b0b85a"
+        ],
+        "after": [
+          "378d9bc0301afdc1"
+        ]
+      },
+      {
+        "name": "monitor_point:CaseTemp",
+        "before": [
+          "f667132548e003d3"
+        ],
+        "after": [
+          "94c778af4b1b4f3e"
+        ]
+      },
+      {
+        "name": "region:z_top",
+        "before": [
+          "62d50519ecadf228"
+        ],
+        "after": [
+          "b1d7f580ffc8e078"
+        ]
+      }
+    ]
+  },
+  "changed_values": [
+    {
+      "path": "xml_case/attributes/grid_constraints/grid_constraint_att[name=keypoint_z]/high_inflation/inflation_size",
+      "before": "0.0054999999999999997",
+      "after": "0.0052600000000000008"
+    },
+    {
+      "path": "xml_case/attributes/grid_constraints/grid_constraint_att[name=keypoint_z]/high_inflation/max_size",
+      "before": "0.00027499999999999996",
+      "after": "0.00026300000000000005"
+    },
+    {
+      "path": "xml_case/attributes/grid_constraints/grid_constraint_att[name=keypoint_z]/low_inflation/max_size",
+      "before": "0.00027499999999999996",
+      "after": "0.00026300000000000005"
+    },
+    {
+      "path": "xml_case/attributes/grid_constraints/grid_constraint_att[name=keypoint_z]/max_size",
+      "before": "0.00027499999999999996",
+      "after": "0.00026300000000000005"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Encapsulant]/geometry/cuboid[name=encapsulant]/size/z",
+      "before": "0.0011999999999999999",
+      "after": "0.00108"
+    },
+    {
+      "path": "xml_case/geometry/monitor_point[name=CaseTemp]/position/z",
+      "before": "0.0027224999999999997",
+      "after": "0.0026037000000000005"
+    },
+    {
+      "path": "xml_case/geometry/region[name=z_top]/position/z",
+      "before": "0.0027499999999999998",
+      "after": "0.0026300000000000004"
+    }
+  ],
+  "added_leaf_paths": [],
+  "removed_leaf_paths": [],
+  "numeric_formatting_differences_ignored": true,
+  "template_id": "flip_chip_cbga",
+  "variation_id": "par_v2_c091_thicknesste_1_08",
+  "variation_kind": "numeric_parameter",
+  "comparison_baseline": "validation/branch_baselines/br_v2_topcover_thicknesste/model.xml",
+  "outcome": "semantic_change",
+  "floxml_effect_expectation": null
+}

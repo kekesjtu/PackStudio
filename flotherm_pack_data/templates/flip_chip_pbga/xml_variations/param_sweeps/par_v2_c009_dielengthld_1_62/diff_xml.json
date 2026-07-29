@@ -1,0 +1,160 @@
+{
+  "schema_version": "2.0",
+  "comparison": {
+    "baseline": "flotherm_pack_data/templates/flip_chip_pbga/baseline/model.xml",
+    "variation": "flotherm_pack_data/templates/flip_chip_pbga/xml_variations/param_sweeps/par_v2_c009_dielengthld_1_62/model.xml",
+    "baseline_bytes": 10211,
+    "variation_bytes": 10271,
+    "baseline_sha256": "517D8D2C0D3C887AFCC71083841F9D502BA2338414DBA1CC9F8DE769783CF520",
+    "variation_sha256": "FE9A8FA41E8AB0F614F778BA19A74CC998F9056AF43F987C8B01393082C4C6F0"
+  },
+  "semantic_change": true,
+  "summary": {
+    "changed_value_count": 12,
+    "added_leaf_count": 0,
+    "removed_leaf_count": 0
+  },
+  "materials": {
+    "added": [],
+    "removed": [],
+    "changed": [
+      {
+        "name": "Bumps",
+        "before": {
+          "type": "isotropic_material_att",
+          "density": "1839.53332471",
+          "specific_heat": "141.936460493",
+          "conductivity": "6.65489624102"
+        },
+        "after": {
+          "type": "isotropic_material_att",
+          "density": "2043.81480523",
+          "specific_heat": "141.944122443",
+          "conductivity": "7.32766249002"
+        }
+      }
+    ]
+  },
+  "entities": {
+    "added": [],
+    "removed": [],
+    "changed": [
+      {
+        "name": "assembly:Die",
+        "before": [
+          "62d57ab1cbd3ad58"
+        ],
+        "after": [
+          "730026aed7f39f90"
+        ]
+      },
+      {
+        "name": "cuboid:die",
+        "before": [
+          "329cf8f0628605d6"
+        ],
+        "after": [
+          "763f8c3b0f1cb85e"
+        ]
+      },
+      {
+        "name": "cuboid:fc_bumps",
+        "before": [
+          "b54c3873185d6ac9"
+        ],
+        "after": [
+          "563c9762f561d9fd"
+        ]
+      },
+      {
+        "name": "region:z_top",
+        "before": [
+          "3c6c4c081b48a4e8"
+        ],
+        "after": [
+          "481f172ac142d1a7"
+        ]
+      },
+      {
+        "name": "source:DieSource",
+        "before": [
+          "8c6d32dfda32006d"
+        ],
+        "after": [
+          "b397c732420b112d"
+        ]
+      }
+    ]
+  },
+  "changed_values": [
+    {
+      "path": "xml_case/attributes/materials/isotropic_material_att[name=Bumps]/conductivity",
+      "before": "6.6548962410187267",
+      "after": "7.3276624900208081"
+    },
+    {
+      "path": "xml_case/attributes/materials/isotropic_material_att[name=Bumps]/density",
+      "before": "1839.5333247093304",
+      "after": "2043.8148052325892"
+    },
+    {
+      "path": "xml_case/attributes/materials/isotropic_material_att[name=Bumps]/specific_heat",
+      "before": "141.93646049309032",
+      "after": "141.94412244302893"
+    },
+    {
+      "path": "xml_case/attributes/radiations/radiation_att[name=pbga_fc]/subdivided_surface_tolerance",
+      "before": "0.00059999999999999995",
+      "after": "0.00057000000000000009"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Die]/geometry/cuboid[name=die]/position/x",
+      "before": "-0.00089999999999999998",
+      "after": "-0.00081000000000000006"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Die]/geometry/cuboid[name=die]/size/x",
+      "before": "0.0018",
+      "after": "0.0016200000000000001"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Die]/geometry/source[name=DieSource]/position/x",
+      "before": "-0.00089999999999999998",
+      "after": "-0.00081000000000000006"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Die]/geometry/source[name=DieSource]/size/x",
+      "before": "0.0018",
+      "after": "0.0016200000000000001"
+    },
+    {
+      "path": "xml_case/geometry/cuboid[name=fc_bumps]/position/x",
+      "before": "-0.00089999999999999998",
+      "after": "-0.00081000000000000006"
+    },
+    {
+      "path": "xml_case/geometry/cuboid[name=fc_bumps]/size/x",
+      "before": "0.0018",
+      "after": "0.0016200000000000001"
+    },
+    {
+      "path": "xml_case/geometry/region[name=z_top]/position/x",
+      "before": "-0.00089999999999999998",
+      "after": "-0.00081000000000000006"
+    },
+    {
+      "path": "xml_case/geometry/region[name=z_top]/size/x",
+      "before": "0.0018",
+      "after": "0.0016200000000000001"
+    }
+  ],
+  "added_leaf_paths": [],
+  "removed_leaf_paths": [],
+  "numeric_formatting_differences_ignored": true,
+  "template_id": "flip_chip_pbga",
+  "variation_id": "par_v2_c009_dielengthld_1_62",
+  "variation_kind": "numeric_parameter",
+  "comparison_baseline": "baseline/model.xml",
+  "outcome": "semantic_change",
+  "floxml_effect_expectation": null
+}

@@ -1,0 +1,240 @@
+{
+  "schema_version": "1.0",
+  "template_id": "flip_chip_pbga",
+  "software_version": "2504",
+  "capture_status": "complete",
+  "starter_fields": [
+    {
+      "name": "Design Name",
+      "property": "designName",
+      "control": "text",
+      "default": "Flip Chip PBGA"
+    },
+    {
+      "name": "Outline Type",
+      "property": "outlineType",
+      "control": "select",
+      "default": "standardOutline",
+      "options": ["standardOutline", "nonStandardOutline"],
+      "screenshot": "screenshots/dropdown_outline_type.png"
+    },
+    {
+      "name": "JEDEC Footprint",
+      "property": "jedecFootprint",
+      "control": "select",
+      "default": "PBGAFC_49_6X6mm",
+      "options": [
+        "PBGAFC_49_6X6mm",
+        "PBGAFC_49_8X8mm",
+        "PBGAFC_64_7X7mm",
+        "PBGAFC_64_8X8mm",
+        "PBGAFC_64_9X9mm",
+        "PBGAFC_81_8X8mm",
+        "PBGAFC_81_10X10mm",
+        "PBGAFC_100_9X9mm",
+        "PBGAFC_119_14X22mm",
+        "PBGAFC_144_10X10mm"
+      ],
+      "visible_when": {"outlineType": "standardOutline"},
+      "screenshot": "screenshots/dropdown_jedec_footprint.png"
+    },
+    {
+      "name": "Top Cover",
+      "property": "topCover",
+      "control": "select",
+      "default": "bareDie",
+      "options": ["bareDie", "lid", "plate", "encapsulant"],
+      "screenshot": "screenshots/dropdown_top_cover.png"
+    }
+  ],
+  "common_material_groups": [
+    "Alloys (Leadframe)",
+    "Alloys (Other)",
+    "Alloys (Solders)",
+    "Attachment Materials",
+    "Ceramics",
+    "Metals",
+    "Others",
+    "Resins",
+    "Semiconductors",
+    "Substrate Dielectrics"
+  ],
+  "steps": [
+    {
+      "id": "summary",
+      "label": "Summary",
+      "screenshot": "screenshots/step_01_summary.png",
+      "fields": [
+        {"name": "Design Name", "control": "text", "default": "Flip Chip PBGA"},
+        {"name": "Part Number", "control": "text", "default": ""},
+        {"name": "Vendor Name", "control": "text", "default": ""},
+        {"name": "Max Power", "control": "number", "unit": "W", "default": null},
+        {"name": "Max Operating Junction Temperature", "control": "number", "unit": "degC", "default": null},
+        {"name": "Max Case Temperature", "control": "number", "unit": "degC", "default": null},
+        {"name": "Notes", "control": "multiline_text", "default": ""}
+      ]
+    },
+    {
+      "id": "package_substrate",
+      "label": "Package Substrate",
+      "screenshot": "screenshots/step_02_package_substrate.png",
+      "fields": [
+        {"name": "Length D", "control": "number", "unit": "mm", "default": 6},
+        {"name": "Width E", "control": "number", "unit": "mm", "default": 6},
+        {"name": "Thickness A2", "control": "number", "unit": "mm", "default": 1.15},
+        {"name": "Material Group", "control": "select", "default": "Substrate Dielectrics", "options_ref": "common_material_groups"},
+        {"name": "Dielectric Material", "control": "select", "default": "Substrate PBGAFC (Typical)"}
+      ]
+    },
+    {
+      "id": "die",
+      "label": "Die",
+      "screenshot": "screenshots/step_03_die.png",
+      "fields": [
+        {"name": "Package Power", "control": "number", "unit": "W", "default": 0, "hidden_when": {"Non-uniform Die Heat": true}},
+        {"name": "Non-uniform Die Heat", "control": "checkbox", "default": false},
+        {"name": "Click To Edit", "control": "button", "default_enabled": false, "enabled_when": {"Non-uniform Die Heat": true}},
+        {"name": "Die Length Ld", "control": "number", "unit": "mm", "default": 1.8},
+        {"name": "Die Width Wd", "control": "number", "unit": "mm", "default": 1.8},
+        {"name": "Die Thickness td", "control": "number", "unit": "mm", "default": 0.61}
+      ]
+    },
+    {
+      "id": "flip_chip_bumps",
+      "label": "Flip Chip Bumps",
+      "screenshot": "screenshots/step_04_flip_chip_bumps.png",
+      "fields": [
+        {"name": "Array Type", "control": "select", "default": "nonRegularArray", "options": ["regularArray", "nonRegularArray"], "screenshot": "screenshots/dropdown_bump_array_type.png"},
+        {"name": "Total Number of Bumps MNC4", "control": "integer", "default": 49, "visible_when": {"Array Type": "nonRegularArray"}},
+        {"name": "Number of Bumps in X MDC4", "control": "integer", "default": null, "visible_when": {"Array Type": "regularArray"}},
+        {"name": "Number of Bumps in Y MEC4", "control": "integer", "default": null, "visible_when": {"Array Type": "regularArray"}},
+        {"name": "Bump Diameter", "control": "number", "unit": "mm", "default": 0.12},
+        {"name": "Bump Height", "control": "number", "unit": "mm", "default": 0.1},
+        {"name": "C4 Solder Material Group", "control": "select", "default": "Alloys (Solders)", "options_ref": "common_material_groups"},
+        {"name": "C4 Solder", "control": "select", "default": "Solder (Pb90/Sn10)"},
+        {"name": "Underfill", "control": "checkbox", "default": true},
+        {"name": "Underfill Material Group", "control": "select", "default": "Others", "visible_when": {"Underfill": true}, "options_ref": "common_material_groups"},
+        {"name": "Underfill Material", "control": "select", "default": "Flip-Chip Underfill (Typical)", "visible_when": {"Underfill": true}}
+      ]
+    },
+    {
+      "id": "core_vias",
+      "label": "Core Vias",
+      "screenshot": "screenshots/step_05_core_vias.png",
+      "fields": [
+        {"name": "Number in X", "control": "integer", "default": null},
+        {"name": "Number in Y", "control": "integer", "default": null},
+        {"name": "Via Diameter", "control": "number", "unit": "mm", "default": null},
+        {"name": "Via Pitch", "control": "number", "unit": "mm", "default": null},
+        {"name": "Via Plating Thickness", "control": "number", "unit": "mm", "default": null},
+        {"name": "Via Depopulation", "control": "button", "default_enabled": false}
+      ]
+    },
+    {
+      "id": "metal_layers",
+      "label": "Metal Layers",
+      "screenshot": "screenshots/step_06_metal_layers.png",
+      "fields": [
+        {"name": "Material Group", "control": "select", "default": "Metals", "options_ref": "common_material_groups"},
+        {"name": "Material", "control": "select", "default": "Copper (Pure)"},
+        {"name": "Layers", "control": "table", "columns": [{"name": "Depth Zn", "unit": "mm"}, {"name": "Thickness tzn", "unit": "mm"}, {"name": "Coverage", "unit": null}], "default_rows": []}
+      ]
+    },
+    {
+      "id": "upper_built_up_region",
+      "label": "Upper Built Up Region",
+      "screenshot": "screenshots/step_07_upper_built_up_region.png",
+      "fields": [
+        {"name": "Thickness A2b1", "control": "number", "unit": "mm", "default": null},
+        {"name": "Dielectric Material Group", "control": "select", "default": "Alloys (Leadframe)", "options_ref": "common_material_groups"},
+        {"name": "Dielectric Material", "control": "select", "default": "No Attachment"},
+        {"name": "Total Micro Vias Nb1", "control": "integer", "default": null},
+        {"name": "Micro Via Diameter dvb1", "control": "number", "unit": "mm", "default": null},
+        {"name": "Filled Vias", "control": "select", "default": "Yes", "options": ["Yes", "No"], "screenshot": "screenshots/dropdown_upper_built_up_filled_vias.png"},
+        {"name": "Metal Layers", "control": "table", "columns": [{"name": "Depth", "unit": "mm"}, {"name": "Thickness", "unit": "mm"}, {"name": "Coverage", "unit": null}], "default_rows": []}
+      ]
+    },
+    {
+      "id": "lower_built_up_region",
+      "label": "Lower Built Up Region",
+      "screenshot": "screenshots/step_08_lower_built_up_region.png",
+      "fields": [
+        {"name": "Thickness A2b2", "control": "number", "unit": "mm", "default": null},
+        {"name": "Dielectric Material Group", "control": "select", "default": "Alloys (Leadframe)", "options_ref": "common_material_groups"},
+        {"name": "Dielectric Material", "control": "select", "default": "No Attachment"},
+        {"name": "Total Micro Vias Nb2", "control": "integer", "default": null},
+        {"name": "Micro Via Diameter dvb2", "control": "number", "unit": "mm", "default": null},
+        {"name": "Filled Vias", "control": "select", "default": "Yes", "options": ["Yes", "No"]},
+        {"name": "Metal Layers", "control": "table", "columns": [{"name": "Depth", "unit": "mm"}, {"name": "Thickness", "unit": "mm"}, {"name": "Coverage", "unit": null}], "default_rows": []}
+      ]
+    },
+    {
+      "id": "solder_balls",
+      "label": "Solder Balls",
+      "screenshot": "screenshots/step_09_solder_balls.png",
+      "fields": [
+        {"name": "Number in X MD", "control": "integer", "default": 7},
+        {"name": "Number in Y ME", "control": "integer", "default": 7},
+        {"name": "Ball Diameter", "control": "number", "unit": "mm", "default": 0.5},
+        {"name": "Pitch", "control": "number", "unit": "mm", "default": 0.8},
+        {"name": "Substrate Stand-off A1", "control": "number", "unit": "mm", "default": 0.4},
+        {"name": "Material Group", "control": "select", "default": "Alloys (Solders)", "options_ref": "common_material_groups"},
+        {"name": "Solder Material", "control": "select", "default": "Solder (Sn63/Pb37)"},
+        {"name": "Staggered Matrix", "control": "checkbox", "default": false},
+        {"name": "Solder Ball Map", "control": "checkbox", "default": false},
+        {"name": "Click To Edit", "control": "button", "default_enabled": false, "enabled_when": {"Solder Ball Map": true}}
+      ]
+    },
+    {
+      "id": "solder_ball_depopulation",
+      "label": "Solder Ball Depopulation",
+      "screenshot": "screenshots/step_10_solder_ball_depopulation.png",
+      "fields": [
+        {"name": "Depopulated Center", "control": "checkbox", "default": false},
+        {"name": "Number of Fully Populated Rows MDp", "control": "integer_spinbox", "default": null},
+        {"name": "Number of Fully Populated Rows MEp", "control": "integer_spinbox", "default": null},
+        {"name": "Click To Edit", "control": "button", "default_enabled": true}
+      ]
+    },
+    {
+      "id": "central_balls",
+      "label": "Central Balls",
+      "screenshot": "screenshots/step_11_central_balls_selected.png",
+      "fields": [
+        {"name": "Central Balls", "control": "checkbox", "default": false},
+        {"name": "Number Central Rows MDc", "control": "integer", "default": null, "visible_when": {"Central Balls": true}},
+        {"name": "Number Central Rows MEc", "control": "integer", "default": null, "visible_when": {"Central Balls": true}},
+        {"name": "Staggered Matrix", "control": "checkbox", "default": false, "visible_when": {"Central Balls": true}}
+      ]
+    },
+    {
+      "id": "top_cover",
+      "label": "Top Cover",
+      "screenshot": "screenshots/step_12_top_cover.png",
+      "fields": [
+        {"name": "Top Cover", "control": "select", "default": "bareDie", "options": ["bareDie", "lid", "plate", "encapsulant"]}
+      ]
+    },
+    {
+      "id": "drop_in_slug",
+      "label": "Drop-in Slug",
+      "screenshot": "screenshots/step_13_drop_in_slug.png",
+      "fields": [
+        {"name": "Include Slug", "control": "checkbox", "default": false, "enabled_when": {"Top Cover": "encapsulant"}}
+      ]
+    },
+    {
+      "id": "modeling_options",
+      "label": "Modeling Options",
+      "screenshot": "screenshots/step_14_modeling_options.png",
+      "fields": [
+        {"name": "Model Solder Ball Array As", "control": "select", "default": "orthotropicCuboid", "options": ["orthotropicCuboid", "discreteCuboids"], "screenshot": "screenshots/dropdown_model_solder_ball_array_as.png"},
+        {"name": "Model Core Vias As", "control": "select", "default": "discreteCuboids", "options": ["orthotropicCuboid", "discreteCuboids"], "screenshot": "screenshots/dropdown_model_core_vias_as.png"},
+        {"name": "Model Flip Chip Bumps As", "control": "select", "default": "isotropicCuboid", "options": ["collapsedCuboid", "isotropicCuboid"], "screenshot": "screenshots/dropdown_model_flip_chip_bumps_as.png"},
+        {"name": "Localize Grid", "control": "checkbox", "default": true},
+        {"name": "Grid Density", "control": "select", "default": "fine", "options": ["coarse", "medium", "fine"], "screenshot": "screenshots/dropdown_grid_density.png"}
+      ],
+      "realized_geometry_screenshot": "screenshots/step_15_realized_geometry.png"
+    }
+  ]
+}

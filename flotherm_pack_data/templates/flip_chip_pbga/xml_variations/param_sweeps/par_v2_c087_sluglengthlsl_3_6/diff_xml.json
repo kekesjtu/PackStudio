@@ -1,0 +1,218 @@
+{
+  "schema_version": "2.0",
+  "comparison": {
+    "baseline": "flotherm_pack_data/templates/flip_chip_pbga/validation/branch_baselines/br_v2_dropinslug_sluglengthlsl/model.xml",
+    "variation": "flotherm_pack_data/templates/flip_chip_pbga/xml_variations/param_sweeps/par_v2_c087_sluglengthlsl_3_6/model.xml",
+    "baseline_bytes": 18475,
+    "variation_bytes": 18423,
+    "baseline_sha256": "A09384C29CD9A9AF16346D924250BDD7A0C42FB794FE9AFA3544355590965BEA",
+    "variation_sha256": "7704471439148EE11556204B6E4740B43DB0BC5444C5FA0F33C81DC529B1DF1F"
+  },
+  "semantic_change": true,
+  "summary": {
+    "changed_value_count": 16,
+    "added_leaf_count": 0,
+    "removed_leaf_count": 0
+  },
+  "materials": {
+    "added": [],
+    "removed": [],
+    "changed": []
+  },
+  "entities": {
+    "added": [],
+    "removed": [],
+    "changed": [
+      {
+        "name": "assembly:Slug",
+        "before": [
+          "ac6f681fd64b72f5"
+        ],
+        "after": [
+          "c32ee9db7aab9cf1"
+        ]
+      },
+      {
+        "name": "cuboid:slug_foot_left",
+        "before": [
+          "402fc8d7eae4cab9"
+        ],
+        "after": [
+          "3aa2375620643a5a"
+        ]
+      },
+      {
+        "name": "cuboid:slug_foot_lower",
+        "before": [
+          "06eea15bd07e8d68"
+        ],
+        "after": [
+          "b2a7921e7cec5125"
+        ]
+      },
+      {
+        "name": "cuboid:slug_foot_right",
+        "before": [
+          "427d96a6905a2e6a"
+        ],
+        "after": [
+          "dbf93063cac27df7"
+        ]
+      },
+      {
+        "name": "cuboid:slug_foot_upper",
+        "before": [
+          "bf86f376c998be72"
+        ],
+        "after": [
+          "fd25f7db79b534b0"
+        ]
+      },
+      {
+        "name": "cuboid:slug_h1",
+        "before": [
+          "94fc2670fc5fceb1"
+        ],
+        "after": [
+          "b90fb36f724cf726"
+        ]
+      },
+      {
+        "name": "cuboid:slug_h2",
+        "before": [
+          "a98dfeefd96a145f"
+        ],
+        "after": [
+          "67a868336733962d"
+        ]
+      },
+      {
+        "name": "cuboid:slug_v1",
+        "before": [
+          "162a35688c2aa21e"
+        ],
+        "after": [
+          "f5a38e8a5e01c36e"
+        ]
+      },
+      {
+        "name": "cuboid:slug_v2",
+        "before": [
+          "181591ecb94d0a0c"
+        ],
+        "after": [
+          "862875d085a6619c"
+        ]
+      },
+      {
+        "name": "cuboid:slug_v3",
+        "before": [
+          "7dba25764621dd1b"
+        ],
+        "after": [
+          "544f779f5e7e39bd"
+        ]
+      },
+      {
+        "name": "cuboid:slug_v4",
+        "before": [
+          "b645424a23788a25"
+        ],
+        "after": [
+          "26688582db3c2331"
+        ]
+      }
+    ]
+  },
+  "changed_values": [
+    {
+      "path": "xml_case/geometry/assembly[name=Slug]/geometry/cuboid[name=slug_foot_left]/size/x",
+      "before": "0.00024999999999999979",
+      "after": "0.00044999999999999988"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Slug]/geometry/cuboid[name=slug_foot_lower]/position/x",
+      "before": "-0.002",
+      "after": "-0.0018"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Slug]/geometry/cuboid[name=slug_foot_lower]/size/x",
+      "before": "0.0040000000000000001",
+      "after": "0.0035999999999999999"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Slug]/geometry/cuboid[name=slug_foot_right]/position/x",
+      "before": "0.002",
+      "after": "0.0018"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Slug]/geometry/cuboid[name=slug_foot_right]/size/x",
+      "before": "0.00024999999999999979",
+      "after": "0.00044999999999999988"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Slug]/geometry/cuboid[name=slug_foot_upper]/position/x",
+      "before": "-0.002",
+      "after": "-0.0018"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Slug]/geometry/cuboid[name=slug_foot_upper]/size/x",
+      "before": "0.0040000000000000001",
+      "after": "0.0035999999999999999"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Slug]/geometry/cuboid[name=slug_h1]/position/x",
+      "before": "-0.002",
+      "after": "-0.0018"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Slug]/geometry/cuboid[name=slug_h1]/size/x",
+      "before": "0.0011137730745472421",
+      "after": "0.00091377307454724196"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Slug]/geometry/cuboid[name=slug_h2]/size/x",
+      "before": "0.0011137730745472421",
+      "after": "0.00091377307454724196"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Slug]/geometry/cuboid[name=slug_v1]/position/x",
+      "before": "-0.002",
+      "after": "-0.0018"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Slug]/geometry/cuboid[name=slug_v2]/position/x",
+      "before": "0.0015999999999999999",
+      "after": "0.0013999999999999998"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Slug]/geometry/cuboid[name=slug_v3]/position/x",
+      "before": "-0.0016000000000000001",
+      "after": "-0.0014"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Slug]/geometry/cuboid[name=slug_v3]/size/x",
+      "before": "0.0032000000000000002",
+      "after": "0.0028"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Slug]/geometry/cuboid[name=slug_v4]/position/x",
+      "before": "-0.0016000000000000001",
+      "after": "-0.0014"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Slug]/geometry/cuboid[name=slug_v4]/size/x",
+      "before": "0.0032000000000000002",
+      "after": "0.0028"
+    }
+  ],
+  "added_leaf_paths": [],
+  "removed_leaf_paths": [],
+  "numeric_formatting_differences_ignored": true,
+  "template_id": "flip_chip_pbga",
+  "variation_id": "par_v2_c087_sluglengthlsl_3_6",
+  "variation_kind": "numeric_parameter",
+  "comparison_baseline": "validation/branch_baselines/br_v2_dropinslug_sluglengthlsl/model.xml",
+  "outcome": "semantic_change",
+  "floxml_effect_expectation": null
+}

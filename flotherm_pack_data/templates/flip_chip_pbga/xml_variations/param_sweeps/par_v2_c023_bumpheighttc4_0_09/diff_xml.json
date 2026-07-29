@@ -1,0 +1,152 @@
+{
+  "schema_version": "2.0",
+  "comparison": {
+    "baseline": "flotherm_pack_data/templates/flip_chip_pbga/baseline/model.xml",
+    "variation": "flotherm_pack_data/templates/flip_chip_pbga/xml_variations/param_sweeps/par_v2_c023_bumpheighttc4_0_09/model.xml",
+    "baseline_bytes": 10211,
+    "variation_bytes": 10227,
+    "baseline_sha256": "517D8D2C0D3C887AFCC71083841F9D502BA2338414DBA1CC9F8DE769783CF520",
+    "variation_sha256": "2EF1E2C6D7F281A24E43DAA99D97506BC9F18AE41F5712FA7BC2DFD2F94117EC"
+  },
+  "semantic_change": true,
+  "summary": {
+    "changed_value_count": 10,
+    "added_leaf_count": 0,
+    "removed_leaf_count": 0
+  },
+  "materials": {
+    "added": [],
+    "removed": [],
+    "changed": []
+  },
+  "entities": {
+    "added": [],
+    "removed": [],
+    "changed": [
+      {
+        "name": "assembly:Die",
+        "before": [
+          "62d57ab1cbd3ad58"
+        ],
+        "after": [
+          "3434bd45af2f739c"
+        ]
+      },
+      {
+        "name": "cuboid:die",
+        "before": [
+          "329cf8f0628605d6"
+        ],
+        "after": [
+          "9ee2bfe7bef7b355"
+        ]
+      },
+      {
+        "name": "cuboid:fc_bumps",
+        "before": [
+          "b54c3873185d6ac9"
+        ],
+        "after": [
+          "87771269c3632d0e"
+        ]
+      },
+      {
+        "name": "monitor_point:CaseTemp",
+        "before": [
+          "40ec7a5960f48f0e"
+        ],
+        "after": [
+          "dbca1ec62d100fed"
+        ]
+      },
+      {
+        "name": "monitor_point:DieJunction_Temp",
+        "before": [
+          "b25f60c5db079ee8"
+        ],
+        "after": [
+          "1764952222a61f95"
+        ]
+      },
+      {
+        "name": "region:z_top",
+        "before": [
+          "3c6c4c081b48a4e8"
+        ],
+        "after": [
+          "65bb20e55ea34553"
+        ]
+      },
+      {
+        "name": "source:DieSource",
+        "before": [
+          "8c6d32dfda32006d"
+        ],
+        "after": [
+          "6e998ccaa37fe820"
+        ]
+      }
+    ]
+  },
+  "changed_values": [
+    {
+      "path": "xml_case/attributes/grid_constraints/grid_constraint_att[name=keypoint_z]/high_inflation/inflation_size",
+      "before": "0.0045200000000000006",
+      "after": "0.0045000000000000005"
+    },
+    {
+      "path": "xml_case/attributes/grid_constraints/grid_constraint_att[name=keypoint_z]/high_inflation/max_size",
+      "before": "0.00022600000000000002",
+      "after": "0.00022500000000000002"
+    },
+    {
+      "path": "xml_case/attributes/grid_constraints/grid_constraint_att[name=keypoint_z]/low_inflation/max_size",
+      "before": "0.00022600000000000002",
+      "after": "0.00022500000000000002"
+    },
+    {
+      "path": "xml_case/attributes/grid_constraints/grid_constraint_att[name=keypoint_z]/max_size",
+      "before": "0.00022600000000000002",
+      "after": "0.00022500000000000002"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Die]/geometry/cuboid[name=die]/position/z",
+      "before": "0.00165",
+      "after": "0.00164"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Die]/geometry/monitor_point[name=DieJunction_Temp]/position/z",
+      "before": "0.0016530500000000001",
+      "after": "0.0016430500000000001"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Die]/geometry/source[name=DieSource]/position/z",
+      "before": "0.00165",
+      "after": "0.00164"
+    },
+    {
+      "path": "xml_case/geometry/cuboid[name=fc_bumps]/size/z",
+      "before": "0.0001",
+      "after": "8.9999999999999992e-05"
+    },
+    {
+      "path": "xml_case/geometry/monitor_point[name=CaseTemp]/position/z",
+      "before": "0.0022374000000000001",
+      "after": "0.0022275000000000003"
+    },
+    {
+      "path": "xml_case/geometry/region[name=z_top]/position/z",
+      "before": "0.0022600000000000003",
+      "after": "0.0022500000000000003"
+    }
+  ],
+  "added_leaf_paths": [],
+  "removed_leaf_paths": [],
+  "numeric_formatting_differences_ignored": true,
+  "template_id": "flip_chip_pbga",
+  "variation_id": "par_v2_c023_bumpheighttc4_0_09",
+  "variation_kind": "numeric_parameter",
+  "comparison_baseline": "baseline/model.xml",
+  "outcome": "semantic_change",
+  "floxml_effect_expectation": null
+}

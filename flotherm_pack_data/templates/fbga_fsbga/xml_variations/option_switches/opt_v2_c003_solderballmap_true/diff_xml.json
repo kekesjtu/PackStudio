@@ -1,0 +1,163 @@
+{
+  "schema_version": "2.0",
+  "comparison": {
+    "baseline": "flotherm_pack_data/templates/fbga_fsbga/baseline/model.xml",
+    "variation": "flotherm_pack_data/templates/fbga_fsbga/xml_variations/option_switches/opt_v2_c003_solderballmap_true/model.xml",
+    "baseline_bytes": 49732,
+    "variation_bytes": 34701,
+    "baseline_sha256": "BB8855B47DDB172F6D5C3E7056F3229923EC67BF23A86252DB33EAC6B5664226",
+    "variation_sha256": "60E03C1B0529B900FDD290089F7C27992944B5266A9E959D57E603F7DD469A9F"
+  },
+  "semantic_change": true,
+  "summary": {
+    "changed_value_count": 0,
+    "added_leaf_count": 11,
+    "removed_leaf_count": 212
+  },
+  "materials": {
+    "added": [],
+    "removed": [],
+    "changed": [
+      {
+        "name": "bondwire1",
+        "before": {
+          "type": "orthotropic_material_att",
+          "density": "3607.59894482",
+          "specific_heat": "471.674051092",
+          "x_conductivity": "30.8810137519",
+          "y_conductivity": "0.68",
+          "z_conductivity": "30.8810137519"
+        },
+        "after": {
+          "type": "biaxial_material_att",
+          "density": "1820",
+          "specific_heat": "882",
+          "in_plane_conductivity": "0.68",
+          "normal_conductivity": "0.68"
+        }
+      },
+      {
+        "name": "bondwire2",
+        "before": {
+          "type": "orthotropic_material_att",
+          "density": "3607.59894482",
+          "specific_heat": "471.674051092",
+          "x_conductivity": "0.68",
+          "y_conductivity": "30.8810137519",
+          "z_conductivity": "30.8810137519"
+        },
+        "after": {
+          "type": "biaxial_material_att",
+          "density": "1820",
+          "specific_heat": "882",
+          "in_plane_conductivity": "0.68",
+          "normal_conductivity": "0.68"
+        }
+      }
+    ]
+  },
+  "entities": {
+    "added": [],
+    "removed": [
+      "cuboid:solder_ball_1_1",
+      "cuboid:solder_ball_1_2",
+      "cuboid:solder_ball_1_3",
+      "cuboid:solder_ball_1_4",
+      "cuboid:solder_ball_1_5",
+      "cuboid:solder_ball_2_1",
+      "cuboid:solder_ball_2_2",
+      "cuboid:solder_ball_2_3",
+      "cuboid:solder_ball_2_4",
+      "cuboid:solder_ball_2_5",
+      "cuboid:solder_ball_3_1",
+      "cuboid:solder_ball_3_2",
+      "cuboid:solder_ball_3_3",
+      "cuboid:solder_ball_3_4",
+      "cuboid:solder_ball_3_5",
+      "cuboid:solder_ball_4_1",
+      "cuboid:solder_ball_4_2",
+      "cuboid:solder_ball_4_3",
+      "cuboid:solder_ball_4_4",
+      "cuboid:solder_ball_4_5",
+      "cuboid:solder_ball_5_1",
+      "cuboid:solder_ball_5_2",
+      "cuboid:solder_ball_5_3",
+      "cuboid:solder_ball_5_4",
+      "cuboid:solder_ball_5_5"
+    ],
+    "changed": [
+      {
+        "name": "assembly:Solder_ball",
+        "before": [
+          "a58f48a31471d429"
+        ],
+        "after": [
+          "b50d9a7bc5d9de8c"
+        ]
+      }
+    ]
+  },
+  "changed_values": [],
+  "added_leaf_paths": [
+    "xml_case/attributes/materials/biaxial_material_att[name=bondwire1]/density",
+    "xml_case/attributes/materials/biaxial_material_att[name=bondwire1]/in_plane_conductivity",
+    "xml_case/attributes/materials/biaxial_material_att[name=bondwire1]/name",
+    "xml_case/attributes/materials/biaxial_material_att[name=bondwire1]/normal_conductivity",
+    "xml_case/attributes/materials/biaxial_material_att[name=bondwire1]/specific_heat",
+    "xml_case/attributes/materials/biaxial_material_att[name=bondwire2]/density",
+    "xml_case/attributes/materials/biaxial_material_att[name=bondwire2]/in_plane_conductivity",
+    "xml_case/attributes/materials/biaxial_material_att[name=bondwire2]/name",
+    "xml_case/attributes/materials/biaxial_material_att[name=bondwire2]/normal_conductivity",
+    "xml_case/attributes/materials/biaxial_material_att[name=bondwire2]/specific_heat",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry"
+  ],
+  "removed_leaf_paths": [
+    "xml_case/attributes/materials/orthotropic_material_att[name=bondwire1]/density",
+    "xml_case/attributes/materials/orthotropic_material_att[name=bondwire1]/name",
+    "xml_case/attributes/materials/orthotropic_material_att[name=bondwire1]/specific_heat",
+    "xml_case/attributes/materials/orthotropic_material_att[name=bondwire1]/x_conductivity",
+    "xml_case/attributes/materials/orthotropic_material_att[name=bondwire1]/y_conductivity",
+    "xml_case/attributes/materials/orthotropic_material_att[name=bondwire1]/z_conductivity",
+    "xml_case/attributes/materials/orthotropic_material_att[name=bondwire2]/density",
+    "xml_case/attributes/materials/orthotropic_material_att[name=bondwire2]/name",
+    "xml_case/attributes/materials/orthotropic_material_att[name=bondwire2]/specific_heat",
+    "xml_case/attributes/materials/orthotropic_material_att[name=bondwire2]/x_conductivity",
+    "xml_case/attributes/materials/orthotropic_material_att[name=bondwire2]/y_conductivity",
+    "xml_case/attributes/materials/orthotropic_material_att[name=bondwire2]/z_conductivity",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_1_1]/material",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_1_1]/name",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_1_1]/position/x",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_1_1]/position/y",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_1_1]/position/z",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_1_1]/size/x",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_1_1]/size/y",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_1_1]/size/z",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_1_2]/material",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_1_2]/name",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_1_2]/position/x",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_1_2]/position/y",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_1_2]/position/z",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_1_2]/size/x",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_1_2]/size/y",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_1_2]/size/z",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_1_3]/material",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_1_3]/name",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_1_3]/position/x",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_1_3]/position/y",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_1_3]/position/z",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_1_3]/size/x",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_1_3]/size/y",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_1_3]/size/z",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_1_4]/material",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_1_4]/name",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_1_4]/position/x",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_1_4]/position/y"
+  ],
+  "numeric_formatting_differences_ignored": true,
+  "template_id": "fbga_fsbga",
+  "variation_id": "opt_v2_c003_solderballmap_true",
+  "variation_kind": "boolean_option",
+  "comparison_baseline": "baseline/model.xml",
+  "outcome": "semantic_change",
+  "floxml_effect_expectation": null
+}

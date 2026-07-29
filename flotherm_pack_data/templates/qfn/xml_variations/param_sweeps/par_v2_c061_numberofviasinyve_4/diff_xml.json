@@ -1,0 +1,375 @@
+{
+  "schema_version": "2.0",
+  "comparison": {
+    "baseline": "flotherm_pack_data/templates/qfn/validation/branch_baselines/br_v2_vias_numberofviasinyve/model.xml",
+    "variation": "flotherm_pack_data/templates/qfn/xml_variations/param_sweeps/par_v2_c061_numberofviasinyve_4/model.xml",
+    "baseline_bytes": 209144,
+    "variation_bytes": 206172,
+    "baseline_sha256": "A3715C397830BE13D12F4CD6A51822F60AEB4854F69B1BF5FB7E61E86F5E5261",
+    "variation_sha256": "CFB889BFE17EA8A57DB1D93B70A0E05A6471BD8306C049BB79FC6DC48E99BD25"
+  },
+  "semantic_change": true,
+  "summary": {
+    "changed_value_count": 20,
+    "added_leaf_count": 0,
+    "removed_leaf_count": 40
+  },
+  "materials": {
+    "added": [],
+    "removed": [],
+    "changed": []
+  },
+  "entities": {
+    "added": [],
+    "removed": [
+      "cuboid:vias_1_5",
+      "cuboid:vias_2_5",
+      "cuboid:vias_3_5",
+      "cuboid:vias_4_5",
+      "cuboid:vias_5_5"
+    ],
+    "changed": [
+      {
+        "name": "assembly:Vias",
+        "before": [
+          "cde24cf9056bad22"
+        ],
+        "after": [
+          "e06b0c7316d0657a"
+        ]
+      },
+      {
+        "name": "cuboid:vias_1_1",
+        "before": [
+          "acca42195962c402"
+        ],
+        "after": [
+          "f778b96413871c7a"
+        ]
+      },
+      {
+        "name": "cuboid:vias_1_2",
+        "before": [
+          "55c7339e6d0100d8"
+        ],
+        "after": [
+          "bb33ce8bcc08f834"
+        ]
+      },
+      {
+        "name": "cuboid:vias_1_3",
+        "before": [
+          "bd04fa22be6b40f1"
+        ],
+        "after": [
+          "5b69a09a8585a546"
+        ]
+      },
+      {
+        "name": "cuboid:vias_1_4",
+        "before": [
+          "aebf6f2e71074244"
+        ],
+        "after": [
+          "6ff0049c3c32a5fe"
+        ]
+      },
+      {
+        "name": "cuboid:vias_2_1",
+        "before": [
+          "3ddb2727322bdd6f"
+        ],
+        "after": [
+          "4777c2c15e4727b7"
+        ]
+      },
+      {
+        "name": "cuboid:vias_2_2",
+        "before": [
+          "933ae9e3c3164715"
+        ],
+        "after": [
+          "ea0ed136babcf2ac"
+        ]
+      },
+      {
+        "name": "cuboid:vias_2_3",
+        "before": [
+          "0443981ef7fe7d26"
+        ],
+        "after": [
+          "8738110ac2b21901"
+        ]
+      },
+      {
+        "name": "cuboid:vias_2_4",
+        "before": [
+          "62dbecb50a204bdf"
+        ],
+        "after": [
+          "d81039d12b541f64"
+        ]
+      },
+      {
+        "name": "cuboid:vias_3_1",
+        "before": [
+          "28407054f2e41e40"
+        ],
+        "after": [
+          "87b2ec6224ff6646"
+        ]
+      },
+      {
+        "name": "cuboid:vias_3_2",
+        "before": [
+          "1661ea3138149482"
+        ],
+        "after": [
+          "3529520b9fb25813"
+        ]
+      },
+      {
+        "name": "cuboid:vias_3_3",
+        "before": [
+          "c2e8bda0f914a900"
+        ],
+        "after": [
+          "227b90d1cea1f825"
+        ]
+      },
+      {
+        "name": "cuboid:vias_3_4",
+        "before": [
+          "d517a46540cb4393"
+        ],
+        "after": [
+          "7d07ea7989d6fe14"
+        ]
+      },
+      {
+        "name": "cuboid:vias_4_1",
+        "before": [
+          "5fd254ee63514ec2"
+        ],
+        "after": [
+          "b30986a7da18834d"
+        ]
+      },
+      {
+        "name": "cuboid:vias_4_2",
+        "before": [
+          "1f35f5b12f610bec"
+        ],
+        "after": [
+          "1b0108291e8cde55"
+        ]
+      },
+      {
+        "name": "cuboid:vias_4_3",
+        "before": [
+          "96ef288024451b49"
+        ],
+        "after": [
+          "dea725889c91affb"
+        ]
+      },
+      {
+        "name": "cuboid:vias_4_4",
+        "before": [
+          "be20121daa53041d"
+        ],
+        "after": [
+          "119b71dd25122b10"
+        ]
+      },
+      {
+        "name": "cuboid:vias_5_1",
+        "before": [
+          "0c90caea87873778"
+        ],
+        "after": [
+          "d7db1a25d57c67b2"
+        ]
+      },
+      {
+        "name": "cuboid:vias_5_2",
+        "before": [
+          "c8fe07a444448ccf"
+        ],
+        "after": [
+          "d226d38821c36756"
+        ]
+      },
+      {
+        "name": "cuboid:vias_5_3",
+        "before": [
+          "613c28f91958e4e4"
+        ],
+        "after": [
+          "96469afae173b25a"
+        ]
+      },
+      {
+        "name": "cuboid:vias_5_4",
+        "before": [
+          "e7a46ba4dcf91257"
+        ],
+        "after": [
+          "b39387724e071ef0"
+        ]
+      }
+    ]
+  },
+  "changed_values": [
+    {
+      "path": "xml_case/geometry/assembly[name=Vias]/geometry/cuboid[name=vias_1_1]/position/y",
+      "before": "-0.0010886226925452759",
+      "after": "-0.00083862269254527581"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Vias]/geometry/cuboid[name=vias_1_2]/position/y",
+      "before": "-0.00058862269254527581",
+      "after": "-0.0003386226925452758"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Vias]/geometry/cuboid[name=vias_1_3]/position/y",
+      "before": "-8.8622692545275799e-05",
+      "after": "0.00016137730745472421"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Vias]/geometry/cuboid[name=vias_1_4]/position/y",
+      "before": "0.00041137730745472421",
+      "after": "0.00066137730745472422"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Vias]/geometry/cuboid[name=vias_2_1]/position/y",
+      "before": "-0.0010886226925452759",
+      "after": "-0.00083862269254527581"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Vias]/geometry/cuboid[name=vias_2_2]/position/y",
+      "before": "-0.00058862269254527581",
+      "after": "-0.0003386226925452758"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Vias]/geometry/cuboid[name=vias_2_3]/position/y",
+      "before": "-8.8622692545275799e-05",
+      "after": "0.00016137730745472421"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Vias]/geometry/cuboid[name=vias_2_4]/position/y",
+      "before": "0.00041137730745472421",
+      "after": "0.00066137730745472422"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Vias]/geometry/cuboid[name=vias_3_1]/position/y",
+      "before": "-0.0010886226925452759",
+      "after": "-0.00083862269254527581"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Vias]/geometry/cuboid[name=vias_3_2]/position/y",
+      "before": "-0.00058862269254527581",
+      "after": "-0.0003386226925452758"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Vias]/geometry/cuboid[name=vias_3_3]/position/y",
+      "before": "-8.8622692545275799e-05",
+      "after": "0.00016137730745472421"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Vias]/geometry/cuboid[name=vias_3_4]/position/y",
+      "before": "0.00041137730745472421",
+      "after": "0.00066137730745472422"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Vias]/geometry/cuboid[name=vias_4_1]/position/y",
+      "before": "-0.0010886226925452759",
+      "after": "-0.00083862269254527581"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Vias]/geometry/cuboid[name=vias_4_2]/position/y",
+      "before": "-0.00058862269254527581",
+      "after": "-0.0003386226925452758"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Vias]/geometry/cuboid[name=vias_4_3]/position/y",
+      "before": "-8.8622692545275799e-05",
+      "after": "0.00016137730745472421"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Vias]/geometry/cuboid[name=vias_4_4]/position/y",
+      "before": "0.00041137730745472421",
+      "after": "0.00066137730745472422"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Vias]/geometry/cuboid[name=vias_5_1]/position/y",
+      "before": "-0.0010886226925452759",
+      "after": "-0.00083862269254527581"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Vias]/geometry/cuboid[name=vias_5_2]/position/y",
+      "before": "-0.00058862269254527581",
+      "after": "-0.0003386226925452758"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Vias]/geometry/cuboid[name=vias_5_3]/position/y",
+      "before": "-8.8622692545275799e-05",
+      "after": "0.00016137730745472421"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Vias]/geometry/cuboid[name=vias_5_4]/position/y",
+      "before": "0.00041137730745472421",
+      "after": "0.00066137730745472422"
+    }
+  ],
+  "added_leaf_paths": [],
+  "removed_leaf_paths": [
+    "xml_case/geometry/assembly[name=Vias]/geometry/cuboid[name=vias_1_5]/material",
+    "xml_case/geometry/assembly[name=Vias]/geometry/cuboid[name=vias_1_5]/name",
+    "xml_case/geometry/assembly[name=Vias]/geometry/cuboid[name=vias_1_5]/position/x",
+    "xml_case/geometry/assembly[name=Vias]/geometry/cuboid[name=vias_1_5]/position/y",
+    "xml_case/geometry/assembly[name=Vias]/geometry/cuboid[name=vias_1_5]/position/z",
+    "xml_case/geometry/assembly[name=Vias]/geometry/cuboid[name=vias_1_5]/size/x",
+    "xml_case/geometry/assembly[name=Vias]/geometry/cuboid[name=vias_1_5]/size/y",
+    "xml_case/geometry/assembly[name=Vias]/geometry/cuboid[name=vias_1_5]/size/z",
+    "xml_case/geometry/assembly[name=Vias]/geometry/cuboid[name=vias_2_5]/material",
+    "xml_case/geometry/assembly[name=Vias]/geometry/cuboid[name=vias_2_5]/name",
+    "xml_case/geometry/assembly[name=Vias]/geometry/cuboid[name=vias_2_5]/position/x",
+    "xml_case/geometry/assembly[name=Vias]/geometry/cuboid[name=vias_2_5]/position/y",
+    "xml_case/geometry/assembly[name=Vias]/geometry/cuboid[name=vias_2_5]/position/z",
+    "xml_case/geometry/assembly[name=Vias]/geometry/cuboid[name=vias_2_5]/size/x",
+    "xml_case/geometry/assembly[name=Vias]/geometry/cuboid[name=vias_2_5]/size/y",
+    "xml_case/geometry/assembly[name=Vias]/geometry/cuboid[name=vias_2_5]/size/z",
+    "xml_case/geometry/assembly[name=Vias]/geometry/cuboid[name=vias_3_5]/material",
+    "xml_case/geometry/assembly[name=Vias]/geometry/cuboid[name=vias_3_5]/name",
+    "xml_case/geometry/assembly[name=Vias]/geometry/cuboid[name=vias_3_5]/position/x",
+    "xml_case/geometry/assembly[name=Vias]/geometry/cuboid[name=vias_3_5]/position/y",
+    "xml_case/geometry/assembly[name=Vias]/geometry/cuboid[name=vias_3_5]/position/z",
+    "xml_case/geometry/assembly[name=Vias]/geometry/cuboid[name=vias_3_5]/size/x",
+    "xml_case/geometry/assembly[name=Vias]/geometry/cuboid[name=vias_3_5]/size/y",
+    "xml_case/geometry/assembly[name=Vias]/geometry/cuboid[name=vias_3_5]/size/z",
+    "xml_case/geometry/assembly[name=Vias]/geometry/cuboid[name=vias_4_5]/material",
+    "xml_case/geometry/assembly[name=Vias]/geometry/cuboid[name=vias_4_5]/name",
+    "xml_case/geometry/assembly[name=Vias]/geometry/cuboid[name=vias_4_5]/position/x",
+    "xml_case/geometry/assembly[name=Vias]/geometry/cuboid[name=vias_4_5]/position/y",
+    "xml_case/geometry/assembly[name=Vias]/geometry/cuboid[name=vias_4_5]/position/z",
+    "xml_case/geometry/assembly[name=Vias]/geometry/cuboid[name=vias_4_5]/size/x",
+    "xml_case/geometry/assembly[name=Vias]/geometry/cuboid[name=vias_4_5]/size/y",
+    "xml_case/geometry/assembly[name=Vias]/geometry/cuboid[name=vias_4_5]/size/z",
+    "xml_case/geometry/assembly[name=Vias]/geometry/cuboid[name=vias_5_5]/material",
+    "xml_case/geometry/assembly[name=Vias]/geometry/cuboid[name=vias_5_5]/name",
+    "xml_case/geometry/assembly[name=Vias]/geometry/cuboid[name=vias_5_5]/position/x",
+    "xml_case/geometry/assembly[name=Vias]/geometry/cuboid[name=vias_5_5]/position/y",
+    "xml_case/geometry/assembly[name=Vias]/geometry/cuboid[name=vias_5_5]/position/z",
+    "xml_case/geometry/assembly[name=Vias]/geometry/cuboid[name=vias_5_5]/size/x",
+    "xml_case/geometry/assembly[name=Vias]/geometry/cuboid[name=vias_5_5]/size/y",
+    "xml_case/geometry/assembly[name=Vias]/geometry/cuboid[name=vias_5_5]/size/z"
+  ],
+  "numeric_formatting_differences_ignored": true,
+  "template_id": "qfn",
+  "variation_id": "par_v2_c061_numberofviasinyve_4",
+  "variation_kind": "numeric_parameter",
+  "comparison_baseline": "validation/branch_baselines/br_v2_vias_numberofviasinyve/model.xml",
+  "outcome": "semantic_change",
+  "floxml_effect_expectation": null
+}

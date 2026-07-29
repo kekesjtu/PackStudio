@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flopack_xml_log_file version="1.0">
+    <!--Unpublished work. Copyright 2025 Siemens-->
+    <new_package package_type="pbga_fc">
+        <new_value new_value="Flip Chip PBGA" property_name="designName"/>
+        <new_value new_value="standardOutline" property_name="outlineType"/>
+        <new_value new_value="PBGAFC_49_6X6mm" property_name="jedecFootprint"/>
+        <new_value new_value="bareDie" property_name="topCover"/>
+    </new_package>
+    <select_component_row name="packageSubstrate"/>
+    <select_component_row name="die"/>
+    <select_component_row name="flipChipBumps"/>
+    <select_component_row name="coreVias"/>
+    <select_component_row name="metalLayers"/>
+    <select_component_row name="upperBuiltUpRegion"/>
+    <select_component_row name="lowerBuiltUpRegion"/>
+    <select_component_row name="solderBalls"/>
+    <select_component_row name="solderBallDepopulation"/>
+    <select_component_row name="centralBalls"/>
+    <select_component_row name="topCover"/>
+    <select_component_row name="dropInSlug"/>
+    <select_component_row name="modelingOptions"/>
+    <export_floxml filename="E:\Users\mydearlong\Desktop\PackStudio\flotherm_pack_data\templates\flip_chip_pbga\baseline\model.xml"/>
+</flopack_xml_log_file>

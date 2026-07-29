@@ -1,0 +1,67 @@
+{
+  "schema_version": "2.0",
+  "comparison": {
+    "baseline": "flotherm_pack_data/templates/wirebond_pbga/validation/branch_baselines/br_v2_backsidespreader_spreaderlengthlspr/model.xml",
+    "variation": "flotherm_pack_data/templates/wirebond_pbga/xml_variations/param_sweeps/par_v2_c071_spreaderlengthlspr_7_2/model.xml",
+    "baseline_bytes": 43500,
+    "variation_bytes": 43500,
+    "baseline_sha256": "DC9F6650495BD029A74FDBED0698EF92B715EFE99DEB493839909BE6E530C53D",
+    "variation_sha256": "4FD044E1700A7CF3A4982BF74C66CE2528F75B7A8012D08D391DE91CBFBC7058"
+  },
+  "semantic_change": true,
+  "summary": {
+    "changed_value_count": 2,
+    "added_leaf_count": 0,
+    "removed_leaf_count": 0
+  },
+  "materials": {
+    "added": [],
+    "removed": [],
+    "changed": []
+  },
+  "entities": {
+    "added": [],
+    "removed": [],
+    "changed": [
+      {
+        "name": "assembly:Dielectric & Traces",
+        "before": [
+          "58e158ba8339fa6c"
+        ],
+        "after": [
+          "cf9788151ea1ce2c"
+        ]
+      },
+      {
+        "name": "cuboid:back_spreader",
+        "before": [
+          "db01c21d7908e001"
+        ],
+        "after": [
+          "6a859135ea5e7c0e"
+        ]
+      }
+    ]
+  },
+  "changed_values": [
+    {
+      "path": "xml_case/geometry/assembly[name=Dielectric & Traces]/geometry/cuboid[name=back_spreader]/position/x",
+      "before": "-0.0040000000000000001",
+      "after": "-0.0035999999999999999"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Dielectric & Traces]/geometry/cuboid[name=back_spreader]/size/x",
+      "before": "0.0080000000000000002",
+      "after": "0.0071999999999999998"
+    }
+  ],
+  "added_leaf_paths": [],
+  "removed_leaf_paths": [],
+  "numeric_formatting_differences_ignored": true,
+  "template_id": "wirebond_pbga",
+  "variation_id": "par_v2_c071_spreaderlengthlspr_7_2",
+  "variation_kind": "numeric_parameter",
+  "comparison_baseline": "validation/branch_baselines/br_v2_backsidespreader_spreaderlengthlspr/model.xml",
+  "outcome": "semantic_change",
+  "floxml_effect_expectation": null
+}

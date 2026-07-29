@@ -1,0 +1,69 @@
+{
+  "schema_version": "2.0",
+  "comparison": {
+    "baseline": "flotherm_pack_data/templates/fbga_fsbga/baseline/model.xml",
+    "variation": "flotherm_pack_data/templates/fbga_fsbga/xml_variations/param_sweeps/par_v2_c034_platingthicknesstpl_0_0275/model.xml",
+    "baseline_bytes": 49732,
+    "variation_bytes": 49758,
+    "baseline_sha256": "BB8855B47DDB172F6D5C3E7056F3229923EC67BF23A86252DB33EAC6B5664226",
+    "variation_sha256": "7EAFC2AC4D70B9779F5A3BD344C50374FDB01DD5AF415EC44B19436E462E157F"
+  },
+  "semantic_change": true,
+  "summary": {
+    "changed_value_count": 3,
+    "added_leaf_count": 0,
+    "removed_leaf_count": 0
+  },
+  "materials": {
+    "added": [],
+    "removed": [],
+    "changed": [
+      {
+        "name": "Via",
+        "before": {
+          "type": "isotropic_material_att",
+          "density": "3907.5282875",
+          "specific_heat": "385.103990245",
+          "conductivity": "168.45218125"
+        },
+        "after": {
+          "type": "isotropic_material_att",
+          "density": "4236.77921087",
+          "specific_heat": "385.089621537",
+          "conductivity": "182.648093813"
+        }
+      }
+    ]
+  },
+  "entities": {
+    "added": [],
+    "removed": [],
+    "changed": []
+  },
+  "changed_values": [
+    {
+      "path": "xml_case/attributes/materials/isotropic_material_att[name=Via]/conductivity",
+      "before": "168.45218124999997",
+      "after": "182.64809381250001"
+    },
+    {
+      "path": "xml_case/attributes/materials/isotropic_material_att[name=Via]/density",
+      "before": "3907.5282874999989",
+      "after": "4236.779210875"
+    },
+    {
+      "path": "xml_case/attributes/materials/isotropic_material_att[name=Via]/specific_heat",
+      "before": "385.10399024526578",
+      "after": "385.08962153686826"
+    }
+  ],
+  "added_leaf_paths": [],
+  "removed_leaf_paths": [],
+  "numeric_formatting_differences_ignored": true,
+  "template_id": "fbga_fsbga",
+  "variation_id": "par_v2_c034_platingthicknesstpl_0_0275",
+  "variation_kind": "numeric_parameter",
+  "comparison_baseline": "baseline/model.xml",
+  "outcome": "semantic_change",
+  "floxml_effect_expectation": null
+}

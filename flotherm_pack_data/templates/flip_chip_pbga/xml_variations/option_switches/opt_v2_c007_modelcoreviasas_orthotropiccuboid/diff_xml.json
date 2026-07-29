@@ -1,0 +1,147 @@
+{
+  "schema_version": "2.0",
+  "comparison": {
+    "baseline": "flotherm_pack_data/templates/flip_chip_pbga/validation/branch_baselines/br_v2_modelingoptions_modelcoreviasas/model.xml",
+    "variation": "flotherm_pack_data/templates/flip_chip_pbga/xml_variations/option_switches/opt_v2_c007_modelcoreviasas_orthotropiccuboid/model.xml",
+    "baseline_bytes": 25495,
+    "variation_bytes": 11433,
+    "baseline_sha256": "084C3274FAF3AFB6DA34D2BA8C9659D477AF3245E1F9A82D7B4C68CC7562C04C",
+    "variation_sha256": "B44525B32C380DA87EE71A1E92FE04873FF8904914187AF06E31D214D7D38F0A"
+  },
+  "semantic_change": true,
+  "summary": {
+    "changed_value_count": 0,
+    "added_leaf_count": 13,
+    "removed_leaf_count": 204
+  },
+  "materials": {
+    "added": [],
+    "removed": [],
+    "changed": [
+      {
+        "name": "Thermal Via",
+        "before": {
+          "type": "isotropic_material_att",
+          "density": "3906.875",
+          "specific_heat": "385",
+          "conductivity": "168.4375"
+        },
+        "after": {
+          "type": "biaxial_material_att",
+          "density": "2036.34912969",
+          "specific_heat": "851.132675308",
+          "in_plane_conductivity": "20",
+          "normal_conductivity": "15.1720510808"
+        }
+      }
+    ]
+  },
+  "entities": {
+    "added": [
+      "cuboid:core_vias"
+    ],
+    "removed": [
+      "cuboid:core_vias_1_1",
+      "cuboid:core_vias_1_2",
+      "cuboid:core_vias_1_3",
+      "cuboid:core_vias_1_4",
+      "cuboid:core_vias_1_5",
+      "cuboid:core_vias_2_1",
+      "cuboid:core_vias_2_2",
+      "cuboid:core_vias_2_3",
+      "cuboid:core_vias_2_4",
+      "cuboid:core_vias_2_5",
+      "cuboid:core_vias_3_1",
+      "cuboid:core_vias_3_2",
+      "cuboid:core_vias_3_3",
+      "cuboid:core_vias_3_4",
+      "cuboid:core_vias_3_5",
+      "cuboid:core_vias_4_1",
+      "cuboid:core_vias_4_2",
+      "cuboid:core_vias_4_3",
+      "cuboid:core_vias_4_4",
+      "cuboid:core_vias_4_5",
+      "cuboid:core_vias_5_1",
+      "cuboid:core_vias_5_2",
+      "cuboid:core_vias_5_3",
+      "cuboid:core_vias_5_4",
+      "cuboid:core_vias_5_5"
+    ],
+    "changed": [
+      {
+        "name": "assembly:Core_Vias",
+        "before": [
+          "c0bfd29fd1c6d6d0"
+        ],
+        "after": [
+          "06ea220e43b8ef8d"
+        ]
+      }
+    ]
+  },
+  "changed_values": [],
+  "added_leaf_paths": [
+    "xml_case/attributes/materials/biaxial_material_att[name=Thermal Via]/density",
+    "xml_case/attributes/materials/biaxial_material_att[name=Thermal Via]/in_plane_conductivity",
+    "xml_case/attributes/materials/biaxial_material_att[name=Thermal Via]/name",
+    "xml_case/attributes/materials/biaxial_material_att[name=Thermal Via]/normal_conductivity",
+    "xml_case/attributes/materials/biaxial_material_att[name=Thermal Via]/specific_heat",
+    "xml_case/geometry/assembly[name=Core_Vias]/geometry/cuboid[name=core_vias]/material",
+    "xml_case/geometry/assembly[name=Core_Vias]/geometry/cuboid[name=core_vias]/name",
+    "xml_case/geometry/assembly[name=Core_Vias]/geometry/cuboid[name=core_vias]/position/x",
+    "xml_case/geometry/assembly[name=Core_Vias]/geometry/cuboid[name=core_vias]/position/y",
+    "xml_case/geometry/assembly[name=Core_Vias]/geometry/cuboid[name=core_vias]/position/z",
+    "xml_case/geometry/assembly[name=Core_Vias]/geometry/cuboid[name=core_vias]/size/x",
+    "xml_case/geometry/assembly[name=Core_Vias]/geometry/cuboid[name=core_vias]/size/y",
+    "xml_case/geometry/assembly[name=Core_Vias]/geometry/cuboid[name=core_vias]/size/z"
+  ],
+  "removed_leaf_paths": [
+    "xml_case/attributes/materials/isotropic_material_att[name=Thermal Via]/conductivity",
+    "xml_case/attributes/materials/isotropic_material_att[name=Thermal Via]/density",
+    "xml_case/attributes/materials/isotropic_material_att[name=Thermal Via]/name",
+    "xml_case/attributes/materials/isotropic_material_att[name=Thermal Via]/specific_heat",
+    "xml_case/geometry/assembly[name=Core_Vias]/geometry/cuboid[name=core_vias_1_1]/material",
+    "xml_case/geometry/assembly[name=Core_Vias]/geometry/cuboid[name=core_vias_1_1]/name",
+    "xml_case/geometry/assembly[name=Core_Vias]/geometry/cuboid[name=core_vias_1_1]/position/x",
+    "xml_case/geometry/assembly[name=Core_Vias]/geometry/cuboid[name=core_vias_1_1]/position/y",
+    "xml_case/geometry/assembly[name=Core_Vias]/geometry/cuboid[name=core_vias_1_1]/position/z",
+    "xml_case/geometry/assembly[name=Core_Vias]/geometry/cuboid[name=core_vias_1_1]/size/x",
+    "xml_case/geometry/assembly[name=Core_Vias]/geometry/cuboid[name=core_vias_1_1]/size/y",
+    "xml_case/geometry/assembly[name=Core_Vias]/geometry/cuboid[name=core_vias_1_1]/size/z",
+    "xml_case/geometry/assembly[name=Core_Vias]/geometry/cuboid[name=core_vias_1_2]/material",
+    "xml_case/geometry/assembly[name=Core_Vias]/geometry/cuboid[name=core_vias_1_2]/name",
+    "xml_case/geometry/assembly[name=Core_Vias]/geometry/cuboid[name=core_vias_1_2]/position/x",
+    "xml_case/geometry/assembly[name=Core_Vias]/geometry/cuboid[name=core_vias_1_2]/position/y",
+    "xml_case/geometry/assembly[name=Core_Vias]/geometry/cuboid[name=core_vias_1_2]/position/z",
+    "xml_case/geometry/assembly[name=Core_Vias]/geometry/cuboid[name=core_vias_1_2]/size/x",
+    "xml_case/geometry/assembly[name=Core_Vias]/geometry/cuboid[name=core_vias_1_2]/size/y",
+    "xml_case/geometry/assembly[name=Core_Vias]/geometry/cuboid[name=core_vias_1_2]/size/z",
+    "xml_case/geometry/assembly[name=Core_Vias]/geometry/cuboid[name=core_vias_1_3]/material",
+    "xml_case/geometry/assembly[name=Core_Vias]/geometry/cuboid[name=core_vias_1_3]/name",
+    "xml_case/geometry/assembly[name=Core_Vias]/geometry/cuboid[name=core_vias_1_3]/position/x",
+    "xml_case/geometry/assembly[name=Core_Vias]/geometry/cuboid[name=core_vias_1_3]/position/y",
+    "xml_case/geometry/assembly[name=Core_Vias]/geometry/cuboid[name=core_vias_1_3]/position/z",
+    "xml_case/geometry/assembly[name=Core_Vias]/geometry/cuboid[name=core_vias_1_3]/size/x",
+    "xml_case/geometry/assembly[name=Core_Vias]/geometry/cuboid[name=core_vias_1_3]/size/y",
+    "xml_case/geometry/assembly[name=Core_Vias]/geometry/cuboid[name=core_vias_1_3]/size/z",
+    "xml_case/geometry/assembly[name=Core_Vias]/geometry/cuboid[name=core_vias_1_4]/material",
+    "xml_case/geometry/assembly[name=Core_Vias]/geometry/cuboid[name=core_vias_1_4]/name",
+    "xml_case/geometry/assembly[name=Core_Vias]/geometry/cuboid[name=core_vias_1_4]/position/x",
+    "xml_case/geometry/assembly[name=Core_Vias]/geometry/cuboid[name=core_vias_1_4]/position/y",
+    "xml_case/geometry/assembly[name=Core_Vias]/geometry/cuboid[name=core_vias_1_4]/position/z",
+    "xml_case/geometry/assembly[name=Core_Vias]/geometry/cuboid[name=core_vias_1_4]/size/x",
+    "xml_case/geometry/assembly[name=Core_Vias]/geometry/cuboid[name=core_vias_1_4]/size/y",
+    "xml_case/geometry/assembly[name=Core_Vias]/geometry/cuboid[name=core_vias_1_4]/size/z",
+    "xml_case/geometry/assembly[name=Core_Vias]/geometry/cuboid[name=core_vias_1_5]/material",
+    "xml_case/geometry/assembly[name=Core_Vias]/geometry/cuboid[name=core_vias_1_5]/name",
+    "xml_case/geometry/assembly[name=Core_Vias]/geometry/cuboid[name=core_vias_1_5]/position/x",
+    "xml_case/geometry/assembly[name=Core_Vias]/geometry/cuboid[name=core_vias_1_5]/position/y"
+  ],
+  "numeric_formatting_differences_ignored": true,
+  "template_id": "flip_chip_pbga",
+  "variation_id": "opt_v2_c007_modelcoreviasas_orthotropiccuboid",
+  "variation_kind": "enum_option",
+  "comparison_baseline": "validation/branch_baselines/br_v2_modelingoptions_modelcoreviasas/model.xml",
+  "outcome": "semantic_change",
+  "floxml_effect_expectation": null
+}

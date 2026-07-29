@@ -1,0 +1,698 @@
+{
+  "schema_version": "2.0",
+  "comparison": {
+    "baseline": "flotherm_pack_data/templates/qfp_family/baseline/model.xml",
+    "variation": "flotherm_pack_data/templates/qfp_family/xml_variations/param_sweeps/par_v2_c006_standoffa1_0_11/model.xml",
+    "baseline_bytes": 39733,
+    "variation_bytes": 39750,
+    "baseline_sha256": "BF1D9D963234111DFE5AAE319D1F83A3DBD9AF609C4B3C4A4BC7AA5BBA4082FF",
+    "variation_sha256": "434580F0CEBE5BC729B37DD89446819373C665D20165FFAC54897750634BF4CA"
+  },
+  "semantic_change": true,
+  "summary": {
+    "changed_value_count": 48,
+    "added_leaf_count": 0,
+    "removed_leaf_count": 0
+  },
+  "materials": {
+    "added": [],
+    "removed": [],
+    "changed": []
+  },
+  "entities": {
+    "added": [],
+    "removed": [],
+    "changed": [
+      {
+        "name": "assembly:BondWires",
+        "before": [
+          "a821aeca887453ba"
+        ],
+        "after": [
+          "572c0e4029d946b0"
+        ]
+      },
+      {
+        "name": "assembly:Die",
+        "before": [
+          "d51326fbd18bfa08"
+        ],
+        "after": [
+          "c56f1ac27b425ae6"
+        ]
+      },
+      {
+        "name": "assembly:Die_Flag",
+        "before": [
+          "cfb5caf13343b7b8"
+        ],
+        "after": [
+          "93bf45bb7b2883fe"
+        ]
+      },
+      {
+        "name": "assembly:Encapsulant",
+        "before": [
+          "d4969151b2a125b0"
+        ],
+        "after": [
+          "ec5434c3d67c6e6a"
+        ]
+      },
+      {
+        "name": "assembly:LeadFrame",
+        "before": [
+          "6aab72f69ace04c1"
+        ],
+        "after": [
+          "d29bc0f6492d2b0f"
+        ]
+      },
+      {
+        "name": "assembly:tie_bars",
+        "before": [
+          "393c9e649fb02f0f"
+        ],
+        "after": [
+          "b9ccc5246f80bb12"
+        ]
+      },
+      {
+        "name": "assembly:tiebar_plt",
+        "before": [
+          "910d3361d9b8e74d"
+        ],
+        "after": [
+          "7c0e2eeb4a2a9f9a"
+        ]
+      },
+      {
+        "name": "cuboid:bd_wires_left",
+        "before": [
+          "4234b0edb984c184"
+        ],
+        "after": [
+          "d6d36637293985a7"
+        ]
+      },
+      {
+        "name": "cuboid:bd_wires_lower",
+        "before": [
+          "88638b028d791ae9"
+        ],
+        "after": [
+          "8d42dcbcb6b6fd84"
+        ]
+      },
+      {
+        "name": "cuboid:bd_wires_right",
+        "before": [
+          "488a567fc72b477d"
+        ],
+        "after": [
+          "0718909d7804926a"
+        ]
+      },
+      {
+        "name": "cuboid:bd_wires_upper",
+        "before": [
+          "47e7473040a42958"
+        ],
+        "after": [
+          "f66543a97e94ca91"
+        ]
+      },
+      {
+        "name": "cuboid:bdw_v_left",
+        "before": [
+          "61b3fea01265e3db"
+        ],
+        "after": [
+          "5df5fd843b56942f"
+        ]
+      },
+      {
+        "name": "cuboid:bdw_v_lower",
+        "before": [
+          "985da1147a647241"
+        ],
+        "after": [
+          "4a8da0970de18632"
+        ]
+      },
+      {
+        "name": "cuboid:bdw_v_right",
+        "before": [
+          "8d8437554d4b0d60"
+        ],
+        "after": [
+          "ff24d28bf6ea9acd"
+        ]
+      },
+      {
+        "name": "cuboid:bdw_v_upper",
+        "before": [
+          "5cfca72fa3a3fc85"
+        ],
+        "after": [
+          "dce8151eccbc2a65"
+        ]
+      },
+      {
+        "name": "cuboid:die",
+        "before": [
+          "5fb7ae80e18a072a"
+        ],
+        "after": [
+          "0c5b6885e0ed615e"
+        ]
+      },
+      {
+        "name": "cuboid:die_attach",
+        "before": [
+          "89f81bea4b79325a"
+        ],
+        "after": [
+          "b53c05ffcb477d11"
+        ]
+      },
+      {
+        "name": "cuboid:die_flag",
+        "before": [
+          "3641680a20fc30a2"
+        ],
+        "after": [
+          "da12766d9ebfce0e"
+        ]
+      },
+      {
+        "name": "cuboid:encapsulant",
+        "before": [
+          "56d370a3f8a849c9"
+        ],
+        "after": [
+          "5b6db75f357f5342"
+        ]
+      },
+      {
+        "name": "cuboid:ldf_exter_left",
+        "before": [
+          "dd66cce87a4491e2"
+        ],
+        "after": [
+          "614d9c02c96ab477"
+        ]
+      },
+      {
+        "name": "cuboid:ldf_exter_lower",
+        "before": [
+          "7f0604881b856a0e"
+        ],
+        "after": [
+          "24750f20d647239b"
+        ]
+      },
+      {
+        "name": "cuboid:ldf_exter_right",
+        "before": [
+          "51279a3e8273ee6c"
+        ],
+        "after": [
+          "dfd0a6428a29c22d"
+        ]
+      },
+      {
+        "name": "cuboid:ldf_exter_upper",
+        "before": [
+          "c972a59ee7c30448"
+        ],
+        "after": [
+          "51476e9ab5987f4a"
+        ]
+      },
+      {
+        "name": "cuboid:ldf_inter_left",
+        "before": [
+          "8954caecba32116b"
+        ],
+        "after": [
+          "ef294c7eb660a201"
+        ]
+      },
+      {
+        "name": "cuboid:ldf_inter_lower",
+        "before": [
+          "f42e41a3d654ab13"
+        ],
+        "after": [
+          "fd9f81c8e8610ebf"
+        ]
+      },
+      {
+        "name": "cuboid:ldf_inter_right",
+        "before": [
+          "23fca5f5e48825a2"
+        ],
+        "after": [
+          "01bbd853cc556a5c"
+        ]
+      },
+      {
+        "name": "cuboid:ldf_inter_upper",
+        "before": [
+          "cd4f29bf1e394d31"
+        ],
+        "after": [
+          "f07ba8f5c958d8d8"
+        ]
+      },
+      {
+        "name": "cuboid:ldf_vert_left",
+        "before": [
+          "cae097ba19d7581b"
+        ],
+        "after": [
+          "d77fb4bcc784ca98"
+        ]
+      },
+      {
+        "name": "cuboid:ldf_vert_lower",
+        "before": [
+          "4f93cffa01a5a0e4"
+        ],
+        "after": [
+          "5f6a358966f2bee4"
+        ]
+      },
+      {
+        "name": "cuboid:ldf_vert_right",
+        "before": [
+          "6070a6e0b84c1b66"
+        ],
+        "after": [
+          "f510aeae4538596b"
+        ]
+      },
+      {
+        "name": "cuboid:ldf_vert_upper",
+        "before": [
+          "266ec3fc55526d89"
+        ],
+        "after": [
+          "8bb84e437ab021fa"
+        ]
+      },
+      {
+        "name": "cuboid:tie_bars_h1",
+        "before": [
+          "21bfa326e9f74fc0"
+        ],
+        "after": [
+          "8d31758535716ddc"
+        ]
+      },
+      {
+        "name": "cuboid:tie_bars_h2",
+        "before": [
+          "56144bcd1105094b"
+        ],
+        "after": [
+          "0b8639866378f63c"
+        ]
+      },
+      {
+        "name": "cuboid:tie_bars_h3",
+        "before": [
+          "b77ae005bd12deb2"
+        ],
+        "after": [
+          "ca5ed5a426429b14"
+        ]
+      },
+      {
+        "name": "cuboid:tie_bars_h4",
+        "before": [
+          "b9e240fcb0c9c8ec"
+        ],
+        "after": [
+          "4d221e9a29956b99"
+        ]
+      },
+      {
+        "name": "cuboid:tie_bars_v1",
+        "before": [
+          "55d64a76475c5452"
+        ],
+        "after": [
+          "ecc7ef7c61e73d78"
+        ]
+      },
+      {
+        "name": "cuboid:tie_bars_v2",
+        "before": [
+          "f8ea20647209d191"
+        ],
+        "after": [
+          "dfa92fe35e074824"
+        ]
+      },
+      {
+        "name": "cuboid:tie_bars_v3",
+        "before": [
+          "2e3ffc5caaf7c2da"
+        ],
+        "after": [
+          "f52a00f385d48ded"
+        ]
+      },
+      {
+        "name": "cuboid:tie_bars_v4",
+        "before": [
+          "541dce3f3fd30668"
+        ],
+        "after": [
+          "c1162a451fa42767"
+        ]
+      },
+      {
+        "name": "cuboid:tiebar_plt_h1",
+        "before": [
+          "481c3e9cf465b9da"
+        ],
+        "after": [
+          "f9f34ada29ec4a1d"
+        ]
+      },
+      {
+        "name": "cuboid:tiebar_plt_h2",
+        "before": [
+          "bd8412e2e16a317a"
+        ],
+        "after": [
+          "67922769e010560f"
+        ]
+      },
+      {
+        "name": "cuboid:tiebar_plt_h3",
+        "before": [
+          "97e639a0aed4151b"
+        ],
+        "after": [
+          "f82dc0e59d9b5251"
+        ]
+      },
+      {
+        "name": "cuboid:tiebar_plt_h4",
+        "before": [
+          "27fddcb48089d3ab"
+        ],
+        "after": [
+          "1401c664c41441b5"
+        ]
+      },
+      {
+        "name": "cuboid:tiebar_plt_v1",
+        "before": [
+          "d4b039434b2d9817"
+        ],
+        "after": [
+          "1bcdb4e2e907bdd1"
+        ]
+      },
+      {
+        "name": "cuboid:tiebar_plt_v2",
+        "before": [
+          "c7c1f9e6002c7238"
+        ],
+        "after": [
+          "beea7cdafa8eeb6d"
+        ]
+      },
+      {
+        "name": "cuboid:tiebar_plt_v3",
+        "before": [
+          "12c6f472314d07c8"
+        ],
+        "after": [
+          "6120e85377992dc3"
+        ]
+      },
+      {
+        "name": "cuboid:tiebar_plt_v4",
+        "before": [
+          "5e6c6d953ad1409e"
+        ],
+        "after": [
+          "d79d6dadd73b68b2"
+        ]
+      },
+      {
+        "name": "monitor_point:CaseTemp",
+        "before": [
+          "b62de7b0b18ea214"
+        ],
+        "after": [
+          "e99b053c764f9b6c"
+        ]
+      },
+      {
+        "name": "monitor_point:DieJunction_Temp",
+        "before": [
+          "afc209edf3f8064f"
+        ],
+        "after": [
+          "d508b93c741cbf4f"
+        ]
+      },
+      {
+        "name": "region:z_top",
+        "before": [
+          "fc60e99537df0499"
+        ],
+        "after": [
+          "3755372d74c653fb"
+        ]
+      },
+      {
+        "name": "source:DieSource",
+        "before": [
+          "a3947fe933650306"
+        ],
+        "after": [
+          "8c991e0863385570"
+        ]
+      }
+    ]
+  },
+  "changed_values": [
+    {
+      "path": "xml_case/attributes/grid_constraints/grid_constraint_att[name=keypoint_z]/high_inflation/inflation_size",
+      "before": "0.0030000000000000001",
+      "after": "0.0030200000000000001"
+    },
+    {
+      "path": "xml_case/attributes/grid_constraints/grid_constraint_att[name=keypoint_z]/high_inflation/max_size",
+      "before": "0.00015000000000000001",
+      "after": "0.00015100000000000001"
+    },
+    {
+      "path": "xml_case/attributes/grid_constraints/grid_constraint_att[name=keypoint_z]/low_inflation/max_size",
+      "before": "0.00015000000000000001",
+      "after": "0.00015100000000000001"
+    },
+    {
+      "path": "xml_case/attributes/grid_constraints/grid_constraint_att[name=keypoint_z]/max_size",
+      "before": "0.00015000000000000001",
+      "after": "0.00015100000000000001"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=BondWires]/geometry/cuboid[name=bd_wires_left]/position/z",
+      "before": "0.00098299999999999993",
+      "after": "0.00099299999999999996"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=BondWires]/geometry/cuboid[name=bd_wires_lower]/position/z",
+      "before": "0.00098299999999999993",
+      "after": "0.00099299999999999996"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=BondWires]/geometry/cuboid[name=bd_wires_right]/position/z",
+      "before": "0.00098299999999999993",
+      "after": "0.00099299999999999996"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=BondWires]/geometry/cuboid[name=bd_wires_upper]/position/z",
+      "before": "0.00098299999999999993",
+      "after": "0.00099299999999999996"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=BondWires]/geometry/cuboid[name=bdw_v_left]/position/z",
+      "before": "0.00087500000000000002",
+      "after": "0.00088499999999999994"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=BondWires]/geometry/cuboid[name=bdw_v_lower]/position/z",
+      "before": "0.00087500000000000002",
+      "after": "0.00088499999999999994"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=BondWires]/geometry/cuboid[name=bdw_v_right]/position/z",
+      "before": "0.00087500000000000002",
+      "after": "0.00088499999999999994"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=BondWires]/geometry/cuboid[name=bdw_v_upper]/position/z",
+      "before": "0.00087500000000000002",
+      "after": "0.00088499999999999994"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Die]/geometry/cuboid[name=die]/position/z",
+      "before": "0.00066299999999999996",
+      "after": "0.00067299999999999999"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Die]/geometry/monitor_point[name=DieJunction_Temp]/position/z",
+      "before": "0.00101125",
+      "after": "0.00102125"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Die]/geometry/source[name=DieSource]/position/z",
+      "before": "0.00066299999999999996",
+      "after": "0.00067299999999999999"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Die_Flag]/geometry/cuboid[name=die_flag]/position/z",
+      "before": "0.00047500000000000005",
+      "after": "0.00048499999999999997"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Encapsulant]/geometry/cuboid[name=encapsulant]/position/z",
+      "before": "0.0001",
+      "after": "0.00011"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_exter_left]/position/z",
+      "before": "0.00072500000000000006",
+      "after": "0.00073499999999999998"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_exter_lower]/position/z",
+      "before": "0.00072500000000000006",
+      "after": "0.00073499999999999998"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_exter_right]/position/z",
+      "before": "0.00072500000000000006",
+      "after": "0.00073499999999999998"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_exter_upper]/position/z",
+      "before": "0.00072500000000000006",
+      "after": "0.00073499999999999998"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_inter_left]/position/z",
+      "before": "0.00072500000000000006",
+      "after": "0.00073499999999999998"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_inter_lower]/position/z",
+      "before": "0.00072500000000000006",
+      "after": "0.00073499999999999998"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_inter_right]/position/z",
+      "before": "0.00072500000000000006",
+      "after": "0.00073499999999999998"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_inter_upper]/position/z",
+      "before": "0.00072500000000000006",
+      "after": "0.00073499999999999998"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_vert_left]/size/z",
+      "before": "0.00072500000000000006",
+      "after": "0.00073499999999999998"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_vert_lower]/size/z",
+      "before": "0.00072500000000000006",
+      "after": "0.00073499999999999998"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_vert_right]/size/z",
+      "before": "0.00072500000000000006",
+      "after": "0.00073499999999999998"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_vert_upper]/size/z",
+      "before": "0.00072500000000000006",
+      "after": "0.00073499999999999998"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=tie_bars]/geometry/cuboid[name=tie_bars_h1]/position/z",
+      "before": "0.00047500000000000005",
+      "after": "0.00048499999999999997"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=tie_bars]/geometry/cuboid[name=tie_bars_h2]/position/z",
+      "before": "0.00047500000000000005",
+      "after": "0.00048499999999999997"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=tie_bars]/geometry/cuboid[name=tie_bars_h3]/position/z",
+      "before": "0.00047500000000000005",
+      "after": "0.00048499999999999997"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=tie_bars]/geometry/cuboid[name=tie_bars_h4]/position/z",
+      "before": "0.00047500000000000005",
+      "after": "0.00048499999999999997"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=tie_bars]/geometry/cuboid[name=tie_bars_v1]/position/z",
+      "before": "0.00047500000000000005",
+      "after": "0.00048499999999999997"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=tie_bars]/geometry/cuboid[name=tie_bars_v2]/position/z",
+      "before": "0.00047500000000000005",
+      "after": "0.00048499999999999997"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=tie_bars]/geometry/cuboid[name=tie_bars_v3]/position/z",
+      "before": "0.00047500000000000005",
+      "after": "0.00048499999999999997"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=tie_bars]/geometry/cuboid[name=tie_bars_v4]/position/z",
+      "before": "0.00047500000000000005",
+      "after": "0.00048499999999999997"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=tiebar_plt]/geometry/cuboid[name=tiebar_plt_h1]/position/z",
+      "before": "0.00062500000000000001",
+      "after": "0.00063499999999999993"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=tiebar_plt]/geometry/cuboid[name=tiebar_plt_h2]/position/z",
+      "before": "0.00062500000000000001",
+      "after": "0.00063499999999999993"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=tiebar_plt]/geometry/cuboid[name=tiebar_plt_h3]/position/z",
+      "before": "0.00062500000000000001",
+      "after": "0.00063499999999999993"
+    }
+  ],
+  "added_leaf_paths": [],
+  "removed_leaf_paths": [],
+  "numeric_formatting_differences_ignored": true,
+  "template_id": "qfp_family",
+  "variation_id": "par_v2_c006_standoffa1_0_11",
+  "variation_kind": "numeric_parameter",
+  "comparison_baseline": "baseline/model.xml",
+  "outcome": "semantic_change",
+  "floxml_effect_expectation": null
+}

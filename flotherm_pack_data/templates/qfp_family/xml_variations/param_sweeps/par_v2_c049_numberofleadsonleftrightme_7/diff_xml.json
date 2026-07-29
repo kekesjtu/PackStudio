@@ -1,0 +1,200 @@
+{
+  "schema_version": "2.0",
+  "comparison": {
+    "baseline": "flotherm_pack_data/templates/qfp_family/baseline/model.xml",
+    "variation": "flotherm_pack_data/templates/qfp_family/xml_variations/param_sweeps/par_v2_c049_numberofleadsonleftrightme_7/model.xml",
+    "baseline_bytes": 39733,
+    "variation_bytes": 39733,
+    "baseline_sha256": "BF1D9D963234111DFE5AAE319D1F83A3DBD9AF609C4B3C4A4BC7AA5BBA4082FF",
+    "variation_sha256": "D2132FCC37C5DB6B6057D5063596D3B64D95C3F2F93B966C66F96B5138644962"
+  },
+  "semantic_change": true,
+  "summary": {
+    "changed_value_count": 16,
+    "added_leaf_count": 0,
+    "removed_leaf_count": 0
+  },
+  "materials": {
+    "added": [],
+    "removed": [],
+    "changed": []
+  },
+  "entities": {
+    "added": [],
+    "removed": [],
+    "changed": [
+      {
+        "name": "assembly:LeadFrame",
+        "before": [
+          "6aab72f69ace04c1"
+        ],
+        "after": [
+          "f203b9c970ef0dcf"
+        ]
+      },
+      {
+        "name": "cuboid:ldf_exter_left",
+        "before": [
+          "dd66cce87a4491e2"
+        ],
+        "after": [
+          "7847a6d0c0f15a51"
+        ]
+      },
+      {
+        "name": "cuboid:ldf_exter_right",
+        "before": [
+          "51279a3e8273ee6c"
+        ],
+        "after": [
+          "b3aa574b5362ca5a"
+        ]
+      },
+      {
+        "name": "cuboid:ldf_inter_left",
+        "before": [
+          "8954caecba32116b"
+        ],
+        "after": [
+          "af9443edf93e1c9d"
+        ]
+      },
+      {
+        "name": "cuboid:ldf_inter_right",
+        "before": [
+          "23fca5f5e48825a2"
+        ],
+        "after": [
+          "e65be683cd608da3"
+        ]
+      },
+      {
+        "name": "cuboid:ldf_vert_left",
+        "before": [
+          "cae097ba19d7581b"
+        ],
+        "after": [
+          "56dc33ba6e1458a2"
+        ]
+      },
+      {
+        "name": "cuboid:ldf_vert_right",
+        "before": [
+          "6070a6e0b84c1b66"
+        ],
+        "after": [
+          "9d05084dd8b240de"
+        ]
+      },
+      {
+        "name": "cuboid:leadft_left",
+        "before": [
+          "ff8969b555bfa6a4"
+        ],
+        "after": [
+          "58060934ec688846"
+        ]
+      },
+      {
+        "name": "cuboid:leadft_right",
+        "before": [
+          "07d703fdd1436835"
+        ],
+        "after": [
+          "e27f9af9b2f772e5"
+        ]
+      }
+    ]
+  },
+  "changed_values": [
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_exter_left]/position/y",
+      "before": "-0.0030000000000000001",
+      "after": "-0.0026000000000000003"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_exter_left]/size/y",
+      "before": "0.0060000000000000001",
+      "after": "0.0052000000000000006"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_exter_right]/position/y",
+      "before": "-0.0030000000000000001",
+      "after": "-0.0026000000000000003"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_exter_right]/size/y",
+      "before": "0.0060000000000000001",
+      "after": "0.0052000000000000006"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_inter_left]/position/y",
+      "before": "-0.0030000000000000001",
+      "after": "-0.0026000000000000003"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_inter_left]/size/y",
+      "before": "0.0060000000000000001",
+      "after": "0.0052000000000000006"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_inter_right]/position/y",
+      "before": "-0.0030000000000000001",
+      "after": "-0.0026000000000000003"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_inter_right]/size/y",
+      "before": "0.0060000000000000001",
+      "after": "0.0052000000000000006"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_vert_left]/position/y",
+      "before": "-0.0030000000000000001",
+      "after": "-0.0026000000000000003"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_vert_left]/size/y",
+      "before": "0.0060000000000000001",
+      "after": "0.0052000000000000006"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_vert_right]/position/y",
+      "before": "-0.0030000000000000001",
+      "after": "-0.0026000000000000003"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_vert_right]/size/y",
+      "before": "0.0060000000000000001",
+      "after": "0.0052000000000000006"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=leadft_left]/position/y",
+      "before": "-0.0030000000000000001",
+      "after": "-0.0026000000000000003"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=leadft_left]/size/y",
+      "before": "0.0060000000000000001",
+      "after": "0.0052000000000000006"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=leadft_right]/position/y",
+      "before": "-0.0030000000000000001",
+      "after": "-0.0026000000000000003"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=leadft_right]/size/y",
+      "before": "0.0060000000000000001",
+      "after": "0.0052000000000000006"
+    }
+  ],
+  "added_leaf_paths": [],
+  "removed_leaf_paths": [],
+  "numeric_formatting_differences_ignored": true,
+  "template_id": "qfp_family",
+  "variation_id": "par_v2_c049_numberofleadsonleftrightme_7",
+  "variation_kind": "numeric_parameter",
+  "comparison_baseline": "baseline/model.xml",
+  "outcome": "semantic_change",
+  "floxml_effect_expectation": null
+}

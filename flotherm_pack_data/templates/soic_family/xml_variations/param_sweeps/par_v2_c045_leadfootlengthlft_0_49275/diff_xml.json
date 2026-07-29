@@ -1,0 +1,142 @@
+{
+  "schema_version": "2.0",
+  "comparison": {
+    "baseline": "flotherm_pack_data/templates/soic_family/baseline/model.xml",
+    "variation": "flotherm_pack_data/templates/soic_family/xml_variations/param_sweeps/par_v2_c045_leadfootlengthlft_0_49275/model.xml",
+    "baseline_bytes": 24418,
+    "variation_bytes": 24409,
+    "baseline_sha256": "2602CC4C884EDBD1E1FBA39F5D4A1BB441413956B57D9FAFBBC1B131DA198A3E",
+    "variation_sha256": "64BBBCD19AFC261D7E2B2AD580A3EF3B1C7E63737AE903BA98C05EE8867D1549"
+  },
+  "semantic_change": true,
+  "summary": {
+    "changed_value_count": 8,
+    "added_leaf_count": 0,
+    "removed_leaf_count": 0
+  },
+  "materials": {
+    "added": [],
+    "removed": [],
+    "changed": []
+  },
+  "entities": {
+    "added": [],
+    "removed": [],
+    "changed": [
+      {
+        "name": "assembly:LeadFrame",
+        "before": [
+          "e8057a7b9dac29af"
+        ],
+        "after": [
+          "25220e5e132f8a8d"
+        ]
+      },
+      {
+        "name": "cuboid:ldf_exter_lower",
+        "before": [
+          "cb8f73a53054803e"
+        ],
+        "after": [
+          "07e434b286e23b8d"
+        ]
+      },
+      {
+        "name": "cuboid:ldf_exter_upper",
+        "before": [
+          "bdde416b650d4eda"
+        ],
+        "after": [
+          "c67b2c0c1cfeded1"
+        ]
+      },
+      {
+        "name": "cuboid:ldf_vert_lower",
+        "before": [
+          "bedfc5f4192e5841"
+        ],
+        "after": [
+          "f915b6f63e52609e"
+        ]
+      },
+      {
+        "name": "cuboid:ldf_vert_upper",
+        "before": [
+          "afb48d226f1d8a82"
+        ],
+        "after": [
+          "3fe5046ee94f9c41"
+        ]
+      },
+      {
+        "name": "cuboid:leadft_lower",
+        "before": [
+          "4d0147269732e330"
+        ],
+        "after": [
+          "ebd42980ef04cc16"
+        ]
+      },
+      {
+        "name": "cuboid:leadft_upper",
+        "before": [
+          "79cb755d2154e075"
+        ],
+        "after": [
+          "9a8657218ba2c3f1"
+        ]
+      }
+    ]
+  },
+  "changed_values": [
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_exter_lower]/position/y",
+      "before": "-0.0026524999999999999",
+      "after": "-0.00270725"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_exter_lower]/size/y",
+      "before": "0.0007474999999999999",
+      "after": "0.00080225000000000001"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_exter_upper]/size/y",
+      "before": "0.0007474999999999999",
+      "after": "0.00080225000000000001"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_vert_lower]/position/y",
+      "before": "-0.0026525000000000003",
+      "after": "-0.0027072500000000005"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_vert_upper]/position/y",
+      "before": "0.0024524999999999998",
+      "after": "0.0025072499999999999"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=leadft_lower]/size/y",
+      "before": "0.00054750000000000024",
+      "after": "0.00049275000000000013"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=leadft_upper]/position/y",
+      "before": "0.0024524999999999998",
+      "after": "0.0025072499999999999"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=leadft_upper]/size/y",
+      "before": "0.00054750000000000024",
+      "after": "0.00049275000000000013"
+    }
+  ],
+  "added_leaf_paths": [],
+  "removed_leaf_paths": [],
+  "numeric_formatting_differences_ignored": true,
+  "template_id": "soic_family",
+  "variation_id": "par_v2_c045_leadfootlengthlft_0_49275",
+  "variation_kind": "numeric_parameter",
+  "comparison_baseline": "baseline/model.xml",
+  "outcome": "semantic_change",
+  "floxml_effect_expectation": null
+}

@@ -1,0 +1,101 @@
+{
+  "schema_version": "2.0",
+  "comparison": {
+    "baseline": "flotherm_pack_data/templates/bare_die/baseline/model.xml",
+    "variation": "flotherm_pack_data/templates/bare_die/xml_variations/param_sweeps/par_v2_c004_dielengthld_5_39/model.xml",
+    "baseline_bytes": 5153,
+    "variation_bytes": 5153,
+    "baseline_sha256": "E37813453237BEA80A1CF3D7B2CE81F0530EFA09D115E996233A9633C3F83F2D",
+    "variation_sha256": "AFF69403576532FC858EC0DB7C6E0F514B84694A5F8241C1367E581F6334B883"
+  },
+  "semantic_change": true,
+  "summary": {
+    "changed_value_count": 7,
+    "added_leaf_count": 0,
+    "removed_leaf_count": 0
+  },
+  "materials": {
+    "added": [],
+    "removed": [],
+    "changed": []
+  },
+  "entities": {
+    "added": [],
+    "removed": [],
+    "changed": [
+      {
+        "name": "assembly:Die",
+        "before": [
+          "0daf4b1a5887d22e"
+        ],
+        "after": [
+          "1a7db075800b71a1"
+        ]
+      },
+      {
+        "name": "cuboid:die",
+        "before": [
+          "5f4998f078d0930f"
+        ],
+        "after": [
+          "0adda15407d79180"
+        ]
+      },
+      {
+        "name": "source:DieSource",
+        "before": [
+          "34a5d17fc4d1ff20"
+        ],
+        "after": [
+          "02a482ab22383102"
+        ]
+      }
+    ]
+  },
+  "changed_values": [
+    {
+      "path": "xml_case/attributes/grid_constraints/grid_constraint_att[name=keypoint]/high_inflation/max_size",
+      "before": "0.00024499999999999999",
+      "after": "0.00026949999999999999"
+    },
+    {
+      "path": "xml_case/attributes/grid_constraints/grid_constraint_att[name=keypoint]/low_inflation/max_size",
+      "before": "0.00024499999999999999",
+      "after": "0.00026949999999999999"
+    },
+    {
+      "path": "xml_case/attributes/grid_constraints/grid_constraint_att[name=keypoint]/max_size",
+      "before": "0.00024499999999999999",
+      "after": "0.00026949999999999999"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Die]/geometry/cuboid[name=die]/position/x",
+      "before": "-0.0024499999999999999",
+      "after": "-0.0026949999999999999"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Die]/geometry/cuboid[name=die]/size/x",
+      "before": "0.0048999999999999998",
+      "after": "0.0053899999999999998"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Die]/geometry/source[name=DieSource]/position/x",
+      "before": "-0.0024499999999999999",
+      "after": "-0.0026949999999999999"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Die]/geometry/source[name=DieSource]/size/x",
+      "before": "0.0048999999999999998",
+      "after": "0.0053899999999999998"
+    }
+  ],
+  "added_leaf_paths": [],
+  "removed_leaf_paths": [],
+  "numeric_formatting_differences_ignored": true,
+  "template_id": "bare_die",
+  "variation_id": "par_v2_c004_dielengthld_5_39",
+  "variation_kind": "numeric_parameter",
+  "comparison_baseline": "baseline/model.xml",
+  "outcome": "semantic_change",
+  "floxml_effect_expectation": null
+}

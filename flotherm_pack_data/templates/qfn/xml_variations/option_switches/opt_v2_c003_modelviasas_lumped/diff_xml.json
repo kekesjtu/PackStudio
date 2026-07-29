@@ -1,0 +1,60 @@
+{
+  "schema_version": "2.0",
+  "comparison": {
+    "baseline": "flotherm_pack_data/templates/qfn/validation/branch_baselines/br_v2_vias_modelviasas/model.xml",
+    "variation": "flotherm_pack_data/templates/qfn/xml_variations/option_switches/opt_v2_c003_modelviasas_lumped/model.xml",
+    "baseline_bytes": 193768,
+    "variation_bytes": 194998,
+    "baseline_sha256": "2F110872211DE5E1BB69ECBB6E6780A8DF0704F526CCE1958D971BA39C569889",
+    "variation_sha256": "A90BE94F266E28FDC5C85E0A5254BC9ECB6ECCF2D56A5325401A8444EE9A703D"
+  },
+  "semantic_change": true,
+  "summary": {
+    "changed_value_count": 0,
+    "added_leaf_count": 17,
+    "removed_leaf_count": 0
+  },
+  "materials": {
+    "added": [
+      "Vias"
+    ],
+    "removed": [],
+    "changed": []
+  },
+  "entities": {
+    "added": [
+      "assembly:Vias",
+      "cuboid:vias"
+    ],
+    "removed": [],
+    "changed": []
+  },
+  "changed_values": [],
+  "added_leaf_paths": [
+    "xml_case/attributes/materials/biaxial_material_att[name=Vias]/density",
+    "xml_case/attributes/materials/biaxial_material_att[name=Vias]/in_plane_conductivity",
+    "xml_case/attributes/materials/biaxial_material_att[name=Vias]/name",
+    "xml_case/attributes/materials/biaxial_material_att[name=Vias]/normal_conductivity",
+    "xml_case/attributes/materials/biaxial_material_att[name=Vias]/specific_heat",
+    "xml_case/geometry/assembly[name=Vias]/geometry/cuboid[name=vias]/material",
+    "xml_case/geometry/assembly[name=Vias]/geometry/cuboid[name=vias]/name",
+    "xml_case/geometry/assembly[name=Vias]/geometry/cuboid[name=vias]/position/x",
+    "xml_case/geometry/assembly[name=Vias]/geometry/cuboid[name=vias]/position/y",
+    "xml_case/geometry/assembly[name=Vias]/geometry/cuboid[name=vias]/position/z",
+    "xml_case/geometry/assembly[name=Vias]/geometry/cuboid[name=vias]/size/x",
+    "xml_case/geometry/assembly[name=Vias]/geometry/cuboid[name=vias]/size/y",
+    "xml_case/geometry/assembly[name=Vias]/geometry/cuboid[name=vias]/size/z",
+    "xml_case/geometry/assembly[name=Vias]/name",
+    "xml_case/geometry/assembly[name=Vias]/position/x",
+    "xml_case/geometry/assembly[name=Vias]/position/y",
+    "xml_case/geometry/assembly[name=Vias]/position/z"
+  ],
+  "removed_leaf_paths": [],
+  "numeric_formatting_differences_ignored": true,
+  "template_id": "qfn",
+  "variation_id": "opt_v2_c003_modelviasas_lumped",
+  "variation_kind": "enum_option",
+  "comparison_baseline": "validation/branch_baselines/br_v2_vias_modelviasas/model.xml",
+  "outcome": "semantic_change",
+  "floxml_effect_expectation": null
+}

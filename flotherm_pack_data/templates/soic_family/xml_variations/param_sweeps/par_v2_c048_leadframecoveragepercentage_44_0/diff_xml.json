@@ -1,0 +1,69 @@
+{
+  "schema_version": "2.0",
+  "comparison": {
+    "baseline": "flotherm_pack_data/templates/soic_family/validation/branch_baselines/br_v2_leadframe_leadframecoveragepercentage/model.xml",
+    "variation": "flotherm_pack_data/templates/soic_family/xml_variations/param_sweeps/par_v2_c048_leadframecoveragepercentage_44_0/model.xml",
+    "baseline_bytes": 24393,
+    "variation_bytes": 24418,
+    "baseline_sha256": "D22938FBC1BA0D5AEDA077D331604C8490A9F7F20726B6C8B7FD773DBB30BBA9",
+    "variation_sha256": "DC05CAC6313D3232A8C98A6CDFA8B631A2FB541DB3F55C46B3199EA31175BC0D"
+  },
+  "semantic_change": true,
+  "summary": {
+    "changed_value_count": 3,
+    "added_leaf_count": 0,
+    "removed_leaf_count": 0
+  },
+  "materials": {
+    "added": [],
+    "removed": [],
+    "changed": [
+      {
+        "name": "LeadFrame_1",
+        "before": {
+          "type": "isotropic_material_att",
+          "density": "4612",
+          "specific_heat": "209.597571552",
+          "conductivity": "105.608"
+        },
+        "after": {
+          "type": "isotropic_material_att",
+          "density": "4891.2",
+          "specific_heat": "184.577690546",
+          "conductivity": "116.1008"
+        }
+      }
+    ]
+  },
+  "entities": {
+    "added": [],
+    "removed": [],
+    "changed": []
+  },
+  "changed_values": [
+    {
+      "path": "xml_case/attributes/materials/isotropic_material_att[name=LeadFrame_1]/conductivity",
+      "before": "105.608",
+      "after": "116.10079999999999"
+    },
+    {
+      "path": "xml_case/attributes/materials/isotropic_material_att[name=LeadFrame_1]/density",
+      "before": "4612",
+      "after": "4891.1999999999998"
+    },
+    {
+      "path": "xml_case/attributes/materials/isotropic_material_att[name=LeadFrame_1]/specific_heat",
+      "before": "209.59757155247178",
+      "after": "184.57769054628722"
+    }
+  ],
+  "added_leaf_paths": [],
+  "removed_leaf_paths": [],
+  "numeric_formatting_differences_ignored": true,
+  "template_id": "soic_family",
+  "variation_id": "par_v2_c048_leadframecoveragepercentage_44_0",
+  "variation_kind": "numeric_parameter",
+  "comparison_baseline": "validation/branch_baselines/br_v2_leadframe_leadframecoveragepercentage/model.xml",
+  "outcome": "semantic_change",
+  "floxml_effect_expectation": null
+}

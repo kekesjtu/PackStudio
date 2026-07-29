@@ -1,0 +1,23 @@
+{
+  "schema_version": "2.0",
+  "template_id": "qfp_family",
+  "variation_id": "par_v2_c025_dieflagwf_2_646",
+  "kind": "numeric_parameter",
+  "coverage_policy": "low_and_high",
+  "target": {
+    "component": "dieFlagAndTieBars",
+    "property": "dieFlagWf",
+    "label": "Die Flag Wf",
+    "baseline": 2.94,
+    "value": 2.646
+  },
+  "comparison_baseline": "baseline/model.xml",
+  "branch_preconditions": [],
+  "required_dependent_initialization": {},
+  "single_variable_relative_to_comparison_baseline": true,
+  "material_policy": "default_only",
+  "property_evidence": [
+    "installed_dll_ascii_string"
+  ],
+  "execution_status": "pending_replay"
+}

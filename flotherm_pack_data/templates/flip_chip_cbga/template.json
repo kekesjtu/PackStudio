@@ -1,0 +1,37 @@
+{
+  "schema_version": "1.0",
+  "template_id": "flip_chip_cbga",
+  "display_name": "Flip Chip CBGA",
+  "category": "Ball Grid Arrays",
+  "software_version": "2504",
+  "package_type": "cbga_fc",
+  "capture_status": "complete",
+  "starter_defaults": {
+    "design_name": "Flip Chip CBGA",
+    "outline_type": "standardOutline",
+    "jedec_footprint": "CBGAFC_49_6X6mm",
+    "top_cover": "bareDie"
+  },
+  "navigation_steps": [
+    "Summary",
+    "Package Substrate",
+    "Die",
+    "Flip Chip Bumps",
+    "Solder Balls",
+    "Solder Ball Depopulation",
+    "Central Balls",
+    "Top Cover",
+    "Drop-in Slug",
+    "Modeling Options"
+  ],
+  "baseline": {
+    "flo_script": "baseline/script.xml",
+    "flo_xml": "baseline/model.xml",
+    "parameters": "baseline/params.json"
+  },
+  "capture_notes": [
+    "The current 2504 catalog is authoritative; archived screenshots are retained only for comparison.",
+    "Drop-in Slug is disabled when Top Cover is Bare Die.",
+    "Equivalent Bumps material does not expose the selected solder and underfill constituent properties."
+  ]
+}

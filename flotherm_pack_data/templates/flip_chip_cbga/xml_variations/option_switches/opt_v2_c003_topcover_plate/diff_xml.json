@@ -1,0 +1,147 @@
+{
+  "schema_version": "2.0",
+  "comparison": {
+    "baseline": "flotherm_pack_data/templates/flip_chip_cbga/baseline/model.xml",
+    "variation": "flotherm_pack_data/templates/flip_chip_cbga/xml_variations/option_switches/opt_v2_c003_topcover_plate/model.xml",
+    "baseline_bytes": 10097,
+    "variation_bytes": 12273,
+    "baseline_sha256": "46F6562F9E9112E14FC6DD9980DF32077D141C578363E0BB073765FC5B5379A6",
+    "variation_sha256": "89336C7B9CC9FE5472DE3AA498585893C25769F98750B066A1AC9E914C1C34CF"
+  },
+  "semantic_change": true,
+  "summary": {
+    "changed_value_count": 10,
+    "added_leaf_count": 32,
+    "removed_leaf_count": 0
+  },
+  "materials": {
+    "added": [
+      "Aluminum (Pure)",
+      "Flip-Chip Cap Grease (Typical)"
+    ],
+    "removed": [],
+    "changed": []
+  },
+  "entities": {
+    "added": [
+      "assembly:Thermal_Plate",
+      "cuboid:die_attach",
+      "cuboid:thermal_plate"
+    ],
+    "removed": [],
+    "changed": [
+      {
+        "name": "monitor_point:CaseTemp",
+        "before": [
+          "40ec7a5960f48f0e"
+        ],
+        "after": [
+          "2cce9bf4e512b009"
+        ]
+      },
+      {
+        "name": "region:z_top",
+        "before": [
+          "3c6c4c081b48a4e8"
+        ],
+        "after": [
+          "632cf5c7b2a06195"
+        ]
+      }
+    ]
+  },
+  "changed_values": [
+    {
+      "path": "xml_case/attributes/grid_constraints/grid_constraint_att[name=keypoint_z]/high_inflation/inflation_size",
+      "before": "0.0045200000000000006",
+      "after": "0.0065200000000000006"
+    },
+    {
+      "path": "xml_case/attributes/grid_constraints/grid_constraint_att[name=keypoint_z]/high_inflation/max_size",
+      "before": "0.00022600000000000002",
+      "after": "0.00032600000000000001"
+    },
+    {
+      "path": "xml_case/attributes/grid_constraints/grid_constraint_att[name=keypoint_z]/low_inflation/max_size",
+      "before": "0.00022600000000000002",
+      "after": "0.00032600000000000001"
+    },
+    {
+      "path": "xml_case/attributes/grid_constraints/grid_constraint_att[name=keypoint_z]/max_size",
+      "before": "0.00022600000000000002",
+      "after": "0.00032600000000000001"
+    },
+    {
+      "path": "xml_case/geometry/monitor_point[name=CaseTemp]/position/z",
+      "before": "0.0022374000000000001",
+      "after": "0.0032274000000000005"
+    },
+    {
+      "path": "xml_case/geometry/region[name=z_top]/position/x",
+      "before": "-0.00089999999999999998",
+      "after": "-0.0030000000000000001"
+    },
+    {
+      "path": "xml_case/geometry/region[name=z_top]/position/y",
+      "before": "-0.00089999999999999998",
+      "after": "-0.0030000000000000001"
+    },
+    {
+      "path": "xml_case/geometry/region[name=z_top]/position/z",
+      "before": "0.0022600000000000003",
+      "after": "0.0032600000000000003"
+    },
+    {
+      "path": "xml_case/geometry/region[name=z_top]/size/x",
+      "before": "0.0018",
+      "after": "0.0060000000000000001"
+    },
+    {
+      "path": "xml_case/geometry/region[name=z_top]/size/y",
+      "before": "0.0018",
+      "after": "0.0060000000000000001"
+    }
+  ],
+  "added_leaf_paths": [
+    "xml_case/attributes/materials/isotropic_material_att[name=Aluminum (Pure)]/conductivity",
+    "xml_case/attributes/materials/isotropic_material_att[name=Aluminum (Pure)]/density",
+    "xml_case/attributes/materials/isotropic_material_att[name=Aluminum (Pure)]/name",
+    "xml_case/attributes/materials/isotropic_material_att[name=Aluminum (Pure)]/specific_heat",
+    "xml_case/attributes/materials/isotropic_material_att[name=Flip-Chip Cap Grease (Typical)]/conductivity",
+    "xml_case/attributes/materials/isotropic_material_att[name=Flip-Chip Cap Grease (Typical)]/density",
+    "xml_case/attributes/materials/isotropic_material_att[name=Flip-Chip Cap Grease (Typical)]/name",
+    "xml_case/attributes/materials/isotropic_material_att[name=Flip-Chip Cap Grease (Typical)]/specific_heat",
+    "xml_case/geometry/assembly[name=Thermal_Plate]/geometry/cuboid[name=thermal_plate]/all_radiation",
+    "xml_case/geometry/assembly[name=Thermal_Plate]/geometry/cuboid[name=thermal_plate]/all_surface",
+    "xml_case/geometry/assembly[name=Thermal_Plate]/geometry/cuboid[name=thermal_plate]/material",
+    "xml_case/geometry/assembly[name=Thermal_Plate]/geometry/cuboid[name=thermal_plate]/name",
+    "xml_case/geometry/assembly[name=Thermal_Plate]/geometry/cuboid[name=thermal_plate]/position/x",
+    "xml_case/geometry/assembly[name=Thermal_Plate]/geometry/cuboid[name=thermal_plate]/position/y",
+    "xml_case/geometry/assembly[name=Thermal_Plate]/geometry/cuboid[name=thermal_plate]/position/z",
+    "xml_case/geometry/assembly[name=Thermal_Plate]/geometry/cuboid[name=thermal_plate]/size/x",
+    "xml_case/geometry/assembly[name=Thermal_Plate]/geometry/cuboid[name=thermal_plate]/size/y",
+    "xml_case/geometry/assembly[name=Thermal_Plate]/geometry/cuboid[name=thermal_plate]/size/z",
+    "xml_case/geometry/assembly[name=Thermal_Plate]/name",
+    "xml_case/geometry/assembly[name=Thermal_Plate]/position/x",
+    "xml_case/geometry/assembly[name=Thermal_Plate]/position/y",
+    "xml_case/geometry/assembly[name=Thermal_Plate]/position/z",
+    "xml_case/geometry/cuboid[name=die_attach]/collapse/direction",
+    "xml_case/geometry/cuboid[name=die_attach]/collapse/type",
+    "xml_case/geometry/cuboid[name=die_attach]/material",
+    "xml_case/geometry/cuboid[name=die_attach]/name",
+    "xml_case/geometry/cuboid[name=die_attach]/position/x",
+    "xml_case/geometry/cuboid[name=die_attach]/position/y",
+    "xml_case/geometry/cuboid[name=die_attach]/position/z",
+    "xml_case/geometry/cuboid[name=die_attach]/size/x",
+    "xml_case/geometry/cuboid[name=die_attach]/size/y",
+    "xml_case/geometry/cuboid[name=die_attach]/size/z"
+  ],
+  "removed_leaf_paths": [],
+  "numeric_formatting_differences_ignored": true,
+  "template_id": "flip_chip_cbga",
+  "variation_id": "opt_v2_c003_topcover_plate",
+  "variation_kind": "enum_option",
+  "comparison_baseline": "baseline/model.xml",
+  "outcome": "semantic_change",
+  "floxml_effect_expectation": null
+}

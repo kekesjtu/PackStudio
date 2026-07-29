@@ -1,0 +1,23 @@
+{
+  "schema_version": "2.0",
+  "template_id": "wirebond_pbga",
+  "variation_id": "opt_v2_c007_modelthermalviasas_orthotropiccuboid",
+  "kind": "enum_option",
+  "coverage_policy": "all_non_default_values",
+  "target": {
+    "component": "modelingOptions",
+    "property": "modelThermalViasAs",
+    "label": "Model Thermal Vias As",
+    "baseline": "discreteCuboids",
+    "value": "orthotropicCuboid"
+  },
+  "comparison_baseline": "baseline/model.xml",
+  "branch_preconditions": [],
+  "required_dependent_initialization": {},
+  "single_variable_relative_to_comparison_baseline": true,
+  "material_policy": "default_only",
+  "property_evidence": [
+    "curated_binary_disassembly_mapping"
+  ],
+  "execution_status": "pending_replay"
+}

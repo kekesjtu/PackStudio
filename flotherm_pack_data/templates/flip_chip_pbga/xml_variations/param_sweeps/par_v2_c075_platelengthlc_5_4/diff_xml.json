@@ -1,0 +1,91 @@
+{
+  "schema_version": "2.0",
+  "comparison": {
+    "baseline": "flotherm_pack_data/templates/flip_chip_pbga/validation/branch_baselines/br_v2_topcover_platelengthlc/model.xml",
+    "variation": "flotherm_pack_data/templates/flip_chip_pbga/xml_variations/param_sweeps/par_v2_c075_platelengthlc_5_4/model.xml",
+    "baseline_bytes": 12371,
+    "variation_bytes": 12372,
+    "baseline_sha256": "E771B903908C1D4D2A47FE4DCE77998A4D84E8503341B2D8418A3FB59EB64AF2",
+    "variation_sha256": "9B449855C4BE54F4022E3592CA9C45B0F1CA68926B287A14640D28A3B5B4F0EB"
+  },
+  "semantic_change": true,
+  "summary": {
+    "changed_value_count": 5,
+    "added_leaf_count": 0,
+    "removed_leaf_count": 0
+  },
+  "materials": {
+    "added": [],
+    "removed": [],
+    "changed": []
+  },
+  "entities": {
+    "added": [],
+    "removed": [],
+    "changed": [
+      {
+        "name": "assembly:Thermal_Plate",
+        "before": [
+          "ffd7d05cbc18339f"
+        ],
+        "after": [
+          "f12c6eac73794237"
+        ]
+      },
+      {
+        "name": "cuboid:thermal_plate",
+        "before": [
+          "a5205e46321c537f"
+        ],
+        "after": [
+          "e993f25fbfc876bf"
+        ]
+      },
+      {
+        "name": "region:z_top",
+        "before": [
+          "632cf5c7b2a06195"
+        ],
+        "after": [
+          "30d3fe1f89c36274"
+        ]
+      }
+    ]
+  },
+  "changed_values": [
+    {
+      "path": "xml_case/attributes/radiations/radiation_att[name=pbga_fc]/subdivided_surface_tolerance",
+      "before": "0.002",
+      "after": "0.0019"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Thermal_Plate]/geometry/cuboid[name=thermal_plate]/position/x",
+      "before": "-0.0030000000000000001",
+      "after": "-0.0027000000000000001"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Thermal_Plate]/geometry/cuboid[name=thermal_plate]/size/x",
+      "before": "0.0060000000000000001",
+      "after": "0.0054000000000000003"
+    },
+    {
+      "path": "xml_case/geometry/region[name=z_top]/position/x",
+      "before": "-0.0030000000000000001",
+      "after": "-0.0027000000000000001"
+    },
+    {
+      "path": "xml_case/geometry/region[name=z_top]/size/x",
+      "before": "0.0060000000000000001",
+      "after": "0.0054000000000000003"
+    }
+  ],
+  "added_leaf_paths": [],
+  "removed_leaf_paths": [],
+  "numeric_formatting_differences_ignored": true,
+  "template_id": "flip_chip_pbga",
+  "variation_id": "par_v2_c075_platelengthlc_5_4",
+  "variation_kind": "numeric_parameter",
+  "comparison_baseline": "validation/branch_baselines/br_v2_topcover_platelengthlc/model.xml",
+  "outcome": "semantic_change",
+  "floxml_effect_expectation": null
+}

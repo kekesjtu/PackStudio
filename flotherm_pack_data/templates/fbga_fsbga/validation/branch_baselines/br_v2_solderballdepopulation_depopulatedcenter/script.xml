@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<flopack_xml_log_file version="1.0">
+    <new_package package_type="chip_array">
+        <new_value new_value="Chip Array" property_name="designName" />
+        <new_value new_value="standardOutline" property_name="outlineType" />
+        <new_value new_value="ChipArray_24_4X4mm_0_8" property_name="jedecFootprint" />
+        <new_value new_value="actualDie" property_name="dieType" />
+        <new_value new_value="2-Layer" property_name="substrateLayer" />
+        <new_value new_value="0.018" property_name="topSignalLayerThickness" />
+        <new_value new_value="0.018" property_name="bottomSignalLayerThickness" />
+    </new_package>
+    <modify_component name="solderBallDepopulation" new_value="2" property_name="numberFullyPopulatedRowsMDp" />
+    <modify_component name="solderBallDepopulation" new_value="2" property_name="numberFullyPopulatedRowsMEp" />
+    <modify_component name="solderBallDepopulation" new_value="false" property_name="depopulatedCenter" />
+    <export_floxml filename="E:\Users\mydearlong\Desktop\PackStudio\flotherm_pack_data\templates\fbga_fsbga\validation\branch_baselines\br_v2_solderballdepopulation_depopulatedcenter\model.xml" />
+</flopack_xml_log_file>

@@ -1,0 +1,101 @@
+{
+  "schema_version": "2.0",
+  "software_version": "2504",
+  "captured_at": "2026-07-29T16:06:36+08:00",
+  "status": "complete",
+  "application_remained_open": true,
+  "process_id": 23868,
+  "execution": {
+    "suite": "validation/comprehensive_replay_suite.xml",
+    "suite_sha256": "6355F1F70C54D81512DB5297EBEF75C690F8DDE3FFB9159A8808C0E55F06F9E6",
+    "log_file": "E:\\Program Files\\Siemens\\SimcenterFlotherm\\2504\\WinXP\\bin\\LogFiles\\FlopackLogFile2895585413.xml",
+    "log_start_line": 28343,
+    "log_end_line": 36719,
+    "expected_export_count": 779,
+    "successful_export_count": 779,
+    "error_count": 0,
+    "warning_count": 0
+  },
+  "templates": [
+    {
+      "template_id": "bare_die",
+      "suite": "validation/comprehensive_replay_bare_die.xml",
+      "status": "passed",
+      "expected_export_count": 13,
+      "successful_export_count": 13,
+      "final_error_count": 0,
+      "final_warning_count": 0,
+      "evidence": "final_combined_suite"
+    },
+    {
+      "template_id": "fbga_fsbga",
+      "suite": "validation/comprehensive_replay_fbga_fsbga.xml",
+      "status": "passed",
+      "expected_export_count": 88,
+      "successful_export_count": 88,
+      "final_error_count": 0,
+      "final_warning_count": 0,
+      "evidence": "final_combined_suite"
+    },
+    {
+      "template_id": "flip_chip_cbga",
+      "suite": "validation/comprehensive_replay_flip_chip_cbga.xml",
+      "status": "passed",
+      "expected_export_count": 154,
+      "successful_export_count": 154,
+      "final_error_count": 0,
+      "final_warning_count": 0,
+      "evidence": "final_combined_suite"
+    },
+    {
+      "template_id": "flip_chip_pbga",
+      "suite": "validation/comprehensive_replay_flip_chip_pbga.xml",
+      "status": "passed",
+      "expected_export_count": 171,
+      "successful_export_count": 171,
+      "final_error_count": 0,
+      "final_warning_count": 0,
+      "evidence": "final_combined_suite"
+    },
+    {
+      "template_id": "qfn",
+      "suite": "validation/comprehensive_replay_qfn.xml",
+      "status": "passed",
+      "expected_export_count": 82,
+      "successful_export_count": 82,
+      "final_error_count": 0,
+      "final_warning_count": 0,
+      "evidence": "final_combined_suite"
+    },
+    {
+      "template_id": "qfp_family",
+      "suite": "validation/comprehensive_replay_qfp_family.xml",
+      "status": "passed",
+      "expected_export_count": 82,
+      "successful_export_count": 82,
+      "final_error_count": 0,
+      "final_warning_count": 0,
+      "evidence": "final_combined_suite"
+    },
+    {
+      "template_id": "soic_family",
+      "suite": "validation/comprehensive_replay_soic_family.xml",
+      "status": "passed",
+      "expected_export_count": 75,
+      "successful_export_count": 75,
+      "final_error_count": 0,
+      "final_warning_count": 0,
+      "evidence": "final_combined_suite"
+    },
+    {
+      "template_id": "wirebond_pbga",
+      "suite": "validation/comprehensive_replay_wirebond_pbga.xml",
+      "status": "passed",
+      "expected_export_count": 114,
+      "successful_export_count": 114,
+      "final_error_count": 0,
+      "final_warning_count": 0,
+      "evidence": "final_combined_suite"
+    }
+  ]
+}

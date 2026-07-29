@@ -1,0 +1,43 @@
+{
+  "schema_version": "1.0",
+  "template_id": "fbga_fsbga",
+  "display_name": "Chip Array, Fine Pitch BGA (FBGA), FSBGA",
+  "category": "Ball Grid Arrays",
+  "software_version": "2504",
+  "package_type": "chip_array",
+  "capture_status": "complete",
+  "starter_defaults": {
+    "design_name": "Chip Array",
+    "outline_type": "standardOutline",
+    "jedec_footprint": "ChipArray_24_4X4mm_0_8",
+    "die_type": "actualDie",
+    "substrate_layer": "2-Layer",
+    "top_signal_layer_thickness_mm": 0.018,
+    "bottom_signal_layer_thickness_mm": 0.018
+  },
+  "navigation_steps": [
+    "Summary",
+    "Overall Package",
+    "Die",
+    "Encapsulant",
+    "Bond Wires",
+    "Vias",
+    "Metal Layers",
+    "Solder Balls",
+    "Solder Ball Depopulation",
+    "Central Balls",
+    "Modeling Options"
+  ],
+  "baseline": {
+    "flo_script": "baseline/script.xml",
+    "flo_xml": "baseline/model.xml",
+    "parameters": "baseline/params.json",
+    "recording_log": "logs/ui_capture_session.xml"
+  },
+  "capture_notes": [
+    "The JEDEC list contains 38 observed Chip Array footprints and was captured in four scroll states.",
+    "Filled-via, solder-ball-map, and central-ball conditional states were inspected and restored to their defaults before export.",
+    "The solder-ball-map and depopulation editors were inspected without applying edits.",
+    "The current FloTHERM PACK process remained open throughout capture."
+  ]
+}

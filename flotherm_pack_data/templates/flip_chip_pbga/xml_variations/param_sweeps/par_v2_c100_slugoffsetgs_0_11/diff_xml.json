@@ -1,0 +1,160 @@
+{
+  "schema_version": "2.0",
+  "comparison": {
+    "baseline": "flotherm_pack_data/templates/flip_chip_pbga/validation/branch_baselines/br_v2_dropinslug_slugoffsetgs/model.xml",
+    "variation": "flotherm_pack_data/templates/flip_chip_pbga/xml_variations/param_sweeps/par_v2_c100_slugoffsetgs_0_11/model.xml",
+    "baseline_bytes": 18475,
+    "variation_bytes": 18475,
+    "baseline_sha256": "A09384C29CD9A9AF16346D924250BDD7A0C42FB794FE9AFA3544355590965BEA",
+    "variation_sha256": "24B6F2C08B904F1642783A5E1AE461E26C4C9C9304EEE008C021BAD551F48BF5"
+  },
+  "semantic_change": true,
+  "summary": {
+    "changed_value_count": 8,
+    "added_leaf_count": 0,
+    "removed_leaf_count": 0
+  },
+  "materials": {
+    "added": [],
+    "removed": [],
+    "changed": []
+  },
+  "entities": {
+    "added": [],
+    "removed": [],
+    "changed": [
+      {
+        "name": "assembly:Slug",
+        "before": [
+          "ac6f681fd64b72f5"
+        ],
+        "after": [
+          "48c9da2867f50d61"
+        ]
+      },
+      {
+        "name": "cuboid:slug_h1",
+        "before": [
+          "94fc2670fc5fceb1"
+        ],
+        "after": [
+          "b1920ecc81f2108f"
+        ]
+      },
+      {
+        "name": "cuboid:slug_h2",
+        "before": [
+          "a98dfeefd96a145f"
+        ],
+        "after": [
+          "0bfb05b33096750d"
+        ]
+      },
+      {
+        "name": "cuboid:slug_h3",
+        "before": [
+          "0713d004fdca94b0"
+        ],
+        "after": [
+          "4723a99586f7a6e1"
+        ]
+      },
+      {
+        "name": "cuboid:slug_h4",
+        "before": [
+          "ef2a1080d0d5c767"
+        ],
+        "after": [
+          "c601690b4d833b03"
+        ]
+      },
+      {
+        "name": "cuboid:slug_v1",
+        "before": [
+          "162a35688c2aa21e"
+        ],
+        "after": [
+          "ed4830dd9744d0e4"
+        ]
+      },
+      {
+        "name": "cuboid:slug_v2",
+        "before": [
+          "181591ecb94d0a0c"
+        ],
+        "after": [
+          "5cf0d2898807162e"
+        ]
+      },
+      {
+        "name": "cuboid:slug_v3",
+        "before": [
+          "7dba25764621dd1b"
+        ],
+        "after": [
+          "d89e96b28f4d0e64"
+        ]
+      },
+      {
+        "name": "cuboid:slug_v4",
+        "before": [
+          "b645424a23788a25"
+        ],
+        "after": [
+          "be82b1afb6d885f6"
+        ]
+      }
+    ]
+  },
+  "changed_values": [
+    {
+      "path": "xml_case/geometry/assembly[name=Slug]/geometry/cuboid[name=slug_h1]/position/z",
+      "before": "0.0022499999999999998",
+      "after": "0.0022399999999999998"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Slug]/geometry/cuboid[name=slug_h2]/position/z",
+      "before": "0.0022499999999999998",
+      "after": "0.0022399999999999998"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Slug]/geometry/cuboid[name=slug_h3]/position/z",
+      "before": "0.0022499999999999998",
+      "after": "0.0022399999999999998"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Slug]/geometry/cuboid[name=slug_h4]/position/z",
+      "before": "0.0022499999999999998",
+      "after": "0.0022399999999999998"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Slug]/geometry/cuboid[name=slug_v1]/size/z",
+      "before": "0.00049999999999999979",
+      "after": "0.00048999999999999977"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Slug]/geometry/cuboid[name=slug_v2]/size/z",
+      "before": "0.00049999999999999979",
+      "after": "0.00048999999999999977"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Slug]/geometry/cuboid[name=slug_v3]/size/z",
+      "before": "0.00049999999999999979",
+      "after": "0.00048999999999999977"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Slug]/geometry/cuboid[name=slug_v4]/size/z",
+      "before": "0.00049999999999999979",
+      "after": "0.00048999999999999977"
+    }
+  ],
+  "added_leaf_paths": [],
+  "removed_leaf_paths": [],
+  "numeric_formatting_differences_ignored": true,
+  "template_id": "flip_chip_pbga",
+  "variation_id": "par_v2_c100_slugoffsetgs_0_11",
+  "variation_kind": "numeric_parameter",
+  "comparison_baseline": "validation/branch_baselines/br_v2_dropinslug_slugoffsetgs/model.xml",
+  "outcome": "semantic_change",
+  "floxml_effect_expectation": null
+}

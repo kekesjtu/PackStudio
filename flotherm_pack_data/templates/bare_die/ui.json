@@ -1,0 +1,314 @@
+{
+  "schema_version": "1.0",
+  "template_id": "bare_die",
+  "software_version": "2504",
+  "capture_status": "complete",
+  "starter_fields": [
+    {
+      "name": "Design Name",
+      "property": "designName",
+      "control": "text",
+      "default": "Die"
+    }
+  ],
+  "common_material_groups": [
+    "Alloys (Leadframe)",
+    "Alloys (Other)",
+    "Alloys (Solders)",
+    "Attachment Materials",
+    "Ceramics",
+    "Metals",
+    "Others",
+    "Resins",
+    "Semiconductors",
+    "Substrate Dielectrics"
+  ],
+  "material_option_sets": {
+    "alloys_leadframe": [
+      "No Attachment",
+      "Alloy-42",
+      "Cu-C15100",
+      "Cu-C15500",
+      "Cu-C15715",
+      "Cu-C19010",
+      "Cu-C19210",
+      "Cu-C19400",
+      "Cu-C19500",
+      "Cu-C19700",
+      "Cu-C50710",
+      "Cu-C7025",
+      "Cu-CDA-194",
+      "Cu-EFTEC-23Z",
+      "Cu-EFTEC-3",
+      "Cu-EFTEC-64T",
+      "Cu-EFTEC-7",
+      "Cu-KLF125",
+      "Cu-MF-202",
+      "Cu-OLIN-7025",
+      "Cu-TAMAC5",
+      "Kovar",
+      "Kovar (Ni29/Co17)"
+    ],
+    "resins": [
+      "No Attachment",
+      "Cookson-7115",
+      "Cookson-AMC-2F1",
+      "Cookson-AMC-2RC",
+      "Cookson-SMT-B-1FX",
+      "EME-7730LF",
+      "Epoxy Overmold (High-k)",
+      "Epoxy Overmold (Typical)",
+      "G700",
+      "Hysol 4450",
+      "Material",
+      "Material1",
+      "Material2",
+      "Material3",
+      "Nitto-HC100X2",
+      "Nitto-MP8000AN",
+      "Nitto-MP8000CH4",
+      "Nylon-6 (Typical)",
+      "Nylon-66 (Typical)",
+      "PLASKON7060",
+      "PTFE (Typical)",
+      "Polycarbonate (Typical)",
+      "Polyisoprene (Hard)",
+      "Polyisoprene (Natural)",
+      "Polystyrene (Typical)",
+      "Sumitomo-6300H",
+      "Sumitomo-7050A2",
+      "Sumitomo-EME1100R",
+      "Sumitomo-EME6700",
+      "Sumitomo-EME6710",
+      "Sumitomo-EME6730B",
+      "Sumitomo-EME7302CR",
+      "Sumitomo-EME7351",
+      "Sumitomo-EME7351LS",
+      "Sumitomo-EME7740"
+    ]
+  },
+  "steps": [
+    {
+      "id": "summary",
+      "label": "Summary",
+      "screenshot": "screenshots/step_01_summary.png",
+      "fields": [
+        {"name": "Design Name", "control": "text", "default": "Die"},
+        {"name": "Part Number", "control": "text", "default": ""},
+        {"name": "Vendor Name", "control": "text", "default": ""},
+        {"name": "Max Power", "control": "number", "unit": "W", "default": null},
+        {"name": "Max Operating Junction Temperature", "control": "number", "unit": "degC", "default": null},
+        {"name": "Max Case Temperature", "control": "number", "unit": "degC", "default": null},
+        {"name": "Notes", "control": "multiline_text", "default": ""}
+      ]
+    },
+    {
+      "id": "die",
+      "label": "Die",
+      "screenshot": "screenshots/step_02_die.png",
+      "fields": [
+        {
+          "name": "Package Power",
+          "control": "number",
+          "unit": "W",
+          "default": 2,
+          "hidden_when": {"Non-uniform Die Heat": true}
+        },
+        {
+          "name": "Non-uniform Die Heat",
+          "property": "nonUniformDieHeat",
+          "control": "checkbox",
+          "default": false
+        },
+        {
+          "name": "Click To Edit",
+          "control": "button",
+          "default_enabled": false,
+          "enabled_when": {"Non-uniform Die Heat": true}
+        },
+        {"name": "Die Length Ld", "control": "number", "unit": "mm", "default": 4.9},
+        {"name": "Die Width Wd", "control": "number", "unit": "mm", "default": 4.9},
+        {"name": "Die Thickness td", "control": "number", "unit": "mm", "default": 0.22},
+        {
+          "name": "Die Material",
+          "control": "select",
+          "default": "Si",
+          "options": ["Si", "GaAs"],
+          "screenshot": "screenshots/dropdown_die_material.png"
+        },
+        {
+          "name": "Flipped Die",
+          "property": "flippedDie",
+          "control": "checkbox",
+          "default": false
+        }
+      ],
+      "conditional_screenshots": [
+        "screenshots/conditional_nonuniform_die_heat_on.png",
+        "screenshots/conditional_nonuniform_editor_type1.png",
+        "screenshots/conditional_nonuniform_editor_type2.png",
+        "screenshots/conditional_flipped_die_on.png"
+      ],
+      "non_uniform_die_heat_editor": {
+        "tabs": [
+          {
+            "label": "Type 1",
+            "fields": [
+              {"name": "Number of Rows", "control": "integer_spinbox", "default": 0},
+              {
+                "name": "Source Table",
+                "control": "table",
+                "columns": [
+                  "Lower Left X (mm)",
+                  "Lower Left Y (mm)",
+                  "Upper Right X (mm)",
+                  "Upper Right Y (mm)",
+                  "Power (mW)",
+                  "Source Name"
+                ]
+              }
+            ]
+          },
+          {
+            "label": "Type 2",
+            "fields": [
+              {"name": "Number of Columns", "control": "integer_spinbox", "default": 0},
+              {"name": "Number of Rows", "control": "integer_spinbox", "default": 0},
+              {"name": "Power Grid", "control": "table"}
+            ]
+          }
+        ],
+        "shared_controls": [
+          {"name": "Import File", "control": "button"},
+          {"name": "OK", "control": "button"},
+          {"name": "Cancel", "control": "button"}
+        ]
+      }
+    },
+    {
+      "id": "bumped_die",
+      "label": "Bumped Die",
+      "screenshot": "screenshots/step_03_bumped_die.png",
+      "fields": [
+        {
+          "name": "Bumped Die",
+          "property": "bumpedDie",
+          "control": "checkbox",
+          "default": false
+        },
+        {
+          "name": "Number of Solder Balls",
+          "control": "integer_spinbox",
+          "default": null,
+          "visible_when": {"Bumped Die": true}
+        },
+        {
+          "name": "Ball Diameter b",
+          "control": "number",
+          "unit": "mm",
+          "default": null,
+          "visible_when": {"Bumped Die": true}
+        },
+        {
+          "name": "Ball Height",
+          "control": "number",
+          "unit": "mm",
+          "default": null,
+          "visible_when": {"Bumped Die": true}
+        },
+        {
+          "name": "Solder Material Group",
+          "control": "select",
+          "default": "Alloys (Leadframe)",
+          "options_ref": "common_material_groups",
+          "visible_when": {"Bumped Die": true}
+        },
+        {
+          "name": "Solder Conductivity",
+          "control": "select",
+          "default": "No Attachment",
+          "options_ref": "material_option_sets.alloys_leadframe",
+          "visible_when": {"Bumped Die": true},
+          "screenshots": [
+            "screenshots/dropdown_solder_conductivity_01.png",
+            "screenshots/dropdown_solder_conductivity_02.png",
+            "screenshots/dropdown_solder_conductivity_03.png"
+          ]
+        },
+        {
+          "name": "Underfill Material Group",
+          "control": "select",
+          "default": "Alloys (Leadframe)",
+          "options_ref": "common_material_groups",
+          "visible_when": {"Bumped Die": true}
+        },
+        {
+          "name": "Underfill Conductivity",
+          "property": "underfillConductivity",
+          "control": "select",
+          "default": "No Attachment",
+          "options_ref": "material_option_sets.alloys_leadframe",
+          "alternate_option_set": {
+            "when": {"Underfill Material Group": "Resins"},
+            "options_ref": "material_option_sets.resins"
+          },
+          "visible_when": {"Bumped Die": true},
+          "screenshots": [
+            "screenshots/dropdown_underfill_conductivity_resins_01.png",
+            "screenshots/dropdown_underfill_conductivity_resins_02.png",
+            "screenshots/dropdown_underfill_conductivity_resins_03.png",
+            "screenshots/dropdown_underfill_conductivity_resins_04.png"
+          ]
+        }
+      ],
+      "conditional_screenshots": [
+        "screenshots/conditional_bumped_die_on.png"
+      ]
+    },
+    {
+      "id": "modeling_options",
+      "label": "Modeling Options",
+      "screenshot": "screenshots/step_04_modeling_options.png",
+      "fields": [
+        {
+          "name": "Solder Bump Modeling",
+          "control": "select",
+          "default": "Orthotropic Cuboid",
+          "options": ["Collapsed Cuboid", "Orthotropic Cuboid"],
+          "screenshot": "screenshots/dropdown_solder_bump_modeling.png"
+        },
+        {
+          "name": "Localize Grid",
+          "property": "localizeGrid",
+          "control": "checkbox",
+          "default": true
+        },
+        {
+          "name": "Grid Density",
+          "control": "select",
+          "default": "Fine",
+          "options": ["Coarse", "Medium", "Fine"],
+          "enabled_when": {"Localize Grid": true},
+          "screenshot": "screenshots/dropdown_grid_density.png"
+        }
+      ],
+      "conditional_screenshots": [
+        "screenshots/conditional_localize_grid_off.png"
+      ]
+    }
+  ],
+  "realized_geometry": {
+    "screenshot": "screenshots/model_tree.png",
+    "assemblies": [
+      {
+        "name": "Die",
+        "children": [
+          "die",
+          "DieSource",
+          "DieJunction_Temp"
+        ]
+      }
+    ],
+    "standalone_entities": []
+  }
+}

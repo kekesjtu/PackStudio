@@ -1,0 +1,737 @@
+{
+  "schema_version": "2.0",
+  "comparison": {
+    "baseline": "flotherm_pack_data/templates/qfp_family/baseline/model.xml",
+    "variation": "flotherm_pack_data/templates/qfp_family/xml_variations/option_switches/opt_v2_c003_pqfppackagetype_tqfp/model.xml",
+    "baseline_bytes": 39733,
+    "variation_bytes": 39761,
+    "baseline_sha256": "BF1D9D963234111DFE5AAE319D1F83A3DBD9AF609C4B3C4A4BC7AA5BBA4082FF",
+    "variation_sha256": "EAECB0604C83CA7D985988FA09811B41F9E5C71938CED857D58A3CA48FF7D2E1"
+  },
+  "semantic_change": true,
+  "summary": {
+    "changed_value_count": 62,
+    "added_leaf_count": 0,
+    "removed_leaf_count": 0
+  },
+  "materials": {
+    "added": [],
+    "removed": [],
+    "changed": [
+      {
+        "name": "bondwire1",
+        "before": {
+          "type": "orthotropic_material_att",
+          "density": "5028.59126992",
+          "specific_heat": "353.621418579",
+          "x_conductivity": "54.8883051392",
+          "y_conductivity": "0.68",
+          "z_conductivity": "54.8883051392"
+        },
+        "after": {
+          "type": "orthotropic_material_att",
+          "density": "4933.09748213",
+          "specific_heat": "359.423149965",
+          "x_conductivity": "53.2749627244",
+          "y_conductivity": "0.68",
+          "z_conductivity": "53.2749627244"
+        }
+      },
+      {
+        "name": "bondwire2",
+        "before": {
+          "type": "orthotropic_material_att",
+          "density": "5028.59126992",
+          "specific_heat": "353.621418579",
+          "x_conductivity": "0.68",
+          "y_conductivity": "54.8883051392",
+          "z_conductivity": "54.8883051392"
+        },
+        "after": {
+          "type": "orthotropic_material_att",
+          "density": "4933.09748213",
+          "specific_heat": "359.423149965",
+          "x_conductivity": "0.68",
+          "y_conductivity": "53.2749627244",
+          "z_conductivity": "53.2749627244"
+        }
+      }
+    ]
+  },
+  "entities": {
+    "added": [],
+    "removed": [],
+    "changed": [
+      {
+        "name": "assembly:BondWires",
+        "before": [
+          "a821aeca887453ba"
+        ],
+        "after": [
+          "58abeff8dbc62211"
+        ]
+      },
+      {
+        "name": "assembly:Die",
+        "before": [
+          "d51326fbd18bfa08"
+        ],
+        "after": [
+          "51d64048f01434a8"
+        ]
+      },
+      {
+        "name": "assembly:Die_Flag",
+        "before": [
+          "cfb5caf13343b7b8"
+        ],
+        "after": [
+          "9ba37414a7db600c"
+        ]
+      },
+      {
+        "name": "assembly:Encapsulant",
+        "before": [
+          "d4969151b2a125b0"
+        ],
+        "after": [
+          "e6ac5fa13612d1a4"
+        ]
+      },
+      {
+        "name": "assembly:LeadFrame",
+        "before": [
+          "6aab72f69ace04c1"
+        ],
+        "after": [
+          "00dd05dc191c0f8a"
+        ]
+      },
+      {
+        "name": "assembly:tie_bars",
+        "before": [
+          "393c9e649fb02f0f"
+        ],
+        "after": [
+          "e8fb9fd41be14931"
+        ]
+      },
+      {
+        "name": "assembly:tiebar_plt",
+        "before": [
+          "910d3361d9b8e74d"
+        ],
+        "after": [
+          "23936471c0e40148"
+        ]
+      },
+      {
+        "name": "cuboid:bd_wires_left",
+        "before": [
+          "4234b0edb984c184"
+        ],
+        "after": [
+          "063ab2ea297acf10"
+        ]
+      },
+      {
+        "name": "cuboid:bd_wires_lower",
+        "before": [
+          "88638b028d791ae9"
+        ],
+        "after": [
+          "9bb872b69b0a91cc"
+        ]
+      },
+      {
+        "name": "cuboid:bd_wires_right",
+        "before": [
+          "488a567fc72b477d"
+        ],
+        "after": [
+          "ca9eb924df3c9683"
+        ]
+      },
+      {
+        "name": "cuboid:bd_wires_upper",
+        "before": [
+          "47e7473040a42958"
+        ],
+        "after": [
+          "6fb25412c4c86678"
+        ]
+      },
+      {
+        "name": "cuboid:bdw_v_left",
+        "before": [
+          "61b3fea01265e3db"
+        ],
+        "after": [
+          "1c366ce2e058f4d1"
+        ]
+      },
+      {
+        "name": "cuboid:bdw_v_lower",
+        "before": [
+          "985da1147a647241"
+        ],
+        "after": [
+          "7c435be144f3e325"
+        ]
+      },
+      {
+        "name": "cuboid:bdw_v_right",
+        "before": [
+          "8d8437554d4b0d60"
+        ],
+        "after": [
+          "9a4b926dded563e3"
+        ]
+      },
+      {
+        "name": "cuboid:bdw_v_upper",
+        "before": [
+          "5cfca72fa3a3fc85"
+        ],
+        "after": [
+          "bcb6b6b0a4f7d984"
+        ]
+      },
+      {
+        "name": "cuboid:die",
+        "before": [
+          "5fb7ae80e18a072a"
+        ],
+        "after": [
+          "66a37b25fc7fb3cd"
+        ]
+      },
+      {
+        "name": "cuboid:die_attach",
+        "before": [
+          "89f81bea4b79325a"
+        ],
+        "after": [
+          "0379443711246a6a"
+        ]
+      },
+      {
+        "name": "cuboid:die_flag",
+        "before": [
+          "3641680a20fc30a2"
+        ],
+        "after": [
+          "9939a0b43e3519dd"
+        ]
+      },
+      {
+        "name": "cuboid:encapsulant",
+        "before": [
+          "56d370a3f8a849c9"
+        ],
+        "after": [
+          "a02120922c87159b"
+        ]
+      },
+      {
+        "name": "cuboid:ldf_exter_left",
+        "before": [
+          "dd66cce87a4491e2"
+        ],
+        "after": [
+          "f05c5e660a2a9bf6"
+        ]
+      },
+      {
+        "name": "cuboid:ldf_exter_lower",
+        "before": [
+          "7f0604881b856a0e"
+        ],
+        "after": [
+          "990743e806cb7c86"
+        ]
+      },
+      {
+        "name": "cuboid:ldf_exter_right",
+        "before": [
+          "51279a3e8273ee6c"
+        ],
+        "after": [
+          "c3dd2fa55151f665"
+        ]
+      },
+      {
+        "name": "cuboid:ldf_exter_upper",
+        "before": [
+          "c972a59ee7c30448"
+        ],
+        "after": [
+          "a8455670fbb9fdf2"
+        ]
+      },
+      {
+        "name": "cuboid:ldf_inter_left",
+        "before": [
+          "8954caecba32116b"
+        ],
+        "after": [
+          "a9df61a806e8a7fa"
+        ]
+      },
+      {
+        "name": "cuboid:ldf_inter_lower",
+        "before": [
+          "f42e41a3d654ab13"
+        ],
+        "after": [
+          "b1352f26be9cb088"
+        ]
+      },
+      {
+        "name": "cuboid:ldf_inter_right",
+        "before": [
+          "23fca5f5e48825a2"
+        ],
+        "after": [
+          "d9dac1b25322e8a7"
+        ]
+      },
+      {
+        "name": "cuboid:ldf_inter_upper",
+        "before": [
+          "cd4f29bf1e394d31"
+        ],
+        "after": [
+          "31fb3027e397932e"
+        ]
+      },
+      {
+        "name": "cuboid:ldf_vert_left",
+        "before": [
+          "cae097ba19d7581b"
+        ],
+        "after": [
+          "ebc1b4cd1e0c19cf"
+        ]
+      },
+      {
+        "name": "cuboid:ldf_vert_lower",
+        "before": [
+          "4f93cffa01a5a0e4"
+        ],
+        "after": [
+          "1319b4130d0f5d78"
+        ]
+      },
+      {
+        "name": "cuboid:ldf_vert_right",
+        "before": [
+          "6070a6e0b84c1b66"
+        ],
+        "after": [
+          "3fb2ba326c6e90fd"
+        ]
+      },
+      {
+        "name": "cuboid:ldf_vert_upper",
+        "before": [
+          "266ec3fc55526d89"
+        ],
+        "after": [
+          "5721970efc60ef28"
+        ]
+      },
+      {
+        "name": "cuboid:tie_bars_h1",
+        "before": [
+          "21bfa326e9f74fc0"
+        ],
+        "after": [
+          "37cbed1e22f3529c"
+        ]
+      },
+      {
+        "name": "cuboid:tie_bars_h2",
+        "before": [
+          "56144bcd1105094b"
+        ],
+        "after": [
+          "eaf484c98be138bc"
+        ]
+      },
+      {
+        "name": "cuboid:tie_bars_h3",
+        "before": [
+          "b77ae005bd12deb2"
+        ],
+        "after": [
+          "5032406117f5ddeb"
+        ]
+      },
+      {
+        "name": "cuboid:tie_bars_h4",
+        "before": [
+          "b9e240fcb0c9c8ec"
+        ],
+        "after": [
+          "656d8366c70c8d41"
+        ]
+      },
+      {
+        "name": "cuboid:tie_bars_v1",
+        "before": [
+          "55d64a76475c5452"
+        ],
+        "after": [
+          "ae47ae46831bb78f"
+        ]
+      },
+      {
+        "name": "cuboid:tie_bars_v2",
+        "before": [
+          "f8ea20647209d191"
+        ],
+        "after": [
+          "7dee6ea29b7261ab"
+        ]
+      },
+      {
+        "name": "cuboid:tie_bars_v3",
+        "before": [
+          "2e3ffc5caaf7c2da"
+        ],
+        "after": [
+          "9404613f5c315ead"
+        ]
+      },
+      {
+        "name": "cuboid:tie_bars_v4",
+        "before": [
+          "541dce3f3fd30668"
+        ],
+        "after": [
+          "22ead6d326601dca"
+        ]
+      },
+      {
+        "name": "cuboid:tiebar_plt_h1",
+        "before": [
+          "481c3e9cf465b9da"
+        ],
+        "after": [
+          "137bae8b3008a7d3"
+        ]
+      },
+      {
+        "name": "cuboid:tiebar_plt_h2",
+        "before": [
+          "bd8412e2e16a317a"
+        ],
+        "after": [
+          "82e70515fe190fa7"
+        ]
+      },
+      {
+        "name": "cuboid:tiebar_plt_h3",
+        "before": [
+          "97e639a0aed4151b"
+        ],
+        "after": [
+          "7be409c671c64743"
+        ]
+      },
+      {
+        "name": "cuboid:tiebar_plt_h4",
+        "before": [
+          "27fddcb48089d3ab"
+        ],
+        "after": [
+          "217fea890dc7b1cd"
+        ]
+      },
+      {
+        "name": "cuboid:tiebar_plt_v1",
+        "before": [
+          "d4b039434b2d9817"
+        ],
+        "after": [
+          "69596a977defa957"
+        ]
+      },
+      {
+        "name": "cuboid:tiebar_plt_v2",
+        "before": [
+          "c7c1f9e6002c7238"
+        ],
+        "after": [
+          "44f37cf22f4e7d2f"
+        ]
+      },
+      {
+        "name": "cuboid:tiebar_plt_v3",
+        "before": [
+          "12c6f472314d07c8"
+        ],
+        "after": [
+          "51d40689cbdd67f4"
+        ]
+      },
+      {
+        "name": "cuboid:tiebar_plt_v4",
+        "before": [
+          "5e6c6d953ad1409e"
+        ],
+        "after": [
+          "756947ac405bb681"
+        ]
+      },
+      {
+        "name": "monitor_point:CaseTemp",
+        "before": [
+          "b62de7b0b18ea214"
+        ],
+        "after": [
+          "b6e73c6bacaf92c8"
+        ]
+      },
+      {
+        "name": "monitor_point:DieJunction_Temp",
+        "before": [
+          "afc209edf3f8064f"
+        ],
+        "after": [
+          "8f35b6e97368600e"
+        ]
+      },
+      {
+        "name": "region:z_top",
+        "before": [
+          "fc60e99537df0499"
+        ],
+        "after": [
+          "dca0c87f13aff368"
+        ]
+      },
+      {
+        "name": "source:DieSource",
+        "before": [
+          "a3947fe933650306"
+        ],
+        "after": [
+          "2aea5c8f12d4f279"
+        ]
+      }
+    ]
+  },
+  "changed_values": [
+    {
+      "path": "xml_case/attributes/grid_constraints/grid_constraint_att[name=keypoint_z]/high_inflation/inflation_size",
+      "before": "0.0030000000000000001",
+      "after": "0.0022000000000000001"
+    },
+    {
+      "path": "xml_case/attributes/grid_constraints/grid_constraint_att[name=keypoint_z]/high_inflation/max_size",
+      "before": "0.00015000000000000001",
+      "after": "0.00011"
+    },
+    {
+      "path": "xml_case/attributes/grid_constraints/grid_constraint_att[name=keypoint_z]/low_inflation/max_size",
+      "before": "0.00015000000000000001",
+      "after": "0.00011"
+    },
+    {
+      "path": "xml_case/attributes/grid_constraints/grid_constraint_att[name=keypoint_z]/max_size",
+      "before": "0.00015000000000000001",
+      "after": "0.00011"
+    },
+    {
+      "path": "xml_case/attributes/materials/orthotropic_material_att[name=bondwire1]/density",
+      "before": "5028.5912699240189",
+      "after": "4933.0974821286618"
+    },
+    {
+      "path": "xml_case/attributes/materials/orthotropic_material_att[name=bondwire1]/specific_heat",
+      "before": "353.62141857915032",
+      "after": "359.42314996542723"
+    },
+    {
+      "path": "xml_case/attributes/materials/orthotropic_material_att[name=bondwire1]/x_conductivity",
+      "before": "54.88830513924264",
+      "after": "53.274962724384231"
+    },
+    {
+      "path": "xml_case/attributes/materials/orthotropic_material_att[name=bondwire1]/z_conductivity",
+      "before": "54.88830513924264",
+      "after": "53.274962724384231"
+    },
+    {
+      "path": "xml_case/attributes/materials/orthotropic_material_att[name=bondwire2]/density",
+      "before": "5028.5912699240189",
+      "after": "4933.0974821286618"
+    },
+    {
+      "path": "xml_case/attributes/materials/orthotropic_material_att[name=bondwire2]/specific_heat",
+      "before": "353.62141857915032",
+      "after": "359.42314996542723"
+    },
+    {
+      "path": "xml_case/attributes/materials/orthotropic_material_att[name=bondwire2]/y_conductivity",
+      "before": "54.88830513924264",
+      "after": "53.274962724384231"
+    },
+    {
+      "path": "xml_case/attributes/materials/orthotropic_material_att[name=bondwire2]/z_conductivity",
+      "before": "54.88830513924264",
+      "after": "53.274962724384231"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=BondWires]/geometry/cuboid[name=bd_wires_left]/position/z",
+      "before": "0.00098299999999999993",
+      "after": "0.00081300000000000003"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=BondWires]/geometry/cuboid[name=bd_wires_lower]/position/z",
+      "before": "0.00098299999999999993",
+      "after": "0.00081300000000000003"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=BondWires]/geometry/cuboid[name=bd_wires_right]/position/z",
+      "before": "0.00098299999999999993",
+      "after": "0.00081300000000000003"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=BondWires]/geometry/cuboid[name=bd_wires_upper]/position/z",
+      "before": "0.00098299999999999993",
+      "after": "0.00081300000000000003"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=BondWires]/geometry/cuboid[name=bdw_v_left]/position/z",
+      "before": "0.00087500000000000002",
+      "after": "0.00067499999999999993"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=BondWires]/geometry/cuboid[name=bdw_v_left]/size/z",
+      "before": "0.00013799999999999999",
+      "after": "0.00016800000000000007"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=BondWires]/geometry/cuboid[name=bdw_v_lower]/position/z",
+      "before": "0.00087500000000000002",
+      "after": "0.00067499999999999993"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=BondWires]/geometry/cuboid[name=bdw_v_lower]/size/z",
+      "before": "0.00013799999999999999",
+      "after": "0.00016800000000000007"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=BondWires]/geometry/cuboid[name=bdw_v_right]/position/z",
+      "before": "0.00087500000000000002",
+      "after": "0.00067499999999999993"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=BondWires]/geometry/cuboid[name=bdw_v_right]/size/z",
+      "before": "0.00013799999999999999",
+      "after": "0.00016800000000000007"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=BondWires]/geometry/cuboid[name=bdw_v_upper]/position/z",
+      "before": "0.00087500000000000002",
+      "after": "0.00067499999999999993"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=BondWires]/geometry/cuboid[name=bdw_v_upper]/size/z",
+      "before": "0.00013799999999999999",
+      "after": "0.00016800000000000007"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Die]/geometry/cuboid[name=die]/position/z",
+      "before": "0.00066299999999999996",
+      "after": "0.00056299999999999992"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Die]/geometry/cuboid[name=die]/size/z",
+      "before": "0.00035",
+      "after": "0.00028000000000000003"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Die]/geometry/monitor_point[name=DieJunction_Temp]/position/z",
+      "before": "0.00101125",
+      "after": "0.00084159999999999997"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Die]/geometry/source[name=DieSource]/position/z",
+      "before": "0.00066299999999999996",
+      "after": "0.00056299999999999992"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Die]/geometry/source[name=DieSource]/size/z",
+      "before": "0.00035",
+      "after": "0.00028000000000000003"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Die_Flag]/geometry/cuboid[name=die_flag]/position/z",
+      "before": "0.00047500000000000005",
+      "after": "0.00037500000000000001"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Encapsulant]/geometry/cuboid[name=encapsulant]/size/z",
+      "before": "0.0014",
+      "after": "0.001"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_exter_left]/position/z",
+      "before": "0.00072500000000000006",
+      "after": "0.00052499999999999997"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_exter_lower]/position/z",
+      "before": "0.00072500000000000006",
+      "after": "0.00052499999999999997"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_exter_right]/position/z",
+      "before": "0.00072500000000000006",
+      "after": "0.00052499999999999997"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_exter_upper]/position/z",
+      "before": "0.00072500000000000006",
+      "after": "0.00052499999999999997"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_inter_left]/position/z",
+      "before": "0.00072500000000000006",
+      "after": "0.00052499999999999997"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_inter_lower]/position/z",
+      "before": "0.00072500000000000006",
+      "after": "0.00052499999999999997"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_inter_right]/position/z",
+      "before": "0.00072500000000000006",
+      "after": "0.00052499999999999997"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_inter_upper]/position/z",
+      "before": "0.00072500000000000006",
+      "after": "0.00052499999999999997"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_vert_left]/size/z",
+      "before": "0.00072500000000000006",
+      "after": "0.00052499999999999997"
+    }
+  ],
+  "added_leaf_paths": [],
+  "removed_leaf_paths": [],
+  "numeric_formatting_differences_ignored": true,
+  "template_id": "qfp_family",
+  "variation_id": "opt_v2_c003_pqfppackagetype_tqfp",
+  "variation_kind": "enum_option",
+  "comparison_baseline": "baseline/model.xml",
+  "outcome": "semantic_change",
+  "floxml_effect_expectation": null
+}

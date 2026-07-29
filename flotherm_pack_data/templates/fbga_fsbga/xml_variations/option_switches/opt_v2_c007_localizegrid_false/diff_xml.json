@@ -1,0 +1,43 @@
+{
+  "schema_version": "2.0",
+  "comparison": {
+    "baseline": "flotherm_pack_data/templates/fbga_fsbga/baseline/model.xml",
+    "variation": "flotherm_pack_data/templates/fbga_fsbga/xml_variations/option_switches/opt_v2_c007_localizegrid_false/model.xml",
+    "baseline_bytes": 49732,
+    "variation_bytes": 49763,
+    "baseline_sha256": "BB8855B47DDB172F6D5C3E7056F3229923EC67BF23A86252DB33EAC6B5664226",
+    "variation_sha256": "67F394C6AA833809B7AACE87B54287D0956A516B9085691A8C860CC88CB62C0F"
+  },
+  "semantic_change": true,
+  "summary": {
+    "changed_value_count": 1,
+    "added_leaf_count": 0,
+    "removed_leaf_count": 0
+  },
+  "materials": {
+    "added": [],
+    "removed": [],
+    "changed": []
+  },
+  "entities": {
+    "added": [],
+    "removed": [],
+    "changed": []
+  },
+  "changed_values": [
+    {
+      "path": "xml_case/localized_grid",
+      "before": "true",
+      "after": "false"
+    }
+  ],
+  "added_leaf_paths": [],
+  "removed_leaf_paths": [],
+  "numeric_formatting_differences_ignored": true,
+  "template_id": "fbga_fsbga",
+  "variation_id": "opt_v2_c007_localizegrid_false",
+  "variation_kind": "boolean_option",
+  "comparison_baseline": "baseline/model.xml",
+  "outcome": "semantic_change",
+  "floxml_effect_expectation": null
+}

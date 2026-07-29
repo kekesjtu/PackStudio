@@ -1,0 +1,23 @@
+{
+  "schema_version": "2.0",
+  "template_id": "soic_family",
+  "variation_id": "par_v2_c030_dieflagdownsetddf_0_44",
+  "kind": "numeric_parameter",
+  "coverage_policy": "low_and_high",
+  "target": {
+    "component": "dieFlagAndTieBars",
+    "property": "dieFlagDownsetDdf",
+    "label": "Die Flag Downset df",
+    "baseline": 0.4,
+    "value": 0.44
+  },
+  "comparison_baseline": "baseline/model.xml",
+  "branch_preconditions": [],
+  "required_dependent_initialization": {},
+  "single_variable_relative_to_comparison_baseline": true,
+  "material_policy": "default_only",
+  "property_evidence": [
+    "installed_dll_ascii_string"
+  ],
+  "execution_status": "pending_replay"
+}

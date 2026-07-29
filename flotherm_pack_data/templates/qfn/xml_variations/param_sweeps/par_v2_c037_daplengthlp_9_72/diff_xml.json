@@ -1,0 +1,67 @@
+{
+  "schema_version": "2.0",
+  "comparison": {
+    "baseline": "flotherm_pack_data/templates/qfn/baseline/model.xml",
+    "variation": "flotherm_pack_data/templates/qfn/xml_variations/param_sweeps/par_v2_c037_daplengthlp_9_72/model.xml",
+    "baseline_bytes": 193768,
+    "variation_bytes": 193769,
+    "baseline_sha256": "2F110872211DE5E1BB69ECBB6E6780A8DF0704F526CCE1958D971BA39C569889",
+    "variation_sha256": "D6C082F301866193A40D641A205808FFBB09B2CC5E3E82056681A1B3E818838D"
+  },
+  "semantic_change": true,
+  "summary": {
+    "changed_value_count": 2,
+    "added_leaf_count": 0,
+    "removed_leaf_count": 0
+  },
+  "materials": {
+    "added": [],
+    "removed": [],
+    "changed": []
+  },
+  "entities": {
+    "added": [],
+    "removed": [],
+    "changed": [
+      {
+        "name": "assembly:DAP",
+        "before": [
+          "b09950face22a70f"
+        ],
+        "after": [
+          "2aa339ef4ae3f596"
+        ]
+      },
+      {
+        "name": "cuboid:dap_2",
+        "before": [
+          "794d753978f8c4be"
+        ],
+        "after": [
+          "7914e3c76902e1b8"
+        ]
+      }
+    ]
+  },
+  "changed_values": [
+    {
+      "path": "xml_case/geometry/assembly[name=DAP]/geometry/cuboid[name=dap_2]/position/x",
+      "before": "-0.0054000000000000003",
+      "after": "-0.0048600000000000006"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=DAP]/geometry/cuboid[name=dap_2]/size/x",
+      "before": "0.010800000000000001",
+      "after": "0.0097200000000000012"
+    }
+  ],
+  "added_leaf_paths": [],
+  "removed_leaf_paths": [],
+  "numeric_formatting_differences_ignored": true,
+  "template_id": "qfn",
+  "variation_id": "par_v2_c037_daplengthlp_9_72",
+  "variation_kind": "numeric_parameter",
+  "comparison_baseline": "baseline/model.xml",
+  "outcome": "semantic_change",
+  "floxml_effect_expectation": null
+}

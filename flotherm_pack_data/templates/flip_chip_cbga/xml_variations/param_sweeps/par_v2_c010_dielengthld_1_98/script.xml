@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<flopack_xml_log_file version="1.0">
+    <new_package package_type="cbga_fc">
+        <new_value new_value="Flip Chip CBGA" property_name="designName" />
+        <new_value new_value="standardOutline" property_name="outlineType" />
+        <new_value new_value="CBGAFC_49_6X6mm" property_name="jedecFootprint" />
+        <new_value new_value="bareDie" property_name="topCover" />
+    </new_package>
+    <modify_component name="die" new_value="1.98" property_name="dieLengthLd" />
+    <export_floxml filename="E:\Users\mydearlong\Desktop\PackStudio\flotherm_pack_data\templates\flip_chip_cbga\xml_variations\param_sweeps\par_v2_c010_dielengthld_1_98\model.xml" />
+</flopack_xml_log_file>

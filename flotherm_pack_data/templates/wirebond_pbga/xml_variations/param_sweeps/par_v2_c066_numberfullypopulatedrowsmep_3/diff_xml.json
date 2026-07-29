@@ -1,0 +1,114 @@
+{
+  "schema_version": "2.0",
+  "comparison": {
+    "baseline": "flotherm_pack_data/templates/wirebond_pbga/validation/branch_baselines/br_v2_solderballdepopulation_numberfullypopulatedrowsmep/model.xml",
+    "variation": "flotherm_pack_data/templates/wirebond_pbga/xml_variations/param_sweeps/par_v2_c066_numberfullypopulatedrowsmep_3/model.xml",
+    "baseline_bytes": 42908,
+    "variation_bytes": 42907,
+    "baseline_sha256": "677D81FAA64F6BC584A6F463DFEC75AD7CF1701C0DB697D4FF4725CEEC5FAB63",
+    "variation_sha256": "88A06254B7F68C8F2118CFC313F2E50B59758290959D6D67662F1176A6B333F0"
+  },
+  "semantic_change": true,
+  "summary": {
+    "changed_value_count": 6,
+    "added_leaf_count": 0,
+    "removed_leaf_count": 0
+  },
+  "materials": {
+    "added": [],
+    "removed": [],
+    "changed": [
+      {
+        "name": "Solder_ball",
+        "before": {
+          "type": "biaxial_material_att",
+          "density": "3896.69235144",
+          "specific_heat": "150.13695532",
+          "in_plane_conductivity": "0.0261",
+          "normal_conductivity": "23.6223210383"
+        },
+        "after": {
+          "type": "biaxial_material_att",
+          "density": "3413.81366378",
+          "specific_heat": "150.173090049",
+          "in_plane_conductivity": "0.0261",
+          "normal_conductivity": "20.6974021015"
+        }
+      }
+    ]
+  },
+  "entities": {
+    "added": [],
+    "removed": [],
+    "changed": [
+      {
+        "name": "assembly:Solder_ball",
+        "before": [
+          "2d9340c3fe12c8c7"
+        ],
+        "after": [
+          "111ca4f3e64579c1"
+        ]
+      },
+      {
+        "name": "cuboid:solder_ball3",
+        "before": [
+          "aedbfcf7b58470a8"
+        ],
+        "after": [
+          "c8f0d38f2c270d27"
+        ]
+      },
+      {
+        "name": "cuboid:solder_ball4",
+        "before": [
+          "7351756f3e6607ef"
+        ],
+        "after": [
+          "b0bac67bc68f7ed4"
+        ]
+      }
+    ]
+  },
+  "changed_values": [
+    {
+      "path": "xml_case/attributes/materials/biaxial_material_att[name=Solder_ball]/density",
+      "before": "3896.6923514438577",
+      "after": "3413.8136637797779"
+    },
+    {
+      "path": "xml_case/attributes/materials/biaxial_material_att[name=Solder_ball]/normal_conductivity",
+      "before": "23.622321038306374",
+      "after": "20.697402101496035"
+    },
+    {
+      "path": "xml_case/attributes/materials/biaxial_material_att[name=Solder_ball]/specific_heat",
+      "before": "150.13695531978581",
+      "after": "150.17309004866686"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball3]/size/y",
+      "before": "0.0007499999999999998",
+      "after": "0.0013849999999999999"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball4]/position/y",
+      "before": "0.0059750000000000011",
+      "after": "0.005340000000000001"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball4]/size/y",
+      "before": "0.0007499999999999998",
+      "after": "0.0013849999999999999"
+    }
+  ],
+  "added_leaf_paths": [],
+  "removed_leaf_paths": [],
+  "numeric_formatting_differences_ignored": true,
+  "template_id": "wirebond_pbga",
+  "variation_id": "par_v2_c066_numberfullypopulatedrowsmep_3",
+  "variation_kind": "numeric_parameter",
+  "comparison_baseline": "validation/branch_baselines/br_v2_solderballdepopulation_numberfullypopulatedrowsmep/model.xml",
+  "outcome": "semantic_change",
+  "floxml_effect_expectation": null
+}

@@ -1,0 +1,67 @@
+{
+  "schema_version": "2.0",
+  "comparison": {
+    "baseline": "flotherm_pack_data/templates/flip_chip_pbga/baseline/model.xml",
+    "variation": "flotherm_pack_data/templates/flip_chip_pbga/xml_variations/param_sweeps/par_v2_c001_substratelengthd_5_4/model.xml",
+    "baseline_bytes": 10211,
+    "variation_bytes": 10211,
+    "baseline_sha256": "517D8D2C0D3C887AFCC71083841F9D502BA2338414DBA1CC9F8DE769783CF520",
+    "variation_sha256": "E980F04F3ECB603F65C2F666FAAE93B8AE046D6C8D3D071E45E3E180B6B50BC7"
+  },
+  "semantic_change": true,
+  "summary": {
+    "changed_value_count": 2,
+    "added_leaf_count": 0,
+    "removed_leaf_count": 0
+  },
+  "materials": {
+    "added": [],
+    "removed": [],
+    "changed": []
+  },
+  "entities": {
+    "added": [],
+    "removed": [],
+    "changed": [
+      {
+        "name": "assembly:Dielectric & Traces",
+        "before": [
+          "aa9388843574b163"
+        ],
+        "after": [
+          "1c06d08b3b5a3981"
+        ]
+      },
+      {
+        "name": "cuboid:core_dielectric",
+        "before": [
+          "8a15470900147a20"
+        ],
+        "after": [
+          "9f85051f5bffbcf2"
+        ]
+      }
+    ]
+  },
+  "changed_values": [
+    {
+      "path": "xml_case/geometry/assembly[name=Dielectric & Traces]/geometry/cuboid[name=core_dielectric]/position/x",
+      "before": "-0.0030000000000000001",
+      "after": "-0.0027000000000000001"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Dielectric & Traces]/geometry/cuboid[name=core_dielectric]/size/x",
+      "before": "0.0060000000000000001",
+      "after": "0.0054000000000000003"
+    }
+  ],
+  "added_leaf_paths": [],
+  "removed_leaf_paths": [],
+  "numeric_formatting_differences_ignored": true,
+  "template_id": "flip_chip_pbga",
+  "variation_id": "par_v2_c001_substratelengthd_5_4",
+  "variation_kind": "numeric_parameter",
+  "comparison_baseline": "baseline/model.xml",
+  "outcome": "semantic_change",
+  "floxml_effect_expectation": null
+}

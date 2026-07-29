@@ -1,0 +1,29 @@
+{
+  "schema_version": "2.0",
+  "template_id": "flip_chip_cbga",
+  "variation_id": "par_v2_c062_lidwidthwc_6_6",
+  "kind": "numeric_parameter",
+  "coverage_policy": "low_and_high",
+  "target": {
+    "component": "topCover",
+    "property": "lidWidthWc",
+    "label": "Lid Width Wc",
+    "baseline": 6,
+    "value": 6.6
+  },
+  "comparison_baseline": "validation/branch_baselines/br_v2_topcover_lidwidthwc/model.xml",
+  "branch_preconditions": [
+    {
+      "component": "topCover",
+      "property": "topCover",
+      "value": "lid"
+    }
+  ],
+  "required_dependent_initialization": {},
+  "single_variable_relative_to_comparison_baseline": true,
+  "material_policy": "default_only",
+  "property_evidence": [
+    "installed_dll_ascii_string"
+  ],
+  "execution_status": "pending_replay"
+}

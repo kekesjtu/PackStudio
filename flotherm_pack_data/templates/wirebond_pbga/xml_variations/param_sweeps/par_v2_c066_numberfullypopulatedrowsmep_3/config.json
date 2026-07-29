@@ -1,0 +1,34 @@
+{
+  "schema_version": "2.0",
+  "template_id": "wirebond_pbga",
+  "variation_id": "par_v2_c066_numberfullypopulatedrowsmep_3",
+  "kind": "numeric_parameter",
+  "coverage_policy": "conditional_low_and_high",
+  "target": {
+    "component": "solderBallDepopulation",
+    "property": "numberFullyPopulatedRowsMEp",
+    "label": "Number of Fully Populated Rows MEp",
+    "baseline": 2,
+    "value": 3
+  },
+  "comparison_baseline": "validation/branch_baselines/br_v2_solderballdepopulation_numberfullypopulatedrowsmep/model.xml",
+  "branch_preconditions": [
+    {
+      "component": "solderBallDepopulation",
+      "property": "depopulatedCenter",
+      "value": true
+    },
+    {
+      "component": "solderBallDepopulation",
+      "property": "numberFullyPopulatedRowsMDp",
+      "value": 2
+    }
+  ],
+  "required_dependent_initialization": {},
+  "single_variable_relative_to_comparison_baseline": true,
+  "material_policy": "default_only",
+  "property_evidence": [
+    "installed_dll_ascii_string"
+  ],
+  "execution_status": "pending_replay"
+}

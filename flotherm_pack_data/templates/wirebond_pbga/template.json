@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.0",
+  "template_id": "wirebond_pbga",
+  "display_name": "Wirebond PBGA",
+  "category": "Ball Grid Arrays",
+  "software_version": "2504",
+  "package_type": "pbga_wb",
+  "capture_status": "complete",
+  "starter_defaults": {
+    "design_name": "Wirebond PBGA",
+    "outline_type": "standardOutline",
+    "jedec_footprint": "PBGA_121_15X15mm",
+    "die_type": "actualDie",
+    "substrate_layer": "2-Layer",
+    "top_signal_layer_thickness_mm": 0.018,
+    "bottom_signal_layer_thickness_mm": 0.018,
+    "include_slug": false
+  },
+  "navigation_steps": [
+    "Summary",
+    "Package Substrate",
+    "Encapsulant",
+    "Die Flag & Solder Mask",
+    "Die",
+    "Thermal Vias",
+    "Metal Layers",
+    "Solder Balls",
+    "Drop-in Slug",
+    "Solder Ball Depopulation",
+    "Central Balls",
+    "Backside Spreader",
+    "Modeling Options"
+  ],
+  "baseline": {
+    "flo_script": "baseline/script.xml",
+    "flo_xml": "baseline/model.xml",
+    "parameters": "baseline/params.json",
+    "recording_log": "logs/ui_capture_session.xml"
+  },
+  "capture_notes": [
+    "The JEDEC list contains 40 observed PBGA footprints and was captured in four scroll states.",
+    "Slug, central balls, and backside spreader conditional fields were inspected and restored to false before export.",
+    "The current FloTHERM PACK process remained open throughout capture."
+  ]
+}

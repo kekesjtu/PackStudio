@@ -1,0 +1,743 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-07-29T16:07:00+08:00",
+  "status": "complete",
+  "scope": {
+    "included": [
+      "templates/*/baseline/model.xml"
+    ],
+    "excluded": [
+      "templates/*/xml_variations/*/*/model.xml",
+      "templates/*/validation/*.xml"
+    ],
+    "exclusion_reason": "The agreed material policy is default-only; sweep and replay models are excluded to prevent derived variants from entering the default library."
+  },
+  "statistics": {
+    "source_file_count": 8,
+    "material_occurrence_count": 62,
+    "unique_definition_count": 46,
+    "distinct_name_count": 37,
+    "colliding_name_count": 6
+  },
+  "source_files": [
+    "templates/bare_die/baseline/model.xml",
+    "templates/fbga_fsbga/baseline/model.xml",
+    "templates/flip_chip_cbga/baseline/model.xml",
+    "templates/flip_chip_pbga/baseline/model.xml",
+    "templates/qfn/baseline/model.xml",
+    "templates/qfp_family/baseline/model.xml",
+    "templates/soic_family/baseline/model.xml",
+    "templates/wirebond_pbga/baseline/model.xml"
+  ],
+  "name_collisions": [
+    {
+      "name": "Solder_ball",
+      "definition_count": 2,
+      "material_ids": [
+        "floxml_solder_ball_35f6c0e284a1",
+        "floxml_solder_ball_83405c517c29"
+      ]
+    },
+    {
+      "name": "Trace0",
+      "definition_count": 2,
+      "material_ids": [
+        "floxml_trace0_35c5a4e0fa1d",
+        "floxml_trace0_ea5b2d1eae9c"
+      ]
+    },
+    {
+      "name": "Via",
+      "definition_count": 2,
+      "material_ids": [
+        "floxml_via_5f89650fca53",
+        "floxml_via_f015d8cd4733"
+      ]
+    },
+    {
+      "name": "bondwire1",
+      "definition_count": 3,
+      "material_ids": [
+        "floxml_bondwire1_40abb693a8f4",
+        "floxml_bondwire1_5e58dc12965a",
+        "floxml_bondwire1_7f7f11a1ecdc"
+      ]
+    },
+    {
+      "name": "bondwire2",
+      "definition_count": 3,
+      "material_ids": [
+        "floxml_bondwire2_030d2817755d",
+        "floxml_bondwire2_203515d412d0",
+        "floxml_bondwire2_d4e3ac1e0e71"
+      ]
+    },
+    {
+      "name": "die_flag",
+      "definition_count": 3,
+      "material_ids": [
+        "floxml_die_flag_080e8b9bd57a",
+        "floxml_die_flag_95b97ff9ab08",
+        "floxml_die_flag_c37442ccaac9"
+      ]
+    }
+  ],
+  "materials": [
+    {
+      "material_id": "floxml_ablestik_8510aa_a20a1106d36a",
+      "name": "Ablestik 8510AA",
+      "model": "isotropic",
+      "floxml_type": "isotropic_material_att",
+      "density_kg_m3": 1,
+      "specific_heat_j_kg_k": 1,
+      "conductivity_w_m_k": 2,
+      "source_type": "floxml",
+      "source_files": [
+        "templates/wirebond_pbga/baseline/model.xml"
+      ]
+    },
+    {
+      "material_id": "floxml_alumina_typical_e57e7ed1c482",
+      "name": "Alumina (Typical)",
+      "model": "isotropic",
+      "floxml_type": "isotropic_material_att",
+      "density_kg_m3": 3970,
+      "specific_heat_j_kg_k": 765,
+      "conductivity_w_m_k": 16,
+      "source_type": "floxml",
+      "source_files": [
+        "templates/flip_chip_cbga/baseline/model.xml"
+      ]
+    },
+    {
+      "material_id": "floxml_bondwire1_40abb693a8f4",
+      "name": "bondwire1",
+      "model": "orthotropic",
+      "floxml_type": "orthotropic_material_att",
+      "density_kg_m3": 5028.591269924019,
+      "specific_heat_j_kg_k": 353.6214185791503,
+      "x_conductivity_w_m_k": 54.88830513924264,
+      "y_conductivity_w_m_k": 0.68,
+      "z_conductivity_w_m_k": 54.88830513924264,
+      "source_type": "floxml",
+      "source_files": [
+        "templates/qfp_family/baseline/model.xml"
+      ]
+    },
+    {
+      "material_id": "floxml_bondwire1_5e58dc12965a",
+      "name": "bondwire1",
+      "model": "orthotropic",
+      "floxml_type": "orthotropic_material_att",
+      "density_kg_m3": 2448.3185307179583,
+      "specific_heat_j_kg_k": 669.4852429942155,
+      "x_conductivity_w_m_k": 11.29527622949814,
+      "y_conductivity_w_m_k": 0.68,
+      "z_conductivity_w_m_k": 11.29527622949814,
+      "source_type": "floxml",
+      "source_files": [
+        "templates/soic_family/baseline/model.xml"
+      ]
+    },
+    {
+      "material_id": "floxml_bondwire1_7f7f11a1ecdc",
+      "name": "bondwire1",
+      "model": "orthotropic",
+      "floxml_type": "orthotropic_material_att",
+      "density_kg_m3": 3607.598944816067,
+      "specific_heat_j_kg_k": 471.67405109241815,
+      "x_conductivity_w_m_k": 30.881013751892507,
+      "y_conductivity_w_m_k": 0.68,
+      "z_conductivity_w_m_k": 30.881013751892507,
+      "source_type": "floxml",
+      "source_files": [
+        "templates/fbga_fsbga/baseline/model.xml"
+      ]
+    },
+    {
+      "material_id": "floxml_bondwire2_030d2817755d",
+      "name": "bondwire2",
+      "model": "orthotropic",
+      "floxml_type": "orthotropic_material_att",
+      "density_kg_m3": 3607.598944816067,
+      "specific_heat_j_kg_k": 471.67405109241815,
+      "x_conductivity_w_m_k": 0.68,
+      "y_conductivity_w_m_k": 30.881013751892507,
+      "z_conductivity_w_m_k": 30.881013751892507,
+      "source_type": "floxml",
+      "source_files": [
+        "templates/fbga_fsbga/baseline/model.xml"
+      ]
+    },
+    {
+      "material_id": "floxml_bondwire2_203515d412d0",
+      "name": "bondwire2",
+      "model": "orthotropic",
+      "floxml_type": "orthotropic_material_att",
+      "density_kg_m3": 5028.591269924019,
+      "specific_heat_j_kg_k": 353.6214185791503,
+      "x_conductivity_w_m_k": 0.68,
+      "y_conductivity_w_m_k": 54.88830513924264,
+      "z_conductivity_w_m_k": 54.88830513924264,
+      "source_type": "floxml",
+      "source_files": [
+        "templates/qfp_family/baseline/model.xml"
+      ]
+    },
+    {
+      "material_id": "floxml_bondwire2_d4e3ac1e0e71",
+      "name": "bondwire2",
+      "model": "orthotropic",
+      "floxml_type": "orthotropic_material_att",
+      "density_kg_m3": 2448.3185307179583,
+      "specific_heat_j_kg_k": 669.4852429942155,
+      "x_conductivity_w_m_k": 0.68,
+      "y_conductivity_w_m_k": 11.29527622949814,
+      "z_conductivity_w_m_k": 11.29527622949814,
+      "source_type": "floxml",
+      "source_files": [
+        "templates/soic_family/baseline/model.xml"
+      ]
+    },
+    {
+      "material_id": "floxml_bondwire_1_0bbf566fa606",
+      "name": "bondwire_1",
+      "model": "orthotropic",
+      "floxml_type": "orthotropic_material_att",
+      "density_kg_m3": 4588.633245731125,
+      "specific_heat_j_kg_k": 382.35766840584023,
+      "x_conductivity_w_m_k": 47.45533009893111,
+      "y_conductivity_w_m_k": 0.68,
+      "z_conductivity_w_m_k": 47.45533009893111,
+      "source_type": "floxml",
+      "source_files": [
+        "templates/wirebond_pbga/baseline/model.xml"
+      ]
+    },
+    {
+      "material_id": "floxml_bondwire_2_7a6925878c34",
+      "name": "bondwire_2",
+      "model": "orthotropic",
+      "floxml_type": "orthotropic_material_att",
+      "density_kg_m3": 4588.633245731125,
+      "specific_heat_j_kg_k": 382.35766840584023,
+      "x_conductivity_w_m_k": 0.68,
+      "y_conductivity_w_m_k": 47.45533009893111,
+      "z_conductivity_w_m_k": 47.45533009893111,
+      "source_type": "floxml",
+      "source_files": [
+        "templates/wirebond_pbga/baseline/model.xml"
+      ]
+    },
+    {
+      "material_id": "floxml_bondwirex0_9c10e77b8180",
+      "name": "bondwirex0",
+      "model": "orthotropic",
+      "floxml_type": "orthotropic_material_att",
+      "density_kg_m3": 3049.250069781266,
+      "specific_heat_j_kg_k": 50.838002931677366,
+      "x_conductivity_w_m_k": 18.618778519019507,
+      "y_conductivity_w_m_k": 0.88,
+      "z_conductivity_w_m_k": 18.618778519019507,
+      "source_type": "floxml",
+      "source_files": [
+        "templates/qfn/baseline/model.xml"
+      ]
+    },
+    {
+      "material_id": "floxml_bondwirexz_175d2d704843",
+      "name": "bondwirexz",
+      "model": "orthotropic",
+      "floxml_type": "orthotropic_material_att",
+      "density_kg_m3": 3049.250069781266,
+      "specific_heat_j_kg_k": 50.838002931677366,
+      "x_conductivity_w_m_k": 18.618778519019507,
+      "y_conductivity_w_m_k": 0.88,
+      "z_conductivity_w_m_k": 18.618778519019507,
+      "source_type": "floxml",
+      "source_files": [
+        "templates/qfn/baseline/model.xml"
+      ]
+    },
+    {
+      "material_id": "floxml_bondwirey0_fd40fb763860",
+      "name": "bondwirey0",
+      "model": "orthotropic",
+      "floxml_type": "orthotropic_material_att",
+      "density_kg_m3": 3049.250069781266,
+      "specific_heat_j_kg_k": 50.838002931677366,
+      "x_conductivity_w_m_k": 0.88,
+      "y_conductivity_w_m_k": 18.618778519019507,
+      "z_conductivity_w_m_k": 18.618778519019507,
+      "source_type": "floxml",
+      "source_files": [
+        "templates/qfn/baseline/model.xml"
+      ]
+    },
+    {
+      "material_id": "floxml_bondwireyz_7e84c3012dac",
+      "name": "bondwireyz",
+      "model": "orthotropic",
+      "floxml_type": "orthotropic_material_att",
+      "density_kg_m3": 3049.250069781266,
+      "specific_heat_j_kg_k": 50.838002931677366,
+      "x_conductivity_w_m_k": 0.88,
+      "y_conductivity_w_m_k": 18.618778519019507,
+      "z_conductivity_w_m_k": 18.618778519019507,
+      "source_type": "floxml",
+      "source_files": [
+        "templates/qfn/baseline/model.xml"
+      ]
+    },
+    {
+      "material_id": "floxml_bt_e65e16cc8c8b",
+      "name": "BT",
+      "model": "isotropic",
+      "floxml_type": "isotropic_material_att",
+      "density_kg_m3": 1900,
+      "specific_heat_j_kg_k": 921,
+      "conductivity_w_m_k": 0.2,
+      "source_type": "floxml",
+      "source_files": [
+        "templates/fbga_fsbga/baseline/model.xml",
+        "templates/wirebond_pbga/baseline/model.xml"
+      ]
+    },
+    {
+      "material_id": "floxml_bumps_88c01b6bc3da",
+      "name": "Bumps",
+      "model": "isotropic",
+      "floxml_type": "isotropic_material_att",
+      "density_kg_m3": 1839.5333247093304,
+      "specific_heat_j_kg_k": 141.93646049309032,
+      "conductivity_w_m_k": 6.654896241018727,
+      "source_type": "floxml",
+      "source_files": [
+        "templates/flip_chip_cbga/baseline/model.xml",
+        "templates/flip_chip_pbga/baseline/model.xml"
+      ],
+      "notes": "Equivalent bump-layer material generated by FloTHERM PACK; consult the manually captured constituent solder and underfill records."
+    },
+    {
+      "material_id": "floxml_copper_pure_2fe62d0ab81c",
+      "name": "Copper (Pure)",
+      "model": "isotropic",
+      "floxml_type": "isotropic_material_att",
+      "density_kg_m3": 8930,
+      "specific_heat_j_kg_k": 385,
+      "conductivity_w_m_k": 385,
+      "source_type": "floxml",
+      "source_files": [
+        "templates/wirebond_pbga/baseline/model.xml"
+      ]
+    },
+    {
+      "material_id": "floxml_cu_c19400_ff262854ad2c",
+      "name": "Cu-C19400",
+      "model": "isotropic",
+      "floxml_type": "isotropic_material_att",
+      "density_kg_m3": 8800,
+      "specific_heat_j_kg_k": 1,
+      "conductivity_w_m_k": 260,
+      "source_type": "floxml",
+      "source_files": [
+        "templates/qfn/baseline/model.xml"
+      ]
+    },
+    {
+      "material_id": "floxml_die_flag_080e8b9bd57a",
+      "name": "die_flag",
+      "model": "isotropic",
+      "floxml_type": "isotropic_material_att",
+      "density_kg_m3": 6008,
+      "specific_heat_j_kg_k": 107.7523302263649,
+      "conductivity_w_m_k": 157.79999999999998,
+      "source_type": "floxml",
+      "source_files": [
+        "templates/soic_family/baseline/model.xml"
+      ]
+    },
+    {
+      "material_id": "floxml_die_flag_95b97ff9ab08",
+      "name": "die_flag",
+      "model": "isotropic",
+      "floxml_type": "isotropic_material_att",
+      "density_kg_m3": 6068,
+      "specific_heat_j_kg_k": 444.6268951878708,
+      "conductivity_w_m_k": 180.9,
+      "source_type": "floxml",
+      "source_files": [
+        "templates/qfp_family/baseline/model.xml"
+      ]
+    },
+    {
+      "material_id": "floxml_die_flag_c37442ccaac9",
+      "name": "die_flag",
+      "model": "isotropic",
+      "floxml_type": "isotropic_material_att",
+      "density_kg_m3": 6118,
+      "specific_heat_j_kg_k": 451.583850931677,
+      "conductivity_w_m_k": 231.08,
+      "source_type": "floxml",
+      "source_files": [
+        "templates/wirebond_pbga/baseline/model.xml"
+      ]
+    },
+    {
+      "material_id": "floxml_dieattach_2600bt_5a4f135a621b",
+      "name": "DieAttach-2600BT",
+      "model": "isotropic",
+      "floxml_type": "isotropic_material_att",
+      "density_kg_m3": 1,
+      "specific_heat_j_kg_k": 1,
+      "conductivity_w_m_k": 20,
+      "source_type": "floxml",
+      "source_files": [
+        "templates/qfn/baseline/model.xml"
+      ]
+    },
+    {
+      "material_id": "floxml_dieattach_84_1lmis_d16d1dc7f6bd",
+      "name": "DieAttach-84-1LMIS",
+      "model": "isotropic",
+      "floxml_type": "isotropic_material_att",
+      "density_kg_m3": 1,
+      "specific_heat_j_kg_k": 1,
+      "conductivity_w_m_k": 2.5,
+      "source_type": "floxml",
+      "source_files": [
+        "templates/qfp_family/baseline/model.xml",
+        "templates/soic_family/baseline/model.xml"
+      ]
+    },
+    {
+      "material_id": "floxml_eme_7730lf_0be3995cee16",
+      "name": "EME-7730LF",
+      "model": "isotropic",
+      "floxml_type": "isotropic_material_att",
+      "density_kg_m3": 2010,
+      "specific_heat_j_kg_k": 1,
+      "conductivity_w_m_k": 0.88,
+      "source_type": "floxml",
+      "source_files": [
+        "templates/qfn/baseline/model.xml"
+      ]
+    },
+    {
+      "material_id": "floxml_epoxy_overmold_typical_b7208f564ae5",
+      "name": "Epoxy Overmold (Typical)",
+      "model": "isotropic",
+      "floxml_type": "isotropic_material_att",
+      "density_kg_m3": 1820,
+      "specific_heat_j_kg_k": 882,
+      "conductivity_w_m_k": 0.68,
+      "source_type": "floxml",
+      "source_files": [
+        "templates/fbga_fsbga/baseline/model.xml",
+        "templates/qfp_family/baseline/model.xml",
+        "templates/soic_family/baseline/model.xml",
+        "templates/wirebond_pbga/baseline/model.xml"
+      ]
+    },
+    {
+      "material_id": "floxml_leadframe_1_780881d93c5c",
+      "name": "LeadFrame_1",
+      "model": "isotropic",
+      "floxml_type": "isotropic_material_att",
+      "density_kg_m3": 4018.425196850394,
+      "specific_heat_j_kg_k": 274.3423599952972,
+      "conductivity_w_m_k": 83.30047244094487,
+      "source_type": "floxml",
+      "source_files": [
+        "templates/soic_family/baseline/model.xml"
+      ]
+    },
+    {
+      "material_id": "floxml_leadframe_1x_bce3aaedc5d0",
+      "name": "LeadFrame_1x",
+      "model": "orthotropic",
+      "floxml_type": "orthotropic_material_att",
+      "density_kg_m3": 5360,
+      "specific_heat_j_kg_k": 469.37873134328356,
+      "x_conductivity_w_m_k": 151.09,
+      "y_conductivity_w_m_k": 0.68,
+      "z_conductivity_w_m_k": 151.09,
+      "source_type": "floxml",
+      "source_files": [
+        "templates/qfp_family/baseline/model.xml"
+      ]
+    },
+    {
+      "material_id": "floxml_leadframe_1y_43da201aa7ec",
+      "name": "LeadFrame_1y",
+      "model": "orthotropic",
+      "floxml_type": "orthotropic_material_att",
+      "density_kg_m3": 5360,
+      "specific_heat_j_kg_k": 469.37873134328356,
+      "x_conductivity_w_m_k": 0.68,
+      "y_conductivity_w_m_k": 151.09,
+      "z_conductivity_w_m_k": 151.09,
+      "source_type": "floxml",
+      "source_files": [
+        "templates/qfp_family/baseline/model.xml"
+      ]
+    },
+    {
+      "material_id": "floxml_leadframe_2_6b3b114969a5",
+      "name": "LeadFrame_2",
+      "model": "isotropic",
+      "floxml_type": "isotropic_material_att",
+      "density_kg_m3": 2772.449148031496,
+      "specific_heat_j_kg_k": 1.2886900029616017,
+      "conductivity_w_m_k": 82.8525251968504,
+      "source_type": "floxml",
+      "source_files": [
+        "templates/soic_family/baseline/model.xml"
+      ]
+    },
+    {
+      "material_id": "floxml_leadframe_2x_ff2d0bb42196",
+      "name": "LeadFrame_2x",
+      "model": "orthotropic",
+      "floxml_type": "orthotropic_material_att",
+      "density_kg_m3": 4450.5807,
+      "specific_heat_j_kg_k": 385.0811569150966,
+      "x_conductivity_w_m_k": 150.76305,
+      "y_conductivity_w_m_k": 0.0261,
+      "z_conductivity_w_m_k": 150.76305,
+      "source_type": "floxml",
+      "source_files": [
+        "templates/qfp_family/baseline/model.xml"
+      ]
+    },
+    {
+      "material_id": "floxml_leadframe_2y_f909e4478a53",
+      "name": "LeadFrame_2y",
+      "model": "orthotropic",
+      "floxml_type": "orthotropic_material_att",
+      "density_kg_m3": 4450.5807,
+      "specific_heat_j_kg_k": 385.0811569150966,
+      "x_conductivity_w_m_k": 0.0261,
+      "y_conductivity_w_m_k": 150.76305,
+      "z_conductivity_w_m_k": 150.76305,
+      "source_type": "floxml",
+      "source_files": [
+        "templates/qfp_family/baseline/model.xml"
+      ]
+    },
+    {
+      "material_id": "floxml_qmi_595_ea8aaaa1d44c",
+      "name": "QMI 595",
+      "model": "isotropic",
+      "floxml_type": "isotropic_material_att",
+      "density_kg_m3": 1,
+      "specific_heat_j_kg_k": 1,
+      "conductivity_w_m_k": 1.4,
+      "source_type": "floxml",
+      "source_files": [
+        "templates/fbga_fsbga/baseline/model.xml"
+      ]
+    },
+    {
+      "material_id": "floxml_silicon_pure_f1d0e6c5ec2c",
+      "name": "Silicon (Pure)",
+      "model": "temperature_dependent",
+      "floxml_type": "temperature_dependant_material_att",
+      "density_kg_m3": 2330,
+      "specific_heat_j_kg_k": 700,
+      "conductivity_w_m_k": 117.5,
+      "conductivity_temperature_coefficient": -0.42,
+      "reference_temperature_k": 373.15,
+      "source_type": "floxml",
+      "source_files": [
+        "templates/bare_die/baseline/model.xml",
+        "templates/fbga_fsbga/baseline/model.xml",
+        "templates/flip_chip_cbga/baseline/model.xml",
+        "templates/flip_chip_pbga/baseline/model.xml",
+        "templates/qfn/baseline/model.xml",
+        "templates/qfp_family/baseline/model.xml",
+        "templates/soic_family/baseline/model.xml",
+        "templates/wirebond_pbga/baseline/model.xml"
+      ]
+    },
+    {
+      "material_id": "floxml_solder_sn63_pb37_2760889a408e",
+      "name": "Solder (Sn63/Pb37)",
+      "model": "isotropic",
+      "floxml_type": "isotropic_material_att",
+      "density_kg_m3": 8400,
+      "specific_heat_j_kg_k": 150,
+      "conductivity_w_m_k": 50.9,
+      "source_type": "floxml",
+      "source_files": [
+        "templates/fbga_fsbga/baseline/model.xml",
+        "templates/qfn/baseline/model.xml"
+      ]
+    },
+    {
+      "material_id": "floxml_solder_mask_material_9742d1927632",
+      "name": "Solder Mask Material",
+      "model": "isotropic",
+      "floxml_type": "isotropic_material_att",
+      "density_kg_m3": 1,
+      "specific_heat_j_kg_k": 1,
+      "conductivity_w_m_k": 0.25,
+      "source_type": "floxml",
+      "source_files": [
+        "templates/fbga_fsbga/baseline/model.xml",
+        "templates/wirebond_pbga/baseline/model.xml"
+      ]
+    },
+    {
+      "material_id": "floxml_solder_ball_35f6c0e284a1",
+      "name": "Solder_ball",
+      "model": "biaxial",
+      "floxml_type": "biaxial_material_att",
+      "density_kg_m3": 2877.8540677150945,
+      "specific_heat_j_kg_k": 150.2273958423495,
+      "in_plane_conductivity_w_m_k": 0.0261,
+      "normal_conductivity_w_m_k": 17.450958611769362,
+      "source_type": "floxml",
+      "source_files": [
+        "templates/flip_chip_cbga/baseline/model.xml",
+        "templates/flip_chip_pbga/baseline/model.xml"
+      ],
+      "notes": "Equivalent material generated for an orthotropic solder-ball-array representation."
+    },
+    {
+      "material_id": "floxml_solder_ball_83405c517c29",
+      "name": "Solder_ball",
+      "model": "biaxial",
+      "floxml_type": "biaxial_material_att",
+      "density_kg_m3": 2482.9937736890474,
+      "specific_heat_j_kg_k": 150.28240332374637,
+      "in_plane_conductivity_w_m_k": 0.0261,
+      "normal_conductivity_w_m_k": 15.05918945546581,
+      "source_type": "floxml",
+      "source_files": [
+        "templates/wirebond_pbga/baseline/model.xml"
+      ],
+      "notes": "Equivalent material generated for an orthotropic solder-ball-array representation."
+    },
+    {
+      "material_id": "floxml_substrate_pbgafc_typical_76f7c4474e86",
+      "name": "Substrate PBGAFC (Typical)",
+      "model": "biaxial",
+      "floxml_type": "biaxial_material_att",
+      "density_kg_m3": 1900,
+      "specific_heat_j_kg_k": 921,
+      "in_plane_conductivity_w_m_k": 20,
+      "normal_conductivity_w_m_k": 4,
+      "source_type": "floxml",
+      "source_files": [
+        "templates/flip_chip_pbga/baseline/model.xml"
+      ]
+    },
+    {
+      "material_id": "floxml_tie_bar1_6a7e2e775746",
+      "name": "tie_bar1",
+      "model": "biaxial",
+      "floxml_type": "biaxial_material_att",
+      "density_kg_m3": 8900,
+      "specific_heat_j_kg_k": 385,
+      "in_plane_conductivity_w_m_k": 106.59634726387205,
+      "normal_conductivity_w_m_k": 0.68,
+      "source_type": "floxml",
+      "source_files": [
+        "templates/qfp_family/baseline/model.xml"
+      ]
+    },
+    {
+      "material_id": "floxml_tie_bar2_215b15412966",
+      "name": "tie_bar2",
+      "model": "biaxial",
+      "floxml_type": "biaxial_material_att",
+      "density_kg_m3": 8900,
+      "specific_heat_j_kg_k": 385,
+      "in_plane_conductivity_w_m_k": 106.59634726387205,
+      "normal_conductivity_w_m_k": 0.68,
+      "source_type": "floxml",
+      "source_files": [
+        "templates/qfp_family/baseline/model.xml"
+      ]
+    },
+    {
+      "material_id": "floxml_trace0_35c5a4e0fa1d",
+      "name": "Trace0",
+      "model": "isotropic",
+      "floxml_type": "isotropic_material_att",
+      "density_kg_m3": 4009,
+      "specific_heat_j_kg_k": 562.8199052132702,
+      "conductivity_w_m_k": 115.64,
+      "source_type": "floxml",
+      "source_files": [
+        "templates/wirebond_pbga/baseline/model.xml"
+      ]
+    },
+    {
+      "material_id": "floxml_trace0_ea5b2d1eae9c",
+      "name": "Trace0",
+      "model": "isotropic",
+      "floxml_type": "isotropic_material_att",
+      "density_kg_m3": 3306,
+      "specific_heat_j_kg_k": 631.4367816091954,
+      "conductivity_w_m_k": 77.16,
+      "source_type": "floxml",
+      "source_files": [
+        "templates/fbga_fsbga/baseline/model.xml"
+      ]
+    },
+    {
+      "material_id": "floxml_trace1_11a4111b1ada",
+      "name": "Trace1",
+      "model": "isotropic",
+      "floxml_type": "isotropic_material_att",
+      "density_kg_m3": 2603,
+      "specific_heat_j_kg_k": 737.1167883211679,
+      "conductivity_w_m_k": 38.68,
+      "source_type": "floxml",
+      "source_files": [
+        "templates/fbga_fsbga/baseline/model.xml"
+      ]
+    },
+    {
+      "material_id": "floxml_trace5_3ed00e97cc54",
+      "name": "Trace5",
+      "model": "isotropic",
+      "floxml_type": "isotropic_material_att",
+      "density_kg_m3": 2603,
+      "specific_heat_j_kg_k": 737.1167883211679,
+      "conductivity_w_m_k": 38.68,
+      "source_type": "floxml",
+      "source_files": [
+        "templates/wirebond_pbga/baseline/model.xml"
+      ]
+    },
+    {
+      "material_id": "floxml_via_5f89650fca53",
+      "name": "Via",
+      "model": "isotropic",
+      "floxml_type": "isotropic_material_att",
+      "density_kg_m3": 3907.528287499999,
+      "specific_heat_j_kg_k": 385.1039902452658,
+      "conductivity_w_m_k": 168.45218124999997,
+      "source_type": "floxml",
+      "source_files": [
+        "templates/fbga_fsbga/baseline/model.xml"
+      ]
+    },
+    {
+      "material_id": "floxml_via_f015d8cd4733",
+      "name": "Via",
+      "model": "isotropic",
+      "floxml_type": "isotropic_material_att",
+      "density_kg_m3": 3214.799999999999,
+      "specific_heat_j_kg_k": 385,
+      "conductivity_w_m_k": 138.59999999999997,
+      "source_type": "floxml",
+      "source_files": [
+        "templates/wirebond_pbga/baseline/model.xml"
+      ]
+    }
+  ]
+}

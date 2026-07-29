@@ -1,0 +1,157 @@
+{
+  "schema_version": "2.0",
+  "comparison": {
+    "baseline": "flotherm_pack_data/templates/wirebond_pbga/baseline/model.xml",
+    "variation": "flotherm_pack_data/templates/wirebond_pbga/xml_variations/option_switches/opt_v2_c006_modelthermalviasas_isotropiccuboid/model.xml",
+    "baseline_bytes": 41072,
+    "variation_bytes": 26806,
+    "baseline_sha256": "9479526808CCC33C8AD535F728A6CBBAC0F010BC1E06E77A60FD3E26427F56B2",
+    "variation_sha256": "080025D2FD1D351E115B1FF948781871AD19CF3524135C38807EC9CB63D48633"
+  },
+  "semantic_change": true,
+  "summary": {
+    "changed_value_count": 3,
+    "added_leaf_count": 8,
+    "removed_leaf_count": 200
+  },
+  "materials": {
+    "added": [],
+    "removed": [],
+    "changed": [
+      {
+        "name": "Via",
+        "before": {
+          "type": "isotropic_material_att",
+          "density": "3214.8",
+          "specific_heat": "385",
+          "conductivity": "138.6"
+        },
+        "after": {
+          "type": "isotropic_material_att",
+          "density": "1956.79566445",
+          "specific_heat": "882.961028914",
+          "conductivity": "6.17849099524"
+        }
+      }
+    ]
+  },
+  "entities": {
+    "added": [
+      "cuboid:thermal_via"
+    ],
+    "removed": [
+      "cuboid:thermal_via_1_1",
+      "cuboid:thermal_via_1_2",
+      "cuboid:thermal_via_1_3",
+      "cuboid:thermal_via_1_4",
+      "cuboid:thermal_via_1_5",
+      "cuboid:thermal_via_2_1",
+      "cuboid:thermal_via_2_2",
+      "cuboid:thermal_via_2_3",
+      "cuboid:thermal_via_2_4",
+      "cuboid:thermal_via_2_5",
+      "cuboid:thermal_via_3_1",
+      "cuboid:thermal_via_3_2",
+      "cuboid:thermal_via_3_3",
+      "cuboid:thermal_via_3_4",
+      "cuboid:thermal_via_3_5",
+      "cuboid:thermal_via_4_1",
+      "cuboid:thermal_via_4_2",
+      "cuboid:thermal_via_4_3",
+      "cuboid:thermal_via_4_4",
+      "cuboid:thermal_via_4_5",
+      "cuboid:thermal_via_5_1",
+      "cuboid:thermal_via_5_2",
+      "cuboid:thermal_via_5_3",
+      "cuboid:thermal_via_5_4",
+      "cuboid:thermal_via_5_5"
+    ],
+    "changed": [
+      {
+        "name": "assembly:Thermal_via",
+        "before": [
+          "cd87b14e77a414a1"
+        ],
+        "after": [
+          "16d2c1e3de1f6fc0"
+        ]
+      }
+    ]
+  },
+  "changed_values": [
+    {
+      "path": "xml_case/attributes/materials/isotropic_material_att[name=Via]/conductivity",
+      "before": "138.59999999999997",
+      "after": "6.1784909952408622"
+    },
+    {
+      "path": "xml_case/attributes/materials/isotropic_material_att[name=Via]/density",
+      "before": "3214.7999999999988",
+      "after": "1956.795664454788"
+    },
+    {
+      "path": "xml_case/attributes/materials/isotropic_material_att[name=Via]/specific_heat",
+      "before": "385",
+      "after": "882.96102891352132"
+    }
+  ],
+  "added_leaf_paths": [
+    "xml_case/geometry/assembly[name=Thermal_via]/geometry/cuboid[name=thermal_via]/material",
+    "xml_case/geometry/assembly[name=Thermal_via]/geometry/cuboid[name=thermal_via]/name",
+    "xml_case/geometry/assembly[name=Thermal_via]/geometry/cuboid[name=thermal_via]/position/x",
+    "xml_case/geometry/assembly[name=Thermal_via]/geometry/cuboid[name=thermal_via]/position/y",
+    "xml_case/geometry/assembly[name=Thermal_via]/geometry/cuboid[name=thermal_via]/position/z",
+    "xml_case/geometry/assembly[name=Thermal_via]/geometry/cuboid[name=thermal_via]/size/x",
+    "xml_case/geometry/assembly[name=Thermal_via]/geometry/cuboid[name=thermal_via]/size/y",
+    "xml_case/geometry/assembly[name=Thermal_via]/geometry/cuboid[name=thermal_via]/size/z"
+  ],
+  "removed_leaf_paths": [
+    "xml_case/geometry/assembly[name=Thermal_via]/geometry/cuboid[name=thermal_via_1_1]/material",
+    "xml_case/geometry/assembly[name=Thermal_via]/geometry/cuboid[name=thermal_via_1_1]/name",
+    "xml_case/geometry/assembly[name=Thermal_via]/geometry/cuboid[name=thermal_via_1_1]/position/x",
+    "xml_case/geometry/assembly[name=Thermal_via]/geometry/cuboid[name=thermal_via_1_1]/position/y",
+    "xml_case/geometry/assembly[name=Thermal_via]/geometry/cuboid[name=thermal_via_1_1]/position/z",
+    "xml_case/geometry/assembly[name=Thermal_via]/geometry/cuboid[name=thermal_via_1_1]/size/x",
+    "xml_case/geometry/assembly[name=Thermal_via]/geometry/cuboid[name=thermal_via_1_1]/size/y",
+    "xml_case/geometry/assembly[name=Thermal_via]/geometry/cuboid[name=thermal_via_1_1]/size/z",
+    "xml_case/geometry/assembly[name=Thermal_via]/geometry/cuboid[name=thermal_via_1_2]/material",
+    "xml_case/geometry/assembly[name=Thermal_via]/geometry/cuboid[name=thermal_via_1_2]/name",
+    "xml_case/geometry/assembly[name=Thermal_via]/geometry/cuboid[name=thermal_via_1_2]/position/x",
+    "xml_case/geometry/assembly[name=Thermal_via]/geometry/cuboid[name=thermal_via_1_2]/position/y",
+    "xml_case/geometry/assembly[name=Thermal_via]/geometry/cuboid[name=thermal_via_1_2]/position/z",
+    "xml_case/geometry/assembly[name=Thermal_via]/geometry/cuboid[name=thermal_via_1_2]/size/x",
+    "xml_case/geometry/assembly[name=Thermal_via]/geometry/cuboid[name=thermal_via_1_2]/size/y",
+    "xml_case/geometry/assembly[name=Thermal_via]/geometry/cuboid[name=thermal_via_1_2]/size/z",
+    "xml_case/geometry/assembly[name=Thermal_via]/geometry/cuboid[name=thermal_via_1_3]/material",
+    "xml_case/geometry/assembly[name=Thermal_via]/geometry/cuboid[name=thermal_via_1_3]/name",
+    "xml_case/geometry/assembly[name=Thermal_via]/geometry/cuboid[name=thermal_via_1_3]/position/x",
+    "xml_case/geometry/assembly[name=Thermal_via]/geometry/cuboid[name=thermal_via_1_3]/position/y",
+    "xml_case/geometry/assembly[name=Thermal_via]/geometry/cuboid[name=thermal_via_1_3]/position/z",
+    "xml_case/geometry/assembly[name=Thermal_via]/geometry/cuboid[name=thermal_via_1_3]/size/x",
+    "xml_case/geometry/assembly[name=Thermal_via]/geometry/cuboid[name=thermal_via_1_3]/size/y",
+    "xml_case/geometry/assembly[name=Thermal_via]/geometry/cuboid[name=thermal_via_1_3]/size/z",
+    "xml_case/geometry/assembly[name=Thermal_via]/geometry/cuboid[name=thermal_via_1_4]/material",
+    "xml_case/geometry/assembly[name=Thermal_via]/geometry/cuboid[name=thermal_via_1_4]/name",
+    "xml_case/geometry/assembly[name=Thermal_via]/geometry/cuboid[name=thermal_via_1_4]/position/x",
+    "xml_case/geometry/assembly[name=Thermal_via]/geometry/cuboid[name=thermal_via_1_4]/position/y",
+    "xml_case/geometry/assembly[name=Thermal_via]/geometry/cuboid[name=thermal_via_1_4]/position/z",
+    "xml_case/geometry/assembly[name=Thermal_via]/geometry/cuboid[name=thermal_via_1_4]/size/x",
+    "xml_case/geometry/assembly[name=Thermal_via]/geometry/cuboid[name=thermal_via_1_4]/size/y",
+    "xml_case/geometry/assembly[name=Thermal_via]/geometry/cuboid[name=thermal_via_1_4]/size/z",
+    "xml_case/geometry/assembly[name=Thermal_via]/geometry/cuboid[name=thermal_via_1_5]/material",
+    "xml_case/geometry/assembly[name=Thermal_via]/geometry/cuboid[name=thermal_via_1_5]/name",
+    "xml_case/geometry/assembly[name=Thermal_via]/geometry/cuboid[name=thermal_via_1_5]/position/x",
+    "xml_case/geometry/assembly[name=Thermal_via]/geometry/cuboid[name=thermal_via_1_5]/position/y",
+    "xml_case/geometry/assembly[name=Thermal_via]/geometry/cuboid[name=thermal_via_1_5]/position/z",
+    "xml_case/geometry/assembly[name=Thermal_via]/geometry/cuboid[name=thermal_via_1_5]/size/x",
+    "xml_case/geometry/assembly[name=Thermal_via]/geometry/cuboid[name=thermal_via_1_5]/size/y",
+    "xml_case/geometry/assembly[name=Thermal_via]/geometry/cuboid[name=thermal_via_1_5]/size/z"
+  ],
+  "numeric_formatting_differences_ignored": true,
+  "template_id": "wirebond_pbga",
+  "variation_id": "opt_v2_c006_modelthermalviasas_isotropiccuboid",
+  "variation_kind": "enum_option",
+  "comparison_baseline": "baseline/model.xml",
+  "outcome": "semantic_change",
+  "floxml_effect_expectation": null
+}

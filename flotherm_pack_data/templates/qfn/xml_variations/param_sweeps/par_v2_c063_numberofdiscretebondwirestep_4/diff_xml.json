@@ -1,0 +1,556 @@
+{
+  "schema_version": "2.0",
+  "comparison": {
+    "baseline": "flotherm_pack_data/templates/qfn/validation/branch_baselines/br_v2_modelingoptions_numberofdiscretebondwiresteps/model.xml",
+    "variation": "flotherm_pack_data/templates/qfn/xml_variations/param_sweeps/par_v2_c063_numberofdiscretebondwirestep_4/model.xml",
+    "baseline_bytes": 206672,
+    "variation_bytes": 203445,
+    "baseline_sha256": "A4BDF78AEDF04250F856C501DBFD821FF868E23CD91C1703438EE5F03591C728",
+    "variation_sha256": "9BB11C1C7A88FEB279D90C64DA424FBC735A79E88B10700282DBB44FF555B993"
+  },
+  "semantic_change": true,
+  "summary": {
+    "changed_value_count": 78,
+    "added_leaf_count": 0,
+    "removed_leaf_count": 44
+  },
+  "materials": {
+    "added": [],
+    "removed": [
+      "bondwirex4",
+      "bondwirey4"
+    ],
+    "changed": [
+      {
+        "name": "bondwirex1",
+        "before": {
+          "type": "orthotropic_material_att",
+          "density": "3576.86933598",
+          "specific_heat": "65.0565164888",
+          "x_conductivity": "27.624619921",
+          "y_conductivity": "0.88",
+          "z_conductivity": "27.624619921"
+        },
+        "after": {
+          "type": "orthotropic_material_att",
+          "density": "3493.2015559",
+          "specific_heat": "63.0883528933",
+          "x_conductivity": "26.1965091485",
+          "y_conductivity": "0.88",
+          "z_conductivity": "26.1965091485"
+        }
+      },
+      {
+        "name": "bondwirex2",
+        "before": {
+          "type": "orthotropic_material_att",
+          "density": "3350.0856163",
+          "specific_heat": "59.4938559065",
+          "x_conductivity": "23.7536880903",
+          "y_conductivity": "0.88",
+          "z_conductivity": "23.7536880903"
+        },
+        "after": {
+          "type": "orthotropic_material_att",
+          "density": "3232.15808206",
+          "specific_heat": "56.2927769463",
+          "x_conductivity": "21.7408035384",
+          "y_conductivity": "0.88",
+          "z_conductivity": "21.7408035384"
+        }
+      },
+      {
+        "name": "bondwirex3",
+        "before": {
+          "type": "orthotropic_material_att",
+          "density": "3180.64950389",
+          "specific_heat": "54.8201226014",
+          "x_conductivity": "20.8616125846",
+          "y_conductivity": "0.88",
+          "z_conductivity": "20.8616125846"
+        },
+        "after": {
+          "type": "orthotropic_material_att",
+          "density": "3049.25006978",
+          "specific_heat": "50.8380029317",
+          "x_conductivity": "18.618778519",
+          "y_conductivity": "0.88",
+          "z_conductivity": "18.618778519"
+        }
+      },
+      {
+        "name": "bondwirey1",
+        "before": {
+          "type": "orthotropic_material_att",
+          "density": "3576.86933598",
+          "specific_heat": "65.0565164888",
+          "x_conductivity": "0.88",
+          "y_conductivity": "27.624619921",
+          "z_conductivity": "27.624619921"
+        },
+        "after": {
+          "type": "orthotropic_material_att",
+          "density": "3493.2015559",
+          "specific_heat": "63.0883528933",
+          "x_conductivity": "0.88",
+          "y_conductivity": "26.1965091485",
+          "z_conductivity": "26.1965091485"
+        }
+      },
+      {
+        "name": "bondwirey2",
+        "before": {
+          "type": "orthotropic_material_att",
+          "density": "3350.0856163",
+          "specific_heat": "59.4938559065",
+          "x_conductivity": "0.88",
+          "y_conductivity": "23.7536880903",
+          "z_conductivity": "23.7536880903"
+        },
+        "after": {
+          "type": "orthotropic_material_att",
+          "density": "3232.15808206",
+          "specific_heat": "56.2927769463",
+          "x_conductivity": "0.88",
+          "y_conductivity": "21.7408035384",
+          "z_conductivity": "21.7408035384"
+        }
+      },
+      {
+        "name": "bondwirey3",
+        "before": {
+          "type": "orthotropic_material_att",
+          "density": "3180.64950389",
+          "specific_heat": "54.8201226014",
+          "x_conductivity": "0.88",
+          "y_conductivity": "20.8616125846",
+          "z_conductivity": "20.8616125846"
+        },
+        "after": {
+          "type": "orthotropic_material_att",
+          "density": "3049.25006978",
+          "specific_heat": "50.8380029317",
+          "x_conductivity": "0.88",
+          "y_conductivity": "18.618778519",
+          "z_conductivity": "18.618778519"
+        }
+      }
+    ]
+  },
+  "entities": {
+    "added": [],
+    "removed": [
+      "cuboid:bw_h4_left",
+      "cuboid:bw_h4_lower",
+      "cuboid:bw_h4_right",
+      "cuboid:bw_h4_upper"
+    ],
+    "changed": [
+      {
+        "name": "assembly:Bondwires",
+        "before": [
+          "86efc60cd087959d"
+        ],
+        "after": [
+          "2767cb15c8fe7851"
+        ]
+      },
+      {
+        "name": "cuboid:bw_h0_left",
+        "before": [
+          "25658fc7fe18e725"
+        ],
+        "after": [
+          "e30be36633ecd409"
+        ]
+      },
+      {
+        "name": "cuboid:bw_h0_lower",
+        "before": [
+          "3a55662535e91900"
+        ],
+        "after": [
+          "411c4706e48f648d"
+        ]
+      },
+      {
+        "name": "cuboid:bw_h0_right",
+        "before": [
+          "4ba9f12d12a748ab"
+        ],
+        "after": [
+          "d857badbd7ff9fcb"
+        ]
+      },
+      {
+        "name": "cuboid:bw_h0_upper",
+        "before": [
+          "3ba9a51088797238"
+        ],
+        "after": [
+          "cbdf6e6ef9867d5e"
+        ]
+      },
+      {
+        "name": "cuboid:bw_h1_left",
+        "before": [
+          "a2869c2fb72afea7"
+        ],
+        "after": [
+          "d65e58d5ca573c2f"
+        ]
+      },
+      {
+        "name": "cuboid:bw_h1_lower",
+        "before": [
+          "3b5c71beaeb25da9"
+        ],
+        "after": [
+          "c2ad3acc919050b5"
+        ]
+      },
+      {
+        "name": "cuboid:bw_h1_right",
+        "before": [
+          "69cd8e23e3e8f53d"
+        ],
+        "after": [
+          "4ace409316d3f4c4"
+        ]
+      },
+      {
+        "name": "cuboid:bw_h1_upper",
+        "before": [
+          "0c8410c974e80afb"
+        ],
+        "after": [
+          "aa6a47f947fc6abc"
+        ]
+      },
+      {
+        "name": "cuboid:bw_h2_left",
+        "before": [
+          "fb8b1a29da0a6d7f"
+        ],
+        "after": [
+          "77b21215666717e8"
+        ]
+      },
+      {
+        "name": "cuboid:bw_h2_lower",
+        "before": [
+          "21099b5a4026b5a9"
+        ],
+        "after": [
+          "4d570098f16432a2"
+        ]
+      },
+      {
+        "name": "cuboid:bw_h2_right",
+        "before": [
+          "08792bdc09ae2005"
+        ],
+        "after": [
+          "d864049984fae4cf"
+        ]
+      },
+      {
+        "name": "cuboid:bw_h2_upper",
+        "before": [
+          "e880d2936953c90e"
+        ],
+        "after": [
+          "48af0594a44ff9fb"
+        ]
+      },
+      {
+        "name": "cuboid:bw_h3_left",
+        "before": [
+          "07e67d373f37822e"
+        ],
+        "after": [
+          "ee46a38c509841eb"
+        ]
+      },
+      {
+        "name": "cuboid:bw_h3_lower",
+        "before": [
+          "b4ed52673ede2216"
+        ],
+        "after": [
+          "a1862e472545591d"
+        ]
+      },
+      {
+        "name": "cuboid:bw_h3_right",
+        "before": [
+          "dd01cb950488ec3f"
+        ],
+        "after": [
+          "15b650d270a7c5a7"
+        ]
+      },
+      {
+        "name": "cuboid:bw_h3_upper",
+        "before": [
+          "84cd619864418175"
+        ],
+        "after": [
+          "e98ef2c09da1d1ac"
+        ]
+      }
+    ]
+  },
+  "changed_values": [
+    {
+      "path": "xml_case/attributes/materials/orthotropic_material_att[name=bondwirex1]/density",
+      "before": "3576.869335977909",
+      "after": "3493.2015559014185"
+    },
+    {
+      "path": "xml_case/attributes/materials/orthotropic_material_att[name=bondwirex1]/specific_heat",
+      "before": "65.056516488758632",
+      "after": "63.088352893330573"
+    },
+    {
+      "path": "xml_case/attributes/materials/orthotropic_material_att[name=bondwirex1]/x_conductivity",
+      "before": "27.624619920983264",
+      "after": "26.196509148503566"
+    },
+    {
+      "path": "xml_case/attributes/materials/orthotropic_material_att[name=bondwirex1]/z_conductivity",
+      "before": "27.624619920983264",
+      "after": "26.196509148503566"
+    },
+    {
+      "path": "xml_case/attributes/materials/orthotropic_material_att[name=bondwirex2]/density",
+      "before": "3350.0856162968958",
+      "after": "3232.1580820627687"
+    },
+    {
+      "path": "xml_case/attributes/materials/orthotropic_material_att[name=bondwirex2]/specific_heat",
+      "before": "59.49385590654316",
+      "after": "56.292776946275751"
+    },
+    {
+      "path": "xml_case/attributes/materials/orthotropic_material_att[name=bondwirex2]/x_conductivity",
+      "before": "23.753688090314633",
+      "after": "21.740803538366936"
+    },
+    {
+      "path": "xml_case/attributes/materials/orthotropic_material_att[name=bondwirex2]/z_conductivity",
+      "before": "23.753688090314633",
+      "after": "21.740803538366936"
+    },
+    {
+      "path": "xml_case/attributes/materials/orthotropic_material_att[name=bondwirex3]/density",
+      "before": "3180.6495038915414",
+      "after": "3049.2500697812661"
+    },
+    {
+      "path": "xml_case/attributes/materials/orthotropic_material_att[name=bondwirex3]/specific_heat",
+      "before": "54.820122601402169",
+      "after": "50.838002931677366"
+    },
+    {
+      "path": "xml_case/attributes/materials/orthotropic_material_att[name=bondwirex3]/x_conductivity",
+      "before": "20.861612584642668",
+      "after": "18.618778519019507"
+    },
+    {
+      "path": "xml_case/attributes/materials/orthotropic_material_att[name=bondwirex3]/z_conductivity",
+      "before": "20.861612584642668",
+      "after": "18.618778519019507"
+    },
+    {
+      "path": "xml_case/attributes/materials/orthotropic_material_att[name=bondwirey1]/density",
+      "before": "3576.869335977909",
+      "after": "3493.2015559014185"
+    },
+    {
+      "path": "xml_case/attributes/materials/orthotropic_material_att[name=bondwirey1]/specific_heat",
+      "before": "65.056516488758632",
+      "after": "63.088352893330573"
+    },
+    {
+      "path": "xml_case/attributes/materials/orthotropic_material_att[name=bondwirey1]/y_conductivity",
+      "before": "27.624619920983264",
+      "after": "26.196509148503566"
+    },
+    {
+      "path": "xml_case/attributes/materials/orthotropic_material_att[name=bondwirey1]/z_conductivity",
+      "before": "27.624619920983264",
+      "after": "26.196509148503566"
+    },
+    {
+      "path": "xml_case/attributes/materials/orthotropic_material_att[name=bondwirey2]/density",
+      "before": "3350.0856162968958",
+      "after": "3232.1580820627687"
+    },
+    {
+      "path": "xml_case/attributes/materials/orthotropic_material_att[name=bondwirey2]/specific_heat",
+      "before": "59.49385590654316",
+      "after": "56.292776946275751"
+    },
+    {
+      "path": "xml_case/attributes/materials/orthotropic_material_att[name=bondwirey2]/y_conductivity",
+      "before": "23.753688090314633",
+      "after": "21.740803538366936"
+    },
+    {
+      "path": "xml_case/attributes/materials/orthotropic_material_att[name=bondwirey2]/z_conductivity",
+      "before": "23.753688090314633",
+      "after": "21.740803538366936"
+    },
+    {
+      "path": "xml_case/attributes/materials/orthotropic_material_att[name=bondwirey3]/density",
+      "before": "3180.6495038915414",
+      "after": "3049.2500697812661"
+    },
+    {
+      "path": "xml_case/attributes/materials/orthotropic_material_att[name=bondwirey3]/specific_heat",
+      "before": "54.820122601402169",
+      "after": "50.838002931677366"
+    },
+    {
+      "path": "xml_case/attributes/materials/orthotropic_material_att[name=bondwirey3]/y_conductivity",
+      "before": "20.861612584642668",
+      "after": "18.618778519019507"
+    },
+    {
+      "path": "xml_case/attributes/materials/orthotropic_material_att[name=bondwirey3]/z_conductivity",
+      "before": "20.861612584642668",
+      "after": "18.618778519019507"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Bondwires]/geometry/cuboid[name=bw_h0_left]/position/x",
+      "before": "-0.0032500000000000003",
+      "after": "-0.0033874999999999999"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Bondwires]/geometry/cuboid[name=bw_h0_left]/size/x",
+      "before": "0.00055000000000000014",
+      "after": "0.00068749999999999974"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Bondwires]/geometry/cuboid[name=bw_h0_lower]/position/y",
+      "before": "-0.0032500000000000003",
+      "after": "-0.0033874999999999999"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Bondwires]/geometry/cuboid[name=bw_h0_lower]/size/y",
+      "before": "0.00055000000000000014",
+      "after": "0.00068749999999999974"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Bondwires]/geometry/cuboid[name=bw_h0_right]/size/x",
+      "before": "0.00055000000000000014",
+      "after": "0.00068749999999999974"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Bondwires]/geometry/cuboid[name=bw_h0_upper]/size/y",
+      "before": "0.00055000000000000014",
+      "after": "0.00068749999999999974"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Bondwires]/geometry/cuboid[name=bw_h1_left]/position/x",
+      "before": "-0.0038000000000000004",
+      "after": "-0.0040749999999999996"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Bondwires]/geometry/cuboid[name=bw_h1_left]/position/y",
+      "before": "-0.0032500000000000003",
+      "after": "-0.0034333333333333338"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Bondwires]/geometry/cuboid[name=bw_h1_left]/size/x",
+      "before": "0.00055000000000000014",
+      "after": "0.00068749999999999974"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Bondwires]/geometry/cuboid[name=bw_h1_left]/size/y",
+      "before": "0.0065000000000000006",
+      "after": "0.0068666666666666676"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Bondwires]/geometry/cuboid[name=bw_h1_lower]/position/x",
+      "before": "-0.0032500000000000003",
+      "after": "-0.0034333333333333338"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Bondwires]/geometry/cuboid[name=bw_h1_lower]/position/y",
+      "before": "-0.0038000000000000004",
+      "after": "-0.0040749999999999996"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Bondwires]/geometry/cuboid[name=bw_h1_lower]/size/x",
+      "before": "0.0065000000000000006",
+      "after": "0.0068666666666666676"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Bondwires]/geometry/cuboid[name=bw_h1_lower]/size/y",
+      "before": "0.00055000000000000014",
+      "after": "0.00068749999999999974"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Bondwires]/geometry/cuboid[name=bw_h1_right]/position/x",
+      "before": "0.0032500000000000003",
+      "after": "0.0033874999999999999"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Bondwires]/geometry/cuboid[name=bw_h1_right]/position/y",
+      "before": "-0.0032500000000000003",
+      "after": "-0.0034333333333333338"
+    }
+  ],
+  "added_leaf_paths": [],
+  "removed_leaf_paths": [
+    "xml_case/attributes/materials/orthotropic_material_att[name=bondwirex4]/density",
+    "xml_case/attributes/materials/orthotropic_material_att[name=bondwirex4]/name",
+    "xml_case/attributes/materials/orthotropic_material_att[name=bondwirex4]/specific_heat",
+    "xml_case/attributes/materials/orthotropic_material_att[name=bondwirex4]/x_conductivity",
+    "xml_case/attributes/materials/orthotropic_material_att[name=bondwirex4]/y_conductivity",
+    "xml_case/attributes/materials/orthotropic_material_att[name=bondwirex4]/z_conductivity",
+    "xml_case/attributes/materials/orthotropic_material_att[name=bondwirey4]/density",
+    "xml_case/attributes/materials/orthotropic_material_att[name=bondwirey4]/name",
+    "xml_case/attributes/materials/orthotropic_material_att[name=bondwirey4]/specific_heat",
+    "xml_case/attributes/materials/orthotropic_material_att[name=bondwirey4]/x_conductivity",
+    "xml_case/attributes/materials/orthotropic_material_att[name=bondwirey4]/y_conductivity",
+    "xml_case/attributes/materials/orthotropic_material_att[name=bondwirey4]/z_conductivity",
+    "xml_case/geometry/assembly[name=Bondwires]/geometry/cuboid[name=bw_h4_left]/material",
+    "xml_case/geometry/assembly[name=Bondwires]/geometry/cuboid[name=bw_h4_left]/name",
+    "xml_case/geometry/assembly[name=Bondwires]/geometry/cuboid[name=bw_h4_left]/position/x",
+    "xml_case/geometry/assembly[name=Bondwires]/geometry/cuboid[name=bw_h4_left]/position/y",
+    "xml_case/geometry/assembly[name=Bondwires]/geometry/cuboid[name=bw_h4_left]/position/z",
+    "xml_case/geometry/assembly[name=Bondwires]/geometry/cuboid[name=bw_h4_left]/size/x",
+    "xml_case/geometry/assembly[name=Bondwires]/geometry/cuboid[name=bw_h4_left]/size/y",
+    "xml_case/geometry/assembly[name=Bondwires]/geometry/cuboid[name=bw_h4_left]/size/z",
+    "xml_case/geometry/assembly[name=Bondwires]/geometry/cuboid[name=bw_h4_lower]/material",
+    "xml_case/geometry/assembly[name=Bondwires]/geometry/cuboid[name=bw_h4_lower]/name",
+    "xml_case/geometry/assembly[name=Bondwires]/geometry/cuboid[name=bw_h4_lower]/position/x",
+    "xml_case/geometry/assembly[name=Bondwires]/geometry/cuboid[name=bw_h4_lower]/position/y",
+    "xml_case/geometry/assembly[name=Bondwires]/geometry/cuboid[name=bw_h4_lower]/position/z",
+    "xml_case/geometry/assembly[name=Bondwires]/geometry/cuboid[name=bw_h4_lower]/size/x",
+    "xml_case/geometry/assembly[name=Bondwires]/geometry/cuboid[name=bw_h4_lower]/size/y",
+    "xml_case/geometry/assembly[name=Bondwires]/geometry/cuboid[name=bw_h4_lower]/size/z",
+    "xml_case/geometry/assembly[name=Bondwires]/geometry/cuboid[name=bw_h4_right]/material",
+    "xml_case/geometry/assembly[name=Bondwires]/geometry/cuboid[name=bw_h4_right]/name",
+    "xml_case/geometry/assembly[name=Bondwires]/geometry/cuboid[name=bw_h4_right]/position/x",
+    "xml_case/geometry/assembly[name=Bondwires]/geometry/cuboid[name=bw_h4_right]/position/y",
+    "xml_case/geometry/assembly[name=Bondwires]/geometry/cuboid[name=bw_h4_right]/position/z",
+    "xml_case/geometry/assembly[name=Bondwires]/geometry/cuboid[name=bw_h4_right]/size/x",
+    "xml_case/geometry/assembly[name=Bondwires]/geometry/cuboid[name=bw_h4_right]/size/y",
+    "xml_case/geometry/assembly[name=Bondwires]/geometry/cuboid[name=bw_h4_right]/size/z",
+    "xml_case/geometry/assembly[name=Bondwires]/geometry/cuboid[name=bw_h4_upper]/material",
+    "xml_case/geometry/assembly[name=Bondwires]/geometry/cuboid[name=bw_h4_upper]/name",
+    "xml_case/geometry/assembly[name=Bondwires]/geometry/cuboid[name=bw_h4_upper]/position/x",
+    "xml_case/geometry/assembly[name=Bondwires]/geometry/cuboid[name=bw_h4_upper]/position/y"
+  ],
+  "numeric_formatting_differences_ignored": true,
+  "template_id": "qfn",
+  "variation_id": "par_v2_c063_numberofdiscretebondwirestep_4",
+  "variation_kind": "numeric_parameter",
+  "comparison_baseline": "validation/branch_baselines/br_v2_modelingoptions_numberofdiscretebondwiresteps/model.xml",
+  "outcome": "semantic_change",
+  "floxml_effect_expectation": null
+}
