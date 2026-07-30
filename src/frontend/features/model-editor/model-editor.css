@@ -29,6 +29,23 @@
   overflow: auto;
 }
 
+.model-tree-toolbar {
+  position: sticky;
+  z-index: 2;
+  top: 0;
+  display: flex;
+  justify-content: flex-end;
+  border-bottom: 1px solid #e1e8ec;
+  background: #fff;
+  padding: 2px 0 6px;
+}
+
+.model-tree-toggle-all {
+  gap: 5px;
+  min-width: 0 !important;
+  color: #526973 !important;
+}
+
 .material-browser {
   display: grid;
   grid-template-rows: minmax(180px, 42%) minmax(0, 1fr);

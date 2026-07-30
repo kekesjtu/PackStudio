@@ -87,6 +87,18 @@ describe('ModelTree', () => {
     expect(screen.getByText('Die attach')).toBeInTheDocument()
   })
 
+  it('collapses and expands the complete tree with one toolbar button', () => {
+    renderTree()
+
+    fireEvent.click(screen.getByRole('button', { name: '全部折叠' }))
+    expect(screen.queryByText('Die assembly')).not.toBeInTheDocument()
+    expect(screen.queryByText('Die block')).not.toBeInTheDocument()
+
+    fireEvent.click(screen.getByRole('button', { name: '全部展开' }))
+    expect(screen.getByText('Die assembly')).toBeInTheDocument()
+    expect(screen.getByText('Die block')).toBeInTheDocument()
+  })
+
   it('applies parent visibility changes to every descendant block', () => {
     const { onSetBlockHidden } = renderTree()
 

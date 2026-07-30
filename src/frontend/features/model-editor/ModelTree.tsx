@@ -130,8 +130,10 @@ function GroupNode(props: {
   onSelectBlock: (blockId: string) => void
   onSetBlocksHidden: (blockIds: string[], hidden: boolean) => void
   onOpenContextMenu: (event: MouseEvent, blockId: string) => void
+  collapsedGroupIds: ReadonlySet<string>
+  onToggleGroup: (groupId: string) => void
 }) {
-  const [expanded, setExpanded] = useState(true)
+  const expanded = !props.collapsedGroupIds.has(props.group.id)
   const childGroups = props.data.children.get(props.group.id) ?? []
   const blockIds = props.data.descendantIds.get(props.group.id) ?? []
   return (
@@ -140,7 +142,7 @@ function GroupNode(props: {
       label={props.group.name}
       blockIds={blockIds}
       expanded={expanded}
-      onToggle={() => setExpanded((current) => !current)}
+      onToggle={() => props.onToggleGroup(props.group.id)}
     >
       <BlockRows {...props} blockIds={props.group.block_ids} />
       {childGroups.map((group) => (
@@ -152,12 +154,18 @@ function GroupNode(props: {
 
 export default function ModelTree(props: ModelTreeProps) {
   const [contextMenu, setContextMenu] = useState<ContextMenuState | null>(null)
+  const [collapsedGroupIds, setCollapsedGroupIds] = useState<Set<string>>(
+    () => new Set(),
+  )
   if (!props.model) {
     return <Typography color="text.secondary">尚未生成模型。</Typography>
   }
 
   const data = buildTreeData(props.model)
   const rootGroups = data.children.get(null) ?? []
+  const groupIds = props.model.groups.map((group) => group.id)
+  const allCollapsed =
+    groupIds.length > 0 && groupIds.every((groupId) => collapsedGroupIds.has(groupId))
   const closeMenu = () => setContextMenu(null)
   const setBlocksHidden = (blockIds: string[], hidden: boolean) => {
     for (const blockId of blockIds) props.onSetBlockHidden(blockId, hidden)
@@ -172,6 +180,17 @@ export default function ModelTree(props: ModelTreeProps) {
   }
   const contextBlockHidden =
     contextMenu !== null && props.hiddenBlockIds.has(contextMenu.blockId)
+  const toggleGroup = (groupId: string) => {
+    setCollapsedGroupIds((current) => {
+      const next = new Set(current)
+      if (next.has(groupId)) next.delete(groupId)
+      else next.add(groupId)
+      return next
+    })
+  }
+  const toggleAllGroups = () => {
+    setCollapsedGroupIds(allCollapsed ? new Set() : new Set(groupIds))
+  }
   const nodeProps = {
     data,
     selectedBlockId: props.selectedBlockId,
@@ -179,10 +198,24 @@ export default function ModelTree(props: ModelTreeProps) {
     onSelectBlock: props.onSelectBlock,
     onSetBlocksHidden: setBlocksHidden,
     onOpenContextMenu: openContextMenu,
+    collapsedGroupIds,
+    onToggleGroup: toggleGroup,
   }
 
   return (
     <Box className="model-tree">
+      <Box className="model-tree-toolbar">
+        <Button
+          size="small"
+          className="model-tree-toggle-all"
+          aria-label={allCollapsed ? '全部展开' : '全部折叠'}
+          title={allCollapsed ? '展开所有父节点' : '折叠所有父节点'}
+          onClick={toggleAllGroups}
+        >
+          <span aria-hidden="true">{allCollapsed ? '⊞' : '⊟'}</span>
+          {allCollapsed ? '全部展开' : '全部折叠'}
+        </Button>
+      </Box>
       {rootGroups.map((group) => (
         <GroupNode key={group.id} {...nodeProps} group={group} depth={0} />
       ))}
