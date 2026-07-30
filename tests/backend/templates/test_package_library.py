@@ -6,6 +6,7 @@ from lxml import etree
 import packstudio
 from packstudio.domain.enums import StructureType
 from packstudio.domain.geometry import find_overlapping_pairs
+from packstudio.domain.materials import ConductivityTensor
 from packstudio.exporters.pta_xml import export_pta_xml
 from packstudio.templates.package_library.catalog import (
     catalog,
@@ -14,7 +15,8 @@ from packstudio.templates.package_library.catalog import (
     generate,
     schema,
 )
-from packstudio.templates.package_library.parameters import (
+from packstudio.templates.package_library.core.materials import production_materials
+from packstudio.templates.package_library.core.parameters import (
     BgaConfiguration,
     TemplateRequest,
 )
@@ -53,6 +55,45 @@ def test_native_schemas_expose_only_handwritten_fields_and_special_rules() -> No
         assert result["has_bga"] is item.has_bga
 
 
+def test_component_material_choices_are_finite_and_use_builtin_materials() -> None:
+    known_materials = set(production_materials())
+
+    for template_id in definitions():
+        fields = [
+            field
+            for step in schema(template_id)["steps"]
+            for field in step["fields"]
+            if field["control"] == "material"
+        ]
+        assert fields
+        assert all(field["material_group_id"] for field in fields)
+        assert all(0 < len(field["options"]) <= 2 for field in fields)
+        assert all(set(field["options"]) <= known_materials for field in fields)
+
+
+def test_every_declared_component_material_can_be_applied_to_its_group() -> None:
+    for template_id, item in definitions().items():
+        fields = {field.key: field for field in item.fields}
+        for selection in item.material_selections:
+            overrides = {
+                fields[key].target_id(template_id): value
+                for key, value in selection.visible_when.items()
+            }
+            for material_id in selection.options:
+                model = generate(
+                    TemplateRequest(
+                        template_id=template_id,
+                        overrides=overrides,
+                        material_assignments={selection.group_id: material_id},
+                    )
+                )
+                blocks = [
+                    block for block in model.blocks if block.parent_group_id == selection.group_id
+                ]
+                assert blocks, f"{template_id}: missing {selection.group_id}"
+                assert {block.material_id for block in blocks} == {material_id}
+
+
 @pytest.mark.parametrize("template_id", list(definitions()))
 def test_every_native_baseline_is_valid_and_non_overlapping(template_id: str) -> None:
     model = generate(default_request(template_id))
@@ -61,7 +102,8 @@ def test_every_native_baseline_is_valid_and_non_overlapping(template_id: str) ->
     assert model.materials
     assert find_overlapping_pairs(model.blocks) == []
     assert model.metadata["implementation"] == "packstudio-native"
-    assert model.metadata["template_version"] == "2.0"
+    assert model.metadata["template_version"] == "2.1"
+    assert model.metadata["runtime_reference_data_required"] is False
     assert model.metadata["mesh_data_included"] is False
     expected_power = 2 if template_id == "bare_die" else 0
     assert sum(source.power_w for source in model.heat_sources) == pytest.approx(expected_power)
@@ -99,12 +141,12 @@ def test_flip_chip_cbga_matches_reviewed_native_baseline() -> None:
     bump = blocks[StructureType.FLIP_CHIP_BUMP]
     solder = blocks[StructureType.SOLDER_BALL]
 
-    assert substrate.origin.z == pytest.approx(0)
+    assert substrate.origin.z == pytest.approx(0.4)
     assert substrate.size.model_dump() == pytest.approx({"x": 6, "y": 6, "z": 1.15})
-    assert solder.origin.z == pytest.approx(-0.4)
+    assert solder.origin.z == pytest.approx(0)
     assert solder.origin.x == pytest.approx(-2.65)
     assert solder.size.x == pytest.approx(5.3)
-    assert bump.origin.z == pytest.approx(1.15)
+    assert bump.origin.z == pytest.approx(1.55)
     assert bump.size.model_dump() == pytest.approx({"x": 1.8, "y": 1.8, "z": 0.1})
     assert model.metadata["flip_chip_bump_representation"] == ("thick_orthotropic_equivalent")
 
@@ -180,10 +222,47 @@ def test_inactive_conditional_parameter_is_rejected_by_backend() -> None:
 def test_material_assignment_uses_native_material_library() -> None:
     model = generate(
         TemplateRequest(
-            template_id="bare_die",
-            material_assignments={"group-die": "copper"},
+            template_id="flip_chip_pbga",
+            material_assignments={"group-substrate": "bt"},
         )
     )
 
-    assert model.blocks[0].material_id == "copper"
-    assert {material.id for material in model.materials} == {"copper"}
+    substrate = next(
+        block for block in model.blocks if block.structure_type is StructureType.SUBSTRATE
+    )
+    assert substrate.material_id == "bt"
+
+    custom_bt = production_materials()["bt"].model_copy(
+        update={"conductivity": ConductivityTensor.isotropic(99)}
+    )
+    customized = generate(
+        TemplateRequest(
+            template_id="flip_chip_pbga",
+            material_assignments={"group-substrate": "bt"},
+            custom_materials=[custom_bt],
+        )
+    )
+    used_bt = next(material for material in customized.materials if material.id == "bt")
+    assert used_bt.conductivity.x == 99
+
+    with pytest.raises(ValueError, match="not allowed"):
+        generate(
+            TemplateRequest(
+                template_id="bare_die",
+                material_assignments={"group-die": "copper"},
+            )
+        )
+    with pytest.raises(ValueError, match="unknown component material groups"):
+        generate(
+            TemplateRequest(
+                template_id="bare_die",
+                material_assignments={"die": "silicon"},
+            )
+        )
+    with pytest.raises(ValueError, match="inactive"):
+        generate(
+            TemplateRequest(
+                template_id="flip_chip_cbga",
+                material_assignments={"group-encapsulant": "eme-7730lf"},
+            )
+        )

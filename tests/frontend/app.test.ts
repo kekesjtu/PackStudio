@@ -10,7 +10,7 @@ import type {
   TemplateCatalogItem,
 } from '../../src/frontend/features/package-library/types'
 
-vi.mock('../../src/frontend/features/flip-chip-cbga/ModelPreview', () => ({
+vi.mock('../../src/frontend/features/model-editor/ModelPreview', () => ({
   default: () => createElement('div', { 'aria-label': '测试三维模型' }),
 }))
 
@@ -53,6 +53,8 @@ const schema: TemplateSchema = {
           label: '顶盖厚度',
           control: 'number',
           default: 0.3,
+          minimum: 0.05,
+          maximum: 3,
           options: [],
           classification: 'numeric_parameter',
           property_name: 'lid.thickness',
@@ -68,12 +70,29 @@ const schema: TemplateSchema = {
           label: 'Die Length Ld',
           control: 'number',
           default: 1.8,
+          minimum: 1.62,
+          maximum: 1.98,
           options: [],
           classification: 'numeric_parameter',
           property_name: 'dieLengthLd',
           supported_values: [1.62, 1.8, 1.98],
           evidence_status: 'implemented',
           editable: true,
+        },
+        {
+          target_id: 'flip_chip_cbga.material.die',
+          ui_location: 'die',
+          component: 'group-die',
+          label: '芯片材料',
+          control: 'material',
+          default: 'silicon',
+          options: ['silicon'],
+          classification: 'material_option',
+          property_name: 'material.group-die',
+          supported_values: ['silicon'],
+          evidence_status: 'implemented',
+          editable: true,
+          material_group_id: 'group-die',
         },
       ],
     },
@@ -112,7 +131,7 @@ const generatedModel: PackageModel = {
   name: 'Flip Chip CBGA',
   length_unit: 'mm',
   coordinate_system: {
-    origin: 'substrate bottom-face center',
+    origin: 'package bottom-plane center (FloTHERM PACK)',
     x_axis: 'package length',
     y_axis: 'package width',
     z_axis: 'upward through package thickness',
@@ -176,9 +195,16 @@ describe('eight-template production workspace', () => {
       'aria-valuenow',
       '390',
     )
-    expect(screen.getByRole('tab', { name: '材料配置' })).toBeInTheDocument()
+    expect(screen.getByLabelText('芯片材料')).toHaveValue('silicon')
+    expect(screen.getByText(/允许范围.*1.62.*1.98/)).toBeInTheDocument()
+    expect(screen.getByRole('tab', { name: '材料库' })).toBeInTheDocument()
     fireEvent.click(screen.getByRole('tab', { name: '模型树' }))
     expect(screen.getByText('Package substrate')).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: '组件层级' })).toBeInTheDocument()
+    fireEvent.click(screen.getByRole('button', { name: 'Layer 层级' }))
+    expect(screen.getByText(/Layer 1 · z 0–1.15 mm/)).toBeInTheDocument()
+    fireEvent.click(screen.getByRole('button', { name: /隐藏 Layer 1/ }))
+    expect(screen.getByText('已隐藏')).toBeInTheDocument()
   })
 
   it('combines BGA removal and center solder without exposing staggered patterns', async () => {
@@ -225,6 +251,20 @@ describe('eight-template production workspace', () => {
     })
     expect(screen.getByLabelText('顶盖厚度')).toBeInTheDocument()
   })
+
+  it('edits material properties as design overrides without changing component binding', async () => {
+    render(createElement(App))
+    await screen.findByText('1 个块')
+    fireEvent.change(screen.getByLabelText('kx'), { target: { value: '18' } })
+    fireEvent.click(screen.getByRole('button', { name: '生成模型' }))
+    await waitFor(() => expect(generateCalls()).toHaveLength(2))
+    const body = requestBody(generateCalls().at(-1))
+    expect(body.custom_materials[0]).toMatchObject({
+      id: 'alumina',
+      conductivity: { x: 18, y: 16, z: 16 },
+    })
+    expect(body.material_assignments).toEqual({})
+  })
 })
 
 function template(id: string, display_name: string, has_bga: boolean): TemplateCatalogItem {
@@ -248,7 +288,6 @@ function fetchResponse(input: RequestInfo | URL) {
   if (url.endsWith('/generate')) return jsonResponse(generatedModel)
   return Promise.resolve(new Response('', { status: 404 }))
 }
-
 const jsonResponse = (value: unknown) =>
   Promise.resolve({ ok: true, status: 200, json: async () => value } as Response)
 

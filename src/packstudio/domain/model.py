@@ -11,7 +11,7 @@ from packstudio.domain.thermal import BoundaryCondition, HeatSource
 class CoordinateSystem(BaseModel):
     model_config = ConfigDict(frozen=True)
 
-    origin: str = "substrate bottom-face center"
+    origin: str = "package bottom-plane center (FloTHERM PACK)"
     x_axis: str = "package length"
     y_axis: str = "package width"
     z_axis: str = "upward through package thickness"

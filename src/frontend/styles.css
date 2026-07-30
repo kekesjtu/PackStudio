@@ -71,7 +71,7 @@ body {
   flex: 1;
   min-height: 0;
   overflow: auto;
-  padding: 2px 5px 8px 1px;
+  padding: 10px 5px 12px 1px;
 }
 
 .column-resizer {
@@ -157,16 +157,11 @@ body {
   gap: 12px;
 }
 
-.field-grid-2 {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-
 .field-grid-3 {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
-.material-fields,
-.sub-parameter-group {
+.material-fields {
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -182,40 +177,11 @@ body {
   border-top: 1px solid #e0e7ea;
 }
 
-.summary-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 10px;
-}
-
-.summary-value {
-  padding: 10px;
-  border: 1px solid #dce5e9;
-  border-radius: 7px;
-  background: #f8fafb;
-}
-
-.array-metrics {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 8px 12px;
-  padding: 10px;
-  border: 1px solid #dce5e9;
-  border-radius: 7px;
-  background: #f8fafb;
-}
-
 .package-loading {
   display: grid;
   min-height: calc(100vh - 64px);
   place-items: center;
   padding: 24px;
-}
-
-.package-materials {
-  height: 100%;
-  overflow: auto;
-  padding-right: 3px;
 }
 
 @media (max-width: 1300px) {
@@ -258,9 +224,7 @@ body {
     padding: 8px;
   }
 
-  .field-grid-2,
-  .field-grid-3,
-  .array-metrics {
+  .field-grid-3 {
     grid-template-columns: 1fr;
   }
 }

@@ -10,8 +10,8 @@ from packstudio.templates.package_library.catalog import (
     generate,
     schema,
 )
-from packstudio.templates.package_library.materials import production_materials
-from packstudio.templates.package_library.parameters import TemplateRequest
+from packstudio.templates.package_library.core.materials import production_materials
+from packstudio.templates.package_library.core.parameters import TemplateRequest
 
 router = APIRouter(prefix="/api/templates", tags=["templates"])
 

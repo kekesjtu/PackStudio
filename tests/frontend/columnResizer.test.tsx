@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { fireEvent, render, screen } from '@testing-library/react'
 import { beforeAll, describe, expect, it, vi } from 'vitest'
 
-import ColumnResizer from '../../src/frontend/features/flip-chip-cbga/ColumnResizer'
+import ColumnResizer from '../../src/frontend/features/model-editor/ColumnResizer'
 
 beforeAll(() => {
   Object.defineProperty(HTMLElement.prototype, 'setPointerCapture', {

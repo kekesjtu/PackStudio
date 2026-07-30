@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest'
 
-import { toNativeXyzBlockTransform } from '../../src/frontend/features/flip-chip-cbga/previewGeometry'
-import type { AxisAlignedBlock } from '../../src/frontend/features/flip-chip-cbga/types'
+import { toNativeXyzBlockTransform } from '../../src/frontend/features/model-editor/previewGeometry'
+import type { AxisAlignedBlock } from '../../src/frontend/features/model-editor/types'
 
 describe('3D preview coordinates', () => {
   it('keeps the domain XYZ axes without swapping or reflecting them', () => {

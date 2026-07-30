@@ -7,7 +7,7 @@ import {
   TextField,
 } from '@mui/material'
 
-import NumberInput from '../flip-chip-cbga/NumberInput'
+import NumberInput from '../model-editor/NumberInput'
 import type { BgaConfiguration } from './types'
 
 interface BgaConfigurationPanelProps {

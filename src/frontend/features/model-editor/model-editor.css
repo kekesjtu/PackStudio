@@ -1,0 +1,105 @@
+.inspector-panel {
+  grid-area: inspector;
+  overflow: hidden;
+}
+
+.inspector-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.inspector-tab-content {
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  padding: 12px;
+}
+
+.material-swatch {
+  flex: 0 0 auto;
+  width: 14px;
+  height: 14px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+}
+
+.model-tree {
+  height: 100%;
+  overflow: auto;
+}
+
+.tree-view-mode {
+  position: sticky;
+  z-index: 2;
+  top: 0;
+  margin-bottom: 8px;
+  background: #fff;
+}
+
+.material-browser {
+  display: grid;
+  grid-template-rows: minmax(180px, 42%) minmax(0, 1fr);
+  gap: 12px;
+  height: 100%;
+}
+
+.material-browser-list,
+.material-browser-details {
+  min-height: 0;
+  overflow: auto;
+}
+
+.material-browser-details {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border-top: 1px solid #d8e1e7;
+  padding-top: 12px;
+}
+
+.material-browser-property {
+  border-radius: 5px;
+  background: #f4f7f9;
+  padding: 6px 8px;
+}
+
+.tree-group {
+  margin-left: calc(var(--tree-depth) * 13px);
+  border-left: 1px solid #d8e1e7;
+  padding: 4px 0 4px 9px;
+}
+
+.tree-group-label {
+  min-height: 30px;
+}
+
+.tree-group-name {
+  min-width: 0;
+  flex: 1;
+}
+
+.tree-block {
+  display: flex !important;
+  width: 100%;
+  justify-content: space-between !important;
+  gap: 8px;
+  border-radius: 5px !important;
+  padding: 6px 8px !important;
+  color: #304550 !important;
+  text-align: left !important;
+}
+
+.tree-block:hover,
+.tree-block[data-selected='true'] {
+  background: #e6f3f6;
+}
+
+.tree-block[data-hidden='true'] {
+  opacity: 0.48;
+}
+
+.tree-block small {
+  color: #6b7f89;
+  font-size: 0.66rem;
+}

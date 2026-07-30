@@ -14,11 +14,11 @@ import {
   TextField,
   Typography,
 } from '@mui/material'
-import { useEffect, useMemo, useState, type CSSProperties } from 'react'
+import { useEffect, useMemo, useRef, useState, type CSSProperties } from 'react'
 
-import ColumnResizer from '../flip-chip-cbga/ColumnResizer'
-import ModelPreview from '../flip-chip-cbga/ModelPreview'
-import NumberInput from '../flip-chip-cbga/NumberInput'
+import ColumnResizer from '../model-editor/ColumnResizer'
+import ModelPreview from '../model-editor/ModelPreview'
+import NumberInput from '../model-editor/NumberInput'
 import {
   downloadTemplatePta,
   generateTemplateModel,
@@ -28,6 +28,7 @@ import {
 } from './api'
 import BgaConfigurationPanel from './BgaConfigurationPanel'
 import PackageInspector from './PackageInspector'
+import { restoreTemplateRequest, saveTemplateRequest } from './requestStorage'
 import type {
   Material,
   PackageModel,
@@ -54,6 +55,11 @@ export default function PackageWorkspace({ templateId }: PackageWorkspaceProps) 
   const [dirty, setDirty] = useState(false)
   const [saved, setSaved] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  const propertyContentRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    if (propertyContentRef.current) propertyContentRef.current.scrollTop = 0
+  }, [activeStep])
 
   useEffect(() => {
     let cancelled = false
@@ -64,15 +70,16 @@ export default function PackageWorkspace({ templateId }: PackageWorkspaceProps) 
     ])
       .then(async ([loadedSchema, defaults, materials]) => {
         if (cancelled) return
-        const restored = restoreRequest(templateId) ?? defaults
-        const generated = await generateTemplateModel(restored)
+        const restored = restoreTemplateRequest(templateId, defaults, loadedSchema)
+        const initialRequest = restored ?? defaults
+        const generated = await generateTemplateModel(initialRequest)
         if (cancelled) return
         setSchema(loadedSchema)
-        setRequest(restored)
+        setRequest(initialRequest)
         setLibrary(materials)
         setModel(generated)
         setActiveStep(loadedSchema.steps[0]?.id ?? 'common')
-        setSaved(restored !== defaults)
+        setSaved(restored !== null)
         setDirty(false)
         setHiddenBlockIds(new Set())
       })
@@ -179,8 +186,8 @@ export default function PackageWorkspace({ templateId }: PackageWorkspaceProps) 
             {stepTitle(schema, activeStep)}
           </Typography>
           <Divider />
-          <Box className="property-content">
-            {renderStep(schema, activeStep, allFields, request, changeRequest)}
+          <Box ref={propertyContentRef} className="property-content">
+            {renderStep(schema, activeStep, allFields, request, library, changeRequest)}
           </Box>
           <Stack direction={{ xs: 'column', sm: 'row' }} spacing={1} className="action-bar">
             <Button variant="contained" disabled={busy} onClick={handleGenerate}>
@@ -189,7 +196,7 @@ export default function PackageWorkspace({ templateId }: PackageWorkspaceProps) 
             <Button
               variant="outlined"
               onClick={() => {
-                saveRequest(templateId, request)
+                saveTemplateRequest(templateId, request)
                 setSaved(true)
               }}
             >
@@ -245,6 +252,7 @@ function renderStep(
   activeStep: string,
   allFields: TemplateSchema['steps'][number]['fields'],
   request: TemplateRequest,
+  materials: Material[],
   onChange: (request: TemplateRequest) => void,
 ) {
   if (activeStep === 'packstudio_bga' && request.bga) {
@@ -253,7 +261,7 @@ function renderStep(
   if (activeStep === 'packstudio_common') return <CommonFields request={request} onChange={onChange} />
   if (activeStep === 'packstudio_boundary') return <BoundaryFields request={request} onChange={onChange} />
   const step = schema.steps.find((item) => item.id === activeStep) ?? schema.steps[0]
-  return <WizardFields step={step} allFields={allFields} request={request} onChange={onChange} />
+  return <WizardFields step={step} allFields={allFields} request={request} materials={materials} onChange={onChange} />
 }
 
 function CommonFields({ request, onChange }: { request: TemplateRequest; onChange: (value: TemplateRequest) => void }) {
@@ -285,9 +293,4 @@ function stepTitle(schema: TemplateSchema, stepId: string) {
   return schema.steps.find((step) => step.id === stepId)?.label ?? '参数'
 }
 
-const storageKey = (templateId: string) => `packstudio.library.v2.${templateId}`
-const saveRequest = (templateId: string, request: TemplateRequest) => localStorage.setItem(storageKey(templateId), JSON.stringify(request))
-function restoreRequest(templateId: string): TemplateRequest | null {
-  try { const value = localStorage.getItem(storageKey(templateId)); return value ? JSON.parse(value) as TemplateRequest : null } catch { return null }
-}
 const errorMessage = (reason: unknown) => reason instanceof Error ? reason.message : '发生未知错误'

@@ -2,19 +2,26 @@ from functools import lru_cache
 from typing import Any
 
 from packstudio.domain.model import PackageModel
-from packstudio.templates.package_library import (
-    bare_die,
-    fbga_fsbga,
-    flip_chip_cbga,
-    flip_chip_pbga,
-    qfn,
-    qfp_family,
-    soic_family,
-    wirebond_pbga,
+from packstudio.templates.package_library.bare_die import template as bare_die
+from packstudio.templates.package_library.bga import fbga_fsbga, wirebond_pbga
+from packstudio.templates.package_library.core.definitions import TemplateDefinition
+from packstudio.templates.package_library.core.generator import generate_template
+from packstudio.templates.package_library.core.parameters import TemplateRequest
+from packstudio.templates.package_library.flip_chip import (
+    cbga as flip_chip_cbga,
 )
-from packstudio.templates.package_library.definitions import TemplateDefinition
-from packstudio.templates.package_library.generator import generate_template
-from packstudio.templates.package_library.parameters import TemplateRequest
+from packstudio.templates.package_library.flip_chip import (
+    pbga as flip_chip_pbga,
+)
+from packstudio.templates.package_library.leadframe import (
+    qfn,
+)
+from packstudio.templates.package_library.leadframe import (
+    qfp as qfp_family,
+)
+from packstudio.templates.package_library.leadframe import (
+    soic as soic_family,
+)
 
 
 @lru_cache(maxsize=1)
@@ -63,7 +70,7 @@ def default_request(template_id: str) -> TemplateRequest:
     return TemplateRequest(
         template_id=template_id,
         design_name=item.display_name,
-        bga={} if item.has_bga else None,
+        bga={"representation": item.default_bga_representation} if item.has_bga else None,
     )
 
 

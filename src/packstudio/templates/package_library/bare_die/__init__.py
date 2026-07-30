@@ -1,0 +1,1 @@
+"""Bare-die package template."""

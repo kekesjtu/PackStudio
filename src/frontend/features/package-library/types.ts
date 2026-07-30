@@ -1,12 +1,22 @@
-import type {
-  CellIndex,
-  EnvironmentParameters,
-  Material,
-  MeshParameters,
-  PackageModel,
-} from '../flip-chip-cbga/types'
+import type { Material, PackageModel } from '../model-editor/types'
 
 export type WizardValue = string | number | boolean | null
+
+export interface CellIndex {
+  row: number
+  column: number
+}
+
+export interface MeshParameters {
+  resolution: 'coarse' | 'standard' | 'fine'
+}
+
+export interface EnvironmentParameters {
+  ambient_temperature_k: number
+  default_convection_coefficient_w_m2k: number
+  pcb_convection_coefficient_w_m2k: number
+  top_convection_coefficient_w_m2k: number
+}
 
 export interface TemplateCatalogItem {
   id: string
@@ -25,12 +35,16 @@ export interface WizardField {
   label: string
   control: string
   default: WizardValue
+  unit?: string | null
+  minimum?: number | null
+  maximum?: number | null
   options: WizardValue[]
   classification: string
   property_name: string | null
   supported_values: WizardValue[]
   evidence_status: 'implemented'
   editable: boolean
+  material_group_id?: string | null
   visible_when?: Record<string, WizardValue>
   enabled_when?: Record<string, WizardValue>
   hidden_when?: Record<string, WizardValue>
