@@ -29,14 +29,6 @@
   overflow: auto;
 }
 
-.tree-view-mode {
-  position: sticky;
-  z-index: 2;
-  top: 0;
-  margin-bottom: 8px;
-  background: #fff;
-}
-
 .material-browser {
   display: grid;
   grid-template-rows: minmax(180px, 42%) minmax(0, 1fr);
@@ -72,6 +64,25 @@
 
 .tree-group-label {
   min-height: 30px;
+}
+
+.tree-group-toggle {
+  min-width: 0;
+  flex: 1;
+  justify-content: flex-start !important;
+  border-radius: 4px !important;
+  padding: 3px 2px !important;
+  text-align: left !important;
+}
+
+.tree-group-toggle:hover {
+  background: #eef5f7;
+}
+
+.tree-group-chevron {
+  flex: 0 0 16px;
+  color: #526973;
+  text-align: center;
 }
 
 .tree-group-name {

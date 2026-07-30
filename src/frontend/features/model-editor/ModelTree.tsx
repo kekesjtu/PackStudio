@@ -7,8 +7,6 @@ import {
   Menu,
   MenuItem,
   Stack,
-  ToggleButton,
-  ToggleButtonGroup,
   Typography,
 } from '@mui/material'
 
@@ -46,6 +44,8 @@ interface NodeProps {
   onSelectBlock: (blockId: string) => void
   onSetBlocksHidden: (blockIds: string[], hidden: boolean) => void
   onOpenContextMenu: (event: MouseEvent, blockId: string) => void
+  expanded: boolean
+  onToggle: () => void
   children?: React.ReactNode
 }
 
@@ -55,9 +55,24 @@ function TreeNode(props: NodeProps) {
   return (
     <Box className="tree-group" sx={{ '--tree-depth': props.depth }}>
       <Stack direction="row" spacing={0.75} alignItems="center" className="tree-group-label">
-        <Typography variant="body2" fontWeight={700} className="tree-group-name">
-          {props.label}
-        </Typography>
+        <ButtonBase
+          className="tree-group-toggle"
+          aria-expanded={props.expanded}
+          aria-label={`${props.expanded ? '折叠' : '展开'} ${props.label}`}
+          onClick={props.onToggle}
+        >
+          <span className="tree-group-chevron" aria-hidden="true">
+            {props.expanded ? '▾' : '▸'}
+          </span>
+          <Typography
+            component="span"
+            variant="body2"
+            fontWeight={700}
+            className="tree-group-name"
+          >
+            {props.label}
+          </Typography>
+        </ButtonBase>
         <Chip
           label={`${visibleCount}/${props.blockIds.length}`}
           size="small"
@@ -73,7 +88,7 @@ function TreeNode(props: NodeProps) {
           </Button>
         )}
       </Stack>
-      {props.children}
+      {props.expanded && props.children}
     </Box>
   )
 }
@@ -116,10 +131,17 @@ function GroupNode(props: {
   onSetBlocksHidden: (blockIds: string[], hidden: boolean) => void
   onOpenContextMenu: (event: MouseEvent, blockId: string) => void
 }) {
+  const [expanded, setExpanded] = useState(true)
   const childGroups = props.data.children.get(props.group.id) ?? []
   const blockIds = props.data.descendantIds.get(props.group.id) ?? []
   return (
-    <TreeNode {...props} label={props.group.name} blockIds={blockIds}>
+    <TreeNode
+      {...props}
+      label={props.group.name}
+      blockIds={blockIds}
+      expanded={expanded}
+      onToggle={() => setExpanded((current) => !current)}
+    >
       <BlockRows {...props} blockIds={props.group.block_ids} />
       {childGroups.map((group) => (
         <GroupNode key={group.id} {...props} group={group} depth={props.depth + 1} />
@@ -129,7 +151,6 @@ function GroupNode(props: {
 }
 
 export default function ModelTree(props: ModelTreeProps) {
-  const [mode, setMode] = useState<'components' | 'layers'>('components')
   const [contextMenu, setContextMenu] = useState<ContextMenuState | null>(null)
   if (!props.model) {
     return <Typography color="text.secondary">尚未生成模型。</Typography>
@@ -137,7 +158,6 @@ export default function ModelTree(props: ModelTreeProps) {
 
   const data = buildTreeData(props.model)
   const rootGroups = data.children.get(null) ?? []
-  const layers = buildLayers(props.model.blocks)
   const closeMenu = () => setContextMenu(null)
   const setBlocksHidden = (blockIds: string[], hidden: boolean) => {
     for (const blockId of blockIds) props.onSetBlockHidden(blockId, hidden)
@@ -163,34 +183,9 @@ export default function ModelTree(props: ModelTreeProps) {
 
   return (
     <Box className="model-tree">
-      <ToggleButtonGroup
-        exclusive
-        fullWidth
-        size="small"
-        value={mode}
-        className="tree-view-mode"
-        onChange={(_event, value: 'components' | 'layers' | null) => {
-          if (value) setMode(value)
-        }}
-      >
-        <ToggleButton value="components">组件层级</ToggleButton>
-        <ToggleButton value="layers">Layer 层级</ToggleButton>
-      </ToggleButtonGroup>
-      {mode === 'components'
-        ? rootGroups.map((group) => (
-            <GroupNode key={group.id} {...nodeProps} group={group} depth={0} />
-          ))
-        : layers.map((layer) => (
-            <TreeNode
-              key={layer.key}
-              {...nodeProps}
-              label={layer.label}
-              blockIds={layer.blockIds}
-              depth={0}
-            >
-              <BlockRows {...nodeProps} blockIds={layer.blockIds} />
-            </TreeNode>
-          ))}
+      {rootGroups.map((group) => (
+        <GroupNode key={group.id} {...nodeProps} group={group} depth={0} />
+      ))}
       <Menu
         open={contextMenu !== null}
         onClose={closeMenu}
@@ -249,24 +244,3 @@ function buildTreeData(model: PackageModel): TreeData {
     descendantIds,
   }
 }
-
-function buildLayers(blocks: AxisAlignedBlock[]) {
-  const grouped = new Map<string, { z0: number; z1: number; blockIds: string[] }>()
-  for (const block of blocks) {
-    const z0 = block.origin.z
-    const z1 = z0 + block.size.z
-    const key = `${z0.toFixed(9)}:${z1.toFixed(9)}`
-    const layer = grouped.get(key) ?? { z0, z1, blockIds: [] }
-    layer.blockIds.push(block.id)
-    grouped.set(key, layer)
-  }
-  return [...grouped.entries()]
-    .sort(([, left], [, right]) => right.z0 - left.z0 || right.z1 - left.z1)
-    .map(([key, layer], index) => ({
-      key,
-      blockIds: layer.blockIds,
-      label: `Layer ${index + 1} · z ${format(layer.z0)}–${format(layer.z1)} mm`,
-    }))
-}
-
-const format = (value: number) => Number(value.toFixed(6)).toString()
