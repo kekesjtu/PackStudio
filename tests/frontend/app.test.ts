@@ -41,18 +41,18 @@ const schema: TemplateSchema = {
           label: 'Footprint 尺寸（JEDEC）',
           control: 'footprint',
           default: 'CBGAFC_49_6X6mm',
-          options: ['CBGAFC_49_6X6mm', 'CBGAFC_64_7X7mm'],
+          options: ['CBGAFC_49_6X6mm', 'CBGAFC_81_8X8mm'],
           option_labels: {
             CBGAFC_49_6X6mm: 'CBGAFC · 49 球 · 6 × 6 mm',
-            CBGAFC_64_7X7mm: 'CBGAFC · 64 球 · 7 × 7 mm',
+            CBGAFC_81_8X8mm: 'CBGAFC · 81 球 · 8 × 8 mm',
           },
           preset_values: {
             CBGAFC_49_6X6mm: { 'flip_chip_cbga.die.length': 1.8 },
-            CBGAFC_64_7X7mm: { 'flip_chip_cbga.die.length': 1.9 },
+            CBGAFC_81_8X8mm: { 'flip_chip_cbga.die.length': 2.4 },
           },
           classification: 'jedec_preset',
           property_name: 'footprint.size',
-          supported_values: ['CBGAFC_49_6X6mm', 'CBGAFC_64_7X7mm'],
+          supported_values: ['CBGAFC_49_6X6mm', 'CBGAFC_81_8X8mm'],
           evidence_status: 'implemented',
           editable: true,
         },
@@ -288,16 +288,16 @@ describe('eight-template production workspace', () => {
 
     fireEvent.click(screen.getByRole('button', { name: '封装规格' }))
     fireEvent.change(screen.getByLabelText('Footprint 尺寸（JEDEC）'), {
-      target: { value: 'CBGAFC_64_7X7mm' },
+      target: { value: 'CBGAFC_81_8X8mm' },
     })
     expect(screen.getByText(/自动填充关联参数/)).toBeInTheDocument()
     fireEvent.click(screen.getByRole('button', { name: '芯片' }))
-    expect(screen.getByLabelText('芯片长度 Ld')).toHaveValue(1.9)
+    expect(screen.getByLabelText('芯片长度 Ld')).toHaveValue(2.4)
     fireEvent.click(screen.getByRole('button', { name: '生成模型' }))
 
     await waitFor(() => expect(generateCalls()).toHaveLength(2))
     expect(requestBody(generateCalls().at(-1)).overrides).toEqual({
-      'flip_chip_cbga.footprint.size': 'CBGAFC_64_7X7mm',
+      'flip_chip_cbga.footprint.size': 'CBGAFC_81_8X8mm',
     })
   })
 
@@ -307,7 +307,7 @@ describe('eight-template production workspace', () => {
 
     fireEvent.click(screen.getByRole('button', { name: '封装规格' }))
     fireEvent.change(screen.getByLabelText('Footprint 尺寸（JEDEC）'), {
-      target: { value: 'CBGAFC_64_7X7mm' },
+      target: { value: 'CBGAFC_81_8X8mm' },
     })
     fireEvent.click(screen.getByRole('button', { name: '芯片' }))
     fireEvent.change(screen.getByLabelText('芯片长度 Ld'), { target: { value: '1.8' } })
@@ -315,7 +315,7 @@ describe('eight-template production workspace', () => {
 
     await waitFor(() => expect(generateCalls()).toHaveLength(2))
     expect(requestBody(generateCalls().at(-1)).overrides).toEqual({
-      'flip_chip_cbga.footprint.size': 'CBGAFC_64_7X7mm',
+      'flip_chip_cbga.footprint.size': 'CBGAFC_81_8X8mm',
       'flip_chip_cbga.die.length': 1.8,
     })
   })

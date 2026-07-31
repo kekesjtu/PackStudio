@@ -24,6 +24,8 @@ def _flip_chip_presets(prefix: str) -> tuple[PresetOption, ...]:
             values={
                 "substrate.length": size,
                 "substrate.width": size,
+                "die.length": die_size,
+                "die.width": die_size,
                 "bga.columns": side,
                 "bga.rows": side,
                 "bga.pitch": 0.8,
@@ -31,11 +33,9 @@ def _flip_chip_presets(prefix: str) -> tuple[PresetOption, ...]:
                 "bga.height": 0.4,
             },
         )
-        for balls, size, side in (
-            (49, 6, 7),
-            (64, 7, 8),
-            (81, 8, 9),
-            (100, 9, 10),
-            (144, 10, 12),
+        for balls, size, die_size, side in (
+            (49, 6, 1.8, 7),
+            (81, 8, 2.4, 9),
+            (144, 10, 3.0, 12),
         )
     )

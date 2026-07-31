@@ -113,7 +113,7 @@ def soic_fields() -> tuple[FieldDefinition, ...]:
         number("package.length", "overall_package", "封装长度 D", 4.93, 2, 30),
         number("package.width", "overall_package", "引脚外包络宽度 E", 6, 2, 30),
         number("package.standoff", "overall_package", "离板高度 A1", 0.15, 0, 1),
-        number("body.length", "encapsulant", "塑封长度", 4.93, 1, 25),
+        number("body.length", "encapsulant", "塑封长度", 4.93, 1, 30),
         number("body.width", "encapsulant", "塑封宽度", 3.81, 1, 25),
         number("body.thickness", "encapsulant", "塑封厚度", 1.47, 0.3, 6),
         number("die.length", "die", "芯片长度", 1.479, 0.2, 20),
