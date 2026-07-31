@@ -1,10 +1,12 @@
 from collections.abc import Sequence
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, model_validator
 
 from packstudio.domain.enums import StructureType
 
 MetadataValue = str | int | float | bool
+BOOLEAN_SOURCE_ID_KEY = "boolean_source_id"
+BOOLEAN_SOURCE_NAME_KEY = "boolean_source_name"
 
 
 class Point3D(BaseModel):
@@ -46,6 +48,46 @@ class AxisAlignedBlock(BaseModel):
     @property
     def max_z(self) -> float:
         return self.origin.z + self.size.z
+
+
+class RectangleOperation(BaseModel):
+    """One additive or subtractive XY rectangle in an extruded solid."""
+
+    model_config = ConfigDict(frozen=True)
+
+    add: bool
+    x: float
+    y: float
+    width: float = Field(gt=0)
+    height: float = Field(gt=0)
+
+
+class RectangularBooleanBlock(BaseModel):
+    """A PTA-compatible XY boolean profile with an independent Z extrusion."""
+
+    model_config = ConfigDict(frozen=True)
+
+    id: str = Field(pattern=r"^[a-z0-9][a-z0-9._-]*$")
+    name: str = Field(min_length=1, max_length=160)
+    structure_type: StructureType
+    z: float
+    thickness: float = Field(gt=0)
+    material_id: str = Field(pattern=r"^[a-z0-9][a-z0-9._-]*$")
+    parent_group_id: str = Field(pattern=r"^[a-z0-9][a-z0-9._-]*$")
+    operations: list[RectangleOperation] = Field(min_length=1)
+    source_block_ids: list[str] = Field(min_length=1)
+
+    @model_validator(mode="after")
+    def validate_operation_order(self) -> "RectangularBooleanBlock":
+        if not self.operations[0].add:
+            raise ValueError("boolean block must start with an additive rectangle")
+        subtraction_started = False
+        for operation in self.operations:
+            if not operation.add:
+                subtraction_started = True
+            elif subtraction_started:
+                raise ValueError("additive rectangles must precede subtractive rectangles")
+        return self
 
 
 def find_overlapping_pairs(

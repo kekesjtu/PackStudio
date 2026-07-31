@@ -1,7 +1,13 @@
 from dataclasses import dataclass, field, replace
 
 from packstudio.domain.enums import StructureType
-from packstudio.domain.geometry import AxisAlignedBlock, Point3D, Size3D
+from packstudio.domain.geometry import (
+    BOOLEAN_SOURCE_ID_KEY,
+    BOOLEAN_SOURCE_NAME_KEY,
+    AxisAlignedBlock,
+    Point3D,
+    Size3D,
+)
 
 _TOLERANCE = 1e-9
 
@@ -120,7 +126,11 @@ def normalize_drafts(drafts: list[DraftBlock]) -> NormalizedDrafts:
                 size=Size3D(x=piece.size[0], y=piece.size[1], z=piece.size[2]),
                 material_id=piece.material_id,
                 parent_group_id=piece.group_id,
-                metadata=piece.metadata,
+                metadata={
+                    **piece.metadata,
+                    BOOLEAN_SOURCE_ID_KEY: piece.id,
+                    BOOLEAN_SOURCE_NAME_KEY: piece.name,
+                },
             )
         )
     return NormalizedDrafts(

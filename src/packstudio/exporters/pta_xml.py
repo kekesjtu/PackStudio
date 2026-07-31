@@ -5,6 +5,15 @@ from lxml import etree
 from packstudio.domain.enums import StructureType
 from packstudio.domain.geometry import AxisAlignedBlock
 from packstudio.domain.model import PackageModel
+from packstudio.exporters.pta_blocks import (
+    append_boolean_block,
+    append_layer_block,
+    boolean_block_extents,
+)
+from packstudio.exporters.pta_boolean import (
+    compact_boolean_blocks,
+    should_use_boolean_block_mode,
+)
 from packstudio.exporters.pta_boundaries import (
     append_boundaries,
     append_default_exterior_boundary,
@@ -15,8 +24,8 @@ from packstudio.exporters.pta_constants import (
     MODEL_NAMESPACE,
     XSI_NAMESPACE,
 )
-from packstudio.exporters.pta_materials import append_block_color, append_materials
-from packstudio.exporters.pta_mesh import layer_mesh_sizes
+from packstudio.exporters.pta_materials import append_materials
+from packstudio.exporters.pta_mesh import geometry_mesh_sizes, layer_mesh_sizes
 
 
 def export_pta_xml(model: PackageModel) -> bytes:
@@ -28,6 +37,10 @@ def export_pta_xml(model: PackageModel) -> bytes:
     minimum_z = min(block.origin.z for block in model.blocks)
     z_shift = -minimum_z
     ambient_temperature = _ambient_temperature(model)
+    source_density = _source_density_by_block(model)
+    compacted_blocks = compact_boolean_blocks(model.blocks, source_density)
+    use_block_mode = should_use_boolean_block_mode(model, compacted_blocks)
+    materials = {material.id: material for material in model.materials}
 
     _text(root, "AlphaDegree", 0)
     _text(root, "AmbientTemperature", ambient_temperature)
@@ -37,7 +50,18 @@ def export_pta_xml(model: PackageModel) -> bytes:
         nsmap={"a": DIALOG_NAMESPACE},
     )
     _text(root, "BetaDegree", 0)
-    etree.SubElement(root, etree.QName(MODEL_NAMESPACE, "Blocks"))
+    root_blocks = etree.SubElement(root, etree.QName(MODEL_NAMESPACE, "Blocks"))
+    if use_block_mode:
+        for compacted in compacted_blocks:
+            extents = boolean_block_extents(compacted.geometry)
+            append_boolean_block(
+                root_blocks,
+                compacted.geometry,
+                materials[compacted.geometry.material_id].color,
+                compacted.volumetric_heat_source,
+                z_offset=compacted.geometry.z + z_shift,
+                mesh_sizes=geometry_mesh_sizes(model, *extents),
+            )
     _nil(root, "BottomThermalBoundary")
     append_boundaries(
         root,
@@ -62,7 +86,10 @@ def export_pta_xml(model: PackageModel) -> bytes:
     )
     _text(root, "GammaDegree", 0)
     _text(root, "InitialTemperature", ambient_temperature)
-    append_layers(root, model, z_shift)
+    if use_block_mode:
+        etree.SubElement(root, etree.QName(MODEL_NAMESPACE, "Layers"))
+    else:
+        append_layers(root, model, z_shift)
     _text(root, "LengthUnit", "Mm")
     append_materials(root, model.materials)
     _text(root, "MechanicalDampingFactor", 0)
@@ -91,7 +118,7 @@ def export_pta_xml(model: PackageModel) -> bytes:
         ("TransientStudyDuration", 0),
         ("TransientStudyTimeStep", 1),
         ("TransientTimeUnit", "S"),
-        ("UseBlockBuildMode", "false"),
+        ("UseBlockBuildMode", _boolean(use_block_mode)),
     ):
         _text(root, name, value)
     etree.SubElement(
@@ -119,7 +146,7 @@ def append_layers(parent: etree._Element, model: PackageModel, z_shift: float) -
         layer = etree.SubElement(container, etree.QName(MODEL_NAMESPACE, "Layer"))
         block_container = etree.SubElement(layer, etree.QName(MODEL_NAMESPACE, "Blocks"))
         for block in blocks:
-            _append_block(
+            append_layer_block(
                 block_container,
                 block,
                 materials[block.material_id].color,
@@ -148,62 +175,6 @@ def append_layers(parent: etree._Element, model: PackageModel, z_shift: float) -
         _text(layer, "ThicknessExpression", thickness)
         _text(layer, "XOffsetExpression", 0)
         _text(layer, "YOffsetExpression", 0)
-
-
-def _append_block(
-    parent: etree._Element,
-    block: AxisAlignedBlock,
-    color: str,
-    volumetric_heat_source: float,
-) -> None:
-    element = etree.SubElement(parent, etree.QName(MODEL_NAMESPACE, "Block"))
-    rectangles = etree.SubElement(element, etree.QName(MODEL_NAMESPACE, "AllRects"))
-    rectangle = etree.SubElement(rectangles, etree.QName(MODEL_NAMESPACE, "Rect"))
-    _text(rectangle, "Add_sub", "true")
-    _text(rectangle, "ArrayDisguise", "false")
-    _text(rectangle, "CreatedByArray", "false")
-    _text(rectangle, "HeightExpression", block.size.y)
-    _text(rectangle, "Name", "Add rectangle 1")
-    _text(rectangle, "NotOccupiedByArray", "true")
-    _nil(rectangle, "ParentRect")
-    _text(rectangle, "WidthExpression", block.size.x)
-    _text(rectangle, "XExpression", 0)
-    _text(rectangle, "XIntervalExpression", 0)
-    _text(rectangle, "XSizeExpression", block.size.x)
-    _text(rectangle, "YExpression", 0)
-    _text(rectangle, "YIntervalExpression", 0)
-    _text(rectangle, "YSizeExpression", block.size.y)
-    _text(element, "CanCreateArray", "true")
-    append_block_color(element, color)
-    _text(element, "HasBeenChanged", "true")
-    _text(element, "InitialName", block.name)
-    for name in (
-        "IsChargeConservation",
-        "IsChargeConservationPiezoelectricity",
-        "IsElectrode",
-        "IsLinearElasticMaterial",
-    ):
-        _text(element, name, "false")
-    _text(element, "IsNormalMaterial", "true")
-    for name in ("IsPML", "IsPiezoelectricMaterial", "IsTerminal"):
-        _text(element, name, "false")
-    _text(element, "IsVisible", "true")
-    _text(element, "MaterialName", block.material_id)
-    _text(element, "MeshSizeXExpression", 0)
-    _text(element, "MeshSizeYExpression", 0)
-    _text(element, "MeshSizeZExpression", 0)
-    _text(element, "Name", block.name)
-    _text(element, "NetDonorConcentration", 0)
-    _text(element, "NotChargeConservation", "true")
-    etree.SubElement(element, etree.QName(MODEL_NAMESPACE, "PMLType"))
-    _nil(element, "ParentBlock")
-    etree.SubElement(element, etree.QName(MODEL_NAMESPACE, "SelectedPMLType"))
-    _text(element, "TerminalVoltage", 0)
-    _text(element, "ThicknessExpression", block.size.z)
-    _text(element, "TiReyuan", volumetric_heat_source)
-    _text(element, "XOffsetExpression", block.origin.x)
-    _text(element, "YOffsetExpression", block.origin.y)
-    _text(element, "ZOffsetExpression", 0)
 
 
 def _group_layers(

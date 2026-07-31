@@ -280,7 +280,6 @@ function template(id: string, display_name: string, has_bga: boolean): TemplateC
     runtime_reference_data_required: false,
   }
 }
-
 function fetchResponse(input: RequestInfo | URL) {
   const url = String(input)
   if (url === '/api/templates') return jsonResponse(catalog)
@@ -290,12 +289,11 @@ function fetchResponse(input: RequestInfo | URL) {
   if (url.endsWith('/generate')) return jsonResponse(generatedModel)
   return Promise.resolve(new Response('', { status: 404 }))
 }
-const jsonResponse = (value: unknown) =>
-  Promise.resolve({ ok: true, status: 200, json: async () => value } as Response)
-
+const jsonResponse = (value: unknown) => Promise.resolve(
+  { ok: true, status: 200, json: async () => value } as Response,
+)
 const generateCalls = () =>
   vi.mocked(fetch).mock.calls.filter(([url]) => String(url).endsWith('/generate'))
-
 function requestBody(call: [RequestInfo | URL, RequestInit?] | undefined) {
   return JSON.parse(String(call?.[1]?.body)) as TemplateRequest
 }

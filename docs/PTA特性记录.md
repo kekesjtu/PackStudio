@@ -109,7 +109,7 @@ PackStudio JSON 模型和块名称中。
 
 ## 4. 几何与材料字段
 
-### 4.1 层和块
+### 4.1 Layer Mode 与根级 Block Mode
 
 **样例**：
 
@@ -120,10 +120,38 @@ PackStudio JSON 模型和块名称中。
 - `LengthUnit` 使用 `Mm`；
 - PackStudio 当前只支持连续、无间隙的 Z 层叠。
 
-最后一项是 **PackStudio 约束**。当前 PTA 导出器会拒绝不连续的 Z 层，避免隐式层位置与
-领域几何不一致。
+最后一项只适用于 **Layer Mode**。Layer Mode 会拒绝不连续 Z 层，避免隐式层位置与领域
+几何不一致。
 
-### 4.2 导热系数
+PTA 还提供根级 `Structure/Blocks`。根级块通过自身的 `ZOffsetExpression` 和
+`ThicknessExpression` 设置独立 Z 位置/高度，配合：
+
+```xml
+<UseBlockBuildMode>true</UseBlockBuildMode>
+```
+
+此时 `Layers` 为空，不要求所有实体共享连续全局层。PackStudio 在布尔压缩至少减少 8 个
+XML 实体时自动使用该模式；否则保持 Layer Mode。
+
+### 4.2 块内矩形布尔操作
+
+同一个 `Block/AllRects` 可以包含多个二维矩形：
+
+```xml
+<Rect>
+  <Add_sub>true</Add_sub>
+  <!-- 外包络或附加区域 -->
+</Rect>
+<Rect>
+  <Add_sub>false</Add_sub>
+  <!-- 从已有加区域中扣除 -->
+</Rect>
+```
+
+根级块把该二维布尔轮廓沿自身厚度挤出。PackStudio 仅合并同一原始逻辑源、材料、结构、
+父组和体热源密度的碎片，并逐材料验证压缩前后体积。
+
+### 4.3 导热系数
 
 **样例**：材料的 `DaoreXishu` 支持两种形式：
 
@@ -137,7 +165,7 @@ PackStudio JSON 模型和块名称中。
 
 密度写入 `Midu`，比热写入 `BiRerong`。
 
-### 4.3 体热源
+### 4.4 体热源
 
 **样例 + PackStudio 约定**：`TiReyuan` 表示体积热源。PackStudio 接收总功率 W，按块体积
 换算为 W/m³：

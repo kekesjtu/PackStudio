@@ -14,3 +14,14 @@ output_format
     ├── microfluid_cases/       # 微流道散热用例
     └── simple_macromodel_cases/# 降阶宏模型用例（含 .tmm ROM 文件）
 ```
+
+## PTA 几何构建模式
+
+PackStudio 支持 PTA 的两种正交几何路径：
+
+- 简单连续堆叠使用 `Layers/Layer/Blocks`；
+- 高碎片结构使用根级 `Structure/Blocks`，并设置 `UseBlockBuildMode=true`。
+
+根级块通过自身的 `ZOffsetExpression` 和 `ThicknessExpression` 设置 Z 位置与高度。同一
+`Block/AllRects` 可包含多个矩形，`Add_sub=true` 表示加操作，`Add_sub=false` 表示减
+操作。PackStudio 只在几何体积完全等价且不跨材料、逻辑源或热源密度时执行该压缩。
