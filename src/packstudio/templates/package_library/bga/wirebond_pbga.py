@@ -12,7 +12,6 @@ from packstudio.templates.package_library.core.definitions import (
 from packstudio.templates.package_library.core.generator import BuiltTemplate
 from packstudio.templates.package_library.core.geometry import centered_draft
 from packstudio.templates.package_library.core.material_options import (
-    BOND_WIRES,
     DIE,
     ENCAPSULANT,
     selection,
@@ -34,8 +33,24 @@ def definition() -> TemplateDefinition:
         category="Ball grid arrays",
         fields=fields(),
         builder=_build,
+        step_order=(
+            "package_setup",
+            "package_substrate",
+            "encapsulant",
+            "die_flag_solder_mask",
+            "die",
+            "thermal_vias",
+            "metal_layers",
+            "solder_balls",
+        ),
         material_selections=(
-            selection("group-substrate", "substrate", "基板材料", "bt", ("bt",)),
+            selection(
+                "group-substrate",
+                "package_substrate",
+                "基板材料",
+                "bt",
+                ("bt",),
+            ),
             DIE,
             selection(
                 "group-die-attach",
@@ -45,10 +60,10 @@ def definition() -> TemplateDefinition:
                 ("ablestik-8510aa",),
             ),
             ENCAPSULANT,
-            BOND_WIRES,
+            selection("group-bond-wires", "die", "键合线材料", "gold", ("gold",)),
             selection(
                 "group-solder-mask",
-                "substrate",
+                "die_flag_solder_mask",
                 "阻焊层材料",
                 "solder-mask",
                 ("solder-mask",),

@@ -10,14 +10,20 @@ def fields() -> tuple[FieldDefinition, ...]:
     return (
         choice(
             "cover.type",
-            "encapsulant",
+            "top_cover",
             "顶部结构",
             "bare_die",
             ("bare_die", "lid", "plate", "encapsulant"),
+            option_labels={
+                "bare_die": "裸露芯片",
+                "lid": "顶盖",
+                "plate": "均热板",
+                "encapsulant": "塑封体",
+            },
         ),
         number(
             "cover.length",
-            "encapsulant",
+            "top_cover",
             "塑封长度",
             4,
             0.2,
@@ -26,7 +32,7 @@ def fields() -> tuple[FieldDefinition, ...]:
         ),
         number(
             "cover.width",
-            "encapsulant",
+            "top_cover",
             "塑封宽度",
             4,
             0.2,
@@ -35,7 +41,7 @@ def fields() -> tuple[FieldDefinition, ...]:
         ),
         number(
             "cover.thickness",
-            "encapsulant",
+            "top_cover",
             "塑封厚度",
             1.2,
             0.05,
@@ -44,7 +50,7 @@ def fields() -> tuple[FieldDefinition, ...]:
         ),
         number(
             "lid.length",
-            "encapsulant",
+            "top_cover",
             "顶盖长度",
             6,
             0.2,
@@ -53,7 +59,7 @@ def fields() -> tuple[FieldDefinition, ...]:
         ),
         number(
             "lid.width",
-            "encapsulant",
+            "top_cover",
             "顶盖宽度",
             6,
             0.2,
@@ -62,7 +68,7 @@ def fields() -> tuple[FieldDefinition, ...]:
         ),
         number(
             "lid.thickness",
-            "encapsulant",
+            "top_cover",
             "顶盖厚度",
             1,
             0.05,
@@ -71,7 +77,7 @@ def fields() -> tuple[FieldDefinition, ...]:
         ),
         number(
             "lid.base_thickness",
-            "encapsulant",
+            "top_cover",
             "顶盖侧壁宽度",
             2.5,
             0.05,
@@ -80,7 +86,7 @@ def fields() -> tuple[FieldDefinition, ...]:
         ),
         number(
             "lid.die_attach",
-            "encapsulant",
+            "top_cover",
             "顶盖芯片连接层厚度",
             0.05,
             0.005,
@@ -89,7 +95,7 @@ def fields() -> tuple[FieldDefinition, ...]:
         ),
         number(
             "lid.adhesive",
-            "encapsulant",
+            "top_cover",
             "顶盖侧壁粘接厚度",
             0.2,
             0.005,
@@ -98,7 +104,7 @@ def fields() -> tuple[FieldDefinition, ...]:
         ),
         number(
             "plate.length",
-            "encapsulant",
+            "top_cover",
             "热板长度",
             6,
             0.2,
@@ -107,7 +113,7 @@ def fields() -> tuple[FieldDefinition, ...]:
         ),
         number(
             "plate.width",
-            "encapsulant",
+            "top_cover",
             "热板宽度",
             6,
             0.2,
@@ -116,7 +122,7 @@ def fields() -> tuple[FieldDefinition, ...]:
         ),
         number(
             "plate.thickness",
-            "encapsulant",
+            "top_cover",
             "热板厚度",
             1,
             0.05,
@@ -125,7 +131,7 @@ def fields() -> tuple[FieldDefinition, ...]:
         ),
         number(
             "plate.die_attach",
-            "encapsulant",
+            "top_cover",
             "热板芯片连接层厚度",
             0.05,
             0.005,
@@ -139,7 +145,7 @@ def material_selections() -> tuple[MaterialSelectionDefinition, ...]:
     return (
         selection(
             "group-encapsulant",
-            "encapsulant",
+            "top_cover",
             "塑封材料",
             "epoxy-mold",
             ("epoxy-mold", "eme-7730lf"),
@@ -147,7 +153,7 @@ def material_selections() -> tuple[MaterialSelectionDefinition, ...]:
         ),
         selection(
             "group-lid",
-            "encapsulant",
+            "top_cover",
             "顶盖材料",
             "aluminum",
             ("aluminum",),
@@ -155,7 +161,7 @@ def material_selections() -> tuple[MaterialSelectionDefinition, ...]:
         ),
         selection(
             "group-lid-adhesive",
-            "encapsulant",
+            "top_cover",
             "顶盖侧壁粘接材料",
             "stiffener-adhesive",
             ("stiffener-adhesive",),
@@ -163,7 +169,7 @@ def material_selections() -> tuple[MaterialSelectionDefinition, ...]:
         ),
         selection(
             "group-lid-die-attach",
-            "encapsulant",
+            "top_cover",
             "顶盖芯片连接材料",
             "flip-cap-grease",
             ("flip-cap-grease",),
@@ -171,7 +177,7 @@ def material_selections() -> tuple[MaterialSelectionDefinition, ...]:
         ),
         selection(
             "group-plate",
-            "encapsulant",
+            "top_cover",
             "热板材料",
             "aluminum",
             ("aluminum",),
@@ -179,7 +185,7 @@ def material_selections() -> tuple[MaterialSelectionDefinition, ...]:
         ),
         selection(
             "group-plate-die-attach",
-            "encapsulant",
+            "top_cover",
             "热板芯片连接材料",
             "flip-cap-grease",
             ("flip-cap-grease",),

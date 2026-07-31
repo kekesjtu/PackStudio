@@ -24,13 +24,43 @@ const schema: TemplateSchema = {
   template_id: 'flip_chip_cbga',
   has_bga: true,
   special_rules: {
+    outline_type: 'standard_outline',
+    die_type: 'actual_type',
     bga_pattern: 'implicit_full_with_center_and_removal',
     flip_chip_bumps: 'thick_orthotropic_equivalent',
   },
   steps: [
     {
+      id: 'package_setup',
+      label: '封装规格',
+      fields: [
+        {
+          target_id: 'flip_chip_cbga.footprint.size',
+          ui_location: 'package_setup',
+          component: 'package_setup',
+          label: 'Footprint 尺寸（JEDEC）',
+          control: 'footprint',
+          default: 'CBGAFC_49_6X6mm',
+          options: ['CBGAFC_49_6X6mm', 'CBGAFC_64_7X7mm'],
+          option_labels: {
+            CBGAFC_49_6X6mm: 'CBGAFC · 49 球 · 6 × 6 mm',
+            CBGAFC_64_7X7mm: 'CBGAFC · 64 球 · 7 × 7 mm',
+          },
+          preset_values: {
+            CBGAFC_49_6X6mm: { 'flip_chip_cbga.die.length': 1.8 },
+            CBGAFC_64_7X7mm: { 'flip_chip_cbga.die.length': 1.9 },
+          },
+          classification: 'jedec_preset',
+          property_name: 'footprint.size',
+          supported_values: ['CBGAFC_49_6X6mm', 'CBGAFC_64_7X7mm'],
+          evidence_status: 'implemented',
+          editable: true,
+        },
+      ],
+    },
+    {
       id: 'die',
-      label: 'Die',
+      label: '芯片',
       fields: [
         {
           target_id: 'flip_chip_cbga.cover.type',
@@ -67,7 +97,7 @@ const schema: TemplateSchema = {
           target_id: 'flip_chip_cbga.die.length',
           ui_location: 'die',
           component: 'die',
-          label: 'Die Length Ld',
+          label: '芯片长度 Ld',
           control: 'number',
           default: 1.8,
           minimum: 1.62,
@@ -95,6 +125,11 @@ const schema: TemplateSchema = {
           material_group_id: 'group-die',
         },
       ],
+    },
+    {
+      id: 'solder_balls',
+      label: 'BGA 焊球',
+      fields: [],
     },
   ],
 }
@@ -189,8 +224,10 @@ describe('eight-template production workspace', () => {
     expect(screen.getByRole('heading', { name: 'PackStudio' })).toBeInTheDocument()
     expect(await screen.findByText('1 个块')).toBeInTheDocument()
     expect(screen.getByRole('navigation')).toBeInTheDocument()
-    expect(screen.getByRole('heading', { name: 'Die' })).toBeInTheDocument()
-    expect(screen.getByLabelText('Die Length Ld')).toHaveValue(1.8)
+    expect(screen.getByRole('heading', { name: '概要' })).toBeInTheDocument()
+    fireEvent.click(screen.getByRole('button', { name: '芯片' }))
+    expect(screen.getByRole('heading', { name: '芯片' })).toBeInTheDocument()
+    expect(screen.getByLabelText('芯片长度 Ld')).toHaveValue(1.8)
     expect(screen.getByRole('separator', { name: '调整属性栏宽度' })).toHaveAttribute(
       'aria-valuenow',
       '390',
@@ -213,8 +250,9 @@ describe('eight-template production workspace', () => {
     render(createElement(App))
     await screen.findByText('1 个块')
 
-    fireEvent.click(screen.getByRole('button', { name: 'BGA 焊球配置' }))
+    fireEvent.click(screen.getByRole('button', { name: '焊球去除' }))
     fireEvent.click(screen.getByRole('switch', { name: '焊球去除' }))
+    fireEvent.click(screen.getByRole('button', { name: '中央焊球' }))
     fireEvent.click(screen.getByRole('switch', { name: '中央焊球' }))
     expect(screen.queryByText(/交错阵列/)).not.toBeInTheDocument()
     fireEvent.click(screen.getByRole('button', { name: '生成模型' }))
@@ -232,7 +270,8 @@ describe('eight-template production workspace', () => {
     render(createElement(App))
     await screen.findByText('1 个块')
 
-    fireEvent.change(screen.getByLabelText('Die Length Ld'), { target: { value: '1.9' } })
+    fireEvent.click(screen.getByRole('button', { name: '芯片' }))
+    fireEvent.change(screen.getByLabelText('芯片长度 Ld'), { target: { value: '1.9' } })
     fireEvent.click(screen.getByRole('button', { name: '保存参数' }))
     expect(localStorage.getItem('packstudio.library.v2.flip_chip_cbga')).toContain('1.9')
     fireEvent.click(screen.getByRole('button', { name: '生成模型' }))
@@ -243,10 +282,49 @@ describe('eight-template production workspace', () => {
     })
   })
 
+  it('applies a footprint preset immediately and sends only the preset choice', async () => {
+    render(createElement(App))
+    await screen.findByText('1 个块')
+
+    fireEvent.click(screen.getByRole('button', { name: '封装规格' }))
+    fireEvent.change(screen.getByLabelText('Footprint 尺寸（JEDEC）'), {
+      target: { value: 'CBGAFC_64_7X7mm' },
+    })
+    expect(screen.getByText(/自动填充关联参数/)).toBeInTheDocument()
+    fireEvent.click(screen.getByRole('button', { name: '芯片' }))
+    expect(screen.getByLabelText('芯片长度 Ld')).toHaveValue(1.9)
+    fireEvent.click(screen.getByRole('button', { name: '生成模型' }))
+
+    await waitFor(() => expect(generateCalls()).toHaveLength(2))
+    expect(requestBody(generateCalls().at(-1)).overrides).toEqual({
+      'flip_chip_cbga.footprint.size': 'CBGAFC_64_7X7mm',
+    })
+  })
+
+  it('keeps a manual dimension when it differs from the active footprint preset', async () => {
+    render(createElement(App))
+    await screen.findByText('1 个块')
+
+    fireEvent.click(screen.getByRole('button', { name: '封装规格' }))
+    fireEvent.change(screen.getByLabelText('Footprint 尺寸（JEDEC）'), {
+      target: { value: 'CBGAFC_64_7X7mm' },
+    })
+    fireEvent.click(screen.getByRole('button', { name: '芯片' }))
+    fireEvent.change(screen.getByLabelText('芯片长度 Ld'), { target: { value: '1.8' } })
+    fireEvent.click(screen.getByRole('button', { name: '生成模型' }))
+
+    await waitFor(() => expect(generateCalls()).toHaveLength(2))
+    expect(requestBody(generateCalls().at(-1)).overrides).toEqual({
+      'flip_chip_cbga.footprint.size': 'CBGAFC_64_7X7mm',
+      'flip_chip_cbga.die.length': 1.8,
+    })
+  })
+
   it('links fields through the native production condition key', async () => {
     render(createElement(App))
     await screen.findByText('1 个块')
 
+    fireEvent.click(screen.getByRole('button', { name: '芯片' }))
     expect(screen.queryByLabelText('顶盖厚度')).not.toBeInTheDocument()
     fireEvent.change(screen.getByLabelText('顶部结构'), {
       target: { value: 'lid' },
@@ -257,6 +335,7 @@ describe('eight-template production workspace', () => {
   it('edits material properties as design overrides without changing component binding', async () => {
     render(createElement(App))
     await screen.findByText('1 个块')
+    fireEvent.click(screen.getByRole('button', { name: '芯片' }))
     fireEvent.change(screen.getByLabelText('kx'), { target: { value: '18' } })
     fireEvent.click(screen.getByRole('button', { name: '生成模型' }))
     await waitFor(() => expect(generateCalls()).toHaveLength(2))

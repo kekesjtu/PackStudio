@@ -1,4 +1,4 @@
-from packstudio.templates.package_library.core.definitions import FieldDefinition
+from packstudio.templates.package_library.core.definitions import FieldDefinition, PresetOption
 from packstudio.templates.package_library.core.parameters import TemplateValue
 
 
@@ -54,6 +54,8 @@ def choice(
     label: str,
     default: str,
     options: tuple[str, ...],
+    *,
+    option_labels: dict[str, str] | None = None,
 ) -> FieldDefinition:
     return FieldDefinition(
         key=key,
@@ -62,6 +64,28 @@ def choice(
         control="select",
         default=default,
         options=options,
+        option_labels=option_labels or {},
+    )
+
+
+def footprint(
+    default: str,
+    presets: tuple[PresetOption, ...],
+    *,
+    label: str = "Footprint 尺寸（JEDEC）",
+) -> FieldDefinition:
+    options = tuple(preset.value for preset in presets)
+    if default not in options:
+        raise ValueError(f"default footprint {default} must be one of {options}")
+    return FieldDefinition(
+        key="footprint.size",
+        step="package_setup",
+        label=label,
+        control="footprint",
+        default=default,
+        options=options,
+        option_labels={preset.value: preset.label for preset in presets},
+        presets=presets,
     )
 
 

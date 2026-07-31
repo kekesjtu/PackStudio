@@ -18,23 +18,24 @@ from packstudio.templates.package_library.flip_chip.cover_fields import fields a
 from packstudio.templates.package_library.flip_chip.layers import build_flip_chip_layer
 
 
-def fields() -> tuple[FieldDefinition, ...]:
+def fields(footprint_field: FieldDefinition) -> tuple[FieldDefinition, ...]:
     return (
-        number("substrate.length", "substrate", "基板长度", 6, 2, 50),
-        number("substrate.width", "substrate", "基板宽度", 6, 2, 50),
-        number("substrate.thickness", "substrate", "基板厚度", 1.15, 0.1, 5),
+        footprint_field,
+        number("substrate.length", "package_substrate", "基板长度 D", 6, 2, 50),
+        number("substrate.width", "package_substrate", "基板宽度 E", 6, 2, 50),
+        number("substrate.thickness", "package_substrate", "基板厚度 A2", 1.15, 0.1, 5),
         number("die.length", "die", "芯片长度", 1.8, 0.2, 40),
         number("die.width", "die", "芯片宽度", 1.8, 0.2, 40),
         number("die.thickness", "die", "芯片厚度", 0.61, 0.03, 2),
         number("die.power", "die", "芯片功率", 0, 0, 1000, "W"),
-        integer("bumps.total", "interconnect", "凸点总数", 49, 1, 10000),
-        number("bumps.diameter", "interconnect", "凸点直径", 0.12, 0.01, 0.5),
-        number("bumps.height", "interconnect", "凸点层厚度", 0.1, 0.01, 0.5),
-        integer("bga.columns", "interconnect", "BGA X 方向数量", 7, 1, 50),
-        integer("bga.rows", "interconnect", "BGA Y 方向数量", 7, 1, 50),
-        number("bga.pitch", "interconnect", "BGA 间距", 0.8, 0.2, 2),
-        number("bga.diameter", "interconnect", "焊球直径", 0.5, 0.05, 1.5),
-        number("bga.height", "interconnect", "焊球层高度", 0.4, 0.05, 1.5),
+        integer("bumps.total", "flip_chip_bumps", "凸点总数", 49, 1, 10000),
+        number("bumps.diameter", "flip_chip_bumps", "凸点直径", 0.12, 0.01, 0.5),
+        number("bumps.height", "flip_chip_bumps", "凸点层厚度", 0.1, 0.01, 0.5),
+        integer("bga.columns", "solder_balls", "X 方向焊球数 MD", 7, 1, 50),
+        integer("bga.rows", "solder_balls", "Y 方向焊球数 ME", 7, 1, 50),
+        number("bga.pitch", "solder_balls", "焊球间距 e", 0.8, 0.2, 2),
+        number("bga.diameter", "solder_balls", "焊球直径 b", 0.5, 0.05, 1.5),
+        number("bga.height", "solder_balls", "基板离板高度 A1", 0.4, 0.05, 1.5),
         *cover_fields(),
     )
 

@@ -5,20 +5,14 @@ import {
   Chip,
   CircularProgress,
   Divider,
-  List,
-  ListItemButton,
-  ListItemText,
-  MenuItem,
   Paper,
   Stack,
-  TextField,
   Typography,
 } from '@mui/material'
 import { useEffect, useMemo, useRef, useState, type CSSProperties } from 'react'
 
 import ColumnResizer from '../model-editor/ColumnResizer'
 import ModelPreview from '../model-editor/ModelPreview'
-import NumberInput from '../model-editor/NumberInput'
 import {
   downloadTemplatePta,
   generateTemplateModel,
@@ -36,6 +30,12 @@ import type {
   TemplateSchema,
 } from './types'
 import WizardFields from './WizardFields'
+import WorkspaceNavigation from './WorkspaceNavigation'
+import {
+  BoundaryFields,
+  ModelingFields,
+  SummaryFields,
+} from './WorkspaceSpecialFields'
 
 interface PackageWorkspaceProps {
   templateId: string
@@ -78,7 +78,7 @@ export default function PackageWorkspace({ templateId }: PackageWorkspaceProps) 
         setRequest(initialRequest)
         setLibrary(materials)
         setModel(generated)
-        setActiveStep(loadedSchema.steps[0]?.id ?? 'common')
+        setActiveStep('packstudio_summary')
         setSaved(restored !== null)
         setDirty(false)
         setHiddenBlockIds(new Set())
@@ -155,31 +155,11 @@ export default function PackageWorkspace({ templateId }: PackageWorkspaceProps) 
 
   return (
     <Box component="main" className="template-workspace" style={layoutStyle}>
-      <Paper component="nav" className="structure-navigation">
-        <Typography variant="subtitle2">引导步骤</Typography>
-        <List dense disablePadding>
-          {schema.steps.map((step) => (
-            <ListItemButton
-              key={step.id}
-              selected={activeStep === step.id}
-              onClick={() => setActiveStep(step.id)}
-            >
-              <ListItemText primary={step.label} />
-            </ListItemButton>
-          ))}
-          {schema.has_bga && (
-            <ListItemButton selected={activeStep === 'packstudio_bga'} onClick={() => setActiveStep('packstudio_bga')}>
-              <ListItemText primary="BGA 焊球配置" />
-            </ListItemButton>
-          )}
-          <ListItemButton selected={activeStep === 'packstudio_common'} onClick={() => setActiveStep('packstudio_common')}>
-            <ListItemText primary="热源与网格" />
-          </ListItemButton>
-          <ListItemButton selected={activeStep === 'packstudio_boundary'} onClick={() => setActiveStep('packstudio_boundary')}>
-            <ListItemText primary="边界条件" />
-          </ListItemButton>
-        </List>
-      </Paper>
+      <WorkspaceNavigation
+        schema={schema}
+        activeStep={activeStep}
+        onSelect={setActiveStep}
+      />
       <Paper component="section" className="property-panel">
         <Box className="property-editor">
           <Typography variant="h5" component="h2">
@@ -255,40 +235,28 @@ function renderStep(
   materials: Material[],
   onChange: (request: TemplateRequest) => void,
 ) {
-  if (activeStep === 'packstudio_bga' && request.bga) {
-    return <BgaConfigurationPanel value={request.bga} onChange={(bga) => onChange({ ...request, bga })} />
+  if (activeStep === 'packstudio_summary') {
+    return <SummaryFields request={request} onChange={onChange} />
   }
-  if (activeStep === 'packstudio_common') return <CommonFields request={request} onChange={onChange} />
+  if (activeStep === 'packstudio_bga_removal' && request.bga) {
+    return <BgaConfigurationPanel section="removal" value={request.bga} onChange={(bga) => onChange({ ...request, bga })} />
+  }
+  if (activeStep === 'packstudio_bga_center' && request.bga) {
+    return <BgaConfigurationPanel section="center" value={request.bga} onChange={(bga) => onChange({ ...request, bga })} />
+  }
+  if (activeStep === 'packstudio_modeling') {
+    return <ModelingFields request={request} onChange={onChange} />
+  }
   if (activeStep === 'packstudio_boundary') return <BoundaryFields request={request} onChange={onChange} />
   const step = schema.steps.find((item) => item.id === activeStep) ?? schema.steps[0]
   return <WizardFields step={step} allFields={allFields} request={request} materials={materials} onChange={onChange} />
 }
 
-function CommonFields({ request, onChange }: { request: TemplateRequest; onChange: (value: TemplateRequest) => void }) {
-  return (
-    <Stack spacing={2}>
-      <TextField size="small" label="设计名称" value={request.design_name ?? ''} onChange={(event) => onChange({ ...request, design_name: event.target.value })} />
-      <NumberInput label="芯片总功率" unit="W" value={request.die_power_w} onChange={(die_power_w) => onChange({ ...request, die_power_w })} />
-      <TextField select size="small" label="最大网格尺寸预设" value={request.mesh.resolution} onChange={(event) => onChange({ ...request, mesh: { resolution: event.target.value as TemplateRequest['mesh']['resolution'] } })}>
-        <MenuItem value="coarse">粗</MenuItem><MenuItem value="standard">标准</MenuItem><MenuItem value="fine">细</MenuItem>
-      </TextField>
-    </Stack>
-  )
-}
-
-function BoundaryFields({ request, onChange }: { request: TemplateRequest; onChange: (value: TemplateRequest) => void }) {
-  const update = (patch: Partial<TemplateRequest['environment']>) => onChange({ ...request, environment: { ...request.environment, ...patch } })
-  return <Stack spacing={2}>
-    <NumberInput label="环境温度" unit="K" value={request.environment.ambient_temperature_k} onChange={(value) => update({ ambient_temperature_k: value ?? 0 })} />
-    <NumberInput label="普通外表面对流" unit="W/(m²·K)" value={request.environment.default_convection_coefficient_w_m2k} onChange={(value) => update({ default_convection_coefficient_w_m2k: value ?? 0 })} />
-    <NumberInput label="PCB 侧换热系数" unit="W/(m²·K)" value={request.environment.pcb_convection_coefficient_w_m2k} onChange={(value) => update({ pcb_convection_coefficient_w_m2k: value ?? 0 })} />
-    <NumberInput label="顶部换热系数" unit="W/(m²·K)" value={request.environment.top_convection_coefficient_w_m2k} onChange={(value) => update({ top_convection_coefficient_w_m2k: value ?? 0 })} />
-  </Stack>
-}
-
 function stepTitle(schema: TemplateSchema, stepId: string) {
-  if (stepId === 'packstudio_bga') return 'BGA 焊球配置'
-  if (stepId === 'packstudio_common') return '热源与网格'
+  if (stepId === 'packstudio_summary') return '概要'
+  if (stepId === 'packstudio_bga_removal') return '焊球去除'
+  if (stepId === 'packstudio_bga_center') return '中央焊球'
+  if (stepId === 'packstudio_modeling') return '建模选项'
   if (stepId === 'packstudio_boundary') return '边界条件'
   return schema.steps.find((step) => step.id === stepId)?.label ?? '参数'
 }

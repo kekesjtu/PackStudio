@@ -39,6 +39,8 @@ export interface WizardField {
   minimum?: number | null
   maximum?: number | null
   options: WizardValue[]
+  option_labels?: Record<string, string>
+  preset_values?: Record<string, Record<string, WizardValue>>
   classification: string
   property_name: string | null
   supported_values: WizardValue[]
@@ -62,6 +64,8 @@ export interface TemplateSchema {
   steps: WizardStep[]
   has_bga: boolean
   special_rules: {
+    outline_type: 'standard_outline'
+    die_type: 'actual_type'
     bga_pattern: string | null
     flip_chip_bumps: string | null
   }

@@ -1,7 +1,6 @@
 import {
   Alert,
   FormControlLabel,
-  MenuItem,
   Stack,
   Switch,
   TextField,
@@ -12,31 +11,56 @@ import type { BgaConfiguration } from './types'
 
 interface BgaConfigurationPanelProps {
   value: BgaConfiguration
+  section: 'removal' | 'center'
   onChange: (value: BgaConfiguration) => void
 }
 
 export default function BgaConfigurationPanel({
   value,
+  section,
   onChange,
 }: BgaConfigurationPanelProps) {
   const update = (patch: Partial<BgaConfiguration>) => onChange({ ...value, ...patch })
+  if (section === 'center') {
+    return (
+      <Stack spacing={2}>
+        <FormControlLabel
+          control={
+            <Switch
+              checked={value.center_solder_enabled}
+              onChange={(event) => update({ center_solder_enabled: event.target.checked })}
+            />
+          }
+          label="中央焊球"
+        />
+        {value.center_solder_enabled && (
+          <Stack direction="row" spacing={1}>
+            <NumberInput
+              label="中央行数"
+              value={value.center_solder_rows}
+              integer
+              onChange={(center_solder_rows) =>
+                update({ center_solder_rows: center_solder_rows ?? 1 })
+              }
+            />
+            <NumberInput
+              label="中央列数"
+              value={value.center_solder_columns}
+              integer
+              onChange={(center_solder_columns) =>
+                update({ center_solder_columns: center_solder_columns ?? 1 })
+              }
+            />
+          </Stack>
+        )}
+      </Stack>
+    )
+  }
   return (
     <Stack spacing={2}>
       <Alert severity="info">
-        默认隐式为正交全阵列。只提供可组合的中央焊球与焊球去除；显式去球优先。
+        焊球默认按完整正交阵列生成；去球区域与显式去球单元可以组合，显式去球优先。
       </Alert>
-      <TextField
-        select
-        size="small"
-        label="焊球阵列建模"
-        value={value.representation}
-        onChange={(event) =>
-          update({ representation: event.target.value as BgaConfiguration['representation'] })
-        }
-      >
-        <MenuItem value="equivalent">正交各向异性等效层</MenuItem>
-        <MenuItem value="discrete">离散建模</MenuItem>
-      </TextField>
       <FormControlLabel
         control={
           <Switch
@@ -59,33 +83,6 @@ export default function BgaConfigurationPanel({
             value={value.removal_columns}
             integer
             onChange={(removal_columns) => update({ removal_columns: removal_columns ?? 1 })}
-          />
-        </Stack>
-      )}
-      <FormControlLabel
-        control={
-          <Switch
-            checked={value.center_solder_enabled}
-            onChange={(event) => update({ center_solder_enabled: event.target.checked })}
-          />
-        }
-        label="中央焊球"
-      />
-      {value.center_solder_enabled && (
-        <Stack direction="row" spacing={1}>
-          <NumberInput
-            label="中央行数"
-            value={value.center_solder_rows}
-            integer
-            onChange={(center_solder_rows) => update({ center_solder_rows: center_solder_rows ?? 1 })}
-          />
-          <NumberInput
-            label="中央列数"
-            value={value.center_solder_columns}
-            integer
-            onChange={(center_solder_columns) =>
-              update({ center_solder_columns: center_solder_columns ?? 1 })
-            }
           />
         </Stack>
       )}

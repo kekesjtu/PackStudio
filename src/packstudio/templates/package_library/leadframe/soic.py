@@ -27,6 +27,16 @@ def definition() -> TemplateDefinition:
         category="Lead-frame packages",
         fields=soic_fields(),
         builder=_build,
+        step_order=(
+            "package_setup",
+            "overall_package",
+            "encapsulant",
+            "die",
+            "die_flag_tie_bars",
+            "leadframe",
+            "bond_wires",
+            "thermal_land_solder",
+        ),
         material_selections=(
             selection(
                 "group-encapsulant",
@@ -45,15 +55,15 @@ def definition() -> TemplateDefinition:
             ),
             selection(
                 "group-die-flag",
-                "leadframe",
+                "die_flag_tie_bars",
                 "芯片承载台材料",
                 "leadframe-c194",
                 ("leadframe-c194", "copper"),
             ),
             selection(
                 "group-tie-bars",
-                "leadframe",
-                "Tie bar 材料",
+                "die_flag_tie_bars",
+                "连接筋材料",
                 "leadframe-c194",
                 ("leadframe-c194", "copper"),
             ),
@@ -66,12 +76,20 @@ def definition() -> TemplateDefinition:
             ),
             BOND_WIRES,
             selection(
-                "group-exposed-pad",
-                "options",
-                "暴露焊盘材料",
+                "group-thermal-land",
+                "thermal_land_solder",
+                "散热焊盘材料",
                 "leadframe-c194",
                 ("leadframe-c194", "copper"),
-                visible_when={"exposed_pad.enabled": True},
+                visible_when={"thermal_land.enabled": True},
+            ),
+            selection(
+                "group-thermal-solder",
+                "thermal_land_solder",
+                "焊料材料",
+                "solder-sn63",
+                ("solder-sn63",),
+                visible_when={"thermal_land.enabled": True},
             ),
         ),
     )
@@ -183,19 +201,33 @@ def _build(values: TemplateValues, _request: TemplateRequest) -> BuiltTemplate:
             "Die attach",
         ),
     ]
-    if values.boolean("exposed_pad.enabled"):
-        thickness = values.number("exposed_pad.thickness")
-        drafts.append(
-            centered_draft(
-                "exposed-pad",
-                "Exposed thermal pad",
-                StructureType.EXPOSED_PAD,
-                (flag_length, flag_width, thickness),
-                -thickness,
-                "leadframe-c194",
-                "group-exposed-pad",
-                "Exposed pad",
-            )
+    if values.boolean("thermal_land.enabled"):
+        thickness = values.number("thermal_land.thickness")
+        if standoff <= 0:
+            raise ValueError("SOIC thermal land solder requires a positive standoff")
+        drafts.extend(
+            [
+                centered_draft(
+                    "thermal-land",
+                    "Thermal land",
+                    StructureType.EXPOSED_PAD,
+                    (flag_length, flag_width, thickness),
+                    -thickness,
+                    "leadframe-c194",
+                    "group-thermal-land",
+                    "Thermal land",
+                ),
+                centered_draft(
+                    "thermal-solder",
+                    "Thermal land solder",
+                    StructureType.SOLDER,
+                    (flag_length, flag_width, standoff),
+                    0,
+                    "solder-sn63",
+                    "group-thermal-solder",
+                    "Solder",
+                ),
+            ]
         )
     return BuiltTemplate(
         drafts=drafts,
@@ -204,7 +236,7 @@ def _build(values: TemplateValues, _request: TemplateRequest) -> BuiltTemplate:
         metadata={
             "lead_count": lead_count,
             "reference_baseline": "FloTHERM PACK 2504 SOP_8_3_81x4_93",
-            "exposed_pad_enabled": values.boolean("exposed_pad.enabled"),
+            "thermal_land_and_solder_enabled": values.boolean("thermal_land.enabled"),
         },
     )
 

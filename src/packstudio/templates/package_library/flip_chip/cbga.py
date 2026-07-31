@@ -10,6 +10,7 @@ from packstudio.templates.package_library.core.material_options import (
 from packstudio.templates.package_library.core.parameters import TemplateRequest
 from packstudio.templates.package_library.flip_chip.common import build, fields
 from packstudio.templates.package_library.flip_chip.cover_fields import material_selections
+from packstudio.templates.package_library.flip_chip.footprints import cbga_footprint_field
 
 
 def definition() -> TemplateDefinition:
@@ -17,12 +18,20 @@ def definition() -> TemplateDefinition:
         id="flip_chip_cbga",
         display_name="Flip Chip CBGA",
         category="Ball grid arrays",
-        fields=fields(),
+        fields=fields(cbga_footprint_field()),
         builder=_build,
+        step_order=(
+            "package_setup",
+            "package_substrate",
+            "die",
+            "flip_chip_bumps",
+            "solder_balls",
+            "top_cover",
+        ),
         material_selections=(
             selection(
                 "group-substrate",
-                "substrate",
+                "package_substrate",
                 "陶瓷基板材料",
                 "alumina",
                 ("alumina",),

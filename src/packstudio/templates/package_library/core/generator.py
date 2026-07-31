@@ -41,6 +41,10 @@ def generate_template(
     heat_sources = _build_heat_sources(blocks, power)
     boundaries = _build_boundaries(blocks, request)
     used_ids = {block.material_id for block in blocks}
+    footprint = next(
+        (values.text(field.key) for field in definition.fields if field.control == "footprint"),
+        None,
+    )
     return PackageModel(
         template_id=definition.id.replace("_", "-"),
         name=request.design_name or definition.display_name,
@@ -55,6 +59,9 @@ def generate_template(
             "reference_basis": "handwritten transcription of reviewed FloTHERM PACK 2504 data",
             "reference_geometry_status": "baseline-and-mapped-single-variable-transcription",
             "runtime_reference_data_required": False,
+            "outline_type": "standard_outline",
+            "die_type": "actual_type",
+            **({} if footprint is None else {"footprint_size": footprint}),
             "mesh_resolution": request.mesh.resolution.value,
             "ambient_temperature_k": request.environment.ambient_temperature_k,
             "default_convection_coefficient_w_m2k": (

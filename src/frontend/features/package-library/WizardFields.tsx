@@ -39,7 +39,16 @@ export default function WizardFields({
       return
     }
     const overrides = { ...request.overrides }
-    if (sameValue(value, field.default)) delete overrides[field.target_id]
+    if (field.preset_values) {
+      for (const linkedTargetId of Object.values(field.preset_values).flatMap((preset) =>
+        Object.keys(preset),
+      )) {
+        delete overrides[linkedTargetId]
+      }
+    }
+    if (sameValue(value, defaultFor(field, request, allFields))) {
+      delete overrides[field.target_id]
+    }
     else overrides[field.target_id] = value
     onChange(pruneInactiveMaterials({ ...request, overrides }, allFields))
   }
@@ -58,7 +67,7 @@ export default function WizardFields({
           <Field
             key={field.target_id}
             field={field}
-            value={valueFor(field, request)}
+            value={valueFor(field, request, allFields)}
             enabled={enabled}
             materials={materials}
             onChange={(value) => update(field, value)}
@@ -97,7 +106,7 @@ function Field({
             onChange={(event) => onChange(event.target.checked)}
           />
         }
-        label={`${field.label}${evidenceSuffix(field)}`}
+        label={field.label}
       />
     )
   }
@@ -109,7 +118,7 @@ function Field({
         value={value ?? ''}
         disabled={!enabled}
         size="small"
-        helperText={`此组件仅开放 ${field.options.length} 种模板允许材料`}
+        helperText="选择组件材料；材料物性可在右侧材料库中调整"
         slotProps={{ select: { native: true } }}
         onChange={(event) => onChange(event.target.value)}
       >
@@ -128,9 +137,11 @@ function Field({
     (item): item is number => typeof item === 'number',
   )
   const interval =
-    numericValues.length === 2
+    field.control === 'footprint'
+      ? '选择标准尺寸后会自动填充关联参数，仍可逐项微调'
+      : numericValues.length === 2
       ? `允许范围 ${numericValues[0]} – ${numericValues[1]}${field.unit ? ` ${field.unit}` : ''}`
-      : evidenceSuffix(field)
+      : undefined
   return (
     <TextField
       label={field.label}
@@ -157,22 +168,45 @@ function Field({
       {useSelect &&
         values.map((option) => (
           <option key={String(option)} value={String(option)}>
-            {String(option)}
+            {field.option_labels?.[String(option)] ?? String(option)}
           </option>
         ))}
     </TextField>
   )
 }
 
-const valueFor = (field: WizardField, request: TemplateRequest) =>
-  field.control === 'material' && field.material_group_id
-    ? request.material_assignments[field.material_group_id] ?? field.default
-    : request.overrides[field.target_id] ?? field.default
+function valueFor(
+  field: WizardField,
+  request: TemplateRequest,
+  allFields: WizardField[],
+) {
+  if (field.control === 'material' && field.material_group_id) {
+    return request.material_assignments[field.material_group_id] ?? field.default
+  }
+  if (request.overrides[field.target_id] !== undefined) {
+    return request.overrides[field.target_id]
+  }
+  return defaultFor(field, request, allFields)
+}
+
+function defaultFor(
+  field: WizardField,
+  request: TemplateRequest,
+  allFields: WizardField[],
+) {
+  for (const controller of allFields) {
+    if (!controller.preset_values) continue
+    const selected = request.overrides[controller.target_id] ?? controller.default
+    const presetValue = controller.preset_values[String(selected)]?.[field.target_id]
+    if (presetValue !== undefined) return presetValue
+  }
+  return field.default
+}
 
 function fieldValues(fields: WizardField[], request: TemplateRequest) {
   const values = new Map<string, WizardValue>()
   for (const field of fields) {
-    const value = valueFor(field, request)
+    const value = valueFor(field, request, fields)
     values.set(field.label, value)
     if (field.property_name) values.set(field.property_name, value)
   }
@@ -226,9 +260,6 @@ function sameValue(left: unknown, right: unknown) {
   }
   return left === right
 }
-
-const evidenceSuffix = (field: WizardField) =>
-  field.evidence_status === 'implemented' ? ' · 原生实现' : ''
 
 const materialName = (identifier: string, materials: Material[]) =>
   materials.find((material) => material.id === identifier)?.name ?? identifier

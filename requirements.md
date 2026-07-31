@@ -25,6 +25,18 @@
   折叠/展开；
 * 输出可供后续网格生成和求解使用的指定模型文件格式。
 
+### 2.1 引导建模约束
+
+* 封装外形固定采用 `standard_outline`，通过至少两个可选的 JEDEC Footprint 尺寸预设联动
+  填充整体尺寸、阵列或引脚参数；Bare Die 使用芯片尺寸预设。
+* 芯片类型固定为 `actual_type`，不提供 thermal-die 分支；固定行为不显示为只有一个值的
+  受限选项。
+* 只有 BGA 焊球阵列提供正交各向异性等效层和离散建模两种选择。
+* Flip-chip bumps + underfill 以及 Bare Die 可选 bumps 统一生成为有厚度的正交各向异性
+  等效层，不提供 collapsed cuboid。
+* QFP 和 SOIC 不提供 exposed-pad 开关，使用“散热焊盘与焊料”步骤配置对应结构和材料。
+* 向导标签以中文为主；JEDEC、BGA、DAP 等标准缩写和 Footprint 编号可保留。
+
 模板库不负责：
 
 * 网格实体生成(暂定)。模板库可以输出网格尺寸控制，但不生成离散网格。
