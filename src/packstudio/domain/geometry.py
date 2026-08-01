@@ -63,7 +63,7 @@ class RectangleOperation(BaseModel):
 
 
 class RectangularBooleanBlock(BaseModel):
-    """A PTA-compatible XY boolean profile with an independent Z extrusion."""
+    """An extruded XY boolean profile used inside a PTA geometric layer."""
 
     model_config = ConfigDict(frozen=True)
 

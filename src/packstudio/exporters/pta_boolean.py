@@ -9,9 +9,6 @@ from packstudio.domain.geometry import (
     RectangleOperation,
     RectangularBooleanBlock,
 )
-from packstudio.domain.model import PackageModel
-
-_TOLERANCE = 1e-9
 
 
 @dataclass(frozen=True)
@@ -24,8 +21,14 @@ def compact_boolean_blocks(
     blocks: list[AxisAlignedBlock],
     source_density: dict[str, float],
 ) -> list[CompactedBooleanBlock]:
+    """Compact coplanar cuboids into exact extruded XY boolean profiles.
+
+    Z position and thickness are part of the compatibility key.  PTA layer planning
+    decides where a physical block must be sliced before calling this function, so
+    this compressor never creates an extrusion that violates layer Z semantics.
+    """
     grouped: dict[
-        tuple[str, str, StructureType, str, str, float],
+        tuple[str, str, StructureType, str, str, float, float, float],
         list[AxisAlignedBlock],
     ] = defaultdict(list)
     for block in blocks:
@@ -39,72 +42,40 @@ def compact_boolean_blocks(
             block.material_id,
             block.parent_group_id,
             density,
+            _snap(block.origin.z),
+            _snap(block.size.z),
         )
         grouped[key].append(block)
 
     compacted: list[CompactedBooleanBlock] = []
-    solid_index = 0
-    for key, source_blocks in grouped.items():
-        source_id, source_name, structure_type, material_id, group_id, density = key
-        segment_specs = _z_segments(source_blocks)
-        for segment_index, (z, thickness, active) in enumerate(segment_specs, start=1):
-            solid_index += 1
-            name = (
-                source_name
-                if len(segment_specs) == 1
-                else f"{source_name} z segment {segment_index}"
+    for solid_index, (key, source_blocks) in enumerate(grouped.items(), start=1):
+        (
+            source_id,
+            source_name,
+            structure_type,
+            material_id,
+            group_id,
+            density,
+            z,
+            thickness,
+        ) = key
+        compacted.append(
+            CompactedBooleanBlock(
+                geometry=RectangularBooleanBlock(
+                    id=f"{source_id}-boolean-{solid_index}",
+                    name=source_name,
+                    structure_type=structure_type,
+                    z=z,
+                    thickness=thickness,
+                    material_id=material_id,
+                    parent_group_id=group_id,
+                    operations=_compact_xy(source_blocks),
+                    source_block_ids=sorted(block.id for block in source_blocks),
+                ),
+                volumetric_heat_source=density,
             )
-            compacted.append(
-                CompactedBooleanBlock(
-                    geometry=RectangularBooleanBlock(
-                        id=f"{source_id}-boolean-{solid_index}",
-                        name=name,
-                        structure_type=structure_type,
-                        z=z,
-                        thickness=thickness,
-                        material_id=material_id,
-                        parent_group_id=group_id,
-                        operations=_compact_xy(active),
-                        source_block_ids=sorted(block.id for block in active),
-                    ),
-                    volumetric_heat_source=density,
-                )
-            )
+        )
     return compacted
-
-
-def should_use_boolean_block_mode(
-    model: PackageModel,
-    compacted: list[CompactedBooleanBlock],
-) -> bool:
-    requested = str(model.metadata.get("pta_geometry_mode", "auto"))
-    if requested == "block":
-        return True
-    if requested == "layer":
-        return False
-    if requested != "auto":
-        raise ValueError("pta_geometry_mode must be auto, block, or layer")
-    return len(model.blocks) - len(compacted) >= 8
-
-
-def _z_segments(
-    blocks: list[AxisAlignedBlock],
-) -> list[tuple[float, float, list[AxisAlignedBlock]]]:
-    coordinates = sorted(
-        {_snap(value) for block in blocks for value in (block.origin.z, block.max_z)}
-    )
-    segments = []
-    for z, maximum_z in zip(coordinates, coordinates[1:], strict=False):
-        if maximum_z <= z + _TOLERANCE:
-            continue
-        active = [
-            block
-            for block in blocks
-            if block.origin.z <= z + _TOLERANCE and block.max_z >= maximum_z - _TOLERANCE
-        ]
-        if active:
-            segments.append((z, maximum_z - z, active))
-    return segments
 
 
 def _compact_xy(blocks: list[AxisAlignedBlock]) -> list[RectangleOperation]:

@@ -109,7 +109,7 @@ PackStudio JSON 模型和块名称中。
 
 ## 4. 几何与材料字段
 
-### 4.1 Layer Mode 与根级 Block Mode
+### 4.1 固定 Layer Mode 与顶层块厚特例
 
 **样例**：
 
@@ -118,22 +118,32 @@ PackStudio JSON 模型和块名称中。
   `ZOffsetExpression` 定位；
 - `Rect` 中的 X/Y 表达式描述块内二维矩形；
 - `LengthUnit` 使用 `Mm`；
-- PackStudio 当前只支持连续、无间隙的 Z 层叠。
+- PackStudio 只输出连续、无间隙的 Z 层叠。
 
-最后一项只适用于 **Layer Mode**。Layer Mode 会拒绝不连续 Z 层，避免隐式层位置与领域
-几何不一致。
-
-PTA 还提供根级 `Structure/Blocks`。根级块通过自身的 `ZOffsetExpression` 和
-`ThicknessExpression` 设置独立 Z 位置/高度，配合：
+PackStudio 固定写入：
 
 ```xml
-<UseBlockBuildMode>true</UseBlockBuildMode>
+<Blocks />
+<Layers>...</Layers>
+<UseBlockBuildMode>false</UseBlockBuildMode>
 ```
 
-此时 `Layers` 为空，不要求所有实体共享连续全局层。PackStudio 在布尔压缩至少减少 8 个
-XML 实体时自动使用该模式；否则保持 Layer Mode。
+根级 `Structure/Blocks` 不用于 PackStudio 封装导出。即使布尔压缩收益很大，也不能切换到
+Block Build Mode。
 
-### 4.2 块内矩形布尔操作
+**PTA 约束**：只有从顶层到底层序列中的第 1 个 Layer 在设置 `IsTopLayer=true` 后，层内
+Block 的 `ThicknessExpression` 才可以与 Layer 的 `ThicknessExpression` 不同。其余层内
+每个 Block 必须与所属 Layer 等厚。PackStudio 因此：
+
+- 以所有物理块中最高的起始 Z 作为顶层基面；
+- 把该基面以上的块放入第 1 层，并保留各自高度；
+- 对顶层以下的跨层块按全局 Z 边界切片；
+- 对非顶层块执行导出前断言，拒绝任何块厚与层厚不一致；
+- 保持 `TopLayerIndex=0`，且只有第 1 层写入 `IsTopLayer=true`。
+
+这种表达利用顶层块可具有不同 Z 厚度的特性减少切片，同时不把该特例错误应用到普通层。
+
+### 4.2 层内矩形布尔操作
 
 同一个 `Block/AllRects` 可以包含多个二维矩形：
 
@@ -148,8 +158,9 @@ XML 实体时自动使用该模式；否则保持 Layer Mode。
 </Rect>
 ```
 
-根级块把该二维布尔轮廓沿自身厚度挤出。PackStudio 仅合并同一原始逻辑源、材料、结构、
-父组和体热源密度的碎片，并逐材料验证压缩前后体积。
+层内 Block 把该二维布尔轮廓沿自身厚度挤出。PackStudio 先合并连续的占用单元，并在“多个
+加矩形”和“一个外包络加矩形 + 若干空区减矩形”之间选择操作数更少的精确表达。只合并
+同一原始逻辑源、材料、结构、父组和体热源密度的碎片，并逐材料验证压缩前后体积。
 
 ### 4.3 导热系数
 
@@ -189,12 +200,13 @@ TiReyuan = power_w / (block_volume_mm3 × 1e-9)
 预设分别按每层包络在 XY 方向约分 12、24、40 份，在 Z 方向约分 1、2、4 份。自动化测试
 明确允许 `MeshSize*Expression`，但继续拒绝 `<Mesh>` 实体。
 
-### 5.1 TASK6 多跨度 Z 分层
+### 5.1 多跨度 Z 分层与顶层压缩
 
 八类参考模型包含跨越多个高度区间的基板、封装体、引线框和嵌入结构。导出器先收集所有块
-的 Z 起止边界，再把跨区间矩形块切成逐层片段，使每个 PTA `Layer` 只覆盖一个确定高度区间。
-相邻全局区间必须连续；若存在没有任何结构覆盖的空 Z 区间，导出前直接拒绝。切片不改变
-总体体积、材料、热源功率和表面边界语义。
+的 Z 起止边界并验证堆叠连续。最高物理起点以上合并为第 1 个顶层 Layer，其中的块保留各自
+高度；该平面以下的跨区间矩形块切成逐层片段，每个非顶层片段与 Layer 等厚。随后在每层内
+恢复连续矩形和精确加/减轮廓。若存在没有任何结构覆盖的空 Z 区间，导出前直接拒绝。该过程
+不改变总体积、材料、热源功率和表面边界语义。
 
 ## 6. 热边界
 
@@ -237,6 +249,9 @@ TASK5 起 PCB 和顶部均不再输入总热阻，也不执行 `h = 1 / (R × A)
 - 模型树显示全部预期层，不能只依赖三维几何判断；
 - 层从 lid 到 solder balls 排列；
 - `TopLayerIndex` 指向唯一的 `IsTopLayer=true` 层；
+- 根级 `Blocks` 为空且 `UseBlockBuildMode=false`；
+- 除第 1 个顶层 Layer 外，所有层内 Block 厚度均与所属 Layer 厚度一致；
+- 高碎片代表模型的层内 `AllRects` 同时包含预期的加矩形和减矩形；
 - 标准视图中的 +Z 方向与 PackStudio 的“封装底部到顶部”一致；
 - 材料、热源、PCB 侧边界、顶部边界和默认外表面边界存在，两个显式换热系数与 UI 输入一致；
 - 每个层的 `MeshSizeX/Y/ZExpression` 均大于 0；
@@ -252,4 +267,5 @@ TASK5 起 PCB 和顶部均不再输入总热阻，也不执行 `h = 1 / (R × A)
 - [ADR-0004：TASK4 仿真就绪导出约定](decisions/0004-TASK4-仿真就绪导出约定.md)
 - [ADR-0005：TASK5 组合焊球与尺寸预设](decisions/0005-TASK5-组合焊球与尺寸预设.md)
 - [ADR-0006：TASK6 八类证据驱动模板](decisions/0006-TASK6-八类证据驱动模板.md)
+- [ADR-0013：PTA 全分层矩形布尔建模](decisions/0013-TASK13-PTA全分层矩形布尔建模.md)
 - [Flip Chip CBGA / BGA 模板说明](templates/flip-chip-cbga.md)

@@ -47,37 +47,45 @@ def test_boolean_compaction_encodes_a_ring_as_add_then_subtract() -> None:
     )
 
 
-def test_qfn_export_uses_root_boolean_blocks_to_reduce_entities() -> None:
+def test_boolean_compaction_merges_adjacent_rectangles() -> None:
+    compacted = compact_boolean_blocks(
+        [
+            rectangle("left", 0, 0, 4, 6),
+            rectangle("right", 4, 0, 6, 6),
+        ],
+        {},
+    )
+
+    assert len(compacted) == 1
+    operations = compacted[0].geometry.operations
+    assert len(operations) == 1
+    assert operations[0].add is True
+    assert operations[0].model_dump(exclude={"add"}) == pytest.approx(
+        {"x": 0, "y": 0, "width": 10, "height": 6}
+    )
+
+
+def test_qfn_export_uses_layer_boolean_blocks_to_reduce_entities() -> None:
     model = generate(default_request("qfn"))
     root = etree.fromstring(export_pta_xml(model))
-    layer_model = model.model_copy(
-        update={"metadata": {**model.metadata, "pta_geometry_mode": "layer"}}
-    )
-    layer_root = etree.fromstring(export_pta_xml(layer_model))
     namespace = {"m": MODEL_NAMESPACE}
     root_blocks = root.xpath("./m:Blocks/m:Block", namespaces=namespace)
-    layer_blocks = layer_root.xpath("./m:Layers/m:Layer/m:Blocks/m:Block", namespaces=namespace)
+    layers = root.xpath("./m:Layers/m:Layer", namespaces=namespace)
+    layer_blocks = root.xpath("./m:Layers/m:Layer/m:Blocks/m:Block", namespaces=namespace)
     encapsulant_blocks = root.xpath(
-        "./m:Blocks/m:Block[m:MaterialName='eme-7730lf']", namespaces=namespace
-    )
-    layer_encapsulant_count = sum(
-        material_id == "eme-7730lf"
-        for material_id in layer_root.xpath(
-            "./m:Layers/m:Layer/m:Blocks/m:Block/m:MaterialName/text()",
-            namespaces=namespace,
-        )
+        "./m:Layers/m:Layer/m:Blocks/m:Block[m:MaterialName='eme-7730lf']",
+        namespaces=namespace,
     )
     operations = root.xpath(
-        "./m:Blocks/m:Block/m:AllRects/m:Rect/m:Add_sub/text()",
+        "./m:Layers/m:Layer/m:Blocks/m:Block/m:AllRects/m:Rect/m:Add_sub/text()",
         namespaces=namespace,
     )
 
-    assert root.findtext(f"{{{MODEL_NAMESPACE}}}UseBlockBuildMode") == "true"
-    assert not root.xpath("./m:Layers/m:Layer", namespaces=namespace)
+    assert root.findtext(f"{{{MODEL_NAMESPACE}}}UseBlockBuildMode") == "false"
+    assert not root_blocks
+    assert layers
     assert len(model.blocks) == 1664
-    assert len(layer_blocks) == 3747
-    assert len(root_blocks) < len(layer_blocks) / 10
-    assert layer_encapsulant_count == 3421
+    assert len(layer_blocks) < len(model.blocks) / 4
     assert len(encapsulant_blocks) <= 6
     assert "false" in operations
 
@@ -88,55 +96,137 @@ def test_qfn_export_uses_root_boolean_blocks_to_reduce_entities() -> None:
 )
 def test_boolean_compaction_preserves_volume_by_material(template_id: str) -> None:
     model = generate(default_request(template_id))
-    compacted = compact_boolean_blocks(model.blocks, {})
     expected: dict[str, float] = {}
-    actual: dict[str, float] = {}
     for block in model.blocks:
         expected[block.material_id] = expected.get(block.material_id, 0) + (
             block.size.x * block.size.y * block.size.z
         )
-    for item in compacted:
-        solid = item.geometry
-        signed_area = sum(
-            operation.width * operation.height * (1 if operation.add else -1)
-            for operation in solid.operations
-        )
-        actual[solid.material_id] = actual.get(solid.material_id, 0) + (
-            signed_area * solid.thickness
-        )
+    actual = _serialized_volume_by_material(etree.fromstring(export_pta_xml(model)))
 
     assert actual.keys() == expected.keys()
     for material_id, expected_volume in expected.items():
         assert actual[material_id] == pytest.approx(expected_volume, rel=1e-10, abs=1e-10)
 
 
-def test_root_blocks_keep_independent_z_offsets_and_thicknesses() -> None:
+@pytest.mark.parametrize(
+    "template_id",
+    (
+        "wirebond_pbga",
+        "flip_chip_pbga",
+        "fbga_fsbga",
+        "flip_chip_cbga",
+        "qfn",
+        "qfp_family",
+        "soic_family",
+        "bare_die",
+    ),
+)
+def test_all_templates_use_layers_and_only_top_blocks_may_differ_in_thickness(
+    template_id: str,
+) -> None:
+    model = generate(default_request(template_id))
+    root = etree.fromstring(export_pta_xml(model))
+    namespace = {"m": MODEL_NAMESPACE}
+    layers = root.xpath("./m:Layers/m:Layer", namespaces=namespace)
+
+    assert root.findtext(f"{{{MODEL_NAMESPACE}}}UseBlockBuildMode") == "false"
+    assert not root.xpath("./m:Blocks/m:Block", namespaces=namespace)
+    assert [layer.findtext(f"{{{MODEL_NAMESPACE}}}IsTopLayer") for layer in layers] == [
+        "true",
+        *(["false"] * (len(layers) - 1)),
+    ]
+    for index, layer in enumerate(layers):
+        layer_thickness = float(layer.findtext(f"{{{MODEL_NAMESPACE}}}ThicknessExpression"))
+        for block in layer.xpath("./m:Blocks/m:Block", namespaces=namespace):
+            block_thickness = float(block.findtext(f"{{{MODEL_NAMESPACE}}}ThicknessExpression"))
+            assert block.findtext(f"{{{MODEL_NAMESPACE}}}ZOffsetExpression") == "0"
+            if index == 0:
+                assert block_thickness <= layer_thickness + 1e-10
+            else:
+                assert block_thickness == pytest.approx(layer_thickness)
+
+
+def test_top_layer_alone_keeps_independent_block_thicknesses() -> None:
     model = generate_flip_chip_cbga(FlipChipCbgaParameters())
-    die = next(block for block in model.blocks if block.id == "die")
-    moved_die = die.model_copy(
-        update={"origin": die.origin.model_copy(update={"z": die.origin.z + 3})}
-    )
+    material_id = model.materials[0].id
+    group_id = model.groups[0].id
+    blocks = [
+        AxisAlignedBlock(
+            id="base",
+            name="Base",
+            structure_type=StructureType.SUBSTRATE,
+            origin=Point3D(x=0, y=0, z=0),
+            size=Size3D(x=4, y=4, z=1),
+            material_id=material_id,
+            parent_group_id=group_id,
+        ),
+        AxisAlignedBlock(
+            id="top-tall",
+            name="Tall top block",
+            structure_type=StructureType.ENCAPSULANT,
+            origin=Point3D(x=0, y=0, z=1),
+            size=Size3D(x=1, y=1, z=2),
+            material_id=material_id,
+            parent_group_id=group_id,
+        ),
+        AxisAlignedBlock(
+            id="top-short",
+            name="Short top block",
+            structure_type=StructureType.ENCAPSULANT,
+            origin=Point3D(x=2, y=0, z=1),
+            size=Size3D(x=1, y=1, z=1),
+            material_id=material_id,
+            parent_group_id=group_id,
+        ),
+    ]
     modified = model.model_copy(
         update={
-            "blocks": [moved_die if block.id == moved_die.id else block for block in model.blocks],
+            "blocks": blocks,
+            "heat_sources": [],
+            "boundaries": [],
             "metadata": {**model.metadata, "pta_geometry_mode": "block"},
         }
     )
 
     root = etree.fromstring(export_pta_xml(modified))
     namespace = {"m": MODEL_NAMESPACE}
-    root_blocks = root.xpath("./m:Blocks/m:Block", namespaces=namespace)
-    z_offsets = {
-        float(block.findtext(f"{{{MODEL_NAMESPACE}}}ZOffsetExpression")) for block in root_blocks
+    layers = root.xpath("./m:Layers/m:Layer", namespaces=namespace)
+    top_thicknesses = {
+        float(value)
+        for value in layers[0].xpath(
+            "./m:Blocks/m:Block/m:ThicknessExpression/text()", namespaces=namespace
+        )
     }
-    thicknesses = {
-        float(block.findtext(f"{{{MODEL_NAMESPACE}}}ThicknessExpression")) for block in root_blocks
+    lower_thicknesses = {
+        float(value)
+        for value in layers[1].xpath(
+            "./m:Blocks/m:Block/m:ThicknessExpression/text()", namespaces=namespace
+        )
     }
 
-    assert root.findtext(f"{{{MODEL_NAMESPACE}}}UseBlockBuildMode") == "true"
-    assert len(z_offsets) > 2
-    assert len(thicknesses) > 2
-    assert not root.xpath("./m:Layers/m:Layer", namespaces=namespace)
+    assert root.findtext(f"{{{MODEL_NAMESPACE}}}UseBlockBuildMode") == "false"
+    assert len(layers) == 2
+    assert layers[0].findtext(f"{{{MODEL_NAMESPACE}}}IsTopLayer") == "true"
+    assert float(layers[0].findtext(f"{{{MODEL_NAMESPACE}}}ThicknessExpression")) == 2
+    assert top_thicknesses == {1, 2}
+    assert lower_thicknesses == {1}
+    assert not root.xpath("./m:Blocks/m:Block", namespaces=namespace)
+
+
+def _serialized_volume_by_material(root: etree._Element) -> dict[str, float]:
+    namespace = {"m": MODEL_NAMESPACE}
+    volumes: dict[str, float] = {}
+    for block in root.xpath("./m:Layers/m:Layer/m:Blocks/m:Block", namespaces=namespace):
+        material_id = block.findtext(f"{{{MODEL_NAMESPACE}}}MaterialName")
+        signed_area = 0.0
+        for rectangle_node in block.xpath("./m:AllRects/m:Rect", namespaces=namespace):
+            sign = 1 if rectangle_node.findtext(f"{{{MODEL_NAMESPACE}}}Add_sub") == "true" else -1
+            width = float(rectangle_node.findtext(f"{{{MODEL_NAMESPACE}}}WidthExpression"))
+            height = float(rectangle_node.findtext(f"{{{MODEL_NAMESPACE}}}HeightExpression"))
+            signed_area += sign * width * height
+        thickness = float(block.findtext(f"{{{MODEL_NAMESPACE}}}ThicknessExpression"))
+        volumes[material_id] = volumes.get(material_id, 0) + signed_area * thickness
+    return volumes
 
 
 def rectangle(

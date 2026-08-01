@@ -1,47 +1,11 @@
 from lxml import etree
 
 from packstudio.domain.geometry import (
-    AxisAlignedBlock,
     RectangleOperation,
     RectangularBooleanBlock,
 )
 from packstudio.exporters.pta_constants import MODEL_NAMESPACE, XSI_NAMESPACE
 from packstudio.exporters.pta_materials import append_block_color
-
-
-def append_layer_block(
-    parent: etree._Element,
-    block: AxisAlignedBlock,
-    color: str,
-    volumetric_heat_source: float,
-) -> None:
-    geometry = RectangularBooleanBlock(
-        id=block.id,
-        name=block.name,
-        structure_type=block.structure_type,
-        z=block.origin.z,
-        thickness=block.size.z,
-        material_id=block.material_id,
-        parent_group_id=block.parent_group_id,
-        operations=[
-            RectangleOperation(
-                add=True,
-                x=block.origin.x,
-                y=block.origin.y,
-                width=block.size.x,
-                height=block.size.y,
-            )
-        ],
-        source_block_ids=[block.id],
-    )
-    append_boolean_block(
-        parent,
-        geometry,
-        color,
-        volumetric_heat_source,
-        z_offset=0,
-        mesh_sizes=(0, 0, 0),
-    )
 
 
 def append_boolean_block(
@@ -104,16 +68,6 @@ def append_boolean_block(
     _text(element, "XOffsetExpression", x_offset)
     _text(element, "YOffsetExpression", y_offset)
     _text(element, "ZOffsetExpression", z_offset)
-
-
-def boolean_block_extents(
-    block: RectangularBooleanBlock,
-) -> tuple[float, float, float]:
-    minimum_x = min(operation.x for operation in block.operations)
-    maximum_x = max(operation.x + operation.width for operation in block.operations)
-    minimum_y = min(operation.y for operation in block.operations)
-    maximum_y = max(operation.y + operation.height for operation in block.operations)
-    return maximum_x - minimum_x, maximum_y - minimum_y, block.thickness
 
 
 def _append_rectangle(

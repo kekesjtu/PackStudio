@@ -3,17 +3,8 @@ from collections import defaultdict
 from lxml import etree
 
 from packstudio.domain.enums import StructureType
-from packstudio.domain.geometry import AxisAlignedBlock
 from packstudio.domain.model import PackageModel
-from packstudio.exporters.pta_blocks import (
-    append_boolean_block,
-    append_layer_block,
-    boolean_block_extents,
-)
-from packstudio.exporters.pta_boolean import (
-    compact_boolean_blocks,
-    should_use_boolean_block_mode,
-)
+from packstudio.exporters.pta_blocks import append_boolean_block
 from packstudio.exporters.pta_boundaries import (
     append_boundaries,
     append_default_exterior_boundary,
@@ -24,8 +15,9 @@ from packstudio.exporters.pta_constants import (
     MODEL_NAMESPACE,
     XSI_NAMESPACE,
 )
+from packstudio.exporters.pta_layers import build_boolean_layers
 from packstudio.exporters.pta_materials import append_materials
-from packstudio.exporters.pta_mesh import geometry_mesh_sizes, layer_mesh_sizes
+from packstudio.exporters.pta_mesh import layer_mesh_sizes
 
 
 def export_pta_xml(model: PackageModel) -> bytes:
@@ -37,10 +29,6 @@ def export_pta_xml(model: PackageModel) -> bytes:
     minimum_z = min(block.origin.z for block in model.blocks)
     z_shift = -minimum_z
     ambient_temperature = _ambient_temperature(model)
-    source_density = _source_density_by_block(model)
-    compacted_blocks = compact_boolean_blocks(model.blocks, source_density)
-    use_block_mode = should_use_boolean_block_mode(model, compacted_blocks)
-    materials = {material.id: material for material in model.materials}
 
     _text(root, "AlphaDegree", 0)
     _text(root, "AmbientTemperature", ambient_temperature)
@@ -50,18 +38,7 @@ def export_pta_xml(model: PackageModel) -> bytes:
         nsmap={"a": DIALOG_NAMESPACE},
     )
     _text(root, "BetaDegree", 0)
-    root_blocks = etree.SubElement(root, etree.QName(MODEL_NAMESPACE, "Blocks"))
-    if use_block_mode:
-        for compacted in compacted_blocks:
-            extents = boolean_block_extents(compacted.geometry)
-            append_boolean_block(
-                root_blocks,
-                compacted.geometry,
-                materials[compacted.geometry.material_id].color,
-                compacted.volumetric_heat_source,
-                z_offset=compacted.geometry.z + z_shift,
-                mesh_sizes=geometry_mesh_sizes(model, *extents),
-            )
+    etree.SubElement(root, etree.QName(MODEL_NAMESPACE, "Blocks"))
     _nil(root, "BottomThermalBoundary")
     append_boundaries(
         root,
@@ -86,10 +63,7 @@ def export_pta_xml(model: PackageModel) -> bytes:
     )
     _text(root, "GammaDegree", 0)
     _text(root, "InitialTemperature", ambient_temperature)
-    if use_block_mode:
-        etree.SubElement(root, etree.QName(MODEL_NAMESPACE, "Layers"))
-    else:
-        append_layers(root, model, z_shift)
+    append_layers(root, model, z_shift)
     _text(root, "LengthUnit", "Mm")
     append_materials(root, model.materials)
     _text(root, "MechanicalDampingFactor", 0)
@@ -118,7 +92,7 @@ def export_pta_xml(model: PackageModel) -> bytes:
         ("TransientStudyDuration", 0),
         ("TransientStudyTimeStep", 1),
         ("TransientTimeUnit", "S"),
-        ("UseBlockBuildMode", _boolean(use_block_mode)),
+        ("UseBlockBuildMode", "false"),
     ):
         _text(root, name, value)
     etree.SubElement(
@@ -136,23 +110,24 @@ def export_pta_xml(model: PackageModel) -> bytes:
 
 def append_layers(parent: etree._Element, model: PackageModel, z_shift: float) -> None:
     container = etree.SubElement(parent, etree.QName(MODEL_NAMESPACE, "Layers"))
-    bottom_to_top_layers = _group_layers(model.blocks)
-    _validate_contiguous_layers(bottom_to_top_layers, z_shift)
-    layers = list(reversed(bottom_to_top_layers))
     source_density = _source_density_by_block(model)
+    layers = list(reversed(build_boolean_layers(model, source_density)))
     materials = {material.id: material for material in model.materials}
 
-    for index, ((base_z, thickness), blocks) in enumerate(layers):
+    for index, geometry_layer in enumerate(layers):
         layer = etree.SubElement(container, etree.QName(MODEL_NAMESPACE, "Layer"))
         block_container = etree.SubElement(layer, etree.QName(MODEL_NAMESPACE, "Blocks"))
-        for block in blocks:
-            append_layer_block(
+        for compacted in geometry_layer.boolean_blocks:
+            block = compacted.geometry
+            append_boolean_block(
                 block_container,
                 block,
                 materials[block.material_id].color,
-                source_density.get(block.id, 0),
+                compacted.volumetric_heat_source,
+                z_offset=0,
+                mesh_sizes=(0, 0, 0),
             )
-        structures = {block.structure_type for block in blocks}
+        structures = {block.structure_type for block in geometry_layer.physical_blocks}
         _text(layer, "CreatedByTopLayer", "false")
         _text(layer, "IsBasic", "false")
         _text(layer, "IsBottomPackaging", "false")
@@ -163,63 +138,26 @@ def append_layers(parent: etree._Element, model: PackageModel, z_shift: float) -
         _text(layer, "IsSingle", "false")
         _text(layer, "IsSubstrate", _boolean(StructureType.SUBSTRATE in structures))
         _text(layer, "IsTIM", "false")
-        _text(layer, "IsTopLayer", _boolean(index == 0))
-        mesh_x, mesh_y, mesh_z = layer_mesh_sizes(model, blocks, thickness)
+        _text(layer, "IsTopLayer", _boolean(geometry_layer.is_top))
+        mesh_x, mesh_y, mesh_z = layer_mesh_sizes(
+            model,
+            geometry_layer.physical_blocks,
+            geometry_layer.thickness,
+        )
         _text(layer, "MeshSizeXExpression", mesh_x)
         _text(layer, "MeshSizeYExpression", mesh_y)
         _text(layer, "MeshSizeZExpression", mesh_z)
         _text(layer, "MetalConversionRate", 0.4)
-        _text(layer, "Name", f"Layer {index + 1} @ {_number(base_z + z_shift)} mm")
+        _text(
+            layer,
+            "Name",
+            f"Layer {index + 1} @ {_number(geometry_layer.base_z + z_shift)} mm",
+        )
         _text(layer, "PeriodWidth", 10)
         _text(layer, "SawBoundaryOption", "None")
-        _text(layer, "ThicknessExpression", thickness)
+        _text(layer, "ThicknessExpression", geometry_layer.thickness)
         _text(layer, "XOffsetExpression", 0)
         _text(layer, "YOffsetExpression", 0)
-
-
-def _group_layers(
-    blocks: list[AxisAlignedBlock],
-) -> list[tuple[tuple[float, float], list[AxisAlignedBlock]]]:
-    z_coordinates = sorted(
-        {coordinate for block in blocks for coordinate in (block.origin.z, block.max_z)}
-    )
-    layers: list[tuple[tuple[float, float], list[AxisAlignedBlock]]] = []
-    for base_z, maximum_z in zip(z_coordinates, z_coordinates[1:], strict=False):
-        thickness = maximum_z - base_z
-        if thickness <= 1e-12:
-            continue
-        active = [
-            block
-            for block in blocks
-            if block.origin.z <= base_z + 1e-9 and block.max_z >= maximum_z - 1e-9
-        ]
-        if not active:
-            layers.append(((base_z, thickness), []))
-            continue
-        slices = [
-            block.model_copy(
-                update={
-                    "origin": block.origin.model_copy(update={"z": base_z}),
-                    "size": block.size.model_copy(update={"z": thickness}),
-                }
-            )
-            for block in active
-        ]
-        layers.append(((base_z, thickness), slices))
-    return layers
-
-
-def _validate_contiguous_layers(
-    layers: list[tuple[tuple[float, float], list[AxisAlignedBlock]]], z_shift: float
-) -> None:
-    cursor = 0.0
-    for (base_z, thickness), blocks in layers:
-        shifted_z = base_z + z_shift
-        if abs(shifted_z - cursor) > 1e-8:
-            raise ValueError("PTA export requires contiguous z layers")
-        if not blocks:
-            raise ValueError("PTA export requires a contiguous stack without empty z intervals")
-        cursor = shifted_z + thickness
 
 
 def _source_density_by_block(model: PackageModel) -> dict[str, float]:

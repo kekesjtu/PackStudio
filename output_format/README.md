@@ -15,13 +15,16 @@ output_format
     └── simple_macromodel_cases/# 降阶宏模型用例（含 .tmm ROM 文件）
 ```
 
-## PTA 几何构建模式
+## PTA 分层几何约定
 
-PackStudio 支持 PTA 的两种正交几何路径：
+PackStudio 固定使用 PTA 的 `Layers/Layer/Blocks` 路径：
 
-- 简单连续堆叠使用 `Layers/Layer/Blocks`；
-- 高碎片结构使用根级 `Structure/Blocks`，并设置 `UseBlockBuildMode=true`。
+- 根级 `Structure/Blocks` 保持为空；
+- `UseBlockBuildMode=false`；
+- `Layers` 从顶层到底层排列，`TopLayerIndex=0`，只有第 1 层设置
+  `IsTopLayer=true`。
 
-根级块通过自身的 `ZOffsetExpression` 和 `ThicknessExpression` 设置 Z 位置与高度。同一
-`Block/AllRects` 可包含多个矩形，`Add_sub=true` 表示加操作，`Add_sub=false` 表示减
-操作。PackStudio 只在几何体积完全等价且不跨材料、逻辑源或热源密度时执行该压缩。
+只有第 1 个顶层 Layer 中的块允许 `ThicknessExpression` 与层厚不同；其他层内所有块均与
+所属层等厚。顶层以下的跨层结构按层切片。同一 `Block/AllRects` 可以包含多个矩形，
+`Add_sub=true` 表示加操作，`Add_sub=false` 表示减操作。PackStudio 只在几何体积完全等价且
+不跨材料、结构、逻辑源、父组或热源密度时执行该压缩。
