@@ -88,6 +88,10 @@ PackStudio/
     ├── internal_property_registry.json     # UI 字段到 FloSCRIPT 组件/属性的证据化注册表
     ├── parameter_coverage.json             # 扫参策略、分支基线、变体和回放清单
     │
+    ├── modeling_option_impacts/            # 重要 option 对建模影响的系统说明
+    │   ├── README.md                       # 证据等级、通用公式和 39 项索引
+    │   └── NN-<option>.md                  # 一个 UI option 一个文件
+    │
     ├── materials/                          # 材料库归档目录
     │   ├── materials_auto_extracted.json   # 从 FloXML 自动导出的材料汇总
     │   ├── materials_manual_captured.json  # 界面 Materials Tab 提取的材料（含 C4 Bumps / Underfill 密度、比热、导热）
@@ -182,6 +186,9 @@ PACK 日志汇总和最终验收报告，不是另一份模板数据。
   不同名称；合并 2 个手工提取的隐藏组分后，主材料库共 48 个定义。
 - 8/8 模板、全局数据完整性、脚本 XSD、FloXML 可解析性、回放证据和单变量
   差异检查均已通过，结果见 `validation/report.json`。
+- 重要选项的几何增删、材料方向性、联动关系、适用边界和可反算公式已整理到
+  [`modeling_option_impacts/`](modeling_option_impacts/README.md)。目录含 39 个语义选项文件，
+  覆盖 42 个内部 option 目标；未被 PackStudio 采用的 PACK 分支也保留参考说明并明确标注。
 
 可重复执行的本地验证命令：
 
