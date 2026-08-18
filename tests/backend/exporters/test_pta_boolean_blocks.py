@@ -12,8 +12,6 @@ from packstudio.domain.geometry import (
 from packstudio.exporters.pta_boolean import compact_boolean_blocks
 from packstudio.exporters.pta_constants import MODEL_NAMESPACE
 from packstudio.exporters.pta_xml import export_pta_xml
-from packstudio.templates.flip_chip_cbga.generator import generate_flip_chip_cbga
-from packstudio.templates.flip_chip_cbga.parameters import FlipChipCbgaParameters
 from packstudio.templates.package_library.catalog import default_request, generate
 
 
@@ -147,7 +145,7 @@ def test_all_templates_use_layers_and_only_top_blocks_may_differ_in_thickness(
 
 
 def test_top_layer_alone_keeps_independent_block_thicknesses() -> None:
-    model = generate_flip_chip_cbga(FlipChipCbgaParameters())
+    model = generate(default_request("flip_chip_cbga"))
     material_id = model.materials[0].id
     group_id = model.groups[0].id
     blocks = [

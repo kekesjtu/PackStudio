@@ -115,8 +115,6 @@ def build(
     bga = build_bga_layer(
         values,
         request.bga or BgaConfiguration(),
-        substrate_length,
-        substrate_width,
         base_z=0,
     )
     return BuiltTemplate(

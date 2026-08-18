@@ -14,8 +14,6 @@ from packstudio.templates.package_library.core.parameters import BgaConfiguratio
 def build_bga_layer(
     values: TemplateValues,
     configuration: BgaConfiguration,
-    parent_length: float,
-    parent_width: float,
     *,
     base_z: float = 0,
 ) -> LayerBuild:

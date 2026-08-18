@@ -277,8 +277,6 @@ def _build(values: TemplateValues, request: TemplateRequest) -> BuiltTemplate:
     bga = build_bga_layer(
         values,
         request.bga or BgaConfiguration(representation="discrete"),
-        length,
-        width,
         base_z=0,
     )
     return BuiltTemplate(
