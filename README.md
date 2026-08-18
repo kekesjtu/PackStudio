@@ -135,6 +135,16 @@ npm run desktop
 一并清理。桌面壳只是窗口壳：渲染层与浏览器版完全一致，详见
 [docs/tasks/TASK14.md](docs/tasks/TASK14.md)。
 
+制作 Windows 安装包（PyInstaller 后端 + electron-builder NSIS）：
+
+```powershell
+npm run dist        # 产出 release/desktop/PackStudio-<version>-setup.exe
+npm run package:desktop   # 仅出 unpacked 目录（release/desktop/win-unpacked），用于调试
+```
+
+首次打包需在用户级 `.npmrc` 配置 npmmirror 镜像（`electron_mirror`、
+`electron_builder_binaries_mirror`），避免工具下载卡在 GitHub 源。
+
 ### 4. 运行验收命令
 
 ```powershell

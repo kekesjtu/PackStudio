@@ -1,0 +1,29 @@
+# electron-builder 配置：桌面安装包（NSIS）
+# 布局约定：
+#   release/backend/packstudio-backend/  PyInstaller onedir 产物 → resources/backend
+#   dist/                                前端构建产物 → resources/frontend（后端托管）
+appId: com.packstudio.desktop
+productName: PackStudio
+directories:
+  output: release/desktop
+  buildResources: build
+files:
+  - electron/**
+  - package.json
+extraResources:
+  - from: release/backend/packstudio-backend
+    to: backend
+  - from: dist
+    to: frontend
+    filter:
+      - "**/*"
+win:
+  target:
+    - target: nsis
+      arch:
+        - x64
+nsis:
+  oneClick: false
+  allowToChangeInstallationDirectory: true
+  perMachine: false
+  artifactName: PackStudio-${version}-setup.${ext}

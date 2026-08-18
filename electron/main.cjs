@@ -61,9 +61,14 @@ function resolvePython() {
 
 function startBackend(port) {
   if (app.isPackaged) {
-    // 打包版：resources/backend 下的 PyInstaller 独立可执行文件
+    // 打包版：resources/backend 下的 PyInstaller 独立可执行文件，
+    // 前端产物在 resources/frontend，通过环境变量交给后端托管
     const executable = path.join(process.resourcesPath, 'backend', 'packstudio-backend.exe')
     backendProcess = spawn(executable, ['--port', String(port)], {
+      env: {
+        ...process.env,
+        PACKSTUDIO_FRONTEND_DIR: path.join(process.resourcesPath, 'frontend'),
+      },
       stdio: 'ignore',
       windowsHide: true,
     })
