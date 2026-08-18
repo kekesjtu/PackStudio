@@ -122,7 +122,20 @@ npm run dev
 Flip Chip CBGA 的基准复核、组合焊球规则和坐标约定详见
 [Flip Chip CBGA / BGA 模板说明](docs/templates/flip-chip-cbga.md)。
 
-### 3. 运行验收命令
+### 3. 桌面壳（不依赖浏览器）
+
+安装 Electron 后可直接以桌面窗口运行，无需浏览器和手动启动服务：
+
+```powershell
+npm run desktop
+```
+
+窗口会复用 8000 端口上已运行的后端，否则自动拉起后端子进程（优先
+`~/.conda/envs/PackStudio` 的解释器，可用 `PACKSTUDIO_PYTHON` 覆盖），退出窗口时
+一并清理。桌面壳只是窗口壳：渲染层与浏览器版完全一致，详见
+[docs/tasks/TASK14.md](docs/tasks/TASK14.md)。
+
+### 4. 运行验收命令
 
 ```powershell
 conda activate PackStudio
@@ -157,8 +170,9 @@ Flip Chip CBGA 的复核包络和特殊层约束保持不变。TASK8 将组件�
 各向异性等效层及 QFP/SOIC 散热焊盘与焊料规则写入生产契约。JEDEC 预设仅保留基准和已
 捕获的 FloXML 变体，每项分别声明芯片、塑封体、承载台、阵列或引脚等关联默认值，不使用
 全局缩放。TASK13 随后纠正 PTA 几何路径：所有模板固定使用 Layer Mode，只有第一个顶层
-允许块厚与层厚不同，其余层严格等厚，并在各层内部保留精确加/减布尔压缩。后续下游人工
-验收和交付增强见 [docs/PLAN.md](docs/PLAN.md)。
+允许块厚与层厚不同，其余层严格等厚，并在各层内部保留精确加/减布尔压缩。TASK14 引入
+Electron 桌面壳：`npm run desktop` 自动拉起后端子进程并打开桌面窗口，无需浏览器。
+后续下游人工验收和交付增强见 [docs/PLAN.md](docs/PLAN.md)。
 
 ## 参考产品
 

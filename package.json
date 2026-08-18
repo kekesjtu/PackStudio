@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.1.0",
   "type": "module",
+  "main": "electron/main.cjs",
   "engines": {
     "node": ">=22.12.0"
   },
@@ -10,7 +11,8 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint src/frontend tests/frontend",
-    "test": "vitest run"
+    "test": "vitest run",
+    "desktop": "npm run build && electron ."
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
@@ -31,6 +33,8 @@
     "@types/react-dom": "^19.0.0",
     "@types/three": "^0.180.0",
     "@vitejs/plugin-react": "^6.0.0",
+    "electron": "^43.4.0",
+    "electron-builder": "^26.15.3",
     "eslint": "^9.0.0",
     "eslint-plugin-react-hooks": "^7.0.0",
     "eslint-plugin-react-refresh": "^0.4.0",
