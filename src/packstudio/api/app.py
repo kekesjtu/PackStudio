@@ -15,13 +15,9 @@ def _mount_frontend(application: FastAPI) -> None:
     dist 目录存在时才挂载；未构建前端时保持纯 API 服务。挂载在 API 路由
     之后注册，保证 /api 前缀优先匹配。
     """
-    frontend_dir = Path(
-        os.environ.get("PACKSTUDIO_FRONTEND_DIR", str(_REPO_ROOT / "dist"))
-    )
+    frontend_dir = Path(os.environ.get("PACKSTUDIO_FRONTEND_DIR", str(_REPO_ROOT / "dist")))
     if frontend_dir.is_dir():
-        application.mount(
-            "/", StaticFiles(directory=frontend_dir, html=True), name="frontend"
-        )
+        application.mount("/", StaticFiles(directory=frontend_dir, html=True), name="frontend")
 
 
 def create_app() -> FastAPI:

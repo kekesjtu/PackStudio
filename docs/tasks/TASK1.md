@@ -41,3 +41,7 @@
 - [x] 通过 JSON、TOML、YAML、Python 语法、文件行数和 Markdown 本地链接静态校验
 - [x] 安装前后端依赖并运行 pytest、Ruff、ESLint、Vitest 和 Vite build
 - [x] 生成本次提交说明并执行 `git add`（不执行 `git commit`）
+
+> 环境更新（2026-09-30，TASK15）：以上 conda / 全局 python 命令为历史记录。
+> 当前统一使用 `uv sync --locked` 与 `uv run --locked`；Electron 开发启动通过 uv 执行，
+> 具体命令以根目录 README 和 AGENTS.md 为准。

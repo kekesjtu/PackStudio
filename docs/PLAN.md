@@ -1,5 +1,8 @@
 # PackStudio 长期开发计划
 
+TASK15 已于 2026-09-30 完成安装目录默认值调研、ECXML 导出与 uv 环境迁移，
+验收证据见 [TASK15](tasks/TASK15.md)。
+
 ## 1. 计划目标
 
 本计划将 `requirements.md` 拆成可验收的增量阶段。主线始终是：输入封装参数，生成统一的
@@ -27,7 +30,7 @@
 任务：
 
 - 完成前后端技术选型与架构决策；
-- 建立 Python/conda、React/Vite、代码检查和测试脚手架；
+- 建立 Python/uv、React/Vite、代码检查和测试脚手架；
 - 解读 Flotherm PACK 的引导式建模工作流；
 - 固化目录、开发说明和长期计划。
 

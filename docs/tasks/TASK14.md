@@ -72,3 +72,7 @@ ADR-0001 预留的方向引入 Electron 桌面壳：复用现有 Web 前端与 F
 - 渲染层无桌面专用能力（文件读写、系统集成），保持与浏览器版行为一致。
 - 安装包未配置图标（使用 Electron 默认图标）与代码签名证书（signtool 空签），正式分发
   前需补充。
+
+> 环境更新（2026-09-30，TASK15）：以上 conda / 全局 python 命令为历史记录。
+> 当前统一使用 `uv sync --locked` 与 `uv run --locked`；Electron 开发启动通过 uv 执行，
+> 具体命令以根目录 README 和 AGENTS.md 为准。

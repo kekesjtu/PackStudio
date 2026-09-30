@@ -193,7 +193,7 @@ PACK 日志汇总和最终验收报告，不是另一份模板数据。
 可重复执行的本地验证命令：
 
 ```powershell
-E:\anaconda\Scripts\conda.exe run -n PackStudio python flotherm_pack_data\validation\analyze_floxml_diffs.py flotherm_pack_data\templates --write-artifacts
-E:\anaconda\Scripts\conda.exe run -n PackStudio python flotherm_pack_data\validation\extract_floxml_materials.py flotherm_pack_data
-E:\anaconda\Scripts\conda.exe run -n PackStudio python flotherm_pack_data\validation\validate_reference_data.py flotherm_pack_data
+uv run --locked python flotherm_pack_data\validation\analyze_floxml_diffs.py flotherm_pack_data\templates --write-artifacts
+uv run --locked python flotherm_pack_data\validation\extract_floxml_materials.py flotherm_pack_data
+uv run --locked python flotherm_pack_data\validation\validate_reference_data.py flotherm_pack_data
 ```

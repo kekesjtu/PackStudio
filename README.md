@@ -19,7 +19,7 @@ PackStudio 面向 IC 封装热仿真工程师，提供：
 - **仿真就绪预设**：输出层级最大网格尺寸及默认、PCB 侧和顶部换热系数
 - **紧凑 PTA 几何**：固定使用层模型，在层内以相邻矩形合并和加/减布尔轮廓减少实体
 - **参数持久化**：显式保存当前参数，并在下次进入页面时恢复
-- **指定格式输出**：输出不含网格实体和求解结果的 PTA XML
+- **指定格式输出**：输出 PTA XML 或 ECXML；ECXML 交换几何、材料和功率
 
 ## 项目结构
 
@@ -33,7 +33,8 @@ PackStudio/
 ├── src/packstudio/               # Python API、领域、模板和导出器
 ├── tests/frontend/               # Vitest 组件测试
 ├── tests/backend/                # pytest 后端测试
-├── environment.yml               # PackStudio conda 环境
+├── uv.lock                       # Python 跨平台依赖锁文件
+├── .python-version               # uv 管理的 Python 版本
 ├── package.json                  # 前端依赖与命令
 ├── pyproject.toml                # Python 包、依赖和工具配置
 ├── requirements.md               # 产品需求
@@ -53,7 +54,7 @@ PackStudio/
 
 ### 前置条件
 
-- conda
+- [uv](https://docs.astral.sh/uv/getting-started/installation/)
 - Node.js 22.12+ 与 npm
 
 ### 一键启动（推荐）
@@ -65,10 +66,11 @@ PackStudio/
 ```
 
 脚本会基于自身位置定位仓库，不依赖用户名或固定安装路径；首次运行时会自动创建
-`PackStudio` conda 环境并安装前端依赖，随后启动前后端并打开浏览器。按 `Ctrl+C` 会同时停止
+项目 `.venv` 环境（uv 管理的 Python）并安装前端依赖，随后启动前后端并打开浏览器。按 `Ctrl+C` 会同时停止
 两个服务。
 
-依赖文件变更后可强制刷新环境；也可只执行一次启动健康检查或自定义端口：
+每次启动都会执行 `uv sync --locked`。依赖声明改变后先运行 `uv lock`；
+`-Setup` 同时刷新前端依赖。也可执行启动健康检查或自定义端口：
 
 ```powershell
 .\start.ps1 -Setup
@@ -80,24 +82,22 @@ PackStudio/
 
 ### 1. 配置 Python 环境
 
-在仓库根目录运行：
+在仓库根目录运行，无需激活全局环境：
 
 ```powershell
-conda env update --name PackStudio --file environment.yml --prune
-conda activate PackStudio
+uv sync --locked --python-preference only-managed
 ```
 
-首次不存在该环境时可运行：
-
-```powershell
-conda env create --file environment.yml
-conda activate PackStudio
-```
+Python 3.13.15 由 `.python-version` 固定，uv 自动下载解释器并创建 `.venv`。
+`pyproject.toml` 声明依赖，`uv.lock` 固定解析结果；默认安装开发工具，
+发布运行可用 `uv sync --locked --no-dev`，后端打包工具单独在 `packaging` 组。
+添加依赖使用 `uv add <包>`，开发依赖使用 `uv add --dev <包>`。
+依赖变更后更新并审核 `uv.lock`，不要用 pip 手工修改环境。
 
 启动后端：
 
 ```powershell
-python -m uvicorn packstudio.api.app:app --reload
+uv run --locked python -m uvicorn packstudio.api.app:app --reload
 ```
 
 健康检查位于 `http://127.0.0.1:8000/api/health`，交互式 API 文档位于
@@ -117,7 +117,9 @@ npm run dev
 界面顶部可选择 8 类原生模板。向导步骤按 FloTHERM PACK 的封装组件工作流组织，字段、范围、
 尺寸预设和条件联动由 PackStudio 生产代码显式实现；BGA 模板额外提供等效/离散表达、中央
 焊球和焊球去除，其他模板不显示 BGA 入口。修改参数、
-材料、热源或边界后，点击“生成模型”检查三维矩形块与模型树，再点击“导出 PTA XML”。
+材料、热源或边界后，点击“生成模型”检查三维矩形块与模型树，选择导出格式后点击“导出 PTA XML”或“导出 ECXML”。
+ECXML 使用米制物理矩形块，边界条件与网格控制需在目标软件中重设，详见
+[ECXML 格式约定](output_format/ecxml/README.md)。
 组件材料在对应向导步骤中从有限候选项选择；右侧材料库用于浏览和编辑当前方案物性。
 Flip Chip CBGA 的基准复核、组合焊球规则和坐标约定详见
 [Flip Chip CBGA / BGA 模板说明](docs/templates/flip-chip-cbga.md)。
@@ -130,8 +132,8 @@ Flip Chip CBGA 的基准复核、组合焊球规则和坐标约定详见
 npm run desktop
 ```
 
-窗口会复用 8000 端口上已运行的后端，否则自动拉起后端子进程（优先
-`~/.conda/envs/PackStudio` 的解释器，可用 `PACKSTUDIO_PYTHON` 覆盖），退出窗口时
+窗口会复用 8000 端口上已运行的后端，否则通过
+`uv run --locked --no-dev python -m packstudio` 自动拉起后端子进程，退出窗口时
 一并清理。桌面壳只是窗口壳：渲染层与浏览器版完全一致，详见
 [docs/tasks/TASK14.md](docs/tasks/TASK14.md)。
 
@@ -148,19 +150,19 @@ npm run package:desktop   # 仅出 unpacked 目录（release/desktop/win-unpacke
 ### 4. 运行验收命令
 
 ```powershell
-conda activate PackStudio
-python -m pytest
-python -m ruff check .
-python -m ruff format --check .
+uv run --locked python -m pytest
+uv run --locked python -m ruff check .
+uv run --locked python -m ruff format --check .
 npm run lint
 npm test
+npm run test:desktop
 npm run build
 ```
 
 参考数据可在开发期独立复核，但软件运行和部署不需要该目录：
 
 ```powershell
-E:\anaconda\Scripts\conda.exe run -n PackStudio python flotherm_pack_data\validation\validate_reference_data.py flotherm_pack_data
+uv run --locked python flotherm_pack_data\validation\validate_reference_data.py flotherm_pack_data
 ```
 
 ## 当前进度
@@ -189,3 +191,7 @@ Electron 桌面壳：`npm run desktop` 自动拉起后端子进程并打开桌�
 产品设计参考 Siemens Flotherm PACK 的参数化封装模板与引导式建模流程。截图观察和适用范围
 见 [figures/references/Flotherm_PACK.md](figures/references/Flotherm_PACK.md)。功能范围始终以
 [requirements.md](requirements.md) 为准。
+
+本机 PACK 文本默认值调研见 [调研报告](docs/research/flotherm-installation-defaults.md)。
+TASK15 完成该调研、ECXML 导出和 uv 迁移；安装资料只用于开发期证据与校验，
+生产软件不读取 FloTHERM 安装目录。

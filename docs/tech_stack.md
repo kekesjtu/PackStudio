@@ -45,7 +45,7 @@ PTA XML 等下游文件格式
 | FastAPI | 0.115+ | 提供本地 REST API，并自动生成 OpenAPI 接口文档 |
 | Pydantic | 2.10+ | 定义参数、矩形块、材料、热源和边界条件的领域数据模型及约束 |
 | NumPy | 2.1+ | 处理阵列坐标、批量矩形块生成和等效材料属性计算 |
-| lxml | 5.3+ | 生成并校验包含命名空间的 PTA XML 文件 |
+| lxml | 5.3+ | 生成 PTA XML，并按随仓库保存的 XSD 校验 ECXML |
 | Uvicorn | 0.32+ | 运行本地 ASGI 服务 |
 | pytest + pytest-cov | pytest 8.3+ | 执行领域规则、API、导出快照和回归测试 |
 | Ruff | 0.8+ | 统一 Python 代码检查、导入排序和格式校验 |
@@ -74,21 +74,21 @@ api → templates → domain ← exporters
 
 | 工具 | 作用 |
 | --- | --- |
-| conda `PackStudio` 环境 | 固定 Python 3.13 和 Python 依赖入口 |
+| uv + 仓库 `.venv` 环境 | 固定 Python 3.13 和 Python 依赖入口 |
 | npm | 管理前端依赖并生成锁文件 |
 | `pyproject.toml` | 集中声明 Python 包、依赖、pytest 和 Ruff 配置 |
-| `environment.yml` | 创建或更新同名 conda 环境 |
+| `uv.lock` / `.python-version` | 锁定依赖和 uv 管理的 Python 版本 |
 | `.editorconfig` | 统一编码、换行和缩进 |
 | Git 功能分支 | 隔离功能开发；长任务仅暂存，不由 Agent 自动提交 |
 
-本地基线于 2026-07-11 核对：`PackStudio` 环境为 Python 3.13.14，Node.js 为
-22.15.0，均满足脚手架要求。
+Python 环境于 2026-09-30 切换为 uv 0.12.19 管理的 CPython 3.13.15；
+开发与打包组全部记录在 `uv.lock`。前端继续由 npm 管理。
 
 ## 6. 当前明确不采用的技术
 
 - 不采用 CAD/B-Rep 内核：当前需求只需要轴对齐矩形块，复杂 CAD 内核会增加不必要的模型语义。
 - 不在本项目引入网格器或求解器：它们属于需求明确排除的下游模块。
-- MVP 不使用 Electron/Tauri 打包：先验证浏览器 + 本地服务工作流；确有离线安装包需求时再做 ADR。
+- 桌面版采用 Electron + PyInstaller（TASK14）；开发与后端打包入口统一使用 uv。
 - MVP 不部署云端服务，也不引入账号、权限和多租户系统。
 
 ## 7. 官方资料
@@ -100,7 +100,7 @@ api → templates → domain ← exporters
 - [FastAPI 功能与 OpenAPI/Pydantic 支持](https://fastapi.tiangolo.com/features/)
 - [Pydantic Models](https://docs.pydantic.dev/latest/concepts/models/)
 - [NumPy 文档](https://numpy.org/doc/stable/)
-- [conda 环境管理](https://docs.conda.io/projects/conda/en/stable/user-guide/tasks/manage-environments.html)
+- [uv 锁定与同步](https://docs.astral.sh/uv/concepts/projects/sync/)
 - [pytest 入门](https://docs.pytest.org/en/stable/getting-started.html)
 - [Ruff 文档](https://docs.astral.sh/ruff/)
 - [Vitest 入门](https://vitest.dev/guide/)

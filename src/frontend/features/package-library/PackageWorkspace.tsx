@@ -5,8 +5,10 @@ import {
   Chip,
   CircularProgress,
   Divider,
+  MenuItem,
   Paper,
   Stack,
+  TextField,
   Typography,
 } from '@mui/material'
 import { useEffect, useMemo, useRef, useState, type CSSProperties } from 'react'
@@ -14,7 +16,8 @@ import { useEffect, useMemo, useRef, useState, type CSSProperties } from 'react'
 import ColumnResizer from '../model-editor/ColumnResizer'
 import ModelPreview from '../model-editor/ModelPreview'
 import {
-  downloadTemplatePta,
+  downloadTemplateModel,
+  type ExportFormat,
   generateTemplateModel,
   loadTemplateDefaults,
   loadTemplateMaterials,
@@ -54,6 +57,7 @@ export default function PackageWorkspace({ templateId }: PackageWorkspaceProps) 
   const [busy, setBusy] = useState(true)
   const [dirty, setDirty] = useState(false)
   const [saved, setSaved] = useState(false)
+  const [exportFormat, setExportFormat] = useState<ExportFormat>('pta')
   const [error, setError] = useState<string | null>(null)
   const propertyContentRef = useRef<HTMLDivElement>(null)
 
@@ -129,7 +133,7 @@ export default function PackageWorkspace({ templateId }: PackageWorkspaceProps) 
     setBusy(true)
     setError(null)
     try {
-      await downloadTemplatePta(request)
+      await downloadTemplateModel(request, exportFormat)
     } catch (reason: unknown) {
       setError(errorMessage(reason))
     } finally {
@@ -169,6 +173,13 @@ export default function PackageWorkspace({ templateId }: PackageWorkspaceProps) 
           <Box ref={propertyContentRef} className="property-content">
             {renderStep(schema, activeStep, allFields, request, library, changeRequest)}
           </Box>
+          <TextField
+            select fullWidth size="small" label="导出格式" value={exportFormat} sx={{ mt: 1 }}
+            onChange={(event) => setExportFormat(event.target.value as ExportFormat)}
+          >
+            <MenuItem value="pta">PTA XML</MenuItem>
+            <MenuItem value="ecxml">ECXML</MenuItem>
+          </TextField>
           <Stack direction={{ xs: 'column', sm: 'row' }} spacing={1} className="action-bar">
             <Button variant="contained" disabled={busy} onClick={handleGenerate}>
               {busy ? <CircularProgress size={21} color="inherit" /> : '生成模型'}
@@ -183,7 +194,7 @@ export default function PackageWorkspace({ templateId }: PackageWorkspaceProps) 
               保存参数
             </Button>
             <Button variant="outlined" disabled={busy || !model} onClick={handleExport}>
-              导出 PTA XML
+              {exportFormat === 'pta' ? '导出 PTA XML' : '导出 ECXML'}
             </Button>
           </Stack>
         </Box>
@@ -191,6 +202,9 @@ export default function PackageWorkspace({ templateId }: PackageWorkspaceProps) 
       <ColumnResizer value={propertyWidth} onChange={setPropertyWidth} ariaLabel="调整属性栏宽度" placement="property" />
       <Box className="preview-column">
         {error && <Alert severity="error">{error}</Alert>}
+        {exportFormat === 'ecxml' && <Alert severity="info">
+          ECXML 导出几何、材料与功率。边界条件和网格控制需在目标软件中重新设置。
+        </Alert>}
         <Paper component="section" className="preview-panel">
           <Stack direction="row" justifyContent="space-between" spacing={1}>
             <Typography variant="h5">三维建模区</Typography>

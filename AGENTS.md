@@ -23,7 +23,8 @@ PackStudio AI 协作开发指南。本文档为 AI Agent 提供项目结构、�
 | `requirements.md`   | 需求定义    | 功能需求、非功能需求、产品参考，**所有功能开发以此为准** |
 | `docs/decisions/`   | 技术决策    | 每项重要技术选型一个文件，记录背景、方案、理由           |
 | `docs/tasks/`       | 任务管理    | 待办任务、任务进度、任务拆分                             |
-| `docs/git_commits/` | 提交文档    | 长任务的变更摘要，不直接提交                             |
+| `docs/git_commits/` | 提交文档    | 变更摘要与验收记录，随对应代码一同提交                    |
+| `default_parameters/` | 默认参数 | 序列化预设、默认值与来源记录，程序运行时读取             |
 | `figures/`          | 图片素材    | UI 参考图、架构图、流程图等等                            |
 | `output_format/`    | 输出规范    | 目标格式的示例文件，作为接口契约                         |
 | `src/`              | 源代码      | 所有生产代码，按功能模块分子目录                         |
@@ -46,15 +47,22 @@ PackStudio AI 协作开发指南。本文档为 AI Agent 提供项目结构、�
 - **分支策略**：`main` 为稳定分支，功能开发在 feature 分支
 - **提交粒度**：一个逻辑变更一次提交
 - **提交信息**：使用中文，格式 `类型: 简述`（如 `feat: 添加XXX`）
-- **不直接提交**：仅生成 git_commit 文档，由人工确认后手动提交或命令 AI AGENT 提交。
+- **自主提交**：AI Agent 完成已授权任务、验收检查和提交说明后，可以自主执行 `git add` 与 `git commit`，无需再次确认。仅提交本次任务涉及的变更，保留无关的用户修改；禁止未经授权 push、重写历史或丢弃修改。
+- **文档随提交**：每个逻辑变更须有 `/docs/git_commits/` 中的说明文档，记录变更、验证结果与限制；完成后告知用户提交哈希和文档路径。
 
 ### 3.3 python 开发环境
 
-使用 conda 虚拟环境，命名为 `PackStudio`。进入环境使用：
+使用 uv 管理 Python 解释器、依赖与仓库本地 `.venv`，不依赖 conda。
+`.python-version` 固定解释器版本，`pyproject.toml` 声明依赖，`uv.lock` 必须纳入版本控制。
 
-```bash
-conda activate PackStudio
+```powershell
+uv sync --locked --python-preference only-managed
+uv run --locked pytest
+uv run --locked ruff check .
 ```
+
+添加依赖用 `uv add` / `uv add --dev`；修改依赖声明后运行 `uv lock` 并审核锁文件。
+打包使用 `uv run --locked --group packaging python -m PyInstaller`。
 
 ---
 
@@ -62,7 +70,7 @@ conda activate PackStudio
 
 ### 4.1 长任务工作流
 
-每次长任务（预估超过 5 次文件变更或跨多个模块的任务）执行完毕后，**必须**在 `/docs/git_commits/` 目录下生成一份提交说明文档，但**不允许自动执行 `git commit`**。
+每次任务执行完毕后，**必须**在 `/docs/git_commits/` 目录下生成提交说明文档。完成相关验收后，AI Agent 可以自主执行 `git commit`；提交说明必须与对应变更一起提交。
 
 #### 文档模板
 
@@ -94,13 +102,9 @@ conda activate PackStudio
 
 1. 完成所有代码变更和测试
 2. 在 `/docs/git_commits/` 创建对应的提交说明文档
-3. 执行 `git add` 但**不执行 `git commit`**
-4. 通知用户审核变更内容
-5. 由用户手动执行 `git commit` 或审核后要求 AI AGENT 修改
-
-### 4.2 短任务
-
-对于单文件、小幅修改，可以在任务完成后直接提示用户提交，无需生成 git_commit 文档。
+3. 检查 diff，仅暂存本次任务涉及的变更
+4. 自主执行 `git commit`，使用中文提交信息，一个逻辑变更一次提交
+5. 告知用户完成结果、验证情况、提交哈希及说明文档路径
 
 ### 4.3 TASK 验收
 
@@ -108,5 +112,5 @@ conda activate PackStudio
 
 - 功能符合 `requirements.md` 中的对应描述
 - 代码符合 §3 开发规范
-- 已生成 git_commit 文档（如为长任务）
+- 已生成 git_commit 文档并随对应变更提交
 - 已在 TASK 文件中标记完成状态

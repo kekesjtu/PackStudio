@@ -12,8 +12,9 @@
     "build": "tsc -b && vite build",
     "lint": "eslint src/frontend tests/frontend",
     "test": "vitest run",
+    "test:desktop": "node --test tests/desktop/*.test.cjs",
     "desktop": "npm run build && electron .",
-    "package:backend": "conda run -n PackStudio python -m PyInstaller --noconfirm --clean --name packstudio-backend --onedir --paths src --exclude-module uvloop --distpath release/backend --workpath build/pyinstaller src/packstudio/__main__.py",
+    "package:backend": "uv run --locked --group packaging python -m PyInstaller --noconfirm --clean --name packstudio-backend --onedir --paths src --exclude-module uvloop --specpath build --distpath release/backend --workpath build/pyinstaller src/packstudio/__main__.py",
     "package:desktop": "npm run build && npm run package:backend && electron-builder --win --dir",
     "dist": "npm run build && npm run package:backend && electron-builder --win"
   },

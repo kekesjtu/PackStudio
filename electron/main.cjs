@@ -3,10 +3,8 @@
 // 职责：保证本地 FastAPI 后端可用（复用已运行实例或拉起后端子进程），
 // 然后打开加载后端端口的窗口。渲染层与 API 同源，无需 CORS 与代理。
 const { app, BrowserWindow } = require('electron')
-const { spawn } = require('node:child_process')
-const { existsSync } = require('node:fs')
+const { spawn, spawnSync } = require('node:child_process')
 const net = require('node:net')
-const os = require('node:os')
 const path = require('node:path')
 
 const DEFAULT_PORT = 8000
@@ -49,16 +47,6 @@ async function waitForBackend(port) {
 
 // ---- 后端子进程 ----------------------------------------------------------
 
-// 开发版后端解释器：优先 PACKSTUDIO_PYTHON，其次 PackStudio conda 环境，
-// 最后退回 PATH 上的 python（要求已激活包含 packstudio 的环境）。
-function resolvePython() {
-  if (process.env.PACKSTUDIO_PYTHON) return process.env.PACKSTUDIO_PYTHON
-  const pythonName = process.platform === 'win32' ? 'python.exe' : 'python'
-  const condaCandidate = path.join(os.homedir(), '.conda', 'envs', 'PackStudio', pythonName)
-  if (existsSync(condaCandidate)) return condaCandidate
-  return 'python'
-}
-
 function startBackend(port) {
   if (app.isPackaged) {
     // 打包版：resources/backend 下的 PyInstaller 独立可执行文件，
@@ -73,10 +61,10 @@ function startBackend(port) {
       windowsHide: true,
     })
   } else {
-    // 开发版：仓库根目录运行 python -m packstudio，可用 PACKSTUDIO_PYTHON 指定解释器
+    // uv 同步锁定环境后启动；仓库路径由 cwd 确定。
     backendProcess = spawn(
-      resolvePython(),
-      ['-m', 'packstudio', '--port', String(port)],
+      'uv',
+      ['run', '--locked', '--no-dev', 'python', '-m', 'packstudio', '--port', String(port)],
       { cwd: path.join(__dirname, '..'), stdio: 'pipe', windowsHide: true },
     )
     backendProcess.stdout?.on('data', (chunk) => process.stdout.write(chunk))
@@ -94,6 +82,18 @@ function startBackend(port) {
   })
 }
 
+function stopBackend() {
+  if (!backendProcess || backendProcess.exitCode !== null || backendProcess.killed) return
+  // Windows 下 uv 和冻结 EXE 都可能带有子进程，只结束父进程会遗留服务。
+  if (process.platform === 'win32') {
+    spawnSync('taskkill', ['/PID', String(backendProcess.pid), '/T', '/F'], {
+      stdio: 'ignore', windowsHide: true,
+    })
+  } else {
+    backendProcess.kill()
+  }
+}
+
 async function resolvePort() {
   if (await isBackendReady(DEFAULT_PORT)) return DEFAULT_PORT
   const port = await findFreePort()
@@ -101,7 +101,7 @@ async function resolvePort() {
   try {
     await waitForBackend(port)
   } catch (error) {
-    if (backendProcess && !backendProcess.killed) backendProcess.kill()
+    stopBackend()
     throw error
   }
   return port
@@ -143,5 +143,5 @@ app.on('window-all-closed', () => {
 
 app.on('will-quit', () => {
   quitting = true
-  if (backendProcess && !backendProcess.killed) backendProcess.kill()
+  stopBackend()
 })

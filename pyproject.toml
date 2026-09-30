@@ -16,12 +16,15 @@ dependencies = [
     "uvicorn[standard]>=0.32,<1.0",
 ]
 
-[project.optional-dependencies]
+[dependency-groups]
 dev = [
     "httpx2>=2.0,<3.0",
     "pytest>=8.3,<10.0",
     "pytest-cov>=6.0,<8.0",
     "ruff>=0.8,<1.0",
+]
+packaging = [
+    "pyinstaller>=6.11,<7.0",
 ]
 
 [tool.setuptools.packages.find]

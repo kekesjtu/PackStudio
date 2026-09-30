@@ -10,7 +10,7 @@ param(
 )
 $ErrorActionPreference = "Stop"
 $projectRoot = $PSScriptRoot
-$environmentFile = Join-Path $projectRoot "environment.yml"
+$lockFile = Join-Path $projectRoot "uv.lock"
 $packageFile = Join-Path $projectRoot "package.json"
 $backendUrl = "http://127.0.0.1:$BackendPort"
 $frontendUrl = "http://127.0.0.1:$FrontendPort"
@@ -35,16 +35,6 @@ function Resolve-NativeCommand {
     throw "未找到 $($Names[-1])。$InstallHint"
 }
 
-function Get-CondaEnvironmentName {
-    param([Parameter(Mandatory)][string]$Path)
-    foreach ($line in Get-Content -LiteralPath $Path) {
-        if ($line -match '^\s*name\s*:\s*["'']?(?<name>[A-Za-z0-9._-]+)') {
-            return $Matches.name
-        }
-    }
-    throw "无法从 $Path 读取 conda 环境名称。"
-}
-
 function Invoke-CheckedCommand {
     param(
         [Parameter(Mandatory)][string]$FilePath,
@@ -55,32 +45,6 @@ function Invoke-CheckedCommand {
     if ($LASTEXITCODE -ne 0) {
         throw $FailureMessage
     }
-}
-
-function Test-CondaEnvironment {
-    param(
-        [Parameter(Mandatory)][string]$CondaPath,
-        [Parameter(Mandatory)][string]$Name
-    )
-    $json = & $CondaPath env list --json
-    if ($LASTEXITCODE -ne 0) {
-        throw "无法读取 conda 环境列表，请确认 conda 可以正常运行。"
-    }
-
-    try {
-        $environmentList = ($json | Out-String | ConvertFrom-Json).envs
-    }
-    catch {
-        throw "conda 环境列表不是有效的 JSON 输出。"
-    }
-
-    foreach ($environmentPath in $environmentList) {
-        if ((Split-Path -Leaf $environmentPath) -eq $Name) {
-            return $true
-        }
-    }
-
-    return $false
 }
 
 function Assert-PortAvailable {
@@ -176,34 +140,24 @@ $backendProcess = $null
 $frontendProcess = $null
 
 try {
-    if (-not (Test-Path -LiteralPath $environmentFile)) {
-        throw "缺少 environment.yml：$environmentFile"
+    if (-not (Test-Path -LiteralPath $lockFile)) {
+        throw "缺少 uv.lock：$lockFile"
     }
     if (-not (Test-Path -LiteralPath $packageFile)) {
         throw "缺少 package.json：$packageFile"
     }
 
-    $condaNames = if ($isWindowsPlatform) { @("conda.exe", "conda.bat", "conda") } else { @("conda") }
+    $uvNames = if ($isWindowsPlatform) { @("uv.exe", "uv") } else { @("uv") }
     $npmNames = if ($isWindowsPlatform) { @("npm.cmd", "npm") } else { @("npm") }
-    $condaPath = Resolve-NativeCommand -Names $condaNames -InstallHint "请安装 conda 并将其加入 PATH。"
+    $uvPath = Resolve-NativeCommand -Names $uvNames -InstallHint "请安装 uv 并将其加入 PATH。"
     $npmPath = Resolve-NativeCommand -Names $npmNames -InstallHint "请安装 Node.js 22.12+ 与 npm，并将其加入 PATH。"
-    $environmentName = Get-CondaEnvironmentName -Path $environmentFile
 
     Push-Location $projectRoot
     try {
-        $environmentExists = Test-CondaEnvironment -CondaPath $condaPath -Name $environmentName
-        if (-not $environmentExists) {
-            Write-Host "首次运行：正在创建 conda 环境 $environmentName ..." -ForegroundColor Cyan
-            Invoke-CheckedCommand -FilePath $condaPath `
-                -ArgumentList @("env", "create", "--file", $environmentFile) `
-                -FailureMessage "创建 conda 环境失败。"
-        }
-        elseif ($Setup) {
-            Write-Host "正在根据 environment.yml 更新 conda 环境 ..." -ForegroundColor Cyan
-            Invoke-CheckedCommand -FilePath $condaPath `
-                -ArgumentList @("env", "update", "--name", $environmentName, "--file", $environmentFile, "--prune") `
-                -FailureMessage "更新 conda 环境失败。"
-        }
+        Write-Host "正在根据 uv.lock 同步 Python 环境 ..." -ForegroundColor Cyan
+        Invoke-CheckedCommand -FilePath $uvPath `
+            -ArgumentList @("sync", "--locked", "--python-preference", "only-managed") `
+            -FailureMessage "同步 uv 环境失败。依赖声明改变后请先执行 uv lock。"
 
         $viteExecutable = if ($isWindowsPlatform) {
             Join-Path $projectRoot "node_modules\.bin\vite.cmd"
@@ -223,14 +177,14 @@ try {
         Assert-PortAvailable -Port $FrontendPort
 
         Write-Host "正在启动 PackStudio ..." -ForegroundColor Cyan
-        $backendProcess = Start-Process -FilePath $condaPath `
+        $backendProcess = Start-Process -FilePath $uvPath `
             -ArgumentList @(
-                "run", "--no-capture-output", "--name", $environmentName,
+                "run", "--locked", "--no-sync",
                 "python", "-m", "uvicorn", "packstudio.api.app:app",
                 "--app-dir", "src", "--host", "127.0.0.1", "--port", "$BackendPort", "--reload"
             ) `
             -WorkingDirectory $projectRoot `
-            -NoNewWindow `
+            -WindowStyle Hidden `
             -PassThru
 
         $apiTargetWasSet = Test-Path Env:PACKSTUDIO_API_TARGET
@@ -243,7 +197,7 @@ try {
                     "--port", "$FrontendPort", "--strictPort"
                 ) `
                 -WorkingDirectory $projectRoot `
-                -NoNewWindow `
+                -WindowStyle Hidden `
                 -PassThru
         }
         finally {

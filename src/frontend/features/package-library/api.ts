@@ -26,11 +26,14 @@ export const generateTemplateModel = (request: TemplateRequest) =>
     request,
   )
 
-export async function downloadTemplatePta(
+export type ExportFormat = 'pta' | 'ecxml'
+
+export async function downloadTemplateModel(
   request: TemplateRequest,
+  format: ExportFormat,
 ): Promise<void> {
   const response = await fetch(
-    `${baseUrl}/${request.template_id}/export/pta`,
+    `${baseUrl}/${request.template_id}/export/${format}`,
     {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -41,7 +44,7 @@ export async function downloadTemplatePta(
   const url = URL.createObjectURL(await response.blob())
   const anchor = document.createElement('a')
   anchor.href = url
-  anchor.download = `${request.template_id.replaceAll('_', '-')}.xml`
+  anchor.download = `${request.template_id.replaceAll('_', '-')}.${format === 'ecxml' ? 'ecxml' : 'xml'}`
   anchor.click()
   URL.revokeObjectURL(url)
 }

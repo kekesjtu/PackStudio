@@ -190,10 +190,10 @@ PTA 要求层集合按顶层到底层排列。因此导出文件的第一层是�
 ## 验收命令
 
 ```powershell
-conda activate PackStudio
-python -m pytest -W error
-python -m ruff check src tests
-python -m ruff format --check src tests
+uv sync --locked
+uv run --locked python -m pytest -W error
+uv run --locked python -m ruff check src tests
+uv run --locked python -m ruff format --check src tests
 npm run lint
 npm test
 npm run build

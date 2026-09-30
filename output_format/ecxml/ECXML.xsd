@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0">
+  
+  <xs:simpleType name="doubleGTZero">
+    <xs:restriction base="xs:double">
+      <xs:minExclusive value="0" />
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:simpleType name="doubleGTEZero">
+    <xs:restriction base="xs:double">
+      <xs:minInclusive value="0" />
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:simpleType name="intGTZero">
+    <xs:restriction base="xs:int">
+      <xs:minExclusive value="0" />
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:simpleType name="ratio">
+    <xs:restriction base="xs:double">
+      <xs:minInclusive value="0.0" />
+      <xs:maxInclusive value="1.0" />
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:complexType name="coordinate">
+    <xs:sequence>
+      <xs:element name="x" type="xs:double" />
+      <xs:element name="y" type="xs:double" />
+      <xs:element name="z" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="size">
+    <xs:sequence>
+      <xs:element name="x" type="doubleGTZero" />
+      <xs:element name="y" type="doubleGTZero" />
+      <xs:element name="z" type="doubleGTZero" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="sizeAllowZero">
+    <xs:sequence>
+      <xs:element name="x" type="doubleGTEZero" />
+      <xs:element name="y" type="doubleGTEZero" />
+      <xs:element name="z" type="doubleGTEZero" />
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="directionalLossCoefficient">
+    <xs:sequence>
+      <xs:element name="x" type="doubleGTEZero" />
+      <xs:element name="y" type="doubleGTEZero" />
+      <xs:element name="z" type="doubleGTEZero" />
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="directionalFreeAreaRatio">
+    <xs:sequence>
+      <xs:element name="x" type="ratio" />
+      <xs:element name="y" type="ratio" />
+      <xs:element name="z" type="ratio" />
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="fanCurvePoints">
+    <xs:sequence>
+      <xs:choice minOccurs="1" maxOccurs="unbounded">
+        <xs:element name="fanCurvePoint">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="1" name="pressure" type="doubleGTEZero" />
+              <xs:element minOccurs="1" name="volumeFlow" type="doubleGTEZero" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="flowDefinition">
+    <xs:choice minOccurs="1" maxOccurs="1">
+      <xs:element name="fixedFlowRate" type="xs:double" />
+      <xs:element name="fanCurve" type="fanCurvePoints" />
+    </xs:choice>
+  </xs:complexType>
+  
+  <xs:simpleType name="plane">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="+xy" />
+      <xs:enumeration value="-xy" />
+      <xs:enumeration value="+yz" />
+      <xs:enumeration value="-yz" />
+      <xs:enumeration value="+xz" />
+      <xs:enumeration value="-xz" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="isotropicConductivity">
+    <xs:sequence>
+      <xs:element name="conductivity" type="doubleGTEZero" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="orthotropicConductivity">
+    <xs:sequence>
+      <xs:element minOccurs="1" name="x" type="doubleGTEZero" />
+      <xs:element minOccurs="1" name="y" type="doubleGTEZero" />
+      <xs:element minOccurs="1" name="z" type="doubleGTEZero" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="linearTemperatureDependantConductivity">
+    <xs:sequence>
+      <xs:element minOccurs="1" name="conductivity" type="doubleGTEZero" />
+      <xs:element minOccurs="1" name="coeff" type="xs:double" />
+      <xs:element minOccurs="1" name="tref" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="material">
+    <xs:sequence>
+      <xs:element name="name" type="xs:string" />
+      <xs:element minOccurs="1" name="density" type="doubleGTZero" />
+      <xs:element minOccurs="1" name="specific_heat" type="doubleGTEZero" />
+      <xs:element minOccurs="1" name="surfaceEmissivity" type="ratio" />
+      <xs:element name="thermalConductivity">
+        <xs:complexType>
+          <xs:choice minOccurs="1" maxOccurs="1">
+            <xs:element name="isotropic" type="isotropicConductivity" />
+            <xs:element name="orthotropic" type="orthotropicConductivity" />
+            <xs:element name="linearTemperatureDependant" type="linearTemperatureDependantConductivity" />
+          </xs:choice>
+        </xs:complexType>
+      </xs:element>
+      <xs:any minOccurs="0" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="ambientConditions">
+    <xs:sequence>
+      <xs:element name="temperature" type="xs:double" />
+      <xs:element name="radiantTemperature" type="xs:double" />
+      <xs:element name="pressure" type="xs:double" />
+      <xs:any minOccurs="0" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+  
+
+  <xs:complexType name="geometry">
+    <xs:sequence>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="solid2dBlock" type="solid2dBlock" />
+        <xs:element name="solid3dBlock" type="solid3dBlock" />
+        <xs:element name="solidCylinder" type="solidCylinder" />
+        <xs:element name="sourceBlock" type="sourceBlock" />
+        <xs:element name="source2dBlock" type="source2dBlock" />
+        <xs:element name="printedCircuitBoard" type="printedCircuitBoard" />
+        <xs:element name="grille" type="grille" />
+        <xs:element name="flowResistance" type="flowResistance" />
+        <xs:element name="assembly" type="assembly" />
+        <xs:element name="enclosure" type="enclosure" />
+        <xs:element name="heatsink" type="heatsink" />
+        <xs:element name="twoResistorModel" type="twoResistorModel" />
+        <xs:element name="rectangular2dFan" type="rectangular2dFan" />
+        <xs:element name="axial3dFan" type="axial3dFan" />
+        <xs:element name="monitorPoint" type="monitorPoint" />
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="solutionDomain">
+    <xs:sequence>
+      <xs:element name="location" type="coordinate" />
+      <xs:element name="size" type="size" />
+      <xs:element name="ambientConditions" minOccurs="0" type="ambientConditions" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="solid3dBlock">
+    <xs:sequence>
+      <xs:element name="name" type="xs:string" />
+      <xs:element name="active" type="xs:boolean" />
+      <xs:element name="location" type="coordinate" />
+      <xs:element name="size" type="size" />
+      <xs:element name="material" type="xs:string" />
+      <xs:element name="powerDissipation" type="xs:double" />
+      <xs:any minOccurs="0" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="solidCylinder">
+    <xs:sequence>
+      <xs:element name="name" type="xs:string" />
+      <xs:element name="active" type="xs:boolean" />
+      <xs:element name="location" type="coordinate" />
+      <xs:element name="size" type="size" />
+      <xs:element name="plane" type="plane" />
+      <xs:element name="material" type="xs:string" />
+      <xs:element name="powerDissipation" type="xs:double" />
+      <xs:any minOccurs="0" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="solid2dBlock">
+    <xs:sequence>
+      <xs:element name="name" type="xs:string" />
+      <xs:element name="active" type="xs:boolean" />
+      <xs:element name="location" type="coordinate" />
+      <xs:element name="size" type="sizeAllowZero" />
+      <xs:element name="plane" type="plane" />
+      <xs:element name="material" type="xs:string" />
+      <xs:element name="powerDissipation" type="xs:double" />
+      <xs:any minOccurs="0" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="sourceBlock">
+    <xs:sequence>
+      <xs:element name="name" type="xs:string" />
+      <xs:element name="active" type="xs:boolean" />
+      <xs:element name="location" type="coordinate" />
+      <xs:element name="size" type="size" />
+      <xs:element name="powerDissipation" type="xs:double" />
+      <xs:any minOccurs="0" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="source2dBlock">
+    <xs:sequence>
+      <xs:element name="name" type="xs:string" />
+      <xs:element name="active" type="xs:boolean" />
+      <xs:element name="location" type="coordinate" />
+      <xs:element name="size" type="sizeAllowZero" />
+      <xs:element name="plane" type="plane" />
+      <xs:element name="powerDissipation" type="xs:double" />
+      <xs:any minOccurs="0" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="printedCircuitBoard">
+    <xs:sequence>
+      <xs:element name="name" type="xs:string" />
+      <xs:element name="active" type="xs:boolean" />
+      <xs:element name="location" type="coordinate" />
+      <xs:element name="size" type="size" />
+      <xs:element name="plane" type="plane" />
+      <xs:element name="material" type="xs:string" />
+      <xs:any minOccurs="0" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="grille">
+    <xs:sequence>
+      <xs:element name="name" type="xs:string" />
+      <xs:element name="active" type="xs:boolean" />
+      <xs:element name="location" type="coordinate" />
+      <xs:element name="size" type="size" />
+      <xs:element name="plane" type="plane" />
+      <xs:element name="lossCoefficient" type="xs:double" />
+      <xs:element name="freeAreaRatio" type="ratio" />
+      <xs:any minOccurs="0" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="flowResistance">
+    <xs:sequence>
+      <xs:element name="name" type="xs:string" />
+      <xs:element name="active" type="xs:boolean" />
+      <xs:element name="location" type="coordinate" />
+      <xs:element name="size" type="size" />
+      <xs:element name="lossCoefficient" type="directionalLossCoefficient" />
+      <xs:element name="freeAreaRatio" type="directionalFreeAreaRatio" />
+      <xs:any minOccurs="0" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="assembly">
+    <xs:sequence>
+      <xs:element name="name" type="xs:string" />
+      <xs:element name="active" type="xs:boolean" />
+      <xs:element name="geometry" type="geometry" />
+      <xs:any minOccurs="0" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>  
+  
+  <xs:complexType name="enclosure">
+    <xs:sequence>
+      <xs:element name="name" type="xs:string" />
+      <xs:element name="active" type="xs:boolean" />
+      <xs:element name="location" type="coordinate" />
+      <xs:element name="size" type="size" />
+      <xs:element name="material" type="xs:string" />
+      <xs:element name ="wallThickness" type="doubleGTZero" />
+      <xs:any minOccurs="0" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="heatsink">
+    <xs:sequence>
+      <xs:element name="name" type="xs:string" />
+      <xs:element name="active" type="xs:boolean" />
+      <xs:element name="parts">
+        <xs:complexType>
+        <xs:sequence>
+          <xs:element name="solid3dBlock" type="solid3dBlock" maxOccurs="unbounded" />
+        </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:any minOccurs="0" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="twoResistorModel">
+    <xs:sequence>
+      <xs:element name="name" type="xs:string" />
+      <xs:element name="active" type="xs:boolean" />
+      <xs:element name="location" type="coordinate" />
+      <xs:element name="size" type="size" />
+      <xs:element name="plane" type="plane" />
+      <xs:element name="powerDissipation" type="xs:double" />
+      <xs:element name="thetaJC" type="xs:double" />
+      <xs:element name="thetaJB" type="xs:double" />
+      <xs:any minOccurs="0" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="rectangular2dFan">
+    <xs:sequence>
+      <xs:element name="name" type="xs:string" />
+      <xs:element name="active" type="xs:boolean" />
+      <xs:element name="location" type="coordinate" />
+      <xs:element name="size" type="sizeAllowZero" />
+      <xs:element name="plane" type="plane" />
+      <xs:element name="flowDefinition" type="flowDefinition" />
+      <xs:any minOccurs="0" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="axial3dFan">
+    <xs:sequence>
+      <xs:element name="name" type="xs:string" />
+      <xs:element name="active" type="xs:boolean" />
+      <xs:element name="location" type="coordinate" />
+      <xs:element name="size" type="size" />
+      <xs:element name="plane" type="plane" />
+      <xs:element name="hubSize" type="doubleGTZero" />
+      <xs:element name="flowDefinition" type="flowDefinition" />
+      <xs:any minOccurs="0" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="monitorPoint">
+    <xs:sequence>
+      <xs:element name="name" type="xs:string" />
+      <xs:element name="active" type="xs:boolean" />
+      <xs:element name="location" type="coordinate" />
+      <xs:any minOccurs="0" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="neutralXML">
+    <xs:sequence>
+      <xs:element name="name" type="xs:string" />
+      <xs:element name="producer">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="FloTHERM" />
+            <xs:enumeration value="Icepak" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="solutionDomain" type="solutionDomain" />
+      <xs:element minOccurs="0" name="materials">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:choice minOccurs="0" maxOccurs="unbounded">
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="material" type="material" />
+            </xs:choice>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="1" name="geometry" type="geometry" />
+      <xs:any minOccurs="0" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+      
+  <xs:element name="neutralXML" type="neutralXML" />
+    
+  
+</xs:schema>

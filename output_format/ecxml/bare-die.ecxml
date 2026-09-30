@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='utf-8'?>
+<neutralXML>
+  <name>Bare Die</name>
+  <producer>FloTHERM</producer>
+  <materials>
+    <material>
+      <name>silicon</name>
+      <density>2330</density>
+      <specific_heat>700</specific_heat>
+      <surfaceEmissivity>0</surfaceEmissivity>
+      <thermalConductivity>
+        <isotropic>
+          <conductivity>117.5</conductivity>
+        </isotropic>
+      </thermalConductivity>
+    </material>
+  </materials>
+  <geometry>
+    <assembly>
+      <name>package</name>
+      <active>true</active>
+      <geometry>
+        <assembly>
+          <name>group-die</name>
+          <active>true</active>
+          <geometry>
+            <solid3dBlock>
+              <name>die-part-1</name>
+              <active>true</active>
+              <location>
+                <x>-0.0024500000000000004</x>
+                <y>-0.0024500000000000004</y>
+                <z>0</z>
+              </location>
+              <size>
+                <x>0.0049000000000000007</x>
+                <y>0.0049000000000000007</y>
+                <z>0.00022000000000000001</z>
+              </size>
+              <material>silicon</material>
+              <powerDissipation>2</powerDissipation>
+            </solid3dBlock>
+          </geometry>
+        </assembly>
+      </geometry>
+    </assembly>
+  </geometry>
+  <!--PackStudio export metadata: {"exporter": "PackStudio", "profile": "ECXML 1.0 / FloTHERM", "units": "m, W, kg/m3, J/(kg*K), W/(m*K)", "limitations": "Face boundaries and mesh controls are not applied by ECXML importers.", "boundaries": [{"id": "pcb-side-cooling", "name": "PCB-side equivalent cooling", "kind": "convection", "targets": [{"block_id": "die-part-1", "face": "z_min"}], "temperature_k": null, "heat_flux_w_m2": null, "convection_coefficient_w_m2k": 1600.0, "ambient_temperature_k": 300.0}, {"id": "top-surface-cooling", "name": "Top surface cooling", "kind": "convection", "targets": [{"block_id": "die-part-1", "face": "z_max"}], "temperature_k": null, "heat_flux_w_m2": null, "convection_coefficient_w_m2k": 10.0, "ambient_temperature_k": 300.0}], "metadata": {"implementation": "packstudio-native", "template_version": "2.1", "reference_basis": "handwritten transcription of reviewed FloTHERM PACK 2504 data", "reference_geometry_status": "baseline-and-mapped-single-variable-transcription", "runtime_reference_data_required": false, "outline_type": "standard_outline", "die_type": "actual_type", "footprint_size": "DIE_4_9X4_9X0_22", "mesh_resolution": "standard", "ambient_temperature_k": 300, "default_convection_coefficient_w_m2k": 10, "pcb_convection_coefficient_w_m2k": 1600, "top_convection_coefficient_w_m2k": 10, "mesh_data_included": false, "solver_results_included": false, "flipped_die": false, "bumped_die": false, "bump_representation": "not_present"}, "material_names": {"silicon": "Silicon (Pure)"}, "group_names": {"package": "Bare Die", "group-die": "Die"}, "block_names": {"die-part-1": "Silicon die"}}-->
+</neutralXML>
