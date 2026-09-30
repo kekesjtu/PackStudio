@@ -4,6 +4,7 @@ from typing import Any
 from packstudio.domain.model import PackageModel
 from packstudio.templates.package_library.bare_die import template as bare_die
 from packstudio.templates.package_library.bga import fbga_fsbga, wirebond_pbga
+from packstudio.templates.package_library.core.default_library import template_defaults
 from packstudio.templates.package_library.core.definitions import TemplateDefinition
 from packstudio.templates.package_library.core.generator import generate_template
 from packstudio.templates.package_library.core.parameters import TemplateRequest
@@ -70,7 +71,9 @@ def default_request(template_id: str) -> TemplateRequest:
     return TemplateRequest(
         template_id=template_id,
         design_name=item.display_name,
-        bga={"representation": item.default_bga_representation} if item.has_bga else None,
+        bga={"representation": template_defaults(template_id)["default_bga_representation"]}
+        if item.has_bga
+        else None,
     )
 
 

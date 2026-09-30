@@ -104,3 +104,11 @@ Python 环境于 2026-09-30 切换为 uv 0.12.19 管理的 CPython 3.13.15；
 - [pytest 入门](https://docs.pytest.org/en/stable/getting-started.html)
 - [Ruff 文档](https://docs.astral.sh/ruff/)
 - [Vitest 入门](https://vitest.dev/guide/)
+
+## 8. JSON 默认参数库（TASK16）
+
+默认字段/预设/选材/物性由根目录 default_parameters/ 读取，采用带版本的 JSON，
+源字符串与类型化值同时保存。开发模式定位源码库，wheel 使用 setuptools data-files，
+冻结 EXE 通过 PyInstaller --add-data 分发；npm 打包入口调用 tools/build_backend.py，
+使用绝对路径避免 specpath 改变资源相对位置。
+生产请求不再包含 environment，模型不自动生成冷却边界；通用领域边界类型仅保留格式兼容。

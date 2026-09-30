@@ -62,12 +62,6 @@ export default function WorkspaceNavigation({
           activeStep={activeStep}
           onSelect={onSelect}
         />
-        <NavigationItem
-          id="packstudio_boundary"
-          label="边界条件"
-          activeStep={activeStep}
-          onSelect={onSelect}
-        />
       </List>
     </Paper>
   )

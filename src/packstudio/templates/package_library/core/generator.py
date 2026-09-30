@@ -1,12 +1,11 @@
 from collections import defaultdict
 from dataclasses import dataclass, field
-from math import isclose
 
-from packstudio.domain.enums import BlockFace, BoundaryKind, StructureType
+from packstudio.domain.enums import StructureType
 from packstudio.domain.geometry import AxisAlignedBlock
 from packstudio.domain.materials import Material
 from packstudio.domain.model import ModelGroup, PackageModel
-from packstudio.domain.thermal import BoundaryCondition, HeatSource, SurfaceReference
+from packstudio.domain.thermal import HeatSource
 from packstudio.templates.package_library.core.definitions import TemplateDefinition
 from packstudio.templates.package_library.core.geometry import DraftBlock, normalize_drafts
 from packstudio.templates.package_library.core.materials import production_materials
@@ -35,11 +34,18 @@ def generate_template(
     materials = {**production_materials()}
     materials.update((item.id, item) for item in built.materials)
     materials.update((item.id, item) for item in request.custom_materials)
-    blocks = _apply_material_assignments(blocks, materials, request)
+    default_assignments = {
+        item.group_id: item.default
+        for item in definition.material_selections
+        if values.matches(item.visible_when)
+    }
+    effective_request = request.model_copy(
+        update={"material_assignments": {**default_assignments, **request.material_assignments}}
+    )
+    blocks = _apply_material_assignments(blocks, materials, effective_request)
     groups = _build_groups(blocks, group_names, definition.display_name)
     power = request.die_power_w if request.die_power_w is not None else built.power_w
     heat_sources = _build_heat_sources(blocks, power)
-    boundaries = _build_boundaries(blocks, request)
     used_ids = {block.material_id for block in blocks}
     footprint = next(
         (values.text(field.key) for field in definition.fields if field.control == "footprint"),
@@ -52,27 +58,18 @@ def generate_template(
         blocks=blocks,
         groups=groups,
         heat_sources=heat_sources,
-        boundaries=boundaries,
+        boundaries=[],
         metadata={
             "implementation": "packstudio-native",
             "template_version": "2.1",
-            "reference_basis": "handwritten transcription of reviewed FloTHERM PACK 2504 data",
+            "reference_basis": "versioned JSON defaults with reviewed FloTHERM PACK 2504 mappings",
+            "default_parameter_schema": "packstudio.default-parameters/v1",
             "reference_geometry_status": "baseline-and-mapped-single-variable-transcription",
             "runtime_reference_data_required": False,
             "outline_type": "standard_outline",
             "die_type": "actual_type",
             **({} if footprint is None else {"footprint_size": footprint}),
             "mesh_resolution": request.mesh.resolution.value,
-            "ambient_temperature_k": request.environment.ambient_temperature_k,
-            "default_convection_coefficient_w_m2k": (
-                request.environment.default_convection_coefficient_w_m2k
-            ),
-            "pcb_convection_coefficient_w_m2k": (
-                request.environment.pcb_convection_coefficient_w_m2k
-            ),
-            "top_convection_coefficient_w_m2k": (
-                request.environment.top_convection_coefficient_w_m2k
-            ),
             "mesh_data_included": False,
             "solver_results_included": False,
             **built.metadata,
@@ -139,33 +136,4 @@ def _build_heat_sources(blocks: list[AxisAlignedBlock], power_w: float) -> list[
             power_w=power_w * block.size.x * block.size.y * block.size.z / total_volume,
         )
         for index, block in enumerate(dies, start=1)
-    ]
-
-
-def _build_boundaries(
-    blocks: list[AxisAlignedBlock],
-    request: TemplateRequest,
-) -> list[BoundaryCondition]:
-    minimum_z = min(block.origin.z for block in blocks)
-    maximum_z = max(block.max_z for block in blocks)
-    bottom = [block for block in blocks if isclose(block.origin.z, minimum_z, abs_tol=1e-9)]
-    top = [block for block in blocks if isclose(block.max_z, maximum_z, abs_tol=1e-9)]
-    environment = request.environment
-    return [
-        BoundaryCondition(
-            id="pcb-side-cooling",
-            name="PCB-side equivalent cooling",
-            kind=BoundaryKind.CONVECTION,
-            targets=[SurfaceReference(block_id=block.id, face=BlockFace.Z_MIN) for block in bottom],
-            convection_coefficient_w_m2k=(environment.pcb_convection_coefficient_w_m2k),
-            ambient_temperature_k=environment.ambient_temperature_k,
-        ),
-        BoundaryCondition(
-            id="top-surface-cooling",
-            name="Top surface cooling",
-            kind=BoundaryKind.CONVECTION,
-            targets=[SurfaceReference(block_id=block.id, face=BlockFace.Z_MAX) for block in top],
-            convection_coefficient_w_m2k=(environment.top_convection_coefficient_w_m2k),
-            ambient_temperature_k=environment.ambient_temperature_k,
-        ),
     ]

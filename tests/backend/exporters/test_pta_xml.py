@@ -1,6 +1,8 @@
 import pytest
 from lxml import etree
 
+from packstudio.domain.enums import BlockFace, BoundaryKind
+from packstudio.domain.thermal import BoundaryCondition, SurfaceReference
 from packstudio.exporters.pta_constants import (
     ARRAY_NAMESPACE,
     BOUNDARY_NAMESPACE,
@@ -58,7 +60,22 @@ def test_pta_export_converts_total_die_power_to_volumetric_source() -> None:
 
 
 def test_pta_export_writes_convection_face_keys() -> None:
-    root = etree.fromstring(export_pta_xml(generate(default_request("flip_chip_cbga"))))
+    model = generate(default_request("flip_chip_cbga"))
+    die = next(block for block in model.blocks if block.name == "Silicon die")
+    external_boundary = BoundaryCondition(
+        id="external-cooling",
+        name="External cooling",
+        kind=BoundaryKind.CONVECTION,
+        targets=[
+            SurfaceReference(block_id=die.id, face=face)
+            for face in (BlockFace.Z_MIN, BlockFace.Z_MAX)
+        ],
+        convection_coefficient_w_m2k=12,
+        ambient_temperature_k=298,
+    )
+    root = etree.fromstring(
+        export_pta_xml(model.model_copy(update={"boundaries": [external_boundary]}))
+    )
     namespace = {"m": MODEL_NAMESPACE, "a": ARRAY_NAMESPACE}
     face_keys = root.xpath(".//m:Boundaries//a:string/text()", namespaces=namespace)
 
@@ -113,7 +130,7 @@ def test_fine_mesh_profile_is_smaller_than_coarse_profile() -> None:
     )
 
 
-def test_pta_export_has_default_exterior_convection_and_key_surfaces() -> None:
+def test_pta_export_does_not_inject_cooling_boundaries() -> None:
     root = etree.fromstring(export_pta_xml(generate(default_request("flip_chip_cbga"))))
     namespace = {"m": MODEL_NAMESPACE, "b": BOUNDARY_NAMESPACE}
     default_boundary = root.find(f"{{{MODEL_NAMESPACE}}}OtherThermalBondary")
@@ -124,11 +141,9 @@ def test_pta_export_has_default_exterior_convection_and_key_surfaces() -> None:
     )
 
     assert default_boundary is not None
-    assert default_boundary.get(f"{{{XSI_NAMESPACE}}}type") == "a:ThirdTypeThermalBoundary"
-    assert default_boundary.findtext(f"{{{BOUNDARY_NAMESPACE}}}ConvectionCoefficient") == "10"
-    assert default_boundary.findtext(f"{{{BOUNDARY_NAMESPACE}}}EnvironmentTemperature") == "300"
-    assert names == ["PCB-side equivalent cooling", "Top surface cooling"]
-    assert coefficients == ["1600", "10"]
+    assert default_boundary.get(f"{{{XSI_NAMESPACE}}}nil") == "true"
+    assert names == []
+    assert coefficients == []
 
 
 def test_pta_layers_are_top_to_bottom_with_a_consistent_top_marker() -> None:

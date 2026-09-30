@@ -1,6 +1,5 @@
 import { MenuItem, Stack, TextField } from '@mui/material'
 
-import NumberInput from '../model-editor/NumberInput'
 import type { TemplateRequest } from './types'
 
 interface SpecialFieldsProps {
@@ -64,41 +63,6 @@ export function ModelingFields({ request, onChange }: SpecialFieldsProps) {
         <MenuItem value="standard">标准</MenuItem>
         <MenuItem value="fine">细</MenuItem>
       </TextField>
-    </Stack>
-  )
-}
-
-export function BoundaryFields({ request, onChange }: SpecialFieldsProps) {
-  const update = (patch: Partial<TemplateRequest['environment']>) =>
-    onChange({ ...request, environment: { ...request.environment, ...patch } })
-  return (
-    <Stack spacing={2}>
-      <NumberInput
-        label="环境温度"
-        unit="K"
-        value={request.environment.ambient_temperature_k}
-        onChange={(value) => update({ ambient_temperature_k: value ?? 0 })}
-      />
-      <NumberInput
-        label="普通外表面对流"
-        unit="W/(m²·K)"
-        value={request.environment.default_convection_coefficient_w_m2k}
-        onChange={(value) =>
-          update({ default_convection_coefficient_w_m2k: value ?? 0 })
-        }
-      />
-      <NumberInput
-        label="PCB 侧换热系数"
-        unit="W/(m²·K)"
-        value={request.environment.pcb_convection_coefficient_w_m2k}
-        onChange={(value) => update({ pcb_convection_coefficient_w_m2k: value ?? 0 })}
-      />
-      <NumberInput
-        label="顶部换热系数"
-        unit="W/(m²·K)"
-        value={request.environment.top_convection_coefficient_w_m2k}
-        onChange={(value) => update({ top_convection_coefficient_w_m2k: value ?? 0 })}
-      />
     </Stack>
   )
 }

@@ -34,3 +34,9 @@ PackStudio 固定使用 PTA 的 `Layers/Layer/Blocks` 路径：
 
 ECXML 输出原始物理矩形块、组件层级、材料和功率，尺寸采用 m。
 边界条件和网格控制需在目标软件中设置；详见 [ECXML 格式契约](ecxml/README.md)。
+
+## 边界配置职责（TASK16）
+
+PackStudio 生产模型不设置冷却边界。PTA 输出空 Boundaries，BottomThermalBoundary、
+TopThermalBoundary、OtherThermalBondary 均为 i:nil=true；下游自行配置散热。
+PTA 初始温度为格式占位值，不代表对流边界。通用导出器仍可处理外部模型显式提供的面边界。

@@ -2,13 +2,11 @@ from collections import defaultdict
 
 from lxml import etree
 
+from packstudio.default_parameters import request_default
 from packstudio.domain.enums import StructureType
 from packstudio.domain.model import PackageModel
 from packstudio.exporters.pta_blocks import append_boolean_block
-from packstudio.exporters.pta_boundaries import (
-    append_boundaries,
-    append_default_exterior_boundary,
-)
+from packstudio.exporters.pta_boundaries import append_boundaries
 from packstudio.exporters.pta_constants import (
     ARRAY_NAMESPACE,
     DIALOG_NAMESPACE,
@@ -69,11 +67,7 @@ def export_pta_xml(model: PackageModel) -> bytes:
     _text(root, "MechanicalDampingFactor", 0)
     etree.SubElement(root, etree.QName(MODEL_NAMESPACE, "ObservePoints2D"))
     etree.SubElement(root, etree.QName(MODEL_NAMESPACE, "ObservePoints3D"))
-    append_default_exterior_boundary(
-        root,
-        float(model.metadata.get("default_convection_coefficient_w_m2k", 10)),
-        ambient_temperature,
-    )
+    _nil(root, "OtherThermalBondary")
     for name, value in (
         ("SawFrequency", 0),
         ("SawFrequencySolveMode", "SinglePoint"),
@@ -177,7 +171,7 @@ def _ambient_temperature(model: PackageModel) -> float:
     for boundary in model.boundaries:
         if boundary.ambient_temperature_k is not None:
             return boundary.ambient_temperature_k
-    return 300
+    return float(request_default("pta", "initial_temperature_k"))
 
 
 def _nil(parent: etree._Element, name: str) -> None:

@@ -1,10 +1,10 @@
 from pydantic import BaseModel, ConfigDict, Field
 
+from packstudio.default_parameters import request_default
 from packstudio.domain.materials import Material
 from packstudio.templates.flip_chip_cbga.parameters import (
     ArrayRepresentation,
     CellIndex,
-    EnvironmentParameters,
     MeshParameters,
 )
 
@@ -14,13 +14,25 @@ type TemplateValue = str | int | float | bool | None
 class BgaConfiguration(BaseModel):
     model_config = ConfigDict(frozen=True, extra="forbid")
 
-    representation: ArrayRepresentation = ArrayRepresentation.EQUIVALENT
-    center_solder_enabled: bool = False
-    center_solder_rows: int = Field(default=1, ge=1)
-    center_solder_columns: int = Field(default=1, ge=1)
-    solder_removal_enabled: bool = False
-    removal_rows: int = Field(default=3, ge=1)
-    removal_columns: int = Field(default=3, ge=1)
+    representation: ArrayRepresentation = Field(
+        default_factory=lambda: request_default("bga", "representation"), validate_default=True
+    )
+    center_solder_enabled: bool = Field(
+        default_factory=lambda: request_default("bga", "center_solder_enabled")
+    )
+    center_solder_rows: int = Field(
+        default_factory=lambda: request_default("bga", "center_solder_rows"), ge=1
+    )
+    center_solder_columns: int = Field(
+        default_factory=lambda: request_default("bga", "center_solder_columns"), ge=1
+    )
+    solder_removal_enabled: bool = Field(
+        default_factory=lambda: request_default("bga", "solder_removal_enabled")
+    )
+    removal_rows: int = Field(default_factory=lambda: request_default("bga", "removal_rows"), ge=1)
+    removal_columns: int = Field(
+        default_factory=lambda: request_default("bga", "removal_columns"), ge=1
+    )
     omitted_cells: list[CellIndex] = Field(default_factory=list)
 
 
@@ -35,4 +47,3 @@ class TemplateRequest(BaseModel):
     custom_materials: list[Material] = Field(default_factory=list)
     die_power_w: float | None = Field(default=None, ge=0)
     mesh: MeshParameters = Field(default_factory=MeshParameters)
-    environment: EnvironmentParameters = Field(default_factory=EnvironmentParameters)

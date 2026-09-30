@@ -35,7 +35,6 @@ import type {
 import WizardFields from './WizardFields'
 import WorkspaceNavigation from './WorkspaceNavigation'
 import {
-  BoundaryFields,
   ModelingFields,
   SummaryFields,
 } from './WorkspaceSpecialFields'
@@ -261,7 +260,6 @@ function renderStep(
   if (activeStep === 'packstudio_modeling') {
     return <ModelingFields request={request} onChange={onChange} />
   }
-  if (activeStep === 'packstudio_boundary') return <BoundaryFields request={request} onChange={onChange} />
   const step = schema.steps.find((item) => item.id === activeStep) ?? schema.steps[0]
   return <WizardFields step={step} allFields={allFields} request={request} materials={materials} onChange={onChange} />
 }
@@ -271,7 +269,6 @@ function stepTitle(schema: TemplateSchema, stepId: string) {
   if (stepId === 'packstudio_bga_removal') return '焊球去除'
   if (stepId === 'packstudio_bga_center') return '中央焊球'
   if (stepId === 'packstudio_modeling') return '建模选项'
-  if (stepId === 'packstudio_boundary') return '边界条件'
   return schema.steps.find((step) => step.id === stepId)?.label ?? '参数'
 }
 

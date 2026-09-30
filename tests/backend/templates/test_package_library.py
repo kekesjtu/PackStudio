@@ -107,16 +107,24 @@ def test_every_native_baseline_is_valid_and_non_overlapping(template_id: str) ->
     assert model.metadata["mesh_data_included"] is False
     expected_power = 2 if template_id == "bare_die" else 0
     assert sum(source.power_w for source in model.heat_sources) == pytest.approx(expected_power)
-    assert all(boundary.targets for boundary in model.boundaries)
+    assert model.boundaries == []
 
 
 def test_generation_and_export_do_not_read_reference_files(
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:
-    def reject_read(*_args: object, **_kwargs: object) -> None:
-        raise AssertionError("production template attempted a filesystem read")
+    from packstudio.default_parameters import library_directory
 
-    monkeypatch.setattr(Path, "read_text", reject_read)
+    original_read = Path.read_text
+
+    def permitted_read(path: Path, *args: object, **kwargs: object) -> str:
+        assert path.resolve().is_relative_to(library_directory().resolve())
+        return original_read(path, *args, **kwargs)
+
+    def reject_read(*_args: object, **_kwargs: object) -> None:
+        raise AssertionError("production template attempted a reference XML read")
+
+    monkeypatch.setattr(Path, "read_text", permitted_read)
     monkeypatch.setattr(etree, "parse", reject_read)
 
     for template_id in definitions():
@@ -127,11 +135,13 @@ def test_generation_and_export_do_not_read_reference_files(
 
 def test_production_sources_do_not_contain_reference_repository_access() -> None:
     package_root = Path(packstudio.__file__).parent
-    forbidden = ("flotherm_pack_data", "templates.reference", "etree.parse(", ".read_text(")
+    forbidden = ("flotherm_pack_data", "templates.reference", "etree.parse(")
 
     for path in package_root.rglob("*.py"):
         source = path.read_text(encoding="utf-8")
         assert all(token not in source for token in forbidden), path
+        if path.name != "default_parameters.py":
+            assert ".read_text(" not in source, path
 
 
 def test_flip_chip_cbga_matches_reviewed_native_baseline() -> None:

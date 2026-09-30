@@ -1,0 +1,640 @@
+{
+  "schema_version": "packstudio.template-defaults/v1",
+  "template_id": "qfn",
+  "origin": "Reviewed PackStudio model specification; mapped source values explicitly referenced",
+  "fields": [
+    {
+      "key": "footprint.size",
+      "step": "package_setup",
+      "label": "Footprint 尺寸（JEDEC）",
+      "control": "footprint",
+      "default": "QFN_12X12_100",
+      "unit": null,
+      "minimum": null,
+      "maximum": null,
+      "options": [
+        "QFN_12X12_100",
+        "QFN_6X6_36",
+        "QFN_3X3_8"
+      ],
+      "option_labels": {
+        "QFN_12X12_100": "QFN · 100 引脚 · 12 × 12 mm",
+        "QFN_6X6_36": "QFN · 36 引脚 · 6 × 6 mm",
+        "QFN_3X3_8": "QFN · 8 引脚 · 3 × 3 mm"
+      },
+      "presets": [
+        {
+          "value": "QFN_12X12_100",
+          "label": "QFN · 100 引脚 · 12 × 12 mm",
+          "values": {
+            "package.length": 12,
+            "package.width": 12,
+            "pad.length": 10.8,
+            "pad.width": 10.8,
+            "pad.exposed_length": 10.55,
+            "pad.exposed_width": 10.55,
+            "leads.count_x": 25,
+            "leads.count_y": 25,
+            "leads.pitch_x": 0.4,
+            "leads.pitch_y": 0.4,
+            "leads.width": 0.2,
+            "leads.length": 0.5,
+            "bond_wire.length_x": 2.75,
+            "bond_wire.length_y": 2.75
+          },
+          "source": {
+            "family": "QFN",
+            "preset": "QFN_12X12_100"
+          },
+          "source_values": {
+            "die.length": "Ld",
+            "die.width": "Wd"
+          }
+        },
+        {
+          "value": "QFN_6X6_36",
+          "label": "QFN · 36 引脚 · 6 × 6 mm",
+          "values": {
+            "package.length": 6,
+            "package.width": 6,
+            "pad.length": 4.8,
+            "pad.width": 4.8,
+            "pad.exposed_length": 4.55,
+            "pad.exposed_width": 4.55,
+            "leads.count_x": 9,
+            "leads.count_y": 9,
+            "leads.pitch_x": 0.5,
+            "leads.pitch_y": 0.5,
+            "leads.width": 0.25,
+            "leads.length": 0.4,
+            "bond_wire.length_x": 1.2,
+            "bond_wire.length_y": 1.2
+          },
+          "source": {
+            "family": "QFN",
+            "preset": "QFN_6X6_36"
+          },
+          "source_values": {
+            "die.length": "Ld",
+            "die.width": "Wd"
+          }
+        },
+        {
+          "value": "QFN_3X3_8",
+          "label": "QFN · 8 引脚 · 3 × 3 mm",
+          "values": {
+            "package.length": 3,
+            "package.width": 3,
+            "pad.length": 1.8,
+            "pad.width": 1.8,
+            "pad.exposed_length": 1.55,
+            "pad.exposed_width": 1.55,
+            "leads.count_x": 2,
+            "leads.count_y": 2,
+            "leads.pitch_x": 0.65,
+            "leads.pitch_y": 0.65,
+            "leads.width": 0.3,
+            "leads.length": 0.55,
+            "bond_wire.length_x": 0.225,
+            "bond_wire.length_y": 0.225
+          },
+          "source": {
+            "family": "QFN",
+            "preset": "QFN_3X3_8"
+          },
+          "source_values": {
+            "die.length": "Ld",
+            "die.width": "Wd"
+          }
+        }
+      ],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "package.length",
+      "step": "overall_package",
+      "label": "封装长度 D",
+      "control": "number",
+      "default": 12,
+      "unit": "mm",
+      "minimum": 2,
+      "maximum": 30,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "package.width",
+      "step": "overall_package",
+      "label": "封装宽度 E",
+      "control": "number",
+      "default": 12,
+      "unit": "mm",
+      "minimum": 2,
+      "maximum": 30,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "package.standoff",
+      "step": "overall_package",
+      "label": "离板高度 A1",
+      "control": "number",
+      "default": 0.05,
+      "unit": "mm",
+      "minimum": 0.01,
+      "maximum": 0.3,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "encapsulant.thickness",
+      "step": "overall_package",
+      "label": "塑封厚度 A2",
+      "control": "number",
+      "default": 0.85,
+      "unit": "mm",
+      "minimum": 0.2,
+      "maximum": 5,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "die.length",
+      "step": "die",
+      "label": "芯片长度",
+      "control": "number",
+      "default": 5.4,
+      "unit": "mm",
+      "minimum": 0.2,
+      "maximum": 25,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "die.width",
+      "step": "die",
+      "label": "芯片宽度",
+      "control": "number",
+      "default": 5.4,
+      "unit": "mm",
+      "minimum": 0.2,
+      "maximum": 25,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "die.thickness",
+      "step": "die",
+      "label": "芯片厚度",
+      "control": "number",
+      "default": 0.25,
+      "unit": "mm",
+      "minimum": 0.03,
+      "maximum": 1.5,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "die.attach",
+      "step": "die",
+      "label": "粘接层厚度",
+      "control": "number",
+      "default": 0.025,
+      "unit": "mm",
+      "minimum": 0.005,
+      "maximum": 0.3,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "die.power",
+      "step": "die",
+      "label": "芯片功率",
+      "control": "number",
+      "default": 0,
+      "unit": "W",
+      "minimum": 0,
+      "maximum": 1000,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "pad.length",
+      "step": "dap",
+      "label": "DAP 长度 Lp",
+      "control": "number",
+      "default": 10.8,
+      "unit": "mm",
+      "minimum": 0.5,
+      "maximum": 28,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "pad.width",
+      "step": "dap",
+      "label": "DAP 宽度 Wp",
+      "control": "number",
+      "default": 10.8,
+      "unit": "mm",
+      "minimum": 0.5,
+      "maximum": 28,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "pad.exposed_length",
+      "step": "dap",
+      "label": "底部裸露长度",
+      "control": "number",
+      "default": 10.55,
+      "unit": "mm",
+      "minimum": 0.5,
+      "maximum": 28,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "pad.exposed_width",
+      "step": "dap",
+      "label": "底部裸露宽度",
+      "control": "number",
+      "default": 10.55,
+      "unit": "mm",
+      "minimum": 0.5,
+      "maximum": 28,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "leads.count_x",
+      "step": "lead_solder_interconnect",
+      "label": "上下侧引脚数 MD",
+      "control": "integer_spinbox",
+      "default": 25,
+      "unit": null,
+      "minimum": 1,
+      "maximum": 100,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "leads.count_y",
+      "step": "lead_solder_interconnect",
+      "label": "左右侧引脚数 ME",
+      "control": "integer_spinbox",
+      "default": 25,
+      "unit": null,
+      "minimum": 1,
+      "maximum": 100,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "leads.pitch_x",
+      "step": "lead_solder_interconnect",
+      "label": "X 向引脚间距 ex",
+      "control": "number",
+      "default": 0.4,
+      "unit": "mm",
+      "minimum": 0.1,
+      "maximum": 2,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "leads.pitch_y",
+      "step": "lead_solder_interconnect",
+      "label": "Y 向引脚间距 ey",
+      "control": "number",
+      "default": 0.4,
+      "unit": "mm",
+      "minimum": 0.1,
+      "maximum": 2,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "leads.width",
+      "step": "lead_solder_interconnect",
+      "label": "引脚宽度 b",
+      "control": "number",
+      "default": 0.2,
+      "unit": "mm",
+      "minimum": 0.03,
+      "maximum": 1,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "leads.length",
+      "step": "lead_solder_interconnect",
+      "label": "外露引脚长度 L",
+      "control": "number",
+      "default": 0.5,
+      "unit": "mm",
+      "minimum": 0.05,
+      "maximum": 3,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "leads.exposed_thickness",
+      "step": "lead_solder_interconnect",
+      "label": "外露引脚厚度",
+      "control": "number",
+      "default": 0.1,
+      "unit": "mm",
+      "minimum": 0.01,
+      "maximum": 0.8,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "leads.thickness",
+      "step": "lead_solder_interconnect",
+      "label": "引脚总厚度 A3",
+      "control": "number",
+      "default": 0.2,
+      "unit": "mm",
+      "minimum": 0.03,
+      "maximum": 1,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "leads.etch",
+      "step": "lead_solder_interconnect",
+      "label": "引脚蚀刻量",
+      "control": "number",
+      "default": 0.05,
+      "unit": "mm",
+      "minimum": 0,
+      "maximum": 0.5,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "bond_wire.length_x",
+      "step": "bond_wires",
+      "label": "左右键合线长度",
+      "control": "number",
+      "default": 2.75,
+      "unit": "mm",
+      "minimum": 0.05,
+      "maximum": 10,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "bond_wire.length_y",
+      "step": "bond_wires",
+      "label": "上下键合线长度",
+      "control": "number",
+      "default": 2.75,
+      "unit": "mm",
+      "minimum": 0.05,
+      "maximum": 10,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "bond_wire.diameter",
+      "step": "bond_wires",
+      "label": "键合线等效宽度",
+      "control": "number",
+      "default": 0.03,
+      "unit": "mm",
+      "minimum": 0.01,
+      "maximum": 0.2,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "thermal_land.enabled",
+      "step": "thermal_land",
+      "label": "包含散热焊盘",
+      "control": "checkbox",
+      "default": false,
+      "unit": null,
+      "minimum": null,
+      "maximum": null,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "thermal_land.thickness",
+      "step": "thermal_land",
+      "label": "散热焊盘厚度",
+      "control": "number",
+      "default": 0.05,
+      "unit": "mm",
+      "minimum": 0.01,
+      "maximum": 1,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {
+        "thermal_land.enabled": true
+      },
+      "enabled_when": {}
+    }
+  ],
+  "material_selections": [
+    {
+      "group_id": "group-encapsulant",
+      "step": "overall_package",
+      "label": "塑封材料",
+      "default": "eme-7730lf",
+      "options": [
+        "eme-7730lf",
+        "epoxy-mold"
+      ],
+      "visible_when": {}
+    },
+    {
+      "group_id": "group-die",
+      "step": "die",
+      "label": "芯片材料",
+      "default": "silicon",
+      "options": [
+        "silicon"
+      ],
+      "visible_when": {}
+    },
+    {
+      "group_id": "group-die-attach",
+      "step": "die",
+      "label": "芯片粘接材料",
+      "default": "dieattach-2600bt",
+      "options": [
+        "dieattach-2600bt",
+        "dieattach-84-1lmis"
+      ],
+      "visible_when": {}
+    },
+    {
+      "group_id": "group-exposed-pad",
+      "step": "dap",
+      "label": "DAP 材料",
+      "default": "leadframe-c194",
+      "options": [
+        "leadframe-c194",
+        "copper"
+      ],
+      "visible_when": {}
+    },
+    {
+      "group_id": "group-lead-frame",
+      "step": "lead_solder_interconnect",
+      "label": "引线框材料",
+      "default": "leadframe-c194",
+      "options": [
+        "leadframe-c194",
+        "copper"
+      ],
+      "visible_when": {}
+    },
+    {
+      "group_id": "group-bond-wires",
+      "step": "bond_wires",
+      "label": "键合线材料",
+      "default": "gold",
+      "options": [
+        "gold"
+      ],
+      "visible_when": {}
+    },
+    {
+      "group_id": "group-solder",
+      "step": "lead_solder_interconnect",
+      "label": "焊料材料",
+      "default": "solder-sn63",
+      "options": [
+        "solder-sn63"
+      ],
+      "visible_when": {}
+    },
+    {
+      "group_id": "group-thermal-land",
+      "step": "thermal_land",
+      "label": "散热焊盘材料",
+      "default": "leadframe-c194",
+      "options": [
+        "leadframe-c194",
+        "copper"
+      ],
+      "visible_when": {
+        "thermal_land.enabled": true
+      }
+    }
+  ],
+  "baseline_materials": [
+    {
+      "id": "qfn-bondwire-x",
+      "name": "bondwire-x",
+      "conductivity": {
+        "x": 18.6187785190195,
+        "y": 0.88,
+        "z": 18.6187785190195
+      },
+      "density": 3049.250069781266,
+      "specific_heat": 50.8380029316774,
+      "color": "#D9A928",
+      "source": "PackStudio built-in transcription of reviewed FloTHERM PACK data"
+    },
+    {
+      "id": "qfn-bondwire-y",
+      "name": "bondwire-y",
+      "conductivity": {
+        "x": 0.88,
+        "y": 18.6187785190195,
+        "z": 18.6187785190195
+      },
+      "density": 3049.250069781266,
+      "specific_heat": 50.8380029316774,
+      "color": "#D9A928",
+      "source": "PackStudio built-in transcription of reviewed FloTHERM PACK data"
+    }
+  ],
+  "default_bga_representation": "equivalent"
+}

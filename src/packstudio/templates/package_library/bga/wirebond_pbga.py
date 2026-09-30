@@ -3,19 +3,17 @@ from math import pi, sqrt
 from packstudio.domain.enums import StructureType
 from packstudio.templates.package_library.bga.layers import build_bga_layer
 from packstudio.templates.package_library.bga.primitives import via_grid_drafts
-from packstudio.templates.package_library.bga.wirebond_fields import fields
 from packstudio.templates.package_library.core.baseline_materials import materials_for
+from packstudio.templates.package_library.core.default_library import (
+    load_fields,
+    load_material_selections,
+)
 from packstudio.templates.package_library.core.definitions import (
     TemplateDefinition,
     TemplateValues,
 )
 from packstudio.templates.package_library.core.generator import BuiltTemplate
 from packstudio.templates.package_library.core.geometry import centered_draft
-from packstudio.templates.package_library.core.material_options import (
-    DIE,
-    ENCAPSULANT,
-    selection,
-)
 from packstudio.templates.package_library.core.parameters import (
     BgaConfiguration,
     TemplateRequest,
@@ -31,7 +29,7 @@ def definition() -> TemplateDefinition:
         id="wirebond_pbga",
         display_name="Wirebond PBGA",
         category="Ball grid arrays",
-        fields=fields(),
+        fields=load_fields("wirebond_pbga"),
         builder=_build,
         step_order=(
             "package_setup",
@@ -43,32 +41,7 @@ def definition() -> TemplateDefinition:
             "metal_layers",
             "solder_balls",
         ),
-        material_selections=(
-            selection(
-                "group-substrate",
-                "package_substrate",
-                "基板材料",
-                "bt",
-                ("bt",),
-            ),
-            DIE,
-            selection(
-                "group-die-attach",
-                "die",
-                "芯片粘接材料",
-                "ablestik-8510aa",
-                ("ablestik-8510aa",),
-            ),
-            ENCAPSULANT,
-            selection("group-bond-wires", "die", "键合线材料", "gold", ("gold",)),
-            selection(
-                "group-solder-mask",
-                "die_flag_solder_mask",
-                "阻焊层材料",
-                "solder-mask",
-                ("solder-mask",),
-            ),
-        ),
+        material_selections=load_material_selections("wirebond_pbga"),
         has_bga=True,
     )
 

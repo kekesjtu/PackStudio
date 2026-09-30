@@ -1,6 +1,7 @@
 from collections.abc import Callable
 from dataclasses import dataclass, field
-from typing import Any, Literal
+from math import isfinite
+from typing import Any
 
 from packstudio.templates.package_library.core.parameters import TemplateRequest, TemplateValue
 
@@ -58,7 +59,6 @@ class TemplateDefinition:
     material_selections: tuple[MaterialSelectionDefinition, ...] = ()
     has_bga: bool = False
     has_flip_chip: bool = False
-    default_bga_representation: Literal["equivalent", "discrete"] = "equivalent"
 
     def schema(self) -> dict[str, Any]:
         grouped: dict[str, list[dict[str, Any]]] = {}
@@ -213,6 +213,9 @@ class TemplateValues:
     def __init__(self, values: dict[str, TemplateValue]) -> None:
         self._values = values
 
+    def matches(self, conditions: dict[str, TemplateValue]) -> bool:
+        return _matches(conditions, self._values)
+
     def number(self, key: str) -> float:
         value = self._values[key]
         if not isinstance(value, int | float) or isinstance(value, bool):
@@ -245,6 +248,8 @@ def _validate_value(item: FieldDefinition, value: TemplateValue) -> None:
         if not isinstance(value, int | float) or isinstance(value, bool):
             raise ValueError(f"{item.key} must be numeric")
         numeric = float(value)
+        if not isfinite(numeric):
+            raise ValueError(f"{item.key} must be finite")
         if item.control.startswith("integer") and not numeric.is_integer():
             raise ValueError(f"{item.key} must be an integer")
         if item.minimum is not None and numeric < item.minimum:

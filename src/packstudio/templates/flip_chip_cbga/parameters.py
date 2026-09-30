@@ -2,6 +2,7 @@ from enum import StrEnum
 
 from pydantic import BaseModel, ConfigDict, Field, model_validator
 
+from packstudio.default_parameters import request_default
 from packstudio.domain.materials import Material
 from packstudio.templates.flip_chip_cbga.solder_style import validate_solder_style
 
@@ -81,7 +82,9 @@ class SolderBallParameters(ArrayLayerParameters):
 class MeshParameters(BaseModel):
     model_config = ConfigDict(frozen=True, extra="forbid")
 
-    resolution: MeshResolution = MeshResolution.STANDARD
+    resolution: MeshResolution = Field(
+        default_factory=lambda: request_default("mesh", "resolution"), validate_default=True
+    )
 
 
 class EnvironmentParameters(BaseModel):

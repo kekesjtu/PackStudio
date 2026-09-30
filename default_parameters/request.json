@@ -1,0 +1,19 @@
+{
+  "schema_version": "packstudio.request-defaults/v1",
+  "bga": {
+    "representation": "equivalent",
+    "center_solder_enabled": false,
+    "center_solder_rows": 1,
+    "center_solder_columns": 1,
+    "solder_removal_enabled": false,
+    "removal_rows": 3,
+    "removal_columns": 3,
+    "omitted_cells": []
+  },
+  "mesh": {
+    "resolution": "standard"
+  },
+  "pta": {
+    "initial_temperature_k": 300
+  }
+}

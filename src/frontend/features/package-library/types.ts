@@ -11,13 +11,6 @@ export interface MeshParameters {
   resolution: 'coarse' | 'standard' | 'fine'
 }
 
-export interface EnvironmentParameters {
-  ambient_temperature_k: number
-  default_convection_coefficient_w_m2k: number
-  pcb_convection_coefficient_w_m2k: number
-  top_convection_coefficient_w_m2k: number
-}
-
 export interface TemplateCatalogItem {
   id: string
   display_name: string
@@ -91,7 +84,6 @@ export interface TemplateRequest {
   custom_materials: Material[]
   die_power_w: number | null
   mesh: MeshParameters
-  environment: EnvironmentParameters
 }
 
 export type { Material, PackageModel }

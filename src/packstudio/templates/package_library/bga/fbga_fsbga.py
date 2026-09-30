@@ -1,23 +1,19 @@
 from math import pi, sqrt
 
 from packstudio.domain.enums import StructureType
-from packstudio.templates.package_library.bga.footprints import fbga_footprint_field
 from packstudio.templates.package_library.bga.layers import build_bga_layer
 from packstudio.templates.package_library.bga.primitives import via_grid_drafts
 from packstudio.templates.package_library.core.baseline_materials import materials_for
+from packstudio.templates.package_library.core.default_library import (
+    load_fields,
+    load_material_selections,
+)
 from packstudio.templates.package_library.core.definitions import (
     TemplateDefinition,
     TemplateValues,
 )
-from packstudio.templates.package_library.core.fields import integer, number, toggle
 from packstudio.templates.package_library.core.generator import BuiltTemplate
 from packstudio.templates.package_library.core.geometry import centered_draft
-from packstudio.templates.package_library.core.material_options import (
-    BOND_WIRES,
-    DIE,
-    ENCAPSULANT,
-    selection,
-)
 from packstudio.templates.package_library.core.parameters import (
     BgaConfiguration,
     TemplateRequest,
@@ -30,87 +26,7 @@ def definition() -> TemplateDefinition:
         id="fbga_fsbga",
         display_name="FBGA / FSBGA",
         category="Ball grid arrays",
-        fields=(
-            fbga_footprint_field(),
-            number("package.length", "overall_package", "封装长度 D", 4, 2, 30),
-            number("package.width", "overall_package", "封装宽度 E", 4, 2, 30),
-            number(
-                "substrate.thickness",
-                "overall_package",
-                "基板厚度 A2",
-                0.36,
-                0.1,
-                3,
-            ),
-            number(
-                "trace.top_thickness",
-                "metal_layers",
-                "顶部金属层厚度",
-                0.018,
-                0.001,
-                0.2,
-            ),
-            number(
-                "trace.bottom_thickness",
-                "metal_layers",
-                "底部金属层厚度",
-                0.018,
-                0.001,
-                0.2,
-            ),
-            number("die.length", "die", "芯片长度", 1.2, 0.2, 20),
-            number("die.width", "die", "芯片宽度", 1.2, 0.2, 20),
-            number("die.thickness", "die", "芯片厚度", 0.3, 0.03, 1.5),
-            number("die.attach", "die", "粘接层厚度", 0.025, 0.005, 0.3),
-            number("die.power", "die", "芯片功率", 0, 0, 1000, "W"),
-            number("encapsulant.thickness", "encapsulant", "塑封厚度", 0.65, 0.1, 5),
-            number("solder_mask.thickness", "encapsulant", "阻焊层厚度", 0.05, 0.005, 0.3),
-            number("bond_wire.extent_length", "bond_wires", "键合焊盘长度范围", 2, 0.3, 20),
-            number("bond_wire.extent_width", "bond_wires", "键合焊盘宽度范围", 2, 0.3, 20),
-            number("bond_wire.diameter", "bond_wires", "键合线等效宽度", 0.025, 0.01, 0.2),
-            toggle("vias.enabled", "thermal_vias", "包含热通孔", True),
-            number(
-                "vias.diameter",
-                "thermal_vias",
-                "通孔直径",
-                0.2,
-                0.02,
-                1,
-                visible_when={"vias.enabled": True},
-            ),
-            number(
-                "vias.plating",
-                "thermal_vias",
-                "通孔镀层厚度",
-                0.025,
-                0.001,
-                0.2,
-                visible_when={"vias.enabled": True},
-            ),
-            number(
-                "vias.offset_x",
-                "thermal_vias",
-                "通孔 X 偏移",
-                0.4,
-                -3,
-                3,
-                visible_when={"vias.enabled": True},
-            ),
-            number(
-                "vias.offset_y",
-                "thermal_vias",
-                "通孔 Y 偏移",
-                0.4,
-                -3,
-                3,
-                visible_when={"vias.enabled": True},
-            ),
-            integer("bga.columns", "solder_balls", "X 方向焊球数 MD", 5, 1, 50),
-            integer("bga.rows", "solder_balls", "Y 方向焊球数 ME", 5, 1, 50),
-            number("bga.pitch", "solder_balls", "焊球间距 e", 0.8, 0.2, 2),
-            number("bga.diameter", "solder_balls", "焊球直径 b", 0.46, 0.05, 1.5),
-            number("bga.height", "solder_balls", "基板离板高度 A1", 0.4, 0.05, 1.5),
-        ),
+        fields=load_fields("fbga_fsbga"),
         builder=_build,
         step_order=(
             "package_setup",
@@ -122,28 +38,8 @@ def definition() -> TemplateDefinition:
             "metal_layers",
             "solder_balls",
         ),
-        material_selections=(
-            selection("group-substrate", "overall_package", "基板材料", "bt", ("bt",)),
-            DIE,
-            selection(
-                "group-die-attach",
-                "die",
-                "芯片粘接材料",
-                "qmi-595",
-                ("qmi-595",),
-            ),
-            ENCAPSULANT,
-            BOND_WIRES,
-            selection(
-                "group-solder-mask",
-                "encapsulant",
-                "阻焊层材料",
-                "solder-mask",
-                ("solder-mask",),
-            ),
-        ),
+        material_selections=load_material_selections("fbga_fsbga"),
         has_bga=True,
-        default_bga_representation="discrete",
     )
 
 

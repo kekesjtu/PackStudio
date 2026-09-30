@@ -31,7 +31,9 @@ export function restoreTemplateRequest(
     )
     return {
       ...defaults,
-      ...stored,
+      design_name: stored.design_name ?? defaults.design_name,
+      bga: stored.bga ?? defaults.bga,
+      die_power_w: stored.die_power_w ?? defaults.die_power_w,
       overrides: Object.fromEntries(
         Object.entries(stored.overrides ?? {}).filter(([targetId]) =>
           targetIds.has(targetId),
@@ -44,7 +46,6 @@ export function restoreTemplateRequest(
       ),
       custom_materials: stored.custom_materials ?? [],
       mesh: { ...defaults.mesh, ...stored.mesh },
-      environment: { ...defaults.environment, ...stored.environment },
     }
   } catch {
     return null

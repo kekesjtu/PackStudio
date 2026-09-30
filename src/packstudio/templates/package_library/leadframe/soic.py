@@ -1,19 +1,17 @@
 from packstudio.domain.enums import StructureType
 from packstudio.templates.package_library.core.baseline_materials import materials_for
+from packstudio.templates.package_library.core.default_library import (
+    load_fields,
+    load_material_selections,
+)
 from packstudio.templates.package_library.core.definitions import (
     TemplateDefinition,
     TemplateValues,
 )
 from packstudio.templates.package_library.core.generator import BuiltTemplate
 from packstudio.templates.package_library.core.geometry import centered_draft
-from packstudio.templates.package_library.core.material_options import (
-    BOND_WIRES,
-    DIE,
-    selection,
-)
 from packstudio.templates.package_library.core.parameters import TemplateRequest
 from packstudio.templates.package_library.core.primitives import four_direction_wire_drafts
-from packstudio.templates.package_library.leadframe.fields import soic_fields
 from packstudio.templates.package_library.leadframe.soic_primitives import (
     soic_leadframe_drafts,
     soic_tie_bar_drafts,
@@ -25,7 +23,7 @@ def definition() -> TemplateDefinition:
         id="soic_family",
         display_name="SOIC family",
         category="Lead-frame packages",
-        fields=soic_fields(),
+        fields=load_fields("soic_family"),
         builder=_build,
         step_order=(
             "package_setup",
@@ -37,61 +35,7 @@ def definition() -> TemplateDefinition:
             "bond_wires",
             "thermal_land_solder",
         ),
-        material_selections=(
-            selection(
-                "group-encapsulant",
-                "encapsulant",
-                "塑封材料",
-                "epoxy-mold",
-                ("epoxy-mold", "eme-7730lf"),
-            ),
-            DIE,
-            selection(
-                "group-die-attach",
-                "die",
-                "芯片粘接材料",
-                "dieattach-84-1lmis",
-                ("dieattach-84-1lmis", "dieattach-2600bt"),
-            ),
-            selection(
-                "group-die-flag",
-                "die_flag_tie_bars",
-                "芯片承载台材料",
-                "leadframe-c194",
-                ("leadframe-c194", "copper"),
-            ),
-            selection(
-                "group-tie-bars",
-                "die_flag_tie_bars",
-                "连接筋材料",
-                "leadframe-c194",
-                ("leadframe-c194", "copper"),
-            ),
-            selection(
-                "group-lead-frame",
-                "leadframe",
-                "引线框材料",
-                "leadframe-c194",
-                ("leadframe-c194", "copper"),
-            ),
-            BOND_WIRES,
-            selection(
-                "group-thermal-land",
-                "thermal_land_solder",
-                "散热焊盘材料",
-                "leadframe-c194",
-                ("leadframe-c194", "copper"),
-                visible_when={"thermal_land.enabled": True},
-            ),
-            selection(
-                "group-thermal-solder",
-                "thermal_land_solder",
-                "焊料材料",
-                "solder-sn63",
-                ("solder-sn63",),
-                visible_when={"thermal_land.enabled": True},
-            ),
-        ),
+        material_selections=load_material_selections("soic_family"),
     )
 
 

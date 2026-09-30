@@ -1,0 +1,740 @@
+{
+  "schema_version": "packstudio.template-defaults/v1",
+  "template_id": "wirebond_pbga",
+  "origin": "Reviewed PackStudio model specification; mapped source values explicitly referenced",
+  "fields": [
+    {
+      "key": "footprint.size",
+      "step": "package_setup",
+      "label": "Footprint 尺寸（JEDEC）",
+      "control": "footprint",
+      "default": "PBGA_121_15X15mm",
+      "unit": null,
+      "minimum": null,
+      "maximum": null,
+      "options": [
+        "PBGA_121_15X15mm",
+        "PBGA_352_35X35mm",
+        "PBGA_896_40X40mm"
+      ],
+      "option_labels": {
+        "PBGA_121_15X15mm": "PBGA_121 · 15 × 15 mm",
+        "PBGA_352_35X35mm": "PBGA_352 · 35 × 35 mm",
+        "PBGA_896_40X40mm": "PBGA_896 · 40 × 40 mm"
+      },
+      "presets": [
+        {
+          "value": "PBGA_121_15X15mm",
+          "label": "PBGA_121 · 15 × 15 mm",
+          "values": {
+            "package.length": 15,
+            "package.width": 15,
+            "substrate.thickness": 0.36,
+            "encapsulant.length": 13,
+            "encapsulant.width": 13,
+            "encapsulant.thickness": 0.8,
+            "flag.length": 6.5,
+            "flag.width": 6.5,
+            "bond_wire.total": 121,
+            "bond_wire.extent_length": 8.5,
+            "bond_wire.extent_width": 8.5,
+            "bga.columns": 11,
+            "bga.rows": 11,
+            "bga.pitch": 1.27,
+            "bga.diameter": 0.75,
+            "bga.height": 0.6
+          },
+          "source": {
+            "family": "pbga_wb",
+            "preset": "PBGA_121_15X15mm"
+          },
+          "source_values": {
+            "die.length": "Ld",
+            "die.width": "Wd"
+          }
+        },
+        {
+          "value": "PBGA_352_35X35mm",
+          "label": "PBGA_352 · 35 × 35 mm",
+          "values": {
+            "package.length": 35,
+            "package.width": 35,
+            "substrate.thickness": 0.56,
+            "encapsulant.length": 30,
+            "encapsulant.width": 30,
+            "encapsulant.thickness": 1.17,
+            "flag.length": 12.5,
+            "flag.width": 12.5,
+            "bond_wire.total": 352,
+            "bond_wire.extent_length": 14.5,
+            "bond_wire.extent_width": 14.5,
+            "bga.columns": 26,
+            "bga.rows": 26,
+            "bga.pitch": 1.27,
+            "bga.diameter": 0.75,
+            "bga.height": 0.6
+          },
+          "source": {
+            "family": "pbga_wb",
+            "preset": "PBGA_352_35X35mm"
+          },
+          "source_values": {
+            "die.length": "Ld",
+            "die.width": "Wd"
+          }
+        },
+        {
+          "value": "PBGA_896_40X40mm",
+          "label": "PBGA_896 · 40 × 40 mm",
+          "values": {
+            "package.length": 40,
+            "package.width": 40,
+            "substrate.thickness": 0.56,
+            "encapsulant.length": 38.7,
+            "encapsulant.width": 38.7,
+            "encapsulant.thickness": 1.17,
+            "flag.length": 14,
+            "flag.width": 14,
+            "bond_wire.total": 896,
+            "bond_wire.extent_length": 16,
+            "bond_wire.extent_width": 16,
+            "bga.columns": 31,
+            "bga.rows": 31,
+            "bga.pitch": 1.27,
+            "bga.diameter": 0.5,
+            "bga.height": 0.5
+          },
+          "source": {
+            "family": "pbga_wb",
+            "preset": "PBGA_896_40X40mm"
+          },
+          "source_values": {
+            "die.length": "Ld",
+            "die.width": "Wd"
+          }
+        }
+      ],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "package.length",
+      "step": "package_substrate",
+      "label": "基板长度 D",
+      "control": "number",
+      "default": 15,
+      "unit": "mm",
+      "minimum": 5,
+      "maximum": 60,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "package.width",
+      "step": "package_substrate",
+      "label": "基板宽度 E",
+      "control": "number",
+      "default": 15,
+      "unit": "mm",
+      "minimum": 5,
+      "maximum": 60,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "substrate.thickness",
+      "step": "package_substrate",
+      "label": "基板厚度 A2",
+      "control": "number",
+      "default": 0.36,
+      "unit": "mm",
+      "minimum": 0.1,
+      "maximum": 3,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "trace.top_thickness",
+      "step": "metal_layers",
+      "label": "顶部金属层厚度",
+      "control": "number",
+      "default": 0.018,
+      "unit": "mm",
+      "minimum": 0.001,
+      "maximum": 0.2,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "trace.bottom_thickness",
+      "step": "metal_layers",
+      "label": "底部金属层厚度",
+      "control": "number",
+      "default": 0.018,
+      "unit": "mm",
+      "minimum": 0.001,
+      "maximum": 0.2,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "encapsulant.length",
+      "step": "encapsulant",
+      "label": "塑封长度",
+      "control": "number",
+      "default": 13,
+      "unit": "mm",
+      "minimum": 1,
+      "maximum": 55,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "encapsulant.width",
+      "step": "encapsulant",
+      "label": "塑封宽度",
+      "control": "number",
+      "default": 13,
+      "unit": "mm",
+      "minimum": 1,
+      "maximum": 55,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "encapsulant.thickness",
+      "step": "encapsulant",
+      "label": "塑封厚度",
+      "control": "number",
+      "default": 0.8,
+      "unit": "mm",
+      "minimum": 0.1,
+      "maximum": 5,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "flag.length",
+      "step": "die_flag_solder_mask",
+      "label": "芯片承载台长度 Lf",
+      "control": "number",
+      "default": 6.5,
+      "unit": "mm",
+      "minimum": 0.5,
+      "maximum": 40,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "flag.width",
+      "step": "die_flag_solder_mask",
+      "label": "芯片承载台宽度 Wf",
+      "control": "number",
+      "default": 6.5,
+      "unit": "mm",
+      "minimum": 0.5,
+      "maximum": 40,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "solder_mask.thickness",
+      "step": "die_flag_solder_mask",
+      "label": "阻焊层厚度",
+      "control": "number",
+      "default": 0.05,
+      "unit": "mm",
+      "minimum": 0.005,
+      "maximum": 0.3,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "die.length",
+      "step": "die",
+      "label": "芯片长度",
+      "control": "number",
+      "default": 4.5,
+      "unit": "mm",
+      "minimum": 0.2,
+      "maximum": 40,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "die.width",
+      "step": "die",
+      "label": "芯片宽度",
+      "control": "number",
+      "default": 4.5,
+      "unit": "mm",
+      "minimum": 0.2,
+      "maximum": 40,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "die.thickness",
+      "step": "die",
+      "label": "芯片厚度",
+      "control": "number",
+      "default": 0.3,
+      "unit": "mm",
+      "minimum": 0.03,
+      "maximum": 2,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "die.attach",
+      "step": "die",
+      "label": "粘接层厚度",
+      "control": "number",
+      "default": 0.025,
+      "unit": "mm",
+      "minimum": 0.005,
+      "maximum": 0.3,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "die.power",
+      "step": "die",
+      "label": "芯片功率",
+      "control": "number",
+      "default": 0,
+      "unit": "W",
+      "minimum": 0,
+      "maximum": 1000,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "bond_wire.total",
+      "step": "die",
+      "label": "键合线总数",
+      "control": "integer_spinbox",
+      "default": 121,
+      "unit": null,
+      "minimum": 1,
+      "maximum": 1000,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "bond_wire.extent_length",
+      "step": "die",
+      "label": "键合焊盘长度范围",
+      "control": "number",
+      "default": 8.5,
+      "unit": "mm",
+      "minimum": 1,
+      "maximum": 50,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "bond_wire.extent_width",
+      "step": "die",
+      "label": "键合焊盘宽度范围",
+      "control": "number",
+      "default": 8.5,
+      "unit": "mm",
+      "minimum": 1,
+      "maximum": 50,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "bond_wire.diameter",
+      "step": "die",
+      "label": "键合线等效宽度",
+      "control": "number",
+      "default": 0.03,
+      "unit": "mm",
+      "minimum": 0.01,
+      "maximum": 0.2,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "vias.enabled",
+      "step": "thermal_vias",
+      "label": "包含热通孔",
+      "control": "checkbox",
+      "default": true,
+      "unit": null,
+      "minimum": null,
+      "maximum": null,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "vias.columns",
+      "step": "thermal_vias",
+      "label": "通孔 X 方向数量",
+      "control": "integer_spinbox",
+      "default": 5,
+      "unit": null,
+      "minimum": 1,
+      "maximum": 30,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {
+        "vias.enabled": true
+      },
+      "enabled_when": {}
+    },
+    {
+      "key": "vias.rows",
+      "step": "thermal_vias",
+      "label": "通孔 Y 方向数量",
+      "control": "integer_spinbox",
+      "default": 5,
+      "unit": null,
+      "minimum": 1,
+      "maximum": 30,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {
+        "vias.enabled": true
+      },
+      "enabled_when": {}
+    },
+    {
+      "key": "vias.pitch",
+      "step": "thermal_vias",
+      "label": "通孔间距",
+      "control": "number",
+      "default": 1.27,
+      "unit": "mm",
+      "minimum": 0.1,
+      "maximum": 3,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {
+        "vias.enabled": true
+      },
+      "enabled_when": {}
+    },
+    {
+      "key": "vias.diameter",
+      "step": "thermal_vias",
+      "label": "通孔直径",
+      "control": "number",
+      "default": 0.25,
+      "unit": "mm",
+      "minimum": 0.02,
+      "maximum": 1,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {
+        "vias.enabled": true
+      },
+      "enabled_when": {}
+    },
+    {
+      "key": "vias.plating",
+      "step": "thermal_vias",
+      "label": "通孔镀层厚度",
+      "control": "number",
+      "default": 0.025,
+      "unit": "mm",
+      "minimum": 0.001,
+      "maximum": 0.2,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {
+        "vias.enabled": true
+      },
+      "enabled_when": {}
+    },
+    {
+      "key": "bga.columns",
+      "step": "solder_balls",
+      "label": "X 方向焊球数 MD",
+      "control": "integer_spinbox",
+      "default": 11,
+      "unit": null,
+      "minimum": 1,
+      "maximum": 50,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "bga.rows",
+      "step": "solder_balls",
+      "label": "Y 方向焊球数 ME",
+      "control": "integer_spinbox",
+      "default": 11,
+      "unit": null,
+      "minimum": 1,
+      "maximum": 50,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "bga.pitch",
+      "step": "solder_balls",
+      "label": "焊球间距 e",
+      "control": "number",
+      "default": 1.27,
+      "unit": "mm",
+      "minimum": 0.2,
+      "maximum": 2,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "bga.diameter",
+      "step": "solder_balls",
+      "label": "焊球直径 b",
+      "control": "number",
+      "default": 0.75,
+      "unit": "mm",
+      "minimum": 0.05,
+      "maximum": 1.5,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "bga.height",
+      "step": "solder_balls",
+      "label": "基板离板高度 A1",
+      "control": "number",
+      "default": 0.6,
+      "unit": "mm",
+      "minimum": 0.05,
+      "maximum": 1.5,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    }
+  ],
+  "material_selections": [
+    {
+      "group_id": "group-substrate",
+      "step": "package_substrate",
+      "label": "基板材料",
+      "default": "bt",
+      "options": [
+        "bt"
+      ],
+      "visible_when": {}
+    },
+    {
+      "group_id": "group-die",
+      "step": "die",
+      "label": "芯片材料",
+      "default": "silicon",
+      "options": [
+        "silicon"
+      ],
+      "visible_when": {}
+    },
+    {
+      "group_id": "group-die-attach",
+      "step": "die",
+      "label": "芯片粘接材料",
+      "default": "ablestik-8510aa",
+      "options": [
+        "ablestik-8510aa"
+      ],
+      "visible_when": {}
+    },
+    {
+      "group_id": "group-encapsulant",
+      "step": "encapsulant",
+      "label": "塑封材料",
+      "default": "epoxy-mold",
+      "options": [
+        "epoxy-mold",
+        "eme-7730lf"
+      ],
+      "visible_when": {}
+    },
+    {
+      "group_id": "group-bond-wires",
+      "step": "die",
+      "label": "键合线材料",
+      "default": "gold",
+      "options": [
+        "gold"
+      ],
+      "visible_when": {}
+    },
+    {
+      "group_id": "group-solder-mask",
+      "step": "die_flag_solder_mask",
+      "label": "阻焊层材料",
+      "default": "solder-mask",
+      "options": [
+        "solder-mask"
+      ],
+      "visible_when": {}
+    }
+  ],
+  "baseline_materials": [
+    {
+      "id": "wirebond-trace-top",
+      "name": "Trace0",
+      "conductivity": {
+        "x": 115.64,
+        "y": 115.64,
+        "z": 115.64
+      },
+      "density": 4009.0,
+      "specific_heat": 562.8199052132702,
+      "color": "#C46A32",
+      "source": "PackStudio built-in transcription of reviewed FloTHERM PACK data"
+    },
+    {
+      "id": "wirebond-trace-bottom",
+      "name": "Trace5",
+      "conductivity": {
+        "x": 38.68,
+        "y": 38.68,
+        "z": 38.68
+      },
+      "density": 2603.0,
+      "specific_heat": 737.1167883211679,
+      "color": "#B96331",
+      "source": "PackStudio built-in transcription of reviewed FloTHERM PACK data"
+    },
+    {
+      "id": "wirebond-die-flag",
+      "name": "die_flag",
+      "conductivity": {
+        "x": 231.08,
+        "y": 231.08,
+        "z": 231.08
+      },
+      "density": 6118.0,
+      "specific_heat": 451.583850931677,
+      "color": "#B96331",
+      "source": "PackStudio built-in transcription of reviewed FloTHERM PACK data"
+    },
+    {
+      "id": "wirebond-via",
+      "name": "Via",
+      "conductivity": {
+        "x": 138.6,
+        "y": 138.6,
+        "z": 138.6
+      },
+      "density": 3214.8,
+      "specific_heat": 385.0,
+      "color": "#C46A32",
+      "source": "PackStudio built-in transcription of reviewed FloTHERM PACK data"
+    },
+    {
+      "id": "wirebond-bondwire-x",
+      "name": "bondwire_1",
+      "conductivity": {
+        "x": 47.4553300989311,
+        "y": 0.68,
+        "z": 47.4553300989311
+      },
+      "density": 4588.633245731125,
+      "specific_heat": 382.3576684058402,
+      "color": "#D9A928",
+      "source": "PackStudio built-in transcription of reviewed FloTHERM PACK data"
+    },
+    {
+      "id": "wirebond-bondwire-y",
+      "name": "bondwire_2",
+      "conductivity": {
+        "x": 0.68,
+        "y": 47.4553300989311,
+        "z": 47.4553300989311
+      },
+      "density": 4588.633245731125,
+      "specific_heat": 382.3576684058402,
+      "color": "#D9A928",
+      "source": "PackStudio built-in transcription of reviewed FloTHERM PACK data"
+    }
+  ],
+  "default_bga_representation": "equivalent"
+}

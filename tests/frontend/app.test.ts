@@ -152,12 +152,6 @@ const defaults: TemplateRequest = {
   custom_materials: [],
   die_power_w: null,
   mesh: { resolution: 'standard' },
-  environment: {
-    ambient_temperature_k: 300,
-    default_convection_coefficient_w_m2k: 10,
-    pcb_convection_coefficient_w_m2k: 1600,
-    top_convection_coefficient_w_m2k: 10,
-  },
 }
 
 const generatedModel: PackageModel = {
@@ -264,6 +258,24 @@ describe('eight-template production workspace', () => {
       solder_removal_enabled: true,
       center_solder_enabled: true,
     })
+  })
+
+  it('restores existing designs while dropping removed boundary settings', async () => {
+    localStorage.setItem('packstudio.library.v2.flip_chip_cbga', JSON.stringify({
+      ...defaults,
+      design_name: '已保存的设计',
+      overrides: { 'flip_chip_cbga.die.length': 1.9 },
+      environment: { ambient_temperature_k: 350 },
+    }))
+    render(createElement(App))
+    await screen.findByText('1 个块')
+    expect(screen.queryByRole('button', { name: '边界条件' })).not.toBeInTheDocument()
+    expect(requestBody(generateCalls()[0])).not.toHaveProperty('environment')
+    expect(requestBody(generateCalls()[0]).design_name).toBe('已保存的设计')
+    expect(requestBody(generateCalls()[0]).overrides).toEqual({ 'flip_chip_cbga.die.length': 1.9 })
+    fireEvent.click(screen.getByRole('button', { name: '保存参数' }))
+    expect(JSON.parse(localStorage.getItem('packstudio.library.v2.flip_chip_cbga')!))
+      .not.toHaveProperty('environment')
   })
 
   it('sends native numeric overrides inside the implemented range and persists them', async () => {

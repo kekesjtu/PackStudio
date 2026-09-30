@@ -1,19 +1,17 @@
 from packstudio.domain.enums import StructureType
 from packstudio.templates.package_library.core.baseline_materials import materials_for
+from packstudio.templates.package_library.core.default_library import (
+    load_fields,
+    load_material_selections,
+)
 from packstudio.templates.package_library.core.definitions import (
     TemplateDefinition,
     TemplateValues,
 )
 from packstudio.templates.package_library.core.generator import BuiltTemplate
 from packstudio.templates.package_library.core.geometry import centered_draft
-from packstudio.templates.package_library.core.material_options import (
-    BOND_WIRES,
-    DIE,
-    selection,
-)
 from packstudio.templates.package_library.core.parameters import TemplateRequest
 from packstudio.templates.package_library.core.primitives import four_direction_wire_drafts
-from packstudio.templates.package_library.leadframe.fields import qfn_fields
 from packstudio.templates.package_library.leadframe.qfn_primitives import (
     qfn_interconnect_drafts,
 )
@@ -24,7 +22,7 @@ def definition() -> TemplateDefinition:
         id="qfn",
         display_name="QFN",
         category="Lead-frame packages",
-        fields=qfn_fields(),
+        fields=load_fields("qfn"),
         builder=_build,
         step_order=(
             "package_setup",
@@ -35,53 +33,7 @@ def definition() -> TemplateDefinition:
             "bond_wires",
             "thermal_land",
         ),
-        material_selections=(
-            selection(
-                "group-encapsulant",
-                "overall_package",
-                "塑封材料",
-                "eme-7730lf",
-                ("eme-7730lf", "epoxy-mold"),
-            ),
-            DIE,
-            selection(
-                "group-die-attach",
-                "die",
-                "芯片粘接材料",
-                "dieattach-2600bt",
-                ("dieattach-2600bt", "dieattach-84-1lmis"),
-            ),
-            selection(
-                "group-exposed-pad",
-                "dap",
-                "DAP 材料",
-                "leadframe-c194",
-                ("leadframe-c194", "copper"),
-            ),
-            selection(
-                "group-lead-frame",
-                "lead_solder_interconnect",
-                "引线框材料",
-                "leadframe-c194",
-                ("leadframe-c194", "copper"),
-            ),
-            BOND_WIRES,
-            selection(
-                "group-solder",
-                "lead_solder_interconnect",
-                "焊料材料",
-                "solder-sn63",
-                ("solder-sn63",),
-            ),
-            selection(
-                "group-thermal-land",
-                "thermal_land",
-                "散热焊盘材料",
-                "leadframe-c194",
-                ("leadframe-c194", "copper"),
-                visible_when={"thermal_land.enabled": True},
-            ),
-        ),
+        material_selections=load_material_selections("qfn"),
     )
 
 

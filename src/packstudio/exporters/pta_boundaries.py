@@ -41,21 +41,6 @@ def append_boundaries(
         _append_thermal_boundary(element, boundary)
 
 
-def append_default_exterior_boundary(
-    parent: etree._Element,
-    convection_coefficient_w_m2k: float,
-    ambient_temperature_k: float,
-) -> None:
-    element = etree.SubElement(
-        parent,
-        etree.QName(MODEL_NAMESPACE, "OtherThermalBondary"),
-        nsmap={"a": BOUNDARY_NAMESPACE},
-    )
-    element.set(etree.QName(XSI_NAMESPACE, "type"), "a:ThirdTypeThermalBoundary")
-    _boundary_text(element, "ConvectionCoefficient", convection_coefficient_w_m2k)
-    _boundary_text(element, "EnvironmentTemperature", ambient_temperature_k)
-
-
 def _append_thermal_boundary(parent: etree._Element, boundary: BoundaryCondition) -> None:
     type_names = {
         BoundaryKind.TEMPERATURE: "FirstTypeThermalBoundary",

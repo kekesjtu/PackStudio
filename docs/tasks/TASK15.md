@@ -20,7 +20,7 @@
 - [x] 删除 environment.yml；启动脚本、Electron 开发启动和后端打包入口切换为 uv。
 - [x] Electron 在 Windows 结束后端进程树，覆盖 uv 及冻结 EXE 的子进程层级。
 - [x] 更新 README、AGENTS、需求、技术栈、参考资料命令及历史文档的环境更新说明。
-- [x] 生成提交说明，并执行 git add；不执行 git commit。
+- [x] 生成提交说明；用户后续授权自主 commit 后，已提交为 875fd63。
 
 ## 验收证据
 
