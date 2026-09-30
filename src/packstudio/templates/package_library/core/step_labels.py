@@ -1,0 +1,27 @@
+def step_label(identifier: str) -> str:
+    labels = {
+        "package_setup": "封装规格",
+        "package": "整体封装",
+        "overall_package": "整体封装",
+        "package_substrate": "封装基板",
+        "die": "芯片",
+        "substrate": "基板",
+        "encapsulant": "塑封",
+        "flip_chip_bumps": "倒装芯片凸点",
+        "solder_balls": "BGA 焊球",
+        "die_flag_solder_mask": "芯片承载台与阻焊层",
+        "die_flag_tie_bars": "芯片承载台与连接筋",
+        "thermal_vias": "热通孔",
+        "metal_layers": "金属层",
+        "lead_solder_interconnect": "引脚与焊料互连",
+        "dap": "芯片承载焊盘（DAP）",
+        "thermal_land": "散热焊盘",
+        "thermal_land_solder": "散热焊盘与焊料",
+        "top_cover": "顶部结构",
+        "bumped_die": "凸点芯片",
+        "interconnect": "互连结构",
+        "leadframe": "引线框",
+        "bond_wires": "键合线",
+        "options": "其他选项",
+    }
+    return labels.get(identifier, identifier.replace("_", " ").title())

@@ -18,17 +18,20 @@ def four_direction_wire_drafts(
     diameter: float,
     material_x: str,
     material_y: str,
+    *,
+    x_enabled: bool = True,
+    y_enabled: bool = True,
 ) -> list[DraftBlock]:
     x_length = x_horizontal_end - die_length / 2
     y_length = y_horizontal_end - die_width / 2
-    if min(x_length, y_length, vertical_height) <= 0:
+    if (x_enabled and x_length <= 0) or (y_enabled and y_length <= 0) or vertical_height < 0:
         raise ValueError("FloXML bond-wire cuboids must have positive dimensions")
     common = {
         "structure_type": StructureType.BOND_WIRE,
         "group_id": "group-bond-wires",
         "group_name": "Bond wires",
     }
-    return [
+    drafts = [
         corner_draft(
             f"{prefix}-h-right",
             "Bond wires horizontal right",
@@ -93,6 +96,15 @@ def four_direction_wire_drafts(
             material_id=material_y,
             **common,
         ),
+    ]
+    # Two-sided packages have no wires on the absent sides. Coplanar terminals
+    # need horizontal wires only, rather than zero-height vertical cuboids.
+    return [
+        draft
+        for draft in drafts
+        if (x_enabled or draft.id.endswith(("upper", "lower")))
+        and (y_enabled or draft.id.endswith(("left", "right")))
+        and (vertical_height > 0 or not draft.id.startswith(f"{prefix}-v-"))
     ]
 
 

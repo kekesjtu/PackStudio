@@ -3,7 +3,12 @@ from dataclasses import dataclass, field
 from math import isfinite
 from typing import Any
 
-from packstudio.templates.package_library.core.parameters import TemplateRequest, TemplateValue
+from packstudio.templates.package_library.core.parameters import (
+    BgaConfiguration,
+    TemplateRequest,
+    TemplateValue,
+)
+from packstudio.templates.package_library.core.step_labels import step_label
 
 type TemplateBuilder = Callable[["TemplateValues", TemplateRequest], Any]
 
@@ -13,6 +18,8 @@ class PresetOption:
     value: str
     label: str
     values: dict[str, TemplateValue]
+    bga: BgaConfiguration | None = None
+    metadata: dict[str, str] = field(default_factory=dict)
 
 
 @dataclass(frozen=True)
@@ -89,6 +96,18 @@ class TemplateDefinition:
                         or None
                     ),
                     "classification": _classification(item),
+                    "preset_bga": {
+                        p.value: p.bga.model_dump(mode="json")
+                        for p in item.presets
+                        if p.bga is not None
+                    }
+                    or None,
+                    "preset_notes": {
+                        p.value: p.metadata["preset_notes"]
+                        for p in item.presets
+                        if p.metadata.get("preset_notes")
+                    }
+                    or None,
                     "property_name": item.key,
                     "supported_values": supported,
                     "evidence_status": "implemented",
@@ -129,7 +148,7 @@ class TemplateDefinition:
             "schema_version": "packstudio.wizard/v2",
             "template_id": self.id,
             "steps": [
-                {"id": step, "label": _step_label(step), "fields": items}
+                {"id": step, "label": step_label(step), "fields": items}
                 for step in ordered_steps
                 for items in (grouped[step],)
             ],
@@ -272,32 +291,3 @@ def _classification(item: FieldDefinition) -> str:
     if item.control in {"number", "integer", "integer_spinbox"}:
         return "numeric_parameter"
     return "enum_option"
-
-
-def _step_label(identifier: str) -> str:
-    labels = {
-        "package_setup": "封装规格",
-        "package": "整体封装",
-        "overall_package": "整体封装",
-        "package_substrate": "封装基板",
-        "die": "芯片",
-        "substrate": "基板",
-        "encapsulant": "塑封",
-        "flip_chip_bumps": "倒装芯片凸点",
-        "solder_balls": "BGA 焊球",
-        "die_flag_solder_mask": "芯片承载台与阻焊层",
-        "die_flag_tie_bars": "芯片承载台与连接筋",
-        "thermal_vias": "热通孔",
-        "metal_layers": "金属层",
-        "lead_solder_interconnect": "引脚与焊料互连",
-        "dap": "芯片承载焊盘（DAP）",
-        "thermal_land": "散热焊盘",
-        "thermal_land_solder": "散热焊盘与焊料",
-        "top_cover": "顶部结构",
-        "bumped_die": "凸点芯片",
-        "interconnect": "互连结构",
-        "leadframe": "引线框",
-        "bond_wires": "键合线",
-        "options": "其他选项",
-    }
-    return labels.get(identifier, identifier.replace("_", " ").title())

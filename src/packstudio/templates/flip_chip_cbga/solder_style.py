@@ -16,6 +16,7 @@ class SolderStyleValues(Protocol):
     removal_rows: int
     removal_columns: int
     omitted_cells: list[CellLocation]
+    allow_asymmetric_regions: bool
 
 
 def validate_solder_style(parameters: SolderStyleValues) -> None:
@@ -38,6 +39,8 @@ def validate_solder_style(parameters: SolderStyleValues) -> None:
     if (
         parameters.center_solder_enabled
         and parameters.solder_removal_enabled
+        and parameters.removal_rows > 0
+        and parameters.removal_columns > 0
         and (
             parameters.center_solder_rows > parameters.removal_rows
             or parameters.center_solder_columns > parameters.removal_columns
@@ -81,9 +84,17 @@ def _validate_center_region(
     region_columns: int,
     label: str,
 ) -> None:
+    if label == "solder removal" and (region_rows == 0 or region_columns == 0):
+        if region_rows != region_columns:
+            raise ValueError(
+                "explicit-only solder removal requires both region dimensions to be zero"
+            )
+        return
     if region_rows >= parameters.rows or region_columns >= parameters.columns:
         raise ValueError(f"{label} region must be smaller than the full array")
-    if (parameters.rows - region_rows) % 2 or (parameters.columns - region_columns) % 2:
+    if not parameters.allow_asymmetric_regions and (
+        (parameters.rows - region_rows) % 2 or (parameters.columns - region_columns) % 2
+    ):
         raise ValueError(f"{label} region must be symmetric about the array center")
 
 

@@ -20,7 +20,9 @@ def typed_value(raw: str) -> str | int | float | None:
 
 def write_json(path: Path, payload: dict) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    path.write_text(
+        json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n"
+    )
 
 
 def transcribe(snapshot: Path, output: Path) -> dict:
@@ -58,7 +60,11 @@ def transcribe(snapshot: Path, output: Path) -> dict:
     manifest = {
         "schema_version": "packstudio.default-parameters/v1",
         "source_product": "Simcenter FloTHERM PACK 2504",
-        "source_snapshot_sha256": hashlib.sha256(snapshot.read_bytes()).hexdigest(),
+        "source_snapshot_sha256": hashlib.sha256(
+            snapshot.read_bytes().replace(b"\r\n", b"\n")
+        ).hexdigest(),
+        "file_hash_convention": "SHA-256 of UTF-8 JSON files with LF line endings; "
+        "DES source_sha256 remains the original vendor byte hash.",
         "record_count": sum(entry["count"] for entry in entries),
         "value_convention": (
             "Original PACK symbols; numbers parsed without unit conversion; "

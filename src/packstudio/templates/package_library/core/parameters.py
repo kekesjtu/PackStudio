@@ -12,7 +12,7 @@ type TemplateValue = str | int | float | bool | None
 
 
 class BgaConfiguration(BaseModel):
-    model_config = ConfigDict(frozen=True, extra="forbid")
+    model_config = ConfigDict(frozen=True, extra="forbid", validate_default=True)
 
     representation: ArrayRepresentation = Field(
         default_factory=lambda: request_default("bga", "representation"), validate_default=True
@@ -29,11 +29,14 @@ class BgaConfiguration(BaseModel):
     solder_removal_enabled: bool = Field(
         default_factory=lambda: request_default("bga", "solder_removal_enabled")
     )
-    removal_rows: int = Field(default_factory=lambda: request_default("bga", "removal_rows"), ge=1)
+    removal_rows: int = Field(default_factory=lambda: request_default("bga", "removal_rows"), ge=0)
     removal_columns: int = Field(
-        default_factory=lambda: request_default("bga", "removal_columns"), ge=1
+        default_factory=lambda: request_default("bga", "removal_columns"), ge=0
     )
     omitted_cells: list[CellIndex] = Field(default_factory=list)
+    allow_asymmetric_regions: bool = Field(
+        default_factory=lambda: request_default("bga", "allow_asymmetric_regions")
+    )
 
 
 class TemplateRequest(BaseModel):

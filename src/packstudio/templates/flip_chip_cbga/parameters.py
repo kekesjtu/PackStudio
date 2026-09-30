@@ -69,9 +69,10 @@ class SolderBallParameters(ArrayLayerParameters):
     center_solder_rows: int = Field(default=3, ge=1)
     center_solder_columns: int = Field(default=3, ge=1)
     solder_removal_enabled: bool = False
-    removal_rows: int = Field(default=5, ge=1)
-    removal_columns: int = Field(default=5, ge=1)
+    removal_rows: int = Field(default=5, ge=0)
+    removal_columns: int = Field(default=5, ge=0)
     omitted_cells: list[CellIndex] = Field(default_factory=list)
+    allow_asymmetric_regions: bool = False
 
     @model_validator(mode="after")
     def validate_solder_style(self) -> "SolderBallParameters":

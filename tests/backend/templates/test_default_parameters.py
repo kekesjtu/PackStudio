@@ -1,5 +1,6 @@
 import hashlib
 import json
+import runpy
 import shutil
 from pathlib import Path
 
@@ -24,6 +25,11 @@ def test_all_342_records_are_lossless_and_checksummed() -> None:
     original = {item["path"]: item for item in snapshot["records"]}
     directory = library.library_directory()
     manifest = json.loads((directory / "manifest.json").read_text())
+    snapshot_bytes = (ROOT / "flotherm_pack_data/installation/presets.json").read_bytes()
+    assert (
+        manifest["source_snapshot_sha256"]
+        == hashlib.sha256(snapshot_bytes.replace(b"\r\n", b"\n")).hexdigest()
+    )
     paths = []
     for family in manifest["families"]:
         path = directory / family["file"]
@@ -149,3 +155,51 @@ def test_removed_boundary_configuration_is_rejected_and_not_exported() -> None:
 def test_default_loader_rejects_paths_outside_the_library() -> None:
     with pytest.raises(ValueError, match="within the library"):
         library.read_defaults("../pyproject.toml", "packstudio.template-defaults/v1")
+
+
+def test_changing_default_selection_does_not_relabel_it_as_captured(isolated_library: Path) -> None:
+    def update(payload):
+        next(item for item in payload["fields"] if item["control"] == "footprint")["default"] = (
+            "CBGAFC_100_9X9mm"
+        )
+
+    edit_json(isolated_library / "templates/flip_chip_cbga.json", update)
+    model = generate(default_request("flip_chip_cbga"))
+    assert model.metadata["preset_geometry_status"] == "source-adapted"
+    substrate = next(block for block in model.blocks if block.name == "Package substrate")
+    assert substrate.size.x == substrate.size.y == 9
+
+
+def test_missing_source_adapter_fails_without_legacy_fallback(isolated_library: Path) -> None:
+    edit_json(
+        isolated_library / "source_adapters.json", lambda data: data["families"].pop("cbga_fc")
+    )
+    with pytest.raises(ValueError, match="missing source adapter"):
+        generate(default_request("flip_chip_cbga"))
+
+
+def test_transcription_is_portable_across_windows_and_git_line_endings(tmp_path: Path) -> None:
+    transcribe = runpy.run_path(str(ROOT / "tools/transcribe_default_parameters.py"))["transcribe"]
+    record = {
+        "path": "flocentral/flopack/example/example.des",
+        "family": "example",
+        "sha256": "original-vendor-hash",
+        "fields": {"D": "6", "notes": "first\r\nsecond"},
+    }
+    payload = json.dumps({"records": [record]}, indent=2)
+    manifests = []
+    for index, line_ending in enumerate(["\n", "\r\n"]):
+        snapshot = tmp_path / f"source-{index}.json"
+        snapshot.write_text(payload, encoding="utf-8", newline=line_ending)
+        output = tmp_path / f"output-{index}"
+        manifest = transcribe(snapshot, output)
+        serialized = output / "flotherm/example.json"
+        assert b"\r\n" not in serialized.read_bytes()
+        assert (
+            hashlib.sha256(serialized.read_bytes()).hexdigest() == manifest["families"][0]["sha256"]
+        )
+        data = json.loads(serialized.read_text(encoding="utf-8"))["records"][0]
+        assert data["raw_fields"] == record["fields"]
+        assert data["source_sha256"] == "original-vendor-hash"
+        manifests.append(manifest)
+    assert manifests[0] == manifests[1]

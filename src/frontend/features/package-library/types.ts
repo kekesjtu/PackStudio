@@ -34,6 +34,8 @@ export interface WizardField {
   options: WizardValue[]
   option_labels?: Record<string, string>
   preset_values?: Record<string, Record<string, WizardValue>>
+  preset_bga?: Record<string, BgaConfiguration>
+  preset_notes?: Record<string, string>
   classification: string
   property_name: string | null
   supported_values: WizardValue[]
@@ -65,6 +67,7 @@ export interface TemplateSchema {
 }
 
 export interface BgaConfiguration {
+  allow_asymmetric_regions?: boolean
   representation: 'equivalent' | 'discrete'
   center_solder_enabled: boolean
   center_solder_rows: number

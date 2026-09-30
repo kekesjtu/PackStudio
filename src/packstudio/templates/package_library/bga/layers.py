@@ -41,6 +41,7 @@ def build_bga_layer(
         removal_rows=configuration.removal_rows,
         removal_columns=configuration.removal_columns,
         omitted_cells=configuration.omitted_cells,
+        allow_asymmetric_regions=configuration.allow_asymmetric_regions,
     )
     built = build_array_layer(
         parameters=parameters,

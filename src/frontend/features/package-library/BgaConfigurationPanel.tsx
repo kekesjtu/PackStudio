@@ -60,12 +60,16 @@ export default function BgaConfigurationPanel({
     <Stack spacing={2}>
       <Alert severity="info">
         焊球默认按完整正交阵列生成；去球区域与显式去球单元可以组合，显式去球优先。
+        去球区行列同时设为 0 时，仅应用显式去球单元。
       </Alert>
       <FormControlLabel
         control={
           <Switch
             checked={value.solder_removal_enabled}
-            onChange={(event) => update({ solder_removal_enabled: event.target.checked })}
+            onChange={(event) => update({
+              solder_removal_enabled: event.target.checked,
+              ...(!event.target.checked ? { omitted_cells: [] } : {}),
+            })}
           />
         }
         label="焊球去除"

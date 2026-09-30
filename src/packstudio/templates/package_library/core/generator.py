@@ -10,6 +10,7 @@ from packstudio.templates.package_library.core.definitions import TemplateDefini
 from packstudio.templates.package_library.core.geometry import DraftBlock, normalize_drafts
 from packstudio.templates.package_library.core.materials import production_materials
 from packstudio.templates.package_library.core.parameters import TemplateRequest
+from packstudio.templates.package_library.core.preset_request import resolve_preset_request
 
 
 @dataclass
@@ -26,6 +27,7 @@ def generate_template(
     definition: TemplateDefinition,
     request: TemplateRequest,
 ) -> PackageModel:
+    request, preset = resolve_preset_request(definition, request)
     values = definition.validate_request(request)
     built: BuiltTemplate = definition.builder(values, request)
     normalized = normalize_drafts(built.drafts)
@@ -73,6 +75,7 @@ def generate_template(
             "mesh_data_included": False,
             "solver_results_included": False,
             **built.metadata,
+            **({} if preset is None else preset.metadata),
         },
     )
 

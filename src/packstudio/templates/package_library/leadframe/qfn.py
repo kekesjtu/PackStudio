@@ -144,6 +144,8 @@ def _build(values: TemplateValues, _request: TemplateRequest) -> BuiltTemplate:
             diameter,
             "qfn-bondwire-x",
             "qfn-bondwire-y",
+            x_enabled=count_y > 0,
+            y_enabled=count_x > 0,
         ),
         *qfn_interconnect_drafts(
             length,
@@ -187,6 +189,8 @@ def _build(values: TemplateValues, _request: TemplateRequest) -> BuiltTemplate:
 
 
 def _validate(values: TemplateValues, length: float, width: float) -> None:
+    if values.integer("leads.count_x") + values.integer("leads.count_y") == 0:
+        raise ValueError("QFN must have leads on at least one pair of sides")
     if max(values.number("die.length"), values.number("pad.length")) > length:
         raise ValueError("die and DAP must fit inside the QFN body")
     if max(values.number("die.width"), values.number("pad.width")) > width:

@@ -1,5 +1,6 @@
 import pytest
 
+from packstudio.default_parameters import read_defaults
 from packstudio.domain.enums import StructureType
 from packstudio.templates.package_library.catalog import (
     catalog,
@@ -37,14 +38,20 @@ def test_every_template_has_multiple_handwritten_size_presets(template_id: str) 
     assert set(footprint["options"]) == set(footprint["option_labels"])
 
 
-def test_production_jedec_options_are_limited_to_captured_floxml_variants() -> None:
+def test_all_source_options_include_existing_captured_floxml_variants() -> None:
     definition_map = definitions()
     for template_id, expected in VERIFIED_JEDEC_OPTIONS.items():
         footprint = next(
             field for field in definition_map[template_id].fields if field.control == "footprint"
         )
 
-        assert set(footprint.options) == expected
+        assert set(footprint.options) >= expected
+    adapters = read_defaults("source_adapters.json", "packstudio.source-adapters/v1")
+    for family, adapter in adapters["families"].items():
+        records = read_defaults(f"flotherm/{family}.json", "packstudio.flotherm-presets/v1")
+        footprint = next(field for field in definition_map[adapter["template_id"]].fields
+                         if field.control == "footprint")
+        assert set(footprint.options) == {record["id"] for record in records["records"]}
 
 
 @pytest.mark.parametrize("template_id", list(definitions()))
@@ -120,15 +127,21 @@ def test_verified_jedec_presets_update_die_xy_but_not_die_thickness(
     assert die.size.z == pytest.approx(default_die.size.z)
 
 
-def test_every_jedec_preset_declares_die_xy_without_scaling_die_thickness() -> None:
+def test_every_source_preset_uses_declared_die_dimensions_without_uniform_scaling() -> None:
+    adapters = read_defaults("source_adapters.json", "packstudio.source-adapters/v1")
     for template_id, definition in definitions().items():
         if template_id == "bare_die":
             continue
         footprint = next(field for field in definition.fields if field.control == "footprint")
+        family = next(key for key, item in adapters["families"].items()
+                      if item["template_id"] == template_id)
+        records = {record["id"]: record for record in read_defaults(
+            f"flotherm/{family}.json", "packstudio.flotherm-presets/v1")["records"]}
         for preset in footprint.presets:
-            assert "die.length" in preset.values
-            assert "die.width" in preset.values
-            assert "die.thickness" not in preset.values
+            source = records[preset.value]["values"]
+            assert preset.values["die.length"] == source["Ld"]
+            assert preset.values["die.width"] == source["Wd"]
+            assert preset.values["die.thickness"] == source["td"]
 
 
 def test_verified_presets_keep_component_specific_nonuniform_rules() -> None:

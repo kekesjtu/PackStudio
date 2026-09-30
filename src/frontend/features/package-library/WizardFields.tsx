@@ -50,7 +50,11 @@ export default function WizardFields({
       delete overrides[field.target_id]
     }
     else overrides[field.target_id] = value
-    onChange(pruneInactiveMaterials({ ...request, overrides }, allFields))
+    const pattern = field.preset_bga?.[String(value)]
+    const bga = pattern && request.bga
+      ? { ...pattern, representation: request.bga.representation }
+      : request.bga
+    onChange(pruneInactiveMaterials({ ...request, overrides, bga }, allFields))
   }
 
   return (
@@ -74,6 +78,8 @@ export default function WizardFields({
           />
         )
       })}
+      {step.fields.map((field) => field.preset_notes?.[String(valueFor(field, request, allFields))])
+        .filter(Boolean).map((note) => <Alert key={note} severity="warning">{note}</Alert>)}
       {!step.fields.some((field) => field.editable) && (
         <Alert severity="info">
           本页字段保留为参考记录；当前没有可安全重放的模型输入。

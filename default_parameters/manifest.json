@@ -1,7 +1,8 @@
 {
   "schema_version": "packstudio.default-parameters/v1",
   "source_product": "Simcenter FloTHERM PACK 2504",
-  "source_snapshot_sha256": "034c856fc086913af2e9aee10d916b9f13e458f3b35d2289686be7f604e56ad5",
+  "source_snapshot_sha256": "187356d8f304dedc0d8b7ff8fc55664d99abe2284bcf9a2c90f94921bf3863f2",
+  "file_hash_convention": "SHA-256 of UTF-8 JSON files with LF line endings; DES source_sha256 remains the original vendor byte hash.",
   "record_count": 342,
   "value_convention": "Original PACK symbols; numbers parsed without unit conversion; empty = null; raw_fields retained verbatim.",
   "families": [
@@ -9,43 +10,43 @@
       "family": "QFN",
       "file": "flotherm/QFN.json",
       "count": 46,
-      "sha256": "b4306304db8a683e926c2efa8e0c8cc628e6007083d767eee426892712d6a4e7"
+      "sha256": "9b0911ee90d5c574faeec2422a124839c4e6a02fa37962c219c5598021c2e4a5"
     },
     {
       "family": "cbga_fc",
       "file": "flotherm/cbga_fc.json",
       "count": 49,
-      "sha256": "87c4cc547dc090d67912ec40e3415fe33aa8e4e894aa019a3aab2ad2d909a00b"
+      "sha256": "8bfa1cf64f57a5dcd11083a2f7154ba70e6ff2982b4bd65c9594bbe366570e01"
     },
     {
       "family": "chip_array",
       "file": "flotherm/chip_array.json",
       "count": 38,
-      "sha256": "0ef371499904b07e2b0666168d7238c3096d375a7d9b2c41408dbb35cf5d2047"
+      "sha256": "9104ac4bf39fff0e5af24ef1dd357f6618ce07c7550f92e212677aab76f46dda"
     },
     {
       "family": "pbga_fc",
       "file": "flotherm/pbga_fc.json",
       "count": 45,
-      "sha256": "a41fbaeb3862acea7e35337bb6116c54f90a3b91f91f712f9b441c4b63331d77"
+      "sha256": "de87936a1f077920ed34429fcd975cf17d33771759a70b1410f95fe94a584779"
     },
     {
       "family": "pbga_wb",
       "file": "flotherm/pbga_wb.json",
       "count": 36,
-      "sha256": "f5616fd658702fd52e65641323f1cdc6d6b1440718e1de8a18edd10206f4d74f"
+      "sha256": "3014555487cd3e364de2179a4aaf2cfe2cf496bb9259c572aeba6dbdc8bb54c0"
     },
     {
       "family": "pqfp",
       "file": "flotherm/pqfp.json",
       "count": 61,
-      "sha256": "82a216a7a7e4f132c8fb30a749c4526894bf0d76120e67429a6afcd14b7ce872"
+      "sha256": "9d92664092ca3d08ee8586019871a13b2486119e3b95037dfacfe8bec076717b"
     },
     {
       "family": "tsop_conv",
       "file": "flotherm/tsop_conv.json",
       "count": 67,
-      "sha256": "2a5a0866c767b58608e51498d838ff3fcdb35ff7100b16d0a8e9e367e80acef1"
+      "sha256": "f5d3fe199cd1781ec4c50c8ccd09f6c27d3615bc2705d16827e8770a8ec2a321"
     }
   ]
 }

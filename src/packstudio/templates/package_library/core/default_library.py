@@ -9,6 +9,7 @@ from packstudio.templates.package_library.core.definitions import (
     PresetOption,
     _validate_value,
 )
+from packstudio.templates.package_library.core.source_presets import expand_source_presets
 
 
 def template_defaults(template_id: str) -> dict:
@@ -19,28 +20,23 @@ def template_defaults(template_id: str) -> dict:
 
 
 def _preset(payload: dict) -> PresetOption:
-    values = payload["values"].copy()
-    if "source" in payload:
-        source = payload["source"]
-        family = read_defaults(
-            f"flotherm/{source['family']}.json", "packstudio.flotherm-presets/v1"
-        )
-        record = next((item for item in family["records"] if item["id"] == source["preset"]), None)
-        if record is None:
-            raise ValueError(f"missing PACK preset {source}")
-        for key, symbol in payload["source_values"].items():
-            value = record["values"][symbol]
-            if value is None:
-                raise ValueError(f"unresolved PACK value {source}/{symbol}")
-            values[key] = value
     return TypeAdapter(PresetOption).validate_python(
-        {"value": payload["value"], "label": payload["label"], "values": values}
+        {
+            "value": payload["value"],
+            "label": payload["label"],
+            "values": payload["values"],
+            "bga": payload.get("bga"),
+            "metadata": payload.get("metadata", {}),
+        }
     )
 
 
 def load_fields(template_id: str) -> tuple[FieldDefinition, ...]:
     items = []
-    for payload in template_defaults(template_id)["fields"]:
+    serialized = template_defaults(template_id)["fields"]
+    for payload in serialized:
+        if payload["control"] == "footprint":
+            payload = expand_source_presets(template_id, payload, serialized)
         payload["presets"] = tuple(_preset(preset) for preset in payload["presets"])
         item = TypeAdapter(FieldDefinition).validate_python(payload)
         _validate_value(item, item.default)
