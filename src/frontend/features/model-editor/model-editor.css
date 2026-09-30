@@ -13,7 +13,7 @@
   flex: 1;
   min-height: 0;
   overflow: hidden;
-  padding: 12px;
+  padding: 8px;
 }
 
 .material-swatch {
@@ -21,7 +21,7 @@
   width: 14px;
   height: 14px;
   border: 1px solid rgba(0, 0, 0, 0.2);
-  border-radius: 3px;
+  border-radius: 1px;
 }
 
 .model-tree {
@@ -35,8 +35,8 @@
   top: 0;
   display: flex;
   justify-content: flex-end;
-  border-bottom: 1px solid #e1e8ec;
-  background: #fff;
+  border-bottom: 1px solid #b6c0c8;
+  background: #f1f2f3;
   padding: 2px 0 6px;
 }
 
@@ -49,7 +49,7 @@
 .material-browser {
   display: grid;
   grid-template-rows: minmax(180px, 42%) minmax(0, 1fr);
-  gap: 12px;
+  gap: 8px;
   height: 100%;
 }
 
@@ -68,8 +68,8 @@
 }
 
 .material-browser-property {
-  border-radius: 5px;
-  background: #f4f7f9;
+  border-radius: 1px;
+  background: #e5eaee;
   padding: 6px 8px;
 }
 
@@ -87,7 +87,7 @@
   min-width: 0;
   flex: 1;
   justify-content: flex-start !important;
-  border-radius: 4px !important;
+  border-radius: 1px !important;
   padding: 3px 2px !important;
   text-align: left !important;
 }
@@ -112,7 +112,7 @@
   width: 100%;
   justify-content: space-between !important;
   gap: 8px;
-  border-radius: 5px !important;
+  border-radius: 1px !important;
   padding: 6px 8px !important;
   color: #304550 !important;
   text-align: left !important;
@@ -120,7 +120,7 @@
 
 .tree-block:hover,
 .tree-block[data-selected='true'] {
-  background: #e6f3f6;
+  background: #dae7ef;
 }
 
 .tree-block[data-hidden='true'] {
@@ -130,4 +130,9 @@
 .tree-block small {
   color: #6b7f89;
   font-size: 0.66rem;
+}
+
+.inspector-content > .MuiTabs-root {
+  border-bottom: 1px solid #b6c0c8;
+  background: #dfe5e9;
 }

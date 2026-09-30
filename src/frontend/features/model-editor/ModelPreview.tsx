@@ -80,7 +80,7 @@ export default function ModelPreview({
         }}
         onPointerMissed={() => onSelectBlock(null)}
       >
-        <color attach="background" args={['#f7fafb']} />
+        <color attach="background" args={['#e5e8eb']} />
         <ambientLight intensity={1.15} />
         <directionalLight position={[5, -7, 10]} intensity={1.8} />
         <directionalLight position={[-5, 4, 2]} intensity={0.6} />

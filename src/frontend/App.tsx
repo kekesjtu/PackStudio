@@ -7,23 +7,13 @@ import {
   ThemeProvider,
   Toolbar,
   Typography,
-  createTheme,
 } from '@mui/material'
 import { useEffect, useState } from 'react'
 
 import { loadTemplateCatalog } from './features/package-library/api'
 import PackageWorkspace from './features/package-library/PackageWorkspace'
 import type { TemplateCatalogItem } from './features/package-library/types'
-
-const theme = createTheme({
-  palette: {
-    primary: { main: '#087f9c' },
-    background: { default: '#f4f7f9' },
-  },
-  typography: {
-    fontFamily: 'Inter, "Microsoft YaHei", system-ui, sans-serif',
-  },
-})
+import industrialTheme from './industrialTheme'
 
 export default function App() {
   const [templates, setTemplates] = useState<TemplateCatalogItem[]>([])
@@ -34,7 +24,7 @@ export default function App() {
   }, [])
 
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={industrialTheme}>
       <CssBaseline />
       <Box className="app-shell">
         <AppBar position="static" elevation={0}>
@@ -54,6 +44,7 @@ export default function App() {
               onChange={(event) => setTemplateId(event.target.value)}
               sx={{
                 minWidth: 290,
+                backgroundColor: '#253f52',
                 color: 'white',
                 '.MuiOutlinedInput-notchedOutline': { borderColor: 'rgba(255,255,255,.55)' },
                 '.MuiSvgIcon-root': { color: 'white' },

@@ -4,7 +4,6 @@ import {
   Button,
   Chip,
   CircularProgress,
-  Divider,
   MenuItem,
   Paper,
   Stack,
@@ -165,10 +164,9 @@ export default function PackageWorkspace({ templateId }: PackageWorkspaceProps) 
       />
       <Paper component="section" className="property-panel">
         <Box className="property-editor">
-          <Typography variant="h5" component="h2">
+          <Typography variant="h5" component="h2" className="panel-heading">
             {stepTitle(schema, activeStep)}
           </Typography>
-          <Divider />
           <Box ref={propertyContentRef} className="property-content">
             {renderStep(schema, activeStep, allFields, request, library, changeRequest)}
           </Box>
@@ -205,7 +203,7 @@ export default function PackageWorkspace({ templateId }: PackageWorkspaceProps) 
           ECXML 导出几何、材料与功率。边界条件和网格控制需在目标软件中重新设置。
         </Alert>}
         <Paper component="section" className="preview-panel">
-          <Stack direction="row" justifyContent="space-between" spacing={1}>
+          <Stack direction="row" justifyContent="space-between" spacing={1} className="panel-heading preview-heading">
             <Typography variant="h5">三维建模区</Typography>
             <Stack direction="row" spacing={0.75}>
               {model && <Chip size="small" label={`${model.blocks.length} 个块`} />}
