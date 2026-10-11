@@ -18,7 +18,9 @@ dependencies = [
 
 [dependency-groups]
 dev = [
+    "capstone>=5.0.6,<6",
     "httpx2>=2.0,<3.0",
+    "pefile>=2024.8.26",
     "pytest>=8.3,<10.0",
     "pytest-cov>=6.0,<8.0",
     "ruff>=0.8,<1.0",
@@ -39,6 +41,7 @@ include = ["packstudio*"]
 [tool.pytest.ini_options]
 addopts = "--strict-markers --strict-config"
 testpaths = ["tests/backend"]
+pythonpath = ["."]
 
 [tool.coverage.run]
 branch = true

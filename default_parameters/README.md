@@ -38,6 +38,10 @@ TSOP conventional 67。Bare Die 的 4 个预设来自既有审核规格，不计
 源中未提供的基板厚度、金属层厚度、通孔行列等参数，从模板 JSON 或既有审核规格继承，
 具体字段列于 `adaptation_report.json` 的 `parameter_audit.inherited_fields`。
 
+2026-10-11 的[原生默认值调研](../docs/research/flotherm-native-defaults.md)发现，
+仅 36 个 Wirebond PBGA 预设的基板厚度、键合线总数和过孔间距，就有 56 处生产值
+与 PACK 默认分支不同。研究快照尚未接入本目录；现有生成/导出验收不代表默认值全部一致。
+
 七个默认规格保留已对照 PACK 导出的基线，同时继续动态读取 `Ld/Wd`；其余源适配规格的
 `preset_geometry_status` 为 `source-adapted`。保留此前选项的标识，旧方案仍可读取；
 非默认规格现在采用原始源阵列，因此 PBGA_896 的网格从旧关联值 31×31 改为源定义 39×39，

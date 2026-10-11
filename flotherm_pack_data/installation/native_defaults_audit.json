@@ -1,0 +1,413 @@
+{
+  "default_record_count": 342,
+  "four_layer_record_count": 74,
+  "families": {
+    "chip_array": 38,
+    "cbga_fc": 49,
+    "pbga_fc": 45,
+    "pqfp": 61,
+    "QFN": 46,
+    "tsop_conv": 67,
+    "pbga_wb": 36
+  },
+  "native_property_states": {
+    "1": 19780,
+    "0": 4315,
+    "4": 94
+  },
+  "populated_property_instances": 19874,
+  "unset_property_instances": 4315,
+  "source_hashes_checked": 342,
+  "die_dimensions_checked": 1026,
+  "conditional_rule_assertions": 512,
+  "archived_floxml_cross_checks": [
+    {
+      "template": "fbga_fsbga",
+      "branch": "native-initialised-defaults",
+      "preset": "ChipArray_24_4X4mm_0_8",
+      "thickness_mm": 0.36,
+      "archive": "flotherm_pack_data\\templates\\fbga_fsbga\\baseline"
+    },
+    {
+      "template": "flip_chip_cbga",
+      "branch": "native-initialised-defaults",
+      "preset": "CBGAFC_49_6X6mm",
+      "thickness_mm": 1.15,
+      "archive": "flotherm_pack_data\\templates\\flip_chip_cbga\\baseline"
+    },
+    {
+      "template": "flip_chip_pbga",
+      "branch": "native-initialised-defaults",
+      "preset": "PBGAFC_49_6X6mm",
+      "thickness_mm": 1.15,
+      "archive": "flotherm_pack_data\\templates\\flip_chip_pbga\\baseline"
+    },
+    {
+      "template": "wirebond_pbga",
+      "branch": "native-initialised-defaults",
+      "preset": "PBGA_121_15X15mm",
+      "thickness_mm": 0.36,
+      "archive": "flotherm_pack_data\\templates\\wirebond_pbga\\baseline"
+    },
+    {
+      "template": "fbga_fsbga",
+      "branch": "4-Layer",
+      "preset": "ChipArray_24_4X4mm_0_8",
+      "thickness_mm": 0.56,
+      "archive": "flotherm_pack_data\\templates\\fbga_fsbga\\xml_variations\\option_switches\\opt_v2_c003_substratelayer_4_layer"
+    },
+    {
+      "template": "wirebond_pbga",
+      "branch": "4-Layer",
+      "preset": "PBGA_121_15X15mm",
+      "thickness_mm": 0.56,
+      "archive": "flotherm_pack_data\\templates\\wirebond_pbga\\xml_variations\\option_switches\\opt_v2_c003_substratelayer_4_layer"
+    }
+  ],
+  "production_comparison_scope": "36 wirebond PBGA presets, three numeric fields only",
+  "production_difference_count": 56,
+  "production_difference_fields": {
+    "vias.pitch": 16,
+    "bond_wire.total": 18,
+    "substrate.thickness": 22
+  },
+  "production_differences": [
+    {
+      "preset": "PBGA_169_23X23mm",
+      "field": "vias.pitch",
+      "packstudio": 1.27,
+      "pack_native": 1.5
+    },
+    {
+      "preset": "PBGA_192_17X17mm",
+      "field": "vias.pitch",
+      "packstudio": 1.27,
+      "pack_native": 1.0
+    },
+    {
+      "preset": "PBGA_196_15X15mm",
+      "field": "vias.pitch",
+      "packstudio": 1.27,
+      "pack_native": 1.0
+    },
+    {
+      "preset": "PBGA_208_17X17mm",
+      "field": "bond_wire.total",
+      "packstudio": 208.0,
+      "pack_native": 192.0
+    },
+    {
+      "preset": "PBGA_208_17X17mm",
+      "field": "vias.pitch",
+      "packstudio": 1.27,
+      "pack_native": 1.0
+    },
+    {
+      "preset": "PBGA_217_23X23mm",
+      "field": "bond_wire.total",
+      "packstudio": 217.0,
+      "pack_native": 208.0
+    },
+    {
+      "preset": "PBGA_225_27X27mm",
+      "field": "substrate.thickness",
+      "packstudio": 0.36,
+      "pack_native": 0.56
+    },
+    {
+      "preset": "PBGA_225_27X27mm",
+      "field": "vias.pitch",
+      "packstudio": 1.27,
+      "pack_native": 1.5
+    },
+    {
+      "preset": "PBGA_256_17X17mm",
+      "field": "vias.pitch",
+      "packstudio": 1.27,
+      "pack_native": 1.0
+    },
+    {
+      "preset": "PBGA_256_27X27mm",
+      "field": "substrate.thickness",
+      "packstudio": 0.36,
+      "pack_native": 0.56
+    },
+    {
+      "preset": "PBGA_272_27X27mm",
+      "field": "substrate.thickness",
+      "packstudio": 0.36,
+      "pack_native": 0.56
+    },
+    {
+      "preset": "PBGA_272_27X27mm",
+      "field": "bond_wire.total",
+      "packstudio": 272.0,
+      "pack_native": 256.0
+    },
+    {
+      "preset": "PBGA_288_23X23mm",
+      "field": "vias.pitch",
+      "packstudio": 1.27,
+      "pack_native": 1.0
+    },
+    {
+      "preset": "PBGA_300_27X27mm",
+      "field": "substrate.thickness",
+      "packstudio": 0.36,
+      "pack_native": 0.56
+    },
+    {
+      "preset": "PBGA_304_31X31mm",
+      "field": "substrate.thickness",
+      "packstudio": 0.36,
+      "pack_native": 0.56
+    },
+    {
+      "preset": "PBGA_316_27X27mm",
+      "field": "substrate.thickness",
+      "packstudio": 0.36,
+      "pack_native": 0.56
+    },
+    {
+      "preset": "PBGA_316_27X27mm",
+      "field": "bond_wire.total",
+      "packstudio": 316.0,
+      "pack_native": 300.0
+    },
+    {
+      "preset": "PBGA_324_23X23mm",
+      "field": "bond_wire.total",
+      "packstudio": 324.0,
+      "pack_native": 288.0
+    },
+    {
+      "preset": "PBGA_324_23X23mm",
+      "field": "vias.pitch",
+      "packstudio": 1.27,
+      "pack_native": 1.0
+    },
+    {
+      "preset": "PBGA_329_31X31mm",
+      "field": "substrate.thickness",
+      "packstudio": 0.36,
+      "pack_native": 0.56
+    },
+    {
+      "preset": "PBGA_329_31X31mm",
+      "field": "bond_wire.total",
+      "packstudio": 329.0,
+      "pack_native": 304.0
+    },
+    {
+      "preset": "PBGA_385_31X31mm",
+      "field": "substrate.thickness",
+      "packstudio": 0.36,
+      "pack_native": 0.56
+    },
+    {
+      "preset": "PBGA_385_31X31mm",
+      "field": "bond_wire.total",
+      "packstudio": 385.0,
+      "pack_native": 360.0
+    },
+    {
+      "preset": "PBGA_388_35X35mm",
+      "field": "substrate.thickness",
+      "packstudio": 0.36,
+      "pack_native": 0.56
+    },
+    {
+      "preset": "PBGA_388_35X35mm",
+      "field": "bond_wire.total",
+      "packstudio": 388.0,
+      "pack_native": 352.0
+    },
+    {
+      "preset": "PBGA_416_27X27mm",
+      "field": "substrate.thickness",
+      "packstudio": 0.36,
+      "pack_native": 0.56
+    },
+    {
+      "preset": "PBGA_416_27X27mm",
+      "field": "bond_wire.total",
+      "packstudio": 416.0,
+      "pack_native": 352.0
+    },
+    {
+      "preset": "PBGA_416_27X27mm",
+      "field": "vias.pitch",
+      "packstudio": 1.27,
+      "pack_native": 1.0
+    },
+    {
+      "preset": "PBGA_420_35X35mm",
+      "field": "substrate.thickness",
+      "packstudio": 0.36,
+      "pack_native": 0.56
+    },
+    {
+      "preset": "PBGA_433_31X31mm",
+      "field": "substrate.thickness",
+      "packstudio": 0.36,
+      "pack_native": 0.56
+    },
+    {
+      "preset": "PBGA_433_31X31mm",
+      "field": "bond_wire.total",
+      "packstudio": 433.0,
+      "pack_native": 408.0
+    },
+    {
+      "preset": "PBGA_456_23X23mm",
+      "field": "bond_wire.total",
+      "packstudio": 456.0,
+      "pack_native": 420.0
+    },
+    {
+      "preset": "PBGA_456_23X23mm",
+      "field": "vias.pitch",
+      "packstudio": 1.27,
+      "pack_native": 1.0
+    },
+    {
+      "preset": "PBGA_456_35X35mm",
+      "field": "substrate.thickness",
+      "packstudio": 0.36,
+      "pack_native": 0.56
+    },
+    {
+      "preset": "PBGA_456_35X35mm",
+      "field": "bond_wire.total",
+      "packstudio": 456.0,
+      "pack_native": 420.0
+    },
+    {
+      "preset": "PBGA_516_31X31mm",
+      "field": "substrate.thickness",
+      "packstudio": 0.36,
+      "pack_native": 0.56
+    },
+    {
+      "preset": "PBGA_516_31X31mm",
+      "field": "bond_wire.total",
+      "packstudio": 516.0,
+      "pack_native": 416.0
+    },
+    {
+      "preset": "PBGA_516_31X31mm",
+      "field": "vias.pitch",
+      "packstudio": 1.27,
+      "pack_native": 1.0
+    },
+    {
+      "preset": "PBGA_524_37_5X37_5mm",
+      "field": "substrate.thickness",
+      "packstudio": 0.36,
+      "pack_native": 0.56
+    },
+    {
+      "preset": "PBGA_524_37_5X37_5mm",
+      "field": "bond_wire.total",
+      "packstudio": 524.0,
+      "pack_native": 460.0
+    },
+    {
+      "preset": "PBGA_564_40X40mm",
+      "field": "substrate.thickness",
+      "packstudio": 0.36,
+      "pack_native": 0.56
+    },
+    {
+      "preset": "PBGA_564_40X40mm",
+      "field": "bond_wire.total",
+      "packstudio": 564.0,
+      "pack_native": 500.0
+    },
+    {
+      "preset": "PBGA_576_40X40mm",
+      "field": "substrate.thickness",
+      "packstudio": 0.36,
+      "pack_native": 0.56
+    },
+    {
+      "preset": "PBGA_576_40X40mm",
+      "field": "bond_wire.total",
+      "packstudio": 576.0,
+      "pack_native": 432.0
+    },
+    {
+      "preset": "PBGA_580_35X35mm",
+      "field": "substrate.thickness",
+      "packstudio": 0.36,
+      "pack_native": 0.56
+    },
+    {
+      "preset": "PBGA_580_35X35mm",
+      "field": "bond_wire.total",
+      "packstudio": 580.0,
+      "pack_native": 480.0
+    },
+    {
+      "preset": "PBGA_580_35X35mm",
+      "field": "vias.pitch",
+      "packstudio": 1.27,
+      "pack_native": 1.0
+    },
+    {
+      "preset": "PBGA_672_40X40mm",
+      "field": "substrate.thickness",
+      "packstudio": 0.36,
+      "pack_native": 0.56
+    },
+    {
+      "preset": "PBGA_676_27X27mm",
+      "field": "substrate.thickness",
+      "packstudio": 0.36,
+      "pack_native": 0.56
+    },
+    {
+      "preset": "PBGA_676_27X27mm",
+      "field": "vias.pitch",
+      "packstudio": 1.27,
+      "pack_native": 1.0
+    },
+    {
+      "preset": "PBGA_680_35X35mm",
+      "field": "substrate.thickness",
+      "packstudio": 0.36,
+      "pack_native": 0.56
+    },
+    {
+      "preset": "PBGA_680_35X35mm",
+      "field": "bond_wire.total",
+      "packstudio": 680.0,
+      "pack_native": 580.0
+    },
+    {
+      "preset": "PBGA_680_35X35mm",
+      "field": "vias.pitch",
+      "packstudio": 1.27,
+      "pack_native": 1.0
+    },
+    {
+      "preset": "PBGA_845_40X40mm",
+      "field": "substrate.thickness",
+      "packstudio": 0.36,
+      "pack_native": 0.56
+    },
+    {
+      "preset": "PBGA_845_40X40mm",
+      "field": "vias.pitch",
+      "packstudio": 1.27,
+      "pack_native": 1.0
+    },
+    {
+      "preset": "PBGA_896_40X40mm",
+      "field": "vias.pitch",
+      "packstudio": 1.27,
+      "pack_native": 1.0
+    }
+  ],
+  "complete_for_all_options": false
+}
