@@ -13,6 +13,10 @@
 | `source_adapters.json` | 7 类源记录到生产字段的映射、派生规则、缺值策略与个别记录修正 |
 | `adaptation_report.json` | 342 条参数审计、输入文件哈希及 510 种模型配置的生成/导出验收 |
 | `materials.json` | 集中材料库默认物性、颜色、名称和来源 |
+| `presets/<family>/*.json` | 342 个原生完整预设文件，包含 416 个向导分支与计算 comment |
+| `presets/index.json` | 独立预设文件的名称、分类、分支和字节哈希 |
+| `materials/<category>/*.json` | 分类保存 131 项 PACK 内建材料，预设按完整名称引用 |
+| `materials/index.json` | 材料名称的唯一索引、类别、文件与字节哈希 |
 | `request.json` | BGA 配置、网格档位及 PTA 格式所需的初始温度占位值 |
 
 342 条分布为 CBGA FC 49、PBGA FC 45、PBGA WB 36、Chip Array 38、QFN 46、PQFP 61、
@@ -28,7 +32,8 @@ TSOP conventional 67。Bare Die 的 4 个预设来自既有审核规格，不计
 `designDate` 等数字形字符串也按此词法规则解析，其原始表达始终可从 `raw_fields` 找回。
 
 源文件通常包含未启用分支的空字段、由 PACK 推导的参数及材料名称，不能把空值一律填成零。
-材料数值来自先前审核的基准模型，不能宣称仅凭 `.des` 的材料名称就获得了物性。
+既有 `materials.json` 的材料数值来自先前审核的基准模型；新 `materials/` 目录的
+131 项材料则通过 PACK 原生材料库提取。不能仅凭 `.des` 的材料名称推测物性。
 
 ## 生产默认值
 
@@ -40,7 +45,10 @@ TSOP conventional 67。Bare Die 的 4 个预设来自既有审核规格，不计
 
 2026-10-11 的[原生默认值调研](../docs/research/flotherm-native-defaults.md)发现，
 仅 36 个 Wirebond PBGA 预设的基板厚度、键合线总数和过孔间距，就有 56 处生产值
-与 PACK 默认分支不同。研究快照尚未接入本目录；现有生成/导出验收不代表默认值全部一致。
+与 PACK 默认分支不同。原生值现已分类保存到 `presets/`、`materials/`，
+提供 `PresetCatalog` / `MaterialCatalog` 独立读取接口；本次数据建库未修改现有几何适配。
+新库的结构、计算规则、读取示例与边界见[预设与材料库说明](../docs/research/pack-preset-catalog.md)。
+现有生成/导出验收不代表默认值全部一致。
 
 七个默认规格保留已对照 PACK 导出的基线，同时继续动态读取 `Ld/Wd`；其余源适配规格的
 `preset_geometry_status` 为 `source-adapted`。保留此前选项的标识，旧方案仍可读取；

@@ -1,5 +1,8 @@
 # PACK 2504 原生默认值逆向提取
 
+后续已将嵌套对象、分类材料库与隐式参数补入独立 JSON 库，见
+[PACK 预设与材料 JSON 库](pack-preset-catalog.md)。本文保留第一次提取的结果与历史限制。
+
 ## 结论
 
 可以绕开 FloSCRIPT/FloXML，直接批量取得 PACK 原生初始化后的参数。

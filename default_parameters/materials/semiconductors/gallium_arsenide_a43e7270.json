@@ -1,0 +1,45 @@
+{
+  "schema_version": "packstudio.material/v1",
+  "name": "Gallium Arsenide",
+  "category": "Semiconductors",
+  "density": {
+    "value": 5316.4,
+    "unit": "kg/m^3"
+  },
+  "specific_heat": {
+    "value": 90.435,
+    "unit": "J/(kg*K)"
+  },
+  "emissivity": 0.038,
+  "conductivity": {
+    "model": "temperature_dependent",
+    "unit": "W/(m*K)",
+    "value": 48.385,
+    "comment": "原生温度相关各向同性材料；完整保留基准值、系数、参考温度，不简化为常数。",
+    "coefficient": -0.1476,
+    "reference_temperature": 0.0
+  },
+  "native_storage": {
+    "name": "Gallium Arsenide",
+    "group": "Semiconductors",
+    "density_kg_m3": 5316.4,
+    "specific_heat_j_kg_k": 90.435,
+    "emissivity": 0.038,
+    "conductivity_w_m_k": 48.385,
+    "conductivity_coefficient": -0.1476,
+    "conductivity_reference_temperature": 0.0,
+    "kx_w_m_k": 0.0,
+    "ky_w_m_k": 0.0,
+    "kz_w_m_k": 0.0,
+    "conductivity_type": 1
+  },
+  "source": {
+    "method": "MaterialLibrary::populateBuiltInMaterials; native getters",
+    "binary_sha256": {
+      "flopackbackend.dll": "37177cc405980a1cbc22ef88a5d8a5af20264ba4a1ea731e331a0c96511656d5",
+      "flopackmaterials.dll": "4fdd99632751f4e7c63a2bdc93e290a3bc9ca018bbe8b7921aa7025cedb3cda3",
+      "flopackrealise.dll": "838ed6c2e7d40cc749b8b145f55d78e9e95495fef974d593a7641fc0aa528edd"
+    }
+  },
+  "comment": "PACK 2504 内建材料；未读取用户材料文件。native_storage 中非当前类型字段只是原生存储。"
+}

@@ -1,0 +1,43 @@
+{
+  "schema_version": "packstudio.material/v1",
+  "name": "Solder (Pb90/Sn10)",
+  "category": "Alloys (Solders)",
+  "density": {
+    "value": 10750.0,
+    "unit": "kg/m^3"
+  },
+  "specific_heat": {
+    "value": 142.0,
+    "unit": "J/(kg*K)"
+  },
+  "emissivity": 0.8,
+  "conductivity": {
+    "model": "constant_isotropic",
+    "unit": "W/(m*K)",
+    "value": 36.0,
+    "comment": "原生各向同性材料；kx/ky/kz 存储中的0不是三个方向的物理导热率。"
+  },
+  "native_storage": {
+    "name": "Solder (Pb90/Sn10)",
+    "group": "Alloys (Solders)",
+    "density_kg_m3": 10750.0,
+    "specific_heat_j_kg_k": 142.0,
+    "emissivity": 0.8,
+    "conductivity_w_m_k": 36.0,
+    "conductivity_coefficient": 0.0,
+    "conductivity_reference_temperature": 0.0,
+    "kx_w_m_k": 0.0,
+    "ky_w_m_k": 0.0,
+    "kz_w_m_k": 0.0,
+    "conductivity_type": 0
+  },
+  "source": {
+    "method": "MaterialLibrary::populateBuiltInMaterials; native getters",
+    "binary_sha256": {
+      "flopackbackend.dll": "37177cc405980a1cbc22ef88a5d8a5af20264ba4a1ea731e331a0c96511656d5",
+      "flopackmaterials.dll": "4fdd99632751f4e7c63a2bdc93e290a3bc9ca018bbe8b7921aa7025cedb3cda3",
+      "flopackrealise.dll": "838ed6c2e7d40cc749b8b145f55d78e9e95495fef974d593a7641fc0aa528edd"
+    }
+  },
+  "comment": "PACK 2504 内建材料；未读取用户材料文件。native_storage 中非当前类型字段只是原生存储。"
+}

@@ -1,0 +1,873 @@
+{
+  "schema_version": "packstudio.preset/v1",
+  "id": "TSOP_32_10_16x20_95",
+  "family": "tsop_conv",
+  "default_branch": "default",
+  "branches": {
+    "default": {
+      "wizard": {
+        "outlineType": {
+          "value": "standardOutline",
+          "choices": [
+            "standardOutline",
+            "nonStandardOutline"
+          ],
+          "comment": "原生向导选项；封装子类型按所选 .des 的家族前缀设置。"
+        },
+        "exposedPad": {
+          "value": false,
+          "comment": "原生向导初始化参数 exposedPad。"
+        },
+        "sopPackageType": {
+          "value": "tsop",
+          "choices": [
+            "soic/sop/so",
+            "ssop",
+            "tsop",
+            "tssop"
+          ],
+          "comment": "原生向导选项；封装子类型按所选 .des 的家族前缀设置。"
+        },
+        "dieType": {
+          "value": "actualDie",
+          "choices": [
+            "actualDie",
+            "thermalDie"
+          ],
+          "comment": "原生向导选项；封装子类型按所选 .des 的家族前缀设置。"
+        },
+        "designName": {
+          "value": "SOP",
+          "comment": "原生向导初始化参数 designName。"
+        }
+      },
+      "groups": {
+        "summary": {
+          "name": "summary",
+          "enabled": true,
+          "native_valid": true,
+          "native_type": ".?AVSummaryDataSet@flopack@@",
+          "comment": "保留原生组开关与校验结果；未启用组仍保存已有子参数。",
+          "properties": {
+            "designName": {
+              "status": "specified",
+              "kind": "text",
+              "native": {
+                "type": ".?AVStringProperty@flodata@@",
+                "state": 1,
+                "serialized_value": "SOP"
+              },
+              "comment": "来自 .des 加载、原生构造/初始化及 setWizardData 后的参数。",
+              "value": "SOP"
+            },
+            "maxCaseTemperature": {
+              "status": "user_input",
+              "kind": "text",
+              "native": {
+                "type": ".?AV?$NumericValue@N@flodata@@",
+                "state": 0
+              },
+              "comment": "器件限值元数据；PACK 没有给定额定值，需用户输入，不能补零。"
+            },
+            "maxOperatingJunctionTemperature": {
+              "status": "user_input",
+              "kind": "text",
+              "native": {
+                "type": ".?AV?$NumericValue@N@flodata@@",
+                "state": 0
+              },
+              "comment": "器件限值元数据；PACK 没有给定额定值，需用户输入，不能补零。"
+            },
+            "maxPower": {
+              "status": "user_input",
+              "kind": "text",
+              "native": {
+                "type": ".?AV?$NumericValue@N@flodata@@",
+                "state": 0
+              },
+              "comment": "器件限值元数据；PACK 没有给定额定值，需用户输入，不能补零。"
+            },
+            "partNumber": {
+              "status": "specified",
+              "kind": "text",
+              "native": {
+                "type": ".?AVStringProperty@flodata@@",
+                "state": 1,
+                "serialized_value": ""
+              },
+              "comment": "来自 .des 加载、原生构造/初始化及 setWizardData 后的参数。",
+              "value": ""
+            },
+            "summaryNotes": {
+              "status": "specified",
+              "kind": "text",
+              "native": {
+                "type": ".?AV?$Value@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@flodata@@",
+                "state": 1,
+                "serialized_value": ""
+              },
+              "comment": "来自 .des 加载、原生构造/初始化及 setWizardData 后的参数。",
+              "value": ""
+            },
+            "vendorName": {
+              "status": "specified",
+              "kind": "text",
+              "native": {
+                "type": ".?AVStringProperty@flodata@@",
+                "state": 1,
+                "serialized_value": ""
+              },
+              "comment": "来自 .des 加载、原生构造/初始化及 setWizardData 后的参数。",
+              "value": ""
+            }
+          }
+        },
+        "overallPackage": {
+          "name": "overallPackage",
+          "enabled": true,
+          "native_valid": true,
+          "native_type": ".?AVPLPOverallDataSet@flopack@@",
+          "comment": "保留原生组开关与校验结果；未启用组仍保存已有子参数。",
+          "properties": {
+            "lengthD": {
+              "status": "specified",
+              "kind": "number",
+              "native": {
+                "type": ".?AV?$NumericValue@N@flodata@@",
+                "state": 1,
+                "serialized_value": "20.95"
+              },
+              "comment": "来自 .des 加载、原生构造/初始化及 setWizardData 后的参数。",
+              "value": 20.95,
+              "unit": "mm"
+            },
+            "lengthUnit": {
+              "status": "specified",
+              "kind": "text",
+              "native": {
+                "type": ".?AVLengthUnit@flodata@@",
+                "state": 1,
+                "serialized_value": "mm"
+              },
+              "comment": "来自 .des 加载、原生构造/初始化及 setWizardData 后的参数。",
+              "value": "mm"
+            },
+            "standoffA1": {
+              "status": "specified",
+              "kind": "number",
+              "native": {
+                "type": ".?AV?$NumericValue@N@flodata@@",
+                "state": 1,
+                "serialized_value": "0.1"
+              },
+              "comment": "来自 .des 加载、原生构造/初始化及 setWizardData 后的参数。",
+              "value": 0.1,
+              "unit": "mm"
+            },
+            "widthE": {
+              "status": "specified",
+              "kind": "number",
+              "native": {
+                "type": ".?AV?$NumericValue@N@flodata@@",
+                "state": 1,
+                "serialized_value": "11.96"
+              },
+              "comment": "来自 .des 加载、原生构造/初始化及 setWizardData 后的参数。",
+              "value": 11.96,
+              "unit": "mm"
+            }
+          }
+        },
+        "encapsulant": {
+          "name": "encapsulant",
+          "enabled": true,
+          "native_valid": true,
+          "native_type": ".?AVPLPEncapsulantDataSet@flopack@@",
+          "comment": "保留原生组开关与校验结果；未启用组仍保存已有子参数。",
+          "properties": {
+            "encapsulantMaterial": {
+              "status": "specified",
+              "kind": "material_reference",
+              "native": {
+                "type": ".?AVMaterialAttachmentProperty@flopack@@",
+                "state": 1,
+                "serialized_value": "Epoxy Overmold (Typical)"
+              },
+              "comment": "按原生名称引用独立材料库。",
+              "value": "Epoxy Overmold (Typical)"
+            },
+            "lengthD1": {
+              "status": "specified",
+              "kind": "number",
+              "native": {
+                "type": ".?AV?$NumericValue@N@flodata@@",
+                "state": 1,
+                "serialized_value": "20.95"
+              },
+              "comment": "来自 .des 加载、原生构造/初始化及 setWizardData 后的参数。",
+              "value": 20.95,
+              "unit": "mm"
+            },
+            "lengthUnit": {
+              "status": "specified",
+              "kind": "text",
+              "native": {
+                "type": ".?AVLengthUnit@flodata@@",
+                "state": 1,
+                "serialized_value": "mm"
+              },
+              "comment": "来自 .des 加载、原生构造/初始化及 setWizardData 后的参数。",
+              "value": "mm"
+            },
+            "thicknessA2": {
+              "status": "specified",
+              "kind": "number",
+              "native": {
+                "type": ".?AV?$NumericValue@N@flodata@@",
+                "state": 1,
+                "serialized_value": "1"
+              },
+              "comment": "来自 .des 加载、原生构造/初始化及 setWizardData 后的参数。",
+              "value": 1.0,
+              "unit": "mm"
+            },
+            "widthE1": {
+              "status": "specified",
+              "kind": "number",
+              "native": {
+                "type": ".?AV?$NumericValue@N@flodata@@",
+                "state": 1,
+                "serialized_value": "10.16"
+              },
+              "comment": "来自 .des 加载、原生构造/初始化及 setWizardData 后的参数。",
+              "value": 10.16,
+              "unit": "mm"
+            }
+          }
+        },
+        "die": {
+          "name": "die",
+          "enabled": true,
+          "native_valid": true,
+          "native_type": ".?AVDieAndAttachDataSet@flopack@@",
+          "comment": "保留原生组开关与校验结果；未启用组仍保存已有子参数。",
+          "properties": {
+            "dieAttachMaterial": {
+              "status": "specified",
+              "kind": "material_reference",
+              "native": {
+                "type": ".?AVMaterialAttachmentProperty@flopack@@",
+                "state": 1,
+                "serialized_value": "DieAttach-84-1LMIS"
+              },
+              "comment": "按原生名称引用独立材料库。",
+              "value": "DieAttach-84-1LMIS"
+            },
+            "dieAttachThicknessTda": {
+              "status": "specified",
+              "kind": "number",
+              "native": {
+                "type": ".?AV?$NumericValue@N@flodata@@",
+                "state": 1,
+                "serialized_value": "0.038"
+              },
+              "comment": "来自 .des 加载、原生构造/初始化及 setWizardData 后的参数。",
+              "value": 0.038,
+              "unit": "mm"
+            },
+            "dieLengthLd": {
+              "status": "specified",
+              "kind": "number",
+              "native": {
+                "type": ".?AV?$NumericValue@N@flodata@@",
+                "state": 1,
+                "serialized_value": "6.285"
+              },
+              "comment": "来自 .des 加载、原生构造/初始化及 setWizardData 后的参数。",
+              "value": 6.285,
+              "unit": "mm"
+            },
+            "dieThicknessTd": {
+              "status": "specified",
+              "kind": "number",
+              "native": {
+                "type": ".?AV?$NumericValue@N@flodata@@",
+                "state": 1,
+                "serialized_value": "0.38"
+              },
+              "comment": "来自 .des 加载、原生构造/初始化及 setWizardData 后的参数。",
+              "value": 0.38,
+              "unit": "mm"
+            },
+            "dieWidthWd": {
+              "status": "specified",
+              "kind": "number",
+              "native": {
+                "type": ".?AV?$NumericValue@N@flodata@@",
+                "state": 1,
+                "serialized_value": "3.048"
+              },
+              "comment": "来自 .des 加载、原生构造/初始化及 setWizardData 后的参数。",
+              "value": 3.048,
+              "unit": "mm"
+            },
+            "lengthUnit": {
+              "status": "specified",
+              "kind": "text",
+              "native": {
+                "type": ".?AVLengthUnit@flodata@@",
+                "state": 1,
+                "serialized_value": "mm"
+              },
+              "comment": "来自 .des 加载、原生构造/初始化及 setWizardData 后的参数。",
+              "value": "mm"
+            },
+            "nonUniformDieHeat": {
+              "status": "action",
+              "kind": "action",
+              "native": {
+                "type": ".?AVFlopackClickToEditProperty@flopack@@",
+                "state": 1,
+                "serialized_value": "UNCHECKED"
+              },
+              "comment": "编辑按钮；参数数据保存在对应 Dialog 属性中，按钮本身没有数值。"
+            },
+            "nonUniformDieHeatDialog": {
+              "status": "specified",
+              "kind": "structured",
+              "native": {
+                "type": ".?AVNonUniformDieHeatProperty@flopack@@",
+                "state": 1,
+                "serialized_value": ""
+              },
+              "comment": "已展开原生热源对话框；当前预设均未定义区域或功率矩阵。",
+              "value": {
+                "native_mode": 1,
+                "regions": [],
+                "power_matrix": []
+              }
+            },
+            "packagePower": {
+              "status": "specified",
+              "kind": "number",
+              "native": {
+                "type": ".?AV?$NumericValue@N@flodata@@",
+                "state": 1,
+                "serialized_value": "0"
+              },
+              "comment": "来自 .des 加载、原生构造/初始化及 setWizardData 后的参数。",
+              "value": 0.0,
+              "unit": "W"
+            },
+            "powerUnit": {
+              "status": "specified",
+              "kind": "text",
+              "native": {
+                "type": ".?AVPowerUnit@flodata@@",
+                "state": 1,
+                "serialized_value": "W"
+              },
+              "comment": "来自 .des 加载、原生构造/初始化及 setWizardData 后的参数。",
+              "value": "W"
+            },
+            "dieMaterial": {
+              "status": "fixed",
+              "kind": "material_reference",
+              "value": "Silicon (Pure)",
+              "comment": "几何实现中固定使用 Silicon (Pure)，并非 .des 或数据集中的可编辑项。已确认 realise RVA 0xc0e0/0xf700/0x28250/0x43210 的常量及材料创建调用。"
+            }
+          }
+        },
+        "dieFlagAndTieBars": {
+          "name": "dieFlagAndTieBars",
+          "enabled": true,
+          "native_valid": true,
+          "native_type": ".?AVDualDieFlagAndTieBarsDataSet@flopack@@",
+          "comment": "保留原生组开关与校验结果；未启用组仍保存已有子参数。",
+          "properties": {
+            "dieFlagDownsetDdf": {
+              "status": "specified",
+              "kind": "number",
+              "native": {
+                "type": ".?AV?$NumericValue@N@flodata@@",
+                "state": 1,
+                "serialized_value": "0.25"
+              },
+              "comment": "来自 .des 加载、原生构造/初始化及 setWizardData 后的参数。",
+              "value": 0.25,
+              "unit": "mm"
+            },
+            "dieFlagLf": {
+              "status": "specified",
+              "kind": "number",
+              "native": {
+                "type": ".?AV?$NumericValue@N@flodata@@",
+                "state": 1,
+                "serialized_value": "7.285"
+              },
+              "comment": "来自 .des 加载、原生构造/初始化及 setWizardData 后的参数。",
+              "value": 7.285,
+              "unit": "mm"
+            },
+            "dieFlagMaterial": {
+              "status": "specified",
+              "kind": "material_reference",
+              "native": {
+                "type": ".?AVMaterialAttachmentProperty@flopack@@",
+                "state": 1,
+                "serialized_value": "Cu-CDA-194"
+              },
+              "comment": "按原生名称引用独立材料库。",
+              "value": "Cu-CDA-194"
+            },
+            "dieFlagThicknessTf": {
+              "status": "specified",
+              "kind": "number",
+              "native": {
+                "type": ".?AV?$NumericValue@N@flodata@@",
+                "state": 1,
+                "serialized_value": "0.15"
+              },
+              "comment": "来自 .des 加载、原生构造/初始化及 setWizardData 后的参数。",
+              "value": 0.15,
+              "unit": "mm"
+            },
+            "dieFlagWf": {
+              "status": "specified",
+              "kind": "number",
+              "native": {
+                "type": ".?AV?$NumericValue@N@flodata@@",
+                "state": 1,
+                "serialized_value": "3.6576"
+              },
+              "comment": "来自 .des 加载、原生构造/初始化及 setWizardData 后的参数。",
+              "value": 3.6576,
+              "unit": "mm"
+            },
+            "lengthUnit": {
+              "status": "specified",
+              "kind": "text",
+              "native": {
+                "type": ".?AVLengthUnit@flodata@@",
+                "state": 1,
+                "serialized_value": "mm"
+              },
+              "comment": "来自 .des 加载、原生构造/初始化及 setWizardData 后的参数。",
+              "value": "mm"
+            },
+            "metalCoverageForDieFlagCf": {
+              "status": "specified",
+              "kind": "number",
+              "native": {
+                "type": ".?AV?$NumericValue@N@flodata@@",
+                "state": 1,
+                "serialized_value": "60"
+              },
+              "comment": "来自 .des 加载、原生构造/初始化及 setWizardData 后的参数。",
+              "value": 60.0,
+              "unit": "percent"
+            },
+            "tieBarWidthWtb": {
+              "status": "specified",
+              "kind": "number",
+              "native": {
+                "type": ".?AV?$NumericValue@N@flodata@@",
+                "state": 1,
+                "serialized_value": "0.4"
+              },
+              "comment": "来自 .des 加载、原生构造/初始化及 setWizardData 后的参数。",
+              "value": 0.4,
+              "unit": "mm"
+            }
+          }
+        },
+        "leadFrame": {
+          "name": "leadFrame",
+          "enabled": true,
+          "native_valid": true,
+          "native_type": ".?AVDualLeadFrameDataSet@flopack@@",
+          "comment": "保留原生组开关与校验结果；未启用组仍保存已有子参数。",
+          "properties": {
+            "leadThicknessTl": {
+              "status": "specified",
+              "kind": "number",
+              "native": {
+                "type": ".?AV?$NumericValue@N@flodata@@",
+                "state": 1,
+                "serialized_value": "0.15"
+              },
+              "comment": "来自 .des 加载、原生构造/初始化及 setWizardData 后的参数。",
+              "value": 0.15,
+              "unit": "mm"
+            },
+            "leadWidthB": {
+              "status": "specified",
+              "kind": "number",
+              "native": {
+                "type": ".?AV?$NumericValue@N@flodata@@",
+                "state": 1,
+                "serialized_value": "0.4"
+              },
+              "comment": "来自 .des 加载、原生构造/初始化及 setWizardData 后的参数。",
+              "value": 0.4,
+              "unit": "mm"
+            },
+            "leadfootLengthLft": {
+              "status": "specified",
+              "kind": "number",
+              "native": {
+                "type": ".?AV?$NumericValue@N@flodata@@",
+                "state": 1,
+                "serialized_value": "0.45"
+              },
+              "comment": "来自 .des 加载、原生构造/初始化及 setWizardData 后的参数。",
+              "value": 0.45,
+              "unit": "mm"
+            },
+            "leadframeCoveragePercentage": {
+              "status": "calculated",
+              "kind": "number",
+              "native": {
+                "type": ".?AV?$NumericValue@N@flodata@@",
+                "state": 0
+              },
+              "comment": "userDefinedLeadframeCoverage=noDefaultIsBe，默认覆盖率=B/e；百分数=100*leadWidthB/pitchE。",
+              "unit": "percent",
+              "value": 31.496062992125985
+            },
+            "leadframeFlagGapG1": {
+              "status": "specified",
+              "kind": "number",
+              "native": {
+                "type": ".?AV?$NumericValue@N@flodata@@",
+                "state": 1,
+                "serialized_value": "0.304"
+              },
+              "comment": "来自 .des 加载、原生构造/初始化及 setWizardData 后的参数。",
+              "value": 0.304,
+              "unit": "mm"
+            },
+            "leadframeHeightHl": {
+              "status": "specified",
+              "kind": "number",
+              "native": {
+                "type": ".?AV?$NumericValue@N@flodata@@",
+                "state": 1,
+                "serialized_value": "0.425"
+              },
+              "comment": "来自 .des 加载、原生构造/初始化及 setWizardData 后的参数。",
+              "value": 0.425,
+              "unit": "mm"
+            },
+            "leadframeMaterial": {
+              "status": "specified",
+              "kind": "material_reference",
+              "native": {
+                "type": ".?AVMaterialAttachmentProperty@flopack@@",
+                "state": 1,
+                "serialized_value": "Cu-CDA-194"
+              },
+              "comment": "按原生名称引用独立材料库。",
+              "value": "Cu-CDA-194"
+            },
+            "lengthUnit": {
+              "status": "specified",
+              "kind": "text",
+              "native": {
+                "type": ".?AVLengthUnit@flodata@@",
+                "state": 1,
+                "serialized_value": "mm"
+              },
+              "comment": "来自 .des 加载、原生构造/初始化及 setWizardData 后的参数。",
+              "value": "mm"
+            },
+            "pitchE": {
+              "status": "specified",
+              "kind": "number",
+              "native": {
+                "type": ".?AV?$NumericValue@N@flodata@@",
+                "state": 1,
+                "serialized_value": "1.27"
+              },
+              "comment": "来自 .des 加载、原生构造/初始化及 setWizardData 后的参数。",
+              "value": 1.27,
+              "unit": "mm"
+            },
+            "totalNumberOfLeadsMT": {
+              "status": "specified",
+              "kind": "integer",
+              "native": {
+                "type": ".?AV?$NumericValue@H@flodata@@",
+                "state": 1,
+                "serialized_value": "32"
+              },
+              "comment": "来自 .des 加载、原生构造/初始化及 setWizardData 后的参数。",
+              "value": 32,
+              "unit": "count"
+            },
+            "userDefinedLeadframeCoverage": {
+              "status": "specified",
+              "kind": "enum",
+              "native": {
+                "type": ".?AVUserDefinedLeadframeCoverageEnum@flopack@@",
+                "state": 1,
+                "serialized_value": "2"
+              },
+              "comment": "来自 .des 加载、原生构造/初始化及 setWizardData 后的参数。",
+              "value": "noDefaultIsBe",
+              "choices": [
+                "yes",
+                "noDefaultIsBe"
+              ],
+              "index": 1
+            }
+          }
+        },
+        "bondWires": {
+          "name": "bondWires",
+          "enabled": true,
+          "native_valid": true,
+          "native_type": ".?AVDualBondWiresDataSet@flopack@@",
+          "comment": "保留原生组开关与校验结果；未启用组仍保存已有子参数。",
+          "properties": {
+            "bondWireDiameterDbw": {
+              "status": "specified",
+              "kind": "number",
+              "native": {
+                "type": ".?AV?$NumericValue@N@flodata@@",
+                "state": 1,
+                "serialized_value": "0.03"
+              },
+              "comment": "来自 .des 加载、原生构造/初始化及 setWizardData 后的参数。",
+              "value": 0.03,
+              "unit": "mm"
+            },
+            "bondWireLengthLbw": {
+              "status": "specified",
+              "kind": "number",
+              "native": {
+                "type": ".?AV?$NumericValue@N@flodata@@",
+                "state": 1,
+                "serialized_value": "0.6088"
+              },
+              "comment": "来自 .des 加载、原生构造/初始化及 setWizardData 后的参数。",
+              "value": 0.6088,
+              "unit": "mm"
+            },
+            "lengthUnit": {
+              "status": "specified",
+              "kind": "text",
+              "native": {
+                "type": ".?AVLengthUnit@flodata@@",
+                "state": 1,
+                "serialized_value": "mm"
+              },
+              "comment": "来自 .des 加载、原生构造/初始化及 setWizardData 后的参数。",
+              "value": "mm"
+            },
+            "material": {
+              "status": "specified",
+              "kind": "material_reference",
+              "native": {
+                "type": ".?AVMaterialAttachmentProperty@flopack@@",
+                "state": 1,
+                "serialized_value": "Gold (Pure)"
+              },
+              "comment": "按原生名称引用独立材料库。",
+              "value": "Gold (Pure)"
+            },
+            "numberOfBondWiresN": {
+              "status": "specified",
+              "kind": "integer",
+              "native": {
+                "type": ".?AV?$NumericValue@H@flodata@@",
+                "state": 1,
+                "serialized_value": "32"
+              },
+              "comment": "来自 .des 加载、原生构造/初始化及 setWizardData 后的参数。",
+              "value": 32,
+              "unit": "count"
+            }
+          }
+        },
+        "thermalLandAndSolder": {
+          "name": "thermalLandAndSolder",
+          "enabled": false,
+          "native_valid": true,
+          "native_type": ".?AVPLPThermalLandAndSolderDataSet@flopack@@",
+          "comment": "保留原生组开关与校验结果；未启用组仍保存已有子参数。",
+          "properties": {
+            "includeThermalLandAndSolder": {
+              "status": "specified",
+              "kind": "boolean",
+              "native": {
+                "type": ".?AV?$Value@_N@flodata@@",
+                "state": 1,
+                "serialized_value": "UNCHECKED"
+              },
+              "comment": "来自 .des 加载、原生构造/初始化及 setWizardData 后的参数。",
+              "value": false
+            },
+            "landMaterial": {
+              "status": "not_specified",
+              "kind": "material_reference",
+              "native": {
+                "type": ".?AVMaterialAttachmentProperty@flopack@@",
+                "state": 1,
+                "serialized_value": ""
+              },
+              "comment": "原生没有指定可选分支的材料。"
+            },
+            "landThickness": {
+              "status": "not_applicable",
+              "kind": "text",
+              "native": {
+                "type": ".?AV?$NumericValue@N@flodata@@",
+                "state": 0
+              },
+              "comment": "当前原生向导分支未启用此组；切换分支后需重新定义。"
+            },
+            "lengthUnit": {
+              "status": "specified",
+              "kind": "text",
+              "native": {
+                "type": ".?AVLengthUnit@flodata@@",
+                "state": 1,
+                "serialized_value": "mm"
+              },
+              "comment": "来自 .des 加载、原生构造/初始化及 setWizardData 后的参数。",
+              "value": "mm"
+            },
+            "solderMaterial": {
+              "status": "not_specified",
+              "kind": "material_reference",
+              "native": {
+                "type": ".?AVMaterialAttachmentProperty@flopack@@",
+                "state": 1,
+                "serialized_value": ""
+              },
+              "comment": "原生没有指定可选分支的材料。"
+            }
+          }
+        },
+        "modelingOptions": {
+          "name": "modelingOptions",
+          "enabled": true,
+          "native_valid": true,
+          "native_type": ".?AVSOPModelingOptionsDataSet@flopack@@",
+          "comment": "保留原生组开关与校验结果；未启用组仍保存已有子参数。",
+          "properties": {
+            "gridDensity": {
+              "status": "specified",
+              "kind": "enum",
+              "native": {
+                "type": ".?AVGridDensityEnum@flopack@@",
+                "state": 1,
+                "serialized_value": "3"
+              },
+              "comment": "来自 .des 加载、原生构造/初始化及 setWizardData 后的参数。",
+              "value": "fine",
+              "choices": [
+                "coarse",
+                "medium",
+                "fine"
+              ],
+              "index": 2
+            },
+            "localizeGrid": {
+              "status": "specified",
+              "kind": "boolean",
+              "native": {
+                "type": ".?AV?$Value@_N@flodata@@",
+                "state": 1,
+                "serialized_value": "CHECKED"
+              },
+              "comment": "来自 .des 加载、原生构造/初始化及 setWizardData 后的参数。",
+              "value": true
+            },
+            "modelBondWiresAs": {
+              "status": "specified",
+              "kind": "enum",
+              "native": {
+                "type": ".?AVModelingOptionsAsEnum@flopack@@",
+                "state": 1,
+                "serialized_value": "2"
+              },
+              "comment": "来自 .des 加载、原生构造/初始化及 setWizardData 后的参数。",
+              "value": "orthotropicCuboid",
+              "choices": [
+                "isotropicCuboid",
+                "orthotropicCuboid"
+              ],
+              "index": 1
+            }
+          }
+        }
+      }
+    }
+  },
+  "material_references": [
+    "Cu-CDA-194",
+    "DieAttach-84-1LMIS",
+    "Epoxy Overmold (Typical)",
+    "Gold (Pure)",
+    "Silicon (Pure)"
+  ],
+  "source": {
+    "path": "flocentral/flopack/tsop_conv/TSOP_32_10_16x20_95.des",
+    "sha256": "2da7d8bd7384d3328499adf56c92c6bce26ae9a17a3689a18e1a5bf37a61386a",
+    "des_fields": {
+      "Ld": "6.285",
+      "hl": "0.425",
+      "g1": "0.304",
+      "ddf": "0.25",
+      "Lf": "7.285",
+      "b": "0.4",
+      "E": "11.96",
+      "detailed": "TSOP_10_16x20_95_32.des",
+      "Lbw": "0.6088",
+      "e": "1.27",
+      "k_encap": "Epoxy Overmold (Typical)",
+      "Lft": "0.45",
+      "tda": "0.038",
+      "N": "",
+      "dbw": "0.030",
+      "k_bw": "Gold (Pure)",
+      "P": "",
+      "td": "0.38",
+      "cf": "60",
+      "MT": "32",
+      "A1": "0.1",
+      "A2": "1",
+      "Wd": "3.048",
+      "cl": "",
+      "kdf": "Cu-CDA-194",
+      "Wf": "3.6576",
+      "tl": "0.15",
+      "k_metal": "Cu-CDA-194",
+      "D1": "20.95",
+      "package": "tsop_conv",
+      "k_da": "DieAttach-84-1LMIS",
+      "E1": "10.16",
+      "rev": "1.1.1",
+      "designDate": "20010908",
+      "localgrid": "CHECKED",
+      "radio_BondWire_modeling": "2",
+      "radio_defined_coverage": "2",
+      "wtb": "0.4",
+      "radio_LeadFram_modeling": "2",
+      "tf": "0.15"
+    },
+    "comment": "原文本完整无损保留用于追溯；运行参数读取 branches，不能把源空字符串当默认值。",
+    "binary_sha256": {
+      "flopackdatasets.dll": "43312861dc31e9936bb407104292ce42ef7690a7183f44cd10b969fc8679b4a9",
+      "flopackdes.dll": "2ad00011d2399629ea076f350f643973117e452eab8f2d313b64dbb9b49e961e",
+      "flopackpackages.dll": "f0a6363dad8e2be5020d9e8704ec427ef9c669218889e202a7228650b883123c",
+      "flopackproperties.dll": "b1e37b8db2d2de4fe4fec8781c9051a2b4704827743d5132f08729d3f1acf38a",
+      "flopackbackend.dll": "37177cc405980a1cbc22ef88a5d8a5af20264ba4a1ea731e331a0c96511656d5",
+      "flopackmaterials.dll": "4fdd99632751f4e7c63a2bdc93e290a3bc9ca018bbe8b7921aa7025cedb3cda3",
+      "flopackrealise.dll": "838ed6c2e7d40cc749b8b145f55d78e9e95495fef974d593a7641fc0aa528edd"
+    }
+  },
+  "comment": "一个文件保存预设的原生默认向导参数、子对象、材料名称和计算结果。ChipArray/WB 同时保存四层分支。未指定器件限值及未启用结构没有虚构数值；通过 status/comment 表明语义。没有继承项目模板兜底值。"
+}

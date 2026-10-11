@@ -29,6 +29,7 @@ PackStudio/
 ├── docs/                         # 技术选型、ADR、任务与长期计划
 ├── figures/references/           # 产品参考图与逐步解读
 ├── flotherm_pack_data/           # 仅开发期使用的 UI、FloXML、变体与材料参考证据
+├── default_parameters/          # 运行参数、分类预设 JSON 与独立材料库
 ├── output_format/                # 下游输出示例（接口契约）
 ├── src/frontend/                 # React/TypeScript 前端
 ├── src/packstudio/               # Python API、领域、模板和导出器

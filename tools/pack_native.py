@@ -70,18 +70,19 @@ def property_map(dataset: int) -> list[int]:
 
 
 class NativePack:
-    def __init__(self, installation: Path):
+    def __init__(self, installation: Path, extra_binaries: dict | None = None):
         if os.name != "nt" or ctypes.sizeof(ctypes.c_void_p) != 8:
             raise RuntimeError("the native probe requires 64-bit Windows")
         self.installation = installation.resolve()
         directory = self.installation / "WinXP/bin"
         # Reject other builds before executing any DLL: layouts and virtual slots vary.
-        for name, digest in VERIFIED_BINARIES.items():
+        verified = VERIFIED_BINARIES | (extra_binaries or {})
+        for name, digest in verified.items():
             if hashlib.sha256((directory / name).read_bytes()).hexdigest() != digest:
                 raise ValueError(f"unreviewed PACK binary: {name}")
         self.directory_handle = os.add_dll_directory(str(directory))
-        self.binaries = {name: PackBinary(directory / name) for name in VERIFIED_BINARIES}
-        self.libraries = {name: ctypes.CDLL(str(directory / name)) for name in VERIFIED_BINARIES}
+        self.binaries = {name: PackBinary(directory / name) for name in verified}
+        self.libraries = {name: ctypes.CDLL(str(directory / name)) for name in verified}
         self.bound = {}
         self.free_functions = {}
         for name, binary in self.binaries.items():
@@ -171,6 +172,7 @@ class NativePack:
                 if ctypes.c_int.from_address(prop + 0x90).value != 1:
                     raise ValueError("PACK did not accept the 4-Layer wizard option")
             # BackendCtrl::createPackage invokes this same virtual slot after DES loading.
+            self.capture_wizard(wizard)
             virtual(package, 2, None, [ctypes.c_void_p, ctypes.c_void_p])(package, wizard)
         finally:
             self.bind("flopackdatasets.dll", f"??1{name}@", None, [ctypes.c_void_p])(wizard)
@@ -204,9 +206,11 @@ class NativePack:
                         None,
                         [ctypes.c_void_p, ctypes.c_void_p, ctypes.c_size_t],
                     )(package, dataset, index)
+                    self.capture_dataset(dataset)
                     properties = []
                     for prop in property_map(dataset):
                         state = ctypes.c_uint32.from_address(prop + 8).value
+                        self.capture_property(prop)
                         if state not in {0, 1, 2, 3, 4}:
                             raise ValueError(f"unreviewed native property state: {state}")
                         # Native serialization of an unset numeric property reads uninitialised
@@ -226,6 +230,7 @@ class NativePack:
                             "native_type": object_type(dataset),
                             "properties": sorted(properties, key=lambda item: item["name"]),
                             "metal_layer_rows": self.metal_layers(package, index),
+                            **self.capture_group(package, index),
                         }
                     )
                 finally:
@@ -233,6 +238,18 @@ class NativePack:
             return groups
         finally:
             destroy(package)
+
+    def capture_wizard(self, wizard: int) -> None:
+        pass
+
+    def capture_property(self, prop: int) -> None:
+        pass
+
+    def capture_dataset(self, dataset: int) -> None:
+        pass
+
+    def capture_group(self, package: int, index: int) -> dict:
+        return {}
 
     def metal_layers(self, package: int, index: int) -> list[dict] | None:
         group = self.bind(
