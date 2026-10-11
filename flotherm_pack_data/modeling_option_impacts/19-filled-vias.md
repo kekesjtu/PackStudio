@@ -55,5 +55,5 @@ s = d*sqrt(pi)/2 = 0.177245385091 mm
 
 ## 证据
 
-- `../templates/fbga_fsbga/xml_variations/option_switches/opt_v2_c005_filledvias_yes/`
-- 基准：`../templates/fbga_fsbga/baseline/model.xml`
+- `../templates/chip_array/xml_variations/option_switches/opt_v2_c005_filledvias_yes/`
+- 基准：`../templates/chip_array/baseline/model.xml`

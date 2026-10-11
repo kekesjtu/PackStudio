@@ -1,0 +1,95 @@
+{
+  "schema_version": "2.0",
+  "comparison": {
+    "baseline": "flotherm_pack_data/templates/pbga_wb/baseline/model.xml",
+    "variation": "flotherm_pack_data/templates/pbga_wb/xml_variations/param_sweeps/par_v2_c020_dieflagwf_7_15/model.xml",
+    "baseline_bytes": 41072,
+    "variation_bytes": 41162,
+    "baseline_sha256": "9479526808CCC33C8AD535F728A6CBBAC0F010BC1E06E77A60FD3E26427F56B2",
+    "variation_sha256": "85BBBD2ADA7CA0645ACC79EB03F4A88DD0068004FD4100E6206F4F1C5BD4A08B"
+  },
+  "semantic_change": true,
+  "summary": {
+    "changed_value_count": 4,
+    "added_leaf_count": 0,
+    "removed_leaf_count": 0
+  },
+  "materials": {
+    "added": [],
+    "removed": [],
+    "changed": []
+  },
+  "entities": {
+    "added": [],
+    "removed": [],
+    "changed": [
+      {
+        "name": "assembly:Die_flag",
+        "before": [
+          "177a5137034ceb35"
+        ],
+        "after": [
+          "77a75caee356b39e"
+        ]
+      },
+      {
+        "name": "assembly:Solder Mask",
+        "before": [
+          "aeeaad91594d4733"
+        ],
+        "after": [
+          "a136a3c48cfd8b45"
+        ]
+      },
+      {
+        "name": "cuboid:die_flag",
+        "before": [
+          "72afef4f033fed66"
+        ],
+        "after": [
+          "c6d13fa091fb46f8"
+        ]
+      },
+      {
+        "name": "cuboid:sm_center",
+        "before": [
+          "c69d26fadc731243"
+        ],
+        "after": [
+          "6236cc224933aa09"
+        ]
+      }
+    ]
+  },
+  "changed_values": [
+    {
+      "path": "xml_case/geometry/assembly[name=Die_flag]/geometry/cuboid[name=die_flag]/position/y",
+      "before": "-0.0032499999999999999",
+      "after": "-0.0035750000000000001"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Die_flag]/geometry/cuboid[name=die_flag]/size/y",
+      "before": "0.0064999999999999997",
+      "after": "0.0071500000000000001"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Solder Mask]/geometry/cuboid[name=sm_center]/position/y",
+      "before": "-0.0032499999999999999",
+      "after": "-0.0035750000000000001"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Solder Mask]/geometry/cuboid[name=sm_center]/size/y",
+      "before": "0.0064999999999999997",
+      "after": "0.0071500000000000001"
+    }
+  ],
+  "added_leaf_paths": [],
+  "removed_leaf_paths": [],
+  "numeric_formatting_differences_ignored": true,
+  "template_id": "pbga_wb",
+  "variation_id": "par_v2_c020_dieflagwf_7_15",
+  "variation_kind": "numeric_parameter",
+  "comparison_baseline": "baseline/model.xml",
+  "outcome": "semantic_change",
+  "floxml_effect_expectation": null
+}

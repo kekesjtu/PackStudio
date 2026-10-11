@@ -36,6 +36,7 @@ export interface WizardField {
   preset_values?: Record<string, Record<string, WizardValue>>
   preset_bga?: Record<string, BgaConfiguration>
   preset_notes?: Record<string, string>
+  preset_materials?: Record<string, Record<string, string>>
   classification: string
   property_name: string | null
   supported_values: WizardValue[]

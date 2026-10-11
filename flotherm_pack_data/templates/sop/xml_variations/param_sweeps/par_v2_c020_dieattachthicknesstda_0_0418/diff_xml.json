@@ -1,0 +1,53 @@
+{
+  "schema_version": "2.0",
+  "comparison": {
+    "baseline": "flotherm_pack_data/templates/sop/baseline/model.xml",
+    "variation": "flotherm_pack_data/templates/sop/xml_variations/param_sweeps/par_v2_c020_dieattachthicknesstda_0_0418/model.xml",
+    "baseline_bytes": 24418,
+    "variation_bytes": 24404,
+    "baseline_sha256": "2602CC4C884EDBD1E1FBA39F5D4A1BB441413956B57D9FAFBBC1B131DA198A3E",
+    "variation_sha256": "E9A6BB8217919B31991C95FA75A9F63C0B403265934322BA289CFA07E40C8219"
+  },
+  "semantic_change": true,
+  "summary": {
+    "changed_value_count": 1,
+    "added_leaf_count": 0,
+    "removed_leaf_count": 0
+  },
+  "materials": {
+    "added": [],
+    "removed": [],
+    "changed": []
+  },
+  "entities": {
+    "added": [],
+    "removed": [],
+    "changed": [
+      {
+        "name": "cuboid:die_attach",
+        "before": [
+          "bfa12f4f61701a4f"
+        ],
+        "after": [
+          "6ac98a9af0fed8e2"
+        ]
+      }
+    ]
+  },
+  "changed_values": [
+    {
+      "path": "xml_case/geometry/cuboid[name=die_attach]/size/z",
+      "before": "3.8000000000000002e-05",
+      "after": "4.18e-05"
+    }
+  ],
+  "added_leaf_paths": [],
+  "removed_leaf_paths": [],
+  "numeric_formatting_differences_ignored": true,
+  "template_id": "sop",
+  "variation_id": "par_v2_c020_dieattachthicknesstda_0_0418",
+  "variation_kind": "numeric_parameter",
+  "comparison_baseline": "baseline/model.xml",
+  "outcome": "semantic_change",
+  "floxml_effect_expectation": null
+}

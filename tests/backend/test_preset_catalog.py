@@ -26,6 +26,10 @@ def walk_properties(branch: dict):
 def test_all_presets_are_individual_complete_offline_documents():
     catalog = PresetCatalog()
     ids = catalog.list_ids()
+    original = json.loads(
+        (ROOT / "flotherm_pack_data/installation/presets.json").read_text(encoding="utf-8")
+    )
+    sources = {p["path"]: p for p in original["records"]}
     assert len(ids) == 342
     counts = Counter()
     branches = 0
@@ -34,35 +38,56 @@ def test_all_presets_are_individual_complete_offline_documents():
         counts[record["family"]] += 1
         assert record["default_branch"] == "default"
         assert set(record["material_references"]) == material_names(record["branches"])
-        original = json.loads((library_directory() / "flotherm" / f"{record['family']}.json")
-                              .read_text(encoding="utf-8"))
-        source = next(p for p in original["records"] if p["id"] == preset_id)
-        assert record["source"]["des_fields"] == source["raw_fields"]
-        assert record["source"]["sha256"] == source["source_sha256"]
-        expected = {"default", "four_layer"} if record["family"] in {
-            "chip_array", "pbga_wb",
-        } else {"default"}
+        source = sources[record["source"]["path"]]
+        assert record["source"]["des_fields"] == source["fields"]
+        assert record["source"]["sha256"] == source["sha256"]
+        expected = (
+            {"default", "four_layer"}
+            if record["family"]
+            in {
+                "chip_array",
+                "pbga_wb",
+            }
+            else {"default"}
+        )
         assert set(record["branches"]) == expected
         for branch in record["branches"].values():
             branches += 1
             for name, prop in walk_properties(branch):
                 assert prop["comment"], (preset_id, name)
                 assert prop["status"] in {
-                    "specified", "calculated", "fixed", "user_input", "not_applicable",
-                    "not_specified", "action",
+                    "specified",
+                    "calculated",
+                    "fixed",
+                    "user_input",
+                    "not_applicable",
+                    "not_specified",
+                    "action",
                 }
                 if prop["status"] in {"specified", "calculated", "fixed"}:
                     assert "value" in prop and prop["value"] is not None, (preset_id, name)
             for group in branch["groups"].values():
                 for row in group.get("metal_layers", []):
                     if row["status"] == "specified":
-                        assert all(row[k] is not None for k in (
-                            "depth_m", "thickness_m", "coverage_percent",
-                            "z_from_substrate_bottom_m",
-                        ))
+                        assert all(
+                            row[k] is not None
+                            for k in (
+                                "depth_m",
+                                "thickness_m",
+                                "coverage_percent",
+                                "z_from_substrate_bottom_m",
+                            )
+                        )
     assert branches == 416
-    assert counts == {"chip_array": 38, "cbga_fc": 49, "pbga_fc": 45, "pqfp": 61,
-                      "QFN": 46, "tsop_conv": 67, "pbga_wb": 36}
+    assert counts == {
+        "chip_array": 38,
+        "cbga_fc": 49,
+        "pbga_fc": 45,
+        "pqfp": 61,
+        "QFN": 46,
+        "tsop_conv": 67,
+        "pbga_wb": 36,
+    }
 
 
 def test_all_materials_are_named_classified_and_resolvable():
@@ -135,11 +160,13 @@ def test_readers_isolate_mutations_and_reject_invalid_names_paths_and_hashes():
     material = MaterialCatalog().read("Copper (Pure)")
     material["density"]["value"] = 0
     assert MaterialCatalog().read("Copper (Pure)")["density"]["value"] == 8930
-    for operation in (lambda: catalog.read("../request"),
-                      lambda: catalog.read_branch("PBGAFC_49_6X6mm", "four_layer"),
-                      lambda: MaterialCatalog().read("missing"),
-                      lambda: read_catalog_entry("../README.md", "schema", "0" * 64),
-                      lambda: read_catalog_entry("presets/index.json", "schema", "0" * 64)):
+    for operation in (
+        lambda: catalog.read("../request"),
+        lambda: catalog.read_branch("PBGAFC_49_6X6mm", "four_layer"),
+        lambda: MaterialCatalog().read("missing"),
+        lambda: read_catalog_entry("../README.md", "schema", "0" * 64),
+        lambda: read_catalog_entry("presets/index.json", "schema", "0" * 64),
+    ):
         with pytest.raises(ValueError):
             operation()
 
@@ -154,4 +181,4 @@ def test_all_json_files_match_index_and_have_utf8_lf_stable_bytes():
             data = (root / entry["file"]).read_bytes()
             assert b"\r" not in data and data.endswith(b"\n")
             assert hashlib.sha256(data).hexdigest() == entry["sha256"]
-            assert ': null' not in data.decode("utf-8")
+            assert ": null" not in data.decode("utf-8")

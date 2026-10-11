@@ -1,5 +1,7 @@
 """Build wizard definitions from serialized defaults and verified PACK references."""
 
+from dataclasses import replace
+
 from pydantic import TypeAdapter
 
 from packstudio.default_parameters import read_defaults
@@ -9,7 +11,8 @@ from packstudio.templates.package_library.core.definitions import (
     PresetOption,
     _validate_value,
 )
-from packstudio.templates.package_library.core.source_presets import expand_source_presets
+from packstudio.templates.package_library.core.materials import material, material_id_for_name
+from packstudio.templates.package_library.core.native_presets import expand_native_presets
 
 
 def template_defaults(template_id: str) -> dict:
@@ -27,6 +30,7 @@ def _preset(payload: dict) -> PresetOption:
             "values": payload["values"],
             "bga": payload.get("bga"),
             "metadata": payload.get("metadata", {}),
+            "material_assignments": payload.get("material_assignments", {}),
         }
     )
 
@@ -34,9 +38,16 @@ def _preset(payload: dict) -> PresetOption:
 def load_fields(template_id: str) -> tuple[FieldDefinition, ...]:
     items = []
     serialized = template_defaults(template_id)["fields"]
+    footprint = next(item for item in serialized if item["control"] == "footprint")
+    expanded = expand_native_presets(template_id, footprint, serialized)
+    selected = next(p for p in expanded["presets"] if p["value"] == footprint["default"])
     for payload in serialized:
         if payload["control"] == "footprint":
-            payload = expand_source_presets(template_id, payload, serialized)
+            payload = expanded
+        elif template_id != "bare_die" and payload["key"] in selected["values"]:
+            payload["default"] = selected["values"][payload["key"]]
+        elif "editor_default" in payload:
+            payload["default"] = payload.pop("editor_default")
         payload["presets"] = tuple(_preset(preset) for preset in payload["presets"])
         item = TypeAdapter(FieldDefinition).validate_python(payload)
         _validate_value(item, item.default)
@@ -52,12 +63,43 @@ def load_fields(template_id: str) -> tuple[FieldDefinition, ...]:
                 if key not in fields:
                     raise ValueError(f"unknown preset parameter {template_id}/{key}")
                 _validate_value(fields[key], value)
-    return tuple(items)
+    footprint = next(item for item in items if item.control == "footprint")
+    selected = next(p for p in footprint.presets if p.value == footprint.default)
+    return tuple(
+        replace(item, default=selected.values.get(item.key, item.default)) for item in items
+    )
 
 
 def load_material_selections(template_id: str) -> tuple[MaterialSelectionDefinition, ...]:
     items = TypeAdapter(tuple[MaterialSelectionDefinition, ...]).validate_python(
         template_defaults(template_id)["material_selections"]
+    )
+    fields = load_fields(template_id)
+    footprint = next(item for item in fields if item.control == "footprint")
+    selected = next(p for p in footprint.presets if p.value == footprint.default)
+    items = tuple(
+        replace(
+            item,
+            default=selected.material_assignments.get(
+                item.group_id, material_id_for_name(material(item.default).name)
+            ),
+            options=tuple(
+                dict.fromkeys(
+                    (
+                        *(
+                            material_id_for_name(material(identifier).name)
+                            for identifier in item.options
+                        ),
+                        *(
+                            p.material_assignments[item.group_id]
+                            for p in footprint.presets
+                            if item.group_id in p.material_assignments
+                        ),
+                    )
+                )
+            ),
+        )
+        for item in items
     )
     for item in items:
         if item.default not in item.options:

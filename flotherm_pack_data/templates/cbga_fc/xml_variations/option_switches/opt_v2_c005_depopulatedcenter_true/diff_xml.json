@@ -1,0 +1,130 @@
+{
+  "schema_version": "2.0",
+  "comparison": {
+    "baseline": "flotherm_pack_data/templates/cbga_fc/validation/branch_baselines/br_v2_solderballdepopulation_depopulatedcenter/model.xml",
+    "variation": "flotherm_pack_data/templates/cbga_fc/xml_variations/option_switches/opt_v2_c005_depopulatedcenter_true/model.xml",
+    "baseline_bytes": 10097,
+    "variation_bytes": 11762,
+    "baseline_sha256": "46F6562F9E9112E14FC6DD9980DF32077D141C578363E0BB073765FC5B5379A6",
+    "variation_sha256": "2EDD9DBEFE44D3D8DB9B65E61E8407F89D302318CB404CB86604107FB621DC14"
+  },
+  "semantic_change": true,
+  "summary": {
+    "changed_value_count": 3,
+    "added_leaf_count": 32,
+    "removed_leaf_count": 8
+  },
+  "materials": {
+    "added": [],
+    "removed": [],
+    "changed": [
+      {
+        "name": "Solder_ball",
+        "before": {
+          "type": "biaxial_material_att",
+          "density": "2877.85406772",
+          "specific_heat": "150.227395842",
+          "in_plane_conductivity": "0.0261",
+          "normal_conductivity": "17.4509586118"
+        },
+        "after": {
+          "type": "biaxial_material_att",
+          "density": "4123.93165694",
+          "specific_heat": "150.122878694",
+          "in_plane_conductivity": "0.0261",
+          "normal_conductivity": "24.9987672655"
+        }
+      }
+    ]
+  },
+  "entities": {
+    "added": [
+      "cuboid:solder_ball1",
+      "cuboid:solder_ball2",
+      "cuboid:solder_ball3",
+      "cuboid:solder_ball4"
+    ],
+    "removed": [
+      "cuboid:solder_ball"
+    ],
+    "changed": [
+      {
+        "name": "assembly:Solder_ball",
+        "before": [
+          "22c2a270a8fa61b7"
+        ],
+        "after": [
+          "cea33bfbc099758c"
+        ]
+      }
+    ]
+  },
+  "changed_values": [
+    {
+      "path": "xml_case/attributes/materials/biaxial_material_att[name=Solder_ball]/density",
+      "before": "2877.8540677150945",
+      "after": "4123.9316569447437"
+    },
+    {
+      "path": "xml_case/attributes/materials/biaxial_material_att[name=Solder_ball]/normal_conductivity",
+      "before": "17.450958611769362",
+      "after": "24.998767265540877"
+    },
+    {
+      "path": "xml_case/attributes/materials/biaxial_material_att[name=Solder_ball]/specific_heat",
+      "before": "150.22739584234949",
+      "after": "150.1228786938857"
+    }
+  ],
+  "added_leaf_paths": [
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball1]/material",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball1]/name",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball1]/position/x",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball1]/position/y",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball1]/position/z",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball1]/size/x",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball1]/size/y",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball1]/size/z",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball2]/material",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball2]/name",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball2]/position/x",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball2]/position/y",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball2]/position/z",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball2]/size/x",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball2]/size/y",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball2]/size/z",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball3]/material",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball3]/name",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball3]/position/x",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball3]/position/y",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball3]/position/z",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball3]/size/x",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball3]/size/y",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball3]/size/z",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball4]/material",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball4]/name",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball4]/position/x",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball4]/position/y",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball4]/position/z",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball4]/size/x",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball4]/size/y",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball4]/size/z"
+  ],
+  "removed_leaf_paths": [
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball]/material",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball]/name",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball]/position/x",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball]/position/y",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball]/position/z",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball]/size/x",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball]/size/y",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball]/size/z"
+  ],
+  "numeric_formatting_differences_ignored": true,
+  "template_id": "cbga_fc",
+  "variation_id": "opt_v2_c005_depopulatedcenter_true",
+  "variation_kind": "boolean_option",
+  "comparison_baseline": "validation/branch_baselines/br_v2_solderballdepopulation_depopulatedcenter/model.xml",
+  "outcome": "semantic_change",
+  "floxml_effect_expectation": null
+}

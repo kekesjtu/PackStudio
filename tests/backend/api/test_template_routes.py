@@ -12,14 +12,14 @@ def test_template_catalog_lists_all_native_templates() -> None:
 
     assert response.status_code == 200
     assert [template["id"] for template in response.json()] == [
-        "flip_chip_cbga",
-        "flip_chip_pbga",
-        "wirebond_pbga",
-        "fbga_fsbga",
-        "qfn",
-        "qfp_family",
-        "soic_family",
+        "chip_array",
         "bare_die",
+        "cbga_fc",
+        "pbga_fc",
+        "pqfp",
+        "qfn",
+        "sop",
+        "pbga_wb",
     ]
     assert "solder_style_options" not in response.json()[0]
     assert "legacy_route" not in response.json()[0]
@@ -32,10 +32,10 @@ def test_template_catalog_lists_all_native_templates() -> None:
 
 
 def test_native_schema_and_generation_use_packstudio_special_rules() -> None:
-    schema = client.get("/api/templates/flip_chip_cbga/schema")
-    defaults = client.get("/api/templates/flip_chip_cbga/defaults")
+    schema = client.get("/api/templates/cbga_fc/schema")
+    defaults = client.get("/api/templates/cbga_fc/defaults")
     generated = client.post(
-        "/api/templates/flip_chip_cbga/generate",
+        "/api/templates/cbga_fc/generate",
         json=defaults.json(),
     )
 
@@ -58,14 +58,14 @@ def test_native_schema_and_generation_use_packstudio_special_rules() -> None:
 @pytest.mark.parametrize(
     "template_id",
     [
-        "flip_chip_cbga",
-        "flip_chip_pbga",
-        "wirebond_pbga",
-        "fbga_fsbga",
-        "qfn",
-        "qfp_family",
-        "soic_family",
+        "chip_array",
         "bare_die",
+        "cbga_fc",
+        "pbga_fc",
+        "pqfp",
+        "qfn",
+        "sop",
+        "pbga_wb",
     ],
 )
 def test_every_native_export_is_downloadable_and_solver_payload_free(
@@ -86,10 +86,22 @@ def test_every_native_export_is_downloadable_and_solver_payload_free(
     assert "Mesh" not in names
 
 
-def test_reference_route_is_only_a_compatibility_alias() -> None:
-    native = client.get("/api/templates/bare_die/defaults")
-    alias = client.get("/api/templates/reference/bare_die/defaults")
+def test_removed_alias_routes_and_old_template_ids_are_not_supported() -> None:
+    assert client.get("/api/templates/bare_die/defaults").status_code == 200
+    for path in ["reference/bare_die", "flip_chip_cbga", "fbga_fsbga", "qfp_family", "soic_family"]:
+        assert client.get(f"/api/templates/{path}/defaults").status_code == 404
 
-    assert native.status_code == 200
-    assert alias.status_code == 200
-    assert alias.json() == native.json()
+
+def test_default_pattern_survives_api_json_round_trip() -> None:
+    from packstudio.templates.package_library.catalog import default_request, generate
+
+    for template_id in ["cbga_fc", "pbga_fc", "chip_array", "pbga_wb"]:
+        expected = generate(default_request(template_id))
+        defaults = client.get(f"/api/templates/{template_id}/defaults").json()
+        response = client.post(f"/api/templates/{template_id}/generate", json=defaults)
+        assert response.status_code == 200
+        assert response.json()["template_id"] == template_id
+        assert (
+            response.json()["metadata"]["solder_ball_count"]
+            == expected.metadata["solder_ball_count"]
+        )

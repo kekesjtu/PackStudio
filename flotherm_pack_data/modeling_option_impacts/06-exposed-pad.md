@@ -54,6 +54,6 @@ W_land = W_solder = W_die_flag
 
 ## 证据
 
-- `../templates/qfp_family/xml_variations/option_switches/opt_v2_c001_exposedpad_true/`
-- `../templates/soic_family/xml_variations/option_switches/opt_v2_c001_exposedpad_true/`
+- `../templates/pqfp/xml_variations/option_switches/opt_v2_c001_exposedpad_true/`
+- `../templates/sop/xml_variations/option_switches/opt_v2_c001_exposedpad_true/`
 - `../templates/qfn/ui.json`

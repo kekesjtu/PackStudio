@@ -1,0 +1,511 @@
+{
+  "schema_version": "packstudio.template-defaults/v1",
+  "template_id": "chip_array",
+  "origin": "Reviewed PackStudio model specification; mapped source values explicitly referenced",
+  "fields": [
+    {
+      "key": "footprint.size",
+      "step": "package_setup",
+      "label": "Footprint 尺寸（JEDEC）",
+      "control": "footprint",
+      "default": "ChipArray_24_4X4mm_0_8",
+      "unit": null,
+      "minimum": null,
+      "maximum": null,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "package.length",
+      "step": "overall_package",
+      "label": "封装长度 D",
+      "control": "number",
+      "unit": "mm",
+      "minimum": 2,
+      "maximum": 30,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "package.width",
+      "step": "overall_package",
+      "label": "封装宽度 E",
+      "control": "number",
+      "unit": "mm",
+      "minimum": 2,
+      "maximum": 30,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "substrate.thickness",
+      "step": "overall_package",
+      "label": "基板厚度 A2",
+      "control": "number",
+      "unit": "mm",
+      "minimum": 0.1,
+      "maximum": 3,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "trace.top_thickness",
+      "step": "metal_layers",
+      "label": "顶部金属层厚度",
+      "control": "number",
+      "unit": "mm",
+      "minimum": 0.001,
+      "maximum": 0.2,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "trace.bottom_thickness",
+      "step": "metal_layers",
+      "label": "底部金属层厚度",
+      "control": "number",
+      "unit": "mm",
+      "minimum": 0.001,
+      "maximum": 0.2,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "die.length",
+      "step": "die",
+      "label": "芯片长度",
+      "control": "number",
+      "unit": "mm",
+      "minimum": 0.2,
+      "maximum": 20,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "die.width",
+      "step": "die",
+      "label": "芯片宽度",
+      "control": "number",
+      "unit": "mm",
+      "minimum": 0.2,
+      "maximum": 20,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "die.thickness",
+      "step": "die",
+      "label": "芯片厚度",
+      "control": "number",
+      "unit": "mm",
+      "minimum": 0.03,
+      "maximum": 1.5,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "die.attach",
+      "step": "die",
+      "label": "粘接层厚度",
+      "control": "number",
+      "unit": "mm",
+      "minimum": 0.005,
+      "maximum": 0.3,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "die.power",
+      "step": "die",
+      "label": "芯片功率",
+      "control": "number",
+      "unit": "W",
+      "minimum": 0,
+      "maximum": 1000,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "encapsulant.thickness",
+      "step": "encapsulant",
+      "label": "塑封厚度",
+      "control": "number",
+      "unit": "mm",
+      "minimum": 0.1,
+      "maximum": 5,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "solder_mask.thickness",
+      "step": "encapsulant",
+      "label": "阻焊层厚度",
+      "control": "number",
+      "unit": "mm",
+      "minimum": 0.005,
+      "maximum": 0.3,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "bond_wire.extent_length",
+      "step": "bond_wires",
+      "label": "键合焊盘长度范围",
+      "control": "number",
+      "unit": "mm",
+      "minimum": 0.3,
+      "maximum": 20,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "bond_wire.extent_width",
+      "step": "bond_wires",
+      "label": "键合焊盘宽度范围",
+      "control": "number",
+      "unit": "mm",
+      "minimum": 0.3,
+      "maximum": 20,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "bond_wire.diameter",
+      "step": "bond_wires",
+      "label": "键合线等效宽度",
+      "control": "number",
+      "unit": "mm",
+      "minimum": 0.01,
+      "maximum": 0.2,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "vias.enabled",
+      "step": "thermal_vias",
+      "label": "包含热通孔",
+      "control": "checkbox",
+      "unit": null,
+      "minimum": null,
+      "maximum": null,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "vias.diameter",
+      "step": "thermal_vias",
+      "label": "通孔直径",
+      "control": "number",
+      "unit": "mm",
+      "minimum": 0.02,
+      "maximum": 1,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {
+        "vias.enabled": true
+      },
+      "enabled_when": {}
+    },
+    {
+      "key": "vias.plating",
+      "step": "thermal_vias",
+      "label": "通孔镀层厚度",
+      "control": "number",
+      "unit": "mm",
+      "minimum": 0.001,
+      "maximum": 0.2,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {
+        "vias.enabled": true
+      },
+      "enabled_when": {}
+    },
+    {
+      "key": "vias.offset_x",
+      "step": "thermal_vias",
+      "label": "通孔 X 偏移",
+      "control": "number",
+      "unit": "mm",
+      "minimum": -3,
+      "maximum": 3,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {
+        "vias.enabled": true
+      },
+      "enabled_when": {}
+    },
+    {
+      "key": "vias.offset_y",
+      "step": "thermal_vias",
+      "label": "通孔 Y 偏移",
+      "control": "number",
+      "unit": "mm",
+      "minimum": -3,
+      "maximum": 3,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {
+        "vias.enabled": true
+      },
+      "enabled_when": {}
+    },
+    {
+      "key": "bga.columns",
+      "step": "solder_balls",
+      "label": "X 方向焊球数 MD",
+      "control": "integer_spinbox",
+      "unit": null,
+      "minimum": 1,
+      "maximum": 50,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "bga.rows",
+      "step": "solder_balls",
+      "label": "Y 方向焊球数 ME",
+      "control": "integer_spinbox",
+      "unit": null,
+      "minimum": 1,
+      "maximum": 50,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "bga.pitch",
+      "step": "solder_balls",
+      "label": "焊球间距 e",
+      "control": "number",
+      "unit": "mm",
+      "minimum": 0.2,
+      "maximum": 2,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "bga.diameter",
+      "step": "solder_balls",
+      "label": "焊球直径 b",
+      "control": "number",
+      "unit": "mm",
+      "minimum": 0.05,
+      "maximum": 1.5,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "bga.height",
+      "step": "solder_balls",
+      "label": "基板离板高度 A1",
+      "control": "number",
+      "unit": "mm",
+      "minimum": 0.05,
+      "maximum": 1.5,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    }
+  ],
+  "material_selections": [
+    {
+      "group_id": "group-substrate",
+      "step": "overall_package",
+      "label": "基板材料",
+      "default": "bt",
+      "options": [
+        "bt"
+      ],
+      "visible_when": {}
+    },
+    {
+      "group_id": "group-die",
+      "step": "die",
+      "label": "芯片材料",
+      "default": "silicon",
+      "options": [
+        "silicon"
+      ],
+      "visible_when": {}
+    },
+    {
+      "group_id": "group-die-attach",
+      "step": "die",
+      "label": "芯片粘接材料",
+      "default": "qmi-595",
+      "options": [
+        "qmi-595"
+      ],
+      "visible_when": {}
+    },
+    {
+      "group_id": "group-encapsulant",
+      "step": "encapsulant",
+      "label": "塑封材料",
+      "default": "epoxy-mold",
+      "options": [
+        "epoxy-mold",
+        "eme-7730lf"
+      ],
+      "visible_when": {}
+    },
+    {
+      "group_id": "group-bond-wires",
+      "step": "bond_wires",
+      "label": "键合线材料",
+      "default": "gold",
+      "options": [
+        "gold"
+      ],
+      "visible_when": {}
+    },
+    {
+      "group_id": "group-solder-mask",
+      "step": "encapsulant",
+      "label": "阻焊层材料",
+      "default": "solder-mask",
+      "options": [
+        "solder-mask"
+      ],
+      "visible_when": {}
+    }
+  ],
+  "baseline_materials": [
+    {
+      "id": "chip-array-trace-top",
+      "name": "Trace0",
+      "conductivity": {
+        "x": 77.16,
+        "y": 77.16,
+        "z": 77.16
+      },
+      "density": 3306.0,
+      "specific_heat": 631.4367816091954,
+      "color": "#C46A32",
+      "source": "PackStudio built-in transcription of reviewed FloTHERM PACK data"
+    },
+    {
+      "id": "chip-array-trace-bottom",
+      "name": "Trace1",
+      "conductivity": {
+        "x": 38.68,
+        "y": 38.68,
+        "z": 38.68
+      },
+      "density": 2603.0,
+      "specific_heat": 737.1167883211679,
+      "color": "#B96331",
+      "source": "PackStudio built-in transcription of reviewed FloTHERM PACK data"
+    },
+    {
+      "id": "chip-array-via",
+      "name": "Via",
+      "conductivity": {
+        "x": 168.45218125,
+        "y": 168.45218125,
+        "z": 168.45218125
+      },
+      "density": 3907.5282875,
+      "specific_heat": 385.1039902452658,
+      "color": "#C46A32",
+      "source": "PackStudio built-in transcription of reviewed FloTHERM PACK data"
+    },
+    {
+      "id": "chip-array-bondwire-x",
+      "name": "bondwire1",
+      "conductivity": {
+        "x": 30.8810137518925,
+        "y": 0.68,
+        "z": 30.8810137518925
+      },
+      "density": 3607.598944816067,
+      "specific_heat": 471.6740510924182,
+      "color": "#D9A928",
+      "source": "PackStudio built-in transcription of reviewed FloTHERM PACK data"
+    },
+    {
+      "id": "chip-array-bondwire-y",
+      "name": "bondwire2",
+      "conductivity": {
+        "x": 0.68,
+        "y": 30.8810137518925,
+        "z": 30.8810137518925
+      },
+      "density": 3607.598944816067,
+      "specific_heat": 471.6740510924182,
+      "color": "#D9A928",
+      "source": "PackStudio built-in transcription of reviewed FloTHERM PACK data"
+    }
+  ],
+  "default_bga_representation": "discrete"
+}

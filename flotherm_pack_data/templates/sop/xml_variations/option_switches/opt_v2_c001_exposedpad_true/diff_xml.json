@@ -1,0 +1,280 @@
+{
+  "schema_version": "2.0",
+  "comparison": {
+    "baseline": "flotherm_pack_data/templates/sop/baseline/model.xml",
+    "variation": "flotherm_pack_data/templates/sop/xml_variations/option_switches/opt_v2_c001_exposedpad_true/model.xml",
+    "baseline_bytes": 24418,
+    "variation_bytes": 25905,
+    "baseline_sha256": "2602CC4C884EDBD1E1FBA39F5D4A1BB441413956B57D9FAFBBC1B131DA198A3E",
+    "variation_sha256": "C7C091775B9574BD99187B95B907961B104B7CA3C35BEF6CDDEE590D2DEC1A57"
+  },
+  "semantic_change": true,
+  "summary": {
+    "changed_value_count": 15,
+    "added_leaf_count": 24,
+    "removed_leaf_count": 0
+  },
+  "materials": {
+    "added": [
+      "Copper (Pure)",
+      "Solder (Sn63/Pb37)"
+    ],
+    "removed": [],
+    "changed": []
+  },
+  "entities": {
+    "added": [
+      "cuboid:land",
+      "cuboid:solder"
+    ],
+    "removed": [],
+    "changed": [
+      {
+        "name": "assembly:BondWires",
+        "before": [
+          "4264f46baec87e9c"
+        ],
+        "after": [
+          "ffcbe0410193db63"
+        ]
+      },
+      {
+        "name": "assembly:Die",
+        "before": [
+          "4b9326783911cc95"
+        ],
+        "after": [
+          "d2f5d5b377524057"
+        ]
+      },
+      {
+        "name": "assembly:Die_Flag",
+        "before": [
+          "37ad4af693db3915"
+        ],
+        "after": [
+          "0a0733900569471d"
+        ]
+      },
+      {
+        "name": "assembly:Tiebar",
+        "before": [
+          "5bcbd37bca33d5c2"
+        ],
+        "after": [
+          "70b424e5a2ab7e0a"
+        ]
+      },
+      {
+        "name": "cuboid:bdw_v_left",
+        "before": [
+          "d6ada60c3fbacb62"
+        ],
+        "after": [
+          "9700002fccdaf51b"
+        ]
+      },
+      {
+        "name": "cuboid:bdw_v_lower",
+        "before": [
+          "16a7f1dcceead5f1"
+        ],
+        "after": [
+          "861c07c5c0ec092a"
+        ]
+      },
+      {
+        "name": "cuboid:bdw_v_right",
+        "before": [
+          "a6c00aa38a3a1ece"
+        ],
+        "after": [
+          "47ad23204ce88d30"
+        ]
+      },
+      {
+        "name": "cuboid:bdw_v_upper",
+        "before": [
+          "9d96eeac8d2ed85b"
+        ],
+        "after": [
+          "7435b34c2bf39fc7"
+        ]
+      },
+      {
+        "name": "cuboid:die",
+        "before": [
+          "282b8605ff932d8c"
+        ],
+        "after": [
+          "0ee2b733b4454715"
+        ]
+      },
+      {
+        "name": "cuboid:die_attach",
+        "before": [
+          "bfa12f4f61701a4f"
+        ],
+        "after": [
+          "d0bf1ad8840c04fa"
+        ]
+      },
+      {
+        "name": "cuboid:die_flag",
+        "before": [
+          "dd1ba359a15801f7"
+        ],
+        "after": [
+          "20aae51e5dd2d91e"
+        ]
+      },
+      {
+        "name": "cuboid:tie_bar_left",
+        "before": [
+          "dfe2d9deca5d8eb7"
+        ],
+        "after": [
+          "ee53d13457e21a91"
+        ]
+      },
+      {
+        "name": "cuboid:tie_bar_right",
+        "before": [
+          "59e8a82376931d89"
+        ],
+        "after": [
+          "18b181a1863e0e62"
+        ]
+      },
+      {
+        "name": "monitor_point:DieJunction_Temp",
+        "before": [
+          "0049acfc94fc6810"
+        ],
+        "after": [
+          "4d5d15fd5244c591"
+        ]
+      },
+      {
+        "name": "source:DieSource",
+        "before": [
+          "861b8f818360cdae"
+        ],
+        "after": [
+          "0e252c4c6244fa63"
+        ]
+      }
+    ]
+  },
+  "changed_values": [
+    {
+      "path": "xml_case/geometry/assembly[name=BondWires]/geometry/cuboid[name=bdw_v_left]/position/z",
+      "before": "0.00096500000000000004",
+      "after": "0.00072999999999999996"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=BondWires]/geometry/cuboid[name=bdw_v_left]/size/z",
+      "before": "1.9999999999999944e-05",
+      "after": "0.00025500000000000002"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=BondWires]/geometry/cuboid[name=bdw_v_lower]/position/z",
+      "before": "0.00096500000000000004",
+      "after": "0.00072999999999999996"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=BondWires]/geometry/cuboid[name=bdw_v_lower]/size/z",
+      "before": "1.9999999999999944e-05",
+      "after": "0.00025500000000000002"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=BondWires]/geometry/cuboid[name=bdw_v_right]/position/z",
+      "before": "0.00096500000000000004",
+      "after": "0.00072999999999999996"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=BondWires]/geometry/cuboid[name=bdw_v_right]/size/z",
+      "before": "1.9999999999999944e-05",
+      "after": "0.00025500000000000002"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=BondWires]/geometry/cuboid[name=bdw_v_upper]/position/z",
+      "before": "0.00096500000000000004",
+      "after": "0.00072999999999999996"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=BondWires]/geometry/cuboid[name=bdw_v_upper]/size/z",
+      "before": "1.9999999999999944e-05",
+      "after": "0.00025500000000000002"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Die]/geometry/cuboid[name=die]/position/z",
+      "before": "0.00058500000000000002",
+      "after": "0.00034999999999999994"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Die]/geometry/monitor_point[name=DieJunction_Temp]/position/z",
+      "before": "0.00096310000000000005",
+      "after": "0.00072809999999999997"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Die]/geometry/source[name=DieSource]/position/z",
+      "before": "0.00058500000000000002",
+      "after": "0.00034999999999999994"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Die_Flag]/geometry/cuboid[name=die_flag]/position/z",
+      "before": "0.00038499999999999998",
+      "after": "0.00014999999999999996"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Tiebar]/geometry/cuboid[name=tie_bar_left]/position/z",
+      "before": "0.00038499999999999998",
+      "after": "0.00014999999999999996"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Tiebar]/geometry/cuboid[name=tie_bar_right]/position/z",
+      "before": "0.00038499999999999998",
+      "after": "0.00014999999999999996"
+    },
+    {
+      "path": "xml_case/geometry/cuboid[name=die_attach]/position/z",
+      "before": "0.00058500000000000002",
+      "after": "0.00034999999999999994"
+    }
+  ],
+  "added_leaf_paths": [
+    "xml_case/attributes/materials/isotropic_material_att[name=Copper (Pure)]/conductivity",
+    "xml_case/attributes/materials/isotropic_material_att[name=Copper (Pure)]/density",
+    "xml_case/attributes/materials/isotropic_material_att[name=Copper (Pure)]/name",
+    "xml_case/attributes/materials/isotropic_material_att[name=Copper (Pure)]/specific_heat",
+    "xml_case/attributes/materials/isotropic_material_att[name=Solder (Sn63/Pb37)]/conductivity",
+    "xml_case/attributes/materials/isotropic_material_att[name=Solder (Sn63/Pb37)]/density",
+    "xml_case/attributes/materials/isotropic_material_att[name=Solder (Sn63/Pb37)]/name",
+    "xml_case/attributes/materials/isotropic_material_att[name=Solder (Sn63/Pb37)]/specific_heat",
+    "xml_case/geometry/cuboid[name=land]/material",
+    "xml_case/geometry/cuboid[name=land]/name",
+    "xml_case/geometry/cuboid[name=land]/position/x",
+    "xml_case/geometry/cuboid[name=land]/position/y",
+    "xml_case/geometry/cuboid[name=land]/position/z",
+    "xml_case/geometry/cuboid[name=land]/size/x",
+    "xml_case/geometry/cuboid[name=land]/size/y",
+    "xml_case/geometry/cuboid[name=land]/size/z",
+    "xml_case/geometry/cuboid[name=solder]/material",
+    "xml_case/geometry/cuboid[name=solder]/name",
+    "xml_case/geometry/cuboid[name=solder]/position/x",
+    "xml_case/geometry/cuboid[name=solder]/position/y",
+    "xml_case/geometry/cuboid[name=solder]/position/z",
+    "xml_case/geometry/cuboid[name=solder]/size/x",
+    "xml_case/geometry/cuboid[name=solder]/size/y",
+    "xml_case/geometry/cuboid[name=solder]/size/z"
+  ],
+  "removed_leaf_paths": [],
+  "numeric_formatting_differences_ignored": true,
+  "template_id": "sop",
+  "variation_id": "opt_v2_c001_exposedpad_true",
+  "variation_kind": "boolean_option",
+  "comparison_baseline": "baseline/model.xml",
+  "outcome": "semantic_change",
+  "floxml_effect_expectation": null
+}

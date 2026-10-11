@@ -1,0 +1,35 @@
+{
+  "schema_version": "2.0",
+  "template_id": "cbga_fc",
+  "variation_id": "opt_v2_c006_centralballs_true",
+  "kind": "boolean_option",
+  "coverage_policy": "alternate_value",
+  "target": {
+    "component": "centralBalls",
+    "property": "centralBalls",
+    "label": "Central Balls",
+    "baseline": false,
+    "value": true
+  },
+  "comparison_baseline": "validation/branch_baselines/br_v2_centralballs_centralballs/model.xml",
+  "branch_preconditions": [
+    {
+      "component": "centralBalls",
+      "property": "numberCentralRowsMDp",
+      "value": 2
+    },
+    {
+      "component": "centralBalls",
+      "property": "numberCentralRowsMEp",
+      "value": 2
+    }
+  ],
+  "required_dependent_initialization": {},
+  "single_variable_relative_to_comparison_baseline": true,
+  "material_policy": "default_only",
+  "property_evidence": [
+    "recorded_modify_component",
+    "installed_dll_ascii_string"
+  ],
+  "execution_status": "pending_replay"
+}

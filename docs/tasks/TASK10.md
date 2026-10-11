@@ -47,7 +47,7 @@ Flip-chip 和引线框架实现混杂。前端同时保留了一套已被通用�
 
 ### 3.3 明确保留项
 
-`src/packstudio/templates/flip_chip_cbga/` 不属于死代码：现有兼容 API 仍调用其生成器，
+`src/packstudio/templates/cbga_fc/` 不属于死代码：现有兼容 API 仍调用其生成器，
 新模板库的 BGA 分区和等效材料也复用其中经过 TASK5 验证的阵列算法，因此本任务保留。
 
 ## 4. 验证

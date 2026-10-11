@@ -9,8 +9,8 @@ afterEach(() => vi.restoreAllMocks())
 
 describe('format-specific model downloads', () => {
   it.each([
-    ['pta', 'bare-die.xml'],
-    ['ecxml', 'bare-die.ecxml'],
+    ['pta', 'bare_die.xml'],
+    ['ecxml', 'bare_die.ecxml'],
   ] as const)('downloads %s with its route and filename', async (format, filename) => {
     const anchor = document.createElement('a')
     const createElement = document.createElement.bind(document)

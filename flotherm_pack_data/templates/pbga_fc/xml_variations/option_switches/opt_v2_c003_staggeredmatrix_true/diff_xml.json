@@ -1,0 +1,71 @@
+{
+  "schema_version": "2.0",
+  "comparison": {
+    "baseline": "flotherm_pack_data/templates/pbga_fc/baseline/model.xml",
+    "variation": "flotherm_pack_data/templates/pbga_fc/xml_variations/option_switches/opt_v2_c003_staggeredmatrix_true/model.xml",
+    "baseline_bytes": 10211,
+    "variation_bytes": 10211,
+    "baseline_sha256": "517D8D2C0D3C887AFCC71083841F9D502BA2338414DBA1CC9F8DE769783CF520",
+    "variation_sha256": "284F40F7E2CF8E30588F1DBB42968865F0DA8E52EDF9CA207BD4D7C69C8C96FB"
+  },
+  "semantic_change": true,
+  "summary": {
+    "changed_value_count": 3,
+    "added_leaf_count": 0,
+    "removed_leaf_count": 0
+  },
+  "materials": {
+    "added": [],
+    "removed": [],
+    "changed": [
+      {
+        "name": "Solder_ball",
+        "before": {
+          "type": "biaxial_material_att",
+          "density": "2877.85406772",
+          "specific_heat": "150.227395842",
+          "in_plane_conductivity": "0.0261",
+          "normal_conductivity": "17.4509586118"
+        },
+        "after": {
+          "type": "biaxial_material_att",
+          "density": "1439.50773386",
+          "specific_heat": "150.573019447",
+          "in_plane_conductivity": "0.0261",
+          "normal_conductivity": "8.73852930588"
+        }
+      }
+    ]
+  },
+  "entities": {
+    "added": [],
+    "removed": [],
+    "changed": []
+  },
+  "changed_values": [
+    {
+      "path": "xml_case/attributes/materials/biaxial_material_att[name=Solder_ball]/density",
+      "before": "2877.8540677150945",
+      "after": "1439.5077338575472"
+    },
+    {
+      "path": "xml_case/attributes/materials/biaxial_material_att[name=Solder_ball]/normal_conductivity",
+      "before": "17.450958611769362",
+      "after": "8.7385293058846827"
+    },
+    {
+      "path": "xml_case/attributes/materials/biaxial_material_att[name=Solder_ball]/specific_heat",
+      "before": "150.22739584234949",
+      "after": "150.57301944653884"
+    }
+  ],
+  "added_leaf_paths": [],
+  "removed_leaf_paths": [],
+  "numeric_formatting_differences_ignored": true,
+  "template_id": "pbga_fc",
+  "variation_id": "opt_v2_c003_staggeredmatrix_true",
+  "variation_kind": "boolean_option",
+  "comparison_baseline": "baseline/model.xml",
+  "outcome": "semantic_change",
+  "floxml_effect_expectation": null
+}

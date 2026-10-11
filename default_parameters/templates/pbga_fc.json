@@ -1,0 +1,562 @@
+{
+  "schema_version": "packstudio.template-defaults/v1",
+  "template_id": "pbga_fc",
+  "origin": "Reviewed PackStudio model specification; mapped source values explicitly referenced",
+  "fields": [
+    {
+      "key": "footprint.size",
+      "step": "package_setup",
+      "label": "Footprint 尺寸（JEDEC）",
+      "control": "footprint",
+      "default": "PBGAFC_49_6X6mm",
+      "unit": null,
+      "minimum": null,
+      "maximum": null,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "substrate.length",
+      "step": "package_substrate",
+      "label": "基板长度 D",
+      "control": "number",
+      "unit": "mm",
+      "minimum": 2,
+      "maximum": 50,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "substrate.width",
+      "step": "package_substrate",
+      "label": "基板宽度 E",
+      "control": "number",
+      "unit": "mm",
+      "minimum": 2,
+      "maximum": 50,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "substrate.thickness",
+      "step": "package_substrate",
+      "label": "基板厚度 A2",
+      "control": "number",
+      "unit": "mm",
+      "minimum": 0.1,
+      "maximum": 5,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "die.length",
+      "step": "die",
+      "label": "芯片长度",
+      "control": "number",
+      "unit": "mm",
+      "minimum": 0.2,
+      "maximum": 40,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "die.width",
+      "step": "die",
+      "label": "芯片宽度",
+      "control": "number",
+      "unit": "mm",
+      "minimum": 0.2,
+      "maximum": 40,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "die.thickness",
+      "step": "die",
+      "label": "芯片厚度",
+      "control": "number",
+      "unit": "mm",
+      "minimum": 0.03,
+      "maximum": 2,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "die.power",
+      "step": "die",
+      "label": "芯片功率",
+      "control": "number",
+      "unit": "W",
+      "minimum": 0,
+      "maximum": 1000,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "bumps.total",
+      "step": "flip_chip_bumps",
+      "label": "凸点总数",
+      "control": "integer_spinbox",
+      "unit": null,
+      "minimum": 1,
+      "maximum": 10000,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "bumps.diameter",
+      "step": "flip_chip_bumps",
+      "label": "凸点直径",
+      "control": "number",
+      "unit": "mm",
+      "minimum": 0.01,
+      "maximum": 0.5,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "bumps.height",
+      "step": "flip_chip_bumps",
+      "label": "凸点层厚度",
+      "control": "number",
+      "unit": "mm",
+      "minimum": 0.01,
+      "maximum": 0.5,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "bga.columns",
+      "step": "solder_balls",
+      "label": "X 方向焊球数 MD",
+      "control": "integer_spinbox",
+      "unit": null,
+      "minimum": 1,
+      "maximum": 50,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "bga.rows",
+      "step": "solder_balls",
+      "label": "Y 方向焊球数 ME",
+      "control": "integer_spinbox",
+      "unit": null,
+      "minimum": 1,
+      "maximum": 50,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "bga.pitch",
+      "step": "solder_balls",
+      "label": "焊球间距 e",
+      "control": "number",
+      "unit": "mm",
+      "minimum": 0.2,
+      "maximum": 2,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "bga.diameter",
+      "step": "solder_balls",
+      "label": "焊球直径 b",
+      "control": "number",
+      "unit": "mm",
+      "minimum": 0.05,
+      "maximum": 1.5,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "bga.height",
+      "step": "solder_balls",
+      "label": "基板离板高度 A1",
+      "control": "number",
+      "unit": "mm",
+      "minimum": 0.05,
+      "maximum": 1.5,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "cover.type",
+      "step": "top_cover",
+      "label": "顶部结构",
+      "control": "select",
+      "unit": null,
+      "minimum": null,
+      "maximum": null,
+      "options": [
+        "bare_die",
+        "lid",
+        "plate",
+        "encapsulant"
+      ],
+      "option_labels": {
+        "bare_die": "裸露芯片",
+        "lid": "顶盖",
+        "plate": "均热板",
+        "encapsulant": "塑封体"
+      },
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "cover.length",
+      "step": "top_cover",
+      "label": "塑封长度",
+      "control": "number",
+      "unit": "mm",
+      "minimum": 0.2,
+      "maximum": 50,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {
+        "cover.type": "encapsulant"
+      },
+      "enabled_when": {}
+    },
+    {
+      "key": "cover.width",
+      "step": "top_cover",
+      "label": "塑封宽度",
+      "control": "number",
+      "unit": "mm",
+      "minimum": 0.2,
+      "maximum": 50,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {
+        "cover.type": "encapsulant"
+      },
+      "enabled_when": {}
+    },
+    {
+      "key": "cover.thickness",
+      "step": "top_cover",
+      "label": "塑封厚度",
+      "control": "number",
+      "unit": "mm",
+      "minimum": 0.05,
+      "maximum": 5,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {
+        "cover.type": "encapsulant"
+      },
+      "enabled_when": {}
+    },
+    {
+      "key": "lid.length",
+      "step": "top_cover",
+      "label": "顶盖长度",
+      "control": "number",
+      "unit": "mm",
+      "minimum": 0.2,
+      "maximum": 50,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {
+        "cover.type": "lid"
+      },
+      "enabled_when": {}
+    },
+    {
+      "key": "lid.width",
+      "step": "top_cover",
+      "label": "顶盖宽度",
+      "control": "number",
+      "unit": "mm",
+      "minimum": 0.2,
+      "maximum": 50,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {
+        "cover.type": "lid"
+      },
+      "enabled_when": {}
+    },
+    {
+      "key": "lid.thickness",
+      "step": "top_cover",
+      "label": "顶盖厚度",
+      "control": "number",
+      "unit": "mm",
+      "minimum": 0.05,
+      "maximum": 5,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {
+        "cover.type": "lid"
+      },
+      "enabled_when": {}
+    },
+    {
+      "key": "lid.base_thickness",
+      "step": "top_cover",
+      "label": "顶盖侧壁宽度",
+      "control": "number",
+      "unit": "mm",
+      "minimum": 0.05,
+      "maximum": 10,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {
+        "cover.type": "lid"
+      },
+      "enabled_when": {}
+    },
+    {
+      "key": "lid.die_attach",
+      "step": "top_cover",
+      "label": "顶盖芯片连接层厚度",
+      "control": "number",
+      "unit": "mm",
+      "minimum": 0.005,
+      "maximum": 1,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {
+        "cover.type": "lid"
+      },
+      "enabled_when": {}
+    },
+    {
+      "key": "lid.adhesive",
+      "step": "top_cover",
+      "label": "顶盖侧壁粘接厚度",
+      "control": "number",
+      "unit": "mm",
+      "minimum": 0.005,
+      "maximum": 1,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {
+        "cover.type": "lid"
+      },
+      "enabled_when": {}
+    },
+    {
+      "key": "plate.length",
+      "step": "top_cover",
+      "label": "热板长度",
+      "control": "number",
+      "unit": "mm",
+      "minimum": 0.2,
+      "maximum": 50,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {
+        "cover.type": "plate"
+      },
+      "enabled_when": {}
+    },
+    {
+      "key": "plate.width",
+      "step": "top_cover",
+      "label": "热板宽度",
+      "control": "number",
+      "unit": "mm",
+      "minimum": 0.2,
+      "maximum": 50,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {
+        "cover.type": "plate"
+      },
+      "enabled_when": {}
+    },
+    {
+      "key": "plate.thickness",
+      "step": "top_cover",
+      "label": "热板厚度",
+      "control": "number",
+      "unit": "mm",
+      "minimum": 0.05,
+      "maximum": 5,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {
+        "cover.type": "plate"
+      },
+      "enabled_when": {}
+    },
+    {
+      "key": "plate.die_attach",
+      "step": "top_cover",
+      "label": "热板芯片连接层厚度",
+      "control": "number",
+      "unit": "mm",
+      "minimum": 0.005,
+      "maximum": 1,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {
+        "cover.type": "plate"
+      },
+      "enabled_when": {}
+    }
+  ],
+  "material_selections": [
+    {
+      "group_id": "group-substrate",
+      "step": "package_substrate",
+      "label": "有机基板材料",
+      "default": "pbga-substrate",
+      "options": [
+        "pbga-substrate",
+        "bt"
+      ],
+      "visible_when": {}
+    },
+    {
+      "group_id": "group-die",
+      "step": "die",
+      "label": "芯片材料",
+      "default": "silicon",
+      "options": [
+        "silicon"
+      ],
+      "visible_when": {}
+    },
+    {
+      "group_id": "group-encapsulant",
+      "step": "top_cover",
+      "label": "塑封材料",
+      "default": "epoxy-mold",
+      "options": [
+        "epoxy-mold",
+        "eme-7730lf"
+      ],
+      "visible_when": {
+        "cover.type": "encapsulant"
+      }
+    },
+    {
+      "group_id": "group-lid",
+      "step": "top_cover",
+      "label": "顶盖材料",
+      "default": "aluminum",
+      "options": [
+        "aluminum"
+      ],
+      "visible_when": {
+        "cover.type": "lid"
+      }
+    },
+    {
+      "group_id": "group-lid-adhesive",
+      "step": "top_cover",
+      "label": "顶盖侧壁粘接材料",
+      "default": "stiffener-adhesive",
+      "options": [
+        "stiffener-adhesive"
+      ],
+      "visible_when": {
+        "cover.type": "lid"
+      }
+    },
+    {
+      "group_id": "group-lid-die-attach",
+      "step": "top_cover",
+      "label": "顶盖芯片连接材料",
+      "default": "flip-cap-grease",
+      "options": [
+        "flip-cap-grease"
+      ],
+      "visible_when": {
+        "cover.type": "lid"
+      }
+    },
+    {
+      "group_id": "group-plate",
+      "step": "top_cover",
+      "label": "热板材料",
+      "default": "aluminum",
+      "options": [
+        "aluminum"
+      ],
+      "visible_when": {
+        "cover.type": "plate"
+      }
+    },
+    {
+      "group_id": "group-plate-die-attach",
+      "step": "top_cover",
+      "label": "热板芯片连接材料",
+      "default": "flip-cap-grease",
+      "options": [
+        "flip-cap-grease"
+      ],
+      "visible_when": {
+        "cover.type": "plate"
+      }
+    }
+  ],
+  "baseline_materials": [],
+  "default_bga_representation": "equivalent"
+}

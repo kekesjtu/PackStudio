@@ -1,0 +1,23 @@
+{
+  "schema_version": "2.0",
+  "template_id": "sop",
+  "variation_id": "par_v2_c036_leadframeflaggapg1_0_1254",
+  "kind": "numeric_parameter",
+  "coverage_policy": "low_and_high",
+  "target": {
+    "component": "leadFrame",
+    "property": "leadframeFlagGapG1",
+    "label": "Leadframe-Flag Gap g1",
+    "baseline": 0.114,
+    "value": 0.1254
+  },
+  "comparison_baseline": "baseline/model.xml",
+  "branch_preconditions": [],
+  "required_dependent_initialization": {},
+  "single_variable_relative_to_comparison_baseline": true,
+  "material_policy": "default_only",
+  "property_evidence": [
+    "installed_dll_ascii_string"
+  ],
+  "execution_status": "pending_replay"
+}

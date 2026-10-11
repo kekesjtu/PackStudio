@@ -44,5 +44,5 @@ Ny 精确计算。PackStudio 当前产品决策固定采用规则全阵列，不
 
 ## 证据
 
-- `../templates/flip_chip_cbga/xml_variations/option_switches/opt_v2_c005_arraytype_regulararray/`
-- `../templates/flip_chip_pbga/xml_variations/option_switches/opt_v2_c005_arraytype_regulararray/`
+- `../templates/cbga_fc/xml_variations/option_switches/opt_v2_c005_arraytype_regulararray/`
+- `../templates/pbga_fc/xml_variations/option_switches/opt_v2_c005_arraytype_regulararray/`

@@ -322,16 +322,16 @@
       ]
     },
     {
-      "template_id": "fbga_fsbga",
+      "template_id": "chip_array",
       "status": "complete",
       "target_count": 46,
       "branch_baseline_count": 10,
       "variation_count": 78,
       "expected_export_count": 88,
-      "suite": "validation/comprehensive_replay_fbga_fsbga.xml",
+      "suite": "validation/comprehensive_replay_chip_array.xml",
       "coverage": [
         {
-          "target_id": "fbga_fsbga.starter.Outline Type",
+          "target_id": "chip_array.starter.Outline Type",
           "component": "new_package",
           "property": "outlineType",
           "label": "Outline Type",
@@ -347,7 +347,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "fbga_fsbga.starter.JEDEC Footprint",
+          "target_id": "chip_array.starter.JEDEC Footprint",
           "component": "new_package",
           "property": "jedecFootprint",
           "label": "JEDEC Footprint",
@@ -365,7 +365,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "fbga_fsbga.starter.Die Type",
+          "target_id": "chip_array.starter.Die Type",
           "component": "new_package",
           "property": "dieType",
           "label": "Die Type",
@@ -381,7 +381,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "fbga_fsbga.starter.Substrate Layer",
+          "target_id": "chip_array.starter.Substrate Layer",
           "component": "new_package",
           "property": "substrateLayer",
           "label": "Substrate Layer",
@@ -397,7 +397,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "fbga_fsbga.starter.Top Layer",
+          "target_id": "chip_array.starter.Top Layer",
           "component": "new_package",
           "property": "topSignalLayerThickness",
           "label": "Top Layer",
@@ -415,7 +415,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "fbga_fsbga.starter.Bottom Layer",
+          "target_id": "chip_array.starter.Bottom Layer",
           "component": "new_package",
           "property": "bottomSignalLayerThickness",
           "label": "Bottom Layer",
@@ -433,7 +433,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "fbga_fsbga.overall_package.Length D",
+          "target_id": "chip_array.overall_package.Length D",
           "component": "overallPackage",
           "property": "lengthD",
           "label": "Length D",
@@ -451,7 +451,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "fbga_fsbga.overall_package.Width E",
+          "target_id": "chip_array.overall_package.Width E",
           "component": "overallPackage",
           "property": "widthE",
           "label": "Width E",
@@ -469,7 +469,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "fbga_fsbga.overall_package.Substrate Thickness A2",
+          "target_id": "chip_array.overall_package.Substrate Thickness A2",
           "component": "overallPackage",
           "property": "substrateThicknessA2",
           "label": "Substrate Thickness A2",
@@ -487,7 +487,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "fbga_fsbga.die.Package Power",
+          "target_id": "chip_array.die.Package Power",
           "component": "die",
           "property": "packagePower",
           "label": "Package Power",
@@ -505,7 +505,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "fbga_fsbga.die.Non-uniform Die Heat",
+          "target_id": "chip_array.die.Non-uniform Die Heat",
           "component": "die",
           "property": "nonUniformDieHeat",
           "label": "Non-uniform Die Heat",
@@ -521,7 +521,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "fbga_fsbga.die.Die Length Ld",
+          "target_id": "chip_array.die.Die Length Ld",
           "component": "die",
           "property": "dieLengthLd",
           "label": "Die Length Ld",
@@ -539,7 +539,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "fbga_fsbga.die.Die Width Wd",
+          "target_id": "chip_array.die.Die Width Wd",
           "component": "die",
           "property": "dieWidthWd",
           "label": "Die Width Wd",
@@ -557,7 +557,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "fbga_fsbga.die.Die Thickness td",
+          "target_id": "chip_array.die.Die Thickness td",
           "component": "die",
           "property": "dieThicknessTd",
           "label": "Die Thickness td",
@@ -575,7 +575,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "fbga_fsbga.die.Die Attach Thickness tda",
+          "target_id": "chip_array.die.Die Attach Thickness tda",
           "component": "die",
           "property": "dieAttachThicknessTda",
           "label": "Die Attach Thickness tda",
@@ -593,7 +593,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "fbga_fsbga.encapsulant.Thickness te",
+          "target_id": "chip_array.encapsulant.Thickness te",
           "component": "encapsulant",
           "property": "thicknessTe",
           "label": "Thickness te",
@@ -611,7 +611,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "fbga_fsbga.encapsulant.Solder Mask Thickness tsm",
+          "target_id": "chip_array.encapsulant.Solder Mask Thickness tsm",
           "component": "encapsulant",
           "property": "solderMaskThicknessTsm",
           "label": "Solder Mask Thickness tsm",
@@ -629,7 +629,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "fbga_fsbga.bond_wires.Extent of Bond Wire Pads Lw",
+          "target_id": "chip_array.bond_wires.Extent of Bond Wire Pads Lw",
           "component": "bondWires",
           "property": "extentOfBondWirePadsLw",
           "label": "Extent of Bond Wire Pads Lw",
@@ -647,7 +647,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "fbga_fsbga.bond_wires.Extent of Bond Wire Pads Ww",
+          "target_id": "chip_array.bond_wires.Extent of Bond Wire Pads Ww",
           "component": "bondWires",
           "property": "extentOfBondWirePadsWw",
           "label": "Extent of Bond Wire Pads Ww",
@@ -665,7 +665,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "fbga_fsbga.bond_wires.Bond Wire Diameter dw",
+          "target_id": "chip_array.bond_wires.Bond Wire Diameter dw",
           "component": "bondWires",
           "property": "bondWireDiameterDw",
           "label": "Bond Wire Diameter dw",
@@ -683,7 +683,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "fbga_fsbga.bond_wires.Number of Bond Wires equals Solder Balls",
+          "target_id": "chip_array.bond_wires.Number of Bond Wires equals Solder Balls",
           "component": "bondWires",
           "property": "numberBondWiresEqualsSolderBalls",
           "label": "Number of Bond Wires equals Solder Balls",
@@ -699,7 +699,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "fbga_fsbga.vias.Via Diameter dv",
+          "target_id": "chip_array.vias.Via Diameter dv",
           "component": "vias",
           "property": "viaDiameterDv",
           "label": "Via Diameter dv",
@@ -717,7 +717,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "fbga_fsbga.vias.Filled Vias",
+          "target_id": "chip_array.vias.Filled Vias",
           "component": "vias",
           "property": "filledVias",
           "label": "Filled Vias",
@@ -733,7 +733,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "fbga_fsbga.vias.Plating Thickness tpl",
+          "target_id": "chip_array.vias.Plating Thickness tpl",
           "component": "vias",
           "property": "platingThicknessTpl",
           "label": "Plating Thickness tpl",
@@ -751,7 +751,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "fbga_fsbga.metal_layers.Top Metal Layer Hole Length Lml",
+          "target_id": "chip_array.metal_layers.Top Metal Layer Hole Length Lml",
           "component": "metalLayers",
           "property": "lengthLml",
           "label": "Top Metal Layer Hole Length Lml",
@@ -769,7 +769,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "fbga_fsbga.metal_layers.Top Metal Layer Hole Width Wml",
+          "target_id": "chip_array.metal_layers.Top Metal Layer Hole Width Wml",
           "component": "metalLayers",
           "property": "widthWml",
           "label": "Top Metal Layer Hole Width Wml",
@@ -787,7 +787,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "fbga_fsbga.solder_balls.Number of Solder Balls in X MD",
+          "target_id": "chip_array.solder_balls.Number of Solder Balls in X MD",
           "component": "solderBalls",
           "property": "numberOfSolderBallsInXMD",
           "label": "Number of Solder Balls in X MD",
@@ -805,7 +805,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "fbga_fsbga.solder_balls.Number of Solder Balls in Y ME",
+          "target_id": "chip_array.solder_balls.Number of Solder Balls in Y ME",
           "component": "solderBalls",
           "property": "numberOfSolderBallsInYME",
           "label": "Number of Solder Balls in Y ME",
@@ -823,7 +823,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "fbga_fsbga.solder_balls.Ball Diameter b",
+          "target_id": "chip_array.solder_balls.Ball Diameter b",
           "component": "solderBalls",
           "property": "ballDiameterB",
           "label": "Ball Diameter b",
@@ -841,7 +841,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "fbga_fsbga.solder_balls.Ball Pitch e",
+          "target_id": "chip_array.solder_balls.Ball Pitch e",
           "component": "solderBalls",
           "property": "ballPitchE",
           "label": "Ball Pitch e",
@@ -859,7 +859,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "fbga_fsbga.solder_balls.Substrate Stand-off A1",
+          "target_id": "chip_array.solder_balls.Substrate Stand-off A1",
           "component": "solderBalls",
           "property": "substrateStandoffA1",
           "label": "Substrate Stand-off A1",
@@ -877,7 +877,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "fbga_fsbga.solder_balls.Staggered Matrix",
+          "target_id": "chip_array.solder_balls.Staggered Matrix",
           "component": "solderBalls",
           "property": "staggeredMatrix",
           "label": "Staggered Matrix",
@@ -893,7 +893,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "fbga_fsbga.solder_balls.Solder Ball Map",
+          "target_id": "chip_array.solder_balls.Solder Ball Map",
           "component": "solderBalls",
           "property": "solderBallMap",
           "label": "Solder Ball Map",
@@ -909,7 +909,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "fbga_fsbga.solder_ball_depopulation.Depopulated Center",
+          "target_id": "chip_array.solder_ball_depopulation.Depopulated Center",
           "component": "solderBallDepopulation",
           "property": "depopulatedCenter",
           "label": "Depopulated Center",
@@ -925,7 +925,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "fbga_fsbga.solder_ball_depopulation.Number of Fully Populated Rows MDp",
+          "target_id": "chip_array.solder_ball_depopulation.Number of Fully Populated Rows MDp",
           "component": "solderBallDepopulation",
           "property": "numberFullyPopulatedRowsMDp",
           "label": "Number of Fully Populated Rows MDp",
@@ -943,7 +943,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "fbga_fsbga.solder_ball_depopulation.Number of Fully Populated Rows MEp",
+          "target_id": "chip_array.solder_ball_depopulation.Number of Fully Populated Rows MEp",
           "component": "solderBallDepopulation",
           "property": "numberFullyPopulatedRowsMEp",
           "label": "Number of Fully Populated Rows MEp",
@@ -961,7 +961,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "fbga_fsbga.central_balls.Central Balls",
+          "target_id": "chip_array.central_balls.Central Balls",
           "component": "centralBalls",
           "property": "centralBalls",
           "label": "Central Balls",
@@ -977,7 +977,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "fbga_fsbga.central_balls.Number of Central Rows MDc",
+          "target_id": "chip_array.central_balls.Number of Central Rows MDc",
           "component": "centralBalls",
           "property": "numberCentralRowsMDp",
           "label": "Number of Central Rows MDc",
@@ -995,7 +995,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "fbga_fsbga.central_balls.Number of Central Rows MEc",
+          "target_id": "chip_array.central_balls.Number of Central Rows MEc",
           "component": "centralBalls",
           "property": "numberCentralRowsMEp",
           "label": "Number of Central Rows MEc",
@@ -1013,7 +1013,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "fbga_fsbga.central_balls.Staggered Matrix",
+          "target_id": "chip_array.central_balls.Staggered Matrix",
           "component": "centralBalls",
           "property": "staggeredMatrix",
           "label": "Staggered Matrix",
@@ -1029,7 +1029,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "fbga_fsbga.modeling_options.Via Modeling",
+          "target_id": "chip_array.modeling_options.Via Modeling",
           "component": "modelingOptions",
           "property": "viaModeling",
           "label": "Via Modeling",
@@ -1045,7 +1045,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "fbga_fsbga.modeling_options.Via Offset in X",
+          "target_id": "chip_array.modeling_options.Via Offset in X",
           "component": "modelingOptions",
           "property": "viaOffsetInX",
           "label": "Via Offset in X",
@@ -1063,7 +1063,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "fbga_fsbga.modeling_options.Via Offset in Y",
+          "target_id": "chip_array.modeling_options.Via Offset in Y",
           "component": "modelingOptions",
           "property": "viaOffsetInY",
           "label": "Via Offset in Y",
@@ -1081,7 +1081,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "fbga_fsbga.modeling_options.Bond Wire Modeling",
+          "target_id": "chip_array.modeling_options.Bond Wire Modeling",
           "component": "modelingOptions",
           "property": "bondWireModeling",
           "label": "Bond Wire Modeling",
@@ -1097,7 +1097,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "fbga_fsbga.modeling_options.Localize Grid",
+          "target_id": "chip_array.modeling_options.Localize Grid",
           "component": "modelingOptions",
           "property": "localizeGrid",
           "label": "Localize Grid",
@@ -1113,7 +1113,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "fbga_fsbga.modeling_options.Grid Density",
+          "target_id": "chip_array.modeling_options.Grid Density",
           "component": "modelingOptions",
           "property": "gridDensity",
           "label": "Grid Density",
@@ -1131,7 +1131,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "fbga_fsbga.starter.Design Name",
+          "target_id": "chip_array.starter.Design Name",
           "component": null,
           "property": "designName",
           "label": "Design Name",
@@ -1139,7 +1139,7 @@
           "status": "not_model_input"
         },
         {
-          "target_id": "fbga_fsbga.summary.Design Name",
+          "target_id": "chip_array.summary.Design Name",
           "component": "summary",
           "property": "designName",
           "label": "Design Name",
@@ -1147,7 +1147,7 @@
           "status": "not_model_input"
         },
         {
-          "target_id": "fbga_fsbga.summary.Part Number",
+          "target_id": "chip_array.summary.Part Number",
           "component": "summary",
           "property": "partNumber",
           "label": "Part Number",
@@ -1155,7 +1155,7 @@
           "status": "not_model_input"
         },
         {
-          "target_id": "fbga_fsbga.summary.Vendor Name",
+          "target_id": "chip_array.summary.Vendor Name",
           "component": "summary",
           "property": "vendorName",
           "label": "Vendor Name",
@@ -1163,7 +1163,7 @@
           "status": "not_model_input"
         },
         {
-          "target_id": "fbga_fsbga.summary.Max Power",
+          "target_id": "chip_array.summary.Max Power",
           "component": "summary",
           "property": "maxPower",
           "label": "Max Power",
@@ -1171,7 +1171,7 @@
           "status": "not_model_input"
         },
         {
-          "target_id": "fbga_fsbga.summary.Max Operating Junction Temperature",
+          "target_id": "chip_array.summary.Max Operating Junction Temperature",
           "component": "summary",
           "property": "maxOperatingJunctionTemperature",
           "label": "Max Operating Junction Temperature",
@@ -1179,7 +1179,7 @@
           "status": "not_model_input"
         },
         {
-          "target_id": "fbga_fsbga.summary.Max Case Temperature",
+          "target_id": "chip_array.summary.Max Case Temperature",
           "component": "summary",
           "property": "maxCaseTemperature",
           "label": "Max Case Temperature",
@@ -1187,7 +1187,7 @@
           "status": "not_model_input"
         },
         {
-          "target_id": "fbga_fsbga.summary.Notes",
+          "target_id": "chip_array.summary.Notes",
           "component": "summary",
           "property": "notes",
           "label": "Notes",
@@ -1195,7 +1195,7 @@
           "status": "not_model_input"
         },
         {
-          "target_id": "fbga_fsbga.overall_package.Material Group",
+          "target_id": "chip_array.overall_package.Material Group",
           "component": "overallPackage",
           "property": null,
           "label": "Material Group",
@@ -1203,7 +1203,7 @@
           "status": "default_only"
         },
         {
-          "target_id": "fbga_fsbga.overall_package.Dielectric Material",
+          "target_id": "chip_array.overall_package.Dielectric Material",
           "component": "overallPackage",
           "property": "dielectricMaterial",
           "label": "Dielectric Material",
@@ -1211,7 +1211,7 @@
           "status": "default_only"
         },
         {
-          "target_id": "fbga_fsbga.die.Die Attach Material Group",
+          "target_id": "chip_array.die.Die Attach Material Group",
           "component": "die",
           "property": null,
           "label": "Die Attach Material Group",
@@ -1219,7 +1219,7 @@
           "status": "default_only"
         },
         {
-          "target_id": "fbga_fsbga.die.Die Attach Material",
+          "target_id": "chip_array.die.Die Attach Material",
           "component": "die",
           "property": "dieAttachMaterial",
           "label": "Die Attach Material",
@@ -1227,7 +1227,7 @@
           "status": "default_only"
         },
         {
-          "target_id": "fbga_fsbga.encapsulant.Material Group",
+          "target_id": "chip_array.encapsulant.Material Group",
           "component": "encapsulant",
           "property": null,
           "label": "Material Group",
@@ -1235,7 +1235,7 @@
           "status": "default_only"
         },
         {
-          "target_id": "fbga_fsbga.encapsulant.Encapsulant Material",
+          "target_id": "chip_array.encapsulant.Encapsulant Material",
           "component": "encapsulant",
           "property": "encapsulantMaterial",
           "label": "Encapsulant Material",
@@ -1243,7 +1243,7 @@
           "status": "default_only"
         },
         {
-          "target_id": "fbga_fsbga.encapsulant.Solder Mask Material Group",
+          "target_id": "chip_array.encapsulant.Solder Mask Material Group",
           "component": "encapsulant",
           "property": null,
           "label": "Solder Mask Material Group",
@@ -1251,7 +1251,7 @@
           "status": "default_only"
         },
         {
-          "target_id": "fbga_fsbga.encapsulant.Solder Mask Material",
+          "target_id": "chip_array.encapsulant.Solder Mask Material",
           "component": "encapsulant",
           "property": "solderMaskMaterial",
           "label": "Solder Mask Material",
@@ -1259,7 +1259,7 @@
           "status": "default_only"
         },
         {
-          "target_id": "fbga_fsbga.bond_wires.Material Group",
+          "target_id": "chip_array.bond_wires.Material Group",
           "component": "bondWires",
           "property": null,
           "label": "Material Group",
@@ -1267,7 +1267,7 @@
           "status": "default_only"
         },
         {
-          "target_id": "fbga_fsbga.bond_wires.Material",
+          "target_id": "chip_array.bond_wires.Material",
           "component": "bondWires",
           "property": "bondWireMaterial",
           "label": "Material",
@@ -1275,7 +1275,7 @@
           "status": "default_only"
         },
         {
-          "target_id": "fbga_fsbga.metal_layers.Material Group",
+          "target_id": "chip_array.metal_layers.Material Group",
           "component": "metalLayers",
           "property": null,
           "label": "Material Group",
@@ -1283,7 +1283,7 @@
           "status": "default_only"
         },
         {
-          "target_id": "fbga_fsbga.metal_layers.Material of Metal",
+          "target_id": "chip_array.metal_layers.Material of Metal",
           "component": "metalLayers",
           "property": "materialOfMetal",
           "label": "Material of Metal",
@@ -1291,7 +1291,7 @@
           "status": "default_only"
         },
         {
-          "target_id": "fbga_fsbga.metal_layers.Substrate Layer",
+          "target_id": "chip_array.metal_layers.Substrate Layer",
           "component": "metalLayers",
           "property": "substrateLayer",
           "label": "Substrate Layer",
@@ -1299,7 +1299,7 @@
           "status": "duplicate_ui_alias"
         },
         {
-          "target_id": "fbga_fsbga.metal_layers.Layers",
+          "target_id": "chip_array.metal_layers.Layers",
           "component": "metalLayers",
           "property": null,
           "label": "Layers",
@@ -1307,7 +1307,7 @@
           "status": "separate_representative_editor_case"
         },
         {
-          "target_id": "fbga_fsbga.metal_layers.Top Metal Layer Hole Material Group",
+          "target_id": "chip_array.metal_layers.Top Metal Layer Hole Material Group",
           "component": "metalLayers",
           "property": null,
           "label": "Top Metal Layer Hole Material Group",
@@ -1315,7 +1315,7 @@
           "status": "default_only"
         },
         {
-          "target_id": "fbga_fsbga.metal_layers.Top Metal Layer Hole Conductivity",
+          "target_id": "chip_array.metal_layers.Top Metal Layer Hole Conductivity",
           "component": "metalLayers",
           "property": "conductivity",
           "label": "Top Metal Layer Hole Conductivity",
@@ -1323,7 +1323,7 @@
           "status": "default_only"
         },
         {
-          "target_id": "fbga_fsbga.solder_balls.Material Group",
+          "target_id": "chip_array.solder_balls.Material Group",
           "component": "solderBalls",
           "property": null,
           "label": "Material Group",
@@ -1331,7 +1331,7 @@
           "status": "default_only"
         },
         {
-          "target_id": "fbga_fsbga.solder_balls.Solder Material",
+          "target_id": "chip_array.solder_balls.Solder Material",
           "component": "solderBalls",
           "property": "solderMaterial",
           "label": "Solder Material",
@@ -1339,7 +1339,7 @@
           "status": "default_only"
         },
         {
-          "target_id": "fbga_fsbga.solder_ball_depopulation.Depopulation",
+          "target_id": "chip_array.solder_ball_depopulation.Depopulation",
           "component": "solderBallDepopulation",
           "property": null,
           "label": "Depopulation",
@@ -1347,7 +1347,7 @@
           "status": "separate_representative_editor_case"
         },
         {
-          "target_id": "fbga_fsbga.modeling_options.Model Solder Ball Array As",
+          "target_id": "chip_array.modeling_options.Model Solder Ball Array As",
           "component": "modelingOptions",
           "property": "modelSolderBallArrayAs",
           "label": "Model Solder Ball Array As",
@@ -1357,16 +1357,16 @@
       ]
     },
     {
-      "template_id": "flip_chip_cbga",
+      "template_id": "cbga_fc",
       "status": "complete",
       "target_count": 65,
       "branch_baseline_count": 39,
       "variation_count": 115,
       "expected_export_count": 154,
-      "suite": "validation/comprehensive_replay_flip_chip_cbga.xml",
+      "suite": "validation/comprehensive_replay_cbga_fc.xml",
       "coverage": [
         {
-          "target_id": "flip_chip_cbga.starter.Outline Type",
+          "target_id": "cbga_fc.starter.Outline Type",
           "component": "new_package",
           "property": "outlineType",
           "label": "Outline Type",
@@ -1382,7 +1382,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_cbga.starter.JEDEC Footprint",
+          "target_id": "cbga_fc.starter.JEDEC Footprint",
           "component": "new_package",
           "property": "jedecFootprint",
           "label": "JEDEC Footprint",
@@ -1400,7 +1400,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_cbga.starter.Top Cover",
+          "target_id": "cbga_fc.starter.Top Cover",
           "component": "new_package",
           "property": "topCover",
           "label": "Top Cover",
@@ -1420,7 +1420,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_cbga.package_substrate.Length D",
+          "target_id": "cbga_fc.package_substrate.Length D",
           "component": "packageSubstrate",
           "property": "substrateLengthD",
           "label": "Length D",
@@ -1438,7 +1438,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_cbga.package_substrate.Width E",
+          "target_id": "cbga_fc.package_substrate.Width E",
           "component": "packageSubstrate",
           "property": "substrateWidthE",
           "label": "Width E",
@@ -1456,7 +1456,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_cbga.package_substrate.Thickness A2",
+          "target_id": "cbga_fc.package_substrate.Thickness A2",
           "component": "packageSubstrate",
           "property": "substrateThicknessA2",
           "label": "Thickness A2",
@@ -1474,7 +1474,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_cbga.die.Package Power",
+          "target_id": "cbga_fc.die.Package Power",
           "component": "die",
           "property": "packagePower",
           "label": "Package Power",
@@ -1492,7 +1492,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_cbga.die.Non-uniform Die Heat",
+          "target_id": "cbga_fc.die.Non-uniform Die Heat",
           "component": "die",
           "property": "nonUniformDieHeat",
           "label": "Non-uniform Die Heat",
@@ -1508,7 +1508,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_cbga.die.Die Length Ld",
+          "target_id": "cbga_fc.die.Die Length Ld",
           "component": "die",
           "property": "dieLengthLd",
           "label": "Die Length Ld",
@@ -1526,7 +1526,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_cbga.die.Die Width Wd",
+          "target_id": "cbga_fc.die.Die Width Wd",
           "component": "die",
           "property": "dieWidthWd",
           "label": "Die Width Wd",
@@ -1544,7 +1544,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_cbga.die.Die Thickness td",
+          "target_id": "cbga_fc.die.Die Thickness td",
           "component": "die",
           "property": "dieThicknessTd",
           "label": "Die Thickness td",
@@ -1562,7 +1562,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_cbga.flip_chip_bumps.Array Type",
+          "target_id": "cbga_fc.flip_chip_bumps.Array Type",
           "component": "flipChipBumps",
           "property": "arrayType",
           "label": "Array Type",
@@ -1578,7 +1578,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_cbga.flip_chip_bumps.Total Number of Bumps MNC4",
+          "target_id": "cbga_fc.flip_chip_bumps.Total Number of Bumps MNC4",
           "component": "flipChipBumps",
           "property": "totalNumberOfBumpsMNC4",
           "label": "Total Number of Bumps MNC4",
@@ -1596,7 +1596,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_cbga.flip_chip_bumps.Number of Bumps in X MDC4",
+          "target_id": "cbga_fc.flip_chip_bumps.Number of Bumps in X MDC4",
           "component": "flipChipBumps",
           "property": "numberOfBumpsInXMDC4",
           "label": "Number of Bumps in X MDC4",
@@ -1614,7 +1614,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_cbga.flip_chip_bumps.Number of Bumps in Y MEC4",
+          "target_id": "cbga_fc.flip_chip_bumps.Number of Bumps in Y MEC4",
           "component": "flipChipBumps",
           "property": "numberOfBumpsInYMEC4",
           "label": "Number of Bumps in Y MEC4",
@@ -1632,7 +1632,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_cbga.flip_chip_bumps.Bump Diameter",
+          "target_id": "cbga_fc.flip_chip_bumps.Bump Diameter",
           "component": "flipChipBumps",
           "property": "bumpDiameterBC4",
           "label": "Bump Diameter",
@@ -1650,7 +1650,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_cbga.flip_chip_bumps.Bump Height",
+          "target_id": "cbga_fc.flip_chip_bumps.Bump Height",
           "component": "flipChipBumps",
           "property": "bumpHeightTC4",
           "label": "Bump Height",
@@ -1668,7 +1668,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_cbga.flip_chip_bumps.Underfill",
+          "target_id": "cbga_fc.flip_chip_bumps.Underfill",
           "component": "flipChipBumps",
           "property": "underfill",
           "label": "Underfill",
@@ -1684,7 +1684,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_cbga.solder_balls.Number in X MD",
+          "target_id": "cbga_fc.solder_balls.Number in X MD",
           "component": "solderBalls",
           "property": "numberOfSolderBallsInXMD",
           "label": "Number in X MD",
@@ -1702,7 +1702,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_cbga.solder_balls.Number in Y ME",
+          "target_id": "cbga_fc.solder_balls.Number in Y ME",
           "component": "solderBalls",
           "property": "numberOfSolderBallsInYME",
           "label": "Number in Y ME",
@@ -1720,7 +1720,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_cbga.solder_balls.Ball Diameter",
+          "target_id": "cbga_fc.solder_balls.Ball Diameter",
           "component": "solderBalls",
           "property": "ballDiameterB",
           "label": "Ball Diameter",
@@ -1738,7 +1738,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_cbga.solder_balls.Pitch",
+          "target_id": "cbga_fc.solder_balls.Pitch",
           "component": "solderBalls",
           "property": "ballPitchE",
           "label": "Pitch",
@@ -1756,7 +1756,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_cbga.solder_balls.Substrate Stand-off A1",
+          "target_id": "cbga_fc.solder_balls.Substrate Stand-off A1",
           "component": "solderBalls",
           "property": "substrateStandoffA1",
           "label": "Substrate Stand-off A1",
@@ -1774,7 +1774,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_cbga.solder_balls.Staggered Matrix",
+          "target_id": "cbga_fc.solder_balls.Staggered Matrix",
           "component": "solderBalls",
           "property": "staggeredMatrix",
           "label": "Staggered Matrix",
@@ -1790,7 +1790,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_cbga.solder_balls.Solder Ball Map",
+          "target_id": "cbga_fc.solder_balls.Solder Ball Map",
           "component": "solderBalls",
           "property": "solderBallMap",
           "label": "Solder Ball Map",
@@ -1806,7 +1806,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_cbga.solder_ball_depopulation.Depopulated Center",
+          "target_id": "cbga_fc.solder_ball_depopulation.Depopulated Center",
           "component": "solderBallDepopulation",
           "property": "depopulatedCenter",
           "label": "Depopulated Center",
@@ -1822,7 +1822,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_cbga.solder_ball_depopulation.Number of Fully Populated Rows MDp",
+          "target_id": "cbga_fc.solder_ball_depopulation.Number of Fully Populated Rows MDp",
           "component": "solderBallDepopulation",
           "property": "numberFullyPopulatedRowsMDp",
           "label": "Number of Fully Populated Rows MDp",
@@ -1840,7 +1840,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_cbga.solder_ball_depopulation.Number of Fully Populated Rows MEp",
+          "target_id": "cbga_fc.solder_ball_depopulation.Number of Fully Populated Rows MEp",
           "component": "solderBallDepopulation",
           "property": "numberFullyPopulatedRowsMEp",
           "label": "Number of Fully Populated Rows MEp",
@@ -1858,7 +1858,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_cbga.central_balls.Central Balls",
+          "target_id": "cbga_fc.central_balls.Central Balls",
           "component": "centralBalls",
           "property": "centralBalls",
           "label": "Central Balls",
@@ -1874,7 +1874,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_cbga.central_balls.Number Central Rows MDc",
+          "target_id": "cbga_fc.central_balls.Number Central Rows MDc",
           "component": "centralBalls",
           "property": "numberCentralRowsMDp",
           "label": "Number Central Rows MDc",
@@ -1892,7 +1892,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_cbga.central_balls.Number Central Rows MEc",
+          "target_id": "cbga_fc.central_balls.Number Central Rows MEc",
           "component": "centralBalls",
           "property": "numberCentralRowsMEp",
           "label": "Number Central Rows MEc",
@@ -1910,7 +1910,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_cbga.central_balls.Staggered Matrix",
+          "target_id": "cbga_fc.central_balls.Staggered Matrix",
           "component": "centralBalls",
           "property": "staggeredMatrix",
           "label": "Staggered Matrix",
@@ -1926,7 +1926,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_cbga.drop_in_slug.Include Slug",
+          "target_id": "cbga_fc.drop_in_slug.Include Slug",
           "component": "dropInSlug",
           "property": "includeSlug",
           "label": "Include Slug",
@@ -1942,7 +1942,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_cbga.drop_in_slug.Slug Length Lsl",
+          "target_id": "cbga_fc.drop_in_slug.Slug Length Lsl",
           "component": "dropInSlug",
           "property": "slugLengthLsl",
           "label": "Slug Length Lsl",
@@ -1960,7 +1960,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_cbga.drop_in_slug.Slug Width Wsl",
+          "target_id": "cbga_fc.drop_in_slug.Slug Width Wsl",
           "component": "dropInSlug",
           "property": "slugWidthWsl",
           "label": "Slug Width Wsl",
@@ -1978,7 +1978,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_cbga.drop_in_slug.Slug Thickness tsl",
+          "target_id": "cbga_fc.drop_in_slug.Slug Thickness tsl",
           "component": "dropInSlug",
           "property": "slugThicknessTsl",
           "label": "Slug Thickness tsl",
@@ -1996,7 +1996,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_cbga.drop_in_slug.Slug Diameter ds",
+          "target_id": "cbga_fc.drop_in_slug.Slug Diameter ds",
           "component": "dropInSlug",
           "property": "slugDiameterDs",
           "label": "Slug Diameter ds",
@@ -2014,7 +2014,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_cbga.drop_in_slug.Slug Foot Extend Length Lsf",
+          "target_id": "cbga_fc.drop_in_slug.Slug Foot Extend Length Lsf",
           "component": "dropInSlug",
           "property": "slugFootExtendLengthLsf",
           "label": "Slug Foot Extend Length Lsf",
@@ -2032,7 +2032,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_cbga.drop_in_slug.Slug Foot Extend Width Wsf",
+          "target_id": "cbga_fc.drop_in_slug.Slug Foot Extend Width Wsf",
           "component": "dropInSlug",
           "property": "slugFootExtendWidthWsf",
           "label": "Slug Foot Extend Width Wsf",
@@ -2050,7 +2050,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_cbga.drop_in_slug.Slug Offset Gs",
+          "target_id": "cbga_fc.drop_in_slug.Slug Offset Gs",
           "component": "dropInSlug",
           "property": "slugOffsetGs",
           "label": "Slug Offset Gs",
@@ -2068,7 +2068,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_cbga.drop_in_slug.Slug Foot Clearance gsf",
+          "target_id": "cbga_fc.drop_in_slug.Slug Foot Clearance gsf",
           "component": "dropInSlug",
           "property": "slugFootClearanceGsf",
           "label": "Slug Foot Clearance gsf",
@@ -2086,7 +2086,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_cbga.drop_in_slug.Adhesive Present Under Slug Foot",
+          "target_id": "cbga_fc.drop_in_slug.Adhesive Present Under Slug Foot",
           "component": "dropInSlug",
           "property": "adhesivePresentUnderSlugFoot",
           "label": "Adhesive Present Under Slug Foot",
@@ -2102,7 +2102,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_cbga.modeling_options.Model Solder Ball Array As",
+          "target_id": "cbga_fc.modeling_options.Model Solder Ball Array As",
           "component": "modelingOptions",
           "property": "modelSolderBallArrayAs",
           "label": "Model Solder Ball Array As",
@@ -2118,7 +2118,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_cbga.modeling_options.Model Flip Chip Bumps As",
+          "target_id": "cbga_fc.modeling_options.Model Flip Chip Bumps As",
           "component": "modelingOptions",
           "property": "modelFlipChipBumpsAs",
           "label": "Model Flip Chip Bumps As",
@@ -2134,7 +2134,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_cbga.modeling_options.Localize Grid",
+          "target_id": "cbga_fc.modeling_options.Localize Grid",
           "component": "modelingOptions",
           "property": "localizeGrid",
           "label": "Localize Grid",
@@ -2150,7 +2150,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_cbga.modeling_options.Grid Density",
+          "target_id": "cbga_fc.modeling_options.Grid Density",
           "component": "modelingOptions",
           "property": "gridDensity",
           "label": "Grid Density",
@@ -2168,7 +2168,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_cbga.top_cover.lid.Lid Length Lc",
+          "target_id": "cbga_fc.top_cover.lid.Lid Length Lc",
           "component": "topCover",
           "property": "lidLengthLc",
           "label": "Lid Length Lc",
@@ -2186,7 +2186,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_cbga.top_cover.lid.Lid Width Wc",
+          "target_id": "cbga_fc.top_cover.lid.Lid Width Wc",
           "component": "topCover",
           "property": "lidWidthWc",
           "label": "Lid Width Wc",
@@ -2204,7 +2204,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_cbga.top_cover.lid.Lid Thickness Tc",
+          "target_id": "cbga_fc.top_cover.lid.Lid Thickness Tc",
           "component": "topCover",
           "property": "lidThicknessTc",
           "label": "Lid Thickness Tc",
@@ -2222,7 +2222,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_cbga.top_cover.lid.Lid Base Thickness Tcb",
+          "target_id": "cbga_fc.top_cover.lid.Lid Base Thickness Tcb",
           "component": "topCover",
           "property": "lidBaseThicknessTcb",
           "label": "Lid Base Thickness Tcb",
@@ -2240,7 +2240,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_cbga.top_cover.lid.Die Attach Thickness tda",
+          "target_id": "cbga_fc.top_cover.lid.Die Attach Thickness tda",
           "component": "topCover",
           "property": "dieAttachThicknessTda",
           "label": "Die Attach Thickness tda",
@@ -2258,7 +2258,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_cbga.top_cover.lid.Lid Adhesive Thickness",
+          "target_id": "cbga_fc.top_cover.lid.Lid Adhesive Thickness",
           "component": "topCover",
           "property": "lidAdhesiveThickness",
           "label": "Lid Adhesive Thickness",
@@ -2276,7 +2276,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_cbga.top_cover.lid.Stiffener",
+          "target_id": "cbga_fc.top_cover.lid.Stiffener",
           "component": "topCover",
           "property": "stiffener",
           "label": "Stiffener",
@@ -2292,7 +2292,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_cbga.top_cover.lid_stiffener.Stiffener Length Ls",
+          "target_id": "cbga_fc.top_cover.lid_stiffener.Stiffener Length Ls",
           "component": "topCover",
           "property": "stiffenerLengthLs",
           "label": "Stiffener Length Ls",
@@ -2310,7 +2310,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_cbga.top_cover.lid_stiffener.Stiffener Width Ws",
+          "target_id": "cbga_fc.top_cover.lid_stiffener.Stiffener Width Ws",
           "component": "topCover",
           "property": "stiffenerWidthWs",
           "label": "Stiffener Width Ws",
@@ -2328,7 +2328,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_cbga.top_cover.lid_stiffener.Stiffener Cavity Length Lsc",
+          "target_id": "cbga_fc.top_cover.lid_stiffener.Stiffener Cavity Length Lsc",
           "component": "topCover",
           "property": "stiffenerCavityLengthLsc",
           "label": "Stiffener Cavity Length Lsc",
@@ -2346,7 +2346,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_cbga.top_cover.lid_stiffener.Stiffener Cavity Width Wsc",
+          "target_id": "cbga_fc.top_cover.lid_stiffener.Stiffener Cavity Width Wsc",
           "component": "topCover",
           "property": "stiffenerCavityWidthWsc",
           "label": "Stiffener Cavity Width Wsc",
@@ -2364,7 +2364,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_cbga.top_cover.lid_stiffener.Stiffener Adhesive Thickness",
+          "target_id": "cbga_fc.top_cover.lid_stiffener.Stiffener Adhesive Thickness",
           "component": "topCover",
           "property": "stiffenerAdhesiveThickness",
           "label": "Stiffener Adhesive Thickness",
@@ -2382,7 +2382,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_cbga.top_cover.plate.Plate Length Lc",
+          "target_id": "cbga_fc.top_cover.plate.Plate Length Lc",
           "component": "topCover",
           "property": "plateLengthLc",
           "label": "Plate Length Lc",
@@ -2400,7 +2400,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_cbga.top_cover.plate.Plate Width Wc",
+          "target_id": "cbga_fc.top_cover.plate.Plate Width Wc",
           "component": "topCover",
           "property": "plateWidthWc",
           "label": "Plate Width Wc",
@@ -2418,7 +2418,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_cbga.top_cover.plate.Plate Thickness Tc",
+          "target_id": "cbga_fc.top_cover.plate.Plate Thickness Tc",
           "component": "topCover",
           "property": "plateThicknessTc",
           "label": "Plate Thickness Tc",
@@ -2436,7 +2436,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_cbga.top_cover.encapsulant.Encapsulant Length Le",
+          "target_id": "cbga_fc.top_cover.encapsulant.Encapsulant Length Le",
           "component": "topCover",
           "property": "lengthLe",
           "label": "Encapsulant Length Le",
@@ -2454,7 +2454,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_cbga.top_cover.encapsulant.Encapsulant Width We",
+          "target_id": "cbga_fc.top_cover.encapsulant.Encapsulant Width We",
           "component": "topCover",
           "property": "widthWe",
           "label": "Encapsulant Width We",
@@ -2472,7 +2472,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_cbga.top_cover.encapsulant.Enable Die Flush",
+          "target_id": "cbga_fc.top_cover.encapsulant.Enable Die Flush",
           "component": "topCover",
           "property": "enableDieFlush",
           "label": "Enable Die Flush",
@@ -2488,7 +2488,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_cbga.top_cover.encapsulant.Encapsulant Thickness Te",
+          "target_id": "cbga_fc.top_cover.encapsulant.Encapsulant Thickness Te",
           "component": "topCover",
           "property": "thicknessTe",
           "label": "Encapsulant Thickness Te",
@@ -2506,7 +2506,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_cbga.starter.Design Name",
+          "target_id": "cbga_fc.starter.Design Name",
           "component": null,
           "property": "designName",
           "label": "Design Name",
@@ -2514,7 +2514,7 @@
           "status": "not_model_input"
         },
         {
-          "target_id": "flip_chip_cbga.summary.Design Name",
+          "target_id": "cbga_fc.summary.Design Name",
           "component": "summary",
           "property": "designName",
           "label": "Design Name",
@@ -2522,7 +2522,7 @@
           "status": "not_model_input"
         },
         {
-          "target_id": "flip_chip_cbga.summary.Part Number",
+          "target_id": "cbga_fc.summary.Part Number",
           "component": "summary",
           "property": "partNumber",
           "label": "Part Number",
@@ -2530,7 +2530,7 @@
           "status": "not_model_input"
         },
         {
-          "target_id": "flip_chip_cbga.summary.Vendor Name",
+          "target_id": "cbga_fc.summary.Vendor Name",
           "component": "summary",
           "property": "vendorName",
           "label": "Vendor Name",
@@ -2538,7 +2538,7 @@
           "status": "not_model_input"
         },
         {
-          "target_id": "flip_chip_cbga.summary.Max Power",
+          "target_id": "cbga_fc.summary.Max Power",
           "component": "summary",
           "property": "maxPower",
           "label": "Max Power",
@@ -2546,7 +2546,7 @@
           "status": "not_model_input"
         },
         {
-          "target_id": "flip_chip_cbga.summary.Max Operating Junction Temperature",
+          "target_id": "cbga_fc.summary.Max Operating Junction Temperature",
           "component": "summary",
           "property": "maxOperatingJunctionTemperature",
           "label": "Max Operating Junction Temperature",
@@ -2554,7 +2554,7 @@
           "status": "not_model_input"
         },
         {
-          "target_id": "flip_chip_cbga.summary.Max Case Temperature",
+          "target_id": "cbga_fc.summary.Max Case Temperature",
           "component": "summary",
           "property": "maxCaseTemperature",
           "label": "Max Case Temperature",
@@ -2562,7 +2562,7 @@
           "status": "not_model_input"
         },
         {
-          "target_id": "flip_chip_cbga.summary.Notes",
+          "target_id": "cbga_fc.summary.Notes",
           "component": "summary",
           "property": "notes",
           "label": "Notes",
@@ -2570,7 +2570,7 @@
           "status": "not_model_input"
         },
         {
-          "target_id": "flip_chip_cbga.package_substrate.Material Group",
+          "target_id": "cbga_fc.package_substrate.Material Group",
           "component": "packageSubstrate",
           "property": null,
           "label": "Material Group",
@@ -2578,7 +2578,7 @@
           "status": "default_only"
         },
         {
-          "target_id": "flip_chip_cbga.package_substrate.Dielectric Material",
+          "target_id": "cbga_fc.package_substrate.Dielectric Material",
           "component": "packageSubstrate",
           "property": "dielectricMaterial",
           "label": "Dielectric Material",
@@ -2586,7 +2586,7 @@
           "status": "default_only"
         },
         {
-          "target_id": "flip_chip_cbga.die.Click To Edit",
+          "target_id": "cbga_fc.die.Click To Edit",
           "component": "die",
           "property": null,
           "label": "Click To Edit",
@@ -2594,7 +2594,7 @@
           "status": "separate_representative_editor_case"
         },
         {
-          "target_id": "flip_chip_cbga.flip_chip_bumps.C4 Solder Material Group",
+          "target_id": "cbga_fc.flip_chip_bumps.C4 Solder Material Group",
           "component": "flipChipBumps",
           "property": null,
           "label": "C4 Solder Material Group",
@@ -2602,7 +2602,7 @@
           "status": "default_only"
         },
         {
-          "target_id": "flip_chip_cbga.flip_chip_bumps.C4 Solder",
+          "target_id": "cbga_fc.flip_chip_bumps.C4 Solder",
           "component": "flipChipBumps",
           "property": "c4SolderMaterial",
           "label": "C4 Solder",
@@ -2610,7 +2610,7 @@
           "status": "default_only"
         },
         {
-          "target_id": "flip_chip_cbga.flip_chip_bumps.Underfill Material Group",
+          "target_id": "cbga_fc.flip_chip_bumps.Underfill Material Group",
           "component": "flipChipBumps",
           "property": null,
           "label": "Underfill Material Group",
@@ -2618,7 +2618,7 @@
           "status": "default_only"
         },
         {
-          "target_id": "flip_chip_cbga.flip_chip_bumps.Underfill Material",
+          "target_id": "cbga_fc.flip_chip_bumps.Underfill Material",
           "component": "flipChipBumps",
           "property": "underfillMaterial",
           "label": "Underfill Material",
@@ -2626,7 +2626,7 @@
           "status": "default_only"
         },
         {
-          "target_id": "flip_chip_cbga.solder_balls.Material Group",
+          "target_id": "cbga_fc.solder_balls.Material Group",
           "component": "solderBalls",
           "property": null,
           "label": "Material Group",
@@ -2634,7 +2634,7 @@
           "status": "default_only"
         },
         {
-          "target_id": "flip_chip_cbga.solder_balls.Solder Material",
+          "target_id": "cbga_fc.solder_balls.Solder Material",
           "component": "solderBalls",
           "property": "solderMaterial",
           "label": "Solder Material",
@@ -2642,7 +2642,7 @@
           "status": "default_only"
         },
         {
-          "target_id": "flip_chip_cbga.solder_balls.Click To Edit",
+          "target_id": "cbga_fc.solder_balls.Click To Edit",
           "component": "solderBalls",
           "property": null,
           "label": "Click To Edit",
@@ -2650,7 +2650,7 @@
           "status": "separate_representative_editor_case"
         },
         {
-          "target_id": "flip_chip_cbga.solder_ball_depopulation.Click To Edit",
+          "target_id": "cbga_fc.solder_ball_depopulation.Click To Edit",
           "component": "solderBallDepopulation",
           "property": null,
           "label": "Click To Edit",
@@ -2658,7 +2658,7 @@
           "status": "separate_representative_editor_case"
         },
         {
-          "target_id": "flip_chip_cbga.top_cover.Top Cover",
+          "target_id": "cbga_fc.top_cover.Top Cover",
           "component": "topCover",
           "property": "topCover",
           "label": "Top Cover",
@@ -2666,7 +2666,7 @@
           "status": "duplicate_ui_alias"
         },
         {
-          "target_id": "flip_chip_cbga.drop_in_slug.Slug Material Group",
+          "target_id": "cbga_fc.drop_in_slug.Slug Material Group",
           "component": "dropInSlug",
           "property": null,
           "label": "Slug Material Group",
@@ -2674,7 +2674,7 @@
           "status": "default_only"
         },
         {
-          "target_id": "flip_chip_cbga.drop_in_slug.Slug Material",
+          "target_id": "cbga_fc.drop_in_slug.Slug Material",
           "component": "dropInSlug",
           "property": "slugMaterial",
           "label": "Slug Material",
@@ -2682,7 +2682,7 @@
           "status": "default_only"
         },
         {
-          "target_id": "flip_chip_cbga.drop_in_slug.Slug Adhesive Material Group",
+          "target_id": "cbga_fc.drop_in_slug.Slug Adhesive Material Group",
           "component": "dropInSlug",
           "property": null,
           "label": "Slug Adhesive Material Group",
@@ -2690,7 +2690,7 @@
           "status": "default_only"
         },
         {
-          "target_id": "flip_chip_cbga.drop_in_slug.Slug Adhesive Material",
+          "target_id": "cbga_fc.drop_in_slug.Slug Adhesive Material",
           "component": "dropInSlug",
           "property": "slugAdhesiveMaterial",
           "label": "Slug Adhesive Material",
@@ -2700,16 +2700,16 @@
       ]
     },
     {
-      "template_id": "flip_chip_pbga",
+      "template_id": "pbga_fc",
       "status": "complete",
       "target_count": 71,
       "branch_baseline_count": 45,
       "variation_count": 126,
       "expected_export_count": 171,
-      "suite": "validation/comprehensive_replay_flip_chip_pbga.xml",
+      "suite": "validation/comprehensive_replay_pbga_fc.xml",
       "coverage": [
         {
-          "target_id": "flip_chip_pbga.starter.Outline Type",
+          "target_id": "pbga_fc.starter.Outline Type",
           "component": "new_package",
           "property": "outlineType",
           "label": "Outline Type",
@@ -2725,7 +2725,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_pbga.starter.JEDEC Footprint",
+          "target_id": "pbga_fc.starter.JEDEC Footprint",
           "component": "new_package",
           "property": "jedecFootprint",
           "label": "JEDEC Footprint",
@@ -2743,7 +2743,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_pbga.starter.Top Cover",
+          "target_id": "pbga_fc.starter.Top Cover",
           "component": "new_package",
           "property": "topCover",
           "label": "Top Cover",
@@ -2763,7 +2763,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_pbga.package_substrate.Length D",
+          "target_id": "pbga_fc.package_substrate.Length D",
           "component": "packageSubstrate",
           "property": "substrateLengthD",
           "label": "Length D",
@@ -2781,7 +2781,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_pbga.package_substrate.Width E",
+          "target_id": "pbga_fc.package_substrate.Width E",
           "component": "packageSubstrate",
           "property": "substrateWidthE",
           "label": "Width E",
@@ -2799,7 +2799,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_pbga.package_substrate.Thickness A2",
+          "target_id": "pbga_fc.package_substrate.Thickness A2",
           "component": "packageSubstrate",
           "property": "substrateThicknessA2",
           "label": "Thickness A2",
@@ -2817,7 +2817,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_pbga.die.Package Power",
+          "target_id": "pbga_fc.die.Package Power",
           "component": "die",
           "property": "packagePower",
           "label": "Package Power",
@@ -2835,7 +2835,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_pbga.die.Non-uniform Die Heat",
+          "target_id": "pbga_fc.die.Non-uniform Die Heat",
           "component": "die",
           "property": "nonUniformDieHeat",
           "label": "Non-uniform Die Heat",
@@ -2851,7 +2851,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_pbga.die.Die Length Ld",
+          "target_id": "pbga_fc.die.Die Length Ld",
           "component": "die",
           "property": "dieLengthLd",
           "label": "Die Length Ld",
@@ -2869,7 +2869,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_pbga.die.Die Width Wd",
+          "target_id": "pbga_fc.die.Die Width Wd",
           "component": "die",
           "property": "dieWidthWd",
           "label": "Die Width Wd",
@@ -2887,7 +2887,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_pbga.die.Die Thickness td",
+          "target_id": "pbga_fc.die.Die Thickness td",
           "component": "die",
           "property": "dieThicknessTd",
           "label": "Die Thickness td",
@@ -2905,7 +2905,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_pbga.flip_chip_bumps.Array Type",
+          "target_id": "pbga_fc.flip_chip_bumps.Array Type",
           "component": "flipChipBumps",
           "property": "arrayType",
           "label": "Array Type",
@@ -2921,7 +2921,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_pbga.flip_chip_bumps.Total Number of Bumps MNC4",
+          "target_id": "pbga_fc.flip_chip_bumps.Total Number of Bumps MNC4",
           "component": "flipChipBumps",
           "property": "totalNumberOfBumpsMNC4",
           "label": "Total Number of Bumps MNC4",
@@ -2939,7 +2939,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_pbga.flip_chip_bumps.Number of Bumps in X MDC4",
+          "target_id": "pbga_fc.flip_chip_bumps.Number of Bumps in X MDC4",
           "component": "flipChipBumps",
           "property": "numberOfBumpsInXMDC4",
           "label": "Number of Bumps in X MDC4",
@@ -2957,7 +2957,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_pbga.flip_chip_bumps.Number of Bumps in Y MEC4",
+          "target_id": "pbga_fc.flip_chip_bumps.Number of Bumps in Y MEC4",
           "component": "flipChipBumps",
           "property": "numberOfBumpsInYMEC4",
           "label": "Number of Bumps in Y MEC4",
@@ -2975,7 +2975,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_pbga.flip_chip_bumps.Bump Diameter",
+          "target_id": "pbga_fc.flip_chip_bumps.Bump Diameter",
           "component": "flipChipBumps",
           "property": "bumpDiameterBC4",
           "label": "Bump Diameter",
@@ -2993,7 +2993,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_pbga.flip_chip_bumps.Bump Height",
+          "target_id": "pbga_fc.flip_chip_bumps.Bump Height",
           "component": "flipChipBumps",
           "property": "bumpHeightTC4",
           "label": "Bump Height",
@@ -3011,7 +3011,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_pbga.flip_chip_bumps.Underfill",
+          "target_id": "pbga_fc.flip_chip_bumps.Underfill",
           "component": "flipChipBumps",
           "property": "underfill",
           "label": "Underfill",
@@ -3027,7 +3027,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_pbga.core_vias.Number in X",
+          "target_id": "pbga_fc.core_vias.Number in X",
           "component": "coreVias",
           "property": "numberOfThermalViasInXNVx",
           "label": "Number in X",
@@ -3045,7 +3045,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_pbga.core_vias.Number in Y",
+          "target_id": "pbga_fc.core_vias.Number in Y",
           "component": "coreVias",
           "property": "numberOfThermalViasInYNVy",
           "label": "Number in Y",
@@ -3063,7 +3063,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_pbga.core_vias.Via Diameter",
+          "target_id": "pbga_fc.core_vias.Via Diameter",
           "component": "coreVias",
           "property": "viaDiameterDv",
           "label": "Via Diameter",
@@ -3081,7 +3081,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_pbga.core_vias.Via Pitch",
+          "target_id": "pbga_fc.core_vias.Via Pitch",
           "component": "coreVias",
           "property": "viaPitchEv",
           "label": "Via Pitch",
@@ -3099,7 +3099,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_pbga.core_vias.Via Plating Thickness",
+          "target_id": "pbga_fc.core_vias.Via Plating Thickness",
           "component": "coreVias",
           "property": "platingThicknessTpl",
           "label": "Via Plating Thickness",
@@ -3117,7 +3117,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_pbga.solder_balls.Number in X MD",
+          "target_id": "pbga_fc.solder_balls.Number in X MD",
           "component": "solderBalls",
           "property": "numberOfSolderBallsInXMD",
           "label": "Number in X MD",
@@ -3135,7 +3135,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_pbga.solder_balls.Number in Y ME",
+          "target_id": "pbga_fc.solder_balls.Number in Y ME",
           "component": "solderBalls",
           "property": "numberOfSolderBallsInYME",
           "label": "Number in Y ME",
@@ -3153,7 +3153,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_pbga.solder_balls.Ball Diameter",
+          "target_id": "pbga_fc.solder_balls.Ball Diameter",
           "component": "solderBalls",
           "property": "ballDiameterB",
           "label": "Ball Diameter",
@@ -3171,7 +3171,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_pbga.solder_balls.Pitch",
+          "target_id": "pbga_fc.solder_balls.Pitch",
           "component": "solderBalls",
           "property": "ballPitchE",
           "label": "Pitch",
@@ -3189,7 +3189,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_pbga.solder_balls.Substrate Stand-off A1",
+          "target_id": "pbga_fc.solder_balls.Substrate Stand-off A1",
           "component": "solderBalls",
           "property": "substrateStandoffA1",
           "label": "Substrate Stand-off A1",
@@ -3207,7 +3207,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_pbga.solder_balls.Staggered Matrix",
+          "target_id": "pbga_fc.solder_balls.Staggered Matrix",
           "component": "solderBalls",
           "property": "staggeredMatrix",
           "label": "Staggered Matrix",
@@ -3223,7 +3223,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_pbga.solder_balls.Solder Ball Map",
+          "target_id": "pbga_fc.solder_balls.Solder Ball Map",
           "component": "solderBalls",
           "property": "solderBallMap",
           "label": "Solder Ball Map",
@@ -3239,7 +3239,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_pbga.solder_ball_depopulation.Depopulated Center",
+          "target_id": "pbga_fc.solder_ball_depopulation.Depopulated Center",
           "component": "solderBallDepopulation",
           "property": "depopulatedCenter",
           "label": "Depopulated Center",
@@ -3255,7 +3255,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_pbga.solder_ball_depopulation.Number of Fully Populated Rows MDp",
+          "target_id": "pbga_fc.solder_ball_depopulation.Number of Fully Populated Rows MDp",
           "component": "solderBallDepopulation",
           "property": "numberFullyPopulatedRowsMDp",
           "label": "Number of Fully Populated Rows MDp",
@@ -3273,7 +3273,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_pbga.solder_ball_depopulation.Number of Fully Populated Rows MEp",
+          "target_id": "pbga_fc.solder_ball_depopulation.Number of Fully Populated Rows MEp",
           "component": "solderBallDepopulation",
           "property": "numberFullyPopulatedRowsMEp",
           "label": "Number of Fully Populated Rows MEp",
@@ -3291,7 +3291,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_pbga.central_balls.Central Balls",
+          "target_id": "pbga_fc.central_balls.Central Balls",
           "component": "centralBalls",
           "property": "centralBalls",
           "label": "Central Balls",
@@ -3307,7 +3307,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_pbga.central_balls.Number Central Rows MDc",
+          "target_id": "pbga_fc.central_balls.Number Central Rows MDc",
           "component": "centralBalls",
           "property": "numberCentralRowsMDp",
           "label": "Number Central Rows MDc",
@@ -3325,7 +3325,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_pbga.central_balls.Number Central Rows MEc",
+          "target_id": "pbga_fc.central_balls.Number Central Rows MEc",
           "component": "centralBalls",
           "property": "numberCentralRowsMEp",
           "label": "Number Central Rows MEc",
@@ -3343,7 +3343,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_pbga.central_balls.Staggered Matrix",
+          "target_id": "pbga_fc.central_balls.Staggered Matrix",
           "component": "centralBalls",
           "property": "staggeredMatrix",
           "label": "Staggered Matrix",
@@ -3359,7 +3359,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_pbga.drop_in_slug.Include Slug",
+          "target_id": "pbga_fc.drop_in_slug.Include Slug",
           "component": "dropInSlug",
           "property": "includeSlug",
           "label": "Include Slug",
@@ -3375,7 +3375,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_pbga.modeling_options.Model Solder Ball Array As",
+          "target_id": "pbga_fc.modeling_options.Model Solder Ball Array As",
           "component": "modelingOptions",
           "property": "modelSolderBallArrayAs",
           "label": "Model Solder Ball Array As",
@@ -3391,7 +3391,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_pbga.modeling_options.Model Core Vias As",
+          "target_id": "pbga_fc.modeling_options.Model Core Vias As",
           "component": "modelingOptions",
           "property": "modelCoreViasAs",
           "label": "Model Core Vias As",
@@ -3407,7 +3407,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_pbga.modeling_options.Model Flip Chip Bumps As",
+          "target_id": "pbga_fc.modeling_options.Model Flip Chip Bumps As",
           "component": "modelingOptions",
           "property": "modelFlipChipBumpsAs",
           "label": "Model Flip Chip Bumps As",
@@ -3423,7 +3423,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_pbga.modeling_options.Localize Grid",
+          "target_id": "pbga_fc.modeling_options.Localize Grid",
           "component": "modelingOptions",
           "property": "localizeGrid",
           "label": "Localize Grid",
@@ -3439,7 +3439,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_pbga.modeling_options.Grid Density",
+          "target_id": "pbga_fc.modeling_options.Grid Density",
           "component": "modelingOptions",
           "property": "gridDensity",
           "label": "Grid Density",
@@ -3457,7 +3457,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_pbga.top_cover.lid.Lid Length Lc",
+          "target_id": "pbga_fc.top_cover.lid.Lid Length Lc",
           "component": "topCover",
           "property": "lidLengthLc",
           "label": "Lid Length Lc",
@@ -3475,7 +3475,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_pbga.top_cover.lid.Lid Width Wc",
+          "target_id": "pbga_fc.top_cover.lid.Lid Width Wc",
           "component": "topCover",
           "property": "lidWidthWc",
           "label": "Lid Width Wc",
@@ -3493,7 +3493,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_pbga.top_cover.lid.Lid Thickness Tc",
+          "target_id": "pbga_fc.top_cover.lid.Lid Thickness Tc",
           "component": "topCover",
           "property": "lidThicknessTc",
           "label": "Lid Thickness Tc",
@@ -3511,7 +3511,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_pbga.top_cover.lid.Lid Base Thickness Tcb",
+          "target_id": "pbga_fc.top_cover.lid.Lid Base Thickness Tcb",
           "component": "topCover",
           "property": "lidBaseThicknessTcb",
           "label": "Lid Base Thickness Tcb",
@@ -3529,7 +3529,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_pbga.top_cover.lid.Die Attach Thickness tda",
+          "target_id": "pbga_fc.top_cover.lid.Die Attach Thickness tda",
           "component": "topCover",
           "property": "dieAttachThicknessTda",
           "label": "Die Attach Thickness tda",
@@ -3547,7 +3547,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_pbga.top_cover.lid.Lid Adhesive Thickness",
+          "target_id": "pbga_fc.top_cover.lid.Lid Adhesive Thickness",
           "component": "topCover",
           "property": "lidAdhesiveThickness",
           "label": "Lid Adhesive Thickness",
@@ -3565,7 +3565,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_pbga.top_cover.lid.Stiffener",
+          "target_id": "pbga_fc.top_cover.lid.Stiffener",
           "component": "topCover",
           "property": "stiffener",
           "label": "Stiffener",
@@ -3581,7 +3581,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_pbga.top_cover.lid_stiffener.Stiffener Length Ls",
+          "target_id": "pbga_fc.top_cover.lid_stiffener.Stiffener Length Ls",
           "component": "topCover",
           "property": "stiffenerLengthLs",
           "label": "Stiffener Length Ls",
@@ -3599,7 +3599,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_pbga.top_cover.lid_stiffener.Stiffener Width Ws",
+          "target_id": "pbga_fc.top_cover.lid_stiffener.Stiffener Width Ws",
           "component": "topCover",
           "property": "stiffenerWidthWs",
           "label": "Stiffener Width Ws",
@@ -3617,7 +3617,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_pbga.top_cover.lid_stiffener.Stiffener Cavity Length Lsc",
+          "target_id": "pbga_fc.top_cover.lid_stiffener.Stiffener Cavity Length Lsc",
           "component": "topCover",
           "property": "stiffenerCavityLengthLsc",
           "label": "Stiffener Cavity Length Lsc",
@@ -3635,7 +3635,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_pbga.top_cover.lid_stiffener.Stiffener Cavity Width Wsc",
+          "target_id": "pbga_fc.top_cover.lid_stiffener.Stiffener Cavity Width Wsc",
           "component": "topCover",
           "property": "stiffenerCavityWidthWsc",
           "label": "Stiffener Cavity Width Wsc",
@@ -3653,7 +3653,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_pbga.top_cover.lid_stiffener.Stiffener Adhesive Thickness",
+          "target_id": "pbga_fc.top_cover.lid_stiffener.Stiffener Adhesive Thickness",
           "component": "topCover",
           "property": "stiffenerAdhesiveThickness",
           "label": "Stiffener Adhesive Thickness",
@@ -3671,7 +3671,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_pbga.top_cover.plate.Plate Length Lc",
+          "target_id": "pbga_fc.top_cover.plate.Plate Length Lc",
           "component": "topCover",
           "property": "plateLengthLc",
           "label": "Plate Length Lc",
@@ -3689,7 +3689,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_pbga.top_cover.plate.Plate Width Wc",
+          "target_id": "pbga_fc.top_cover.plate.Plate Width Wc",
           "component": "topCover",
           "property": "plateWidthWc",
           "label": "Plate Width Wc",
@@ -3707,7 +3707,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_pbga.top_cover.plate.Plate Thickness Tc",
+          "target_id": "pbga_fc.top_cover.plate.Plate Thickness Tc",
           "component": "topCover",
           "property": "plateThicknessTc",
           "label": "Plate Thickness Tc",
@@ -3725,7 +3725,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_pbga.top_cover.encapsulant.Encapsulant Length Le",
+          "target_id": "pbga_fc.top_cover.encapsulant.Encapsulant Length Le",
           "component": "topCover",
           "property": "lengthLe",
           "label": "Encapsulant Length Le",
@@ -3743,7 +3743,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_pbga.top_cover.encapsulant.Encapsulant Width We",
+          "target_id": "pbga_fc.top_cover.encapsulant.Encapsulant Width We",
           "component": "topCover",
           "property": "widthWe",
           "label": "Encapsulant Width We",
@@ -3761,7 +3761,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_pbga.top_cover.encapsulant.Enable Die Flush",
+          "target_id": "pbga_fc.top_cover.encapsulant.Enable Die Flush",
           "component": "topCover",
           "property": "enableDieFlush",
           "label": "Enable Die Flush",
@@ -3777,7 +3777,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_pbga.top_cover.encapsulant.Encapsulant Thickness Te",
+          "target_id": "pbga_fc.top_cover.encapsulant.Encapsulant Thickness Te",
           "component": "topCover",
           "property": "thicknessTe",
           "label": "Encapsulant Thickness Te",
@@ -3795,7 +3795,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_pbga.drop_in_slug.encapsulant.Slug Length Lsl",
+          "target_id": "pbga_fc.drop_in_slug.encapsulant.Slug Length Lsl",
           "component": "dropInSlug",
           "property": "slugLengthLsl",
           "label": "Slug Length Lsl",
@@ -3813,7 +3813,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_pbga.drop_in_slug.encapsulant.Slug Width Wsl",
+          "target_id": "pbga_fc.drop_in_slug.encapsulant.Slug Width Wsl",
           "component": "dropInSlug",
           "property": "slugWidthWsl",
           "label": "Slug Width Wsl",
@@ -3831,7 +3831,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_pbga.drop_in_slug.encapsulant.Slug Thickness tsl",
+          "target_id": "pbga_fc.drop_in_slug.encapsulant.Slug Thickness tsl",
           "component": "dropInSlug",
           "property": "slugThicknessTsl",
           "label": "Slug Thickness tsl",
@@ -3849,7 +3849,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_pbga.drop_in_slug.encapsulant.Slug Diameter ds",
+          "target_id": "pbga_fc.drop_in_slug.encapsulant.Slug Diameter ds",
           "component": "dropInSlug",
           "property": "slugDiameterDs",
           "label": "Slug Diameter ds",
@@ -3867,7 +3867,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_pbga.drop_in_slug.encapsulant.Slug Foot Extend Length Lsf",
+          "target_id": "pbga_fc.drop_in_slug.encapsulant.Slug Foot Extend Length Lsf",
           "component": "dropInSlug",
           "property": "slugFootExtendLengthLsf",
           "label": "Slug Foot Extend Length Lsf",
@@ -3885,7 +3885,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_pbga.drop_in_slug.encapsulant.Slug Foot Extend Width Wsf",
+          "target_id": "pbga_fc.drop_in_slug.encapsulant.Slug Foot Extend Width Wsf",
           "component": "dropInSlug",
           "property": "slugFootExtendWidthWsf",
           "label": "Slug Foot Extend Width Wsf",
@@ -3903,7 +3903,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_pbga.drop_in_slug.encapsulant.Slug Offset Gs",
+          "target_id": "pbga_fc.drop_in_slug.encapsulant.Slug Offset Gs",
           "component": "dropInSlug",
           "property": "slugOffsetGs",
           "label": "Slug Offset Gs",
@@ -3921,7 +3921,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_pbga.drop_in_slug.encapsulant.Slug Foot Clearance gsf",
+          "target_id": "pbga_fc.drop_in_slug.encapsulant.Slug Foot Clearance gsf",
           "component": "dropInSlug",
           "property": "slugFootClearanceGsf",
           "label": "Slug Foot Clearance gsf",
@@ -3939,7 +3939,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_pbga.drop_in_slug.encapsulant.Adhesive Present Under Slug Foot",
+          "target_id": "pbga_fc.drop_in_slug.encapsulant.Adhesive Present Under Slug Foot",
           "component": "dropInSlug",
           "property": "adhesivePresentUnderSlugFoot",
           "label": "Adhesive Present Under Slug Foot",
@@ -3955,7 +3955,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "flip_chip_pbga.starter.Design Name",
+          "target_id": "pbga_fc.starter.Design Name",
           "component": null,
           "property": "designName",
           "label": "Design Name",
@@ -3963,7 +3963,7 @@
           "status": "not_model_input"
         },
         {
-          "target_id": "flip_chip_pbga.summary.Design Name",
+          "target_id": "pbga_fc.summary.Design Name",
           "component": "summary",
           "property": "designName",
           "label": "Design Name",
@@ -3971,7 +3971,7 @@
           "status": "not_model_input"
         },
         {
-          "target_id": "flip_chip_pbga.summary.Part Number",
+          "target_id": "pbga_fc.summary.Part Number",
           "component": "summary",
           "property": "partNumber",
           "label": "Part Number",
@@ -3979,7 +3979,7 @@
           "status": "not_model_input"
         },
         {
-          "target_id": "flip_chip_pbga.summary.Vendor Name",
+          "target_id": "pbga_fc.summary.Vendor Name",
           "component": "summary",
           "property": "vendorName",
           "label": "Vendor Name",
@@ -3987,7 +3987,7 @@
           "status": "not_model_input"
         },
         {
-          "target_id": "flip_chip_pbga.summary.Max Power",
+          "target_id": "pbga_fc.summary.Max Power",
           "component": "summary",
           "property": "maxPower",
           "label": "Max Power",
@@ -3995,7 +3995,7 @@
           "status": "not_model_input"
         },
         {
-          "target_id": "flip_chip_pbga.summary.Max Operating Junction Temperature",
+          "target_id": "pbga_fc.summary.Max Operating Junction Temperature",
           "component": "summary",
           "property": "maxOperatingJunctionTemperature",
           "label": "Max Operating Junction Temperature",
@@ -4003,7 +4003,7 @@
           "status": "not_model_input"
         },
         {
-          "target_id": "flip_chip_pbga.summary.Max Case Temperature",
+          "target_id": "pbga_fc.summary.Max Case Temperature",
           "component": "summary",
           "property": "maxCaseTemperature",
           "label": "Max Case Temperature",
@@ -4011,7 +4011,7 @@
           "status": "not_model_input"
         },
         {
-          "target_id": "flip_chip_pbga.summary.Notes",
+          "target_id": "pbga_fc.summary.Notes",
           "component": "summary",
           "property": "notes",
           "label": "Notes",
@@ -4019,7 +4019,7 @@
           "status": "not_model_input"
         },
         {
-          "target_id": "flip_chip_pbga.package_substrate.Material Group",
+          "target_id": "pbga_fc.package_substrate.Material Group",
           "component": "packageSubstrate",
           "property": null,
           "label": "Material Group",
@@ -4027,7 +4027,7 @@
           "status": "default_only"
         },
         {
-          "target_id": "flip_chip_pbga.package_substrate.Dielectric Material",
+          "target_id": "pbga_fc.package_substrate.Dielectric Material",
           "component": "packageSubstrate",
           "property": "dielectricMaterial",
           "label": "Dielectric Material",
@@ -4035,7 +4035,7 @@
           "status": "default_only"
         },
         {
-          "target_id": "flip_chip_pbga.die.Click To Edit",
+          "target_id": "pbga_fc.die.Click To Edit",
           "component": "die",
           "property": null,
           "label": "Click To Edit",
@@ -4043,7 +4043,7 @@
           "status": "separate_representative_editor_case"
         },
         {
-          "target_id": "flip_chip_pbga.flip_chip_bumps.C4 Solder Material Group",
+          "target_id": "pbga_fc.flip_chip_bumps.C4 Solder Material Group",
           "component": "flipChipBumps",
           "property": null,
           "label": "C4 Solder Material Group",
@@ -4051,7 +4051,7 @@
           "status": "default_only"
         },
         {
-          "target_id": "flip_chip_pbga.flip_chip_bumps.C4 Solder",
+          "target_id": "pbga_fc.flip_chip_bumps.C4 Solder",
           "component": "flipChipBumps",
           "property": "c4SolderMaterial",
           "label": "C4 Solder",
@@ -4059,7 +4059,7 @@
           "status": "default_only"
         },
         {
-          "target_id": "flip_chip_pbga.flip_chip_bumps.Underfill Material Group",
+          "target_id": "pbga_fc.flip_chip_bumps.Underfill Material Group",
           "component": "flipChipBumps",
           "property": null,
           "label": "Underfill Material Group",
@@ -4067,7 +4067,7 @@
           "status": "default_only"
         },
         {
-          "target_id": "flip_chip_pbga.flip_chip_bumps.Underfill Material",
+          "target_id": "pbga_fc.flip_chip_bumps.Underfill Material",
           "component": "flipChipBumps",
           "property": "underfillMaterial",
           "label": "Underfill Material",
@@ -4075,7 +4075,7 @@
           "status": "default_only"
         },
         {
-          "target_id": "flip_chip_pbga.core_vias.Via Depopulation",
+          "target_id": "pbga_fc.core_vias.Via Depopulation",
           "component": "coreVias",
           "property": "viaDepopulation",
           "label": "Via Depopulation",
@@ -4083,7 +4083,7 @@
           "status": "separate_representative_editor_case"
         },
         {
-          "target_id": "flip_chip_pbga.metal_layers.Material Group",
+          "target_id": "pbga_fc.metal_layers.Material Group",
           "component": "metalLayers",
           "property": null,
           "label": "Material Group",
@@ -4091,7 +4091,7 @@
           "status": "default_only"
         },
         {
-          "target_id": "flip_chip_pbga.metal_layers.Material",
+          "target_id": "pbga_fc.metal_layers.Material",
           "component": "metalLayers",
           "property": "materialOfMetal",
           "label": "Material",
@@ -4099,7 +4099,7 @@
           "status": "default_only"
         },
         {
-          "target_id": "flip_chip_pbga.metal_layers.Layers",
+          "target_id": "pbga_fc.metal_layers.Layers",
           "component": "metalLayers",
           "property": null,
           "label": "Layers",
@@ -4107,7 +4107,7 @@
           "status": "separate_representative_editor_case"
         },
         {
-          "target_id": "flip_chip_pbga.upper_built_up_region.Thickness A2b1",
+          "target_id": "pbga_fc.upper_built_up_region.Thickness A2b1",
           "component": "upperBuiltUpRegion",
           "property": "thicknessA2b1",
           "label": "Thickness A2b1",
@@ -4115,7 +4115,7 @@
           "status": "default_only_inactive_material_branch"
         },
         {
-          "target_id": "flip_chip_pbga.upper_built_up_region.Dielectric Material Group",
+          "target_id": "pbga_fc.upper_built_up_region.Dielectric Material Group",
           "component": "upperBuiltUpRegion",
           "property": null,
           "label": "Dielectric Material Group",
@@ -4123,7 +4123,7 @@
           "status": "default_only_inactive_material_branch"
         },
         {
-          "target_id": "flip_chip_pbga.upper_built_up_region.Dielectric Material",
+          "target_id": "pbga_fc.upper_built_up_region.Dielectric Material",
           "component": "upperBuiltUpRegion",
           "property": "dielectricMaterial",
           "label": "Dielectric Material",
@@ -4131,7 +4131,7 @@
           "status": "default_only_inactive_material_branch"
         },
         {
-          "target_id": "flip_chip_pbga.upper_built_up_region.Total Micro Vias Nb1",
+          "target_id": "pbga_fc.upper_built_up_region.Total Micro Vias Nb1",
           "component": "upperBuiltUpRegion",
           "property": "totalNumberOfMicroViasNb1",
           "label": "Total Micro Vias Nb1",
@@ -4139,7 +4139,7 @@
           "status": "default_only_inactive_material_branch"
         },
         {
-          "target_id": "flip_chip_pbga.upper_built_up_region.Micro Via Diameter dvb1",
+          "target_id": "pbga_fc.upper_built_up_region.Micro Via Diameter dvb1",
           "component": "upperBuiltUpRegion",
           "property": "viaDiameterDvb1",
           "label": "Micro Via Diameter dvb1",
@@ -4147,7 +4147,7 @@
           "status": "default_only_inactive_material_branch"
         },
         {
-          "target_id": "flip_chip_pbga.upper_built_up_region.Filled Vias",
+          "target_id": "pbga_fc.upper_built_up_region.Filled Vias",
           "component": "upperBuiltUpRegion",
           "property": "filledVias",
           "label": "Filled Vias",
@@ -4155,7 +4155,7 @@
           "status": "default_only_inactive_material_branch"
         },
         {
-          "target_id": "flip_chip_pbga.upper_built_up_region.Metal Layers",
+          "target_id": "pbga_fc.upper_built_up_region.Metal Layers",
           "component": "upperBuiltUpRegion",
           "property": null,
           "label": "Metal Layers",
@@ -4163,7 +4163,7 @@
           "status": "default_only_inactive_material_branch"
         },
         {
-          "target_id": "flip_chip_pbga.lower_built_up_region.Thickness A2b2",
+          "target_id": "pbga_fc.lower_built_up_region.Thickness A2b2",
           "component": "lowerBuiltUpRegion",
           "property": "thicknessA2b2",
           "label": "Thickness A2b2",
@@ -4171,7 +4171,7 @@
           "status": "default_only_inactive_material_branch"
         },
         {
-          "target_id": "flip_chip_pbga.lower_built_up_region.Dielectric Material Group",
+          "target_id": "pbga_fc.lower_built_up_region.Dielectric Material Group",
           "component": "lowerBuiltUpRegion",
           "property": null,
           "label": "Dielectric Material Group",
@@ -4179,7 +4179,7 @@
           "status": "default_only_inactive_material_branch"
         },
         {
-          "target_id": "flip_chip_pbga.lower_built_up_region.Dielectric Material",
+          "target_id": "pbga_fc.lower_built_up_region.Dielectric Material",
           "component": "lowerBuiltUpRegion",
           "property": "dielectricMaterial",
           "label": "Dielectric Material",
@@ -4187,7 +4187,7 @@
           "status": "default_only_inactive_material_branch"
         },
         {
-          "target_id": "flip_chip_pbga.lower_built_up_region.Total Micro Vias Nb2",
+          "target_id": "pbga_fc.lower_built_up_region.Total Micro Vias Nb2",
           "component": "lowerBuiltUpRegion",
           "property": "totalNumberOfMicroViasNb2",
           "label": "Total Micro Vias Nb2",
@@ -4195,7 +4195,7 @@
           "status": "default_only_inactive_material_branch"
         },
         {
-          "target_id": "flip_chip_pbga.lower_built_up_region.Micro Via Diameter dvb2",
+          "target_id": "pbga_fc.lower_built_up_region.Micro Via Diameter dvb2",
           "component": "lowerBuiltUpRegion",
           "property": "viaDiameterDvb2",
           "label": "Micro Via Diameter dvb2",
@@ -4203,7 +4203,7 @@
           "status": "default_only_inactive_material_branch"
         },
         {
-          "target_id": "flip_chip_pbga.lower_built_up_region.Filled Vias",
+          "target_id": "pbga_fc.lower_built_up_region.Filled Vias",
           "component": "lowerBuiltUpRegion",
           "property": "filledVias",
           "label": "Filled Vias",
@@ -4211,7 +4211,7 @@
           "status": "default_only_inactive_material_branch"
         },
         {
-          "target_id": "flip_chip_pbga.lower_built_up_region.Metal Layers",
+          "target_id": "pbga_fc.lower_built_up_region.Metal Layers",
           "component": "lowerBuiltUpRegion",
           "property": null,
           "label": "Metal Layers",
@@ -4219,7 +4219,7 @@
           "status": "default_only_inactive_material_branch"
         },
         {
-          "target_id": "flip_chip_pbga.solder_balls.Material Group",
+          "target_id": "pbga_fc.solder_balls.Material Group",
           "component": "solderBalls",
           "property": null,
           "label": "Material Group",
@@ -4227,7 +4227,7 @@
           "status": "default_only"
         },
         {
-          "target_id": "flip_chip_pbga.solder_balls.Solder Material",
+          "target_id": "pbga_fc.solder_balls.Solder Material",
           "component": "solderBalls",
           "property": "solderMaterial",
           "label": "Solder Material",
@@ -4235,7 +4235,7 @@
           "status": "default_only"
         },
         {
-          "target_id": "flip_chip_pbga.solder_balls.Click To Edit",
+          "target_id": "pbga_fc.solder_balls.Click To Edit",
           "component": "solderBalls",
           "property": null,
           "label": "Click To Edit",
@@ -4243,7 +4243,7 @@
           "status": "separate_representative_editor_case"
         },
         {
-          "target_id": "flip_chip_pbga.solder_ball_depopulation.Click To Edit",
+          "target_id": "pbga_fc.solder_ball_depopulation.Click To Edit",
           "component": "solderBallDepopulation",
           "property": null,
           "label": "Click To Edit",
@@ -4251,7 +4251,7 @@
           "status": "separate_representative_editor_case"
         },
         {
-          "target_id": "flip_chip_pbga.top_cover.Top Cover",
+          "target_id": "pbga_fc.top_cover.Top Cover",
           "component": "topCover",
           "property": "topCover",
           "label": "Top Cover",
@@ -5174,16 +5174,16 @@
       ]
     },
     {
-      "template_id": "qfp_family",
+      "template_id": "pqfp",
       "status": "complete",
       "target_count": 44,
       "branch_baseline_count": 4,
       "variation_count": 78,
       "expected_export_count": 82,
-      "suite": "validation/comprehensive_replay_qfp_family.xml",
+      "suite": "validation/comprehensive_replay_pqfp.xml",
       "coverage": [
         {
-          "target_id": "qfp_family.starter.Outline Type",
+          "target_id": "pqfp.starter.Outline Type",
           "component": "new_package",
           "property": "outlineType",
           "label": "Outline Type",
@@ -5199,7 +5199,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "qfp_family.starter.PQFP Package Type",
+          "target_id": "pqfp.starter.PQFP Package Type",
           "component": "new_package",
           "property": "pqfpPackageType",
           "label": "PQFP Package Type",
@@ -5217,7 +5217,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "qfp_family.starter.JEDEC Footprint",
+          "target_id": "pqfp.starter.JEDEC Footprint",
           "component": "new_package",
           "property": "lqfpJedecFootprint",
           "label": "JEDEC Footprint",
@@ -5235,7 +5235,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "qfp_family.starter.Die Type",
+          "target_id": "pqfp.starter.Die Type",
           "component": "new_package",
           "property": "dieType",
           "label": "Die Type",
@@ -5251,7 +5251,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "qfp_family.starter.Exposed Pad",
+          "target_id": "pqfp.starter.Exposed Pad",
           "component": "new_package",
           "property": "exposedPad",
           "label": "Exposed Pad",
@@ -5267,7 +5267,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "qfp_family.overall_package.Length D",
+          "target_id": "pqfp.overall_package.Length D",
           "component": "overallPackage",
           "property": "lengthD",
           "label": "Length D",
@@ -5285,7 +5285,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "qfp_family.overall_package.Width E",
+          "target_id": "pqfp.overall_package.Width E",
           "component": "overallPackage",
           "property": "widthE",
           "label": "Width E",
@@ -5303,7 +5303,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "qfp_family.overall_package.Standoff A1",
+          "target_id": "pqfp.overall_package.Standoff A1",
           "component": "overallPackage",
           "property": "standoffA1",
           "label": "Standoff A1",
@@ -5321,7 +5321,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "qfp_family.encapsulant.Length D1",
+          "target_id": "pqfp.encapsulant.Length D1",
           "component": "encapsulant",
           "property": "lengthD1",
           "label": "Length D1",
@@ -5339,7 +5339,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "qfp_family.encapsulant.Width E1",
+          "target_id": "pqfp.encapsulant.Width E1",
           "component": "encapsulant",
           "property": "widthE1",
           "label": "Width E1",
@@ -5357,7 +5357,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "qfp_family.encapsulant.Thickness A2",
+          "target_id": "pqfp.encapsulant.Thickness A2",
           "component": "encapsulant",
           "property": "thicknessA2",
           "label": "Thickness A2",
@@ -5375,7 +5375,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "qfp_family.die.Package Power",
+          "target_id": "pqfp.die.Package Power",
           "component": "die",
           "property": "packagePower",
           "label": "Package Power",
@@ -5393,7 +5393,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "qfp_family.die.Non-uniform Die Heat",
+          "target_id": "pqfp.die.Non-uniform Die Heat",
           "component": "die",
           "property": "nonUniformDieHeat",
           "label": "Non-uniform Die Heat",
@@ -5409,7 +5409,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "qfp_family.die.Die Length Ld",
+          "target_id": "pqfp.die.Die Length Ld",
           "component": "die",
           "property": "dieLengthLd",
           "label": "Die Length Ld",
@@ -5427,7 +5427,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "qfp_family.die.Die Width Wd",
+          "target_id": "pqfp.die.Die Width Wd",
           "component": "die",
           "property": "dieWidthWd",
           "label": "Die Width Wd",
@@ -5445,7 +5445,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "qfp_family.die.Die Thickness td",
+          "target_id": "pqfp.die.Die Thickness td",
           "component": "die",
           "property": "dieThicknessTd",
           "label": "Die Thickness td",
@@ -5463,7 +5463,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "qfp_family.die.Die Attach Thickness tda",
+          "target_id": "pqfp.die.Die Attach Thickness tda",
           "component": "die",
           "property": "dieAttachThicknessTda",
           "label": "Die Attach Thickness tda",
@@ -5481,7 +5481,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "qfp_family.die_flag_and_tie_bars.Die Flag Lf",
+          "target_id": "pqfp.die_flag_and_tie_bars.Die Flag Lf",
           "component": "dieFlagAndTieBars",
           "property": "dieFlagLf",
           "label": "Die Flag Lf",
@@ -5499,7 +5499,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "qfp_family.die_flag_and_tie_bars.Die Flag Wf",
+          "target_id": "pqfp.die_flag_and_tie_bars.Die Flag Wf",
           "component": "dieFlagAndTieBars",
           "property": "dieFlagWf",
           "label": "Die Flag Wf",
@@ -5517,7 +5517,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "qfp_family.die_flag_and_tie_bars.Metal Coverage for Die Flag Cf",
+          "target_id": "pqfp.die_flag_and_tie_bars.Metal Coverage for Die Flag Cf",
           "component": "dieFlagAndTieBars",
           "property": "metalCoverageForDieFlagCf",
           "label": "Metal Coverage for Die Flag Cf",
@@ -5535,7 +5535,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "qfp_family.die_flag_and_tie_bars.Die Flag Downset df",
+          "target_id": "pqfp.die_flag_and_tie_bars.Die Flag Downset df",
           "component": "dieFlagAndTieBars",
           "property": "dieFlagDownsetDdf",
           "label": "Die Flag Downset df",
@@ -5553,7 +5553,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "qfp_family.die_flag_and_tie_bars.Tie Bar Width Wtb",
+          "target_id": "pqfp.die_flag_and_tie_bars.Tie Bar Width Wtb",
           "component": "dieFlagAndTieBars",
           "property": "tieBarWidthWtb",
           "label": "Tie Bar Width Wtb",
@@ -5571,7 +5571,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "qfp_family.lead_frame.Leadframe-Flag Gap g1",
+          "target_id": "pqfp.lead_frame.Leadframe-Flag Gap g1",
           "component": "leadFrame",
           "property": "leadframeFlagGapG1",
           "label": "Leadframe-Flag Gap g1",
@@ -5589,7 +5589,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "qfp_family.lead_frame.Leadframe-Flag Gap g2",
+          "target_id": "pqfp.lead_frame.Leadframe-Flag Gap g2",
           "component": "leadFrame",
           "property": "leadframeFlagGapG2",
           "label": "Leadframe-Flag Gap g2",
@@ -5607,7 +5607,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "qfp_family.lead_frame.Pitch e",
+          "target_id": "pqfp.lead_frame.Pitch e",
           "component": "leadFrame",
           "property": "pitchE",
           "label": "Pitch e",
@@ -5625,7 +5625,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "qfp_family.lead_frame.Lead Thickness tl",
+          "target_id": "pqfp.lead_frame.Lead Thickness tl",
           "component": "leadFrame",
           "property": "leadThicknessTl",
           "label": "Lead Thickness tl",
@@ -5643,7 +5643,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "qfp_family.lead_frame.Lead Width B",
+          "target_id": "pqfp.lead_frame.Lead Width B",
           "component": "leadFrame",
           "property": "leadWidthB",
           "label": "Lead Width B",
@@ -5661,7 +5661,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "qfp_family.lead_frame.Lead Frame Height h1",
+          "target_id": "pqfp.lead_frame.Lead Frame Height h1",
           "component": "leadFrame",
           "property": "leadframeHeightHl",
           "label": "Lead Frame Height h1",
@@ -5679,7 +5679,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "qfp_family.lead_frame.Lead Foot Length Wl",
+          "target_id": "pqfp.lead_frame.Lead Foot Length Wl",
           "component": "leadFrame",
           "property": "leadfootLengthWl",
           "label": "Lead Foot Length Wl",
@@ -5697,7 +5697,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "qfp_family.lead_frame.Number of Leads on Top/Bottom MD",
+          "target_id": "pqfp.lead_frame.Number of Leads on Top/Bottom MD",
           "component": "leadFrame",
           "property": "numberOfLeadsOnTopBottomMD",
           "label": "Number of Leads on Top/Bottom MD",
@@ -5715,7 +5715,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "qfp_family.lead_frame.Number of Leads on Left/Right ME",
+          "target_id": "pqfp.lead_frame.Number of Leads on Left/Right ME",
           "component": "leadFrame",
           "property": "numberOfLeadsOnLeftRightME",
           "label": "Number of Leads on Left/Right ME",
@@ -5733,7 +5733,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "qfp_family.lead_frame.User Defined Leadframe Coverage",
+          "target_id": "pqfp.lead_frame.User Defined Leadframe Coverage",
           "component": "leadFrame",
           "property": "userDefinedLeadframeCoverage",
           "label": "User Defined Leadframe Coverage",
@@ -5749,7 +5749,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "qfp_family.lead_frame.Leadframe Coverage",
+          "target_id": "pqfp.lead_frame.Leadframe Coverage",
           "component": "leadFrame",
           "property": "leadframeCoveragePercentage",
           "label": "Leadframe Coverage",
@@ -5767,7 +5767,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "qfp_family.bond_wires.Bond Wire Length On Left/Right Lbwx",
+          "target_id": "pqfp.bond_wires.Bond Wire Length On Left/Right Lbwx",
           "component": "bondWires",
           "property": "bondWireLengthOnLeftRightLbwx",
           "label": "Bond Wire Length On Left/Right Lbwx",
@@ -5785,7 +5785,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "qfp_family.bond_wires.Bond Wire Length On Top/Bottom Lbwy",
+          "target_id": "pqfp.bond_wires.Bond Wire Length On Top/Bottom Lbwy",
           "component": "bondWires",
           "property": "bondWireLengthOnTopBottomLbwy",
           "label": "Bond Wire Length On Top/Bottom Lbwy",
@@ -5803,7 +5803,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "qfp_family.bond_wires.Bond Wire Diameter dbw",
+          "target_id": "pqfp.bond_wires.Bond Wire Diameter dbw",
           "component": "bondWires",
           "property": "bondWireDiameterDbw",
           "label": "Bond Wire Diameter dbw",
@@ -5821,7 +5821,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "qfp_family.bond_wires.Number of Bond Wires N",
+          "target_id": "pqfp.bond_wires.Number of Bond Wires N",
           "component": "bondWires",
           "property": "numberOfBondWiresN",
           "label": "Number of Bond Wires N",
@@ -5840,7 +5840,7 @@
           "value_selection_reason": "The JEDEC baseline already uses the 32-lead upper bound; 33 is normalized back to 32 by PACK."
         },
         {
-          "target_id": "qfp_family.thermal_land_and_solder.Include Thermal Land and Solder",
+          "target_id": "pqfp.thermal_land_and_solder.Include Thermal Land and Solder",
           "component": "thermalLandAndSolder",
           "property": "includeThermalLandAndSolder",
           "label": "Include Thermal Land and Solder",
@@ -5856,7 +5856,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "qfp_family.thermal_land_and_solder.Land Thickness",
+          "target_id": "pqfp.thermal_land_and_solder.Land Thickness",
           "component": "thermalLandAndSolder",
           "property": "landThickness",
           "label": "Land Thickness",
@@ -5874,7 +5874,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "qfp_family.modeling_options.Model Lead Frames As",
+          "target_id": "pqfp.modeling_options.Model Lead Frames As",
           "component": "modelingOptions",
           "property": "modelLeadFrameAs",
           "label": "Model Lead Frames As",
@@ -5890,7 +5890,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "qfp_family.modeling_options.Model Bond Wires As",
+          "target_id": "pqfp.modeling_options.Model Bond Wires As",
           "component": "modelingOptions",
           "property": "modelBondWiresAs",
           "label": "Model Bond Wires As",
@@ -5906,7 +5906,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "qfp_family.modeling_options.Model Tie Bars As",
+          "target_id": "pqfp.modeling_options.Model Tie Bars As",
           "component": "modelingOptions",
           "property": "modelTieBarsAs",
           "label": "Model Tie Bars As",
@@ -5922,7 +5922,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "qfp_family.modeling_options.Localize Grid",
+          "target_id": "pqfp.modeling_options.Localize Grid",
           "component": "modelingOptions",
           "property": "localizeGrid",
           "label": "Localize Grid",
@@ -5938,7 +5938,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "qfp_family.modeling_options.Grid Density",
+          "target_id": "pqfp.modeling_options.Grid Density",
           "component": "modelingOptions",
           "property": "gridDensity",
           "label": "Grid Density",
@@ -5956,7 +5956,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "qfp_family.starter.Design Name",
+          "target_id": "pqfp.starter.Design Name",
           "component": null,
           "property": "designName",
           "label": "Design Name",
@@ -5964,7 +5964,7 @@
           "status": "not_model_input"
         },
         {
-          "target_id": "qfp_family.summary.Design Name",
+          "target_id": "pqfp.summary.Design Name",
           "component": "summary",
           "property": "designName",
           "label": "Design Name",
@@ -5972,7 +5972,7 @@
           "status": "not_model_input"
         },
         {
-          "target_id": "qfp_family.summary.Part Number",
+          "target_id": "pqfp.summary.Part Number",
           "component": "summary",
           "property": "partNumber",
           "label": "Part Number",
@@ -5980,7 +5980,7 @@
           "status": "not_model_input"
         },
         {
-          "target_id": "qfp_family.summary.Vendor Name",
+          "target_id": "pqfp.summary.Vendor Name",
           "component": "summary",
           "property": "vendorName",
           "label": "Vendor Name",
@@ -5988,7 +5988,7 @@
           "status": "not_model_input"
         },
         {
-          "target_id": "qfp_family.summary.Max Power",
+          "target_id": "pqfp.summary.Max Power",
           "component": "summary",
           "property": "maxPower",
           "label": "Max Power",
@@ -5996,7 +5996,7 @@
           "status": "not_model_input"
         },
         {
-          "target_id": "qfp_family.summary.Max Operating Junction Temperature",
+          "target_id": "pqfp.summary.Max Operating Junction Temperature",
           "component": "summary",
           "property": "maxOperatingJunctionTemperature",
           "label": "Max Operating Junction Temperature",
@@ -6004,7 +6004,7 @@
           "status": "not_model_input"
         },
         {
-          "target_id": "qfp_family.summary.Max Case Temperature",
+          "target_id": "pqfp.summary.Max Case Temperature",
           "component": "summary",
           "property": "maxCaseTemperature",
           "label": "Max Case Temperature",
@@ -6012,7 +6012,7 @@
           "status": "not_model_input"
         },
         {
-          "target_id": "qfp_family.summary.Notes",
+          "target_id": "pqfp.summary.Notes",
           "component": "summary",
           "property": "notes",
           "label": "Notes",
@@ -6020,7 +6020,7 @@
           "status": "not_model_input"
         },
         {
-          "target_id": "qfp_family.encapsulant.Material Group",
+          "target_id": "pqfp.encapsulant.Material Group",
           "component": "encapsulant",
           "property": null,
           "label": "Material Group",
@@ -6028,7 +6028,7 @@
           "status": "default_only"
         },
         {
-          "target_id": "qfp_family.encapsulant.Encapsulant Material",
+          "target_id": "pqfp.encapsulant.Encapsulant Material",
           "component": "encapsulant",
           "property": "encapsulantMaterial",
           "label": "Encapsulant Material",
@@ -6036,7 +6036,7 @@
           "status": "default_only"
         },
         {
-          "target_id": "qfp_family.die.Click To Edit",
+          "target_id": "pqfp.die.Click To Edit",
           "component": "die",
           "property": null,
           "label": "Click To Edit",
@@ -6044,7 +6044,7 @@
           "status": "separate_representative_editor_case"
         },
         {
-          "target_id": "qfp_family.die.Material Group",
+          "target_id": "pqfp.die.Material Group",
           "component": "die",
           "property": null,
           "label": "Material Group",
@@ -6052,7 +6052,7 @@
           "status": "default_only"
         },
         {
-          "target_id": "qfp_family.die.Die Attach Material",
+          "target_id": "pqfp.die.Die Attach Material",
           "component": "die",
           "property": "dieAttachMaterial",
           "label": "Die Attach Material",
@@ -6060,7 +6060,7 @@
           "status": "default_only"
         },
         {
-          "target_id": "qfp_family.lead_frame.Material Group",
+          "target_id": "pqfp.lead_frame.Material Group",
           "component": "leadFrame",
           "property": null,
           "label": "Material Group",
@@ -6068,7 +6068,7 @@
           "status": "default_only"
         },
         {
-          "target_id": "qfp_family.lead_frame.Lead Frame Material",
+          "target_id": "pqfp.lead_frame.Lead Frame Material",
           "component": "leadFrame",
           "property": "leadframeMaterial",
           "label": "Lead Frame Material",
@@ -6076,7 +6076,7 @@
           "status": "default_only"
         },
         {
-          "target_id": "qfp_family.bond_wires.Material Group",
+          "target_id": "pqfp.bond_wires.Material Group",
           "component": "bondWires",
           "property": null,
           "label": "Material Group",
@@ -6084,7 +6084,7 @@
           "status": "default_only"
         },
         {
-          "target_id": "qfp_family.bond_wires.Material",
+          "target_id": "pqfp.bond_wires.Material",
           "component": "bondWires",
           "property": "bondWireMaterial",
           "label": "Material",
@@ -6092,7 +6092,7 @@
           "status": "default_only"
         },
         {
-          "target_id": "qfp_family.thermal_land_and_solder.Land Material Group",
+          "target_id": "pqfp.thermal_land_and_solder.Land Material Group",
           "component": "thermalLandAndSolder",
           "property": null,
           "label": "Land Material Group",
@@ -6100,7 +6100,7 @@
           "status": "default_only"
         },
         {
-          "target_id": "qfp_family.thermal_land_and_solder.Land Material",
+          "target_id": "pqfp.thermal_land_and_solder.Land Material",
           "component": "thermalLandAndSolder",
           "property": "landMaterial",
           "label": "Land Material",
@@ -6108,7 +6108,7 @@
           "status": "default_only"
         },
         {
-          "target_id": "qfp_family.thermal_land_and_solder.Solder Material Group",
+          "target_id": "pqfp.thermal_land_and_solder.Solder Material Group",
           "component": "thermalLandAndSolder",
           "property": null,
           "label": "Solder Material Group",
@@ -6116,7 +6116,7 @@
           "status": "default_only"
         },
         {
-          "target_id": "qfp_family.thermal_land_and_solder.Solder Material",
+          "target_id": "pqfp.thermal_land_and_solder.Solder Material",
           "component": "thermalLandAndSolder",
           "property": "solderMaterial",
           "label": "Solder Material",
@@ -6126,16 +6126,16 @@
       ]
     },
     {
-      "template_id": "soic_family",
+      "template_id": "sop",
       "status": "complete",
       "target_count": 39,
       "branch_baseline_count": 4,
       "variation_count": 71,
       "expected_export_count": 75,
-      "suite": "validation/comprehensive_replay_soic_family.xml",
+      "suite": "validation/comprehensive_replay_sop.xml",
       "coverage": [
         {
-          "target_id": "soic_family.starter.Outline Type",
+          "target_id": "sop.starter.Outline Type",
           "component": "new_package",
           "property": "outlineType",
           "label": "Outline Type",
@@ -6151,7 +6151,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "soic_family.starter.SOP Package Type",
+          "target_id": "sop.starter.SOP Package Type",
           "component": "new_package",
           "property": "sopPackageType",
           "label": "SOP Package Type",
@@ -6171,7 +6171,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "soic_family.starter.JEDEC Footprint",
+          "target_id": "sop.starter.JEDEC Footprint",
           "component": "new_package",
           "property": "sopJedecFootprint",
           "label": "JEDEC Footprint",
@@ -6189,7 +6189,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "soic_family.starter.Die Type",
+          "target_id": "sop.starter.Die Type",
           "component": "new_package",
           "property": "dieType",
           "label": "Die Type",
@@ -6207,12 +6207,12 @@
             "expectation": "no_change_at_default_substate",
             "reason": "PACK accepts thermalDie, but with the default uniform heat source the exported FloXML is identical to actualDie.",
             "evidence": [
-              "templates/soic_family/xml_variations.json"
+              "templates/sop/xml_variations.json"
             ]
           }
         },
         {
-          "target_id": "soic_family.starter.Exposed Pad",
+          "target_id": "sop.starter.Exposed Pad",
           "component": "new_package",
           "property": "exposedPad",
           "label": "Exposed Pad",
@@ -6228,7 +6228,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "soic_family.overall_package.Width E",
+          "target_id": "sop.overall_package.Width E",
           "component": "overallPackage",
           "property": "widthE",
           "label": "Width E",
@@ -6246,7 +6246,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "soic_family.overall_package.Standoff A1",
+          "target_id": "sop.overall_package.Standoff A1",
           "component": "overallPackage",
           "property": "standoffA1",
           "label": "Standoff A1",
@@ -6264,7 +6264,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "soic_family.encapsulant.Length D1",
+          "target_id": "sop.encapsulant.Length D1",
           "component": "encapsulant",
           "property": "lengthD1",
           "label": "Length D1",
@@ -6282,7 +6282,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "soic_family.encapsulant.Width E1",
+          "target_id": "sop.encapsulant.Width E1",
           "component": "encapsulant",
           "property": "widthE1",
           "label": "Width E1",
@@ -6300,7 +6300,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "soic_family.encapsulant.Thickness A2",
+          "target_id": "sop.encapsulant.Thickness A2",
           "component": "encapsulant",
           "property": "thicknessA2",
           "label": "Thickness A2",
@@ -6318,7 +6318,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "soic_family.die.Package Power",
+          "target_id": "sop.die.Package Power",
           "component": "die",
           "property": "packagePower",
           "label": "Package Power",
@@ -6336,7 +6336,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "soic_family.die.Non-uniform Die Heat",
+          "target_id": "sop.die.Non-uniform Die Heat",
           "component": "die",
           "property": "nonUniformDieHeat",
           "label": "Non-uniform Die Heat",
@@ -6352,7 +6352,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "soic_family.die.Die Length Ld",
+          "target_id": "sop.die.Die Length Ld",
           "component": "die",
           "property": "dieLengthLd",
           "label": "Die Length Ld",
@@ -6370,7 +6370,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "soic_family.die.Die Width Wd",
+          "target_id": "sop.die.Die Width Wd",
           "component": "die",
           "property": "dieWidthWd",
           "label": "Die Width Wd",
@@ -6388,7 +6388,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "soic_family.die.Die Thickness td",
+          "target_id": "sop.die.Die Thickness td",
           "component": "die",
           "property": "dieThicknessTd",
           "label": "Die Thickness td",
@@ -6406,7 +6406,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "soic_family.die.Die Attach Thickness tda",
+          "target_id": "sop.die.Die Attach Thickness tda",
           "component": "die",
           "property": "dieAttachThicknessTda",
           "label": "Die Attach Thickness tda",
@@ -6424,7 +6424,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "soic_family.die_flag_and_tie_bars.Die Flag Lf",
+          "target_id": "sop.die_flag_and_tie_bars.Die Flag Lf",
           "component": "dieFlagAndTieBars",
           "property": "dieFlagLf",
           "label": "Die Flag Lf",
@@ -6442,7 +6442,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "soic_family.die_flag_and_tie_bars.Die Flag Wf",
+          "target_id": "sop.die_flag_and_tie_bars.Die Flag Wf",
           "component": "dieFlagAndTieBars",
           "property": "dieFlagWf",
           "label": "Die Flag Wf",
@@ -6460,7 +6460,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "soic_family.die_flag_and_tie_bars.Die Flag Thickness tf",
+          "target_id": "sop.die_flag_and_tie_bars.Die Flag Thickness tf",
           "component": "dieFlagAndTieBars",
           "property": "dieFlagThicknessTf",
           "label": "Die Flag Thickness tf",
@@ -6478,7 +6478,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "soic_family.die_flag_and_tie_bars.Metal Coverage for Die Flag Cf",
+          "target_id": "sop.die_flag_and_tie_bars.Metal Coverage for Die Flag Cf",
           "component": "dieFlagAndTieBars",
           "property": "metalCoverageForDieFlagCf",
           "label": "Metal Coverage for Die Flag Cf",
@@ -6496,7 +6496,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "soic_family.die_flag_and_tie_bars.Die Flag Downset df",
+          "target_id": "sop.die_flag_and_tie_bars.Die Flag Downset df",
           "component": "dieFlagAndTieBars",
           "property": "dieFlagDownsetDdf",
           "label": "Die Flag Downset df",
@@ -6514,7 +6514,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "soic_family.die_flag_and_tie_bars.Tie Bar Width Wtb",
+          "target_id": "sop.die_flag_and_tie_bars.Tie Bar Width Wtb",
           "component": "dieFlagAndTieBars",
           "property": "tieBarWidthWtb",
           "label": "Tie Bar Width Wtb",
@@ -6532,7 +6532,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "soic_family.lead_frame.Total Number of Leads MT",
+          "target_id": "sop.lead_frame.Total Number of Leads MT",
           "component": "leadFrame",
           "property": "totalNumberOfLeadsMT",
           "label": "Total Number of Leads MT",
@@ -6551,7 +6551,7 @@
           "value_selection_reason": "PACK normalizes unsupported odd lead counts, so representative even counts are used."
         },
         {
-          "target_id": "soic_family.lead_frame.Leadframe-Flag Gap g1",
+          "target_id": "sop.lead_frame.Leadframe-Flag Gap g1",
           "component": "leadFrame",
           "property": "leadframeFlagGapG1",
           "label": "Leadframe-Flag Gap g1",
@@ -6569,7 +6569,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "soic_family.lead_frame.Pitch e",
+          "target_id": "sop.lead_frame.Pitch e",
           "component": "leadFrame",
           "property": "pitchE",
           "label": "Pitch e",
@@ -6587,7 +6587,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "soic_family.lead_frame.Lead Thickness tl",
+          "target_id": "sop.lead_frame.Lead Thickness tl",
           "component": "leadFrame",
           "property": "leadThicknessTl",
           "label": "Lead Thickness tl",
@@ -6605,7 +6605,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "soic_family.lead_frame.Lead Width B",
+          "target_id": "sop.lead_frame.Lead Width B",
           "component": "leadFrame",
           "property": "leadWidthB",
           "label": "Lead Width B",
@@ -6623,7 +6623,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "soic_family.lead_frame.Lead Frame Height h1",
+          "target_id": "sop.lead_frame.Lead Frame Height h1",
           "component": "leadFrame",
           "property": "leadframeHeightHl",
           "label": "Lead Frame Height h1",
@@ -6641,7 +6641,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "soic_family.lead_frame.Lead Foot Length Lfl",
+          "target_id": "sop.lead_frame.Lead Foot Length Lfl",
           "component": "leadFrame",
           "property": "leadfootLengthLft",
           "label": "Lead Foot Length Lfl",
@@ -6659,7 +6659,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "soic_family.lead_frame.User Defined Leadframe Coverage",
+          "target_id": "sop.lead_frame.User Defined Leadframe Coverage",
           "component": "leadFrame",
           "property": "userDefinedLeadframeCoverage",
           "label": "User Defined Leadframe Coverage",
@@ -6675,7 +6675,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "soic_family.lead_frame.Leadframe Coverage",
+          "target_id": "sop.lead_frame.Leadframe Coverage",
           "component": "leadFrame",
           "property": "leadframeCoveragePercentage",
           "label": "Leadframe Coverage",
@@ -6693,7 +6693,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "soic_family.bond_wires.Bond Wire Length Lbw",
+          "target_id": "sop.bond_wires.Bond Wire Length Lbw",
           "component": "bondWires",
           "property": "bondWireLengthLbw",
           "label": "Bond Wire Length Lbw",
@@ -6720,7 +6720,7 @@
           }
         },
         {
-          "target_id": "soic_family.bond_wires.Bond Wire Diameter dbw",
+          "target_id": "sop.bond_wires.Bond Wire Diameter dbw",
           "component": "bondWires",
           "property": "bondWireDiameterDbw",
           "label": "Bond Wire Diameter dbw",
@@ -6738,7 +6738,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "soic_family.bond_wires.Number of Bond Wires N",
+          "target_id": "sop.bond_wires.Number of Bond Wires N",
           "component": "bondWires",
           "property": "numberOfBondWiresN",
           "label": "Number of Bond Wires N",
@@ -6756,7 +6756,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "soic_family.thermal_land_and_solder.Include Thermal Land and Solder",
+          "target_id": "sop.thermal_land_and_solder.Include Thermal Land and Solder",
           "component": "thermalLandAndSolder",
           "property": "includeThermalLandAndSolder",
           "label": "Include Thermal Land and Solder",
@@ -6772,7 +6772,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "soic_family.thermal_land_and_solder.Land Thickness",
+          "target_id": "sop.thermal_land_and_solder.Land Thickness",
           "component": "thermalLandAndSolder",
           "property": "landThickness",
           "label": "Land Thickness",
@@ -6790,7 +6790,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "soic_family.modeling_options.Model Bond Wires As",
+          "target_id": "sop.modeling_options.Model Bond Wires As",
           "component": "modelingOptions",
           "property": "modelBondWiresAs",
           "label": "Model Bond Wires As",
@@ -6806,7 +6806,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "soic_family.modeling_options.Localize Grid",
+          "target_id": "sop.modeling_options.Localize Grid",
           "component": "modelingOptions",
           "property": "localizeGrid",
           "label": "Localize Grid",
@@ -6822,7 +6822,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "soic_family.modeling_options.Grid Density",
+          "target_id": "sop.modeling_options.Grid Density",
           "component": "modelingOptions",
           "property": "gridDensity",
           "label": "Grid Density",
@@ -6840,7 +6840,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "soic_family.starter.Design Name",
+          "target_id": "sop.starter.Design Name",
           "component": null,
           "property": "designName",
           "label": "Design Name",
@@ -6848,7 +6848,7 @@
           "status": "not_model_input"
         },
         {
-          "target_id": "soic_family.summary.Design Name",
+          "target_id": "sop.summary.Design Name",
           "component": "summary",
           "property": "designName",
           "label": "Design Name",
@@ -6856,7 +6856,7 @@
           "status": "not_model_input"
         },
         {
-          "target_id": "soic_family.summary.Part Number",
+          "target_id": "sop.summary.Part Number",
           "component": "summary",
           "property": "partNumber",
           "label": "Part Number",
@@ -6864,7 +6864,7 @@
           "status": "not_model_input"
         },
         {
-          "target_id": "soic_family.summary.Vendor Name",
+          "target_id": "sop.summary.Vendor Name",
           "component": "summary",
           "property": "vendorName",
           "label": "Vendor Name",
@@ -6872,7 +6872,7 @@
           "status": "not_model_input"
         },
         {
-          "target_id": "soic_family.summary.Max Power",
+          "target_id": "sop.summary.Max Power",
           "component": "summary",
           "property": "maxPower",
           "label": "Max Power",
@@ -6880,7 +6880,7 @@
           "status": "not_model_input"
         },
         {
-          "target_id": "soic_family.summary.Max Operating Junction Temperature",
+          "target_id": "sop.summary.Max Operating Junction Temperature",
           "component": "summary",
           "property": "maxOperatingJunctionTemperature",
           "label": "Max Operating Junction Temperature",
@@ -6888,7 +6888,7 @@
           "status": "not_model_input"
         },
         {
-          "target_id": "soic_family.summary.Max Case Temperature",
+          "target_id": "sop.summary.Max Case Temperature",
           "component": "summary",
           "property": "maxCaseTemperature",
           "label": "Max Case Temperature",
@@ -6896,7 +6896,7 @@
           "status": "not_model_input"
         },
         {
-          "target_id": "soic_family.summary.Notes",
+          "target_id": "sop.summary.Notes",
           "component": "summary",
           "property": "notes",
           "label": "Notes",
@@ -6904,7 +6904,7 @@
           "status": "not_model_input"
         },
         {
-          "target_id": "soic_family.overall_package.Length D",
+          "target_id": "sop.overall_package.Length D",
           "component": "overallPackage",
           "property": "lengthD",
           "label": "Length D",
@@ -6912,7 +6912,7 @@
           "status": "runtime_rejected_not_independent"
         },
         {
-          "target_id": "soic_family.encapsulant.Material Group",
+          "target_id": "sop.encapsulant.Material Group",
           "component": "encapsulant",
           "property": null,
           "label": "Material Group",
@@ -6920,7 +6920,7 @@
           "status": "default_only"
         },
         {
-          "target_id": "soic_family.encapsulant.Encapsulant Material",
+          "target_id": "sop.encapsulant.Encapsulant Material",
           "component": "encapsulant",
           "property": "encapsulantMaterial",
           "label": "Encapsulant Material",
@@ -6928,7 +6928,7 @@
           "status": "default_only"
         },
         {
-          "target_id": "soic_family.die.Click To Edit",
+          "target_id": "sop.die.Click To Edit",
           "component": "die",
           "property": null,
           "label": "Click To Edit",
@@ -6936,7 +6936,7 @@
           "status": "separate_representative_editor_case"
         },
         {
-          "target_id": "soic_family.die.Material Group",
+          "target_id": "sop.die.Material Group",
           "component": "die",
           "property": null,
           "label": "Material Group",
@@ -6944,7 +6944,7 @@
           "status": "default_only"
         },
         {
-          "target_id": "soic_family.die.Die Attach Material",
+          "target_id": "sop.die.Die Attach Material",
           "component": "die",
           "property": "dieAttachMaterial",
           "label": "Die Attach Material",
@@ -6952,7 +6952,7 @@
           "status": "default_only"
         },
         {
-          "target_id": "soic_family.die_flag_and_tie_bars.Material Group",
+          "target_id": "sop.die_flag_and_tie_bars.Material Group",
           "component": "dieFlagAndTieBars",
           "property": null,
           "label": "Material Group",
@@ -6960,7 +6960,7 @@
           "status": "default_only"
         },
         {
-          "target_id": "soic_family.die_flag_and_tie_bars.Die Flag Material",
+          "target_id": "sop.die_flag_and_tie_bars.Die Flag Material",
           "component": "dieFlagAndTieBars",
           "property": "dieFlagMaterial",
           "label": "Die Flag Material",
@@ -6968,7 +6968,7 @@
           "status": "default_only"
         },
         {
-          "target_id": "soic_family.lead_frame.Material Group",
+          "target_id": "sop.lead_frame.Material Group",
           "component": "leadFrame",
           "property": null,
           "label": "Material Group",
@@ -6976,7 +6976,7 @@
           "status": "default_only"
         },
         {
-          "target_id": "soic_family.lead_frame.Lead Frame Material",
+          "target_id": "sop.lead_frame.Lead Frame Material",
           "component": "leadFrame",
           "property": "leadframeMaterial",
           "label": "Lead Frame Material",
@@ -6984,7 +6984,7 @@
           "status": "default_only"
         },
         {
-          "target_id": "soic_family.bond_wires.Material Group",
+          "target_id": "sop.bond_wires.Material Group",
           "component": "bondWires",
           "property": null,
           "label": "Material Group",
@@ -6992,7 +6992,7 @@
           "status": "default_only"
         },
         {
-          "target_id": "soic_family.bond_wires.Material",
+          "target_id": "sop.bond_wires.Material",
           "component": "bondWires",
           "property": "bondWireMaterial",
           "label": "Material",
@@ -7000,7 +7000,7 @@
           "status": "default_only"
         },
         {
-          "target_id": "soic_family.thermal_land_and_solder.Land Material Group",
+          "target_id": "sop.thermal_land_and_solder.Land Material Group",
           "component": "thermalLandAndSolder",
           "property": null,
           "label": "Land Material Group",
@@ -7008,7 +7008,7 @@
           "status": "default_only"
         },
         {
-          "target_id": "soic_family.thermal_land_and_solder.Land Material",
+          "target_id": "sop.thermal_land_and_solder.Land Material",
           "component": "thermalLandAndSolder",
           "property": "landMaterial",
           "label": "Land Material",
@@ -7016,7 +7016,7 @@
           "status": "default_only"
         },
         {
-          "target_id": "soic_family.thermal_land_and_solder.Solder Material Group",
+          "target_id": "sop.thermal_land_and_solder.Solder Material Group",
           "component": "thermalLandAndSolder",
           "property": null,
           "label": "Solder Material Group",
@@ -7024,7 +7024,7 @@
           "status": "default_only"
         },
         {
-          "target_id": "soic_family.thermal_land_and_solder.Solder Material",
+          "target_id": "sop.thermal_land_and_solder.Solder Material",
           "component": "thermalLandAndSolder",
           "property": "solderMaterial",
           "label": "Solder Material",
@@ -7032,7 +7032,7 @@
           "status": "default_only"
         },
         {
-          "target_id": "soic_family.modeling_options.Model Lead Frames As",
+          "target_id": "sop.modeling_options.Model Lead Frames As",
           "component": "modelingOptions",
           "property": "modelLeadFrameAs",
           "label": "Model Lead Frames As",
@@ -7042,16 +7042,16 @@
       ]
     },
     {
-      "template_id": "wirebond_pbga",
+      "template_id": "pbga_wb",
       "status": "complete",
       "target_count": 57,
       "branch_baseline_count": 13,
       "variation_count": 101,
       "expected_export_count": 114,
-      "suite": "validation/comprehensive_replay_wirebond_pbga.xml",
+      "suite": "validation/comprehensive_replay_pbga_wb.xml",
       "coverage": [
         {
-          "target_id": "wirebond_pbga.starter.Outline Type",
+          "target_id": "pbga_wb.starter.Outline Type",
           "component": "new_package",
           "property": "outlineType",
           "label": "Outline Type",
@@ -7067,7 +7067,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "wirebond_pbga.starter.JEDEC Footprint",
+          "target_id": "pbga_wb.starter.JEDEC Footprint",
           "component": "new_package",
           "property": "jedecFootprint",
           "label": "JEDEC Footprint",
@@ -7085,7 +7085,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "wirebond_pbga.starter.Die Type",
+          "target_id": "pbga_wb.starter.Die Type",
           "component": "new_package",
           "property": "dieType",
           "label": "Die Type",
@@ -7101,7 +7101,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "wirebond_pbga.starter.Substrate Layer",
+          "target_id": "pbga_wb.starter.Substrate Layer",
           "component": "new_package",
           "property": "substrateLayer",
           "label": "Substrate Layer",
@@ -7117,7 +7117,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "wirebond_pbga.starter.Top Layer",
+          "target_id": "pbga_wb.starter.Top Layer",
           "component": "new_package",
           "property": "topSignalLayerThickness",
           "label": "Top Layer",
@@ -7135,7 +7135,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "wirebond_pbga.starter.Bottom Layer",
+          "target_id": "pbga_wb.starter.Bottom Layer",
           "component": "new_package",
           "property": "bottomSignalLayerThickness",
           "label": "Bottom Layer",
@@ -7153,7 +7153,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "wirebond_pbga.starter.Include Slug",
+          "target_id": "pbga_wb.starter.Include Slug",
           "component": "new_package",
           "property": "includeSlug",
           "label": "Include Slug",
@@ -7169,7 +7169,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "wirebond_pbga.package_substrate.Substrate Length D",
+          "target_id": "pbga_wb.package_substrate.Substrate Length D",
           "component": "packageSubstrate",
           "property": "substrateLengthD",
           "label": "Substrate Length D",
@@ -7187,7 +7187,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "wirebond_pbga.package_substrate.Substrate Width E",
+          "target_id": "pbga_wb.package_substrate.Substrate Width E",
           "component": "packageSubstrate",
           "property": "substrateWidthE",
           "label": "Substrate Width E",
@@ -7205,7 +7205,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "wirebond_pbga.package_substrate.Substrate Thickness A2",
+          "target_id": "pbga_wb.package_substrate.Substrate Thickness A2",
           "component": "packageSubstrate",
           "property": "substrateThicknessA2",
           "label": "Substrate Thickness A2",
@@ -7223,7 +7223,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "wirebond_pbga.encapsulant.Length Le",
+          "target_id": "pbga_wb.encapsulant.Length Le",
           "component": "encapsulant",
           "property": "lengthLe",
           "label": "Length Le",
@@ -7241,7 +7241,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "wirebond_pbga.encapsulant.Width We",
+          "target_id": "pbga_wb.encapsulant.Width We",
           "component": "encapsulant",
           "property": "widthWe",
           "label": "Width We",
@@ -7259,7 +7259,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "wirebond_pbga.encapsulant.Thickness te",
+          "target_id": "pbga_wb.encapsulant.Thickness te",
           "component": "encapsulant",
           "property": "thicknessTe",
           "label": "Thickness te",
@@ -7277,7 +7277,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "wirebond_pbga.die_flag_and_solder_mask.Die Flag Lf",
+          "target_id": "pbga_wb.die_flag_and_solder_mask.Die Flag Lf",
           "component": "dieFlagAndSolderMask",
           "property": "dieFlagLf",
           "label": "Die Flag Lf",
@@ -7295,7 +7295,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "wirebond_pbga.die_flag_and_solder_mask.Die Flag Wf",
+          "target_id": "pbga_wb.die_flag_and_solder_mask.Die Flag Wf",
           "component": "dieFlagAndSolderMask",
           "property": "dieFlagWf",
           "label": "Die Flag Wf",
@@ -7313,7 +7313,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "wirebond_pbga.die_flag_and_solder_mask.Coverage Cf",
+          "target_id": "pbga_wb.die_flag_and_solder_mask.Coverage Cf",
           "component": "dieFlagAndSolderMask",
           "property": "coveragePercentageCf",
           "label": "Coverage Cf",
@@ -7331,7 +7331,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "wirebond_pbga.die_flag_and_solder_mask.Solder Mask Thickness",
+          "target_id": "pbga_wb.die_flag_and_solder_mask.Solder Mask Thickness",
           "component": "dieFlagAndSolderMask",
           "property": "solderMaskThickness",
           "label": "Solder Mask Thickness",
@@ -7349,7 +7349,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "wirebond_pbga.die.Package Power",
+          "target_id": "pbga_wb.die.Package Power",
           "component": "die",
           "property": "packagePower",
           "label": "Package Power",
@@ -7367,7 +7367,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "wirebond_pbga.die.Non-uniform Die Heat",
+          "target_id": "pbga_wb.die.Non-uniform Die Heat",
           "component": "die",
           "property": "nonUniformDieHeat",
           "label": "Non-uniform Die Heat",
@@ -7383,7 +7383,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "wirebond_pbga.die.Die Length Ld",
+          "target_id": "pbga_wb.die.Die Length Ld",
           "component": "die",
           "property": "dieLengthLd",
           "label": "Die Length Ld",
@@ -7401,7 +7401,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "wirebond_pbga.die.Die Width Wd",
+          "target_id": "pbga_wb.die.Die Width Wd",
           "component": "die",
           "property": "dieWidthWd",
           "label": "Die Width Wd",
@@ -7419,7 +7419,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "wirebond_pbga.die.Die Thickness td",
+          "target_id": "pbga_wb.die.Die Thickness td",
           "component": "die",
           "property": "dieThicknessTd",
           "label": "Die Thickness td",
@@ -7437,7 +7437,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "wirebond_pbga.die.Die Attach Thickness tda",
+          "target_id": "pbga_wb.die.Die Attach Thickness tda",
           "component": "die",
           "property": "dieAttachThicknessTda",
           "label": "Die Attach Thickness tda",
@@ -7455,7 +7455,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "wirebond_pbga.die.Number of Bond Wires Nw",
+          "target_id": "pbga_wb.die.Number of Bond Wires Nw",
           "component": "die",
           "property": "numberOfBondWiresNw",
           "label": "Number of Bond Wires Nw",
@@ -7473,7 +7473,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "wirebond_pbga.die.Extent of Bond Wire Pads Lw",
+          "target_id": "pbga_wb.die.Extent of Bond Wire Pads Lw",
           "component": "die",
           "property": "bondWireExtentLengthLw",
           "label": "Extent of Bond Wire Pads Lw",
@@ -7491,7 +7491,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "wirebond_pbga.die.Extent of Bond Wire Pads Ww",
+          "target_id": "pbga_wb.die.Extent of Bond Wire Pads Ww",
           "component": "die",
           "property": "bondWireExtentWidthWw",
           "label": "Extent of Bond Wire Pads Ww",
@@ -7509,7 +7509,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "wirebond_pbga.die.Bond Wire Diameter dw",
+          "target_id": "pbga_wb.die.Bond Wire Diameter dw",
           "component": "die",
           "property": "bondWireDiameterDw",
           "label": "Bond Wire Diameter dw",
@@ -7527,7 +7527,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "wirebond_pbga.thermal_vias.Number of Thermal Vias in X NVx",
+          "target_id": "pbga_wb.thermal_vias.Number of Thermal Vias in X NVx",
           "component": "thermalVias",
           "property": "numberOfThermalViasInXNVx",
           "label": "Number of Thermal Vias in X NVx",
@@ -7545,7 +7545,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "wirebond_pbga.thermal_vias.Number of Thermal Vias in Y NVy",
+          "target_id": "pbga_wb.thermal_vias.Number of Thermal Vias in Y NVy",
           "component": "thermalVias",
           "property": "numberOfThermalViasInYNVy",
           "label": "Number of Thermal Vias in Y NVy",
@@ -7563,7 +7563,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "wirebond_pbga.thermal_vias.Via Diameter dv",
+          "target_id": "pbga_wb.thermal_vias.Via Diameter dv",
           "component": "thermalVias",
           "property": "viaDiameterDv",
           "label": "Via Diameter dv",
@@ -7581,7 +7581,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "wirebond_pbga.thermal_vias.Via Pitch ev",
+          "target_id": "pbga_wb.thermal_vias.Via Pitch ev",
           "component": "thermalVias",
           "property": "viaPitchEv",
           "label": "Via Pitch ev",
@@ -7599,7 +7599,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "wirebond_pbga.thermal_vias.Plating Thickness tpl",
+          "target_id": "pbga_wb.thermal_vias.Plating Thickness tpl",
           "component": "thermalVias",
           "property": "platingThicknessTpl",
           "label": "Plating Thickness tpl",
@@ -7617,7 +7617,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "wirebond_pbga.solder_balls.Number of Solder Balls in X MD",
+          "target_id": "pbga_wb.solder_balls.Number of Solder Balls in X MD",
           "component": "solderBalls",
           "property": "numberOfSolderBallsInXMD",
           "label": "Number of Solder Balls in X MD",
@@ -7635,7 +7635,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "wirebond_pbga.solder_balls.Number of Solder Balls in Y ME",
+          "target_id": "pbga_wb.solder_balls.Number of Solder Balls in Y ME",
           "component": "solderBalls",
           "property": "numberOfSolderBallsInYME",
           "label": "Number of Solder Balls in Y ME",
@@ -7653,7 +7653,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "wirebond_pbga.solder_balls.Ball Diameter b",
+          "target_id": "pbga_wb.solder_balls.Ball Diameter b",
           "component": "solderBalls",
           "property": "ballDiameterB",
           "label": "Ball Diameter b",
@@ -7671,7 +7671,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "wirebond_pbga.solder_balls.Ball Pitch e",
+          "target_id": "pbga_wb.solder_balls.Ball Pitch e",
           "component": "solderBalls",
           "property": "ballPitchE",
           "label": "Ball Pitch e",
@@ -7689,7 +7689,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "wirebond_pbga.solder_balls.Substrate Stand-off A1",
+          "target_id": "pbga_wb.solder_balls.Substrate Stand-off A1",
           "component": "solderBalls",
           "property": "substrateStandoffA1",
           "label": "Substrate Stand-off A1",
@@ -7707,7 +7707,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "wirebond_pbga.solder_balls.Staggered Matrix",
+          "target_id": "pbga_wb.solder_balls.Staggered Matrix",
           "component": "solderBalls",
           "property": "staggeredMatrix",
           "label": "Staggered Matrix",
@@ -7723,7 +7723,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "wirebond_pbga.solder_balls.Solder Ball Map",
+          "target_id": "pbga_wb.solder_balls.Solder Ball Map",
           "component": "solderBalls",
           "property": "solderBallMap",
           "label": "Solder Ball Map",
@@ -7739,7 +7739,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "wirebond_pbga.solder_ball_depopulation.Depopulated Center",
+          "target_id": "pbga_wb.solder_ball_depopulation.Depopulated Center",
           "component": "solderBallDepopulation",
           "property": "depopulatedCenter",
           "label": "Depopulated Center",
@@ -7755,7 +7755,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "wirebond_pbga.solder_ball_depopulation.Number of Fully Populated Rows MDp",
+          "target_id": "pbga_wb.solder_ball_depopulation.Number of Fully Populated Rows MDp",
           "component": "solderBallDepopulation",
           "property": "numberFullyPopulatedRowsMDp",
           "label": "Number of Fully Populated Rows MDp",
@@ -7773,7 +7773,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "wirebond_pbga.solder_ball_depopulation.Number of Fully Populated Rows MEp",
+          "target_id": "pbga_wb.solder_ball_depopulation.Number of Fully Populated Rows MEp",
           "component": "solderBallDepopulation",
           "property": "numberFullyPopulatedRowsMEp",
           "label": "Number of Fully Populated Rows MEp",
@@ -7791,7 +7791,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "wirebond_pbga.central_balls.Central Balls",
+          "target_id": "pbga_wb.central_balls.Central Balls",
           "component": "centralBalls",
           "property": "centralBalls",
           "label": "Central Balls",
@@ -7807,7 +7807,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "wirebond_pbga.central_balls.Number of Central Rows MDc",
+          "target_id": "pbga_wb.central_balls.Number of Central Rows MDc",
           "component": "centralBalls",
           "property": "numberCentralRowsMDp",
           "label": "Number of Central Rows MDc",
@@ -7825,7 +7825,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "wirebond_pbga.central_balls.Number of Central Rows MEc",
+          "target_id": "pbga_wb.central_balls.Number of Central Rows MEc",
           "component": "centralBalls",
           "property": "numberCentralRowsMEp",
           "label": "Number of Central Rows MEc",
@@ -7843,7 +7843,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "wirebond_pbga.central_balls.Staggered Matrix",
+          "target_id": "pbga_wb.central_balls.Staggered Matrix",
           "component": "centralBalls",
           "property": "staggeredMatrix",
           "label": "Staggered Matrix",
@@ -7859,7 +7859,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "wirebond_pbga.backside_spreader.Include Backside Spreader",
+          "target_id": "pbga_wb.backside_spreader.Include Backside Spreader",
           "component": "backsideSpreader",
           "property": "includeBacksideSpreader",
           "label": "Include Backside Spreader",
@@ -7875,7 +7875,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "wirebond_pbga.backside_spreader.Spreader Length Lspr",
+          "target_id": "pbga_wb.backside_spreader.Spreader Length Lspr",
           "component": "backsideSpreader",
           "property": "spreaderLengthLspr",
           "label": "Spreader Length Lspr",
@@ -7893,7 +7893,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "wirebond_pbga.backside_spreader.Spreader Width Wspr",
+          "target_id": "pbga_wb.backside_spreader.Spreader Width Wspr",
           "component": "backsideSpreader",
           "property": "spreaderWidthWspr",
           "label": "Spreader Width Wspr",
@@ -7911,7 +7911,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "wirebond_pbga.backside_spreader.Spreader Thickness tspr",
+          "target_id": "pbga_wb.backside_spreader.Spreader Thickness tspr",
           "component": "backsideSpreader",
           "property": "spreaderThicknessTspr",
           "label": "Spreader Thickness tspr",
@@ -7929,7 +7929,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "wirebond_pbga.backside_spreader.Bottom Trace Hole Length Lbt",
+          "target_id": "pbga_wb.backside_spreader.Bottom Trace Hole Length Lbt",
           "component": "backsideSpreader",
           "property": "bottomTraceHoleLengthLbt",
           "label": "Bottom Trace Hole Length Lbt",
@@ -7947,7 +7947,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "wirebond_pbga.backside_spreader.Bottom Trace Hole Width Wbt",
+          "target_id": "pbga_wb.backside_spreader.Bottom Trace Hole Width Wbt",
           "component": "backsideSpreader",
           "property": "bottomTraceHoleWidthWbt",
           "label": "Bottom Trace Hole Width Wbt",
@@ -7965,7 +7965,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "wirebond_pbga.modeling_options.Model Solder Ball Array As",
+          "target_id": "pbga_wb.modeling_options.Model Solder Ball Array As",
           "component": "modelingOptions",
           "property": "modelSolderBallArrayAs",
           "label": "Model Solder Ball Array As",
@@ -7983,7 +7983,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "wirebond_pbga.modeling_options.Model Thermal Vias As",
+          "target_id": "pbga_wb.modeling_options.Model Thermal Vias As",
           "component": "modelingOptions",
           "property": "modelThermalViasAs",
           "label": "Model Thermal Vias As",
@@ -8001,7 +8001,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "wirebond_pbga.modeling_options.Model Bond Wires As",
+          "target_id": "pbga_wb.modeling_options.Model Bond Wires As",
           "component": "modelingOptions",
           "property": "modelBondWiresAs",
           "label": "Model Bond Wires As",
@@ -8017,7 +8017,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "wirebond_pbga.modeling_options.Localize Grid",
+          "target_id": "pbga_wb.modeling_options.Localize Grid",
           "component": "modelingOptions",
           "property": "localizeGrid",
           "label": "Localize Grid",
@@ -8033,7 +8033,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "wirebond_pbga.modeling_options.Grid Density",
+          "target_id": "pbga_wb.modeling_options.Grid Density",
           "component": "modelingOptions",
           "property": "gridDensity",
           "label": "Grid Density",
@@ -8051,7 +8051,7 @@
           "status": "replayed_and_analyzed"
         },
         {
-          "target_id": "wirebond_pbga.starter.Design Name",
+          "target_id": "pbga_wb.starter.Design Name",
           "component": null,
           "property": "designName",
           "label": "Design Name",
@@ -8059,7 +8059,7 @@
           "status": "not_model_input"
         },
         {
-          "target_id": "wirebond_pbga.summary.Design Name",
+          "target_id": "pbga_wb.summary.Design Name",
           "component": "summary",
           "property": "designName",
           "label": "Design Name",
@@ -8067,7 +8067,7 @@
           "status": "not_model_input"
         },
         {
-          "target_id": "wirebond_pbga.summary.Part Number",
+          "target_id": "pbga_wb.summary.Part Number",
           "component": "summary",
           "property": "partNumber",
           "label": "Part Number",
@@ -8075,7 +8075,7 @@
           "status": "not_model_input"
         },
         {
-          "target_id": "wirebond_pbga.summary.Vendor Name",
+          "target_id": "pbga_wb.summary.Vendor Name",
           "component": "summary",
           "property": "vendorName",
           "label": "Vendor Name",
@@ -8083,7 +8083,7 @@
           "status": "not_model_input"
         },
         {
-          "target_id": "wirebond_pbga.summary.Max Power",
+          "target_id": "pbga_wb.summary.Max Power",
           "component": "summary",
           "property": "maxPower",
           "label": "Max Power",
@@ -8091,7 +8091,7 @@
           "status": "not_model_input"
         },
         {
-          "target_id": "wirebond_pbga.summary.Max Operating Junction Temperature",
+          "target_id": "pbga_wb.summary.Max Operating Junction Temperature",
           "component": "summary",
           "property": "maxOperatingJunctionTemperature",
           "label": "Max Operating Junction Temperature",
@@ -8099,7 +8099,7 @@
           "status": "not_model_input"
         },
         {
-          "target_id": "wirebond_pbga.summary.Max Case Temperature",
+          "target_id": "pbga_wb.summary.Max Case Temperature",
           "component": "summary",
           "property": "maxCaseTemperature",
           "label": "Max Case Temperature",
@@ -8107,7 +8107,7 @@
           "status": "not_model_input"
         },
         {
-          "target_id": "wirebond_pbga.summary.Notes",
+          "target_id": "pbga_wb.summary.Notes",
           "component": "summary",
           "property": "notes",
           "label": "Notes",
@@ -8115,7 +8115,7 @@
           "status": "not_model_input"
         },
         {
-          "target_id": "wirebond_pbga.package_substrate.Material Group",
+          "target_id": "pbga_wb.package_substrate.Material Group",
           "component": "packageSubstrate",
           "property": null,
           "label": "Material Group",
@@ -8123,7 +8123,7 @@
           "status": "default_only"
         },
         {
-          "target_id": "wirebond_pbga.package_substrate.Dielectric Material",
+          "target_id": "pbga_wb.package_substrate.Dielectric Material",
           "component": "packageSubstrate",
           "property": "dielectricMaterial",
           "label": "Dielectric Material",
@@ -8131,7 +8131,7 @@
           "status": "default_only"
         },
         {
-          "target_id": "wirebond_pbga.encapsulant.Material Group",
+          "target_id": "pbga_wb.encapsulant.Material Group",
           "component": "encapsulant",
           "property": null,
           "label": "Material Group",
@@ -8139,7 +8139,7 @@
           "status": "default_only"
         },
         {
-          "target_id": "wirebond_pbga.encapsulant.Encapsulant Material",
+          "target_id": "pbga_wb.encapsulant.Encapsulant Material",
           "component": "encapsulant",
           "property": "encapsulantMaterial",
           "label": "Encapsulant Material",
@@ -8147,7 +8147,7 @@
           "status": "default_only"
         },
         {
-          "target_id": "wirebond_pbga.die_flag_and_solder_mask.Material Group",
+          "target_id": "pbga_wb.die_flag_and_solder_mask.Material Group",
           "component": "dieFlagAndSolderMask",
           "property": null,
           "label": "Material Group",
@@ -8155,7 +8155,7 @@
           "status": "default_only"
         },
         {
-          "target_id": "wirebond_pbga.die_flag_and_solder_mask.Solder Mask Material",
+          "target_id": "pbga_wb.die_flag_and_solder_mask.Solder Mask Material",
           "component": "dieFlagAndSolderMask",
           "property": "solderMaskMaterial",
           "label": "Solder Mask Material",
@@ -8163,7 +8163,7 @@
           "status": "default_only"
         },
         {
-          "target_id": "wirebond_pbga.die.Die Attach Material Group",
+          "target_id": "pbga_wb.die.Die Attach Material Group",
           "component": "die",
           "property": null,
           "label": "Die Attach Material Group",
@@ -8171,7 +8171,7 @@
           "status": "default_only"
         },
         {
-          "target_id": "wirebond_pbga.die.Die Attach Material",
+          "target_id": "pbga_wb.die.Die Attach Material",
           "component": "die",
           "property": "dieAttachMaterial",
           "label": "Die Attach Material",
@@ -8179,7 +8179,7 @@
           "status": "default_only"
         },
         {
-          "target_id": "wirebond_pbga.die.Bond Wire Material Group",
+          "target_id": "pbga_wb.die.Bond Wire Material Group",
           "component": "die",
           "property": null,
           "label": "Bond Wire Material Group",
@@ -8187,7 +8187,7 @@
           "status": "default_only"
         },
         {
-          "target_id": "wirebond_pbga.die.Bond Wire Material",
+          "target_id": "pbga_wb.die.Bond Wire Material",
           "component": "die",
           "property": "bondWireMaterial",
           "label": "Bond Wire Material",
@@ -8195,7 +8195,7 @@
           "status": "default_only"
         },
         {
-          "target_id": "wirebond_pbga.thermal_vias.Via Depopulation",
+          "target_id": "pbga_wb.thermal_vias.Via Depopulation",
           "component": "thermalVias",
           "property": "viaDepopulation",
           "label": "Via Depopulation",
@@ -8203,7 +8203,7 @@
           "status": "separate_representative_editor_case"
         },
         {
-          "target_id": "wirebond_pbga.metal_layers.Material Group",
+          "target_id": "pbga_wb.metal_layers.Material Group",
           "component": "metalLayers",
           "property": null,
           "label": "Material Group",
@@ -8211,7 +8211,7 @@
           "status": "default_only"
         },
         {
-          "target_id": "wirebond_pbga.metal_layers.Material of Metal",
+          "target_id": "pbga_wb.metal_layers.Material of Metal",
           "component": "metalLayers",
           "property": "materialOfMetal",
           "label": "Material of Metal",
@@ -8219,7 +8219,7 @@
           "status": "default_only"
         },
         {
-          "target_id": "wirebond_pbga.metal_layers.Layers",
+          "target_id": "pbga_wb.metal_layers.Layers",
           "component": "metalLayers",
           "property": null,
           "label": "Layers",
@@ -8227,7 +8227,7 @@
           "status": "separate_representative_editor_case"
         },
         {
-          "target_id": "wirebond_pbga.solder_balls.Material Group",
+          "target_id": "pbga_wb.solder_balls.Material Group",
           "component": "solderBalls",
           "property": null,
           "label": "Material Group",
@@ -8235,7 +8235,7 @@
           "status": "default_only"
         },
         {
-          "target_id": "wirebond_pbga.solder_balls.Solder Material",
+          "target_id": "pbga_wb.solder_balls.Solder Material",
           "component": "solderBalls",
           "property": "solderMaterial",
           "label": "Solder Material",
@@ -8243,7 +8243,7 @@
           "status": "default_only"
         },
         {
-          "target_id": "wirebond_pbga.drop_in_slug.Include Slug",
+          "target_id": "pbga_wb.drop_in_slug.Include Slug",
           "component": "dropInSlug",
           "property": "includeSlug",
           "label": "Include Slug",
@@ -8251,7 +8251,7 @@
           "status": "default_only_inactive_material_branch"
         },
         {
-          "target_id": "wirebond_pbga.drop_in_slug.Slug Length Lsl",
+          "target_id": "pbga_wb.drop_in_slug.Slug Length Lsl",
           "component": "dropInSlug",
           "property": "slugLengthLsl",
           "label": "Slug Length Lsl",
@@ -8259,7 +8259,7 @@
           "status": "default_only_inactive_material_branch"
         },
         {
-          "target_id": "wirebond_pbga.drop_in_slug.Slug Width Wsl",
+          "target_id": "pbga_wb.drop_in_slug.Slug Width Wsl",
           "component": "dropInSlug",
           "property": "slugWidthWsl",
           "label": "Slug Width Wsl",
@@ -8267,7 +8267,7 @@
           "status": "default_only_inactive_material_branch"
         },
         {
-          "target_id": "wirebond_pbga.drop_in_slug.Slug Thickness tsl",
+          "target_id": "pbga_wb.drop_in_slug.Slug Thickness tsl",
           "component": "dropInSlug",
           "property": "slugThicknessTsl",
           "label": "Slug Thickness tsl",
@@ -8275,7 +8275,7 @@
           "status": "default_only_inactive_material_branch"
         },
         {
-          "target_id": "wirebond_pbga.drop_in_slug.Slug Diameter ds",
+          "target_id": "pbga_wb.drop_in_slug.Slug Diameter ds",
           "component": "dropInSlug",
           "property": "slugDiameterDs",
           "label": "Slug Diameter ds",
@@ -8283,7 +8283,7 @@
           "status": "default_only_inactive_material_branch"
         },
         {
-          "target_id": "wirebond_pbga.drop_in_slug.Material Group",
+          "target_id": "pbga_wb.drop_in_slug.Material Group",
           "component": "dropInSlug",
           "property": null,
           "label": "Material Group",
@@ -8291,7 +8291,7 @@
           "status": "default_only_inactive_material_branch"
         },
         {
-          "target_id": "wirebond_pbga.drop_in_slug.Slug Material",
+          "target_id": "pbga_wb.drop_in_slug.Slug Material",
           "component": "dropInSlug",
           "property": "slugMaterial",
           "label": "Slug Material",
@@ -8299,7 +8299,7 @@
           "status": "default_only_inactive_material_branch"
         },
         {
-          "target_id": "wirebond_pbga.drop_in_slug.Slug Foot Extend Length Lsf",
+          "target_id": "pbga_wb.drop_in_slug.Slug Foot Extend Length Lsf",
           "component": "dropInSlug",
           "property": "slugFootExtendLengthLsf",
           "label": "Slug Foot Extend Length Lsf",
@@ -8307,7 +8307,7 @@
           "status": "default_only_inactive_material_branch"
         },
         {
-          "target_id": "wirebond_pbga.drop_in_slug.Slug Foot Extend Width Wsf",
+          "target_id": "pbga_wb.drop_in_slug.Slug Foot Extend Width Wsf",
           "component": "dropInSlug",
           "property": "slugFootExtendWidthWsf",
           "label": "Slug Foot Extend Width Wsf",
@@ -8315,7 +8315,7 @@
           "status": "default_only_inactive_material_branch"
         },
         {
-          "target_id": "wirebond_pbga.drop_in_slug.Slug Offset Gs",
+          "target_id": "pbga_wb.drop_in_slug.Slug Offset Gs",
           "component": "dropInSlug",
           "property": "slugOffsetGs",
           "label": "Slug Offset Gs",
@@ -8323,7 +8323,7 @@
           "status": "default_only_inactive_material_branch"
         },
         {
-          "target_id": "wirebond_pbga.drop_in_slug.Slug Foot Clearance gsf",
+          "target_id": "pbga_wb.drop_in_slug.Slug Foot Clearance gsf",
           "component": "dropInSlug",
           "property": "slugFootClearanceGsf",
           "label": "Slug Foot Clearance gsf",
@@ -8331,7 +8331,7 @@
           "status": "default_only_inactive_material_branch"
         },
         {
-          "target_id": "wirebond_pbga.drop_in_slug.Adhesive Present Under Slug Foot",
+          "target_id": "pbga_wb.drop_in_slug.Adhesive Present Under Slug Foot",
           "component": "dropInSlug",
           "property": "adhesivePresentUnderSlugFoot",
           "label": "Adhesive Present Under Slug Foot",
@@ -8339,7 +8339,7 @@
           "status": "default_only_inactive_material_branch"
         },
         {
-          "target_id": "wirebond_pbga.solder_ball_depopulation.Depopulation",
+          "target_id": "pbga_wb.solder_ball_depopulation.Depopulation",
           "component": "solderBallDepopulation",
           "property": null,
           "label": "Depopulation",
@@ -8347,7 +8347,7 @@
           "status": "separate_representative_editor_case"
         },
         {
-          "target_id": "wirebond_pbga.backside_spreader.Material Group",
+          "target_id": "pbga_wb.backside_spreader.Material Group",
           "component": "backsideSpreader",
           "property": null,
           "label": "Material Group",
@@ -8355,7 +8355,7 @@
           "status": "default_only"
         },
         {
-          "target_id": "wirebond_pbga.backside_spreader.Spreader Material",
+          "target_id": "pbga_wb.backside_spreader.Spreader Material",
           "component": "backsideSpreader",
           "property": "spreaderMaterial",
           "label": "Spreader Material",
@@ -8365,6 +8365,6 @@
       ]
     }
   ],
-  "validated_at": "2026-07-29T16:13:22+08:00",
+  "validated_at": "2026-10-11T19:32:14+08:00",
   "replay_evidence": "validation/replay_results.json"
 }

@@ -69,5 +69,5 @@ PACK 参考输出是各向同性材料。依据项目决策，PackStudio 的 bum
 ## 证据
 
 - `../materials/materials_manual_captured.json`
-- `../templates/flip_chip_cbga/baseline/model.xml`
-- `../templates/flip_chip_cbga/xml_variations/option_switches/opt_v2_c002_underfill_false/`
+- `../templates/cbga_fc/baseline/model.xml`
+- `../templates/cbga_fc/xml_variations/option_switches/opt_v2_c002_underfill_false/`

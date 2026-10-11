@@ -42,10 +42,10 @@
 ## 证据
 
 - `../templates/bare_die/xml_variations/option_switches/opt_v2_c003_localizegrid_false/`
-- `../templates/fbga_fsbga/xml_variations/option_switches/opt_v2_c007_localizegrid_false/`
-- `../templates/flip_chip_cbga/xml_variations/option_switches/opt_v2_c010_localizegrid_false/`
-- `../templates/flip_chip_pbga/xml_variations/option_switches/opt_v2_c009_localizegrid_false/`
+- `../templates/chip_array/xml_variations/option_switches/opt_v2_c007_localizegrid_false/`
+- `../templates/cbga_fc/xml_variations/option_switches/opt_v2_c010_localizegrid_false/`
+- `../templates/pbga_fc/xml_variations/option_switches/opt_v2_c009_localizegrid_false/`
 - `../templates/qfn/xml_variations/option_switches/opt_v2_c002_localizegrid_false/`
-- `../templates/qfp_family/xml_variations/option_switches/opt_v2_c004_localizegrid_false/`
-- `../templates/soic_family/xml_variations/option_switches/opt_v2_c004_localizegrid_false/`
-- `../templates/wirebond_pbga/xml_variations/option_switches/opt_v2_c009_localizegrid_false/`
+- `../templates/pqfp/xml_variations/option_switches/opt_v2_c004_localizegrid_false/`
+- `../templates/sop/xml_variations/option_switches/opt_v2_c004_localizegrid_false/`
+- `../templates/pbga_wb/xml_variations/option_switches/opt_v2_c009_localizegrid_false/`

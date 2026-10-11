@@ -1,0 +1,67 @@
+{
+  "schema_version": "2.0",
+  "comparison": {
+    "baseline": "flotherm_pack_data/templates/cbga_fc/baseline/model.xml",
+    "variation": "flotherm_pack_data/templates/cbga_fc/xml_variations/param_sweeps/par_v2_c003_substratewidthe_5_4/model.xml",
+    "baseline_bytes": 10097,
+    "variation_bytes": 10097,
+    "baseline_sha256": "46F6562F9E9112E14FC6DD9980DF32077D141C578363E0BB073765FC5B5379A6",
+    "variation_sha256": "2DB8DC1EE1F9FD89E97E245359926100A3B9A61CC767D3035FD4A74263C18318"
+  },
+  "semantic_change": true,
+  "summary": {
+    "changed_value_count": 2,
+    "added_leaf_count": 0,
+    "removed_leaf_count": 0
+  },
+  "materials": {
+    "added": [],
+    "removed": [],
+    "changed": []
+  },
+  "entities": {
+    "added": [],
+    "removed": [],
+    "changed": [
+      {
+        "name": "assembly:Substrate",
+        "before": [
+          "8424822293d17fdb"
+        ],
+        "after": [
+          "27209bd5908036f9"
+        ]
+      },
+      {
+        "name": "cuboid:substrate",
+        "before": [
+          "0d1b00a901fe9c29"
+        ],
+        "after": [
+          "98da84824c603b60"
+        ]
+      }
+    ]
+  },
+  "changed_values": [
+    {
+      "path": "xml_case/geometry/assembly[name=Substrate]/geometry/cuboid[name=substrate]/position/y",
+      "before": "-0.0030000000000000001",
+      "after": "-0.0027000000000000001"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Substrate]/geometry/cuboid[name=substrate]/size/y",
+      "before": "0.0060000000000000001",
+      "after": "0.0054000000000000003"
+    }
+  ],
+  "added_leaf_paths": [],
+  "removed_leaf_paths": [],
+  "numeric_formatting_differences_ignored": true,
+  "template_id": "cbga_fc",
+  "variation_id": "par_v2_c003_substratewidthe_5_4",
+  "variation_kind": "numeric_parameter",
+  "comparison_baseline": "baseline/model.xml",
+  "outcome": "semantic_change",
+  "floxml_effect_expectation": null
+}

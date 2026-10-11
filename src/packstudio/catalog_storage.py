@@ -4,19 +4,23 @@ import hashlib
 from copy import deepcopy
 from functools import cache
 
-from packstudio.default_parameters import library_directory, read_defaults
+import packstudio.default_parameters as library
 
 
 @cache
-def _verified_entry(relative: str, schema: str, digest: str) -> dict:
-    root = library_directory().resolve()
+def _verified_entry(directory: str, relative: str, schema: str, digest: str) -> dict:
+    from pathlib import Path
+
+    root = Path(directory)
     path = (root / relative).resolve()
     if not path.is_relative_to(root):
         raise ValueError("catalog path must stay within the default library")
     if hashlib.sha256(path.read_bytes()).hexdigest() != digest:
         raise ValueError(f"catalog content hash mismatch: {relative}")
-    return read_defaults(relative, schema)
+    return library.read_defaults(relative, schema)
 
 
 def read_catalog_entry(relative: str, schema: str, digest: str) -> dict:
-    return deepcopy(_verified_entry(relative, schema, digest))
+    return deepcopy(
+        _verified_entry(str(library.library_directory().resolve()), relative, schema, digest)
+    )

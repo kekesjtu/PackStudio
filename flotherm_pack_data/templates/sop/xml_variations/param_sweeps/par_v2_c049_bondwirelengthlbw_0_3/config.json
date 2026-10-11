@@ -1,0 +1,33 @@
+{
+  "schema_version": "2.0",
+  "template_id": "sop",
+  "variation_id": "par_v2_c049_bondwirelengthlbw_0_3",
+  "kind": "numeric_parameter",
+  "coverage_policy": "low_and_high",
+  "target": {
+    "component": "bondWires",
+    "property": "bondWireLengthLbw",
+    "label": "Bond Wire Length Lbw",
+    "baseline": 0.2283,
+    "value": 0.3
+  },
+  "comparison_baseline": "baseline/model.xml",
+  "branch_preconditions": [],
+  "required_dependent_initialization": {},
+  "single_variable_relative_to_comparison_baseline": true,
+  "material_policy": "default_only",
+  "property_evidence": [
+    "recorded_modify_component",
+    "installed_dll_ascii_string"
+  ],
+  "execution_status": "pending_replay",
+  "value_selection_reason": "PACK normalizes the generic plus/minus 10 percent values; 0.3 mm was confirmed through a direct GUI FloSCRIPT recording.",
+  "floxml_effect_expectation": {
+    "expectation": "no_change_at_default_substate",
+    "reason": "PACK records and displays the changed length, but the default standard-outline orthotropic-cuboid export remains byte-identical.",
+    "evidence": [
+      "validation/recorded_soic_bond_wire_length.xml",
+      "validation/targeted_replay_soic_bond_wire_length.xml"
+    ]
+  }
+}

@@ -58,5 +58,5 @@ Approximate 的 isotropic `k=126.9004` 同时应用于 z；相较 Accurate 的
 
 ## 证据
 
-- `../templates/qfp_family/xml_variations/option_switches/opt_v2_c008_modeltiebarsas_approximate/`
-- 基准：`../templates/qfp_family/baseline/model.xml`
+- `../templates/pqfp/xml_variations/option_switches/opt_v2_c008_modeltiebarsas_approximate/`
+- 基准：`../templates/pqfp/baseline/model.xml`

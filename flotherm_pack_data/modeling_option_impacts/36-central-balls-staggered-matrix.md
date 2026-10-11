@@ -47,7 +47,7 @@ schema；导入含此字段的 PACK 数据时应提示不支持。
 
 ## 证据
 
-- `../templates/fbga_fsbga/xml_variations/option_switches/opt_v2_c006_staggeredmatrix_true/`
-- `../templates/flip_chip_cbga/xml_variations/option_switches/opt_v2_c007_staggeredmatrix_true/`
-- `../templates/flip_chip_pbga/xml_variations/option_switches/opt_v2_c007_staggeredmatrix_true/`
-- `../templates/wirebond_pbga/xml_variations/option_switches/opt_v2_c007_staggeredmatrix_true/`
+- `../templates/chip_array/xml_variations/option_switches/opt_v2_c006_staggeredmatrix_true/`
+- `../templates/cbga_fc/xml_variations/option_switches/opt_v2_c007_staggeredmatrix_true/`
+- `../templates/pbga_fc/xml_variations/option_switches/opt_v2_c007_staggeredmatrix_true/`
+- `../templates/pbga_wb/xml_variations/option_switches/opt_v2_c007_staggeredmatrix_true/`

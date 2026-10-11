@@ -134,10 +134,10 @@ Z 向导热率按并联混合，X/Y 向分别按等体积方柱的串并联热�
 | `GET` | `/api/templates/flip-chip-cbga/defaults` | 返回完整默认参数 |
 | `POST` | `/api/templates/flip-chip-cbga/generate` | 校验参数并返回 JSON 领域模型 |
 | `POST` | `/api/templates/flip-chip-cbga/export/pta` | 生成可下载的 PTA XML |
-| `GET` | `/api/templates/flip_chip_cbga/schema` | 返回原生向导字段、范围和条件 |
-| `GET` | `/api/templates/flip_chip_cbga/defaults` | 返回生产模板默认请求 |
-| `POST` | `/api/templates/flip_chip_cbga/generate` | 生成经基准复核的原生领域模型 |
-| `POST` | `/api/templates/flip_chip_cbga/export/pta` | 导出原生 PTA XML |
+| `GET` | `/api/templates/cbga_fc/schema` | 返回原生向导字段、范围和条件 |
+| `GET` | `/api/templates/cbga_fc/defaults` | 返回生产模板默认请求 |
+| `POST` | `/api/templates/cbga_fc/generate` | 生成经基准复核的原生领域模型 |
+| `POST` | `/api/templates/cbga_fc/export/pta` | 导出原生 PTA XML |
 
 前端使用“生成模型”刷新三维预览和模型树，使用“保存参数”写入当前浏览器，使用“导出
 PTA XML”按当前参数直接生成 XML。参数修改后，预览会标记为待重新生成。三维预览直接使用

@@ -1,0 +1,34 @@
+{
+  "schema_version": "2.0",
+  "template_id": "pbga_fc",
+  "variation_id": "par_v2_c020_numberofbumpsinymec4_7",
+  "kind": "numeric_parameter",
+  "coverage_policy": "conditional_low_and_high",
+  "target": {
+    "component": "flipChipBumps",
+    "property": "numberOfBumpsInYMEC4",
+    "label": "Number of Bumps in Y MEC4",
+    "baseline": 6,
+    "value": 7
+  },
+  "comparison_baseline": "validation/branch_baselines/br_v2_flipchipbumps_numberofbumpsinymec4/model.xml",
+  "branch_preconditions": [
+    {
+      "component": "flipChipBumps",
+      "property": "arrayType",
+      "value": "regularArray"
+    },
+    {
+      "component": "flipChipBumps",
+      "property": "numberOfBumpsInXMDC4",
+      "value": 6
+    }
+  ],
+  "required_dependent_initialization": {},
+  "single_variable_relative_to_comparison_baseline": true,
+  "material_policy": "default_only",
+  "property_evidence": [
+    "installed_dll_ascii_string"
+  ],
+  "execution_status": "pending_replay"
+}

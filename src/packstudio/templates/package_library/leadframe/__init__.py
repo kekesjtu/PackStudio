@@ -1,1 +1,1 @@
-"""QFN, QFP and SOIC lead-frame package templates."""
+"""QFN, QFP and SOP lead-frame package templates."""

@@ -60,5 +60,5 @@ FBGA 4-Layer 的 `Trace0..3` 分别对应 20%、90%、90%、10%；Wirebond PBGA 
 
 ## 证据
 
-- `../templates/fbga_fsbga/xml_variations/option_switches/opt_v2_c003_substratelayer_4_layer/`
-- `../templates/wirebond_pbga/xml_variations/option_switches/opt_v2_c003_substratelayer_4_layer/`
+- `../templates/chip_array/xml_variations/option_switches/opt_v2_c003_substratelayer_4_layer/`
+- `../templates/pbga_wb/xml_variations/option_switches/opt_v2_c003_substratelayer_4_layer/`

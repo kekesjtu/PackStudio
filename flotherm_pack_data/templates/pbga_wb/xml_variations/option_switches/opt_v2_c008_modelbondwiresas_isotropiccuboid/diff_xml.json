@@ -1,0 +1,183 @@
+{
+  "schema_version": "2.0",
+  "comparison": {
+    "baseline": "flotherm_pack_data/templates/pbga_wb/baseline/model.xml",
+    "variation": "flotherm_pack_data/templates/pbga_wb/xml_variations/option_switches/opt_v2_c008_modelbondwiresas_isotropiccuboid/model.xml",
+    "baseline_bytes": 41072,
+    "variation_bytes": 40545,
+    "baseline_sha256": "9479526808CCC33C8AD535F728A6CBBAC0F010BC1E06E77A60FD3E26427F56B2",
+    "variation_sha256": "927E0307E11929C7650C9630468EB017DEA374BBEC3165D19FC555F100AFF26C"
+  },
+  "semantic_change": true,
+  "summary": {
+    "changed_value_count": 8,
+    "added_leaf_count": 4,
+    "removed_leaf_count": 12
+  },
+  "materials": {
+    "added": [
+      "bondwire"
+    ],
+    "removed": [
+      "bondwire_1",
+      "bondwire_2"
+    ],
+    "changed": []
+  },
+  "entities": {
+    "added": [],
+    "removed": [],
+    "changed": [
+      {
+        "name": "assembly:Bondwires",
+        "before": [
+          "9bd5d999e07ba6df"
+        ],
+        "after": [
+          "e360c928bce78723"
+        ]
+      },
+      {
+        "name": "cuboid:bw_h_left",
+        "before": [
+          "ee63a04a663dcc05"
+        ],
+        "after": [
+          "5eb5cd5b51e9f12a"
+        ]
+      },
+      {
+        "name": "cuboid:bw_h_lower",
+        "before": [
+          "dcbd8023fdac9f25"
+        ],
+        "after": [
+          "79d662568815cc15"
+        ]
+      },
+      {
+        "name": "cuboid:bw_h_right",
+        "before": [
+          "af9e8fb00f3fed58"
+        ],
+        "after": [
+          "ac5f72f1582b6dc8"
+        ]
+      },
+      {
+        "name": "cuboid:bw_h_upper",
+        "before": [
+          "26e94fccc1e11b22"
+        ],
+        "after": [
+          "176aedb5bb65b045"
+        ]
+      },
+      {
+        "name": "cuboid:bw_v_left",
+        "before": [
+          "1c1fd8325146fe93"
+        ],
+        "after": [
+          "ba3b209aa51e4ad7"
+        ]
+      },
+      {
+        "name": "cuboid:bw_v_lower",
+        "before": [
+          "2e08bbab4ad027ec"
+        ],
+        "after": [
+          "0b074ac5ff4be203"
+        ]
+      },
+      {
+        "name": "cuboid:bw_v_right",
+        "before": [
+          "735242cc2c1563e2"
+        ],
+        "after": [
+          "a320b902b224140c"
+        ]
+      },
+      {
+        "name": "cuboid:bw_v_upper",
+        "before": [
+          "32794f71ad8b1b1a"
+        ],
+        "after": [
+          "e4b3a93257a6d571"
+        ]
+      }
+    ]
+  },
+  "changed_values": [
+    {
+      "path": "xml_case/geometry/assembly[name=Bondwires]/geometry/cuboid[name=bw_h_left]/material",
+      "before": "bondwire_1",
+      "after": "bondwire"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Bondwires]/geometry/cuboid[name=bw_h_lower]/material",
+      "before": "bondwire_2",
+      "after": "bondwire"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Bondwires]/geometry/cuboid[name=bw_h_right]/material",
+      "before": "bondwire_1",
+      "after": "bondwire"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Bondwires]/geometry/cuboid[name=bw_h_upper]/material",
+      "before": "bondwire_2",
+      "after": "bondwire"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Bondwires]/geometry/cuboid[name=bw_v_left]/material",
+      "before": "bondwire_1",
+      "after": "bondwire"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Bondwires]/geometry/cuboid[name=bw_v_lower]/material",
+      "before": "bondwire_2",
+      "after": "bondwire"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Bondwires]/geometry/cuboid[name=bw_v_right]/material",
+      "before": "bondwire_1",
+      "after": "bondwire"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Bondwires]/geometry/cuboid[name=bw_v_upper]/material",
+      "before": "bondwire_2",
+      "after": "bondwire"
+    }
+  ],
+  "added_leaf_paths": [
+    "xml_case/attributes/materials/isotropic_material_att[name=bondwire]/conductivity",
+    "xml_case/attributes/materials/isotropic_material_att[name=bondwire]/density",
+    "xml_case/attributes/materials/isotropic_material_att[name=bondwire]/name",
+    "xml_case/attributes/materials/isotropic_material_att[name=bondwire]/specific_heat"
+  ],
+  "removed_leaf_paths": [
+    "xml_case/attributes/materials/orthotropic_material_att[name=bondwire_1]/density",
+    "xml_case/attributes/materials/orthotropic_material_att[name=bondwire_1]/name",
+    "xml_case/attributes/materials/orthotropic_material_att[name=bondwire_1]/specific_heat",
+    "xml_case/attributes/materials/orthotropic_material_att[name=bondwire_1]/x_conductivity",
+    "xml_case/attributes/materials/orthotropic_material_att[name=bondwire_1]/y_conductivity",
+    "xml_case/attributes/materials/orthotropic_material_att[name=bondwire_1]/z_conductivity",
+    "xml_case/attributes/materials/orthotropic_material_att[name=bondwire_2]/density",
+    "xml_case/attributes/materials/orthotropic_material_att[name=bondwire_2]/name",
+    "xml_case/attributes/materials/orthotropic_material_att[name=bondwire_2]/specific_heat",
+    "xml_case/attributes/materials/orthotropic_material_att[name=bondwire_2]/x_conductivity",
+    "xml_case/attributes/materials/orthotropic_material_att[name=bondwire_2]/y_conductivity",
+    "xml_case/attributes/materials/orthotropic_material_att[name=bondwire_2]/z_conductivity"
+  ],
+  "numeric_formatting_differences_ignored": true,
+  "template_id": "pbga_wb",
+  "variation_id": "opt_v2_c008_modelbondwiresas_isotropiccuboid",
+  "variation_kind": "enum_option",
+  "comparison_baseline": "baseline/model.xml",
+  "outcome": "semantic_change",
+  "floxml_effect_expectation": null
+}

@@ -1,0 +1,198 @@
+{
+  "schema_version": "2.0",
+  "comparison": {
+    "baseline": "flotherm_pack_data/templates/cbga_fc/baseline/model.xml",
+    "variation": "flotherm_pack_data/templates/cbga_fc/xml_variations/param_sweeps/par_v2_c034_substratestandoffa1_0_44/model.xml",
+    "baseline_bytes": 10097,
+    "variation_bytes": 10110,
+    "baseline_sha256": "46F6562F9E9112E14FC6DD9980DF32077D141C578363E0BB073765FC5B5379A6",
+    "variation_sha256": "C30869D7EB93A53E2C2C6A7F2B42FD785EDE71AE1ED6AA6890EB350610F50A76"
+  },
+  "semantic_change": true,
+  "summary": {
+    "changed_value_count": 12,
+    "added_leaf_count": 0,
+    "removed_leaf_count": 0
+  },
+  "materials": {
+    "added": [],
+    "removed": [],
+    "changed": []
+  },
+  "entities": {
+    "added": [],
+    "removed": [],
+    "changed": [
+      {
+        "name": "assembly:Die",
+        "before": [
+          "62d57ab1cbd3ad58"
+        ],
+        "after": [
+          "ef2d553874e1b911"
+        ]
+      },
+      {
+        "name": "assembly:Solder_ball",
+        "before": [
+          "22c2a270a8fa61b7"
+        ],
+        "after": [
+          "f3d6dfb013d724c8"
+        ]
+      },
+      {
+        "name": "assembly:Substrate",
+        "before": [
+          "8424822293d17fdb"
+        ],
+        "after": [
+          "1a6e27b431120755"
+        ]
+      },
+      {
+        "name": "cuboid:die",
+        "before": [
+          "329cf8f0628605d6"
+        ],
+        "after": [
+          "bf09f8fe4f0b5a75"
+        ]
+      },
+      {
+        "name": "cuboid:fc_bumps",
+        "before": [
+          "b54c3873185d6ac9"
+        ],
+        "after": [
+          "8713e0c6a3356381"
+        ]
+      },
+      {
+        "name": "cuboid:solder_ball",
+        "before": [
+          "0fdfcd40a5c71f7b"
+        ],
+        "after": [
+          "22698cc565e7c1ec"
+        ]
+      },
+      {
+        "name": "cuboid:substrate",
+        "before": [
+          "0d1b00a901fe9c29"
+        ],
+        "after": [
+          "e475859956536a2d"
+        ]
+      },
+      {
+        "name": "monitor_point:CaseTemp",
+        "before": [
+          "40ec7a5960f48f0e"
+        ],
+        "after": [
+          "fabbcf276d14e816"
+        ]
+      },
+      {
+        "name": "monitor_point:DieJunction_Temp",
+        "before": [
+          "b25f60c5db079ee8"
+        ],
+        "after": [
+          "dc34be63e54e7855"
+        ]
+      },
+      {
+        "name": "region:z_top",
+        "before": [
+          "3c6c4c081b48a4e8"
+        ],
+        "after": [
+          "2915c6fdd84d75c3"
+        ]
+      },
+      {
+        "name": "source:DieSource",
+        "before": [
+          "8c6d32dfda32006d"
+        ],
+        "after": [
+          "4c07b817c17cbe2c"
+        ]
+      }
+    ]
+  },
+  "changed_values": [
+    {
+      "path": "xml_case/attributes/grid_constraints/grid_constraint_att[name=keypoint_z]/high_inflation/inflation_size",
+      "before": "0.0045200000000000006",
+      "after": "0.0045999999999999999"
+    },
+    {
+      "path": "xml_case/attributes/grid_constraints/grid_constraint_att[name=keypoint_z]/high_inflation/max_size",
+      "before": "0.00022600000000000002",
+      "after": "0.00023000000000000001"
+    },
+    {
+      "path": "xml_case/attributes/grid_constraints/grid_constraint_att[name=keypoint_z]/low_inflation/max_size",
+      "before": "0.00022600000000000002",
+      "after": "0.00023000000000000001"
+    },
+    {
+      "path": "xml_case/attributes/grid_constraints/grid_constraint_att[name=keypoint_z]/max_size",
+      "before": "0.00022600000000000002",
+      "after": "0.00023000000000000001"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Die]/geometry/cuboid[name=die]/position/z",
+      "before": "0.00165",
+      "after": "0.0016900000000000001"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Die]/geometry/monitor_point[name=DieJunction_Temp]/position/z",
+      "before": "0.0016530500000000001",
+      "after": "0.0016930500000000002"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Die]/geometry/source[name=DieSource]/position/z",
+      "before": "0.00165",
+      "after": "0.0016900000000000001"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball]/size/z",
+      "before": "0.00040000000000000002",
+      "after": "0.00044000000000000002"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Substrate]/geometry/cuboid[name=substrate]/position/z",
+      "before": "0.00040000000000000002",
+      "after": "0.00044000000000000002"
+    },
+    {
+      "path": "xml_case/geometry/cuboid[name=fc_bumps]/position/z",
+      "before": "0.0015499999999999999",
+      "after": "0.0015900000000000001"
+    },
+    {
+      "path": "xml_case/geometry/monitor_point[name=CaseTemp]/position/z",
+      "before": "0.0022374000000000001",
+      "after": "0.0022769999999999999"
+    },
+    {
+      "path": "xml_case/geometry/region[name=z_top]/position/z",
+      "before": "0.0022600000000000003",
+      "after": "0.0023"
+    }
+  ],
+  "added_leaf_paths": [],
+  "removed_leaf_paths": [],
+  "numeric_formatting_differences_ignored": true,
+  "template_id": "cbga_fc",
+  "variation_id": "par_v2_c034_substratestandoffa1_0_44",
+  "variation_kind": "numeric_parameter",
+  "comparison_baseline": "baseline/model.xml",
+  "outcome": "semantic_change",
+  "floxml_effect_expectation": null
+}

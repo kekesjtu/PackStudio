@@ -26,14 +26,14 @@ def test_catalog_contains_eight_native_templates_without_runtime_data_dependency
     items = catalog()
 
     assert [item["id"] for item in items] == [
-        "flip_chip_cbga",
-        "flip_chip_pbga",
-        "wirebond_pbga",
-        "fbga_fsbga",
-        "qfn",
-        "qfp_family",
-        "soic_family",
+        "chip_array",
         "bare_die",
+        "cbga_fc",
+        "pbga_fc",
+        "pqfp",
+        "qfn",
+        "sop",
+        "pbga_wb",
     ]
     assert all(item["implementation_status"] == "packstudio_native" for item in items)
     assert all(item["runtime_reference_data_required"] is False for item in items)
@@ -67,7 +67,7 @@ def test_component_material_choices_are_finite_and_use_builtin_materials() -> No
         ]
         assert fields
         assert all(field["material_group_id"] for field in fields)
-        assert all(0 < len(field["options"]) <= 2 for field in fields)
+        assert all(0 < len(field["options"]) == len(set(field["options"])) for field in fields)
         assert all(set(field["options"]) <= known_materials for field in fields)
 
 
@@ -144,8 +144,8 @@ def test_production_sources_do_not_contain_reference_repository_access() -> None
             assert ".read_text(" not in source, path
 
 
-def test_flip_chip_cbga_matches_reviewed_native_baseline() -> None:
-    model = generate(default_request("flip_chip_cbga"))
+def test_cbga_fc_matches_reviewed_native_baseline() -> None:
+    model = generate(default_request("cbga_fc"))
     blocks = {block.structure_type: block for block in model.blocks}
     substrate = blocks[StructureType.SUBSTRATE]
     bump = blocks[StructureType.FLIP_CHIP_BUMP]
@@ -184,7 +184,7 @@ def test_native_numeric_parameter_updates_geometry_and_enforces_range() -> None:
 def test_bga_center_removal_and_explicit_omission_follow_task5_priority() -> None:
     model = generate(
         TemplateRequest(
-            template_id="flip_chip_cbga",
+            template_id="cbga_fc",
             bga=BgaConfiguration(
                 solder_removal_enabled=True,
                 removal_rows=5,
@@ -213,8 +213,8 @@ def test_only_bga_accepts_bga_configuration_and_complex_patterns_are_unknown() -
     with pytest.raises(ValueError, match="unknown production template parameters"):
         generate(
             TemplateRequest(
-                template_id="flip_chip_cbga",
-                overrides={"flip_chip_cbga.bga.staggered": True},
+                template_id="cbga_fc",
+                overrides={"cbga_fc.bga.staggered": True},
             )
         )
 
@@ -232,7 +232,7 @@ def test_inactive_conditional_parameter_is_rejected_by_backend() -> None:
 def test_material_assignment_uses_native_material_library() -> None:
     model = generate(
         TemplateRequest(
-            template_id="flip_chip_pbga",
+            template_id="pbga_fc",
             material_assignments={"group-substrate": "bt"},
         )
     )
@@ -247,7 +247,7 @@ def test_material_assignment_uses_native_material_library() -> None:
     )
     customized = generate(
         TemplateRequest(
-            template_id="flip_chip_pbga",
+            template_id="pbga_fc",
             material_assignments={"group-substrate": "bt"},
             custom_materials=[custom_bt],
         )
@@ -272,7 +272,7 @@ def test_material_assignment_uses_native_material_library() -> None:
     with pytest.raises(ValueError, match="inactive"):
         generate(
             TemplateRequest(
-                template_id="flip_chip_cbga",
+                template_id="cbga_fc",
                 material_assignments={"group-encapsulant": "eme-7730lf"},
             )
         )

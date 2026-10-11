@@ -1,0 +1,43 @@
+{
+  "schema_version": "2.0",
+  "comparison": {
+    "baseline": "flotherm_pack_data/templates/cbga_fc/baseline/model.xml",
+    "variation": "flotherm_pack_data/templates/cbga_fc/xml_variations/param_sweeps/par_v2_c008_packagepower_2_0/model.xml",
+    "baseline_bytes": 10097,
+    "variation_bytes": 10097,
+    "baseline_sha256": "46F6562F9E9112E14FC6DD9980DF32077D141C578363E0BB073765FC5B5379A6",
+    "variation_sha256": "E5367F79FBE802628E6FA352F136EF80841A9946D96B71B6696765C527DA2612"
+  },
+  "semantic_change": true,
+  "summary": {
+    "changed_value_count": 1,
+    "added_leaf_count": 0,
+    "removed_leaf_count": 0
+  },
+  "materials": {
+    "added": [],
+    "removed": [],
+    "changed": []
+  },
+  "entities": {
+    "added": [],
+    "removed": [],
+    "changed": []
+  },
+  "changed_values": [
+    {
+      "path": "xml_case/attributes/sources/source_att[name=dieHeat]/power",
+      "before": "0",
+      "after": "2"
+    }
+  ],
+  "added_leaf_paths": [],
+  "removed_leaf_paths": [],
+  "numeric_formatting_differences_ignored": true,
+  "template_id": "cbga_fc",
+  "variation_id": "par_v2_c008_packagepower_2_0",
+  "variation_kind": "numeric_parameter",
+  "comparison_baseline": "baseline/model.xml",
+  "outcome": "semantic_change",
+  "floxml_effect_expectation": null
+}

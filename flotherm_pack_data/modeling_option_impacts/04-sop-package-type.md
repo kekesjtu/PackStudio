@@ -34,7 +34,7 @@ resolved = footprint_table[default_or_selected_footprint]
 
 ## 证据
 
-- `../templates/soic_family/ui.json`
-- `../templates/soic_family/xml_variations/option_switches/opt_v2_c002_soppackagetype_ssop/`
-- `../templates/soic_family/xml_variations/option_switches/opt_v2_c003_soppackagetype_tsop/`
-- `../templates/soic_family/xml_variations/option_switches/opt_v2_c004_soppackagetype_tssop/`
+- `../templates/sop/ui.json`
+- `../templates/sop/xml_variations/option_switches/opt_v2_c002_soppackagetype_ssop/`
+- `../templates/sop/xml_variations/option_switches/opt_v2_c003_soppackagetype_tsop/`
+- `../templates/sop/xml_variations/option_switches/opt_v2_c004_soppackagetype_tssop/`

@@ -1,0 +1,2337 @@
+{
+  "schema_version": "2.0",
+  "template_id": "pbga_wb",
+  "software_version": "2504",
+  "validated_at": "2026-10-11T19:32:14+08:00",
+  "status": "passed",
+  "checks": {
+    "baseline_script_xsd": {
+      "status": "passed",
+      "schema": "E:\\Program Files\\Siemens\\SimcenterFlotherm\\2504\\examples\\FloSCRIPT\\Schema\\FlopackFloSCRIPTSchema.xsd",
+      "files": [
+        "baseline/script.xml"
+      ],
+      "file_count": 1,
+      "errors": []
+    },
+    "recording_logs_xsd": {
+      "status": "passed",
+      "schema": "E:\\Program Files\\Siemens\\SimcenterFlotherm\\2504\\examples\\FloSCRIPT\\Schema\\FlopackFloSCRIPTSchema.xsd",
+      "files": [
+        "logs/ui_capture_session.xml"
+      ],
+      "file_count": 1,
+      "errors": []
+    },
+    "branch_scripts_xsd": {
+      "status": "passed",
+      "schema": "E:\\Program Files\\Siemens\\SimcenterFlotherm\\2504\\examples\\FloSCRIPT\\Schema\\FlopackFloSCRIPTSchema.xsd",
+      "files": [
+        "validation/branch_baselines/br_v2_backsidespreader_bottomtraceholelengthlbt/script.xml",
+        "validation/branch_baselines/br_v2_backsidespreader_bottomtraceholewidthwbt/script.xml",
+        "validation/branch_baselines/br_v2_backsidespreader_includebacksidespreader/script.xml",
+        "validation/branch_baselines/br_v2_backsidespreader_spreaderlengthlspr/script.xml",
+        "validation/branch_baselines/br_v2_backsidespreader_spreaderthicknesstspr/script.xml",
+        "validation/branch_baselines/br_v2_backsidespreader_spreaderwidthwspr/script.xml",
+        "validation/branch_baselines/br_v2_centralballs_centralballs/script.xml",
+        "validation/branch_baselines/br_v2_centralballs_numbercentralrowsmdp/script.xml",
+        "validation/branch_baselines/br_v2_centralballs_numbercentralrowsmep/script.xml",
+        "validation/branch_baselines/br_v2_centralballs_staggeredmatrix/script.xml",
+        "validation/branch_baselines/br_v2_solderballdepopulation_depopulatedcenter/script.xml",
+        "validation/branch_baselines/br_v2_solderballdepopulation_numberfullypopulatedrowsmdp/script.xml",
+        "validation/branch_baselines/br_v2_solderballdepopulation_numberfullypopulatedrowsmep/script.xml"
+      ],
+      "file_count": 13,
+      "errors": []
+    },
+    "variation_scripts_xsd": {
+      "status": "passed",
+      "schema": "E:\\Program Files\\Siemens\\SimcenterFlotherm\\2504\\examples\\FloSCRIPT\\Schema\\FlopackFloSCRIPTSchema.xsd",
+      "files": [
+        "xml_variations/option_switches/opt_v2_c001_outlinetype_nonstandardoutline/script.xml",
+        "xml_variations/option_switches/jed_v2_c001_jedecfootprint_pbga_352_35x35mm/script.xml",
+        "xml_variations/option_switches/jed_v2_c002_jedecfootprint_pbga_896_40x40mm/script.xml",
+        "xml_variations/option_switches/opt_v2_c002_dietype_thermaldie/script.xml",
+        "xml_variations/option_switches/opt_v2_c003_substratelayer_4_layer/script.xml",
+        "xml_variations/param_sweeps/par_v2_c001_topsignallayerthickness_0_0162/script.xml",
+        "xml_variations/param_sweeps/par_v2_c002_topsignallayerthickness_0_0198/script.xml",
+        "xml_variations/param_sweeps/par_v2_c003_bottomsignallayerthickness_0_0162/script.xml",
+        "xml_variations/param_sweeps/par_v2_c004_bottomsignallayerthickness_0_0198/script.xml",
+        "xml_variations/option_switches/opt_v2_c001_includeslug_true/script.xml",
+        "xml_variations/param_sweeps/par_v2_c005_substratelengthd_13_5/script.xml",
+        "xml_variations/param_sweeps/par_v2_c006_substratelengthd_16_5/script.xml",
+        "xml_variations/param_sweeps/par_v2_c007_substratewidthe_13_5/script.xml",
+        "xml_variations/param_sweeps/par_v2_c008_substratewidthe_16_5/script.xml",
+        "xml_variations/param_sweeps/par_v2_c009_substratethicknessa2_0_324/script.xml",
+        "xml_variations/param_sweeps/par_v2_c010_substratethicknessa2_0_396/script.xml",
+        "xml_variations/param_sweeps/par_v2_c011_lengthle_11_7/script.xml",
+        "xml_variations/param_sweeps/par_v2_c012_lengthle_14_3/script.xml",
+        "xml_variations/param_sweeps/par_v2_c013_widthwe_11_7/script.xml",
+        "xml_variations/param_sweeps/par_v2_c014_widthwe_14_3/script.xml",
+        "xml_variations/param_sweeps/par_v2_c015_thicknesste_0_72/script.xml",
+        "xml_variations/param_sweeps/par_v2_c016_thicknesste_0_88/script.xml",
+        "xml_variations/param_sweeps/par_v2_c017_dieflaglf_5_85/script.xml",
+        "xml_variations/param_sweeps/par_v2_c018_dieflaglf_7_15/script.xml",
+        "xml_variations/param_sweeps/par_v2_c019_dieflagwf_5_85/script.xml",
+        "xml_variations/param_sweeps/par_v2_c020_dieflagwf_7_15/script.xml",
+        "xml_variations/param_sweeps/par_v2_c021_coveragepercentagecf_54_0/script.xml",
+        "xml_variations/param_sweeps/par_v2_c022_coveragepercentagecf_66_0/script.xml",
+        "xml_variations/param_sweeps/par_v2_c023_soldermaskthickness_0_045/script.xml",
+        "xml_variations/param_sweeps/par_v2_c024_soldermaskthickness_0_055/script.xml",
+        "xml_variations/param_sweeps/par_v2_c025_packagepower_1_0/script.xml",
+        "xml_variations/param_sweeps/par_v2_c026_packagepower_2_0/script.xml",
+        "xml_variations/option_switches/opt_v2_c002_nonuniformdieheat_true/script.xml",
+        "xml_variations/param_sweeps/par_v2_c027_dielengthld_4_05/script.xml",
+        "xml_variations/param_sweeps/par_v2_c028_dielengthld_4_95/script.xml",
+        "xml_variations/param_sweeps/par_v2_c029_diewidthwd_4_05/script.xml",
+        "xml_variations/param_sweeps/par_v2_c030_diewidthwd_4_95/script.xml",
+        "xml_variations/param_sweeps/par_v2_c031_diethicknesstd_0_27/script.xml",
+        "xml_variations/param_sweeps/par_v2_c032_diethicknesstd_0_33/script.xml",
+        "xml_variations/param_sweeps/par_v2_c033_dieattachthicknesstda_0_0225/script.xml",
+        "xml_variations/param_sweeps/par_v2_c034_dieattachthicknesstda_0_0275/script.xml",
+        "xml_variations/param_sweeps/par_v2_c035_numberofbondwiresnw_120/script.xml",
+        "xml_variations/param_sweeps/par_v2_c036_numberofbondwiresnw_122/script.xml",
+        "xml_variations/param_sweeps/par_v2_c037_bondwireextentlengthlw_7_65/script.xml",
+        "xml_variations/param_sweeps/par_v2_c038_bondwireextentlengthlw_9_35/script.xml",
+        "xml_variations/param_sweeps/par_v2_c039_bondwireextentwidthww_7_65/script.xml",
+        "xml_variations/param_sweeps/par_v2_c040_bondwireextentwidthww_9_35/script.xml",
+        "xml_variations/param_sweeps/par_v2_c041_bondwirediameterdw_0_027/script.xml",
+        "xml_variations/param_sweeps/par_v2_c042_bondwirediameterdw_0_033/script.xml",
+        "xml_variations/param_sweeps/par_v2_c043_numberofthermalviasinxnvx_4/script.xml",
+        "xml_variations/param_sweeps/par_v2_c044_numberofthermalviasinxnvx_6/script.xml",
+        "xml_variations/param_sweeps/par_v2_c045_numberofthermalviasinynvy_4/script.xml",
+        "xml_variations/param_sweeps/par_v2_c046_numberofthermalviasinynvy_6/script.xml",
+        "xml_variations/param_sweeps/par_v2_c047_viadiameterdv_0_225/script.xml",
+        "xml_variations/param_sweeps/par_v2_c048_viadiameterdv_0_275/script.xml",
+        "xml_variations/param_sweeps/par_v2_c049_viapitchev_1_143/script.xml",
+        "xml_variations/param_sweeps/par_v2_c050_viapitchev_1_397/script.xml",
+        "xml_variations/param_sweeps/par_v2_c051_platingthicknesstpl_0_0225/script.xml",
+        "xml_variations/param_sweeps/par_v2_c052_platingthicknesstpl_0_0275/script.xml",
+        "xml_variations/param_sweeps/par_v2_c053_numberofsolderballsinxmd_10/script.xml",
+        "xml_variations/param_sweeps/par_v2_c054_numberofsolderballsinxmd_12/script.xml",
+        "xml_variations/param_sweeps/par_v2_c055_numberofsolderballsinyme_10/script.xml",
+        "xml_variations/param_sweeps/par_v2_c056_numberofsolderballsinyme_12/script.xml",
+        "xml_variations/param_sweeps/par_v2_c057_balldiameterb_0_675/script.xml",
+        "xml_variations/param_sweeps/par_v2_c058_balldiameterb_0_825/script.xml",
+        "xml_variations/param_sweeps/par_v2_c059_ballpitche_1_143/script.xml",
+        "xml_variations/param_sweeps/par_v2_c060_ballpitche_1_397/script.xml",
+        "xml_variations/param_sweeps/par_v2_c061_substratestandoffa1_0_54/script.xml",
+        "xml_variations/param_sweeps/par_v2_c062_substratestandoffa1_0_66/script.xml",
+        "xml_variations/option_switches/opt_v2_c003_staggeredmatrix_true/script.xml",
+        "xml_variations/option_switches/opt_v2_c004_solderballmap_true/script.xml",
+        "xml_variations/option_switches/opt_v2_c005_depopulatedcenter_true/script.xml",
+        "xml_variations/param_sweeps/par_v2_c063_numberfullypopulatedrowsmdp_1/script.xml",
+        "xml_variations/param_sweeps/par_v2_c064_numberfullypopulatedrowsmdp_3/script.xml",
+        "xml_variations/param_sweeps/par_v2_c065_numberfullypopulatedrowsmep_1/script.xml",
+        "xml_variations/param_sweeps/par_v2_c066_numberfullypopulatedrowsmep_3/script.xml",
+        "xml_variations/option_switches/opt_v2_c006_centralballs_true/script.xml",
+        "xml_variations/param_sweeps/par_v2_c067_numbercentralrowsmdp_1/script.xml",
+        "xml_variations/param_sweeps/par_v2_c068_numbercentralrowsmdp_3/script.xml",
+        "xml_variations/param_sweeps/par_v2_c069_numbercentralrowsmep_1/script.xml",
+        "xml_variations/param_sweeps/par_v2_c070_numbercentralrowsmep_3/script.xml",
+        "xml_variations/option_switches/opt_v2_c007_staggeredmatrix_true/script.xml",
+        "xml_variations/option_switches/opt_v2_c008_includebacksidespreader_true/script.xml",
+        "xml_variations/param_sweeps/par_v2_c071_spreaderlengthlspr_7_2/script.xml",
+        "xml_variations/param_sweeps/par_v2_c072_spreaderlengthlspr_8_8/script.xml",
+        "xml_variations/param_sweeps/par_v2_c073_spreaderwidthwspr_7_2/script.xml",
+        "xml_variations/param_sweeps/par_v2_c074_spreaderwidthwspr_8_8/script.xml",
+        "xml_variations/param_sweeps/par_v2_c075_spreaderthicknesstspr_0_45/script.xml",
+        "xml_variations/param_sweeps/par_v2_c076_spreaderthicknesstspr_0_55/script.xml",
+        "xml_variations/param_sweeps/par_v2_c077_bottomtraceholelengthlbt_4_5/script.xml",
+        "xml_variations/param_sweeps/par_v2_c078_bottomtraceholelengthlbt_5_5/script.xml",
+        "xml_variations/param_sweeps/par_v2_c079_bottomtraceholewidthwbt_4_5/script.xml",
+        "xml_variations/param_sweeps/par_v2_c080_bottomtraceholewidthwbt_5_5/script.xml",
+        "xml_variations/option_switches/opt_v2_c004_modelsolderballarrayas_isotropiccuboid/script.xml",
+        "xml_variations/option_switches/opt_v2_c005_modelsolderballarrayas_discretecuboids/script.xml",
+        "xml_variations/option_switches/opt_v2_c006_modelthermalviasas_isotropiccuboid/script.xml",
+        "xml_variations/option_switches/opt_v2_c007_modelthermalviasas_orthotropiccuboid/script.xml",
+        "xml_variations/option_switches/opt_v2_c008_modelbondwiresas_isotropiccuboid/script.xml",
+        "xml_variations/option_switches/opt_v2_c009_localizegrid_false/script.xml",
+        "xml_variations/option_switches/opt_v2_c009_griddensity_coarse/script.xml",
+        "xml_variations/option_switches/opt_v2_c010_griddensity_medium/script.xml"
+      ],
+      "file_count": 101,
+      "errors": []
+    },
+    "structured_artifacts": {
+      "status": "passed",
+      "files": [
+        "template.json",
+        "ui.json",
+        "baseline/params.json",
+        "xml_variations.json"
+      ],
+      "errors": []
+    },
+    "screenshots": {
+      "status": "passed",
+      "file_count": 30,
+      "referenced_file_count": 29,
+      "errors": []
+    },
+    "floxml_well_formed": {
+      "status": "passed",
+      "file_count": 116,
+      "errors": []
+    },
+    "interactive_baseline_replay": {
+      "status": "passed",
+      "script": "baseline/script.xml",
+      "output": "validation/baseline_replay_model.xml",
+      "application_remained_open": true,
+      "comparison": "semantic_identical_numeric_formatting_only",
+      "baseline_sha256": "9479526808CCC33C8AD535F728A6CBBAC0F010BC1E06E77A60FD3E26427F56B2",
+      "replay_sha256": "F2CEA27C57F27BBE1C289DDD0A3A5B134C0C3DBF892ECE1AC273525A495C5A17",
+      "semantic_change": false,
+      "numeric_formatting_differences_ignored": true
+    },
+    "comprehensive_replay": {
+      "template_id": "pbga_wb",
+      "suite": "validation/comprehensive_replay_pbga_wb.xml",
+      "status": "passed",
+      "expected_export_count": 114,
+      "successful_export_count": 114,
+      "final_error_count": 0,
+      "final_warning_count": 0,
+      "evidence": "final_combined_suite",
+      "errors": []
+    },
+    "single_variable_variations": {
+      "status": "passed",
+      "variation_count": 101,
+      "expected_variation_count": 101,
+      "kind_counts": {
+        "boolean_option": 9,
+        "enum_option": 10,
+        "jedec_preset": 2,
+        "numeric_parameter": 80
+      },
+      "manifest_selected_only": true,
+      "summary_errors": [],
+      "variations": [
+        {
+          "variation_id": "opt_v2_c001_outlinetype_nonstandardoutline",
+          "kind": "enum_option",
+          "target": {
+            "component": "new_package",
+            "property": "outlineType",
+            "label": "Outline Type",
+            "baseline": "standardOutline",
+            "value": "nonStandardOutline"
+          },
+          "comparison_baseline": "baseline/model.xml",
+          "status": "passed",
+          "semantic_change": true,
+          "outcome": "semantic_change",
+          "summary": {
+            "changed_value_count": 7,
+            "added_leaf_count": 5,
+            "removed_leaf_count": 530
+          },
+          "errors": []
+        },
+        {
+          "variation_id": "jed_v2_c001_jedecfootprint_pbga_352_35x35mm",
+          "kind": "jedec_preset",
+          "target": {
+            "component": "new_package",
+            "property": "jedecFootprint",
+            "label": "JEDEC Footprint",
+            "baseline": "PBGA_121_15X15mm",
+            "value": "PBGA_352_35X35mm"
+          },
+          "comparison_baseline": "baseline/model.xml",
+          "status": "passed",
+          "semantic_change": true,
+          "outcome": "semantic_change",
+          "summary": {
+            "changed_value_count": 163,
+            "added_leaf_count": 72,
+            "removed_leaf_count": 16
+          },
+          "errors": []
+        },
+        {
+          "variation_id": "jed_v2_c002_jedecfootprint_pbga_896_40x40mm",
+          "kind": "jedec_preset",
+          "target": {
+            "component": "new_package",
+            "property": "jedecFootprint",
+            "label": "JEDEC Footprint",
+            "baseline": "PBGA_121_15X15mm",
+            "value": "PBGA_896_40X40mm"
+          },
+          "comparison_baseline": "baseline/model.xml",
+          "status": "passed",
+          "semantic_change": true,
+          "outcome": "semantic_change",
+          "summary": {
+            "changed_value_count": 229,
+            "added_leaf_count": 72,
+            "removed_leaf_count": 16
+          },
+          "errors": []
+        },
+        {
+          "variation_id": "opt_v2_c002_dietype_thermaldie",
+          "kind": "enum_option",
+          "target": {
+            "component": "new_package",
+            "property": "dieType",
+            "label": "Die Type",
+            "baseline": "actualDie",
+            "value": "thermalDie"
+          },
+          "comparison_baseline": "baseline/model.xml",
+          "status": "passed",
+          "semantic_change": true,
+          "outcome": "semantic_change",
+          "summary": {
+            "changed_value_count": 8,
+            "added_leaf_count": 0,
+            "removed_leaf_count": 0
+          },
+          "errors": []
+        },
+        {
+          "variation_id": "opt_v2_c003_substratelayer_4_layer",
+          "kind": "enum_option",
+          "target": {
+            "component": "new_package",
+            "property": "substrateLayer",
+            "label": "Substrate Layer",
+            "baseline": "2-Layer",
+            "value": "4-Layer"
+          },
+          "comparison_baseline": "baseline/model.xml",
+          "status": "passed",
+          "semantic_change": true,
+          "outcome": "semantic_change",
+          "summary": {
+            "changed_value_count": 57,
+            "added_leaf_count": 32,
+            "removed_leaf_count": 128
+          },
+          "errors": []
+        },
+        {
+          "variation_id": "par_v2_c001_topsignallayerthickness_0_0162",
+          "kind": "numeric_parameter",
+          "target": {
+            "component": "new_package",
+            "property": "topSignalLayerThickness",
+            "label": "Top Layer",
+            "baseline": 0.018,
+            "value": 0.0162
+          },
+          "comparison_baseline": "baseline/model.xml",
+          "status": "passed",
+          "semantic_change": true,
+          "outcome": "semantic_change",
+          "summary": {
+            "changed_value_count": 60,
+            "added_leaf_count": 0,
+            "removed_leaf_count": 0
+          },
+          "errors": []
+        },
+        {
+          "variation_id": "par_v2_c002_topsignallayerthickness_0_0198",
+          "kind": "numeric_parameter",
+          "target": {
+            "component": "new_package",
+            "property": "topSignalLayerThickness",
+            "label": "Top Layer",
+            "baseline": 0.018,
+            "value": 0.0198
+          },
+          "comparison_baseline": "baseline/model.xml",
+          "status": "passed",
+          "semantic_change": true,
+          "outcome": "semantic_change",
+          "summary": {
+            "changed_value_count": 60,
+            "added_leaf_count": 0,
+            "removed_leaf_count": 0
+          },
+          "errors": []
+        },
+        {
+          "variation_id": "par_v2_c003_bottomsignallayerthickness_0_0162",
+          "kind": "numeric_parameter",
+          "target": {
+            "component": "new_package",
+            "property": "bottomSignalLayerThickness",
+            "label": "Bottom Layer",
+            "baseline": 0.018,
+            "value": 0.0162
+          },
+          "comparison_baseline": "baseline/model.xml",
+          "status": "passed",
+          "semantic_change": true,
+          "outcome": "semantic_change",
+          "summary": {
+            "changed_value_count": 26,
+            "added_leaf_count": 0,
+            "removed_leaf_count": 0
+          },
+          "errors": []
+        },
+        {
+          "variation_id": "par_v2_c004_bottomsignallayerthickness_0_0198",
+          "kind": "numeric_parameter",
+          "target": {
+            "component": "new_package",
+            "property": "bottomSignalLayerThickness",
+            "label": "Bottom Layer",
+            "baseline": 0.018,
+            "value": 0.0198
+          },
+          "comparison_baseline": "baseline/model.xml",
+          "status": "passed",
+          "semantic_change": true,
+          "outcome": "semantic_change",
+          "summary": {
+            "changed_value_count": 26,
+            "added_leaf_count": 0,
+            "removed_leaf_count": 0
+          },
+          "errors": []
+        },
+        {
+          "variation_id": "opt_v2_c001_includeslug_true",
+          "kind": "boolean_option",
+          "target": {
+            "component": "new_package",
+            "property": "includeSlug",
+            "label": "Include Slug",
+            "baseline": false,
+            "value": true
+          },
+          "comparison_baseline": "baseline/model.xml",
+          "status": "passed",
+          "semantic_change": true,
+          "outcome": "semantic_change",
+          "summary": {
+            "changed_value_count": 0,
+            "added_leaf_count": 108,
+            "removed_leaf_count": 0
+          },
+          "errors": []
+        },
+        {
+          "variation_id": "par_v2_c005_substratelengthd_13_5",
+          "kind": "numeric_parameter",
+          "target": {
+            "component": "packageSubstrate",
+            "property": "substrateLengthD",
+            "label": "Substrate Length D",
+            "baseline": 15,
+            "value": 13.5
+          },
+          "comparison_baseline": "baseline/model.xml",
+          "status": "passed",
+          "semantic_change": true,
+          "outcome": "semantic_change",
+          "summary": {
+            "changed_value_count": 10,
+            "added_leaf_count": 0,
+            "removed_leaf_count": 0
+          },
+          "errors": []
+        },
+        {
+          "variation_id": "par_v2_c006_substratelengthd_16_5",
+          "kind": "numeric_parameter",
+          "target": {
+            "component": "packageSubstrate",
+            "property": "substrateLengthD",
+            "label": "Substrate Length D",
+            "baseline": 15,
+            "value": 16.5
+          },
+          "comparison_baseline": "baseline/model.xml",
+          "status": "passed",
+          "semantic_change": true,
+          "outcome": "semantic_change",
+          "summary": {
+            "changed_value_count": 13,
+            "added_leaf_count": 0,
+            "removed_leaf_count": 0
+          },
+          "errors": []
+        },
+        {
+          "variation_id": "par_v2_c007_substratewidthe_13_5",
+          "kind": "numeric_parameter",
+          "target": {
+            "component": "packageSubstrate",
+            "property": "substrateWidthE",
+            "label": "Substrate Width E",
+            "baseline": 15,
+            "value": 13.5
+          },
+          "comparison_baseline": "baseline/model.xml",
+          "status": "passed",
+          "semantic_change": true,
+          "outcome": "semantic_change",
+          "summary": {
+            "changed_value_count": 18,
+            "added_leaf_count": 0,
+            "removed_leaf_count": 0
+          },
+          "errors": []
+        },
+        {
+          "variation_id": "par_v2_c008_substratewidthe_16_5",
+          "kind": "numeric_parameter",
+          "target": {
+            "component": "packageSubstrate",
+            "property": "substrateWidthE",
+            "label": "Substrate Width E",
+            "baseline": 15,
+            "value": 16.5
+          },
+          "comparison_baseline": "baseline/model.xml",
+          "status": "passed",
+          "semantic_change": true,
+          "outcome": "semantic_change",
+          "summary": {
+            "changed_value_count": 21,
+            "added_leaf_count": 0,
+            "removed_leaf_count": 0
+          },
+          "errors": []
+        },
+        {
+          "variation_id": "par_v2_c009_substratethicknessa2_0_324",
+          "kind": "numeric_parameter",
+          "target": {
+            "component": "packageSubstrate",
+            "property": "substrateThicknessA2",
+            "label": "Substrate Thickness A2",
+            "baseline": 0.36,
+            "value": 0.324
+          },
+          "comparison_baseline": "baseline/model.xml",
+          "status": "passed",
+          "semantic_change": true,
+          "outcome": "semantic_change",
+          "summary": {
+            "changed_value_count": 55,
+            "added_leaf_count": 0,
+            "removed_leaf_count": 0
+          },
+          "errors": []
+        },
+        {
+          "variation_id": "par_v2_c010_substratethicknessa2_0_396",
+          "kind": "numeric_parameter",
+          "target": {
+            "component": "packageSubstrate",
+            "property": "substrateThicknessA2",
+            "label": "Substrate Thickness A2",
+            "baseline": 0.36,
+            "value": 0.396
+          },
+          "comparison_baseline": "baseline/model.xml",
+          "status": "passed",
+          "semantic_change": true,
+          "outcome": "semantic_change",
+          "summary": {
+            "changed_value_count": 55,
+            "added_leaf_count": 0,
+            "removed_leaf_count": 0
+          },
+          "errors": []
+        },
+        {
+          "variation_id": "par_v2_c011_lengthle_11_7",
+          "kind": "numeric_parameter",
+          "target": {
+            "component": "encapsulant",
+            "property": "lengthLe",
+            "label": "Length Le",
+            "baseline": 13,
+            "value": 11.7
+          },
+          "comparison_baseline": "baseline/model.xml",
+          "status": "passed",
+          "semantic_change": true,
+          "outcome": "semantic_change",
+          "summary": {
+            "changed_value_count": 5,
+            "added_leaf_count": 0,
+            "removed_leaf_count": 0
+          },
+          "errors": []
+        },
+        {
+          "variation_id": "par_v2_c012_lengthle_14_3",
+          "kind": "numeric_parameter",
+          "target": {
+            "component": "encapsulant",
+            "property": "lengthLe",
+            "label": "Length Le",
+            "baseline": 13,
+            "value": 14.3
+          },
+          "comparison_baseline": "baseline/model.xml",
+          "status": "passed",
+          "semantic_change": true,
+          "outcome": "semantic_change",
+          "summary": {
+            "changed_value_count": 5,
+            "added_leaf_count": 0,
+            "removed_leaf_count": 0
+          },
+          "errors": []
+        },
+        {
+          "variation_id": "par_v2_c013_widthwe_11_7",
+          "kind": "numeric_parameter",
+          "target": {
+            "component": "encapsulant",
+            "property": "widthWe",
+            "label": "Width We",
+            "baseline": 13,
+            "value": 11.7
+          },
+          "comparison_baseline": "baseline/model.xml",
+          "status": "passed",
+          "semantic_change": true,
+          "outcome": "semantic_change",
+          "summary": {
+            "changed_value_count": 5,
+            "added_leaf_count": 0,
+            "removed_leaf_count": 0
+          },
+          "errors": []
+        },
+        {
+          "variation_id": "par_v2_c014_widthwe_14_3",
+          "kind": "numeric_parameter",
+          "target": {
+            "component": "encapsulant",
+            "property": "widthWe",
+            "label": "Width We",
+            "baseline": 13,
+            "value": 14.3
+          },
+          "comparison_baseline": "baseline/model.xml",
+          "status": "passed",
+          "semantic_change": true,
+          "outcome": "semantic_change",
+          "summary": {
+            "changed_value_count": 5,
+            "added_leaf_count": 0,
+            "removed_leaf_count": 0
+          },
+          "errors": []
+        },
+        {
+          "variation_id": "par_v2_c015_thicknesste_0_72",
+          "kind": "numeric_parameter",
+          "target": {
+            "component": "encapsulant",
+            "property": "thicknessTe",
+            "label": "Thickness te",
+            "baseline": 0.8,
+            "value": 0.72
+          },
+          "comparison_baseline": "baseline/model.xml",
+          "status": "passed",
+          "semantic_change": true,
+          "outcome": "semantic_change",
+          "summary": {
+            "changed_value_count": 7,
+            "added_leaf_count": 0,
+            "removed_leaf_count": 0
+          },
+          "errors": []
+        },
+        {
+          "variation_id": "par_v2_c016_thicknesste_0_88",
+          "kind": "numeric_parameter",
+          "target": {
+            "component": "encapsulant",
+            "property": "thicknessTe",
+            "label": "Thickness te",
+            "baseline": 0.8,
+            "value": 0.88
+          },
+          "comparison_baseline": "baseline/model.xml",
+          "status": "passed",
+          "semantic_change": true,
+          "outcome": "semantic_change",
+          "summary": {
+            "changed_value_count": 7,
+            "added_leaf_count": 0,
+            "removed_leaf_count": 0
+          },
+          "errors": []
+        },
+        {
+          "variation_id": "par_v2_c017_dieflaglf_5_85",
+          "kind": "numeric_parameter",
+          "target": {
+            "component": "dieFlagAndSolderMask",
+            "property": "dieFlagLf",
+            "label": "Die Flag Lf",
+            "baseline": 6.5,
+            "value": 5.85
+          },
+          "comparison_baseline": "baseline/model.xml",
+          "status": "passed",
+          "semantic_change": true,
+          "outcome": "semantic_change",
+          "summary": {
+            "changed_value_count": 4,
+            "added_leaf_count": 0,
+            "removed_leaf_count": 0
+          },
+          "errors": []
+        },
+        {
+          "variation_id": "par_v2_c018_dieflaglf_7_15",
+          "kind": "numeric_parameter",
+          "target": {
+            "component": "dieFlagAndSolderMask",
+            "property": "dieFlagLf",
+            "label": "Die Flag Lf",
+            "baseline": 6.5,
+            "value": 7.15
+          },
+          "comparison_baseline": "baseline/model.xml",
+          "status": "passed",
+          "semantic_change": true,
+          "outcome": "semantic_change",
+          "summary": {
+            "changed_value_count": 4,
+            "added_leaf_count": 0,
+            "removed_leaf_count": 0
+          },
+          "errors": []
+        },
+        {
+          "variation_id": "par_v2_c019_dieflagwf_5_85",
+          "kind": "numeric_parameter",
+          "target": {
+            "component": "dieFlagAndSolderMask",
+            "property": "dieFlagWf",
+            "label": "Die Flag Wf",
+            "baseline": 6.5,
+            "value": 5.85
+          },
+          "comparison_baseline": "baseline/model.xml",
+          "status": "passed",
+          "semantic_change": true,
+          "outcome": "semantic_change",
+          "summary": {
+            "changed_value_count": 4,
+            "added_leaf_count": 0,
+            "removed_leaf_count": 0
+          },
+          "errors": []
+        },
+        {
+          "variation_id": "par_v2_c020_dieflagwf_7_15",
+          "kind": "numeric_parameter",
+          "target": {
+            "component": "dieFlagAndSolderMask",
+            "property": "dieFlagWf",
+            "label": "Die Flag Wf",
+            "baseline": 6.5,
+            "value": 7.15
+          },
+          "comparison_baseline": "baseline/model.xml",
+          "status": "passed",
+          "semantic_change": true,
+          "outcome": "semantic_change",
+          "summary": {
+            "changed_value_count": 4,
+            "added_leaf_count": 0,
+            "removed_leaf_count": 0
+          },
+          "errors": []
+        },
+        {
+          "variation_id": "par_v2_c021_coveragepercentagecf_54_0",
+          "kind": "numeric_parameter",
+          "target": {
+            "component": "dieFlagAndSolderMask",
+            "property": "coveragePercentageCf",
+            "label": "Coverage Cf",
+            "baseline": 60,
+            "value": 54.0
+          },
+          "comparison_baseline": "baseline/model.xml",
+          "status": "passed",
+          "semantic_change": true,
+          "outcome": "semantic_change",
+          "summary": {
+            "changed_value_count": 3,
+            "added_leaf_count": 0,
+            "removed_leaf_count": 0
+          },
+          "errors": []
+        },
+        {
+          "variation_id": "par_v2_c022_coveragepercentagecf_66_0",
+          "kind": "numeric_parameter",
+          "target": {
+            "component": "dieFlagAndSolderMask",
+            "property": "coveragePercentageCf",
+            "label": "Coverage Cf",
+            "baseline": 60,
+            "value": 66.0
+          },
+          "comparison_baseline": "baseline/model.xml",
+          "status": "passed",
+          "semantic_change": true,
+          "outcome": "semantic_change",
+          "summary": {
+            "changed_value_count": 3,
+            "added_leaf_count": 0,
+            "removed_leaf_count": 0
+          },
+          "errors": []
+        },
+        {
+          "variation_id": "par_v2_c023_soldermaskthickness_0_045",
+          "kind": "numeric_parameter",
+          "target": {
+            "component": "dieFlagAndSolderMask",
+            "property": "solderMaskThickness",
+            "label": "Solder Mask Thickness",
+            "baseline": 0.05,
+            "value": 0.045
+          },
+          "comparison_baseline": "baseline/model.xml",
+          "status": "passed",
+          "semantic_change": true,
+          "outcome": "semantic_change",
+          "summary": {
+            "changed_value_count": 17,
+            "added_leaf_count": 0,
+            "removed_leaf_count": 0
+          },
+          "errors": []
+        },
+        {
+          "variation_id": "par_v2_c024_soldermaskthickness_0_055",
+          "kind": "numeric_parameter",
+          "target": {
+            "component": "dieFlagAndSolderMask",
+            "property": "solderMaskThickness",
+            "label": "Solder Mask Thickness",
+            "baseline": 0.05,
+            "value": 0.055
+          },
+          "comparison_baseline": "baseline/model.xml",
+          "status": "passed",
+          "semantic_change": true,
+          "outcome": "semantic_change",
+          "summary": {
+            "changed_value_count": 17,
+            "added_leaf_count": 0,
+            "removed_leaf_count": 0
+          },
+          "errors": []
+        },
+        {
+          "variation_id": "par_v2_c025_packagepower_1_0",
+          "kind": "numeric_parameter",
+          "target": {
+            "component": "die",
+            "property": "packagePower",
+            "label": "Package Power",
+            "baseline": 0,
+            "value": 1.0
+          },
+          "comparison_baseline": "baseline/model.xml",
+          "status": "passed",
+          "semantic_change": true,
+          "outcome": "semantic_change",
+          "summary": {
+            "changed_value_count": 1,
+            "added_leaf_count": 0,
+            "removed_leaf_count": 0
+          },
+          "errors": []
+        },
+        {
+          "variation_id": "par_v2_c026_packagepower_2_0",
+          "kind": "numeric_parameter",
+          "target": {
+            "component": "die",
+            "property": "packagePower",
+            "label": "Package Power",
+            "baseline": 0,
+            "value": 2.0
+          },
+          "comparison_baseline": "baseline/model.xml",
+          "status": "passed",
+          "semantic_change": true,
+          "outcome": "semantic_change",
+          "summary": {
+            "changed_value_count": 1,
+            "added_leaf_count": 0,
+            "removed_leaf_count": 0
+          },
+          "errors": []
+        },
+        {
+          "variation_id": "opt_v2_c002_nonuniformdieheat_true",
+          "kind": "boolean_option",
+          "target": {
+            "component": "die",
+            "property": "nonUniformDieHeat",
+            "label": "Non-uniform Die Heat",
+            "baseline": false,
+            "value": true
+          },
+          "comparison_baseline": "baseline/model.xml",
+          "status": "passed",
+          "semantic_change": true,
+          "outcome": "semantic_change",
+          "summary": {
+            "changed_value_count": 0,
+            "added_leaf_count": 1,
+            "removed_leaf_count": 14
+          },
+          "errors": []
+        },
+        {
+          "variation_id": "par_v2_c027_dielengthld_4_05",
+          "kind": "numeric_parameter",
+          "target": {
+            "component": "die",
+            "property": "dieLengthLd",
+            "label": "Die Length Ld",
+            "baseline": 4.5,
+            "value": 4.05
+          },
+          "comparison_baseline": "baseline/model.xml",
+          "status": "passed",
+          "semantic_change": true,
+          "outcome": "semantic_change",
+          "summary": {
+            "changed_value_count": 25,
+            "added_leaf_count": 0,
+            "removed_leaf_count": 0
+          },
+          "errors": []
+        },
+        {
+          "variation_id": "par_v2_c028_dielengthld_4_95",
+          "kind": "numeric_parameter",
+          "target": {
+            "component": "die",
+            "property": "dieLengthLd",
+            "label": "Die Length Ld",
+            "baseline": 4.5,
+            "value": 4.95
+          },
+          "comparison_baseline": "baseline/model.xml",
+          "status": "passed",
+          "semantic_change": true,
+          "outcome": "semantic_change",
+          "summary": {
+            "changed_value_count": 25,
+            "added_leaf_count": 0,
+            "removed_leaf_count": 0
+          },
+          "errors": []
+        },
+        {
+          "variation_id": "par_v2_c029_diewidthwd_4_05",
+          "kind": "numeric_parameter",
+          "target": {
+            "component": "die",
+            "property": "dieWidthWd",
+            "label": "Die Width Wd",
+            "baseline": 4.5,
+            "value": 4.05
+          },
+          "comparison_baseline": "baseline/model.xml",
+          "status": "passed",
+          "semantic_change": true,
+          "outcome": "semantic_change",
+          "summary": {
+            "changed_value_count": 25,
+            "added_leaf_count": 0,
+            "removed_leaf_count": 0
+          },
+          "errors": []
+        },
+        {
+          "variation_id": "par_v2_c030_diewidthwd_4_95",
+          "kind": "numeric_parameter",
+          "target": {
+            "component": "die",
+            "property": "dieWidthWd",
+            "label": "Die Width Wd",
+            "baseline": 4.5,
+            "value": 4.95
+          },
+          "comparison_baseline": "baseline/model.xml",
+          "status": "passed",
+          "semantic_change": true,
+          "outcome": "semantic_change",
+          "summary": {
+            "changed_value_count": 25,
+            "added_leaf_count": 0,
+            "removed_leaf_count": 0
+          },
+          "errors": []
+        },
+        {
+          "variation_id": "par_v2_c031_diethicknesstd_0_27",
+          "kind": "numeric_parameter",
+          "target": {
+            "component": "die",
+            "property": "dieThicknessTd",
+            "label": "Die Thickness td",
+            "baseline": 0.3,
+            "value": 0.27
+          },
+          "comparison_baseline": "baseline/model.xml",
+          "status": "passed",
+          "semantic_change": true,
+          "outcome": "semantic_change",
+          "summary": {
+            "changed_value_count": 11,
+            "added_leaf_count": 0,
+            "removed_leaf_count": 0
+          },
+          "errors": []
+        },
+        {
+          "variation_id": "par_v2_c032_diethicknesstd_0_33",
+          "kind": "numeric_parameter",
+          "target": {
+            "component": "die",
+            "property": "dieThicknessTd",
+            "label": "Die Thickness td",
+            "baseline": 0.3,
+            "value": 0.33
+          },
+          "comparison_baseline": "baseline/model.xml",
+          "status": "passed",
+          "semantic_change": true,
+          "outcome": "semantic_change",
+          "summary": {
+            "changed_value_count": 11,
+            "added_leaf_count": 0,
+            "removed_leaf_count": 0
+          },
+          "errors": []
+        },
+        {
+          "variation_id": "par_v2_c033_dieattachthicknesstda_0_0225",
+          "kind": "numeric_parameter",
+          "target": {
+            "component": "die",
+            "property": "dieAttachThicknessTda",
+            "label": "Die Attach Thickness tda",
+            "baseline": 0.025,
+            "value": 0.0225
+          },
+          "comparison_baseline": "baseline/model.xml",
+          "status": "passed",
+          "semantic_change": true,
+          "outcome": "semantic_change",
+          "summary": {
+            "changed_value_count": 12,
+            "added_leaf_count": 0,
+            "removed_leaf_count": 0
+          },
+          "errors": []
+        },
+        {
+          "variation_id": "par_v2_c034_dieattachthicknesstda_0_0275",
+          "kind": "numeric_parameter",
+          "target": {
+            "component": "die",
+            "property": "dieAttachThicknessTda",
+            "label": "Die Attach Thickness tda",
+            "baseline": 0.025,
+            "value": 0.0275
+          },
+          "comparison_baseline": "baseline/model.xml",
+          "status": "passed",
+          "semantic_change": true,
+          "outcome": "semantic_change",
+          "summary": {
+            "changed_value_count": 12,
+            "added_leaf_count": 0,
+            "removed_leaf_count": 0
+          },
+          "errors": []
+        },
+        {
+          "variation_id": "par_v2_c035_numberofbondwiresnw_120",
+          "kind": "numeric_parameter",
+          "target": {
+            "component": "die",
+            "property": "numberOfBondWiresNw",
+            "label": "Number of Bond Wires Nw",
+            "baseline": 121,
+            "value": 120
+          },
+          "comparison_baseline": "baseline/model.xml",
+          "status": "passed",
+          "semantic_change": true,
+          "outcome": "semantic_change",
+          "summary": {
+            "changed_value_count": 8,
+            "added_leaf_count": 0,
+            "removed_leaf_count": 0
+          },
+          "errors": []
+        },
+        {
+          "variation_id": "par_v2_c036_numberofbondwiresnw_122",
+          "kind": "numeric_parameter",
+          "target": {
+            "component": "die",
+            "property": "numberOfBondWiresNw",
+            "label": "Number of Bond Wires Nw",
+            "baseline": 121,
+            "value": 122
+          },
+          "comparison_baseline": "baseline/model.xml",
+          "status": "passed",
+          "semantic_change": true,
+          "outcome": "semantic_change",
+          "summary": {
+            "changed_value_count": 8,
+            "added_leaf_count": 0,
+            "removed_leaf_count": 0
+          },
+          "errors": []
+        },
+        {
+          "variation_id": "par_v2_c037_bondwireextentlengthlw_7_65",
+          "kind": "numeric_parameter",
+          "target": {
+            "component": "die",
+            "property": "bondWireExtentLengthLw",
+            "label": "Extent of Bond Wire Pads Lw",
+            "baseline": 8.5,
+            "value": 7.65
+          },
+          "comparison_baseline": "baseline/model.xml",
+          "status": "passed",
+          "semantic_change": true,
+          "outcome": "semantic_change",
+          "summary": {
+            "changed_value_count": 19,
+            "added_leaf_count": 0,
+            "removed_leaf_count": 0
+          },
+          "errors": []
+        },
+        {
+          "variation_id": "par_v2_c038_bondwireextentlengthlw_9_35",
+          "kind": "numeric_parameter",
+          "target": {
+            "component": "die",
+            "property": "bondWireExtentLengthLw",
+            "label": "Extent of Bond Wire Pads Lw",
+            "baseline": 8.5,
+            "value": 9.35
+          },
+          "comparison_baseline": "baseline/model.xml",
+          "status": "passed",
+          "semantic_change": true,
+          "outcome": "semantic_change",
+          "summary": {
+            "changed_value_count": 19,
+            "added_leaf_count": 0,
+            "removed_leaf_count": 0
+          },
+          "errors": []
+        },
+        {
+          "variation_id": "par_v2_c039_bondwireextentwidthww_7_65",
+          "kind": "numeric_parameter",
+          "target": {
+            "component": "die",
+            "property": "bondWireExtentWidthWw",
+            "label": "Extent of Bond Wire Pads Ww",
+            "baseline": 8.5,
+            "value": 7.65
+          },
+          "comparison_baseline": "baseline/model.xml",
+          "status": "passed",
+          "semantic_change": true,
+          "outcome": "semantic_change",
+          "summary": {
+            "changed_value_count": 11,
+            "added_leaf_count": 0,
+            "removed_leaf_count": 0
+          },
+          "errors": []
+        },
+        {
+          "variation_id": "par_v2_c040_bondwireextentwidthww_9_35",
+          "kind": "numeric_parameter",
+          "target": {
+            "component": "die",
+            "property": "bondWireExtentWidthWw",
+            "label": "Extent of Bond Wire Pads Ww",
+            "baseline": 8.5,
+            "value": 9.35
+          },
+          "comparison_baseline": "baseline/model.xml",
+          "status": "passed",
+          "semantic_change": true,
+          "outcome": "semantic_change",
+          "summary": {
+            "changed_value_count": 11,
+            "added_leaf_count": 0,
+            "removed_leaf_count": 0
+          },
+          "errors": []
+        },
+        {
+          "variation_id": "par_v2_c041_bondwirediameterdw_0_027",
+          "kind": "numeric_parameter",
+          "target": {
+            "component": "die",
+            "property": "bondWireDiameterDw",
+            "label": "Bond Wire Diameter dw",
+            "baseline": 0.03,
+            "value": 0.027
+          },
+          "comparison_baseline": "baseline/model.xml",
+          "status": "passed",
+          "semantic_change": true,
+          "outcome": "semantic_change",
+          "summary": {
+            "changed_value_count": 36,
+            "added_leaf_count": 0,
+            "removed_leaf_count": 0
+          },
+          "errors": []
+        },
+        {
+          "variation_id": "par_v2_c042_bondwirediameterdw_0_033",
+          "kind": "numeric_parameter",
+          "target": {
+            "component": "die",
+            "property": "bondWireDiameterDw",
+            "label": "Bond Wire Diameter dw",
+            "baseline": 0.03,
+            "value": 0.033
+          },
+          "comparison_baseline": "baseline/model.xml",
+          "status": "passed",
+          "semantic_change": true,
+          "outcome": "semantic_change",
+          "summary": {
+            "changed_value_count": 36,
+            "added_leaf_count": 0,
+            "removed_leaf_count": 0
+          },
+          "errors": []
+        },
+        {
+          "variation_id": "par_v2_c043_numberofthermalviasinxnvx_4",
+          "kind": "numeric_parameter",
+          "target": {
+            "component": "thermalVias",
+            "property": "numberOfThermalViasInXNVx",
+            "label": "Number of Thermal Vias in X NVx",
+            "baseline": 5,
+            "value": 4
+          },
+          "comparison_baseline": "baseline/model.xml",
+          "status": "passed",
+          "semantic_change": true,
+          "outcome": "semantic_change",
+          "summary": {
+            "changed_value_count": 20,
+            "added_leaf_count": 0,
+            "removed_leaf_count": 40
+          },
+          "errors": []
+        },
+        {
+          "variation_id": "par_v2_c044_numberofthermalviasinxnvx_6",
+          "kind": "numeric_parameter",
+          "target": {
+            "component": "thermalVias",
+            "property": "numberOfThermalViasInXNVx",
+            "label": "Number of Thermal Vias in X NVx",
+            "baseline": 5,
+            "value": 6
+          },
+          "comparison_baseline": "baseline/model.xml",
+          "status": "passed",
+          "semantic_change": true,
+          "outcome": "semantic_change",
+          "summary": {
+            "changed_value_count": 25,
+            "added_leaf_count": 40,
+            "removed_leaf_count": 0
+          },
+          "errors": []
+        },
+        {
+          "variation_id": "par_v2_c045_numberofthermalviasinynvy_4",
+          "kind": "numeric_parameter",
+          "target": {
+            "component": "thermalVias",
+            "property": "numberOfThermalViasInYNVy",
+            "label": "Number of Thermal Vias in Y NVy",
+            "baseline": 5,
+            "value": 4
+          },
+          "comparison_baseline": "baseline/model.xml",
+          "status": "passed",
+          "semantic_change": true,
+          "outcome": "semantic_change",
+          "summary": {
+            "changed_value_count": 20,
+            "added_leaf_count": 0,
+            "removed_leaf_count": 40
+          },
+          "errors": []
+        },
+        {
+          "variation_id": "par_v2_c046_numberofthermalviasinynvy_6",
+          "kind": "numeric_parameter",
+          "target": {
+            "component": "thermalVias",
+            "property": "numberOfThermalViasInYNVy",
+            "label": "Number of Thermal Vias in Y NVy",
+            "baseline": 5,
+            "value": 6
+          },
+          "comparison_baseline": "baseline/model.xml",
+          "status": "passed",
+          "semantic_change": true,
+          "outcome": "semantic_change",
+          "summary": {
+            "changed_value_count": 25,
+            "added_leaf_count": 40,
+            "removed_leaf_count": 0
+          },
+          "errors": []
+        },
+        {
+          "variation_id": "par_v2_c047_viadiameterdv_0_225",
+          "kind": "numeric_parameter",
+          "target": {
+            "component": "thermalVias",
+            "property": "viaDiameterDv",
+            "label": "Via Diameter dv",
+            "baseline": 0.25,
+            "value": 0.225
+          },
+          "comparison_baseline": "baseline/model.xml",
+          "status": "passed",
+          "semantic_change": true,
+          "outcome": "semantic_change",
+          "summary": {
+            "changed_value_count": 102,
+            "added_leaf_count": 0,
+            "removed_leaf_count": 0
+          },
+          "errors": []
+        },
+        {
+          "variation_id": "par_v2_c048_viadiameterdv_0_275",
+          "kind": "numeric_parameter",
+          "target": {
+            "component": "thermalVias",
+            "property": "viaDiameterDv",
+            "label": "Via Diameter dv",
+            "baseline": 0.25,
+            "value": 0.275
+          },
+          "comparison_baseline": "baseline/model.xml",
+          "status": "passed",
+          "semantic_change": true,
+          "outcome": "semantic_change",
+          "summary": {
+            "changed_value_count": 102,
+            "added_leaf_count": 0,
+            "removed_leaf_count": 0
+          },
+          "errors": []
+        },
+        {
+          "variation_id": "par_v2_c049_viapitchev_1_143",
+          "kind": "numeric_parameter",
+          "target": {
+            "component": "thermalVias",
+            "property": "viaPitchEv",
+            "label": "Via Pitch ev",
+            "baseline": 1.27,
+            "value": 1.143
+          },
+          "comparison_baseline": "baseline/model.xml",
+          "status": "passed",
+          "semantic_change": true,
+          "outcome": "semantic_change",
+          "summary": {
+            "changed_value_count": 40,
+            "added_leaf_count": 0,
+            "removed_leaf_count": 0
+          },
+          "errors": []
+        },
+        {
+          "variation_id": "par_v2_c050_viapitchev_1_397",
+          "kind": "numeric_parameter",
+          "target": {
+            "component": "thermalVias",
+            "property": "viaPitchEv",
+            "label": "Via Pitch ev",
+            "baseline": 1.27,
+            "value": 1.397
+          },
+          "comparison_baseline": "baseline/model.xml",
+          "status": "passed",
+          "semantic_change": true,
+          "outcome": "semantic_change",
+          "summary": {
+            "changed_value_count": 40,
+            "added_leaf_count": 0,
+            "removed_leaf_count": 0
+          },
+          "errors": []
+        },
+        {
+          "variation_id": "par_v2_c051_platingthicknesstpl_0_0225",
+          "kind": "numeric_parameter",
+          "target": {
+            "component": "thermalVias",
+            "property": "platingThicknessTpl",
+            "label": "Plating Thickness tpl",
+            "baseline": 0.025,
+            "value": 0.0225
+          },
+          "comparison_baseline": "baseline/model.xml",
+          "status": "passed",
+          "semantic_change": true,
+          "outcome": "semantic_change",
+          "summary": {
+            "changed_value_count": 2,
+            "added_leaf_count": 0,
+            "removed_leaf_count": 0
+          },
+          "errors": []
+        },
+        {
+          "variation_id": "par_v2_c052_platingthicknesstpl_0_0275",
+          "kind": "numeric_parameter",
+          "target": {
+            "component": "thermalVias",
+            "property": "platingThicknessTpl",
+            "label": "Plating Thickness tpl",
+            "baseline": 0.025,
+            "value": 0.0275
+          },
+          "comparison_baseline": "baseline/model.xml",
+          "status": "passed",
+          "semantic_change": true,
+          "outcome": "semantic_change",
+          "summary": {
+            "changed_value_count": 2,
+            "added_leaf_count": 0,
+            "removed_leaf_count": 0
+          },
+          "errors": []
+        },
+        {
+          "variation_id": "par_v2_c053_numberofsolderballsinxmd_10",
+          "kind": "numeric_parameter",
+          "target": {
+            "component": "solderBalls",
+            "property": "numberOfSolderBallsInXMD",
+            "label": "Number of Solder Balls in X MD",
+            "baseline": 11,
+            "value": 10
+          },
+          "comparison_baseline": "baseline/model.xml",
+          "status": "passed",
+          "semantic_change": true,
+          "outcome": "semantic_change",
+          "summary": {
+            "changed_value_count": 7,
+            "added_leaf_count": 0,
+            "removed_leaf_count": 0
+          },
+          "errors": []
+        },
+        {
+          "variation_id": "par_v2_c054_numberofsolderballsinxmd_12",
+          "kind": "numeric_parameter",
+          "target": {
+            "component": "solderBalls",
+            "property": "numberOfSolderBallsInXMD",
+            "label": "Number of Solder Balls in X MD",
+            "baseline": 11,
+            "value": 12
+          },
+          "comparison_baseline": "baseline/model.xml",
+          "status": "passed",
+          "semantic_change": true,
+          "outcome": "semantic_change",
+          "summary": {
+            "changed_value_count": 7,
+            "added_leaf_count": 0,
+            "removed_leaf_count": 0
+          },
+          "errors": []
+        },
+        {
+          "variation_id": "par_v2_c055_numberofsolderballsinyme_10",
+          "kind": "numeric_parameter",
+          "target": {
+            "component": "solderBalls",
+            "property": "numberOfSolderBallsInYME",
+            "label": "Number of Solder Balls in Y ME",
+            "baseline": 11,
+            "value": 10
+          },
+          "comparison_baseline": "baseline/model.xml",
+          "status": "passed",
+          "semantic_change": true,
+          "outcome": "semantic_change",
+          "summary": {
+            "changed_value_count": 7,
+            "added_leaf_count": 0,
+            "removed_leaf_count": 0
+          },
+          "errors": []
+        },
+        {
+          "variation_id": "par_v2_c056_numberofsolderballsinyme_12",
+          "kind": "numeric_parameter",
+          "target": {
+            "component": "solderBalls",
+            "property": "numberOfSolderBallsInYME",
+            "label": "Number of Solder Balls in Y ME",
+            "baseline": 11,
+            "value": 12
+          },
+          "comparison_baseline": "baseline/model.xml",
+          "status": "passed",
+          "semantic_change": true,
+          "outcome": "semantic_change",
+          "summary": {
+            "changed_value_count": 7,
+            "added_leaf_count": 0,
+            "removed_leaf_count": 0
+          },
+          "errors": []
+        },
+        {
+          "variation_id": "par_v2_c057_balldiameterb_0_675",
+          "kind": "numeric_parameter",
+          "target": {
+            "component": "solderBalls",
+            "property": "ballDiameterB",
+            "label": "Ball Diameter b",
+            "baseline": 0.75,
+            "value": 0.675
+          },
+          "comparison_baseline": "baseline/model.xml",
+          "status": "passed",
+          "semantic_change": true,
+          "outcome": "semantic_change",
+          "summary": {
+            "changed_value_count": 11,
+            "added_leaf_count": 0,
+            "removed_leaf_count": 0
+          },
+          "errors": []
+        },
+        {
+          "variation_id": "par_v2_c058_balldiameterb_0_825",
+          "kind": "numeric_parameter",
+          "target": {
+            "component": "solderBalls",
+            "property": "ballDiameterB",
+            "label": "Ball Diameter b",
+            "baseline": 0.75,
+            "value": 0.825
+          },
+          "comparison_baseline": "baseline/model.xml",
+          "status": "passed",
+          "semantic_change": true,
+          "outcome": "semantic_change",
+          "summary": {
+            "changed_value_count": 11,
+            "added_leaf_count": 0,
+            "removed_leaf_count": 0
+          },
+          "errors": []
+        },
+        {
+          "variation_id": "par_v2_c059_ballpitche_1_143",
+          "kind": "numeric_parameter",
+          "target": {
+            "component": "solderBalls",
+            "property": "ballPitchE",
+            "label": "Ball Pitch e",
+            "baseline": 1.27,
+            "value": 1.143
+          },
+          "comparison_baseline": "baseline/model.xml",
+          "status": "passed",
+          "semantic_change": true,
+          "outcome": "semantic_change",
+          "summary": {
+            "changed_value_count": 11,
+            "added_leaf_count": 0,
+            "removed_leaf_count": 0
+          },
+          "errors": []
+        },
+        {
+          "variation_id": "par_v2_c060_ballpitche_1_397",
+          "kind": "numeric_parameter",
+          "target": {
+            "component": "solderBalls",
+            "property": "ballPitchE",
+            "label": "Ball Pitch e",
+            "baseline": 1.27,
+            "value": 1.397
+          },
+          "comparison_baseline": "baseline/model.xml",
+          "status": "passed",
+          "semantic_change": true,
+          "outcome": "semantic_change",
+          "summary": {
+            "changed_value_count": 11,
+            "added_leaf_count": 0,
+            "removed_leaf_count": 0
+          },
+          "errors": []
+        },
+        {
+          "variation_id": "par_v2_c061_substratestandoffa1_0_54",
+          "kind": "numeric_parameter",
+          "target": {
+            "component": "solderBalls",
+            "property": "substrateStandoffA1",
+            "label": "Substrate Stand-off A1",
+            "baseline": 0.6,
+            "value": 0.54
+          },
+          "comparison_baseline": "baseline/model.xml",
+          "status": "passed",
+          "semantic_change": true,
+          "outcome": "semantic_change",
+          "summary": {
+            "changed_value_count": 57,
+            "added_leaf_count": 0,
+            "removed_leaf_count": 0
+          },
+          "errors": []
+        },
+        {
+          "variation_id": "par_v2_c062_substratestandoffa1_0_66",
+          "kind": "numeric_parameter",
+          "target": {
+            "component": "solderBalls",
+            "property": "substrateStandoffA1",
+            "label": "Substrate Stand-off A1",
+            "baseline": 0.6,
+            "value": 0.66
+          },
+          "comparison_baseline": "baseline/model.xml",
+          "status": "passed",
+          "semantic_change": true,
+          "outcome": "semantic_change",
+          "summary": {
+            "changed_value_count": 57,
+            "added_leaf_count": 0,
+            "removed_leaf_count": 0
+          },
+          "errors": []
+        },
+        {
+          "variation_id": "opt_v2_c003_staggeredmatrix_true",
+          "kind": "boolean_option",
+          "target": {
+            "component": "solderBalls",
+            "property": "staggeredMatrix",
+            "label": "Staggered Matrix",
+            "baseline": false,
+            "value": true
+          },
+          "comparison_baseline": "baseline/model.xml",
+          "status": "passed",
+          "semantic_change": true,
+          "outcome": "semantic_change",
+          "summary": {
+            "changed_value_count": 3,
+            "added_leaf_count": 0,
+            "removed_leaf_count": 0
+          },
+          "errors": []
+        },
+        {
+          "variation_id": "opt_v2_c004_solderballmap_true",
+          "kind": "boolean_option",
+          "target": {
+            "component": "solderBalls",
+            "property": "solderBallMap",
+            "label": "Solder Ball Map",
+            "baseline": false,
+            "value": true
+          },
+          "comparison_baseline": "baseline/model.xml",
+          "status": "passed",
+          "semantic_change": true,
+          "outcome": "semantic_change",
+          "summary": {
+            "changed_value_count": 0,
+            "added_leaf_count": 5,
+            "removed_leaf_count": 13
+          },
+          "errors": []
+        },
+        {
+          "variation_id": "opt_v2_c005_depopulatedcenter_true",
+          "kind": "boolean_option",
+          "target": {
+            "component": "solderBallDepopulation",
+            "property": "depopulatedCenter",
+            "label": "Depopulated Center",
+            "baseline": false,
+            "value": true
+          },
+          "comparison_baseline": "validation/branch_baselines/br_v2_solderballdepopulation_depopulatedcenter/model.xml",
+          "status": "passed",
+          "semantic_change": true,
+          "outcome": "semantic_change",
+          "summary": {
+            "changed_value_count": 3,
+            "added_leaf_count": 32,
+            "removed_leaf_count": 8
+          },
+          "errors": []
+        },
+        {
+          "variation_id": "par_v2_c063_numberfullypopulatedrowsmdp_1",
+          "kind": "numeric_parameter",
+          "target": {
+            "component": "solderBallDepopulation",
+            "property": "numberFullyPopulatedRowsMDp",
+            "label": "Number of Fully Populated Rows MDp",
+            "baseline": 2,
+            "value": 1
+          },
+          "comparison_baseline": "validation/branch_baselines/br_v2_solderballdepopulation_numberfullypopulatedrowsmdp/model.xml",
+          "status": "passed",
+          "semantic_change": true,
+          "outcome": "semantic_change",
+          "summary": {
+            "changed_value_count": 10,
+            "added_leaf_count": 0,
+            "removed_leaf_count": 0
+          },
+          "errors": []
+        },
+        {
+          "variation_id": "par_v2_c064_numberfullypopulatedrowsmdp_3",
+          "kind": "numeric_parameter",
+          "target": {
+            "component": "solderBallDepopulation",
+            "property": "numberFullyPopulatedRowsMDp",
+            "label": "Number of Fully Populated Rows MDp",
+            "baseline": 2,
+            "value": 3
+          },
+          "comparison_baseline": "validation/branch_baselines/br_v2_solderballdepopulation_numberfullypopulatedrowsmdp/model.xml",
+          "status": "passed",
+          "semantic_change": true,
+          "outcome": "semantic_change",
+          "summary": {
+            "changed_value_count": 10,
+            "added_leaf_count": 0,
+            "removed_leaf_count": 0
+          },
+          "errors": []
+        },
+        {
+          "variation_id": "par_v2_c065_numberfullypopulatedrowsmep_1",
+          "kind": "numeric_parameter",
+          "target": {
+            "component": "solderBallDepopulation",
+            "property": "numberFullyPopulatedRowsMEp",
+            "label": "Number of Fully Populated Rows MEp",
+            "baseline": 2,
+            "value": 1
+          },
+          "comparison_baseline": "validation/branch_baselines/br_v2_solderballdepopulation_numberfullypopulatedrowsmep/model.xml",
+          "status": "passed",
+          "semantic_change": true,
+          "outcome": "semantic_change",
+          "summary": {
+            "changed_value_count": 6,
+            "added_leaf_count": 0,
+            "removed_leaf_count": 0
+          },
+          "errors": []
+        },
+        {
+          "variation_id": "par_v2_c066_numberfullypopulatedrowsmep_3",
+          "kind": "numeric_parameter",
+          "target": {
+            "component": "solderBallDepopulation",
+            "property": "numberFullyPopulatedRowsMEp",
+            "label": "Number of Fully Populated Rows MEp",
+            "baseline": 2,
+            "value": 3
+          },
+          "comparison_baseline": "validation/branch_baselines/br_v2_solderballdepopulation_numberfullypopulatedrowsmep/model.xml",
+          "status": "passed",
+          "semantic_change": true,
+          "outcome": "semantic_change",
+          "summary": {
+            "changed_value_count": 6,
+            "added_leaf_count": 0,
+            "removed_leaf_count": 0
+          },
+          "errors": []
+        },
+        {
+          "variation_id": "opt_v2_c006_centralballs_true",
+          "kind": "boolean_option",
+          "target": {
+            "component": "centralBalls",
+            "property": "centralBalls",
+            "label": "Central Balls",
+            "baseline": false,
+            "value": true
+          },
+          "comparison_baseline": "validation/branch_baselines/br_v2_centralballs_centralballs/model.xml",
+          "status": "passed",
+          "semantic_change": true,
+          "outcome": "semantic_change",
+          "summary": {
+            "changed_value_count": 0,
+            "added_leaf_count": 17,
+            "removed_leaf_count": 0
+          },
+          "errors": []
+        },
+        {
+          "variation_id": "par_v2_c067_numbercentralrowsmdp_1",
+          "kind": "numeric_parameter",
+          "target": {
+            "component": "centralBalls",
+            "property": "numberCentralRowsMDp",
+            "label": "Number of Central Rows MDc",
+            "baseline": 2,
+            "value": 1
+          },
+          "comparison_baseline": "validation/branch_baselines/br_v2_centralballs_numbercentralrowsmdp/model.xml",
+          "status": "passed",
+          "semantic_change": true,
+          "outcome": "semantic_change",
+          "summary": {
+            "changed_value_count": 5,
+            "added_leaf_count": 0,
+            "removed_leaf_count": 0
+          },
+          "errors": []
+        },
+        {
+          "variation_id": "par_v2_c068_numbercentralrowsmdp_3",
+          "kind": "numeric_parameter",
+          "target": {
+            "component": "centralBalls",
+            "property": "numberCentralRowsMDp",
+            "label": "Number of Central Rows MDc",
+            "baseline": 2,
+            "value": 3
+          },
+          "comparison_baseline": "validation/branch_baselines/br_v2_centralballs_numbercentralrowsmdp/model.xml",
+          "status": "passed",
+          "semantic_change": true,
+          "outcome": "semantic_change",
+          "summary": {
+            "changed_value_count": 5,
+            "added_leaf_count": 0,
+            "removed_leaf_count": 0
+          },
+          "errors": []
+        },
+        {
+          "variation_id": "par_v2_c069_numbercentralrowsmep_1",
+          "kind": "numeric_parameter",
+          "target": {
+            "component": "centralBalls",
+            "property": "numberCentralRowsMEp",
+            "label": "Number of Central Rows MEc",
+            "baseline": 2,
+            "value": 1
+          },
+          "comparison_baseline": "validation/branch_baselines/br_v2_centralballs_numbercentralrowsmep/model.xml",
+          "status": "passed",
+          "semantic_change": true,
+          "outcome": "semantic_change",
+          "summary": {
+            "changed_value_count": 2,
+            "added_leaf_count": 0,
+            "removed_leaf_count": 0
+          },
+          "errors": []
+        },
+        {
+          "variation_id": "par_v2_c070_numbercentralrowsmep_3",
+          "kind": "numeric_parameter",
+          "target": {
+            "component": "centralBalls",
+            "property": "numberCentralRowsMEp",
+            "label": "Number of Central Rows MEc",
+            "baseline": 2,
+            "value": 3
+          },
+          "comparison_baseline": "validation/branch_baselines/br_v2_centralballs_numbercentralrowsmep/model.xml",
+          "status": "passed",
+          "semantic_change": true,
+          "outcome": "semantic_change",
+          "summary": {
+            "changed_value_count": 2,
+            "added_leaf_count": 0,
+            "removed_leaf_count": 0
+          },
+          "errors": []
+        },
+        {
+          "variation_id": "opt_v2_c007_staggeredmatrix_true",
+          "kind": "boolean_option",
+          "target": {
+            "component": "centralBalls",
+            "property": "staggeredMatrix",
+            "label": "Staggered Matrix",
+            "baseline": false,
+            "value": true
+          },
+          "comparison_baseline": "validation/branch_baselines/br_v2_centralballs_staggeredmatrix/model.xml",
+          "status": "passed",
+          "semantic_change": true,
+          "outcome": "semantic_change",
+          "summary": {
+            "changed_value_count": 3,
+            "added_leaf_count": 0,
+            "removed_leaf_count": 0
+          },
+          "errors": []
+        },
+        {
+          "variation_id": "opt_v2_c008_includebacksidespreader_true",
+          "kind": "boolean_option",
+          "target": {
+            "component": "backsideSpreader",
+            "property": "includeBacksideSpreader",
+            "label": "Include Backside Spreader",
+            "baseline": false,
+            "value": true
+          },
+          "comparison_baseline": "validation/branch_baselines/br_v2_backsidespreader_includebacksidespreader/model.xml",
+          "status": "passed",
+          "semantic_change": true,
+          "outcome": "semantic_change",
+          "summary": {
+            "changed_value_count": 0,
+            "added_leaf_count": 39,
+            "removed_leaf_count": 8
+          },
+          "errors": []
+        },
+        {
+          "variation_id": "par_v2_c071_spreaderlengthlspr_7_2",
+          "kind": "numeric_parameter",
+          "target": {
+            "component": "backsideSpreader",
+            "property": "spreaderLengthLspr",
+            "label": "Spreader Length Lspr",
+            "baseline": 8,
+            "value": 7.2
+          },
+          "comparison_baseline": "validation/branch_baselines/br_v2_backsidespreader_spreaderlengthlspr/model.xml",
+          "status": "passed",
+          "semantic_change": true,
+          "outcome": "semantic_change",
+          "summary": {
+            "changed_value_count": 2,
+            "added_leaf_count": 0,
+            "removed_leaf_count": 0
+          },
+          "errors": []
+        },
+        {
+          "variation_id": "par_v2_c072_spreaderlengthlspr_8_8",
+          "kind": "numeric_parameter",
+          "target": {
+            "component": "backsideSpreader",
+            "property": "spreaderLengthLspr",
+            "label": "Spreader Length Lspr",
+            "baseline": 8,
+            "value": 8.8
+          },
+          "comparison_baseline": "validation/branch_baselines/br_v2_backsidespreader_spreaderlengthlspr/model.xml",
+          "status": "passed",
+          "semantic_change": true,
+          "outcome": "semantic_change",
+          "summary": {
+            "changed_value_count": 2,
+            "added_leaf_count": 0,
+            "removed_leaf_count": 0
+          },
+          "errors": []
+        },
+        {
+          "variation_id": "par_v2_c073_spreaderwidthwspr_7_2",
+          "kind": "numeric_parameter",
+          "target": {
+            "component": "backsideSpreader",
+            "property": "spreaderWidthWspr",
+            "label": "Spreader Width Wspr",
+            "baseline": 8,
+            "value": 7.2
+          },
+          "comparison_baseline": "validation/branch_baselines/br_v2_backsidespreader_spreaderwidthwspr/model.xml",
+          "status": "passed",
+          "semantic_change": true,
+          "outcome": "semantic_change",
+          "summary": {
+            "changed_value_count": 2,
+            "added_leaf_count": 0,
+            "removed_leaf_count": 0
+          },
+          "errors": []
+        },
+        {
+          "variation_id": "par_v2_c074_spreaderwidthwspr_8_8",
+          "kind": "numeric_parameter",
+          "target": {
+            "component": "backsideSpreader",
+            "property": "spreaderWidthWspr",
+            "label": "Spreader Width Wspr",
+            "baseline": 8,
+            "value": 8.8
+          },
+          "comparison_baseline": "validation/branch_baselines/br_v2_backsidespreader_spreaderwidthwspr/model.xml",
+          "status": "passed",
+          "semantic_change": true,
+          "outcome": "semantic_change",
+          "summary": {
+            "changed_value_count": 2,
+            "added_leaf_count": 0,
+            "removed_leaf_count": 0
+          },
+          "errors": []
+        },
+        {
+          "variation_id": "par_v2_c075_spreaderthicknesstspr_0_45",
+          "kind": "numeric_parameter",
+          "target": {
+            "component": "backsideSpreader",
+            "property": "spreaderThicknessTspr",
+            "label": "Spreader Thickness tspr",
+            "baseline": 0.5,
+            "value": 0.45
+          },
+          "comparison_baseline": "validation/branch_baselines/br_v2_backsidespreader_spreaderthicknesstspr/model.xml",
+          "status": "passed",
+          "semantic_change": true,
+          "outcome": "semantic_change",
+          "summary": {
+            "changed_value_count": 1,
+            "added_leaf_count": 0,
+            "removed_leaf_count": 0
+          },
+          "errors": []
+        },
+        {
+          "variation_id": "par_v2_c076_spreaderthicknesstspr_0_55",
+          "kind": "numeric_parameter",
+          "target": {
+            "component": "backsideSpreader",
+            "property": "spreaderThicknessTspr",
+            "label": "Spreader Thickness tspr",
+            "baseline": 0.5,
+            "value": 0.55
+          },
+          "comparison_baseline": "validation/branch_baselines/br_v2_backsidespreader_spreaderthicknesstspr/model.xml",
+          "status": "passed",
+          "semantic_change": true,
+          "outcome": "semantic_change",
+          "summary": {
+            "changed_value_count": 1,
+            "added_leaf_count": 0,
+            "removed_leaf_count": 0
+          },
+          "errors": []
+        },
+        {
+          "variation_id": "par_v2_c077_bottomtraceholelengthlbt_4_5",
+          "kind": "numeric_parameter",
+          "target": {
+            "component": "backsideSpreader",
+            "property": "bottomTraceHoleLengthLbt",
+            "label": "Bottom Trace Hole Length Lbt",
+            "baseline": 5,
+            "value": 4.5
+          },
+          "comparison_baseline": "validation/branch_baselines/br_v2_backsidespreader_bottomtraceholelengthlbt/model.xml",
+          "status": "passed",
+          "semantic_change": true,
+          "outcome": "semantic_change",
+          "summary": {
+            "changed_value_count": 7,
+            "added_leaf_count": 0,
+            "removed_leaf_count": 0
+          },
+          "errors": []
+        },
+        {
+          "variation_id": "par_v2_c078_bottomtraceholelengthlbt_5_5",
+          "kind": "numeric_parameter",
+          "target": {
+            "component": "backsideSpreader",
+            "property": "bottomTraceHoleLengthLbt",
+            "label": "Bottom Trace Hole Length Lbt",
+            "baseline": 5,
+            "value": 5.5
+          },
+          "comparison_baseline": "validation/branch_baselines/br_v2_backsidespreader_bottomtraceholelengthlbt/model.xml",
+          "status": "passed",
+          "semantic_change": true,
+          "outcome": "semantic_change",
+          "summary": {
+            "changed_value_count": 7,
+            "added_leaf_count": 0,
+            "removed_leaf_count": 0
+          },
+          "errors": []
+        },
+        {
+          "variation_id": "par_v2_c079_bottomtraceholewidthwbt_4_5",
+          "kind": "numeric_parameter",
+          "target": {
+            "component": "backsideSpreader",
+            "property": "bottomTraceHoleWidthWbt",
+            "label": "Bottom Trace Hole Width Wbt",
+            "baseline": 5,
+            "value": 4.5
+          },
+          "comparison_baseline": "validation/branch_baselines/br_v2_backsidespreader_bottomtraceholewidthwbt/model.xml",
+          "status": "passed",
+          "semantic_change": true,
+          "outcome": "semantic_change",
+          "summary": {
+            "changed_value_count": 3,
+            "added_leaf_count": 0,
+            "removed_leaf_count": 0
+          },
+          "errors": []
+        },
+        {
+          "variation_id": "par_v2_c080_bottomtraceholewidthwbt_5_5",
+          "kind": "numeric_parameter",
+          "target": {
+            "component": "backsideSpreader",
+            "property": "bottomTraceHoleWidthWbt",
+            "label": "Bottom Trace Hole Width Wbt",
+            "baseline": 5,
+            "value": 5.5
+          },
+          "comparison_baseline": "validation/branch_baselines/br_v2_backsidespreader_bottomtraceholewidthwbt/model.xml",
+          "status": "passed",
+          "semantic_change": true,
+          "outcome": "semantic_change",
+          "summary": {
+            "changed_value_count": 3,
+            "added_leaf_count": 0,
+            "removed_leaf_count": 0
+          },
+          "errors": []
+        },
+        {
+          "variation_id": "opt_v2_c004_modelsolderballarrayas_isotropiccuboid",
+          "kind": "enum_option",
+          "target": {
+            "component": "modelingOptions",
+            "property": "modelSolderBallArrayAs",
+            "label": "Model Solder Ball Array As",
+            "baseline": "orthotropicCuboid",
+            "value": "isotropicCuboid"
+          },
+          "comparison_baseline": "baseline/model.xml",
+          "status": "passed",
+          "semantic_change": true,
+          "outcome": "semantic_change",
+          "summary": {
+            "changed_value_count": 0,
+            "added_leaf_count": 4,
+            "removed_leaf_count": 5
+          },
+          "errors": []
+        },
+        {
+          "variation_id": "opt_v2_c005_modelsolderballarrayas_discretecuboids",
+          "kind": "enum_option",
+          "target": {
+            "component": "modelingOptions",
+            "property": "modelSolderBallArrayAs",
+            "label": "Model Solder Ball Array As",
+            "baseline": "orthotropicCuboid",
+            "value": "discreteCuboids"
+          },
+          "comparison_baseline": "baseline/model.xml",
+          "status": "passed",
+          "semantic_change": true,
+          "outcome": "semantic_change",
+          "summary": {
+            "changed_value_count": 0,
+            "added_leaf_count": 972,
+            "removed_leaf_count": 13
+          },
+          "errors": []
+        },
+        {
+          "variation_id": "opt_v2_c006_modelthermalviasas_isotropiccuboid",
+          "kind": "enum_option",
+          "target": {
+            "component": "modelingOptions",
+            "property": "modelThermalViasAs",
+            "label": "Model Thermal Vias As",
+            "baseline": "discreteCuboids",
+            "value": "isotropicCuboid"
+          },
+          "comparison_baseline": "baseline/model.xml",
+          "status": "passed",
+          "semantic_change": true,
+          "outcome": "semantic_change",
+          "summary": {
+            "changed_value_count": 3,
+            "added_leaf_count": 8,
+            "removed_leaf_count": 200
+          },
+          "errors": []
+        },
+        {
+          "variation_id": "opt_v2_c007_modelthermalviasas_orthotropiccuboid",
+          "kind": "enum_option",
+          "target": {
+            "component": "modelingOptions",
+            "property": "modelThermalViasAs",
+            "label": "Model Thermal Vias As",
+            "baseline": "discreteCuboids",
+            "value": "orthotropicCuboid"
+          },
+          "comparison_baseline": "baseline/model.xml",
+          "status": "passed",
+          "semantic_change": true,
+          "outcome": "semantic_change",
+          "summary": {
+            "changed_value_count": 0,
+            "added_leaf_count": 13,
+            "removed_leaf_count": 204
+          },
+          "errors": []
+        },
+        {
+          "variation_id": "opt_v2_c008_modelbondwiresas_isotropiccuboid",
+          "kind": "enum_option",
+          "target": {
+            "component": "modelingOptions",
+            "property": "modelBondWiresAs",
+            "label": "Model Bond Wires As",
+            "baseline": "orthotropicCuboid",
+            "value": "isotropicCuboid"
+          },
+          "comparison_baseline": "baseline/model.xml",
+          "status": "passed",
+          "semantic_change": true,
+          "outcome": "semantic_change",
+          "summary": {
+            "changed_value_count": 8,
+            "added_leaf_count": 4,
+            "removed_leaf_count": 12
+          },
+          "errors": []
+        },
+        {
+          "variation_id": "opt_v2_c009_localizegrid_false",
+          "kind": "boolean_option",
+          "target": {
+            "component": "modelingOptions",
+            "property": "localizeGrid",
+            "label": "Localize Grid",
+            "baseline": true,
+            "value": false
+          },
+          "comparison_baseline": "baseline/model.xml",
+          "status": "passed",
+          "semantic_change": true,
+          "outcome": "semantic_change",
+          "summary": {
+            "changed_value_count": 1,
+            "added_leaf_count": 0,
+            "removed_leaf_count": 0
+          },
+          "errors": []
+        },
+        {
+          "variation_id": "opt_v2_c009_griddensity_coarse",
+          "kind": "enum_option",
+          "target": {
+            "component": "modelingOptions",
+            "property": "gridDensity",
+            "label": "Grid Density",
+            "baseline": "fine",
+            "value": "coarse"
+          },
+          "comparison_baseline": "baseline/model.xml",
+          "status": "passed",
+          "semantic_change": true,
+          "outcome": "semantic_change",
+          "summary": {
+            "changed_value_count": 6,
+            "added_leaf_count": 6,
+            "removed_leaf_count": 6
+          },
+          "errors": []
+        },
+        {
+          "variation_id": "opt_v2_c010_griddensity_medium",
+          "kind": "enum_option",
+          "target": {
+            "component": "modelingOptions",
+            "property": "gridDensity",
+            "label": "Grid Density",
+            "baseline": "fine",
+            "value": "medium"
+          },
+          "comparison_baseline": "baseline/model.xml",
+          "status": "passed",
+          "semantic_change": true,
+          "outcome": "semantic_change",
+          "summary": {
+            "changed_value_count": 6,
+            "added_leaf_count": 0,
+            "removed_leaf_count": 0
+          },
+          "errors": []
+        }
+      ]
+    }
+  },
+  "failures": []
+}

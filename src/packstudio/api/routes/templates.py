@@ -6,11 +6,16 @@ from packstudio.exporters.pta_xml import export_pta_xml
 from packstudio.templates.package_library.catalog import (
     catalog,
     default_request,
+    definition,
     generate,
     schema,
 )
-from packstudio.templates.package_library.core.materials import production_materials
+from packstudio.templates.package_library.core.materials import (
+    material_id_for_name,
+    production_materials,
+)
 from packstudio.templates.package_library.core.parameters import TemplateRequest
+from packstudio.templates.package_library.core.preset_request import resolve_preset_request
 
 router = APIRouter(prefix="/api/templates", tags=["templates"])
 
@@ -21,13 +26,15 @@ def list_templates() -> list[dict[str, object]]:
 
 
 @router.get("/materials")
-@router.get("/reference/materials", include_in_schema=False)
 def template_materials() -> list[dict[str, object]]:
-    return [material.model_dump(mode="json") for material in production_materials().values()]
+    return [
+        material.model_dump(mode="json")
+        for material in production_materials().values()
+        if material.id == material_id_for_name(material.name)
+    ]
 
 
 @router.get("/{template_id}/schema")
-@router.get("/reference/{template_id}/schema")
 def template_schema(template_id: str) -> dict[str, object]:
     try:
         return schema(template_id)
@@ -36,16 +43,14 @@ def template_schema(template_id: str) -> dict[str, object]:
 
 
 @router.get("/{template_id}/defaults")
-@router.get("/reference/{template_id}/defaults")
 def template_defaults(template_id: str) -> TemplateRequest:
     try:
-        return default_request(template_id)
+        return resolve_preset_request(definition(template_id), default_request(template_id))[0]
     except ValueError as error:
         raise HTTPException(status_code=404, detail=str(error)) from error
 
 
 @router.post("/{template_id}/generate", response_model=PackageModel)
-@router.post("/reference/{template_id}/generate", response_model=PackageModel)
 def generate_library_model(
     template_id: str,
     request: TemplateRequest,
@@ -59,7 +64,6 @@ def generate_library_model(
 
 
 @router.post("/{template_id}/export/pta")
-@router.post("/reference/{template_id}/export/pta")
 def export_library_model_to_pta(
     template_id: str,
     request: TemplateRequest,
@@ -73,9 +77,7 @@ def export_library_model_to_pta(
     return Response(
         content=payload,
         media_type="application/xml",
-        headers={
-            "Content-Disposition": f'attachment; filename="{template_id.replace("_", "-")}.xml"'
-        },
+        headers={"Content-Disposition": f'attachment; filename="{template_id}.xml"'},
     )
 
 
@@ -91,9 +93,7 @@ def export_library_model_to_ecxml(template_id: str, request: TemplateRequest) ->
         content=payload,
         media_type="application/xml",
         headers={
-            "Content-Disposition": (
-                f'attachment; filename="{template_id.replace("_", "-")}.ecxml"'
-            ),
+            "Content-Disposition": (f'attachment; filename="{template_id}.ecxml"'),
             "X-PackStudio-Export-Warnings": "face-boundaries-and-mesh-controls-not-applied",
         },
     )

@@ -62,7 +62,7 @@ top/bottom depth = (W - Wc) / 2
 
 ## 证据
 
-- `../templates/flip_chip_cbga/xml_variations/option_switches/opt_v2_c002_topcover_lid/`
-- `../templates/flip_chip_cbga/xml_variations/option_switches/opt_v2_c003_topcover_plate/`
-- `../templates/flip_chip_cbga/xml_variations/option_switches/opt_v2_c004_topcover_encapsulant/`
-- `../templates/flip_chip_pbga/xml_variations/option_switches/opt_v2_c002_topcover_lid/`
+- `../templates/cbga_fc/xml_variations/option_switches/opt_v2_c002_topcover_lid/`
+- `../templates/cbga_fc/xml_variations/option_switches/opt_v2_c003_topcover_plate/`
+- `../templates/cbga_fc/xml_variations/option_switches/opt_v2_c004_topcover_encapsulant/`
+- `../templates/pbga_fc/xml_variations/option_switches/opt_v2_c002_topcover_lid/`

@@ -124,7 +124,7 @@ ECXML 使用米制物理矩形块，边界条件与网格控制需在目标软�
 [ECXML 格式约定](output_format/ecxml/README.md)。
 组件材料在对应向导步骤中从有限候选项选择；右侧材料库用于浏览和编辑当前方案物性。
 Flip Chip CBGA 的基准复核、组合焊球规则和坐标约定详见
-[Flip Chip CBGA / BGA 模板说明](docs/templates/flip-chip-cbga.md)。
+[Flip Chip CBGA / BGA 模板说明](docs/templates/cbga_fc.md)。
 
 ### 3. 桌面壳（不依赖浏览器）
 
@@ -200,13 +200,16 @@ TASK15 完成该调研、ECXML 导出和 uv 迁移；安装资料只用于开发
 
 TASK16 将默认字段、预设、选材与物性迁入 [default_parameters](default_parameters/README.md)，
 保存全部 342 个源预设，运行时独立读取 JSON；TASK18 已将 342 个源全部适配为生产选项，连同 Bare Die 共 346 个。
-边界设置、环境请求字段与自动冷却边界已移除；恢复旧保存方案时自动丢弃环境字段。
+边界设置、环境请求字段与自动冷却边界已移除。TASK19 按 PACK 统一命名，旧保存方案不再恢复。
 Agent 可以在完成验收和提交说明后自主 commit，详见 [AGENTS](AGENTS.md)。
 
 TASK17 完成工业软件界面风格调整，保留功能、分区及拖拽分隔条；
 [工作区截图](figures/verification/industrial-workspace.png) 展示参数页、三维视图和模型树。
 
-TASK18 将源字段映射、缺值继承、中央/去球区域和 Chip Array 逐球坐标接入运行时；
-保留已核验默认基线及所有四区工作流。342 个源的 510 种模型配置通过几何与两种导出检查，
-验收明细见 [适配审计](default_parameters/adaptation_report.json)。源名称球数冲突和区域定位
-差异会在规格页显示，材料继续使用审核等效张量；新规格尚未逐一完成原生 PACK 对照。
+TASK19 将界面和生产运行切换到原生初始化后的完整预设库，并删除被替代的转录、基线继承与提取工具。
+Package Types 按 PACK 顺序提供 Chip Array、Bare Die、Flip Chip CBGA、Flip Chip PBGA、
+PQFP、QFN、SOP、Wirebond PBGA；PQFP 和 SOP 按原生子类型筛选 Footprint。
+模板 ID、字段前缀、Python 模块、默认参数文件、模型和下载文件统一命名，不保留旧别名。
+预设引用独立分类材料库中的 PACK 名称；当前常量物性模型对温度依赖材料使用原生参考温度的导热率，
+完整温度关系保留在材料 JSON 中。完整默认值并不表示已复刻 PACK 的所有几何算法。
+验收明细见 [原生预设适配审计](docs/validation/catalog_presets.json)。

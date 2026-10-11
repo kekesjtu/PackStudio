@@ -1,0 +1,152 @@
+{
+  "schema_version": "2.0",
+  "comparison": {
+    "baseline": "flotherm_pack_data/templates/sop/baseline/model.xml",
+    "variation": "flotherm_pack_data/templates/sop/xml_variations/param_sweeps/par_v2_c006_lengthd1_5_423/model.xml",
+    "baseline_bytes": 24418,
+    "variation_bytes": 24418,
+    "baseline_sha256": "2602CC4C884EDBD1E1FBA39F5D4A1BB441413956B57D9FAFBBC1B131DA198A3E",
+    "variation_sha256": "25569A51E80E7585A14F8726BA295091B71315C48C65C3F98344ABE62AF40C9C"
+  },
+  "semantic_change": true,
+  "summary": {
+    "changed_value_count": 10,
+    "added_leaf_count": 0,
+    "removed_leaf_count": 0
+  },
+  "materials": {
+    "added": [],
+    "removed": [],
+    "changed": []
+  },
+  "entities": {
+    "added": [],
+    "removed": [],
+    "changed": [
+      {
+        "name": "assembly:Encapsulant",
+        "before": [
+          "ae5c7408667a9c8b"
+        ],
+        "after": [
+          "c6ddc848152d52b4"
+        ]
+      },
+      {
+        "name": "assembly:Tiebar",
+        "before": [
+          "5bcbd37bca33d5c2"
+        ],
+        "after": [
+          "e535fcae0d7af036"
+        ]
+      },
+      {
+        "name": "cuboid:encapsulant",
+        "before": [
+          "a09a92100c6dab6d"
+        ],
+        "after": [
+          "335f7d360e7636e3"
+        ]
+      },
+      {
+        "name": "cuboid:tie_bar_left",
+        "before": [
+          "dfe2d9deca5d8eb7"
+        ],
+        "after": [
+          "53cd3a8c13794c91"
+        ]
+      },
+      {
+        "name": "cuboid:tie_bar_right",
+        "before": [
+          "59e8a82376931d89"
+        ],
+        "after": [
+          "1740ed3811514314"
+        ]
+      },
+      {
+        "name": "region:z_bottom",
+        "before": [
+          "9b39b7807140c0c7"
+        ],
+        "after": [
+          "2b7a7b3952c6a435"
+        ]
+      },
+      {
+        "name": "region:z_top",
+        "before": [
+          "611f8d8008698d3a"
+        ],
+        "after": [
+          "3ada8d5ecfbb51d4"
+        ]
+      }
+    ]
+  },
+  "changed_values": [
+    {
+      "path": "xml_case/attributes/radiations/radiation_att[name=tsop_conv]/subdivided_surface_tolerance",
+      "before": "0.0014566666666666667",
+      "after": "0.0015388333333333332"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Encapsulant]/geometry/cuboid[name=encapsulant]/position/x",
+      "before": "-0.0024649999999999997",
+      "after": "-0.0027114999999999999"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Encapsulant]/geometry/cuboid[name=encapsulant]/size/x",
+      "before": "0.0049299999999999995",
+      "after": "0.0054229999999999999"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Tiebar]/geometry/cuboid[name=tie_bar_left]/position/x",
+      "before": "-0.0024649999999999997",
+      "after": "-0.0027114999999999999"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Tiebar]/geometry/cuboid[name=tie_bar_left]/size/x",
+      "before": "0.0015775999999999997",
+      "after": "0.0018240999999999999"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Tiebar]/geometry/cuboid[name=tie_bar_right]/size/x",
+      "before": "0.0015775999999999997",
+      "after": "0.0018240999999999999"
+    },
+    {
+      "path": "xml_case/geometry/region[name=z_bottom]/position/x",
+      "before": "-0.0024649999999999997",
+      "after": "-0.0027114999999999999"
+    },
+    {
+      "path": "xml_case/geometry/region[name=z_bottom]/size/x",
+      "before": "0.0049299999999999995",
+      "after": "0.0054229999999999999"
+    },
+    {
+      "path": "xml_case/geometry/region[name=z_top]/position/x",
+      "before": "-0.0024649999999999997",
+      "after": "-0.0027114999999999999"
+    },
+    {
+      "path": "xml_case/geometry/region[name=z_top]/size/x",
+      "before": "0.0049299999999999995",
+      "after": "0.0054229999999999999"
+    }
+  ],
+  "added_leaf_paths": [],
+  "removed_leaf_paths": [],
+  "numeric_formatting_differences_ignored": true,
+  "template_id": "sop",
+  "variation_id": "par_v2_c006_lengthd1_5_423",
+  "variation_kind": "numeric_parameter",
+  "comparison_baseline": "baseline/model.xml",
+  "outcome": "semantic_change",
+  "floxml_effect_expectation": null
+}

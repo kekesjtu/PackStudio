@@ -1,0 +1,43 @@
+{
+  "schema_version": "2.0",
+  "comparison": {
+    "baseline": "flotherm_pack_data/templates/sop/baseline/model.xml",
+    "variation": "flotherm_pack_data/templates/sop/xml_variations/option_switches/opt_v2_c005_dietype_thermaldie/model.xml",
+    "baseline_bytes": 24418,
+    "variation_bytes": 24418,
+    "baseline_sha256": "2602CC4C884EDBD1E1FBA39F5D4A1BB441413956B57D9FAFBBC1B131DA198A3E",
+    "variation_sha256": "2602CC4C884EDBD1E1FBA39F5D4A1BB441413956B57D9FAFBBC1B131DA198A3E"
+  },
+  "semantic_change": false,
+  "summary": {
+    "changed_value_count": 0,
+    "added_leaf_count": 0,
+    "removed_leaf_count": 0
+  },
+  "materials": {
+    "added": [],
+    "removed": [],
+    "changed": []
+  },
+  "entities": {
+    "added": [],
+    "removed": [],
+    "changed": []
+  },
+  "changed_values": [],
+  "added_leaf_paths": [],
+  "removed_leaf_paths": [],
+  "numeric_formatting_differences_ignored": true,
+  "template_id": "sop",
+  "variation_id": "opt_v2_c005_dietype_thermaldie",
+  "variation_kind": "enum_option",
+  "comparison_baseline": "baseline/model.xml",
+  "outcome": "accepted_no_floxml_effect",
+  "floxml_effect_expectation": {
+    "expectation": "no_change_at_default_substate",
+    "reason": "PACK accepts thermalDie, but with the default uniform heat source the exported FloXML is identical to actualDie.",
+    "evidence": [
+      "templates/sop/xml_variations.json"
+    ]
+  }
+}

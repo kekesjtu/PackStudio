@@ -1,0 +1,124 @@
+{
+  "schema_version": "2.0",
+  "comparison": {
+    "baseline": "flotherm_pack_data/templates/chip_array/validation/branch_baselines/br_v2_centralballs_numbercentralrowsmdp/model.xml",
+    "variation": "flotherm_pack_data/templates/chip_array/xml_variations/param_sweeps/par_v2_c054_numbercentralrowsmdp_3/model.xml",
+    "baseline_bytes": 52406,
+    "variation_bytes": 53599,
+    "baseline_sha256": "733C6EC120BED815283B48AECEF454ACCF7645A69A10D2950DB7AAEA3496CF9E",
+    "variation_sha256": "AB862830B930C4F629F5AC1C35D160CD78D4BE6F0F0EFF10BF41A03DFC84FB85"
+  },
+  "semantic_change": true,
+  "summary": {
+    "changed_value_count": 4,
+    "added_leaf_count": 16,
+    "removed_leaf_count": 0
+  },
+  "materials": {
+    "added": [],
+    "removed": [],
+    "changed": []
+  },
+  "entities": {
+    "added": [
+      "cuboid:center_sball_3_1",
+      "cuboid:center_sball_3_2"
+    ],
+    "removed": [],
+    "changed": [
+      {
+        "name": "assembly:Center_SBall",
+        "before": [
+          "0130fbabbe0f6c5f"
+        ],
+        "after": [
+          "802bb61bcb7e6323"
+        ]
+      },
+      {
+        "name": "cuboid:center_sball_1_1",
+        "before": [
+          "31fa073b3f10d631"
+        ],
+        "after": [
+          "bc75f4c1729d461e"
+        ]
+      },
+      {
+        "name": "cuboid:center_sball_1_2",
+        "before": [
+          "b2d24004fbb90e70"
+        ],
+        "after": [
+          "49dc48bf9243c99d"
+        ]
+      },
+      {
+        "name": "cuboid:center_sball_2_1",
+        "before": [
+          "61f650833640df2a"
+        ],
+        "after": [
+          "f8f50489be300295"
+        ]
+      },
+      {
+        "name": "cuboid:center_sball_2_2",
+        "before": [
+          "f4e7f532ccfd9f42"
+        ],
+        "after": [
+          "b9d4beffc2113d02"
+        ]
+      }
+    ]
+  },
+  "changed_values": [
+    {
+      "path": "xml_case/geometry/assembly[name=Center_SBall]/geometry/cuboid[name=center_sball_1_1]/position/x",
+      "before": "-0.00060383219285413436",
+      "after": "-0.0010038321928541344"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Center_SBall]/geometry/cuboid[name=center_sball_1_2]/position/x",
+      "before": "-0.00060383219285413436",
+      "after": "-0.0010038321928541344"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Center_SBall]/geometry/cuboid[name=center_sball_2_1]/position/x",
+      "before": "0.00019616780714586568",
+      "after": "-0.00020383219285413434"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Center_SBall]/geometry/cuboid[name=center_sball_2_2]/position/x",
+      "before": "0.00019616780714586568",
+      "after": "-0.00020383219285413434"
+    }
+  ],
+  "added_leaf_paths": [
+    "xml_case/geometry/assembly[name=Center_SBall]/geometry/cuboid[name=center_sball_3_1]/material",
+    "xml_case/geometry/assembly[name=Center_SBall]/geometry/cuboid[name=center_sball_3_1]/name",
+    "xml_case/geometry/assembly[name=Center_SBall]/geometry/cuboid[name=center_sball_3_1]/position/x",
+    "xml_case/geometry/assembly[name=Center_SBall]/geometry/cuboid[name=center_sball_3_1]/position/y",
+    "xml_case/geometry/assembly[name=Center_SBall]/geometry/cuboid[name=center_sball_3_1]/position/z",
+    "xml_case/geometry/assembly[name=Center_SBall]/geometry/cuboid[name=center_sball_3_1]/size/x",
+    "xml_case/geometry/assembly[name=Center_SBall]/geometry/cuboid[name=center_sball_3_1]/size/y",
+    "xml_case/geometry/assembly[name=Center_SBall]/geometry/cuboid[name=center_sball_3_1]/size/z",
+    "xml_case/geometry/assembly[name=Center_SBall]/geometry/cuboid[name=center_sball_3_2]/material",
+    "xml_case/geometry/assembly[name=Center_SBall]/geometry/cuboid[name=center_sball_3_2]/name",
+    "xml_case/geometry/assembly[name=Center_SBall]/geometry/cuboid[name=center_sball_3_2]/position/x",
+    "xml_case/geometry/assembly[name=Center_SBall]/geometry/cuboid[name=center_sball_3_2]/position/y",
+    "xml_case/geometry/assembly[name=Center_SBall]/geometry/cuboid[name=center_sball_3_2]/position/z",
+    "xml_case/geometry/assembly[name=Center_SBall]/geometry/cuboid[name=center_sball_3_2]/size/x",
+    "xml_case/geometry/assembly[name=Center_SBall]/geometry/cuboid[name=center_sball_3_2]/size/y",
+    "xml_case/geometry/assembly[name=Center_SBall]/geometry/cuboid[name=center_sball_3_2]/size/z"
+  ],
+  "removed_leaf_paths": [],
+  "numeric_formatting_differences_ignored": true,
+  "template_id": "chip_array",
+  "variation_id": "par_v2_c054_numbercentralrowsmdp_3",
+  "variation_kind": "numeric_parameter",
+  "comparison_baseline": "validation/branch_baselines/br_v2_centralballs_numbercentralrowsmdp/model.xml",
+  "outcome": "semantic_change",
+  "floxml_effect_expectation": null
+}

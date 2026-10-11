@@ -15,13 +15,13 @@ vi.mock('../../src/frontend/features/model-editor/ModelPreview', () => ({
 }))
 
 const catalog: TemplateCatalogItem[] = [
-  template('flip_chip_cbga', 'Flip Chip CBGA', true),
+  template('cbga_fc', 'Flip Chip CBGA', true),
   template('bare_die', 'Bare Die', false),
 ]
 
 const schema: TemplateSchema = {
   schema_version: 'packstudio.wizard/v2',
-  template_id: 'flip_chip_cbga',
+  template_id: 'cbga_fc',
   has_bga: true,
   special_rules: {
     outline_type: 'standard_outline',
@@ -35,7 +35,7 @@ const schema: TemplateSchema = {
       label: '封装规格',
       fields: [
         {
-          target_id: 'flip_chip_cbga.footprint.size',
+          target_id: 'cbga_fc.footprint.size',
           ui_location: 'package_setup',
           component: 'package_setup',
           label: 'Footprint 尺寸（JEDEC）',
@@ -47,8 +47,8 @@ const schema: TemplateSchema = {
             CBGAFC_81_8X8mm: 'CBGAFC · 81 球 · 8 × 8 mm',
           },
           preset_values: {
-            CBGAFC_49_6X6mm: { 'flip_chip_cbga.die.length': 1.8 },
-            CBGAFC_81_8X8mm: { 'flip_chip_cbga.die.length': 2.4 },
+            CBGAFC_49_6X6mm: { 'cbga_fc.die.length': 1.8 },
+            CBGAFC_81_8X8mm: { 'cbga_fc.die.length': 2.4 },
           },
           classification: 'jedec_preset',
           property_name: 'footprint.size',
@@ -63,7 +63,7 @@ const schema: TemplateSchema = {
       label: '芯片',
       fields: [
         {
-          target_id: 'flip_chip_cbga.cover.type',
+          target_id: 'cbga_fc.cover.type',
           ui_location: 'die',
           component: 'package',
           label: '顶部结构',
@@ -77,7 +77,7 @@ const schema: TemplateSchema = {
           editable: true,
         },
         {
-          target_id: 'flip_chip_cbga.lid.thickness',
+          target_id: 'cbga_fc.lid.thickness',
           ui_location: 'die',
           component: 'package',
           label: '顶盖厚度',
@@ -94,7 +94,7 @@ const schema: TemplateSchema = {
           visible_when: { 'cover.type': 'lid' },
         },
         {
-          target_id: 'flip_chip_cbga.die.length',
+          target_id: 'cbga_fc.die.length',
           ui_location: 'die',
           component: 'die',
           label: '芯片长度 Ld',
@@ -110,7 +110,7 @@ const schema: TemplateSchema = {
           editable: true,
         },
         {
-          target_id: 'flip_chip_cbga.material.die',
+          target_id: 'cbga_fc.material.die',
           ui_location: 'die',
           component: 'group-die',
           label: '芯片材料',
@@ -135,7 +135,7 @@ const schema: TemplateSchema = {
 }
 
 const defaults: TemplateRequest = {
-  template_id: 'flip_chip_cbga',
+  template_id: 'cbga_fc',
   design_name: 'Flip Chip CBGA',
   overrides: {},
   bga: {
@@ -156,7 +156,7 @@ const defaults: TemplateRequest = {
 
 const generatedModel: PackageModel = {
   schema_version: 'packstudio.model/v1',
-  template_id: 'flip-chip-cbga',
+  template_id: 'cbga_fc',
   name: 'Flip Chip CBGA',
   length_unit: 'mm',
   coordinate_system: {
@@ -261,10 +261,10 @@ describe('eight-template production workspace', () => {
   })
 
   it('restores existing designs while dropping removed boundary settings', async () => {
-    localStorage.setItem('packstudio.library.v2.flip_chip_cbga', JSON.stringify({
+    localStorage.setItem('packstudio.library.v3.cbga_fc', JSON.stringify({
       ...defaults,
       design_name: '已保存的设计',
-      overrides: { 'flip_chip_cbga.die.length': 1.9 },
+      overrides: { 'cbga_fc.die.length': 1.9 },
       environment: { ambient_temperature_k: 350 },
     }))
     render(createElement(App))
@@ -272,9 +272,9 @@ describe('eight-template production workspace', () => {
     expect(screen.queryByRole('button', { name: '边界条件' })).not.toBeInTheDocument()
     expect(requestBody(generateCalls()[0])).not.toHaveProperty('environment')
     expect(requestBody(generateCalls()[0]).design_name).toBe('已保存的设计')
-    expect(requestBody(generateCalls()[0]).overrides).toEqual({ 'flip_chip_cbga.die.length': 1.9 })
+    expect(requestBody(generateCalls()[0]).overrides).toEqual({ 'cbga_fc.die.length': 1.9 })
     fireEvent.click(screen.getByRole('button', { name: '保存参数' }))
-    expect(JSON.parse(localStorage.getItem('packstudio.library.v2.flip_chip_cbga')!))
+    expect(JSON.parse(localStorage.getItem('packstudio.library.v3.cbga_fc')!))
       .not.toHaveProperty('environment')
   })
 
@@ -285,12 +285,12 @@ describe('eight-template production workspace', () => {
     fireEvent.click(screen.getByRole('button', { name: '芯片' }))
     fireEvent.change(screen.getByLabelText('芯片长度 Ld'), { target: { value: '1.9' } })
     fireEvent.click(screen.getByRole('button', { name: '保存参数' }))
-    expect(localStorage.getItem('packstudio.library.v2.flip_chip_cbga')).toContain('1.9')
+    expect(localStorage.getItem('packstudio.library.v3.cbga_fc')).toContain('1.9')
     fireEvent.click(screen.getByRole('button', { name: '生成模型' }))
 
     await waitFor(() => expect(generateCalls()).toHaveLength(2))
     expect(requestBody(generateCalls().at(-1)).overrides).toEqual({
-      'flip_chip_cbga.die.length': 1.9,
+      'cbga_fc.die.length': 1.9,
     })
   })
 
@@ -309,7 +309,7 @@ describe('eight-template production workspace', () => {
 
     await waitFor(() => expect(generateCalls()).toHaveLength(2))
     expect(requestBody(generateCalls().at(-1)).overrides).toEqual({
-      'flip_chip_cbga.footprint.size': 'CBGAFC_81_8X8mm',
+      'cbga_fc.footprint.size': 'CBGAFC_81_8X8mm',
     })
   })
 
@@ -327,8 +327,8 @@ describe('eight-template production workspace', () => {
 
     await waitFor(() => expect(generateCalls()).toHaveLength(2))
     expect(requestBody(generateCalls().at(-1)).overrides).toEqual({
-      'flip_chip_cbga.footprint.size': 'CBGAFC_81_8X8mm',
-      'flip_chip_cbga.die.length': 1.8,
+      'cbga_fc.footprint.size': 'CBGAFC_81_8X8mm',
+      'cbga_fc.die.length': 1.8,
     })
   })
 

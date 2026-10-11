@@ -62,5 +62,5 @@ Isotropic 保留轴向等效导热，却把横向树脂/空气通道提升约 22
 
 ## 证据
 
-- `../templates/qfp_family/xml_variations/option_switches/opt_v2_c006_modelleadframeas_isotropiccuboid/`
-- 基准：`../templates/qfp_family/baseline/model.xml`
+- `../templates/pqfp/xml_variations/option_switches/opt_v2_c006_modelleadframeas_isotropiccuboid/`
+- 基准：`../templates/pqfp/baseline/model.xml`

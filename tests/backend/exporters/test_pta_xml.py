@@ -10,13 +10,13 @@ from packstudio.exporters.pta_constants import (
     XSI_NAMESPACE,
 )
 from packstudio.exporters.pta_xml import export_pta_xml
-from packstudio.templates.flip_chip_cbga.parameters import MeshParameters, MeshResolution
+from packstudio.templates.cbga_fc.parameters import MeshParameters, MeshResolution
 from packstudio.templates.package_library.catalog import default_request, generate
 from packstudio.templates.package_library.core.parameters import TemplateRequest
 
 
 def test_pta_export_contains_only_input_model_data() -> None:
-    model = generate(default_request("flip_chip_cbga"))
+    model = generate(default_request("cbga_fc"))
 
     payload = export_pta_xml(model)
     root = etree.fromstring(payload)
@@ -32,7 +32,7 @@ def test_pta_export_contains_only_input_model_data() -> None:
 
 
 def test_pta_export_preserves_blocks_materials_and_anisotropy() -> None:
-    model = generate(default_request("flip_chip_cbga"))
+    model = generate(default_request("cbga_fc"))
     root = etree.fromstring(export_pta_xml(model))
     namespace = {"m": MODEL_NAMESPACE, "a": ARRAY_NAMESPACE}
 
@@ -48,7 +48,7 @@ def test_pta_export_preserves_blocks_materials_and_anisotropy() -> None:
 
 
 def test_pta_export_converts_total_die_power_to_volumetric_source() -> None:
-    model = generate(TemplateRequest(template_id="flip_chip_cbga", die_power_w=2))
+    model = generate(TemplateRequest(template_id="cbga_fc", die_power_w=2))
     root = etree.fromstring(export_pta_xml(model))
     namespace = {"m": MODEL_NAMESPACE}
     die_block = root.xpath(".//m:Block[m:Name='Silicon die']", namespaces=namespace)[0]
@@ -60,7 +60,7 @@ def test_pta_export_converts_total_die_power_to_volumetric_source() -> None:
 
 
 def test_pta_export_writes_convection_face_keys() -> None:
-    model = generate(default_request("flip_chip_cbga"))
+    model = generate(default_request("cbga_fc"))
     die = next(block for block in model.blocks if block.name == "Silicon die")
     external_boundary = BoundaryCondition(
         id="external-cooling",
@@ -85,7 +85,7 @@ def test_pta_export_writes_convection_face_keys() -> None:
 
 
 def test_pta_export_writes_mesh_controls_without_mesh_entities() -> None:
-    root = etree.fromstring(export_pta_xml(generate(default_request("flip_chip_cbga"))))
+    root = etree.fromstring(export_pta_xml(generate(default_request("cbga_fc"))))
     namespace = {"m": MODEL_NAMESPACE}
     layers = root.xpath("./m:Layers/m:Layer", namespaces=namespace)
     blocks = root.xpath(".//m:Layers/m:Layer/m:Blocks/m:Block", namespaces=namespace)
@@ -107,7 +107,7 @@ def test_fine_mesh_profile_is_smaller_than_coarse_profile() -> None:
     def layer_sizes(resolution: MeshResolution) -> list[float]:
         model = generate(
             TemplateRequest(
-                template_id="flip_chip_cbga",
+                template_id="cbga_fc",
                 mesh=MeshParameters(resolution=resolution),
             )
         )
@@ -131,7 +131,7 @@ def test_fine_mesh_profile_is_smaller_than_coarse_profile() -> None:
 
 
 def test_pta_export_does_not_inject_cooling_boundaries() -> None:
-    root = etree.fromstring(export_pta_xml(generate(default_request("flip_chip_cbga"))))
+    root = etree.fromstring(export_pta_xml(generate(default_request("cbga_fc"))))
     namespace = {"m": MODEL_NAMESPACE, "b": BOUNDARY_NAMESPACE}
     default_boundary = root.find(f"{{{MODEL_NAMESPACE}}}OtherThermalBondary")
     names = root.xpath("./m:Boundaries/m:Boundary/m:Name/text()", namespaces=namespace)
@@ -147,7 +147,7 @@ def test_pta_export_does_not_inject_cooling_boundaries() -> None:
 
 
 def test_pta_layers_are_top_to_bottom_with_a_consistent_top_marker() -> None:
-    root = etree.fromstring(export_pta_xml(generate(default_request("flip_chip_cbga"))))
+    root = etree.fromstring(export_pta_xml(generate(default_request("cbga_fc"))))
     namespace = {"m": MODEL_NAMESPACE}
     layers = root.xpath("./m:Layers/m:Layer", namespaces=namespace)
     layer_blocks = [
@@ -165,7 +165,7 @@ def test_pta_layers_are_top_to_bottom_with_a_consistent_top_marker() -> None:
 
 
 def test_pta_template_layers_are_visible_generic_layers() -> None:
-    root = etree.fromstring(export_pta_xml(generate(default_request("flip_chip_cbga"))))
+    root = etree.fromstring(export_pta_xml(generate(default_request("cbga_fc"))))
     namespace = {"m": MODEL_NAMESPACE}
     layers = root.xpath("./m:Layers/m:Layer", namespaces=namespace)
 
@@ -177,7 +177,7 @@ def test_pta_template_layers_are_visible_generic_layers() -> None:
 
 
 def test_pta_export_rejects_non_contiguous_layer_stack() -> None:
-    model = generate(default_request("flip_chip_cbga"))
+    model = generate(default_request("cbga_fc"))
     die = next(block for block in model.blocks if block.name == "Silicon die")
     moved_die = die.model_copy(update={"origin": die.origin.model_copy(update={"z": 5})})
     modified_blocks = [moved_die if block.id == die.id else block for block in model.blocks]

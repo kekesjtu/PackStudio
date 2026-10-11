@@ -1,0 +1,623 @@
+{
+  "schema_version": "2.0",
+  "comparison": {
+    "baseline": "flotherm_pack_data/templates/sop/baseline/model.xml",
+    "variation": "flotherm_pack_data/templates/sop/xml_variations/option_switches/opt_v2_c004_soppackagetype_tssop/model.xml",
+    "baseline_bytes": 24418,
+    "variation_bytes": 24329,
+    "baseline_sha256": "2602CC4C884EDBD1E1FBA39F5D4A1BB441413956B57D9FAFBBC1B131DA198A3E",
+    "variation_sha256": "E3157BD1638C14841043A7C78363A357DF6D24039D6A438BFF7E006709CEF151"
+  },
+  "semantic_change": true,
+  "summary": {
+    "changed_value_count": 170,
+    "added_leaf_count": 0,
+    "removed_leaf_count": 0
+  },
+  "materials": {
+    "added": [],
+    "removed": [],
+    "changed": [
+      {
+        "name": "LeadFrame_1",
+        "before": {
+          "type": "isotropic_material_att",
+          "density": "4018.42519685",
+          "specific_heat": "274.342359995",
+          "conductivity": "83.3004724409"
+        },
+        "after": {
+          "type": "isotropic_material_att",
+          "density": "4504.61538462",
+          "specific_heat": "220.046448087",
+          "conductivity": "101.572307692"
+        }
+      },
+      {
+        "name": "LeadFrame_2",
+        "before": {
+          "type": "isotropic_material_att",
+          "density": "2772.44914803",
+          "specific_heat": "1.28869000296",
+          "conductivity": "82.8525251969"
+        },
+        "after": {
+          "type": "isotropic_material_att",
+          "density": "3385.33009231",
+          "specific_heat": "1.21238577003",
+          "conductivity": "101.169907692"
+        }
+      },
+      {
+        "name": "bondwire1",
+        "before": {
+          "type": "orthotropic_material_att",
+          "density": "2448.31853072",
+          "specific_heat": "669.485242994",
+          "x_conductivity": "11.2952762295",
+          "y_conductivity": "0.68",
+          "z_conductivity": "11.2952762295"
+        },
+        "after": {
+          "type": "orthotropic_material_att",
+          "density": "2735.25065975",
+          "specific_heat": "604.910503658",
+          "x_conductivity": "16.142919041",
+          "y_conductivity": "0.68",
+          "z_conductivity": "16.142919041"
+        }
+      },
+      {
+        "name": "bondwire2",
+        "before": {
+          "type": "orthotropic_material_att",
+          "density": "2448.31853072",
+          "specific_heat": "669.485242994",
+          "x_conductivity": "0.68",
+          "y_conductivity": "11.2952762295",
+          "z_conductivity": "11.2952762295"
+        },
+        "after": {
+          "type": "orthotropic_material_att",
+          "density": "2735.25065975",
+          "specific_heat": "604.910503658",
+          "x_conductivity": "0.68",
+          "y_conductivity": "16.142919041",
+          "z_conductivity": "16.142919041"
+        }
+      }
+    ]
+  },
+  "entities": {
+    "added": [],
+    "removed": [],
+    "changed": [
+      {
+        "name": "assembly:BondWires",
+        "before": [
+          "4264f46baec87e9c"
+        ],
+        "after": [
+          "29d6ae728451d8b1"
+        ]
+      },
+      {
+        "name": "assembly:Die",
+        "before": [
+          "4b9326783911cc95"
+        ],
+        "after": [
+          "9b8fffa9e26aec41"
+        ]
+      },
+      {
+        "name": "assembly:Die_Flag",
+        "before": [
+          "37ad4af693db3915"
+        ],
+        "after": [
+          "8d4269dae76f7ec6"
+        ]
+      },
+      {
+        "name": "assembly:Encapsulant",
+        "before": [
+          "ae5c7408667a9c8b"
+        ],
+        "after": [
+          "ceeacb5294fc3079"
+        ]
+      },
+      {
+        "name": "assembly:LeadFrame",
+        "before": [
+          "e8057a7b9dac29af"
+        ],
+        "after": [
+          "c1425f18a952bd14"
+        ]
+      },
+      {
+        "name": "assembly:Tiebar",
+        "before": [
+          "5bcbd37bca33d5c2"
+        ],
+        "after": [
+          "12fbb42181cb9364"
+        ]
+      },
+      {
+        "name": "cuboid:bd_wires_left",
+        "before": [
+          "c00a49729bf9bd26"
+        ],
+        "after": [
+          "0ca382777e6f2582"
+        ]
+      },
+      {
+        "name": "cuboid:bd_wires_lower",
+        "before": [
+          "3a3c56d9bacffe5b"
+        ],
+        "after": [
+          "b3af5fc999d40ee9"
+        ]
+      },
+      {
+        "name": "cuboid:bd_wires_right",
+        "before": [
+          "5bf3f0c9da44a9bf"
+        ],
+        "after": [
+          "d4c6d7cf38c4b695"
+        ]
+      },
+      {
+        "name": "cuboid:bd_wires_upper",
+        "before": [
+          "837976f5c9f472dd"
+        ],
+        "after": [
+          "c05a0137490f3ba4"
+        ]
+      },
+      {
+        "name": "cuboid:bdw_v_left",
+        "before": [
+          "d6ada60c3fbacb62"
+        ],
+        "after": [
+          "53372f28714b05c9"
+        ]
+      },
+      {
+        "name": "cuboid:bdw_v_lower",
+        "before": [
+          "16a7f1dcceead5f1"
+        ],
+        "after": [
+          "58897d6570f79da0"
+        ]
+      },
+      {
+        "name": "cuboid:bdw_v_right",
+        "before": [
+          "a6c00aa38a3a1ece"
+        ],
+        "after": [
+          "b79620baf553a664"
+        ]
+      },
+      {
+        "name": "cuboid:bdw_v_upper",
+        "before": [
+          "9d96eeac8d2ed85b"
+        ],
+        "after": [
+          "6c72c9a696208bdd"
+        ]
+      },
+      {
+        "name": "cuboid:die",
+        "before": [
+          "282b8605ff932d8c"
+        ],
+        "after": [
+          "6418f004655acebe"
+        ]
+      },
+      {
+        "name": "cuboid:die_attach",
+        "before": [
+          "bfa12f4f61701a4f"
+        ],
+        "after": [
+          "2ce2b4948690e75d"
+        ]
+      },
+      {
+        "name": "cuboid:die_flag",
+        "before": [
+          "dd1ba359a15801f7"
+        ],
+        "after": [
+          "007733b074678531"
+        ]
+      },
+      {
+        "name": "cuboid:encapsulant",
+        "before": [
+          "a09a92100c6dab6d"
+        ],
+        "after": [
+          "1e6b11b2e7784e3c"
+        ]
+      },
+      {
+        "name": "cuboid:ldf_exter_lower",
+        "before": [
+          "cb8f73a53054803e"
+        ],
+        "after": [
+          "44ef8eec276fa525"
+        ]
+      },
+      {
+        "name": "cuboid:ldf_exter_upper",
+        "before": [
+          "bdde416b650d4eda"
+        ],
+        "after": [
+          "fbcc9bb40cd711f3"
+        ]
+      },
+      {
+        "name": "cuboid:ldf_inter_left",
+        "before": [
+          "fcfad2c49e21c9ea"
+        ],
+        "after": [
+          "3cd6f7d3fc594469"
+        ]
+      },
+      {
+        "name": "cuboid:ldf_inter_lower",
+        "before": [
+          "04bb0f76516d2f88"
+        ],
+        "after": [
+          "125c4e4e68fb7fb5"
+        ]
+      },
+      {
+        "name": "cuboid:ldf_inter_right",
+        "before": [
+          "31786e178b628ade"
+        ],
+        "after": [
+          "c357ba9613f618dd"
+        ]
+      },
+      {
+        "name": "cuboid:ldf_inter_upper",
+        "before": [
+          "d9fcbf8ed8d31558"
+        ],
+        "after": [
+          "c7d3358a3e8058b7"
+        ]
+      },
+      {
+        "name": "cuboid:ldf_vert_lower",
+        "before": [
+          "bedfc5f4192e5841"
+        ],
+        "after": [
+          "4777182b53d147a0"
+        ]
+      },
+      {
+        "name": "cuboid:ldf_vert_upper",
+        "before": [
+          "afb48d226f1d8a82"
+        ],
+        "after": [
+          "5d9606e7d4a59a66"
+        ]
+      },
+      {
+        "name": "cuboid:leadft_lower",
+        "before": [
+          "4d0147269732e330"
+        ],
+        "after": [
+          "429b3611c168e7eb"
+        ]
+      },
+      {
+        "name": "cuboid:leadft_upper",
+        "before": [
+          "79cb755d2154e075"
+        ],
+        "after": [
+          "c3180484da722539"
+        ]
+      },
+      {
+        "name": "cuboid:tie_bar_left",
+        "before": [
+          "dfe2d9deca5d8eb7"
+        ],
+        "after": [
+          "512fe5cb86bc91cb"
+        ]
+      },
+      {
+        "name": "cuboid:tie_bar_right",
+        "before": [
+          "59e8a82376931d89"
+        ],
+        "after": [
+          "eb9b3b1c451f9ad4"
+        ]
+      },
+      {
+        "name": "monitor_point:CaseTemp",
+        "before": [
+          "00e1959f2780bc5a"
+        ],
+        "after": [
+          "797f8cd5769e7fed"
+        ]
+      },
+      {
+        "name": "monitor_point:DieJunction_Temp",
+        "before": [
+          "0049acfc94fc6810"
+        ],
+        "after": [
+          "4d5d15fd5244c591"
+        ]
+      },
+      {
+        "name": "region:z_bottom",
+        "before": [
+          "9b39b7807140c0c7"
+        ],
+        "after": [
+          "57b10201f5752290"
+        ]
+      },
+      {
+        "name": "region:z_top",
+        "before": [
+          "611f8d8008698d3a"
+        ],
+        "after": [
+          "375b64136a09e1cf"
+        ]
+      },
+      {
+        "name": "source:DieSource",
+        "before": [
+          "861b8f818360cdae"
+        ],
+        "after": [
+          "83a196592639788f"
+        ]
+      }
+    ]
+  },
+  "changed_values": [
+    {
+      "path": "xml_case/attributes/grid_constraints/grid_constraint_att[name=keypoint]/high_inflation/max_size",
+      "before": "0.00030000000000000003",
+      "after": "0.00025000000000000001"
+    },
+    {
+      "path": "xml_case/attributes/grid_constraints/grid_constraint_att[name=keypoint]/low_inflation/max_size",
+      "before": "0.00030000000000000003",
+      "after": "0.00025000000000000001"
+    },
+    {
+      "path": "xml_case/attributes/grid_constraints/grid_constraint_att[name=keypoint]/max_size",
+      "before": "0.00030000000000000003",
+      "after": "0.00025000000000000001"
+    },
+    {
+      "path": "xml_case/attributes/grid_constraints/grid_constraint_att[name=keypoint_z]/high_inflation/inflation_size",
+      "before": "0.0032399999999999998",
+      "after": "0.0019"
+    },
+    {
+      "path": "xml_case/attributes/grid_constraints/grid_constraint_att[name=keypoint_z]/high_inflation/max_size",
+      "before": "0.00016199999999999998",
+      "after": "9.5000000000000005e-05"
+    },
+    {
+      "path": "xml_case/attributes/grid_constraints/grid_constraint_att[name=keypoint_z]/low_inflation/max_size",
+      "before": "0.00016199999999999998",
+      "after": "9.5000000000000005e-05"
+    },
+    {
+      "path": "xml_case/attributes/grid_constraints/grid_constraint_att[name=keypoint_z]/max_size",
+      "before": "0.00016199999999999998",
+      "after": "9.5000000000000005e-05"
+    },
+    {
+      "path": "xml_case/attributes/materials/isotropic_material_att[name=LeadFrame_1]/conductivity",
+      "before": "83.300472440944873",
+      "after": "101.5723076923077"
+    },
+    {
+      "path": "xml_case/attributes/materials/isotropic_material_att[name=LeadFrame_1]/density",
+      "before": "4018.4251968503941",
+      "after": "4504.6153846153848"
+    },
+    {
+      "path": "xml_case/attributes/materials/isotropic_material_att[name=LeadFrame_1]/specific_heat",
+      "before": "274.34235999529722",
+      "after": "220.04644808743174"
+    },
+    {
+      "path": "xml_case/attributes/materials/isotropic_material_att[name=LeadFrame_2]/conductivity",
+      "before": "82.852525196850394",
+      "after": "101.1699076923077"
+    },
+    {
+      "path": "xml_case/attributes/materials/isotropic_material_att[name=LeadFrame_2]/density",
+      "before": "2772.449148031496",
+      "after": "3385.3300923076927"
+    },
+    {
+      "path": "xml_case/attributes/materials/isotropic_material_att[name=LeadFrame_2]/specific_heat",
+      "before": "1.2886900029616017",
+      "after": "1.212385770030217"
+    },
+    {
+      "path": "xml_case/attributes/materials/orthotropic_material_att[name=bondwire1]/density",
+      "before": "2448.3185307179583",
+      "after": "2735.2506597458264"
+    },
+    {
+      "path": "xml_case/attributes/materials/orthotropic_material_att[name=bondwire1]/specific_heat",
+      "before": "669.48524299421547",
+      "after": "604.91050365783792"
+    },
+    {
+      "path": "xml_case/attributes/materials/orthotropic_material_att[name=bondwire1]/x_conductivity",
+      "before": "11.295276229498141",
+      "after": "16.142919040968959"
+    },
+    {
+      "path": "xml_case/attributes/materials/orthotropic_material_att[name=bondwire1]/z_conductivity",
+      "before": "11.295276229498141",
+      "after": "16.142919040968959"
+    },
+    {
+      "path": "xml_case/attributes/materials/orthotropic_material_att[name=bondwire2]/density",
+      "before": "2448.3185307179583",
+      "after": "2735.2506597458264"
+    },
+    {
+      "path": "xml_case/attributes/materials/orthotropic_material_att[name=bondwire2]/specific_heat",
+      "before": "669.48524299421547",
+      "after": "604.91050365783792"
+    },
+    {
+      "path": "xml_case/attributes/materials/orthotropic_material_att[name=bondwire2]/y_conductivity",
+      "before": "11.295276229498141",
+      "after": "16.142919040968959"
+    },
+    {
+      "path": "xml_case/attributes/materials/orthotropic_material_att[name=bondwire2]/z_conductivity",
+      "before": "11.295276229498141",
+      "after": "16.142919040968959"
+    },
+    {
+      "path": "xml_case/attributes/radiations/radiation_att[name=tsop_conv]/subdivided_surface_tolerance",
+      "before": "0.0014566666666666667",
+      "after": "0.001"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=BondWires]/geometry/cuboid[name=bd_wires_left]/position/x",
+      "before": "-0.0010013999999999999",
+      "after": "-0.00063000000000000003"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=BondWires]/geometry/cuboid[name=bd_wires_left]/position/y",
+      "before": "-0.00057149999999999996",
+      "after": "-0.00044999999999999999"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=BondWires]/geometry/cuboid[name=bd_wires_left]/position/z",
+      "before": "0.00095500000000000001",
+      "after": "0.00069999999999999999"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=BondWires]/geometry/cuboid[name=bd_wires_left]/size/x",
+      "before": "0.00026189999999999991",
+      "after": "0.00018000000000000004"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=BondWires]/geometry/cuboid[name=bd_wires_left]/size/y",
+      "before": "0.0011429999999999999",
+      "after": "0.00089999999999999998"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=BondWires]/geometry/cuboid[name=bd_wires_lower]/position/x",
+      "before": "-0.00073950000000000003",
+      "after": "-0.00044999999999999999"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=BondWires]/geometry/cuboid[name=bd_wires_lower]/position/y",
+      "before": "-0.00079980000000000003",
+      "after": "-0.00063000000000000003"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=BondWires]/geometry/cuboid[name=bd_wires_lower]/position/z",
+      "before": "0.00095500000000000001",
+      "after": "0.00069999999999999999"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=BondWires]/geometry/cuboid[name=bd_wires_lower]/size/x",
+      "before": "0.0014790000000000001",
+      "after": "0.00089999999999999998"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=BondWires]/geometry/cuboid[name=bd_wires_lower]/size/y",
+      "before": "0.00022830000000000007",
+      "after": "0.00018000000000000004"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=BondWires]/geometry/cuboid[name=bd_wires_right]/position/x",
+      "before": "0.00073950000000000014",
+      "after": "0.00044999999999999999"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=BondWires]/geometry/cuboid[name=bd_wires_right]/position/y",
+      "before": "-0.00057149999999999996",
+      "after": "-0.00044999999999999999"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=BondWires]/geometry/cuboid[name=bd_wires_right]/position/z",
+      "before": "0.00095500000000000001",
+      "after": "0.00069999999999999999"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=BondWires]/geometry/cuboid[name=bd_wires_right]/size/x",
+      "before": "0.00026189999999999991",
+      "after": "0.00018000000000000004"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=BondWires]/geometry/cuboid[name=bd_wires_right]/size/y",
+      "before": "0.0011429999999999999",
+      "after": "0.00089999999999999998"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=BondWires]/geometry/cuboid[name=bd_wires_upper]/position/x",
+      "before": "-0.00073950000000000003",
+      "after": "-0.00044999999999999999"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=BondWires]/geometry/cuboid[name=bd_wires_upper]/position/y",
+      "before": "0.00057149999999999996",
+      "after": "0.00044999999999999999"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=BondWires]/geometry/cuboid[name=bd_wires_upper]/position/z",
+      "before": "0.00095500000000000001",
+      "after": "0.00069999999999999999"
+    }
+  ],
+  "added_leaf_paths": [],
+  "removed_leaf_paths": [],
+  "numeric_formatting_differences_ignored": true,
+  "template_id": "sop",
+  "variation_id": "opt_v2_c004_soppackagetype_tssop",
+  "variation_kind": "enum_option",
+  "comparison_baseline": "baseline/model.xml",
+  "outcome": "semantic_change",
+  "floxml_effect_expectation": null
+}

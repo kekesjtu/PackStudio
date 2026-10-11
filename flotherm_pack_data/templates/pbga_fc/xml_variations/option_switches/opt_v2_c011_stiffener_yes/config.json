@@ -1,0 +1,55 @@
+{
+  "schema_version": "2.0",
+  "template_id": "pbga_fc",
+  "variation_id": "opt_v2_c011_stiffener_yes",
+  "kind": "enum_option",
+  "coverage_policy": "all_non_default_values",
+  "target": {
+    "component": "topCover",
+    "property": "stiffener",
+    "label": "Stiffener",
+    "baseline": "no",
+    "value": "yes"
+  },
+  "comparison_baseline": "validation/branch_baselines/br_v2_topcover_stiffener/model.xml",
+  "branch_preconditions": [
+    {
+      "component": "topCover",
+      "property": "topCover",
+      "value": "lid"
+    },
+    {
+      "component": "topCover",
+      "property": "stiffenerLengthLs",
+      "value": 6
+    },
+    {
+      "component": "topCover",
+      "property": "stiffenerWidthWs",
+      "value": 6
+    },
+    {
+      "component": "topCover",
+      "property": "stiffenerCavityLengthLsc",
+      "value": 3
+    },
+    {
+      "component": "topCover",
+      "property": "stiffenerCavityWidthWsc",
+      "value": 3
+    },
+    {
+      "component": "topCover",
+      "property": "stiffenerAdhesiveThickness",
+      "value": 0.1
+    }
+  ],
+  "required_dependent_initialization": {},
+  "single_variable_relative_to_comparison_baseline": true,
+  "material_policy": "default_only",
+  "property_evidence": [
+    "recorded_modify_component",
+    "installed_dll_ascii_string"
+  ],
+  "execution_status": "pending_replay"
+}

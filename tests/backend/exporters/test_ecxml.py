@@ -10,7 +10,7 @@ from packstudio.api.app import app
 from packstudio.domain.materials import ConductivityTensor
 from packstudio.domain.thermal import HeatSource
 from packstudio.exporters.ecxml import export_ecxml
-from packstudio.templates.flip_chip_cbga.parameters import ArrayRepresentation
+from packstudio.templates.cbga_fc.parameters import ArrayRepresentation
 from packstudio.templates.package_library.catalog import catalog, default_request, generate
 
 SCHEMA_PATH = Path(__file__).resolve().parents[3] / "output_format/ecxml/ECXML.xsd"
@@ -95,7 +95,7 @@ def test_multiple_sources_and_custom_material_are_preserved_without_duplicate_ge
 
 
 def test_discrete_bga_exports_every_ball_in_si_units() -> None:
-    request = default_request("flip_chip_cbga")
+    request = default_request("cbga_fc")
     request = request.model_copy(
         update={
             "bga": request.bga.model_copy(update={"representation": ArrayRepresentation.DISCRETE})

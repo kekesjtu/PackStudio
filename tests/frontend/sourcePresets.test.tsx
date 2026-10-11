@@ -56,4 +56,48 @@ describe('source presets', () => {
     expect(onChange.mock.calls[0][0].solder_removal_enabled).toBe(false)
     expect(onChange.mock.calls[0][0].omitted_cells).toEqual([])
   })
+
+  it('filters native subtypes and updates dimensions and materials together', () => {
+    const subtype: WizardField = {
+      ...footprint, target_id: 'sample.package.type', property_name: 'package.type',
+      control: 'combobox', label: 'Package Type', default: 'lqfp',
+      options: ['lqfp', 'mqfp'], supported_values: ['lqfp', 'mqfp'],
+      preset_values: undefined, preset_bga: undefined, preset_notes: undefined,
+    }
+    const typedFootprint: WizardField = {
+      ...footprint,
+      preset_values: {
+        baseline: { 'sample.package.type': 'lqfp', 'sample.die.length': 1 },
+        source: { 'sample.package.type': 'mqfp', 'sample.die.length': 2 },
+      },
+      preset_materials: {
+        baseline: { 'group-die': 'copper' }, source: { 'group-die': 'gold' },
+      },
+    }
+    const die: WizardField = {
+      ...subtype, target_id: 'sample.die.length', property_name: 'die.length',
+      label: '芯片长度', control: 'number', default: 1, options: [], supported_values: [],
+    }
+    const material: WizardField = {
+      ...subtype, target_id: 'sample.material.die', property_name: 'material.group-die',
+      material_group_id: 'group-die', label: '芯片材料', control: 'material',
+      default: 'copper', options: ['copper', 'gold'], supported_values: ['copper', 'gold'],
+    }
+    const fields = [subtype, typedFootprint, die, material]
+    const onChange = vi.fn()
+    const { rerender } = render(<WizardFields step={{ id: 'package_setup', label: '规格', fields }}
+      allFields={fields} request={request} materials={[]} onChange={onChange} />)
+    expect(screen.getByLabelText('源规格').querySelectorAll('option')).toHaveLength(1)
+    fireEvent.change(screen.getByLabelText('Package Type'), { target: { value: 'mqfp' } })
+    const next = onChange.mock.calls[0][0] as TemplateRequest
+    expect(next.overrides).toEqual({ 'sample.footprint.size': 'source', 'sample.cover.type': 'lid_cap' })
+    expect(next.bga?.representation).toBe('discrete')
+    rerender(<WizardFields step={{ id: 'package_setup', label: '规格', fields }}
+      allFields={fields} request={next} materials={[]} onChange={onChange} />)
+    expect(screen.getByLabelText('Package Type')).toHaveValue('mqfp')
+    expect(screen.getByLabelText('源规格')).toHaveValue('source')
+    expect(screen.getByLabelText('芯片长度')).toHaveValue(2)
+    expect(screen.getByLabelText('芯片材料')).toHaveValue('gold')
+    expect(next.material_assignments).toEqual({})
+  })
 })

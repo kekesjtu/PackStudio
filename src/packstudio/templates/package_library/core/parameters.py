@@ -2,7 +2,7 @@ from pydantic import BaseModel, ConfigDict, Field
 
 from packstudio.default_parameters import request_default
 from packstudio.domain.materials import Material
-from packstudio.templates.flip_chip_cbga.parameters import (
+from packstudio.templates.cbga_fc.parameters import (
     ArrayRepresentation,
     CellIndex,
     MeshParameters,

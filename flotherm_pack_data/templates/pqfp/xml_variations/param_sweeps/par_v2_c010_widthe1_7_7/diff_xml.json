@@ -1,0 +1,361 @@
+{
+  "schema_version": "2.0",
+  "comparison": {
+    "baseline": "flotherm_pack_data/templates/pqfp/baseline/model.xml",
+    "variation": "flotherm_pack_data/templates/pqfp/xml_variations/param_sweeps/par_v2_c010_widthe1_7_7/model.xml",
+    "baseline_bytes": 39733,
+    "variation_bytes": 39677,
+    "baseline_sha256": "BF1D9D963234111DFE5AAE319D1F83A3DBD9AF609C4B3C4A4BC7AA5BBA4082FF",
+    "variation_sha256": "6BE246C81BBDF13BA5778712C1EA981B54065B6FE3020E69986E1EDB20CF038C"
+  },
+  "semantic_change": true,
+  "summary": {
+    "changed_value_count": 25,
+    "added_leaf_count": 0,
+    "removed_leaf_count": 0
+  },
+  "materials": {
+    "added": [],
+    "removed": [],
+    "changed": [
+      {
+        "name": "tie_bar1",
+        "before": {
+          "type": "biaxial_material_att",
+          "density": "8900",
+          "specific_heat": "385",
+          "in_plane_conductivity": "106.596347264",
+          "normal_conductivity": "0.68"
+        },
+        "after": {
+          "type": "biaxial_material_att",
+          "density": "8900",
+          "specific_heat": "385",
+          "in_plane_conductivity": "105.592883475",
+          "normal_conductivity": "0.68"
+        }
+      },
+      {
+        "name": "tie_bar2",
+        "before": {
+          "type": "biaxial_material_att",
+          "density": "8900",
+          "specific_heat": "385",
+          "in_plane_conductivity": "106.596347264",
+          "normal_conductivity": "0.68"
+        },
+        "after": {
+          "type": "biaxial_material_att",
+          "density": "8900",
+          "specific_heat": "385",
+          "in_plane_conductivity": "105.592883475",
+          "normal_conductivity": "0.68"
+        }
+      }
+    ]
+  },
+  "entities": {
+    "added": [],
+    "removed": [],
+    "changed": [
+      {
+        "name": "assembly:Encapsulant",
+        "before": [
+          "d4969151b2a125b0"
+        ],
+        "after": [
+          "1c73e4fd2f8c8811"
+        ]
+      },
+      {
+        "name": "assembly:LeadFrame",
+        "before": [
+          "6aab72f69ace04c1"
+        ],
+        "after": [
+          "fb81eceb4d6706da"
+        ]
+      },
+      {
+        "name": "assembly:tie_bars",
+        "before": [
+          "393c9e649fb02f0f"
+        ],
+        "after": [
+          "a144e09fe6c4ee3c"
+        ]
+      },
+      {
+        "name": "assembly:tiebar_plt",
+        "before": [
+          "910d3361d9b8e74d"
+        ],
+        "after": [
+          "a28cfde2e57b4682"
+        ]
+      },
+      {
+        "name": "cuboid:encapsulant",
+        "before": [
+          "56d370a3f8a849c9"
+        ],
+        "after": [
+          "880d8a134677bc4e"
+        ]
+      },
+      {
+        "name": "cuboid:ldf_exter_lower",
+        "before": [
+          "7f0604881b856a0e"
+        ],
+        "after": [
+          "61f66f1a18a0bd95"
+        ]
+      },
+      {
+        "name": "cuboid:ldf_exter_upper",
+        "before": [
+          "c972a59ee7c30448"
+        ],
+        "after": [
+          "d63bfce34db703c7"
+        ]
+      },
+      {
+        "name": "cuboid:ldf_inter_lower",
+        "before": [
+          "f42e41a3d654ab13"
+        ],
+        "after": [
+          "13375b7b18a79285"
+        ]
+      },
+      {
+        "name": "cuboid:ldf_inter_upper",
+        "before": [
+          "cd4f29bf1e394d31"
+        ],
+        "after": [
+          "04f297013a38011c"
+        ]
+      },
+      {
+        "name": "cuboid:tie_bars_v1",
+        "before": [
+          "55d64a76475c5452"
+        ],
+        "after": [
+          "a39fc9743a514846"
+        ]
+      },
+      {
+        "name": "cuboid:tie_bars_v2",
+        "before": [
+          "f8ea20647209d191"
+        ],
+        "after": [
+          "72bf11bff8983497"
+        ]
+      },
+      {
+        "name": "cuboid:tie_bars_v3",
+        "before": [
+          "2e3ffc5caaf7c2da"
+        ],
+        "after": [
+          "3b13bcfa34856556"
+        ]
+      },
+      {
+        "name": "cuboid:tie_bars_v4",
+        "before": [
+          "541dce3f3fd30668"
+        ],
+        "after": [
+          "4083b9475059c137"
+        ]
+      },
+      {
+        "name": "cuboid:tiebar_plt_v1",
+        "before": [
+          "d4b039434b2d9817"
+        ],
+        "after": [
+          "5df646ea868c6a34"
+        ]
+      },
+      {
+        "name": "cuboid:tiebar_plt_v2",
+        "before": [
+          "c7c1f9e6002c7238"
+        ],
+        "after": [
+          "bc39373d8d74edac"
+        ]
+      },
+      {
+        "name": "cuboid:tiebar_plt_v3",
+        "before": [
+          "12c6f472314d07c8"
+        ],
+        "after": [
+          "22aefda3160526db"
+        ]
+      },
+      {
+        "name": "cuboid:tiebar_plt_v4",
+        "before": [
+          "5e6c6d953ad1409e"
+        ],
+        "after": [
+          "a40bc9b053ff0e9d"
+        ]
+      },
+      {
+        "name": "region:z_top",
+        "before": [
+          "fc60e99537df0499"
+        ],
+        "after": [
+          "0f5cafa48596c361"
+        ]
+      }
+    ]
+  },
+  "changed_values": [
+    {
+      "path": "xml_case/attributes/materials/biaxial_material_att[name=tie_bar1]/in_plane_conductivity",
+      "before": "106.59634726387205",
+      "after": "105.59288347546455"
+    },
+    {
+      "path": "xml_case/attributes/materials/biaxial_material_att[name=tie_bar2]/in_plane_conductivity",
+      "before": "106.59634726387205",
+      "after": "105.59288347546455"
+    },
+    {
+      "path": "xml_case/attributes/radiations/radiation_att[name=pqfp]/subdivided_surface_tolerance",
+      "before": "0.0023333333333333335",
+      "after": "0.0024500000000000004"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Encapsulant]/geometry/cuboid[name=encapsulant]/position/y",
+      "before": "-0.0035000000000000001",
+      "after": "-0.0038500000000000001"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Encapsulant]/geometry/cuboid[name=encapsulant]/size/y",
+      "before": "0.0070000000000000001",
+      "after": "0.0077000000000000002"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_exter_lower]/size/y",
+      "before": "0.00074999999999999937",
+      "after": "0.00039999999999999931"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_exter_upper]/position/y",
+      "before": "0.0035000000000000005",
+      "after": "0.0038500000000000001"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_exter_upper]/size/y",
+      "before": "0.00074999999999999937",
+      "after": "0.00039999999999999931"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_inter_lower]/position/y",
+      "before": "-0.0035000000000000001",
+      "after": "-0.0038500000000000001"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_inter_lower]/size/y",
+      "before": "0.0016100000000000001",
+      "after": "0.0019599999999999999"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_inter_upper]/size/y",
+      "before": "0.0016100000000000001",
+      "after": "0.0019599999999999999"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=tie_bars]/geometry/cuboid[name=tie_bars_v1]/size/y",
+      "before": "0.0020300000000000001",
+      "after": "0.0023800000000000002"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=tie_bars]/geometry/cuboid[name=tie_bars_v2]/size/y",
+      "before": "0.0020300000000000001",
+      "after": "0.0023800000000000002"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=tie_bars]/geometry/cuboid[name=tie_bars_v3]/position/y",
+      "before": "-0.0035000000000000005",
+      "after": "-0.0038500000000000001"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=tie_bars]/geometry/cuboid[name=tie_bars_v3]/size/y",
+      "before": "0.0020300000000000001",
+      "after": "0.0023800000000000002"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=tie_bars]/geometry/cuboid[name=tie_bars_v4]/position/y",
+      "before": "-0.0035000000000000005",
+      "after": "-0.0038500000000000001"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=tie_bars]/geometry/cuboid[name=tie_bars_v4]/size/y",
+      "before": "0.0020300000000000001",
+      "after": "0.0023800000000000002"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=tiebar_plt]/geometry/cuboid[name=tiebar_plt_v1]/size/y",
+      "before": "0.0020300000000000001",
+      "after": "0.0023800000000000002"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=tiebar_plt]/geometry/cuboid[name=tiebar_plt_v2]/size/y",
+      "before": "0.0020300000000000001",
+      "after": "0.0023800000000000002"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=tiebar_plt]/geometry/cuboid[name=tiebar_plt_v3]/position/y",
+      "before": "-0.0035000000000000005",
+      "after": "-0.0038500000000000001"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=tiebar_plt]/geometry/cuboid[name=tiebar_plt_v3]/size/y",
+      "before": "0.0020300000000000001",
+      "after": "0.0023800000000000002"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=tiebar_plt]/geometry/cuboid[name=tiebar_plt_v4]/position/y",
+      "before": "-0.0035000000000000005",
+      "after": "-0.0038500000000000001"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=tiebar_plt]/geometry/cuboid[name=tiebar_plt_v4]/size/y",
+      "before": "0.0020300000000000001",
+      "after": "0.0023800000000000002"
+    },
+    {
+      "path": "xml_case/geometry/region[name=z_top]/position/y",
+      "before": "-0.0035000000000000001",
+      "after": "-0.0038500000000000001"
+    },
+    {
+      "path": "xml_case/geometry/region[name=z_top]/size/y",
+      "before": "0.0070000000000000001",
+      "after": "0.0077000000000000002"
+    }
+  ],
+  "added_leaf_paths": [],
+  "removed_leaf_paths": [],
+  "numeric_formatting_differences_ignored": true,
+  "template_id": "pqfp",
+  "variation_id": "par_v2_c010_widthe1_7_7",
+  "variation_kind": "numeric_parameter",
+  "comparison_baseline": "baseline/model.xml",
+  "outcome": "semantic_change",
+  "floxml_effect_expectation": null
+}

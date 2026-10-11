@@ -1,0 +1,23 @@
+{
+  "schema_version": "2.0",
+  "template_id": "sop",
+  "variation_id": "par_v2_c009_thicknessa2_1_323",
+  "kind": "numeric_parameter",
+  "coverage_policy": "low_and_high",
+  "target": {
+    "component": "encapsulant",
+    "property": "thicknessA2",
+    "label": "Thickness A2",
+    "baseline": 1.47,
+    "value": 1.323
+  },
+  "comparison_baseline": "baseline/model.xml",
+  "branch_preconditions": [],
+  "required_dependent_initialization": {},
+  "single_variable_relative_to_comparison_baseline": true,
+  "material_policy": "default_only",
+  "property_evidence": [
+    "installed_dll_ascii_string"
+  ],
+  "execution_status": "pending_replay"
+}

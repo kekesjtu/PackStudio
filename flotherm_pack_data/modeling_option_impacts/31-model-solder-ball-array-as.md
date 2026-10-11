@@ -85,7 +85,7 @@ Wirebond PBGA 的 discrete 球边长为
 
 ## 证据
 
-- `../templates/flip_chip_cbga/xml_variations/option_switches/opt_v2_c006_modelsolderballarrayas_discretecuboids/`
-- `../templates/flip_chip_pbga/xml_variations/option_switches/opt_v2_c006_modelsolderballarrayas_discretecuboids/`
-- `../templates/wirebond_pbga/xml_variations/option_switches/opt_v2_c004_modelsolderballarrayas_isotropiccuboid/`
-- `../templates/wirebond_pbga/xml_variations/option_switches/opt_v2_c005_modelsolderballarrayas_discretecuboids/`
+- `../templates/cbga_fc/xml_variations/option_switches/opt_v2_c006_modelsolderballarrayas_discretecuboids/`
+- `../templates/pbga_fc/xml_variations/option_switches/opt_v2_c006_modelsolderballarrayas_discretecuboids/`
+- `../templates/pbga_wb/xml_variations/option_switches/opt_v2_c004_modelsolderballarrayas_isotropiccuboid/`
+- `../templates/pbga_wb/xml_variations/option_switches/opt_v2_c005_modelsolderballarrayas_discretecuboids/`

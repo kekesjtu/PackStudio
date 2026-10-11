@@ -15,117 +15,117 @@
       "notes": "Computer Use scan found 8 template entries in the current 2504 installation."
     },
     {
-      "id": "flip_chip_cbga_guided_ui_capture",
+      "id": "cbga_fc_guided_ui_capture",
       "completed_at": "2026-07-23T20:51:00+08:00",
-      "artifact": "templates/flip_chip_cbga/screenshots/",
+      "artifact": "templates/cbga_fc/screenshots/",
       "notes": "Captured starter defaults, steps 1-10, material/dropdown options, representative conditional states, Modeling Options, and Realized Geometry."
     },
     {
-      "id": "flip_chip_cbga_baseline_floxml_export",
+      "id": "cbga_fc_baseline_floxml_export",
       "completed_at": "2026-07-23T20:52:00+08:00",
-      "artifact": "templates/flip_chip_cbga/baseline/model.xml",
+      "artifact": "templates/cbga_fc/baseline/model.xml",
       "notes": "Exported directly from FloTHERM PACK after restoring the default Bare Die state; verified non-empty at 10097 bytes."
     },
     {
-      "id": "flip_chip_cbga_ui_session_log_copy",
+      "id": "cbga_fc_ui_session_log_copy",
       "completed_at": "2026-07-23T20:55:00+08:00",
-      "artifact": "templates/flip_chip_cbga/logs/ui_capture_session.xml",
+      "artifact": "templates/cbga_fc/logs/ui_capture_session.xml",
       "notes": "Copied only after FloTHERM PACK closed the root element."
     },
     {
-      "id": "flip_chip_cbga_material_auto_extract",
+      "id": "cbga_fc_material_auto_extract",
       "completed_at": "2026-07-23T20:59:14.3545907+08:00",
       "artifact": "materials/materials_auto_extracted.json",
       "notes": "Extracted four material definitions from the baseline FloXML."
     },
     {
-      "id": "flip_chip_cbga_manual_material_capture",
+      "id": "cbga_fc_manual_material_capture",
       "completed_at": "2026-07-23T21:05:00+08:00",
       "artifact": "materials/materials_manual_captured.json",
       "notes": "Captured the solder and underfill constituent records hidden by the generated bump abstraction."
     },
     {
-      "id": "flip_chip_cbga_modeling_and_geometry_capture",
+      "id": "cbga_fc_modeling_and_geometry_capture",
       "completed_at": "2026-07-23T21:10:00+08:00",
-      "artifact": "templates/flip_chip_cbga/screenshots/step_10_modeling_options.png",
+      "artifact": "templates/cbga_fc/screenshots/step_10_modeling_options.png",
       "notes": "Captured Modeling Options defaults/options and the realized geometry tree."
     },
     {
-      "id": "flip_chip_cbga_clean_script_replay",
+      "id": "cbga_fc_clean_script_replay",
       "completed_at": "2026-07-23T21:24:06.2800185+08:00",
-      "artifact": "templates/flip_chip_cbga/validation/validation.json",
+      "artifact": "templates/cbga_fc/validation/validation.json",
       "notes": "Both scripts passed the official XSD. Interactive replay produced a byte-identical model and intentionally left the same FloTHERM PACK process open."
     },
     {
-      "id": "flip_chip_pbga_guided_ui_capture",
+      "id": "pbga_fc_guided_ui_capture",
       "completed_at": "2026-07-23T21:36:00+08:00",
-      "artifact": "templates/flip_chip_pbga/screenshots/",
+      "artifact": "templates/pbga_fc/screenshots/",
       "notes": "Captured all 14 guided pages, starter/dropdown choices, Modeling Options, and the realized geometry tree in the existing application process."
     },
     {
-      "id": "flip_chip_pbga_baseline_floxml_export",
+      "id": "pbga_fc_baseline_floxml_export",
       "completed_at": "2026-07-23T21:37:00+08:00",
-      "artifact": "templates/flip_chip_pbga/baseline/model.xml",
+      "artifact": "templates/pbga_fc/baseline/model.xml",
       "notes": "Exported the PBGAFC_49_6X6mm Bare Die default model directly from the guided UI."
     },
     {
-      "id": "flip_chip_pbga_ui_session_log_closed",
+      "id": "pbga_fc_ui_session_log_closed",
       "completed_at": "2026-07-23T21:38:00+08:00",
-      "artifact": "templates/flip_chip_pbga/logs/ui_capture_session.xml",
+      "artifact": "templates/pbga_fc/logs/ui_capture_session.xml",
       "notes": "Stopped FloSCRIPT recording to close the XML root while leaving FloTHERM PACK open."
     },
     {
-      "id": "flip_chip_pbga_structured_capture",
+      "id": "pbga_fc_structured_capture",
       "completed_at": "2026-07-23T21:39:31.4078764+08:00",
-      "artifact": "templates/flip_chip_pbga/ui.json",
+      "artifact": "templates/pbga_fc/ui.json",
       "notes": "Structured defaults, control types, units, options, dependencies, parameters, and realized geometry; clean baseline and recording scripts pass the official XSD."
     },
     {
-      "id": "wirebond_pbga_guided_ui_capture",
+      "id": "pbga_wb_guided_ui_capture",
       "completed_at": "2026-07-23T21:53:00+08:00",
-      "artifact": "templates/wirebond_pbga/screenshots/",
+      "artifact": "templates/pbga_wb/screenshots/",
       "notes": "Captured the starter defaults and JEDEC choices, all guided pages, conditional slug/central-ball/spreader states, Modeling Options, and the realized geometry tree in the existing application process."
     },
     {
-      "id": "wirebond_pbga_baseline_floxml_export",
+      "id": "pbga_wb_baseline_floxml_export",
       "completed_at": "2026-07-23T21:54:00+08:00",
-      "artifact": "templates/wirebond_pbga/baseline/model.xml",
+      "artifact": "templates/pbga_wb/baseline/model.xml",
       "notes": "Exported the default PBGA_121_15X15mm Wirebond PBGA model directly from the guided UI."
     },
     {
-      "id": "wirebond_pbga_ui_session_log_closed",
+      "id": "pbga_wb_ui_session_log_closed",
       "completed_at": "2026-07-23T21:55:00+08:00",
-      "artifact": "templates/wirebond_pbga/logs/ui_capture_session.xml",
+      "artifact": "templates/pbga_wb/logs/ui_capture_session.xml",
       "notes": "Stopped FloSCRIPT recording to close the XML root while leaving the same FloTHERM PACK process open."
     },
     {
-      "id": "wirebond_pbga_structured_capture",
+      "id": "pbga_wb_structured_capture",
       "completed_at": "2026-07-23T21:58:40.8914430+08:00",
-      "artifact": "templates/wirebond_pbga/ui.json",
+      "artifact": "templates/pbga_wb/ui.json",
       "notes": "Structured defaults, control types, units, options, dependencies, parameters, and realized geometry; the clean baseline and recording scripts pass the official XSD."
     },
     {
-      "id": "fbga_fsbga_guided_ui_capture",
+      "id": "chip_array_guided_ui_capture",
       "completed_at": "2026-07-23T22:24:00+08:00",
-      "artifact": "templates/fbga_fsbga/screenshots/",
+      "artifact": "templates/chip_array/screenshots/",
       "notes": "Captured the starter defaults and 38 JEDEC choices, all guided pages, conditional filled-via/solder-map/central-ball states, both map editors, Modeling Options, and the realized geometry tree in the existing application process."
     },
     {
-      "id": "fbga_fsbga_baseline_floxml_export",
+      "id": "chip_array_baseline_floxml_export",
       "completed_at": "2026-07-23T22:24:00+08:00",
-      "artifact": "templates/fbga_fsbga/baseline/model.xml",
+      "artifact": "templates/chip_array/baseline/model.xml",
       "notes": "Exported the default ChipArray_24_4X4mm_0_8 model directly from the guided UI."
     },
     {
-      "id": "fbga_fsbga_ui_session_log_closed",
+      "id": "chip_array_ui_session_log_closed",
       "completed_at": "2026-07-23T22:24:02+08:00",
-      "artifact": "templates/fbga_fsbga/logs/ui_capture_session.xml",
+      "artifact": "templates/chip_array/logs/ui_capture_session.xml",
       "notes": "Stopped FloSCRIPT recording to close the XML root while leaving the same FloTHERM PACK process open."
     },
     {
-      "id": "fbga_fsbga_structured_capture",
+      "id": "chip_array_structured_capture",
       "completed_at": "2026-07-23T22:30:07.0205437+08:00",
-      "artifact": "templates/fbga_fsbga/ui.json",
+      "artifact": "templates/chip_array/ui.json",
       "notes": "Structured defaults, control types, units, options, dependencies, parameters, and realized geometry; the clean baseline and recording scripts pass the official XSD."
     },
     {
@@ -153,39 +153,39 @@
       "notes": "Structured defaults, control types, units, options, dependencies, parameters, and realized geometry; the clean baseline and recording scripts pass the official XSD."
     },
     {
-      "id": "qfp_family_guided_ui_capture",
+      "id": "pqfp_guided_ui_capture",
       "completed_at": "2026-07-26T01:02:40.8080533+08:00",
-      "artifact": "templates/qfp_family/screenshots/",
+      "artifact": "templates/pqfp/screenshots/",
       "notes": "Captured all starter fields and LQFP/MQFP/TQFP JEDEC choices, all guided pages, conditional states, Modeling Options, and the realized geometry tree in the existing application process."
     },
     {
-      "id": "qfp_family_baseline_and_log_capture",
+      "id": "pqfp_baseline_and_log_capture",
       "completed_at": "2026-07-26T01:02:40.8080533+08:00",
-      "artifact": "templates/qfp_family/baseline/model.xml",
+      "artifact": "templates/pqfp/baseline/model.xml",
       "notes": "Exported the LQFP_32_7X7mm default FloXML and stopped recording so logs/ui_capture_session.xml has a closed root; FloTHERM PACK remained open."
     },
     {
-      "id": "qfp_family_structured_capture",
+      "id": "pqfp_structured_capture",
       "completed_at": "2026-07-26T01:02:40.8080533+08:00",
-      "artifact": "templates/qfp_family/ui.json",
+      "artifact": "templates/pqfp/ui.json",
       "notes": "Structured defaults, controls, units, all captured JEDEC choices, dependencies, parameters, and realized geometry; the clean baseline and recording scripts pass the official XSD."
     },
     {
-      "id": "soic_family_guided_ui_capture",
+      "id": "sop_guided_ui_capture",
       "completed_at": "2026-07-26T01:02:40.8080533+08:00",
-      "artifact": "templates/soic_family/screenshots/",
+      "artifact": "templates/sop/screenshots/",
       "notes": "Captured all starter fields and SOIC/SOP/SO, SSOP, TSOP, and TSSOP JEDEC choices, all guided pages, conditional states, Modeling Options, and the realized geometry tree in the existing application process."
     },
     {
-      "id": "soic_family_baseline_and_log_capture",
+      "id": "sop_baseline_and_log_capture",
       "completed_at": "2026-07-26T01:02:40.8080533+08:00",
-      "artifact": "templates/soic_family/baseline/model.xml",
+      "artifact": "templates/sop/baseline/model.xml",
       "notes": "Exported the SOP_8_3_81x4_93 default FloXML and stopped recording so logs/ui_capture_session.xml has a closed root; FloTHERM PACK remained open."
     },
     {
-      "id": "soic_family_structured_capture",
+      "id": "sop_structured_capture",
       "completed_at": "2026-07-26T01:02:40.8080533+08:00",
-      "artifact": "templates/soic_family/ui.json",
+      "artifact": "templates/sop/ui.json",
       "notes": "Structured defaults, controls, units, all captured JEDEC choices, dependencies, parameters, and realized geometry; the clean baseline and recording scripts pass the official XSD."
     },
     {
@@ -286,22 +286,22 @@
     }
   ],
   "templates": {
-    "flip_chip_cbga": {
+    "cbga_fc": {
       "status": "complete",
       "last_completed_action": "final_validation",
       "next_action": null
     },
-    "flip_chip_pbga": {
+    "pbga_fc": {
       "status": "complete",
       "last_completed_action": "final_validation",
       "next_action": null
     },
-    "wirebond_pbga": {
+    "pbga_wb": {
       "status": "complete",
       "last_completed_action": "final_validation",
       "next_action": null
     },
-    "fbga_fsbga": {
+    "chip_array": {
       "status": "complete",
       "last_completed_action": "final_validation",
       "next_action": null
@@ -311,12 +311,12 @@
       "last_completed_action": "final_validation",
       "next_action": null
     },
-    "qfp_family": {
+    "pqfp": {
       "status": "complete",
       "last_completed_action": "final_validation",
       "next_action": null
     },
-    "soic_family": {
+    "sop": {
       "status": "complete",
       "last_completed_action": "final_validation",
       "next_action": null

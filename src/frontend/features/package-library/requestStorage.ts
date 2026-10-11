@@ -1,6 +1,6 @@
 import type { TemplateRequest, TemplateSchema } from './types'
 
-const storageKey = (templateId: string) => `packstudio.library.v2.${templateId}`
+const storageKey = (templateId: string) => `packstudio.library.v3.${templateId}`
 
 export function saveTemplateRequest(
   templateId: string,

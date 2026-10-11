@@ -1,0 +1,414 @@
+{
+  "schema_version": "2.0",
+  "comparison": {
+    "baseline": "flotherm_pack_data/templates/sop/baseline/model.xml",
+    "variation": "flotherm_pack_data/templates/sop/xml_variations/param_sweeps/par_v2_c040_leadthicknesstl_0_22/model.xml",
+    "baseline_bytes": 24418,
+    "variation_bytes": 24408,
+    "baseline_sha256": "2602CC4C884EDBD1E1FBA39F5D4A1BB441413956B57D9FAFBBC1B131DA198A3E",
+    "variation_sha256": "D0D2E237226D1AFAFD8D96CCFD600CF52392F09C5573C659075576A2E699DD09"
+  },
+  "semantic_change": true,
+  "summary": {
+    "changed_value_count": 30,
+    "added_leaf_count": 0,
+    "removed_leaf_count": 0
+  },
+  "materials": {
+    "added": [],
+    "removed": [],
+    "changed": []
+  },
+  "entities": {
+    "added": [],
+    "removed": [],
+    "changed": [
+      {
+        "name": "assembly:BondWires",
+        "before": [
+          "4264f46baec87e9c"
+        ],
+        "after": [
+          "29088e2015c700d7"
+        ]
+      },
+      {
+        "name": "assembly:Die",
+        "before": [
+          "4b9326783911cc95"
+        ],
+        "after": [
+          "8d23b267163f32d6"
+        ]
+      },
+      {
+        "name": "assembly:LeadFrame",
+        "before": [
+          "e8057a7b9dac29af"
+        ],
+        "after": [
+          "0b64b398c7ef26ea"
+        ]
+      },
+      {
+        "name": "cuboid:bd_wires_left",
+        "before": [
+          "c00a49729bf9bd26"
+        ],
+        "after": [
+          "5ce0d3b073098615"
+        ]
+      },
+      {
+        "name": "cuboid:bd_wires_lower",
+        "before": [
+          "3a3c56d9bacffe5b"
+        ],
+        "after": [
+          "32002f9f5fcbbb2a"
+        ]
+      },
+      {
+        "name": "cuboid:bd_wires_right",
+        "before": [
+          "5bf3f0c9da44a9bf"
+        ],
+        "after": [
+          "759c429ca7c8c482"
+        ]
+      },
+      {
+        "name": "cuboid:bd_wires_upper",
+        "before": [
+          "837976f5c9f472dd"
+        ],
+        "after": [
+          "b19988b3e4814e0c"
+        ]
+      },
+      {
+        "name": "cuboid:bdw_v_left",
+        "before": [
+          "d6ada60c3fbacb62"
+        ],
+        "after": [
+          "f97065940765fbd3"
+        ]
+      },
+      {
+        "name": "cuboid:bdw_v_lower",
+        "before": [
+          "16a7f1dcceead5f1"
+        ],
+        "after": [
+          "36992be5505ad48e"
+        ]
+      },
+      {
+        "name": "cuboid:bdw_v_right",
+        "before": [
+          "a6c00aa38a3a1ece"
+        ],
+        "after": [
+          "4b31e75bada2872f"
+        ]
+      },
+      {
+        "name": "cuboid:bdw_v_upper",
+        "before": [
+          "9d96eeac8d2ed85b"
+        ],
+        "after": [
+          "5e92c883953d617e"
+        ]
+      },
+      {
+        "name": "cuboid:die",
+        "before": [
+          "282b8605ff932d8c"
+        ],
+        "after": [
+          "fbb87cc627ec949a"
+        ]
+      },
+      {
+        "name": "cuboid:die_attach",
+        "before": [
+          "bfa12f4f61701a4f"
+        ],
+        "after": [
+          "a5777b40aa33f917"
+        ]
+      },
+      {
+        "name": "cuboid:ldf_exter_lower",
+        "before": [
+          "cb8f73a53054803e"
+        ],
+        "after": [
+          "16677b1b9e4fbb58"
+        ]
+      },
+      {
+        "name": "cuboid:ldf_exter_upper",
+        "before": [
+          "bdde416b650d4eda"
+        ],
+        "after": [
+          "68856f93c64326b4"
+        ]
+      },
+      {
+        "name": "cuboid:ldf_inter_left",
+        "before": [
+          "fcfad2c49e21c9ea"
+        ],
+        "after": [
+          "4f0003797f80d879"
+        ]
+      },
+      {
+        "name": "cuboid:ldf_inter_lower",
+        "before": [
+          "04bb0f76516d2f88"
+        ],
+        "after": [
+          "bdb5eea05dc8153d"
+        ]
+      },
+      {
+        "name": "cuboid:ldf_inter_right",
+        "before": [
+          "31786e178b628ade"
+        ],
+        "after": [
+          "16fd3ec030b6a473"
+        ]
+      },
+      {
+        "name": "cuboid:ldf_inter_upper",
+        "before": [
+          "d9fcbf8ed8d31558"
+        ],
+        "after": [
+          "10595db784bdcb6a"
+        ]
+      },
+      {
+        "name": "cuboid:ldf_vert_lower",
+        "before": [
+          "bedfc5f4192e5841"
+        ],
+        "after": [
+          "d92a20141a0844d1"
+        ]
+      },
+      {
+        "name": "cuboid:ldf_vert_upper",
+        "before": [
+          "afb48d226f1d8a82"
+        ],
+        "after": [
+          "6bc612bcc0abfa8d"
+        ]
+      },
+      {
+        "name": "cuboid:leadft_lower",
+        "before": [
+          "4d0147269732e330"
+        ],
+        "after": [
+          "77b32f2de4b34ef6"
+        ]
+      },
+      {
+        "name": "cuboid:leadft_upper",
+        "before": [
+          "79cb755d2154e075"
+        ],
+        "after": [
+          "a0a594a90f512924"
+        ]
+      },
+      {
+        "name": "monitor_point:DieJunction_Temp",
+        "before": [
+          "0049acfc94fc6810"
+        ],
+        "after": [
+          "6af29a7269c3b31a"
+        ]
+      },
+      {
+        "name": "source:DieSource",
+        "before": [
+          "861b8f818360cdae"
+        ],
+        "after": [
+          "986a107d7ed38fa9"
+        ]
+      }
+    ]
+  },
+  "changed_values": [
+    {
+      "path": "xml_case/geometry/assembly[name=BondWires]/geometry/cuboid[name=bd_wires_left]/position/z",
+      "before": "0.00095500000000000001",
+      "after": "0.00097500000000000006"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=BondWires]/geometry/cuboid[name=bd_wires_lower]/position/z",
+      "before": "0.00095500000000000001",
+      "after": "0.00097500000000000006"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=BondWires]/geometry/cuboid[name=bd_wires_right]/position/z",
+      "before": "0.00095500000000000001",
+      "after": "0.00097500000000000006"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=BondWires]/geometry/cuboid[name=bd_wires_upper]/position/z",
+      "before": "0.00095500000000000001",
+      "after": "0.00097500000000000006"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=BondWires]/geometry/cuboid[name=bdw_v_left]/position/z",
+      "before": "0.00096500000000000004",
+      "after": "0.00098499999999999998"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=BondWires]/geometry/cuboid[name=bdw_v_lower]/position/z",
+      "before": "0.00096500000000000004",
+      "after": "0.00098499999999999998"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=BondWires]/geometry/cuboid[name=bdw_v_right]/position/z",
+      "before": "0.00096500000000000004",
+      "after": "0.00098499999999999998"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=BondWires]/geometry/cuboid[name=bdw_v_upper]/position/z",
+      "before": "0.00096500000000000004",
+      "after": "0.00098499999999999998"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Die]/geometry/cuboid[name=die]/position/z",
+      "before": "0.00058500000000000002",
+      "after": "0.00060499999999999996"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Die]/geometry/monitor_point[name=DieJunction_Temp]/position/z",
+      "before": "0.00096310000000000005",
+      "after": "0.00098309999999999999"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Die]/geometry/source[name=DieSource]/position/z",
+      "before": "0.00058500000000000002",
+      "after": "0.00060499999999999996"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_exter_lower]/position/y",
+      "before": "-0.0026524999999999999",
+      "after": "-0.0026725"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_exter_lower]/size/y",
+      "before": "0.0007474999999999999",
+      "after": "0.00076749999999999995"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_exter_lower]/size/z",
+      "before": "0.00020000000000000001",
+      "after": "0.00022000000000000001"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_exter_upper]/size/y",
+      "before": "0.0007474999999999999",
+      "after": "0.00076749999999999995"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_exter_upper]/size/z",
+      "before": "0.00020000000000000001",
+      "after": "0.00022000000000000001"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_inter_left]/size/z",
+      "before": "0.00020000000000000001",
+      "after": "0.00022000000000000001"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_inter_lower]/size/z",
+      "before": "0.00020000000000000001",
+      "after": "0.00022000000000000001"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_inter_right]/size/z",
+      "before": "0.00020000000000000001",
+      "after": "0.00022000000000000001"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_inter_upper]/size/z",
+      "before": "0.00020000000000000001",
+      "after": "0.00022000000000000001"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_vert_lower]/position/y",
+      "before": "-0.0026525000000000003",
+      "after": "-0.0026724999999999995"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_vert_lower]/position/z",
+      "before": "0.00020000000000000001",
+      "after": "0.00022000000000000001"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_vert_lower]/size/y",
+      "before": "0.00020000000000000009",
+      "after": "0.00022000000000000014"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_vert_lower]/size/z",
+      "before": "0.00058500000000000002",
+      "after": "0.00056499999999999996"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_vert_upper]/position/z",
+      "before": "0.00020000000000000001",
+      "after": "0.00022000000000000001"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_vert_upper]/size/y",
+      "before": "0.00020000000000000009",
+      "after": "0.00022000000000000014"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_vert_upper]/size/z",
+      "before": "0.00058500000000000002",
+      "after": "0.00056499999999999996"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=leadft_lower]/size/z",
+      "before": "0.00020000000000000001",
+      "after": "0.00022000000000000001"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=leadft_upper]/size/z",
+      "before": "0.00020000000000000001",
+      "after": "0.00022000000000000001"
+    },
+    {
+      "path": "xml_case/geometry/cuboid[name=die_attach]/position/z",
+      "before": "0.00058500000000000002",
+      "after": "0.00060499999999999996"
+    }
+  ],
+  "added_leaf_paths": [],
+  "removed_leaf_paths": [],
+  "numeric_formatting_differences_ignored": true,
+  "template_id": "sop",
+  "variation_id": "par_v2_c040_leadthicknesstl_0_22",
+  "variation_kind": "numeric_parameter",
+  "comparison_baseline": "baseline/model.xml",
+  "outcome": "semantic_change",
+  "floxml_effect_expectation": null
+}

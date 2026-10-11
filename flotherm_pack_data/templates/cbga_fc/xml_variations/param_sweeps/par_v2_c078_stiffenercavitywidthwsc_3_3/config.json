@@ -1,0 +1,54 @@
+{
+  "schema_version": "2.0",
+  "template_id": "cbga_fc",
+  "variation_id": "par_v2_c078_stiffenercavitywidthwsc_3_3",
+  "kind": "numeric_parameter",
+  "coverage_policy": "conditional_low_and_high",
+  "target": {
+    "component": "topCover",
+    "property": "stiffenerCavityWidthWsc",
+    "label": "Stiffener Cavity Width Wsc",
+    "baseline": 3,
+    "value": 3.3
+  },
+  "comparison_baseline": "validation/branch_baselines/br_v2_topcover_stiffenercavitywidthwsc/model.xml",
+  "branch_preconditions": [
+    {
+      "component": "topCover",
+      "property": "topCover",
+      "value": "lid"
+    },
+    {
+      "component": "topCover",
+      "property": "stiffener",
+      "value": "yes"
+    },
+    {
+      "component": "topCover",
+      "property": "stiffenerLengthLs",
+      "value": 6
+    },
+    {
+      "component": "topCover",
+      "property": "stiffenerWidthWs",
+      "value": 6
+    },
+    {
+      "component": "topCover",
+      "property": "stiffenerCavityLengthLsc",
+      "value": 3
+    },
+    {
+      "component": "topCover",
+      "property": "stiffenerAdhesiveThickness",
+      "value": 0.1
+    }
+  ],
+  "required_dependent_initialization": {},
+  "single_variable_relative_to_comparison_baseline": true,
+  "material_policy": "default_only",
+  "property_evidence": [
+    "installed_dll_ascii_string"
+  ],
+  "execution_status": "pending_replay"
+}

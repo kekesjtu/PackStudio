@@ -1,0 +1,291 @@
+{
+  "schema_version": "1.0",
+  "template_id": "cbga_fc",
+  "software_version": "2504",
+  "capture_status": "complete",
+  "starter_fields": [
+    {
+      "name": "Design Name",
+      "property": "designName",
+      "control": "text",
+      "default": "Flip Chip CBGA"
+    },
+    {
+      "name": "Outline Type",
+      "property": "outlineType",
+      "control": "select",
+      "default": "standardOutline",
+      "options": [
+        "standardOutline",
+        "nonStandardOutline"
+      ],
+      "screenshot": "screenshots/dropdown_outline_type.png"
+    },
+    {
+      "name": "JEDEC Footprint",
+      "property": "jedecFootprint",
+      "control": "select",
+      "default": "CBGAFC_49_6X6mm",
+      "options": [
+        "CBGAFC_49_6X6mm",
+        "CBGAFC_49_8X8mm",
+        "CBGAFC_64_7X7mm",
+        "CBGAFC_64_8X8mm",
+        "CBGAFC_64_9X9mm",
+        "CBGAFC_81_8X8mm",
+        "CBGAFC_81_10X10mm",
+        "CBGAFC_100_9X9mm",
+        "CBGAFC_119_14X22mm",
+        "CBGAFC_144_10X10mm"
+      ],
+      "visible_when": {
+        "outlineType": "standardOutline"
+      },
+      "screenshot": "screenshots/dropdown_jedec_footprint.png"
+    },
+    {
+      "name": "Top Cover",
+      "property": "topCover",
+      "control": "select",
+      "default": "bareDie",
+      "options": [
+        "bareDie",
+        "lid",
+        "plate",
+        "encapsulant"
+      ],
+      "screenshot": "screenshots/dropdown_top_cover.png"
+    }
+  ],
+  "common_material_groups": [
+    "Alloys (Leadframe)",
+    "Alloys (Other)",
+    "Alloys (Solders)",
+    "Attachment Materials",
+    "Ceramics",
+    "Metals",
+    "Others",
+    "Resins",
+    "Semiconductors",
+    "Substrate Dielectrics"
+  ],
+  "steps": [
+    {
+      "id": "summary",
+      "label": "Summary",
+      "screenshot": "screenshots/step_01_summary.png",
+      "fields": [
+        {"name": "Design Name", "control": "text", "default": "Flip Chip CBGA"},
+        {"name": "Part Number", "control": "text", "default": ""},
+        {"name": "Vendor Name", "control": "text", "default": ""},
+        {"name": "Max Power", "control": "number", "unit": "W", "default": null},
+        {"name": "Max Operating Junction Temperature", "control": "number", "unit": "degC", "default": null},
+        {"name": "Max Case Temperature", "control": "number", "unit": "degC", "default": null},
+        {"name": "Notes", "control": "multiline_text", "default": ""}
+      ]
+    },
+    {
+      "id": "package_substrate",
+      "label": "Package Substrate",
+      "screenshot": "screenshots/step_02_package_substrate.png",
+      "fields": [
+        {"name": "Length D", "control": "number", "unit": "mm", "default": 6},
+        {"name": "Width E", "control": "number", "unit": "mm", "default": 6},
+        {"name": "Thickness A2", "control": "number", "unit": "mm", "default": 1.15},
+        {"name": "Material Group", "control": "select", "default": "Ceramics", "options_ref": "common_material_groups"},
+        {
+          "name": "Dielectric Material",
+          "control": "select",
+          "default": "Alumina (Typical)",
+          "options": [
+            "No Attachment",
+            "Alumina (94%)",
+            "Alumina (96%)",
+            "Alumina (Typical)",
+            "Aluminum Nitride",
+            "BeO",
+            "LTCC (Dupont 943)",
+            "LTCC (Dupont 951)",
+            "LTCC (Ferro A6)",
+            "LTCC (Heraeus CT 2000)"
+          ],
+          "options_when": {"Material Group": "Ceramics"}
+        }
+      ]
+    },
+    {
+      "id": "die",
+      "label": "Die",
+      "screenshot": "screenshots/step_03_die.png",
+      "fields": [
+        {"name": "Package Power", "control": "number", "unit": "W", "default": 0, "hidden_when": {"Non-uniform Die Heat": true}},
+        {"name": "Non-uniform Die Heat", "control": "checkbox", "default": false},
+        {"name": "Click To Edit", "control": "button", "default_enabled": false, "enabled_when": {"Non-uniform Die Heat": true}},
+        {"name": "Die Length Ld", "control": "number", "unit": "mm", "default": 1.8},
+        {"name": "Die Width Wd", "control": "number", "unit": "mm", "default": 1.8},
+        {"name": "Die Thickness td", "control": "number", "unit": "mm", "default": 0.61}
+      ],
+      "conditional_screenshots": [
+        "screenshots/conditional_non_uniform_die_heat_on.png"
+      ]
+    },
+    {
+      "id": "flip_chip_bumps",
+      "label": "Flip Chip Bumps",
+      "screenshot": "screenshots/step_04_flip_chip_bumps.png",
+      "fields": [
+        {"name": "Array Type", "control": "select", "default": "nonRegularArray", "options": ["regularArray", "nonRegularArray"]},
+        {"name": "Total Number of Bumps MNC4", "control": "integer", "default": 49, "visible_when": {"Array Type": "nonRegularArray"}},
+        {"name": "Number of Bumps in X MDC4", "control": "integer", "default": null, "visible_when": {"Array Type": "regularArray"}},
+        {"name": "Number of Bumps in Y MEC4", "control": "integer", "default": null, "visible_when": {"Array Type": "regularArray"}},
+        {"name": "Bump Diameter", "control": "number", "unit": "mm", "default": 0.12},
+        {"name": "Bump Height", "control": "number", "unit": "mm", "default": 0.1},
+        {"name": "C4 Solder Material Group", "control": "select", "default": "Alloys (Solders)", "options_ref": "common_material_groups"},
+        {
+          "name": "C4 Solder",
+          "control": "select",
+          "default": "Solder (Pb90/Sn10)",
+          "options": [
+            "No Attachment",
+            "Solder (Au80/Sn20)",
+            "Solder (Au88/Ge12)",
+            "Solder (Eutectic, Au-Si )",
+            "Solder (Eutectic, Au-Si)",
+            "Solder (Pb90/Sn10)",
+            "Solder (Sn63/Pb37)",
+            "Solder (Sn96.5/Ag3.5)"
+          ]
+        },
+        {"name": "Underfill", "control": "checkbox", "default": true},
+        {"name": "Underfill Material Group", "control": "select", "default": "Others", "visible_when": {"Underfill": true}, "options_ref": "common_material_groups"},
+        {
+          "name": "Underfill Material",
+          "control": "select",
+          "default": "Flip-Chip Underfill (Typical)",
+          "visible_when": {"Underfill": true},
+          "options": [
+            "No Attachment",
+            "Diamond (Synthetic)",
+            "Flip-Chip Underfill (Typical)",
+            "Glass (Typical)",
+            "Glass Lid Seal (Typical)",
+            "Plexiglass (Typical)",
+            "Solder Mask Material"
+          ]
+        }
+      ],
+      "conditional_screenshots": [
+        "screenshots/conditional_flip_chip_bumps_regular_array.png",
+        "screenshots/conditional_underfill_off.png"
+      ]
+    },
+    {
+      "id": "solder_balls",
+      "label": "Solder Balls",
+      "screenshot": "screenshots/step_05_solder_balls.png",
+      "fields": [
+        {"name": "Number in X MD", "control": "integer", "default": 7},
+        {"name": "Number in Y ME", "control": "integer", "default": 7},
+        {"name": "Ball Diameter", "control": "number", "unit": "mm", "default": 0.5},
+        {"name": "Pitch", "control": "number", "unit": "mm", "default": 0.8},
+        {"name": "Substrate Stand-off A1", "control": "number", "unit": "mm", "default": 0.4},
+        {"name": "Material Group", "control": "select", "default": "Alloys (Solders)", "options_ref": "common_material_groups"},
+        {"name": "Solder Material", "control": "select", "default": "Solder (Sn63/Pb37)", "options_ref": "steps.flip_chip_bumps.fields.C4 Solder.options"},
+        {"name": "Staggered Matrix", "control": "checkbox", "default": false},
+        {"name": "Solder Ball Map", "control": "checkbox", "default": false},
+        {"name": "Click To Edit", "control": "button", "default_enabled": false, "enabled_when": {"Solder Ball Map": true}}
+      ],
+      "conditional_screenshots": [
+        "screenshots/conditional_staggered_matrix_on.png",
+        "screenshots/conditional_solder_ball_map_on.png"
+      ]
+    },
+    {
+      "id": "solder_ball_depopulation",
+      "label": "Solder Ball Depopulation",
+      "screenshot": "screenshots/step_06_solder_ball_depopulation.png",
+      "fields": [
+        {"name": "Depopulated Center", "control": "checkbox", "default": false},
+        {"name": "Number of Fully Populated Rows MDp", "control": "integer_spinbox", "default": null},
+        {"name": "Number of Fully Populated Rows MEp", "control": "integer_spinbox", "default": null},
+        {"name": "Click To Edit", "control": "button", "default_enabled": true}
+      ],
+      "conditional_screenshots": [
+        "screenshots/conditional_depopulated_center_on.png"
+      ]
+    },
+    {
+      "id": "central_balls",
+      "label": "Central Balls",
+      "screenshot": "screenshots/step_07_central_balls.png",
+      "fields": [
+        {"name": "Central Balls", "control": "checkbox", "default": false},
+        {"name": "Number Central Rows MDc", "control": "integer", "default": null, "visible_when": {"Central Balls": true}},
+        {"name": "Number Central Rows MEc", "control": "integer", "default": null, "visible_when": {"Central Balls": true}},
+        {"name": "Staggered Matrix", "control": "checkbox", "default": false, "visible_when": {"Central Balls": true}}
+      ],
+      "conditional_screenshots": [
+        "screenshots/conditional_central_balls_on.png"
+      ]
+    },
+    {
+      "id": "top_cover",
+      "label": "Top Cover",
+      "screenshot": "screenshots/step_08_top_cover.png",
+      "fields": [
+        {"name": "Top Cover", "control": "select", "default": "bareDie", "options": ["bareDie", "lid", "plate", "encapsulant"]}
+      ],
+      "variants": {
+        "lid": {
+          "defaults": {"length_mm": 6, "width_mm": 6, "thickness_mm": 1, "baseThickness_mm": 2.5, "materialGroup": "Metals", "material": "Aluminum (Pure)", "dieAttachThickness_mm": 0.05, "dieAttachMaterialGroup": "Attachment Materials", "dieAttachMaterial": "Flip-Chip Cap Grease (Typical)", "lidAdhesiveThickness_mm": 0.2, "lidAdhesiveMaterialGroup": "Attachment Materials", "lidAdhesiveMaterial": "Stiffener Adhesive (Typical)", "stiffener": "No"},
+          "stiffener_yes_adds": ["Stiffener Length Ls", "Stiffener Width Ws", "Stiffener Cavity Length Lsc", "Stiffener Cavity Width Wsc", "Stiffener Material Group", "Stiffener Material", "Stiffener Adhesive Thickness", "Stiffener Adhesive Material Group", "Stiffener Adhesive Material"],
+          "screenshots": ["screenshots/conditional_top_cover_lid.png", "screenshots/conditional_top_cover_lid_stiffener_yes_top.png", "screenshots/dropdown_stiffener_material.png"]
+        },
+        "plate": {
+          "defaults": {"length_mm": 6, "width_mm": 6, "thickness_mm": 1, "materialGroup": "Metals", "material": "Aluminum (Pure)"},
+          "screenshot": "screenshots/conditional_top_cover_plate.png"
+        },
+        "encapsulant": {
+          "defaults": {"length_mm": 4, "width_mm": 4, "enableDieFlush": false, "thickness_mm": 1.2, "materialGroup": "Resins", "material": "Epoxy Overmold (Typical)"},
+          "screenshot": "screenshots/conditional_top_cover_encapsulant.png"
+        }
+      }
+    },
+    {
+      "id": "drop_in_slug",
+      "label": "Drop-in Slug",
+      "screenshot": "screenshots/step_09_drop_in_slug.png",
+      "length_unit_options": ["m", "cm", "mm", "micron", "in", "ft", "U", "mil"],
+      "fields": [
+        {"name": "Include Slug", "control": "checkbox", "default": false, "enabled_when": {"Top Cover": "encapsulant"}},
+        {"name": "Slug Length Lsl", "control": "number_with_unit", "unit": "mm", "default": null, "visible_when": {"Include Slug": true}},
+        {"name": "Slug Width Wsl", "control": "number_with_unit", "unit": "mm", "default": null, "visible_when": {"Include Slug": true}},
+        {"name": "Slug Thickness tsl", "control": "number_with_unit", "unit": "mm", "default": null, "visible_when": {"Include Slug": true}},
+        {"name": "Slug Diameter ds", "control": "number_with_unit", "unit": "mm", "default": null, "visible_when": {"Include Slug": true}},
+        {"name": "Slug Material Group", "control": "select", "default": "Alloys (Leadframe)", "visible_when": {"Include Slug": true}, "options_ref": "common_material_groups"},
+        {"name": "Slug Material", "control": "select", "default": "No Attachment", "visible_when": {"Include Slug": true}},
+        {"name": "Slug Foot Extend Length Lsf", "control": "number_with_unit", "unit": "mm", "default": null, "visible_when": {"Include Slug": true}},
+        {"name": "Slug Foot Extend Width Wsf", "control": "number_with_unit", "unit": "mm", "default": null, "visible_when": {"Include Slug": true}},
+        {"name": "Slug Offset Gs", "control": "number_with_unit", "unit": "mm", "default": null, "visible_when": {"Include Slug": true}},
+        {"name": "Slug Foot Clearance gsf", "control": "number_with_unit", "unit": "mm", "default": null, "visible_when": {"Include Slug": true}},
+        {"name": "Adhesive Present Under Slug Foot", "control": "checkbox", "default": false, "visible_when": {"Include Slug": true}},
+        {"name": "Slug Adhesive Material Group", "control": "select", "default": "Alloys (Leadframe)", "visible_when": {"Adhesive Present Under Slug Foot": true}, "options_ref": "common_material_groups"},
+        {"name": "Slug Adhesive Material", "control": "select", "default": "No Attachment", "visible_when": {"Adhesive Present Under Slug Foot": true}}
+      ],
+      "conditional_screenshots": ["screenshots/conditional_drop_in_slug_available.png", "screenshots/conditional_drop_in_slug_on.png", "screenshots/conditional_slug_adhesive_on.png", "screenshots/dropdown_length_units.png"]
+    },
+    {
+      "id": "modeling_options",
+      "label": "Modeling Options",
+      "screenshot": "screenshots/step_10_modeling_options.png",
+      "fields": [
+        {"name": "Model Solder Ball Array As", "control": "select", "default": "orthotropicCuboid", "options": ["orthotropicCuboid", "discreteCuboids"]},
+        {"name": "Model Flip Chip Bumps As", "control": "select", "default": "isotropicCuboid", "options": ["collapsedCuboid", "isotropicCuboid"]},
+        {"name": "Localize Grid", "control": "checkbox", "default": true},
+        {"name": "Grid Density", "control": "select", "default": "fine", "options": ["coarse", "medium", "fine"]}
+      ],
+      "dropdown_screenshots": ["screenshots/dropdown_model_solder_ball_array_as.png", "screenshots/dropdown_model_flip_chip_bumps_as.png", "screenshots/dropdown_grid_density.png"],
+      "realized_geometry_screenshot": "screenshots/step_11_realized_geometry.png"
+    }
+  ]
+}

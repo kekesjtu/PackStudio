@@ -66,7 +66,7 @@ Central Balls 是“增加一套中心子阵列”，Depopulated Center 是“�
 
 ## 证据
 
-- `../templates/fbga_fsbga/xml_variations/option_switches/opt_v2_c005_centralballs_true/`
-- `../templates/flip_chip_cbga/xml_variations/option_switches/opt_v2_c006_centralballs_true/`
-- `../templates/flip_chip_pbga/xml_variations/option_switches/opt_v2_c006_centralballs_true/`
-- `../templates/wirebond_pbga/xml_variations/option_switches/opt_v2_c006_centralballs_true/`
+- `../templates/chip_array/xml_variations/option_switches/opt_v2_c005_centralballs_true/`
+- `../templates/cbga_fc/xml_variations/option_switches/opt_v2_c006_centralballs_true/`
+- `../templates/pbga_fc/xml_variations/option_switches/opt_v2_c006_centralballs_true/`
+- `../templates/pbga_wb/xml_variations/option_switches/opt_v2_c006_centralballs_true/`

@@ -1,31 +1,26 @@
-import json
 import os
 from pathlib import Path
 
 import pytest
 
-from tools.audit_pack_native_defaults import (
-    DIRECTORY,
-    properties,
-    rule_audit,
-    source_audit,
-    xml_audit,
-)
+from packstudio.preset_catalog import PresetCatalog
 from tools.pack_native import VERIFIED_BINARIES, NativePack
 
 
-def test_archived_native_snapshots_match_sources_rules_and_floxml() -> None:
-    records = json.loads((DIRECTORY / "native_defaults.json").read_text())["records"]
-    four_layer = json.loads((DIRECTORY / "native_defaults_4layer.json").read_text())["records"]
-    assert len(records) == 342
-    assert len(four_layer) == 74
-    assert source_audit(records)["die_dimensions_checked"] == 1026
-    assert rule_audit(records, four_layer)["conditional_rule_assertions"] == 512
-    assert len(xml_audit(records, four_layer)) == 6
-    for record in records + four_layer:
-        for group in record["groups"]:
-            for prop in group["properties"]:
-                assert (prop["value"] is None) == (prop["native_state"] == 0)
+def properties(record: dict) -> dict:
+    return {p["name"]: p["value"] for group in record["groups"] for p in group["properties"]}
+
+
+def test_catalog_keeps_native_conditional_branches() -> None:
+    catalog = PresetCatalog()
+    assert len(catalog.list_ids()) == 342
+    for preset in ["PBGA_121_15X15mm", "ChipArray_24_4X4mm_0_8"]:
+        record = catalog.read(preset)
+        assert set(record["branches"]) == {"default", "four_layer"}
+        group = "packageSubstrate" if preset.startswith("PBGA") else "overallPackage"
+        for branch, thickness in [("default", 0.36), ("four_layer", 0.56)]:
+            prop = record["branches"][branch]["groups"][group]["properties"]["substrateThicknessA2"]
+            assert prop["value"] == thickness
 
 
 @pytest.mark.skipif(os.name != "nt", reason="Windows native ABI")

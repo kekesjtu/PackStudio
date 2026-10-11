@@ -1,0 +1,106 @@
+{
+  "schema_version": "1.0",
+  "template_id": "pqfp",
+  "capture_source": {
+    "method": "computer_use_and_floxml",
+    "software_version": "2504",
+    "floxml": "model.xml"
+  },
+  "starter": {
+    "designName": "PQFP",
+    "outlineType": "standardOutline",
+    "pqfpPackageType": "lqfp",
+    "lqfpJedecFootprint": "LQFP_32_7X7mm",
+    "dieType": "actualDie",
+    "exposedPad": false
+  },
+  "summary": {
+    "designName": "PQFP",
+    "partNumber": "",
+    "vendorName": "",
+    "maxPower_W": null,
+    "maxOperatingJunctionTemperature_degC": null,
+    "maxCaseTemperature_degC": null,
+    "notes": ""
+  },
+  "overallPackage": {
+    "length_D_mm": 9,
+    "width_E_mm": 9,
+    "standoff_A1_mm": 0.1
+  },
+  "encapsulant": {
+    "length_D1_mm": 7,
+    "width_E1_mm": 7,
+    "thickness_A2_mm": 1.4,
+    "materialGroup": "Resins",
+    "material": "Epoxy Overmold (Typical)"
+  },
+  "die": {
+    "packagePower_W": 0,
+    "nonUniformDieHeat": false,
+    "length_Ld_mm": 2.1,
+    "width_Wd_mm": 2.1,
+    "thickness_td_mm": 0.35,
+    "dieAttachThickness_tda_mm": 0.038,
+    "materialGroup": "Attachment Materials",
+    "dieAttachMaterial": "DieAttach-84-1LMIS"
+  },
+  "dieFlagAndTieBars": {
+    "length_Lf_mm": 2.94,
+    "width_Wf_mm": 2.94,
+    "metalCoverage_Cf_percent": 60,
+    "downset_df_mm": 0.25,
+    "tieBarWidth_Wtb_mm": 0.5
+  },
+  "leadFrame": {
+    "gap_g1_mm": 0.42,
+    "gap_g2_mm": 0.42,
+    "pitch_e_mm": 0.8,
+    "leadThickness_tl_mm": 0.15,
+    "leadWidth_B_mm": 0.4,
+    "leadFrameHeight_h1_mm": 0.625,
+    "leadFootLength_Wl_mm": 0.4,
+    "materialGroup": "Alloys (Leadframe)",
+    "material": "Cu-EFTEC-64T",
+    "numberTopBottom_MD": 8,
+    "numberLeftRight_ME": 8,
+    "userDefinedLeadframeCoverage": "noDefaultIsBe",
+    "leadframeCoverage_percent": null
+  },
+  "bondWires": {
+    "lengthLeftRight_Lbwx_mm": 2,
+    "lengthTopBottom_Lbwy_mm": 2,
+    "diameter_dbw_mm": 0.03,
+    "materialGroup": "Metals",
+    "material": "Gold (Pure)",
+    "numberOfBondWires_N": 32
+  },
+  "thermalLandAndSolder": {
+    "includeThermalLandAndSolder": false,
+    "landThickness_mm": null,
+    "landMaterialGroup": "Alloys (Leadframe)",
+    "landMaterial": "No Attachment",
+    "solderMaterialGroup": "Alloys (Leadframe)",
+    "solderMaterial": "No Attachment"
+  },
+  "modelingOptions": {
+    "modelLeadFrameAs": "Orthotropic Cuboid",
+    "modelBondWiresAs": "Orthotropic Cuboid",
+    "modelTieBarsAs": "Accurate",
+    "localizeGrid": true,
+    "gridDensity": "Fine"
+  },
+  "realizedGeometry": [
+    {"name": "Encapsulant", "children": 1},
+    {"name": "Die", "children": 3},
+    {"name": "Die_Flag", "children": 1},
+    {"name": "BondWires", "children": 8},
+    {"name": "LeadFrame", "children": 16},
+    {"name": "tie_bars", "children": 8},
+    {"name": "tiebar_plt", "children": 8},
+    "die_attach",
+    "CaseTemp",
+    "z_bottom",
+    "z_top"
+  ]
+}

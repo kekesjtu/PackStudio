@@ -34,5 +34,5 @@ adhesive thickness。
 
 ## 证据
 
-- `../templates/flip_chip_cbga/xml_variations/option_switches/opt_v2_c010_stiffener_yes/`
-- `../templates/flip_chip_pbga/xml_variations/option_switches/opt_v2_c011_stiffener_yes/`
+- `../templates/cbga_fc/xml_variations/option_switches/opt_v2_c010_stiffener_yes/`
+- `../templates/pbga_fc/xml_variations/option_switches/opt_v2_c011_stiffener_yes/`

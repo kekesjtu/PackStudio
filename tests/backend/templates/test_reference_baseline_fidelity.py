@@ -1,3 +1,4 @@
+import json
 from collections import Counter
 from pathlib import Path
 from xml.etree import ElementTree
@@ -5,21 +6,21 @@ from xml.etree import ElementTree
 import pytest
 
 from packstudio.domain.enums import StructureType
+from packstudio.domain.materials import Material
 from packstudio.templates.package_library.catalog import (
-    default_request,
     definition,
 )
-from packstudio.templates.package_library.core.materials import production_materials
+from tests.backend.templates.reference_requests import reference_request
 
 REFERENCE_ROOT = Path(__file__).parents[3] / "flotherm_pack_data" / "templates"
 TEMPLATE_IDS = (
-    "flip_chip_cbga",
-    "flip_chip_pbga",
-    "wirebond_pbga",
-    "fbga_fsbga",
+    "cbga_fc",
+    "pbga_fc",
+    "pbga_wb",
+    "chip_array",
     "qfn",
-    "qfp_family",
-    "soic_family",
+    "pqfp",
+    "sop",
     "bare_die",
 )
 
@@ -47,7 +48,7 @@ def _reference_geometry(template_id: str) -> Counter[GeometryRecord]:
 
 def _native_geometry(template_id: str) -> Counter[GeometryRecord]:
     item = definition(template_id)
-    request = default_request(template_id)
+    request = reference_request(template_id)
     built = item.builder(item.validate_request(request), request)
     records = Counter(_record(draft.origin, draft.size) for draft in built.drafts)
     for block in built.blocks:
@@ -101,9 +102,13 @@ def _native_material_records(
     template_id: str,
 ) -> tuple[Counter[MaterialRecord], set[GeometryRecord]]:
     item = definition(template_id)
-    request = default_request(template_id)
+    request = reference_request(template_id)
     built = item.builder(item.validate_request(request), request)
-    materials = production_materials() | {material.id: material for material in built.materials}
+    archived = json.loads(
+        Path(__file__).with_name("reference_materials.json").read_text(encoding="utf-8")
+    )
+    materials = {m["id"]: Material.model_validate(m) for m in archived}
+    materials.update({material.id: material for material in built.materials})
     records: Counter[MaterialRecord] = Counter()
     special_geometry: set[GeometryRecord] = set()
     objects = [*built.drafts, *built.blocks]

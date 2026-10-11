@@ -67,6 +67,6 @@ cp_eff   = (phi_via*3214.8*385
 
 ## 证据
 
-- `../templates/wirebond_pbga/xml_variations/option_switches/opt_v2_c006_modelthermalviasas_isotropiccuboid/`
-- `../templates/wirebond_pbga/xml_variations/option_switches/opt_v2_c007_modelthermalviasas_orthotropiccuboid/`
-- 基准：`../templates/wirebond_pbga/baseline/model.xml`
+- `../templates/pbga_wb/xml_variations/option_switches/opt_v2_c006_modelthermalviasas_isotropiccuboid/`
+- `../templates/pbga_wb/xml_variations/option_switches/opt_v2_c007_modelthermalviasas_orthotropiccuboid/`
+- 基准：`../templates/pbga_wb/baseline/model.xml`

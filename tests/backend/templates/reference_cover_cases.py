@@ -23,7 +23,7 @@ COVER_PROPERTIES = {
 
 def cover_numeric_cases() -> list[object]:
     cases = []
-    for template_id in ("flip_chip_cbga", "flip_chip_pbga"):
+    for template_id in ("cbga_fc", "pbga_fc"):
         manifest_path = REFERENCE_ROOT / template_id / "xml_variations.json"
         manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
         for item in manifest["variations"]:

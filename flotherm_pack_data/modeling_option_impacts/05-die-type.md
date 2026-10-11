@@ -59,7 +59,7 @@ die 语义，可默认 `actualDie`；若保留选项，应复用同一焊线均�
 
 ## 证据
 
-- `../templates/fbga_fsbga/xml_variations/option_switches/opt_v2_c002_dietype_thermaldie/`
-- `../templates/qfp_family/xml_variations/option_switches/opt_v2_c004_dietype_thermaldie/`
-- `../templates/soic_family/xml_variations/option_switches/opt_v2_c005_dietype_thermaldie/`
-- `../templates/wirebond_pbga/xml_variations/option_switches/opt_v2_c002_dietype_thermaldie/`
+- `../templates/chip_array/xml_variations/option_switches/opt_v2_c002_dietype_thermaldie/`
+- `../templates/pqfp/xml_variations/option_switches/opt_v2_c004_dietype_thermaldie/`
+- `../templates/sop/xml_variations/option_switches/opt_v2_c005_dietype_thermaldie/`
+- `../templates/pbga_wb/xml_variations/option_switches/opt_v2_c002_dietype_thermaldie/`

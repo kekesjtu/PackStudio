@@ -1,6 +1,6 @@
 {
   "schema_version": "2.0",
-  "validated_at": "2026-07-29T16:13:22+08:00",
+  "validated_at": "2026-10-11T19:32:14+08:00",
   "software_version": "2504",
   "status": "passed",
   "schema": "E:\\Program Files\\Siemens\\SimcenterFlotherm\\2504\\examples\\FloSCRIPT\\Schema\\FlopackFloSCRIPTSchema.xsd",
@@ -42,7 +42,7 @@
   },
   "data_integrity": {
     "status": "passed",
-    "json_file_count": 2512,
+    "json_file_count": 1362,
     "ui_states_directory_count": 0,
     "expected_totals": {
       "template_count": 8,
@@ -60,19 +60,19 @@
       "validation": "templates/bare_die/validation/validation.json"
     },
     {
-      "template_id": "fbga_fsbga",
+      "template_id": "chip_array",
       "status": "passed",
-      "validation": "templates/fbga_fsbga/validation/validation.json"
+      "validation": "templates/chip_array/validation/validation.json"
     },
     {
-      "template_id": "flip_chip_cbga",
+      "template_id": "cbga_fc",
       "status": "passed",
-      "validation": "templates/flip_chip_cbga/validation/validation.json"
+      "validation": "templates/cbga_fc/validation/validation.json"
     },
     {
-      "template_id": "flip_chip_pbga",
+      "template_id": "pbga_fc",
       "status": "passed",
-      "validation": "templates/flip_chip_pbga/validation/validation.json"
+      "validation": "templates/pbga_fc/validation/validation.json"
     },
     {
       "template_id": "qfn",
@@ -80,19 +80,19 @@
       "validation": "templates/qfn/validation/validation.json"
     },
     {
-      "template_id": "qfp_family",
+      "template_id": "pqfp",
       "status": "passed",
-      "validation": "templates/qfp_family/validation/validation.json"
+      "validation": "templates/pqfp/validation/validation.json"
     },
     {
-      "template_id": "soic_family",
+      "template_id": "sop",
       "status": "passed",
-      "validation": "templates/soic_family/validation/validation.json"
+      "validation": "templates/sop/validation/validation.json"
     },
     {
-      "template_id": "wirebond_pbga",
+      "template_id": "pbga_wb",
       "status": "passed",
-      "validation": "templates/wirebond_pbga/validation/validation.json"
+      "validation": "templates/pbga_wb/validation/validation.json"
     }
   ],
   "failures": []

@@ -1,0 +1,110 @@
+{
+  "schema_version": "2.0",
+  "comparison": {
+    "baseline": "flotherm_pack_data/templates/cbga_fc/validation/branch_baselines/br_v2_topcover_enabledieflush/model.xml",
+    "variation": "flotherm_pack_data/templates/cbga_fc/xml_variations/option_switches/opt_v2_c011_enabledieflush_true/model.xml",
+    "baseline_bytes": 11344,
+    "variation_bytes": 11345,
+    "baseline_sha256": "1295F1EA8869869B4633C04BC86992C8A9B7599E5E2154C8C29F21D6A417C1D9",
+    "variation_sha256": "B5CC8B00477E8F01DB282A2ABE2493F5D245125DBE6D4DC1E32744AB0E4F923D"
+  },
+  "semantic_change": true,
+  "summary": {
+    "changed_value_count": 7,
+    "added_leaf_count": 0,
+    "removed_leaf_count": 0
+  },
+  "materials": {
+    "added": [],
+    "removed": [],
+    "changed": []
+  },
+  "entities": {
+    "added": [],
+    "removed": [],
+    "changed": [
+      {
+        "name": "assembly:Encapsulant",
+        "before": [
+          "00ab336c35c2ff1a"
+        ],
+        "after": [
+          "bfbc9b87cd7bc32c"
+        ]
+      },
+      {
+        "name": "cuboid:encapsulant",
+        "before": [
+          "ed9379cfa0b0b85a"
+        ],
+        "after": [
+          "3d3cf96b10011d90"
+        ]
+      },
+      {
+        "name": "monitor_point:CaseTemp",
+        "before": [
+          "f667132548e003d3"
+        ],
+        "after": [
+          "40ec7a5960f48f0e"
+        ]
+      },
+      {
+        "name": "region:z_top",
+        "before": [
+          "62d50519ecadf228"
+        ],
+        "after": [
+          "340e79d0a191c8ee"
+        ]
+      }
+    ]
+  },
+  "changed_values": [
+    {
+      "path": "xml_case/attributes/grid_constraints/grid_constraint_att[name=keypoint_z]/high_inflation/inflation_size",
+      "before": "0.0054999999999999997",
+      "after": "0.0045200000000000006"
+    },
+    {
+      "path": "xml_case/attributes/grid_constraints/grid_constraint_att[name=keypoint_z]/high_inflation/max_size",
+      "before": "0.00027499999999999996",
+      "after": "0.00022600000000000002"
+    },
+    {
+      "path": "xml_case/attributes/grid_constraints/grid_constraint_att[name=keypoint_z]/low_inflation/max_size",
+      "before": "0.00027499999999999996",
+      "after": "0.00022600000000000002"
+    },
+    {
+      "path": "xml_case/attributes/grid_constraints/grid_constraint_att[name=keypoint_z]/max_size",
+      "before": "0.00027499999999999996",
+      "after": "0.00022600000000000002"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Encapsulant]/geometry/cuboid[name=encapsulant]/size/z",
+      "before": "0.0011999999999999999",
+      "after": "0.00071000000000000002"
+    },
+    {
+      "path": "xml_case/geometry/monitor_point[name=CaseTemp]/position/z",
+      "before": "0.0027224999999999997",
+      "after": "0.0022374000000000001"
+    },
+    {
+      "path": "xml_case/geometry/region[name=z_top]/position/z",
+      "before": "0.0027499999999999998",
+      "after": "0.0022600000000000003"
+    }
+  ],
+  "added_leaf_paths": [],
+  "removed_leaf_paths": [],
+  "numeric_formatting_differences_ignored": true,
+  "template_id": "cbga_fc",
+  "variation_id": "opt_v2_c011_enabledieflush_true",
+  "variation_kind": "boolean_option",
+  "comparison_baseline": "validation/branch_baselines/br_v2_topcover_enabledieflush/model.xml",
+  "outcome": "semantic_change",
+  "floxml_effect_expectation": null
+}

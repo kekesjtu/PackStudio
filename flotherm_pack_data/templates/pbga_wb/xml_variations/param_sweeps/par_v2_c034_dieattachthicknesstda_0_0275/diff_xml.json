@@ -1,0 +1,225 @@
+{
+  "schema_version": "2.0",
+  "comparison": {
+    "baseline": "flotherm_pack_data/templates/pbga_wb/baseline/model.xml",
+    "variation": "flotherm_pack_data/templates/pbga_wb/xml_variations/param_sweeps/par_v2_c034_dieattachthicknesstda_0_0275/model.xml",
+    "baseline_bytes": 41072,
+    "variation_bytes": 41214,
+    "baseline_sha256": "9479526808CCC33C8AD535F728A6CBBAC0F010BC1E06E77A60FD3E26427F56B2",
+    "variation_sha256": "E252376110E9666B7B7CF96D9FF624E9BF912B3BFACC7BDB6394319F1A3FB454"
+  },
+  "semantic_change": true,
+  "summary": {
+    "changed_value_count": 12,
+    "added_leaf_count": 0,
+    "removed_leaf_count": 0
+  },
+  "materials": {
+    "added": [],
+    "removed": [],
+    "changed": []
+  },
+  "entities": {
+    "added": [],
+    "removed": [],
+    "changed": [
+      {
+        "name": "assembly:Bondwires",
+        "before": [
+          "9bd5d999e07ba6df"
+        ],
+        "after": [
+          "97dd8e3a0ad0ac1b"
+        ]
+      },
+      {
+        "name": "assembly:Die",
+        "before": [
+          "5e88f600c6ebeb94"
+        ],
+        "after": [
+          "23c3d41426aa77cd"
+        ]
+      },
+      {
+        "name": "cuboid:bw_h_left",
+        "before": [
+          "ee63a04a663dcc05"
+        ],
+        "after": [
+          "f0dd7d0d1d619d6d"
+        ]
+      },
+      {
+        "name": "cuboid:bw_h_lower",
+        "before": [
+          "dcbd8023fdac9f25"
+        ],
+        "after": [
+          "a8ace5c98880121a"
+        ]
+      },
+      {
+        "name": "cuboid:bw_h_right",
+        "before": [
+          "af9e8fb00f3fed58"
+        ],
+        "after": [
+          "944658583c0c7bce"
+        ]
+      },
+      {
+        "name": "cuboid:bw_h_upper",
+        "before": [
+          "26e94fccc1e11b22"
+        ],
+        "after": [
+          "543a661c2e048e48"
+        ]
+      },
+      {
+        "name": "cuboid:bw_v_left",
+        "before": [
+          "1c1fd8325146fe93"
+        ],
+        "after": [
+          "0666fbb72eafe8ac"
+        ]
+      },
+      {
+        "name": "cuboid:bw_v_lower",
+        "before": [
+          "2e08bbab4ad027ec"
+        ],
+        "after": [
+          "9ef5ff25400416d8"
+        ]
+      },
+      {
+        "name": "cuboid:bw_v_right",
+        "before": [
+          "735242cc2c1563e2"
+        ],
+        "after": [
+          "9571481304218476"
+        ]
+      },
+      {
+        "name": "cuboid:bw_v_upper",
+        "before": [
+          "32794f71ad8b1b1a"
+        ],
+        "after": [
+          "d2f1866378e54d3d"
+        ]
+      },
+      {
+        "name": "cuboid:die",
+        "before": [
+          "ca26ae7f30b15880"
+        ],
+        "after": [
+          "1263d54696ee4527"
+        ]
+      },
+      {
+        "name": "cuboid:die_attach",
+        "before": [
+          "f44d1604040d386b"
+        ],
+        "after": [
+          "7741b7fc3b009660"
+        ]
+      },
+      {
+        "name": "monitor_point:DieJunction_Temp",
+        "before": [
+          "e8392ae9742a0e79"
+        ],
+        "after": [
+          "34a483873b446d32"
+        ]
+      },
+      {
+        "name": "source:DieSource",
+        "before": [
+          "93fa0cdc0741483d"
+        ],
+        "after": [
+          "04720731bfa4b37b"
+        ]
+      }
+    ]
+  },
+  "changed_values": [
+    {
+      "path": "xml_case/geometry/assembly[name=Bondwires]/geometry/cuboid[name=bw_h_left]/position/z",
+      "before": "0.001305",
+      "after": "0.0013075000000000001"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Bondwires]/geometry/cuboid[name=bw_h_lower]/position/z",
+      "before": "0.001305",
+      "after": "0.0013075000000000001"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Bondwires]/geometry/cuboid[name=bw_h_right]/position/z",
+      "before": "0.001305",
+      "after": "0.0013075000000000001"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Bondwires]/geometry/cuboid[name=bw_h_upper]/position/z",
+      "before": "0.001305",
+      "after": "0.0013075000000000001"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Bondwires]/geometry/cuboid[name=bw_v_left]/size/z",
+      "before": "0.00034500000000000004",
+      "after": "0.00034750000000000004"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Bondwires]/geometry/cuboid[name=bw_v_lower]/size/z",
+      "before": "0.00034500000000000004",
+      "after": "0.00034750000000000004"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Bondwires]/geometry/cuboid[name=bw_v_right]/size/z",
+      "before": "0.00034500000000000004",
+      "after": "0.00034750000000000004"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Bondwires]/geometry/cuboid[name=bw_v_upper]/size/z",
+      "before": "0.00034500000000000004",
+      "after": "0.00034750000000000004"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Die]/geometry/cuboid[name=die]/position/z",
+      "before": "0.0010349999999999999",
+      "after": "0.0010374999999999998"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Die]/geometry/monitor_point[name=DieJunction_Temp]/position/z",
+      "before": "0.0013334999999999998",
+      "after": "0.0013359999999999997"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Die]/geometry/source[name=DieSource]/position/z",
+      "before": "0.0010349999999999999",
+      "after": "0.0010374999999999998"
+    },
+    {
+      "path": "xml_case/geometry/cuboid[name=die_attach]/size/z",
+      "before": "2.5000000000000001e-05",
+      "after": "2.7500000000000001e-05"
+    }
+  ],
+  "added_leaf_paths": [],
+  "removed_leaf_paths": [],
+  "numeric_formatting_differences_ignored": true,
+  "template_id": "pbga_wb",
+  "variation_id": "par_v2_c034_dieattachthicknesstda_0_0275",
+  "variation_kind": "numeric_parameter",
+  "comparison_baseline": "baseline/model.xml",
+  "outcome": "semantic_change",
+  "floxml_effect_expectation": null
+}

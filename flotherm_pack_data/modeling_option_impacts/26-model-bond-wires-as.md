@@ -51,6 +51,6 @@ Isotropic 将一组 wire 的轴向高导热率复制到横向，会显著放大�
 
 ## 证据
 
-- `../templates/qfp_family/xml_variations/option_switches/opt_v2_c007_modelbondwiresas_isotropiccuboid/`
-- `../templates/soic_family/xml_variations/option_switches/opt_v2_c007_modelbondwiresas_isotropiccuboid/`
-- `../templates/wirebond_pbga/xml_variations/option_switches/opt_v2_c008_modelbondwiresas_isotropiccuboid/`
+- `../templates/pqfp/xml_variations/option_switches/opt_v2_c007_modelbondwiresas_isotropiccuboid/`
+- `../templates/sop/xml_variations/option_switches/opt_v2_c007_modelbondwiresas_isotropiccuboid/`
+- `../templates/pbga_wb/xml_variations/option_switches/opt_v2_c008_modelbondwiresas_isotropiccuboid/`

@@ -1,0 +1,69 @@
+{
+  "schema_version": "2.0",
+  "template_id": "cbga_fc",
+  "variation_id": "par_v2_c045_slugwidthwsl_3_6",
+  "kind": "numeric_parameter",
+  "coverage_policy": "conditional_low_and_high",
+  "target": {
+    "component": "dropInSlug",
+    "property": "slugWidthWsl",
+    "label": "Slug Width Wsl",
+    "baseline": 4,
+    "value": 3.6
+  },
+  "comparison_baseline": "validation/branch_baselines/br_v2_dropinslug_slugwidthwsl/model.xml",
+  "branch_preconditions": [
+    {
+      "component": "topCover",
+      "property": "topCover",
+      "value": "encapsulant"
+    },
+    {
+      "component": "dropInSlug",
+      "property": "includeSlug",
+      "value": true
+    },
+    {
+      "component": "dropInSlug",
+      "property": "slugLengthLsl",
+      "value": 4
+    },
+    {
+      "component": "dropInSlug",
+      "property": "slugThicknessTsl",
+      "value": 0.4
+    },
+    {
+      "component": "dropInSlug",
+      "property": "slugDiameterDs",
+      "value": 2
+    },
+    {
+      "component": "dropInSlug",
+      "property": "slugFootExtendLengthLsf",
+      "value": 4.5
+    },
+    {
+      "component": "dropInSlug",
+      "property": "slugFootExtendWidthWsf",
+      "value": 4.5
+    },
+    {
+      "component": "dropInSlug",
+      "property": "slugOffsetGs",
+      "value": 0.1
+    },
+    {
+      "component": "dropInSlug",
+      "property": "slugFootClearanceGsf",
+      "value": 0.1
+    }
+  ],
+  "required_dependent_initialization": {},
+  "single_variable_relative_to_comparison_baseline": true,
+  "material_policy": "default_only",
+  "property_evidence": [
+    "installed_dll_ascii_string"
+  ],
+  "execution_status": "pending_replay"
+}

@@ -1,0 +1,200 @@
+{
+  "schema_version": "2.0",
+  "comparison": {
+    "baseline": "flotherm_pack_data/templates/pqfp/baseline/model.xml",
+    "variation": "flotherm_pack_data/templates/pqfp/xml_variations/param_sweeps/par_v2_c050_numberofleadsonleftrightme_9/model.xml",
+    "baseline_bytes": 39733,
+    "variation_bytes": 39733,
+    "baseline_sha256": "BF1D9D963234111DFE5AAE319D1F83A3DBD9AF609C4B3C4A4BC7AA5BBA4082FF",
+    "variation_sha256": "A5EF83E56761C659EAA21FB5EBBEFD1B6AFEEA050286AFF8F2AC5C2BB6799527"
+  },
+  "semantic_change": true,
+  "summary": {
+    "changed_value_count": 16,
+    "added_leaf_count": 0,
+    "removed_leaf_count": 0
+  },
+  "materials": {
+    "added": [],
+    "removed": [],
+    "changed": []
+  },
+  "entities": {
+    "added": [],
+    "removed": [],
+    "changed": [
+      {
+        "name": "assembly:LeadFrame",
+        "before": [
+          "6aab72f69ace04c1"
+        ],
+        "after": [
+          "dd7649f869a3b8bf"
+        ]
+      },
+      {
+        "name": "cuboid:ldf_exter_left",
+        "before": [
+          "dd66cce87a4491e2"
+        ],
+        "after": [
+          "3a57286b7e53800d"
+        ]
+      },
+      {
+        "name": "cuboid:ldf_exter_right",
+        "before": [
+          "51279a3e8273ee6c"
+        ],
+        "after": [
+          "407f57a27949ed02"
+        ]
+      },
+      {
+        "name": "cuboid:ldf_inter_left",
+        "before": [
+          "8954caecba32116b"
+        ],
+        "after": [
+          "da552be139dbac0d"
+        ]
+      },
+      {
+        "name": "cuboid:ldf_inter_right",
+        "before": [
+          "23fca5f5e48825a2"
+        ],
+        "after": [
+          "b888e7610df4edc1"
+        ]
+      },
+      {
+        "name": "cuboid:ldf_vert_left",
+        "before": [
+          "cae097ba19d7581b"
+        ],
+        "after": [
+          "a431609cd7d08f11"
+        ]
+      },
+      {
+        "name": "cuboid:ldf_vert_right",
+        "before": [
+          "6070a6e0b84c1b66"
+        ],
+        "after": [
+          "c94a2f70c7dc7304"
+        ]
+      },
+      {
+        "name": "cuboid:leadft_left",
+        "before": [
+          "ff8969b555bfa6a4"
+        ],
+        "after": [
+          "fca4750b23c9b146"
+        ]
+      },
+      {
+        "name": "cuboid:leadft_right",
+        "before": [
+          "07d703fdd1436835"
+        ],
+        "after": [
+          "dfe4d6949afceff4"
+        ]
+      }
+    ]
+  },
+  "changed_values": [
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_exter_left]/position/y",
+      "before": "-0.0030000000000000001",
+      "after": "-0.0034000000000000002"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_exter_left]/size/y",
+      "before": "0.0060000000000000001",
+      "after": "0.0068000000000000005"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_exter_right]/position/y",
+      "before": "-0.0030000000000000001",
+      "after": "-0.0034000000000000002"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_exter_right]/size/y",
+      "before": "0.0060000000000000001",
+      "after": "0.0068000000000000005"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_inter_left]/position/y",
+      "before": "-0.0030000000000000001",
+      "after": "-0.0034000000000000002"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_inter_left]/size/y",
+      "before": "0.0060000000000000001",
+      "after": "0.0068000000000000005"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_inter_right]/position/y",
+      "before": "-0.0030000000000000001",
+      "after": "-0.0034000000000000002"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_inter_right]/size/y",
+      "before": "0.0060000000000000001",
+      "after": "0.0068000000000000005"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_vert_left]/position/y",
+      "before": "-0.0030000000000000001",
+      "after": "-0.0034000000000000002"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_vert_left]/size/y",
+      "before": "0.0060000000000000001",
+      "after": "0.0068000000000000005"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_vert_right]/position/y",
+      "before": "-0.0030000000000000001",
+      "after": "-0.0034000000000000002"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_vert_right]/size/y",
+      "before": "0.0060000000000000001",
+      "after": "0.0068000000000000005"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=leadft_left]/position/y",
+      "before": "-0.0030000000000000001",
+      "after": "-0.0034000000000000002"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=leadft_left]/size/y",
+      "before": "0.0060000000000000001",
+      "after": "0.0068000000000000005"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=leadft_right]/position/y",
+      "before": "-0.0030000000000000001",
+      "after": "-0.0034000000000000002"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=leadft_right]/size/y",
+      "before": "0.0060000000000000001",
+      "after": "0.0068000000000000005"
+    }
+  ],
+  "added_leaf_paths": [],
+  "removed_leaf_paths": [],
+  "numeric_formatting_differences_ignored": true,
+  "template_id": "pqfp",
+  "variation_id": "par_v2_c050_numberofleadsonleftrightme_9",
+  "variation_kind": "numeric_parameter",
+  "comparison_baseline": "baseline/model.xml",
+  "outcome": "semantic_change",
+  "floxml_effect_expectation": null
+}

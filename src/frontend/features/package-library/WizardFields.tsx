@@ -6,6 +6,9 @@ import {
   TextField,
 } from '@mui/material'
 
+import { defaultFor, fieldValues, filterFootprints, isVisible, matches, pruneInactiveMaterials,
+  sameValue, valueFor } from './wizardValues'
+
 import type {
   Material,
   TemplateRequest,
@@ -33,12 +36,30 @@ export default function WizardFields({
   const update = (field: WizardField, value: WizardValue) => {
     if (field.control === 'material' && field.material_group_id) {
       const material_assignments = { ...request.material_assignments }
-      if (sameValue(value, field.default)) delete material_assignments[field.material_group_id]
+      if (sameValue(value, defaultFor(field, request, allFields))) {
+        delete material_assignments[field.material_group_id]
+      }
       else material_assignments[field.material_group_id] = String(value)
       onChange({ ...request, material_assignments })
       return
     }
     const overrides = { ...request.overrides }
+    if (field.property_name === 'package.type') {
+      const footprint = allFields.find((item) => item.control === 'footprint')
+      const matching = Object.entries(footprint?.preset_values ?? {}).find(([, preset]) =>
+        preset[field.target_id] === value,
+      )
+      if (footprint && matching) {
+        const nextRequest = { ...request, overrides }
+        nextRequest.overrides[footprint.target_id] = matching[0]
+        for (const target of Object.keys(matching[1])) delete nextRequest.overrides[target]
+        const pattern = footprint.preset_bga?.[matching[0]]
+        const bga = pattern && request.bga
+          ? { ...pattern, representation: request.bga.representation } : request.bga
+        onChange(pruneInactiveMaterials({ ...nextRequest, bga }, allFields))
+      }
+      return
+    }
     if (field.preset_values) {
       for (const linkedTargetId of Object.values(field.preset_values).flatMap((preset) =>
         Object.keys(preset),
@@ -70,7 +91,7 @@ export default function WizardFields({
         return (
           <Field
             key={field.target_id}
-            field={field}
+            field={filterFootprints(field, allFields, request)}
             value={valueFor(field, request, allFields)}
             enabled={enabled}
             materials={materials}
@@ -138,7 +159,7 @@ function Field({
   }
   const numeric = ['number', 'integer', 'integer_spinbox'].includes(field.control)
   const values = field.supported_values.filter((item) => item !== null)
-  const useSelect = !numeric && values.length > 1
+  const useSelect = !numeric && (values.length > 1 || field.control === 'footprint')
   const numericValues = [field.minimum, field.maximum].filter(
     (item): item is number => typeof item === 'number',
   )
@@ -179,92 +200,6 @@ function Field({
         ))}
     </TextField>
   )
-}
-
-function valueFor(
-  field: WizardField,
-  request: TemplateRequest,
-  allFields: WizardField[],
-) {
-  if (field.control === 'material' && field.material_group_id) {
-    return request.material_assignments[field.material_group_id] ?? field.default
-  }
-  if (request.overrides[field.target_id] !== undefined) {
-    return request.overrides[field.target_id]
-  }
-  return defaultFor(field, request, allFields)
-}
-
-function defaultFor(
-  field: WizardField,
-  request: TemplateRequest,
-  allFields: WizardField[],
-) {
-  for (const controller of allFields) {
-    if (!controller.preset_values) continue
-    const selected = request.overrides[controller.target_id] ?? controller.default
-    const presetValue = controller.preset_values[String(selected)]?.[field.target_id]
-    if (presetValue !== undefined) return presetValue
-  }
-  return field.default
-}
-
-function fieldValues(fields: WizardField[], request: TemplateRequest) {
-  const values = new Map<string, WizardValue>()
-  for (const field of fields) {
-    const value = valueFor(field, request, fields)
-    values.set(field.label, value)
-    if (field.property_name) values.set(field.property_name, value)
-  }
-  return values
-}
-
-function pruneInactiveMaterials(
-  request: TemplateRequest,
-  fields: WizardField[],
-): TemplateRequest {
-  const values = fieldValues(fields, request)
-  const activeGroups = new Set(
-    fields
-      .filter(
-        (field) =>
-          field.control === 'material' &&
-          field.material_group_id &&
-          isVisible(field, values),
-      )
-      .map((field) => field.material_group_id as string),
-  )
-  return {
-    ...request,
-    material_assignments: Object.fromEntries(
-      Object.entries(request.material_assignments).filter(([groupId]) =>
-        activeGroups.has(groupId),
-      ),
-    ),
-  }
-}
-
-function isVisible(field: WizardField, values: Map<string, WizardValue>) {
-  if (!matches(field.visible_when, values)) return false
-  if (field.hidden_when && matches(field.hidden_when, values)) return false
-  return true
-}
-
-function matches(
-  conditions: Record<string, WizardValue> | undefined,
-  values: Map<string, WizardValue>,
-) {
-  if (!conditions) return true
-  return Object.entries(conditions).every(([label, expected]) =>
-    sameValue(values.get(label), expected),
-  )
-}
-
-function sameValue(left: unknown, right: unknown) {
-  if (typeof left === 'number' && typeof right === 'number') {
-    return Math.abs(left - right) <= 1e-12
-  }
-  return left === right
 }
 
 const materialName = (identifier: string, materials: Material[]) =>

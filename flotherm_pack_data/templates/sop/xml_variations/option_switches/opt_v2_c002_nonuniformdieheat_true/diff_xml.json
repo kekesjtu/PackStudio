@@ -1,0 +1,66 @@
+{
+  "schema_version": "2.0",
+  "comparison": {
+    "baseline": "flotherm_pack_data/templates/sop/baseline/model.xml",
+    "variation": "flotherm_pack_data/templates/sop/xml_variations/option_switches/opt_v2_c002_nonuniformdieheat_true/model.xml",
+    "baseline_bytes": 24418,
+    "variation_bytes": 23405,
+    "baseline_sha256": "2602CC4C884EDBD1E1FBA39F5D4A1BB441413956B57D9FAFBBC1B131DA198A3E",
+    "variation_sha256": "4BF4BBA5296B5B8DA63CC1E85751B5278952E418B44BB86C21EE1A1EE06B6CA8"
+  },
+  "semantic_change": true,
+  "summary": {
+    "changed_value_count": 0,
+    "added_leaf_count": 1,
+    "removed_leaf_count": 14
+  },
+  "materials": {
+    "added": [],
+    "removed": [],
+    "changed": []
+  },
+  "entities": {
+    "added": [],
+    "removed": [
+      "source:DieSource"
+    ],
+    "changed": [
+      {
+        "name": "assembly:Die",
+        "before": [
+          "4b9326783911cc95"
+        ],
+        "after": [
+          "71176e8288c764a8"
+        ]
+      }
+    ]
+  },
+  "changed_values": [],
+  "added_leaf_paths": [
+    "xml_case/attributes/sources"
+  ],
+  "removed_leaf_paths": [
+    "xml_case/attributes/sources/source_att[name=dieHeat]/name",
+    "xml_case/attributes/sources/source_att[name=dieHeat]/power",
+    "xml_case/attributes/sources/source_att[name=dieHeat]/type",
+    "xml_case/geometry/assembly[name=Die]/geometry/source[name=DieSource]/attachment_side",
+    "xml_case/geometry/assembly[name=Die]/geometry/source[name=DieSource]/collapse/direction",
+    "xml_case/geometry/assembly[name=Die]/geometry/source[name=DieSource]/collapse/type",
+    "xml_case/geometry/assembly[name=Die]/geometry/source[name=DieSource]/name",
+    "xml_case/geometry/assembly[name=Die]/geometry/source[name=DieSource]/position/x",
+    "xml_case/geometry/assembly[name=Die]/geometry/source[name=DieSource]/position/y",
+    "xml_case/geometry/assembly[name=Die]/geometry/source[name=DieSource]/position/z",
+    "xml_case/geometry/assembly[name=Die]/geometry/source[name=DieSource]/size/x",
+    "xml_case/geometry/assembly[name=Die]/geometry/source[name=DieSource]/size/y",
+    "xml_case/geometry/assembly[name=Die]/geometry/source[name=DieSource]/size/z",
+    "xml_case/geometry/assembly[name=Die]/geometry/source[name=DieSource]/source"
+  ],
+  "numeric_formatting_differences_ignored": true,
+  "template_id": "sop",
+  "variation_id": "opt_v2_c002_nonuniformdieheat_true",
+  "variation_kind": "boolean_option",
+  "comparison_baseline": "baseline/model.xml",
+  "outcome": "semantic_change",
+  "floxml_effect_expectation": null
+}

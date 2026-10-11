@@ -1,0 +1,91 @@
+{
+  "schema_version": "2.0",
+  "comparison": {
+    "baseline": "flotherm_pack_data/templates/pbga_wb/baseline/model.xml",
+    "variation": "flotherm_pack_data/templates/pbga_wb/xml_variations/param_sweeps/par_v2_c013_widthwe_11_7/model.xml",
+    "baseline_bytes": 41072,
+    "variation_bytes": 41162,
+    "baseline_sha256": "9479526808CCC33C8AD535F728A6CBBAC0F010BC1E06E77A60FD3E26427F56B2",
+    "variation_sha256": "36163704FEE91E4E1EC07F72B15A5B1A09E0244FB9C982963DEA96A29ACB6877"
+  },
+  "semantic_change": true,
+  "summary": {
+    "changed_value_count": 5,
+    "added_leaf_count": 0,
+    "removed_leaf_count": 0
+  },
+  "materials": {
+    "added": [],
+    "removed": [],
+    "changed": []
+  },
+  "entities": {
+    "added": [],
+    "removed": [],
+    "changed": [
+      {
+        "name": "assembly:Encapsulant",
+        "before": [
+          "10aaa02085b9a05c"
+        ],
+        "after": [
+          "4cd770336def0790"
+        ]
+      },
+      {
+        "name": "cuboid:encapsulant",
+        "before": [
+          "e031a9de0cf15ad2"
+        ],
+        "after": [
+          "d0c716ab815144be"
+        ]
+      },
+      {
+        "name": "region:z_top",
+        "before": [
+          "a278a219d3b557ff"
+        ],
+        "after": [
+          "62c6d1ee8edf3fe2"
+        ]
+      }
+    ]
+  },
+  "changed_values": [
+    {
+      "path": "xml_case/attributes/radiations/radiation_att[name=pbga_wb]/subdivided_surface_tolerance",
+      "before": "0.0043333333333333331",
+      "after": "0.0041166666666666669"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Encapsulant]/geometry/cuboid[name=encapsulant]/position/y",
+      "before": "-0.0064999999999999997",
+      "after": "-0.0058499999999999993"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Encapsulant]/geometry/cuboid[name=encapsulant]/size/y",
+      "before": "0.012999999999999999",
+      "after": "0.011699999999999999"
+    },
+    {
+      "path": "xml_case/geometry/region[name=z_top]/position/y",
+      "before": "-0.0064999999999999997",
+      "after": "-0.0058499999999999993"
+    },
+    {
+      "path": "xml_case/geometry/region[name=z_top]/size/y",
+      "before": "0.012999999999999999",
+      "after": "0.011699999999999999"
+    }
+  ],
+  "added_leaf_paths": [],
+  "removed_leaf_paths": [],
+  "numeric_formatting_differences_ignored": true,
+  "template_id": "pbga_wb",
+  "variation_id": "par_v2_c013_widthwe_11_7",
+  "variation_kind": "numeric_parameter",
+  "comparison_baseline": "baseline/model.xml",
+  "outcome": "semantic_change",
+  "floxml_effect_expectation": null
+}

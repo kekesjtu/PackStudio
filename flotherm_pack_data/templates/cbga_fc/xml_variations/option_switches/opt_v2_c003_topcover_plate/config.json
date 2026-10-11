@@ -1,0 +1,24 @@
+{
+  "schema_version": "2.0",
+  "template_id": "cbga_fc",
+  "variation_id": "opt_v2_c003_topcover_plate",
+  "kind": "enum_option",
+  "coverage_policy": "all_non_default_values",
+  "target": {
+    "component": "new_package",
+    "property": "topCover",
+    "label": "Top Cover",
+    "baseline": "bareDie",
+    "value": "plate"
+  },
+  "comparison_baseline": "baseline/model.xml",
+  "branch_preconditions": [],
+  "required_dependent_initialization": {},
+  "single_variable_relative_to_comparison_baseline": true,
+  "material_policy": "default_only",
+  "property_evidence": [
+    "recorded_new_package",
+    "installed_dll_ascii_string"
+  ],
+  "execution_status": "pending_replay"
+}

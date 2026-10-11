@@ -7,13 +7,13 @@ import packstudio.templates.package_library as package_library
 
 TEMPLATE_MODULES = (
     "bare_die.template",
-    "bga.fbga_fsbga",
-    "bga.wirebond_pbga",
-    "flip_chip.cbga",
-    "flip_chip.pbga",
+    "bga.chip_array",
+    "bga.pbga_wb",
+    "flip_chip.cbga_fc",
+    "flip_chip.pbga_fc",
     "leadframe.qfn",
-    "leadframe.qfp",
-    "leadframe.soic",
+    "leadframe.pqfp",
+    "leadframe.sop",
 )
 
 

@@ -1,104 +1,51 @@
-# 默认参数库
+# 默认参数、预设与材料库
 
-本目录是生产运行依赖，随源码、wheel 和桌面 EXE 分发。程序不需要 FloTHERM 安装目录，
-也不读取开发证据目录 `flotherm_pack_data/`。JSON 是默认值的唯一维护入口。
+运行时只读取本目录 JSON，不需要 FloTHERM 安装、DLL 或 FloXML。
 
-## 数据组织
-
-| 文件 | 内容 |
+| 路径 | 内容 |
 | --- | --- |
-| `manifest.json` | 数据版本、342 条记录的家族计数、源快照及家族文件 SHA-256 |
-| `flotherm/*.json` | 7 类 PACK `.des` 的完整无损转录，共 342 条 |
-| `templates/*.json` | 8 类生产模板的字段、范围、条件、默认选材、已核验基线及基准材料 |
-| `source_adapters.json` | 7 类源记录到生产字段的映射、派生规则、缺值策略与个别记录修正 |
-| `adaptation_report.json` | 342 条参数审计、输入文件哈希及 510 种模型配置的生成/导出验收 |
-| `materials.json` | 集中材料库默认物性、颜色、名称和来源 |
-| `presets/<family>/*.json` | 342 个原生完整预设文件，包含 416 个向导分支与计算 comment |
-| `presets/index.json` | 独立预设文件的名称、分类、分支和字节哈希 |
-| `materials/<category>/*.json` | 分类保存 131 项 PACK 内建材料，预设按完整名称引用 |
-| `materials/index.json` | 材料名称的唯一索引、类别、文件与字节哈希 |
-| `request.json` | BGA 配置、网格档位及 PTA 格式所需的初始温度占位值 |
+| `presets/<family>/<原始名称>.json` | 342 个原生预设、参数状态、未选分支、计算值和原始 DES 字段 |
+| `presets/index.json` | 预设族、文件路径、分支及内容 SHA-256 |
+| `materials/<分类>/<文件>.json` | 131 个 PACK 内置材料，按十类保存，名称为唯一引用键 |
+| `materials/index.json` | 名称、分类、文件路径和 SHA-256 |
+| `materials/runtime.json` | 运行材料 ID/颜色映射及空气、界面材料等项目定义；不重复 PACK 物性 |
+| `pack_bindings.json` | 当前支持参数和材料组件到原生记录的明确路径 |
+| `templates/<PACK 模板 ID>.json` | 界面字段、范围、条件、默认规格及审核等效材料 |
+| `request.json` | 当前方案与编辑操作的项目初始设置 |
 
-342 条分布为 CBGA FC 49、PBGA FC 45、PBGA WB 36、Chip Array 38、QFN 46、PQFP 61、
-TSOP conventional 67。Bare Die 的 4 个预设来自既有审核规格，不计入这 342 条。
+八种类型按 PACK 顺序为：Chip Array (`chip_array`)、Bare Die (`bare_die`)、Flip Chip CBGA
+(`cbga_fc`)、Flip Chip PBGA (`pbga_fc`)、PQFP (`pqfp`)、QFN (`qfn`)、SOP (`sop`)、Wirebond
+PBGA (`pbga_wb`)。PQFP 与 SOP 子类型来自原生向导，Footprint 按子类型筛选。
+SOP 来源目录仍为 PACK 安装中的 `tsop_conv`，QFN 来源目录为 `QFN`，不改写来源名称。
+Bare Die 没有安装目录 DES，保留四个项目审核的尺寸预设。
 
-## 转录契约
+## 默认值与适配边界
 
-每条源记录保存 `id`、安装相对路径 `source_path`、源文件 SHA-256、`raw_fields` 和 `values`。
-参数 JSON 使用 UTF-8/LF，manifest 与审计文件哈希以 LF 字节为准；安装研究快照的
-换行也先规范为 LF 再计算快照哈希。`.des` 的 `source_sha256` 仍是原始供应商文件字节哈希。
-`raw_fields` 保留原始字符串（包括空串、大小写与数字格式），`values` 将纯数字转为 JSON 数字，
-空串转为 `null`，其他值保持字符串。数值没有换算单位；原始符号和枚举编号不自动解释。
-`designDate` 等数字形字符串也按此词法规则解析，其原始表达始终可从 `raw_fields` 找回。
+选择预设后读取原生默认分支，按 `pack_bindings.json` 投影已实现字段和材料，再应用用户
+显式修改并生成项目等效几何。有效默认值不再用旧 FloXML 基线补全。
+例如 Flip Chip PBGA 基板厚度为 1.15 mm；Wirebond PBGA 的两层默认厚度按原生规则取
+0.36 或 0.56 mm。完整库还保留 74 个四层分支，界面仍采用当前已实现的两层模型。
 
-源文件通常包含未启用分支的空字段、由 PACK 推导的参数及材料名称，不能把空值一律填成零。
-既有 `materials.json` 的材料数值来自先前审核的基准模型；新 `materials/` 目录的
-131 项材料则通过 PACK 原生材料库提取。不能仅凭 `.des` 的材料名称推测物性。
+原生 `not_applicable` 没有虚构物性或尺寸。未启用散热焊盘的厚度等只保留 `editor_default`，
+由用户启用后调整；双侧 QFN 没有 Y 侧引脚。默认值路径和编辑初值范围见
+[适配审计](../docs/validation/catalog_presets.json)。未实现的控制项留在完整库，不添加无效开关。
 
-## 生产默认值
+材料随预设按名称解析。常量各向同性和正交各向异性物性直接用于模型。温度依赖材料的
+系数、参考温度和原始存储完整保留；当前常量模型采用原生参考温度值并在材料来源中标注。
+审核的键合线、引线、金属层等家族等效张量仍在模板文件中，完整预设不表示完整几何复刻。
 
-342 个源记录全部接入规格选择器；另保留 Bare Die 的 4 个规格，共 346 个选项。
-运行时以 `source_adapters.json` 的字段映射读取 `flotherm/*.json`，逐项获取封装、芯片、
-引脚、焊球、承载台和可用互连参数，不按外形尺寸统一缩放。`td` 给出芯片厚度时也参与联动。
-源中未提供的基板厚度、金属层厚度、通孔行列等参数，从模板 JSON 或既有审核规格继承，
-具体字段列于 `adaptation_report.json` 的 `parameter_audit.inherited_fields`。
+逐球列表仅在原生去球开关启用时生效。部分 Chip Array 名称中的 48/80 与原生启用阵列的
+49/81 不一致，界面和审计保留提示，不按文件名猜测去球。
 
-2026-10-11 的[原生默认值调研](../docs/research/flotherm-native-defaults.md)发现，
-仅 36 个 Wirebond PBGA 预设的基板厚度、键合线总数和过孔间距，就有 56 处生产值
-与 PACK 默认分支不同。原生值现已分类保存到 `presets/`、`materials/`，
-提供 `PresetCatalog` / `MaterialCatalog` 独立读取接口；本次数据建库未修改现有几何适配。
-新库的结构、计算规则、读取示例与边界见[预设与材料库说明](../docs/research/pack-preset-catalog.md)。
-现有生成/导出验收不代表默认值全部一致。
+## 复现与检查
 
-七个默认规格保留已对照 PACK 导出的基线，同时继续动态读取 `Ld/Wd`；其余源适配规格的
-`preset_geometry_status` 为 `source-adapted`。保留此前选项的标识，旧方案仍可读取；
-非默认规格现在采用原始源阵列，因此 PBGA_896 的网格从旧关联值 31×31 改为源定义 39×39，
-去除中央 25×25 区域，球数为 896。
-
-BGA 的 `MDp/MEp` 是全填充行数，去球区尺寸为 `MD-MDp` / `ME-MEp`；中央球用 `MDc/MEc`。
-Chip Array 的 `balls` 列表声明现存球坐标，X 对应列、Y 对应行，补集转为显式去球单元。
-去球区行列同时为 0 表示只应用显式去球，不额外去掉中央矩形。两个源具有该坐标列表。
-46 个源的名称球数与可读取布局不同，保留源布局并显示提示，不凭名称猜测缺球位置。
-PBGA_576 / PBGA_845 的区域奇偶不匹配，按负轴方向取整，中心偏移半个节距，界面提示
-尚未完成原生 PACK 位置对照；一般用户配置仍默认要求中心对称。
-QFN_3X3_6 采用双侧 6 引脚，Y 侧计数为 0，不生成该侧引脚及键合线。
-
-源材料名称保留供审计；运行时继续采用各模板已经核验的等效材料张量，用户选材仍优先。
-这不等于全部新规格已经与原生 PACK 输出逐块或逐物性核对，也不构成热仿真精度验证。
-
-优先级保持为：字段默认值 → 选中预设的关联值 → 用户显式覆盖。Bare Die 尺寸预设包含厚度，
-源规格的厚度来自源 `td`，七个默认基线采用审核字段默认值。默认选材只对当前启用的组件生效，用户选择优先。
-
-加载器校验版本、字段类型、取值范围、预设目标与选材范围；文件缺失或不合法时显式失败，
-没有代码中的备用数值。进程缓存读取结果，修改 JSON 后需重启后端。边界设置已移除；
-PTA 的初始温度是文件格式占位值，不代表配置了环境温度或换热边界。
-
-## 重现转录
+提取工具直接读取 DES 和经过 SHA-256 审核的 PACK 2504 原生参数对象，无需 Floscript 导出。
+换版本必须重新审核二进制布局，不能绕过版本检查。
 
 ```powershell
-uv run --locked python tools/transcribe_default_parameters.py `
-  flotherm_pack_data/installation/presets.json --output default_parameters
+uv run --locked python -m tools.extract_pack_catalog "E:\Program Files\Siemens\SimcenterFlotherm\2504"
+uv run --locked python -m tools.validate_catalog_presets
 ```
 
-该脚本只更新源家族 JSON 与 manifest，不重写已审核的生产模板和材料默认值。
-使用开发测试核对全部原始键值、计数和哈希；编辑源转录文件后也需同步 manifest 校验值。
-
-```powershell
-uv run --locked pytest tests/backend/templates/test_default_parameters.py `
-  -o cache_dir=tmp/pytest --basetemp=tmp/pytest-default-library
-```
-
-## 重现适配验收
-
-```powershell
-uv run --locked python tools/validate_source_presets.py
-```
-
-报告包含 342 个源、510 种模型配置：168 个 BGA 规格分别验证等效和离散表达，
-174 个非 BGA 规格各验证一次。检查正尺寸、无重叠、材料和分组引用、球数一致、
-ECXML 安装版 XSD，以及 PTA XML 可生成和材料引用；测试不调用本机 PACK。
-修改参数 JSON 后重新生成报告，随后执行后端测试，检查报告输入哈希仍对应当前参数库。
-
-API 客户端选择规格时可以省略 `bga`，或只传需要覆盖的 BGA 字段；显式字段优先于源布局。
-发送完整 BGA 对象即表示覆盖全部配置。界面切换规格会从 schema 的 `preset_bga` 更新布局，
-并保留用户选择的表达方式、顶部结构、通孔/散热焊盘开关与功率。
+审计位于 `docs/validation/catalog_presets.json`，不进入运行包。旧 `flotherm/` 转录、
+`source_adapters.json`、根级 `materials.json`、重复原生快照和旧提取脚本已删除，历史内容通过 Git 查看。

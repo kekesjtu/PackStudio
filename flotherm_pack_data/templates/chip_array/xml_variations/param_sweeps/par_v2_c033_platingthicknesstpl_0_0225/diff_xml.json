@@ -1,0 +1,69 @@
+{
+  "schema_version": "2.0",
+  "comparison": {
+    "baseline": "flotherm_pack_data/templates/chip_array/baseline/model.xml",
+    "variation": "flotherm_pack_data/templates/chip_array/xml_variations/param_sweeps/par_v2_c033_platingthicknesstpl_0_0225/model.xml",
+    "baseline_bytes": 49732,
+    "variation_bytes": 49761,
+    "baseline_sha256": "BB8855B47DDB172F6D5C3E7056F3229923EC67BF23A86252DB33EAC6B5664226",
+    "variation_sha256": "7585B82AC14E2915495752B1A70839EFC9C1FB4869D2F55CB3DB9A8A54BA5361"
+  },
+  "semantic_change": true,
+  "summary": {
+    "changed_value_count": 3,
+    "added_leaf_count": 0,
+    "removed_leaf_count": 0
+  },
+  "materials": {
+    "added": [],
+    "removed": [],
+    "changed": [
+      {
+        "name": "Via",
+        "before": {
+          "type": "isotropic_material_att",
+          "density": "3907.5282875",
+          "specific_heat": "385.103990245",
+          "conductivity": "168.45218125"
+        },
+        "after": {
+          "type": "isotropic_material_att",
+          "density": "3567.11631587",
+          "specific_heat": "385.121634939",
+          "conductivity": "153.775051312"
+        }
+      }
+    ]
+  },
+  "entities": {
+    "added": [],
+    "removed": [],
+    "changed": []
+  },
+  "changed_values": [
+    {
+      "path": "xml_case/attributes/materials/isotropic_material_att[name=Via]/conductivity",
+      "before": "168.45218124999997",
+      "after": "153.7750513124999"
+    },
+    {
+      "path": "xml_case/attributes/materials/isotropic_material_att[name=Via]/density",
+      "before": "3907.5282874999989",
+      "after": "3567.1163158749978"
+    },
+    {
+      "path": "xml_case/attributes/materials/isotropic_material_att[name=Via]/specific_heat",
+      "before": "385.10399024526578",
+      "after": "385.12163493865313"
+    }
+  ],
+  "added_leaf_paths": [],
+  "removed_leaf_paths": [],
+  "numeric_formatting_differences_ignored": true,
+  "template_id": "chip_array",
+  "variation_id": "par_v2_c033_platingthicknesstpl_0_0225",
+  "variation_kind": "numeric_parameter",
+  "comparison_baseline": "baseline/model.xml",
+  "outcome": "semantic_change",
+  "floxml_effect_expectation": null
+}

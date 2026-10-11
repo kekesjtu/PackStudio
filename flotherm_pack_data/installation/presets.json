@@ -14,7 +14,7 @@
   "ecxml_schema_sha256": "3a9913e9ac99297aa8013772a15eb15726fed0016637ede28f6bfb32fa977603",
   "production_presets": [
     {
-      "template_id": "flip_chip_cbga",
+      "template_id": "cbga_fc",
       "preset": "CBGAFC_49_6X6mm",
       "production_values": {
         "substrate.length": 6,
@@ -44,7 +44,7 @@
       }
     },
     {
-      "template_id": "flip_chip_cbga",
+      "template_id": "cbga_fc",
       "preset": "CBGAFC_81_8X8mm",
       "production_values": {
         "substrate.length": 8,
@@ -74,7 +74,7 @@
       }
     },
     {
-      "template_id": "flip_chip_cbga",
+      "template_id": "cbga_fc",
       "preset": "CBGAFC_144_10X10mm",
       "production_values": {
         "substrate.length": 10,
@@ -104,7 +104,7 @@
       }
     },
     {
-      "template_id": "flip_chip_pbga",
+      "template_id": "pbga_fc",
       "preset": "PBGAFC_49_6X6mm",
       "production_values": {
         "substrate.length": 6,
@@ -134,7 +134,7 @@
       }
     },
     {
-      "template_id": "flip_chip_pbga",
+      "template_id": "pbga_fc",
       "preset": "PBGAFC_81_8X8mm",
       "production_values": {
         "substrate.length": 8,
@@ -164,7 +164,7 @@
       }
     },
     {
-      "template_id": "flip_chip_pbga",
+      "template_id": "pbga_fc",
       "preset": "PBGAFC_144_10X10mm",
       "production_values": {
         "substrate.length": 10,
@@ -194,7 +194,7 @@
       }
     },
     {
-      "template_id": "wirebond_pbga",
+      "template_id": "pbga_wb",
       "preset": "PBGA_121_15X15mm",
       "production_values": {
         "package.length": 15,
@@ -233,7 +233,7 @@
       }
     },
     {
-      "template_id": "wirebond_pbga",
+      "template_id": "pbga_wb",
       "preset": "PBGA_352_35X35mm",
       "production_values": {
         "package.length": 35,
@@ -272,7 +272,7 @@
       }
     },
     {
-      "template_id": "wirebond_pbga",
+      "template_id": "pbga_wb",
       "preset": "PBGA_896_40X40mm",
       "production_values": {
         "package.length": 40,
@@ -311,7 +311,7 @@
       }
     },
     {
-      "template_id": "fbga_fsbga",
+      "template_id": "chip_array",
       "preset": "ChipArray_24_4X4mm_0_8",
       "production_values": {
         "package.length": 4,
@@ -345,7 +345,7 @@
       }
     },
     {
-      "template_id": "fbga_fsbga",
+      "template_id": "chip_array",
       "preset": "ChipArray_100_10X10mm_0_8",
       "production_values": {
         "package.length": 10,
@@ -379,7 +379,7 @@
       }
     },
     {
-      "template_id": "fbga_fsbga",
+      "template_id": "chip_array",
       "preset": "ChipArray_324_19X19mm_1",
       "production_values": {
         "package.length": 19,
@@ -524,7 +524,7 @@
       }
     },
     {
-      "template_id": "qfp_family",
+      "template_id": "pqfp",
       "preset": "LQFP_32_7X7mm",
       "production_values": {
         "package.length": 9,
@@ -560,7 +560,7 @@
       }
     },
     {
-      "template_id": "qfp_family",
+      "template_id": "pqfp",
       "preset": "LQFP_100_14X20mm",
       "production_values": {
         "package.length": 22,
@@ -596,7 +596,7 @@
       }
     },
     {
-      "template_id": "qfp_family",
+      "template_id": "pqfp",
       "preset": "LQFP_208_28X28mm",
       "production_values": {
         "package.length": 30,
@@ -632,7 +632,7 @@
       }
     },
     {
-      "template_id": "soic_family",
+      "template_id": "sop",
       "preset": "SOP_8_3_81x4_93",
       "production_values": {
         "package.length": 4.93,
@@ -671,7 +671,7 @@
       }
     },
     {
-      "template_id": "soic_family",
+      "template_id": "sop",
       "preset": "SOP_28_7_6x17_9",
       "production_values": {
         "package.length": 17.93,
@@ -710,7 +710,7 @@
       }
     },
     {
-      "template_id": "soic_family",
+      "template_id": "sop",
       "preset": "SOP_44_13_3x28_2",
       "production_values": {
         "package.length": 28.19,

@@ -1,0 +1,117 @@
+{
+  "schema_version": "2.0",
+  "comparison": {
+    "baseline": "flotherm_pack_data/templates/pqfp/validation/branch_baselines/br_v2_leadframe_userdefinedleadframecoverage/model.xml",
+    "variation": "flotherm_pack_data/templates/pqfp/xml_variations/option_switches/opt_v2_c005_userdefinedleadframecoverage_yes/model.xml",
+    "baseline_bytes": 39733,
+    "variation_bytes": 39781,
+    "baseline_sha256": "BF1D9D963234111DFE5AAE319D1F83A3DBD9AF609C4B3C4A4BC7AA5BBA4082FF",
+    "variation_sha256": "797FD59197C75FAED838A7A2E80BBE13F73A476CF2106401118F9E3CABC4FCEC"
+  },
+  "semantic_change": true,
+  "summary": {
+    "changed_value_count": 8,
+    "added_leaf_count": 0,
+    "removed_leaf_count": 0
+  },
+  "materials": {
+    "added": [],
+    "removed": [],
+    "changed": [
+      {
+        "name": "LeadFrame_1x",
+        "before": {
+          "type": "orthotropic_material_att",
+          "density": "5360",
+          "specific_heat": "469.378731343",
+          "x_conductivity": "151.09",
+          "y_conductivity": "0.68",
+          "z_conductivity": "151.09"
+        },
+        "after": {
+          "type": "orthotropic_material_att",
+          "density": "4652",
+          "specific_heat": "501.664660361",
+          "x_conductivity": "121.008",
+          "y_conductivity": "0.68",
+          "z_conductivity": "121.008"
+        }
+      },
+      {
+        "name": "LeadFrame_1y",
+        "before": {
+          "type": "orthotropic_material_att",
+          "density": "5360",
+          "specific_heat": "469.378731343",
+          "x_conductivity": "0.68",
+          "y_conductivity": "151.09",
+          "z_conductivity": "151.09"
+        },
+        "after": {
+          "type": "orthotropic_material_att",
+          "density": "4652",
+          "specific_heat": "501.664660361",
+          "x_conductivity": "0.68",
+          "y_conductivity": "121.008",
+          "z_conductivity": "121.008"
+        }
+      }
+    ]
+  },
+  "entities": {
+    "added": [],
+    "removed": [],
+    "changed": []
+  },
+  "changed_values": [
+    {
+      "path": "xml_case/attributes/materials/orthotropic_material_att[name=LeadFrame_1x]/density",
+      "before": "5360",
+      "after": "4652"
+    },
+    {
+      "path": "xml_case/attributes/materials/orthotropic_material_att[name=LeadFrame_1x]/specific_heat",
+      "before": "469.37873134328356",
+      "after": "501.66466036113502"
+    },
+    {
+      "path": "xml_case/attributes/materials/orthotropic_material_att[name=LeadFrame_1x]/x_conductivity",
+      "before": "151.09",
+      "after": "121.00800000000001"
+    },
+    {
+      "path": "xml_case/attributes/materials/orthotropic_material_att[name=LeadFrame_1x]/z_conductivity",
+      "before": "151.09",
+      "after": "121.00800000000001"
+    },
+    {
+      "path": "xml_case/attributes/materials/orthotropic_material_att[name=LeadFrame_1y]/density",
+      "before": "5360",
+      "after": "4652"
+    },
+    {
+      "path": "xml_case/attributes/materials/orthotropic_material_att[name=LeadFrame_1y]/specific_heat",
+      "before": "469.37873134328356",
+      "after": "501.66466036113502"
+    },
+    {
+      "path": "xml_case/attributes/materials/orthotropic_material_att[name=LeadFrame_1y]/y_conductivity",
+      "before": "151.09",
+      "after": "121.00800000000001"
+    },
+    {
+      "path": "xml_case/attributes/materials/orthotropic_material_att[name=LeadFrame_1y]/z_conductivity",
+      "before": "151.09",
+      "after": "121.00800000000001"
+    }
+  ],
+  "added_leaf_paths": [],
+  "removed_leaf_paths": [],
+  "numeric_formatting_differences_ignored": true,
+  "template_id": "pqfp",
+  "variation_id": "opt_v2_c005_userdefinedleadframecoverage_yes",
+  "variation_kind": "enum_option",
+  "comparison_baseline": "validation/branch_baselines/br_v2_leadframe_userdefinedleadframecoverage/model.xml",
+  "outcome": "semantic_change",
+  "floxml_effect_expectation": null
+}

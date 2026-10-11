@@ -42,5 +42,5 @@ z_top_collapsed = z_top_isotropic - h_bump
 
 ## 证据
 
-- `../templates/flip_chip_cbga/xml_variations/option_switches/opt_v2_c007_modelflipchipbumpsas_collapsedcuboid/`
-- `../templates/flip_chip_pbga/xml_variations/option_switches/opt_v2_c008_modelflipchipbumpsas_collapsedcuboid/`
+- `../templates/cbga_fc/xml_variations/option_switches/opt_v2_c007_modelflipchipbumpsas_collapsedcuboid/`
+- `../templates/pbga_fc/xml_variations/option_switches/opt_v2_c008_modelflipchipbumpsas_collapsedcuboid/`

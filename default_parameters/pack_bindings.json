@@ -1,0 +1,1630 @@
+{
+  "schema_version": "packstudio.pack-bindings/v1",
+  "families": {
+    "cbga_fc": {
+      "family": "cbga_fc",
+      "parameters": {
+        "substrate.length": [
+          "groups",
+          "packageSubstrate",
+          "properties",
+          "substrateLengthD"
+        ],
+        "substrate.width": [
+          "groups",
+          "packageSubstrate",
+          "properties",
+          "substrateWidthE"
+        ],
+        "substrate.thickness": [
+          "groups",
+          "packageSubstrate",
+          "properties",
+          "substrateThicknessA2"
+        ],
+        "die.length": [
+          "groups",
+          "die",
+          "properties",
+          "dieLengthLd"
+        ],
+        "die.width": [
+          "groups",
+          "die",
+          "properties",
+          "dieWidthWd"
+        ],
+        "die.thickness": [
+          "groups",
+          "die",
+          "properties",
+          "dieThicknessTd"
+        ],
+        "bumps.total": [
+          "groups",
+          "flipChipBumps",
+          "properties",
+          "totalNumberOfBumpsMNC4"
+        ],
+        "bumps.diameter": [
+          "groups",
+          "flipChipBumps",
+          "properties",
+          "bumpDiameterBC4"
+        ],
+        "bumps.height": [
+          "groups",
+          "flipChipBumps",
+          "properties",
+          "bumpHeightTC4"
+        ],
+        "bga.columns": [
+          "groups",
+          "solderBalls",
+          "properties",
+          "numberOfSolderBallsInXMD"
+        ],
+        "bga.rows": [
+          "groups",
+          "solderBalls",
+          "properties",
+          "numberOfSolderBallsInYME"
+        ],
+        "bga.pitch": [
+          "groups",
+          "solderBalls",
+          "properties",
+          "ballPitchE"
+        ],
+        "bga.diameter": [
+          "groups",
+          "solderBalls",
+          "properties",
+          "ballDiameterB"
+        ],
+        "bga.height": [
+          "groups",
+          "solderBalls",
+          "properties",
+          "substrateStandoffA1"
+        ],
+        "die.power": [
+          "groups",
+          "die",
+          "properties",
+          "packagePower"
+        ],
+        "cover.type": [
+          "wizard",
+          "topCover"
+        ],
+        "cover.length": [
+          "groups",
+          "topCover",
+          "children",
+          "encapsulant",
+          "properties",
+          "lengthLe"
+        ],
+        "cover.width": [
+          "groups",
+          "topCover",
+          "children",
+          "encapsulant",
+          "properties",
+          "widthWe"
+        ],
+        "cover.thickness": [
+          "groups",
+          "topCover",
+          "children",
+          "encapsulant",
+          "properties",
+          "thicknessTe"
+        ],
+        "lid.length": [
+          "groups",
+          "topCover",
+          "children",
+          "lid",
+          "properties",
+          "lidLengthLc"
+        ],
+        "lid.width": [
+          "groups",
+          "topCover",
+          "children",
+          "lid",
+          "properties",
+          "lidWidthWc"
+        ],
+        "lid.thickness": [
+          "groups",
+          "topCover",
+          "children",
+          "lid",
+          "properties",
+          "lidThicknessTc"
+        ],
+        "lid.base_thickness": [
+          "groups",
+          "topCover",
+          "children",
+          "lid",
+          "properties",
+          "lidBaseThicknessTcb"
+        ],
+        "lid.die_attach": [
+          "groups",
+          "topCover",
+          "children",
+          "lid",
+          "properties",
+          "dieAttachThicknessTda"
+        ],
+        "lid.adhesive": [
+          "groups",
+          "topCover",
+          "children",
+          "lid",
+          "properties",
+          "lidAdhesiveThickness"
+        ],
+        "plate.length": [
+          "groups",
+          "topCover",
+          "children",
+          "plate",
+          "properties",
+          "plateLengthLc"
+        ],
+        "plate.width": [
+          "groups",
+          "topCover",
+          "children",
+          "plate",
+          "properties",
+          "plateWidthWc"
+        ],
+        "plate.thickness": [
+          "groups",
+          "topCover",
+          "children",
+          "plate",
+          "properties",
+          "plateThicknessTc"
+        ],
+        "plate.die_attach": [
+          "groups",
+          "topCover",
+          "children",
+          "plate",
+          "properties",
+          "dieAttachThicknessTda"
+        ]
+      },
+      "materials": {
+        "group-substrate": [
+          "groups",
+          "packageSubstrate",
+          "properties",
+          "dielectricMaterial"
+        ],
+        "group-die": [
+          "groups",
+          "die",
+          "properties",
+          "dieMaterial"
+        ],
+        "group-encapsulant": [
+          "groups",
+          "topCover",
+          "children",
+          "encapsulant",
+          "properties",
+          "encapsulantMaterial"
+        ],
+        "group-lid": [
+          "groups",
+          "topCover",
+          "children",
+          "lid",
+          "properties",
+          "lidMaterial"
+        ],
+        "group-lid-adhesive": [
+          "groups",
+          "topCover",
+          "children",
+          "lid",
+          "properties",
+          "lidAdhesiveMaterial"
+        ],
+        "group-lid-die-attach": [
+          "groups",
+          "topCover",
+          "children",
+          "lid",
+          "properties",
+          "dieAttachMaterial"
+        ],
+        "group-plate": [
+          "groups",
+          "topCover",
+          "children",
+          "plate",
+          "properties",
+          "plateMaterial"
+        ],
+        "group-plate-die-attach": [
+          "groups",
+          "topCover",
+          "children",
+          "plate",
+          "properties",
+          "dieAttachMaterial"
+        ]
+      }
+    },
+    "pbga_fc": {
+      "family": "pbga_fc",
+      "parameters": {
+        "substrate.length": [
+          "groups",
+          "packageSubstrate",
+          "properties",
+          "substrateLengthD"
+        ],
+        "substrate.width": [
+          "groups",
+          "packageSubstrate",
+          "properties",
+          "substrateWidthE"
+        ],
+        "substrate.thickness": [
+          "groups",
+          "packageSubstrate",
+          "properties",
+          "substrateThicknessA2"
+        ],
+        "die.length": [
+          "groups",
+          "die",
+          "properties",
+          "dieLengthLd"
+        ],
+        "die.width": [
+          "groups",
+          "die",
+          "properties",
+          "dieWidthWd"
+        ],
+        "die.thickness": [
+          "groups",
+          "die",
+          "properties",
+          "dieThicknessTd"
+        ],
+        "bumps.total": [
+          "groups",
+          "flipChipBumps",
+          "properties",
+          "totalNumberOfBumpsMNC4"
+        ],
+        "bumps.diameter": [
+          "groups",
+          "flipChipBumps",
+          "properties",
+          "bumpDiameterBC4"
+        ],
+        "bumps.height": [
+          "groups",
+          "flipChipBumps",
+          "properties",
+          "bumpHeightTC4"
+        ],
+        "bga.columns": [
+          "groups",
+          "solderBalls",
+          "properties",
+          "numberOfSolderBallsInXMD"
+        ],
+        "bga.rows": [
+          "groups",
+          "solderBalls",
+          "properties",
+          "numberOfSolderBallsInYME"
+        ],
+        "bga.pitch": [
+          "groups",
+          "solderBalls",
+          "properties",
+          "ballPitchE"
+        ],
+        "bga.diameter": [
+          "groups",
+          "solderBalls",
+          "properties",
+          "ballDiameterB"
+        ],
+        "bga.height": [
+          "groups",
+          "solderBalls",
+          "properties",
+          "substrateStandoffA1"
+        ],
+        "die.power": [
+          "groups",
+          "die",
+          "properties",
+          "packagePower"
+        ],
+        "cover.type": [
+          "wizard",
+          "topCover"
+        ],
+        "cover.length": [
+          "groups",
+          "topCover",
+          "children",
+          "encapsulant",
+          "properties",
+          "lengthLe"
+        ],
+        "cover.width": [
+          "groups",
+          "topCover",
+          "children",
+          "encapsulant",
+          "properties",
+          "widthWe"
+        ],
+        "cover.thickness": [
+          "groups",
+          "topCover",
+          "children",
+          "encapsulant",
+          "properties",
+          "thicknessTe"
+        ],
+        "lid.length": [
+          "groups",
+          "topCover",
+          "children",
+          "lid",
+          "properties",
+          "lidLengthLc"
+        ],
+        "lid.width": [
+          "groups",
+          "topCover",
+          "children",
+          "lid",
+          "properties",
+          "lidWidthWc"
+        ],
+        "lid.thickness": [
+          "groups",
+          "topCover",
+          "children",
+          "lid",
+          "properties",
+          "lidThicknessTc"
+        ],
+        "lid.base_thickness": [
+          "groups",
+          "topCover",
+          "children",
+          "lid",
+          "properties",
+          "lidBaseThicknessTcb"
+        ],
+        "lid.die_attach": [
+          "groups",
+          "topCover",
+          "children",
+          "lid",
+          "properties",
+          "dieAttachThicknessTda"
+        ],
+        "lid.adhesive": [
+          "groups",
+          "topCover",
+          "children",
+          "lid",
+          "properties",
+          "lidAdhesiveThickness"
+        ],
+        "plate.length": [
+          "groups",
+          "topCover",
+          "children",
+          "plate",
+          "properties",
+          "plateLengthLc"
+        ],
+        "plate.width": [
+          "groups",
+          "topCover",
+          "children",
+          "plate",
+          "properties",
+          "plateWidthWc"
+        ],
+        "plate.thickness": [
+          "groups",
+          "topCover",
+          "children",
+          "plate",
+          "properties",
+          "plateThicknessTc"
+        ],
+        "plate.die_attach": [
+          "groups",
+          "topCover",
+          "children",
+          "plate",
+          "properties",
+          "dieAttachThicknessTda"
+        ]
+      },
+      "materials": {
+        "group-substrate": [
+          "groups",
+          "packageSubstrate",
+          "properties",
+          "dielectricMaterial"
+        ],
+        "group-die": [
+          "groups",
+          "die",
+          "properties",
+          "dieMaterial"
+        ],
+        "group-encapsulant": [
+          "groups",
+          "topCover",
+          "children",
+          "encapsulant",
+          "properties",
+          "encapsulantMaterial"
+        ],
+        "group-lid": [
+          "groups",
+          "topCover",
+          "children",
+          "lid",
+          "properties",
+          "lidMaterial"
+        ],
+        "group-lid-adhesive": [
+          "groups",
+          "topCover",
+          "children",
+          "lid",
+          "properties",
+          "lidAdhesiveMaterial"
+        ],
+        "group-lid-die-attach": [
+          "groups",
+          "topCover",
+          "children",
+          "lid",
+          "properties",
+          "dieAttachMaterial"
+        ],
+        "group-plate": [
+          "groups",
+          "topCover",
+          "children",
+          "plate",
+          "properties",
+          "plateMaterial"
+        ],
+        "group-plate-die-attach": [
+          "groups",
+          "topCover",
+          "children",
+          "plate",
+          "properties",
+          "dieAttachMaterial"
+        ]
+      }
+    },
+    "pbga_wb": {
+      "family": "pbga_wb",
+      "parameters": {
+        "trace.top_thickness": [
+          "wizard",
+          "topSignalLayerThickness"
+        ],
+        "trace.bottom_thickness": [
+          "wizard",
+          "bottomSignalLayerThickness"
+        ],
+        "package.length": [
+          "groups",
+          "packageSubstrate",
+          "properties",
+          "substrateLengthD"
+        ],
+        "package.width": [
+          "groups",
+          "packageSubstrate",
+          "properties",
+          "substrateWidthE"
+        ],
+        "substrate.thickness": [
+          "groups",
+          "packageSubstrate",
+          "properties",
+          "substrateThicknessA2"
+        ],
+        "encapsulant.length": [
+          "groups",
+          "encapsulant",
+          "properties",
+          "lengthLe"
+        ],
+        "encapsulant.width": [
+          "groups",
+          "encapsulant",
+          "properties",
+          "widthWe"
+        ],
+        "encapsulant.thickness": [
+          "groups",
+          "encapsulant",
+          "properties",
+          "thicknessTe"
+        ],
+        "flag.length": [
+          "groups",
+          "dieFlagAndSolderMask",
+          "properties",
+          "dieFlagLf"
+        ],
+        "flag.width": [
+          "groups",
+          "dieFlagAndSolderMask",
+          "properties",
+          "dieFlagWf"
+        ],
+        "solder_mask.thickness": [
+          "groups",
+          "dieFlagAndSolderMask",
+          "properties",
+          "solderMaskThickness"
+        ],
+        "die.length": [
+          "groups",
+          "die",
+          "properties",
+          "dieLengthLd"
+        ],
+        "die.width": [
+          "groups",
+          "die",
+          "properties",
+          "dieWidthWd"
+        ],
+        "die.thickness": [
+          "groups",
+          "die",
+          "properties",
+          "dieThicknessTd"
+        ],
+        "die.attach": [
+          "groups",
+          "die",
+          "properties",
+          "dieAttachThicknessTda"
+        ],
+        "bond_wire.total": [
+          "groups",
+          "die",
+          "properties",
+          "numberOfBondWiresNw"
+        ],
+        "bond_wire.extent_length": [
+          "groups",
+          "die",
+          "properties",
+          "bondWireExtentLengthLw"
+        ],
+        "bond_wire.extent_width": [
+          "groups",
+          "die",
+          "properties",
+          "bondWireExtentWidthWw"
+        ],
+        "bond_wire.diameter": [
+          "groups",
+          "die",
+          "properties",
+          "bondWireDiameterDw"
+        ],
+        "vias.columns": [
+          "groups",
+          "thermalVias",
+          "properties",
+          "numberOfThermalViasInXNVx"
+        ],
+        "vias.rows": [
+          "groups",
+          "thermalVias",
+          "properties",
+          "numberOfThermalViasInYNVy"
+        ],
+        "vias.pitch": [
+          "groups",
+          "thermalVias",
+          "properties",
+          "viaPitchEv"
+        ],
+        "vias.diameter": [
+          "groups",
+          "thermalVias",
+          "properties",
+          "viaDiameterDv"
+        ],
+        "vias.plating": [
+          "groups",
+          "thermalVias",
+          "properties",
+          "platingThicknessTpl"
+        ],
+        "bga.columns": [
+          "groups",
+          "solderBalls",
+          "properties",
+          "numberOfSolderBallsInXMD"
+        ],
+        "bga.rows": [
+          "groups",
+          "solderBalls",
+          "properties",
+          "numberOfSolderBallsInYME"
+        ],
+        "bga.pitch": [
+          "groups",
+          "solderBalls",
+          "properties",
+          "ballPitchE"
+        ],
+        "bga.diameter": [
+          "groups",
+          "solderBalls",
+          "properties",
+          "ballDiameterB"
+        ],
+        "bga.height": [
+          "groups",
+          "solderBalls",
+          "properties",
+          "substrateStandoffA1"
+        ],
+        "die.power": [
+          "groups",
+          "die",
+          "properties",
+          "packagePower"
+        ],
+        "vias.enabled": [
+          "groups",
+          "thermalVias",
+          "enabled"
+        ]
+      },
+      "materials": {
+        "group-substrate": [
+          "groups",
+          "packageSubstrate",
+          "properties",
+          "dielectricMaterial"
+        ],
+        "group-die": [
+          "groups",
+          "die",
+          "properties",
+          "dieMaterial"
+        ],
+        "group-die-attach": [
+          "groups",
+          "die",
+          "properties",
+          "dieAttachMaterial"
+        ],
+        "group-encapsulant": [
+          "groups",
+          "encapsulant",
+          "properties",
+          "encapsulantMaterial"
+        ],
+        "group-bond-wires": [
+          "groups",
+          "die",
+          "properties",
+          "bondWireMaterial"
+        ],
+        "group-solder-mask": [
+          "groups",
+          "dieFlagAndSolderMask",
+          "properties",
+          "solderMaskMaterial"
+        ]
+      }
+    },
+    "chip_array": {
+      "family": "chip_array",
+      "parameters": {
+        "trace.top_thickness": [
+          "wizard",
+          "topSignalLayerThickness"
+        ],
+        "trace.bottom_thickness": [
+          "wizard",
+          "bottomSignalLayerThickness"
+        ],
+        "package.length": [
+          "groups",
+          "overallPackage",
+          "properties",
+          "lengthD"
+        ],
+        "package.width": [
+          "groups",
+          "overallPackage",
+          "properties",
+          "widthE"
+        ],
+        "substrate.thickness": [
+          "groups",
+          "overallPackage",
+          "properties",
+          "substrateThicknessA2"
+        ],
+        "encapsulant.thickness": [
+          "groups",
+          "encapsulant",
+          "properties",
+          "thicknessTe"
+        ],
+        "solder_mask.thickness": [
+          "groups",
+          "encapsulant",
+          "properties",
+          "solderMaskThicknessTsm"
+        ],
+        "die.length": [
+          "groups",
+          "die",
+          "properties",
+          "dieLengthLd"
+        ],
+        "die.width": [
+          "groups",
+          "die",
+          "properties",
+          "dieWidthWd"
+        ],
+        "die.thickness": [
+          "groups",
+          "die",
+          "properties",
+          "dieThicknessTd"
+        ],
+        "die.attach": [
+          "groups",
+          "die",
+          "properties",
+          "dieAttachThicknessTda"
+        ],
+        "bond_wire.extent_length": [
+          "groups",
+          "bondWires",
+          "properties",
+          "extentOfBondWirePadsLw"
+        ],
+        "bond_wire.extent_width": [
+          "groups",
+          "bondWires",
+          "properties",
+          "extentOfBondWirePadsWw"
+        ],
+        "bond_wire.diameter": [
+          "groups",
+          "bondWires",
+          "properties",
+          "bondWireDiameterDw"
+        ],
+        "vias.diameter": [
+          "groups",
+          "vias",
+          "properties",
+          "viaDiameterDv"
+        ],
+        "vias.plating": [
+          "groups",
+          "vias",
+          "properties",
+          "platingThicknessTpl"
+        ],
+        "vias.offset_x": [
+          "groups",
+          "modelingOptions",
+          "properties",
+          "viaOffsetInX"
+        ],
+        "vias.offset_y": [
+          "groups",
+          "modelingOptions",
+          "properties",
+          "viaOffsetInY"
+        ],
+        "bga.columns": [
+          "groups",
+          "solderBalls",
+          "properties",
+          "numberOfSolderBallsInXMD"
+        ],
+        "bga.rows": [
+          "groups",
+          "solderBalls",
+          "properties",
+          "numberOfSolderBallsInYME"
+        ],
+        "bga.pitch": [
+          "groups",
+          "solderBalls",
+          "properties",
+          "ballPitchE"
+        ],
+        "bga.diameter": [
+          "groups",
+          "solderBalls",
+          "properties",
+          "ballDiameterB"
+        ],
+        "bga.height": [
+          "groups",
+          "solderBalls",
+          "properties",
+          "substrateStandoffA1"
+        ],
+        "die.power": [
+          "groups",
+          "die",
+          "properties",
+          "packagePower"
+        ],
+        "vias.enabled": [
+          "groups",
+          "vias",
+          "enabled"
+        ]
+      },
+      "materials": {
+        "group-substrate": [
+          "groups",
+          "overallPackage",
+          "properties",
+          "dielectricMaterial"
+        ],
+        "group-die": [
+          "groups",
+          "die",
+          "properties",
+          "dieMaterial"
+        ],
+        "group-die-attach": [
+          "groups",
+          "die",
+          "properties",
+          "dieAttachMaterial"
+        ],
+        "group-encapsulant": [
+          "groups",
+          "encapsulant",
+          "properties",
+          "encapsulantMaterial"
+        ],
+        "group-bond-wires": [
+          "groups",
+          "bondWires",
+          "properties",
+          "bondWireMaterial"
+        ],
+        "group-solder-mask": [
+          "groups",
+          "encapsulant",
+          "properties",
+          "solderMaskMaterial"
+        ]
+      }
+    },
+    "qfn": {
+      "family": "QFN",
+      "parameters": {
+        "package.length": [
+          "groups",
+          "overallPackage",
+          "properties",
+          "lengthD"
+        ],
+        "package.width": [
+          "groups",
+          "overallPackage",
+          "properties",
+          "widthE"
+        ],
+        "package.standoff": [
+          "groups",
+          "overallPackage",
+          "properties",
+          "standoffA1"
+        ],
+        "encapsulant.thickness": [
+          "groups",
+          "overallPackage",
+          "properties",
+          "encapsulantThicknessA2"
+        ],
+        "die.length": [
+          "groups",
+          "die",
+          "properties",
+          "dieLengthLd"
+        ],
+        "die.width": [
+          "groups",
+          "die",
+          "properties",
+          "dieWidthWd"
+        ],
+        "die.thickness": [
+          "groups",
+          "die",
+          "properties",
+          "dieThicknessTd"
+        ],
+        "die.attach": [
+          "groups",
+          "die",
+          "properties",
+          "dieAttachThicknessTda"
+        ],
+        "pad.length": [
+          "groups",
+          "dap",
+          "properties",
+          "dapLengthLp"
+        ],
+        "pad.width": [
+          "groups",
+          "dap",
+          "properties",
+          "dapWidthWp"
+        ],
+        "pad.exposed_length": [
+          "groups",
+          "dap",
+          "properties",
+          "exposedPADLength"
+        ],
+        "pad.exposed_width": [
+          "groups",
+          "dap",
+          "properties",
+          "exposedPADWidth"
+        ],
+        "leads.count_x": [
+          "groups",
+          "leadAndSolderInterconnect",
+          "properties",
+          "numberOfLeadsOnTopBottomMD"
+        ],
+        "leads.count_y": [
+          "groups",
+          "leadAndSolderInterconnect",
+          "properties",
+          "numberOfLeadsOnLeftRightME"
+        ],
+        "leads.pitch_x": [
+          "groups",
+          "leadAndSolderInterconnect",
+          "properties",
+          "pitchInXDirectionEx"
+        ],
+        "leads.pitch_y": [
+          "groups",
+          "leadAndSolderInterconnect",
+          "properties",
+          "pitchInYDirectionEy"
+        ],
+        "leads.width": [
+          "groups",
+          "leadAndSolderInterconnect",
+          "properties",
+          "leadWidthB"
+        ],
+        "leads.length": [
+          "groups",
+          "leadAndSolderInterconnect",
+          "properties",
+          "exposedLeadLengthL"
+        ],
+        "leads.exposed_thickness": [
+          "groups",
+          "leadAndSolderInterconnect",
+          "properties",
+          "exposedLeadThickness"
+        ],
+        "leads.thickness": [
+          "groups",
+          "leadAndSolderInterconnect",
+          "properties",
+          "leadThicknessA3"
+        ],
+        "leads.etch": [
+          "groups",
+          "leadAndSolderInterconnect",
+          "properties",
+          "leadEtch"
+        ],
+        "bond_wire.length_x": [
+          "groups",
+          "bondWires",
+          "properties",
+          "bondWireLengthOnLeftRightLbwx"
+        ],
+        "bond_wire.length_y": [
+          "groups",
+          "bondWires",
+          "properties",
+          "bondWireLengthOnTopBottomLbwy"
+        ],
+        "bond_wire.diameter": [
+          "groups",
+          "bondWires",
+          "properties",
+          "bondWireDiameterDbw"
+        ],
+        "die.power": [
+          "groups",
+          "die",
+          "properties",
+          "packagePower"
+        ],
+        "thermal_land.enabled": [
+          "groups",
+          "thermalLand",
+          "properties",
+          "includeLand"
+        ],
+        "thermal_land.thickness": [
+          "groups",
+          "thermalLand",
+          "properties",
+          "landThickness"
+        ]
+      },
+      "materials": {
+        "group-encapsulant": [
+          "groups",
+          "overallPackage",
+          "properties",
+          "encapsulantMaterial"
+        ],
+        "group-die": [
+          "groups",
+          "die",
+          "properties",
+          "dieMaterial"
+        ],
+        "group-die-attach": [
+          "groups",
+          "die",
+          "properties",
+          "dieAttachMaterial"
+        ],
+        "group-exposed-pad": [
+          "groups",
+          "dap",
+          "properties",
+          "material"
+        ],
+        "group-lead-frame": [
+          "groups",
+          "leadAndSolderInterconnect",
+          "properties",
+          "leadframeMaterial"
+        ],
+        "group-bond-wires": [
+          "groups",
+          "bondWires",
+          "properties",
+          "material"
+        ],
+        "group-solder": [
+          "groups",
+          "leadAndSolderInterconnect",
+          "properties",
+          "solderMaterial"
+        ]
+      }
+    },
+    "pqfp": {
+      "family": "pqfp",
+      "parameters": {
+        "package.length": [
+          "groups",
+          "overallPackage",
+          "properties",
+          "lengthD"
+        ],
+        "package.width": [
+          "groups",
+          "overallPackage",
+          "properties",
+          "widthE"
+        ],
+        "package.standoff": [
+          "groups",
+          "overallPackage",
+          "properties",
+          "standoffA1"
+        ],
+        "body.length": [
+          "groups",
+          "encapsulant",
+          "properties",
+          "lengthD1"
+        ],
+        "body.width": [
+          "groups",
+          "encapsulant",
+          "properties",
+          "widthE1"
+        ],
+        "body.thickness": [
+          "groups",
+          "encapsulant",
+          "properties",
+          "thicknessA2"
+        ],
+        "die.length": [
+          "groups",
+          "die",
+          "properties",
+          "dieLengthLd"
+        ],
+        "die.width": [
+          "groups",
+          "die",
+          "properties",
+          "dieWidthWd"
+        ],
+        "die.thickness": [
+          "groups",
+          "die",
+          "properties",
+          "dieThicknessTd"
+        ],
+        "die.attach": [
+          "groups",
+          "die",
+          "properties",
+          "dieAttachThicknessTda"
+        ],
+        "flag.length": [
+          "groups",
+          "dieFlagAndTieBars",
+          "properties",
+          "dieFlagLf"
+        ],
+        "flag.width": [
+          "groups",
+          "dieFlagAndTieBars",
+          "properties",
+          "dieFlagWf"
+        ],
+        "flag.coverage": [
+          "groups",
+          "dieFlagAndTieBars",
+          "properties",
+          "metalCoverageForDieFlagCf"
+        ],
+        "flag.downset": [
+          "groups",
+          "dieFlagAndTieBars",
+          "properties",
+          "dieFlagDownsetDdf"
+        ],
+        "tie_bar.width": [
+          "groups",
+          "dieFlagAndTieBars",
+          "properties",
+          "tieBarWidthWtb"
+        ],
+        "leads.count_x": [
+          "groups",
+          "leadFrame",
+          "properties",
+          "numberOfLeadsOnTopBottomMD"
+        ],
+        "leads.count_y": [
+          "groups",
+          "leadFrame",
+          "properties",
+          "numberOfLeadsOnLeftRightME"
+        ],
+        "leads.pitch": [
+          "groups",
+          "leadFrame",
+          "properties",
+          "pitchE"
+        ],
+        "leads.width": [
+          "groups",
+          "leadFrame",
+          "properties",
+          "leadWidthB"
+        ],
+        "leads.thickness": [
+          "groups",
+          "leadFrame",
+          "properties",
+          "leadThicknessTl"
+        ],
+        "leads.height": [
+          "groups",
+          "leadFrame",
+          "properties",
+          "leadframeHeightHl"
+        ],
+        "leads.foot_length": [
+          "groups",
+          "leadFrame",
+          "properties",
+          "leadfootLengthWl"
+        ],
+        "leads.gap_x": [
+          "groups",
+          "leadFrame",
+          "properties",
+          "leadframeFlagGapG1"
+        ],
+        "leads.gap_y": [
+          "groups",
+          "leadFrame",
+          "properties",
+          "leadframeFlagGapG2"
+        ],
+        "bond_wire.length_x": [
+          "groups",
+          "bondWires",
+          "properties",
+          "bondWireLengthOnLeftRightLbwx"
+        ],
+        "bond_wire.length_y": [
+          "groups",
+          "bondWires",
+          "properties",
+          "bondWireLengthOnTopBottomLbwy"
+        ],
+        "bond_wire.count": [
+          "groups",
+          "bondWires",
+          "properties",
+          "numberOfBondWiresN"
+        ],
+        "bond_wire.diameter": [
+          "groups",
+          "bondWires",
+          "properties",
+          "bondWireDiameterDbw"
+        ],
+        "die.power": [
+          "groups",
+          "die",
+          "properties",
+          "packagePower"
+        ],
+        "thermal_land.enabled": [
+          "groups",
+          "thermalLandAndSolder",
+          "properties",
+          "includeThermalLandAndSolder"
+        ],
+        "thermal_land.thickness": [
+          "groups",
+          "thermalLandAndSolder",
+          "properties",
+          "landThickness"
+        ],
+        "package.type": [
+          "wizard",
+          "pqfpPackageType"
+        ]
+      },
+      "materials": {
+        "group-encapsulant": [
+          "groups",
+          "encapsulant",
+          "properties",
+          "encapsulantMaterial"
+        ],
+        "group-die": [
+          "groups",
+          "die",
+          "properties",
+          "dieMaterial"
+        ],
+        "group-die-attach": [
+          "groups",
+          "die",
+          "properties",
+          "dieAttachMaterial"
+        ],
+        "group-die-flag": [
+          "groups",
+          "leadFrame",
+          "properties",
+          "leadframeMaterial"
+        ],
+        "group-lead-frame": [
+          "groups",
+          "leadFrame",
+          "properties",
+          "leadframeMaterial"
+        ],
+        "group-tie-bars": [
+          "groups",
+          "leadFrame",
+          "properties",
+          "leadframeMaterial"
+        ],
+        "group-tie-bar-plates": [
+          "groups",
+          "encapsulant",
+          "properties",
+          "encapsulantMaterial"
+        ],
+        "group-bond-wires": [
+          "groups",
+          "bondWires",
+          "properties",
+          "material"
+        ]
+      }
+    },
+    "sop": {
+      "family": "tsop_conv",
+      "parameters": {
+        "package.width": [
+          "groups",
+          "overallPackage",
+          "properties",
+          "widthE"
+        ],
+        "package.standoff": [
+          "groups",
+          "overallPackage",
+          "properties",
+          "standoffA1"
+        ],
+        "body.length": [
+          "groups",
+          "encapsulant",
+          "properties",
+          "lengthD1"
+        ],
+        "body.width": [
+          "groups",
+          "encapsulant",
+          "properties",
+          "widthE1"
+        ],
+        "body.thickness": [
+          "groups",
+          "encapsulant",
+          "properties",
+          "thicknessA2"
+        ],
+        "die.length": [
+          "groups",
+          "die",
+          "properties",
+          "dieLengthLd"
+        ],
+        "die.width": [
+          "groups",
+          "die",
+          "properties",
+          "dieWidthWd"
+        ],
+        "die.thickness": [
+          "groups",
+          "die",
+          "properties",
+          "dieThicknessTd"
+        ],
+        "die.attach": [
+          "groups",
+          "die",
+          "properties",
+          "dieAttachThicknessTda"
+        ],
+        "flag.length": [
+          "groups",
+          "dieFlagAndTieBars",
+          "properties",
+          "dieFlagLf"
+        ],
+        "flag.width": [
+          "groups",
+          "dieFlagAndTieBars",
+          "properties",
+          "dieFlagWf"
+        ],
+        "flag.thickness": [
+          "groups",
+          "dieFlagAndTieBars",
+          "properties",
+          "dieFlagThicknessTf"
+        ],
+        "flag.coverage": [
+          "groups",
+          "dieFlagAndTieBars",
+          "properties",
+          "metalCoverageForDieFlagCf"
+        ],
+        "flag.downset": [
+          "groups",
+          "dieFlagAndTieBars",
+          "properties",
+          "dieFlagDownsetDdf"
+        ],
+        "tie_bar.width": [
+          "groups",
+          "dieFlagAndTieBars",
+          "properties",
+          "tieBarWidthWtb"
+        ],
+        "leads.total": [
+          "groups",
+          "leadFrame",
+          "properties",
+          "totalNumberOfLeadsMT"
+        ],
+        "leads.gap": [
+          "groups",
+          "leadFrame",
+          "properties",
+          "leadframeFlagGapG1"
+        ],
+        "leads.pitch": [
+          "groups",
+          "leadFrame",
+          "properties",
+          "pitchE"
+        ],
+        "leads.width": [
+          "groups",
+          "leadFrame",
+          "properties",
+          "leadWidthB"
+        ],
+        "leads.thickness": [
+          "groups",
+          "leadFrame",
+          "properties",
+          "leadThicknessTl"
+        ],
+        "leads.height": [
+          "groups",
+          "leadFrame",
+          "properties",
+          "leadframeHeightHl"
+        ],
+        "leads.foot_length": [
+          "groups",
+          "leadFrame",
+          "properties",
+          "leadfootLengthLft"
+        ],
+        "bond_wire.length": [
+          "groups",
+          "bondWires",
+          "properties",
+          "bondWireLengthLbw"
+        ],
+        "bond_wire.count": [
+          "groups",
+          "bondWires",
+          "properties",
+          "numberOfBondWiresN"
+        ],
+        "bond_wire.diameter": [
+          "groups",
+          "bondWires",
+          "properties",
+          "bondWireDiameterDbw"
+        ],
+        "die.power": [
+          "groups",
+          "die",
+          "properties",
+          "packagePower"
+        ],
+        "package.length": [
+          "groups",
+          "overallPackage",
+          "properties",
+          "lengthD"
+        ],
+        "thermal_land.enabled": [
+          "groups",
+          "thermalLandAndSolder",
+          "properties",
+          "includeThermalLandAndSolder"
+        ],
+        "thermal_land.thickness": [
+          "groups",
+          "thermalLandAndSolder",
+          "properties",
+          "landThickness"
+        ],
+        "package.type": [
+          "wizard",
+          "sopPackageType"
+        ]
+      },
+      "materials": {
+        "group-encapsulant": [
+          "groups",
+          "encapsulant",
+          "properties",
+          "encapsulantMaterial"
+        ],
+        "group-die": [
+          "groups",
+          "die",
+          "properties",
+          "dieMaterial"
+        ],
+        "group-die-attach": [
+          "groups",
+          "die",
+          "properties",
+          "dieAttachMaterial"
+        ],
+        "group-die-flag": [
+          "groups",
+          "dieFlagAndTieBars",
+          "properties",
+          "dieFlagMaterial"
+        ],
+        "group-tie-bars": [
+          "groups",
+          "leadFrame",
+          "properties",
+          "leadframeMaterial"
+        ],
+        "group-lead-frame": [
+          "groups",
+          "leadFrame",
+          "properties",
+          "leadframeMaterial"
+        ],
+        "group-bond-wires": [
+          "groups",
+          "bondWires",
+          "properties",
+          "material"
+        ]
+      }
+    }
+  }
+}

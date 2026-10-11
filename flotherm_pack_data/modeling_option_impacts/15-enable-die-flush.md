@@ -34,5 +34,5 @@ t_encap_flush = z_encap_top_flush - z_encap_bottom
 
 ## 证据
 
-- `../templates/flip_chip_cbga/xml_variations/option_switches/opt_v2_c011_enabledieflush_true/`
-- `../templates/flip_chip_pbga/xml_variations/option_switches/opt_v2_c010_enabledieflush_true/`
+- `../templates/cbga_fc/xml_variations/option_switches/opt_v2_c011_enabledieflush_true/`
+- `../templates/pbga_fc/xml_variations/option_switches/opt_v2_c010_enabledieflush_true/`

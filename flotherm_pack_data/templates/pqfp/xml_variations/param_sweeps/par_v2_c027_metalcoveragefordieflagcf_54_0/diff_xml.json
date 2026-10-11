@@ -1,0 +1,69 @@
+{
+  "schema_version": "2.0",
+  "comparison": {
+    "baseline": "flotherm_pack_data/templates/pqfp/baseline/model.xml",
+    "variation": "flotherm_pack_data/templates/pqfp/xml_variations/param_sweeps/par_v2_c027_metalcoveragefordieflagcf_54_0/model.xml",
+    "baseline_bytes": 39733,
+    "variation_bytes": 39735,
+    "baseline_sha256": "BF1D9D963234111DFE5AAE319D1F83A3DBD9AF609C4B3C4A4BC7AA5BBA4082FF",
+    "variation_sha256": "7E0A026272E4BE21D8E8097B0C3421BCA0D7BBE9AC309C87EDDDAD3ED3CE9DF8"
+  },
+  "semantic_change": true,
+  "summary": {
+    "changed_value_count": 3,
+    "added_leaf_count": 0,
+    "removed_leaf_count": 0
+  },
+  "materials": {
+    "added": [],
+    "removed": [],
+    "changed": [
+      {
+        "name": "die_flag",
+        "before": {
+          "type": "isotropic_material_att",
+          "density": "6068",
+          "specific_heat": "444.626895188",
+          "conductivity": "180.9"
+        },
+        "after": {
+          "type": "isotropic_material_att",
+          "density": "5643.2",
+          "specific_heat": "458.732704848",
+          "conductivity": "162.81"
+        }
+      }
+    ]
+  },
+  "entities": {
+    "added": [],
+    "removed": [],
+    "changed": []
+  },
+  "changed_values": [
+    {
+      "path": "xml_case/attributes/materials/isotropic_material_att[name=die_flag]/conductivity",
+      "before": "180.90000000000001",
+      "after": "162.81"
+    },
+    {
+      "path": "xml_case/attributes/materials/isotropic_material_att[name=die_flag]/density",
+      "before": "6068",
+      "after": "5643.1999999999998"
+    },
+    {
+      "path": "xml_case/attributes/materials/isotropic_material_att[name=die_flag]/specific_heat",
+      "before": "444.62689518787079",
+      "after": "458.73270484831301"
+    }
+  ],
+  "added_leaf_paths": [],
+  "removed_leaf_paths": [],
+  "numeric_formatting_differences_ignored": true,
+  "template_id": "pqfp",
+  "variation_id": "par_v2_c027_metalcoveragefordieflagcf_54_0",
+  "variation_kind": "numeric_parameter",
+  "comparison_baseline": "baseline/model.xml",
+  "outcome": "semantic_change",
+  "floxml_effect_expectation": null
+}

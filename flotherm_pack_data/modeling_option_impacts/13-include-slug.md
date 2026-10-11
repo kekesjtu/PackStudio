@@ -58,6 +58,6 @@ Flip-chip 中该选项要求 `topCover=encapsulant`；Slug adhesive 由独立选
 
 ## 证据
 
-- `../templates/flip_chip_cbga/xml_variations/option_switches/opt_v2_c008_includeslug_true/`
-- `../templates/flip_chip_pbga/xml_variations/option_switches/opt_v2_c008_includeslug_true/`
-- `../templates/wirebond_pbga/xml_variations/option_switches/opt_v2_c001_includeslug_true/`
+- `../templates/cbga_fc/xml_variations/option_switches/opt_v2_c008_includeslug_true/`
+- `../templates/pbga_fc/xml_variations/option_switches/opt_v2_c008_includeslug_true/`
+- `../templates/pbga_wb/xml_variations/option_switches/opt_v2_c001_includeslug_true/`

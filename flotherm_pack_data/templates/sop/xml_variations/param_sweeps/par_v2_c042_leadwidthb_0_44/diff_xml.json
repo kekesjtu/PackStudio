@@ -1,0 +1,294 @@
+{
+  "schema_version": "2.0",
+  "comparison": {
+    "baseline": "flotherm_pack_data/templates/sop/baseline/model.xml",
+    "variation": "flotherm_pack_data/templates/sop/xml_variations/param_sweeps/par_v2_c042_leadwidthb_0_44/model.xml",
+    "baseline_bytes": 24418,
+    "variation_bytes": 24419,
+    "baseline_sha256": "2602CC4C884EDBD1E1FBA39F5D4A1BB441413956B57D9FAFBBC1B131DA198A3E",
+    "variation_sha256": "A5D9BED525868C167BE44FDA198302C8604C0ADBC6DCEB553C0057F90E8F99C8"
+  },
+  "semantic_change": true,
+  "summary": {
+    "changed_value_count": 25,
+    "added_leaf_count": 0,
+    "removed_leaf_count": 0
+  },
+  "materials": {
+    "added": [],
+    "removed": [],
+    "changed": [
+      {
+        "name": "LeadFrame_1",
+        "before": {
+          "type": "isotropic_material_att",
+          "density": "4018.42519685",
+          "specific_heat": "274.342359995",
+          "conductivity": "83.3004724409"
+        },
+        "after": {
+          "type": "isotropic_material_att",
+          "density": "4238.26771654",
+          "specific_heat": "248.2482815",
+          "conductivity": "91.562519685"
+        }
+      },
+      {
+        "name": "LeadFrame_2",
+        "before": {
+          "type": "isotropic_material_att",
+          "density": "2772.44914803",
+          "specific_heat": "1.28869000296",
+          "conductivity": "82.8525251969"
+        },
+        "after": {
+          "type": "isotropic_material_att",
+          "density": "3049.57792283",
+          "specific_heat": "1.25038853486",
+          "conductivity": "91.1351677165"
+        }
+      }
+    ]
+  },
+  "entities": {
+    "added": [],
+    "removed": [],
+    "changed": [
+      {
+        "name": "assembly:LeadFrame",
+        "before": [
+          "e8057a7b9dac29af"
+        ],
+        "after": [
+          "47a863a81d4c3495"
+        ]
+      },
+      {
+        "name": "cuboid:ldf_exter_lower",
+        "before": [
+          "cb8f73a53054803e"
+        ],
+        "after": [
+          "20c9ef32544ac92b"
+        ]
+      },
+      {
+        "name": "cuboid:ldf_exter_upper",
+        "before": [
+          "bdde416b650d4eda"
+        ],
+        "after": [
+          "cb0b37641398046e"
+        ]
+      },
+      {
+        "name": "cuboid:ldf_inter_left",
+        "before": [
+          "fcfad2c49e21c9ea"
+        ],
+        "after": [
+          "4323aae395a0a98b"
+        ]
+      },
+      {
+        "name": "cuboid:ldf_inter_lower",
+        "before": [
+          "04bb0f76516d2f88"
+        ],
+        "after": [
+          "52ab1c69964745a6"
+        ]
+      },
+      {
+        "name": "cuboid:ldf_inter_right",
+        "before": [
+          "31786e178b628ade"
+        ],
+        "after": [
+          "02b371ebbf5e2126"
+        ]
+      },
+      {
+        "name": "cuboid:ldf_inter_upper",
+        "before": [
+          "d9fcbf8ed8d31558"
+        ],
+        "after": [
+          "e369a859431fb8f7"
+        ]
+      },
+      {
+        "name": "cuboid:ldf_vert_lower",
+        "before": [
+          "bedfc5f4192e5841"
+        ],
+        "after": [
+          "3698a0d50db1a7b9"
+        ]
+      },
+      {
+        "name": "cuboid:ldf_vert_upper",
+        "before": [
+          "afb48d226f1d8a82"
+        ],
+        "after": [
+          "2484b20ae2faef1b"
+        ]
+      },
+      {
+        "name": "cuboid:leadft_lower",
+        "before": [
+          "4d0147269732e330"
+        ],
+        "after": [
+          "cfbd9d957c0138e3"
+        ]
+      },
+      {
+        "name": "cuboid:leadft_upper",
+        "before": [
+          "79cb755d2154e075"
+        ],
+        "after": [
+          "a2975309d837ccd1"
+        ]
+      }
+    ]
+  },
+  "changed_values": [
+    {
+      "path": "xml_case/attributes/materials/isotropic_material_att[name=LeadFrame_1]/conductivity",
+      "before": "83.300472440944873",
+      "after": "91.562519685039376"
+    },
+    {
+      "path": "xml_case/attributes/materials/isotropic_material_att[name=LeadFrame_1]/density",
+      "before": "4018.4251968503941",
+      "after": "4238.2677165354326"
+    },
+    {
+      "path": "xml_case/attributes/materials/isotropic_material_att[name=LeadFrame_1]/specific_heat",
+      "before": "274.34235999529722",
+      "after": "248.24828149964702"
+    },
+    {
+      "path": "xml_case/attributes/materials/isotropic_material_att[name=LeadFrame_2]/conductivity",
+      "before": "82.852525196850394",
+      "after": "91.135167716535435"
+    },
+    {
+      "path": "xml_case/attributes/materials/isotropic_material_att[name=LeadFrame_2]/density",
+      "before": "2772.449148031496",
+      "after": "3049.5779228346455"
+    },
+    {
+      "path": "xml_case/attributes/materials/isotropic_material_att[name=LeadFrame_2]/specific_heat",
+      "before": "1.2886900029616017",
+      "after": "1.2503885348571848"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_exter_lower]/position/x",
+      "before": "-0.0021050000000000001",
+      "after": "-0.0021250000000000002"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_exter_lower]/size/x",
+      "before": "0.0042100000000000002",
+      "after": "0.0042500000000000003"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_exter_upper]/position/x",
+      "before": "-0.0021050000000000001",
+      "after": "-0.0021250000000000002"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_exter_upper]/size/x",
+      "before": "0.0042100000000000002",
+      "after": "0.0042500000000000003"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_inter_left]/position/x",
+      "before": "-0.0021050000000000001",
+      "after": "-0.0021250000000000002"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_inter_left]/size/x",
+      "before": "0.0011036000000000002",
+      "after": "0.0011236000000000002"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_inter_lower]/position/x",
+      "before": "-0.0021050000000000001",
+      "after": "-0.0021250000000000002"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_inter_lower]/size/x",
+      "before": "0.0042100000000000002",
+      "after": "0.0042500000000000003"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_inter_right]/size/x",
+      "before": "0.0011036000000000002",
+      "after": "0.0011236000000000002"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_inter_upper]/position/x",
+      "before": "-0.0021050000000000001",
+      "after": "-0.0021250000000000002"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_inter_upper]/size/x",
+      "before": "0.0042100000000000002",
+      "after": "0.0042500000000000003"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_vert_lower]/position/x",
+      "before": "-0.0021050000000000001",
+      "after": "-0.0021250000000000002"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_vert_lower]/size/x",
+      "before": "0.0042100000000000002",
+      "after": "0.0042500000000000003"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_vert_upper]/position/x",
+      "before": "-0.0021050000000000001",
+      "after": "-0.0021250000000000002"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=ldf_vert_upper]/size/x",
+      "before": "0.0042100000000000002",
+      "after": "0.0042500000000000003"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=leadft_lower]/position/x",
+      "before": "-0.0021050000000000001",
+      "after": "-0.0021250000000000002"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=leadft_lower]/size/x",
+      "before": "0.0042100000000000002",
+      "after": "0.0042500000000000003"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=leadft_upper]/position/x",
+      "before": "-0.0021050000000000001",
+      "after": "-0.0021250000000000002"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=LeadFrame]/geometry/cuboid[name=leadft_upper]/size/x",
+      "before": "0.0042100000000000002",
+      "after": "0.0042500000000000003"
+    }
+  ],
+  "added_leaf_paths": [],
+  "removed_leaf_paths": [],
+  "numeric_formatting_differences_ignored": true,
+  "template_id": "sop",
+  "variation_id": "par_v2_c042_leadwidthb_0_44",
+  "variation_kind": "numeric_parameter",
+  "comparison_baseline": "baseline/model.xml",
+  "outcome": "semantic_change",
+  "floxml_effect_expectation": null
+}

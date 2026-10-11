@@ -47,7 +47,7 @@ phi_staggered = 0.5*phi_full
 
 ## 证据
 
-- `../templates/fbga_fsbga/xml_variations/option_switches/opt_v2_c002_staggeredmatrix_true/`
-- `../templates/flip_chip_cbga/xml_variations/option_switches/opt_v2_c003_staggeredmatrix_true/`
-- `../templates/flip_chip_pbga/xml_variations/option_switches/opt_v2_c003_staggeredmatrix_true/`
-- `../templates/wirebond_pbga/xml_variations/option_switches/opt_v2_c003_staggeredmatrix_true/`
+- `../templates/chip_array/xml_variations/option_switches/opt_v2_c002_staggeredmatrix_true/`
+- `../templates/cbga_fc/xml_variations/option_switches/opt_v2_c003_staggeredmatrix_true/`
+- `../templates/pbga_fc/xml_variations/option_switches/opt_v2_c003_staggeredmatrix_true/`
+- `../templates/pbga_wb/xml_variations/option_switches/opt_v2_c003_staggeredmatrix_true/`

@@ -90,7 +90,7 @@ def test_qfn_export_uses_layer_boolean_blocks_to_reduce_entities() -> None:
 
 @pytest.mark.parametrize(
     "template_id",
-    ("wirebond_pbga", "fbga_fsbga", "qfn", "qfp_family", "soic_family"),
+    ("pbga_wb", "chip_array", "qfn", "pqfp", "sop"),
 )
 def test_boolean_compaction_preserves_volume_by_material(template_id: str) -> None:
     model = generate(default_request(template_id))
@@ -109,13 +109,13 @@ def test_boolean_compaction_preserves_volume_by_material(template_id: str) -> No
 @pytest.mark.parametrize(
     "template_id",
     (
-        "wirebond_pbga",
-        "flip_chip_pbga",
-        "fbga_fsbga",
-        "flip_chip_cbga",
+        "pbga_wb",
+        "pbga_fc",
+        "chip_array",
+        "cbga_fc",
         "qfn",
-        "qfp_family",
-        "soic_family",
+        "pqfp",
+        "sop",
         "bare_die",
     ),
 )
@@ -145,7 +145,7 @@ def test_all_templates_use_layers_and_only_top_blocks_may_differ_in_thickness(
 
 
 def test_top_layer_alone_keeps_independent_block_thicknesses() -> None:
-    model = generate(default_request("flip_chip_cbga"))
+    model = generate(default_request("cbga_fc"))
     material_id = model.materials[0].id
     group_id = model.groups[0].id
     blocks = [

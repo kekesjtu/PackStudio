@@ -3,8 +3,8 @@ from math import pi
 from packstudio.domain.enums import StructureType
 from packstudio.domain.geometry import AxisAlignedBlock
 from packstudio.domain.materials import ConductivityTensor, Material
-from packstudio.templates.flip_chip_cbga.layer_builder import build_array_layer
-from packstudio.templates.flip_chip_cbga.parameters import SolderBallParameters
+from packstudio.templates.cbga_fc.layer_builder import build_array_layer
+from packstudio.templates.cbga_fc.parameters import SolderBallParameters
 from packstudio.templates.package_library.core.builds import LayerBuild
 from packstudio.templates.package_library.core.definitions import TemplateValues
 from packstudio.templates.package_library.core.materials import material

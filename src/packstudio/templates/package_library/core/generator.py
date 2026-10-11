@@ -37,7 +37,9 @@ def generate_template(
     materials.update((item.id, item) for item in built.materials)
     materials.update((item.id, item) for item in request.custom_materials)
     default_assignments = {
-        item.group_id: item.default
+        item.group_id: (
+            preset.material_assignments.get(item.group_id, item.default) if preset else item.default
+        )
         for item in definition.material_selections
         if values.matches(item.visible_when)
     }
@@ -54,7 +56,7 @@ def generate_template(
         None,
     )
     return PackageModel(
-        template_id=definition.id.replace("_", "-"),
+        template_id=definition.id,
         name=request.design_name or definition.display_name,
         materials=[materials[identifier] for identifier in sorted(used_ids)],
         blocks=blocks,

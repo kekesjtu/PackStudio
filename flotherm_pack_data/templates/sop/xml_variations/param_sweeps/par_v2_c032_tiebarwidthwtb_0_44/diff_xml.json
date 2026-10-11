@@ -1,0 +1,86 @@
+{
+  "schema_version": "2.0",
+  "comparison": {
+    "baseline": "flotherm_pack_data/templates/sop/baseline/model.xml",
+    "variation": "flotherm_pack_data/templates/sop/xml_variations/param_sweeps/par_v2_c032_tiebarwidthwtb_0_44/model.xml",
+    "baseline_bytes": 24418,
+    "variation_bytes": 24418,
+    "baseline_sha256": "2602CC4C884EDBD1E1FBA39F5D4A1BB441413956B57D9FAFBBC1B131DA198A3E",
+    "variation_sha256": "FE9D28753FEDD65D9D4B24F86C80FF614AE11DF5157ECD38F497F20349130318"
+  },
+  "semantic_change": true,
+  "summary": {
+    "changed_value_count": 4,
+    "added_leaf_count": 0,
+    "removed_leaf_count": 0
+  },
+  "materials": {
+    "added": [],
+    "removed": [],
+    "changed": []
+  },
+  "entities": {
+    "added": [],
+    "removed": [],
+    "changed": [
+      {
+        "name": "assembly:Tiebar",
+        "before": [
+          "5bcbd37bca33d5c2"
+        ],
+        "after": [
+          "342e9e45da23151b"
+        ]
+      },
+      {
+        "name": "cuboid:tie_bar_left",
+        "before": [
+          "dfe2d9deca5d8eb7"
+        ],
+        "after": [
+          "7d95e0edf8066fdc"
+        ]
+      },
+      {
+        "name": "cuboid:tie_bar_right",
+        "before": [
+          "59e8a82376931d89"
+        ],
+        "after": [
+          "a21f66ea5abec0cd"
+        ]
+      }
+    ]
+  },
+  "changed_values": [
+    {
+      "path": "xml_case/geometry/assembly[name=Tiebar]/geometry/cuboid[name=tie_bar_left]/position/y",
+      "before": "-0.00020000000000000001",
+      "after": "-0.00022000000000000001"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Tiebar]/geometry/cuboid[name=tie_bar_left]/size/y",
+      "before": "0.00040000000000000002",
+      "after": "0.00044000000000000002"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Tiebar]/geometry/cuboid[name=tie_bar_right]/position/y",
+      "before": "-0.00020000000000000001",
+      "after": "-0.00022000000000000001"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Tiebar]/geometry/cuboid[name=tie_bar_right]/size/y",
+      "before": "0.00040000000000000002",
+      "after": "0.00044000000000000002"
+    }
+  ],
+  "added_leaf_paths": [],
+  "removed_leaf_paths": [],
+  "numeric_formatting_differences_ignored": true,
+  "template_id": "sop",
+  "variation_id": "par_v2_c032_tiebarwidthwtb_0_44",
+  "variation_kind": "numeric_parameter",
+  "comparison_baseline": "baseline/model.xml",
+  "outcome": "semantic_change",
+  "floxml_effect_expectation": null
+}

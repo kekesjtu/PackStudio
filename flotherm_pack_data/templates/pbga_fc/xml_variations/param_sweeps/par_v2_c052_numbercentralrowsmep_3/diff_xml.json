@@ -1,0 +1,67 @@
+{
+  "schema_version": "2.0",
+  "comparison": {
+    "baseline": "flotherm_pack_data/templates/pbga_fc/validation/branch_baselines/br_v2_centralballs_numbercentralrowsmep/model.xml",
+    "variation": "flotherm_pack_data/templates/pbga_fc/xml_variations/param_sweeps/par_v2_c052_numbercentralrowsmep_3/model.xml",
+    "baseline_bytes": 11455,
+    "variation_bytes": 11454,
+    "baseline_sha256": "82B1BD60D37A9ED4108BF897028DE9D5A5A79EDE40799CAC823E615FEDC80C39",
+    "variation_sha256": "ED5A7574946BDC864A017FE2B3209ECBAE6A8D3EC136932B79601AFB66336D7A"
+  },
+  "semantic_change": true,
+  "summary": {
+    "changed_value_count": 2,
+    "added_leaf_count": 0,
+    "removed_leaf_count": 0
+  },
+  "materials": {
+    "added": [],
+    "removed": [],
+    "changed": []
+  },
+  "entities": {
+    "added": [],
+    "removed": [],
+    "changed": [
+      {
+        "name": "assembly:Center_SBall",
+        "before": [
+          "d01dc8b4805a27a2"
+        ],
+        "after": [
+          "6e13d9f95fc198f5"
+        ]
+      },
+      {
+        "name": "cuboid:center_sball",
+        "before": [
+          "d2139bd66afc5407"
+        ],
+        "after": [
+          "5ec27bb6725fc88a"
+        ]
+      }
+    ]
+  },
+  "changed_values": [
+    {
+      "path": "xml_case/geometry/assembly[name=Center_SBall]/geometry/cuboid[name=center_sball]/position/y",
+      "before": "-0.00064999999999999997",
+      "after": "-0.0010500000000000002"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Center_SBall]/geometry/cuboid[name=center_sball]/size/y",
+      "before": "0.0012999999999999999",
+      "after": "0.0021000000000000003"
+    }
+  ],
+  "added_leaf_paths": [],
+  "removed_leaf_paths": [],
+  "numeric_formatting_differences_ignored": true,
+  "template_id": "pbga_fc",
+  "variation_id": "par_v2_c052_numbercentralrowsmep_3",
+  "variation_kind": "numeric_parameter",
+  "comparison_baseline": "validation/branch_baselines/br_v2_centralballs_numbercentralrowsmep/model.xml",
+  "outcome": "semantic_change",
+  "floxml_effect_expectation": null
+}

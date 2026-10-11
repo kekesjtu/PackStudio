@@ -1,0 +1,125 @@
+{
+  "schema_version": "packstudio.runtime-materials/v1",
+  "aliases": {
+    "silicon": {
+      "name": "Silicon (Pure)",
+      "color": "#667085"
+    },
+    "alumina": {
+      "name": "Alumina (Typical)",
+      "color": "#C7CED8"
+    },
+    "bt": {
+      "name": "BT",
+      "color": "#2E7D62"
+    },
+    "pbga-substrate": {
+      "name": "Substrate PBGAFC (Typical)",
+      "color": "#327A68"
+    },
+    "epoxy-mold": {
+      "name": "Epoxy Overmold (Typical)",
+      "color": "#343B46"
+    },
+    "eme-7730lf": {
+      "name": "EME-7730LF",
+      "color": "#414A57"
+    },
+    "dieattach-84-1lmis": {
+      "name": "DieAttach-84-1LMIS",
+      "color": "#C89042"
+    },
+    "qmi-595": {
+      "name": "QMI 595",
+      "color": "#C89042"
+    },
+    "ablestik-8510aa": {
+      "name": "Ablestik 8510AA",
+      "color": "#C89042"
+    },
+    "dieattach-2600bt": {
+      "name": "DieAttach-2600BT",
+      "color": "#D79A3B"
+    },
+    "die-attach": {
+      "name": "DieAttach-84-1LMIS",
+      "color": "#C89042"
+    },
+    "high-k-die-attach": {
+      "name": "DieAttach-2600BT",
+      "color": "#D79A3B"
+    },
+    "solder-sn63": {
+      "name": "Solder (Sn63/Pb37)",
+      "color": "#AEB7C4"
+    },
+    "solder-pb90": {
+      "name": "Solder (Pb90/Sn10)",
+      "color": "#9EA8B5"
+    },
+    "underfill": {
+      "name": "Flip-Chip Underfill (Typical)",
+      "color": "#9B6B43"
+    },
+    "copper": {
+      "name": "Copper (Pure)",
+      "color": "#C46A32"
+    },
+    "leadframe-c194": {
+      "name": "Cu-C19400",
+      "color": "#B96331"
+    },
+    "gold": {
+      "name": "Gold (Pure)",
+      "color": "#D9A928"
+    },
+    "solder-mask": {
+      "name": "Solder Mask Material",
+      "color": "#216C4A"
+    },
+    "lid-copper": {
+      "name": "Copper (Pure)",
+      "color": "#A8572B"
+    },
+    "aluminum": {
+      "name": "Aluminum (Pure)",
+      "color": "#A8B0BA"
+    },
+    "flip-cap-grease": {
+      "name": "Flip-Chip Cap Grease (Typical)",
+      "color": "#C9BDAA"
+    },
+    "stiffener-adhesive": {
+      "name": "Stiffener Adhesive (Typical)",
+      "color": "#9A7556"
+    }
+  },
+  "project_materials": [
+    {
+      "id": "static-air",
+      "name": "Static air",
+      "conductivity": {
+        "x": 0.0261,
+        "y": 0.0261,
+        "z": 0.0261
+      },
+      "density": 1.1614,
+      "specific_heat": 1007.0,
+      "color": "#DDEAF2",
+      "source": "PackStudio built-in transcription of reviewed FloTHERM PACK data"
+    },
+    {
+      "id": "tim",
+      "name": "Thermal interface material",
+      "conductivity": {
+        "x": 3.0,
+        "y": 3.0,
+        "z": 3.0
+      },
+      "density": 2500.0,
+      "specific_heat": 900.0,
+      "color": "#B9A78D",
+      "source": "PackStudio built-in transcription of reviewed FloTHERM PACK data"
+    }
+  ]
+}

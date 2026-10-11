@@ -6,7 +6,8 @@ from xml.etree import ElementTree
 import pytest
 
 from packstudio.domain.enums import StructureType
-from packstudio.templates.package_library.catalog import default_request, definition
+from packstudio.templates.package_library.catalog import definition
+from tests.backend.templates.reference_requests import reference_request
 
 REFERENCE_ROOT = Path(__file__).parents[3] / "flotherm_pack_data" / "templates"
 
@@ -16,7 +17,7 @@ FIELD_PROPERTIES = {
         "die.width": "dieWidthWd",
         "die.thickness": "dieThicknessTd",
     },
-    "flip_chip_cbga": {
+    "cbga_fc": {
         "substrate.length": "substrateLengthD",
         "substrate.width": "substrateWidthE",
         "substrate.thickness": "substrateThicknessA2",
@@ -32,7 +33,7 @@ FIELD_PROPERTIES = {
         "bga.diameter": "ballDiameterB",
         "bga.height": "substrateStandoffA1",
     },
-    "flip_chip_pbga": {
+    "pbga_fc": {
         "substrate.length": "substrateLengthD",
         "substrate.width": "substrateWidthE",
         "substrate.thickness": "substrateThicknessA2",
@@ -48,7 +49,7 @@ FIELD_PROPERTIES = {
         "bga.diameter": "ballDiameterB",
         "bga.height": "substrateStandoffA1",
     },
-    "wirebond_pbga": {
+    "pbga_wb": {
         "trace.top_thickness": "topSignalLayerThickness",
         "trace.bottom_thickness": "bottomSignalLayerThickness",
         "package.length": "substrateLengthD",
@@ -79,7 +80,7 @@ FIELD_PROPERTIES = {
         "bga.diameter": "ballDiameterB",
         "bga.height": "substrateStandoffA1",
     },
-    "fbga_fsbga": {
+    "chip_array": {
         "trace.top_thickness": "topSignalLayerThickness",
         "trace.bottom_thickness": "bottomSignalLayerThickness",
         "package.length": "lengthD",
@@ -130,7 +131,7 @@ FIELD_PROPERTIES = {
         "bond_wire.length_y": "bondWireLengthOnTopBottomLbwy",
         "bond_wire.diameter": "bondWireDiameterDbw",
     },
-    "qfp_family": {
+    "pqfp": {
         "package.length": "lengthD",
         "package.width": "widthE",
         "package.standoff": "standoffA1",
@@ -160,7 +161,7 @@ FIELD_PROPERTIES = {
         "bond_wire.count": "numberOfBondWiresN",
         "bond_wire.diameter": "bondWireDiameterDbw",
     },
-    "soic_family": {
+    "sop": {
         "package.width": "widthE",
         "package.standoff": "standoffA1",
         "body.length": "lengthD1",
@@ -215,7 +216,7 @@ def _native_geometry(
     value: object = None,
 ) -> Counter[GeometryRecord]:
     overrides = field if isinstance(field, dict) else {f"{template_id}.{field}": value}
-    request = default_request(template_id).model_copy(update={"overrides": overrides})
+    request = reference_request(template_id, overrides)
     item = definition(template_id)
     built = item.builder(item.validate_request(request), request)
     records = Counter(_record(draft.origin, draft.size) for draft in built.drafts)
@@ -233,7 +234,7 @@ def _native_geometry(
 
 def _cover_cases() -> list[object]:
     cases = []
-    for template_id in ("flip_chip_cbga", "flip_chip_pbga"):
+    for template_id in ("cbga_fc", "pbga_fc"):
         manifest_path = REFERENCE_ROOT / template_id / "xml_variations.json"
         manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
         for item in manifest["variations"]:

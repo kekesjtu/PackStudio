@@ -1,0 +1,70 @@
+{
+  "schema_version": "2.0",
+  "template_id": "cbga_fc",
+  "variation_id": "opt_v2_c008_includeslug_true",
+  "kind": "boolean_option",
+  "coverage_policy": "alternate_value",
+  "target": {
+    "component": "dropInSlug",
+    "property": "includeSlug",
+    "label": "Include Slug",
+    "baseline": false,
+    "value": true
+  },
+  "comparison_baseline": "validation/branch_baselines/br_v2_dropinslug_includeslug/model.xml",
+  "branch_preconditions": [
+    {
+      "component": "topCover",
+      "property": "topCover",
+      "value": "encapsulant"
+    },
+    {
+      "component": "dropInSlug",
+      "property": "slugLengthLsl",
+      "value": 4
+    },
+    {
+      "component": "dropInSlug",
+      "property": "slugWidthWsl",
+      "value": 4
+    },
+    {
+      "component": "dropInSlug",
+      "property": "slugThicknessTsl",
+      "value": 0.4
+    },
+    {
+      "component": "dropInSlug",
+      "property": "slugDiameterDs",
+      "value": 2
+    },
+    {
+      "component": "dropInSlug",
+      "property": "slugFootExtendLengthLsf",
+      "value": 4.5
+    },
+    {
+      "component": "dropInSlug",
+      "property": "slugFootExtendWidthWsf",
+      "value": 4.5
+    },
+    {
+      "component": "dropInSlug",
+      "property": "slugOffsetGs",
+      "value": 0.1
+    },
+    {
+      "component": "dropInSlug",
+      "property": "slugFootClearanceGsf",
+      "value": 0.1
+    }
+  ],
+  "required_dependent_initialization": {},
+  "single_variable_relative_to_comparison_baseline": true,
+  "material_policy": "default_only",
+  "property_evidence": [
+    "recorded_modify_component",
+    "installed_dll_ascii_string"
+  ],
+  "execution_status": "pending_replay"
+}

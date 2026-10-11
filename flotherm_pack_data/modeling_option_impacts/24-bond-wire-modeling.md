@@ -34,5 +34,5 @@ bondwire 材料换成低导热树脂，而是让等效块不存在，原位置�
 
 ## 证据
 
-- `../templates/fbga_fsbga/xml_variations/option_switches/opt_v2_c007_bondwiremodeling_ignore/`
-- 基准：`../templates/fbga_fsbga/baseline/model.xml`
+- `../templates/chip_array/xml_variations/option_switches/opt_v2_c007_bondwiremodeling_ignore/`
+- 基准：`../templates/chip_array/baseline/model.xml`

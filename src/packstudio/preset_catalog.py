@@ -10,16 +10,20 @@ class PresetCatalog:
 
     def list_ids(self, family: str | None = None) -> list[str]:
         index = read_defaults("presets/index.json", "packstudio.preset-index/v1")
-        return [name for name, entry in index["presets"].items()
-                if family is None or entry["family"] == family]
+        return [
+            name
+            for name, entry in index["presets"].items()
+            if family is None or entry["family"] == family
+        ]
 
     def read(self, preset_id: str) -> dict:
         index = read_defaults("presets/index.json", "packstudio.preset-index/v1")
         if preset_id not in index["presets"]:
             raise ValueError(f"unknown catalog preset: {preset_id}")
         entry = index["presets"][preset_id]
-        payload = read_catalog_entry(f"presets/{entry['file']}", "packstudio.preset/v1",
-                                     entry["sha256"])
+        payload = read_catalog_entry(
+            f"presets/{entry['file']}", "packstudio.preset/v1", entry["sha256"]
+        )
         if payload["id"] != preset_id or payload["family"] != entry["family"]:
             raise ValueError(f"preset identity mismatch: {preset_id}")
         names = set(MaterialCatalog().list_names())
@@ -27,14 +31,16 @@ class PresetCatalog:
             raise ValueError(f"unresolved preset materials: {sorted(missing)}")
         return payload
 
-    def read_branch(self, preset_id: str, branch: str = "default",
-                    *, resolve_materials: bool = False) -> dict:
+    def read_branch(
+        self, preset_id: str, branch: str = "default", *, resolve_materials: bool = False
+    ) -> dict:
         payload = self.read(preset_id)
         if branch not in payload["branches"]:
             raise ValueError(f"unknown preset branch: {preset_id}/{branch}")
         result = payload["branches"][branch]
         if resolve_materials:
             materials = MaterialCatalog()
-            result["materials"] = {name: materials.read(name)
-                                   for name in payload["material_references"]}
+            result["materials"] = {
+                name: materials.read(name) for name in payload["material_references"]
+            }
         return result

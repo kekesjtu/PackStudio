@@ -3,39 +3,26 @@ from typing import Any
 
 from packstudio.domain.model import PackageModel
 from packstudio.templates.package_library.bare_die import template as bare_die
-from packstudio.templates.package_library.bga import fbga_fsbga, wirebond_pbga
+from packstudio.templates.package_library.bga import chip_array, pbga_wb
 from packstudio.templates.package_library.core.default_library import template_defaults
 from packstudio.templates.package_library.core.definitions import TemplateDefinition
 from packstudio.templates.package_library.core.generator import generate_template
 from packstudio.templates.package_library.core.parameters import TemplateRequest
-from packstudio.templates.package_library.flip_chip import (
-    cbga as flip_chip_cbga,
-)
-from packstudio.templates.package_library.flip_chip import (
-    pbga as flip_chip_pbga,
-)
-from packstudio.templates.package_library.leadframe import (
-    qfn,
-)
-from packstudio.templates.package_library.leadframe import (
-    qfp as qfp_family,
-)
-from packstudio.templates.package_library.leadframe import (
-    soic as soic_family,
-)
+from packstudio.templates.package_library.flip_chip import cbga_fc, pbga_fc
+from packstudio.templates.package_library.leadframe import pqfp, qfn, sop
 
 
 @lru_cache(maxsize=1)
 def definitions() -> dict[str, TemplateDefinition]:
     items = (
-        flip_chip_cbga.definition(),
-        flip_chip_pbga.definition(),
-        wirebond_pbga.definition(),
-        fbga_fsbga.definition(),
-        qfn.definition(),
-        qfp_family.definition(),
-        soic_family.definition(),
+        chip_array.definition(),
         bare_die.definition(),
+        cbga_fc.definition(),
+        pbga_fc.definition(),
+        pqfp.definition(),
+        qfn.definition(),
+        sop.definition(),
+        pbga_wb.definition(),
     )
     return {item.id: item for item in items}
 

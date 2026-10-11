@@ -1,0 +1,190 @@
+{
+  "schema_version": "2.0",
+  "comparison": {
+    "baseline": "flotherm_pack_data/templates/chip_array/validation/branch_baselines/br_v2_solderballdepopulation_numberfullypopulatedrowsmep/model.xml",
+    "variation": "flotherm_pack_data/templates/chip_array/xml_variations/param_sweeps/par_v2_c051_numberfullypopulatedrowsmep_1/model.xml",
+    "baseline_bytes": 39010,
+    "variation_bytes": 31853,
+    "baseline_sha256": "2E73C42B8EC6551C64A7FA02B1F1DFA25BB7203EB1076270CB96664987403E2A",
+    "variation_sha256": "1C3BDD26F35D5D1F081238189E7355A27CBAEF78A146393A0245558025444678"
+  },
+  "semantic_change": true,
+  "summary": {
+    "changed_value_count": 8,
+    "added_leaf_count": 0,
+    "removed_leaf_count": 96
+  },
+  "materials": {
+    "added": [],
+    "removed": [],
+    "changed": [
+      {
+        "name": "bondwire1",
+        "before": {
+          "type": "orthotropic_material_att",
+          "density": "2964.06332468",
+          "specific_heat": "562.375744098",
+          "x_conductivity": "20.0086488012",
+          "y_conductivity": "0.68",
+          "z_conductivity": "20.0086488012"
+        },
+        "after": {
+          "type": "orthotropic_material_att",
+          "density": "2749.5514513",
+          "specific_heat": "602.044678925",
+          "x_conductivity": "16.384527151",
+          "y_conductivity": "0.68",
+          "z_conductivity": "16.384527151"
+        }
+      },
+      {
+        "name": "bondwire2",
+        "before": {
+          "type": "orthotropic_material_att",
+          "density": "2964.06332468",
+          "specific_heat": "562.375744098",
+          "x_conductivity": "0.68",
+          "y_conductivity": "20.0086488012",
+          "z_conductivity": "20.0086488012"
+        },
+        "after": {
+          "type": "orthotropic_material_att",
+          "density": "2749.5514513",
+          "specific_heat": "602.044678925",
+          "x_conductivity": "0.68",
+          "y_conductivity": "16.384527151",
+          "z_conductivity": "16.384527151"
+        }
+      }
+    ]
+  },
+  "entities": {
+    "added": [],
+    "removed": [
+      "cuboid:solder_ball_2_1",
+      "cuboid:solder_ball_2_5",
+      "cuboid:solder_ball_3_1",
+      "cuboid:solder_ball_3_5",
+      "cuboid:solder_ball_4_1",
+      "cuboid:solder_ball_4_5",
+      "cuboid:thermal_via_2_1",
+      "cuboid:thermal_via_2_5",
+      "cuboid:thermal_via_3_1",
+      "cuboid:thermal_via_3_5",
+      "cuboid:thermal_via_4_1",
+      "cuboid:thermal_via_4_5"
+    ],
+    "changed": [
+      {
+        "name": "assembly:Solder_ball",
+        "before": [
+          "48260aeb96ad7efc"
+        ],
+        "after": [
+          "8199b669a1425900"
+        ]
+      },
+      {
+        "name": "assembly:Thermal_Via",
+        "before": [
+          "a7cf3bc394de6cec"
+        ],
+        "after": [
+          "4b139fdc5a9cdefe"
+        ]
+      }
+    ]
+  },
+  "changed_values": [
+    {
+      "path": "xml_case/attributes/materials/orthotropic_material_att[name=bondwire1]/density",
+      "before": "2964.0633246822831",
+      "after": "2749.5514513043554"
+    },
+    {
+      "path": "xml_case/attributes/materials/orthotropic_material_att[name=bondwire1]/specific_heat",
+      "before": "562.37574409793615",
+      "after": "602.04467892541027"
+    },
+    {
+      "path": "xml_case/attributes/materials/orthotropic_material_att[name=bondwire1]/x_conductivity",
+      "before": "20.008648801211205",
+      "after": "16.384527150984106"
+    },
+    {
+      "path": "xml_case/attributes/materials/orthotropic_material_att[name=bondwire1]/z_conductivity",
+      "before": "20.008648801211205",
+      "after": "16.384527150984106"
+    },
+    {
+      "path": "xml_case/attributes/materials/orthotropic_material_att[name=bondwire2]/density",
+      "before": "2964.0633246822831",
+      "after": "2749.5514513043554"
+    },
+    {
+      "path": "xml_case/attributes/materials/orthotropic_material_att[name=bondwire2]/specific_heat",
+      "before": "562.37574409793615",
+      "after": "602.04467892541027"
+    },
+    {
+      "path": "xml_case/attributes/materials/orthotropic_material_att[name=bondwire2]/y_conductivity",
+      "before": "20.008648801211205",
+      "after": "16.384527150984106"
+    },
+    {
+      "path": "xml_case/attributes/materials/orthotropic_material_att[name=bondwire2]/z_conductivity",
+      "before": "20.008648801211205",
+      "after": "16.384527150984106"
+    }
+  ],
+  "added_leaf_paths": [],
+  "removed_leaf_paths": [
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_2_1]/material",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_2_1]/name",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_2_1]/position/x",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_2_1]/position/y",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_2_1]/position/z",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_2_1]/size/x",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_2_1]/size/y",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_2_1]/size/z",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_2_5]/material",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_2_5]/name",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_2_5]/position/x",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_2_5]/position/y",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_2_5]/position/z",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_2_5]/size/x",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_2_5]/size/y",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_2_5]/size/z",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_3_1]/material",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_3_1]/name",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_3_1]/position/x",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_3_1]/position/y",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_3_1]/position/z",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_3_1]/size/x",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_3_1]/size/y",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_3_1]/size/z",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_3_5]/material",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_3_5]/name",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_3_5]/position/x",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_3_5]/position/y",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_3_5]/position/z",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_3_5]/size/x",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_3_5]/size/y",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_3_5]/size/z",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_4_1]/material",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_4_1]/name",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_4_1]/position/x",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_4_1]/position/y",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_4_1]/position/z",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_4_1]/size/x",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_4_1]/size/y",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_4_1]/size/z"
+  ],
+  "numeric_formatting_differences_ignored": true,
+  "template_id": "chip_array",
+  "variation_id": "par_v2_c051_numberfullypopulatedrowsmep_1",
+  "variation_kind": "numeric_parameter",
+  "comparison_baseline": "validation/branch_baselines/br_v2_solderballdepopulation_numberfullypopulatedrowsmep/model.xml",
+  "outcome": "semantic_change",
+  "floxml_effect_expectation": null
+}

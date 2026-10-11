@@ -2,7 +2,7 @@ from math import ceil, sqrt
 
 from packstudio.domain.enums import StructureType
 from packstudio.domain.geometry import AxisAlignedBlock, Point3D, Size3D
-from packstudio.templates.flip_chip_cbga.equivalent import create_equivalent_material
+from packstudio.templates.cbga_fc.equivalent import create_equivalent_material
 from packstudio.templates.package_library.core.builds import LayerBuild
 from packstudio.templates.package_library.core.definitions import TemplateValues
 from packstudio.templates.package_library.core.materials import material

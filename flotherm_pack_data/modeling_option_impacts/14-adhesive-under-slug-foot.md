@@ -37,5 +37,5 @@ adh_upper/lower depth = (Wsf - Wsl) / 2
 
 ## 证据
 
-- `../templates/flip_chip_cbga/xml_variations/option_switches/opt_v2_c009_adhesivepresentunderslugfoot_true/`
-- `../templates/flip_chip_pbga/xml_variations/option_switches/opt_v2_c011_adhesivepresentunderslugfoot_true/`
+- `../templates/cbga_fc/xml_variations/option_switches/opt_v2_c009_adhesivepresentunderslugfoot_true/`
+- `../templates/pbga_fc/xml_variations/option_switches/opt_v2_c011_adhesivepresentunderslugfoot_true/`

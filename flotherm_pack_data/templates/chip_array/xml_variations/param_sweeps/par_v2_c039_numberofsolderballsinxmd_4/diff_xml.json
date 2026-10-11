@@ -1,0 +1,717 @@
+{
+  "schema_version": "2.0",
+  "comparison": {
+    "baseline": "flotherm_pack_data/templates/chip_array/baseline/model.xml",
+    "variation": "flotherm_pack_data/templates/chip_array/xml_variations/param_sweeps/par_v2_c039_numberofsolderballsinxmd_4/model.xml",
+    "baseline_bytes": 49732,
+    "variation_bytes": 43828,
+    "baseline_sha256": "BB8855B47DDB172F6D5C3E7056F3229923EC67BF23A86252DB33EAC6B5664226",
+    "variation_sha256": "FF886C8E6A60D319D4A91915C6902299862181469A80B86BEDF7E724AABD4343"
+  },
+  "semantic_change": true,
+  "summary": {
+    "changed_value_count": 50,
+    "added_leaf_count": 0,
+    "removed_leaf_count": 80
+  },
+  "materials": {
+    "added": [],
+    "removed": [],
+    "changed": [
+      {
+        "name": "bondwire1",
+        "before": {
+          "type": "orthotropic_material_att",
+          "density": "3607.59894482",
+          "specific_heat": "471.674051092",
+          "x_conductivity": "30.8810137519",
+          "y_conductivity": "0.68",
+          "z_conductivity": "30.8810137519"
+        },
+        "after": {
+          "type": "orthotropic_material_att",
+          "density": "3250.07915585",
+          "specific_heat": "517.629438097",
+          "x_conductivity": "24.8408110015",
+          "y_conductivity": "0.68",
+          "z_conductivity": "24.8408110015"
+        }
+      },
+      {
+        "name": "bondwire2",
+        "before": {
+          "type": "orthotropic_material_att",
+          "density": "3607.59894482",
+          "specific_heat": "471.674051092",
+          "x_conductivity": "0.68",
+          "y_conductivity": "30.8810137519",
+          "z_conductivity": "30.8810137519"
+        },
+        "after": {
+          "type": "orthotropic_material_att",
+          "density": "3250.07915585",
+          "specific_heat": "517.629438097",
+          "x_conductivity": "0.68",
+          "y_conductivity": "24.8408110015",
+          "z_conductivity": "24.8408110015"
+        }
+      }
+    ]
+  },
+  "entities": {
+    "added": [],
+    "removed": [
+      "cuboid:solder_ball_5_1",
+      "cuboid:solder_ball_5_2",
+      "cuboid:solder_ball_5_3",
+      "cuboid:solder_ball_5_4",
+      "cuboid:solder_ball_5_5",
+      "cuboid:thermal_via_5_1",
+      "cuboid:thermal_via_5_2",
+      "cuboid:thermal_via_5_3",
+      "cuboid:thermal_via_5_4",
+      "cuboid:thermal_via_5_5"
+    ],
+    "changed": [
+      {
+        "name": "assembly:Solder_ball",
+        "before": [
+          "a58f48a31471d429"
+        ],
+        "after": [
+          "74e84fad0c93f595"
+        ]
+      },
+      {
+        "name": "assembly:Thermal_Via",
+        "before": [
+          "da895382666f0943"
+        ],
+        "after": [
+          "b6fbc5b1d3709b17"
+        ]
+      },
+      {
+        "name": "cuboid:solder_ball_1_1",
+        "before": [
+          "f139d08fcb0994ea"
+        ],
+        "after": [
+          "4a084bf315738d57"
+        ]
+      },
+      {
+        "name": "cuboid:solder_ball_1_2",
+        "before": [
+          "9510350d69dd1713"
+        ],
+        "after": [
+          "fb5752e328f9b6f5"
+        ]
+      },
+      {
+        "name": "cuboid:solder_ball_1_3",
+        "before": [
+          "2e71a18df0d2d163"
+        ],
+        "after": [
+          "5675d854d8d22b9b"
+        ]
+      },
+      {
+        "name": "cuboid:solder_ball_1_4",
+        "before": [
+          "0439019fd4f86099"
+        ],
+        "after": [
+          "4cdd473e1cdad6c4"
+        ]
+      },
+      {
+        "name": "cuboid:solder_ball_1_5",
+        "before": [
+          "586327aa1b86340e"
+        ],
+        "after": [
+          "073cf61246b36b40"
+        ]
+      },
+      {
+        "name": "cuboid:solder_ball_2_1",
+        "before": [
+          "201c07ff012f0834"
+        ],
+        "after": [
+          "1b967133bc907ea9"
+        ]
+      },
+      {
+        "name": "cuboid:solder_ball_2_2",
+        "before": [
+          "c3d2128cf8a1e0aa"
+        ],
+        "after": [
+          "e5f39f5476253370"
+        ]
+      },
+      {
+        "name": "cuboid:solder_ball_2_3",
+        "before": [
+          "b1f1d2439e2e09cd"
+        ],
+        "after": [
+          "7e682acc1263e1e2"
+        ]
+      },
+      {
+        "name": "cuboid:solder_ball_2_4",
+        "before": [
+          "38c4cbdb642bd52b"
+        ],
+        "after": [
+          "8349e585238fd37e"
+        ]
+      },
+      {
+        "name": "cuboid:solder_ball_2_5",
+        "before": [
+          "e1c1b91336cd3cba"
+        ],
+        "after": [
+          "405b20f8325a9de3"
+        ]
+      },
+      {
+        "name": "cuboid:solder_ball_3_1",
+        "before": [
+          "736faf081d2faa08"
+        ],
+        "after": [
+          "1dc94f8b0f674761"
+        ]
+      },
+      {
+        "name": "cuboid:solder_ball_3_2",
+        "before": [
+          "e2bd459034cc0336"
+        ],
+        "after": [
+          "535996f1e6c65eb3"
+        ]
+      },
+      {
+        "name": "cuboid:solder_ball_3_3",
+        "before": [
+          "425d85525225e6b0"
+        ],
+        "after": [
+          "15d2918d55981aef"
+        ]
+      },
+      {
+        "name": "cuboid:solder_ball_3_4",
+        "before": [
+          "80203ee8d2de0571"
+        ],
+        "after": [
+          "f4901335c6f5fcb2"
+        ]
+      },
+      {
+        "name": "cuboid:solder_ball_3_5",
+        "before": [
+          "1cc42b706d09db6f"
+        ],
+        "after": [
+          "1a9c3b3f0fe66e56"
+        ]
+      },
+      {
+        "name": "cuboid:solder_ball_4_1",
+        "before": [
+          "56c174c9405bec28"
+        ],
+        "after": [
+          "84b7889d1a1db2a4"
+        ]
+      },
+      {
+        "name": "cuboid:solder_ball_4_2",
+        "before": [
+          "090c2dd2c5cd31dd"
+        ],
+        "after": [
+          "89211d536274bd0e"
+        ]
+      },
+      {
+        "name": "cuboid:solder_ball_4_3",
+        "before": [
+          "9e69518ca9500270"
+        ],
+        "after": [
+          "5a3cb41ab32eb3b9"
+        ]
+      },
+      {
+        "name": "cuboid:solder_ball_4_4",
+        "before": [
+          "0ce70debc97c5962"
+        ],
+        "after": [
+          "5af60ace1f42d46e"
+        ]
+      },
+      {
+        "name": "cuboid:solder_ball_4_5",
+        "before": [
+          "39102f3e23b428b2"
+        ],
+        "after": [
+          "f71940ecc964a78e"
+        ]
+      },
+      {
+        "name": "cuboid:thermal_via_1_1",
+        "before": [
+          "3e0356be22d28f7d"
+        ],
+        "after": [
+          "5654f1028e67c4d5"
+        ]
+      },
+      {
+        "name": "cuboid:thermal_via_1_2",
+        "before": [
+          "1f1e16a61dac0548"
+        ],
+        "after": [
+          "e7d1804aaadfb9bd"
+        ]
+      },
+      {
+        "name": "cuboid:thermal_via_1_3",
+        "before": [
+          "bdb2b151281b130c"
+        ],
+        "after": [
+          "225b4c382bb9d516"
+        ]
+      },
+      {
+        "name": "cuboid:thermal_via_1_4",
+        "before": [
+          "0251a9425e5a5108"
+        ],
+        "after": [
+          "155a7977aaa82be8"
+        ]
+      },
+      {
+        "name": "cuboid:thermal_via_1_5",
+        "before": [
+          "f9afba92b07fb3fa"
+        ],
+        "after": [
+          "56a37eb2a017945e"
+        ]
+      },
+      {
+        "name": "cuboid:thermal_via_2_1",
+        "before": [
+          "66d41fbd054e0f19"
+        ],
+        "after": [
+          "f1f9197953e696e9"
+        ]
+      },
+      {
+        "name": "cuboid:thermal_via_2_2",
+        "before": [
+          "760853b658fe87a2"
+        ],
+        "after": [
+          "7796bd09c28fa0c0"
+        ]
+      },
+      {
+        "name": "cuboid:thermal_via_2_3",
+        "before": [
+          "1c3080b22eeb7a53"
+        ],
+        "after": [
+          "b4a2c93bb0df2cab"
+        ]
+      },
+      {
+        "name": "cuboid:thermal_via_2_4",
+        "before": [
+          "aa99559e4dd39eaf"
+        ],
+        "after": [
+          "fc53d5d885dc16e7"
+        ]
+      },
+      {
+        "name": "cuboid:thermal_via_2_5",
+        "before": [
+          "717ce253bf6ffea1"
+        ],
+        "after": [
+          "6c2a526ac1273f20"
+        ]
+      },
+      {
+        "name": "cuboid:thermal_via_3_1",
+        "before": [
+          "7647882454f9db1f"
+        ],
+        "after": [
+          "a176c5517045783e"
+        ]
+      },
+      {
+        "name": "cuboid:thermal_via_3_2",
+        "before": [
+          "c68f73b29ae9fa35"
+        ],
+        "after": [
+          "e242406810f7378b"
+        ]
+      },
+      {
+        "name": "cuboid:thermal_via_3_3",
+        "before": [
+          "3cd0bcc3d22dda89"
+        ],
+        "after": [
+          "a7194fce88ce7664"
+        ]
+      },
+      {
+        "name": "cuboid:thermal_via_3_4",
+        "before": [
+          "2c79d2e1ec01bef8"
+        ],
+        "after": [
+          "8ac69280610bb5a9"
+        ]
+      },
+      {
+        "name": "cuboid:thermal_via_3_5",
+        "before": [
+          "6da9703dd9fcb99f"
+        ],
+        "after": [
+          "f05c1f1bb0de3264"
+        ]
+      },
+      {
+        "name": "cuboid:thermal_via_4_1",
+        "before": [
+          "8ab3be674cf3aa72"
+        ],
+        "after": [
+          "dfd9cd3f5e93292c"
+        ]
+      },
+      {
+        "name": "cuboid:thermal_via_4_2",
+        "before": [
+          "34952e4a10edc73d"
+        ],
+        "after": [
+          "270ec3a167956cc5"
+        ]
+      },
+      {
+        "name": "cuboid:thermal_via_4_3",
+        "before": [
+          "0ec0f894962566bf"
+        ],
+        "after": [
+          "472b18cbd7ea69fc"
+        ]
+      },
+      {
+        "name": "cuboid:thermal_via_4_4",
+        "before": [
+          "1fff041847266b47"
+        ],
+        "after": [
+          "85a0052b8d302537"
+        ]
+      },
+      {
+        "name": "cuboid:thermal_via_4_5",
+        "before": [
+          "b7dbc509db3fc718"
+        ],
+        "after": [
+          "376f85f8a1059b40"
+        ]
+      },
+      {
+        "name": "region:z_bottom",
+        "before": [
+          "a74f30ef64cf1b5e"
+        ],
+        "after": [
+          "0d6adf67843a1ce0"
+        ]
+      }
+    ]
+  },
+  "changed_values": [
+    {
+      "path": "xml_case/attributes/materials/orthotropic_material_att[name=bondwire1]/density",
+      "before": "3607.5989448160672",
+      "after": "3250.0791558528535"
+    },
+    {
+      "path": "xml_case/attributes/materials/orthotropic_material_att[name=bondwire1]/specific_heat",
+      "before": "471.67405109241815",
+      "after": "517.62943809688227"
+    },
+    {
+      "path": "xml_case/attributes/materials/orthotropic_material_att[name=bondwire1]/x_conductivity",
+      "before": "30.881013751892507",
+      "after": "24.840811001514005"
+    },
+    {
+      "path": "xml_case/attributes/materials/orthotropic_material_att[name=bondwire1]/z_conductivity",
+      "before": "30.881013751892507",
+      "after": "24.840811001514005"
+    },
+    {
+      "path": "xml_case/attributes/materials/orthotropic_material_att[name=bondwire2]/density",
+      "before": "3607.5989448160672",
+      "after": "3250.0791558528535"
+    },
+    {
+      "path": "xml_case/attributes/materials/orthotropic_material_att[name=bondwire2]/specific_heat",
+      "before": "471.67405109241815",
+      "after": "517.62943809688227"
+    },
+    {
+      "path": "xml_case/attributes/materials/orthotropic_material_att[name=bondwire2]/y_conductivity",
+      "before": "30.881013751892507",
+      "after": "24.840811001514005"
+    },
+    {
+      "path": "xml_case/attributes/materials/orthotropic_material_att[name=bondwire2]/z_conductivity",
+      "before": "30.881013751892507",
+      "after": "24.840811001514005"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_1_1]/position/x",
+      "before": "-0.0018038321928541344",
+      "after": "-0.0014038321928541344"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_1_2]/position/x",
+      "before": "-0.0018038321928541344",
+      "after": "-0.0014038321928541344"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_1_3]/position/x",
+      "before": "-0.0018038321928541344",
+      "after": "-0.0014038321928541344"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_1_4]/position/x",
+      "before": "-0.0018038321928541344",
+      "after": "-0.0014038321928541344"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_1_5]/position/x",
+      "before": "-0.0018038321928541344",
+      "after": "-0.0014038321928541344"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_2_1]/position/x",
+      "before": "-0.0010038321928541344",
+      "after": "-0.00060383219285413446"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_2_2]/position/x",
+      "before": "-0.0010038321928541344",
+      "after": "-0.00060383219285413446"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_2_3]/position/x",
+      "before": "-0.0010038321928541344",
+      "after": "-0.00060383219285413446"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_2_4]/position/x",
+      "before": "-0.0010038321928541344",
+      "after": "-0.00060383219285413446"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_2_5]/position/x",
+      "before": "-0.0010038321928541344",
+      "after": "-0.00060383219285413446"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_3_1]/position/x",
+      "before": "-0.00020383219285413434",
+      "after": "0.00019616780714586563"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_3_2]/position/x",
+      "before": "-0.00020383219285413434",
+      "after": "0.00019616780714586563"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_3_3]/position/x",
+      "before": "-0.00020383219285413434",
+      "after": "0.00019616780714586563"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_3_4]/position/x",
+      "before": "-0.00020383219285413434",
+      "after": "0.00019616780714586563"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_3_5]/position/x",
+      "before": "-0.00020383219285413434",
+      "after": "0.00019616780714586563"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_4_1]/position/x",
+      "before": "0.00059616780714586586",
+      "after": "0.00099616780714586583"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_4_2]/position/x",
+      "before": "0.00059616780714586586",
+      "after": "0.00099616780714586583"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_4_3]/position/x",
+      "before": "0.00059616780714586586",
+      "after": "0.00099616780714586583"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_4_4]/position/x",
+      "before": "0.00059616780714586586",
+      "after": "0.00099616780714586583"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_4_5]/position/x",
+      "before": "0.00059616780714586586",
+      "after": "0.00099616780714586583"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Thermal_Via]/geometry/cuboid[name=thermal_via_1_1]/position/x",
+      "before": "-0.001288622692545276",
+      "after": "-0.00088862269254527595"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Thermal_Via]/geometry/cuboid[name=thermal_via_1_2]/position/x",
+      "before": "-0.001288622692545276",
+      "after": "-0.00088862269254527595"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Thermal_Via]/geometry/cuboid[name=thermal_via_1_3]/position/x",
+      "before": "-0.001288622692545276",
+      "after": "-0.00088862269254527595"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Thermal_Via]/geometry/cuboid[name=thermal_via_1_4]/position/x",
+      "before": "-0.001288622692545276",
+      "after": "-0.00088862269254527595"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Thermal_Via]/geometry/cuboid[name=thermal_via_1_5]/position/x",
+      "before": "-0.001288622692545276",
+      "after": "-0.00088862269254527595"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Thermal_Via]/geometry/cuboid[name=thermal_via_2_1]/position/x",
+      "before": "-0.00048862269254527587",
+      "after": "-8.8622692545275907e-05"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Thermal_Via]/geometry/cuboid[name=thermal_via_2_2]/position/x",
+      "before": "-0.00048862269254527587",
+      "after": "-8.8622692545275907e-05"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Thermal_Via]/geometry/cuboid[name=thermal_via_2_3]/position/x",
+      "before": "-0.00048862269254527587",
+      "after": "-8.8622692545275907e-05"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Thermal_Via]/geometry/cuboid[name=thermal_via_2_4]/position/x",
+      "before": "-0.00048862269254527587",
+      "after": "-8.8622692545275907e-05"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Thermal_Via]/geometry/cuboid[name=thermal_via_2_5]/position/x",
+      "before": "-0.00048862269254527587",
+      "after": "-8.8622692545275907e-05"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Thermal_Via]/geometry/cuboid[name=thermal_via_3_1]/position/x",
+      "before": "0.00031137730745472417",
+      "after": "0.00071137730745472413"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Thermal_Via]/geometry/cuboid[name=thermal_via_3_2]/position/x",
+      "before": "0.00031137730745472417",
+      "after": "0.00071137730745472413"
+    }
+  ],
+  "added_leaf_paths": [],
+  "removed_leaf_paths": [
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_5_1]/material",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_5_1]/name",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_5_1]/position/x",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_5_1]/position/y",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_5_1]/position/z",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_5_1]/size/x",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_5_1]/size/y",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_5_1]/size/z",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_5_2]/material",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_5_2]/name",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_5_2]/position/x",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_5_2]/position/y",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_5_2]/position/z",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_5_2]/size/x",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_5_2]/size/y",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_5_2]/size/z",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_5_3]/material",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_5_3]/name",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_5_3]/position/x",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_5_3]/position/y",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_5_3]/position/z",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_5_3]/size/x",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_5_3]/size/y",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_5_3]/size/z",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_5_4]/material",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_5_4]/name",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_5_4]/position/x",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_5_4]/position/y",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_5_4]/position/z",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_5_4]/size/x",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_5_4]/size/y",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_5_4]/size/z",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_5_5]/material",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_5_5]/name",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_5_5]/position/x",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_5_5]/position/y",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_5_5]/position/z",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_5_5]/size/x",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_5_5]/size/y",
+    "xml_case/geometry/assembly[name=Solder_ball]/geometry/cuboid[name=solder_ball_5_5]/size/z"
+  ],
+  "numeric_formatting_differences_ignored": true,
+  "template_id": "chip_array",
+  "variation_id": "par_v2_c039_numberofsolderballsinxmd_4",
+  "variation_kind": "numeric_parameter",
+  "comparison_baseline": "baseline/model.xml",
+  "outcome": "semantic_change",
+  "floxml_effect_expectation": null
+}

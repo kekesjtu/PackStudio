@@ -77,5 +77,5 @@ stagger 的棋盘格折减或独立 central array 计入。组合选项的应用
 
 ## 证据
 
-- `../templates/fbga_fsbga/xml_variations/option_switches/opt_v2_c004_numberbondwiresequalssolderb_no/`
-- `../templates/fbga_fsbga/validation/branch_baselines/br_v2_bondwires_numberbondwiresequalssolderballs/`
+- `../templates/chip_array/xml_variations/option_switches/opt_v2_c004_numberbondwiresequalssolderb_no/`
+- `../templates/chip_array/validation/branch_baselines/br_v2_bondwires_numberbondwiresequalssolderballs/`

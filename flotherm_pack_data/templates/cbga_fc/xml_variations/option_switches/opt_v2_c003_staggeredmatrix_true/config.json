@@ -1,0 +1,24 @@
+{
+  "schema_version": "2.0",
+  "template_id": "cbga_fc",
+  "variation_id": "opt_v2_c003_staggeredmatrix_true",
+  "kind": "boolean_option",
+  "coverage_policy": "alternate_value",
+  "target": {
+    "component": "solderBalls",
+    "property": "staggeredMatrix",
+    "label": "Staggered Matrix",
+    "baseline": false,
+    "value": true
+  },
+  "comparison_baseline": "baseline/model.xml",
+  "branch_preconditions": [],
+  "required_dependent_initialization": {},
+  "single_variable_relative_to_comparison_baseline": true,
+  "material_policy": "default_only",
+  "property_evidence": [
+    "recorded_modify_component",
+    "installed_dll_ascii_string"
+  ],
+  "execution_status": "pending_replay"
+}

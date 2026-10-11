@@ -1,7 +1,7 @@
 import pytest
 
-from packstudio.default_parameters import read_defaults
 from packstudio.domain.enums import StructureType
+from packstudio.preset_catalog import PresetCatalog
 from packstudio.templates.package_library.catalog import (
     catalog,
     default_request,
@@ -9,20 +9,21 @@ from packstudio.templates.package_library.catalog import (
     generate,
     schema,
 )
+from packstudio.templates.package_library.core.native_presets import read_binding
 from packstudio.templates.package_library.core.parameters import TemplateRequest
 
 VERIFIED_JEDEC_OPTIONS = {
-    "flip_chip_cbga": {"CBGAFC_49_6X6mm", "CBGAFC_81_8X8mm", "CBGAFC_144_10X10mm"},
-    "flip_chip_pbga": {"PBGAFC_49_6X6mm", "PBGAFC_81_8X8mm", "PBGAFC_144_10X10mm"},
-    "wirebond_pbga": {"PBGA_121_15X15mm", "PBGA_352_35X35mm", "PBGA_896_40X40mm"},
-    "fbga_fsbga": {
+    "cbga_fc": {"CBGAFC_49_6X6mm", "CBGAFC_81_8X8mm", "CBGAFC_144_10X10mm"},
+    "pbga_fc": {"PBGAFC_49_6X6mm", "PBGAFC_81_8X8mm", "PBGAFC_144_10X10mm"},
+    "pbga_wb": {"PBGA_121_15X15mm", "PBGA_352_35X35mm", "PBGA_896_40X40mm"},
+    "chip_array": {
         "ChipArray_24_4X4mm_0_8",
         "ChipArray_100_10X10mm_0_8",
         "ChipArray_324_19X19mm_1",
     },
     "qfn": {"QFN_12X12_100", "QFN_6X6_36", "QFN_3X3_8"},
-    "qfp_family": {"LQFP_32_7X7mm", "LQFP_100_14X20mm", "LQFP_208_28X28mm"},
-    "soic_family": {"SOP_8_3_81x4_93", "SOP_28_7_6x17_9", "SOP_44_13_3x28_2"},
+    "pqfp": {"LQFP_32_7X7mm", "LQFP_100_14X20mm", "LQFP_208_28X28mm"},
+    "sop": {"SOP_8_3_81x4_93", "SOP_28_7_6x17_9", "SOP_44_13_3x28_2"},
 }
 
 
@@ -46,12 +47,12 @@ def test_all_source_options_include_existing_captured_floxml_variants() -> None:
         )
 
         assert set(footprint.options) >= expected
-    adapters = read_defaults("source_adapters.json", "packstudio.source-adapters/v1")
-    for family, adapter in adapters["families"].items():
-        records = read_defaults(f"flotherm/{family}.json", "packstudio.flotherm-presets/v1")
-        footprint = next(field for field in definition_map[adapter["template_id"]].fields
-                         if field.control == "footprint")
-        assert set(footprint.options) == {record["id"] for record in records["records"]}
+    for template_id, item in definition_map.items():
+        if template_id == "bare_die":
+            continue
+        family = read_binding(template_id)["family"]
+        footprint = next(field for field in item.fields if field.control == "footprint")
+        assert set(footprint.options) == set(PresetCatalog().list_ids(family))
 
 
 @pytest.mark.parametrize("template_id", list(definitions()))
@@ -73,10 +74,10 @@ def test_every_size_preset_generates_without_reference_data(template_id: str) ->
 def test_footprint_values_are_defaults_but_manual_dimensions_can_be_fine_tuned() -> None:
     model = generate(
         TemplateRequest(
-            template_id="flip_chip_cbga",
+            template_id="cbga_fc",
             overrides={
-                "flip_chip_cbga.footprint.size": "CBGAFC_81_8X8mm",
-                "flip_chip_cbga.substrate.length": 8.4,
+                "cbga_fc.footprint.size": "CBGAFC_81_8X8mm",
+                "cbga_fc.substrate.length": 8.4,
             },
         )
     )
@@ -94,64 +95,59 @@ def test_footprint_values_are_defaults_but_manual_dimensions_can_be_fine_tuned()
 @pytest.mark.parametrize(
     ("template_id", "footprint_value", "expected_length", "expected_width"),
     (
-        ("flip_chip_cbga", "CBGAFC_81_8X8mm", 2.4, 2.4),
-        ("flip_chip_cbga", "CBGAFC_144_10X10mm", 3.0, 3.0),
-        ("flip_chip_pbga", "PBGAFC_81_8X8mm", 2.4, 2.4),
-        ("wirebond_pbga", "PBGA_352_35X35mm", 10.5, 10.5),
-        ("fbga_fsbga", "ChipArray_100_10X10mm_0_8", 3.0, 3.0),
+        ("cbga_fc", "CBGAFC_81_8X8mm", 2.4, 2.4),
+        ("cbga_fc", "CBGAFC_144_10X10mm", 3.0, 3.0),
+        ("pbga_fc", "PBGAFC_81_8X8mm", 2.4, 2.4),
+        ("pbga_wb", "PBGA_352_35X35mm", 10.5, 10.5),
+        ("chip_array", "ChipArray_100_10X10mm_0_8", 3.0, 3.0),
         ("qfn", "QFN_6X6_36", 2.7, 2.7),
-        ("qfp_family", "LQFP_100_14X20mm", 6.0, 4.2),
-        ("soic_family", "SOP_28_7_6x17_9", 5.379, 2.286),
+        ("pqfp", "LQFP_100_14X20mm", 6.0, 4.2),
+        ("sop", "SOP_28_7_6x17_9", 5.379, 2.286),
     ),
 )
-def test_verified_jedec_presets_update_die_xy_but_not_die_thickness(
+def test_native_presets_update_all_die_dimensions(
     template_id: str,
     footprint_value: str,
     expected_length: float,
     expected_width: float,
 ) -> None:
-    default_model = generate(default_request(template_id))
     model = generate(
         TemplateRequest(
             template_id=template_id,
             overrides={f"{template_id}.footprint.size": footprint_value},
         )
     )
-    default_die = next(
-        block for block in default_model.blocks if block.structure_type is StructureType.DIE
-    )
     die = next(block for block in model.blocks if block.structure_type is StructureType.DIE)
 
     assert die.size.x == pytest.approx(expected_length)
     assert die.size.y == pytest.approx(expected_width)
-    assert die.size.z == pytest.approx(default_die.size.z)
+    expected_thickness = PresetCatalog().read_branch(footprint_value)["groups"]["die"][
+        "properties"
+    ]["dieThicknessTd"]["value"]
+    effective = definitions()[template_id].validate_request(
+        TemplateRequest(
+            template_id=template_id, overrides={f"{template_id}.footprint.size": footprint_value}
+        )
+    )
+    assert effective.number("die.thickness") == pytest.approx(expected_thickness)
 
 
 def test_every_source_preset_uses_declared_die_dimensions_without_uniform_scaling() -> None:
-    adapters = read_defaults("source_adapters.json", "packstudio.source-adapters/v1")
-    for template_id, definition in definitions().items():
+    for template_id, item in definitions().items():
         if template_id == "bare_die":
             continue
-        footprint = next(field for field in definition.fields if field.control == "footprint")
-        family = next(key for key, item in adapters["families"].items()
-                      if item["template_id"] == template_id)
-        records = {record["id"]: record for record in read_defaults(
-            f"flotherm/{family}.json", "packstudio.flotherm-presets/v1")["records"]}
+        footprint = next(field for field in item.fields if field.control == "footprint")
         for preset in footprint.presets:
-            source = records[preset.value]["values"]
-            assert preset.values["die.length"] == source["Ld"]
-            assert preset.values["die.width"] == source["Wd"]
-            assert preset.values["die.thickness"] == source["td"]
+            source = PresetCatalog().read_branch(preset.value)["groups"]["die"]["properties"]
+            assert preset.values["die.length"] == source["dieLengthLd"]["value"]
+            assert preset.values["die.width"] == source["dieWidthWd"]["value"]
+            assert preset.values["die.thickness"] == source["dieThicknessTd"]["value"]
 
 
 def test_verified_presets_keep_component_specific_nonuniform_rules() -> None:
     definition_map = definitions()
-    pbga = next(
-        field for field in definition_map["wirebond_pbga"].fields if field.control == "footprint"
-    )
-    qfp = next(
-        field for field in definition_map["qfp_family"].fields if field.control == "footprint"
-    )
+    pbga = next(field for field in definition_map["pbga_wb"].fields if field.control == "footprint")
+    qfp = next(field for field in definition_map["pqfp"].fields if field.control == "footprint")
     pbga_35 = next(preset for preset in pbga.presets if preset.value == "PBGA_352_35X35mm")
     qfp_14x20 = next(preset for preset in qfp.presets if preset.value == "LQFP_100_14X20mm")
 
@@ -185,8 +181,8 @@ def test_only_bga_templates_advertise_array_representation_choices() -> None:
         assert item["bga_representations"] == expected
 
 
-@pytest.mark.parametrize("template_id", ("qfp_family", "soic_family"))
-def test_qfp_and_soic_use_thermal_land_and_solder_instead_of_exposed_pad_option(
+@pytest.mark.parametrize("template_id", ("pqfp", "sop"))
+def test_pqfp_and_sop_use_thermal_land_and_solder_instead_of_exposed_pad_option(
     template_id: str,
 ) -> None:
     result = schema(template_id)

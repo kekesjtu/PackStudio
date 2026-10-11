@@ -1,0 +1,224 @@
+{
+  "schema_version": "1.0",
+  "template_id": "pbga_wb",
+  "software_version": "2504",
+  "capture_status": "complete",
+  "starter_fields": [
+    {"name": "Design Name", "property": "designName", "control": "text", "default": "Wirebond PBGA"},
+    {"name": "Outline Type", "property": "outlineType", "control": "select", "default": "standardOutline", "options": ["standardOutline", "nonStandardOutline"], "screenshot": "screenshots/dropdown_outline_type.png"},
+    {
+      "name": "JEDEC Footprint",
+      "property": "jedecFootprint",
+      "control": "select",
+      "default": "PBGA_121_15X15mm",
+      "options": [
+        "PBGA_121_15X15mm", "PBGA_169_23X23mm", "PBGA_192_17X17mm", "PBGA_196_15X15mm",
+        "PBGA_208_17X17mm", "PBGA_208_23X23mm", "PBGA_217_23X23mm", "PBGA_225_27X27mm",
+        "PBGA_256_17X17mm", "PBGA_256_21X21mm", "PBGA_256_27X27mm", "PBGA_272_27X27mm",
+        "PBGA_288_23X23mm", "PBGA_300_27X27mm", "PBGA_304_31X31mm", "PBGA_316_27X27mm",
+        "PBGA_324_23X23mm", "PBGA_329_31X31mm", "PBGA_352_35X35mm", "PBGA_385_31X31mm",
+        "PBGA_388_35X35mm", "PBGA_416_27X27mm", "PBGA_420_35X35mm", "PBGA_433_31X31mm",
+        "PBGA_456_23X23mm", "PBGA_456_35X35mm", "PBGA_516_31X31mm", "PBGA_524_37_5X37_5mm",
+        "PBGA_564_40X40mm", "PBGA_576_40X40mm", "PBGA_580_35X35mm", "PBGA_672_40X40mm",
+        "PBGA_676_27X27mm", "PBGA_680_35X35mm", "PBGA_845_40X40mm", "PBGA_896_40X40mm"
+      ],
+      "visible_when": {"outlineType": "standardOutline"},
+      "screenshots": [
+        "screenshots/dropdown_jedec_footprint.png",
+        "screenshots/dropdown_jedec_footprint_scrolled.png",
+        "screenshots/dropdown_jedec_footprint_scrolled_2.png",
+        "screenshots/dropdown_jedec_footprint_scrolled_3.png"
+      ]
+    },
+    {"name": "Die Type", "property": "dieType", "control": "select", "default": "actualDie", "options": ["actualDie", "thermalDie"], "screenshot": "screenshots/dropdown_die_type.png"},
+    {"name": "Substrate Layer", "property": "substrateLayer", "control": "select", "default": "2-Layer", "options": ["2-Layer", "4-Layer"], "screenshot": "screenshots/dropdown_substrate_layer.png"},
+    {"name": "Top Layer", "property": "topSignalLayerThickness", "control": "number", "unit": "mm", "default": 0.018},
+    {"name": "Bottom Layer", "property": "bottomSignalLayerThickness", "control": "number", "unit": "mm", "default": 0.018},
+    {"name": "Include Slug", "property": "includeSlug", "control": "checkbox", "default": false}
+  ],
+  "steps": [
+    {
+      "id": "summary",
+      "label": "Summary",
+      "screenshot": "screenshots/step_01_summary.png",
+      "fields": [
+        {"name": "Design Name", "control": "text", "default": "Wirebond PBGA"},
+        {"name": "Part Number", "control": "text", "default": ""},
+        {"name": "Vendor Name", "control": "text", "default": ""},
+        {"name": "Max Power", "control": "number", "unit": "W", "default": null},
+        {"name": "Max Operating Junction Temperature", "control": "number", "unit": "degC", "default": null},
+        {"name": "Max Case Temperature", "control": "number", "unit": "degC", "default": null},
+        {"name": "Notes", "control": "multiline_text", "default": ""}
+      ]
+    },
+    {
+      "id": "package_substrate",
+      "label": "Package Substrate",
+      "screenshot": "screenshots/step_02_package_substrate.png",
+      "fields": [
+        {"name": "Substrate Length D", "control": "number", "unit": "mm", "default": 15},
+        {"name": "Substrate Width E", "control": "number", "unit": "mm", "default": 15},
+        {"name": "Substrate Thickness A2", "control": "number", "unit": "mm", "default": 0.36},
+        {"name": "Material Group", "control": "select", "default": "Substrate Dielectrics"},
+        {"name": "Dielectric Material", "control": "select", "default": "BT"}
+      ]
+    },
+    {
+      "id": "encapsulant",
+      "label": "Encapsulant",
+      "screenshot": "screenshots/step_03_encapsulant.png",
+      "fields": [
+        {"name": "Length Le", "control": "number", "unit": "mm", "default": 13},
+        {"name": "Width We", "control": "number", "unit": "mm", "default": 13},
+        {"name": "Thickness te", "control": "number", "unit": "mm", "default": 0.8},
+        {"name": "Material Group", "control": "select", "default": "Resins"},
+        {"name": "Encapsulant Material", "control": "select", "default": "Epoxy Overmold (Typical)"}
+      ]
+    },
+    {
+      "id": "die_flag_and_solder_mask",
+      "label": "Die Flag & Solder Mask",
+      "screenshot": "screenshots/step_04_die_flag_solder_mask.png",
+      "fields": [
+        {"name": "Die Flag Lf", "control": "number", "unit": "mm", "default": 6.5},
+        {"name": "Die Flag Wf", "control": "number", "unit": "mm", "default": 6.5},
+        {"name": "Coverage Cf", "control": "number", "unit": "%", "default": 60},
+        {"name": "Solder Mask Thickness", "control": "number", "unit": "mm", "default": 0.05},
+        {"name": "Material Group", "control": "select", "default": "Others"},
+        {"name": "Solder Mask Material", "control": "select", "default": "Solder Mask Material"}
+      ]
+    },
+    {
+      "id": "die",
+      "label": "Die",
+      "screenshot": "screenshots/step_05_die.png",
+      "fields": [
+        {"name": "Package Power", "control": "number", "unit": "W", "default": 0},
+        {"name": "Non-uniform Die Heat", "control": "checkbox", "default": false},
+        {"name": "Die Length Ld", "control": "number", "unit": "mm", "default": 4.5},
+        {"name": "Die Width Wd", "control": "number", "unit": "mm", "default": 4.5},
+        {"name": "Die Thickness td", "control": "number", "unit": "mm", "default": 0.3},
+        {"name": "Die Attach Thickness tda", "control": "number", "unit": "mm", "default": 0.025},
+        {"name": "Die Attach Material Group", "control": "select", "default": "Attachment Materials"},
+        {"name": "Die Attach Material", "control": "select", "default": "Ablestik 8510AA"},
+        {"name": "Number of Bond Wires Nw", "control": "integer_spinbox", "default": 121},
+        {"name": "Extent of Bond Wire Pads Lw", "control": "number", "unit": "mm", "default": 8.5},
+        {"name": "Extent of Bond Wire Pads Ww", "control": "number", "unit": "mm", "default": 8.5},
+        {"name": "Bond Wire Diameter dw", "control": "number", "unit": "mm", "default": 0.03},
+        {"name": "Bond Wire Material Group", "control": "select", "default": "Metals"},
+        {"name": "Bond Wire Material", "control": "select", "default": "Gold (Pure)"}
+      ]
+    },
+    {
+      "id": "thermal_vias",
+      "label": "Thermal Vias",
+      "screenshot": "screenshots/step_06_thermal_vias.png",
+      "fields": [
+        {"name": "Number of Thermal Vias in X NVx", "control": "integer_spinbox", "default": 5},
+        {"name": "Number of Thermal Vias in Y NVy", "control": "integer_spinbox", "default": 5},
+        {"name": "Via Diameter dv", "control": "number", "unit": "mm", "default": 0.25},
+        {"name": "Via Pitch ev", "control": "number", "unit": "mm", "default": 1.27},
+        {"name": "Plating Thickness tpl", "control": "number", "unit": "mm", "default": 0.025},
+        {"name": "Via Depopulation", "control": "button", "default_enabled": true}
+      ]
+    },
+    {
+      "id": "metal_layers",
+      "label": "Metal Layers",
+      "screenshot": "screenshots/step_07_metal_layers.png",
+      "fields": [
+        {"name": "Material Group", "control": "select", "default": "Metals"},
+        {"name": "Material of Metal", "control": "select", "default": "Copper (Pure)"},
+        {"name": "Layers", "control": "table", "columns": [{"name": "Depth Zn", "unit": "mm"}, {"name": "Thickness tzn", "unit": "mm"}, {"name": "Coverage", "unit": "%"}, {"name": "Disconnect to Via", "unit": null}], "default_rows": [{"depth": null, "thickness": 0.018, "coverage": 30, "disconnectToVia": false}]}
+      ]
+    },
+    {
+      "id": "solder_balls",
+      "label": "Solder Balls",
+      "screenshot": "screenshots/step_08_solder_balls.png",
+      "fields": [
+        {"name": "Number of Solder Balls in X MD", "control": "integer_spinbox", "default": 11},
+        {"name": "Number of Solder Balls in Y ME", "control": "integer_spinbox", "default": 11},
+        {"name": "Ball Diameter b", "control": "number", "unit": "mm", "default": 0.75},
+        {"name": "Ball Pitch e", "control": "number", "unit": "mm", "default": 1.27},
+        {"name": "Substrate Stand-off A1", "control": "number", "unit": "mm", "default": 0.6},
+        {"name": "Material Group", "control": "select", "default": "Alloys (Solders)"},
+        {"name": "Solder Material", "control": "select", "default": "Solder (Sn63/Pb37)"},
+        {"name": "Staggered Matrix", "control": "checkbox", "default": false},
+        {"name": "Solder Ball Map", "control": "checkbox", "default": false}
+      ]
+    },
+    {
+      "id": "drop_in_slug",
+      "label": "Drop-in Slug",
+      "screenshot": "screenshots/step_09_drop_in_slug.png",
+      "conditional_screenshot": "screenshots/conditional_drop_in_slug_on.png",
+      "fields": [
+        {"name": "Include Slug", "control": "checkbox", "default": false},
+        {"name": "Slug Length Lsl", "control": "number", "unit": "mm", "default": null, "visible_when": {"Include Slug": true}},
+        {"name": "Slug Width Wsl", "control": "number", "unit": "mm", "default": null, "visible_when": {"Include Slug": true}},
+        {"name": "Slug Thickness tsl", "control": "number", "unit": "mm", "default": null, "visible_when": {"Include Slug": true}},
+        {"name": "Slug Diameter ds", "control": "number", "unit": "mm", "default": null, "visible_when": {"Include Slug": true}},
+        {"name": "Material Group", "control": "select", "default": "Alloys (Leadframe)", "visible_when": {"Include Slug": true}},
+        {"name": "Slug Material", "control": "select", "default": "No Attachment", "visible_when": {"Include Slug": true}},
+        {"name": "Slug Foot Extend Length Lsf", "control": "number", "unit": "mm", "default": null, "visible_when": {"Include Slug": true}},
+        {"name": "Slug Foot Extend Width Wsf", "control": "number", "unit": "mm", "default": null, "visible_when": {"Include Slug": true}},
+        {"name": "Slug Offset Gs", "control": "number", "unit": "mm", "default": null, "visible_when": {"Include Slug": true}},
+        {"name": "Slug Foot Clearance gsf", "control": "number", "unit": "mm", "default": null, "visible_when": {"Include Slug": true}},
+        {"name": "Adhesive Present Under Slug Foot", "control": "checkbox", "default": false, "visible_when": {"Include Slug": true}}
+      ]
+    },
+    {
+      "id": "solder_ball_depopulation",
+      "label": "Solder Ball Depopulation",
+      "screenshot": "screenshots/step_10_solder_ball_depopulation.png",
+      "fields": [
+        {"name": "Depopulated Center", "control": "checkbox", "default": false},
+        {"name": "Number of Fully Populated Rows MDp", "control": "integer_spinbox", "default": null},
+        {"name": "Number of Fully Populated Rows MEp", "control": "integer_spinbox", "default": null},
+        {"name": "Depopulation", "control": "button", "default_enabled": true}
+      ]
+    },
+    {
+      "id": "central_balls",
+      "label": "Central Balls",
+      "screenshot": "screenshots/step_11_central_balls.png",
+      "conditional_screenshot": "screenshots/conditional_central_balls_on.png",
+      "fields": [
+        {"name": "Central Balls", "control": "checkbox", "default": false},
+        {"name": "Number of Central Rows MDc", "control": "integer_spinbox", "default": null, "visible_when": {"Central Balls": true}},
+        {"name": "Number of Central Rows MEc", "control": "integer_spinbox", "default": null, "visible_when": {"Central Balls": true}},
+        {"name": "Staggered Matrix", "control": "checkbox", "default": false, "visible_when": {"Central Balls": true}}
+      ]
+    },
+    {
+      "id": "backside_spreader",
+      "label": "Backside Spreader",
+      "screenshot": "screenshots/step_12_backside_spreader.png",
+      "conditional_screenshot": "screenshots/conditional_backside_spreader_on.png",
+      "fields": [
+        {"name": "Include Backside Spreader", "control": "checkbox", "default": false},
+        {"name": "Spreader Length Lspr", "control": "number", "unit": "mm", "default": null, "visible_when": {"Include Backside Spreader": true}},
+        {"name": "Spreader Width Wspr", "control": "number", "unit": "mm", "default": null, "visible_when": {"Include Backside Spreader": true}},
+        {"name": "Spreader Thickness tspr", "control": "number", "unit": "mm", "default": null, "visible_when": {"Include Backside Spreader": true}},
+        {"name": "Material Group", "control": "select", "default": "Alloys (Leadframe)", "visible_when": {"Include Backside Spreader": true}},
+        {"name": "Spreader Material", "control": "select", "default": "No Attachment", "visible_when": {"Include Backside Spreader": true}},
+        {"name": "Bottom Trace Hole Length Lbt", "control": "number", "unit": "mm", "default": null, "visible_when": {"Include Backside Spreader": true}},
+        {"name": "Bottom Trace Hole Width Wbt", "control": "number", "unit": "mm", "default": null, "visible_when": {"Include Backside Spreader": true}}
+      ]
+    },
+    {
+      "id": "modeling_options",
+      "label": "Modeling Options",
+      "screenshot": "screenshots/step_13_modeling_options.png",
+      "fields": [
+        {"name": "Model Solder Ball Array As", "control": "select", "default": "orthotropicCuboid", "options": ["isotropicCuboid", "discreteCuboids", "orthotropicCuboid"], "screenshot": "screenshots/dropdown_model_solder_ball_array_as.png"},
+        {"name": "Model Thermal Vias As", "control": "select", "default": "discreteCuboids", "options": ["isotropicCuboid", "discreteCuboids", "orthotropicCuboid"], "screenshot": "screenshots/dropdown_model_thermal_vias_as.png"},
+        {"name": "Model Bond Wires As", "control": "select", "default": "orthotropicCuboid", "options": ["isotropicCuboid", "orthotropicCuboid"], "screenshot": "screenshots/dropdown_model_bond_wires_as.png"},
+        {"name": "Localize Grid", "control": "checkbox", "default": true},
+        {"name": "Grid Density", "control": "select", "default": "fine", "options": ["coarse", "medium", "fine"], "screenshot": "screenshots/dropdown_grid_density.png"}
+      ],
+      "realized_geometry_screenshots": ["screenshots/step_14_realized_geometry.png", "screenshots/step_14_realized_geometry_scrolled.png"]
+    }
+  ]
+}

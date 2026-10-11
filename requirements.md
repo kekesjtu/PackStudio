@@ -27,6 +27,17 @@
 
 ### 2.1 引导建模约束
 
+* Package Types 的显示名称、顺序与 PACK 一致：Chip Array、Bare Die、Flip Chip CBGA、
+  Flip Chip PBGA、PQFP、QFN、SOP、Wirebond PBGA。对应模板 ID 分别为 `chip_array`、
+  `bare_die`、`cbga_fc`、`pbga_fc`、`pqfp`、`qfn`、`sop`、`pbga_wb`，贯通 API、字段、
+  模型、代码模块、参数文件和下载文件；不保留旧命名或已保存方案兼容。
+* PQFP 支持 LQFP/MQFP/TQFP 子类型；SOP 支持 PACK 的 SOIC/SOP/SO、SSOP、TSOP、TSSOP
+  子类型。子类型与 Footprint 联动筛选，后端拒绝不一致的组合。
+* 已实现的参数从完整原生预设的明确路径读取，不以旧 FloXML 基线或家族缺值继承替代。
+  原生未启用结构的编辑初值须与原生有效默认值区分；Bare Die 保留项目审核尺寸预设。
+* 预设选材按 PACK 名称解析独立分类材料库。当前模型使用常量导热张量；温度依赖材料使用
+  原生参考温度的值并标注来源，完整温度系数与参考温度继续保留在材料库中。
+
 * 封装外形固定采用 `standard_outline`，通过至少两个可选的 JEDEC Footprint 尺寸预设联动
   填充整体尺寸、阵列或引脚参数；Bare Die 使用芯片尺寸预设。
 * 每个 JEDEC Footprint 是独立的结构级默认值集合，至少包含芯片 X/Y，并按证据分别设置
@@ -36,7 +47,7 @@
 * 只有 BGA 焊球阵列提供正交各向异性等效层和离散建模两种选择。
 * Flip-chip bumps + underfill 以及 Bare Die 可选 bumps 统一生成为有厚度的正交各向异性
   等效层，不提供 collapsed cuboid。
-* QFP 和 SOIC 不提供 exposed-pad 开关，使用“散热焊盘与焊料”步骤配置对应结构和材料。
+* PQFP 和 SOP 不提供 exposed-pad 开关，使用“散热焊盘与焊料”步骤配置对应结构和材料。
 * 向导标签以中文为主；JEDEC、BGA、DAP 等标准缩写和 Footprint 编号可保留。
 * 界面采用 FloTHERM 类工业软件的灰色面板、细边框与紧凑控件风格，保留顶部模板选择、
   引导/参数/三维/检查器四区、可调分隔条和现有交互；边界设置按当前范围移除。

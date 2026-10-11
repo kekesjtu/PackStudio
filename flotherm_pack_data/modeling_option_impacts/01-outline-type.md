@@ -41,7 +41,7 @@ model = common_template_generator(resolved_parameters)
 
 ## 证据
 
-- `../templates/qfp_family/ui.json`
-- `../templates/qfp_family/xml_variations/option_switches/opt_v2_c001_outlinetype_nonstandardoutline/`
-- `../templates/soic_family/validation/nonstandard_outline_baseline_model.xml`
-- `../templates/soic_family/validation/nonstandard_outline_length_d_5_model.xml`
+- `../templates/pqfp/ui.json`
+- `../templates/pqfp/xml_variations/option_switches/opt_v2_c001_outlinetype_nonstandardoutline/`
+- `../templates/sop/validation/nonstandard_outline_baseline_model.xml`
+- `../templates/sop/validation/nonstandard_outline_length_d_5_model.xml`

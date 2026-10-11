@@ -1,11 +1,10 @@
 """Extract the standalone PACK preset/material catalog without exporting FloXML."""
 
 import argparse
-import hashlib
-import json
 from pathlib import Path
 
 from tools.pack_catalog_builder import write_materials, write_presets
+from tools.pack_des import source_record
 from tools.pack_native import FAMILIES
 from tools.pack_native_details import DetailedNativePack
 from tools.pack_native_materials import read_builtin_materials
@@ -21,20 +20,22 @@ def main() -> None:
     source_records = {}
     snapshots = []
     for family in FAMILIES:
-        source = json.loads((Path("default_parameters/flotherm") / f"{family}.json")
-                            .read_text(encoding="utf-8"))
-        source_records.update({(family, p["id"]): p for p in source["records"]})
         paths = sorted((root / family).glob("*.des"))
         for path in paths:
-            reference = source_records[(family, path.stem)]
-            if hashlib.sha256(path.read_bytes()).hexdigest() != reference["source_sha256"]:
-                raise ValueError(f"DES source changed: {path}")
-            record = {"family": family, "preset": path.stem,
-                      "groups": native.snapshot(path), "wizard": native.wizard}
+            source_records[(family, path.stem)] = source_record(path, native.installation)
+            record = {
+                "family": family,
+                "preset": path.stem,
+                "groups": native.snapshot(path),
+                "wizard": native.wizard,
+            }
             if family in {"chip_array", "pbga_wb"}:
-                record["four_layer"] = {"family": family, "preset": path.stem,
-                                        "groups": native.snapshot(path, True),
-                                        "wizard": native.wizard}
+                record["four_layer"] = {
+                    "family": family,
+                    "preset": path.stem,
+                    "groups": native.snapshot(path, True),
+                    "wizard": native.wizard,
+                }
             snapshots.append(record)
         print(f"{family}: {len(paths)} presets", flush=True)
     if len(snapshots) != 342:

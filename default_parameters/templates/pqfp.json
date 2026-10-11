@@ -1,0 +1,700 @@
+{
+  "schema_version": "packstudio.template-defaults/v1",
+  "template_id": "pqfp",
+  "origin": "Reviewed PackStudio model specification; mapped source values explicitly referenced",
+  "fields": [
+    {
+      "key": "package.type",
+      "step": "package_setup",
+      "label": "Package Type",
+      "control": "combobox",
+      "unit": null,
+      "minimum": null,
+      "maximum": null,
+      "options": [
+        "lqfp",
+        "mqfp",
+        "tqfp"
+      ],
+      "option_labels": {
+        "lqfp": "LQFP",
+        "mqfp": "MQFP",
+        "tqfp": "TQFP"
+      },
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "footprint.size",
+      "step": "package_setup",
+      "label": "Footprint 尺寸（JEDEC）",
+      "control": "footprint",
+      "default": "LQFP_32_7X7mm",
+      "unit": null,
+      "minimum": null,
+      "maximum": null,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "package.length",
+      "step": "overall_package",
+      "label": "引脚外包络长度 D",
+      "control": "number",
+      "unit": "mm",
+      "minimum": 3,
+      "maximum": 50,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "package.width",
+      "step": "overall_package",
+      "label": "引脚外包络宽度 E",
+      "control": "number",
+      "unit": "mm",
+      "minimum": 3,
+      "maximum": 50,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "package.standoff",
+      "step": "overall_package",
+      "label": "离板高度 A1",
+      "control": "number",
+      "unit": "mm",
+      "minimum": 0,
+      "maximum": 1,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "body.length",
+      "step": "encapsulant",
+      "label": "塑封长度",
+      "control": "number",
+      "unit": "mm",
+      "minimum": 2,
+      "maximum": 45,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "body.width",
+      "step": "encapsulant",
+      "label": "塑封宽度",
+      "control": "number",
+      "unit": "mm",
+      "minimum": 2,
+      "maximum": 45,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "body.thickness",
+      "step": "encapsulant",
+      "label": "塑封厚度",
+      "control": "number",
+      "unit": "mm",
+      "minimum": 0.3,
+      "maximum": 6,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "die.length",
+      "step": "die",
+      "label": "芯片长度",
+      "control": "number",
+      "unit": "mm",
+      "minimum": 0.2,
+      "maximum": 30,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "die.width",
+      "step": "die",
+      "label": "芯片宽度",
+      "control": "number",
+      "unit": "mm",
+      "minimum": 0.2,
+      "maximum": 30,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "die.thickness",
+      "step": "die",
+      "label": "芯片厚度",
+      "control": "number",
+      "unit": "mm",
+      "minimum": 0.03,
+      "maximum": 2,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "die.attach",
+      "step": "die",
+      "label": "粘接层厚度",
+      "control": "number",
+      "unit": "mm",
+      "minimum": 0.005,
+      "maximum": 0.3,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "die.power",
+      "step": "die",
+      "label": "芯片功率",
+      "control": "number",
+      "unit": "W",
+      "minimum": 0,
+      "maximum": 1000,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "flag.length",
+      "step": "die_flag_tie_bars",
+      "label": "芯片承载台长度 Lf",
+      "control": "number",
+      "unit": "mm",
+      "minimum": 0.5,
+      "maximum": 35,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "flag.width",
+      "step": "die_flag_tie_bars",
+      "label": "芯片承载台宽度 Wf",
+      "control": "number",
+      "unit": "mm",
+      "minimum": 0.5,
+      "maximum": 35,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "flag.coverage",
+      "step": "die_flag_tie_bars",
+      "label": "承载台金属覆盖率",
+      "control": "number",
+      "unit": "%",
+      "minimum": 1,
+      "maximum": 100,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "flag.downset",
+      "step": "die_flag_tie_bars",
+      "label": "承载台下沉量",
+      "control": "number",
+      "unit": "mm",
+      "minimum": 0,
+      "maximum": 2,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "tie_bar.width",
+      "step": "die_flag_tie_bars",
+      "label": "连接筋宽度",
+      "control": "number",
+      "unit": "mm",
+      "minimum": 0.05,
+      "maximum": 2,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "leads.count_x",
+      "step": "leadframe",
+      "label": "上下侧引脚数",
+      "control": "integer_spinbox",
+      "unit": null,
+      "minimum": 1,
+      "maximum": 100,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "leads.count_y",
+      "step": "leadframe",
+      "label": "左右侧引脚数",
+      "control": "integer_spinbox",
+      "unit": null,
+      "minimum": 1,
+      "maximum": 100,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "leads.pitch",
+      "step": "leadframe",
+      "label": "引脚间距",
+      "control": "number",
+      "unit": "mm",
+      "minimum": 0.1,
+      "maximum": 3,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "leads.width",
+      "step": "leadframe",
+      "label": "引脚宽度",
+      "control": "number",
+      "unit": "mm",
+      "minimum": 0.03,
+      "maximum": 1.5,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "leads.thickness",
+      "step": "leadframe",
+      "label": "引脚厚度",
+      "control": "number",
+      "unit": "mm",
+      "minimum": 0.03,
+      "maximum": 1,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "leads.height",
+      "step": "leadframe",
+      "label": "引线框高度",
+      "control": "number",
+      "unit": "mm",
+      "minimum": 0.05,
+      "maximum": 3,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "leads.foot_length",
+      "step": "leadframe",
+      "label": "引脚脚长",
+      "control": "number",
+      "unit": "mm",
+      "minimum": 0.05,
+      "maximum": 3,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "leads.gap_x",
+      "step": "leadframe",
+      "label": "左右引脚间隙",
+      "control": "number",
+      "unit": "mm",
+      "minimum": 0.01,
+      "maximum": 3,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "leads.gap_y",
+      "step": "leadframe",
+      "label": "上下引脚间隙",
+      "control": "number",
+      "unit": "mm",
+      "minimum": 0.01,
+      "maximum": 3,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "bond_wire.length_x",
+      "step": "bond_wires",
+      "label": "左右键合区域长度",
+      "control": "number",
+      "unit": "mm",
+      "minimum": 0.1,
+      "maximum": 20,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "bond_wire.length_y",
+      "step": "bond_wires",
+      "label": "上下键合区域长度",
+      "control": "number",
+      "unit": "mm",
+      "minimum": 0.1,
+      "maximum": 20,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "bond_wire.count",
+      "step": "bond_wires",
+      "label": "键合线数量",
+      "control": "integer_spinbox",
+      "unit": null,
+      "minimum": 1,
+      "maximum": 500,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "bond_wire.diameter",
+      "step": "bond_wires",
+      "label": "键合线等效宽度",
+      "control": "number",
+      "unit": "mm",
+      "minimum": 0.01,
+      "maximum": 0.2,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "thermal_land.enabled",
+      "step": "thermal_land_solder",
+      "label": "包含散热焊盘与焊料",
+      "control": "checkbox",
+      "unit": null,
+      "minimum": null,
+      "maximum": null,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "thermal_land.thickness",
+      "step": "thermal_land_solder",
+      "label": "散热焊盘厚度",
+      "control": "number",
+      "unit": "mm",
+      "minimum": 0.01,
+      "maximum": 1,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {
+        "thermal_land.enabled": true
+      },
+      "enabled_when": {},
+      "editor_default": 0.05
+    }
+  ],
+  "material_selections": [
+    {
+      "group_id": "group-encapsulant",
+      "step": "encapsulant",
+      "label": "塑封材料",
+      "default": "epoxy-mold",
+      "options": [
+        "epoxy-mold",
+        "eme-7730lf"
+      ],
+      "visible_when": {}
+    },
+    {
+      "group_id": "group-die",
+      "step": "die",
+      "label": "芯片材料",
+      "default": "silicon",
+      "options": [
+        "silicon"
+      ],
+      "visible_when": {}
+    },
+    {
+      "group_id": "group-die-attach",
+      "step": "die",
+      "label": "芯片粘接材料",
+      "default": "dieattach-84-1lmis",
+      "options": [
+        "dieattach-84-1lmis",
+        "dieattach-2600bt"
+      ],
+      "visible_when": {}
+    },
+    {
+      "group_id": "group-die-flag",
+      "step": "die_flag_tie_bars",
+      "label": "芯片承载台材料",
+      "default": "leadframe-c194",
+      "options": [
+        "leadframe-c194",
+        "copper"
+      ],
+      "visible_when": {}
+    },
+    {
+      "group_id": "group-lead-frame",
+      "step": "leadframe",
+      "label": "引线框材料",
+      "default": "leadframe-c194",
+      "options": [
+        "leadframe-c194",
+        "copper"
+      ],
+      "visible_when": {}
+    },
+    {
+      "group_id": "group-tie-bars",
+      "step": "die_flag_tie_bars",
+      "label": "连接筋材料",
+      "default": "leadframe-c194",
+      "options": [
+        "leadframe-c194",
+        "copper"
+      ],
+      "visible_when": {}
+    },
+    {
+      "group_id": "group-tie-bar-plates",
+      "step": "die_flag_tie_bars",
+      "label": "连接筋填充材料",
+      "default": "epoxy-mold",
+      "options": [
+        "epoxy-mold"
+      ],
+      "visible_when": {}
+    },
+    {
+      "group_id": "group-bond-wires",
+      "step": "bond_wires",
+      "label": "键合线材料",
+      "default": "gold",
+      "options": [
+        "gold"
+      ],
+      "visible_when": {}
+    },
+    {
+      "group_id": "group-thermal-land",
+      "step": "thermal_land_solder",
+      "label": "散热焊盘材料",
+      "default": "leadframe-c194",
+      "options": [
+        "leadframe-c194",
+        "copper"
+      ],
+      "visible_when": {
+        "thermal_land.enabled": true
+      }
+    },
+    {
+      "group_id": "group-thermal-solder",
+      "step": "thermal_land_solder",
+      "label": "焊料材料",
+      "default": "solder-sn63",
+      "options": [
+        "solder-sn63"
+      ],
+      "visible_when": {
+        "thermal_land.enabled": true
+      }
+    }
+  ],
+  "baseline_materials": [
+    {
+      "id": "pqfp-leadframe-inner-x",
+      "name": "LeadFrame_1x",
+      "conductivity": {
+        "x": 151.09,
+        "y": 0.68,
+        "z": 151.09
+      },
+      "density": 5360.0,
+      "specific_heat": 469.3787313432836,
+      "color": "#B96331",
+      "source": "PackStudio built-in transcription of reviewed FloTHERM PACK data"
+    },
+    {
+      "id": "pqfp-leadframe-inner-y",
+      "name": "LeadFrame_1y",
+      "conductivity": {
+        "x": 0.68,
+        "y": 151.09,
+        "z": 151.09
+      },
+      "density": 5360.0,
+      "specific_heat": 469.3787313432836,
+      "color": "#B96331",
+      "source": "PackStudio built-in transcription of reviewed FloTHERM PACK data"
+    },
+    {
+      "id": "pqfp-leadframe-outer-x",
+      "name": "LeadFrame_2x",
+      "conductivity": {
+        "x": 150.76305,
+        "y": 0.0261,
+        "z": 150.76305
+      },
+      "density": 4450.5807,
+      "specific_heat": 385.0811569150966,
+      "color": "#B96331",
+      "source": "PackStudio built-in transcription of reviewed FloTHERM PACK data"
+    },
+    {
+      "id": "pqfp-leadframe-outer-y",
+      "name": "LeadFrame_2y",
+      "conductivity": {
+        "x": 0.0261,
+        "y": 150.76305,
+        "z": 150.76305
+      },
+      "density": 4450.5807,
+      "specific_heat": 385.0811569150966,
+      "color": "#B96331",
+      "source": "PackStudio built-in transcription of reviewed FloTHERM PACK data"
+    },
+    {
+      "id": "pqfp-bondwire-x",
+      "name": "bondwire1",
+      "conductivity": {
+        "x": 54.8883051392426,
+        "y": 0.68,
+        "z": 54.8883051392426
+      },
+      "density": 5028.591269924019,
+      "specific_heat": 353.6214185791503,
+      "color": "#D9A928",
+      "source": "PackStudio built-in transcription of reviewed FloTHERM PACK data"
+    },
+    {
+      "id": "pqfp-bondwire-y",
+      "name": "bondwire2",
+      "conductivity": {
+        "x": 0.68,
+        "y": 54.8883051392426,
+        "z": 54.8883051392426
+      },
+      "density": 5028.591269924019,
+      "specific_heat": 353.6214185791503,
+      "color": "#D9A928",
+      "source": "PackStudio built-in transcription of reviewed FloTHERM PACK data"
+    },
+    {
+      "id": "pqfp-die-flag",
+      "name": "die_flag",
+      "conductivity": {
+        "x": 180.9,
+        "y": 180.9,
+        "z": 180.9
+      },
+      "density": 6068.0,
+      "specific_heat": 444.6268951878708,
+      "color": "#B96331",
+      "source": "PackStudio built-in transcription of reviewed FloTHERM PACK data"
+    },
+    {
+      "id": "pqfp-tie-bar",
+      "name": "tie_bar",
+      "conductivity": {
+        "x": 106.596347263872,
+        "y": 106.596347263872,
+        "z": 0.68
+      },
+      "density": 8900.0,
+      "specific_heat": 385.0,
+      "color": "#B96331",
+      "source": "PackStudio built-in transcription of reviewed FloTHERM PACK data"
+    }
+  ],
+  "default_bga_representation": "equivalent"
+}

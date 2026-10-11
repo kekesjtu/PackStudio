@@ -1,0 +1,81 @@
+{
+  "schema_version": "2.0",
+  "comparison": {
+    "baseline": "flotherm_pack_data/templates/pbga_wb/validation/branch_baselines/br_v2_backsidespreader_bottomtraceholewidthwbt/model.xml",
+    "variation": "flotherm_pack_data/templates/pbga_wb/xml_variations/param_sweeps/par_v2_c079_bottomtraceholewidthwbt_4_5/model.xml",
+    "baseline_bytes": 43500,
+    "variation_bytes": 43500,
+    "baseline_sha256": "DC9F6650495BD029A74FDBED0698EF92B715EFE99DEB493839909BE6E530C53D",
+    "variation_sha256": "9E11D5287A975B8BE0F8767A6BF8A81B916B4D9743A4FFFAC347562839E0A30A"
+  },
+  "semantic_change": true,
+  "summary": {
+    "changed_value_count": 3,
+    "added_leaf_count": 0,
+    "removed_leaf_count": 0
+  },
+  "materials": {
+    "added": [],
+    "removed": [],
+    "changed": []
+  },
+  "entities": {
+    "added": [],
+    "removed": [],
+    "changed": [
+      {
+        "name": "assembly:Dielectric & Traces",
+        "before": [
+          "58e158ba8339fa6c"
+        ],
+        "after": [
+          "6b34cbae109c657d"
+        ]
+      },
+      {
+        "name": "cuboid:bot_trace3",
+        "before": [
+          "7fcf8c9b10d47ffd"
+        ],
+        "after": [
+          "a74f9e48523ee9ba"
+        ]
+      },
+      {
+        "name": "cuboid:bot_trace4",
+        "before": [
+          "54f489c23c1c890a"
+        ],
+        "after": [
+          "5e4a0435a7205a4d"
+        ]
+      }
+    ]
+  },
+  "changed_values": [
+    {
+      "path": "xml_case/geometry/assembly[name=Dielectric & Traces]/geometry/cuboid[name=bot_trace3]/size/y",
+      "before": "0.0049999999999999992",
+      "after": "0.0052499999999999995"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Dielectric & Traces]/geometry/cuboid[name=bot_trace4]/position/y",
+      "before": "0.0025000000000000005",
+      "after": "0.0022500000000000003"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Dielectric & Traces]/geometry/cuboid[name=bot_trace4]/size/y",
+      "before": "0.0049999999999999992",
+      "after": "0.0052499999999999995"
+    }
+  ],
+  "added_leaf_paths": [],
+  "removed_leaf_paths": [],
+  "numeric_formatting_differences_ignored": true,
+  "template_id": "pbga_wb",
+  "variation_id": "par_v2_c079_bottomtraceholewidthwbt_4_5",
+  "variation_kind": "numeric_parameter",
+  "comparison_baseline": "validation/branch_baselines/br_v2_backsidespreader_bottomtraceholewidthwbt/model.xml",
+  "outcome": "semantic_change",
+  "floxml_effect_expectation": null
+}

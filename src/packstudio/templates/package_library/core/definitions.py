@@ -8,7 +8,7 @@ from packstudio.templates.package_library.core.parameters import (
     TemplateRequest,
     TemplateValue,
 )
-from packstudio.templates.package_library.core.step_labels import step_label
+from packstudio.templates.package_library.core.wizard_schema import build_wizard_schema
 
 type TemplateBuilder = Callable[["TemplateValues", TemplateRequest], Any]
 
@@ -20,6 +20,7 @@ class PresetOption:
     values: dict[str, TemplateValue]
     bga: BgaConfiguration | None = None
     metadata: dict[str, str] = field(default_factory=dict)
+    material_assignments: dict[str, str] = field(default_factory=dict)
 
 
 @dataclass(frozen=True)
@@ -68,98 +69,7 @@ class TemplateDefinition:
     has_flip_chip: bool = False
 
     def schema(self) -> dict[str, Any]:
-        grouped: dict[str, list[dict[str, Any]]] = {}
-        for item in self.fields:
-            supported = list(item.options)
-            if not supported and item.minimum is not None and item.maximum is not None:
-                supported = [item.minimum, item.maximum]
-            grouped.setdefault(item.step, []).append(
-                {
-                    "target_id": item.target_id(self.id),
-                    "ui_location": item.step,
-                    "component": item.step,
-                    "label": item.label,
-                    "control": item.control,
-                    "default": item.default,
-                    "unit": item.unit,
-                    "minimum": item.minimum,
-                    "maximum": item.maximum,
-                    "options": list(item.options),
-                    "option_labels": item.option_labels or None,
-                    "preset_values": (
-                        {
-                            preset.value: {
-                                f"{self.id}.{key}": value for key, value in preset.values.items()
-                            }
-                            for preset in item.presets
-                        }
-                        or None
-                    ),
-                    "classification": _classification(item),
-                    "preset_bga": {
-                        p.value: p.bga.model_dump(mode="json")
-                        for p in item.presets
-                        if p.bga is not None
-                    }
-                    or None,
-                    "preset_notes": {
-                        p.value: p.metadata["preset_notes"]
-                        for p in item.presets
-                        if p.metadata.get("preset_notes")
-                    }
-                    or None,
-                    "property_name": item.key,
-                    "supported_values": supported,
-                    "evidence_status": "implemented",
-                    "editable": True,
-                    "material_group_id": None,
-                    "visible_when": item.visible_when or None,
-                    "enabled_when": item.enabled_when or None,
-                }
-            )
-        for item in self.material_selections:
-            grouped.setdefault(item.step, []).append(
-                {
-                    "target_id": item.target_id(self.id),
-                    "ui_location": item.step,
-                    "component": item.group_id,
-                    "label": item.label,
-                    "control": "material",
-                    "default": item.default,
-                    "unit": None,
-                    "minimum": None,
-                    "maximum": None,
-                    "options": list(item.options),
-                    "classification": "material_option",
-                    "property_name": f"material.{item.group_id}",
-                    "supported_values": list(item.options),
-                    "evidence_status": "implemented",
-                    "editable": True,
-                    "material_group_id": item.group_id,
-                    "visible_when": item.visible_when or None,
-                    "enabled_when": None,
-                }
-            )
-        ordered_steps = [
-            *[step for step in self.step_order if step in grouped],
-            *[step for step in grouped if step not in self.step_order],
-        ]
-        return {
-            "schema_version": "packstudio.wizard/v2",
-            "template_id": self.id,
-            "steps": [
-                {"id": step, "label": step_label(step), "fields": items}
-                for step in ordered_steps
-                for items in (grouped[step],)
-            ],
-            "has_bga": self.has_bga,
-            "special_rules": {
-                "outline_type": "standard_outline",
-                "die_type": "actual_type",
-                "bga_pattern": ("implicit_full_with_center_and_removal" if self.has_bga else None),
-                "flip_chip_bumps": ("thick_orthotropic_equivalent" if self.has_flip_chip else None),
-            },
-        }
+        return build_wizard_schema(self)
 
     def validate_request(self, request: TemplateRequest) -> "TemplateValues":
         if request.template_id != self.id:
@@ -192,6 +102,11 @@ class TemplateDefinition:
             item = by_target[target_id]
             _validate_value(item, value)
             values[item.key] = value
+        if "package.type" in by_key:
+            footprint = next(item for item in self.fields if item.control == "footprint")
+            preset = next(p for p in footprint.presets if p.value == values[footprint.key])
+            if values["package.type"] != preset.values["package.type"]:
+                raise ValueError("Package Type does not match the selected footprint")
         inactive = [
             item.target_id(self.id)
             for item in self.fields
@@ -281,13 +196,3 @@ def _validate_value(item: FieldDefinition, value: TemplateValue) -> None:
 
 def _matches(conditions: dict[str, TemplateValue], values: dict[str, TemplateValue]) -> bool:
     return all(values.get(key) == expected for key, expected in conditions.items())
-
-
-def _classification(item: FieldDefinition) -> str:
-    if item.control == "footprint":
-        return "jedec_preset"
-    if item.control == "checkbox":
-        return "boolean_option"
-    if item.control in {"number", "integer", "integer_spinbox"}:
-        return "numeric_parameter"
-    return "enum_option"

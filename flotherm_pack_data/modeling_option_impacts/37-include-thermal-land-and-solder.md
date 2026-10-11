@@ -56,5 +56,5 @@ solder_material != No Attachment
 
 ## 证据
 
-- `../templates/qfp_family/xml_variations/option_switches/opt_v2_c003_includethermallandandsolder_true/`
-- `../templates/soic_family/xml_variations/option_switches/opt_v2_c003_includethermallandandsolder_true/`
+- `../templates/pqfp/xml_variations/option_switches/opt_v2_c003_includethermallandandsolder_true/`
+- `../templates/sop/xml_variations/option_switches/opt_v2_c003_includethermallandandsolder_true/`

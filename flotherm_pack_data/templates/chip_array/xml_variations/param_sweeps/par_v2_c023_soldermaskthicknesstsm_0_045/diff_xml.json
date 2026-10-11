@@ -1,0 +1,248 @@
+{
+  "schema_version": "2.0",
+  "comparison": {
+    "baseline": "flotherm_pack_data/templates/chip_array/baseline/model.xml",
+    "variation": "flotherm_pack_data/templates/chip_array/xml_variations/param_sweeps/par_v2_c023_soldermaskthicknesstsm_0_045/model.xml",
+    "baseline_bytes": 49732,
+    "variation_bytes": 49822,
+    "baseline_sha256": "BB8855B47DDB172F6D5C3E7056F3229923EC67BF23A86252DB33EAC6B5664226",
+    "variation_sha256": "83CABA41A3698B9F49F82A3DE5F10E77FF3BE3C3DD4A2665CC0BB502AB5D6BEE"
+  },
+  "semantic_change": true,
+  "summary": {
+    "changed_value_count": 13,
+    "added_leaf_count": 0,
+    "removed_leaf_count": 0
+  },
+  "materials": {
+    "added": [],
+    "removed": [],
+    "changed": []
+  },
+  "entities": {
+    "added": [],
+    "removed": [],
+    "changed": [
+      {
+        "name": "assembly:BondWires",
+        "before": [
+          "1d44b7b1d60a4778"
+        ],
+        "after": [
+          "946037811c35e642"
+        ]
+      },
+      {
+        "name": "assembly:Die",
+        "before": [
+          "c854386de37f22cf"
+        ],
+        "after": [
+          "4bb98baa22eb1c4b"
+        ]
+      },
+      {
+        "name": "assembly:Solder_Mask",
+        "before": [
+          "2e0d35dc96815eb4"
+        ],
+        "after": [
+          "ccb688836dd0aa41"
+        ]
+      },
+      {
+        "name": "cuboid:bw_h_left",
+        "before": [
+          "6e6a58cd0c729238"
+        ],
+        "after": [
+          "02c4e9f113d6dce4"
+        ]
+      },
+      {
+        "name": "cuboid:bw_h_lower",
+        "before": [
+          "39adcb2f7d335721"
+        ],
+        "after": [
+          "407ab4d4874b6391"
+        ]
+      },
+      {
+        "name": "cuboid:bw_h_right",
+        "before": [
+          "9a5c44ad3d956ada"
+        ],
+        "after": [
+          "2abcc4fee5e34b98"
+        ]
+      },
+      {
+        "name": "cuboid:bw_h_upper",
+        "before": [
+          "fa372c75e6d80823"
+        ],
+        "after": [
+          "51728dc7c1794ee1"
+        ]
+      },
+      {
+        "name": "cuboid:bw_v_left",
+        "before": [
+          "75a1a5d031875674"
+        ],
+        "after": [
+          "5e727e4129b770f6"
+        ]
+      },
+      {
+        "name": "cuboid:bw_v_lower",
+        "before": [
+          "64a0c726cf4d7cc6"
+        ],
+        "after": [
+          "94750bf5398c5cc3"
+        ]
+      },
+      {
+        "name": "cuboid:bw_v_right",
+        "before": [
+          "7775119015f508e7"
+        ],
+        "after": [
+          "f79c2448dfdfbb7f"
+        ]
+      },
+      {
+        "name": "cuboid:bw_v_upper",
+        "before": [
+          "a3ff0cb29f49d130"
+        ],
+        "after": [
+          "a828eb10868a12d3"
+        ]
+      },
+      {
+        "name": "cuboid:die",
+        "before": [
+          "0d966cfb5ddb3fdd"
+        ],
+        "after": [
+          "5732d48557f29ac2"
+        ]
+      },
+      {
+        "name": "cuboid:die_attach",
+        "before": [
+          "a4b16fb4708f0aa3"
+        ],
+        "after": [
+          "40fbb769966c85c0"
+        ]
+      },
+      {
+        "name": "cuboid:solder_mask",
+        "before": [
+          "9d35ac9a6fa141ae"
+        ],
+        "after": [
+          "5300d38bbc77a4c1"
+        ]
+      },
+      {
+        "name": "monitor_point:DieJunction_Temp",
+        "before": [
+          "a44a87e7e9df5444"
+        ],
+        "after": [
+          "aa821653a89b6556"
+        ]
+      },
+      {
+        "name": "source:DieSource",
+        "before": [
+          "90ef288bbeb5f5f6"
+        ],
+        "after": [
+          "7a9735888ab3a003"
+        ]
+      }
+    ]
+  },
+  "changed_values": [
+    {
+      "path": "xml_case/geometry/assembly[name=BondWires]/geometry/cuboid[name=bw_h_left]/position/z",
+      "before": "0.0010849999999999998",
+      "after": "0.0010799999999999998"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=BondWires]/geometry/cuboid[name=bw_h_lower]/position/z",
+      "before": "0.0010849999999999998",
+      "after": "0.0010799999999999998"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=BondWires]/geometry/cuboid[name=bw_h_right]/position/z",
+      "before": "0.0010849999999999998",
+      "after": "0.0010799999999999998"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=BondWires]/geometry/cuboid[name=bw_h_upper]/position/z",
+      "before": "0.0010849999999999998",
+      "after": "0.0010799999999999998"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=BondWires]/geometry/cuboid[name=bw_v_left]/size/z",
+      "before": "0.00035",
+      "after": "0.00034499999999999998"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=BondWires]/geometry/cuboid[name=bw_v_lower]/size/z",
+      "before": "0.00035",
+      "after": "0.00034499999999999998"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=BondWires]/geometry/cuboid[name=bw_v_right]/size/z",
+      "before": "0.00035",
+      "after": "0.00034499999999999998"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=BondWires]/geometry/cuboid[name=bw_v_upper]/size/z",
+      "before": "0.00035",
+      "after": "0.00034499999999999998"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Die]/geometry/cuboid[name=die]/position/z",
+      "before": "0.00081000000000000006",
+      "after": "0.00080500000000000005"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Die]/geometry/monitor_point[name=DieJunction_Temp]/position/z",
+      "before": "0.0011085000000000001",
+      "after": "0.0011035000000000001"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Die]/geometry/source[name=DieSource]/position/z",
+      "before": "0.00081000000000000006",
+      "after": "0.00080500000000000005"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Solder_Mask]/geometry/cuboid[name=solder_mask]/size/z",
+      "before": "5.0000000000000002e-05",
+      "after": "4.4999999999999996e-05"
+    },
+    {
+      "path": "xml_case/geometry/cuboid[name=die_attach]/position/z",
+      "before": "0.00081000000000000006",
+      "after": "0.00080500000000000005"
+    }
+  ],
+  "added_leaf_paths": [],
+  "removed_leaf_paths": [],
+  "numeric_formatting_differences_ignored": true,
+  "template_id": "chip_array",
+  "variation_id": "par_v2_c023_soldermaskthicknesstsm_0_045",
+  "variation_kind": "numeric_parameter",
+  "comparison_baseline": "baseline/model.xml",
+  "outcome": "semantic_change",
+  "floxml_effect_expectation": null
+}

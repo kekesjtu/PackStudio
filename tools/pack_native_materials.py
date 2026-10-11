@@ -13,13 +13,15 @@ def read_builtin_materials(native) -> list[dict]:
     storage = ctypes.create_string_buffer(65_536)
     library = ctypes.addressof(storage)
     native.bind(
-        "flopackbackend.dll", "??0MaterialLibrary@flopack@@QEAA@XZ", ctypes.c_void_p,
+        "flopackbackend.dll",
+        "??0MaterialLibrary@flopack@@QEAA@XZ",
+        ctypes.c_void_p,
         [ctypes.c_void_p],
     )(library)
     try:
-        native.bind(
-            "flopackbackend.dll", "?populateBuiltInMaterials@", None, [ctypes.c_void_p]
-        )(library)
+        native.bind("flopackbackend.dll", "?populateBuiltInMaterials@", None, [ctypes.c_void_p])(
+            library
+        )
         materials = []
         for item in vector_items(library + 0x30, 8):
             material = ctypes.c_void_p.from_address(item).value
@@ -28,7 +30,9 @@ def read_builtin_materials(native) -> list[dict]:
                 output = ctypes.create_string_buffer(32)
                 address = ctypes.addressof(output)
                 native.bind(
-                    "flopackmaterials.dll", f"?{getter}@FlopackMaterial@", ctypes.c_void_p,
+                    "flopackmaterials.dll",
+                    f"?{getter}@FlopackMaterial@",
+                    ctypes.c_void_p,
                     [ctypes.c_void_p, ctypes.c_void_p],
                 )(material, address)
                 try:
@@ -39,14 +43,20 @@ def read_builtin_materials(native) -> list[dict]:
                             ctypes.c_void_p.from_address(address).value
                         )
             for field, getter in (
-                ("density_kg_m3", "getDensity"), ("specific_heat_j_kg_k", "getSpecificHeat"),
-                ("emissivity", "getEmissivity"), ("conductivity_w_m_k", "getConductivity"),
+                ("density_kg_m3", "getDensity"),
+                ("specific_heat_j_kg_k", "getSpecificHeat"),
+                ("emissivity", "getEmissivity"),
+                ("conductivity_w_m_k", "getConductivity"),
                 ("conductivity_coefficient", "getConductivityCoefficient"),
                 ("conductivity_reference_temperature", "getConductivityRefTemp"),
-                ("kx_w_m_k", "getKx"), ("ky_w_m_k", "getKy"), ("kz_w_m_k", "getKz"),
+                ("kx_w_m_k", "getKx"),
+                ("ky_w_m_k", "getKy"),
+                ("kz_w_m_k", "getKz"),
             ):
                 record[field] = native.bind(
-                    "flopackmaterials.dll", f"?{getter}@FlopackMaterial@", ctypes.c_double,
+                    "flopackmaterials.dll",
+                    f"?{getter}@FlopackMaterial@",
+                    ctypes.c_double,
                     [ctypes.c_void_p],
                 )(material)
             record["conductivity_type"] = native.bind(
@@ -56,12 +66,12 @@ def read_builtin_materials(native) -> list[dict]:
         return sorted(materials, key=lambda record: record["name"])
     finally:
         native.bind(
-            "flopackproperties.dll", "?setMaterialControllerInterface@", None,
+            "flopackproperties.dll",
+            "?setMaterialControllerInterface@",
+            None,
             [ctypes.c_void_p],
         )(None)
-        native.bind(
-            "flopackbackend.dll", "??1MaterialLibrary@", None, [ctypes.c_void_p]
-        )(library)
+        native.bind("flopackbackend.dll", "??1MaterialLibrary@", None, [ctypes.c_void_p])(library)
         if previous_directory is None:
             os.environ.pop("FLOCENTRALDIR", None)
         else:

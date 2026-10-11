@@ -17,7 +17,7 @@ import industrialTheme from './industrialTheme'
 
 export default function App() {
   const [templates, setTemplates] = useState<TemplateCatalogItem[]>([])
-  const [templateId, setTemplateId] = useState('flip_chip_cbga')
+  const [templateId, setTemplateId] = useState('cbga_fc')
 
   useEffect(() => {
     loadTemplateCatalog().then(setTemplates).catch(() => setTemplates([]))
@@ -37,10 +37,11 @@ export default function App() {
                 参数化 IC 封装热模型
               </Typography>
             </Box>
+            <Typography variant="body2">Package Types</Typography>
             <Select
               size="small"
               value={templateId}
-              aria-label="选择封装模板"
+              aria-label="Package Types"
               onChange={(event) => setTemplateId(event.target.value)}
               sx={{
                 minWidth: 290,
@@ -65,12 +66,12 @@ export default function App() {
 }
 
 const fallbackTemplates = [
-  { id: 'flip_chip_cbga', display_name: 'Flip Chip CBGA' },
-  { id: 'flip_chip_pbga', display_name: 'Flip Chip PBGA' },
-  { id: 'wirebond_pbga', display_name: 'Wirebond PBGA' },
-  { id: 'fbga_fsbga', display_name: 'FBGA / FSBGA' },
-  { id: 'qfn', display_name: 'QFN' },
-  { id: 'qfp_family', display_name: 'QFP family' },
-  { id: 'soic_family', display_name: 'SOIC family' },
+  { id: 'chip_array', display_name: 'Chip Array' },
   { id: 'bare_die', display_name: 'Bare Die' },
+  { id: 'cbga_fc', display_name: 'Flip Chip CBGA' },
+  { id: 'pbga_fc', display_name: 'Flip Chip PBGA' },
+  { id: 'pqfp', display_name: 'PQFP' },
+  { id: 'qfn', display_name: 'QFN' },
+  { id: 'sop', display_name: 'SOP' },
+  { id: 'pbga_wb', display_name: 'Wirebond PBGA' },
 ]

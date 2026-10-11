@@ -1,0 +1,24 @@
+{
+  "schema_version": "2.0",
+  "template_id": "cbga_fc",
+  "variation_id": "jed_v2_c001_jedecfootprint_cbgafc_81_8x8mm",
+  "kind": "jedec_preset",
+  "coverage_policy": "three_representative_values_including_default",
+  "target": {
+    "component": "new_package",
+    "property": "jedecFootprint",
+    "label": "JEDEC Footprint",
+    "baseline": "CBGAFC_49_6X6mm",
+    "value": "CBGAFC_81_8X8mm"
+  },
+  "comparison_baseline": "baseline/model.xml",
+  "branch_preconditions": [],
+  "required_dependent_initialization": {},
+  "single_variable_relative_to_comparison_baseline": true,
+  "material_policy": "default_only",
+  "property_evidence": [
+    "recorded_new_package",
+    "installed_dll_ascii_string"
+  ],
+  "execution_status": "pending_replay"
+}

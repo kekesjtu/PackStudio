@@ -1,0 +1,227 @@
+{
+  "schema_version": "2.0",
+  "comparison": {
+    "baseline": "flotherm_pack_data/templates/cbga_fc/validation/branch_baselines/br_v2_topcover_lidwidthwc/model.xml",
+    "variation": "flotherm_pack_data/templates/cbga_fc/xml_variations/param_sweeps/par_v2_c062_lidwidthwc_6_6/model.xml",
+    "baseline_bytes": 18315,
+    "variation_bytes": 18105,
+    "baseline_sha256": "66975DE106D07DD6098F3C9CD36AA24FB3E9F19B9ACE2909D166A554565B8830",
+    "variation_sha256": "9EDF3F03671D3D9490735DA1704B08B6F2DA00303F1523FCD21F51196155C3E7"
+  },
+  "semantic_change": true,
+  "summary": {
+    "changed_value_count": 16,
+    "added_leaf_count": 0,
+    "removed_leaf_count": 0
+  },
+  "materials": {
+    "added": [],
+    "removed": [],
+    "changed": []
+  },
+  "entities": {
+    "added": [],
+    "removed": [],
+    "changed": [
+      {
+        "name": "assembly:Lid",
+        "before": [
+          "ae1d83086374ad7f"
+        ],
+        "after": [
+          "4bda78a950fdfa4e"
+        ]
+      },
+      {
+        "name": "assembly:Lid_Adhesive",
+        "before": [
+          "4435dff265a00586"
+        ],
+        "after": [
+          "1ad96e7b248e02e1"
+        ]
+      },
+      {
+        "name": "cuboid:lid",
+        "before": [
+          "30dedab36c632414"
+        ],
+        "after": [
+          "8788097d6669b503"
+        ]
+      },
+      {
+        "name": "cuboid:lid_adhesive1",
+        "before": [
+          "6656b7bb8d3e367f"
+        ],
+        "after": [
+          "781f65cf3cb2e00e"
+        ]
+      },
+      {
+        "name": "cuboid:lid_adhesive2",
+        "before": [
+          "652d2763b414dcb5"
+        ],
+        "after": [
+          "2c6418e1e8183171"
+        ]
+      },
+      {
+        "name": "cuboid:lid_adhesive3",
+        "before": [
+          "0f347cd1bb262112"
+        ],
+        "after": [
+          "eb15a01b8ec461d2"
+        ]
+      },
+      {
+        "name": "cuboid:lid_adhesive4",
+        "before": [
+          "fda46b86f9436612"
+        ],
+        "after": [
+          "ad4cfdede5a7ee75"
+        ]
+      },
+      {
+        "name": "cuboid:lid_v1",
+        "before": [
+          "08a6d6a5fd2181b8"
+        ],
+        "after": [
+          "e3ce3566eb2dbda9"
+        ]
+      },
+      {
+        "name": "cuboid:lid_v2",
+        "before": [
+          "22c22cb488edb2f5"
+        ],
+        "after": [
+          "04d9a1e48639bcca"
+        ]
+      },
+      {
+        "name": "cuboid:lid_v3",
+        "before": [
+          "a730f8bfaf0cd3c5"
+        ],
+        "after": [
+          "3a7da4bd139ac03b"
+        ]
+      },
+      {
+        "name": "cuboid:lid_v4",
+        "before": [
+          "a0b863a907237d0d"
+        ],
+        "after": [
+          "a77d3e25facd2a06"
+        ]
+      },
+      {
+        "name": "region:z_top",
+        "before": [
+          "632cf5c7b2a06195"
+        ],
+        "after": [
+          "eac9c92c42549699"
+        ]
+      }
+    ]
+  },
+  "changed_values": [
+    {
+      "path": "xml_case/geometry/assembly[name=Lid]/geometry/cuboid[name=lid]/position/y",
+      "before": "-0.0030000000000000001",
+      "after": "-0.0033"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Lid]/geometry/cuboid[name=lid]/size/y",
+      "before": "0.0060000000000000001",
+      "after": "0.0066"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Lid]/geometry/cuboid[name=lid_v1]/position/y",
+      "before": "-0.0030000000000000001",
+      "after": "-0.0033"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Lid]/geometry/cuboid[name=lid_v1]/size/y",
+      "before": "0.0060000000000000001",
+      "after": "0.0066"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Lid]/geometry/cuboid[name=lid_v2]/position/y",
+      "before": "-0.0030000000000000001",
+      "after": "-0.0033"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Lid]/geometry/cuboid[name=lid_v2]/size/y",
+      "before": "0.0060000000000000001",
+      "after": "0.0066"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Lid]/geometry/cuboid[name=lid_v3]/position/y",
+      "before": "-0.0030000000000000001",
+      "after": "-0.0033"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Lid]/geometry/cuboid[name=lid_v4]/position/y",
+      "before": "0.00050000000000000001",
+      "after": "0.00079999999999999971"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Lid_Adhesive]/geometry/cuboid[name=lid_adhesive1]/position/y",
+      "before": "-0.0030000000000000001",
+      "after": "-0.0033"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Lid_Adhesive]/geometry/cuboid[name=lid_adhesive1]/size/y",
+      "before": "0.0060000000000000001",
+      "after": "0.0066"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Lid_Adhesive]/geometry/cuboid[name=lid_adhesive2]/position/y",
+      "before": "-0.0030000000000000001",
+      "after": "-0.0033"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Lid_Adhesive]/geometry/cuboid[name=lid_adhesive2]/size/y",
+      "before": "0.0060000000000000001",
+      "after": "0.0066"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Lid_Adhesive]/geometry/cuboid[name=lid_adhesive3]/position/y",
+      "before": "-0.0030000000000000001",
+      "after": "-0.0033"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Lid_Adhesive]/geometry/cuboid[name=lid_adhesive4]/position/y",
+      "before": "0.00050000000000000001",
+      "after": "0.00079999999999999971"
+    },
+    {
+      "path": "xml_case/geometry/region[name=z_top]/position/y",
+      "before": "-0.0030000000000000001",
+      "after": "-0.0033"
+    },
+    {
+      "path": "xml_case/geometry/region[name=z_top]/size/y",
+      "before": "0.0060000000000000001",
+      "after": "0.0066"
+    }
+  ],
+  "added_leaf_paths": [],
+  "removed_leaf_paths": [],
+  "numeric_formatting_differences_ignored": true,
+  "template_id": "cbga_fc",
+  "variation_id": "par_v2_c062_lidwidthwc_6_6",
+  "variation_kind": "numeric_parameter",
+  "comparison_baseline": "validation/branch_baselines/br_v2_topcover_lidwidthwc/model.xml",
+  "outcome": "semantic_change",
+  "floxml_effect_expectation": null
+}

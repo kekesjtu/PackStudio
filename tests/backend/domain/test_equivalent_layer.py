@@ -3,7 +3,7 @@ from math import pi, sqrt
 import pytest
 
 from packstudio.domain.materials import Material
-from packstudio.templates.flip_chip_cbga.equivalent import (
+from packstudio.templates.cbga_fc.equivalent import (
     calculate_cylindrical_array_equivalent,
 )
 

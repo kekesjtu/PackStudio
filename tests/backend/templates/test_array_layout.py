@@ -1,13 +1,13 @@
 import pytest
 from pydantic import ValidationError
 
-from packstudio.templates.flip_chip_cbga.layout import (
+from packstudio.templates.cbga_fc.layout import (
     build_array_cells,
     occupied_regions,
     unoccupied_regions,
 )
-from packstudio.templates.flip_chip_cbga.material_library import default_materials
-from packstudio.templates.flip_chip_cbga.parameters import CellIndex, SolderBallParameters
+from packstudio.templates.cbga_fc.material_library import default_materials
+from packstudio.templates.cbga_fc.parameters import CellIndex, SolderBallParameters
 
 
 def test_full_array_has_one_uniform_region() -> None:

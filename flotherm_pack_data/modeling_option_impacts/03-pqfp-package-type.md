@@ -37,6 +37,6 @@ LQFP 模型上做统一缩放。
 
 ## 证据
 
-- `../templates/qfp_family/ui.json`
-- `../templates/qfp_family/xml_variations/option_switches/opt_v2_c002_pqfppackagetype_mqfp/`
-- `../templates/qfp_family/xml_variations/option_switches/opt_v2_c003_pqfppackagetype_tqfp/`
+- `../templates/pqfp/ui.json`
+- `../templates/pqfp/xml_variations/option_switches/opt_v2_c002_pqfppackagetype_mqfp/`
+- `../templates/pqfp/xml_variations/option_switches/opt_v2_c003_pqfppackagetype_tqfp/`

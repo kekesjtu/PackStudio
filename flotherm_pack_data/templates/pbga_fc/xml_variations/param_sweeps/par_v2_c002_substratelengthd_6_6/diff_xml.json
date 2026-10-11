@@ -1,0 +1,82 @@
+{
+  "schema_version": "2.0",
+  "comparison": {
+    "baseline": "flotherm_pack_data/templates/pbga_fc/baseline/model.xml",
+    "variation": "flotherm_pack_data/templates/pbga_fc/xml_variations/param_sweeps/par_v2_c002_substratelengthd_6_6/model.xml",
+    "baseline_bytes": 10211,
+    "variation_bytes": 10136,
+    "baseline_sha256": "517D8D2C0D3C887AFCC71083841F9D502BA2338414DBA1CC9F8DE769783CF520",
+    "variation_sha256": "CCB4B75579932B28114A8CA9CBFDBEDBE502C43AE9926D3B67831AB93219B0B6"
+  },
+  "semantic_change": true,
+  "summary": {
+    "changed_value_count": 5,
+    "added_leaf_count": 0,
+    "removed_leaf_count": 0
+  },
+  "materials": {
+    "added": [],
+    "removed": [],
+    "changed": []
+  },
+  "entities": {
+    "added": [],
+    "removed": [],
+    "changed": [
+      {
+        "name": "assembly:Dielectric & Traces",
+        "before": [
+          "aa9388843574b163"
+        ],
+        "after": [
+          "88015975c04dca64"
+        ]
+      },
+      {
+        "name": "cuboid:core_dielectric",
+        "before": [
+          "8a15470900147a20"
+        ],
+        "after": [
+          "05983e23b205bd78"
+        ]
+      }
+    ]
+  },
+  "changed_values": [
+    {
+      "path": "xml_case/attributes/grid_constraints/grid_constraint_att[name=keypoint]/high_inflation/max_size",
+      "before": "0.00030000000000000003",
+      "after": "0.00033"
+    },
+    {
+      "path": "xml_case/attributes/grid_constraints/grid_constraint_att[name=keypoint]/low_inflation/max_size",
+      "before": "0.00030000000000000003",
+      "after": "0.00033"
+    },
+    {
+      "path": "xml_case/attributes/grid_constraints/grid_constraint_att[name=keypoint]/max_size",
+      "before": "0.00030000000000000003",
+      "after": "0.00033"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Dielectric & Traces]/geometry/cuboid[name=core_dielectric]/position/x",
+      "before": "-0.0030000000000000001",
+      "after": "-0.0033"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Dielectric & Traces]/geometry/cuboid[name=core_dielectric]/size/x",
+      "before": "0.0060000000000000001",
+      "after": "0.0066"
+    }
+  ],
+  "added_leaf_paths": [],
+  "removed_leaf_paths": [],
+  "numeric_formatting_differences_ignored": true,
+  "template_id": "pbga_fc",
+  "variation_id": "par_v2_c002_substratelengthd_6_6",
+  "variation_kind": "numeric_parameter",
+  "comparison_baseline": "baseline/model.xml",
+  "outcome": "semantic_change",
+  "floxml_effect_expectation": null
+}

@@ -38,4 +38,4 @@ top/bottom depth = (Wtrace - Wbt)/2
 
 ## 证据
 
-- `../templates/wirebond_pbga/xml_variations/option_switches/opt_v2_c008_includebacksidespreader_true/`
+- `../templates/pbga_wb/xml_variations/option_switches/opt_v2_c008_includebacksidespreader_true/`

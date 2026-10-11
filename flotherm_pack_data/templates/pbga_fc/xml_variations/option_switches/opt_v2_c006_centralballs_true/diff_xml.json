@@ -1,0 +1,60 @@
+{
+  "schema_version": "2.0",
+  "comparison": {
+    "baseline": "flotherm_pack_data/templates/pbga_fc/validation/branch_baselines/br_v2_centralballs_centralballs/model.xml",
+    "variation": "flotherm_pack_data/templates/pbga_fc/xml_variations/option_switches/opt_v2_c006_centralballs_true/model.xml",
+    "baseline_bytes": 10211,
+    "variation_bytes": 11455,
+    "baseline_sha256": "517D8D2C0D3C887AFCC71083841F9D502BA2338414DBA1CC9F8DE769783CF520",
+    "variation_sha256": "82B1BD60D37A9ED4108BF897028DE9D5A5A79EDE40799CAC823E615FEDC80C39"
+  },
+  "semantic_change": true,
+  "summary": {
+    "changed_value_count": 0,
+    "added_leaf_count": 17,
+    "removed_leaf_count": 0
+  },
+  "materials": {
+    "added": [
+      "centerSolder"
+    ],
+    "removed": [],
+    "changed": []
+  },
+  "entities": {
+    "added": [
+      "assembly:Center_SBall",
+      "cuboid:center_sball"
+    ],
+    "removed": [],
+    "changed": []
+  },
+  "changed_values": [],
+  "added_leaf_paths": [
+    "xml_case/attributes/materials/biaxial_material_att[name=centerSolder]/density",
+    "xml_case/attributes/materials/biaxial_material_att[name=centerSolder]/in_plane_conductivity",
+    "xml_case/attributes/materials/biaxial_material_att[name=centerSolder]/name",
+    "xml_case/attributes/materials/biaxial_material_att[name=centerSolder]/normal_conductivity",
+    "xml_case/attributes/materials/biaxial_material_att[name=centerSolder]/specific_heat",
+    "xml_case/geometry/assembly[name=Center_SBall]/geometry/cuboid[name=center_sball]/material",
+    "xml_case/geometry/assembly[name=Center_SBall]/geometry/cuboid[name=center_sball]/name",
+    "xml_case/geometry/assembly[name=Center_SBall]/geometry/cuboid[name=center_sball]/position/x",
+    "xml_case/geometry/assembly[name=Center_SBall]/geometry/cuboid[name=center_sball]/position/y",
+    "xml_case/geometry/assembly[name=Center_SBall]/geometry/cuboid[name=center_sball]/position/z",
+    "xml_case/geometry/assembly[name=Center_SBall]/geometry/cuboid[name=center_sball]/size/x",
+    "xml_case/geometry/assembly[name=Center_SBall]/geometry/cuboid[name=center_sball]/size/y",
+    "xml_case/geometry/assembly[name=Center_SBall]/geometry/cuboid[name=center_sball]/size/z",
+    "xml_case/geometry/assembly[name=Center_SBall]/name",
+    "xml_case/geometry/assembly[name=Center_SBall]/position/x",
+    "xml_case/geometry/assembly[name=Center_SBall]/position/y",
+    "xml_case/geometry/assembly[name=Center_SBall]/position/z"
+  ],
+  "removed_leaf_paths": [],
+  "numeric_formatting_differences_ignored": true,
+  "template_id": "pbga_fc",
+  "variation_id": "opt_v2_c006_centralballs_true",
+  "variation_kind": "boolean_option",
+  "comparison_baseline": "validation/branch_baselines/br_v2_centralballs_centralballs/model.xml",
+  "outcome": "semantic_change",
+  "floxml_effect_expectation": null
+}

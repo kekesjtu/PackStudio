@@ -1,8 +1,10 @@
 import hashlib
+import json
+from pathlib import Path
 
 import pytest
 
-from packstudio.default_parameters import library_directory, read_defaults
+from packstudio.default_parameters import library_directory
 from packstudio.domain.enums import StructureType
 from packstudio.templates.package_library.catalog import generate, schema
 from packstudio.templates.package_library.core.parameters import BgaConfiguration, TemplateRequest
@@ -16,27 +18,23 @@ def request(template_id: str, preset: str, **parameters) -> TemplateRequest:
 
 
 def test_removal_counts_are_derived_from_fully_populated_rows() -> None:
-    model = generate(request("wirebond_pbga", "PBGA_352_35X35mm"))
+    model = generate(request("pbga_wb", "PBGA_352_35X35mm"))
     assert model.metadata["solder_ball_count"] == 352  # 26² - (26 - 8)²
-    footprint = schema("wirebond_pbga")["steps"][0]["fields"][0]
+    footprint = schema("pbga_wb")["steps"][0]["fields"][0]
     pattern = footprint["preset_bga"]["PBGA_352_35X35mm"]
     assert pattern["removal_rows"] == pattern["removal_columns"] == 18
 
 
 def test_explicit_pattern_settings_override_source_defaults() -> None:
     model = generate(
-        request(
-            "wirebond_pbga", "PBGA_352_35X35mm", bga=BgaConfiguration(solder_removal_enabled=False)
-        )
+        request("pbga_wb", "PBGA_352_35X35mm", bga=BgaConfiguration(solder_removal_enabled=False))
     )
     assert model.metadata["solder_ball_count"] == 26 * 26
 
 
 def test_partial_bga_request_retains_source_pattern() -> None:
     model = generate(
-        request(
-            "wirebond_pbga", "PBGA_352_35X35mm", bga=BgaConfiguration(representation="discrete")
-        )
+        request("pbga_wb", "PBGA_352_35X35mm", bga=BgaConfiguration(representation="discrete"))
     )
     assert model.metadata["solder_ball_count"] == 352
     assert model.metadata["solder_ball_representation"] == "discrete"
@@ -66,29 +64,33 @@ def test_qfn_rejects_removing_all_leads() -> None:
 
 @pytest.mark.parametrize("preset,count", [("PBGA_576_40X40mm", 576), ("PBGA_845_40X40mm", 845)])
 def test_parity_mismatches_are_explicitly_audited(preset: str, count: int) -> None:
-    model = generate(request("wirebond_pbga", preset))
+    model = generate(request("pbga_wb", preset))
     assert model.metadata["solder_ball_count"] == count
     assert "半个节距" in model.metadata["preset_notes"]
-    assert model.metadata["preset_geometry_status"] == "source-adapted"
+    assert model.metadata["preset_geometry_status"] == "native-defaults-adapted"
 
 
 def test_filename_count_does_not_invent_omitted_cells() -> None:
-    model = generate(request("flip_chip_cbga", "CBGAFC_416_23X23mm"))
+    model = generate(request("cbga_fc", "CBGAFC_416_23X23mm"))
     assert model.metadata["solder_ball_count"] == 420
     assert "416" in model.metadata["preset_notes"]
     assert "420" in model.metadata["preset_notes"]
 
 
-def test_source_presets_leave_branch_and_power_controls_independent() -> None:
-    footprint = schema("flip_chip_cbga")["steps"][0]["fields"][0]
+def test_native_cover_and_power_defaults_are_part_of_preset_values() -> None:
+    footprint = schema("cbga_fc")["steps"][0]["fields"][0]
     assert all(
-        "flip_chip_cbga.cover.type" not in values and "flip_chip_cbga.die.power" not in values
+        values["cbga_fc.cover.type"] == "bare_die" and values["cbga_fc.die.power"] == 0
         for values in footprint["preset_values"].values()
     )
 
 
 def test_persisted_export_audit_covers_all_sources_and_current_inputs() -> None:
-    report = read_defaults("adaptation_report.json", "packstudio.source-adaptation-audit/v1")
+    report = json.loads(
+        (Path(__file__).parents[3] / "docs/validation/catalog_presets.json").read_text(
+            encoding="utf-8"
+        )
+    )
     assert report["source_count"] == len(report["records"]) == 342
     assert report["model_export_cases"] == 510
     assert len({record["preset_source_path"] for record in report["records"]}) == 342
@@ -104,18 +106,18 @@ def test_persisted_export_audit_covers_all_sources_and_current_inputs() -> None:
 @pytest.mark.parametrize(
     "preset,count",
     [
-        ("ChipArray_48_6X6mm_0_5", 48),
-        ("ChipArray_80_9X9mm_0_8", 80),
+        ("ChipArray_48_6X6mm_0_5", 49),
+        ("ChipArray_80_9X9mm_0_8", 81),
     ],
 )
-def test_source_ball_coordinates_remove_only_the_declared_corner(preset: str, count: int) -> None:
-    model = generate(request("fbga_fsbga", preset))
+def test_inactive_native_ball_coordinates_do_not_enable_removal(preset: str, count: int) -> None:
+    model = generate(request("chip_array", preset))
     assert model.metadata["solder_ball_count"] == count
     assert "逐球坐标" in model.metadata["preset_notes"]
-    footprint = schema("fbga_fsbga")["steps"][0]["fields"][0]
+    footprint = schema("chip_array")["steps"][0]["fields"][0]
     pattern = footprint["preset_bga"][preset]
-    assert pattern["removal_rows"] == pattern["removal_columns"] == 0
-    assert pattern["omitted_cells"] == [{"row": 0, "column": 0}]
+    assert pattern["omitted_cells"] == []
+    assert pattern["solder_removal_enabled"] is False
 
 
 def test_source_coordinate_axes_are_columns_then_rows() -> None:
@@ -138,7 +140,7 @@ def test_invalid_source_coordinates_fail_explicitly(balls: str) -> None:
 def test_switching_off_source_coordinate_removal_restores_full_array() -> None:
     model = generate(
         request(
-            "fbga_fsbga",
+            "chip_array",
             "ChipArray_48_6X6mm_0_5",
             bga=BgaConfiguration(solder_removal_enabled=False),
         )
@@ -150,7 +152,7 @@ def test_explicit_only_removal_requires_both_dimensions_zero() -> None:
     with pytest.raises(ValueError, match="both region dimensions"):
         generate(
             request(
-                "flip_chip_cbga",
+                "cbga_fc",
                 "CBGAFC_49_6X6mm",
                 bga=BgaConfiguration(
                     solder_removal_enabled=True,

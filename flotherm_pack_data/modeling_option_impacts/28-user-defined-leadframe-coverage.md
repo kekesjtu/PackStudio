@@ -62,5 +62,5 @@ SOIC 的 `LeadFrame_1` 在该模板中是 isotropic，因此同一个 `k` 写入
 
 ## 证据
 
-- `../templates/qfp_family/xml_variations/option_switches/opt_v2_c005_userdefinedleadframecoverage_yes/`
-- `../templates/soic_family/xml_variations/option_switches/opt_v2_c006_userdefinedleadframecoverage_yes/`
+- `../templates/pqfp/xml_variations/option_switches/opt_v2_c005_userdefinedleadframecoverage_yes/`
+- `../templates/sop/xml_variations/option_switches/opt_v2_c006_userdefinedleadframecoverage_yes/`

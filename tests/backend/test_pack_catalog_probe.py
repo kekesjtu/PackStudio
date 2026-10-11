@@ -12,8 +12,9 @@ from tools.pack_native_details import DetailedNativePack
 from tools.pack_native_materials import read_builtin_materials
 
 INSTALLATION = os.environ.get("PACK_NATIVE_INSTALLATION")
-pytestmark = pytest.mark.skipif(not INSTALLATION or os.name != "nt",
-                               reason="requires the reviewed Windows PACK installation")
+pytestmark = pytest.mark.skipif(
+    not INSTALLATION or os.name != "nt", reason="requires the reviewed Windows PACK installation"
+)
 
 
 @pytest.fixture(scope="module")
@@ -21,18 +22,24 @@ def native():
     return DetailedNativePack(Path(INSTALLATION))
 
 
-@pytest.mark.parametrize(("family", "preset", "four_layer"), [
-    ("pbga_wb", "PBGA_352_35X35mm", False),
-    ("pbga_wb", "PBGA_121_15X15mm", True),
-    ("pbga_fc", "PBGAFC_49_6X6mm", False),
-    ("chip_array", "ChipArray_48_6X6mm_0_5", False),
-    ("tsop_conv", "TSSOP_10_3x3", False),
-    ("QFN", "QFN_10X10_44", False),
-])
+@pytest.mark.parametrize(
+    ("family", "preset", "four_layer"),
+    [
+        ("pbga_wb", "PBGA_352_35X35mm", False),
+        ("pbga_wb", "PBGA_121_15X15mm", True),
+        ("pbga_fc", "PBGAFC_49_6X6mm", False),
+        ("chip_array", "ChipArray_48_6X6mm_0_5", False),
+        ("tsop_conv", "TSSOP_10_3x3", False),
+        ("QFN", "QFN_10X10_44", False),
+    ],
+)
 def test_live_snapshot_matches_complete_record(native, family, preset, four_layer):
     path = native.installation / f"flocentral/flopack/{family}/{preset}.des"
-    record = {"family": family, "groups": native.snapshot(path, four_layer),
-              "wizard": native.wizard}
+    record = {
+        "family": family,
+        "groups": native.snapshot(path, four_layer),
+        "wizard": native.wizard,
+    }
     branch = "four_layer" if four_layer else "default"
     assert compiled_branch(record) == PresetCatalog().read_branch(preset, branch)
 

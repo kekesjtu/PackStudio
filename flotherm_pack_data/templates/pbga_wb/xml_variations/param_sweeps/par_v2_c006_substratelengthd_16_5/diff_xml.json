@@ -1,0 +1,176 @@
+{
+  "schema_version": "2.0",
+  "comparison": {
+    "baseline": "flotherm_pack_data/templates/pbga_wb/baseline/model.xml",
+    "variation": "flotherm_pack_data/templates/pbga_wb/xml_variations/param_sweeps/par_v2_c006_substratelengthd_16_5/model.xml",
+    "baseline_bytes": 41072,
+    "variation_bytes": 41120,
+    "baseline_sha256": "9479526808CCC33C8AD535F728A6CBBAC0F010BC1E06E77A60FD3E26427F56B2",
+    "variation_sha256": "1BB8953D07DB6D678226FB0DDCE37791A78B240BD9095615F5BAF4EFC7C5A3B0"
+  },
+  "semantic_change": true,
+  "summary": {
+    "changed_value_count": 13,
+    "added_leaf_count": 0,
+    "removed_leaf_count": 0
+  },
+  "materials": {
+    "added": [],
+    "removed": [],
+    "changed": []
+  },
+  "entities": {
+    "added": [],
+    "removed": [],
+    "changed": [
+      {
+        "name": "assembly:Dielectric & Traces",
+        "before": [
+          "b3ead72b637a95bd"
+        ],
+        "after": [
+          "dc2f4819b756d315"
+        ]
+      },
+      {
+        "name": "assembly:Solder Mask",
+        "before": [
+          "aeeaad91594d4733"
+        ],
+        "after": [
+          "3294f5966de13f50"
+        ]
+      },
+      {
+        "name": "cuboid:bottom_trace",
+        "before": [
+          "af2a134f6790f259"
+        ],
+        "after": [
+          "3e05d0f6f7ceff0c"
+        ]
+      },
+      {
+        "name": "cuboid:dielectric",
+        "before": [
+          "18dc3a0fd9dbd1c9"
+        ],
+        "after": [
+          "d5b4262912c55414"
+        ]
+      },
+      {
+        "name": "cuboid:sm_outer1",
+        "before": [
+          "0d03b8c6bb316f18"
+        ],
+        "after": [
+          "d17b775f22ad2226"
+        ]
+      },
+      {
+        "name": "cuboid:sm_outer2",
+        "before": [
+          "79bd47b5bd34cd4f"
+        ],
+        "after": [
+          "fbccd42cb12f13dc"
+        ]
+      },
+      {
+        "name": "cuboid:toptrace1",
+        "before": [
+          "82c3980437a570c9"
+        ],
+        "after": [
+          "5f4ff3bcdedebe0e"
+        ]
+      },
+      {
+        "name": "cuboid:toptrace2",
+        "before": [
+          "033903504c70b600"
+        ],
+        "after": [
+          "d2ad8f12c3fa7bb4"
+        ]
+      }
+    ]
+  },
+  "changed_values": [
+    {
+      "path": "xml_case/attributes/grid_constraints/grid_constraint_att[name=keypoint]/high_inflation/max_size",
+      "before": "0.00075000000000000002",
+      "after": "0.000825"
+    },
+    {
+      "path": "xml_case/attributes/grid_constraints/grid_constraint_att[name=keypoint]/low_inflation/max_size",
+      "before": "0.00075000000000000002",
+      "after": "0.000825"
+    },
+    {
+      "path": "xml_case/attributes/grid_constraints/grid_constraint_att[name=keypoint]/max_size",
+      "before": "0.00075000000000000002",
+      "after": "0.000825"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Dielectric & Traces]/geometry/cuboid[name=bottom_trace]/position/x",
+      "before": "-0.0074999999999999997",
+      "after": "-0.0082500000000000004"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Dielectric & Traces]/geometry/cuboid[name=bottom_trace]/size/x",
+      "before": "0.014999999999999999",
+      "after": "0.016500000000000001"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Dielectric & Traces]/geometry/cuboid[name=dielectric]/position/x",
+      "before": "-0.0074999999999999997",
+      "after": "-0.0082500000000000004"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Dielectric & Traces]/geometry/cuboid[name=dielectric]/size/x",
+      "before": "0.014999999999999999",
+      "after": "0.016500000000000001"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Dielectric & Traces]/geometry/cuboid[name=toptrace1]/position/x",
+      "before": "-0.0074999999999999997",
+      "after": "-0.0082500000000000004"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Dielectric & Traces]/geometry/cuboid[name=toptrace1]/size/x",
+      "before": "0.0032799999999999991",
+      "after": "0.0040299999999999997"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Dielectric & Traces]/geometry/cuboid[name=toptrace2]/size/x",
+      "before": "0.0032799999999999991",
+      "after": "0.0040299999999999997"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Solder Mask]/geometry/cuboid[name=sm_outer1]/position/x",
+      "before": "-0.0074999999999999997",
+      "after": "-0.0082500000000000004"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Solder Mask]/geometry/cuboid[name=sm_outer1]/size/x",
+      "before": "0.0031999999999999997",
+      "after": "0.0039500000000000004"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Solder Mask]/geometry/cuboid[name=sm_outer2]/size/x",
+      "before": "0.0031999999999999997",
+      "after": "0.0039500000000000004"
+    }
+  ],
+  "added_leaf_paths": [],
+  "removed_leaf_paths": [],
+  "numeric_formatting_differences_ignored": true,
+  "template_id": "pbga_wb",
+  "variation_id": "par_v2_c006_substratelengthd_16_5",
+  "variation_kind": "numeric_parameter",
+  "comparison_baseline": "baseline/model.xml",
+  "outcome": "semantic_change",
+  "floxml_effect_expectation": null
+}

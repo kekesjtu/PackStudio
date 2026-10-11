@@ -67,5 +67,5 @@ cp_eff     = (phi_via*rho_via*cp_via
 
 ## 证据
 
-- `../templates/flip_chip_pbga/xml_variations/option_switches/opt_v2_c007_modelcoreviasas_orthotropiccuboid/`
-- 基准：`../templates/flip_chip_pbga/baseline/model.xml`
+- `../templates/pbga_fc/xml_variations/option_switches/opt_v2_c007_modelcoreviasas_orthotropiccuboid/`
+- 基准：`../templates/pbga_fc/baseline/model.xml`

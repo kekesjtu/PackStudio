@@ -1,6 +1,5 @@
 import hashlib
 import json
-import runpy
 import shutil
 from pathlib import Path
 
@@ -9,6 +8,7 @@ from fastapi.testclient import TestClient
 
 import packstudio.default_parameters as library
 from packstudio.api.app import create_app
+from packstudio.preset_catalog import PresetCatalog
 from packstudio.templates.package_library.catalog import (
     default_request,
     definitions,
@@ -16,41 +16,25 @@ from packstudio.templates.package_library.catalog import (
     schema,
 )
 from packstudio.templates.package_library.core.materials import production_materials
+from tools.pack_des import source_record
 
 ROOT = Path(__file__).resolve().parents[3]
 
 
 def test_all_342_records_are_lossless_and_checksummed() -> None:
-    snapshot = json.loads((ROOT / "flotherm_pack_data/installation/presets.json").read_text())
-    original = {item["path"]: item for item in snapshot["records"]}
-    directory = library.library_directory()
-    manifest = json.loads((directory / "manifest.json").read_text())
-    snapshot_bytes = (ROOT / "flotherm_pack_data/installation/presets.json").read_bytes()
-    assert (
-        manifest["source_snapshot_sha256"]
-        == hashlib.sha256(snapshot_bytes.replace(b"\r\n", b"\n")).hexdigest()
+    snapshot = json.loads(
+        (ROOT / "flotherm_pack_data/installation/presets.json").read_text(encoding="utf-8")
     )
+    original = {item["path"]: item for item in snapshot["records"]}
+    catalog = PresetCatalog()
     paths = []
-    for family in manifest["families"]:
-        path = directory / family["file"]
-        assert hashlib.sha256(path.read_bytes()).hexdigest() == family["sha256"]
-        payload = json.loads(path.read_text())
-        assert len(payload["records"]) == family["count"]
-        for record in payload["records"]:
-            paths.append(record["source_path"])
-            source = original[record["source_path"]]
-            assert record["raw_fields"] == source["fields"]
-            assert record["source_sha256"] == source["sha256"]
-            assert record["id"] == Path(source["path"]).stem
-            assert set(record["values"]) == set(source["fields"])
-            for key, raw in source["fields"].items():
-                if raw == "":
-                    assert record["values"][key] is None
-                elif isinstance(record["values"][key], int | float):
-                    assert float(record["values"][key]) == float(raw)
-                else:
-                    assert record["values"][key] == raw
-    assert len(paths) == len(set(paths)) == manifest["record_count"] == 342
+    for identifier in catalog.list_ids():
+        record = catalog.read(identifier)
+        paths.append(record["source"]["path"])
+        source = original[record["source"]["path"]]
+        assert record["source"]["des_fields"] == source["fields"]
+        assert record["source"]["sha256"] == source["sha256"]
+    assert len(paths) == len(set(paths)) == 342
     assert set(paths) == set(original)
 
 
@@ -74,16 +58,27 @@ def edit_json(path: Path, update) -> None:
     path.write_text(json.dumps(payload, ensure_ascii=False), encoding="utf-8")
 
 
+def edit_indexed(directory: Path, category: str, key: str, update) -> None:
+    index_path = directory / category / "index.json"
+    index = json.loads(index_path.read_text(encoding="utf-8"))
+    entry = index[category][key]
+    path = directory / category / entry["file"]
+    edit_json(path, update)
+    entry["sha256"] = hashlib.sha256(path.read_bytes()).hexdigest()
+    index_path.write_text(json.dumps(index), encoding="utf-8")
+
+
 def test_json_changes_drive_geometry_and_schema(isolated_library: Path) -> None:
     def update(payload):
-        field = next(item for item in payload["fields"] if item["key"] == "die.thickness")
-        field["default"] = 0.28
+        payload["branches"]["default"]["groups"]["die"]["properties"]["dieThicknessTd"]["value"] = (
+            0.28
+        )
 
-    edit_json(isolated_library / "templates/flip_chip_cbga.json", update)
-    model = generate(default_request("flip_chip_cbga"))
+    edit_indexed(isolated_library, "presets", "CBGAFC_49_6X6mm", update)
+    model = generate(default_request("cbga_fc"))
     die = next(block for block in model.blocks if block.name == "Silicon die")
     assert die.size.z == pytest.approx(0.28)
-    fields = [item for step in schema("flip_chip_cbga")["steps"] for item in step["fields"]]
+    fields = [item for step in schema("cbga_fc")["steps"] for item in step["fields"]]
     assert (
         next(item for item in fields if item["property_name"] == "die.thickness")["default"] == 0.28
     )
@@ -91,20 +86,21 @@ def test_json_changes_drive_geometry_and_schema(isolated_library: Path) -> None:
 
 def test_source_preset_values_are_read_at_runtime(isolated_library: Path) -> None:
     def update(payload):
-        record = next(item for item in payload["records"] if item["id"] == "CBGAFC_49_6X6mm")
-        record["values"]["Ld"] = 1.9
+        payload["branches"]["default"]["groups"]["die"]["properties"]["dieLengthLd"]["value"] = 1.9
 
-    edit_json(isolated_library / "flotherm/cbga_fc.json", update)
-    model = generate(default_request("flip_chip_cbga"))
+    edit_indexed(isolated_library, "presets", "CBGAFC_49_6X6mm", update)
+    model = generate(default_request("cbga_fc"))
     die = next(block for block in model.blocks if block.name == "Silicon die")
     assert die.size.x == 1.9
 
 
 def test_material_and_request_defaults_come_from_json(isolated_library: Path) -> None:
-    def update_material(payload):
-        payload["materials"][1]["conductivity"] = {"x": 123, "y": 123, "z": 123}
-
-    edit_json(isolated_library / "materials.json", update_material)
+    edit_indexed(
+        isolated_library,
+        "materials",
+        "Silicon (Pure)",
+        lambda payload: payload["conductivity"].update(value=123),
+    )
     edit_json(
         isolated_library / "request.json", lambda data: data["mesh"].update(resolution="fine")
     )
@@ -135,8 +131,8 @@ def test_invalid_library_fails_without_hardcoded_fallback(
 
 
 def test_request_defaults_are_not_shared_between_requests() -> None:
-    first = default_request("flip_chip_cbga")
-    second = default_request("flip_chip_cbga")
+    first = default_request("cbga_fc")
+    second = default_request("cbga_fc")
     first.bga.omitted_cells.append({"row": 0, "column": 0})
     assert second.bga.omitted_cells == []
 
@@ -163,43 +159,25 @@ def test_changing_default_selection_does_not_relabel_it_as_captured(isolated_lib
             "CBGAFC_100_9X9mm"
         )
 
-    edit_json(isolated_library / "templates/flip_chip_cbga.json", update)
-    model = generate(default_request("flip_chip_cbga"))
-    assert model.metadata["preset_geometry_status"] == "source-adapted"
+    edit_json(isolated_library / "templates/cbga_fc.json", update)
+    model = generate(default_request("cbga_fc"))
+    assert model.metadata["preset_geometry_status"] == "native-defaults-adapted"
     substrate = next(block for block in model.blocks if block.name == "Package substrate")
     assert substrate.size.x == substrate.size.y == 9
 
 
 def test_missing_source_adapter_fails_without_legacy_fallback(isolated_library: Path) -> None:
-    edit_json(
-        isolated_library / "source_adapters.json", lambda data: data["families"].pop("cbga_fc")
-    )
-    with pytest.raises(ValueError, match="missing source adapter"):
-        generate(default_request("flip_chip_cbga"))
+    edit_json(isolated_library / "pack_bindings.json", lambda data: data["families"].pop("cbga_fc"))
+    with pytest.raises(ValueError, match="missing native PACK binding"):
+        generate(default_request("cbga_fc"))
 
 
-def test_transcription_is_portable_across_windows_and_git_line_endings(tmp_path: Path) -> None:
-    transcribe = runpy.run_path(str(ROOT / "tools/transcribe_default_parameters.py"))["transcribe"]
-    record = {
-        "path": "flocentral/flopack/example/example.des",
-        "family": "example",
-        "sha256": "original-vendor-hash",
-        "fields": {"D": "6", "notes": "first\r\nsecond"},
-    }
-    payload = json.dumps({"records": [record]}, indent=2)
-    manifests = []
-    for index, line_ending in enumerate(["\n", "\r\n"]):
-        snapshot = tmp_path / f"source-{index}.json"
-        snapshot.write_text(payload, encoding="utf-8", newline=line_ending)
-        output = tmp_path / f"output-{index}"
-        manifest = transcribe(snapshot, output)
-        serialized = output / "flotherm/example.json"
-        assert b"\r\n" not in serialized.read_bytes()
-        assert (
-            hashlib.sha256(serialized.read_bytes()).hexdigest() == manifest["families"][0]["sha256"]
-        )
-        data = json.loads(serialized.read_text(encoding="utf-8"))["records"][0]
-        assert data["raw_fields"] == record["fields"]
-        assert data["source_sha256"] == "original-vendor-hash"
-        manifests.append(manifest)
-    assert manifests[0] == manifests[1]
+def test_original_des_parser_preserves_blanks_and_rejects_duplicates(tmp_path: Path) -> None:
+    path = tmp_path / "example.des"
+    path.write_text("D|6\nempty|\nmaterial|Copper (Pure)\n", encoding="utf-8")
+    record = source_record(path, tmp_path)
+    assert record["raw_fields"] == {"D": "6", "empty": "", "material": "Copper (Pure)"}
+    assert record["source_sha256"] == hashlib.sha256(path.read_bytes()).hexdigest()
+    path.write_text("D|6\nD|7\n", encoding="utf-8")
+    with pytest.raises(ValueError, match="duplicate"):
+        source_record(path, tmp_path)

@@ -1,0 +1,94 @@
+{
+  "schema_version": "2.0",
+  "comparison": {
+    "baseline": "flotherm_pack_data/templates/sop/baseline/model.xml",
+    "variation": "flotherm_pack_data/templates/sop/xml_variations/option_switches/opt_v2_c007_modelbondwiresas_isotropiccuboid/model.xml",
+    "baseline_bytes": 24418,
+    "variation_bytes": 24124,
+    "baseline_sha256": "2602CC4C884EDBD1E1FBA39F5D4A1BB441413956B57D9FAFBBC1B131DA198A3E",
+    "variation_sha256": "566E4E1C9DAF26B2537156E58340C32A9B446E1A3A6F875BA8B3C378CB3DEE85"
+  },
+  "semantic_change": true,
+  "summary": {
+    "changed_value_count": 0,
+    "added_leaf_count": 8,
+    "removed_leaf_count": 12
+  },
+  "materials": {
+    "added": [],
+    "removed": [],
+    "changed": [
+      {
+        "name": "bondwire1",
+        "before": {
+          "type": "orthotropic_material_att",
+          "density": "2448.31853072",
+          "specific_heat": "669.485242994",
+          "x_conductivity": "11.2952762295",
+          "y_conductivity": "0.68",
+          "z_conductivity": "11.2952762295"
+        },
+        "after": {
+          "type": "isotropic_material_att",
+          "density": "2448.31853072",
+          "specific_heat": "669.485242994",
+          "conductivity": "11.2952762295"
+        }
+      },
+      {
+        "name": "bondwire2",
+        "before": {
+          "type": "orthotropic_material_att",
+          "density": "2448.31853072",
+          "specific_heat": "669.485242994",
+          "x_conductivity": "0.68",
+          "y_conductivity": "11.2952762295",
+          "z_conductivity": "11.2952762295"
+        },
+        "after": {
+          "type": "isotropic_material_att",
+          "density": "2448.31853072",
+          "specific_heat": "669.485242994",
+          "conductivity": "11.2952762295"
+        }
+      }
+    ]
+  },
+  "entities": {
+    "added": [],
+    "removed": [],
+    "changed": []
+  },
+  "changed_values": [],
+  "added_leaf_paths": [
+    "xml_case/attributes/materials/isotropic_material_att[name=bondwire1]/conductivity",
+    "xml_case/attributes/materials/isotropic_material_att[name=bondwire1]/density",
+    "xml_case/attributes/materials/isotropic_material_att[name=bondwire1]/name",
+    "xml_case/attributes/materials/isotropic_material_att[name=bondwire1]/specific_heat",
+    "xml_case/attributes/materials/isotropic_material_att[name=bondwire2]/conductivity",
+    "xml_case/attributes/materials/isotropic_material_att[name=bondwire2]/density",
+    "xml_case/attributes/materials/isotropic_material_att[name=bondwire2]/name",
+    "xml_case/attributes/materials/isotropic_material_att[name=bondwire2]/specific_heat"
+  ],
+  "removed_leaf_paths": [
+    "xml_case/attributes/materials/orthotropic_material_att[name=bondwire1]/density",
+    "xml_case/attributes/materials/orthotropic_material_att[name=bondwire1]/name",
+    "xml_case/attributes/materials/orthotropic_material_att[name=bondwire1]/specific_heat",
+    "xml_case/attributes/materials/orthotropic_material_att[name=bondwire1]/x_conductivity",
+    "xml_case/attributes/materials/orthotropic_material_att[name=bondwire1]/y_conductivity",
+    "xml_case/attributes/materials/orthotropic_material_att[name=bondwire1]/z_conductivity",
+    "xml_case/attributes/materials/orthotropic_material_att[name=bondwire2]/density",
+    "xml_case/attributes/materials/orthotropic_material_att[name=bondwire2]/name",
+    "xml_case/attributes/materials/orthotropic_material_att[name=bondwire2]/specific_heat",
+    "xml_case/attributes/materials/orthotropic_material_att[name=bondwire2]/x_conductivity",
+    "xml_case/attributes/materials/orthotropic_material_att[name=bondwire2]/y_conductivity",
+    "xml_case/attributes/materials/orthotropic_material_att[name=bondwire2]/z_conductivity"
+  ],
+  "numeric_formatting_differences_ignored": true,
+  "template_id": "sop",
+  "variation_id": "opt_v2_c007_modelbondwiresas_isotropiccuboid",
+  "variation_kind": "enum_option",
+  "comparison_baseline": "baseline/model.xml",
+  "outcome": "semantic_change",
+  "floxml_effect_expectation": null
+}

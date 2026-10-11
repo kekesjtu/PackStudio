@@ -1,0 +1,69 @@
+{
+  "schema_version": "2.0",
+  "comparison": {
+    "baseline": "flotherm_pack_data/templates/cbga_fc/validation/branch_baselines/br_v2_flipchipbumps_numberofbumpsinymec4/model.xml",
+    "variation": "flotherm_pack_data/templates/cbga_fc/xml_variations/param_sweeps/par_v2_c020_numberofbumpsinymec4_7/model.xml",
+    "baseline_bytes": 10097,
+    "variation_bytes": 10097,
+    "baseline_sha256": "E991B82535ED0232B86E25BE72910C3E60E4A5E8AF7FBA7C8A0FBFC0572677DD",
+    "variation_sha256": "6C64F119F72B4FB53ADBFF381CBEDF86BB7B21731627FE9D2BCD8A2635FE4BBF"
+  },
+  "semantic_change": true,
+  "summary": {
+    "changed_value_count": 3,
+    "added_leaf_count": 0,
+    "removed_leaf_count": 0
+  },
+  "materials": {
+    "added": [],
+    "removed": [],
+    "changed": [
+      {
+        "name": "Bumps",
+        "before": {
+          "type": "isotropic_material_att",
+          "density": "1351.75917734",
+          "specific_heat": "141.908799275",
+          "conductivity": "5.04849519748"
+        },
+        "after": {
+          "type": "isotropic_material_att",
+          "density": "1576.88570689",
+          "specific_heat": "141.923692428",
+          "conductivity": "5.78991106373"
+        }
+      }
+    ]
+  },
+  "entities": {
+    "added": [],
+    "removed": [],
+    "changed": []
+  },
+  "changed_values": [
+    {
+      "path": "xml_case/attributes/materials/isotropic_material_att[name=Bumps]/conductivity",
+      "before": "5.0484951974831462",
+      "after": "5.7899110637303375"
+    },
+    {
+      "path": "xml_case/attributes/materials/isotropic_material_att[name=Bumps]/density",
+      "before": "1351.7591773374672",
+      "after": "1576.8857068937118"
+    },
+    {
+      "path": "xml_case/attributes/materials/isotropic_material_att[name=Bumps]/specific_heat",
+      "before": "141.90879927467805",
+      "after": "141.92369242754035"
+    }
+  ],
+  "added_leaf_paths": [],
+  "removed_leaf_paths": [],
+  "numeric_formatting_differences_ignored": true,
+  "template_id": "cbga_fc",
+  "variation_id": "par_v2_c020_numberofbumpsinymec4_7",
+  "variation_kind": "numeric_parameter",
+  "comparison_baseline": "validation/branch_baselines/br_v2_flipchipbumps_numberofbumpsinymec4/model.xml",
+  "outcome": "semantic_change",
+  "floxml_effect_expectation": null
+}

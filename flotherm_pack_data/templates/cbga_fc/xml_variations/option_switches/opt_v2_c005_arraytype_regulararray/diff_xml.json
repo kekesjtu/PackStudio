@@ -1,0 +1,69 @@
+{
+  "schema_version": "2.0",
+  "comparison": {
+    "baseline": "flotherm_pack_data/templates/cbga_fc/validation/branch_baselines/br_v2_flipchipbumps_arraytype/model.xml",
+    "variation": "flotherm_pack_data/templates/cbga_fc/xml_variations/option_switches/opt_v2_c005_arraytype_regulararray/model.xml",
+    "baseline_bytes": 10097,
+    "variation_bytes": 10097,
+    "baseline_sha256": "46F6562F9E9112E14FC6DD9980DF32077D141C578363E0BB073765FC5B5379A6",
+    "variation_sha256": "E991B82535ED0232B86E25BE72910C3E60E4A5E8AF7FBA7C8A0FBFC0572677DD"
+  },
+  "semantic_change": true,
+  "summary": {
+    "changed_value_count": 3,
+    "added_leaf_count": 0,
+    "removed_leaf_count": 0
+  },
+  "materials": {
+    "added": [],
+    "removed": [],
+    "changed": [
+      {
+        "name": "Bumps",
+        "before": {
+          "type": "isotropic_material_att",
+          "density": "1839.53332471",
+          "specific_heat": "141.936460493",
+          "conductivity": "6.65489624102"
+        },
+        "after": {
+          "type": "isotropic_material_att",
+          "density": "1351.75917734",
+          "specific_heat": "141.908799275",
+          "conductivity": "5.04849519748"
+        }
+      }
+    ]
+  },
+  "entities": {
+    "added": [],
+    "removed": [],
+    "changed": []
+  },
+  "changed_values": [
+    {
+      "path": "xml_case/attributes/materials/isotropic_material_att[name=Bumps]/conductivity",
+      "before": "6.6548962410187267",
+      "after": "5.0484951974831462"
+    },
+    {
+      "path": "xml_case/attributes/materials/isotropic_material_att[name=Bumps]/density",
+      "before": "1839.5333247093304",
+      "after": "1351.7591773374672"
+    },
+    {
+      "path": "xml_case/attributes/materials/isotropic_material_att[name=Bumps]/specific_heat",
+      "before": "141.93646049309032",
+      "after": "141.90879927467805"
+    }
+  ],
+  "added_leaf_paths": [],
+  "removed_leaf_paths": [],
+  "numeric_formatting_differences_ignored": true,
+  "template_id": "cbga_fc",
+  "variation_id": "opt_v2_c005_arraytype_regulararray",
+  "variation_kind": "enum_option",
+  "comparison_baseline": "validation/branch_baselines/br_v2_flipchipbumps_arraytype/model.xml",
+  "outcome": "semantic_change",
+  "floxml_effect_expectation": null
+}

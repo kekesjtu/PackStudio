@@ -1,0 +1,24 @@
+{
+  "schema_version": "2.0",
+  "template_id": "chip_array",
+  "variation_id": "jed_v2_c002_jedecfootprint_chiparray_324_19x19mm",
+  "kind": "jedec_preset",
+  "coverage_policy": "three_representative_values_including_default",
+  "target": {
+    "component": "new_package",
+    "property": "jedecFootprint",
+    "label": "JEDEC Footprint",
+    "baseline": "ChipArray_24_4X4mm_0_8",
+    "value": "ChipArray_324_19X19mm_1"
+  },
+  "comparison_baseline": "baseline/model.xml",
+  "branch_preconditions": [],
+  "required_dependent_initialization": {},
+  "single_variable_relative_to_comparison_baseline": true,
+  "material_policy": "default_only",
+  "property_evidence": [
+    "recorded_new_package",
+    "installed_dll_ascii_string"
+  ],
+  "execution_status": "pending_replay"
+}

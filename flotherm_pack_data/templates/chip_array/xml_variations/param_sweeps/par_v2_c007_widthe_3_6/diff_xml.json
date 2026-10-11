@@ -1,0 +1,157 @@
+{
+  "schema_version": "2.0",
+  "comparison": {
+    "baseline": "flotherm_pack_data/templates/chip_array/baseline/model.xml",
+    "variation": "flotherm_pack_data/templates/chip_array/xml_variations/param_sweeps/par_v2_c007_widthe_3_6/model.xml",
+    "baseline_bytes": 49732,
+    "variation_bytes": 49767,
+    "baseline_sha256": "BB8855B47DDB172F6D5C3E7056F3229923EC67BF23A86252DB33EAC6B5664226",
+    "variation_sha256": "BE2C985DABC4B66214809986CA0A71846F54C3BB14A3B3A56C2E0D448CDBA63A"
+  },
+  "semantic_change": true,
+  "summary": {
+    "changed_value_count": 11,
+    "added_leaf_count": 0,
+    "removed_leaf_count": 0
+  },
+  "materials": {
+    "added": [],
+    "removed": [],
+    "changed": []
+  },
+  "entities": {
+    "added": [],
+    "removed": [],
+    "changed": [
+      {
+        "name": "assembly:Dielectric & Traces",
+        "before": [
+          "f62f2f7257e51a46"
+        ],
+        "after": [
+          "4ba51fcc9dbeb5b9"
+        ]
+      },
+      {
+        "name": "assembly:Encapsulant",
+        "before": [
+          "5e4be27c8df17583"
+        ],
+        "after": [
+          "acbb74197752165b"
+        ]
+      },
+      {
+        "name": "cuboid:dielectric",
+        "before": [
+          "2dedae90f960339f"
+        ],
+        "after": [
+          "92a1df425d84bb22"
+        ]
+      },
+      {
+        "name": "cuboid:encapsulant",
+        "before": [
+          "fe01c0534030ecc4"
+        ],
+        "after": [
+          "55dd2afde295d827"
+        ]
+      },
+      {
+        "name": "cuboid:trace_0",
+        "before": [
+          "d3cc9d4387453bda"
+        ],
+        "after": [
+          "686267c5cce02a87"
+        ]
+      },
+      {
+        "name": "cuboid:trace_1",
+        "before": [
+          "f030e1c465fe6ab5"
+        ],
+        "after": [
+          "ea348d5e806ef5d2"
+        ]
+      },
+      {
+        "name": "region:z_top",
+        "before": [
+          "b99de8005e6b54cc"
+        ],
+        "after": [
+          "0fdb24f61d66b058"
+        ]
+      }
+    ]
+  },
+  "changed_values": [
+    {
+      "path": "xml_case/attributes/radiations/radiation_att[name=chip_array]/subdivided_surface_tolerance",
+      "before": "0.0013333333333333333",
+      "after": "0.0012666666666666666"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Dielectric & Traces]/geometry/cuboid[name=dielectric]/position/y",
+      "before": "-0.002",
+      "after": "-0.0018"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Dielectric & Traces]/geometry/cuboid[name=dielectric]/size/y",
+      "before": "0.0040000000000000001",
+      "after": "0.0035999999999999999"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Dielectric & Traces]/geometry/cuboid[name=trace_0]/position/y",
+      "before": "-0.002",
+      "after": "-0.0018"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Dielectric & Traces]/geometry/cuboid[name=trace_0]/size/y",
+      "before": "0.0040000000000000001",
+      "after": "0.0035999999999999999"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Dielectric & Traces]/geometry/cuboid[name=trace_1]/position/y",
+      "before": "-0.002",
+      "after": "-0.0018"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Dielectric & Traces]/geometry/cuboid[name=trace_1]/size/y",
+      "before": "0.0040000000000000001",
+      "after": "0.0035999999999999999"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Encapsulant]/geometry/cuboid[name=encapsulant]/position/y",
+      "before": "-0.002",
+      "after": "-0.0018"
+    },
+    {
+      "path": "xml_case/geometry/assembly[name=Encapsulant]/geometry/cuboid[name=encapsulant]/size/y",
+      "before": "0.0040000000000000001",
+      "after": "0.0035999999999999999"
+    },
+    {
+      "path": "xml_case/geometry/region[name=z_top]/position/y",
+      "before": "-0.002",
+      "after": "-0.0018"
+    },
+    {
+      "path": "xml_case/geometry/region[name=z_top]/size/y",
+      "before": "0.0040000000000000001",
+      "after": "0.0035999999999999999"
+    }
+  ],
+  "added_leaf_paths": [],
+  "removed_leaf_paths": [],
+  "numeric_formatting_differences_ignored": true,
+  "template_id": "chip_array",
+  "variation_id": "par_v2_c007_widthe_3_6",
+  "variation_kind": "numeric_parameter",
+  "comparison_baseline": "baseline/model.xml",
+  "outcome": "semantic_change",
+  "floxml_effect_expectation": null
+}
