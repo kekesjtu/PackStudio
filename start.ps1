@@ -16,6 +16,8 @@ $packageFile = Join-Path $projectRoot "package.json"
 $backendUrl = "http://127.0.0.1:$BackendPort"
 $frontendUrl = "http://127.0.0.1:$FrontendPort"
 $isWindowsPlatform = [System.Environment]::OSVersion.Platform -eq [System.PlatformID]::Win32NT
+. (Join-Path $projectRoot "tools/wait_for_endpoint.ps1")
+$logDirectory = Join-Path $projectRoot "tmp/startup/$BackendPort-$FrontendPort"
 
 function Resolve-NativeCommand {
     param(
@@ -77,33 +79,6 @@ function Assert-ProcessRunning {
     if ($Process.HasExited) {
         throw "$Name 已退出（退出码 $($Process.ExitCode)）。可运行 .\start.ps1 -Setup 刷新依赖后重试。"
     }
-}
-
-function Wait-ForEndpoint {
-    param(
-        [Parameter(Mandatory)][string]$Uri,
-        [Parameter(Mandatory)][System.Diagnostics.Process]$BackendProcess,
-        [Parameter(Mandatory)][System.Diagnostics.Process]$FrontendProcess,
-        [int]$TimeoutSeconds = 60
-    )
-
-    $deadline = [DateTime]::UtcNow.AddSeconds($TimeoutSeconds)
-    while ([DateTime]::UtcNow -lt $deadline) {
-        Assert-ProcessRunning -Process $BackendProcess -Name "后端服务"
-        Assert-ProcessRunning -Process $FrontendProcess -Name "前端服务"
-
-        try {
-            $response = Invoke-WebRequest -Uri $Uri -UseBasicParsing -TimeoutSec 2
-            if ($response.StatusCode -eq 200) {
-                return
-            }
-        }
-        catch {
-            Start-Sleep -Milliseconds 500
-        }
-    }
-
-    throw "等待 $Uri 就绪超时。"
 }
 
 function Stop-ManagedProcess {
@@ -187,6 +162,7 @@ try {
         }
 
         Write-Host "正在启动 PackStudio ..." -ForegroundColor Cyan
+        New-Item -ItemType Directory -Path $logDirectory -Force | Out-Null
         $backendProcess = Start-Process -FilePath $uvPath `
             -ArgumentList @(
                 "run", "--locked", "--no-sync",
@@ -197,6 +173,8 @@ try {
             ) `
             -WorkingDirectory $projectRoot `
             -WindowStyle Hidden `
+            -RedirectStandardOutput (Join-Path $logDirectory "backend.stdout.log") `
+            -RedirectStandardError (Join-Path $logDirectory "backend.stderr.log") `
             -PassThru
 
         $apiTargetWasSet = Test-Path Env:PACKSTUDIO_API_TARGET
@@ -211,6 +189,8 @@ try {
                 ) `
                 -WorkingDirectory $projectRoot `
                 -WindowStyle Hidden `
+                -RedirectStandardOutput (Join-Path $logDirectory "frontend.stdout.log") `
+                -RedirectStandardError (Join-Path $logDirectory "frontend.stderr.log") `
                 -PassThru
         }
         finally {
@@ -223,16 +203,19 @@ try {
         }
 
         Wait-ForEndpoint -Uri "$backendUrl/api/templates/cbga_fc/schema" `
-            -BackendProcess $backendProcess `
-            -FrontendProcess $frontendProcess
-        Wait-ForEndpoint -Uri "$frontendUrl/api/health" `
+            -Stage "初始化后端模板库" `
             -BackendProcess $backendProcess `
             -FrontendProcess $frontendProcess
         if ($Dev) {
             Wait-ForEndpoint -Uri "$frontendUrl/__packstudio/dev-ready" `
+                -Stage "准备开发界面" `
                 -BackendProcess $backendProcess `
                 -FrontendProcess $frontendProcess
         }
+        Wait-ForEndpoint -Uri "$frontendUrl/api/health" `
+            -Stage "检查前端与 API 连接" `
+            -BackendProcess $backendProcess `
+            -FrontendProcess $frontendProcess
 
         Write-Host ""
         Write-Host "PackStudio 已就绪" -ForegroundColor Green
@@ -245,7 +228,9 @@ try {
         }
 
         if (-not $NoBrowser) {
-            Start-Process $frontendUrl | Out-Null
+            Write-Host "正在打开浏览器：$frontendUrl" -ForegroundColor Cyan
+            try { Start-Process -FilePath $frontendUrl | Out-Null }
+            catch { Write-Warning "自动打开浏览器失败，请手动访问 $frontendUrl。$($_.Exception.Message)" }
         }
 
         Write-Host "按 Ctrl+C 同时停止前后端。"
@@ -265,6 +250,14 @@ try {
     }
 }
 catch {
+    Write-Host "启动失败：$($_.Exception.Message)" -ForegroundColor Red
+    if (($null -ne $backendProcess -or $null -ne $frontendProcess) -and (Test-Path -LiteralPath $logDirectory)) {
+        Write-Host "服务日志：$logDirectory"
+        Get-ChildItem -LiteralPath $logDirectory -Filter "*.log" | ForEach-Object {
+            Write-Host "--- $($_.Name) ---"
+            Get-Content -LiteralPath $_.FullName -Encoding UTF8 -Tail 8
+        }
+    }
     Write-Error $_.Exception.Message
     exit 1
 }
