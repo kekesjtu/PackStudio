@@ -108,6 +108,20 @@ PackStudio/
 uv run --locked python tools/benchmark_startup.py
 ```
 
+### 清理开发临时文件
+
+关闭 PackStudio 及测试进程后，可以先检查清单，再删除临时文件：
+
+```powershell
+.\tools\clean_workspace.ps1 -ListOnly
+.\tools\clean_workspace.ps1
+```
+
+清理范围包括 `tmp` 中的一次性脚本与测试输出、独立 Vite 探测缓存、Python 测试缓存和
+`release` 旧打包产物；保留 `.venv`、已安装前端依赖、日常 Vite 缓存、`dist` 与启动日志。
+脚本拒绝删除 Git 跟踪文件和仓库外路径；支持 `-WhatIf` 预览。遇到文件占用或权限限制时
+会报告具体路径，不改变目录权限。PACK 校验脚本与参考证据仍用于回归复核，不作为垃圾清理。
+
 ### 手动启动
 
 ### 1. 配置 Python 环境
