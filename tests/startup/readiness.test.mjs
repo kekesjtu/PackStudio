@@ -63,6 +63,7 @@ test('local readiness retries errors, bypasses proxies and bounds stalled respon
       const stalled = await runProbe(shell, `${url}/stalled`, 1)
       assert.notEqual(stalled.code, 0, stalled.output)
       assert.match(stalled.output, /stalled/)
+      assert.match(stalled.output, /本次检查超过 2 秒/)
       assert.ok(Date.now() - started < 10000, stalled.output)
     })
   }

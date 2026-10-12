@@ -31,7 +31,15 @@
                 }
                 $lastFailure = "HTTP $([int]$response.StatusCode)"
             }
-            catch { $lastFailure = $_.Exception.GetBaseException().Message }
+            catch {
+                $failure = $_.Exception
+                while ($null -ne $failure.InnerException -and $failure -isnot [System.OperationCanceledException]) {
+                    $failure = $failure.InnerException
+                }
+                $lastFailure = if ($failure -is [System.OperationCanceledException]) {
+                    "本次检查超过 2 秒，服务暂未响应；继续等待"
+                } else { $failure.Message }
+            }
             finally { if ($null -ne $response) { $response.Dispose() } }
             if ($timer.Elapsed.TotalSeconds -ge $nextProgressSeconds) {
                 Write-Host ("仍在{0}，已等待 {1:N0} 秒：{2}" -f $Stage, $timer.Elapsed.TotalSeconds, $lastFailure)
