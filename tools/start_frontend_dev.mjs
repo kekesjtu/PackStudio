@@ -3,6 +3,7 @@ import { readFileSync, readdirSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import { parseArgs } from 'node:util'
 import { createServer } from 'vite'
+import developmentResponseCache from './development_response_cache.mjs'
 
 const projectRoot = fileURLToPath(new URL('../', import.meta.url))
 
@@ -17,6 +18,7 @@ export async function startFrontendDev({
     plugins: [{
       name: 'packstudio-dev-readiness',
       configureServer(server) {
+        server.middlewares.use(developmentResponseCache)
         server.middlewares.use((request, response, next) => {
           if (request.url !== '/__packstudio/dev-ready') return next()
           response.statusCode = ready ? 200 : 503
@@ -32,8 +34,15 @@ export async function startFrontendDev({
     const frontendDirectory = resolve(root, 'src/frontend')
     const sourceFiles = readdirSync(frontendDirectory, { recursive: true })
       .filter(file => typeof file === 'string' && /\.(tsx?|css)$/.test(file) && !file.endsWith('.d.ts'))
-    await Promise.all(sourceFiles.map(file =>
-      client.transformRequest('/src/frontend/' + file.replaceAll('\\', '/'))))
+    const runtimePreparation = async () => {
+      const runtime = await client.transformRequest('/@vite/client')
+      const environmentImport = runtime?.code.match(/import\s+["']([^"']+\/env\.mjs)["']/)
+      if (environmentImport) await client.transformRequest(environmentImport[1])
+    }
+    await Promise.all([
+      runtimePreparation(),
+      ...sourceFiles.map(file => client.transformRequest('/src/frontend/' + file.replaceAll('\\', '/'))),
+    ])
     await client.waitForRequestsIdle()
     await Promise.all((client.depsOptimizer?.metadata.depInfoList ?? []).map(dep => dep.processing))
     await server.transformIndexHtml('/', readFileSync(resolve(root, 'index.html'), 'utf8'))

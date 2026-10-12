@@ -18,6 +18,7 @@ test('development readiness waits for transforms and the server still updates ch
   mkdirSync(temporaryRoot, { recursive: true })
   const root = mkdtempSync(join(temporaryRoot, 'dev-server-test-'))
   const cacheDir = join(root, '.vite')
+  const runtimeMarker = join(root, 'runtime-prepared')
   let server
   t.after(async () => {
     await server?.close()
@@ -29,11 +30,16 @@ test('development readiness waits for transforms and the server still updates ch
   })
   mkdirSync(join(root, 'src/frontend'), { recursive: true })
   writeFileSync(join(root, 'index.html'), '<script type="module" src="/src/frontend/main.tsx"></script>')
-  writeFileSync(join(root, 'vite.config.mjs'), `export default {
+  writeFileSync(join(root, 'vite.config.mjs'), `import { writeFileSync } from 'node:fs';
+  export default {
     css: { postcss: { plugins: [] } },
     optimizeDeps: { noDiscovery: true },
     plugins: [{ name: 'slow-first-transform', async transform(code, id) {
       if (id.endsWith('/main.tsx')) await new Promise(resolve => setTimeout(resolve, 700));
+      if (id.endsWith('/vite/dist/client/client.mjs')) {
+        await new Promise(resolve => setTimeout(resolve, 1400));
+        writeFileSync(${JSON.stringify(runtimeMarker)}, 'ready');
+      }
     } }]
   }`)
   const entry = join(root, 'src/frontend/main.tsx')
@@ -53,11 +59,26 @@ test('development readiness waits for transforms and the server still updates ch
   }
   server = await startup
   assert.equal(server.config.cacheDir, cacheDir.replaceAll('\\', '/'))
+  assert.equal(readFileSync(runtimeMarker, 'utf8'), 'ready', 'readiness must include the browser runtime')
   assert.equal(initialStatus, 503)
   const ready = await fetch(`${url}/__packstudio/dev-ready`)
   assert.equal(ready.status, 200)
   assert.deepEqual(await ready.json(), { ready: true })
-  assert.match(await (await fetch(`${url}/src/frontend/main.tsx`)).text(), /initial-content/)
+  const initialModule = await fetch(`${url}/src/frontend/main.tsx`)
+  assert.equal(initialModule.headers.get('cache-control'), 'no-store')
+  assert.match(await initialModule.text(), /initial-content/)
+  const runtime = await (await fetch(`${url}/@vite/client`)).text()
+  const environmentImport = runtime.match(/import\s+["']([^"']+\/env\.mjs)["']/)
+  assert.ok(environmentImport, 'Vite runtime must expose its environment module')
+  for (const path of ['/', '/@vite/client', environmentImport[1]]) {
+    const initial = await fetch(`${url}${path}`)
+    assert.equal(initial.status, 200)
+    assert.equal(initial.headers.get('cache-control'), 'no-store')
+    const repeated = await fetch(`${url}${path}`, {
+      headers: { 'If-None-Match': initial.headers.get('etag') ?? '"old-cache"' },
+    })
+    assert.equal(repeated.status, 200, 'live documents and modules must not reuse old response bodies')
+  }
   const changed = once(server.watcher, 'change', { signal: AbortSignal.timeout(5000) })
   writeFileSync(entry, "export const label = 'updated-content'")
   await changed
