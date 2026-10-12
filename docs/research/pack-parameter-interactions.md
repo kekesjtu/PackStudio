@@ -2,6 +2,9 @@
 
 日期：2026-10-12。范围：当前 PackStudio，排除 requirements.md 和 ADR 中明确的功能取舍。
 
+后续状态：两类前端转移缺陷已在 TASK21 修复，见
+[修复验证](../validation/pack_frontend_fixes.json)。下文保留修复前审计事实与原始证据。
+
 ## 结论
 
 **预设参数库一致，已开放参数的联动与模型效果尚不完全一致。**

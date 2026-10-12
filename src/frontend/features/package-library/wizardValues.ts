@@ -54,7 +54,7 @@ export function pruneInactiveMaterials(
         (field) =>
           field.control === 'material' &&
           field.material_group_id &&
-          isVisible(field, values),
+          isVisible(field, values) && matches(field.enabled_when, values),
       )
       .map((field) => field.material_group_id as string),
   )
@@ -65,6 +65,24 @@ export function pruneInactiveMaterials(
         activeGroups.has(groupId),
       ),
     ),
+  }
+}
+
+export function pruneInactiveOverrides(
+  request: TemplateRequest,
+  fields: WizardField[],
+): TemplateRequest {
+  const byTarget = new Map(fields.map((field) => [field.target_id, field]))
+  let next = request
+  // Recompute conditions after pruning a controller that may itself be inactive.
+  while (true) {
+    const values = fieldValues(fields, next)
+    const overrides = Object.fromEntries(Object.entries(next.overrides).filter(([targetId]) => {
+      const field = byTarget.get(targetId)
+      return !field || (isVisible(field, values) && matches(field.enabled_when, values))
+    }))
+    if (Object.keys(overrides).length === Object.keys(next.overrides).length) return next
+    next = { ...next, overrides }
   }
 }
 

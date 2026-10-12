@@ -6,8 +6,8 @@ import {
   TextField,
 } from '@mui/material'
 
-import { defaultFor, fieldValues, filterFootprints, isVisible, matches, pruneInactiveMaterials,
-  sameValue, valueFor } from './wizardValues'
+import { fieldValues, filterFootprints, isVisible, matches, valueFor } from './wizardValues'
+import updateWizardRequest from './updateWizardRequest'
 
 import type {
   Material,
@@ -34,48 +34,7 @@ export default function WizardFields({
 }: WizardFieldsProps) {
   const labelValues = fieldValues(allFields, request)
   const update = (field: WizardField, value: WizardValue) => {
-    if (field.control === 'material' && field.material_group_id) {
-      const material_assignments = { ...request.material_assignments }
-      if (sameValue(value, defaultFor(field, request, allFields))) {
-        delete material_assignments[field.material_group_id]
-      }
-      else material_assignments[field.material_group_id] = String(value)
-      onChange({ ...request, material_assignments })
-      return
-    }
-    const overrides = { ...request.overrides }
-    if (field.property_name === 'package.type') {
-      const footprint = allFields.find((item) => item.control === 'footprint')
-      const matching = Object.entries(footprint?.preset_values ?? {}).find(([, preset]) =>
-        preset[field.target_id] === value,
-      )
-      if (footprint && matching) {
-        const nextRequest = { ...request, overrides }
-        nextRequest.overrides[footprint.target_id] = matching[0]
-        for (const target of Object.keys(matching[1])) delete nextRequest.overrides[target]
-        const pattern = footprint.preset_bga?.[matching[0]]
-        const bga = pattern && request.bga
-          ? { ...pattern, representation: request.bga.representation } : request.bga
-        onChange(pruneInactiveMaterials({ ...nextRequest, bga }, allFields))
-      }
-      return
-    }
-    if (field.preset_values) {
-      for (const linkedTargetId of Object.values(field.preset_values).flatMap((preset) =>
-        Object.keys(preset),
-      )) {
-        delete overrides[linkedTargetId]
-      }
-    }
-    if (sameValue(value, defaultFor(field, request, allFields))) {
-      delete overrides[field.target_id]
-    }
-    else overrides[field.target_id] = value
-    const pattern = field.preset_bga?.[String(value)]
-    const bga = pattern && request.bga
-      ? { ...pattern, representation: request.bga.representation }
-      : request.bga
-    onChange(pruneInactiveMaterials({ ...request, overrides, bga }, allFields))
+    onChange(updateWizardRequest(request, field, value, allFields))
   }
 
   return (

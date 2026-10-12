@@ -1,5 +1,7 @@
 """Replay real frontend schemas and independently validate their emitted requests."""
 
+import argparse
+import json
 import os
 import shutil
 import subprocess
@@ -14,7 +16,16 @@ from tools.pack_interaction_audit import physical_signature
 
 def main() -> None:
     root = Path(__file__).resolve().parents[1]
-    output = root / "docs/validation/pack_frontend_interactions.json"
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "--output", type=Path, default=root / "docs/validation/pack_frontend_interactions.json"
+    )
+    parser.add_argument(
+        "--verify",
+        action="store_true",
+        help="require preserved covers and valid emitted backend requests",
+    )
+    arguments = parser.parse_args()
     harness = root / "tests/frontend/_packInteractionProbe.test.tsx"
     if harness.exists():
         raise ValueError(f"refusing to replace an existing file: {harness}")
@@ -42,19 +53,26 @@ def main() -> None:
                 env=environment,
                 check=True,
             )
-            import json
-
             findings = json.loads(results.read_text(encoding="utf-8"))
             for finding in findings:
                 request = TemplateRequest.model_validate(finding["request"])
                 finding["packstudio_error"] = physical_signature(request).get("error")
             write_json(
-                output,
+                arguments.output,
                 {
                     "schema_version": "packstudio.frontend-interaction-audit/v1",
                     "observations": findings,
                 },
             )
+            if arguments.verify:
+                for finding in findings:
+                    if finding["packstudio_error"]:
+                        raise ValueError(f"frontend emitted an invalid request: {finding}")
+                    if finding["scenario"] == "footprint_preserves_cover":
+                        if finding["after"] != finding["before"]:
+                            raise ValueError(f"footprint reset the selected cover: {finding}")
+                    elif finding["hidden_target"] in finding["request"]["overrides"]:
+                        raise ValueError(f"hidden override was retained: {finding}")
         finally:
             harness.unlink()
 

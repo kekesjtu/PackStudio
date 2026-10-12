@@ -1,4 +1,5 @@
 import type { TemplateRequest, TemplateSchema } from './types'
+import { pruneInactiveMaterials, pruneInactiveOverrides } from './wizardValues'
 
 const storageKey = (templateId: string) => `packstudio.library.v3.${templateId}`
 
@@ -29,7 +30,7 @@ export function restoreTemplateRequest(
           new Set(field.options.map(String)),
         ]),
     )
-    return {
+    const restored: TemplateRequest = {
       ...defaults,
       design_name: stored.design_name ?? defaults.design_name,
       bga: stored.bga ?? defaults.bga,
@@ -47,6 +48,7 @@ export function restoreTemplateRequest(
       custom_materials: stored.custom_materials ?? [],
       mesh: { ...defaults.mesh, ...stored.mesh },
     }
+    return pruneInactiveMaterials(pruneInactiveOverrides(restored, fields), fields)
   } catch {
     return null
   }
