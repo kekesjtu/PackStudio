@@ -44,6 +44,11 @@ def audit_project_controls() -> dict:
                 for b in after.get("blocks", [])
                 if b["parent_group_id"] == selection.group_id
             ]
+            composed = (
+                {m.id: m.source for m in generate(changed).materials}
+                if not after.get("error")
+                else {}
+            )
             rows.append(
                 {
                     "group": selection.group_id,
@@ -52,7 +57,12 @@ def audit_project_controls() -> dict:
                     "material": alternate,
                     "model_changed": before != after,
                     "assigned_block_count": len(assigned),
-                    "all_blocks_assigned": bool(assigned) and all(v == alternate for v in assigned),
+                    "all_blocks_assigned": bool(assigned)
+                    and all(
+                        v == alternate or f"metal={alternate};" in (composed.get(v) or "")
+                        for v in assigned
+                    ),
+                    "assignment_semantics": "constituent_or_direct_material",
                     "error": after.get("error"),
                 }
             )

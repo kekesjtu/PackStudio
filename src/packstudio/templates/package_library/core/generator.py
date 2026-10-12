@@ -6,6 +6,7 @@ from packstudio.domain.geometry import AxisAlignedBlock
 from packstudio.domain.materials import Material
 from packstudio.domain.model import ModelGroup, PackageModel
 from packstudio.domain.thermal import HeatSource
+from packstudio.templates.package_library.core.coupled_materials import coupled_materials
 from packstudio.templates.package_library.core.definitions import TemplateDefinition
 from packstudio.templates.package_library.core.geometry import DraftBlock, normalize_drafts
 from packstudio.templates.package_library.core.materials import production_materials
@@ -46,7 +47,13 @@ def generate_template(
     effective_request = request.model_copy(
         update={"material_assignments": {**default_assignments, **request.material_assignments}}
     )
-    blocks = _apply_material_assignments(blocks, materials, effective_request)
+    derived = coupled_materials(definition.id, values, effective_request, materials)
+    materials.update((item.id, item) for item in derived)
+    derived_ids = {item.id for item in derived}
+    # Physical constituent edits feed the rules above. Explicit edits to a
+    # generated material remain user overrides, as for existing via materials.
+    materials.update((item.id, item) for item in request.custom_materials if item.id in derived_ids)
+    blocks = _apply_material_assignments(blocks, materials, effective_request, derived_ids)
     groups = _build_groups(blocks, group_names, definition.display_name)
     power = request.die_power_w if request.die_power_w is not None else built.power_w
     heat_sources = _build_heat_sources(blocks, power)
@@ -86,12 +93,16 @@ def _apply_material_assignments(
     blocks: list[AxisAlignedBlock],
     materials: dict[str, Material],
     request: TemplateRequest,
+    derived_ids: set[str],
 ) -> list[AxisAlignedBlock]:
     missing = sorted(set(request.material_assignments.values()) - set(materials))
     if missing:
         raise ValueError(f"unknown material assignments: {missing}")
     return [
-        block.model_copy(
+        block
+        if block.material_id in derived_ids
+        and block.parent_group_id in {"group-bond-wires", "group-die-flag", "group-vias"}
+        else block.model_copy(
             update={
                 "material_id": request.material_assignments.get(
                     block.id,

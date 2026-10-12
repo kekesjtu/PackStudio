@@ -91,7 +91,12 @@ def test_every_declared_component_material_can_be_applied_to_its_group() -> None
                     block for block in model.blocks if block.parent_group_id == selection.group_id
                 ]
                 assert blocks, f"{template_id}: missing {selection.group_id}"
-                assert {block.material_id for block in blocks} == {material_id}
+                by_id = {material.id: material for material in model.materials}
+                assert all(
+                    block.material_id == material_id
+                    or f"metal={material_id};" in (by_id[block.material_id].source or "")
+                    for block in blocks
+                )
 
 
 @pytest.mark.parametrize("template_id", list(definitions()))

@@ -4,6 +4,8 @@
 
 后续状态：两类前端转移缺陷已在 TASK21 修复，见
 [修复验证](../validation/pack_frontend_fixes.json)。下文保留修复前审计事实与原始证据。
+11项已开放参数的物性联动缺口已在 TASK22 修复，见
+[PACK等效材料联动](pack-material-couplings.md)；该记录还说明 PQFP 数量取整及原13个候选的分类。
 
 ## 结论
 
