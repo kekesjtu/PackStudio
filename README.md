@@ -80,6 +80,14 @@ PackStudio/
 .\start.ps1 -BackendPort 18000 -FrontendPort 15173
 ```
 
+首次进入页面时，模板库只初始化一次，并复用字段与校验器；读取预设只复制所需索引项。
+后端热重载仅监听 `src/packstudio` 与 `default_parameters`，修改参数 JSON 也会自动重启。
+可在新进程中测量首次页面 API 加载及模型生成耗时（不含浏览器渲染）：
+
+```powershell
+uv run --locked python tools/benchmark_startup.py
+```
+
 ### 手动启动
 
 ### 1. 配置 Python 环境

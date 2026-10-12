@@ -22,11 +22,12 @@ from packstudio.templates.package_library.core.primitives import four_direction_
 
 
 def definition() -> TemplateDefinition:
+    fields = load_fields("chip_array")
     return TemplateDefinition(
         id="chip_array",
         display_name="Chip Array",
         category="Ball grid arrays",
-        fields=load_fields("chip_array"),
+        fields=fields,
         builder=_build,
         step_order=(
             "package_setup",
@@ -38,7 +39,7 @@ def definition() -> TemplateDefinition:
             "metal_layers",
             "solder_balls",
         ),
-        material_selections=load_material_selections("chip_array"),
+        material_selections=load_material_selections("chip_array", fields),
         has_bga=True,
     )
 

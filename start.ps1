@@ -181,7 +181,9 @@ try {
             -ArgumentList @(
                 "run", "--locked", "--no-sync",
                 "python", "-m", "uvicorn", "packstudio.api.app:app",
-                "--app-dir", "src", "--host", "127.0.0.1", "--port", "$BackendPort", "--reload"
+                "--app-dir", "src", "--host", "127.0.0.1", "--port", "$BackendPort", "--reload",
+                "--reload-dir", "src/packstudio", "--reload-dir", "default_parameters",
+                "--reload-include=*.json"
             ) `
             -WorkingDirectory $projectRoot `
             -WindowStyle Hidden `

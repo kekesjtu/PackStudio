@@ -1,4 +1,5 @@
 from functools import lru_cache
+from threading import Lock
 from typing import Any
 
 from packstudio.domain.model import PackageModel
@@ -10,6 +11,8 @@ from packstudio.templates.package_library.core.generator import generate_templat
 from packstudio.templates.package_library.core.parameters import TemplateRequest
 from packstudio.templates.package_library.flip_chip import cbga_fc, pbga_fc
 from packstudio.templates.package_library.leadframe import pqfp, qfn, sop
+
+_definitions_lock = Lock()
 
 
 @lru_cache(maxsize=1)
@@ -28,6 +31,9 @@ def definitions() -> dict[str, TemplateDefinition]:
 
 
 def catalog() -> list[dict[str, Any]]:
+    # A cold cache can run its initializer once per concurrent caller.
+    with _definitions_lock:
+        items = definitions()
     return [
         {
             "id": item.id,
@@ -38,13 +44,14 @@ def catalog() -> list[dict[str, Any]]:
             "implementation_status": "packstudio_native",
             "runtime_reference_data_required": False,
         }
-        for item in definitions().values()
+        for item in items.values()
     ]
 
 
 def definition(template_id: str) -> TemplateDefinition:
     try:
-        return definitions()[template_id]
+        with _definitions_lock:
+            return definitions()[template_id]
     except KeyError as error:
         raise ValueError(f"unknown template {template_id}") from error
 

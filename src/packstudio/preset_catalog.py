@@ -1,7 +1,7 @@
 """Read complete per-preset parameter records without the Flotherm installation."""
 
 from packstudio.catalog_storage import read_catalog_entry
-from packstudio.default_parameters import read_defaults
+from packstudio.default_parameters import read_default_value, read_defaults
 from packstudio.material_catalog import MaterialCatalog
 
 
@@ -17,10 +17,12 @@ class PresetCatalog:
         ]
 
     def read(self, preset_id: str) -> dict:
-        index = read_defaults("presets/index.json", "packstudio.preset-index/v1")
-        if preset_id not in index["presets"]:
-            raise ValueError(f"unknown catalog preset: {preset_id}")
-        entry = index["presets"][preset_id]
+        try:
+            entry = read_default_value(
+                "presets/index.json", "packstudio.preset-index/v1", "presets", preset_id
+            )
+        except KeyError as error:
+            raise ValueError(f"unknown catalog preset: {preset_id}") from error
         payload = read_catalog_entry(
             f"presets/{entry['file']}", "packstudio.preset/v1", entry["sha256"]
         )

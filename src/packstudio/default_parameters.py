@@ -38,5 +38,20 @@ def read_defaults(relative: str, schema_version: str) -> dict[str, Any]:
     return deepcopy(_read(relative, schema_version))
 
 
+def read_default_value(relative: str, schema_version: str, *keys: str) -> Any:
+    """Copy only the requested value, keeping the cached document private."""
+    value = _read(relative, schema_version)
+    for key in keys:
+        value = value[key]
+    return deepcopy(value)
+
+
+def read_default_keys(relative: str, schema_version: str, *keys: str) -> tuple[str, ...]:
+    value = _read(relative, schema_version)
+    for key in keys:
+        value = value[key]
+    return tuple(value)
+
+
 def request_default(section: str, key: str) -> Any:
-    return read_defaults("request.json", "packstudio.request-defaults/v1")[section][key]
+    return read_default_value("request.json", "packstudio.request-defaults/v1", section, key)

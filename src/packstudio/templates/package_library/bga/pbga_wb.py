@@ -25,11 +25,12 @@ from packstudio.templates.package_library.core.primitives import (
 
 
 def definition() -> TemplateDefinition:
+    fields = load_fields("pbga_wb")
     return TemplateDefinition(
         id="pbga_wb",
         display_name="Wirebond PBGA",
         category="Ball grid arrays",
-        fields=load_fields("pbga_wb"),
+        fields=fields,
         builder=_build,
         step_order=(
             "package_setup",
@@ -41,7 +42,7 @@ def definition() -> TemplateDefinition:
             "metal_layers",
             "solder_balls",
         ),
-        material_selections=load_material_selections("pbga_wb"),
+        material_selections=load_material_selections("pbga_wb", fields),
         has_bga=True,
     )
 

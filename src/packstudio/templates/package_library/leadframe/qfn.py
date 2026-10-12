@@ -18,11 +18,12 @@ from packstudio.templates.package_library.leadframe.qfn_primitives import (
 
 
 def definition() -> TemplateDefinition:
+    fields = load_fields("qfn")
     return TemplateDefinition(
         id="qfn",
         display_name="QFN",
         category="Lead-frame packages",
-        fields=load_fields("qfn"),
+        fields=fields,
         builder=_build,
         step_order=(
             "package_setup",
@@ -33,7 +34,7 @@ def definition() -> TemplateDefinition:
             "bond_wires",
             "thermal_land",
         ),
-        material_selections=load_material_selections("qfn"),
+        material_selections=load_material_selections("qfn", fields),
     )
 
 

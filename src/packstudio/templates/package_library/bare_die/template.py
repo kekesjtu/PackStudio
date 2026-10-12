@@ -14,14 +14,15 @@ from packstudio.templates.package_library.flip_chip.layers import build_flip_chi
 
 
 def definition() -> TemplateDefinition:
+    fields = load_fields("bare_die")
     return TemplateDefinition(
         id="bare_die",
         display_name="Bare Die",
         category="Bare die",
-        fields=load_fields("bare_die"),
+        fields=fields,
         builder=_build,
         step_order=("package_setup", "die", "bumped_die"),
-        material_selections=load_material_selections("bare_die"),
+        material_selections=load_material_selections("bare_die", fields),
         has_flip_chip=True,
     )
 

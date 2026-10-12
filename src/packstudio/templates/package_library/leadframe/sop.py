@@ -19,11 +19,12 @@ from packstudio.templates.package_library.leadframe.sop_primitives import (
 
 
 def definition() -> TemplateDefinition:
+    fields = load_fields("sop")
     return TemplateDefinition(
         id="sop",
         display_name="SOP",
         category="Lead-frame packages",
-        fields=load_fields("sop"),
+        fields=fields,
         builder=_build,
         step_order=(
             "package_setup",
@@ -35,7 +36,7 @@ def definition() -> TemplateDefinition:
             "bond_wires",
             "thermal_land_solder",
         ),
-        material_selections=load_material_selections("sop"),
+        material_selections=load_material_selections("sop", fields),
     )
 
 

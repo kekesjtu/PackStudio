@@ -1,13 +1,19 @@
 """Resolve native PACK material names from the independent JSON material library."""
 
 from packstudio.catalog_storage import read_catalog_entry
-from packstudio.default_parameters import read_defaults
+from packstudio.default_parameters import read_default_keys, read_default_value, read_defaults
 
 
 class MaterialCatalog:
     """Read offline material definitions; names are exact, unique reference keys."""
 
     def list_names(self, category: str | None = None) -> list[str]:
+        if category is None:
+            return list(
+                read_default_keys(
+                    "materials/index.json", "packstudio.material-index/v1", "materials"
+                )
+            )
         index = read_defaults("materials/index.json", "packstudio.material-index/v1")
         return [
             name
@@ -16,10 +22,12 @@ class MaterialCatalog:
         ]
 
     def read(self, name: str) -> dict:
-        index = read_defaults("materials/index.json", "packstudio.material-index/v1")
-        if name not in index["materials"]:
-            raise ValueError(f"unknown catalog material: {name}")
-        entry = index["materials"][name]
+        try:
+            entry = read_default_value(
+                "materials/index.json", "packstudio.material-index/v1", "materials", name
+            )
+        except KeyError as error:
+            raise ValueError(f"unknown catalog material: {name}") from error
         payload = read_catalog_entry(
             f"materials/{entry['file']}", "packstudio.material/v1", entry["sha256"]
         )

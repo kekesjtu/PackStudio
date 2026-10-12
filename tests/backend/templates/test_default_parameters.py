@@ -153,6 +153,20 @@ def test_default_loader_rejects_paths_outside_the_library() -> None:
         library.read_defaults("../pyproject.toml", "packstudio.template-defaults/v1")
 
 
+def test_selected_defaults_keep_nested_mutations_out_of_the_cache() -> None:
+    arguments = ("presets/index.json", "packstudio.preset-index/v1", "presets")
+    identifiers = library.read_default_keys(*arguments)
+    assert len(identifiers) == 342
+    original = library.read_default_value(*arguments, identifiers[0])
+    changed = library.read_default_value(*arguments, identifiers[0])
+    changed.clear()
+    assert library.read_default_value(*arguments, identifiers[0]) == original
+    request_arguments = ("request.json", "packstudio.request-defaults/v1")
+    section = library.read_default_value(*request_arguments, "bga")
+    section["representation"] = "invalid"
+    assert library.request_default("bga", "representation") != "invalid"
+
+
 def test_changing_default_selection_does_not_relabel_it_as_captured(isolated_library: Path) -> None:
     def update(payload):
         next(item for item in payload["fields"] if item["control"] == "footprint")["default"] = (

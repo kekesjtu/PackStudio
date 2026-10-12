@@ -14,6 +14,10 @@ from packstudio.templates.package_library.core.definitions import (
 from packstudio.templates.package_library.core.materials import material, material_id_for_name
 from packstudio.templates.package_library.core.native_presets import expand_native_presets
 
+_PRESET_ADAPTER = TypeAdapter(PresetOption)
+_FIELD_ADAPTER = TypeAdapter(FieldDefinition)
+_MATERIAL_SELECTION_ADAPTER = TypeAdapter(tuple[MaterialSelectionDefinition, ...])
+
 
 def template_defaults(template_id: str) -> dict:
     payload = read_defaults(f"templates/{template_id}.json", "packstudio.template-defaults/v1")
@@ -23,7 +27,7 @@ def template_defaults(template_id: str) -> dict:
 
 
 def _preset(payload: dict) -> PresetOption:
-    return TypeAdapter(PresetOption).validate_python(
+    return _PRESET_ADAPTER.validate_python(
         {
             "value": payload["value"],
             "label": payload["label"],
@@ -49,7 +53,7 @@ def load_fields(template_id: str) -> tuple[FieldDefinition, ...]:
         elif "editor_default" in payload:
             payload["default"] = payload.pop("editor_default")
         payload["presets"] = tuple(_preset(preset) for preset in payload["presets"])
-        item = TypeAdapter(FieldDefinition).validate_python(payload)
+        item = _FIELD_ADAPTER.validate_python(payload)
         _validate_value(item, item.default)
         if item.presets and tuple(preset.value for preset in item.presets) != item.options:
             raise ValueError(f"preset options mismatch: {template_id}/{item.key}")
@@ -70,11 +74,14 @@ def load_fields(template_id: str) -> tuple[FieldDefinition, ...]:
     )
 
 
-def load_material_selections(template_id: str) -> tuple[MaterialSelectionDefinition, ...]:
-    items = TypeAdapter(tuple[MaterialSelectionDefinition, ...]).validate_python(
+def load_material_selections(
+    template_id: str, fields: tuple[FieldDefinition, ...] | None = None
+) -> tuple[MaterialSelectionDefinition, ...]:
+    items = _MATERIAL_SELECTION_ADAPTER.validate_python(
         template_defaults(template_id)["material_selections"]
     )
-    fields = load_fields(template_id)
+    if fields is None:
+        fields = load_fields(template_id)
     footprint = next(item for item in fields if item.control == "footprint")
     selected = next(p for p in footprint.presets if p.value == footprint.default)
     items = tuple(

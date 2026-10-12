@@ -12,11 +12,12 @@ from packstudio.templates.package_library.flip_chip.common import build
 
 
 def definition() -> TemplateDefinition:
+    fields = load_fields("pbga_fc")
     return TemplateDefinition(
         id="pbga_fc",
         display_name="Flip Chip PBGA",
         category="Ball grid arrays",
-        fields=load_fields("pbga_fc"),
+        fields=fields,
         builder=_build,
         step_order=(
             "package_setup",
@@ -26,7 +27,7 @@ def definition() -> TemplateDefinition:
             "solder_balls",
             "top_cover",
         ),
-        material_selections=load_material_selections("pbga_fc"),
+        material_selections=load_material_selections("pbga_fc", fields),
         has_bga=True,
         has_flip_chip=True,
     )
