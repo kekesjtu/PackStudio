@@ -1,14 +1,12 @@
 import { useState, type MouseEvent } from 'react'
-import {
-  Box,
-  Button,
-  ButtonBase,
-  Chip,
-  Menu,
-  MenuItem,
-  Stack,
-  Typography,
-} from '@mui/material'
+import Box from '@mui/material/Box'
+import Button from '@mui/material/Button'
+import ButtonBase from '@mui/material/ButtonBase'
+import Chip from '@mui/material/Chip'
+import Menu from '@mui/material/Menu'
+import MenuItem from '@mui/material/MenuItem'
+import Stack from '@mui/material/Stack'
+import Typography from '@mui/material/Typography'
 
 import type { AxisAlignedBlock, ModelGroup, PackageModel } from './types'
 

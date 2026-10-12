@@ -1,12 +1,11 @@
-import {
-  Bounds,
-  Edges,
-  GizmoHelper,
-  GizmoViewport,
-  OrbitControls,
-} from '@react-three/drei'
+import { Bounds } from '@react-three/drei/core/Bounds'
+import { Edges } from '@react-three/drei/core/Edges'
+import { GizmoHelper } from '@react-three/drei/core/GizmoHelper'
+import { GizmoViewport } from '@react-three/drei/core/GizmoViewport'
+import { OrbitControls } from '@react-three/drei/core/OrbitControls'
 import { Canvas, type ThreeEvent } from '@react-three/fiber'
-import { Box, Typography } from '@mui/material'
+import Box from '@mui/material/Box'
+import Typography from '@mui/material/Typography'
 
 import { toNativeXyzBlockTransform } from './previewGeometry'
 import type { AxisAlignedBlock, Material, PackageModel } from './types'

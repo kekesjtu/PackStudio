@@ -1,13 +1,11 @@
-import {
-  AppBar,
-  Box,
-  CssBaseline,
-  MenuItem,
-  Select,
-  ThemeProvider,
-  Toolbar,
-  Typography,
-} from '@mui/material'
+import AppBar from '@mui/material/AppBar'
+import Box from '@mui/material/Box'
+import CssBaseline from '@mui/material/CssBaseline'
+import MenuItem from '@mui/material/MenuItem'
+import Select from '@mui/material/Select'
+import { ThemeProvider } from '@mui/material/styles'
+import Toolbar from '@mui/material/Toolbar'
+import Typography from '@mui/material/Typography'
 import { useEffect, useState } from 'react'
 
 import { loadTemplateCatalog } from './features/package-library/api'

@@ -1,10 +1,8 @@
-import {
-  List,
-  ListItemButton,
-  ListItemText,
-  Paper,
-  Typography,
-} from '@mui/material'
+import List from '@mui/material/List'
+import ListItemButton from '@mui/material/ListItemButton'
+import ListItemText from '@mui/material/ListItemText'
+import Paper from '@mui/material/Paper'
+import Typography from '@mui/material/Typography'
 import { Fragment } from 'react'
 
 import type { TemplateSchema } from './types'

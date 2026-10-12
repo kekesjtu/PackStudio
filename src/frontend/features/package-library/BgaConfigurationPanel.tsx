@@ -1,10 +1,8 @@
-import {
-  Alert,
-  FormControlLabel,
-  Stack,
-  Switch,
-  TextField,
-} from '@mui/material'
+import Alert from '@mui/material/Alert'
+import FormControlLabel from '@mui/material/FormControlLabel'
+import Stack from '@mui/material/Stack'
+import Switch from '@mui/material/Switch'
+import TextField from '@mui/material/TextField'
 
 import NumberInput from '../model-editor/NumberInput'
 import type { BgaConfiguration } from './types'

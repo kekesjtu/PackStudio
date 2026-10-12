@@ -1,4 +1,6 @@
-import { Box, Tab, Tabs } from '@mui/material'
+import Box from '@mui/material/Box'
+import Tab from '@mui/material/Tab'
+import Tabs from '@mui/material/Tabs'
 import { useMemo, useState } from 'react'
 
 import ModelTree from '../model-editor/ModelTree'

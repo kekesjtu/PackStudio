@@ -9,9 +9,11 @@
   },
   "scripts": {
     "dev": "vite",
+    "preview": "vite preview",
     "build": "tsc -b && vite build",
     "lint": "eslint src/frontend tests/frontend",
     "test": "vitest run",
+    "test:startup": "node --test tests/startup/*.test.mjs",
     "test:desktop": "node --test tests/desktop/*.test.cjs",
     "desktop": "npm run build && electron .",
     "package:backend": "uv run --locked --group packaging python tools/build_backend.py",

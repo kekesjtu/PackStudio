@@ -5,6 +5,7 @@ param(
     [ValidateRange(1, 65535)]
     [int]$FrontendPort = 5173,
     [switch]$Setup,
+    [switch]$Dev,
     [switch]$NoBrowser,
     [switch]$Check
 )
@@ -93,7 +94,7 @@ function Wait-ForEndpoint {
 
         try {
             $response = Invoke-WebRequest -Uri $Uri -UseBasicParsing -TimeoutSec 2
-            if ($response.StatusCode -ge 200 -and $response.StatusCode -lt 500) {
+            if ($response.StatusCode -eq 200) {
                 return
             }
         }
@@ -176,6 +177,15 @@ try {
         Assert-PortAvailable -Port $BackendPort
         Assert-PortAvailable -Port $FrontendPort
 
+        if (-not $Dev) {
+            $nodePath = Resolve-NativeCommand -Names @("node.exe", "node") `
+                -InstallHint "请安装 Node.js 22.12+ 并将其加入 PATH。"
+            $buildArguments = @("tools/ensure_frontend_build.mjs")
+            if ($Setup) { $buildArguments += "--force" }
+            Invoke-CheckedCommand -FilePath $nodePath -ArgumentList $buildArguments `
+                -FailureMessage "构建前端失败。可运行 .\start.ps1 -Setup 刷新依赖后重试。"
+        }
+
         Write-Host "正在启动 PackStudio ..." -ForegroundColor Cyan
         $backendProcess = Start-Process -FilePath $uvPath `
             -ArgumentList @(
@@ -193,9 +203,10 @@ try {
         $previousApiTarget = $env:PACKSTUDIO_API_TARGET
         $env:PACKSTUDIO_API_TARGET = $backendUrl
         try {
+            $frontendCommand = if ($Dev) { "dev" } else { "preview" }
             $frontendProcess = Start-Process -FilePath $npmPath `
                 -ArgumentList @(
-                    "run", "dev", "--", "--host", "127.0.0.1",
+                    "run", $frontendCommand, "--", "--host", "127.0.0.1",
                     "--port", "$FrontendPort", "--strictPort"
                 ) `
                 -WorkingDirectory $projectRoot `
@@ -211,7 +222,7 @@ try {
             }
         }
 
-        Wait-ForEndpoint -Uri "$backendUrl/api/health" `
+        Wait-ForEndpoint -Uri "$backendUrl/api/templates/cbga_fc/schema" `
             -BackendProcess $backendProcess `
             -FrontendProcess $frontendProcess
         Wait-ForEndpoint -Uri "$frontendUrl/api/health" `

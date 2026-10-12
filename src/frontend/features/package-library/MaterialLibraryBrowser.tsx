@@ -1,13 +1,11 @@
-import {
-  Box,
-  Chip,
-  List,
-  ListItemButton,
-  ListItemText,
-  Stack,
-  TextField,
-  Typography,
-} from '@mui/material'
+import Box from '@mui/material/Box'
+import Chip from '@mui/material/Chip'
+import List from '@mui/material/List'
+import ListItemButton from '@mui/material/ListItemButton'
+import ListItemText from '@mui/material/ListItemText'
+import Stack from '@mui/material/Stack'
+import TextField from '@mui/material/TextField'
+import Typography from '@mui/material/Typography'
 import { useState } from 'react'
 
 import MaterialFields from '../model-editor/MaterialFields'

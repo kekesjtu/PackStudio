@@ -6,6 +6,14 @@ const apiTarget = process.env.PACKSTUDIO_API_TARGET ?? 'http://127.0.0.1:8000'
 export default defineConfig({
   plugins: [react()],
   server: {
+    warmup: {
+      clientFiles: ['./src/frontend/main.tsx'],
+    },
+    proxy: {
+      '/api': apiTarget,
+    },
+  },
+  preview: {
     proxy: {
       '/api': apiTarget,
     },
