@@ -228,6 +228,11 @@ try {
         Wait-ForEndpoint -Uri "$frontendUrl/api/health" `
             -BackendProcess $backendProcess `
             -FrontendProcess $frontendProcess
+        if ($Dev) {
+            Wait-ForEndpoint -Uri "$frontendUrl/__packstudio/dev-ready" `
+                -BackendProcess $backendProcess `
+                -FrontendProcess $frontendProcess
+        }
 
         Write-Host ""
         Write-Host "PackStudio 已就绪" -ForegroundColor Green

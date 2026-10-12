@@ -8,7 +8,7 @@
     "node": ">=22.12.0"
   },
   "scripts": {
-    "dev": "vite",
+    "dev": "node tools/start_frontend_dev.mjs",
     "preview": "vite preview",
     "build": "tsc -b && vite build",
     "lint": "eslint src/frontend tests/frontend",

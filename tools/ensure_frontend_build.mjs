@@ -35,6 +35,7 @@ export function ensureFrontendBuild({
   const sourceFiles = [
     ...configFiles.map((name) => join(root, name)),
     ...filesIn(join(root, 'src/frontend')),
+    ...filesIn(join(root, 'src/tooling')),
     ...filesIn(join(root, 'public')),
   ]
   const sourceHash = fingerprint(root, sourceFiles)
