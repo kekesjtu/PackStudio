@@ -3,7 +3,6 @@
   "private": true,
   "version": "0.1.0",
   "type": "module",
-  "main": "electron/main.cjs",
   "engines": {
     "node": ">=22.12.0"
   },
@@ -14,11 +13,11 @@
     "lint": "eslint src/frontend tests/frontend",
     "test": "vitest run",
     "test:startup": "node --test tests/startup/*.test.mjs",
-    "test:desktop": "node --test tests/desktop/*.test.cjs",
-    "desktop": "npm run build && electron .",
+    "test:desktop": "dotnet restore tests/webview2/PackStudio.WebView2.Smoke.csproj --locked-mode && dotnet run --project tests/webview2/PackStudio.WebView2.Smoke.csproj -c Release --no-restore",
+    "desktop": "powershell -NoProfile -File tools/start_webview2.ps1",
     "package:backend": "uv run --locked --group packaging python tools/build_backend.py",
-    "package:desktop": "npm run build && npm run package:backend && electron-builder --win --dir",
-    "dist": "npm run build && npm run package:backend && electron-builder --win"
+    "package:desktop": "powershell -NoProfile -File tools/package_webview2.ps1",
+    "dist": "npm run package:desktop"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
@@ -39,8 +38,6 @@
     "@types/react-dom": "^19.0.0",
     "@types/three": "^0.180.0",
     "@vitejs/plugin-react": "^6.0.0",
-    "electron": "^43.4.0",
-    "electron-builder": "^26.15.3",
     "eslint": "^9.0.0",
     "eslint-plugin-react-hooks": "^7.0.0",
     "eslint-plugin-react-refresh": "^0.4.0",

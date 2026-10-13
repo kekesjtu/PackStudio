@@ -2,6 +2,10 @@
 
 **状态**：已完成（2026-08-18）
 
+> 历史任务：2026-10-13 已由 TASK23 的 WPF / WebView2 宿主替代。
+> Electron 源码、依赖、打包配置及测试已删除；本文保留当时的实施与验收记录，
+> 当前启动、打包和验证命令以 README 为准。
+
 ## 1. 背景
 
 MVP 阶段明确不使用 Electron/Tauri 打包（见 [docs/tech_stack.md](../tech_stack.md)），

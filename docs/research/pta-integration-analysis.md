@@ -35,6 +35,8 @@
 
 ### PackStudio
 
+以下是最初调研时的技术基线；TASK23 已将桌面入口迁移到 WebView2 并删除 Electron，见 §10。
+
 | 部分 | 当前实现 | 集成意义 |
 | --- | --- | --- |
 | 前端 | React 19、TypeScript、MUI、Three.js / R3F | 可在现代浏览器控件中复用参数向导与预览 |
@@ -205,3 +207,11 @@ WebView2 Runtime 应纳入安装检测与部署方案，离线环境需准备相
 - [Microsoft：分发 WebView2 Runtime](https://learn.microsoft.com/en-us/microsoft-edge/webview2/concepts/distribution)
 
 技术选型为结合上述控件能力与本机安装证据的工程建议，尚未完成 PTA 实机集成验证。
+
+## 10. 独立宿主验证进展（2026-10-13）
+
+TASK23 已新增 WPF / WebView2 独立窗口，并验证页面、WebGL、八类模型 API、
+宿主消息与进程生命周期。源码和打包目录均可运行，详见
+[ADR-0024](../decisions/0024-WebView2独立宿主验证.md)。
+用户随后授权删除 Electron，默认桌面入口、打包和测试已切换到 WebView2。
+这证明现有前后端可以由 WebView2 承载；PTA 模型加载和项目上下文仍未实现。

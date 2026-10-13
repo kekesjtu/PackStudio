@@ -168,28 +168,49 @@ ECXML 使用米制物理矩形块，边界条件与网格控制需在目标软�
 Flip Chip CBGA 的基准复核、组合焊球规则和坐标约定详见
 [Flip Chip CBGA / BGA 模板说明](docs/templates/cbga_fc.md)。
 
-### 3. 桌面壳（不依赖浏览器）
+### 3. WebView2 独立窗口（PTA 集成验证）
 
-安装 Electron 后可直接以桌面窗口运行，无需浏览器和手动启动服务：
-
-```powershell
-npm run desktop
-```
-
-窗口会复用 8000 端口上已运行的后端，否则通过
-`uv run --locked --no-dev python -m packstudio` 自动拉起后端子进程，退出窗口时
-一并清理。桌面壳只是窗口壳：渲染层与浏览器版完全一致，详见
-[docs/tasks/TASK14.md](docs/tasks/TASK14.md)。
-
-制作 Windows 安装包（PyInstaller 后端 + electron-builder NSIS）：
+新增 WPF / .NET 10 + WebView2 宿主，复用现有 React 界面和 Python 后端。
+开发机需要 .NET 10 SDK、WebView2 Runtime 及上面的 uv / Node 环境：
 
 ```powershell
-npm run dist        # 产出 release/desktop/PackStudio-<version>-setup.exe
-npm run package:desktop   # 仅出 unpacked 目录（release/desktop/win-unpacked），用于调试
+.\tools\start_webview2.ps1
+.\tools\start_webview2.ps1 -BuildOnly
 ```
 
-首次打包需在用户级 `.npmrc` 配置 npmmirror 镜像（`electron_mirror`、
-`electron_builder_binaries_mirror`），避免工具下载卡在 GitHub 源。
+默认使用本机 18080 端口，窗口关闭时清理自身后端；端口占用时显示错误，不接管已有服务。
+可用 `-Port 18081` 指定其他端口，或 `-Port 0` 自动选取。参数保存在独立 WebView2 配置目录，
+与普通浏览器分开；更换端口会改变参数存储的来源，不会恢复原端口的保存记录。
+日志位于 `%LOCALAPPDATA%\PackStudio\WebView2\backend.log`。
+
+生成可直接打开的运行目录：
+
+```powershell
+.\tools\package_webview2.ps1
+# 输出目录已有产物时，指定新的目录，避免混入旧文件：
+.\tools\package_webview2.ps1 -OutputDirectory release/webview2-next
+```
+
+打开 `release/webview2/PackStudio.WebView2.exe`，分发时携带整个目录。
+运行版包含 Python 和默认参数库，无需 uv、Node 或独立 Python；
+仍需 .NET Desktop Runtime 10 和 WebView2 Runtime。
+PTA XML / ECXML 导出使用原生“另存为”对话框。
+这一步验证独立宿主与网页消息通道，尚未实现 PTA 自动导入。
+迁移决定见 [ADR-0024](docs/decisions/0024-WebView2独立宿主验证.md)。
+
+实际 WebView2 / WebGL、八类生成与导出、消息往返、端口冲突和退出清理验证：
+
+```powershell
+dotnet restore tests/webview2/PackStudio.WebView2.Smoke.csproj --locked-mode
+dotnet run --project tests/webview2/PackStudio.WebView2.Smoke.csproj -c Release --no-restore -- .
+# 验证打包目录中的后端和静态资源：
+dotnet run --project tests/webview2/PackStudio.WebView2.Smoke.csproj -c Release --no-build -- release/webview2
+```
+
+默认桌面命令已切换到 WebView2：`npm run desktop` 启动窗口，
+`npm run package:desktop` / `npm run dist` 生成上述运行目录，
+`npm run test:desktop` 执行实际 WebView2 验证。
+旧 Electron 壳、依赖、NSIS 配置及专用测试已移除。
 
 ### 4. 运行验收命令
 
@@ -226,8 +247,8 @@ Flip Chip CBGA 的复核包络和特殊层约束保持不变。TASK8 将组件�
 各向异性等效层及 QFP/SOIC 散热焊盘与焊料规则写入生产契约。JEDEC 预设仅保留基准和已
 捕获的 FloXML 变体，每项分别声明芯片、塑封体、承载台、阵列或引脚等关联默认值，不使用
 全局缩放。TASK13 随后纠正 PTA 几何路径：所有模板固定使用 Layer Mode，只有第一个顶层
-允许块厚与层厚不同，其余层严格等厚，并在各层内部保留精确加/减布尔压缩。TASK14 引入
-Electron 桌面壳：`npm run desktop` 自动拉起后端子进程并打开桌面窗口，无需浏览器。
+允许块厚与层厚不同，其余层严格等厚，并在各层内部保留精确加/减布尔压缩。TASK23 将
+桌面入口切换为 WPF / WebView2：`npm run desktop` 自动拉起后端并打开独立窗口，无需浏览器。
 后续下游人工验收和交付增强见 [docs/PLAN.md](docs/PLAN.md)。
 
 ## 参考产品

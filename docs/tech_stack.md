@@ -88,7 +88,9 @@ Python 环境于 2026-09-30 切换为 uv 0.12.19 管理的 CPython 3.13.15；
 
 - 不采用 CAD/B-Rep 内核：当前需求只需要轴对齐矩形块，复杂 CAD 内核会增加不必要的模型语义。
 - 不在本项目引入网格器或求解器：它们属于需求明确排除的下游模块。
-- 桌面版采用 Electron + PyInstaller（TASK14）；开发与后端打包入口统一使用 uv。
+- Windows 桌面采用 WPF / WebView2 + PyInstaller（TASK23），旧 Electron 实现已移除。
+  WebView2 复用 React 静态资源和独立 Python 后端，为 PTA 集成准备宿主代码；
+  开发与后端打包入口统一使用 uv。
 - MVP 不部署云端服务，也不引入账号、权限和多租户系统。
 
 ## 7. 官方资料

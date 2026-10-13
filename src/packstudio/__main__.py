@@ -1,6 +1,6 @@
 """PackStudio 后端命令行入口。
 
-桌面壳（Electron）与 PyInstaller 打包共用同一入口，使开发与打包后的
+桌面宿主（WebView2）与 PyInstaller 打包共用同一入口，使开发与打包后的
 启动参数保持一致：python -m packstudio --port <port>。
 """
 
