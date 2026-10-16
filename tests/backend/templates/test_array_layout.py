@@ -1,12 +1,12 @@
 import pytest
 from pydantic import ValidationError
 
+from packstudio.domain.materials import Material
 from packstudio.templates.cbga_fc.layout import (
     build_array_cells,
     occupied_regions,
     unoccupied_regions,
 )
-from packstudio.templates.cbga_fc.material_library import default_materials
 from packstudio.templates.cbga_fc.parameters import CellIndex, SolderBallParameters
 
 
@@ -147,7 +147,6 @@ def test_removed_pattern_field_is_rejected() -> None:
 
 
 def _parameters(**overrides: object) -> SolderBallParameters:
-    materials = default_materials()
     values: dict[str, object] = {
         "rows": 3,
         "columns": 3,
@@ -159,8 +158,12 @@ def _parameters(**overrides: object) -> SolderBallParameters:
         "center_solder_columns": 1,
         "removal_rows": 1,
         "removal_columns": 1,
-        "element_material": materials["solder"],
-        "matrix_material": materials["air"],
+        "element_material": Material(
+            id="solder", name="Solder", conductivity=50, density=8400, specific_heat=230
+        ),
+        "matrix_material": Material(
+            id="air", name="Air", conductivity=0.026, density=1.225, specific_heat=1005
+        ),
     }
     values.update(overrides)
     return SolderBallParameters.model_validate(values)

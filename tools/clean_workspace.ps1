@@ -1,17 +1,28 @@
 [CmdletBinding(SupportsShouldProcess = $true)]
-param([switch]$ListOnly)
+param(
+    [switch]$ListOnly,
+    [switch]$IncludePackages
+)
 
 $ErrorActionPreference = 'Stop'
 $projectRoot = [IO.Path]::GetFullPath((Join-Path $PSScriptRoot '..'))
 $rootPrefix = $projectRoot + [IO.Path]::DirectorySeparatorChar
 
-# Retain installed dependencies, daily Vite caches, dist, and service logs.
+# Retain installed dependencies, daily Vite caches, dist, packages, and service logs.
 $candidates = @(
-    '.pytest_cache', '.ruff_cache', 'release',
+    '.pytest_cache', '.ruff_cache', 'build',
+    'node_modules/.vite-temp',
     'node_modules/.vite-browser-probe', 'node_modules/.vite-browser-trace',
     'node_modules/.vite-profile-baseline', 'node_modules/.vite-profile-fixed',
     'node_modules/.vite-profile-runtime'
 ) | ForEach-Object { Join-Path $projectRoot $_ }
+if ($IncludePackages) { $candidates += Join-Path $projectRoot 'release' }
+# Electron was removed; only remove its empty leftover directory.
+$electronRoot = Join-Path $projectRoot 'electron'
+if ((Test-Path -LiteralPath $electronRoot -PathType Container) -and
+    @(Get-ChildItem -LiteralPath $electronRoot -Force).Count -eq 0) {
+    $candidates += $electronRoot
+}
 $temporaryRoot = Join-Path $projectRoot 'tmp'
 if (Test-Path -LiteralPath $temporaryRoot) {
     $candidates += @(Get-ChildItem -LiteralPath $temporaryRoot -Force |
@@ -45,7 +56,7 @@ $validated = foreach ($candidate in ($candidates | Sort-Object -Unique)) {
         $ancestor = [IO.Path]::GetDirectoryName($ancestor)
     }
     $relativePath = $fullPath.Substring($rootPrefix.Length).Replace('\', '/')
-    $tracked = @(git --literal-pathspecs -C $projectRoot ls-files -- $relativePath)
+    $tracked = @(git -c core.fsmonitor=false --literal-pathspecs -C $projectRoot ls-files -- $relativePath)
     if ($LASTEXITCODE -ne 0) { throw 'Unable to verify Git tracked files' }
     if ($tracked.Count -gt 0) { throw "Refusing to remove tracked files: $relativePath" }
     $fullPath

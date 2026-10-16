@@ -117,8 +117,9 @@ uv run --locked python tools/benchmark_startup.py
 .\tools\clean_workspace.ps1
 ```
 
-清理范围包括 `tmp` 中的一次性脚本与测试输出、独立 Vite 探测缓存、Python 测试缓存和
-`release` 旧打包产物；保留 `.venv`、已安装前端依赖、日常 Vite 缓存、`dist` 与启动日志。
+清理范围包括 `tmp` 中的一次性脚本与测试输出、独立 Vite 探测缓存、Python 测试缓存、
+`build` 打包中间产物与空的旧 Electron 目录；保留 `.venv`、已安装前端依赖、日常 Vite
+缓存、`dist`、`release` 分发包与启动日志。需要同时清理分发包时显式添加 `-IncludePackages`。
 脚本拒绝删除 Git 跟踪文件和仓库外路径；支持 `-WhatIf` 预览。遇到文件占用或权限限制时
 会报告具体路径，不改变目录权限。PACK 校验脚本与参考证据仍用于回归复核，不作为垃圾清理。
 

@@ -1,1 +1,1 @@
-"""Flip Chip CBGA/BGA parametric template."""
+"""Shared BGA array layout and equivalent-material helpers."""

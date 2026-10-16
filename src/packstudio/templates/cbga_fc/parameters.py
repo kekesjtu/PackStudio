@@ -25,15 +25,6 @@ class CellIndex(BaseModel):
     column: int = Field(ge=0)
 
 
-class RectangularPartParameters(BaseModel):
-    model_config = ConfigDict(frozen=True)
-
-    length: float = Field(gt=0, description="x size in mm")
-    width: float = Field(gt=0, description="y size in mm")
-    thickness: float = Field(gt=0, description="z size in mm")
-    material: Material
-
-
 class ArrayLayerParameters(BaseModel):
     model_config = ConfigDict(frozen=True, extra="forbid")
 
@@ -86,12 +77,3 @@ class MeshParameters(BaseModel):
     resolution: MeshResolution = Field(
         default_factory=lambda: request_default("mesh", "resolution"), validate_default=True
     )
-
-
-class EnvironmentParameters(BaseModel):
-    model_config = ConfigDict(frozen=True, extra="forbid")
-
-    ambient_temperature_k: float = Field(default=300, gt=0)
-    default_convection_coefficient_w_m2k: float = Field(default=10, gt=0)
-    pcb_convection_coefficient_w_m2k: float = Field(default=1600, gt=0)
-    top_convection_coefficient_w_m2k: float = Field(default=10, gt=0)
