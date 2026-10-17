@@ -90,7 +90,8 @@ def create_equivalent_material(
         density=properties.density,
         specific_heat=properties.specific_heat,
         color=element.color,
-        source="Section 4 cylindrical bump + matrix anisotropic equivalence",
+        source="Section 4 cylindrical bump + matrix anisotropic equivalence; "
+        f"element={element.id}; matrix={matrix.id};",
     )
     return material, properties
 

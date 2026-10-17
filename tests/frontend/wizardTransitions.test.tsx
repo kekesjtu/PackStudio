@@ -17,6 +17,38 @@ for (const [templateId, fixture] of Object.entries(fixtures)) {
   const lidLength = field('lid.length')
 
   describe(`${templateId} wizard transitions with real schema`, () => {
+    it('selects layer constituents and preserves choices through footprint and storage changes', () => {
+      const selections = ['group-bump-solder', 'group-underfill', 'group-bga-solder'].map((group) =>
+        fields.find((item) => item.material_group_id === group)!)
+      const onChange = vi.fn()
+      let request = defaults
+      const step = { id: 'materials', label: 'materials', fields: selections }
+      const { rerender } = render(<WizardFields step={step} allFields={fields}
+        request={request} materials={[]} onChange={onChange} />)
+      for (const selection of selections) {
+        const choice = selection.options.find((option) => option !== selection.default)!
+        fireEvent.mouseDown(screen.getByRole('combobox', { name: selection.label }))
+        fireEvent.click(screen.getByRole('option', { name: String(choice) }))
+        request = onChange.mock.calls.at(-1)![0] as TemplateRequest
+        expect(request.material_assignments[selection.material_group_id!]).toBe(choice)
+        rerender(<WizardFields step={step} allFields={fields}
+          request={request} materials={[]} onChange={onChange} />)
+      }
+      const next = updateWizardRequest(request, footprint,
+        footprint.options.find((option) => option !== footprint.default)!, fields)
+      expect(next.material_assignments).toEqual(request.material_assignments)
+      saveTemplateRequest(templateId, next)
+      const schema: TemplateSchema = {
+        schema_version: 'packstudio.wizard/v2', template_id: templateId,
+        steps: [{ id: 'all', label: 'all', fields }], has_bga: true,
+        special_rules: { outline_type: 'standard_outline', die_type: 'actual_type',
+          bga_pattern: null, flip_chip_bumps: 'thick_orthotropic_equivalent' },
+      }
+      const restored = restoreTemplateRequest(templateId, defaults, schema)!
+      expect(restored.material_assignments).toEqual(request.material_assignments)
+      localStorage.removeItem(`packstudio.library.v3.${templateId}`)
+    })
+
     it('preserves cover, power, material and representation while replacing preset dimensions', () => {
       const initial: TemplateRequest = {
         ...defaults, die_power_w: 3,

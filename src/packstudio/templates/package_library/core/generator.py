@@ -30,23 +30,15 @@ def generate_template(
 ) -> PackageModel:
     request, preset = resolve_preset_request(definition, request)
     values = definition.validate_request(request)
-    built: BuiltTemplate = definition.builder(values, request)
+    effective_request = definition.resolve_material_request(request, values)
+    # Layer builders need resolved constituents before calculating equivalents.
+    built: BuiltTemplate = definition.builder(values, effective_request)
     normalized = normalize_drafts(built.drafts)
     blocks = [*normalized.blocks, *built.blocks]
     group_names = {**normalized.group_names, **built.group_names}
     materials = {**production_materials()}
     materials.update((item.id, item) for item in built.materials)
     materials.update((item.id, item) for item in request.custom_materials)
-    default_assignments = {
-        item.group_id: (
-            preset.material_assignments.get(item.group_id, item.default) if preset else item.default
-        )
-        for item in definition.material_selections
-        if values.matches(item.visible_when)
-    }
-    effective_request = request.model_copy(
-        update={"material_assignments": {**default_assignments, **request.material_assignments}}
-    )
     derived = coupled_materials(definition.id, values, effective_request, materials)
     materials.update((item.id, item) for item in derived)
     derived_ids = {item.id for item in derived}

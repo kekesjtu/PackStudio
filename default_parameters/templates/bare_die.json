@@ -221,6 +221,41 @@
         "silicon"
       ],
       "visible_when": {}
+    },
+    {
+      "group_id": "group-bump-solder",
+      "step": "bumped_die",
+      "label": "凸点焊料",
+      "default": "solder-pb90",
+      "options": [
+        "solder_au80_sn20_c60e3552",
+        "solder_au88_ge12_a4f15d5e",
+        "solder_eutectic_au_si_1e9ad7cf",
+        "solder_eutectic_au_si_ab86266b",
+        "solder-pb90",
+        "solder-sn63",
+        "solder_sn96_5_ag3_5_21e11737"
+      ],
+      "visible_when": {
+        "bumps.enabled": true
+      }
+    },
+    {
+      "group_id": "group-underfill",
+      "step": "bumped_die",
+      "label": "底部填充材料",
+      "default": "underfill",
+      "options": [
+        "diamond_synthetic_cf0b14c3",
+        "underfill",
+        "glass_typical_94544dc5",
+        "glass_lid_seal_typical_1a444a20",
+        "plexiglass_typical_0a954091",
+        "solder-mask"
+      ],
+      "visible_when": {
+        "bumps.enabled": true
+      }
     }
   ],
   "baseline_materials": [],

@@ -263,6 +263,24 @@
           "plate",
           "properties",
           "dieAttachMaterial"
+        ],
+        "group-bga-solder": [
+          "groups",
+          "solderBalls",
+          "properties",
+          "solderMaterial"
+        ],
+        "group-bump-solder": [
+          "groups",
+          "flipChipBumps",
+          "properties",
+          "c4SolderMaterial"
+        ],
+        "group-underfill": [
+          "groups",
+          "flipChipBumps",
+          "properties",
+          "underfillMaterial"
         ]
       }
     },
@@ -528,6 +546,24 @@
           "plate",
           "properties",
           "dieAttachMaterial"
+        ],
+        "group-bga-solder": [
+          "groups",
+          "solderBalls",
+          "properties",
+          "solderMaterial"
+        ],
+        "group-bump-solder": [
+          "groups",
+          "flipChipBumps",
+          "properties",
+          "c4SolderMaterial"
+        ],
+        "group-underfill": [
+          "groups",
+          "flipChipBumps",
+          "properties",
+          "underfillMaterial"
         ]
       }
     },
@@ -752,6 +788,12 @@
           "dieFlagAndSolderMask",
           "properties",
           "solderMaskMaterial"
+        ],
+        "group-bga-solder": [
+          "groups",
+          "solderBalls",
+          "properties",
+          "solderMaterial"
         ]
       }
     },
@@ -940,6 +982,12 @@
           "encapsulant",
           "properties",
           "solderMaskMaterial"
+        ],
+        "group-bga-solder": [
+          "groups",
+          "solderBalls",
+          "properties",
+          "solderMaterial"
         ]
       }
     },

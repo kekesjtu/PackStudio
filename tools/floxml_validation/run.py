@@ -25,7 +25,8 @@ from tools.floxml_validation.reader import Box, read
 def raw_model(request):
     item = definition(request.template_id)
     resolved, _ = resolve_preset_request(item, request)
-    built = item.builder(item.validate_request(resolved), resolved)
+    values = item.validate_request(resolved)
+    built = item.builder(values, item.resolve_material_request(resolved, values))
     materials = {
         **production_materials(),
         **{m.id: m for m in built.materials},

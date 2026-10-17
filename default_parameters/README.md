@@ -36,6 +36,14 @@ Bare Die 没有安装目录 DES，保留四个项目审核的尺寸预设。
 PACK 保留分支及当前参数/组分重算，见 [联动公式](../docs/research/pack-material-couplings.md)。
 组件选材参与组分计算，不把计算后的等效块覆盖为纯金属。完整预设不表示完整几何复刻。
 
+凸点焊料和 BGA 焊料的候选集合来自材料库 `Alloys (Solders)` 分类，underfill 来自 PACK
+默认选材的 `Others` 分类。候选 ID 显式存于各模板 JSON；两类 Flip Chip 的默认凸点焊料和
+underfill、四类 BGA 的默认焊料通过 `pack_bindings.json` 的原生材料路径读取。Bare Die
+的可选凸点沿用项目默认选材，关闭凸点时隐藏其选材字段。
+
+`group-bump-solder`、`group-underfill`、`group-bga-solder` 是物理组分选择键；它们参与构建
+已有等效层，不创建重复几何或模型树节点。模型材料来源保留组分 ID，便于核对。
+
 逐球列表仅在原生去球开关启用时生效。部分 Chip Array 名称中的 48/80 与原生启用阵列的
 49/81 不一致，界面和审计保留提示，不按文件名猜测去球。
 

@@ -117,7 +117,8 @@ def test_rectangular_tie_bar_uses_actual_geometry_and_keeps_explicit_override_pr
 def test_negative_height_raw_geometry_and_wire_material_match_native_pack():
     request = reference_request("pqfp", {"flag.downset": 0.44})
     item = definition("pqfp")
-    built = item.builder(item.validate_request(request), request)
+    values = item.validate_request(request)
+    built = item.builder(values, item.resolve_material_request(request, values))
     with ZipFile(ROOT / "docs/validation/floxml/evidence.zip") as archive:
         native = ET.fromstring(archive.read("cases/qfp-negative/native.xml"))
     expected = Counter(

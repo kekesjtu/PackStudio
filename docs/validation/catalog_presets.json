@@ -133,7 +133,7 @@
     "materials/substrate_dielectrics/fr4_9867f87d.json": "98df50f5e4378eee8a1c8493618a7326a71c6b3e8c522210c3edc935c647ae94",
     "materials/substrate_dielectrics/polyimide_d0bf5113.json": "e84207fce44ede8fe1825cced9fa0d49b6ede0481f8c7757199eb5f24038d0e7",
     "materials/substrate_dielectrics/substrate_pbgafc_typical_42108fc6.json": "4faf0d0bab6d3dae8fc7321515248cad83cf321abf8734a4d5fa464375a28a5d",
-    "pack_bindings.json": "283715c5f6ceb725148114c735ed41e370c9a0463500d716b9d9dac18b321db5",
+    "pack_bindings.json": "05878ab55d352ae82da61e5e19a2e16230abb852a307d2b0f8469458d82ae8c2",
     "presets/QFN/QFN_10X10_44.json": "28c4672ae7b81762819551b3ecca30e80a4981fae20bc630ce97e9849885e319",
     "presets/QFN/QFN_10X10_52.json": "2217d8a8d754cdc5b7113406ff4a547598d74061b9cdc54db154bd9482d56142",
     "presets/QFN/QFN_10X10_68.json": "05db58db158c1eeb353440ae1d9b98e5fcfe923bdf925e7b271923488832c6c5",
@@ -478,11 +478,11 @@
     "presets/tsop_conv/TSSOP_8_3x3.json": "33e022f95c7756480315ac3c831ab62987f532e3681cb2066b9590052d08da17",
     "presets/tsop_conv/TSSOP_8_4_4x3.json": "0b9ab9b17313cc7acf474e95c8420aa578dcfa41a3791df96c2729ea44179256",
     "request.json": "9e0a436a5fbeb00f92777a7395dd53d15d60ce301e2dfb521de4bf626733fe23",
-    "templates/bare_die.json": "15133973298da96bc6522817b08af63159004661ea69176d7f8a0dec7ae98b1e",
-    "templates/cbga_fc.json": "30bfa2535fcca47e5855ac5c1f3100b70afeff918a20134b01b14d35bcaf2a13",
-    "templates/chip_array.json": "5563c6149768026d425cd85e6abef4dc50f892f65dd9174c7beecde62dce8e29",
-    "templates/pbga_fc.json": "3521fa23766d80aa49c5f815d63d8ac93cadd5e246f425bdfb0fb0ce2f7d5100",
-    "templates/pbga_wb.json": "8d9f0b013037dd6ba6ba3febe89709b6cef905c8095217b596e73ccec4cc8452",
+    "templates/bare_die.json": "f73c66bdb17fff28f4aa2d736bed0fe89230f5d8e9479ff0abb541f303e6f932",
+    "templates/cbga_fc.json": "343655421c17afccd68236ffe471e314fe576789272296691034bdb8914faf97",
+    "templates/chip_array.json": "8be33e38eed2cfad893657f1117a0b4123b3a21e44f01959f082df0298473d71",
+    "templates/pbga_fc.json": "b2264a8f02c235e7af57aa4173ff5d300ab4e592dc328faa744b3ad9004376a4",
+    "templates/pbga_wb.json": "d092ed0384388f18e5735dcb061bbfc0fc606c8702b2907cb3c37f6b4fa1477d",
     "templates/pqfp.json": "04e849299c5cf97c25b16e5043e3b265f698e8801b3527de2e199cd002addd64",
     "templates/qfn.json": "b5e954cfc66b3e22ad453aab0f949dcbdfc7e69895eac57c2abcc190cd34837e",
     "templates/sop.json": "803ef832c8d8a59cf1cfe3ab2e2c28ebf1bdbd41112aa2c2431ddde51c1d4c79"
@@ -511,6 +511,7 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
           "group-bond-wires": "Gold (Pure)",
           "group-die": "Silicon (Pure)",
           "group-die-attach": "QMI 595",
@@ -697,6 +698,7 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
           "group-bond-wires": "Gold (Pure)",
           "group-die": "Silicon (Pure)",
           "group-die-attach": "QMI 595",
@@ -883,6 +885,7 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
           "group-bond-wires": "Gold (Pure)",
           "group-die": "Silicon (Pure)",
           "group-die-attach": "QMI 595",
@@ -1069,6 +1072,7 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
           "group-bond-wires": "Gold (Pure)",
           "group-die": "Silicon (Pure)",
           "group-die-attach": "QMI 595",
@@ -1255,6 +1259,7 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
           "group-bond-wires": "Gold (Pure)",
           "group-die": "Silicon (Pure)",
           "group-die-attach": "QMI 595",
@@ -1441,6 +1446,7 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
           "group-bond-wires": "Gold (Pure)",
           "group-die": "Silicon (Pure)",
           "group-die-attach": "QMI 595",
@@ -1627,6 +1633,7 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
           "group-bond-wires": "Gold (Pure)",
           "group-die": "Silicon (Pure)",
           "group-die-attach": "QMI 595",
@@ -1813,6 +1820,7 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
           "group-bond-wires": "Gold (Pure)",
           "group-die": "Silicon (Pure)",
           "group-die-attach": "QMI 595",
@@ -1999,6 +2007,7 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
           "group-bond-wires": "Gold (Pure)",
           "group-die": "Silicon (Pure)",
           "group-die-attach": "QMI 595",
@@ -2185,6 +2194,7 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
           "group-bond-wires": "Gold (Pure)",
           "group-die": "Silicon (Pure)",
           "group-die-attach": "QMI 595",
@@ -2371,6 +2381,7 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
           "group-bond-wires": "Gold (Pure)",
           "group-die": "Silicon (Pure)",
           "group-die-attach": "QMI 595",
@@ -2557,6 +2568,7 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
           "group-bond-wires": "Gold (Pure)",
           "group-die": "Silicon (Pure)",
           "group-die-attach": "QMI 595",
@@ -2743,6 +2755,7 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
           "group-bond-wires": "Gold (Pure)",
           "group-die": "Silicon (Pure)",
           "group-die-attach": "QMI 595",
@@ -2929,6 +2942,7 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
           "group-bond-wires": "Gold (Pure)",
           "group-die": "Silicon (Pure)",
           "group-die-attach": "QMI 595",
@@ -3115,6 +3129,7 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
           "group-bond-wires": "Gold (Pure)",
           "group-die": "Silicon (Pure)",
           "group-die-attach": "QMI 595",
@@ -3301,6 +3316,7 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
           "group-bond-wires": "Gold (Pure)",
           "group-die": "Silicon (Pure)",
           "group-die-attach": "QMI 595",
@@ -3487,6 +3503,7 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
           "group-bond-wires": "Gold (Pure)",
           "group-die": "Silicon (Pure)",
           "group-die-attach": "QMI 595",
@@ -3673,6 +3690,7 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
           "group-bond-wires": "Gold (Pure)",
           "group-die": "Silicon (Pure)",
           "group-die-attach": "QMI 595",
@@ -3859,6 +3877,7 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
           "group-bond-wires": "Gold (Pure)",
           "group-die": "Silicon (Pure)",
           "group-die-attach": "QMI 595",
@@ -4045,6 +4064,7 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
           "group-bond-wires": "Gold (Pure)",
           "group-die": "Silicon (Pure)",
           "group-die-attach": "QMI 595",
@@ -4231,6 +4251,7 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
           "group-bond-wires": "Gold (Pure)",
           "group-die": "Silicon (Pure)",
           "group-die-attach": "QMI 595",
@@ -4417,6 +4438,7 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
           "group-bond-wires": "Gold (Pure)",
           "group-die": "Silicon (Pure)",
           "group-die-attach": "QMI 595",
@@ -4603,6 +4625,7 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
           "group-bond-wires": "Gold (Pure)",
           "group-die": "Silicon (Pure)",
           "group-die-attach": "QMI 595",
@@ -4789,6 +4812,7 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
           "group-bond-wires": "Gold (Pure)",
           "group-die": "Silicon (Pure)",
           "group-die-attach": "QMI 595",
@@ -4975,6 +4999,7 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
           "group-bond-wires": "Gold (Pure)",
           "group-die": "Silicon (Pure)",
           "group-die-attach": "QMI 595",
@@ -5161,6 +5186,7 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
           "group-bond-wires": "Gold (Pure)",
           "group-die": "Silicon (Pure)",
           "group-die-attach": "QMI 595",
@@ -5347,6 +5373,7 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
           "group-bond-wires": "Gold (Pure)",
           "group-die": "Silicon (Pure)",
           "group-die-attach": "QMI 595",
@@ -5533,6 +5560,7 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
           "group-bond-wires": "Gold (Pure)",
           "group-die": "Silicon (Pure)",
           "group-die-attach": "QMI 595",
@@ -5719,6 +5747,7 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
           "group-bond-wires": "Gold (Pure)",
           "group-die": "Silicon (Pure)",
           "group-die-attach": "QMI 595",
@@ -5905,6 +5934,7 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
           "group-bond-wires": "Gold (Pure)",
           "group-die": "Silicon (Pure)",
           "group-die-attach": "QMI 595",
@@ -6091,6 +6121,7 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
           "group-bond-wires": "Gold (Pure)",
           "group-die": "Silicon (Pure)",
           "group-die-attach": "QMI 595",
@@ -6277,6 +6308,7 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
           "group-bond-wires": "Gold (Pure)",
           "group-die": "Silicon (Pure)",
           "group-die-attach": "QMI 595",
@@ -6463,6 +6495,7 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
           "group-bond-wires": "Gold (Pure)",
           "group-die": "Silicon (Pure)",
           "group-die-attach": "QMI 595",
@@ -6649,6 +6682,7 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
           "group-bond-wires": "Gold (Pure)",
           "group-die": "Silicon (Pure)",
           "group-die-attach": "QMI 595",
@@ -6835,6 +6869,7 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
           "group-bond-wires": "Gold (Pure)",
           "group-die": "Silicon (Pure)",
           "group-die-attach": "QMI 595",
@@ -7021,6 +7056,7 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
           "group-bond-wires": "Gold (Pure)",
           "group-die": "Silicon (Pure)",
           "group-die-attach": "QMI 595",
@@ -7207,6 +7243,7 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
           "group-bond-wires": "Gold (Pure)",
           "group-die": "Silicon (Pure)",
           "group-die-attach": "QMI 595",
@@ -7393,6 +7430,7 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
           "group-bond-wires": "Gold (Pure)",
           "group-die": "Silicon (Pure)",
           "group-die-attach": "QMI 595",
@@ -7579,6 +7617,8 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
+          "group-bump-solder": "Solder (Pb90/Sn10)",
           "group-die": "Silicon (Pure)",
           "group-encapsulant": "Epoxy Overmold (Typical)",
           "group-lid": "Aluminum (Pure)",
@@ -7586,7 +7626,8 @@
           "group-lid-die-attach": "Flip-Chip Cap Grease (Typical)",
           "group-plate": "Aluminum (Pure)",
           "group-plate-die-attach": "Flip-Chip Cap Grease (Typical)",
-          "group-substrate": "Alumina (Typical)"
+          "group-substrate": "Alumina (Typical)",
+          "group-underfill": "Flip-Chip Underfill (Typical)"
         },
         "native_parameter_paths": {
           "bga.columns": [
@@ -7820,6 +7861,8 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
+          "group-bump-solder": "Solder (Pb90/Sn10)",
           "group-die": "Silicon (Pure)",
           "group-encapsulant": "Epoxy Overmold (Typical)",
           "group-lid": "Aluminum (Pure)",
@@ -7827,7 +7870,8 @@
           "group-lid-die-attach": "Flip-Chip Cap Grease (Typical)",
           "group-plate": "Aluminum (Pure)",
           "group-plate-die-attach": "Flip-Chip Cap Grease (Typical)",
-          "group-substrate": "Alumina (Typical)"
+          "group-substrate": "Alumina (Typical)",
+          "group-underfill": "Flip-Chip Underfill (Typical)"
         },
         "native_parameter_paths": {
           "bga.columns": [
@@ -8061,6 +8105,8 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
+          "group-bump-solder": "Solder (Pb90/Sn10)",
           "group-die": "Silicon (Pure)",
           "group-encapsulant": "Epoxy Overmold (Typical)",
           "group-lid": "Aluminum (Pure)",
@@ -8068,7 +8114,8 @@
           "group-lid-die-attach": "Flip-Chip Cap Grease (Typical)",
           "group-plate": "Aluminum (Pure)",
           "group-plate-die-attach": "Flip-Chip Cap Grease (Typical)",
-          "group-substrate": "Alumina (Typical)"
+          "group-substrate": "Alumina (Typical)",
+          "group-underfill": "Flip-Chip Underfill (Typical)"
         },
         "native_parameter_paths": {
           "bga.columns": [
@@ -8302,6 +8349,8 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
+          "group-bump-solder": "Solder (Pb90/Sn10)",
           "group-die": "Silicon (Pure)",
           "group-encapsulant": "Epoxy Overmold (Typical)",
           "group-lid": "Aluminum (Pure)",
@@ -8309,7 +8358,8 @@
           "group-lid-die-attach": "Flip-Chip Cap Grease (Typical)",
           "group-plate": "Aluminum (Pure)",
           "group-plate-die-attach": "Flip-Chip Cap Grease (Typical)",
-          "group-substrate": "Alumina (Typical)"
+          "group-substrate": "Alumina (Typical)",
+          "group-underfill": "Flip-Chip Underfill (Typical)"
         },
         "native_parameter_paths": {
           "bga.columns": [
@@ -8543,6 +8593,8 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
+          "group-bump-solder": "Solder (Pb90/Sn10)",
           "group-die": "Silicon (Pure)",
           "group-encapsulant": "Epoxy Overmold (Typical)",
           "group-lid": "Aluminum (Pure)",
@@ -8550,7 +8602,8 @@
           "group-lid-die-attach": "Flip-Chip Cap Grease (Typical)",
           "group-plate": "Aluminum (Pure)",
           "group-plate-die-attach": "Flip-Chip Cap Grease (Typical)",
-          "group-substrate": "Alumina (Typical)"
+          "group-substrate": "Alumina (Typical)",
+          "group-underfill": "Flip-Chip Underfill (Typical)"
         },
         "native_parameter_paths": {
           "bga.columns": [
@@ -8784,6 +8837,8 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
+          "group-bump-solder": "Solder (Pb90/Sn10)",
           "group-die": "Silicon (Pure)",
           "group-encapsulant": "Epoxy Overmold (Typical)",
           "group-lid": "Aluminum (Pure)",
@@ -8791,7 +8846,8 @@
           "group-lid-die-attach": "Flip-Chip Cap Grease (Typical)",
           "group-plate": "Aluminum (Pure)",
           "group-plate-die-attach": "Flip-Chip Cap Grease (Typical)",
-          "group-substrate": "Alumina (Typical)"
+          "group-substrate": "Alumina (Typical)",
+          "group-underfill": "Flip-Chip Underfill (Typical)"
         },
         "native_parameter_paths": {
           "bga.columns": [
@@ -9025,6 +9081,8 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
+          "group-bump-solder": "Solder (Pb90/Sn10)",
           "group-die": "Silicon (Pure)",
           "group-encapsulant": "Epoxy Overmold (Typical)",
           "group-lid": "Aluminum (Pure)",
@@ -9032,7 +9090,8 @@
           "group-lid-die-attach": "Flip-Chip Cap Grease (Typical)",
           "group-plate": "Aluminum (Pure)",
           "group-plate-die-attach": "Flip-Chip Cap Grease (Typical)",
-          "group-substrate": "Alumina (Typical)"
+          "group-substrate": "Alumina (Typical)",
+          "group-underfill": "Flip-Chip Underfill (Typical)"
         },
         "native_parameter_paths": {
           "bga.columns": [
@@ -9266,6 +9325,8 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
+          "group-bump-solder": "Solder (Pb90/Sn10)",
           "group-die": "Silicon (Pure)",
           "group-encapsulant": "Epoxy Overmold (Typical)",
           "group-lid": "Aluminum (Pure)",
@@ -9273,7 +9334,8 @@
           "group-lid-die-attach": "Flip-Chip Cap Grease (Typical)",
           "group-plate": "Aluminum (Pure)",
           "group-plate-die-attach": "Flip-Chip Cap Grease (Typical)",
-          "group-substrate": "Alumina (Typical)"
+          "group-substrate": "Alumina (Typical)",
+          "group-underfill": "Flip-Chip Underfill (Typical)"
         },
         "native_parameter_paths": {
           "bga.columns": [
@@ -9507,6 +9569,8 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
+          "group-bump-solder": "Solder (Pb90/Sn10)",
           "group-die": "Silicon (Pure)",
           "group-encapsulant": "Epoxy Overmold (Typical)",
           "group-lid": "Aluminum (Pure)",
@@ -9514,7 +9578,8 @@
           "group-lid-die-attach": "Flip-Chip Cap Grease (Typical)",
           "group-plate": "Aluminum (Pure)",
           "group-plate-die-attach": "Flip-Chip Cap Grease (Typical)",
-          "group-substrate": "Alumina (Typical)"
+          "group-substrate": "Alumina (Typical)",
+          "group-underfill": "Flip-Chip Underfill (Typical)"
         },
         "native_parameter_paths": {
           "bga.columns": [
@@ -9748,6 +9813,8 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
+          "group-bump-solder": "Solder (Pb90/Sn10)",
           "group-die": "Silicon (Pure)",
           "group-encapsulant": "Epoxy Overmold (Typical)",
           "group-lid": "Aluminum (Pure)",
@@ -9755,7 +9822,8 @@
           "group-lid-die-attach": "Flip-Chip Cap Grease (Typical)",
           "group-plate": "Aluminum (Pure)",
           "group-plate-die-attach": "Flip-Chip Cap Grease (Typical)",
-          "group-substrate": "Alumina (Typical)"
+          "group-substrate": "Alumina (Typical)",
+          "group-underfill": "Flip-Chip Underfill (Typical)"
         },
         "native_parameter_paths": {
           "bga.columns": [
@@ -9989,6 +10057,8 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
+          "group-bump-solder": "Solder (Pb90/Sn10)",
           "group-die": "Silicon (Pure)",
           "group-encapsulant": "Epoxy Overmold (Typical)",
           "group-lid": "Aluminum (Pure)",
@@ -9996,7 +10066,8 @@
           "group-lid-die-attach": "Flip-Chip Cap Grease (Typical)",
           "group-plate": "Aluminum (Pure)",
           "group-plate-die-attach": "Flip-Chip Cap Grease (Typical)",
-          "group-substrate": "Alumina (Typical)"
+          "group-substrate": "Alumina (Typical)",
+          "group-underfill": "Flip-Chip Underfill (Typical)"
         },
         "native_parameter_paths": {
           "bga.columns": [
@@ -10230,6 +10301,8 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
+          "group-bump-solder": "Solder (Pb90/Sn10)",
           "group-die": "Silicon (Pure)",
           "group-encapsulant": "Epoxy Overmold (Typical)",
           "group-lid": "Aluminum (Pure)",
@@ -10237,7 +10310,8 @@
           "group-lid-die-attach": "Flip-Chip Cap Grease (Typical)",
           "group-plate": "Aluminum (Pure)",
           "group-plate-die-attach": "Flip-Chip Cap Grease (Typical)",
-          "group-substrate": "Alumina (Typical)"
+          "group-substrate": "Alumina (Typical)",
+          "group-underfill": "Flip-Chip Underfill (Typical)"
         },
         "native_parameter_paths": {
           "bga.columns": [
@@ -10471,6 +10545,8 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
+          "group-bump-solder": "Solder (Pb90/Sn10)",
           "group-die": "Silicon (Pure)",
           "group-encapsulant": "Epoxy Overmold (Typical)",
           "group-lid": "Aluminum (Pure)",
@@ -10478,7 +10554,8 @@
           "group-lid-die-attach": "Flip-Chip Cap Grease (Typical)",
           "group-plate": "Aluminum (Pure)",
           "group-plate-die-attach": "Flip-Chip Cap Grease (Typical)",
-          "group-substrate": "Alumina (Typical)"
+          "group-substrate": "Alumina (Typical)",
+          "group-underfill": "Flip-Chip Underfill (Typical)"
         },
         "native_parameter_paths": {
           "bga.columns": [
@@ -10712,6 +10789,8 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
+          "group-bump-solder": "Solder (Pb90/Sn10)",
           "group-die": "Silicon (Pure)",
           "group-encapsulant": "Epoxy Overmold (Typical)",
           "group-lid": "Aluminum (Pure)",
@@ -10719,7 +10798,8 @@
           "group-lid-die-attach": "Flip-Chip Cap Grease (Typical)",
           "group-plate": "Aluminum (Pure)",
           "group-plate-die-attach": "Flip-Chip Cap Grease (Typical)",
-          "group-substrate": "Alumina (Typical)"
+          "group-substrate": "Alumina (Typical)",
+          "group-underfill": "Flip-Chip Underfill (Typical)"
         },
         "native_parameter_paths": {
           "bga.columns": [
@@ -10953,6 +11033,8 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
+          "group-bump-solder": "Solder (Pb90/Sn10)",
           "group-die": "Silicon (Pure)",
           "group-encapsulant": "Epoxy Overmold (Typical)",
           "group-lid": "Aluminum (Pure)",
@@ -10960,7 +11042,8 @@
           "group-lid-die-attach": "Flip-Chip Cap Grease (Typical)",
           "group-plate": "Aluminum (Pure)",
           "group-plate-die-attach": "Flip-Chip Cap Grease (Typical)",
-          "group-substrate": "Alumina (Typical)"
+          "group-substrate": "Alumina (Typical)",
+          "group-underfill": "Flip-Chip Underfill (Typical)"
         },
         "native_parameter_paths": {
           "bga.columns": [
@@ -11194,6 +11277,8 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
+          "group-bump-solder": "Solder (Pb90/Sn10)",
           "group-die": "Silicon (Pure)",
           "group-encapsulant": "Epoxy Overmold (Typical)",
           "group-lid": "Aluminum (Pure)",
@@ -11201,7 +11286,8 @@
           "group-lid-die-attach": "Flip-Chip Cap Grease (Typical)",
           "group-plate": "Aluminum (Pure)",
           "group-plate-die-attach": "Flip-Chip Cap Grease (Typical)",
-          "group-substrate": "Alumina (Typical)"
+          "group-substrate": "Alumina (Typical)",
+          "group-underfill": "Flip-Chip Underfill (Typical)"
         },
         "native_parameter_paths": {
           "bga.columns": [
@@ -11435,6 +11521,8 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
+          "group-bump-solder": "Solder (Pb90/Sn10)",
           "group-die": "Silicon (Pure)",
           "group-encapsulant": "Epoxy Overmold (Typical)",
           "group-lid": "Aluminum (Pure)",
@@ -11442,7 +11530,8 @@
           "group-lid-die-attach": "Flip-Chip Cap Grease (Typical)",
           "group-plate": "Aluminum (Pure)",
           "group-plate-die-attach": "Flip-Chip Cap Grease (Typical)",
-          "group-substrate": "Alumina (Typical)"
+          "group-substrate": "Alumina (Typical)",
+          "group-underfill": "Flip-Chip Underfill (Typical)"
         },
         "native_parameter_paths": {
           "bga.columns": [
@@ -11676,6 +11765,8 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
+          "group-bump-solder": "Solder (Pb90/Sn10)",
           "group-die": "Silicon (Pure)",
           "group-encapsulant": "Epoxy Overmold (Typical)",
           "group-lid": "Aluminum (Pure)",
@@ -11683,7 +11774,8 @@
           "group-lid-die-attach": "Flip-Chip Cap Grease (Typical)",
           "group-plate": "Aluminum (Pure)",
           "group-plate-die-attach": "Flip-Chip Cap Grease (Typical)",
-          "group-substrate": "Alumina (Typical)"
+          "group-substrate": "Alumina (Typical)",
+          "group-underfill": "Flip-Chip Underfill (Typical)"
         },
         "native_parameter_paths": {
           "bga.columns": [
@@ -11917,6 +12009,8 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
+          "group-bump-solder": "Solder (Pb90/Sn10)",
           "group-die": "Silicon (Pure)",
           "group-encapsulant": "Epoxy Overmold (Typical)",
           "group-lid": "Aluminum (Pure)",
@@ -11924,7 +12018,8 @@
           "group-lid-die-attach": "Flip-Chip Cap Grease (Typical)",
           "group-plate": "Aluminum (Pure)",
           "group-plate-die-attach": "Flip-Chip Cap Grease (Typical)",
-          "group-substrate": "Alumina (Typical)"
+          "group-substrate": "Alumina (Typical)",
+          "group-underfill": "Flip-Chip Underfill (Typical)"
         },
         "native_parameter_paths": {
           "bga.columns": [
@@ -12158,6 +12253,8 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
+          "group-bump-solder": "Solder (Pb90/Sn10)",
           "group-die": "Silicon (Pure)",
           "group-encapsulant": "Epoxy Overmold (Typical)",
           "group-lid": "Aluminum (Pure)",
@@ -12165,7 +12262,8 @@
           "group-lid-die-attach": "Flip-Chip Cap Grease (Typical)",
           "group-plate": "Aluminum (Pure)",
           "group-plate-die-attach": "Flip-Chip Cap Grease (Typical)",
-          "group-substrate": "Alumina (Typical)"
+          "group-substrate": "Alumina (Typical)",
+          "group-underfill": "Flip-Chip Underfill (Typical)"
         },
         "native_parameter_paths": {
           "bga.columns": [
@@ -12399,6 +12497,8 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
+          "group-bump-solder": "Solder (Pb90/Sn10)",
           "group-die": "Silicon (Pure)",
           "group-encapsulant": "Epoxy Overmold (Typical)",
           "group-lid": "Aluminum (Pure)",
@@ -12406,7 +12506,8 @@
           "group-lid-die-attach": "Flip-Chip Cap Grease (Typical)",
           "group-plate": "Aluminum (Pure)",
           "group-plate-die-attach": "Flip-Chip Cap Grease (Typical)",
-          "group-substrate": "Alumina (Typical)"
+          "group-substrate": "Alumina (Typical)",
+          "group-underfill": "Flip-Chip Underfill (Typical)"
         },
         "native_parameter_paths": {
           "bga.columns": [
@@ -12640,6 +12741,8 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
+          "group-bump-solder": "Solder (Pb90/Sn10)",
           "group-die": "Silicon (Pure)",
           "group-encapsulant": "Epoxy Overmold (Typical)",
           "group-lid": "Aluminum (Pure)",
@@ -12647,7 +12750,8 @@
           "group-lid-die-attach": "Flip-Chip Cap Grease (Typical)",
           "group-plate": "Aluminum (Pure)",
           "group-plate-die-attach": "Flip-Chip Cap Grease (Typical)",
-          "group-substrate": "Alumina (Typical)"
+          "group-substrate": "Alumina (Typical)",
+          "group-underfill": "Flip-Chip Underfill (Typical)"
         },
         "native_parameter_paths": {
           "bga.columns": [
@@ -12881,6 +12985,8 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
+          "group-bump-solder": "Solder (Pb90/Sn10)",
           "group-die": "Silicon (Pure)",
           "group-encapsulant": "Epoxy Overmold (Typical)",
           "group-lid": "Aluminum (Pure)",
@@ -12888,7 +12994,8 @@
           "group-lid-die-attach": "Flip-Chip Cap Grease (Typical)",
           "group-plate": "Aluminum (Pure)",
           "group-plate-die-attach": "Flip-Chip Cap Grease (Typical)",
-          "group-substrate": "Alumina (Typical)"
+          "group-substrate": "Alumina (Typical)",
+          "group-underfill": "Flip-Chip Underfill (Typical)"
         },
         "native_parameter_paths": {
           "bga.columns": [
@@ -13122,6 +13229,8 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
+          "group-bump-solder": "Solder (Pb90/Sn10)",
           "group-die": "Silicon (Pure)",
           "group-encapsulant": "Epoxy Overmold (Typical)",
           "group-lid": "Aluminum (Pure)",
@@ -13129,7 +13238,8 @@
           "group-lid-die-attach": "Flip-Chip Cap Grease (Typical)",
           "group-plate": "Aluminum (Pure)",
           "group-plate-die-attach": "Flip-Chip Cap Grease (Typical)",
-          "group-substrate": "Alumina (Typical)"
+          "group-substrate": "Alumina (Typical)",
+          "group-underfill": "Flip-Chip Underfill (Typical)"
         },
         "native_parameter_paths": {
           "bga.columns": [
@@ -13363,6 +13473,8 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
+          "group-bump-solder": "Solder (Pb90/Sn10)",
           "group-die": "Silicon (Pure)",
           "group-encapsulant": "Epoxy Overmold (Typical)",
           "group-lid": "Aluminum (Pure)",
@@ -13370,7 +13482,8 @@
           "group-lid-die-attach": "Flip-Chip Cap Grease (Typical)",
           "group-plate": "Aluminum (Pure)",
           "group-plate-die-attach": "Flip-Chip Cap Grease (Typical)",
-          "group-substrate": "Alumina (Typical)"
+          "group-substrate": "Alumina (Typical)",
+          "group-underfill": "Flip-Chip Underfill (Typical)"
         },
         "native_parameter_paths": {
           "bga.columns": [
@@ -13604,6 +13717,8 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
+          "group-bump-solder": "Solder (Pb90/Sn10)",
           "group-die": "Silicon (Pure)",
           "group-encapsulant": "Epoxy Overmold (Typical)",
           "group-lid": "Aluminum (Pure)",
@@ -13611,7 +13726,8 @@
           "group-lid-die-attach": "Flip-Chip Cap Grease (Typical)",
           "group-plate": "Aluminum (Pure)",
           "group-plate-die-attach": "Flip-Chip Cap Grease (Typical)",
-          "group-substrate": "Alumina (Typical)"
+          "group-substrate": "Alumina (Typical)",
+          "group-underfill": "Flip-Chip Underfill (Typical)"
         },
         "native_parameter_paths": {
           "bga.columns": [
@@ -13845,6 +13961,8 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
+          "group-bump-solder": "Solder (Pb90/Sn10)",
           "group-die": "Silicon (Pure)",
           "group-encapsulant": "Epoxy Overmold (Typical)",
           "group-lid": "Aluminum (Pure)",
@@ -13852,7 +13970,8 @@
           "group-lid-die-attach": "Flip-Chip Cap Grease (Typical)",
           "group-plate": "Aluminum (Pure)",
           "group-plate-die-attach": "Flip-Chip Cap Grease (Typical)",
-          "group-substrate": "Alumina (Typical)"
+          "group-substrate": "Alumina (Typical)",
+          "group-underfill": "Flip-Chip Underfill (Typical)"
         },
         "native_parameter_paths": {
           "bga.columns": [
@@ -14086,6 +14205,8 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
+          "group-bump-solder": "Solder (Pb90/Sn10)",
           "group-die": "Silicon (Pure)",
           "group-encapsulant": "Epoxy Overmold (Typical)",
           "group-lid": "Aluminum (Pure)",
@@ -14093,7 +14214,8 @@
           "group-lid-die-attach": "Flip-Chip Cap Grease (Typical)",
           "group-plate": "Aluminum (Pure)",
           "group-plate-die-attach": "Flip-Chip Cap Grease (Typical)",
-          "group-substrate": "Alumina (Typical)"
+          "group-substrate": "Alumina (Typical)",
+          "group-underfill": "Flip-Chip Underfill (Typical)"
         },
         "native_parameter_paths": {
           "bga.columns": [
@@ -14327,6 +14449,8 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
+          "group-bump-solder": "Solder (Pb90/Sn10)",
           "group-die": "Silicon (Pure)",
           "group-encapsulant": "Epoxy Overmold (Typical)",
           "group-lid": "Aluminum (Pure)",
@@ -14334,7 +14458,8 @@
           "group-lid-die-attach": "Flip-Chip Cap Grease (Typical)",
           "group-plate": "Aluminum (Pure)",
           "group-plate-die-attach": "Flip-Chip Cap Grease (Typical)",
-          "group-substrate": "Alumina (Typical)"
+          "group-substrate": "Alumina (Typical)",
+          "group-underfill": "Flip-Chip Underfill (Typical)"
         },
         "native_parameter_paths": {
           "bga.columns": [
@@ -14568,6 +14693,8 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
+          "group-bump-solder": "Solder (Pb90/Sn10)",
           "group-die": "Silicon (Pure)",
           "group-encapsulant": "Epoxy Overmold (Typical)",
           "group-lid": "Aluminum (Pure)",
@@ -14575,7 +14702,8 @@
           "group-lid-die-attach": "Flip-Chip Cap Grease (Typical)",
           "group-plate": "Aluminum (Pure)",
           "group-plate-die-attach": "Flip-Chip Cap Grease (Typical)",
-          "group-substrate": "Alumina (Typical)"
+          "group-substrate": "Alumina (Typical)",
+          "group-underfill": "Flip-Chip Underfill (Typical)"
         },
         "native_parameter_paths": {
           "bga.columns": [
@@ -14809,6 +14937,8 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
+          "group-bump-solder": "Solder (Pb90/Sn10)",
           "group-die": "Silicon (Pure)",
           "group-encapsulant": "Epoxy Overmold (Typical)",
           "group-lid": "Aluminum (Pure)",
@@ -14816,7 +14946,8 @@
           "group-lid-die-attach": "Flip-Chip Cap Grease (Typical)",
           "group-plate": "Aluminum (Pure)",
           "group-plate-die-attach": "Flip-Chip Cap Grease (Typical)",
-          "group-substrate": "Alumina (Typical)"
+          "group-substrate": "Alumina (Typical)",
+          "group-underfill": "Flip-Chip Underfill (Typical)"
         },
         "native_parameter_paths": {
           "bga.columns": [
@@ -15050,6 +15181,8 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
+          "group-bump-solder": "Solder (Pb90/Sn10)",
           "group-die": "Silicon (Pure)",
           "group-encapsulant": "Epoxy Overmold (Typical)",
           "group-lid": "Aluminum (Pure)",
@@ -15057,7 +15190,8 @@
           "group-lid-die-attach": "Flip-Chip Cap Grease (Typical)",
           "group-plate": "Aluminum (Pure)",
           "group-plate-die-attach": "Flip-Chip Cap Grease (Typical)",
-          "group-substrate": "Alumina (Typical)"
+          "group-substrate": "Alumina (Typical)",
+          "group-underfill": "Flip-Chip Underfill (Typical)"
         },
         "native_parameter_paths": {
           "bga.columns": [
@@ -15291,6 +15425,8 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
+          "group-bump-solder": "Solder (Pb90/Sn10)",
           "group-die": "Silicon (Pure)",
           "group-encapsulant": "Epoxy Overmold (Typical)",
           "group-lid": "Aluminum (Pure)",
@@ -15298,7 +15434,8 @@
           "group-lid-die-attach": "Flip-Chip Cap Grease (Typical)",
           "group-plate": "Aluminum (Pure)",
           "group-plate-die-attach": "Flip-Chip Cap Grease (Typical)",
-          "group-substrate": "Alumina (Typical)"
+          "group-substrate": "Alumina (Typical)",
+          "group-underfill": "Flip-Chip Underfill (Typical)"
         },
         "native_parameter_paths": {
           "bga.columns": [
@@ -15532,6 +15669,8 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
+          "group-bump-solder": "Solder (Pb90/Sn10)",
           "group-die": "Silicon (Pure)",
           "group-encapsulant": "Epoxy Overmold (Typical)",
           "group-lid": "Aluminum (Pure)",
@@ -15539,7 +15678,8 @@
           "group-lid-die-attach": "Flip-Chip Cap Grease (Typical)",
           "group-plate": "Aluminum (Pure)",
           "group-plate-die-attach": "Flip-Chip Cap Grease (Typical)",
-          "group-substrate": "Alumina (Typical)"
+          "group-substrate": "Alumina (Typical)",
+          "group-underfill": "Flip-Chip Underfill (Typical)"
         },
         "native_parameter_paths": {
           "bga.columns": [
@@ -15773,6 +15913,8 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
+          "group-bump-solder": "Solder (Pb90/Sn10)",
           "group-die": "Silicon (Pure)",
           "group-encapsulant": "Epoxy Overmold (Typical)",
           "group-lid": "Aluminum (Pure)",
@@ -15780,7 +15922,8 @@
           "group-lid-die-attach": "Flip-Chip Cap Grease (Typical)",
           "group-plate": "Aluminum (Pure)",
           "group-plate-die-attach": "Flip-Chip Cap Grease (Typical)",
-          "group-substrate": "Alumina (Typical)"
+          "group-substrate": "Alumina (Typical)",
+          "group-underfill": "Flip-Chip Underfill (Typical)"
         },
         "native_parameter_paths": {
           "bga.columns": [
@@ -16014,6 +16157,8 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
+          "group-bump-solder": "Solder (Pb90/Sn10)",
           "group-die": "Silicon (Pure)",
           "group-encapsulant": "Epoxy Overmold (Typical)",
           "group-lid": "Aluminum (Pure)",
@@ -16021,7 +16166,8 @@
           "group-lid-die-attach": "Flip-Chip Cap Grease (Typical)",
           "group-plate": "Aluminum (Pure)",
           "group-plate-die-attach": "Flip-Chip Cap Grease (Typical)",
-          "group-substrate": "Alumina (Typical)"
+          "group-substrate": "Alumina (Typical)",
+          "group-underfill": "Flip-Chip Underfill (Typical)"
         },
         "native_parameter_paths": {
           "bga.columns": [
@@ -16255,6 +16401,8 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
+          "group-bump-solder": "Solder (Pb90/Sn10)",
           "group-die": "Silicon (Pure)",
           "group-encapsulant": "Epoxy Overmold (Typical)",
           "group-lid": "Aluminum (Pure)",
@@ -16262,7 +16410,8 @@
           "group-lid-die-attach": "Flip-Chip Cap Grease (Typical)",
           "group-plate": "Aluminum (Pure)",
           "group-plate-die-attach": "Flip-Chip Cap Grease (Typical)",
-          "group-substrate": "Alumina (Typical)"
+          "group-substrate": "Alumina (Typical)",
+          "group-underfill": "Flip-Chip Underfill (Typical)"
         },
         "native_parameter_paths": {
           "bga.columns": [
@@ -16496,6 +16645,8 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
+          "group-bump-solder": "Solder (Pb90/Sn10)",
           "group-die": "Silicon (Pure)",
           "group-encapsulant": "Epoxy Overmold (Typical)",
           "group-lid": "Aluminum (Pure)",
@@ -16503,7 +16654,8 @@
           "group-lid-die-attach": "Flip-Chip Cap Grease (Typical)",
           "group-plate": "Aluminum (Pure)",
           "group-plate-die-attach": "Flip-Chip Cap Grease (Typical)",
-          "group-substrate": "Alumina (Typical)"
+          "group-substrate": "Alumina (Typical)",
+          "group-underfill": "Flip-Chip Underfill (Typical)"
         },
         "native_parameter_paths": {
           "bga.columns": [
@@ -16737,6 +16889,8 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
+          "group-bump-solder": "Solder (Pb90/Sn10)",
           "group-die": "Silicon (Pure)",
           "group-encapsulant": "Epoxy Overmold (Typical)",
           "group-lid": "Aluminum (Pure)",
@@ -16744,7 +16898,8 @@
           "group-lid-die-attach": "Flip-Chip Cap Grease (Typical)",
           "group-plate": "Aluminum (Pure)",
           "group-plate-die-attach": "Flip-Chip Cap Grease (Typical)",
-          "group-substrate": "Alumina (Typical)"
+          "group-substrate": "Alumina (Typical)",
+          "group-underfill": "Flip-Chip Underfill (Typical)"
         },
         "native_parameter_paths": {
           "bga.columns": [
@@ -16978,6 +17133,8 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
+          "group-bump-solder": "Solder (Pb90/Sn10)",
           "group-die": "Silicon (Pure)",
           "group-encapsulant": "Epoxy Overmold (Typical)",
           "group-lid": "Aluminum (Pure)",
@@ -16985,7 +17142,8 @@
           "group-lid-die-attach": "Flip-Chip Cap Grease (Typical)",
           "group-plate": "Aluminum (Pure)",
           "group-plate-die-attach": "Flip-Chip Cap Grease (Typical)",
-          "group-substrate": "Alumina (Typical)"
+          "group-substrate": "Alumina (Typical)",
+          "group-underfill": "Flip-Chip Underfill (Typical)"
         },
         "native_parameter_paths": {
           "bga.columns": [
@@ -17219,6 +17377,8 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
+          "group-bump-solder": "Solder (Pb90/Sn10)",
           "group-die": "Silicon (Pure)",
           "group-encapsulant": "Epoxy Overmold (Typical)",
           "group-lid": "Aluminum (Pure)",
@@ -17226,7 +17386,8 @@
           "group-lid-die-attach": "Flip-Chip Cap Grease (Typical)",
           "group-plate": "Aluminum (Pure)",
           "group-plate-die-attach": "Flip-Chip Cap Grease (Typical)",
-          "group-substrate": "Alumina (Typical)"
+          "group-substrate": "Alumina (Typical)",
+          "group-underfill": "Flip-Chip Underfill (Typical)"
         },
         "native_parameter_paths": {
           "bga.columns": [
@@ -17460,6 +17621,8 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
+          "group-bump-solder": "Solder (Pb90/Sn10)",
           "group-die": "Silicon (Pure)",
           "group-encapsulant": "Epoxy Overmold (Typical)",
           "group-lid": "Aluminum (Pure)",
@@ -17467,7 +17630,8 @@
           "group-lid-die-attach": "Flip-Chip Cap Grease (Typical)",
           "group-plate": "Aluminum (Pure)",
           "group-plate-die-attach": "Flip-Chip Cap Grease (Typical)",
-          "group-substrate": "Alumina (Typical)"
+          "group-substrate": "Alumina (Typical)",
+          "group-underfill": "Flip-Chip Underfill (Typical)"
         },
         "native_parameter_paths": {
           "bga.columns": [
@@ -17701,6 +17865,8 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
+          "group-bump-solder": "Solder (Pb90/Sn10)",
           "group-die": "Silicon (Pure)",
           "group-encapsulant": "Epoxy Overmold (Typical)",
           "group-lid": "Aluminum (Pure)",
@@ -17708,7 +17874,8 @@
           "group-lid-die-attach": "Flip-Chip Cap Grease (Typical)",
           "group-plate": "Aluminum (Pure)",
           "group-plate-die-attach": "Flip-Chip Cap Grease (Typical)",
-          "group-substrate": "Alumina (Typical)"
+          "group-substrate": "Alumina (Typical)",
+          "group-underfill": "Flip-Chip Underfill (Typical)"
         },
         "native_parameter_paths": {
           "bga.columns": [
@@ -17942,6 +18109,8 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
+          "group-bump-solder": "Solder (Pb90/Sn10)",
           "group-die": "Silicon (Pure)",
           "group-encapsulant": "Epoxy Overmold (Typical)",
           "group-lid": "Aluminum (Pure)",
@@ -17949,7 +18118,8 @@
           "group-lid-die-attach": "Flip-Chip Cap Grease (Typical)",
           "group-plate": "Aluminum (Pure)",
           "group-plate-die-attach": "Flip-Chip Cap Grease (Typical)",
-          "group-substrate": "Alumina (Typical)"
+          "group-substrate": "Alumina (Typical)",
+          "group-underfill": "Flip-Chip Underfill (Typical)"
         },
         "native_parameter_paths": {
           "bga.columns": [
@@ -18183,6 +18353,8 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
+          "group-bump-solder": "Solder (Pb90/Sn10)",
           "group-die": "Silicon (Pure)",
           "group-encapsulant": "Epoxy Overmold (Typical)",
           "group-lid": "Aluminum (Pure)",
@@ -18190,7 +18362,8 @@
           "group-lid-die-attach": "Flip-Chip Cap Grease (Typical)",
           "group-plate": "Aluminum (Pure)",
           "group-plate-die-attach": "Flip-Chip Cap Grease (Typical)",
-          "group-substrate": "Alumina (Typical)"
+          "group-substrate": "Alumina (Typical)",
+          "group-underfill": "Flip-Chip Underfill (Typical)"
         },
         "native_parameter_paths": {
           "bga.columns": [
@@ -18424,6 +18597,8 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
+          "group-bump-solder": "Solder (Pb90/Sn10)",
           "group-die": "Silicon (Pure)",
           "group-encapsulant": "Epoxy Overmold (Typical)",
           "group-lid": "Aluminum (Pure)",
@@ -18431,7 +18606,8 @@
           "group-lid-die-attach": "Flip-Chip Cap Grease (Typical)",
           "group-plate": "Aluminum (Pure)",
           "group-plate-die-attach": "Flip-Chip Cap Grease (Typical)",
-          "group-substrate": "Alumina (Typical)"
+          "group-substrate": "Alumina (Typical)",
+          "group-underfill": "Flip-Chip Underfill (Typical)"
         },
         "native_parameter_paths": {
           "bga.columns": [
@@ -18665,6 +18841,8 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
+          "group-bump-solder": "Solder (Pb90/Sn10)",
           "group-die": "Silicon (Pure)",
           "group-encapsulant": "Epoxy Overmold (Typical)",
           "group-lid": "Aluminum (Pure)",
@@ -18672,7 +18850,8 @@
           "group-lid-die-attach": "Flip-Chip Cap Grease (Typical)",
           "group-plate": "Aluminum (Pure)",
           "group-plate-die-attach": "Flip-Chip Cap Grease (Typical)",
-          "group-substrate": "Alumina (Typical)"
+          "group-substrate": "Alumina (Typical)",
+          "group-underfill": "Flip-Chip Underfill (Typical)"
         },
         "native_parameter_paths": {
           "bga.columns": [
@@ -18906,6 +19085,8 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
+          "group-bump-solder": "Solder (Pb90/Sn10)",
           "group-die": "Silicon (Pure)",
           "group-encapsulant": "Epoxy Overmold (Typical)",
           "group-lid": "Aluminum (Pure)",
@@ -18913,7 +19094,8 @@
           "group-lid-die-attach": "Flip-Chip Cap Grease (Typical)",
           "group-plate": "Aluminum (Pure)",
           "group-plate-die-attach": "Flip-Chip Cap Grease (Typical)",
-          "group-substrate": "Alumina (Typical)"
+          "group-substrate": "Alumina (Typical)",
+          "group-underfill": "Flip-Chip Underfill (Typical)"
         },
         "native_parameter_paths": {
           "bga.columns": [
@@ -19147,6 +19329,8 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
+          "group-bump-solder": "Solder (Pb90/Sn10)",
           "group-die": "Silicon (Pure)",
           "group-encapsulant": "Epoxy Overmold (Typical)",
           "group-lid": "Aluminum (Pure)",
@@ -19154,7 +19338,8 @@
           "group-lid-die-attach": "Flip-Chip Cap Grease (Typical)",
           "group-plate": "Aluminum (Pure)",
           "group-plate-die-attach": "Flip-Chip Cap Grease (Typical)",
-          "group-substrate": "Alumina (Typical)"
+          "group-substrate": "Alumina (Typical)",
+          "group-underfill": "Flip-Chip Underfill (Typical)"
         },
         "native_parameter_paths": {
           "bga.columns": [
@@ -19388,6 +19573,8 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
+          "group-bump-solder": "Solder (Pb90/Sn10)",
           "group-die": "Silicon (Pure)",
           "group-encapsulant": "Epoxy Overmold (Typical)",
           "group-lid": "Aluminum (Pure)",
@@ -19395,7 +19582,8 @@
           "group-lid-die-attach": "Flip-Chip Cap Grease (Typical)",
           "group-plate": "Aluminum (Pure)",
           "group-plate-die-attach": "Flip-Chip Cap Grease (Typical)",
-          "group-substrate": "Substrate PBGAFC (Typical)"
+          "group-substrate": "Substrate PBGAFC (Typical)",
+          "group-underfill": "Flip-Chip Underfill (Typical)"
         },
         "native_parameter_paths": {
           "bga.columns": [
@@ -19629,6 +19817,8 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
+          "group-bump-solder": "Solder (Pb90/Sn10)",
           "group-die": "Silicon (Pure)",
           "group-encapsulant": "Epoxy Overmold (Typical)",
           "group-lid": "Aluminum (Pure)",
@@ -19636,7 +19826,8 @@
           "group-lid-die-attach": "Flip-Chip Cap Grease (Typical)",
           "group-plate": "Aluminum (Pure)",
           "group-plate-die-attach": "Flip-Chip Cap Grease (Typical)",
-          "group-substrate": "Substrate PBGAFC (Typical)"
+          "group-substrate": "Substrate PBGAFC (Typical)",
+          "group-underfill": "Flip-Chip Underfill (Typical)"
         },
         "native_parameter_paths": {
           "bga.columns": [
@@ -19870,6 +20061,8 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
+          "group-bump-solder": "Solder (Pb90/Sn10)",
           "group-die": "Silicon (Pure)",
           "group-encapsulant": "Epoxy Overmold (Typical)",
           "group-lid": "Aluminum (Pure)",
@@ -19877,7 +20070,8 @@
           "group-lid-die-attach": "Flip-Chip Cap Grease (Typical)",
           "group-plate": "Aluminum (Pure)",
           "group-plate-die-attach": "Flip-Chip Cap Grease (Typical)",
-          "group-substrate": "Substrate PBGAFC (Typical)"
+          "group-substrate": "Substrate PBGAFC (Typical)",
+          "group-underfill": "Flip-Chip Underfill (Typical)"
         },
         "native_parameter_paths": {
           "bga.columns": [
@@ -20111,6 +20305,8 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
+          "group-bump-solder": "Solder (Pb90/Sn10)",
           "group-die": "Silicon (Pure)",
           "group-encapsulant": "Epoxy Overmold (Typical)",
           "group-lid": "Aluminum (Pure)",
@@ -20118,7 +20314,8 @@
           "group-lid-die-attach": "Flip-Chip Cap Grease (Typical)",
           "group-plate": "Aluminum (Pure)",
           "group-plate-die-attach": "Flip-Chip Cap Grease (Typical)",
-          "group-substrate": "Substrate PBGAFC (Typical)"
+          "group-substrate": "Substrate PBGAFC (Typical)",
+          "group-underfill": "Flip-Chip Underfill (Typical)"
         },
         "native_parameter_paths": {
           "bga.columns": [
@@ -20352,6 +20549,8 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
+          "group-bump-solder": "Solder (Pb90/Sn10)",
           "group-die": "Silicon (Pure)",
           "group-encapsulant": "Epoxy Overmold (Typical)",
           "group-lid": "Aluminum (Pure)",
@@ -20359,7 +20558,8 @@
           "group-lid-die-attach": "Flip-Chip Cap Grease (Typical)",
           "group-plate": "Aluminum (Pure)",
           "group-plate-die-attach": "Flip-Chip Cap Grease (Typical)",
-          "group-substrate": "Substrate PBGAFC (Typical)"
+          "group-substrate": "Substrate PBGAFC (Typical)",
+          "group-underfill": "Flip-Chip Underfill (Typical)"
         },
         "native_parameter_paths": {
           "bga.columns": [
@@ -20593,6 +20793,8 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
+          "group-bump-solder": "Solder (Pb90/Sn10)",
           "group-die": "Silicon (Pure)",
           "group-encapsulant": "Epoxy Overmold (Typical)",
           "group-lid": "Aluminum (Pure)",
@@ -20600,7 +20802,8 @@
           "group-lid-die-attach": "Flip-Chip Cap Grease (Typical)",
           "group-plate": "Aluminum (Pure)",
           "group-plate-die-attach": "Flip-Chip Cap Grease (Typical)",
-          "group-substrate": "Substrate PBGAFC (Typical)"
+          "group-substrate": "Substrate PBGAFC (Typical)",
+          "group-underfill": "Flip-Chip Underfill (Typical)"
         },
         "native_parameter_paths": {
           "bga.columns": [
@@ -20834,6 +21037,8 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
+          "group-bump-solder": "Solder (Pb90/Sn10)",
           "group-die": "Silicon (Pure)",
           "group-encapsulant": "Epoxy Overmold (Typical)",
           "group-lid": "Aluminum (Pure)",
@@ -20841,7 +21046,8 @@
           "group-lid-die-attach": "Flip-Chip Cap Grease (Typical)",
           "group-plate": "Aluminum (Pure)",
           "group-plate-die-attach": "Flip-Chip Cap Grease (Typical)",
-          "group-substrate": "Substrate PBGAFC (Typical)"
+          "group-substrate": "Substrate PBGAFC (Typical)",
+          "group-underfill": "Flip-Chip Underfill (Typical)"
         },
         "native_parameter_paths": {
           "bga.columns": [
@@ -21075,6 +21281,8 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
+          "group-bump-solder": "Solder (Pb90/Sn10)",
           "group-die": "Silicon (Pure)",
           "group-encapsulant": "Epoxy Overmold (Typical)",
           "group-lid": "Aluminum (Pure)",
@@ -21082,7 +21290,8 @@
           "group-lid-die-attach": "Flip-Chip Cap Grease (Typical)",
           "group-plate": "Aluminum (Pure)",
           "group-plate-die-attach": "Flip-Chip Cap Grease (Typical)",
-          "group-substrate": "Substrate PBGAFC (Typical)"
+          "group-substrate": "Substrate PBGAFC (Typical)",
+          "group-underfill": "Flip-Chip Underfill (Typical)"
         },
         "native_parameter_paths": {
           "bga.columns": [
@@ -21316,6 +21525,8 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
+          "group-bump-solder": "Solder (Pb90/Sn10)",
           "group-die": "Silicon (Pure)",
           "group-encapsulant": "Epoxy Overmold (Typical)",
           "group-lid": "Aluminum (Pure)",
@@ -21323,7 +21534,8 @@
           "group-lid-die-attach": "Flip-Chip Cap Grease (Typical)",
           "group-plate": "Aluminum (Pure)",
           "group-plate-die-attach": "Flip-Chip Cap Grease (Typical)",
-          "group-substrate": "Substrate PBGAFC (Typical)"
+          "group-substrate": "Substrate PBGAFC (Typical)",
+          "group-underfill": "Flip-Chip Underfill (Typical)"
         },
         "native_parameter_paths": {
           "bga.columns": [
@@ -21557,6 +21769,8 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
+          "group-bump-solder": "Solder (Pb90/Sn10)",
           "group-die": "Silicon (Pure)",
           "group-encapsulant": "Epoxy Overmold (Typical)",
           "group-lid": "Aluminum (Pure)",
@@ -21564,7 +21778,8 @@
           "group-lid-die-attach": "Flip-Chip Cap Grease (Typical)",
           "group-plate": "Aluminum (Pure)",
           "group-plate-die-attach": "Flip-Chip Cap Grease (Typical)",
-          "group-substrate": "Substrate PBGAFC (Typical)"
+          "group-substrate": "Substrate PBGAFC (Typical)",
+          "group-underfill": "Flip-Chip Underfill (Typical)"
         },
         "native_parameter_paths": {
           "bga.columns": [
@@ -21798,6 +22013,8 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
+          "group-bump-solder": "Solder (Pb90/Sn10)",
           "group-die": "Silicon (Pure)",
           "group-encapsulant": "Epoxy Overmold (Typical)",
           "group-lid": "Aluminum (Pure)",
@@ -21805,7 +22022,8 @@
           "group-lid-die-attach": "Flip-Chip Cap Grease (Typical)",
           "group-plate": "Aluminum (Pure)",
           "group-plate-die-attach": "Flip-Chip Cap Grease (Typical)",
-          "group-substrate": "Substrate PBGAFC (Typical)"
+          "group-substrate": "Substrate PBGAFC (Typical)",
+          "group-underfill": "Flip-Chip Underfill (Typical)"
         },
         "native_parameter_paths": {
           "bga.columns": [
@@ -22039,6 +22257,8 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
+          "group-bump-solder": "Solder (Pb90/Sn10)",
           "group-die": "Silicon (Pure)",
           "group-encapsulant": "Epoxy Overmold (Typical)",
           "group-lid": "Aluminum (Pure)",
@@ -22046,7 +22266,8 @@
           "group-lid-die-attach": "Flip-Chip Cap Grease (Typical)",
           "group-plate": "Aluminum (Pure)",
           "group-plate-die-attach": "Flip-Chip Cap Grease (Typical)",
-          "group-substrate": "Substrate PBGAFC (Typical)"
+          "group-substrate": "Substrate PBGAFC (Typical)",
+          "group-underfill": "Flip-Chip Underfill (Typical)"
         },
         "native_parameter_paths": {
           "bga.columns": [
@@ -22280,6 +22501,8 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
+          "group-bump-solder": "Solder (Pb90/Sn10)",
           "group-die": "Silicon (Pure)",
           "group-encapsulant": "Epoxy Overmold (Typical)",
           "group-lid": "Aluminum (Pure)",
@@ -22287,7 +22510,8 @@
           "group-lid-die-attach": "Flip-Chip Cap Grease (Typical)",
           "group-plate": "Aluminum (Pure)",
           "group-plate-die-attach": "Flip-Chip Cap Grease (Typical)",
-          "group-substrate": "Substrate PBGAFC (Typical)"
+          "group-substrate": "Substrate PBGAFC (Typical)",
+          "group-underfill": "Flip-Chip Underfill (Typical)"
         },
         "native_parameter_paths": {
           "bga.columns": [
@@ -22521,6 +22745,8 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
+          "group-bump-solder": "Solder (Pb90/Sn10)",
           "group-die": "Silicon (Pure)",
           "group-encapsulant": "Epoxy Overmold (Typical)",
           "group-lid": "Aluminum (Pure)",
@@ -22528,7 +22754,8 @@
           "group-lid-die-attach": "Flip-Chip Cap Grease (Typical)",
           "group-plate": "Aluminum (Pure)",
           "group-plate-die-attach": "Flip-Chip Cap Grease (Typical)",
-          "group-substrate": "Substrate PBGAFC (Typical)"
+          "group-substrate": "Substrate PBGAFC (Typical)",
+          "group-underfill": "Flip-Chip Underfill (Typical)"
         },
         "native_parameter_paths": {
           "bga.columns": [
@@ -22762,6 +22989,8 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
+          "group-bump-solder": "Solder (Pb90/Sn10)",
           "group-die": "Silicon (Pure)",
           "group-encapsulant": "Epoxy Overmold (Typical)",
           "group-lid": "Aluminum (Pure)",
@@ -22769,7 +22998,8 @@
           "group-lid-die-attach": "Flip-Chip Cap Grease (Typical)",
           "group-plate": "Aluminum (Pure)",
           "group-plate-die-attach": "Flip-Chip Cap Grease (Typical)",
-          "group-substrate": "Substrate PBGAFC (Typical)"
+          "group-substrate": "Substrate PBGAFC (Typical)",
+          "group-underfill": "Flip-Chip Underfill (Typical)"
         },
         "native_parameter_paths": {
           "bga.columns": [
@@ -23003,6 +23233,8 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
+          "group-bump-solder": "Solder (Pb90/Sn10)",
           "group-die": "Silicon (Pure)",
           "group-encapsulant": "Epoxy Overmold (Typical)",
           "group-lid": "Aluminum (Pure)",
@@ -23010,7 +23242,8 @@
           "group-lid-die-attach": "Flip-Chip Cap Grease (Typical)",
           "group-plate": "Aluminum (Pure)",
           "group-plate-die-attach": "Flip-Chip Cap Grease (Typical)",
-          "group-substrate": "Substrate PBGAFC (Typical)"
+          "group-substrate": "Substrate PBGAFC (Typical)",
+          "group-underfill": "Flip-Chip Underfill (Typical)"
         },
         "native_parameter_paths": {
           "bga.columns": [
@@ -23244,6 +23477,8 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
+          "group-bump-solder": "Solder (Pb90/Sn10)",
           "group-die": "Silicon (Pure)",
           "group-encapsulant": "Epoxy Overmold (Typical)",
           "group-lid": "Aluminum (Pure)",
@@ -23251,7 +23486,8 @@
           "group-lid-die-attach": "Flip-Chip Cap Grease (Typical)",
           "group-plate": "Aluminum (Pure)",
           "group-plate-die-attach": "Flip-Chip Cap Grease (Typical)",
-          "group-substrate": "Substrate PBGAFC (Typical)"
+          "group-substrate": "Substrate PBGAFC (Typical)",
+          "group-underfill": "Flip-Chip Underfill (Typical)"
         },
         "native_parameter_paths": {
           "bga.columns": [
@@ -23485,6 +23721,8 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
+          "group-bump-solder": "Solder (Pb90/Sn10)",
           "group-die": "Silicon (Pure)",
           "group-encapsulant": "Epoxy Overmold (Typical)",
           "group-lid": "Aluminum (Pure)",
@@ -23492,7 +23730,8 @@
           "group-lid-die-attach": "Flip-Chip Cap Grease (Typical)",
           "group-plate": "Aluminum (Pure)",
           "group-plate-die-attach": "Flip-Chip Cap Grease (Typical)",
-          "group-substrate": "Substrate PBGAFC (Typical)"
+          "group-substrate": "Substrate PBGAFC (Typical)",
+          "group-underfill": "Flip-Chip Underfill (Typical)"
         },
         "native_parameter_paths": {
           "bga.columns": [
@@ -23726,6 +23965,8 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
+          "group-bump-solder": "Solder (Pb90/Sn10)",
           "group-die": "Silicon (Pure)",
           "group-encapsulant": "Epoxy Overmold (Typical)",
           "group-lid": "Aluminum (Pure)",
@@ -23733,7 +23974,8 @@
           "group-lid-die-attach": "Flip-Chip Cap Grease (Typical)",
           "group-plate": "Aluminum (Pure)",
           "group-plate-die-attach": "Flip-Chip Cap Grease (Typical)",
-          "group-substrate": "Substrate PBGAFC (Typical)"
+          "group-substrate": "Substrate PBGAFC (Typical)",
+          "group-underfill": "Flip-Chip Underfill (Typical)"
         },
         "native_parameter_paths": {
           "bga.columns": [
@@ -23967,6 +24209,8 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
+          "group-bump-solder": "Solder (Pb90/Sn10)",
           "group-die": "Silicon (Pure)",
           "group-encapsulant": "Epoxy Overmold (Typical)",
           "group-lid": "Aluminum (Pure)",
@@ -23974,7 +24218,8 @@
           "group-lid-die-attach": "Flip-Chip Cap Grease (Typical)",
           "group-plate": "Aluminum (Pure)",
           "group-plate-die-attach": "Flip-Chip Cap Grease (Typical)",
-          "group-substrate": "Substrate PBGAFC (Typical)"
+          "group-substrate": "Substrate PBGAFC (Typical)",
+          "group-underfill": "Flip-Chip Underfill (Typical)"
         },
         "native_parameter_paths": {
           "bga.columns": [
@@ -24208,6 +24453,8 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
+          "group-bump-solder": "Solder (Pb90/Sn10)",
           "group-die": "Silicon (Pure)",
           "group-encapsulant": "Epoxy Overmold (Typical)",
           "group-lid": "Aluminum (Pure)",
@@ -24215,7 +24462,8 @@
           "group-lid-die-attach": "Flip-Chip Cap Grease (Typical)",
           "group-plate": "Aluminum (Pure)",
           "group-plate-die-attach": "Flip-Chip Cap Grease (Typical)",
-          "group-substrate": "Substrate PBGAFC (Typical)"
+          "group-substrate": "Substrate PBGAFC (Typical)",
+          "group-underfill": "Flip-Chip Underfill (Typical)"
         },
         "native_parameter_paths": {
           "bga.columns": [
@@ -24449,6 +24697,8 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
+          "group-bump-solder": "Solder (Pb90/Sn10)",
           "group-die": "Silicon (Pure)",
           "group-encapsulant": "Epoxy Overmold (Typical)",
           "group-lid": "Aluminum (Pure)",
@@ -24456,7 +24706,8 @@
           "group-lid-die-attach": "Flip-Chip Cap Grease (Typical)",
           "group-plate": "Aluminum (Pure)",
           "group-plate-die-attach": "Flip-Chip Cap Grease (Typical)",
-          "group-substrate": "Substrate PBGAFC (Typical)"
+          "group-substrate": "Substrate PBGAFC (Typical)",
+          "group-underfill": "Flip-Chip Underfill (Typical)"
         },
         "native_parameter_paths": {
           "bga.columns": [
@@ -24690,6 +24941,8 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
+          "group-bump-solder": "Solder (Pb90/Sn10)",
           "group-die": "Silicon (Pure)",
           "group-encapsulant": "Epoxy Overmold (Typical)",
           "group-lid": "Aluminum (Pure)",
@@ -24697,7 +24950,8 @@
           "group-lid-die-attach": "Flip-Chip Cap Grease (Typical)",
           "group-plate": "Aluminum (Pure)",
           "group-plate-die-attach": "Flip-Chip Cap Grease (Typical)",
-          "group-substrate": "Substrate PBGAFC (Typical)"
+          "group-substrate": "Substrate PBGAFC (Typical)",
+          "group-underfill": "Flip-Chip Underfill (Typical)"
         },
         "native_parameter_paths": {
           "bga.columns": [
@@ -24931,6 +25185,8 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
+          "group-bump-solder": "Solder (Pb90/Sn10)",
           "group-die": "Silicon (Pure)",
           "group-encapsulant": "Epoxy Overmold (Typical)",
           "group-lid": "Aluminum (Pure)",
@@ -24938,7 +25194,8 @@
           "group-lid-die-attach": "Flip-Chip Cap Grease (Typical)",
           "group-plate": "Aluminum (Pure)",
           "group-plate-die-attach": "Flip-Chip Cap Grease (Typical)",
-          "group-substrate": "Substrate PBGAFC (Typical)"
+          "group-substrate": "Substrate PBGAFC (Typical)",
+          "group-underfill": "Flip-Chip Underfill (Typical)"
         },
         "native_parameter_paths": {
           "bga.columns": [
@@ -25172,6 +25429,8 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
+          "group-bump-solder": "Solder (Pb90/Sn10)",
           "group-die": "Silicon (Pure)",
           "group-encapsulant": "Epoxy Overmold (Typical)",
           "group-lid": "Aluminum (Pure)",
@@ -25179,7 +25438,8 @@
           "group-lid-die-attach": "Flip-Chip Cap Grease (Typical)",
           "group-plate": "Aluminum (Pure)",
           "group-plate-die-attach": "Flip-Chip Cap Grease (Typical)",
-          "group-substrate": "Substrate PBGAFC (Typical)"
+          "group-substrate": "Substrate PBGAFC (Typical)",
+          "group-underfill": "Flip-Chip Underfill (Typical)"
         },
         "native_parameter_paths": {
           "bga.columns": [
@@ -25413,6 +25673,8 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
+          "group-bump-solder": "Solder (Pb90/Sn10)",
           "group-die": "Silicon (Pure)",
           "group-encapsulant": "Epoxy Overmold (Typical)",
           "group-lid": "Aluminum (Pure)",
@@ -25420,7 +25682,8 @@
           "group-lid-die-attach": "Flip-Chip Cap Grease (Typical)",
           "group-plate": "Aluminum (Pure)",
           "group-plate-die-attach": "Flip-Chip Cap Grease (Typical)",
-          "group-substrate": "Substrate PBGAFC (Typical)"
+          "group-substrate": "Substrate PBGAFC (Typical)",
+          "group-underfill": "Flip-Chip Underfill (Typical)"
         },
         "native_parameter_paths": {
           "bga.columns": [
@@ -25654,6 +25917,8 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
+          "group-bump-solder": "Solder (Pb90/Sn10)",
           "group-die": "Silicon (Pure)",
           "group-encapsulant": "Epoxy Overmold (Typical)",
           "group-lid": "Aluminum (Pure)",
@@ -25661,7 +25926,8 @@
           "group-lid-die-attach": "Flip-Chip Cap Grease (Typical)",
           "group-plate": "Aluminum (Pure)",
           "group-plate-die-attach": "Flip-Chip Cap Grease (Typical)",
-          "group-substrate": "Substrate PBGAFC (Typical)"
+          "group-substrate": "Substrate PBGAFC (Typical)",
+          "group-underfill": "Flip-Chip Underfill (Typical)"
         },
         "native_parameter_paths": {
           "bga.columns": [
@@ -25895,6 +26161,8 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
+          "group-bump-solder": "Solder (Pb90/Sn10)",
           "group-die": "Silicon (Pure)",
           "group-encapsulant": "Epoxy Overmold (Typical)",
           "group-lid": "Aluminum (Pure)",
@@ -25902,7 +26170,8 @@
           "group-lid-die-attach": "Flip-Chip Cap Grease (Typical)",
           "group-plate": "Aluminum (Pure)",
           "group-plate-die-attach": "Flip-Chip Cap Grease (Typical)",
-          "group-substrate": "Substrate PBGAFC (Typical)"
+          "group-substrate": "Substrate PBGAFC (Typical)",
+          "group-underfill": "Flip-Chip Underfill (Typical)"
         },
         "native_parameter_paths": {
           "bga.columns": [
@@ -26136,6 +26405,8 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
+          "group-bump-solder": "Solder (Pb90/Sn10)",
           "group-die": "Silicon (Pure)",
           "group-encapsulant": "Epoxy Overmold (Typical)",
           "group-lid": "Aluminum (Pure)",
@@ -26143,7 +26414,8 @@
           "group-lid-die-attach": "Flip-Chip Cap Grease (Typical)",
           "group-plate": "Aluminum (Pure)",
           "group-plate-die-attach": "Flip-Chip Cap Grease (Typical)",
-          "group-substrate": "Substrate PBGAFC (Typical)"
+          "group-substrate": "Substrate PBGAFC (Typical)",
+          "group-underfill": "Flip-Chip Underfill (Typical)"
         },
         "native_parameter_paths": {
           "bga.columns": [
@@ -26377,6 +26649,8 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
+          "group-bump-solder": "Solder (Pb90/Sn10)",
           "group-die": "Silicon (Pure)",
           "group-encapsulant": "Epoxy Overmold (Typical)",
           "group-lid": "Aluminum (Pure)",
@@ -26384,7 +26658,8 @@
           "group-lid-die-attach": "Flip-Chip Cap Grease (Typical)",
           "group-plate": "Aluminum (Pure)",
           "group-plate-die-attach": "Flip-Chip Cap Grease (Typical)",
-          "group-substrate": "Substrate PBGAFC (Typical)"
+          "group-substrate": "Substrate PBGAFC (Typical)",
+          "group-underfill": "Flip-Chip Underfill (Typical)"
         },
         "native_parameter_paths": {
           "bga.columns": [
@@ -26618,6 +26893,8 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
+          "group-bump-solder": "Solder (Pb90/Sn10)",
           "group-die": "Silicon (Pure)",
           "group-encapsulant": "Epoxy Overmold (Typical)",
           "group-lid": "Aluminum (Pure)",
@@ -26625,7 +26902,8 @@
           "group-lid-die-attach": "Flip-Chip Cap Grease (Typical)",
           "group-plate": "Aluminum (Pure)",
           "group-plate-die-attach": "Flip-Chip Cap Grease (Typical)",
-          "group-substrate": "Substrate PBGAFC (Typical)"
+          "group-substrate": "Substrate PBGAFC (Typical)",
+          "group-underfill": "Flip-Chip Underfill (Typical)"
         },
         "native_parameter_paths": {
           "bga.columns": [
@@ -26859,6 +27137,8 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
+          "group-bump-solder": "Solder (Pb90/Sn10)",
           "group-die": "Silicon (Pure)",
           "group-encapsulant": "Epoxy Overmold (Typical)",
           "group-lid": "Aluminum (Pure)",
@@ -26866,7 +27146,8 @@
           "group-lid-die-attach": "Flip-Chip Cap Grease (Typical)",
           "group-plate": "Aluminum (Pure)",
           "group-plate-die-attach": "Flip-Chip Cap Grease (Typical)",
-          "group-substrate": "Substrate PBGAFC (Typical)"
+          "group-substrate": "Substrate PBGAFC (Typical)",
+          "group-underfill": "Flip-Chip Underfill (Typical)"
         },
         "native_parameter_paths": {
           "bga.columns": [
@@ -27100,6 +27381,8 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
+          "group-bump-solder": "Solder (Pb90/Sn10)",
           "group-die": "Silicon (Pure)",
           "group-encapsulant": "Epoxy Overmold (Typical)",
           "group-lid": "Aluminum (Pure)",
@@ -27107,7 +27390,8 @@
           "group-lid-die-attach": "Flip-Chip Cap Grease (Typical)",
           "group-plate": "Aluminum (Pure)",
           "group-plate-die-attach": "Flip-Chip Cap Grease (Typical)",
-          "group-substrate": "Substrate PBGAFC (Typical)"
+          "group-substrate": "Substrate PBGAFC (Typical)",
+          "group-underfill": "Flip-Chip Underfill (Typical)"
         },
         "native_parameter_paths": {
           "bga.columns": [
@@ -27341,6 +27625,8 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
+          "group-bump-solder": "Solder (Pb90/Sn10)",
           "group-die": "Silicon (Pure)",
           "group-encapsulant": "Epoxy Overmold (Typical)",
           "group-lid": "Aluminum (Pure)",
@@ -27348,7 +27634,8 @@
           "group-lid-die-attach": "Flip-Chip Cap Grease (Typical)",
           "group-plate": "Aluminum (Pure)",
           "group-plate-die-attach": "Flip-Chip Cap Grease (Typical)",
-          "group-substrate": "Substrate PBGAFC (Typical)"
+          "group-substrate": "Substrate PBGAFC (Typical)",
+          "group-underfill": "Flip-Chip Underfill (Typical)"
         },
         "native_parameter_paths": {
           "bga.columns": [
@@ -27582,6 +27869,8 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
+          "group-bump-solder": "Solder (Pb90/Sn10)",
           "group-die": "Silicon (Pure)",
           "group-encapsulant": "Epoxy Overmold (Typical)",
           "group-lid": "Aluminum (Pure)",
@@ -27589,7 +27878,8 @@
           "group-lid-die-attach": "Flip-Chip Cap Grease (Typical)",
           "group-plate": "Aluminum (Pure)",
           "group-plate-die-attach": "Flip-Chip Cap Grease (Typical)",
-          "group-substrate": "Substrate PBGAFC (Typical)"
+          "group-substrate": "Substrate PBGAFC (Typical)",
+          "group-underfill": "Flip-Chip Underfill (Typical)"
         },
         "native_parameter_paths": {
           "bga.columns": [
@@ -27823,6 +28113,8 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
+          "group-bump-solder": "Solder (Pb90/Sn10)",
           "group-die": "Silicon (Pure)",
           "group-encapsulant": "Epoxy Overmold (Typical)",
           "group-lid": "Aluminum (Pure)",
@@ -27830,7 +28122,8 @@
           "group-lid-die-attach": "Flip-Chip Cap Grease (Typical)",
           "group-plate": "Aluminum (Pure)",
           "group-plate-die-attach": "Flip-Chip Cap Grease (Typical)",
-          "group-substrate": "Substrate PBGAFC (Typical)"
+          "group-substrate": "Substrate PBGAFC (Typical)",
+          "group-underfill": "Flip-Chip Underfill (Typical)"
         },
         "native_parameter_paths": {
           "bga.columns": [
@@ -28064,6 +28357,8 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
+          "group-bump-solder": "Solder (Pb90/Sn10)",
           "group-die": "Silicon (Pure)",
           "group-encapsulant": "Epoxy Overmold (Typical)",
           "group-lid": "Aluminum (Pure)",
@@ -28071,7 +28366,8 @@
           "group-lid-die-attach": "Flip-Chip Cap Grease (Typical)",
           "group-plate": "Aluminum (Pure)",
           "group-plate-die-attach": "Flip-Chip Cap Grease (Typical)",
-          "group-substrate": "Substrate PBGAFC (Typical)"
+          "group-substrate": "Substrate PBGAFC (Typical)",
+          "group-underfill": "Flip-Chip Underfill (Typical)"
         },
         "native_parameter_paths": {
           "bga.columns": [
@@ -28305,6 +28601,8 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
+          "group-bump-solder": "Solder (Pb90/Sn10)",
           "group-die": "Silicon (Pure)",
           "group-encapsulant": "Epoxy Overmold (Typical)",
           "group-lid": "Aluminum (Pure)",
@@ -28312,7 +28610,8 @@
           "group-lid-die-attach": "Flip-Chip Cap Grease (Typical)",
           "group-plate": "Aluminum (Pure)",
           "group-plate-die-attach": "Flip-Chip Cap Grease (Typical)",
-          "group-substrate": "Substrate PBGAFC (Typical)"
+          "group-substrate": "Substrate PBGAFC (Typical)",
+          "group-underfill": "Flip-Chip Underfill (Typical)"
         },
         "native_parameter_paths": {
           "bga.columns": [
@@ -28546,6 +28845,8 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
+          "group-bump-solder": "Solder (Pb90/Sn10)",
           "group-die": "Silicon (Pure)",
           "group-encapsulant": "Epoxy Overmold (Typical)",
           "group-lid": "Aluminum (Pure)",
@@ -28553,7 +28854,8 @@
           "group-lid-die-attach": "Flip-Chip Cap Grease (Typical)",
           "group-plate": "Aluminum (Pure)",
           "group-plate-die-attach": "Flip-Chip Cap Grease (Typical)",
-          "group-substrate": "Substrate PBGAFC (Typical)"
+          "group-substrate": "Substrate PBGAFC (Typical)",
+          "group-underfill": "Flip-Chip Underfill (Typical)"
         },
         "native_parameter_paths": {
           "bga.columns": [
@@ -28787,6 +29089,8 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
+          "group-bump-solder": "Solder (Pb90/Sn10)",
           "group-die": "Silicon (Pure)",
           "group-encapsulant": "Epoxy Overmold (Typical)",
           "group-lid": "Aluminum (Pure)",
@@ -28794,7 +29098,8 @@
           "group-lid-die-attach": "Flip-Chip Cap Grease (Typical)",
           "group-plate": "Aluminum (Pure)",
           "group-plate-die-attach": "Flip-Chip Cap Grease (Typical)",
-          "group-substrate": "Substrate PBGAFC (Typical)"
+          "group-substrate": "Substrate PBGAFC (Typical)",
+          "group-underfill": "Flip-Chip Underfill (Typical)"
         },
         "native_parameter_paths": {
           "bga.columns": [
@@ -29028,6 +29333,8 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
+          "group-bump-solder": "Solder (Pb90/Sn10)",
           "group-die": "Silicon (Pure)",
           "group-encapsulant": "Epoxy Overmold (Typical)",
           "group-lid": "Aluminum (Pure)",
@@ -29035,7 +29342,8 @@
           "group-lid-die-attach": "Flip-Chip Cap Grease (Typical)",
           "group-plate": "Aluminum (Pure)",
           "group-plate-die-attach": "Flip-Chip Cap Grease (Typical)",
-          "group-substrate": "Substrate PBGAFC (Typical)"
+          "group-substrate": "Substrate PBGAFC (Typical)",
+          "group-underfill": "Flip-Chip Underfill (Typical)"
         },
         "native_parameter_paths": {
           "bga.columns": [
@@ -29269,6 +29577,8 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
+          "group-bump-solder": "Solder (Pb90/Sn10)",
           "group-die": "Silicon (Pure)",
           "group-encapsulant": "Epoxy Overmold (Typical)",
           "group-lid": "Aluminum (Pure)",
@@ -29276,7 +29586,8 @@
           "group-lid-die-attach": "Flip-Chip Cap Grease (Typical)",
           "group-plate": "Aluminum (Pure)",
           "group-plate-die-attach": "Flip-Chip Cap Grease (Typical)",
-          "group-substrate": "Substrate PBGAFC (Typical)"
+          "group-substrate": "Substrate PBGAFC (Typical)",
+          "group-underfill": "Flip-Chip Underfill (Typical)"
         },
         "native_parameter_paths": {
           "bga.columns": [
@@ -29510,6 +29821,8 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
+          "group-bump-solder": "Solder (Pb90/Sn10)",
           "group-die": "Silicon (Pure)",
           "group-encapsulant": "Epoxy Overmold (Typical)",
           "group-lid": "Aluminum (Pure)",
@@ -29517,7 +29830,8 @@
           "group-lid-die-attach": "Flip-Chip Cap Grease (Typical)",
           "group-plate": "Aluminum (Pure)",
           "group-plate-die-attach": "Flip-Chip Cap Grease (Typical)",
-          "group-substrate": "Substrate PBGAFC (Typical)"
+          "group-substrate": "Substrate PBGAFC (Typical)",
+          "group-underfill": "Flip-Chip Underfill (Typical)"
         },
         "native_parameter_paths": {
           "bga.columns": [
@@ -29751,6 +30065,8 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
+          "group-bump-solder": "Solder (Pb90/Sn10)",
           "group-die": "Silicon (Pure)",
           "group-encapsulant": "Epoxy Overmold (Typical)",
           "group-lid": "Aluminum (Pure)",
@@ -29758,7 +30074,8 @@
           "group-lid-die-attach": "Flip-Chip Cap Grease (Typical)",
           "group-plate": "Aluminum (Pure)",
           "group-plate-die-attach": "Flip-Chip Cap Grease (Typical)",
-          "group-substrate": "Substrate PBGAFC (Typical)"
+          "group-substrate": "Substrate PBGAFC (Typical)",
+          "group-underfill": "Flip-Chip Underfill (Typical)"
         },
         "native_parameter_paths": {
           "bga.columns": [
@@ -29992,6 +30309,8 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
+          "group-bump-solder": "Solder (Pb90/Sn10)",
           "group-die": "Silicon (Pure)",
           "group-encapsulant": "Epoxy Overmold (Typical)",
           "group-lid": "Aluminum (Pure)",
@@ -29999,7 +30318,8 @@
           "group-lid-die-attach": "Flip-Chip Cap Grease (Typical)",
           "group-plate": "Aluminum (Pure)",
           "group-plate-die-attach": "Flip-Chip Cap Grease (Typical)",
-          "group-substrate": "Substrate PBGAFC (Typical)"
+          "group-substrate": "Substrate PBGAFC (Typical)",
+          "group-underfill": "Flip-Chip Underfill (Typical)"
         },
         "native_parameter_paths": {
           "bga.columns": [
@@ -67354,6 +67674,7 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
           "group-bond-wires": "Gold (Pure)",
           "group-die": "Silicon (Pure)",
           "group-die-attach": "Ablestik 8510AA",
@@ -67576,6 +67897,7 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
           "group-bond-wires": "Gold (Pure)",
           "group-die": "Silicon (Pure)",
           "group-die-attach": "Ablestik 8510AA",
@@ -67798,6 +68120,7 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
           "group-bond-wires": "Gold (Pure)",
           "group-die": "Silicon (Pure)",
           "group-die-attach": "Ablestik 8510AA",
@@ -68020,6 +68343,7 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
           "group-bond-wires": "Gold (Pure)",
           "group-die": "Silicon (Pure)",
           "group-die-attach": "Ablestik 8510AA",
@@ -68242,6 +68566,7 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
           "group-bond-wires": "Gold (Pure)",
           "group-die": "Silicon (Pure)",
           "group-die-attach": "Ablestik 8510AA",
@@ -68464,6 +68789,7 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
           "group-bond-wires": "Gold (Pure)",
           "group-die": "Silicon (Pure)",
           "group-die-attach": "Ablestik 8510AA",
@@ -68686,6 +69012,7 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
           "group-bond-wires": "Gold (Pure)",
           "group-die": "Silicon (Pure)",
           "group-die-attach": "Ablestik 8510AA",
@@ -68908,6 +69235,7 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
           "group-bond-wires": "Gold (Pure)",
           "group-die": "Silicon (Pure)",
           "group-die-attach": "Ablestik 8510AA",
@@ -69130,6 +69458,7 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
           "group-bond-wires": "Gold (Pure)",
           "group-die": "Silicon (Pure)",
           "group-die-attach": "Ablestik 8510AA",
@@ -69352,6 +69681,7 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
           "group-bond-wires": "Gold (Pure)",
           "group-die": "Silicon (Pure)",
           "group-die-attach": "Ablestik 8510AA",
@@ -69574,6 +69904,7 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
           "group-bond-wires": "Gold (Pure)",
           "group-die": "Silicon (Pure)",
           "group-die-attach": "Ablestik 8510AA",
@@ -69796,6 +70127,7 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
           "group-bond-wires": "Gold (Pure)",
           "group-die": "Silicon (Pure)",
           "group-die-attach": "Ablestik 8510AA",
@@ -70018,6 +70350,7 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
           "group-bond-wires": "Gold (Pure)",
           "group-die": "Silicon (Pure)",
           "group-die-attach": "Ablestik 8510AA",
@@ -70240,6 +70573,7 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
           "group-bond-wires": "Gold (Pure)",
           "group-die": "Silicon (Pure)",
           "group-die-attach": "Ablestik 8510AA",
@@ -70462,6 +70796,7 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
           "group-bond-wires": "Gold (Pure)",
           "group-die": "Silicon (Pure)",
           "group-die-attach": "Ablestik 8510AA",
@@ -70684,6 +71019,7 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
           "group-bond-wires": "Gold (Pure)",
           "group-die": "Silicon (Pure)",
           "group-die-attach": "Ablestik 8510AA",
@@ -70906,6 +71242,7 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
           "group-bond-wires": "Gold (Pure)",
           "group-die": "Silicon (Pure)",
           "group-die-attach": "Ablestik 8510AA",
@@ -71128,6 +71465,7 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
           "group-bond-wires": "Gold (Pure)",
           "group-die": "Silicon (Pure)",
           "group-die-attach": "Ablestik 8510AA",
@@ -71350,6 +71688,7 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
           "group-bond-wires": "Gold (Pure)",
           "group-die": "Silicon (Pure)",
           "group-die-attach": "Ablestik 8510AA",
@@ -71572,6 +71911,7 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
           "group-bond-wires": "Gold (Pure)",
           "group-die": "Silicon (Pure)",
           "group-die-attach": "Ablestik 8510AA",
@@ -71794,6 +72134,7 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
           "group-bond-wires": "Gold (Pure)",
           "group-die": "Silicon (Pure)",
           "group-die-attach": "Ablestik 8510AA",
@@ -72016,6 +72357,7 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
           "group-bond-wires": "Gold (Pure)",
           "group-die": "Silicon (Pure)",
           "group-die-attach": "Ablestik 8510AA",
@@ -72238,6 +72580,7 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
           "group-bond-wires": "Gold (Pure)",
           "group-die": "Silicon (Pure)",
           "group-die-attach": "Ablestik 8510AA",
@@ -72460,6 +72803,7 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
           "group-bond-wires": "Gold (Pure)",
           "group-die": "Silicon (Pure)",
           "group-die-attach": "Ablestik 8510AA",
@@ -72682,6 +73026,7 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
           "group-bond-wires": "Gold (Pure)",
           "group-die": "Silicon (Pure)",
           "group-die-attach": "Ablestik 8510AA",
@@ -72904,6 +73249,7 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
           "group-bond-wires": "Gold (Pure)",
           "group-die": "Silicon (Pure)",
           "group-die-attach": "Ablestik 8510AA",
@@ -73126,6 +73472,7 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
           "group-bond-wires": "Gold (Pure)",
           "group-die": "Silicon (Pure)",
           "group-die-attach": "Ablestik 8510AA",
@@ -73348,6 +73695,7 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
           "group-bond-wires": "Gold (Pure)",
           "group-die": "Silicon (Pure)",
           "group-die-attach": "Ablestik 8510AA",
@@ -73570,6 +73918,7 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
           "group-bond-wires": "Gold (Pure)",
           "group-die": "Silicon (Pure)",
           "group-die-attach": "Ablestik 8510AA",
@@ -73792,6 +74141,7 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
           "group-bond-wires": "Gold (Pure)",
           "group-die": "Silicon (Pure)",
           "group-die-attach": "Ablestik 8510AA",
@@ -74014,6 +74364,7 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
           "group-bond-wires": "Gold (Pure)",
           "group-die": "Silicon (Pure)",
           "group-die-attach": "Ablestik 8510AA",
@@ -74236,6 +74587,7 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
           "group-bond-wires": "Gold (Pure)",
           "group-die": "Silicon (Pure)",
           "group-die-attach": "Ablestik 8510AA",
@@ -74458,6 +74810,7 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
           "group-bond-wires": "Gold (Pure)",
           "group-die": "Silicon (Pure)",
           "group-die-attach": "Ablestik 8510AA",
@@ -74680,6 +75033,7 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
           "group-bond-wires": "Gold (Pure)",
           "group-die": "Silicon (Pure)",
           "group-die-attach": "Ablestik 8510AA",
@@ -74902,6 +75256,7 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
           "group-bond-wires": "Gold (Pure)",
           "group-die": "Silicon (Pure)",
           "group-die-attach": "Ablestik 8510AA",
@@ -75124,6 +75479,7 @@
       "parameter_audit": {
         "inactive_editor_defaults": {},
         "native_material_names": {
+          "group-bga-solder": "Solder (Sn63/Pb37)",
           "group-bond-wires": "Gold (Pure)",
           "group-die": "Silicon (Pure)",
           "group-die-attach": "Ablestik 8510AA",

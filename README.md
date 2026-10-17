@@ -166,6 +166,8 @@ npm run dev
 ECXML 使用米制物理矩形块，边界条件与网格控制需在目标软件中重设，详见
 [ECXML 格式约定](output_format/ecxml/README.md)。
 组件材料在对应向导步骤中从有限候选项选择；右侧材料库用于浏览和编辑当前方案物性。
+凸点步骤可分别选择焊料和 underfill，BGA 焊球步骤可选择焊料；选材及当前方案物性覆盖会参与
+等效计算，切换 Footprint 和保存参数均保留显式选材，详见[阵列组件选材](docs/templates/array-materials.md)。
 Flip Chip CBGA 的基准复核、组合焊球规则和坐标约定详见
 [Flip Chip CBGA / BGA 模板说明](docs/templates/cbga_fc.md)。
 

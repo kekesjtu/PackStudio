@@ -51,7 +51,7 @@ def build(
         die_length,
         die_width,
         bga_height + substrate_thickness,
-        custom_materials=request.custom_materials,
+        request=request,
     )
     bump = flip.blocks[0]
     drafts.append(
@@ -92,7 +92,7 @@ def build(
         values,
         request.bga or BgaConfiguration(),
         base_z=0,
-        custom_materials=request.custom_materials,
+        request=request,
     )
     return BuiltTemplate(
         drafts=drafts,

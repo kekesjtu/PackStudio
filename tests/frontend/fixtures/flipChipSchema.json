@@ -117,7 +117,10 @@
             "group-lid-adhesive": "stiffener-adhesive",
             "group-lid-die-attach": "flip-cap-grease",
             "group-plate": "aluminum",
-            "group-plate-die-attach": "flip-cap-grease"
+            "group-plate-die-attach": "flip-cap-grease",
+            "group-bga-solder": "solder-sn63",
+            "group-bump-solder": "solder-pb90",
+            "group-underfill": "underfill"
           },
           "CBGAFC_49_6X6mm": {
             "group-substrate": "alumina",
@@ -127,7 +130,10 @@
             "group-lid-adhesive": "stiffener-adhesive",
             "group-lid-die-attach": "flip-cap-grease",
             "group-plate": "aluminum",
-            "group-plate-die-attach": "flip-cap-grease"
+            "group-plate-die-attach": "flip-cap-grease",
+            "group-bga-solder": "solder-sn63",
+            "group-bump-solder": "solder-pb90",
+            "group-underfill": "underfill"
           }
         },
         "preset_notes": {},
@@ -471,6 +477,76 @@
         "enabled_when": null
       },
       {
+        "target_id": "cbga_fc.material.bump-solder",
+        "ui_location": "flip_chip_bumps",
+        "component": "group-bump-solder",
+        "label": "凸点焊料",
+        "control": "material",
+        "default": "solder-pb90",
+        "unit": null,
+        "minimum": null,
+        "maximum": null,
+        "options": [
+          "solder_au80_sn20_c60e3552",
+          "solder_au88_ge12_a4f15d5e",
+          "solder_eutectic_au_si_1e9ad7cf",
+          "solder_eutectic_au_si_ab86266b",
+          "solder-pb90",
+          "solder-sn63",
+          "solder_sn96_5_ag3_5_21e11737"
+        ],
+        "classification": "material_option",
+        "property_name": "material.group-bump-solder",
+        "supported_values": [
+          "solder_au80_sn20_c60e3552",
+          "solder_au88_ge12_a4f15d5e",
+          "solder_eutectic_au_si_1e9ad7cf",
+          "solder_eutectic_au_si_ab86266b",
+          "solder-pb90",
+          "solder-sn63",
+          "solder_sn96_5_ag3_5_21e11737"
+        ],
+        "evidence_status": "implemented",
+        "editable": true,
+        "material_group_id": "group-bump-solder",
+        "visible_when": null,
+        "enabled_when": null
+      },
+      {
+        "target_id": "cbga_fc.material.underfill",
+        "ui_location": "flip_chip_bumps",
+        "component": "group-underfill",
+        "label": "底部填充材料",
+        "control": "material",
+        "default": "underfill",
+        "unit": null,
+        "minimum": null,
+        "maximum": null,
+        "options": [
+          "diamond_synthetic_cf0b14c3",
+          "underfill",
+          "glass_typical_94544dc5",
+          "glass_lid_seal_typical_1a444a20",
+          "plexiglass_typical_0a954091",
+          "solder-mask"
+        ],
+        "classification": "material_option",
+        "property_name": "material.group-underfill",
+        "supported_values": [
+          "diamond_synthetic_cf0b14c3",
+          "underfill",
+          "glass_typical_94544dc5",
+          "glass_lid_seal_typical_1a444a20",
+          "plexiglass_typical_0a954091",
+          "solder-mask"
+        ],
+        "evidence_status": "implemented",
+        "editable": true,
+        "material_group_id": "group-underfill",
+        "visible_when": null,
+        "enabled_when": null
+      },
+      {
         "target_id": "cbga_fc.bga.columns",
         "ui_location": "solder_balls",
         "component": "solder_balls",
@@ -607,6 +683,42 @@
         "evidence_status": "implemented",
         "editable": true,
         "material_group_id": null,
+        "visible_when": null,
+        "enabled_when": null
+      },
+      {
+        "target_id": "cbga_fc.material.bga-solder",
+        "ui_location": "solder_balls",
+        "component": "group-bga-solder",
+        "label": "BGA 焊球材料",
+        "control": "material",
+        "default": "solder-sn63",
+        "unit": null,
+        "minimum": null,
+        "maximum": null,
+        "options": [
+          "solder_au80_sn20_c60e3552",
+          "solder_au88_ge12_a4f15d5e",
+          "solder_eutectic_au_si_1e9ad7cf",
+          "solder_eutectic_au_si_ab86266b",
+          "solder-pb90",
+          "solder-sn63",
+          "solder_sn96_5_ag3_5_21e11737"
+        ],
+        "classification": "material_option",
+        "property_name": "material.group-bga-solder",
+        "supported_values": [
+          "solder_au80_sn20_c60e3552",
+          "solder_au88_ge12_a4f15d5e",
+          "solder_eutectic_au_si_1e9ad7cf",
+          "solder_eutectic_au_si_ab86266b",
+          "solder-pb90",
+          "solder-sn63",
+          "solder_sn96_5_ag3_5_21e11737"
+        ],
+        "evidence_status": "implemented",
+        "editable": true,
+        "material_group_id": "group-bga-solder",
         "visible_when": null,
         "enabled_when": null
       },
@@ -1340,7 +1452,10 @@
             "group-lid-adhesive": "stiffener-adhesive",
             "group-lid-die-attach": "flip-cap-grease",
             "group-plate": "aluminum",
-            "group-plate-die-attach": "flip-cap-grease"
+            "group-plate-die-attach": "flip-cap-grease",
+            "group-bga-solder": "solder-sn63",
+            "group-bump-solder": "solder-pb90",
+            "group-underfill": "underfill"
           },
           "PBGAFC_49_6X6mm": {
             "group-substrate": "pbga-substrate",
@@ -1350,7 +1465,10 @@
             "group-lid-adhesive": "stiffener-adhesive",
             "group-lid-die-attach": "flip-cap-grease",
             "group-plate": "aluminum",
-            "group-plate-die-attach": "flip-cap-grease"
+            "group-plate-die-attach": "flip-cap-grease",
+            "group-bga-solder": "solder-sn63",
+            "group-bump-solder": "solder-pb90",
+            "group-underfill": "underfill"
           }
         },
         "preset_notes": {},
@@ -1696,6 +1814,76 @@
         "enabled_when": null
       },
       {
+        "target_id": "pbga_fc.material.bump-solder",
+        "ui_location": "flip_chip_bumps",
+        "component": "group-bump-solder",
+        "label": "凸点焊料",
+        "control": "material",
+        "default": "solder-pb90",
+        "unit": null,
+        "minimum": null,
+        "maximum": null,
+        "options": [
+          "solder_au80_sn20_c60e3552",
+          "solder_au88_ge12_a4f15d5e",
+          "solder_eutectic_au_si_1e9ad7cf",
+          "solder_eutectic_au_si_ab86266b",
+          "solder-pb90",
+          "solder-sn63",
+          "solder_sn96_5_ag3_5_21e11737"
+        ],
+        "classification": "material_option",
+        "property_name": "material.group-bump-solder",
+        "supported_values": [
+          "solder_au80_sn20_c60e3552",
+          "solder_au88_ge12_a4f15d5e",
+          "solder_eutectic_au_si_1e9ad7cf",
+          "solder_eutectic_au_si_ab86266b",
+          "solder-pb90",
+          "solder-sn63",
+          "solder_sn96_5_ag3_5_21e11737"
+        ],
+        "evidence_status": "implemented",
+        "editable": true,
+        "material_group_id": "group-bump-solder",
+        "visible_when": null,
+        "enabled_when": null
+      },
+      {
+        "target_id": "pbga_fc.material.underfill",
+        "ui_location": "flip_chip_bumps",
+        "component": "group-underfill",
+        "label": "底部填充材料",
+        "control": "material",
+        "default": "underfill",
+        "unit": null,
+        "minimum": null,
+        "maximum": null,
+        "options": [
+          "diamond_synthetic_cf0b14c3",
+          "underfill",
+          "glass_typical_94544dc5",
+          "glass_lid_seal_typical_1a444a20",
+          "plexiglass_typical_0a954091",
+          "solder-mask"
+        ],
+        "classification": "material_option",
+        "property_name": "material.group-underfill",
+        "supported_values": [
+          "diamond_synthetic_cf0b14c3",
+          "underfill",
+          "glass_typical_94544dc5",
+          "glass_lid_seal_typical_1a444a20",
+          "plexiglass_typical_0a954091",
+          "solder-mask"
+        ],
+        "evidence_status": "implemented",
+        "editable": true,
+        "material_group_id": "group-underfill",
+        "visible_when": null,
+        "enabled_when": null
+      },
+      {
         "target_id": "pbga_fc.bga.columns",
         "ui_location": "solder_balls",
         "component": "solder_balls",
@@ -1832,6 +2020,42 @@
         "evidence_status": "implemented",
         "editable": true,
         "material_group_id": null,
+        "visible_when": null,
+        "enabled_when": null
+      },
+      {
+        "target_id": "pbga_fc.material.bga-solder",
+        "ui_location": "solder_balls",
+        "component": "group-bga-solder",
+        "label": "BGA 焊球材料",
+        "control": "material",
+        "default": "solder-sn63",
+        "unit": null,
+        "minimum": null,
+        "maximum": null,
+        "options": [
+          "solder_au80_sn20_c60e3552",
+          "solder_au88_ge12_a4f15d5e",
+          "solder_eutectic_au_si_1e9ad7cf",
+          "solder_eutectic_au_si_ab86266b",
+          "solder-pb90",
+          "solder-sn63",
+          "solder_sn96_5_ag3_5_21e11737"
+        ],
+        "classification": "material_option",
+        "property_name": "material.group-bga-solder",
+        "supported_values": [
+          "solder_au80_sn20_c60e3552",
+          "solder_au88_ge12_a4f15d5e",
+          "solder_eutectic_au_si_1e9ad7cf",
+          "solder_eutectic_au_si_ab86266b",
+          "solder-pb90",
+          "solder-sn63",
+          "solder_sn96_5_ag3_5_21e11737"
+        ],
+        "evidence_status": "implemented",
+        "editable": true,
+        "material_group_id": "group-bga-solder",
         "visible_when": null,
         "enabled_when": null
       },

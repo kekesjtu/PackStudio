@@ -34,7 +34,7 @@ def _build(values: TemplateValues, request: TemplateRequest) -> BuiltTemplate:
     flipped = values.boolean("die.flipped")
     bumped = values.boolean("bumps.enabled")
     bump_layer = (
-        build_flip_chip_layer(values, length, width, 0, custom_materials=request.custom_materials)
+        build_flip_chip_layer(values, length, width, 0, request=request)
         if bumped
         else None
     )

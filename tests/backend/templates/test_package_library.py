@@ -87,14 +87,21 @@ def test_every_declared_component_material_can_be_applied_to_its_group() -> None
                         material_assignments={selection.group_id: material_id},
                     )
                 )
-                blocks = [
-                    block for block in model.blocks if block.parent_group_id == selection.group_id
-                ]
+                group_id = {
+                    "group-bump-solder": "group-flip-chip-bumps",
+                    "group-underfill": "group-flip-chip-bumps",
+                    "group-bga-solder": "group-solder-ball",
+                }.get(selection.group_id, selection.group_id)
+                blocks = [block for block in model.blocks if block.parent_group_id == group_id]
+                if selection.group_id == "group-bga-solder":
+                    blocks = [b for b in blocks if b.structure_type is StructureType.SOLDER_BALL]
                 assert blocks, f"{template_id}: missing {selection.group_id}"
                 by_id = {material.id: material for material in model.materials}
                 assert all(
                     block.material_id == material_id
                     or f"metal={material_id};" in (by_id[block.material_id].source or "")
+                    or f"element={material_id};" in (by_id[block.material_id].source or "")
+                    or f"matrix={material_id};" in (by_id[block.material_id].source or "")
                     for block in blocks
                 )
 

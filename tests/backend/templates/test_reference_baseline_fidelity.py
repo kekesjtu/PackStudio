@@ -49,7 +49,8 @@ def _reference_geometry(template_id: str) -> Counter[GeometryRecord]:
 def _native_geometry(template_id: str) -> Counter[GeometryRecord]:
     item = definition(template_id)
     request = reference_request(template_id)
-    built = item.builder(item.validate_request(request), request)
+    values = item.validate_request(request)
+    built = item.builder(values, item.resolve_material_request(request, values))
     records = Counter(_record(draft.origin, draft.size) for draft in built.drafts)
     for block in built.blocks:
         if block.structure_type is StructureType.STATIC_AIR:
@@ -103,7 +104,8 @@ def _native_material_records(
 ) -> tuple[Counter[MaterialRecord], set[GeometryRecord]]:
     item = definition(template_id)
     request = reference_request(template_id)
-    built = item.builder(item.validate_request(request), request)
+    values = item.validate_request(request)
+    built = item.builder(values, item.resolve_material_request(request, values))
     archived = json.loads(
         Path(__file__).with_name("reference_materials.json").read_text(encoding="utf-8")
     )

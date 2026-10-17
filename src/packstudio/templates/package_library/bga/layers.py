@@ -1,4 +1,3 @@
-from collections.abc import Sequence
 from math import pi
 
 from packstudio.domain.enums import StructureType
@@ -9,7 +8,7 @@ from packstudio.templates.package_library.core.array_parameters import SolderBal
 from packstudio.templates.package_library.core.builds import LayerBuild
 from packstudio.templates.package_library.core.definitions import TemplateValues
 from packstudio.templates.package_library.core.materials import material
-from packstudio.templates.package_library.core.parameters import BgaConfiguration
+from packstudio.templates.package_library.core.parameters import BgaConfiguration, TemplateRequest
 
 
 def build_bga_layer(
@@ -17,15 +16,15 @@ def build_bga_layer(
     configuration: BgaConfiguration,
     *,
     base_z: float = 0,
-    custom_materials: Sequence[Material] = (),
+    request: TemplateRequest,
 ) -> LayerBuild:
     rows = values.integer("bga.rows")
     columns = values.integer("bga.columns")
     pitch = values.number("bga.pitch")
     diameter = values.number("bga.diameter")
     height = values.number("bga.height")
-    solder = material("solder-sn63", custom_materials)
-    air = material("static-air", custom_materials)
+    solder = material(request.material_assignments["group-bga-solder"], request.custom_materials)
+    air = material("static-air", request.custom_materials)
     parameters = SolderBallParameters(
         rows=rows,
         columns=columns,
@@ -135,7 +134,8 @@ def _bga_equivalent_material(
             density=density,
             specific_heat=heat_capacity,
             color=solder.color,
-            source="Handwritten FloTHERM PACK full-array BGA equivalence",
+            source="Handwritten FloTHERM PACK full-array BGA equivalence; "
+            f"element={solder.id}; matrix={air.id};",
         ),
         fill_fraction,
     )

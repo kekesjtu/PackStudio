@@ -524,6 +524,22 @@
         "solder-mask"
       ],
       "visible_when": {}
+    },
+    {
+      "group_id": "group-bga-solder",
+      "step": "solder_balls",
+      "label": "BGA 焊球材料",
+      "default": "solder-sn63",
+      "options": [
+        "solder_au80_sn20_c60e3552",
+        "solder_au88_ge12_a4f15d5e",
+        "solder_eutectic_au_si_1e9ad7cf",
+        "solder_eutectic_au_si_ab86266b",
+        "solder-pb90",
+        "solder-sn63",
+        "solder_sn96_5_ag3_5_21e11737"
+      ],
+      "visible_when": {}
     }
   ],
   "baseline_materials": [

@@ -71,6 +71,28 @@ class TemplateDefinition:
     def schema(self) -> dict[str, Any]:
         return build_wizard_schema(self)
 
+    def resolve_material_request(
+        self, request: TemplateRequest, values: "TemplateValues"
+    ) -> TemplateRequest:
+        footprint = next((f for f in self.fields if f.control == "footprint"), None)
+        preset = (
+            next(p for p in footprint.presets if p.value == values.text(footprint.key))
+            if footprint
+            else None
+        )
+        defaults = {
+            item.group_id: (
+                preset.material_assignments.get(item.group_id, item.default)
+                if preset
+                else item.default
+            )
+            for item in self.material_selections
+            if values.matches(item.visible_when)
+        }
+        return request.model_copy(
+            update={"material_assignments": {**defaults, **request.material_assignments}}
+        )
+
     def validate_request(self, request: TemplateRequest) -> "TemplateValues":
         if request.template_id != self.id:
             raise ValueError(f"request template_id must be {self.id}")
