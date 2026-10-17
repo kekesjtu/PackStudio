@@ -1,6 +1,7 @@
 """Package verified comparisons and native evidence, excluding configs and licences."""
 
 import argparse
+import hashlib
 import json
 import zipfile
 from collections import Counter
@@ -178,6 +179,10 @@ def publish(archive_output, native_output, destination):
         "coverage": dict(Counter(c["kind"] for c in cases)),
         "limitations": LIMITATIONS,
         "source_sha256": source_hashes,
+        "source_normalized_sha256": {
+            name: hashlib.sha256((ROOT / name).read_bytes().replace(b"\r\n", b"\n")).hexdigest()
+            for name in source_hashes
+        },
         "evidence_sha256": fingerprint(bundle),
         "native_file_version": version,
         "native_binary_sha256": {

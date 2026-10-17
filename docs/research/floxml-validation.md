@@ -134,6 +134,8 @@ uv run --locked python -m tools.floxml_validation.verify --replay-output tmp/flo
 可加 `--baselines-only` 快速检查八基准，或重复使用 `--case CASE_ID` 筛选明确案例。
 每案在输出目录生成 request、FloXML、comparison、result；已知 F3 记录拒绝原因。
 离线重放先验证证据指纹，仍要求同一版本源码/默认库；不把历史结果绑定到任意未来模型。
+源码同时记录原始字节及统一 LF 的指纹，允许 Git CRLF/LF 检出差异，并在校验记录中列出；
+厂商 XSD、模型输入输出和 ZIP 不放宽字节指纹要求。
 
 ## 实际验收
 

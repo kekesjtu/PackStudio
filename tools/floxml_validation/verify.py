@@ -1,6 +1,7 @@
 """Verify sealed evidence integrity and an independently rerun offline result directory."""
 
 import argparse
+import hashlib
 import json
 import zipfile
 from pathlib import Path
@@ -16,9 +17,15 @@ def verify(delivery: Path, replay_output: Path):
     bundle = delivery / "evidence.zip"
     if fingerprint(bundle) != summary["evidence_sha256"]:
         raise ValueError("evidence archive fingerprint mismatch")
+    source_line_endings = []
     for name, digest in summary["source_sha256"].items():
         if fingerprint(ROOT / name) != digest:
-            raise ValueError(f"source version mismatch: {name}")
+            normalized = hashlib.sha256(
+                (ROOT / name).read_bytes().replace(b"\r\n", b"\n")
+            ).hexdigest()
+            if normalized != summary.get("source_normalized_sha256", {}).get(name):
+                raise ValueError(f"source version mismatch: {name}")
+            source_line_endings.append(name)
     for name, digest in summary["contract_sha256"].items():
         if fingerprint(ROOT / "output_format/floxml" / name) != digest:
             raise ValueError(f"schema version mismatch: {name}")
@@ -56,6 +63,9 @@ def verify(delivery: Path, replay_output: Path):
         "evidence_sha256": fingerprint(bundle),
         "replay_results_sha256": fingerprint(replay_output / "results.json"),
         "source_and_schema_fingerprints_verified": True,
+        "source_line_ending_differences": source_line_endings,
+        "source_policy": "Raw file hashes retained; source text may match the LF-normalized hash. "
+        "Schemas and evidence always require byte-identical hashes.",
         "note": "Offline replay performs no PACK execution; metrics equality is repeatability, "
         "not proof of thermal accuracy.",
     }
