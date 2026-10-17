@@ -1,0 +1,136 @@
+"""Conservative attribution: unexplained differences remain open evidence items."""
+
+
+def classify(case, details):
+    findings = []
+
+    def add(category, identifier, evidence, status):
+        findings.append(
+            {"category": category, "id": identifier, "evidence": evidence, "status": status}
+        )
+
+    for difference in details["normalized"]["differences"]:
+        roles = {difference["pack_role"], difference["packstudio_role"]}
+        if case["kind"] == "constituent_material":
+            category, reason = "confirmed_implementation_defect", "F2-constituent-edit-propagation"
+        elif case["id"] == "qfp-small-height" and roles == {"encapsulant", "bond_wire"}:
+            category, reason = (
+                "physically_supported_implementation",
+                "P1-small-height-wire-segments",
+            )
+        elif "lead_frame" in roles and case["template"] in {"pqfp", "sop"}:
+            category, reason = "confirmed_implementation_defect", "F1-equivalent-metal-overwritten"
+        elif "flip_chip_bump" in roles:
+            category, reason = "explicit_functional_choice", "C1-volumetric-orthotropic-bumps"
+        else:
+            category, reason = (
+                "insufficient_evidence",
+                "U1-unattributed-material-or-role-difference",
+            )
+        difference["category"] = category
+        difference["attribution"] = reason
+        if case["kind"] == "constituent_material" and "flip_chip_bump" in roles:
+            difference["additional_attributions"] = ["C1-volumetric-orthotropic-bumps"]
+    if details["normalized"]["differences"]:
+        for reason in sorted({d["attribution"] for d in details["normalized"]["differences"]}):
+            selected = [
+                d for d in details["normalized"]["differences"] if d["attribution"] == reason
+            ]
+            add(
+                selected[0]["category"],
+                reason,
+                {"region_count": len(selected)},
+                "confirmed_existing" if reason.startswith("F") else "documented_or_open",
+            )
+    if case["kind"] == "constituent_material":
+        add(
+            "confirmed_implementation_defect",
+            "F2-constituent-edit-propagation",
+            "Native material and DES readback verified; compare final regions to edited input. "
+            "Project baseline sensitivity is reported separately.",
+            "confirmed_existing",
+        )
+        if case["template"] in {"cbga_fc", "pbga_fc"}:
+            add(
+                "explicit_functional_choice",
+                "C1-volumetric-orthotropic-bumps",
+                "In-plane native scalar versus project tensor also reflects the declared network; "
+                "F2 is independently established by missing constituent sensitivity and kz.",
+                "documented",
+            )
+    extra = details["raw"]["unmatched_packstudio"]
+    unexpected = [
+        b
+        for b in extra
+        if b["role"] != "static_air"
+        and not (case["id"] == "qfp-small-height" and b["role"] == "bond_wire")
+    ]
+    if details["raw"]["unmatched_pack"] or unexpected:
+        add(
+            "insufficient_evidence",
+            "U2-raw-topology-mapping",
+            "Unmatched cuboids are listed explicitly; no guessed material correspondence.",
+            "open",
+        )
+    if case["kind"] == "coupled_material_edit":
+        add(
+            "physically_supported_implementation",
+            "P2-mass-weighted-wire-homogenization",
+            "Edited gold enters the declared parallel-conductivity and mass-weighted heat rules; "
+            "region values checked, not a solver-accuracy claim.",
+            "verified_rule",
+        )
+    if details["normalized"]["packstudio_only_volume_mm3"] > 1e-6:
+        add(
+            "explicit_functional_choice"
+            if case["template"] == "chip_array"
+            else "insufficient_evidence",
+            "C2-static-air-or-extra-region",
+            details["normalized"]["packstudio_only_volume_mm3"],
+            "documented_project_static_air" if case["template"] == "chip_array" else "open",
+        )
+    if details["native_collapsed_solids"]:
+        add(
+            "explicit_functional_choice",
+            "C3-collapsed-versus-volume-solids",
+            details["native_collapsed_solids"],
+            "nominal_volume_comparison_only",
+        )
+    if details["native_temperature_materials"]:
+        add(
+            "explicit_functional_choice",
+            "C4-reference-temperature-constant",
+            details["native_temperature_materials"],
+            "documented",
+        )
+    if case["template"] in {"chip_array", "sop"}:
+        add(
+            "inherited_pack_physical_risk",
+            "R2-die-attach-same-bottom-overlap",
+            "Raw die/attach origins and normalized silicon volume are retained in the case report.",
+            "confirmed_geometry_field_meaning_open",
+        )
+    if case["id"] == "wb-copper-asymmetry":
+        add(
+            "inherited_pack_physical_risk",
+            "R1-via-end-gap",
+            "Unequal copper thickness native replay, DES readback and normalized geometry.",
+            "confirmed_native_and_project",
+        )
+    if case["id"] == "qfp-small-height":
+        add(
+            "physically_supported_implementation",
+            "P1-small-height-wire-segments",
+            "PACK omits tiny vertical segments; project retains finite cuboids.",
+            "compatibility_difference_requires_thermal_validation",
+        )
+    if any(s["collapse"] for s in details["sources"]["pack"]):
+        add(
+            "explicit_functional_choice",
+            "C5-surface-versus-volume-heat-source",
+            details["sources"],
+            "total_power_checked_spatial_distribution_differs",
+        )
+    if not details["sources"].get("total_power_equal", True):
+        add("insufficient_evidence", "U8-total-power-mismatch", details["sources"], "open")
+    return findings
