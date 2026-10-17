@@ -12,7 +12,6 @@ import { useEffect, useMemo, useRef, useState, type CSSProperties } from 'react'
 
 import ColumnResizer from '../model-editor/ColumnResizer'
 import ModelPreview from '../model-editor/ModelPreview'
-import MaterialQualityWarning from '../model-editor/MaterialQualityWarning'
 import {
   downloadTemplateModel,
   type ExportFormat,
@@ -23,7 +22,6 @@ import {
 } from './api'
 import BgaConfigurationPanel from './BgaConfigurationPanel'
 import PackageInspector from './PackageInspector'
-import requestMaterialWarnings from './requestMaterialWarnings'
 import { restoreTemplateRequest, saveTemplateRequest } from './requestStorage'
 import type {
   Material,
@@ -47,7 +45,6 @@ export default function PackageWorkspace({ templateId }: PackageWorkspaceProps) 
   const [request, setRequest] = useState<TemplateRequest | null>(null)
   const [library, setLibrary] = useState<Material[]>([])
   const [model, setModel] = useState<PackageModel | null>(null)
-  const [exportIssues, setExportIssues] = useState<ReturnType<typeof requestMaterialWarnings>>([])
   const [activeStep, setActiveStep] = useState('summary')
   const [selectedBlockId, setSelectedBlockId] = useState<string | null>(null)
   const [hiddenBlockIds, setHiddenBlockIds] = useState<Set<string>>(() => new Set())
@@ -80,7 +77,6 @@ export default function PackageWorkspace({ templateId }: PackageWorkspaceProps) 
         setSchema(loadedSchema)
         setRequest(initialRequest)
         setLibrary(materials)
-        setExportIssues([])
         setModel(generated)
         setActiveStep('packstudio_summary')
         setSaved(restored !== null)
@@ -111,7 +107,6 @@ export default function PackageWorkspace({ templateId }: PackageWorkspaceProps) 
   }
 
   const changeRequest = (next: TemplateRequest) => {
-    setExportIssues([])
     setRequest(next)
     setDirty(true)
     setSaved(false)
@@ -134,9 +129,6 @@ export default function PackageWorkspace({ templateId }: PackageWorkspaceProps) 
     setBusy(true)
     setError(null)
     try {
-      // Check the exact current request, including constituents of generated equivalents.
-      const generated = await generateTemplateModel(request)
-      setExportIssues(requestMaterialWarnings(allFields, request, library, generated))
       await downloadTemplateModel(request, exportFormat)
     } catch (reason: unknown) {
       setError(errorMessage(reason))
@@ -184,8 +176,6 @@ export default function PackageWorkspace({ templateId }: PackageWorkspaceProps) 
             <MenuItem value="ecxml">ECXML</MenuItem>
             <MenuItem value="floxml">FloXML（FloTHERM）</MenuItem>
           </TextField>
-          <MaterialQualityWarning issues={exportIssues.length ? exportIssues :
-            requestMaterialWarnings(allFields, request, library, dirty ? null : model)} />
           <Stack direction={{ xs: 'column', sm: 'row' }} spacing={1} className="action-bar">
             <Button variant="contained" disabled={busy} onClick={handleGenerate}>
               {busy ? <CircularProgress size={21} color="inherit" /> : '生成模型'}
