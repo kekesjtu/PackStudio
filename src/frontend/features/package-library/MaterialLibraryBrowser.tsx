@@ -9,6 +9,7 @@ import Typography from '@mui/material/Typography'
 import { useState } from 'react'
 
 import MaterialFields from '../model-editor/MaterialFields'
+import materialQuality from '../model-editor/materialQuality'
 import type { Material } from './types'
 
 interface MaterialLibraryBrowserProps {
@@ -40,6 +41,7 @@ export default function MaterialLibraryBrowser({
           >
             <Box className="material-swatch" sx={{ backgroundColor: material.color }} />
             <ListItemText primary={material.name} secondary={material.id} sx={{ ml: 1 }} />
+            {materialQuality(material) && <Chip size="small" color="warning" label="物性待核实" />}
           </ListItemButton>
         ))}
       </List>

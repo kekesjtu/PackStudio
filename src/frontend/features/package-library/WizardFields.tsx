@@ -3,6 +3,8 @@ import FormControlLabel from '@mui/material/FormControlLabel'
 import Stack from '@mui/material/Stack'
 import Switch from '@mui/material/Switch'
 import TextField from '@mui/material/TextField'
+import materialQuality from '../model-editor/materialQuality'
+import MaterialQualityWarning from '../model-editor/MaterialQualityWarning'
 
 import { fieldValues, filterFootprints, isVisible, matches, valueFor } from './wizardValues'
 import updateWizardRequest from './updateWizardRequest'
@@ -31,6 +33,7 @@ export default function WizardFields({
   onChange,
 }: WizardFieldsProps) {
   const labelValues = fieldValues(allFields, request)
+  const available = new Map([...materials, ...request.custom_materials].map((item) => [item.id, item]))
   const update = (field: WizardField, value: WizardValue) => {
     onChange(updateWizardRequest(request, field, value, allFields))
   }
@@ -45,15 +48,20 @@ export default function WizardFields({
       {step.fields.map((field) => {
         if (!isVisible(field, labelValues)) return null
         const enabled = field.editable && matches(field.enabled_when, labelValues)
+        const material = field.control === 'material'
+          ? available.get(String(valueFor(field, request, allFields))) : undefined
+        const issue = material && materialQuality(material)
         return (
-          <Field
-            key={field.target_id}
-            field={filterFootprints(field, allFields, request)}
-            value={valueFor(field, request, allFields)}
-            enabled={enabled}
-            materials={materials}
-            onChange={(value) => update(field, value)}
-          />
+          <Stack key={field.target_id} spacing={1}>
+            <Field
+              field={filterFootprints(field, allFields, request)}
+              value={valueFor(field, request, allFields)}
+              enabled={enabled}
+              materials={[...available.values()]}
+              onChange={(value) => update(field, value)}
+            />
+            {issue && <MaterialQualityWarning issues={[issue]} />}
+          </Stack>
         )
       })}
       {step.fields.map((field) => field.preset_notes?.[String(valueFor(field, request, allFields))])
