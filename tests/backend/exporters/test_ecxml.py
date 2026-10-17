@@ -10,8 +10,8 @@ from packstudio.api.app import app
 from packstudio.domain.materials import ConductivityTensor
 from packstudio.domain.thermal import HeatSource
 from packstudio.exporters.ecxml import export_ecxml
-from packstudio.templates.cbga_fc.parameters import ArrayRepresentation
 from packstudio.templates.package_library.catalog import catalog, default_request, generate
+from packstudio.templates.package_library.core.array_parameters import ArrayRepresentation
 
 SCHEMA_PATH = Path(__file__).resolve().parents[3] / "output_format/ecxml/ECXML.xsd"
 SCHEMA = etree.XMLSchema(etree.parse(str(SCHEMA_PATH)))

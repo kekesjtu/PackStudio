@@ -2,11 +2,11 @@ from pydantic import BaseModel, ConfigDict, Field
 
 from packstudio.default_parameters import request_default
 from packstudio.domain.materials import Material
-from packstudio.templates.cbga_fc.parameters import (
+from packstudio.templates.package_library.core.array_parameters import (
     ArrayRepresentation,
     CellIndex,
-    MeshParameters,
 )
+from packstudio.templates.package_library.core.mesh import MeshParameters
 
 type TemplateValue = str | int | float | bool | None
 

@@ -2,12 +2,15 @@ import pytest
 from pydantic import ValidationError
 
 from packstudio.domain.materials import Material
-from packstudio.templates.cbga_fc.layout import (
+from packstudio.templates.package_library.core.array_layout import (
     build_array_cells,
     occupied_regions,
     unoccupied_regions,
 )
-from packstudio.templates.cbga_fc.parameters import CellIndex, SolderBallParameters
+from packstudio.templates.package_library.core.array_parameters import (
+    CellIndex,
+    SolderBallParameters,
+)
 
 
 def test_full_array_has_one_uniform_region() -> None:

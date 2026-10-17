@@ -10,8 +10,8 @@ from packstudio.exporters.pta_constants import (
     XSI_NAMESPACE,
 )
 from packstudio.exporters.pta_xml import export_pta_xml
-from packstudio.templates.cbga_fc.parameters import MeshParameters, MeshResolution
 from packstudio.templates.package_library.catalog import default_request, generate
+from packstudio.templates.package_library.core.mesh import MeshParameters, MeshResolution
 from packstudio.templates.package_library.core.parameters import TemplateRequest
 
 

@@ -3,11 +3,11 @@ from dataclasses import dataclass
 from packstudio.domain.enums import StructureType
 from packstudio.domain.geometry import AxisAlignedBlock, Point3D, Size3D
 from packstudio.domain.materials import Material
-from packstudio.templates.cbga_fc.equivalent import (
+from packstudio.templates.package_library.core.array_equivalent import (
     calculate_cylindrical_array_equivalent,
     create_equivalent_material,
 )
-from packstudio.templates.cbga_fc.layout import (
+from packstudio.templates.package_library.core.array_layout import (
     ArrayCell,
     build_array_cells,
     cell_geometry,
@@ -15,7 +15,7 @@ from packstudio.templates.cbga_fc.layout import (
     region_geometry,
     unoccupied_regions,
 )
-from packstudio.templates.cbga_fc.parameters import (
+from packstudio.templates.package_library.core.array_parameters import (
     ArrayLayerParameters,
     ArrayRepresentation,
 )

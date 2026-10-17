@@ -29,3 +29,10 @@ def test_package_library_root_contains_only_registry_modules() -> None:
     root = Path(package_library.__file__).parent
     root_modules = {path.name for path in root.glob("*.py")}
     assert root_modules == {"__init__.py", "catalog.py"}
+
+
+def test_shared_helpers_have_no_dependency_on_legacy_cbga_package() -> None:
+    templates = Path(package_library.__file__).parent.parent
+    assert not list((templates / "cbga_fc").glob("*.py"))
+    for path in templates.rglob("*.py"):
+        assert "packstudio.templates.cbga_fc" not in path.read_text(encoding="utf-8")

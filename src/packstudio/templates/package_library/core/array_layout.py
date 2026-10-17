@@ -1,10 +1,10 @@
 from dataclasses import dataclass
 
-from packstudio.templates.cbga_fc.parameters import (
+from packstudio.templates.package_library.core.array_parameters import (
     ArrayLayerParameters,
     SolderBallParameters,
 )
-from packstudio.templates.cbga_fc.solder_style import center_bounds, is_in_bounds
+from packstudio.templates.package_library.core.array_solder_style import center_bounds, is_in_bounds
 
 
 @dataclass(frozen=True)

@@ -2,7 +2,7 @@
 
 import re
 
-from packstudio.templates.cbga_fc.solder_style import center_bounds, is_in_bounds
+from packstudio.templates.package_library.core.array_solder_style import center_bounds, is_in_bounds
 from packstudio.templates.package_library.core.parameters import BgaConfiguration
 
 
