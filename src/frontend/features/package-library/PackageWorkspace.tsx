@@ -174,6 +174,7 @@ export default function PackageWorkspace({ templateId }: PackageWorkspaceProps) 
           >
             <MenuItem value="pta">PTA XML</MenuItem>
             <MenuItem value="ecxml">ECXML</MenuItem>
+            <MenuItem value="floxml">FloXML（FloTHERM）</MenuItem>
           </TextField>
           <Stack direction={{ xs: 'column', sm: 'row' }} spacing={1} className="action-bar">
             <Button variant="contained" disabled={busy} onClick={handleGenerate}>
@@ -189,7 +190,7 @@ export default function PackageWorkspace({ templateId }: PackageWorkspaceProps) 
               保存参数
             </Button>
             <Button variant="outlined" disabled={busy || !model} onClick={handleExport}>
-              {exportFormat === 'pta' ? '导出 PTA XML' : '导出 ECXML'}
+              {`导出 ${exportFormat === 'pta' ? 'PTA XML' : exportFormat === 'ecxml' ? 'ECXML' : 'FloXML'}`}
             </Button>
           </Stack>
         </Box>
@@ -197,8 +198,8 @@ export default function PackageWorkspace({ templateId }: PackageWorkspaceProps) 
       <ColumnResizer value={propertyWidth} onChange={setPropertyWidth} ariaLabel="调整属性栏宽度" placement="property" />
       <Box className="preview-column">
         {error && <Alert severity="error">{error}</Alert>}
-        {exportFormat === 'ecxml' && <Alert severity="info">
-          ECXML 导出几何、材料与功率。边界条件和网格控制需在目标软件中重新设置。
+        {exportFormat !== 'pta' && <Alert severity="info">
+          {exportFormat === 'ecxml' ? 'ECXML' : 'FloXML'} 导出几何、材料与功率。边界条件和网格控制需在目标软件中重新设置。
         </Alert>}
         <Paper component="section" className="preview-panel">
           <Stack direction="row" justifyContent="space-between" spacing={1} className="panel-heading preview-heading">

@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  
+  <xs:include schemaLocation="XmlAttributes.xsd" />
+  <xs:include schemaLocation="XmlGeometry.xsd" />
+  <xs:include schemaLocation="XmlEntities.xsd" />
+  
+  <xs:element name="xml_case">
+    <xs:complexType>
+      <xs:all>
+        <xs:element minOccurs="1" name="name" type="xs:string" />
+        <xs:element minOccurs="0" name="title" type="xs:string" />
+        <xs:element minOccurs="0" name ="model" type="model" />
+        <xs:element minOccurs="0" name ="solve" type="solve" />
+        <xs:element minOccurs="0" name ="grid" type="grid" />
+        <xs:element minOccurs="1" name="attributes">
+          <xs:complexType>
+            <xs:all>
+              <xs:element minOccurs="0" name="materials">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:choice minOccurs="0" maxOccurs="unbounded">
+                      <xs:element minOccurs="0" maxOccurs="unbounded" name="isotropic_material_att" type="isotropic_material_att" />
+                      <xs:element minOccurs="0" maxOccurs="unbounded" name="orthotropic_material_att" type="orthotropic_material_att" />
+                      <xs:element minOccurs="0" maxOccurs="unbounded" name="temperature_dependant_material_att" type="temperature_dependant_material_att" />
+                      <xs:element minOccurs="0" maxOccurs="unbounded" name="biaxial_material_att" type="biaxial_material_att" />
+
+                    </xs:choice>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element minOccurs="0" name="surfaces">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="surface_att" type="surface_att" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element minOccurs="0" name="surface_exchanges">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="surface_exchange_att" type="surface_exchange_att" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element minOccurs="0" name="thermals">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="thermal_att" type="thermal_att" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element minOccurs="0" name="sources">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="source_att" type="source_att" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element minOccurs="0" name="occupancies">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="occupancy_att" type="occupancy_att" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element minOccurs="0" name="resistances">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="resistance_att" type="resistance_att" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element minOccurs="0" name="fans">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="fan_att" type="fan_att" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element minOccurs="0" name="ambients">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="ambient_att" type="ambient_att" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element minOccurs="0" name="fluids">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="fluid_att" type="fluid_att" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element minOccurs="0" name="grid_constraints">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="grid_constraint_att" type="grid_constraint_att" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element minOccurs="0" name="radiations">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="radiation_att" type="radiation_att" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element minOccurs="0" name="transients">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="transient_att" type="transient_att" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element minOccurs="0" name="controls">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="control_att" type="control_att" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:all>
+          </xs:complexType>
+        </xs:element>
+        
+        <xs:element minOccurs="0" name="solution_domain" type="solution_domain" />
+        <xs:element minOccurs="1" name="geometry" type="geometry" />
+
+        <xs:element minOccurs="0" name="material" type="xs:string" />
+        <xs:element minOccurs="0" name="x_grid_constraint" type="xs:string" />
+        <xs:element minOccurs="0" name="y_grid_constraint" type="xs:string" />
+        <xs:element minOccurs="0" name="z_grid_constraint" type="xs:string" />
+        <xs:element minOccurs="0" name="all_grid_constraint" type="xs:string" />
+        <xs:element minOccurs="0" name="localized_grid" type="trueFalse" />
+        <xs:element minOccurs="0" name="notes" type="xs:string" />
+      </xs:all>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

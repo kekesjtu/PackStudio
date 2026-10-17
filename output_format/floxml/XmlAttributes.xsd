@@ -1,0 +1,783 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="XmlDefinitions.xsd" />
+
+  <xs:complexType name="electrical_resistivity">
+    <xs:all>
+      <xs:element name="type">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="constant" />
+            <xs:enumeration value="temperature_dependant" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="resistivity_value" type="doubleGTEZero" />
+      <xs:element minOccurs="0" name="coeff" type="xs:double" />
+      <xs:element minOccurs="0" name="t_ref" type="xs:double" />
+      <xs:element minOccurs="0" name="t_low" type="xs:double" />
+      <xs:element minOccurs="0" name="t_high" type="xs:double" />
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="transparency">
+    <xs:all>
+      <xs:element minOccurs="0" name="model_0">
+        <xs:complexType>
+          <xs:all>
+            <xs:element name="absorption_coeff" type="doubleGTEZero" />
+            <xs:element name="refractive_index">
+              <xs:simpleType>
+                <xs:restriction base="xs:double">
+                  <xs:minInclusive value="1.0" />
+                  <xs:maxInclusive value="100.0" />
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+          </xs:all>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="model_1">
+        <xs:complexType>
+          <xs:all>
+            <xs:element name="transmittance" type="ratio" />
+            <xs:element name="reflectance" type="ratio" />
+          </xs:all>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="transparency_model">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="model_0" />
+            <xs:enumeration value="model_1" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:all>
+  </xs:complexType>
+
+    <xs:complexType name="phase_change">
+      <xs:all>
+        <xs:element minOccurs="1" name="enabled" type="trueFalse" />
+        <xs:element minOccurs="1" name="liquid_specific_heat" type="doubleGTEZero" />
+        <xs:element minOccurs="1" name="latent_heat" type="doubleGTEZero" />
+        <xs:element minOccurs="1" name="melt_temperature" type="xs:double" />
+        <xs:element minOccurs="1" name="melt_temperature_band" type="doubleGTEZero" />
+      </xs:all>
+    </xs:complexType>
+
+  
+    <xs:complexType name="isotropic_material_att">
+    <xs:all>
+      <xs:element minOccurs="1" name="name" type="xs:string" />
+      <xs:element minOccurs="1" name="density" type="doubleGTZero" />
+      <xs:element minOccurs="1" name="specific_heat" type="doubleGTEZero" />
+      <xs:element minOccurs="0" name="input_method" type="conductivity_input_method" />
+      <xs:element minOccurs="0" name="conductivity" type="doubleGTEZero" />
+      <xs:element minOccurs="0" name="conductivity_curve" type="conductivity_curve_points" />
+      <xs:element minOccurs="0" name="electrical_resistivity" type="electrical_resistivity" />
+      <xs:element minOccurs="0" name="transparent" type="trueFalse" />
+      <xs:element minOccurs="0" name="transparency" type="transparency" />
+      <xs:element minOccurs="0" name="phase_change" type="phase_change" />
+      <xs:element minOccurs="0" name="surface" type="xs:string" />
+      <xs:element minOccurs="0" name="notes" type="xs:string" /> 
+    </xs:all>
+  </xs:complexType>
+  
+  
+  <xs:complexType name="orthotropic_material_att">
+    <xs:all>
+      <xs:element minOccurs="1" name="name" type="xs:string" />
+      <xs:element minOccurs="0" name="x_input_method" type="conductivity_input_method" />
+      <xs:element minOccurs="0" name="y_input_method" type="conductivity_input_method" />
+      <xs:element minOccurs="0" name="z_input_method" type="conductivity_input_method" />
+      <xs:element minOccurs="0" name="x_conductivity" type="doubleGTEZero" />
+      <xs:element minOccurs="0" name="y_conductivity" type="doubleGTEZero" />
+      <xs:element minOccurs="0" name="z_conductivity" type="doubleGTEZero" />
+      <xs:element minOccurs="0" name="x_conductivity_curve" type="conductivity_curve_points" />
+      <xs:element minOccurs="0" name="y_conductivity_curve" type="conductivity_curve_points" />
+      <xs:element minOccurs="0" name="z_conductivity_curve" type="conductivity_curve_points" />
+      <xs:element minOccurs="1" name="density" type="doubleGTZero" />
+      <xs:element minOccurs="1" name="specific_heat" type="doubleGTEZero" />
+      <xs:element minOccurs="0" name="electrical_resistivity" type="electrical_resistivity" />
+      <xs:element minOccurs="0" name="transparent" type="trueFalse" />
+      <xs:element minOccurs="0" name="transparency" type="transparency" />
+      <xs:element minOccurs="0" name="phase_change" type="phase_change" />
+      <xs:element minOccurs="0" name="surface" type="xs:string" />
+      <xs:element minOccurs="0" name="notes" type="xs:string" />
+    </xs:all>
+  </xs:complexType>
+  
+  
+  <xs:complexType name="temperature_dependant_material_att">
+    <xs:all>
+      <xs:element minOccurs="1" name="name" type="xs:string" />
+      <xs:element minOccurs="1" name="conductivity" type="doubleGTEZero" />
+      <xs:element minOccurs="1" name="coeff" type="xs:double" />
+      <xs:element minOccurs="1" name="tref" type="xs:double" />
+      <xs:element minOccurs="1" name="density" type="doubleGTZero" />
+      <xs:element minOccurs="1" name="specific_heat" type="doubleGTEZero" />
+      <xs:element minOccurs="0" name="electrical_resistivity" type="electrical_resistivity" />
+      <xs:element minOccurs="0" name="transparent" type="trueFalse" />
+      <xs:element minOccurs="0" name="transparency" type="transparency" />
+      <xs:element minOccurs="0" name="phase_change" type="phase_change" />
+      <xs:element minOccurs="0" name="surface" type="xs:string" />
+      <xs:element minOccurs="0" name="notes" type="xs:string" />
+    </xs:all>
+  </xs:complexType>
+
+
+  <xs:complexType name="biaxial_material_att">
+    <xs:all>
+      <xs:element minOccurs="1" name="name" type="xs:string" />
+      <xs:element minOccurs="0" name="in_plane_input_method" type="conductivity_input_method" />
+      <xs:element minOccurs="0" name="normal_input_method" type="conductivity_input_method" />
+      <xs:element minOccurs="0" name="in_plane_conductivity" type="doubleGTEZero" />
+      <xs:element minOccurs="0" name="normal_conductivity" type="doubleGTEZero" />
+      <xs:element minOccurs="0" name="in_plane_conductivity_curve" type="conductivity_curve_points" />
+      <xs:element minOccurs="0" name="normal_conductivity_curve" type="conductivity_curve_points" />
+      <xs:element minOccurs="1" name="density" type="doubleGTZero" />
+      <xs:element minOccurs="1" name="specific_heat" type="doubleGTEZero" />
+      <xs:element minOccurs="0" name="electrical_resistivity" type="electrical_resistivity" />
+      <xs:element minOccurs="0" name="transparent" type="trueFalse" />
+      <xs:element minOccurs="0" name="transparency" type="transparency" />
+      <xs:element minOccurs="0" name="phase_change" type="phase_change" />
+      <xs:element minOccurs="0" name="surface" type="xs:string" />
+      <xs:element minOccurs="0" name="notes" type="xs:string" />
+    </xs:all>
+  </xs:complexType>
+  
+  
+  <xs:complexType name="surface_att">
+    <xs:all>
+      <xs:element minOccurs="1" name="name" type="xs:string" />
+      <xs:element minOccurs="1" name="emissivity" type="ratio" />
+      <xs:element minOccurs="0" name="roughness" type="xs:double" />
+      <xs:element minOccurs="0" name="rsurf_fluid" type="xs:double" />
+      <xs:element minOccurs="0" name="rsurf_solid" type="xs:double" />
+      <xs:element minOccurs="0" name="area_factor" type="xs:double" />
+      <xs:element minOccurs="0" name="solar_reflectivity" type="ratio" />
+      <xs:element minOccurs="0" name="electrical_resistance" type="xs:double" />
+      <xs:element minOccurs="0" name="display_settings">
+        <xs:complexType>
+          <xs:all>
+            <xs:element name="color">
+              <xs:complexType>
+                <xs:all>
+                  <xs:element name="red" type="ratio" />
+                  <xs:element name="green" type="ratio" />
+                  <xs:element name="blue" type="ratio" />
+                </xs:all>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="shininess" type="ratio" />
+            <xs:element name="brightness" type="ratio" />
+          </xs:all>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="notes" type="xs:string" />
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="surface_exchange_att">
+    <xs:all>
+      <xs:element minOccurs="1" name="name" type="xs:string" />
+      <xs:element name="heat_transfer_method">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="surface" />
+            <xs:enumeration value="volume" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="extent_of_heat_transfer" type="doubleGTEZero" />
+      <xs:element name="heat_transfer_coefficient">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="calculated" />
+            <xs:enumeration value="specified" />
+            <xs:enumeration value="constant" />
+            <xs:enumeration value="profile" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="profile" type="heat_sink_curve_points" />
+      <xs:element minOccurs="0" name="specified_constant_value" type="doubleGTEZero" />
+      <xs:element minOccurs="0" name="wetted_area_volume_transfer" type="doubleGTZero" />
+      <xs:element minOccurs="0" name="reference_temperature">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="calculated" />
+            <xs:enumeration value="specified"  />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="reference_temperature_value" type="xs:double" /> 
+      <xs:element minOccurs="0" name="notes" type="xs:string" />
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="occupancy_att">
+    <xs:all>
+      <xs:element minOccurs="1" name="name" type="xs:string" />
+      <xs:element minOccurs="1" name="occupancy_level" type="xs:nonNegativeInteger" />
+      <xs:element name="activity_level">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="low" />
+            <xs:enumeration value="medium" />
+            <xs:enumeration value="high" />
+            <xs:enumeration value="specified" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="specified_activity_value" type="xs:double" />
+      <xs:element minOccurs="0" name="notes" type="xs:string" />
+    </xs:all>
+  </xs:complexType>
+  
+  <xs:complexType name="thermal_att">
+    <xs:all>
+      <xs:element minOccurs="1" name="name" type="xs:string" />
+      <xs:element minOccurs="0" name="thermal_model" default="conduction">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="conduction" />
+            <xs:enumeration value="fixed_heat_flow" />
+            <xs:enumeration value="fixed_temperature" />
+            <xs:enumeration value="joule_heating" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="fixed_heat_flow" >
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="total_power" />
+            <xs:enumeration value="power_area" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="power" type="xs:double" />
+      <xs:element minOccurs="0" name="power_area" type="xs:double" />
+      <xs:element minOccurs="0" name="fixed_temperature" type="xs:double" />
+      <xs:element minOccurs="0" name="joule_heating">
+        <xs:complexType>
+          <xs:all>
+            <xs:element name="using">
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:enumeration value="current" />
+                  <xs:enumeration value="voltage" />
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element> 
+            <xs:element minOccurs="0" name="current" type="xs:double" />
+            <xs:element minOccurs="0" name="voltage" type="xs:double" />
+            <xs:element minOccurs="0" name="joule_heating_flow_direction">
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:enumeration value="longest" />
+                  <xs:enumeration value="x" />
+                  <xs:enumeration value="y" />
+                  <xs:enumeration value="z" />
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+          </xs:all>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="transient" type="xs:string" />
+      <xs:element minOccurs="0" name="notes" type="xs:string" />
+    </xs:all>
+  </xs:complexType>
+  
+  <xs:simpleType name="source_types">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="total" />
+      <xs:enumeration value="volume" />
+      <xs:enumeration value="area" />
+      <xs:enumeration value="fixed" />
+      <xs:enumeration value="linear" />
+      <xs:enumeration value="non_linear" />
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:complexType name="source_option">
+    <xs:all>
+      <xs:element minOccurs="0" name="active" type="trueFalse" default="true" />
+      <xs:element minOccurs="1" name="applies_to" type="variable_types" />
+      <xs:element minOccurs="1" name="type" type="source_types" />
+      <xs:element minOccurs="0" name="power" type="xs:double" />
+      <xs:element minOccurs="0" name="value" type="xs:double" />
+      <xs:element minOccurs="0" name="linear_coefficient" type="xs:double" />
+      <xs:element minOccurs="0" name="apply_transient_to_coeff" type="trueFalse" />
+      <xs:element minOccurs="0" name="non_linear_curve" type="power_temp_curve_points" />
+      <xs:element minOccurs="0" name="transient" type="xs:string" />
+    </xs:all>
+  </xs:complexType>
+  
+  <xs:complexType name="source_att">
+    <xs:annotation>
+      <xs:documentation>
+        The original definition of a source property only allowed a single source option to be specifed.
+        This definition has been kept for backwards compatibility, but the 'source_options' list has been
+        added if you wish to specifiy multiple source options.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:all>
+      <xs:element minOccurs="1" name="name" type="xs:string" />
+      <xs:element minOccurs="0" name="source_options">
+        <xs:annotation>
+          <xs:documentation>
+            If this element is found, the 'old' source options are not processed.
+          </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence minOccurs="1" maxOccurs="unbounded">
+            <xs:element name="option" type="source_option"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      
+      <xs:element minOccurs="0" name="applies_to" type="variable_types" />
+      <xs:element minOccurs="0" name="type" type="source_types" />
+      <xs:element minOccurs="0" name="power" type="xs:double" />
+      <xs:element minOccurs="0" name="value" type="xs:double" />
+      <xs:element minOccurs="0" name="linear_coefficient" type="xs:double" />
+      <xs:element minOccurs="0" name="apply_transient_to_coeff" type="trueFalse" />
+      <xs:element minOccurs="0" name="non_linear_curve" type="power_temp_curve_points" />
+      <xs:element minOccurs="0" name="transient" type="xs:string" />
+      
+      <xs:element minOccurs="0" name="notes" type="xs:string" />
+    </xs:all>
+  </xs:complexType>
+  
+  <xs:complexType name="resistance_att">
+    <xs:all>
+      <xs:element minOccurs="1" name="name" type="xs:string" />
+      <xs:element minOccurs="0" name="resistance_type" >
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="planar" />
+            <xs:enumeration value="volume" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="loss_coefficients_based_on" >
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="approach_velocity" />
+            <xs:enumeration value="device_velocity" />
+            <xs:enumeration value="accelerated" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="formula_type">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="standard" />
+            <xs:enumeration value="advanced" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="resistance_x" type="resistance_formula" />
+      <xs:element minOccurs="0" name="resistance_y" type="resistance_formula" />
+      <xs:element minOccurs="1" name="resistance_z" type="resistance_formula" />
+      <xs:element minOccurs="0" name="angle_mode">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="normal" />
+            <xs:enumeration value="angled" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="external_angled_resistance" type="triplet" />
+      <xs:element minOccurs="0" name="transparent_to_radiation" type="trueFalse" />
+      <xs:element minOccurs="0" name="percentage_filter_efficiency">
+        <xs:complexType>
+          <xs:all>
+           <xs:element minOccurs="0" name="active" type="trueFalse" />
+           <xs:element minOccurs="0" name="reference_length" type="doubleGTEZero" />
+           <xs:element minOccurs="0" name="concentration_1" type="percentage" />
+           <xs:element minOccurs="0" name="concentration_2" type="percentage" />
+           <xs:element minOccurs="0" name="concentration_3" type="percentage" />
+           <xs:element minOccurs="0" name="concentration_4" type="percentage" />
+           <xs:element minOccurs="0" name="concentration_5" type="percentage" />
+           <xs:element minOccurs="0" name="concentration_6" type="percentage" />
+           <xs:element minOccurs="0" name="concentration_7" type="percentage" />
+           <xs:element minOccurs="0" name="concentration_8" type="percentage" />
+           <xs:element minOccurs="0" name="concentration_9" type="percentage" />
+           <xs:element minOccurs="0" name="concentration_10" type="percentage" />
+           <xs:element minOccurs="0" name="concentration_11" type="percentage" />
+           <xs:element minOccurs="0" name="concentration_12" type="percentage" />
+           <xs:element minOccurs="0" name="concentration_13" type="percentage" />
+           <xs:element minOccurs="0" name="concentration_14" type="percentage" />
+           <xs:element minOccurs="0" name="concentration_15" type="percentage" />
+          </xs:all>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="notes" type="xs:string" />
+    </xs:all>
+  </xs:complexType>
+  
+  <xs:complexType name="fan_att">
+    <xs:all>
+      <xs:element minOccurs="1" name="name" type="xs:string" />
+      <xs:element minOccurs="1" name="flow_type">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="normal" />
+            <xs:enumeration value="angled" />
+            <xs:enumeration value="swirl" />
+            <xs:enumeration value="circular" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="flow_direction" type="triplet" />
+      <xs:element minOccurs="0" name="swirl_model">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="constant_speed" />
+            <xs:enumeration value="flow_dependent_speed" />
+            <xs:enumeration value="velocity_dependent_speed">
+              <xs:annotation>
+                <xs:documentation>
+                  'velocity_dependent_speed'is FloVENT only
+                </xs:documentation>
+              </xs:annotation>
+            </xs:enumeration> 
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="swirl_direction">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="clockwise" />
+            <xs:enumeration value="counter_clockwise" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="swirl_speed" type="doubleGTEZero" />
+      <xs:element minOccurs="0" name="swirl_angle" >
+        <xs:simpleType>
+          <xs:restriction base="xs:double">
+            <xs:minInclusive value="0.0" />
+            <xs:maxInclusive value="90.0" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="twist_angle" >
+        <xs:simpleType>
+          <xs:restriction base="xs:double">
+            <xs:minInclusive value="0.0" />
+            <xs:maxInclusive value="80.0" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="jet_angle" type="xs:double" />
+      <xs:element minOccurs="1" name="flow_spec">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="fixed" />
+            <xs:enumeration value="linear" />
+            <xs:enumeration value="non_linear" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="flow_rate" type="doubleGTZero" />
+      <xs:element minOccurs="0" name="open_volume_flow_rate" type="doubleGTZero" />
+      <xs:element minOccurs="0" name="stagnation_pressure" type="doubleGTZero" />
+      <xs:element minOccurs="0" name="fan_curve_points" type="fan_curve_points"/>
+    </xs:all>
+  </xs:complexType>
+  
+  <xs:complexType name="ambient_att">
+    <xs:all>
+      <xs:element minOccurs="1" name="name" type="xs:string" />
+      <xs:element minOccurs="0" name="pressure" type="xs:double" />
+      <xs:element minOccurs="1" name="temperature" type="xs:double" />
+      <xs:element minOccurs="0" name="radiant_temperature" type="xs:double" />
+      <xs:element minOccurs="1" name="heat_transfer_coeff" type="xs:double" />
+      <xs:element minOccurs="0" name="velocity" type="triplet" />
+      <xs:element minOccurs="0" name="radiant_transient" type="xs:string" />
+      <xs:element minOccurs="0" name="ambient_transient" type="xs:string" />
+      <xs:element minOccurs="0" name="concentration_1" type="doubleGTEZero" />
+      <xs:element minOccurs="0" name="concentration_2" type="doubleGTEZero" />
+      <xs:element minOccurs="0" name="concentration_3" type="doubleGTEZero" />
+      <xs:element minOccurs="0" name="concentration_4" type="doubleGTEZero" />
+      <xs:element minOccurs="0" name="concentration_5" type="doubleGTEZero" />
+      <xs:element minOccurs="0" name="concentration_6" type="doubleGTEZero" />
+      <xs:element minOccurs="0" name="concentration_7" type="doubleGTEZero" />
+      <xs:element minOccurs="0" name="concentration_8" type="doubleGTEZero" />
+      <xs:element minOccurs="0" name="concentration_9" type="doubleGTEZero" />
+      <xs:element minOccurs="0" name="concentration_10" type="doubleGTEZero" />
+      <xs:element minOccurs="0" name="concentration_11" type="doubleGTEZero" />
+      <xs:element minOccurs="0" name="concentration_12" type="doubleGTEZero" />
+      <xs:element minOccurs="0" name="concentration_13" type="doubleGTEZero" />
+      <xs:element minOccurs="0" name="concentration_14" type="doubleGTEZero" />
+      <xs:element minOccurs="0" name="concentration_15" type="doubleGTEZero" />
+      <xs:element minOccurs="0" name="turbulent_kinetic_energy" type="xs:double" />
+      <xs:element minOccurs="0" name="turbulent_dissipation_rate" type="xs:double" />
+      <xs:element minOccurs="0" name="notes" type="xs:string" />
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="fluid_att">
+    <xs:all>
+      <xs:element minOccurs="1" name="name" type="xs:string" />
+      <xs:element minOccurs="0" name="conductivity_type" type="fluid_type" />
+      <xs:element minOccurs="1" name="conductivity" type="xs:double" />
+      <xs:element minOccurs="0" name="cond_coeff" type="xs:double" />
+      <xs:element minOccurs="0" name="cond_tref" type="xs:double" />
+      <xs:element minOccurs="1" name="viscosity" type="xs:double" />
+      <xs:element minOccurs="0" name="viscosity_type" type="fluid_type"/>
+      <xs:element minOccurs="0" name="visc_coeff" type="xs:double" />
+      <xs:element minOccurs="0" name="visc_tref" type="xs:double" />
+      <xs:element minOccurs="0" name="diffusivity" type="xs:double" />
+      <xs:element minOccurs="0" name="density_type" type="density_type" />
+      <xs:element minOccurs="0" name="density" type="xs:double" />
+      <xs:element minOccurs="0" name="mol_weight" type="xs:double" />
+      <xs:element minOccurs="1" name="specific_heat" type="doubleGTEZero" />
+      <xs:element minOccurs="0" name="expansivity" type="xs:double" />
+      <xs:element minOccurs="0" name="notes" type="xs:string" />
+    </xs:all>
+  </xs:complexType>
+  
+  <xs:simpleType name="number_cells_control">
+    <xs:annotation>
+      <xs:documentation>
+        'number_cells_control' must be specified if both 'max_size' and 'min_number' are specified.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="max_size" />
+      <xs:enumeration value="min_number" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="inflation_type">
+    <xs:annotation>
+      <xs:documentation>
+        Inflation Type must be specified if both 'inflation_size' and 'inflation_percent' are specified.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="size" />
+      <xs:enumeration value="percent" />
+    </xs:restriction>
+  </xs:simpleType>
+    
+  <xs:complexType name="grid_constraint_att">
+    <xs:all>
+      <xs:element minOccurs="1" name="name" type="xs:string" />
+      <xs:element minOccurs="0" name="enable_min_cell_size" type="trueFalse" />
+      <xs:element minOccurs="0" name="min_cell_size" type="doubleGTZero" />
+      <xs:element minOccurs="0" name="number_cells_control" type="number_cells_control" />
+      <xs:element minOccurs="0" name="max_size" type="doubleGTZero" />
+      <xs:element minOccurs="0" name="min_number" type="xs:positiveInteger" />
+      <xs:element minOccurs="0" name="high_inflation" type="grid_inflation" />
+      <xs:element minOccurs="0" name="low_inflation" type="grid_inflation" />
+    </xs:all>
+  </xs:complexType>
+  
+  <xs:complexType name="grid_inflation">
+    <xs:all>
+      <xs:element minOccurs="0" name="inflation_type" type="inflation_type" />
+      <xs:element minOccurs="0" name="inflation_size" type="doubleGTEZero" />
+      <xs:element minOccurs="0" name="inflation_percent" type="percentage" />
+      <xs:element minOccurs="0" name="number_cells_control" type="number_cells_control" />
+      <xs:element minOccurs="0" name="max_size" type="doubleGTZero" />
+      <xs:element minOccurs="0" name="min_number" type="xs:nonNegativeInteger" />
+    </xs:all>
+  </xs:complexType>
+
+  <xs:simpleType name="radiation_type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="non_radiating" />
+      <xs:enumeration value="single_radiating" />
+      <xs:enumeration value="subdivided_radiating" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="radiation_att">
+    <xs:all>
+      <xs:element minOccurs="1" name="name" type="xs:string" />
+      <xs:element minOccurs="0" name="surface" type="radiation_type" />
+      <xs:element minOccurs="0" name="min_area" type="doubleGTEZero" />
+      <xs:element minOccurs="0" name="subdivided_surface_tolerance" type="doubleGTZero" />
+      <xs:element minOccurs="0" name="notes" type="xs:string" />
+    </xs:all>
+  </xs:complexType>
+  
+  <xs:complexType name="trans_curve_point">
+    <xs:all>
+      <xs:element minOccurs="1" name="time" type="xs:double" />
+      <xs:element minOccurs="1" name="coef" type="xs:double" />
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="trans_curve_points">
+    <xs:sequence>
+      <xs:choice minOccurs="1" maxOccurs="unbounded">
+        <xs:element name="trans_curve_point" type="trans_curve_point" />
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+    
+  <xs:complexType name="temp_curve_point">
+    <xs:all>
+      <xs:element minOccurs="1" name="temp" type="xs:double" />
+      <xs:element minOccurs="1" name="coef" type="xs:double" />
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="temp_curve_points">
+    <xs:sequence>
+      <xs:choice minOccurs="1" maxOccurs="unbounded">
+        <xs:element name="temp_curve_point" type="temp_curve_point" />
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="transient_linear">
+    <xs:all>
+      <xs:element name="baseline_value" type="xs:double" />
+      <xs:element name="baseline_time" type="xs:double" />
+      <xs:element name="coefficient" type="xs:double" />
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="transient_power_law">
+    <xs:all>
+      <xs:element name="baseline_value" type="xs:double" />
+      <xs:element name="baseline_time" type="xs:double" />
+      <xs:element name="coefficient" type="xs:double" />
+      <xs:element name="power_index" type="xs:double" />
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="transient_exponential">
+    <xs:all>
+      <xs:element name="baseline_value" type="xs:double" />
+      <xs:element name="baseline_time" type="xs:double" />
+      <xs:element name="a_coefficient" type="xs:double" />
+      <xs:element name="b_coefficient" type="xs:double" />
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="transient_sinusoidal">
+    <xs:all>
+      <xs:element name="baseline_value" type="xs:double" />
+      <xs:element name="baseline_time" type="xs:double" />
+      <xs:element name="coefficient" type="xs:double" />
+      <xs:element name="period" type="xs:double" />
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="transient_gaussian">
+    <xs:all>
+      <xs:element name="a_coefficient" type="xs:double" />
+      <xs:element name="b_coefficient" type="xs:double" />
+      <xs:element name="c_coefficient" type="xs:double" />
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="transient_pulse">
+    <xs:all>
+      <xs:element name="amplitude" type="xs:double" />
+      <xs:element name="rise_time" type="xs:double" />
+      <xs:element name="high_time" type="xs:double" />
+      <xs:element name="fall_time" type="xs:double" />
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="transient_double_exp">
+    <xs:all>
+      <xs:element name="amplitude" type="xs:double" />
+      <xs:element name="decay" type="xs:double" />
+      <xs:element name="rise" type="xs:double" />
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="transient_sub_function_types">
+    <xs:choice>
+      <xs:element name="linear" type="transient_linear" />
+      <xs:element name="power_law" type="transient_power_law" />
+      <xs:element name="exponential" type="transient_exponential" />
+      <xs:element name="sinusoidal" type="transient_sinusoidal" />
+      <xs:element name="gaussian" type="transient_gaussian" />
+      <xs:element name="pulse" type="transient_pulse" />
+      <xs:element name="double_exp" type="transient_double_exp" />
+    </xs:choice>
+  </xs:complexType>
+
+  <xs:complexType name="transient_sub_function">
+    <xs:all>
+      <xs:element name="name" type="xs:string" />
+      <xs:element name="start_time" type="doubleGTEZero" />
+      <xs:element name="finish_time" type="doubleGTEZero" />
+      <xs:element name="type" type="transient_sub_function_types" />
+    </xs:all>
+  </xs:complexType>
+  
+  <xs:complexType name="transient_att">
+    <xs:all>
+      <xs:element minOccurs="1" name="name" type="xs:string" />
+      <xs:element minOccurs="0" name="transient_time_active" type="trueFalse" />
+      <xs:element minOccurs="0" name="transient_type" >
+        <xs:simpleType>
+          <xs:restriction base="xs:string" >
+            <xs:enumeration value="profile" />
+            <xs:enumeration value="function" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element> 
+      <xs:element minOccurs="0" name="trans_curve_points" type="trans_curve_points" />
+      <xs:element minOccurs="0" name="overlapping_functions">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="add" />
+            <xs:enumeration value="multiply" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="sub_functions" >
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="sub_fuction" type="transient_sub_function" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="periodic" type="trueFalse" />
+      <xs:element minOccurs="0" name="transient_temperature_active" type="trueFalse" />
+      <xs:element minOccurs="0" name="associated_monitor_point" type="xs:string" />
+      <xs:element minOccurs="0" name="temp_curve_points" type="temp_curve_points" />
+      <xs:element minOccurs="0" name="hysteresis_active" type="trueFalse" />
+      <xs:element minOccurs="0" name="decreasing_temp_curve_points" type="temp_curve_points" />
+      <xs:element minOccurs="0" name="notes" type="xs:string" />
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="control_curve_att">
+    <xs:all>
+      <xs:element name="frequency" type="xs:double" />
+      <xs:element name="temp_low" type="xs:double" />
+      <xs:element name="temp_high" type="xs:double" />
+      <xs:element name="curve_points" type="power_temp_curve_points" />
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="control_att">
+    <xs:all>
+      <xs:element name="name" type="xs:string" />
+      <xs:element minOccurs="0" name="frequency_curves" >
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="frequency_curve" type="control_curve_att" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:all>
+  </xs:complexType>
+  
+</xs:schema>

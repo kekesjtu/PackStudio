@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='utf-8'?>
+<xml_case>
+  <name>Bare Die</name>
+  <attributes>
+    <materials>
+      <isotropic_material_att>
+        <name>silicon</name>
+        <density>2330</density>
+        <specific_heat>700</specific_heat>
+        <conductivity>117.5</conductivity>
+        <notes>Silicon (Pure)</notes>
+      </isotropic_material_att>
+    </materials>
+    <sources>
+      <source_att>
+        <name>power-die-part-1</name>
+        <type>total</type>
+        <power>2</power>
+      </source_att>
+    </sources>
+  </attributes>
+  <geometry>
+    <assembly>
+      <name>package</name>
+      <position>
+        <x>0</x>
+        <y>0</y>
+        <z>0</z>
+      </position>
+      <geometry>
+        <assembly>
+          <name>group-die</name>
+          <position>
+            <x>0</x>
+            <y>0</y>
+            <z>0</z>
+          </position>
+          <geometry>
+            <cuboid>
+              <name>die-part-1</name>
+              <size>
+                <x>0.0049000000000000007</x>
+                <y>0.0049000000000000007</y>
+                <z>0.00022000000000000001</z>
+              </size>
+              <position>
+                <x>-0.0024500000000000004</x>
+                <y>-0.0024500000000000004</y>
+                <z>0</z>
+              </position>
+              <material>silicon</material>
+              <notes>{"name": "Silicon die", "structure_type": "die", "metadata": {"flipped": false, "boolean_source_id": "die", "boolean_source_name": "Silicon die"}}</notes>
+            </cuboid>
+            <source>
+              <name>heat-die-part-1</name>
+              <size>
+                <x>0.0049000000000000007</x>
+                <y>0.0049000000000000007</y>
+                <z>0.00022000000000000001</z>
+              </size>
+              <position>
+                <x>-0.0024500000000000004</x>
+                <y>-0.0024500000000000004</y>
+                <z>0</z>
+              </position>
+              <source>power-die-part-1</source>
+            </source>
+          </geometry>
+          <notes>Die</notes>
+        </assembly>
+      </geometry>
+      <notes>Bare Die</notes>
+    </assembly>
+  </geometry>
+  <notes>{"exporter": "PackStudio", "profile": "FloXML / FloTHERM 2504", "units": "m, W, kg/m3, J/(kg*K), W/(m*K)", "limitations": "Face boundaries and mesh controls require target-software setup.", "boundaries": [], "metadata": {"implementation": "packstudio-native", "template_version": "2.1", "reference_basis": "versioned JSON defaults with reviewed FloTHERM PACK 2504 mappings", "default_parameter_schema": "packstudio.default-parameters/v1", "reference_geometry_status": "baseline-and-mapped-single-variable-transcription", "runtime_reference_data_required": false, "outline_type": "standard_outline", "die_type": "actual_type", "footprint_size": "DIE_4_9X4_9X0_22", "mesh_resolution": "standard", "mesh_data_included": false, "solver_results_included": false, "flipped_die": false, "bumped_die": false, "bump_representation": "not_present"}}</notes>
+</xml_case>

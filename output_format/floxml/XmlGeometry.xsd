@@ -1,0 +1,2132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="XmlDefinitions.xsd" />
+  <xs:complexType name="cuboid">
+    <xs:all>
+      <xs:element minOccurs="1" name="name" type="xs:string" />
+      <xs:element minOccurs="0" name="active" type="trueFalse">
+        <xs:annotation>
+          <xs:documentation>active has a default value of true</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="1" name="size" type="tripletGTZero" />
+      <xs:element minOccurs="1" name="position" type="triplet" />
+      <xs:element minOccurs="0" name="orientation" type="orientation">
+        <xs:annotation>
+          <xs:documentation>orientation has a default value an identity matrix</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="hidden" type="trueFalse" />
+      <xs:element minOccurs="0" name="collapse" type="collapse" />
+      <xs:element minOccurs="0" name="material" type="xs:string" />
+      <xs:element minOccurs="0" name="thermal" type="xs:string" />
+      <xs:element minOccurs="0" name="x_high_surface" type="xs:string" />
+      <xs:element minOccurs="0" name="x_low_surface" type="xs:string" />
+      <xs:element minOccurs="0" name="y_high_surface" type="xs:string" />
+      <xs:element minOccurs="0" name="y_low_surface" type="xs:string" />
+      <xs:element minOccurs="0" name="z_high_surface" type="xs:string" />
+      <xs:element minOccurs="0" name="z_low_surface" type="xs:string" />
+      <xs:element minOccurs="0" name="all_surface" type="xs:string" />
+      <xs:element minOccurs="0" name="x_high_surface_exchange" type="xs:string" />
+      <xs:element minOccurs="0" name="x_low_surface_exchange" type="xs:string" />
+      <xs:element minOccurs="0" name="y_high_surface_exchange" type="xs:string" />
+      <xs:element minOccurs="0" name="y_low_surface_exchange" type="xs:string" />
+      <xs:element minOccurs="0" name="z_high_surface_exchange" type="xs:string" />
+      <xs:element minOccurs="0" name="z_low_surface_exchange" type="xs:string" />
+      <xs:element minOccurs="0" name="all_surface_exchange" type="xs:string" />
+      <xs:element minOccurs="0" name="x_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="y_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="z_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="all_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="x_high_radiation" type="xs:string" />
+      <xs:element minOccurs="0" name="x_low_radiation" type="xs:string" />
+      <xs:element minOccurs="0" name="y_high_radiation" type="xs:string" />
+      <xs:element minOccurs="0" name="y_low_radiation" type="xs:string" />
+      <xs:element minOccurs="0" name="z_high_radiation" type="xs:string" />
+      <xs:element minOccurs="0" name="z_low_radiation" type="xs:string" />
+      <xs:element minOccurs="0" name="all_radiation" type="xs:string" />
+      <xs:element minOccurs="0" name="localized_grid" type="trueFalse" />
+      <xs:element minOccurs="0" name="holes">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="1" maxOccurs="1" name="direction" type="direction" />
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="hole" type="hole" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="notes" type="xs:string" />
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="prism">
+    <xs:all>
+      <xs:element minOccurs="1" name="name" type="xs:string" />
+      <xs:element minOccurs="0" name="active" type="trueFalse">
+        <xs:annotation>
+          <xs:documentation>active has a default value of true</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="hidden" type="trueFalse" />
+      <xs:element minOccurs="1" name="size" type="tripletGTZero" />
+      <xs:element minOccurs="1" name="position" type="triplet" />
+      <xs:element minOccurs="0" name="orientation" type="orientation">
+        <xs:annotation>
+          <xs:documentation>orientation has a default value an identity matrix</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="material" type="xs:string" />
+      <xs:element minOccurs="0" name="thermal" type="xs:string" />
+      <xs:element minOccurs="0" name="sloping_face_surface" type="xs:string" />
+      <xs:element minOccurs="0" name="x_low_surface" type="xs:string" />
+      <xs:element minOccurs="0" name="y_low_surface" type="xs:string" />
+      <xs:element minOccurs="0" name="z_high_surface" type="xs:string" />
+      <xs:element minOccurs="0" name="z_low_surface" type="xs:string" />
+      <xs:element minOccurs="0" name="all_surface" type="xs:string" />
+      <xs:element minOccurs="0" name="sloping_face_surface_exchange" type="xs:string" />
+      <xs:element minOccurs="0" name="x_low_surface_exchange" type="xs:string" />
+      <xs:element minOccurs="0" name="y_low_surface_exchange" type="xs:string" />
+      <xs:element minOccurs="0" name="z_high_surface_exchange" type="xs:string" />
+      <xs:element minOccurs="0" name="z_low_surface_exchange" type="xs:string" />
+      <xs:element minOccurs="0" name="all_surface_exchange" type="xs:string" />
+      <xs:element minOccurs="0" name="x_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="y_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="z_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="all_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="sloping_face_radiation" type="xs:string" />
+      <xs:element minOccurs="0" name="x_low_radiation" type="xs:string" />
+      <xs:element minOccurs="0" name="y_low_radiation" type="xs:string" />
+      <xs:element minOccurs="0" name="z_high_radiation" type="xs:string" />
+      <xs:element minOccurs="0" name="z_low_radiation" type="xs:string" />
+      <xs:element minOccurs="0" name="all_radiation" type="xs:string" />
+      <xs:element minOccurs="0" name="localized_grid" type="trueFalse" />
+      <xs:element minOccurs="0" name="notes" type="xs:string" />
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="tet">
+    <xs:all>
+      <xs:element minOccurs="1" name="name" type="xs:string" />
+      <xs:element minOccurs="0" name="active" type="trueFalse">
+        <xs:annotation>
+          <xs:documentation>active has a default value of true</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="hidden" type="trueFalse" />
+      <xs:element minOccurs="1" name="size" type="tripletGTZero" />
+      <xs:element minOccurs="1" name="position" type="triplet" />
+      <xs:element minOccurs="0" name="orientation" type="orientation">
+        <xs:annotation>
+          <xs:documentation>orientation has a default value an identity matrix</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="material" type="xs:string" />
+      <xs:element minOccurs="0" name="thermal" type="xs:string" />
+      <xs:element minOccurs="0" name="sloping_face_surface" type="xs:string" />
+      <xs:element minOccurs="0" name="x_low_surface" type="xs:string" />
+      <xs:element minOccurs="0" name="y_low_surface" type="xs:string" />
+      <xs:element minOccurs="0" name="z_low_surface" type="xs:string" />
+      <xs:element minOccurs="0" name="all_surface" type="xs:string" />
+      <xs:element minOccurs="0" name="sloping_face_surface_exchange" type="xs:string" />
+      <xs:element minOccurs="0" name="x_low_surface_exchange" type="xs:string" />
+      <xs:element minOccurs="0" name="y_low_surface_exchange" type="xs:string" />
+      <xs:element minOccurs="0" name="z_low_surface_exchange" type="xs:string" />
+      <xs:element minOccurs="0" name="all_surface_exchange" type="xs:string" />
+      <xs:element minOccurs="0" name="x_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="y_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="z_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="all_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="sloping_face_radiation" type="xs:string" />
+      <xs:element minOccurs="0" name="x_low_radiation" type="xs:string" />
+      <xs:element minOccurs="0" name="y_low_radiation" type="xs:string" />
+      <xs:element minOccurs="0" name="z_low_radiation" type="xs:string" />
+      <xs:element minOccurs="0" name="all_radiation" type="xs:string" />
+      <xs:element minOccurs="0" name="localized_grid" type="trueFalse" />
+      <xs:element minOccurs="0" name="notes" type="xs:string" />
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="inverted_tet">
+    <xs:all>
+      <xs:element minOccurs="1" name="name" type="xs:string" />
+      <xs:element minOccurs="0" name="active" type="trueFalse">
+        <xs:annotation>
+          <xs:documentation>active has a default value of true</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="hidden" type="trueFalse" />
+      <xs:element minOccurs="1" name="size" type="tripletGTZero" />
+      <xs:element minOccurs="1" name="position" type="triplet" />
+      <xs:element minOccurs="0" name="orientation" type="orientation">
+        <xs:annotation>
+          <xs:documentation>orientation has a default value an identity matrix</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="material" type="xs:string" />
+      <xs:element minOccurs="0" name="thermal" type="xs:string" />
+      <xs:element minOccurs="0" name="x_high_surface" type="xs:string" />
+      <xs:element minOccurs="0" name="x_low_surface" type="xs:string" />
+      <xs:element minOccurs="0" name="y_high_surface" type="xs:string" />
+      <xs:element minOccurs="0" name="y_low_surface" type="xs:string" />
+      <xs:element minOccurs="0" name="z_high_surface" type="xs:string" />
+      <xs:element minOccurs="0" name="z_low_surface" type="xs:string" />
+      <xs:element minOccurs="0" name="sloping_face_surface" type="xs:string" />
+      <xs:element minOccurs="0" name="all_surface" type="xs:string" />
+      <xs:element minOccurs="0" name="x_high_surface_exchange" type="xs:string" />
+      <xs:element minOccurs="0" name="x_low_surface_exchange" type="xs:string" />
+      <xs:element minOccurs="0" name="y_high_surface_exchange" type="xs:string" />
+      <xs:element minOccurs="0" name="y_low_surface_exchange" type="xs:string" />
+      <xs:element minOccurs="0" name="z_high_surface_exchange" type="xs:string" />
+      <xs:element minOccurs="0" name="z_low_surface_exchange" type="xs:string" />
+      <xs:element minOccurs="0" name="sloping_face_surface_exchange" type="xs:string" />
+      <xs:element minOccurs="0" name="all_surface_exchange" type="xs:string" />
+      <xs:element minOccurs="0" name="x_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="y_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="z_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="all_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="x_high_radiation" type="xs:string" />
+      <xs:element minOccurs="0" name="x_low_radiation" type="xs:string" />
+      <xs:element minOccurs="0" name="y_high_radiation" type="xs:string" />
+      <xs:element minOccurs="0" name="y_low_radiation" type="xs:string" />
+      <xs:element minOccurs="0" name="z_high_radiation" type="xs:string" />
+      <xs:element minOccurs="0" name="z_low_radiation" type="xs:string" />
+      <xs:element minOccurs="0" name="sloping_face_radiation" type="xs:string" />
+      <xs:element minOccurs="0" name="all_radiation" type="xs:string" />
+      <xs:element minOccurs="0" name="localized_grid" type="trueFalse" />
+      <xs:element minOccurs="0" name="notes" type="xs:string" />
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="sloping_block">
+    <xs:all>
+      <xs:element minOccurs="1" name="name" type="xs:string" />
+      <xs:element minOccurs="0" name="active" type="trueFalse">
+        <xs:annotation>
+          <xs:documentation>active has a default value of true</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="width" type="doubleGTZero" />
+      <xs:element name="thickness" type="doubleGTEZero" />
+      <xs:element name="use">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="use_angle" />
+            <xs:enumeration value="use_sides" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="hidden" type="trueFalse" />
+      <xs:element minOccurs="0" name="length" type="doubleGTZero" />
+      <xs:element minOccurs="0" name="angle">
+        <xs:simpleType>
+          <xs:restriction base="xs:double">
+            <xs:maxExclusive value="90.0" />
+            <xs:minExclusive value="0.0" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="opposite" type="doubleGTZero" />
+      <xs:element minOccurs="0" name="adjacent" type="doubleGTZero" />     
+      <xs:element minOccurs="1" name="position" type="triplet" />
+      <xs:element minOccurs="0" name="orientation" type="orientation">
+        <xs:annotation>
+          <xs:documentation>orientation has a default value an identity matrix</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="thick" type="trueFalse" />
+      <xs:element minOccurs="0" name="material" type="xs:string" />
+      <xs:element minOccurs="0" name="thermal" type="xs:string" />
+      <xs:element minOccurs="0" name="x_high_surface" type="xs:string" />
+      <xs:element minOccurs="0" name="x_low_surface" type="xs:string" />
+      <xs:element minOccurs="0" name="y_high_surface" type="xs:string" />
+      <xs:element minOccurs="0" name="y_low_surface" type="xs:string" />
+      <xs:element minOccurs="0" name="z_high_surface" type="xs:string" />
+      <xs:element minOccurs="0" name="z_low_surface" type="xs:string" />
+      <xs:element minOccurs="0" name="all_surface" type="xs:string" />
+      <xs:element minOccurs="0" name="x_high_surface_exchange" type="xs:string" />
+      <xs:element minOccurs="0" name="x_low_surface_exchange" type="xs:string" />
+      <xs:element minOccurs="0" name="y_high_surface_exchange" type="xs:string" />
+      <xs:element minOccurs="0" name="y_low_surface_exchange" type="xs:string" />
+      <xs:element minOccurs="0" name="z_high_surface_exchange" type="xs:string" />
+      <xs:element minOccurs="0" name="z_low_surface_exchange" type="xs:string" />
+      <xs:element minOccurs="0" name="all_surface_exchange" type="xs:string" />
+      <xs:element minOccurs="0" name="x_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="y_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="z_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="all_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="x_high_radiation" type="xs:string" />
+      <xs:element minOccurs="0" name="x_low_radiation" type="xs:string" />
+      <xs:element minOccurs="0" name="y_high_radiation" type="xs:string" />
+      <xs:element minOccurs="0" name="y_low_radiation" type="xs:string" />
+      <xs:element minOccurs="0" name="z_high_radiation" type="xs:string" />
+      <xs:element minOccurs="0" name="z_low_radiation" type="xs:string" />
+      <xs:element minOccurs="0" name="all_radiation" type="xs:string" />
+      <xs:element minOccurs="0" name="localized_grid" type="trueFalse" />
+      <xs:element minOccurs="0" name="notes" type="xs:string" />
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="cutout">
+    <xs:all>
+      <xs:element minOccurs="1" name="name" type="xs:string" />     
+      <xs:element minOccurs="1" name="size" type="tripletGTZero" />
+      <xs:element minOccurs="1" name="position" type="triplet" />
+      <xs:element minOccurs="0" name="active" type="trueFalse" />
+      <xs:element minOccurs="0" name="hidden" type="trueFalse" />
+      <xs:element minOccurs="0" name="orientation" type="orientation" />
+      <xs:element minOccurs="0" name="x_high_ambient" type="xs:string" />
+      <xs:element minOccurs="0" name="x_low_ambient" type="xs:string" />
+      <xs:element minOccurs="0" name="y_high_ambient" type="xs:string" />
+      <xs:element minOccurs="0" name="y_low_ambient" type="xs:string" />
+      <xs:element minOccurs="0" name="z_high_ambient" type="xs:string" />
+      <xs:element minOccurs="0" name="z_low_ambient" type="xs:string" />
+      <xs:element minOccurs="0" name="all_ambient" type="xs:string" />
+      <xs:element minOccurs="0" name="x_high_boundary" type="boundary_type" />
+      <xs:element minOccurs="0" name="x_low_boundary" type="boundary_type" />
+      <xs:element minOccurs="0" name="y_high_boundary" type="boundary_type" />
+      <xs:element minOccurs="0" name="y_low_boundary" type="boundary_type" />
+      <xs:element minOccurs="0" name="z_high_boundary" type="boundary_type" />
+      <xs:element minOccurs="0" name="z_low_boundary" type="boundary_type" />
+      <xs:element minOccurs="0" name="x_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="y_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="z_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="all_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="notes" type="xs:string" />
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="cylinder">
+    <xs:all>
+      <xs:element minOccurs="1" name="name" type="xs:string" />
+      <xs:element minOccurs="0" name="active" type="trueFalse" />
+      <xs:element minOccurs="0" name="hidden" type="trueFalse" />
+      <xs:element minOccurs="1" name="position" type="triplet" />
+      <xs:element minOccurs="0" name="orientation" type="orientation" />
+      <xs:element minOccurs="1" name="radius" type="doubleGTZero" />
+      <xs:element minOccurs="1" name="height" type="doubleGTZero" />
+      <xs:element minOccurs="0" name="modeling_level">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="4 facets" />
+            <xs:enumeration value="8 facets" />
+            <xs:enumeration value="12 facets" />
+            <xs:enumeration value="16 facets" />
+            <xs:enumeration value="20 facets" />
+            <xs:enumeration value="24 facets" />
+            <xs:enumeration value="28 facets" />
+            <xs:enumeration value="32 facets" />
+            <xs:enumeration value="36 facets" />
+            <xs:enumeration value="40 facets" />
+            <xs:enumeration value="44 facets" />
+            <xs:enumeration value="48 facets" />
+            <xs:enumeration value="52 facets" />
+            <xs:enumeration value="56 facets" />
+            <xs:enumeration value="60 facets" />
+            <xs:enumeration value="64 facets" />
+          </xs:restriction>
+        </xs:simpleType>        
+      </xs:element>
+      <xs:element minOccurs="0" name="material" type="xs:string" />
+      <xs:element minOccurs="0" name="thermal" type="xs:string" />
+      <xs:element minOccurs="0" name="surface" type="xs:string" />
+      <xs:element minOccurs="0" name="x_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="y_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="z_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="all_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="all_radiation" type="xs:string" />
+      <xs:element minOccurs="0" name="localized_grid" type="trueFalse" />
+      <xs:element minOccurs="0" name="notes" type="xs:string" />
+    </xs:all>
+  </xs:complexType>
+  
+  <xs:complexType name="source">
+    <xs:all>
+      <xs:element minOccurs="1" name="name" type="xs:string" />
+      <xs:element minOccurs="0" name="active" type="trueFalse" />
+      <xs:element minOccurs="0" name="hidden" type="trueFalse" />
+      <xs:element minOccurs="1" name="size" type="tripletGTZero" />
+      <xs:element minOccurs="1" name="position" type="triplet" />
+      <xs:element minOccurs="0" name="orientation" type="orientation" />
+      <xs:element minOccurs="0" name="collapse" type="collapse" />
+      <xs:element minOccurs="0" name="source" type="xs:string" />
+      <xs:element minOccurs="0" name="occupancy" type="xs:string" />
+      <xs:element minOccurs="0" name="attachment_side" type="attachment_side" />
+      <xs:element minOccurs="0" name="x_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="y_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="z_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="all_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="localized_grid" type="trueFalse" />
+      <xs:element minOccurs="0" name="notes" type="xs:string" />
+    </xs:all>
+  </xs:complexType>
+  
+  <xs:complexType name="monitor_point">
+    <xs:all>
+      <xs:element minOccurs="1" name="name" type="xs:string" />
+      <xs:element minOccurs="0" name="active" type="trueFalse" />
+      <xs:element minOccurs="0" name="hidden" type="trueFalse" />
+      <xs:element minOccurs="1" name="position" type="triplet" />
+      <xs:element minOccurs="0" name="shape">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="cross_hair" />
+            <xs:enumeration value="sphere" />
+            <xs:enumeration value="cube" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="notes" type="xs:string" />
+    </xs:all>
+  </xs:complexType>
+  
+  <xs:complexType name="enclosure">
+    <xs:all>
+      <xs:element minOccurs="1" name="name" type="xs:string" />
+      <xs:element minOccurs="0" name="active" type="trueFalse" />
+      <xs:element minOccurs="0" name="hidden" type="trueFalse" />
+      <xs:element minOccurs="1" name="size" type="tripletGTZero" />
+      <xs:element minOccurs="0" name="size_type">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="internal" />
+            <xs:enumeration value="external" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="1" name="position" type="triplet" />
+      <xs:element minOccurs="0" name="orientation" type="orientation" />
+      <xs:element minOccurs="1" name="wall_thickness" type="doubleGTZero" />
+      <xs:element minOccurs="1" name="modeling_level" type="modeling_level" />
+      <xs:element minOccurs="0" name="x_low_wall" type="trueFalse">
+        <xs:annotation>
+          <xs:documentation>Walls have a default value of true</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="x_high_wall" type="trueFalse" />
+      <xs:element minOccurs="0" name="y_low_wall" type="trueFalse" />
+      <xs:element minOccurs="0" name="y_high_wall" type="trueFalse" />
+      <xs:element minOccurs="0" name="z_low_wall" type="trueFalse" />
+      <xs:element minOccurs="0" name="z_high_wall" type="trueFalse" />
+      <xs:element minOccurs="0" name="x_low_wall_modeling" type="modeling_level">
+        <xs:annotation>
+          <xs:documentation>If Modeling level of individual walls is not set, will take default of 'enclosure set'</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="x_high_wall_modeling" type="modeling_level" />
+      <xs:element minOccurs="0" name="y_low_wall_modeling" type="modeling_level" />
+      <xs:element minOccurs="0" name="y_high_wall_modeling" type="modeling_level" />
+      <xs:element minOccurs="0" name="z_low_wall_modeling" type="modeling_level" />
+      <xs:element minOccurs="0" name="z_high_wall_modeling" type="modeling_level" />
+      <xs:element minOccurs="0" name="x_high_wall_thickness" type="doubleGTZero" />
+      <xs:element minOccurs="0" name="x_low_wall_thickness" type="doubleGTZero" />
+      <xs:element minOccurs="0" name="y_low_wall_thickness" type="doubleGTZero" />
+      <xs:element minOccurs="0" name="y_high_wall_thickness" type="doubleGTZero" />
+      <xs:element minOccurs="0" name="z_low_wall_thickness" type="doubleGTZero" />
+      <xs:element minOccurs="0" name="z_high_wall_thickness" type="doubleGTZero" />
+      <xs:element minOccurs="0" name="material" type="xs:string" />
+      <xs:element minOccurs="0" name="thermal" type="xs:string" />
+      <xs:element minOccurs="0" name="all_surface_exchange" type="xs:string" />
+      <xs:element minOccurs="0" name="x_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="y_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="z_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="all_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="all_radiation" type="xs:string" />
+      <xs:element minOccurs="0" name="localized_grid" type="trueFalse" />
+      <xs:element minOccurs="0" name="x_high_holes" type="holes"/>
+      <xs:element minOccurs="0" name="x_low_holes" type="holes"/>
+      <xs:element minOccurs="0" name="y_high_holes" type="holes"/>
+      <xs:element minOccurs="0" name="y_low_holes" type="holes"/>
+      <xs:element minOccurs="0" name="z_high_holes" type="holes"/>
+      <xs:element minOccurs="0" name="z_low_holes" type="holes"/>
+      <xs:element minOccurs="0" name="notes" type="xs:string" />
+    </xs:all>
+  </xs:complexType>
+  
+  <xs:complexType name ="hole">
+    <xs:all>
+      <xs:element minOccurs="1" name="name" type="xs:string" />
+      <xs:element minOccurs="0" name="active" type="trueFalse" />
+      <xs:element minOccurs="0" name="hidden" type="trueFalse" />
+      <xs:element minOccurs="1" name="size" type="coord2dGTZero" />
+      <xs:element minOccurs="1" name="position" type="coord2d" />
+      <xs:element minOccurs="0" name="localized_grid" type="trueFalse" />
+      <xs:element minOccurs="0" name="x_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="y_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="z_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="all_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="replace_with" type="replace_with" />
+      <xs:element minOccurs="0" name="notes" type="xs:string" />
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="holes">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="hole" type="hole" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="initial_variables">
+    <xs:all>
+      <xs:element minOccurs="0" name="pressure" type="xs:double" />
+      <xs:element minOccurs="0" name="x_velocity" type="xs:double" />
+      <xs:element minOccurs="0" name="y_velocity" type="xs:double" />
+      <xs:element minOccurs="0" name="z_velocity" type="xs:double" />
+      <xs:element minOccurs="0" name="temperature" type="xs:double" />
+      <xs:element minOccurs="0" name="turb_vis" type="xs:double" />
+      <xs:element minOccurs="0" name="ke_turb" type="xs:double" />
+      <xs:element minOccurs="0" name="diss_turb" type="xs:double" />
+      <xs:element minOccurs="0" name="density" type="xs:double" />
+      <xs:element minOccurs="0" name="concentration_1" type="xs:double" />
+      <xs:element minOccurs="0" name="concentration_2" type="xs:double" />
+      <xs:element minOccurs="0" name="concentration_3" type="xs:double" />
+      <xs:element minOccurs="0" name="concentration_4" type="xs:double" />
+      <xs:element minOccurs="0" name="concentration_5" type="xs:double" />
+      <xs:element minOccurs="0" name="concentration_6" type="xs:double" />
+      <xs:element minOccurs="0" name="concentration_7" type="xs:double" />
+      <xs:element minOccurs="0" name="concentration_8" type="xs:double" />
+      <xs:element minOccurs="0" name="concentration_9" type="xs:double" />
+      <xs:element minOccurs="0" name="concentration_10" type="xs:double" />
+      <xs:element minOccurs="0" name="concentration_11" type="xs:double" />
+      <xs:element minOccurs="0" name="concentration_12" type="xs:double" />
+      <xs:element minOccurs="0" name="concentration_13" type="xs:double" />
+      <xs:element minOccurs="0" name="concentration_14" type="xs:double" />
+      <xs:element minOccurs="0" name="concentration_15" type="xs:double" />
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="subdomain">
+    <xs:all>
+      <xs:element minOccurs="1" name="name" type="xs:string" />
+      <xs:element minOccurs="1" name="size" type="tripletGTZero" />
+      <xs:element minOccurs="1" name="position" type="triplet" />
+      <xs:element minOccurs="0" name="initial_variables" type="initial_variables" />
+      <xs:element minOccurs="0" name="notes" type="xs:string" />
+    </xs:all>
+  </xs:complexType>
+  
+  <xs:complexType name="solution_domain">
+    <xs:all>
+      <xs:element minOccurs="1" name="size" type="tripletGTZero" />
+      <xs:element minOccurs="1" name="position" type="triplet" />
+      <xs:element minOccurs="0" name="subdomains">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="subdomain" type="subdomain" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="x_high_ambient" type="xs:string" />
+      <xs:element minOccurs="0" name="x_low_ambient" type="xs:string" />
+      <xs:element minOccurs="0" name="y_high_ambient" type="xs:string" />
+      <xs:element minOccurs="0" name="y_low_ambient" type="xs:string" />
+      <xs:element minOccurs="0" name="z_high_ambient" type="xs:string" />
+      <xs:element minOccurs="0" name="z_low_ambient" type="xs:string" />
+      <xs:element minOccurs="0" name="all_ambient" type="xs:string" />
+      <xs:element minOccurs="0" name="x_high_boundary" type="boundary_type" />
+      <xs:element minOccurs="0" name="x_low_boundary" type="boundary_type" />
+      <xs:element minOccurs="0" name="y_high_boundary" type="boundary_type" />
+      <xs:element minOccurs="0" name="y_low_boundary" type="boundary_type" />
+      <xs:element minOccurs="0" name="z_high_boundary" type="boundary_type" />
+      <xs:element minOccurs="0" name="z_low_boundary" type="boundary_type" />
+      <xs:element minOccurs="0" name="fluid" type="xs:string" />
+      <xs:element minOccurs="0" name="notes" type="xs:string" />
+    </xs:all>
+  </xs:complexType>
+  
+  <xs:complexType name="resistance">
+    <xs:all>
+      <xs:element minOccurs="1" name="name" type="xs:string" />
+      <xs:element minOccurs="0" name="active" type="trueFalse" />
+      <xs:element minOccurs="0" name="hidden" type="trueFalse" />
+      <xs:element minOccurs="1" name="size" type="tripletGTZero" />
+      <xs:element minOccurs="1" name="position" type="triplet" />
+      <xs:element minOccurs="0" name="orientation" type="orientation" />
+      <xs:element minOccurs="0" name="collapse" type="collapse" />
+      <xs:element minOccurs="0" name="rotation">
+        <xs:complexType>
+          <xs:all>
+            <xs:element name="angle">
+              <xs:simpleType>
+                <xs:restriction base="xs:double">
+                  <xs:maxInclusive value="90.0" />
+                  <xs:minInclusive value="-90.0" />
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+            <xs:element minOccurs="0" name="rotated_about" type="axis">
+            </xs:element>
+          </xs:all>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="resistance" type="xs:string" />
+      <xs:element minOccurs="0" name="x_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="y_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="z_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="all_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="localized_grid" type="trueFalse" />
+      <xs:element minOccurs="0" name="notes" type="xs:string" />
+    </xs:all>
+  </xs:complexType>
+
+  <xs:simpleType name="fan_modeling_level">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="simple_2d" />
+      <xs:enumeration value="2d_with_hub" />
+      <xs:enumeration value="3d_4_facets" />
+      <xs:enumeration value="3d_8_facets" />
+      <xs:enumeration value="3d_12_facets" />
+      <xs:enumeration value="3d_8_facets_4_hub" />
+      <xs:enumeration value="3d_12_facets_4_hub" />
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:complexType name="fan">
+    <xs:all>
+      <xs:element minOccurs="1" name="name" type="xs:string" />
+      <xs:element minOccurs="0" name="active" type="trueFalse" />
+      <xs:element minOccurs="0" name="hidden" type="trueFalse" />
+      <xs:element minOccurs="1" name="position" type="triplet" />
+      <xs:element minOccurs="0" name="orientation" type="orientation" />
+      <xs:element minOccurs="1" name="fan_geometry">
+        <xs:complexType>
+          <xs:choice>
+            <xs:element minOccurs="1" name="axial_geom">
+              <xs:complexType>
+                <xs:all>
+                  <xs:element minOccurs="1" name="outer_diameter" type="doubleGTZero" />
+                  <xs:element minOccurs="0" name="hub_diameter" type="doubleGTZero" />
+                  <xs:element minOccurs="0" name="depth" type="doubleGTZero" />
+                  <xs:element minOccurs="0" name="modeling_level" type="fan_modeling_level" />
+                  <xs:element minOccurs="0" name="primitive_location">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:enumeration value="front" />
+                        <xs:enumeration value="back" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:all>
+              </xs:complexType>
+            </xs:element>
+            <xs:element minOccurs="1" name="size" type="triplet" />
+            <xs:element minOccurs="1" name="rectangular_geom">
+              <xs:complexType>
+                <xs:all>
+                  <xs:element name="size" type="coord2dGTZero" />
+                  <xs:element minOccurs="0" name="rotated_about" >
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:enumeration value="none" />
+                        <xs:enumeration value="x_axis" />
+                        <xs:enumeration value="y_axis" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="angle" minOccurs="0" >
+                    <xs:simpleType>
+                      <xs:restriction base="xs:double">
+                        <xs:minInclusive value="-90.0" />
+                        <xs:maxInclusive value="90.0" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:all>
+              </xs:complexType>
+            </xs:element>
+          </xs:choice>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="free_area_ratio" type="ratio" />
+      <xs:element minOccurs="1" name="fan" type="xs:string" />
+      <xs:element minOccurs="0" name="derating_factor" type="doubleGTZero" />
+      <xs:element minOccurs="0" name="fan_power" type="doubleGTEZero" />
+      <xs:element minOccurs="0" name="use_fan_power" type="trueFalse" />
+      <xs:element minOccurs="0" name="fan_noise" type="xs:double" />
+      <xs:element minOccurs="0" name="fan_failed" type="trueFalse" />
+      <xs:element minOccurs="0" name="material" type="xs:string" />
+      <xs:element minOccurs="0" name="resistance" type="xs:string" />
+      <xs:element minOccurs="0" name="transient" type="xs:string" />
+      <xs:element minOccurs="0" name="x_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="y_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="z_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="all_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="all_radiation" type="xs:string" />
+      <xs:element minOccurs="0" name="localized_grid" type="trueFalse" />
+      <xs:element minOccurs="0" name="notes" type="xs:string" />
+    </xs:all>
+  </xs:complexType>
+  
+  <xs:simpleType  name="package_type" >
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="area_array" />
+      <xs:enumeration value="peripheral" />
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:simpleType name="top_type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="flat_top" />
+      <xs:enumeration value="raised_core" />
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:complexType name="component2r">
+    <xs:all>
+      <xs:element minOccurs="1" name="name" type="xs:string" />
+      <xs:element minOccurs="0" name="active" type="trueFalse" />
+      <xs:element minOccurs="0" name="hidden" type="trueFalse" />
+      <xs:element minOccurs="0" name="size" type="triplet" />
+      <xs:element minOccurs="0" name="detailed_size" >
+        <xs:complexType>
+          <xs:all>
+            <xs:element minOccurs="1" name ="size" type="coord2dGTZero" />
+            <xs:element minOccurs="1" name ="top_layer_thickness" type="doubleGTEZero" />
+            <xs:element minOccurs="1" name ="bottom_layer_thickness" type="doubleGTEZero" />
+          </xs:all>
+        </xs:complexType> 
+      </xs:element>
+      <xs:element minOccurs="1" name="position" type="triplet" />
+      <xs:element minOccurs="0" name="orientation" type="orientation" />
+      <xs:element minOccurs="0" name="package_type" type="package_type"/>
+      <xs:element minOccurs="0" name="top_style" type="top_type" />
+      <xs:element minOccurs="1" name="junction_power" type="doubleGTEZero" />
+      <xs:element minOccurs="1" name="junction_case_resistance" type="doubleGTZero" />
+      <xs:element minOccurs="0" name="junction_board_resistance" type="doubleGTZero" />
+      <xs:element minOccurs="0" name="junction_top_resistance" type="doubleGTZero" >
+        <xs:annotation>
+          <xs:documentation> 
+          junction_case_resistance and junction_board_resistance should be used to define 2-Resistor Theta-JC and Theta-JB respectively.  
+          This element is now obsolete but retained for reasons of backwards compatibility.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="x_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="y_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="z_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="all_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="x_high_surface" type="xs:string" />
+      <xs:element minOccurs="0" name="x_low_surface" type="xs:string" />
+      <xs:element minOccurs="0" name="y_high_surface" type="xs:string" />
+      <xs:element minOccurs="0" name="y_low_surface" type="xs:string" />
+      <xs:element minOccurs="0" name="z_high_surface" type="xs:string" />
+      <xs:element minOccurs="0" name="z_low_surface" type="xs:string" />
+      <xs:element minOccurs="0" name="all_surface" type="xs:string" />
+      <xs:element minOccurs="0" name="radiation" type="trueFalse" />
+      <xs:element minOccurs="0" name="localized_grid" type="trueFalse" />
+      <xs:element minOccurs="0" name="notes" type="xs:string" />
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="junctions">
+    <xs:sequence minOccurs="1" maxOccurs="20">
+      <xs:element name="junction_power" type="doubleGTEZero" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="component_node">
+    <xs:restriction base="xs:string" >
+      <xs:enumeration value="junction" />
+      <xs:enumeration value="top_inner" />
+      <xs:enumeration value="bottom_inner" />
+      <xs:enumeration value="top_outer" />
+      <xs:enumeration value="bottom_outer" />
+      <xs:enumeration value="internal_node_1" />
+      <xs:enumeration value="internal_node_2" />
+      <xs:enumeration value="package_side" />
+      <xs:enumeration value="package_end" />
+      <xs:enumeration value="lead_side_1" />
+      <xs:enumeration value="lead_side_2" />
+      <xs:enumeration value="lead_end_1" />
+      <xs:enumeration value="lead_end_2" />
+      <xs:enumeration value="lead_connect_side_1" />
+      <xs:enumeration value="lead_connect_side_2" />
+      <xs:enumeration value="lead_connect_end_1" />
+      <xs:enumeration value="lead_connect_end_2" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="compact_component_resistance" >
+    <xs:all>
+      <xs:element name="node_i" type="component_node" />
+      <xs:element minOccurs="0" name="node_i_junction_number" type="xs:positiveInteger" />
+      <xs:element name="node_j" type="component_node" />
+      <xs:element minOccurs="0" name="node_j_junction_number" type="xs:positiveInteger" />
+      <xs:element name="resistance" type="doubleGTEZero" />
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="component">
+    <xs:all>
+      <xs:element minOccurs="1" name="name" type="xs:string" />
+      <xs:element minOccurs="0" name="active" type="trueFalse" />
+      <xs:element minOccurs="0" name="hidden" type="trueFalse" />
+      <xs:element minOccurs="1" name="geometry" >
+        <xs:complexType>
+          <xs:all>
+            <xs:element name="body_overall" type="coord2dGTEZero" />
+            <xs:element name="thickness" >
+              <xs:complexType>
+                <xs:all>
+                  <xs:element name="top_layer" type="doubleGTEZero" />
+                  <xs:element name="middle_layer" type="doubleGTEZero" />
+                  <xs:element name="bottom_layer" type="doubleGTEZero" />
+                </xs:all>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="top_core" type="coord2dGTEZero" />
+            <xs:element name="bottom_core" type="coord2dGTEZero" />
+          </xs:all>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="1" name="position" type="triplet" />
+      <xs:element minOccurs="0" name="package_type" type="package_type"/>
+      <xs:element minOccurs="0" name="top_style" type="top_type" />
+      <xs:element minOccurs="0" name="underfill_material" type="xs:string" />
+      <xs:element minOccurs="0" name="standoff_thickness" type="doubleGTEZero" />
+      <xs:element minOccurs="0" name="radiation" type="trueFalse" />
+      <xs:element minOccurs="1" name="junctions" type="junctions" />
+      <xs:element minOccurs="1" name="displayed_junction" type="xs:positiveInteger" />
+      <xs:element name="package_definition">
+        <xs:complexType>
+          <xs:choice>
+            <xs:element name="leads">
+              <xs:complexType>
+                <xs:all>
+                  <xs:element name="leads_interconnect" >
+                    <xs:complexType>
+                      <xs:all>
+                        <xs:element name="number" >
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string" >
+                              <xs:enumeration value="quad_leads" />
+                              <xs:enumeration value="dual_leads" />
+                              <xs:enumeration value="mono_leads" />
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="height" >
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string" >
+                              <xs:enumeration value="full_height" />
+                              <xs:enumeration value="half_height" />
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:element>
+                      </xs:all>
+                    </xs:complexType>
+
+                  </xs:element>
+                  <xs:element name="number_of_leads_nodes" >
+                    <xs:simpleType>
+                      <xs:restriction base="xs:integer" >
+                        <xs:enumeration value="1" />
+                        <xs:enumeration value="2" />
+                        <xs:enumeration value="4" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="number_of_side_nodes" >
+                    <xs:simpleType>
+                      <xs:restriction base="xs:integer" >
+                        <xs:enumeration value="1" />
+                        <xs:enumeration value="2" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element minOccurs="0" name="leads_offset_x_extent" type="doubleGTEZero" />
+                  <xs:element minOccurs="0" name="leads_offset_y_extent" type="doubleGTEZero" />
+                  <xs:element minOccurs="0" name="leads_resistance" type="doubleGTEZero" />
+                  <xs:element minOccurs="0" name="leads_along_x" type="doubleGTEZero" />
+                  <xs:element minOccurs="0" name="leads_along_y" type="doubleGTEZero" />
+                  <xs:element name="case_temperature_calc_factor" type="ratio" />
+                </xs:all>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="balls_pins" >
+              <xs:complexType>
+                <xs:all>
+                  <xs:element name="coverage">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:enumeration value="full_coverage" />
+                        <xs:enumeration value="peripheral_coverage" />
+                        <xs:enumeration value="inner_coverage" />
+                        <xs:enumeration value="both_coverage" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="number_of_side_nodes">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:integer">
+                        <xs:minInclusive value="1" />
+                        <xs:maxInclusive value="2" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element minOccurs="0" name="inner_standoff_area" type="doubleGTEZero" />
+                  <xs:element minOccurs="0" name="outer_standoff_area" type="doubleGTEZero" />
+                  <xs:element minOccurs="0" name="total_resistance_to_pcb" type="doubleGTEZero" />
+                  <xs:element minOccurs="0" name="inner_resistance_to_pcb" type="doubleGTEZero" />
+                  <xs:element minOccurs="0" name="outer_resistance_to_pcb" type="doubleGTEZero" />
+                  <xs:element name="case_temperature_calc_factor" type="ratio" />
+                </xs:all>   
+              </xs:complexType>
+            </xs:element>
+          </xs:choice>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="network" >
+        <xs:complexType>
+          <xs:sequence minOccurs="0" maxOccurs="unbounded" >
+            <xs:element name="resistance" type="compact_component_resistance" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="orientation" type="orientation" />
+      <xs:element minOccurs="0" name="x_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="y_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="z_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="all_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="x_high_surface" type="xs:string" />
+      <xs:element minOccurs="0" name="x_low_surface" type="xs:string" />
+      <xs:element minOccurs="0" name="y_high_surface" type="xs:string" />
+      <xs:element minOccurs="0" name="y_low_surface" type="xs:string" />
+      <xs:element minOccurs="0" name="z_high_surface" type="xs:string" />
+      <xs:element minOccurs="0" name="z_low_surface" type="xs:string" />
+      <xs:element minOccurs="0" name="all_surface" type="xs:string" />
+      <xs:element minOccurs="0" name="localized_grid" type="trueFalse" />
+      <xs:element minOccurs="0" name="notes" type="xs:string" />
+    </xs:all>
+  </xs:complexType>
+  
+  <xs:complexType name="region">
+    <xs:all>
+      <xs:element minOccurs="1" name="name" type="xs:string" />
+      <xs:element minOccurs="0" name="active" type="trueFalse" />
+      <xs:element minOccurs="0" name="hidden" type="trueFalse" />
+      <xs:element minOccurs="1" name="size" type="tripletGTZero" />
+      <xs:element minOccurs="1" name="position" type="triplet" />
+      <xs:element minOccurs="0" name="collapse" type="collapse" />
+      <xs:element minOccurs="0" name="orientation" type="orientation" />
+      <xs:element minOccurs="0" name="fluid" type="xs:string" />
+      <xs:element minOccurs="0" name="x_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="y_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="z_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="all_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="localized_grid" type="trueFalse" />
+      <xs:element minOccurs="0" name="notes" type="xs:string" />
+    </xs:all>
+  </xs:complexType>
+  
+  <xs:complexType name="network_cuboid">
+    <xs:all>
+      <xs:element minOccurs="1" name="name" type="xs:string" />
+      <xs:element minOccurs="1" name="size" type="tripletGTZero" />
+      <xs:element minOccurs="1" name="position" type="triplet" />
+      <xs:element minOccurs="0" name="hidden" type="trueFalse" />
+      <xs:element minOccurs="0" name="collapse" type="collapse" />
+      <xs:element minOccurs="0" name="localized_grid" type="trueFalse" />
+      <xs:element minOccurs="0" name="x_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="y_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="z_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="all_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="x_high_surface" type="xs:string" />
+      <xs:element minOccurs="0" name="x_low_surface" type="xs:string" />
+      <xs:element minOccurs="0" name="y_high_surface" type="xs:string" />
+      <xs:element minOccurs="0" name="y_low_surface" type="xs:string" />
+      <xs:element minOccurs="0" name="z_high_surface" type="xs:string" />
+      <xs:element minOccurs="0" name="z_low_surface" type="xs:string" />
+      <xs:element minOccurs="0" name="all_surface" type="xs:string" />
+      <xs:element minOccurs="0" name="x_high_radiation" type="xs:string" />
+      <xs:element minOccurs="0" name="x_low_radiation" type="xs:string" />
+      <xs:element minOccurs="0" name="y_high_radiation" type="xs:string" />
+      <xs:element minOccurs="0" name="y_low_radiation" type="xs:string" />
+      <xs:element minOccurs="0" name="z_high_radiation" type="xs:string" />
+      <xs:element minOccurs="0" name="z_low_radiation" type="xs:string" />
+      <xs:element minOccurs="0" name="all_radiation" type="xs:string" />
+      <xs:element minOccurs="0" name="notes" type="xs:string" />
+    </xs:all>
+  </xs:complexType>
+  
+  <xs:complexType name="network_node">
+    <xs:all>
+      <xs:element minOccurs="1" name="name" type="xs:string" />
+      <xs:element minOccurs="0" name="thermal" type="xs:string" />
+      <xs:element minOccurs="0" name="hidden" type="trueFalse" />
+      <xs:element minOccurs="0" name="network_cuboids">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="network_cuboid" type="network_cuboid" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="network_monitor_points">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="monitor_point" type="monitor_point" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="notes" type="xs:string" />
+    </xs:all>
+  </xs:complexType>
+  
+  <xs:complexType name="network_assembly">
+    <xs:all>
+      <xs:element minOccurs="1" name="name" type="xs:string" />
+      <xs:element minOccurs="0" name="active" type="trueFalse" />
+      <xs:element minOccurs="0" name="hidden" type="trueFalse" />
+      <xs:element minOccurs="1" name="position" type="triplet" />
+      <xs:element minOccurs="0" name="orientation" type="orientation" />
+      <xs:element minOccurs="0" name="x_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="y_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="z_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="all_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="localized_grid" type="trueFalse" />
+      <xs:element minOccurs="0" name="network_nodes">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="network_node" type="network_node" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="resistances">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="resistance">
+              <xs:complexType>
+                <xs:all>
+                  <xs:element name="i_node" type="xs:string" />
+                  <xs:element name="j_node" type="xs:string" />
+                  <xs:element name="resistance" type="doubleGTZero" />
+                </xs:all>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="capacitances">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="capacitance">
+              <xs:complexType>
+                <xs:all>
+                  <xs:element name="i_node" type="xs:string" />
+                  <xs:element name="capacitance" type="doubleGTZero" />
+                </xs:all>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="notes" type="xs:string" />
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="fin_definition">
+    <xs:all>
+      <xs:element name="fin_height" type="doubleGTZero" />
+      <xs:element name="fin_style">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="uniform" />
+            <xs:enumeration value="full_taper" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="uniform_width" type="doubleGTZero" />
+      <xs:element minOccurs="0" name="tapered_base_width" type="doubleGTZero" />
+      <xs:element minOccurs="0" name="tapered_tip_width" type="doubleGTZero" />
+    </xs:all>
+  </xs:complexType>
+  
+  <xs:complexType name="pin_definition">
+    <xs:all>
+      <xs:element name="pin_height" type="doubleGTZero" />
+      <xs:element minOccurs="0" name="pin_style">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="uniform" />
+            <xs:enumeration value="full_taper" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="pin_type">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="rectangular" />
+            <xs:enumeration value="circular" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="uniform_length" type="doubleGTZero" />
+      <xs:element minOccurs="0" name="uniform_width" type="doubleGTZero" />
+      <xs:element minOccurs="0" name="tapered_length" type="doubleGTZero" />
+      <xs:element minOccurs="0" name="tapered_base_width" type="doubleGTZero" />
+      <xs:element minOccurs="0" name="tapered_tip_width" type="doubleGTZero" />
+      <xs:element minOccurs="0" name="circular_diameter" type="doubleGTZero" />
+      <xs:element minOccurs="0" name="circular_base_diameter" type="doubleGTZero" />
+      <xs:element minOccurs="0" name="circular_tip_diameter" type="doubleGTZero" />
+      <xs:element minOccurs="0" name="modeling_level">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="4 facets" />
+            <xs:enumeration value="8 facets" />
+            <xs:enumeration value="12 facets" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="heatsink_bracket">
+    <xs:all>
+      <xs:element minOccurs="0" name="use_brackets" type="trueFalse" default="true"/>
+      <xs:element name="foot_length" type="doubleGTZero" />
+      <xs:element name="foot_thickness" type="doubleGTZero" />
+    </xs:all>
+  </xs:complexType>
+  
+  
+  <xs:complexType name="heatsink">
+    <xs:all>
+      <xs:element minOccurs="1" name="name" type="xs:string" />
+      <xs:element minOccurs="1" name="position" type="triplet" />
+      <xs:element minOccurs="0" name="orientation" type="orientation" />
+      <xs:element minOccurs="0" name="material" type="xs:string" />
+      <xs:element minOccurs="0" name="all_surface_exchange" type="xs:string" />
+      <xs:element minOccurs="0" name="x_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="y_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="z_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="all_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="all_radiation" type="xs:string" />
+      <xs:element minOccurs="0" name="localized_grid" type="trueFalse" />
+      <xs:element minOccurs="0" name="active" type="trueFalse" />
+      <xs:element minOccurs="0" name="hidden" type="trueFalse" />
+      <xs:element minOccurs="1" name="heat_sink_base" type="triplet" />
+      <xs:element minOccurs="0" name="fabrication">
+        <xs:complexType>
+          <xs:all>
+            <xs:element minOccurs="0" name="fabrication_type">
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:enumeration value="extruded_cast" />
+                  <xs:enumeration value="bonded" />
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+            <xs:element minOccurs="0" name="groove_depth" type="doubleGTZero" />
+            <xs:element minOccurs="0" name="groove_width" type="doubleGTZero" />
+            <xs:element minOccurs="0" name="fin_material" type="xs:string" />
+            <xs:element minOccurs="0" name="adhesive" type="xs:string" />
+          </xs:all>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="1" name="heat_sink_type" >
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="plate_fin" />
+            <xs:enumeration value="pin_fin" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="modeling_method" >
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="detailed" />
+            <xs:enumeration value="compact" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="plate_definition">
+        <xs:complexType>
+          <xs:all>
+            <xs:element minOccurs="0" name="number_internal_fins" type="xs:nonNegativeInteger" />
+            <xs:element minOccurs="0" name="internal_fins" type="fin_definition" />
+            <xs:element minOccurs="0" name="center_gap" type="doubleGTEZero" />
+            <xs:element minOccurs="0" name="high_side_fin_inset" type="doubleGTEZero" />
+            <xs:element minOccurs="0" name="low_side_fin_inset" type="doubleGTEZero" />
+            <xs:element minOccurs="0" name="cells_between_fins" type="xs:nonNegativeInteger" />
+            <xs:element minOccurs="0" name="cells_within_fins" type="xs:nonNegativeInteger" />
+            <xs:element minOccurs="0" name="end_fins">
+              <xs:complexType>
+                <xs:all>
+                  <xs:element minOccurs="0" name="left_offset" type="doubleGTEZero" />
+                  <xs:element minOccurs="0" name="right_offset" type="doubleGTEZero" />
+                  <xs:element minOccurs="0" name="end_fin_style">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:enumeration value="use_as_internal" />
+                        <xs:enumeration value="use_defined" />
+                        <xs:enumeration value="use_both" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element minOccurs="0" name="left_fin" type="fin_definition" />
+                  <xs:element minOccurs="0" name="left_fin_bracket" type="heatsink_bracket" />
+                  <xs:element minOccurs="0" name="right_fin" type="fin_definition" />
+                  <xs:element minOccurs="0" name="right_fin_bracket" type="heatsink_bracket" />
+                  <xs:element minOccurs="0" name="both_fin" type="fin_definition" />
+                  <xs:element minOccurs="0" name="both_fin_bracket" type="heatsink_bracket" />
+                </xs:all>
+              </xs:complexType>
+            </xs:element>
+          </xs:all>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="pin_definition">
+        <xs:complexType>
+          <xs:all>
+            <xs:element minOccurs="0" name="pin_geometry" type="pin_definition" />
+            <xs:element minOccurs="0" name="pin_arrangement">
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:enumeration value="inline" />
+                  <xs:enumeration value="staggered" />
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+            <xs:element minOccurs="0" name="pins_in_x_direction" type="xs:positiveInteger" />
+            <xs:element minOccurs="0" name="pins_in_y_direction" type="xs:positiveInteger" />
+            <xs:element minOccurs="0" name="x_center_gap" type="doubleGTEZero" />
+            <xs:element minOccurs="0" name="y_center_gap" type="doubleGTEZero" />
+            <xs:element minOccurs="0" name="cells_between_pins" type="xs:nonNegativeInteger" />
+            <xs:element minOccurs="0" name="cells_within_pins" type="xs:nonNegativeInteger" />
+          </xs:all>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="notes" type="xs:string" />
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="pcb_layer">
+    <xs:all>
+      <xs:element name="thickness" type="doubleGTEZero" />
+      <xs:element name="percentage_coverage" type="percentage" />
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="pcb_component">
+    <xs:all>
+      <xs:element name="name" type="xs:string" />
+      <xs:element name="position" type="coord2d" />
+      <xs:element name="size" type="tripletGTZero" />
+      <xs:element minOccurs="0" name="x_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="y_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="z_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="all_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="localized_grid" type="trueFalse" />
+      <xs:element name="side">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="top" />
+            <xs:enumeration value="bottom" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="power" type="doubleGTEZero" />
+      <xs:element minOccurs="0" name="component_material" type="xs:string" />
+      <xs:element name="modeling_options" >
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="apply_over_board" />
+            <xs:enumeration value="discrete" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="solid_component" type="trueFalse" />
+      <xs:element minOccurs="0" name="resistance_junction_board" type="doubleGTEZero" />
+      <xs:element minOccurs="0" name="resistance_junction_case" type="doubleGTEZero" />
+      <xs:element minOccurs="0" name="resistance_junction_sides" type="doubleGTEZero" />
+      <xs:element minOccurs="0" name="pattern">
+        <xs:complexType>
+          <xs:all>
+            <xs:element name="number_in_x" type="xs:positiveInteger" />
+            <xs:element name="number_in_y" type="xs:positiveInteger" />
+            <xs:element name="pitch_in_x" type="doubleGTEZero" />
+            <xs:element name="pitch_in_y" type="doubleGTEZero" />
+            <xs:element minOccurs="0" name="lump_components" type="trueFalse" />
+          </xs:all>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="notes" type="xs:string" />
+    </xs:all>
+  </xs:complexType>
+
+
+  <xs:complexType name="pcb">
+    <xs:all>
+      <xs:element name="name" type="xs:string" />
+      <xs:element name="position" type="triplet" />
+      <xs:element name="size" type="coord2dGTZero" />
+      <xs:element minOccurs="0" name="thickness" type="doubleGTZero" />
+      <xs:element minOccurs="0" name="orientation" type="orientation" />
+      <xs:element minOccurs="0" name="x_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="y_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="z_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="all_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="all_radiation" type="xs:string" />
+      <xs:element minOccurs="0" name="localized_grid" type="trueFalse" />
+      <xs:element minOccurs="0" name="active" type="trueFalse" />
+      <xs:element minOccurs="0" name="hidden" type="trueFalse" />
+      <xs:element minOccurs="0" name="keypoint_component_height" type="trueFalse" />
+      <xs:element minOccurs="0" name="heat_dissipated_to_air" type="percentage" />
+      <xs:element minOccurs="0" name="top_roughness_height" type="doubleGTEZero" />
+      <xs:element minOccurs="0" name="bottom_roughness_height" type="doubleGTEZero" />
+      <xs:element minOccurs="0" name="modeling_level">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="non_conducting" />
+            <xs:enumeration value="conducting" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="conducting_type">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="percent_conductor_by_vol" />
+            <xs:enumeration value="board_mass" />
+            <xs:enumeration value="layer_definition" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="percent_conductor_by_vol" type="percentage" />
+      <xs:element minOccurs="0" name="board_mass" type="doubleGTEZero" />
+      <xs:element minOccurs="0" name="layer_definition">
+        <xs:complexType>
+          <xs:sequence maxOccurs="32">
+            <xs:element name="layer" type="pcb_layer" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="dielectric_material" type="xs:string" />
+      <xs:element minOccurs="0" name="conductor_material" type="xs:string" />
+      <xs:element minOccurs="0" name="components">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="component" minOccurs="0" maxOccurs="unbounded" type="pcb_component" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="notes" type="xs:string" />
+    </xs:all>
+  </xs:complexType>
+
+
+  <xs:complexType name="extract">
+    <xs:all>
+      <xs:element name="name" type="xs:string" />
+      <xs:element name="position" type="triplet" />
+      <xs:element name="size" type="coord2dGTZero" />
+      <xs:element minOccurs="0" name="orientation" type="orientation" />
+      <xs:element minOccurs="0" name="active" type="trueFalse" />
+      <xs:element minOccurs="0" name="hidden" type="trueFalse" />
+      <xs:element minOccurs="0" name="x_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="y_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="z_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="all_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="notes" type="xs:string" />
+    </xs:all>
+  </xs:complexType>
+  
+  <xs:complexType name="supply">
+    <xs:all>
+      <xs:element name="name" type="xs:string" />
+      <xs:element name="position" type="triplet" />
+      <xs:element name="size" type="coord2dGTZero" />
+      <xs:element minOccurs="0" name="orientation" type="orientation" />
+      <xs:element name="free_area_ratio" type="doubleGTEZeroLTEOne" />
+      <xs:element minOccurs="0" name="active" type="trueFalse" />
+      <xs:element minOccurs="0" name="hidden" type="trueFalse" />
+      <xs:element minOccurs="0" name="x_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="y_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="z_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="all_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="direction_type" >
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="normal" />
+            <xs:enumeration value="angled" />
+            <xs:enumeration value="sheared" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="angled_flow_direction" type="triplet" />
+      <xs:element minOccurs="0" name="shear_direction" >
+        <xs:simpleType>
+          <xs:restriction base="xs:string" >
+            <xs:enumeration value="x" />
+            <xs:enumeration value="y" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="max_velocity_location" >
+        <xs:simpleType>
+          <xs:restriction base="xs:string" >
+            <xs:enumeration value="high" />
+            <xs:enumeration value="low" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="shear_model" >
+        <xs:simpleType>
+          <xs:restriction base="xs:string" >
+            <xs:enumeration value="constant" />
+            <xs:enumeration value="flow_dependent" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="turbulent_kinetic_energy" type="doubleGTEZero" />
+      <xs:element minOccurs="0" name="turbulent_dissipation_rate" type="doubleGTEZero" />
+      <xs:element minOccurs="0" name="notes" type="xs:string" />
+    </xs:all>
+  </xs:complexType>
+  
+  <xs:complexType name="rack">
+    <xs:all>
+      <xs:element name="name" type="xs:string" />
+      <xs:element name="position" type="triplet" />
+      <xs:element minOccurs="0" name="localized_grid" type="trueFalse" />
+      <xs:element name="power_dissipation" type="doubleGTEZero" />
+      <xs:element minOccurs="0" name="cooler_group" type="xs:string" />
+      <xs:element minOccurs="0" name="hot_aisle_group" type="xs:string" />
+      <xs:element minOccurs="0" name="hot_aisle_sub_group" type="xs:string" />
+      <xs:element minOccurs="0" name="cold_aisle_group" type="xs:string" />
+      <xs:element minOccurs="0" name="cold_aisle_sub_group" type="xs:string" />
+      <xs:element minOccurs="0" name="x_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="y_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="z_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="all_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="active" type="trueFalse" />
+      <xs:element minOccurs="0" name="hidden" type="trueFalse" />
+      <xs:element minOccurs="0" name="orientation" type="orientation" />
+      <xs:element minOccurs="1" name="flow_type">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="flow_rate_power" />
+            <xs:enumeration value="temperature_change" />
+            <xs:enumeration value="volume_flow_rate" />
+            <xs:enumeration value="curve" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="flow_rate_power" type="xs:double" />
+      <xs:element minOccurs="0" name="temperature_change" type="xs:double"/>
+      <xs:element minOccurs="0" name="volume_flow_rate" type="doubleGTEZero" />
+      <xs:element minOccurs="0" name="pressure" type="doubleGTZero" />
+      <xs:element minOccurs="0" name="curve" type="fan_curve_points" />
+      <xs:element minOccurs="0" name="airflow_adjustment">
+        <xs:complexType>
+          <xs:all>
+            <xs:element name="active" type="trueFalse" />
+            <xs:element name="critical_temperature" type="xs:double" />
+            <xs:element name="factor" type="doubleGTEZero" />
+           </xs:all>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="supplies">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:choice minOccurs="1" maxOccurs="unbounded">
+              <xs:element name="supply" type="supply" />
+            </xs:choice>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="extracts">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:choice minOccurs="1" maxOccurs="unbounded">
+              <xs:element name="extract" type="extract" />
+            </xs:choice>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="notes" type="xs:string" />
+    </xs:all>
+  </xs:complexType>
+  
+  <xs:complexType name="cooler">
+    <xs:all>
+      <xs:element name="name" type="xs:string" />
+      <xs:element name="position" type="triplet" />
+      <xs:element minOccurs="0" name="localized_grid" type="trueFalse" />
+      <xs:element minOccurs="0" name="cooler_group" type="xs:string" />
+      <xs:element minOccurs="0" name="hot_aisle_group" type="xs:string" />
+      <xs:element minOccurs="0" name="hot_aisle_sub_group" type="xs:string" />
+      <xs:element minOccurs="0" name="cold_aisle_group" type="xs:string" />
+      <xs:element minOccurs="0" name="cold_aisle_sub_group" type="xs:string" />
+      <xs:element minOccurs="0" name="x_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="y_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="z_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="all_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="active" type="trueFalse" />
+      <xs:element minOccurs="0" name="hidden" type="trueFalse" />
+      <xs:element minOccurs="0" name="orientation" type="orientation" />
+      
+      <xs:element name="airflow_type">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="fixed" />
+            <xs:enumeration value="curve" />
+            <xs:enumeration value="temperature_difference" />
+            <xs:enumeration value="remote_temperature_control" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="flow_rate" type="doubleGTEZero" />
+      <xs:element minOccurs="0" name="pressure" type="doubleGTZero" />
+      <xs:element minOccurs="0" name="curve" type="fan_curve_points" />
+      <xs:element minOccurs="0" name="temperature_difference">
+        <xs:complexType>
+          <xs:all>
+            <xs:element name="temperature" type="doubleGTEZero" />
+            <xs:element name="max_flow_rate" type="doubleGTEZero" />
+            <xs:element name="min_flow_rate" type="doubleGTEZero" />
+          </xs:all>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="remote_temperature_control">
+        <xs:complexType>
+          <xs:all>
+            <xs:element name="inlet_temperature">
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:enumeration value="average" />
+                  <xs:enumeration value="two_thirds_height" />
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+            <xs:element name="target_temperature" type="xs:double" />
+            <xs:element name="max_flow_rate" type="doubleGTEZero" />
+            <xs:element name="min_flow_rate" type="doubleGTEZero" />
+          </xs:all>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="temperature_set_point" type="xs:double" />
+      <xs:element minOccurs="0" name="temperature_set_point_location">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="supply" />
+            <xs:enumeration value="return" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="capacity_limit">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="none" />
+            <xs:enumeration value="fixed" />
+            <xs:enumeration value="variable" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="fixed_capacity" type="xs:double" />
+      <xs:element minOccurs="0" name="variable_capacity">
+        <xs:complexType>
+          <xs:all>
+            <xs:element name="airflow" type="doubleGTEZero" />
+            <xs:element name="airflow_reference_exponent" type="doubleGTEZero" />
+            <xs:element name="capacity_curve_points" type="capacity_curve_points" />
+           </xs:all>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="supplies">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:choice minOccurs="1" maxOccurs="unbounded">
+              <xs:element name="supply" type="supply" />
+            </xs:choice>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="extracts">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:choice minOccurs="1" maxOccurs="unbounded">
+              <xs:element name="extract" type="extract" />
+            </xs:choice>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="notes" type="xs:string" />
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="heat_exchanger">
+    <xs:all>
+      <xs:element name="model">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="simple" />
+            <xs:enumeration value="lmtd" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="temperature" type="xs:double" />
+      <xs:element name="heat_transfer_coeff" type="doubleGTEZero" />
+      <xs:element minOccurs="0" name="fluid" type="xs:string" />
+      <xs:element minOccurs="0" name="volume_flow_rate" type="doubleGTEZero" />
+      <xs:element minOccurs="0" name="configuration_type">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="parallel_flow" />
+            <xs:enumeration value="counter_flow" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="thermostat">
+    <xs:all>
+      <xs:element name="control_temperature" type="xs:double" />
+      <xs:element name="deadband_temperature" type="xs:double" />
+      <xs:element name="position" type="triplet" />
+      <xs:element name="application_side">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="control_side" />
+            <xs:enumeration value="secondary_side" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:all>
+  </xs:complexType>
+  
+  <xs:complexType name="recirc_device">
+    <xs:all>
+      <xs:element name="name" type="xs:string" />
+      <xs:element name="position" type="triplet" />
+      <xs:element minOccurs="0" name="orientation" type="orientation" />
+      <xs:element minOccurs="0" name="localized_grid" type="trueFalse" />
+      <xs:element minOccurs="0" name="hot_aisle_group" type="xs:string" />
+      <xs:element minOccurs="0" name="hot_aisle_sub_group" type="xs:string" />
+      <xs:element minOccurs="0" name="cold_aisle_group" type="xs:string" />
+      <xs:element minOccurs="0" name="cold_aisle_sub_group" type="xs:string" />
+      <xs:element minOccurs="0" name="flow_type">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="volume_flow_rate" />
+            <xs:enumeration value="linear_fan_curve" />
+            <xs:enumeration value="non_linear_fan_curve" />
+            <xs:enumeration value="normal_velocity_at_supply" />
+          </xs:restriction>
+        </xs:simpleType>  
+      </xs:element>
+      <xs:element minOccurs="0" name="flow_rate" type="doubleGTEZero" />
+      <xs:element minOccurs="0" name="pressure" type="doubleGTZero" />
+      <xs:element minOccurs="0" name="curve" type="fan_curve_points" />
+      <xs:element minOccurs="0" name="velocity" type="doubleGTEZero" />
+      <xs:element minOccurs="0" name="inflow_of_primary_fluid" type="trueFalse" />
+      <xs:element minOccurs="0" name="inflow_flow_rate" type="xs:double" />
+      <xs:element minOccurs="0" name="inflow_ambient" type="xs:string" />
+      <xs:element minOccurs="0" name="thermal_properties">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="temperature_change" />
+            <xs:enumeration value="heat_input_extraction_rate" />
+            <xs:enumeration value="heat_exchanger" />
+            <xs:enumeration value="crac" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="temperature_change" type="xs:double" />
+      <xs:element minOccurs="0" name="heat_input_extraction_rate" type="xs:double" />
+      <xs:element minOccurs="0" name="heat_exchanger" type="heat_exchanger"/>
+      <xs:element minOccurs="0" name="crac_max_power" type="xs:double" />
+      <xs:element minOccurs="0" name="crac_desired_temperature" type="xs:double" />
+      <xs:element minOccurs="0" name="use_thermostat" type="trueFalse" />
+      <xs:element minOccurs="0" name="thermostat" type="thermostat" />
+      <xs:element name="supplies">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:choice minOccurs="1" maxOccurs="unbounded">
+              <xs:element name="supply" type="supply" />
+            </xs:choice>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="extracts">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:choice minOccurs="1" maxOccurs="unbounded">
+              <xs:element name="extract" type="extract" />
+            </xs:choice>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="filtration_active" type="trueFalse" />
+      <xs:element minOccurs="0" name="concentration_1_filtration" type="percentage" />
+      <xs:element minOccurs="0" name="concentration_2_filtration" type="percentage" />
+      <xs:element minOccurs="0" name="concentration_3_filtration" type="percentage" />
+      <xs:element minOccurs="0" name="concentration_4_filtration" type="percentage" />
+      <xs:element minOccurs="0" name="concentration_5_filtration" type="percentage" />
+      <xs:element minOccurs="0" name="concentration_6_filtration" type="percentage" />
+      <xs:element minOccurs="0" name="concentration_7_filtration" type="percentage" />
+      <xs:element minOccurs="0" name="concentration_8_filtration" type="percentage" />
+      <xs:element minOccurs="0" name="concentration_9_filtration" type="percentage" />
+      <xs:element minOccurs="0" name="concentration_10_filtration" type="percentage" />
+      <xs:element minOccurs="0" name="concentration_11_filtration" type="percentage" />
+      <xs:element minOccurs="0" name="concentration_12_filtration" type="percentage" />
+      <xs:element minOccurs="0" name="concentration_13_filtration" type="percentage" />
+      <xs:element minOccurs="0" name="concentration_14_filtration" type="percentage" />
+      <xs:element minOccurs="0" name="concentration_15_filtration" type="percentage" />
+      <xs:element minOccurs="0" name="active" type="trueFalse" />
+      <xs:element minOccurs="0" name="hidden" type="trueFalse" />
+      <xs:element minOccurs="0" name="x_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="y_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="z_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="all_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="notes" type="xs:string" />
+    </xs:all>
+  </xs:complexType>
+  
+  <xs:complexType name="perforated_plate">
+    <xs:all>
+      <xs:element minOccurs="1" name="name" type="xs:string" />
+      <xs:element minOccurs="1" name="position" type="triplet" />
+      <xs:element minOccurs="1" name="size" type="coord2dGTZero" />
+      <xs:element minOccurs="0" name="localized_grid" type="trueFalse" />
+      <xs:element minOccurs="0" name="x_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="y_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="z_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="all_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="active" type="trueFalse" />
+      <xs:element minOccurs="0" name="hidden" type="trueFalse" />
+      <xs:element minOccurs="0" name="orientation" type="orientation" />
+      <xs:element minOccurs="0" name="cold_aisle_group" type="xs:string" />
+      <xs:element minOccurs="0" name="cold_aisle_sub_group" type="xs:string" />
+      <xs:element name="hole_type">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="hexagonal" />
+            <xs:enumeration value="round" />
+            <xs:enumeration value="square" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="side_length" type="doubleGTZero" />
+      <xs:element minOccurs="0" name="diameter" type="doubleGTZero" />
+      <xs:element minOccurs="1" name="coverage">
+        <xs:complexType>
+          <xs:choice>
+            <xs:element name="defined_coverage" type="ratio" />
+            <xs:element name="pitch" type="coord2dGTZero" />
+          </xs:choice>
+        </xs:complexType>
+      </xs:element>
+      <xs:element  minOccurs="0" name="resistance_model">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="standard" />
+            <xs:enumeration value="advanced" />
+            <xs:enumeration value="automatic" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element  minOccurs="0" name="loss_coefficient_based_on">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="approach_velocity" />
+            <xs:enumeration value="device_velocity" />
+            <xs:enumeration value="accelerated" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="loss_coefficient" type="doubleGTEZero" />
+      <xs:element minOccurs="0" name="advanced_loss_coefficient">
+        <xs:complexType>
+          <xs:all>
+            <xs:element minOccurs="0" name="length_scale" type="doubleGTEZero" />
+            <xs:element minOccurs="0" name="a_coefficient" type="doubleGTEZero" />
+            <xs:element minOccurs="0" name="b_coefficient" type="doubleGTEZero" />
+            <xs:element minOccurs="0" name="index" type="doubleGTEZero" />
+          </xs:all>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="straighten_flow">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="high_side" />
+            <xs:enumeration value="low_side" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="notes" type="xs:string" />
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="heatpipe">
+    <xs:all>
+      <xs:element name="name" type="xs:string" />
+      <xs:element name="position" type="triplet" />
+      <xs:element name="effective_thermal_resistance" type="doubleGTZero" />
+      <xs:element name="maximum_heat_flow" type="doubleGTZero" />
+      <xs:element minOccurs="0" name="network_cuboids">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="network_cuboid" type="network_cuboid" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="monitor_points">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="monitor_point" type="monitor_point" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="x_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="y_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="z_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="all_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="localized_grid" type="trueFalse" />
+      <xs:element minOccurs="0" name="active" type="trueFalse" />
+      <xs:element minOccurs="0" name="hidden" type="trueFalse" />
+      <xs:element minOccurs="0" name="orientation" type="orientation" />
+      <xs:element minOccurs="0" name="notes" type="xs:string" />
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="tec_hot_side">
+    <xs:all>
+      <xs:element minOccurs="1" name="temperature" type="xs:double" />
+      <xs:element minOccurs="1" name="q_max" type="doubleGTEZero" />
+      <xs:element minOccurs="1" name="delta_t_max" type="doubleGTEZero" />
+      <xs:element minOccurs="1" name="i_max" type="doubleGTEZero" />
+      <xs:element minOccurs="1" name="v_max" type="doubleGTEZero" />    
+    </xs:all>
+  </xs:complexType>
+  
+  <xs:complexType name="tec">
+    <xs:all>
+      <xs:element minOccurs="1" name="name" type="xs:string" />
+      <xs:element minOccurs="1" name="position" type="triplet" />
+      <xs:element minOccurs="1" name="size" type="tripletGTZero" />
+      <xs:element minOccurs="1" name="ceramic_thickness" type="doubleGTZero" />
+      <xs:element minOccurs="0" name="ceramic_material" type="xs:string" />
+      <xs:element minOccurs="1" name="operational_current" type="doubleGTZero" />
+      <xs:element minOccurs="1" name="hot_side_1" type="tec_hot_side" />
+      <xs:element minOccurs="1" name="hot_side_2" type="tec_hot_side" />
+      <xs:element minOccurs="0" name="x_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="y_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="z_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="all_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="z_high_surface" type="xs:string" />
+      <xs:element minOccurs="0" name="z_low_surface" type="xs:string" />
+      <xs:element minOccurs="0" name="z_high_radiation" type="xs:string" />
+      <xs:element minOccurs="0" name="z_low_radiation" type="xs:string" />
+      <xs:element minOccurs="0" name="localized_grid" type="trueFalse" />
+      <xs:element minOccurs="0" name="active" type="trueFalse" />
+      <xs:element minOccurs="0" name="hidden" type="trueFalse" />
+      <xs:element minOccurs="0" name="orientation" type="orientation" />
+      <xs:element minOccurs="0" name="notes" type="xs:string" />
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="die_discrete_source">
+    <xs:all>
+      <xs:element minOccurs="1" name="name" type="xs:string" />
+      <xs:element minOccurs="1" name="start" type="coord2dGTEZero" />
+      <xs:element minOccurs="1" name="end" type="coord2dGTEZero" />
+      <xs:element minOccurs="1" name="power" type="doubleGTEZero" />
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="die">
+    <xs:all>
+      <xs:element minOccurs="1" name="name" type="xs:string" />
+      <xs:element minOccurs="1" name="position" type="triplet" />
+      <xs:element minOccurs="1" name="size" type="tripletGTZero" />
+      <xs:element minOccurs="0" name="die_material" type="xs:string" />
+      <xs:element minOccurs="0" name="power_dissipation_type">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="uniform" />
+            <xs:enumeration value="non_uniform" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>  
+      <xs:element minOccurs="0" name="uniform_power" type="doubleGTEZero" />
+      <xs:element minOccurs="0" name="non_uniform_type">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="discrete" />
+            <xs:enumeration value="total_coverage" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="discrete_sources">
+        <xs:complexType>
+          <xs:sequence minOccurs="1" maxOccurs="unbounded">
+            <xs:element name="source" type="die_discrete_source" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="total_coverage_sources">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="1" name="number_in_x" type="xs:positiveInteger" />
+            <xs:element minOccurs="1" name="number_in_y" type="xs:positiveInteger" />
+            <xs:element minOccurs="1" name="powers" >
+              <xs:complexType>
+                <xs:sequence minOccurs="2" maxOccurs="unbounded">
+                  <xs:element name="power" type="doubleGTEZero" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="x_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="y_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="z_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="all_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="x_high_surface" type="xs:string" />
+      <xs:element minOccurs="0" name="x_low_surface" type="xs:string" />
+      <xs:element minOccurs="0" name="y_high_surface" type="xs:string" />
+      <xs:element minOccurs="0" name="y_low_surface" type="xs:string" />
+      <xs:element minOccurs="0" name="z_high_surface" type="xs:string" />
+      <xs:element minOccurs="0" name="z_low_surface" type="xs:string" />
+      <xs:element minOccurs="0" name="all_surface" type="xs:string" />
+      <xs:element minOccurs="0" name="x_high_radiation" type="xs:string" />
+      <xs:element minOccurs="0" name="x_low_radiation" type="xs:string" />
+      <xs:element minOccurs="0" name="y_high_radiation" type="xs:string" />
+      <xs:element minOccurs="0" name="y_low_radiation" type="xs:string" />
+      <xs:element minOccurs="0" name="z_high_radiation" type="xs:string" />
+      <xs:element minOccurs="0" name="z_low_radiation" type="xs:string" />
+      <xs:element minOccurs="0" name="all_radiation" type="xs:string" />
+      <xs:element minOccurs="0" name="localized_grid" type="trueFalse" />
+      <xs:element minOccurs="0" name="active" type="trueFalse" />
+      <xs:element minOccurs="0" name="hidden" type="trueFalse" />
+      <xs:element minOccurs="0" name="orientation" type="orientation" />
+      <xs:element minOccurs="0" name="notes" type="xs:string" />
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="fixed_flow">
+    <xs:all>
+      <xs:element minOccurs="1" name="name" type="xs:string" />
+      <xs:element minOccurs="1" name="position" type="triplet" />
+      <xs:element minOccurs="1" name="size" type="coord2dGTZero" />
+      <xs:element minOccurs="1" name="free_area_ratio" type="ratio" />
+      <xs:element minOccurs="0" name="localized_grid" type="trueFalse" />
+      <xs:element minOccurs="0" name="x_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="y_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="z_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="all_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="active" type="trueFalse" />
+      <xs:element minOccurs="0" name="hidden" type="trueFalse" />
+      <xs:element minOccurs="0" name="orientation" type="orientation" />
+      <xs:element minOccurs="0" name="cold_aisle_group" type="xs:string" />
+      <xs:element minOccurs="0" name="cold_aisle_sub_group" type="xs:string" />
+      <xs:element minOccurs="0" name="hot_aisle_group" type="xs:string" />
+      <xs:element minOccurs="0" name="hot_aisle_sub_group" type="xs:string" />
+      <xs:element minOccurs="1" name="flow">
+        <xs:complexType>
+          <xs:all>
+            <xs:element name="flow_type">
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:enumeration value="normal_velocity" />
+                  <xs:enumeration value="volume_flow_rate" />
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+            <xs:element minOccurs="0" name="normal_velocity" type="xs:double" />
+            <xs:element minOccurs="0" name="volume_flow_rate" type="xs:double" />
+          </xs:all>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="1" name="flow_direction">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="inflow" />
+            <xs:enumeration value="outflow" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="inflow_ambient" type="xs:string" />
+      <xs:element minOccurs="0" name="flow_angle">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="normal" />
+            <xs:enumeration value="angled" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="angle" type="triplet" />
+      <xs:element minOccurs="0" name="transparent_to_radiation" type="trueFalse" />
+      <xs:element minOccurs="0" name="notes" type="xs:string" />
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="square_diffuser">
+    <xs:all>
+      <xs:element minOccurs="1" name="name" type="xs:string" />
+      <xs:element minOccurs="1" name="position" type="triplet" />
+      <xs:element minOccurs="1" name="size" type="tripletGTZero" />
+      <xs:element minOccurs="1" name="active_jets" >
+        <xs:complexType>
+          <xs:all>
+            <xs:element minOccurs="1" name="x_high_jet" type="trueFalse" />
+            <xs:element minOccurs="1" name="x_low_jet" type="trueFalse" />
+            <xs:element minOccurs="1" name="y_high_jet" type="trueFalse" />
+            <xs:element minOccurs="1" name="y_low_jet" type="trueFalse" />
+          </xs:all>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="volume_flow_rate" type="doubleGTEZero" />
+      <xs:element minOccurs="0" name="jet_angle">
+        <xs:simpleType>
+          <xs:restriction base="xs:double">
+            <xs:minInclusive value="0.0" />
+            <xs:maxInclusive value="80.0" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="ambient" type="xs:string" />
+      <xs:element minOccurs="0" name="localized_grid" type="trueFalse" />
+      <xs:element minOccurs="0" name="x_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="y_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="z_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="all_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="active" type="trueFalse" />
+      <xs:element minOccurs="0" name="hidden" type="trueFalse" />
+      <xs:element minOccurs="0" name="orientation" type="orientation" />
+      <xs:element minOccurs="0" name="notes" type="xs:string" />
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="pdml">
+    <xs:all>
+      <xs:element minOccurs="1" name="name" type="xs:string" />
+      <xs:element minOccurs="1" name="position" type="triplet" />      
+      <xs:element minOccurs="0" name="orientation" type="orientation" />
+      <xs:element minOccurs="1" name="file" type="xs:string" />
+      <xs:element minOccurs="0" name="notes" type="xs:string" />
+    </xs:all>
+  </xs:complexType>
+  
+  <xs:complexType name="powermap">
+    <xs:all>
+      <xs:element minOccurs="0" name="name" type="xs:string" />
+      <xs:element minOccurs="1" name="position" type="triplet" />
+      <xs:element minOccurs="1" name="file" type="xs:string" />
+      <xs:element minOccurs="0" name="material" type="xs:string" />
+      <xs:element minOccurs="0" name="x_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="y_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="z_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="all_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="all_surface" type="xs:string" />
+      <xs:element minOccurs="0" name="all_radiation" type="xs:string" />
+      <xs:element minOccurs="0" name="localized_grid" type="trueFalse" />
+      <xs:element minOccurs="0" name="active" type="trueFalse" />
+      <xs:element minOccurs="0" name="hidden" type="trueFalse" />
+      <xs:element minOccurs="0" name="orientation" type="orientation" />
+      <xs:element minOccurs="0" name="notes" type="xs:string" />
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="material_map">
+    <xs:all>
+      <xs:element minOccurs="0" name="name" type="xs:string" />
+      <xs:element minOccurs="1" name="position" type="triplet" />
+      <xs:element minOccurs="1" name="file" type="xs:string" />
+      <xs:element minOccurs="0" name="x_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="y_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="z_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="all_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="all_radiation" type="xs:string" />
+      <xs:element minOccurs="0" name="localized_grid" type="trueFalse" />
+      <xs:element minOccurs="0" name="active" type="trueFalse" />
+      <xs:element minOccurs="0" name="hidden" type="trueFalse" />
+      <xs:element minOccurs="0" name="orientation" type="orientation" />
+      <xs:element minOccurs="0" name="notes" type="xs:string" />
+    </xs:all>
+  </xs:complexType>
+
+
+  <xs:complexType name="controller">
+    <xs:all>
+      <xs:element minOccurs="0" name="name" type="xs:string" />
+      <xs:element minOccurs="1" name="position" type="triplet" />
+      <xs:element minOccurs="0" name="source" type="source" />
+      <xs:element minOccurs="0" name="monitor_points">
+        <xs:complexType>
+          <xs:sequence minOccurs="0" maxOccurs="unbounded">
+            <xs:element name="monitor_point" type="monitor_point" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="control" type="xs:string" />
+      <xs:element minOccurs="0" name="starting_frequency" type="xs:double" />
+      <xs:element minOccurs="0" name="thigh_frequency_switching_criteria" type="frequency_switching_criteria" />
+      <xs:element minOccurs="0" name="localized_grid" type="trueFalse" />
+      <xs:element minOccurs="0" name="active" type="trueFalse" />
+      <xs:element minOccurs="0" name="hidden" type="trueFalse" />
+      <xs:element minOccurs="0" name="orientation" type="orientation" />
+      <xs:element minOccurs="0" name="notes" type="xs:string" />
+    </xs:all>
+  </xs:complexType>
+  
+  <xs:complexType name="geometry">
+    <xs:sequence>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="cuboid" type="cuboid" />
+        <xs:element name="cylinder" type="cylinder" />
+        <xs:element name="assembly" type="assembly" />
+        <xs:element name="prism" type="prism" />
+        <xs:element name="tet" type="tet" />
+        <xs:element name="inverted_tet" type="inverted_tet" />
+        <xs:element name="sloping_block" type="sloping_block" />
+        <xs:element name="source" type="source" />
+        <xs:element name="monitor_point" type="monitor_point" />
+        <xs:element name="enclosure" type="enclosure" />
+        <xs:element name="cutout" type="cutout" />
+        <xs:element name="resistance" type="resistance" />
+        <xs:element name="fan" type="fan" />
+        <xs:element name="component2r" type="component2r" />
+        <xs:element name="component" type="component" />
+        <xs:element name="region" type="region" />
+        <xs:element name="network_assembly" type="network_assembly" />
+        <xs:element name="rack" type="rack" />
+        <xs:element name="cooler" type="cooler" />
+        <xs:element name="perforated_plate" type="perforated_plate" />
+        <xs:element name="fixed_flow" type="fixed_flow" />
+        <xs:element name="recirc_device" type="recirc_device" />
+        <xs:element name="square_diffuser" type="square_diffuser" />
+        <xs:element name="pdml" type="pdml" />
+        <xs:element name="pcb" type="pcb" />
+        <xs:element name="powermap" type="powermap" />
+        <xs:element name="heatsink" type="heatsink" />
+        <xs:element name="heatpipe" type="heatpipe" />
+        <xs:element name="tec" type="tec" />
+        <xs:element name="die" type="die" />
+        <xs:element name="controller" type="controller" />
+        <xs:element name="material_map" type="material_map" />
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="assembly">
+    <xs:all>
+      <xs:element minOccurs="1" name="name" type="xs:string" />
+      <xs:element minOccurs="0" name="active" type="trueFalse" />
+      <xs:element minOccurs="0" name="hidden" type="trueFalse" />
+      <xs:element minOccurs="0" name="ignore" type="trueFalse" />
+      <xs:element minOccurs="1" name="position" type="triplet" />
+      <xs:element minOccurs="0" name="orientation" type="orientation" />
+      <xs:element minOccurs="0" name="material" type="xs:string" />
+      <xs:element minOccurs="0" name="geometry" type="geometry" />
+      <xs:element minOccurs="0" name="x_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="y_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="z_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="all_grid_constraint" type="xs:string" />
+      <xs:element minOccurs="0" name="localized_grid" type="trueFalse" />
+      <xs:element minOccurs="0" name="notes" type="xs:string" />
+      <xs:element minOccurs="0" name="lightweight" type="trueFalse" />
+    </xs:all>
+  </xs:complexType>
+  
+</xs:schema>

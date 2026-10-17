@@ -26,7 +26,7 @@ export const generateTemplateModel = (request: TemplateRequest) =>
     request,
   )
 
-export type ExportFormat = 'pta' | 'ecxml'
+export type ExportFormat = 'pta' | 'ecxml' | 'floxml'
 
 export async function downloadTemplateModel(
   request: TemplateRequest,
@@ -44,7 +44,7 @@ export async function downloadTemplateModel(
   const url = URL.createObjectURL(await response.blob())
   const anchor = document.createElement('a')
   anchor.href = url
-  anchor.download = `${request.template_id}.${format === 'ecxml' ? 'ecxml' : 'xml'}`
+  anchor.download = `${request.template_id}.${format === 'pta' ? 'xml' : format}`
   anchor.click()
   URL.revokeObjectURL(url)
 }

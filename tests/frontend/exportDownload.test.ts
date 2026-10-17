@@ -11,6 +11,7 @@ describe('format-specific model downloads', () => {
   it.each([
     ['pta', 'bare_die.xml'],
     ['ecxml', 'bare_die.ecxml'],
+    ['floxml', 'bare_die.floxml'],
   ] as const)('downloads %s with its route and filename', async (format, filename) => {
     const anchor = document.createElement('a')
     const createElement = document.createElement.bind(document)

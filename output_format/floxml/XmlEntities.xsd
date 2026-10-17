@@ -1,0 +1,615 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="XmlDefinitions.xsd" />
+  <xs:complexType name="model">
+    <xs:all>
+      <xs:element minOccurs="0" name="modeling" type="modeling" />
+      <xs:element minOccurs="0" name="turbulence" type="turbulence" />
+      <xs:element minOccurs="0" name="gravity" type="gravity" />
+      <xs:element minOccurs="0" name="global" type="global" />
+      <xs:element minOccurs="0" name="transient" type="transient" />
+      <xs:element minOccurs="0" name="initial_variables" type="model_initial_variables" />
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="solve">
+    <xs:all>
+      <xs:element minOccurs="0" name="overall_control" type="overall_control" />
+      <xs:element minOccurs="0" name="variable_controls" type="variable_controls" />
+      <xs:element minOccurs="0" name="solver_controls" type="solver_controls" />
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="grid">
+    <xs:all>
+      <xs:element minOccurs="0" name="system_grid" type="system_grid" />
+      <xs:element minOccurs="0" name="patches" type="grid_patches" /> 
+    </xs:all>
+  </xs:complexType>
+  
+  <xs:complexType name="gravity">
+    <xs:all>
+      <xs:element minOccurs="1" name="type">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="off" />
+            <xs:enumeration value="normal" />
+            <xs:enumeration value="angled" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="normal_direction">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="pos_x" />
+            <xs:enumeration value="neg_x" />
+            <xs:enumeration value="pos_y" />
+            <xs:enumeration value="neg_y" />
+            <xs:enumeration value="pos_z" />
+            <xs:enumeration value="neg_z" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="angled_direction" type="triplet" />
+      <xs:element minOccurs="0" name="value_type">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="default" />
+            <xs:enumeration value="user" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="gravity_value" type="xs:double" />
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="concentration">
+    <xs:all>
+      <xs:element minOccurs="1" name="fluid" type="xs:string" />
+      <xs:element minOccurs="0" name="active" type="trueFalse" />
+        <xs:element minOccurs="0" name="reverse_passive_tracer" type="trueFalse" >
+          <xs:annotation>
+            <xs:documentation>
+                'reverse_passive_tracer' is A) FloVENT only and B) unsupported in v10.1 and higher
+            </xs:documentation>
+          </xs:annotation>
+        </xs:element>
+    </xs:all>
+  </xs:complexType>
+  
+  <xs:complexType name="concentrations">
+    <xs:all>
+      <xs:element minOccurs="0" name="concentration_1" type="concentration" />
+      <xs:element minOccurs="0" name="concentration_2" type="concentration" />
+      <xs:element minOccurs="0" name="concentration_3" type="concentration" />
+      <xs:element minOccurs="0" name="concentration_4" type="concentration" />
+      <xs:element minOccurs="0" name="concentration_5" type="concentration" />
+      <xs:element minOccurs="0" name="concentration_6" type="concentration" />
+      <xs:element minOccurs="0" name="concentration_7" type="concentration" />
+      <xs:element minOccurs="0" name="concentration_8" type="concentration" />
+      <xs:element minOccurs="0" name="concentration_9" type="concentration" />
+      <xs:element minOccurs="0" name="concentration_10" type="concentration" />
+      <xs:element minOccurs="0" name="concentration_11" type="concentration" />
+      <xs:element minOccurs="0" name="concentration_12" type="concentration" />
+      <xs:element minOccurs="0" name="concentration_13" type="concentration" />
+      <xs:element minOccurs="0" name="concentration_14" type="concentration" />
+      <xs:element minOccurs="0" name="concentration_15" type="concentration" />
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="solar_radiation">
+    <xs:all>
+      <xs:element name="solve_solar" default="true" type="trueFalse" />
+      <xs:element name="angle_measured_from" type="axis" />
+      <xs:element name="angle" type="xs:double" />
+      <xs:element name="latitude" type="xs:double" />
+      <xs:element name="day">
+        <xs:simpleType>
+          <xs:restriction base="xs:integer">
+            <xs:minInclusive value="1" />
+            <xs:maxInclusive value="31" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="month">
+        <xs:simpleType>
+          <xs:restriction base="xs:integer">
+            <xs:minInclusive value="1" />
+            <xs:maxInclusive value="12" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="solar_time" type="xs:double" />
+      <xs:element name="solar_type" >
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="solar_intensity" />
+            <xs:enumeration value="cloudiness" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="solar_intensity" type="doubleGTEZero" />
+      <xs:element minOccurs="0" name="cloudiness" type="ratio" />
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="visibilty_paramters">
+    <xs:all>
+      <xs:element name="active_concentration">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="concentration_1" />
+            <xs:enumeration value="concentration_2" />
+            <xs:enumeration value="concentration_3" />
+            <xs:enumeration value="concentration_4" />
+            <xs:enumeration value="concentration_5" />
+            <xs:enumeration value="concentration_6" />
+            <xs:enumeration value="concentration_7" />
+            <xs:enumeration value="concentration_8" />
+            <xs:enumeration value="concentration_9" />
+            <xs:enumeration value="concentration_10" />
+            <xs:enumeration value="concentration_11" />
+            <xs:enumeration value="concentration_12" />
+            <xs:enumeration value="concentration_13" />
+            <xs:enumeration value="concentration_14" />
+            <xs:enumeration value="concentration_15" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="proportionality_constant_type">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="illuminated_signs" />
+            <xs:enumeration value="reflecting_signs" />
+            <xs:enumeration value="user_defined" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="proportionality_constant" type="doubleGTZero" />
+      <xs:element minOccurs="0" name="specific_extinction_coefficient_type">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="smouldering_combustion" />
+            <xs:enumeration value="flaming_combustion" />
+            <xs:enumeration value="user_defined" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="specific_extinction_coefficient" type="doubleGTZero" />
+      <xs:element minOccurs="0" name="maximum_visibility_distance" type="doubleGTZero" />
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="modeling">
+    <xs:all>
+      <xs:element minOccurs="0" name="solution">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="flow_heat" />
+            <xs:enumeration value="flow_only" />
+            <xs:enumeration value="conduction_only" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="dimensionality">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="2d" />
+            <xs:enumeration value="3d" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="solar_radiation" type="solar_radiation" />    
+      <xs:element minOccurs="0" name="radiation">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="off" />
+            <xs:enumeration value="on" />
+            <xs:enumeration value="high_accuracy" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="joule_heating" type="trueFalse" />
+      <xs:element minOccurs="0" name="transient" type="trueFalse" />
+      <xs:element minOccurs="0" name="store_mass_flux" type="trueFalse" />
+      <xs:element minOccurs="0" name="store_heat_flux" type="trueFalse" />
+      <xs:element minOccurs="0" name="store_surface_temp" type="trueFalse" />
+      <xs:element minOccurs="0" name="store_grad_t" type="trueFalse" />
+      <xs:element minOccurs="0" name="store_bn_sc" type="trueFalse" />
+      <xs:element minOccurs="0" name="store_power_density" type="trueFalse" />
+      <xs:element minOccurs="0" name="store_mean_radiant_temperature" type="trueFalse" />
+      <xs:element minOccurs="0" name="concentrations" type="concentrations" />
+      <xs:element minOccurs="0" name="compute_capture_index" type="trueFalse" />
+      <xs:element minOccurs="0" name="user_defined_subgroups" type="trueFalse" />
+      <xs:element minOccurs="0" name="store_lma" type="trueFalse" />
+      <xs:element minOccurs="0" name="recirculation_ratio" type="ratio" />
+      <xs:element minOccurs="0" name="store_visibility" type="trueFalse" />
+      <xs:element minOccurs="0" name="visibility_distance_parameters" type="visibilty_paramters" />
+    </xs:all>
+  </xs:complexType>
+
+
+  <xs:simpleType name="variable_option">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="automatic" />
+      <xs:enumeration value="selected_solution" />
+      <xs:enumeration value="user_specified" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="variable_field_value">
+    <xs:all>
+      <xs:element name="type" type="variable_option" />
+      <xs:element minOccurs="0" name="value" type="xs:double" />
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="model_initial_variables">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="initial_solution_name" type="xs:string" />
+      <xs:element minOccurs="0" name="initial_solution_id" type="xs:string" />
+      <xs:element minOccurs="0" name="use_initial_for_all" type="trueFalse" />
+      <xs:element minOccurs="0" name="pressure" type="variable_field_value" />
+      <xs:element minOccurs="0" name="x_velocity" type="variable_field_value" />
+      <xs:element minOccurs="0" name="y_velocity" type="variable_field_value" />
+      <xs:element minOccurs="0" name="z_velocity" type="variable_field_value" />
+      <xs:element minOccurs="0" name="temperature" type="variable_field_value" />
+      <xs:element minOccurs="0" name="ke_turb" type="variable_field_value" />
+      <xs:element minOccurs="0" name="diss_turb" type="variable_field_value" />
+      <xs:element minOccurs="0" name="turb_vis" type="variable_field_value" />
+      <xs:element minOccurs="0" name="concentration_1" type="variable_field_value" />
+      <xs:element minOccurs="0" name="concentration_2" type="variable_field_value" />
+      <xs:element minOccurs="0" name="concentration_3" type="variable_field_value" />
+      <xs:element minOccurs="0" name="concentration_4" type="variable_field_value" />
+      <xs:element minOccurs="0" name="concentration_5" type="variable_field_value" />
+      <xs:element minOccurs="0" name="concentration_6" type="variable_field_value" />
+      <xs:element minOccurs="0" name="concentration_7" type="variable_field_value" />
+      <xs:element minOccurs="0" name="concentration_8" type="variable_field_value" />
+      <xs:element minOccurs="0" name="concentration_9" type="variable_field_value" />
+      <xs:element minOccurs="0" name="concentration_10" type="variable_field_value" />
+      <xs:element minOccurs="0" name="concentration_11" type="variable_field_value" />
+      <xs:element minOccurs="0" name="concentration_12" type="variable_field_value" />
+      <xs:element minOccurs="0" name="concentration_13" type="variable_field_value" />
+      <xs:element minOccurs="0" name="concentration_14" type="variable_field_value" />
+      <xs:element minOccurs="0" name="concentration_15" type="variable_field_value" />
+      <xs:element minOccurs="0" name="density" type="variable_field_value" />
+      <xs:element minOccurs="0" name="potential" type="variable_field_value" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="turbulence">
+    <xs:all>
+      <xs:element minOccurs="0" name="type">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="laminar" />
+            <xs:enumeration value="turbulent" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="turbulence_type">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="revised_algebraic" />
+            <xs:enumeration value="auto_algebraic" />
+            <xs:enumeration value="lvel_k_epsilon" />
+            <xs:enumeration value="lvel_algebraic" />
+            <xs:enumeration value="capped_lvel" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="revised_algebraic">
+        <xs:complexType>
+          <xs:all>
+            <xs:element name="velocity" type="doubleGTEZero" />
+            <xs:element name="length" type="doubleGTEZero" />
+          </xs:all>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="lvel_k_epsilon_stratification" type="trueFalse" />
+      <xs:element minOccurs="0" name="capped_lvel_multiplier" type="doubleGTEZero" />
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="global">
+    <xs:all>
+      <xs:element minOccurs="0" name="datum_pressure" type="xs:double"/>
+      <xs:element minOccurs="0" name="radiant_temperature" type="xs:double"/>
+      <xs:element minOccurs="0" name="ambient_temperature" type="xs:double"/>
+      <xs:element minOccurs="0" name="ambient_transient" type="xs:string"/>
+      <xs:element minOccurs="0" name="radiant_transient" type="xs:string"/>
+      <xs:element minOccurs="0" name="concentration_1" type="doubleGTEZero"/>
+      <xs:element minOccurs="0" name="concentration_2" type="doubleGTEZero"/>
+      <xs:element minOccurs="0" name="concentration_3" type="doubleGTEZero"/>
+      <xs:element minOccurs="0" name="concentration_4" type="doubleGTEZero"/>
+      <xs:element minOccurs="0" name="concentration_5" type="doubleGTEZero"/>
+      <xs:element minOccurs="0" name="concentration_6" type="doubleGTEZero" />
+      <xs:element minOccurs="0" name="concentration_7" type="doubleGTEZero" />
+      <xs:element minOccurs="0" name="concentration_8" type="doubleGTEZero" />
+      <xs:element minOccurs="0" name="concentration_9" type="doubleGTEZero" />
+      <xs:element minOccurs="0" name="concentration_10" type="doubleGTEZero" />
+      <xs:element minOccurs="0" name="concentration_11" type="doubleGTEZero" />
+      <xs:element minOccurs="0" name="concentration_12" type="doubleGTEZero" />
+      <xs:element minOccurs="0" name="concentration_13" type="doubleGTEZero" />
+      <xs:element minOccurs="0" name="concentration_14" type="doubleGTEZero" />
+      <xs:element minOccurs="0" name="concentration_15" type="doubleGTEZero" />
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="overall_control">
+    <xs:all>
+      <xs:element minOccurs="0" name="solver_option">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="multi_grid" />
+            <xs:enumeration value="segregated_conjugate_residual" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name ="outer_iterations" type="xs:positiveInteger" />
+      <xs:element minOccurs="0" name="fan_relaxation" type="ratio" />
+      <xs:element minOccurs="0" name ="active_plate_conduction" type="trueFalse" />
+      <xs:element minOccurs="0" name ="use_double_precision" type="trueFalse" />
+      <xs:element minOccurs="0" name ="multi_grid_damping" type="trueFalse" />
+      <xs:element minOccurs="0" name ="network_assembly_block_correction" type="trueFalse" />
+      <xs:element minOccurs="0" name ="freeze_flow" type="trueFalse" />
+      <xs:element minOccurs="0" name ="store_error_field" type="trueFalse" />
+      <xs:element minOccurs="0" name ="error_field_variable" type="variable_types" />
+      <xs:element minOccurs="0" name ="monitor_convergence" type="trueFalse" />
+      <xs:element minOccurs="0" name ="monitor_point_transient_termination_criteria" type="monitor_point_transient_termination_criteria" />
+      <xs:element minOccurs="0" name ="convergence_values" type="monitor_point_convergence" />
+      <xs:element minOccurs="0" name ="estimated_free_convection_velocity" type="doubleGTZero" />
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="monitor_point_convergence" >
+    <xs:all>
+      <xs:element minOccurs="0" name ="required_accuracy" type="doubleGTEZero" />
+      <xs:element minOccurs="0" name ="num_iterations" type="xs:positiveInteger" />
+      <xs:element minOccurs="0" name ="residual_threshold" type="doubleGTZero" />
+    </xs:all>
+  </xs:complexType>
+    
+  <xs:complexType name="monitor_point_transient_termination_criteria" >
+    <xs:sequence>
+      <xs:element minOccurs="0" name ="use_monitor_point_transient_termination_criteria" type="trueFalse" />
+      <xs:element minOccurs="0" name ="terminating_monitor_points" type="terminating_monitor_points" />
+    </xs:sequence>
+  </xs:complexType>
+    
+  <xs:complexType name="terminating_monitor_points" >
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name ="terminating_monitor_point" type="monitor_transient_termination" />
+    </xs:sequence>
+  </xs:complexType>
+    
+  <xs:complexType name="monitor_transient_termination" >
+    <xs:sequence>
+      <xs:element minOccurs="1" name ="monitor_point" type="xs:string" />
+      <xs:element minOccurs="1" name ="temperature" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="system_grid">
+    <xs:all>
+      <xs:element minOccurs="0" name="smoothing" type="trueFalse" />
+      <xs:element minOccurs="0" name="smoothing_type" >
+        <xs:simpleType>
+          <xs:restriction base="xs:string" >
+            <xs:enumeration value="v2" />
+            <xs:enumeration value="v3" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="x_grid" type="system_grid_direction" />
+      <xs:element minOccurs="0" name="y_grid" type="system_grid_direction" />
+      <xs:element minOccurs="0" name="z_grid" type="system_grid_direction" />
+      <xs:element minOccurs="0" name="dynamic_update" type="trueFalse" />
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name ="system_grid_direction">
+    <xs:all>
+      <xs:element minOccurs="1" name="min_size" type="doubleGTEZero" />
+      <xs:element minOccurs="0" name="grid_type">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="min_number" />
+            <xs:enumeration value="max_size" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="min_number" type="xs:positiveInteger" />
+      <xs:element minOccurs="0" name="max_size" type="doubleGTZero" />
+      <xs:element minOccurs="0" name="smoothing_value">
+        <xs:simpleType>
+          <xs:restriction base="xs:integer">
+            <xs:minInclusive value="0" />
+            <xs:maxInclusive value="50" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="grid_patch">
+    <xs:all>
+      <xs:element name="name" type="xs:string" />
+      <xs:element name="applies_to" type="direction" />
+      <xs:element name="start_location" type="xs:double" />
+      <xs:element name="end_location" type="xs:double" />
+      <xs:element minOccurs="0" name="number_of_cells_control">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="additional_cells" />
+            <xs:enumeration value="min_number" />
+            <xs:enumeration value="max_size" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="additional_cells" >
+        <xs:simpleType>
+          <xs:restriction base="xs:integer">
+            <xs:minInclusive value="0" />
+            <xs:maxInclusive value="32767" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="min_number" type="xs:positiveInteger" />
+      <xs:element minOccurs="0" name="max_size" type="doubleGTZero" />
+      <xs:element minOccurs="0" name="cell_distribution">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="uniform" />
+            <xs:enumeration value="increasing" />
+            <xs:enumeration value="decreasing" />
+            <xs:enumeration value="symmetrical" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="cell_distribution_index" type="xs:double" />
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="grid_patches">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="grid_patch" type="grid_patch" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="step_control">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="additional_steps" />
+      <xs:enumeration value="minimum_number" />
+      <xs:enumeration value="maximum_size" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="step_distribution">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="uniform" />
+      <xs:enumeration value="increasing_power" />
+      <xs:enumeration value="decreasing_power" />
+      <xs:enumeration value="symmetrical_power" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="time_patch">
+    <xs:all>
+      <xs:element minOccurs="1" name="name" type="xs:string" />
+      <xs:element minOccurs="1" name="start_time" type="doubleGTEZero" />
+      <xs:element minOccurs="1" name="end_time" type="doubleGTEZero" />
+      <xs:element minOccurs="0" name="step_control" type="step_control" />
+      <xs:element minOccurs="0" name="additional_steps" type="xs:nonNegativeInteger" />
+      <xs:element minOccurs="0" name="minimum_number" type="xs:positiveInteger" />
+      <xs:element minOccurs="0" name="maximum_size" type="doubleGTZero" />
+      <xs:element minOccurs="0" name="step_distribution" type="step_distribution" />
+      <xs:element minOccurs="0" name="distribution_index" type="doubleGTZero" />
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="time_patches">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="time_patch" type="time_patch" />
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="transient">
+    <xs:all>
+      <xs:element minOccurs="0" name="overall_transient" type="overall_transient" />
+      <xs:element minOccurs="0" name="transient_save_times" type="transient_save_times" />
+      <xs:element minOccurs="0" name="time_patches" type="time_patches" /> 
+    </xs:all>
+  </xs:complexType>
+                  
+
+  <xs:complexType name="overall_transient">
+    <xs:all>
+      <xs:element name="start_time" type="doubleGTEZero" />
+      <xs:element name="end_time" type="doubleGTEZero" />
+      <xs:element name="duration" type="doubleGTEZero" />
+      <xs:element name="keypoint_tolerance" type="doubleGTEZero" />
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="transient_save_times">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" name="save_time" type="doubleGTEZero" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="solution_control_type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="automatic" />
+      <xs:enumeration value="user" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="false_timestep_damping_auto_multiplier">
+    <xs:restriction base="xs:double">
+      <xs:maxInclusive value="20.0" />
+      <xs:minInclusive value="-20.0" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="terminal_residual_auto_multiplier">
+    <xs:restriction base="xs:double">
+      <xs:maxInclusive value="10.0" />
+      <xs:minInclusive value="-20.0" />
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:complexType name="variable_solution_control">
+    <xs:all>
+      <xs:element name="variable" type="variable_types" />
+      <xs:element minOccurs="0" name="false_time_step" type="solution_control_type" />
+      <xs:element minOccurs="0" name="false_time_step_damping_auto_multiplier">
+        <xs:simpleType>
+          <xs:restriction base="xs:double">
+            <xs:maxInclusive value="20.0" />
+            <xs:minInclusive value="-20.0" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="false_time_step_user_value" type="doubleGTZero" />
+      <xs:element minOccurs="0" name="terminal_residual" type="solution_control_type" />
+      <xs:element minOccurs="0" name="terminal_residual_auto_multiplier">
+        <xs:simpleType>
+          <xs:restriction base="xs:double">
+            <xs:maxInclusive value="10.0" />
+            <xs:minInclusive value="-20.0" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="terminal_residual_user_value" type="doubleGTZero" />
+      <xs:element minOccurs="0" name="inner_iterations" type="xs:positiveInteger" />  
+    </xs:all>
+  </xs:complexType>
+
+
+  <xs:complexType name="variable_controls">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="variable_control" type="variable_solution_control"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="additional_solver_control">
+    <xs:all>
+      <xs:element name="variable" type="additional_variable_types" />
+      <xs:element name="linear_relaxation" type="ratio" />
+      <xs:element name="error_compute_frequency">
+        <xs:simpleType>
+          <xs:restriction base="xs:nonNegativeInteger" >
+            <xs:maxInclusive value="32767" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element> 
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="solver_controls">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="solver_control" type="additional_solver_control"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
