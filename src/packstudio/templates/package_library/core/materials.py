@@ -1,3 +1,4 @@
+from collections.abc import Sequence
 from functools import lru_cache
 from pathlib import Path
 
@@ -51,7 +52,10 @@ def material_id_for_name(name: str) -> str:
     return min(matches, key=lambda identifier: (len(identifier), identifier))
 
 
-def material(identifier: str) -> Material:
+def material(identifier: str, custom_materials: Sequence[Material] = ()) -> Material:
+    for item in reversed(custom_materials):
+        if item.id == identifier:
+            return item
     try:
         return production_materials()[identifier]
     except KeyError as error:

@@ -5,9 +5,12 @@ from math import pi
 from packstudio.domain.materials import ConductivityTensor, Material
 from packstudio.preset_catalog import PresetCatalog
 from packstudio.templates.package_library.core.definitions import TemplateValues
+from packstudio.templates.package_library.core.leadframe_materials import leadframe_materials
 from packstudio.templates.package_library.core.materials import material_id_for_name
+from packstudio.templates.package_library.core.mixtures import mix_material
 from packstudio.templates.package_library.core.parameters import TemplateRequest
 from packstudio.templates.package_library.core.source_ball_pattern import source_ball_count
+from packstudio.templates.package_library.core.wirebond_copper import wirebond_copper
 
 
 def coupled_materials(
@@ -51,7 +54,7 @@ def coupled_materials(
     elif template_id == "pqfp":
         count = values.integer("bond_wire.count")
         perimeter = 2 * (die_length + die_width)
-        vertical = (
+        vertical = abs(
             values.number("die.thickness")
             + values.number("die.attach")
             - values.number("flag.downset")
@@ -95,12 +98,13 @@ def coupled_materials(
     result = []
     for axis, fraction in fractions.items():
         identifier = f"{prefix}-bondwire-{axis}"
-        result.append(_mixture(available[identifier], wire, matrix, fraction, {axis, "z"}))
+        result.append(mix_material(available[identifier], wire, matrix, fraction, {axis, "z"}))
     if template_id in {"pqfp", "sop"}:
+        result.extend(leadframe_materials(template_id, values, request, available))
         metal = component("group-die-flag")
         fraction = values.number("flag.coverage") / 100
         result.append(
-            _mixture(
+            mix_material(
                 available[f"{template_id}-die-flag"],
                 metal,
                 matrix,
@@ -109,6 +113,9 @@ def coupled_materials(
                 include_matrix_conductivity=False,
             )
         )
+    if template_id == "pbga_wb":
+        branch = PresetCatalog().read_branch(values.text("footprint.size"))
+        result.extend(wirebond_copper(branch, request, available))
     if template_id in {"chip_array", "pbga_wb"} and values.boolean("vias.enabled"):
         branch = PresetCatalog().read_branch(values.text("footprint.size"))
         name = branch["groups"]["metalLayers"]["properties"]["materialOfMetal"]["value"]
@@ -121,7 +128,7 @@ def coupled_materials(
             if branch["groups"]["vias"]["properties"]["filledVias"]["value"] == "yes":
                 fraction = 1
             result.append(
-                _mixture(
+                mix_material(
                     available["chip-array-via"],
                     metal,
                     available["static-air"],
@@ -145,39 +152,3 @@ def coupled_materials(
                 )
             )
     return result
-
-
-def _mixture(
-    original: Material,
-    metal: Material,
-    matrix: Material,
-    fraction: float,
-    parallel_axes: set[str],
-    *,
-    include_matrix_conductivity: bool = True,
-) -> Material:
-    if not 0 <= fraction <= 1:
-        raise ValueError(f"{original.id} metal volume fraction must be within [0, 1]")
-    density = fraction * metal.density + (1 - fraction) * matrix.density
-    specific_heat = (
-        fraction * metal.density * metal.specific_heat
-        + (1 - fraction) * matrix.density * matrix.specific_heat
-    ) / density
-    conductivity = {}
-    for axis in "xyz":
-        matrix_k = getattr(matrix.conductivity, axis)
-        conductivity[axis] = (
-            fraction * getattr(metal.conductivity, axis)
-            + ((1 - fraction) * matrix_k if include_matrix_conductivity else 0)
-            if axis in parallel_axes
-            else matrix_k
-        )
-    return original.model_copy(
-        update={
-            "conductivity": ConductivityTensor(**conductivity),
-            "density": density,
-            "specific_heat": specific_heat,
-            "source": f"PACK derived mixture; metal={metal.id}; matrix={matrix.id}; "
-            f"volume_fraction={fraction:.16g}",
-        }
-    )

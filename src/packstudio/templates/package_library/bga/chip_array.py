@@ -175,6 +175,7 @@ def _build(values: TemplateValues, request: TemplateRequest) -> BuiltTemplate:
         values,
         request.bga or BgaConfiguration(representation="discrete"),
         base_z=0,
+        custom_materials=request.custom_materials,
     )
     return BuiltTemplate(
         drafts=drafts,

@@ -72,7 +72,7 @@ def generate_template(
         boundaries=[],
         metadata={
             "implementation": "packstudio-native",
-            "template_version": "2.1",
+            "template_version": "2.2",
             "reference_basis": "versioned JSON defaults with reviewed FloTHERM PACK 2504 mappings",
             "default_parameter_schema": "packstudio.default-parameters/v1",
             "reference_geometry_status": "baseline-and-mapped-single-variable-transcription",
@@ -101,7 +101,17 @@ def _apply_material_assignments(
     return [
         block
         if block.material_id in derived_ids
-        and block.parent_group_id in {"group-bond-wires", "group-die-flag", "group-vias"}
+        and (
+            block.parent_group_id
+            in {
+                "group-bond-wires",
+                "group-die-flag",
+                "group-vias",
+                "group-lead-frame",
+                "group-traces",
+            }
+            or (block.parent_group_id == "group-tie-bars" and block.material_id == "pqfp-tie-bar")
+        )
         else block.model_copy(
             update={
                 "material_id": request.material_assignments.get(

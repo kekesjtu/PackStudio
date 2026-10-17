@@ -1,8 +1,11 @@
+import json
 from dataclasses import replace
 from pathlib import Path
+from zipfile import ZipFile
 
 import pytest
 
+from tools.floxml_validation.classification import classify
 from tools.floxml_validation.compare import compare
 from tools.floxml_validation.partition import overlap_volume, partition, totals
 from tools.floxml_validation.reader import Box, Document, read
@@ -71,3 +74,28 @@ def test_reader_accumulates_nested_translations_and_inherits_material(tmp_path: 
     path.write_text(path.read_text().replace("<name>c</name>", "<name>c</name><orientation/>"))
     with pytest.raises(ValueError, match="orientation"):
         read(path)
+
+
+def test_sop_solid_tie_bars_are_not_confused_with_mixed_lead_envelopes():
+    evidence = Path(__file__).parents[2] / "docs/validation/floxml/evidence.zip"
+    with ZipFile(evidence) as archive:
+        details = json.loads(archive.read("cases/sop-baseline/comparison.json"))
+    classify({"id": "sop-baseline", "kind": "baseline", "template": "sop"}, details)
+    rows = details["normalized"]["differences"]
+    bars = [r for r in rows if "/group-tie-bars/" in r["packstudio_path"]]
+    leads = [r for r in rows if "/group-lead-frame/" in r["packstudio_path"]]
+    assert bars and leads
+    assert all(r["attribution"] == "P3-sop-solid-metal-tie-bar" for r in bars)
+    assert all(r["attribution"] == "F1-equivalent-metal-overwritten" for r in leads)
+
+
+def test_corrected_normal_bump_value_does_not_label_in_plane_model_choice_as_defect():
+    evidence = Path(__file__).parents[2] / "docs/validation/floxml/evidence.zip"
+    with ZipFile(evidence) as archive:
+        details = json.loads(archive.read("cases/fc-solder-edit/comparison.json"))
+    for row in details["normalized"]["differences"]:
+        row["property_differences"].pop("kz")
+    findings = classify(
+        {"id": "fc-solder-edit", "template": "pbga_fc", "kind": "constituent_material"}, details
+    )
+    assert all(f["category"] != "confirmed_implementation_defect" for f in findings)

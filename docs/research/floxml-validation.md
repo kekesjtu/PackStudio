@@ -1,5 +1,8 @@
 # FloXML 导出与 PACK 自动差异验证
 
+后续状态：F1/F2/F3 已在模型 2.2 修复，见 [专项修复与结论](model-fixes-2026-10-17.md)。
+本文及其原证据保留修复前的历史状态。
+
 2026-10-17。结果见 [自动报告](../validation/floxml/report.md)、
 [机器结果](../validation/floxml/results.json)、[完整证据包](../validation/floxml/evidence.zip)。
 导出功能提交 `6824c99`；验证器版本由结果中的源文件 SHA-256 定位。

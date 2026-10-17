@@ -27,13 +27,17 @@ def definition() -> TemplateDefinition:
     )
 
 
-def _build(values: TemplateValues, _request: TemplateRequest) -> BuiltTemplate:
+def _build(values: TemplateValues, request: TemplateRequest) -> BuiltTemplate:
     length = values.number("die.length")
     width = values.number("die.width")
     thickness = values.number("die.thickness")
     flipped = values.boolean("die.flipped")
     bumped = values.boolean("bumps.enabled")
-    bump_layer = build_flip_chip_layer(values, length, width, 0) if bumped else None
+    bump_layer = (
+        build_flip_chip_layer(values, length, width, 0, custom_materials=request.custom_materials)
+        if bumped
+        else None
+    )
     die_z = values.number("bumps.height") if bumped else 0
     return BuiltTemplate(
         drafts=[

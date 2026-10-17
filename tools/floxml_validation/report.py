@@ -104,6 +104,12 @@ def publish(archive_output, native_output, destination):
                     raise ValueError(f"export changed: {case['id']}")
                 archive.write(path, f"{prefix}/packstudio.floxml")
                 details = _load(directory / "comparison.json")
+                native_materials = read(native_path).materials
+                details["native_material_cautions"] = {
+                    name: {"density": p[3], "specific_heat": p[4]}
+                    for name, p in native_materials.items()
+                    if p[3] <= 1 or p[4] <= 1
+                }
                 details["sources"]["pack"] = read(native_path).sources
                 details["sources"]["packstudio"] = read(path).sources
                 left_power = sum(s["power_w"] for s in details["sources"]["pack"])
@@ -179,6 +185,8 @@ def publish(archive_output, native_output, destination):
         "coverage": dict(Counter(c["kind"] for c in cases)),
         "limitations": LIMITATIONS,
         "source_sha256": source_hashes,
+        "source_revision_scope": "source_commit is HEAD at execution; source hashes identify the "
+        "working-tree source, including changes awaiting commit.",
         "source_normalized_sha256": {
             name: hashlib.sha256((ROOT / name).read_bytes().replace(b"\r\n", b"\n")).hexdigest()
             for name in source_hashes
@@ -260,7 +268,7 @@ def _markdown(result, path):
         "- 所有成功导出通过安装 XSD 与逐块坐标、材料绑定、张量、密度、比热、功率回读。",
         "- 原生 collapsed 实体、求解重叠优先级、实际导入与求解精度仍属证据边界。",
         "- 不覆盖全部 346 规格的笛卡尔积；离散/去球组合的完整 PACK 对照仍待扩展。",
-        "- 既有 F1/F2/F3 模型缺陷已分类保留，本任务未改写生产建模算法。",
+        "- 已知问题的修复与剩余差异，以本次实际分类、专项说明及独立公式检查为准。",
         "",
         "方法、中文归因和复现命令见 [验证说明](../../research/floxml-validation.md)。",
         "",

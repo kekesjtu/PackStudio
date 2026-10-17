@@ -1,7 +1,9 @@
+from collections.abc import Sequence
 from math import ceil, sqrt
 
 from packstudio.domain.enums import StructureType
 from packstudio.domain.geometry import AxisAlignedBlock, Point3D, Size3D
+from packstudio.domain.materials import Material
 from packstudio.templates.cbga_fc.equivalent import create_equivalent_material
 from packstudio.templates.package_library.core.builds import LayerBuild
 from packstudio.templates.package_library.core.definitions import TemplateValues
@@ -13,6 +15,8 @@ def build_flip_chip_layer(
     footprint_x: float,
     footprint_y: float,
     base_z: float,
+    *,
+    custom_materials: Sequence[Material] = (),
 ) -> LayerBuild:
     total = values.integer("bumps.total")
     diameter = values.number("bumps.diameter")
@@ -21,8 +25,8 @@ def build_flip_chip_layer(
     cell_area = footprint_x * footprint_y / total
     pitch_x = footprint_x / columns
     pitch_y = cell_area / pitch_x
-    solder = material("solder-pb90")
-    underfill = material("underfill")
+    solder = material("solder-pb90", custom_materials)
+    underfill = material("underfill", custom_materials)
     equivalent, properties = create_equivalent_material(
         material_id="flip-chip-bumps-equivalent",
         name="Flip-chip bumps + underfill orthotropic equivalent",

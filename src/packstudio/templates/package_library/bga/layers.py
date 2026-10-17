@@ -1,3 +1,4 @@
+from collections.abc import Sequence
 from math import pi
 
 from packstudio.domain.enums import StructureType
@@ -16,14 +17,15 @@ def build_bga_layer(
     configuration: BgaConfiguration,
     *,
     base_z: float = 0,
+    custom_materials: Sequence[Material] = (),
 ) -> LayerBuild:
     rows = values.integer("bga.rows")
     columns = values.integer("bga.columns")
     pitch = values.number("bga.pitch")
     diameter = values.number("bga.diameter")
     height = values.number("bga.height")
-    solder = material("solder-sn63")
-    air = material("static-air")
+    solder = material("solder-sn63", custom_materials)
+    air = material("static-air", custom_materials)
     parameters = SolderBallParameters(
         rows=rows,
         columns=columns,

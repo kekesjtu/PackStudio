@@ -62,6 +62,11 @@ def _build(values: TemplateValues, _request: TemplateRequest) -> BuiltTemplate:
     gap_x = values.number("leads.gap_x")
     gap_y = values.number("leads.gap_y")
     diameter = values.number("bond_wire.diameter")
+    lead_top = lead_z + lead_thickness
+    die_above_leads = die_top >= lead_top
+    wire_height = abs(die_top - lead_top)
+    if wire_height < 1e-12:
+        wire_height = 0
     _validate(values)
 
     drafts = [
@@ -102,13 +107,13 @@ def _build(values: TemplateValues, _request: TemplateRequest) -> BuiltTemplate:
             die_width,
             flag_length / 2 + gap_x,
             flag_width / 2 + gap_y,
-            flag_length / 2 + gap_x,
-            flag_width / 2 + gap_y,
+            flag_length / 2 + gap_x if die_above_leads else die_length / 2 - diameter,
+            flag_width / 2 + gap_y if die_above_leads else die_width / 2 - diameter,
             die_width,
             die_length,
-            die_top - diameter,
-            lead_z + lead_thickness,
-            die_top - lead_z - lead_thickness,
+            max(die_top, lead_top) - diameter,
+            min(die_top, lead_top),
+            wire_height,
             diameter,
             "pqfp-bondwire-x",
             "pqfp-bondwire-y",

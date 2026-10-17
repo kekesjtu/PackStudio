@@ -147,6 +147,11 @@ def compare(native, exported, drafts, draft_materials):
             "modeling choices; equal total power does not prove equal temperature fields.",
         },
         "native_temperature_materials": native.temperature_materials,
+        "native_material_cautions": {
+            name: {"density": p[3], "specific_heat": p[4]}
+            for name, p in native.materials.items()
+            if p[3] <= 1 or p[4] <= 1
+        },
         "native_collapsed_solids": native.collapsed_solids,
         "native_nonphysical_entities": native.nonphysical_entities,
         "raw_summed_volume_is_not_physical_total": True,

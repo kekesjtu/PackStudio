@@ -11,13 +11,18 @@ def classify(case, details):
 
     for difference in details["normalized"]["differences"]:
         roles = {difference["pack_role"], difference["packstudio_role"]}
-        if case["kind"] == "constituent_material":
+        bump_in_plane_choice = "flip_chip_bump" in roles and set(
+            difference["property_differences"]
+        ) <= {"kx", "ky"}
+        if case["kind"] == "constituent_material" and not bump_in_plane_choice:
             category, reason = "confirmed_implementation_defect", "F2-constituent-edit-propagation"
         elif case["id"] == "qfp-small-height" and roles == {"encapsulant", "bond_wire"}:
             category, reason = (
                 "physically_supported_implementation",
                 "P1-small-height-wire-segments",
             )
+        elif case["template"] == "sop" and "/group-tie-bars/" in difference["packstudio_path"]:
+            category, reason = "physically_supported_implementation", "P3-sop-solid-metal-tie-bar"
         elif "lead_frame" in roles and case["template"] in {"pqfp", "sop"}:
             category, reason = "confirmed_implementation_defect", "F1-equivalent-metal-overwritten"
         elif "flip_chip_bump" in roles:
@@ -42,22 +47,14 @@ def classify(case, details):
                 {"region_count": len(selected)},
                 "confirmed_existing" if reason.startswith("F") else "documented_or_open",
             )
-    if case["kind"] == "constituent_material":
+    if case["kind"] == "constituent_material" and case["template"] in {"cbga_fc", "pbga_fc"}:
         add(
-            "confirmed_implementation_defect",
-            "F2-constituent-edit-propagation",
-            "Native material and DES readback verified; compare final regions to edited input. "
-            "Project baseline sensitivity is reported separately.",
-            "confirmed_existing",
+            "explicit_functional_choice",
+            "C1-volumetric-orthotropic-bumps",
+            "In-plane native scalar versus project tensor also reflects the declared network; "
+            "Constituent sensitivity and normal conductivity are checked independently.",
+            "documented",
         )
-        if case["template"] in {"cbga_fc", "pbga_fc"}:
-            add(
-                "explicit_functional_choice",
-                "C1-volumetric-orthotropic-bumps",
-                "In-plane native scalar versus project tensor also reflects the declared network; "
-                "F2 is independently established by missing constituent sensitivity and kz.",
-                "documented",
-            )
     extra = details["raw"]["unmatched_packstudio"]
     unexpected = [
         b
@@ -102,6 +99,13 @@ def classify(case, details):
             "C4-reference-temperature-constant",
             details["native_temperature_materials"],
             "documented",
+        )
+    if details.get("native_material_cautions"):
+        add(
+            "inherited_pack_physical_risk",
+            "R3-low-native-density-or-specific-heat",
+            details["native_material_cautions"],
+            "verify_material_data_before_engineering_use",
         )
     if case["template"] in {"chip_array", "sop"}:
         add(
