@@ -97,7 +97,7 @@ describe('source presets', () => {
     expect(screen.getByLabelText('Package Type')).toHaveValue('mqfp')
     expect(screen.getByLabelText('源规格')).toHaveValue('source')
     expect(screen.getByLabelText('芯片长度')).toHaveValue(2)
-    expect(screen.getByLabelText('芯片材料')).toHaveValue('gold')
+    expect(screen.getByRole('combobox', { name: '芯片材料' })).toHaveTextContent('gold')
     expect(next.material_assignments).toEqual({})
   })
 })

@@ -2,8 +2,6 @@ import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
 
 import NumberInput from './NumberInput'
-import materialQuality from './materialQuality'
-import MaterialQualityWarning from './MaterialQualityWarning'
 import type { Material } from './types'
 
 interface MaterialFieldsProps {
@@ -17,7 +15,6 @@ export default function MaterialFields({
   onChange,
   showTitle = true,
 }: MaterialFieldsProps) {
-  const issue = materialQuality(material)
   const updateConductivity = (axis: 'x' | 'y' | 'z', value: number | null) => {
     onChange({
       ...material,
@@ -28,7 +25,6 @@ export default function MaterialFields({
   return (
     <Box className="material-fields">
       {showTitle && <Typography variant="subtitle2">{material.name}</Typography>}
-      <MaterialQualityWarning issues={issue ? [issue] : []} />
       <Box className="field-grid field-grid-3">
         <NumberInput
           label="kx"

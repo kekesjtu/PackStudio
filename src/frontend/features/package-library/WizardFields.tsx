@@ -3,8 +3,7 @@ import FormControlLabel from '@mui/material/FormControlLabel'
 import Stack from '@mui/material/Stack'
 import Switch from '@mui/material/Switch'
 import TextField from '@mui/material/TextField'
-import materialQuality from '../model-editor/materialQuality'
-import MaterialQualityWarning from '../model-editor/MaterialQualityWarning'
+import MaterialSelect from './MaterialSelect'
 
 import { fieldValues, filterFootprints, isVisible, matches, valueFor } from './wizardValues'
 import updateWizardRequest from './updateWizardRequest'
@@ -48,20 +47,15 @@ export default function WizardFields({
       {step.fields.map((field) => {
         if (!isVisible(field, labelValues)) return null
         const enabled = field.editable && matches(field.enabled_when, labelValues)
-        const material = field.control === 'material'
-          ? available.get(String(valueFor(field, request, allFields))) : undefined
-        const issue = material && materialQuality(material)
         return (
-          <Stack key={field.target_id} spacing={1}>
-            <Field
-              field={filterFootprints(field, allFields, request)}
-              value={valueFor(field, request, allFields)}
-              enabled={enabled}
-              materials={[...available.values()]}
-              onChange={(value) => update(field, value)}
-            />
-            {issue && <MaterialQualityWarning issues={[issue]} />}
-          </Stack>
+          <Field
+            key={field.target_id}
+            field={filterFootprints(field, allFields, request)}
+            value={valueFor(field, request, allFields)}
+            enabled={enabled}
+            materials={[...available.values()]}
+            onChange={(value) => update(field, value)}
+          />
         )
       })}
       {step.fields.map((field) => field.preset_notes?.[String(valueFor(field, request, allFields))])
@@ -104,22 +98,7 @@ function Field({
   }
   if (field.control === 'material') {
     return (
-      <TextField
-        select
-        label={field.label}
-        value={value ?? ''}
-        disabled={!enabled}
-        size="small"
-        helperText="选择组件材料；材料物性可在右侧材料库中调整"
-        slotProps={{ select: { native: true } }}
-        onChange={(event) => onChange(event.target.value)}
-      >
-        {field.options.map((option) => (
-          <option key={String(option)} value={String(option)}>
-            {materialName(String(option), materials)}
-          </option>
-        ))}
-      </TextField>
+      <MaterialSelect field={field} value={value} enabled={enabled} materials={materials} onChange={onChange} />
     )
   }
   const numeric = ['number', 'integer', 'integer_spinbox'].includes(field.control)
@@ -166,6 +145,3 @@ function Field({
     </TextField>
   )
 }
-
-const materialName = (identifier: string, materials: Material[]) =>
-  materials.find((material) => material.id === identifier)?.name ?? identifier

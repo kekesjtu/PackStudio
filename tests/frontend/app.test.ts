@@ -226,7 +226,7 @@ describe('eight-template production workspace', () => {
       'aria-valuenow',
       '390',
     )
-    expect(screen.getByLabelText('芯片材料')).toHaveValue('silicon')
+    expect(screen.getByRole('combobox', { name: '芯片材料' })).toHaveTextContent('silicon')
     expect(screen.getByText(/允许范围.*1.62.*1.98/)).toBeInTheDocument()
     expect(screen.getByRole('tab', { name: '材料库' })).toBeInTheDocument()
     fireEvent.click(screen.getByRole('tab', { name: '模型树' }))
