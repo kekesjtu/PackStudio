@@ -55,9 +55,6 @@ export default function MaterialLibraryBrowser({
             label={isotropic ? '各向同性' : '正交各向异性'}
           />
         </Stack>
-        <Typography variant="caption" color="text.secondary">
-          修改会保存为当前方案的材料覆盖值，不会改写 PackStudio 内置材料库。
-        </Typography>
         <Property label="材料 ID" value={selected.id} />
         <FieldShell label="名称">
           <TextField
