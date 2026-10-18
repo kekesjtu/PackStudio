@@ -1,12 +1,11 @@
 import { Bounds } from '@react-three/drei/core/Bounds'
 import { Edges } from '@react-three/drei/core/Edges'
-import { GizmoHelper } from '@react-three/drei/core/GizmoHelper'
-import { GizmoViewport } from '@react-three/drei/core/GizmoViewport'
 import { OrbitControls } from '@react-three/drei/core/OrbitControls'
 import { Canvas, type ThreeEvent } from '@react-three/fiber'
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
 
+import IndustrialGizmo from './IndustrialGizmo'
 import { toNativeXyzBlockTransform } from './previewGeometry'
 import type { AxisAlignedBlock, Material, PackageModel } from './types'
 
@@ -97,15 +96,7 @@ export default function ModelPreview({
           </Bounds>
         )}
         <OrbitControls makeDefault enableDamping />
-        <GizmoHelper alignment="bottom-right" margin={[72, 72]}>
-          <GizmoViewport
-            axisColors={['#e53935', '#43a047', '#1e88e5']}
-            labels={['X', 'Y', 'Z']}
-            labelColor="#ffffff"
-            axisHeadScale={1.05}
-            hideNegativeAxes
-          />
-        </GizmoHelper>
+        <IndustrialGizmo />
       </Canvas>
       {visibleBlocks.length === 0 && (
         <Box className="preview-visibility-note">所有模型均已隐藏</Box>
