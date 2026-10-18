@@ -41,7 +41,7 @@
 
 .material-browser {
   display: grid;
-  grid-template-rows: minmax(150px, 40%) minmax(0, 1fr);
+  grid-template-rows: minmax(150px, 1fr) minmax(0, 1fr);
   gap: 6px;
   height: 100%;
 }
