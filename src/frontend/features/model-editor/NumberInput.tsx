@@ -1,4 +1,5 @@
 import TextField from '@mui/material/TextField'
+import type { FocusEvent } from 'react'
 
 import FieldShell from '../../ui/FieldShell'
 
@@ -38,6 +39,7 @@ export default function NumberInput({
           htmlInput: {
             'aria-label': label,
             step: integer ? 1 : 'any',
+            onFocus: (event: FocusEvent<HTMLInputElement>) => event.currentTarget.select(),
           },
         }}
         fullWidth

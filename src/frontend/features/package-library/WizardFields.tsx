@@ -3,6 +3,7 @@ import FormControlLabel from '@mui/material/FormControlLabel'
 import Stack from '@mui/material/Stack'
 import Switch from '@mui/material/Switch'
 import TextField from '@mui/material/TextField'
+import type { FocusEvent } from 'react'
 
 import FieldShell from '../../ui/FieldShell'
 import MaterialSelect from './MaterialSelect'
@@ -41,11 +42,6 @@ export default function WizardFields({
 
   return (
     <Stack spacing={1.5}>
-      {step.fields.some((field) => field.minimum !== null && field.minimum !== undefined) && (
-        <Alert severity="info" icon={false}>
-          “允许范围”是模板的输入边界，超出时无法生成模型；它不代表仿真结果或精度已经过该区间验证。
-        </Alert>
-      )}
       {step.fields.map((field) => {
         if (!isVisible(field, labelValues)) return null
         const enabled = field.editable && matches(field.enabled_when, labelValues)
@@ -130,6 +126,9 @@ function Field({
             : {
                 htmlInput: {
                   'aria-label': field.label,
+                  ...(numeric
+                    ? { onFocus: (event: FocusEvent<HTMLInputElement>) => event.currentTarget.select() }
+                    : {}),
                   ...(numericValues.length > 1
                     ? { min: Math.min(...numericValues), max: Math.max(...numericValues) }
                     : {}),

@@ -1,0 +1,174 @@
+.solder-matrix {
+  max-height: 300px;
+  overflow: auto;
+  border: 1px solid #aeb8bf;
+  background: #eef1f3;
+  padding: 4px;
+}
+
+.solder-matrix-grid {
+  display: grid;
+  grid-template-columns: 24px repeat(var(--matrix-columns), var(--matrix-cell));
+  grid-template-rows: 14px;
+  grid-auto-rows: var(--matrix-cell);
+  justify-content: center;
+  gap: 2px;
+  width: max-content;
+  min-width: 100%;
+  margin: 0 auto;
+}
+
+.solder-matrix-corner,
+.solder-matrix-column-index,
+.solder-matrix-row-index {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #e4e9ec;
+  color: #63747f;
+  font-family: 'Bahnschrift', 'Consolas', monospace;
+  font-size: 0.56rem;
+  line-height: 1;
+  user-select: none;
+}
+
+.solder-matrix-corner {
+  position: sticky;
+  z-index: 3;
+  top: 0;
+  left: 0;
+  border-right: 1px solid #c3ccd2;
+  border-bottom: 1px solid #c3ccd2;
+  font-size: 0.5rem;
+}
+
+.solder-matrix-column-index {
+  position: sticky;
+  z-index: 2;
+  top: 0;
+  border-bottom: 1px solid #c3ccd2;
+}
+
+.solder-matrix-row-index {
+  position: sticky;
+  z-index: 2;
+  left: 0;
+  border-right: 1px solid #c3ccd2;
+}
+
+.solder-matrix-cell {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 1px solid #b7c2c9;
+  border-radius: 0;
+  background: #fbfcfc;
+  cursor: pointer;
+  appearance: none;
+  place-items: center;
+}
+
+.solder-matrix-cell:hover:not(:disabled) {
+  border-color: #5f8ba6;
+  background: #e3edf3;
+}
+
+.solder-matrix-cell:focus-visible {
+  z-index: 1;
+  outline: 1px solid #2f6f92;
+  outline-offset: 1px;
+}
+
+.solder-matrix-ball {
+  width: 52%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #8aa0ae;
+  box-shadow: inset 0 0 0 1px rgba(22, 42, 54, 0.28);
+}
+
+.solder-matrix-cell[data-state='omitted'] {
+  border-color: #b46a5c;
+  background: #f3dfda;
+}
+
+.solder-matrix-cell[data-state='omitted']:hover:not(:disabled) {
+  border-color: #9c3d30;
+  background: #eed2cb;
+}
+
+.solder-matrix-cell[data-state='omitted'] .solder-matrix-ball {
+  position: relative;
+  width: 62%;
+  aspect-ratio: 1;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.solder-matrix-cell[data-state='omitted'] .solder-matrix-ball::before,
+.solder-matrix-cell[data-state='omitted'] .solder-matrix-ball::after {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: #9c3d30;
+  content: '';
+}
+
+.solder-matrix-cell[data-state='omitted'] .solder-matrix-ball::before {
+  transform: rotate(45deg);
+}
+
+.solder-matrix-cell[data-state='omitted'] .solder-matrix-ball::after {
+  transform: rotate(-45deg);
+}
+
+.solder-matrix-cell[data-state='region'] {
+  border-color: #c3ccd2;
+  background: repeating-linear-gradient(135deg, #e4e8ea 0 3px, #d7dde0 3px 6px);
+  cursor: not-allowed;
+  opacity: 1;
+}
+
+.solder-matrix-cell[data-state='region'] .solder-matrix-ball {
+  opacity: 0.25;
+}
+
+.solder-matrix-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px 10px;
+  margin-top: 5px;
+  color: #65747e;
+  font-size: 0.6rem;
+  line-height: 1.3;
+}
+
+.solder-matrix-legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.solder-matrix-legend i {
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  border: 1px solid #b7c2c9;
+  background: #fbfcfc;
+}
+
+.solder-matrix-legend i[data-kind='omitted'] {
+  border-color: #b46a5c;
+  background: #f3dfda;
+}
+
+.solder-matrix-legend i[data-kind='region'] {
+  border-color: #c3ccd2;
+  background: repeating-linear-gradient(135deg, #e4e8ea 0 2px, #d7dde0 2px 4px);
+}

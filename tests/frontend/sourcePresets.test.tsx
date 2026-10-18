@@ -51,7 +51,7 @@ describe('source presets', () => {
 
   it('clears explicit omissions when removal is switched off', () => {
     const onChange = vi.fn()
-    render(<BgaConfigurationPanel value={sourcePattern} section="removal" onChange={onChange} />)
+    render(<BgaConfigurationPanel value={sourcePattern} section="removal" rows={4} columns={4} onChange={onChange} />)
     fireEvent.click(screen.getByLabelText('焊球去除'))
     expect(onChange.mock.calls[0][0].solder_removal_enabled).toBe(false)
     expect(onChange.mock.calls[0][0].omitted_cells).toEqual([])

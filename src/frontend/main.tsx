@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client'
 
 import App from './App'
 import './features/model-editor/model-editor.css'
+import './features/package-library/solder-matrix.css'
 import './styles.css'
 
 const rootElement = document.getElementById('root')

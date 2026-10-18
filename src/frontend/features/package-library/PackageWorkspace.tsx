@@ -29,8 +29,10 @@ import type {
   PackageModel,
   TemplateRequest,
   TemplateSchema,
+  WizardField,
 } from './types'
 import WizardFields from './WizardFields'
+import { valueFor } from './wizardValues'
 import WorkspaceNavigation from './WorkspaceNavigation'
 import {
   ModelingFields,
@@ -255,11 +257,28 @@ function renderStep(
   if (activeStep === 'packstudio_summary') {
     return <SummaryFields request={request} onChange={onChange} />
   }
+  const { rows: arrayRows, columns: arrayColumns } = bgaArrayDimensions(allFields, request)
   if (activeStep === 'packstudio_bga_removal' && request.bga) {
-    return <BgaConfigurationPanel section="removal" value={request.bga} onChange={(bga) => onChange({ ...request, bga })} />
+    return (
+      <BgaConfigurationPanel
+        section="removal"
+        value={request.bga}
+        rows={arrayRows}
+        columns={arrayColumns}
+        onChange={(bga) => onChange({ ...request, bga })}
+      />
+    )
   }
   if (activeStep === 'packstudio_bga_center' && request.bga) {
-    return <BgaConfigurationPanel section="center" value={request.bga} onChange={(bga) => onChange({ ...request, bga })} />
+    return (
+      <BgaConfigurationPanel
+        section="center"
+        value={request.bga}
+        rows={arrayRows}
+        columns={arrayColumns}
+        onChange={(bga) => onChange({ ...request, bga })}
+      />
+    )
   }
   if (activeStep === 'packstudio_modeling') {
     return <ModelingFields request={request} onChange={onChange} />
@@ -274,6 +293,16 @@ function stepTitle(schema: TemplateSchema, stepId: string) {
   if (stepId === 'packstudio_bga_center') return '中央焊球'
   if (stepId === 'packstudio_modeling') return '建模选项'
   return schema.steps.find((step) => step.id === stepId)?.label ?? '参数'
+}
+
+function bgaArrayDimensions(fields: WizardField[], request: TemplateRequest) {
+  const readDimension = (propertyName: string) => {
+    const field = fields.find((candidate) => candidate.property_name === propertyName)
+    if (!field) return 1
+    const value = Number(valueFor(field, request, fields))
+    return Number.isFinite(value) ? Math.max(1, Math.min(50, Math.trunc(value))) : 1
+  }
+  return { rows: readDimension('bga.rows'), columns: readDimension('bga.columns') }
 }
 
 const errorMessage = (reason: unknown) => reason instanceof Error ? reason.message : '发生未知错误'

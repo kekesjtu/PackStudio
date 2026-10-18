@@ -2,21 +2,24 @@ import Alert from '@mui/material/Alert'
 import FormControlLabel from '@mui/material/FormControlLabel'
 import Stack from '@mui/material/Stack'
 import Switch from '@mui/material/Switch'
-import TextField from '@mui/material/TextField'
 
 import NumberInput from '../model-editor/NumberInput'
-import FieldShell from '../../ui/FieldShell'
+import SolderRemovalMatrix from './SolderRemovalMatrix'
 import type { BgaConfiguration } from './types'
 
 interface BgaConfigurationPanelProps {
   value: BgaConfiguration
   section: 'removal' | 'center'
+  rows: number
+  columns: number
   onChange: (value: BgaConfiguration) => void
 }
 
 export default function BgaConfigurationPanel({
   value,
   section,
+  rows,
+  columns,
   onChange,
 }: BgaConfigurationPanelProps) {
   const update = (patch: Partial<BgaConfiguration>) => onChange({ ...value, ...patch })
@@ -76,52 +79,31 @@ export default function BgaConfigurationPanel({
         label="焊球去除"
       />
       {value.solder_removal_enabled && (
-        <Stack direction="row" spacing={1}>
-          <NumberInput
-            label="去球区行数"
-            value={value.removal_rows}
-            integer
-            onChange={(removal_rows) => update({ removal_rows: removal_rows ?? 1 })}
+        <>
+          <Stack direction="row" spacing={1}>
+            <NumberInput
+              label="去球区行数"
+              value={value.removal_rows}
+              integer
+              onChange={(removal_rows) => update({ removal_rows: removal_rows ?? 1 })}
+            />
+            <NumberInput
+              label="去球区列数"
+              value={value.removal_columns}
+              integer
+              onChange={(removal_columns) => update({ removal_columns: removal_columns ?? 1 })}
+            />
+          </Stack>
+          <SolderRemovalMatrix
+            rows={rows}
+            columns={columns}
+            omittedCells={value.omitted_cells}
+            removalRows={value.removal_rows}
+            removalColumns={value.removal_columns}
+            onChange={(omitted_cells) => update({ omitted_cells })}
           />
-          <NumberInput
-            label="去球区列数"
-            value={value.removal_columns}
-            integer
-            onChange={(removal_columns) => update({ removal_columns: removal_columns ?? 1 })}
-          />
-        </Stack>
+        </>
       )}
-      <FieldShell
-        label="显式去球单元"
-        hint="使用从 0 开始的 行,列；多个单元用分号分隔。"
-        disabled={!value.solder_removal_enabled}
-      >
-        <TextField
-          size="small"
-          placeholder="例如 0,0; 2,3"
-          value={formatCells(value.omitted_cells)}
-          disabled={!value.solder_removal_enabled}
-          slotProps={{ htmlInput: { 'aria-label': '显式去球单元' } }}
-          onChange={(event) => update({ omitted_cells: parseCells(event.target.value) })}
-        />
-      </FieldShell>
     </Stack>
   )
-}
-
-const formatCells = (cells: BgaConfiguration['omitted_cells']) =>
-  cells.map((cell) => `${cell.row},${cell.column}`).join('; ')
-
-function parseCells(value: string): BgaConfiguration['omitted_cells'] {
-  return value
-    .split(';')
-    .map((item) => item.trim())
-    .filter(Boolean)
-    .map((item) => item.split(',').map((part) => Number(part.trim())))
-    .filter(
-      (parts) =>
-        parts.length === 2 &&
-        parts.every((part) => Number.isInteger(part) && part >= 0),
-    )
-    .map(([row, column]) => ({ row, column }))
 }
