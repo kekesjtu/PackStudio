@@ -10,6 +10,7 @@ import { useState } from 'react'
 
 import MaterialFields from '../model-editor/MaterialFields'
 import materialQuality from '../model-editor/materialQuality'
+import FieldShell from '../../ui/FieldShell'
 import type { Material } from './types'
 
 interface MaterialLibraryBrowserProps {
@@ -58,20 +59,29 @@ export default function MaterialLibraryBrowser({
           修改会保存为当前方案的材料覆盖值，不会改写 PackStudio 内置材料库。
         </Typography>
         <Property label="材料 ID" value={selected.id} />
-        <TextField
-          label="名称"
-          size="small"
-          value={selected.name}
-          onChange={(event) => onChange({ ...selected, name: event.target.value })}
-        />
-        <TextField
-          label="颜色"
-          type="color"
-          size="small"
-          value={selected.color}
-          slotProps={{ inputLabel: { shrink: true } }}
-          onChange={(event) => onChange({ ...selected, color: event.target.value })}
-        />
+        <FieldShell label="名称">
+          <TextField
+            size="small"
+            value={selected.name}
+            slotProps={{ htmlInput: { 'aria-label': '名称' } }}
+            onChange={(event) => onChange({ ...selected, name: event.target.value })}
+          />
+        </FieldShell>
+        <FieldShell label="颜色">
+          <Box className="color-field-row">
+            <TextField
+              type="color"
+              size="small"
+              className="color-field-input"
+              value={selected.color}
+              slotProps={{ htmlInput: { 'aria-label': '颜色' } }}
+              onChange={(event) => onChange({ ...selected, color: event.target.value })}
+            />
+            <Typography component="span" className="color-field-value">
+              {selected.color.toUpperCase()}
+            </Typography>
+          </Box>
+        </FieldShell>
         <MaterialFields material={selected} showTitle={false} onChange={onChange} />
         {selected.source && <Property label="来源" value={selected.source} />}
       </Box>

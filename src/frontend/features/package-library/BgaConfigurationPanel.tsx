@@ -5,6 +5,7 @@ import Switch from '@mui/material/Switch'
 import TextField from '@mui/material/TextField'
 
 import NumberInput from '../model-editor/NumberInput'
+import FieldShell from '../../ui/FieldShell'
 import type { BgaConfiguration } from './types'
 
 interface BgaConfigurationPanelProps {
@@ -21,8 +22,9 @@ export default function BgaConfigurationPanel({
   const update = (patch: Partial<BgaConfiguration>) => onChange({ ...value, ...patch })
   if (section === 'center') {
     return (
-      <Stack spacing={2}>
+      <Stack spacing={1.5}>
         <FormControlLabel
+          className="field-switch"
           control={
             <Switch
               checked={value.center_solder_enabled}
@@ -55,12 +57,13 @@ export default function BgaConfigurationPanel({
     )
   }
   return (
-    <Stack spacing={2}>
+    <Stack spacing={1.5}>
       <Alert severity="info">
         焊球默认按完整正交阵列生成；去球区域与显式去球单元可以组合，显式去球优先。
         去球区行列同时设为 0 时，仅应用显式去球单元。
       </Alert>
       <FormControlLabel
+        className="field-switch"
         control={
           <Switch
             checked={value.solder_removal_enabled}
@@ -88,15 +91,20 @@ export default function BgaConfigurationPanel({
           />
         </Stack>
       )}
-      <TextField
+      <FieldShell
         label="显式去球单元"
-        size="small"
-        placeholder="例如 0,0; 2,3"
-        value={formatCells(value.omitted_cells)}
+        hint="使用从 0 开始的 行,列；多个单元用分号分隔。"
         disabled={!value.solder_removal_enabled}
-        helperText="使用从 0 开始的 行,列；多个单元用分号分隔。"
-        onChange={(event) => update({ omitted_cells: parseCells(event.target.value) })}
-      />
+      >
+        <TextField
+          size="small"
+          placeholder="例如 0,0; 2,3"
+          value={formatCells(value.omitted_cells)}
+          disabled={!value.solder_removal_enabled}
+          slotProps={{ htmlInput: { 'aria-label': '显式去球单元' } }}
+          onChange={(event) => update({ omitted_cells: parseCells(event.target.value) })}
+        />
+      </FieldShell>
     </Stack>
   )
 }

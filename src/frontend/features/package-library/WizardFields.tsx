@@ -3,6 +3,8 @@ import FormControlLabel from '@mui/material/FormControlLabel'
 import Stack from '@mui/material/Stack'
 import Switch from '@mui/material/Switch'
 import TextField from '@mui/material/TextField'
+
+import FieldShell from '../../ui/FieldShell'
 import MaterialSelect from './MaterialSelect'
 
 import { fieldValues, filterFootprints, isVisible, matches, valueFor } from './wizardValues'
@@ -38,7 +40,7 @@ export default function WizardFields({
   }
 
   return (
-    <Stack spacing={2}>
+    <Stack spacing={1.5}>
       {step.fields.some((field) => field.minimum !== null && field.minimum !== undefined) && (
         <Alert severity="info" icon={false}>
           “允许范围”是模板的输入边界，超出时无法生成模型；它不代表仿真结果或精度已经过该区间验证。
@@ -85,6 +87,7 @@ function Field({
   if (field.control === 'checkbox') {
     return (
       <FormControlLabel
+        className="field-switch"
         control={
           <Switch
             checked={Boolean(value)}
@@ -114,34 +117,39 @@ function Field({
       ? `允许范围 ${numericValues[0]} – ${numericValues[1]}${field.unit ? ` ${field.unit}` : ''}`
       : undefined
   return (
-    <TextField
-      label={field.label}
-      value={value ?? ''}
-      type={numeric && !useSelect ? 'number' : undefined}
-      select={useSelect}
-      disabled={!enabled}
-      size="small"
-      helperText={interval}
-      slotProps={{
-        select: { native: true },
-        htmlInput:
-          numericValues.length > 1
-            ? { min: Math.min(...numericValues), max: Math.max(...numericValues) }
-            : undefined,
-      }}
-      onChange={(event) => {
-        if (!numeric) return onChange(event.target.value)
-        if (event.target.value === '') return onChange(null)
-        const parsed = Number(event.target.value)
-        onChange(field.control.startsWith('integer') ? Math.round(parsed) : parsed)
-      }}
-    >
-      {useSelect &&
-        values.map((option) => (
-          <option key={String(option)} value={String(option)}>
-            {field.option_labels?.[String(option)] ?? String(option)}
-          </option>
-        ))}
-    </TextField>
+    <FieldShell label={field.label} hint={interval} disabled={!enabled}>
+      <TextField
+        value={value ?? ''}
+        type={numeric && !useSelect ? 'number' : undefined}
+        select={useSelect}
+        disabled={!enabled}
+        size="small"
+        slotProps={
+          useSelect
+            ? { select: { native: true, inputProps: { 'aria-label': field.label } } }
+            : {
+                htmlInput: {
+                  'aria-label': field.label,
+                  ...(numericValues.length > 1
+                    ? { min: Math.min(...numericValues), max: Math.max(...numericValues) }
+                    : {}),
+                },
+              }
+        }
+        onChange={(event) => {
+          if (!numeric) return onChange(event.target.value)
+          if (event.target.value === '') return onChange(null)
+          const parsed = Number(event.target.value)
+          onChange(field.control.startsWith('integer') ? Math.round(parsed) : parsed)
+        }}
+      >
+        {useSelect &&
+          values.map((option) => (
+            <option key={String(option)} value={String(option)}>
+              {field.option_labels?.[String(option)] ?? String(option)}
+            </option>
+          ))}
+      </TextField>
+    </FieldShell>
   )
 }

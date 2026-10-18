@@ -1,5 +1,7 @@
 import TextField from '@mui/material/TextField'
 
+import FieldShell from '../../ui/FieldShell'
+
 interface NumberInputProps {
   label: string
   value: number | null
@@ -18,23 +20,28 @@ export default function NumberInput({
   allowEmpty = false,
 }: NumberInputProps) {
   return (
-    <TextField
-      label={label}
-      type="number"
-      size="small"
-      value={value ?? ''}
-      onChange={(event) => {
-        const rawValue = event.target.value
-        if (rawValue === '' && allowEmpty) {
-          onChange(null)
-          return
-        }
-        const parsed = integer ? Number.parseInt(rawValue, 10) : Number(rawValue)
-        onChange(Number.isFinite(parsed) ? parsed : 0)
-      }}
-      slotProps={{ htmlInput: { step: integer ? 1 : 'any' } }}
-      helperText={unit}
-      fullWidth
-    />
+    <FieldShell label={label} unit={unit} className="field-shell-numeric">
+      <TextField
+        type="number"
+        size="small"
+        value={value ?? ''}
+        onChange={(event) => {
+          const rawValue = event.target.value
+          if (rawValue === '' && allowEmpty) {
+            onChange(null)
+            return
+          }
+          const parsed = integer ? Number.parseInt(rawValue, 10) : Number(rawValue)
+          onChange(Number.isFinite(parsed) ? parsed : 0)
+        }}
+        slotProps={{
+          htmlInput: {
+            'aria-label': label,
+            step: integer ? 1 : 'any',
+          },
+        }}
+        fullWidth
+      />
+    </FieldShell>
   )
 }

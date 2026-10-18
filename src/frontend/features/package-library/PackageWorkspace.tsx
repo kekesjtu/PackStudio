@@ -12,6 +12,7 @@ import { useEffect, useMemo, useRef, useState, type CSSProperties } from 'react'
 
 import ColumnResizer from '../model-editor/ColumnResizer'
 import ModelPreview from '../model-editor/ModelPreview'
+import FieldShell from '../../ui/FieldShell'
 import {
   downloadTemplateModel,
   type ExportFormat,
@@ -168,14 +169,20 @@ export default function PackageWorkspace({ templateId }: PackageWorkspaceProps) 
           <Box ref={propertyContentRef} className="property-content">
             {renderStep(schema, activeStep, allFields, request, library, changeRequest)}
           </Box>
-          <TextField
-            select fullWidth size="small" label="导出格式" value={exportFormat} sx={{ mt: 1 }}
-            onChange={(event) => setExportFormat(event.target.value as ExportFormat)}
-          >
-            <MenuItem value="pta">PTA XML</MenuItem>
-            <MenuItem value="ecxml">ECXML</MenuItem>
-            <MenuItem value="floxml">FloXML（FloTHERM）</MenuItem>
-          </TextField>
+          <FieldShell label="导出格式" className="export-field">
+            <TextField
+              select
+              fullWidth
+              size="small"
+              value={exportFormat}
+              slotProps={{ select: { SelectDisplayProps: { 'aria-label': '导出格式' } } }}
+              onChange={(event) => setExportFormat(event.target.value as ExportFormat)}
+            >
+              <MenuItem value="pta">PTA XML</MenuItem>
+              <MenuItem value="ecxml">ECXML</MenuItem>
+              <MenuItem value="floxml">FloXML（FloTHERM）</MenuItem>
+            </TextField>
+          </FieldShell>
           <Stack direction={{ xs: 'column', sm: 'row' }} spacing={1} className="action-bar">
             <Button variant="contained" disabled={busy} onClick={handleGenerate}>
               {busy ? <CircularProgress size={21} color="inherit" /> : '生成模型'}

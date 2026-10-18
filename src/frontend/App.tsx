@@ -31,23 +31,20 @@ export default function App() {
               <Typography variant="h6" component="h1">
                 PackStudio
               </Typography>
-              <Typography variant="caption" sx={{ opacity: 0.82 }}>
+              <Typography variant="caption" className="appbar-eyebrow">
                 参数化 IC 封装热模型
               </Typography>
             </Box>
-            <Typography variant="body2">Package Types</Typography>
+            <Typography variant="caption" className="appbar-field-label">
+              Package Types
+            </Typography>
             <Select
               size="small"
+              className="appbar-template-select"
               value={templateId}
-              aria-label="Package Types"
+              SelectDisplayProps={{ 'aria-label': 'Package Types' }}
               onChange={(event) => setTemplateId(event.target.value)}
-              sx={{
-                minWidth: 290,
-                backgroundColor: '#253f52',
-                color: 'white',
-                '.MuiOutlinedInput-notchedOutline': { borderColor: 'rgba(255,255,255,.55)' },
-                '.MuiSvgIcon-root': { color: 'white' },
-              }}
+              sx={{ minWidth: 290 }}
             >
               {(templates.length ? templates : fallbackTemplates).map((template) => (
                 <MenuItem key={template.id} value={template.id}>

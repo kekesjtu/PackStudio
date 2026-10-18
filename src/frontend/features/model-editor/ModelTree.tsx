@@ -60,7 +60,7 @@ function TreeNode(props: NodeProps) {
           onClick={props.onToggle}
         >
           <span className="tree-group-chevron" aria-hidden="true">
-            {props.expanded ? '▾' : '▸'}
+            {props.expanded ? '−' : '+'}
           </span>
           <Typography
             component="span"

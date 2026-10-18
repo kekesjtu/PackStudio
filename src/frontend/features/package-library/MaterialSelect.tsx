@@ -4,6 +4,7 @@ import MenuItem from '@mui/material/MenuItem'
 import TextField from '@mui/material/TextField'
 import Typography from '@mui/material/Typography'
 
+import FieldShell from '../../ui/FieldShell'
 import materialQuality from '../model-editor/materialQuality'
 import type { Material, WizardField, WizardValue } from './types'
 
@@ -18,22 +19,31 @@ interface MaterialSelectProps {
 export default function MaterialSelect({ field, value, enabled, materials, onChange }: MaterialSelectProps) {
   const label = (id: string) => <MaterialLabel id={id} material={materials.find((item) => item.id === id)} />
   return (
-    <TextField
-      select
+    <FieldShell
       label={field.label}
-      value={value ?? ''}
+      hint="选择组件材料；材料物性可在右侧材料库中调整"
       disabled={!enabled}
-      size="small"
-      helperText="选择组件材料；材料物性可在右侧材料库中调整"
-      slotProps={{ select: { renderValue: (selected) => label(String(selected)) } }}
-      onChange={(event) => onChange(event.target.value)}
     >
-      {field.options.map((option) => (
-        <MenuItem key={String(option)} value={String(option)}>
-          {label(String(option))}
-        </MenuItem>
-      ))}
-    </TextField>
+      <TextField
+        select
+        value={value ?? ''}
+        disabled={!enabled}
+        size="small"
+        slotProps={{
+          select: {
+            SelectDisplayProps: { 'aria-label': field.label },
+            renderValue: (selected) => label(String(selected)),
+          },
+        }}
+        onChange={(event) => onChange(event.target.value)}
+      >
+        {field.options.map((option) => (
+          <MenuItem key={String(option)} value={String(option)}>
+            {label(String(option))}
+          </MenuItem>
+        ))}
+      </TextField>
+    </FieldShell>
   )
 }
 

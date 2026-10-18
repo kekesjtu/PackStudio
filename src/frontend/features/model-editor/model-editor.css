@@ -9,24 +9,94 @@
   height: 100%;
 }
 
+.inspector-content > .MuiTabs-root {
+  border-bottom: 1px solid #a9b3ba;
+  background: linear-gradient(#eef2f4, #dfe5e8);
+  box-shadow: inset 0 1px 0 #ffffff;
+}
+
+.inspector-content > .MuiTabs-root .MuiTab-root {
+  border-right: 1px solid #c4ccd2;
+}
+
+.inspector-content > .MuiTabs-root .MuiTab-root:last-child {
+  border-right: 0;
+}
+
 .inspector-tab-content {
   flex: 1;
   min-height: 0;
   overflow: hidden;
-  padding: 8px;
+  padding: 6px;
 }
 
 .material-swatch {
   flex: 0 0 auto;
-  width: 14px;
-  height: 14px;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  border-radius: 1px;
+  width: 11px;
+  height: 11px;
+  border: 1px solid rgba(22, 42, 54, 0.45);
+  border-radius: 0;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.5);
+}
+
+.material-browser {
+  display: grid;
+  grid-template-rows: minmax(150px, 40%) minmax(0, 1fr);
+  gap: 6px;
+  height: 100%;
+}
+
+.material-browser-list {
+  min-height: 0;
+  overflow: auto;
+  border: 1px solid #c3ccd2;
+  background: #fbfcfc;
+}
+
+.material-browser-list .MuiListItemButton-root {
+  padding: 3px 6px;
+  border-bottom: 1px solid #e3e8ea;
+}
+
+.material-browser-details {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  min-height: 0;
+  overflow: auto;
+  border-top: 1px solid #b3bec6;
+  padding-top: 8px;
+}
+
+.material-browser-property {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  border-left: 2px solid #b3bfc6;
+  background: #e9edef;
+  padding: 4px 7px;
+}
+
+.material-browser-property .MuiTypography-caption {
+  color: #6f7f89;
+  font-family: 'Bahnschrift', 'Segoe UI', sans-serif;
+  font-size: 0.58rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.material-browser-property .MuiTypography-body2 {
+  color: #2b3b45;
+  font-family: 'Consolas', 'Bahnschrift', monospace;
+  font-size: 0.68rem;
+  overflow-wrap: anywhere;
 }
 
 .model-tree {
   height: 100%;
   overflow: auto;
+  border: 1px solid #c3ccd2;
+  background: #fbfcfc;
 }
 
 .model-tree-toolbar {
@@ -35,104 +105,84 @@
   top: 0;
   display: flex;
   justify-content: flex-end;
-  border-bottom: 1px solid #b6c0c8;
-  background: #f1f2f3;
-  padding: 2px 0 6px;
+  border-bottom: 1px solid #b3bec6;
+  background: linear-gradient(#eef2f4, #e1e6e9);
+  padding: 2px 4px;
 }
 
 .model-tree-toggle-all {
-  gap: 5px;
+  gap: 4px;
   min-width: 0 !important;
-  color: #526973 !important;
-}
-
-.material-browser {
-  display: grid;
-  grid-template-rows: minmax(180px, 42%) minmax(0, 1fr);
-  gap: 8px;
-  height: 100%;
-}
-
-.material-browser-list,
-.material-browser-details {
-  min-height: 0;
-  overflow: auto;
-}
-
-.material-browser-details {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  border-top: 1px solid #d8e1e7;
-  padding-top: 12px;
-}
-
-.material-browser-property {
-  border-radius: 1px;
-  background: #e5eaee;
-  padding: 6px 8px;
+  color: #46606f !important;
+  font-size: 0.66rem !important;
 }
 
 .tree-group {
-  margin-left: calc(var(--tree-depth) * 13px);
-  border-left: 1px solid #d8e1e7;
-  padding: 4px 0 4px 9px;
+  margin-left: calc(var(--tree-depth) * 12px);
+  border-left: 1px solid #dde3e6;
+  padding: 3px 0 3px 8px;
 }
 
 .tree-group-label {
-  min-height: 30px;
+  min-height: 26px;
 }
 
 .tree-group-toggle {
   min-width: 0;
   flex: 1;
   justify-content: flex-start !important;
-  border-radius: 1px !important;
-  padding: 3px 2px !important;
+  border-radius: 0 !important;
+  padding: 2px 2px !important;
   text-align: left !important;
 }
 
 .tree-group-toggle:hover {
-  background: #eef5f7;
+  background: #e9eff2;
 }
 
 .tree-group-chevron {
-  flex: 0 0 16px;
-  color: #526973;
+  flex: 0 0 12px;
+  width: 12px;
+  height: 12px;
+  margin-right: 4px;
+  color: #4e606c;
+  font-family: 'Consolas', monospace;
+  font-size: 0.8rem;
+  line-height: 12px;
   text-align: center;
 }
 
 .tree-group-name {
   min-width: 0;
   flex: 1;
+  font-size: 0.7rem;
+  letter-spacing: 0.02em;
 }
 
 .tree-block {
   display: flex !important;
   width: 100%;
   justify-content: space-between !important;
-  gap: 8px;
-  border-radius: 1px !important;
-  padding: 6px 8px !important;
-  color: #304550 !important;
+  gap: 6px;
+  border-radius: 0 !important;
+  padding: 4px 6px !important;
+  color: #2d414c !important;
+  font-size: 0.68rem;
   text-align: left !important;
 }
 
 .tree-block:hover,
 .tree-block[data-selected='true'] {
-  background: #dae7ef;
+  background: #dce7ed;
+  box-shadow: inset 2px 0 #2f6f92;
 }
 
 .tree-block[data-hidden='true'] {
-  opacity: 0.48;
+  opacity: 0.45;
 }
 
 .tree-block small {
-  color: #6b7f89;
-  font-size: 0.66rem;
-}
-
-.inspector-content > .MuiTabs-root {
-  border-bottom: 1px solid #b6c0c8;
-  background: #dfe5e9;
+  color: #71838e;
+  font-family: 'Consolas', monospace;
+  font-size: 0.6rem;
 }
