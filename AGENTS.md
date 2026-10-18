@@ -25,7 +25,8 @@ PackStudio AI 协作开发指南。本文档为 AI Agent 提供项目结构、�
 | `docs/tasks/`       | 任务管理    | 待办任务、任务进度、任务拆分                             |
 | `docs/git_commits/` | 提交文档    | 变更摘要与验收记录，随对应代码一同提交                    |
 | `default_parameters/` | 默认参数 | 序列化预设、默认值与来源记录，程序运行时读取             |
-| `figures/`          | 图片素材    | UI 参考图、架构图、流程图等等                            |
+| `figures/`          | 图片素材    | UI 参考图、架构图、流程图等，本地素材，不纳入版本控制    |
+| `flotherm_pack_data/` | 本地数据  | Flotherm 热仿真参考数据，体积大，仅本地保存不推送云端    |
 | `output_format/`    | 输出规范    | 目标格式的示例文件，作为接口契约                         |
 | `src/`              | 源代码      | 所有生产代码，按功能模块分子目录                         |
 | `tests/`            | 测试代码    | 与 `src/` 对应；前端 `*.test.ts(x)`，Python `test_*.py` |
