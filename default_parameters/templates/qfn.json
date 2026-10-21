@@ -1,7 +1,7 @@
 {
   "schema_version": "packstudio.template-defaults/v1",
   "template_id": "qfn",
-  "origin": "Reviewed PackStudio model specification; mapped source values explicitly referenced",
+  "origin": "Reviewed PackStudio model specification; mapped source values explicitly referenced; via editing values: reviewed qfn opt_v2_c002_modelviasas_discrete/script.xml; ignored native branches do not specify dimensions",
   "fields": [
     {
       "key": "footprint.size",
@@ -398,6 +398,122 @@
       },
       "enabled_when": {},
       "editor_default": 0.05
+    },
+    {
+      "key": "vias.enabled",
+      "step": "thermal_vias",
+      "label": "启用热通孔",
+      "control": "checkbox",
+      "unit": null,
+      "minimum": null,
+      "maximum": null,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "vias.length",
+      "step": "thermal_vias",
+      "label": "通孔长度 Lv",
+      "control": "number",
+      "unit": "mm",
+      "minimum": 0.001,
+      "maximum": 10,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {
+        "vias.enabled": true
+      },
+      "enabled_when": {},
+      "editor_default": 0.85
+    },
+    {
+      "key": "vias.diameter",
+      "step": "thermal_vias",
+      "label": "通孔直径 Dv",
+      "control": "number",
+      "unit": "mm",
+      "minimum": 0.001,
+      "maximum": 2,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {
+        "vias.enabled": true
+      },
+      "enabled_when": {},
+      "editor_default": 0.2
+    },
+    {
+      "key": "vias.plating",
+      "step": "thermal_vias",
+      "label": "通孔镀层厚度 tpl",
+      "control": "number",
+      "unit": "mm",
+      "minimum": 0.001,
+      "maximum": 1,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {
+        "vias.enabled": true
+      },
+      "enabled_when": {},
+      "editor_default": 0.02
+    },
+    {
+      "key": "vias.pitch",
+      "step": "thermal_vias",
+      "label": "通孔间距 ev",
+      "control": "number",
+      "unit": "mm",
+      "minimum": 0.001,
+      "maximum": 10,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {
+        "vias.enabled": true
+      },
+      "enabled_when": {},
+      "editor_default": 0.5
+    },
+    {
+      "key": "vias.columns",
+      "step": "thermal_vias",
+      "label": "通孔 X 方向数量 VD",
+      "control": "integer_spinbox",
+      "unit": null,
+      "minimum": 1,
+      "maximum": 50,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {
+        "vias.enabled": true
+      },
+      "enabled_when": {},
+      "editor_default": 5
+    },
+    {
+      "key": "vias.rows",
+      "step": "thermal_vias",
+      "label": "通孔 Y 方向数量 VE",
+      "control": "integer_spinbox",
+      "unit": null,
+      "minimum": 1,
+      "maximum": 50,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {
+        "vias.enabled": true
+      },
+      "enabled_when": {},
+      "editor_default": 5
     }
   ],
   "material_selections": [

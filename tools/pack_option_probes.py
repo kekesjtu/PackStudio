@@ -67,6 +67,7 @@ def run_probes(root):
         "bare_die/screenshots/dropdown_die_material.png",
         "bare_die/screenshots/dropdown_underfill_conductivity_resins_01.png",
         "chip_array/screenshots/dropdown_bond_wire_count_relation.png",
+        "qfn/screenshots/conditional_model_vias_discrete.png",
     ]:
         inspected.append("flotherm_pack_data/templates/" + relative)
     return {

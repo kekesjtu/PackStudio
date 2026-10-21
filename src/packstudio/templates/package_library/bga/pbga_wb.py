@@ -1,8 +1,8 @@
 from math import pi, sqrt
 
 from packstudio.domain.enums import StructureType
+from packstudio.templates.package_library.bga.backside_spreader import bottom_layers
 from packstudio.templates.package_library.bga.layers import build_bga_layer
-from packstudio.templates.package_library.bga.primitives import via_grid_drafts
 from packstudio.templates.package_library.core.baseline_materials import materials_for
 from packstudio.templates.package_library.core.default_library import (
     load_fields,
@@ -22,6 +22,7 @@ from packstudio.templates.package_library.core.primitives import (
     four_direction_wire_drafts,
     rectangular_ring_drafts,
 )
+from packstudio.templates.package_library.core.via_geometry import via_grid_drafts
 
 
 def definition() -> TemplateDefinition:
@@ -41,6 +42,7 @@ def definition() -> TemplateDefinition:
             "thermal_vias",
             "metal_layers",
             "solder_balls",
+            "backside_spreader",
         ),
         material_selections=load_material_selections("pbga_wb", fields),
         has_bga=True,
@@ -121,16 +123,7 @@ def _build(values: TemplateValues, request: TemplateRequest) -> BuiltTemplate:
             "group-traces",
             "Top traces",
         ),
-        centered_draft(
-            "bottom-trace",
-            "Bottom trace",
-            StructureType.TRACE,
-            (length, width, bottom_trace),
-            bga_height,
-            "wirebond-trace-bottom",
-            "group-traces",
-            "Bottom trace",
-        ),
+        *bottom_layers(values),
         centered_draft(
             "die-flag",
             "Die flag",
@@ -203,6 +196,7 @@ def _build(values: TemplateValues, request: TemplateRequest) -> BuiltTemplate:
                 bga_height + top_trace,
                 substrate - top_trace - bottom_trace,
                 material_id="wirebond-via",
+                configuration=request.vias,
             )
         )
     bga = build_bga_layer(
@@ -219,6 +213,7 @@ def _build(values: TemplateValues, request: TemplateRequest) -> BuiltTemplate:
         power_w=values.number("die.power"),
         metadata={
             **bga.metadata,
+            "backside_spreader_enabled": values.boolean("spreader.enabled"),
             "reference_baseline": "FloTHERM PACK 2504 PBGA_121_15X15mm",
         },
     )

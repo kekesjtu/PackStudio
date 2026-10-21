@@ -12,3 +12,6 @@
 [机器清单](../validation/pack_option_audit_2026-10-18.json)。
 
 G01–G11、R01/R02 是后续实现/范围确认项；本任务完成状态仅代表审查交付，不代表已修复。
+
+2026-10-21：G01/G09/G10/G11、Bare Die 候选补齐及 G03/G06 的明确取舍，见
+[TASK33](TASK33.md) 与 [ADR27](../decisions/0027-PACK选项补齐与明确取舍.md)。

@@ -750,6 +750,42 @@
           "groups",
           "thermalVias",
           "enabled"
+        ],
+        "spreader.enabled": [
+          "groups",
+          "backsideSpreader",
+          "properties",
+          "includeBacksideSpreader"
+        ],
+        "spreader.length": [
+          "groups",
+          "backsideSpreader",
+          "properties",
+          "spreaderLengthLspr"
+        ],
+        "spreader.width": [
+          "groups",
+          "backsideSpreader",
+          "properties",
+          "spreaderWidthWspr"
+        ],
+        "spreader.thickness": [
+          "groups",
+          "backsideSpreader",
+          "properties",
+          "spreaderThicknessTspr"
+        ],
+        "spreader.hole_length": [
+          "groups",
+          "backsideSpreader",
+          "properties",
+          "bottomTraceHoleLengthLbt"
+        ],
+        "spreader.hole_width": [
+          "groups",
+          "backsideSpreader",
+          "properties",
+          "bottomTraceHoleWidthWbt"
         ]
       },
       "materials": {
@@ -794,6 +830,12 @@
           "solderBalls",
           "properties",
           "solderMaterial"
+        ],
+        "group-backside-spreader": [
+          "groups",
+          "backsideSpreader",
+          "properties",
+          "spreaderMaterial"
         ]
       }
     },
@@ -1155,6 +1197,48 @@
           "thermalLand",
           "properties",
           "landThickness"
+        ],
+        "vias.enabled": [
+          "groups",
+          "vias",
+          "properties",
+          "modelViasAs"
+        ],
+        "vias.length": [
+          "groups",
+          "vias",
+          "properties",
+          "viasLengthLv"
+        ],
+        "vias.diameter": [
+          "groups",
+          "vias",
+          "properties",
+          "viasDiameterDv"
+        ],
+        "vias.plating": [
+          "groups",
+          "vias",
+          "properties",
+          "platingThicknessTpl"
+        ],
+        "vias.pitch": [
+          "groups",
+          "vias",
+          "properties",
+          "viasPitchEv"
+        ],
+        "vias.columns": [
+          "groups",
+          "vias",
+          "properties",
+          "numberOfViasInXVD"
+        ],
+        "vias.rows": [
+          "groups",
+          "vias",
+          "properties",
+          "numberOfViasInYVE"
         ]
       },
       "materials": {

@@ -1,7 +1,7 @@
 {
   "schema_version": "packstudio.template-defaults/v1",
   "template_id": "pbga_wb",
-  "origin": "Reviewed PackStudio model specification; mapped source values explicitly referenced",
+  "origin": "Reviewed PackStudio model specification; mapped source values explicitly referenced; spreader editing values: PBGA_192_17X17mm native backsideSpreader; inactive branches retain editing values only",
   "fields": [
     {
       "key": "footprint.size",
@@ -461,6 +461,105 @@
       "presets": [],
       "visible_when": {},
       "enabled_when": {}
+    },
+    {
+      "key": "spreader.enabled",
+      "step": "backside_spreader",
+      "label": "启用背面扩散片",
+      "control": "checkbox",
+      "unit": null,
+      "minimum": null,
+      "maximum": null,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "spreader.length",
+      "step": "backside_spreader",
+      "label": "扩散片长度 Lspr",
+      "control": "number",
+      "unit": "mm",
+      "minimum": 0.001,
+      "maximum": 60,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {
+        "spreader.enabled": true
+      },
+      "enabled_when": {},
+      "editor_default": 9.4
+    },
+    {
+      "key": "spreader.width",
+      "step": "backside_spreader",
+      "label": "扩散片宽度 Wspr",
+      "control": "number",
+      "unit": "mm",
+      "minimum": 0.001,
+      "maximum": 60,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {
+        "spreader.enabled": true
+      },
+      "enabled_when": {},
+      "editor_default": 9.4
+    },
+    {
+      "key": "spreader.thickness",
+      "step": "backside_spreader",
+      "label": "扩散片厚度 tspr",
+      "control": "number",
+      "unit": "mm",
+      "minimum": 0.001,
+      "maximum": 60,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {
+        "spreader.enabled": true
+      },
+      "enabled_when": {},
+      "editor_default": 0.018
+    },
+    {
+      "key": "spreader.hole_length",
+      "step": "backside_spreader",
+      "label": "底层走线开口长度 Lbt",
+      "control": "number",
+      "unit": "mm",
+      "minimum": 0.001,
+      "maximum": 60,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {
+        "spreader.enabled": true
+      },
+      "enabled_when": {},
+      "editor_default": 9.4
+    },
+    {
+      "key": "spreader.hole_width",
+      "step": "backside_spreader",
+      "label": "底层走线开口宽度 Wbt",
+      "control": "number",
+      "unit": "mm",
+      "minimum": 0.001,
+      "maximum": 60,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {
+        "spreader.enabled": true
+      },
+      "enabled_when": {},
+      "editor_default": 9.4
     }
   ],
   "material_selections": [
@@ -540,6 +639,40 @@
         "solder_sn96_5_ag3_5_21e11737"
       ],
       "visible_when": {}
+    },
+    {
+      "group_id": "group-backside-spreader",
+      "step": "backside_spreader",
+      "label": "扩散片材料",
+      "default": "copper",
+      "options": [
+        "copper",
+        "alloy_42_8021e087",
+        "cu_c15100_000a763b",
+        "cu_c15500_0b01d2b8",
+        "cu_c15715_cfbf0931",
+        "cu_c19010_668c5e06",
+        "cu_c19210_9f77a3a2",
+        "leadframe-c194",
+        "cu_c19500_343073c0",
+        "cu_c19700_da8bfa52",
+        "cu_c50710_e84adbb4",
+        "cu_c7025_8af052ec",
+        "cu_cda_194_36a6868b",
+        "cu_eftec_23z_44d98146",
+        "cu_eftec_3_598a7a50",
+        "cu_eftec_64t_86630329",
+        "cu_eftec_7_dc47c690",
+        "cu_klf125_f802a2e7",
+        "cu_mf_202_aa5f5941",
+        "cu_olin_7025_1356d81b",
+        "cu_tamac5_d796274c",
+        "kovar_8af46e97",
+        "kovar_ni29_co17_31a50cf6"
+      ],
+      "visible_when": {
+        "spreader.enabled": true
+      }
     }
   ],
   "baseline_materials": [

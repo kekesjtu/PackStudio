@@ -218,7 +218,8 @@
       "label": "芯片材料",
       "default": "silicon",
       "options": [
-        "silicon"
+        "silicon",
+        "gallium_arsenide_a43e7270"
       ],
       "visible_when": {}
     },
@@ -251,7 +252,37 @@
         "glass_typical_94544dc5",
         "glass_lid_seal_typical_1a444a20",
         "plexiglass_typical_0a954091",
-        "solder-mask"
+        "solder-mask",
+        "cookson_7115_f716ff15",
+        "cookson_amc_2f1_19ce0318",
+        "cookson_amc_2rc_48f64cc9",
+        "cookson_smt_b_1fx_3140a2b9",
+        "eme-7730lf",
+        "epoxy_overmold_high_k_7dc9d30a",
+        "epoxy-mold",
+        "g700_a1cdab64",
+        "hysol_4450_c34760e9",
+        "nitto_hc100x2_4575e7bf",
+        "nitto_mp8000an_ecf058ed",
+        "nitto_mp8000ch4_4ab05a7c",
+        "nylon_6_typical_26cb9a01",
+        "nylon_66_typical_8afe0b63",
+        "plaskon7060_21341195",
+        "ptfe_typical_dbfb8dd0",
+        "polycarbonate_typical_a6561f51",
+        "polyisoprene_hard_d55a3f19",
+        "polyisoprene_natural_d2654392",
+        "polystyrene_typical_726bdb5a",
+        "sumitomo_6300h_1a8ae67c",
+        "sumitomo_7050a2_7197c254",
+        "sumitomo_eme1100r_a99f73c7",
+        "sumitomo_eme6700_cd668862",
+        "sumitomo_eme6710_f30ecda7",
+        "sumitomo_eme6730b_c9101f10",
+        "sumitomo_eme7302cr_648b5187",
+        "sumitomo_eme7351_41f2682e",
+        "sumitomo_eme7351ls_fa2914aa",
+        "sumitomo_eme7740_126b7e7e"
       ],
       "visible_when": {
         "bumps.enabled": true

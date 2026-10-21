@@ -98,6 +98,8 @@ class TemplateDefinition:
             raise ValueError(f"request template_id must be {self.id}")
         if request.bga is not None and not self.has_bga:
             raise ValueError("BGA configuration is only valid for BGA templates")
+        if request.vias is not None and not any(f.key == "vias.enabled" for f in self.fields):
+            raise ValueError("via configuration is only valid for templates with thermal vias")
         by_target = {item.target_id(self.id): item for item in self.fields}
         by_key = {item.key: item for item in self.fields}
         unknown = sorted(set(request.overrides) - set(by_target))

@@ -55,8 +55,6 @@ def decision(template, entry):
     label = entry["label"]
     if location.startswith("drop_in_slug") or prop == "includeSlug":
         return "gap", "G04", "独立 slug、支脚与粘接配置缺失；plate 不是该结构"
-    if location == "backside_spreader":
-        return "gap", "G01", "背面扩散片和底部开孔未消费原生默认值"
     if "stiffener" in (prop or "").lower():
         return "gap", "G05", "顶盖 stiffener 分支缺失"
     if location in {"core_vias", "upper_built_up_region", "lower_built_up_region"}:
@@ -64,13 +62,11 @@ def decision(template, entry):
     if template == "pbga_fc" and location == "metal_layers":
         return "deferred", "C01", "默认采用整体等效基板，未开放显式金属层栈"
     if prop in {"nonUniformDieHeat", "nonUniformDieHeatDialog"}:
-        return "gap", "G06", "没有非均匀热源入口；体源/面源取舍不能替代空间分布决策"
+        return "explicit_tradeoff", None, "ADR27：八类模板仅均匀体热源，不实现非均匀热源"
     if location == "die" and label == "Click To Edit":
-        return "gap", "G06", "非均匀热源编辑器缺失"
+        return "explicit_tradeoff", None, "ADR27：不实现非均匀热源编辑器"
     if prop in {"userDefinedLeadframeCoverage", "leadframeCoveragePercentage"}:
-        return "gap", "G03", "引线框覆盖率只能按 B/e 计算"
-    if template == "bare_die" and prop == "dieMaterial":
-        return "gap", "G11", "截图 Si/GaAs 二选一，当前仅 silicon"
+        return "explicit_tradeoff", None, "ADR27：不实现自定义覆盖率开关及百分比，固定 B/e"
     if template == "chip_array":
         if prop == "filledVias":
             return "gap", "G07", "读取预设 filledVias，但没有编辑入口"
@@ -82,9 +78,9 @@ def decision(template, entry):
         if prop == "coveragePercentageCf" or location == "metal_layers":
             return "gap", "G02", "金属层与承载台覆盖率仅消费预设，不能编辑"
         if prop == "viaDepopulation":
-            return "gap", "G09", "热过孔去孔编辑器缺失"
-    if template == "qfn" and location == "vias":
-        return "gap", "G10", "QFN 保留 ignored 基线，整组过孔配置未开放"
+            return "adapted", None, "ADR27：共享居中区域及显式矩阵去孔 request.vias"
+    if template == "qfn" and prop == "modelViasAs":
+        return "adapted", None, "ADR27：启用/禁用开关，启用后离散表达，不提供 lumped"
     if prop in FIXED:
         return "explicit_tradeoff", None, FIXED[prop]
     if prop and (prop.startswith("model") or prop in {"solderBumpModeling", "viaModeling"}):

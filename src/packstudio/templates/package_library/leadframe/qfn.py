@@ -15,6 +15,7 @@ from packstudio.templates.package_library.core.primitives import four_direction_
 from packstudio.templates.package_library.leadframe.qfn_primitives import (
     qfn_interconnect_drafts,
 )
+from packstudio.templates.package_library.leadframe.qfn_vias import qfn_vias
 
 
 def definition() -> TemplateDefinition:
@@ -33,12 +34,13 @@ def definition() -> TemplateDefinition:
             "dap",
             "bond_wires",
             "thermal_land",
+            "thermal_vias",
         ),
         material_selections=load_material_selections("qfn", fields),
     )
 
 
-def _build(values: TemplateValues, _request: TemplateRequest) -> BuiltTemplate:
+def _build(values: TemplateValues, request: TemplateRequest) -> BuiltTemplate:
     length = values.number("package.length")
     width = values.number("package.width")
     standoff = values.number("package.standoff")
@@ -177,14 +179,16 @@ def _build(values: TemplateValues, _request: TemplateRequest) -> BuiltTemplate:
                 "Thermal land",
             )
         )
+    via_drafts, via_materials = qfn_vias(values, request)
     return BuiltTemplate(
-        drafts=drafts,
-        materials=materials_for("qfn"),
+        drafts=[*drafts, *via_drafts],
+        materials=[*materials_for("qfn"), *via_materials],
         power_w=values.number("die.power"),
         metadata={
             "lead_count": 2 * count_x + 2 * count_y,
             "reference_baseline": "FloTHERM PACK 2504 QFN_12X12_100",
             "thermal_land_enabled": values.boolean("thermal_land.enabled"),
+            "thermal_vias_enabled": values.boolean("vias.enabled"),
         },
     )
 

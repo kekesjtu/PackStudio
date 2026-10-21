@@ -53,7 +53,13 @@ def _adapt(record: dict, binding: dict, fields: list[dict]) -> dict:
             values[key] = native
         elif "value" in native:
             value = native["value"]
-            values[key] = "bare_die" if key == "cover.type" and value == "bareDie" else value
+            values[key] = (
+                value != "ignored"
+                if key == "vias.enabled" and isinstance(value, str)
+                else "bare_die"
+                if key == "cover.type" and value == "bareDie"
+                else value
+            )
         elif native["status"] == "not_applicable":
             inactive[key] = "/".join(path)
             if key == "leads.count_y":
@@ -80,6 +86,7 @@ def _adapt(record: dict, binding: dict, fields: list[dict]) -> dict:
     assignments = {
         group: material_id_for_name(at_path(branch, path)["value"])
         for group, path in binding["materials"].items()
+        if "value" in at_path(branch, path)
     }
     return {
         "value": record["id"],
@@ -103,7 +110,9 @@ def _adapt(record: dict, binding: dict, fields: list[dict]) -> dict:
                 if f["control"] != "footprint" and f["key"] not in binding["parameters"]
             ],
             "native_material_names": {
-                g: at_path(branch, p)["value"] for g, p in binding["materials"].items()
+                g: at_path(branch, p)["value"]
+                for g, p in binding["materials"].items()
+                if "value" in at_path(branch, p)
             },
         },
     }

@@ -12,6 +12,7 @@ def step_label(identifier: str) -> str:
         "die_flag_solder_mask": "芯片承载台与阻焊层",
         "die_flag_tie_bars": "芯片承载台与连接筋",
         "thermal_vias": "热通孔",
+        "backside_spreader": "背面扩散片",
         "metal_layers": "金属层",
         "lead_solder_interconnect": "引脚与焊料互连",
         "dap": "芯片承载焊盘（DAP）",

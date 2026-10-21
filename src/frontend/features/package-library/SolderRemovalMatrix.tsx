@@ -10,6 +10,7 @@ interface SolderRemovalMatrixProps {
   removalRows: number
   removalColumns: number
   onChange: (cells: CellIndex[]) => void
+  kind?: 'solder' | 'via'
 }
 
 interface CellBounds {
@@ -26,7 +27,9 @@ export default function SolderRemovalMatrix({
   removalRows,
   removalColumns,
   onChange,
+  kind = 'solder',
 }: SolderRemovalMatrixProps) {
+  const removal = kind === 'via' ? '去孔' : '去球'
   const matrixRows = clampDimension(rows)
   const matrixColumns = clampDimension(columns)
   const cellSize = Math.max(14, Math.min(34, Math.floor(280 / Math.max(matrixRows, matrixColumns))))
@@ -63,14 +66,14 @@ export default function SolderRemovalMatrix({
 
   return (
     <FieldShell
-      label="显式去球单元"
+      label={`显式${removal}单元`}
       unit={`已选 ${selected.length} 个`}
-      hint="点击矩阵单元添加或取消显式去球；斜纹单元已被去球区覆盖。行列编号从 0 开始。"
+      hint={`点击矩阵单元添加或取消显式${removal}；斜纹单元已被${removal}区覆盖。行列编号从 0 开始。`}
     >
       <div
         className="solder-matrix"
         role="group"
-        aria-label={`显式去球矩阵，${matrixRows} 行 ${matrixColumns} 列`}
+        aria-label={`显式${removal}矩阵，${matrixRows} 行 ${matrixColumns} 列`}
       >
         <div className="solder-matrix-grid" style={matrixStyle}>
           <span className="solder-matrix-corner" aria-hidden="true">Y/X</span>
@@ -87,10 +90,10 @@ export default function SolderRemovalMatrix({
                 const covered = !explicit && isCovered(row, column, removalBounds)
                 const state = explicit ? 'omitted' : covered ? 'region' : 'present'
                 const action = explicit
-                  ? '取消显式去球'
+                  ? `取消显式${removal}`
                   : covered
-                    ? '已被去球区覆盖'
-                    : '添加显式去球'
+                    ? `已被${removal}区覆盖`
+                    : `添加显式${removal}`
                 return (
                   <button
                     key={`cell-${row}-${column}`}
@@ -113,8 +116,8 @@ export default function SolderRemovalMatrix({
       </div>
       <div className="solder-matrix-legend" aria-hidden="true">
         <span><i data-kind="present" />可点击</span>
-        <span><i data-kind="omitted" />显式去球</span>
-        <span><i data-kind="region" />去球区覆盖</span>
+        <span><i data-kind="omitted" />显式{removal}</span>
+        <span><i data-kind="region" />{removal}区覆盖</span>
       </div>
     </FieldShell>
   )

@@ -1,5 +1,6 @@
 import type { TemplateRequest, WizardField, WizardValue } from './types'
 import { defaultFor, pruneInactiveOverrides, pruneInactiveMaterials, sameValue, valueFor } from './wizardValues'
+import { pruneViaConfiguration } from './viaConfiguration'
 
 export default function updateWizardRequest(
   request: TemplateRequest,
@@ -54,5 +55,5 @@ function selectFootprint(
 }
 
 function activeRequest(request: TemplateRequest, fields: WizardField[]) {
-  return pruneInactiveMaterials(pruneInactiveOverrides(request, fields), fields)
+  return pruneViaConfiguration(pruneInactiveMaterials(pruneInactiveOverrides(request, fields), fields), fields)
 }

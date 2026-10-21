@@ -10,7 +10,7 @@ from tools.pack_option_probes import run_probes
 from tools.pack_option_rules import BARE, BGA, STEP_ALIASES, decision
 
 ROOT = Path(__file__).resolve().parents[1]
-OUTPUT = ROOT / "docs/validation/pack_option_audit_2026-10-18.json"
+OUTPUT = ROOT / "docs/validation/pack_option_audit_2026-10-21.json"
 
 
 def read(relative):
@@ -41,6 +41,8 @@ def classify(template, entry, definition, binding):
         return result("explicit_tradeoff", [], "ADR6：不提供任意坐标 solder-ball map")
     if template == "bare_die" and prop in BARE:
         return result("implemented", [BARE[prop]])
+    if template == "bare_die" and prop == "dieMaterial":
+        return result("implemented", ["material.group-die"], "ADR27：Si / GaAs 均已开放")
     candidates = [
         key
         for category in ("parameters", "materials")
@@ -149,6 +151,23 @@ def main():
             "src/packstudio/templates/package_library/core/generator.py",
             "src/packstudio/templates/package_library/bga/pbga_wb.py",
             "src/packstudio/templates/package_library/bga/chip_array.py",
+            "src/packstudio/templates/package_library/bga/backside_spreader.py",
+            "src/packstudio/templates/package_library/core/via_configuration.py",
+            "src/packstudio/templates/package_library/core/via_geometry.py",
+            "src/packstudio/templates/package_library/leadframe/qfn_vias.py",
+            "src/packstudio/templates/package_library/bare_die/template.py",
+            "src/frontend/features/package-library/ViaRemovalPanel.tsx",
+            "src/frontend/features/package-library/SolderRemovalMatrix.tsx",
+            "src/frontend/features/package-library/WorkspaceSteps.tsx",
+            "default_parameters/request.json",
+            "flotherm_pack_data/templates/qfn/xml_variations/option_switches/"
+            "opt_v2_c002_modelviasas_discrete/script.xml",
+            "flotherm_pack_data/templates/qfn/xml_variations/option_switches/"
+            "opt_v2_c002_modelviasas_discrete/model.xml",
+            "flotherm_pack_data/templates/pbga_wb/xml_variations/option_switches/"
+            "opt_v2_c008_includebacksidespreader_true/script.xml",
+            "flotherm_pack_data/templates/pbga_wb/xml_variations/option_switches/"
+            "opt_v2_c008_includebacksidespreader_true/model.xml",
             "src/packstudio/templates/package_library/flip_chip/cover.py",
             "default_parameters/presets/pbga_wb/PBGA_192_17X17mm.json",
             "default_parameters/materials/index.json",
@@ -165,6 +184,7 @@ def main():
             "docs/decisions/0022-PACK参数驱动的等效材料.md",
             "docs/decisions/0025-FloXML导出与物理差异验证.md",
             "docs/decisions/0026-等效材料与QFP高差缺陷修复.md",
+            "docs/decisions/0027-PACK选项补齐与明确取舍.md",
             "docs/research/pack-material-couplings.md",
             "docs/research/pack-parameter-interactions.md",
         }
@@ -195,8 +215,9 @@ def main():
             )
     report = {
         "schema_version": "packstudio.option-audit/v1",
-        "review_date": "2026-10-18",
-        "base_commit": "8e36bb4",
+        "review_date": "2026-10-21",
+        "base_commit": "8d5a9e9",
+        "change_set": "TASK33",
         "entry_count": len(rows),
         "counts": dict(Counter(r["status"] for r in rows)),
         "templates": templates,

@@ -1,5 +1,6 @@
 import type { TemplateRequest, TemplateSchema } from './types'
 import { pruneInactiveMaterials, pruneInactiveOverrides } from './wizardValues'
+import { pruneViaConfiguration } from './viaConfiguration'
 
 const storageKey = (templateId: string) => `packstudio.library.v3.${templateId}`
 
@@ -34,6 +35,9 @@ export function restoreTemplateRequest(
       ...defaults,
       design_name: stored.design_name ?? defaults.design_name,
       bga: stored.bga ?? defaults.bga,
+      ...(defaults.vias === undefined ? {} : {
+        vias: defaults.vias ? { ...defaults.vias, ...stored.vias } : null,
+      }),
       die_power_w: stored.die_power_w ?? defaults.die_power_w,
       overrides: Object.fromEntries(
         Object.entries(stored.overrides ?? {}).filter(([targetId]) =>
@@ -48,7 +52,7 @@ export function restoreTemplateRequest(
       custom_materials: stored.custom_materials ?? [],
       mesh: { ...defaults.mesh, ...stored.mesh },
     }
-    return pruneInactiveMaterials(pruneInactiveOverrides(restored, fields), fields)
+    return pruneViaConfiguration(pruneInactiveMaterials(pruneInactiveOverrides(restored, fields), fields), fields)
   } catch {
     return null
   }

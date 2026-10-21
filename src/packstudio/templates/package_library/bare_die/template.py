@@ -9,6 +9,7 @@ from packstudio.templates.package_library.core.definitions import (
 )
 from packstudio.templates.package_library.core.generator import BuiltTemplate
 from packstudio.templates.package_library.core.geometry import centered_draft
+from packstudio.templates.package_library.core.materials import material
 from packstudio.templates.package_library.core.parameters import TemplateRequest
 from packstudio.templates.package_library.flip_chip.layers import build_flip_chip_layer
 
@@ -34,16 +35,15 @@ def _build(values: TemplateValues, request: TemplateRequest) -> BuiltTemplate:
     flipped = values.boolean("die.flipped")
     bumped = values.boolean("bumps.enabled")
     bump_layer = (
-        build_flip_chip_layer(values, length, width, 0, request=request)
-        if bumped
-        else None
+        build_flip_chip_layer(values, length, width, 0, request=request) if bumped else None
     )
     die_z = values.number("bumps.height") if bumped else 0
+    die_material = material(request.material_assignments["group-die"], request.custom_materials)
     return BuiltTemplate(
         drafts=[
             centered_draft(
                 "die",
-                "Silicon die",
+                f"{die_material.name.removesuffix(' (Pure)')} die",
                 StructureType.DIE,
                 (length, width, thickness),
                 die_z,

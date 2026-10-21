@@ -84,10 +84,18 @@ export interface TemplateRequest {
   design_name: string | null
   overrides: Record<string, WizardValue>
   bga: BgaConfiguration | null
+  vias?: ViaConfiguration | null
   material_assignments: Record<string, string>
   custom_materials: Material[]
   die_power_w: number | null
   mesh: MeshParameters
+}
+
+export interface ViaConfiguration {
+  removal_enabled: boolean
+  removal_rows: number
+  removal_columns: number
+  omitted_cells: CellIndex[]
 }
 
 export type { Material, PackageModel }

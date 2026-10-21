@@ -9,6 +9,7 @@ from packstudio.templates.package_library.core.default_library import template_d
 from packstudio.templates.package_library.core.definitions import TemplateDefinition
 from packstudio.templates.package_library.core.generator import generate_template
 from packstudio.templates.package_library.core.parameters import TemplateRequest
+from packstudio.templates.package_library.core.via_configuration import ViaConfiguration
 from packstudio.templates.package_library.flip_chip import cbga_fc, pbga_fc
 from packstudio.templates.package_library.leadframe import pqfp, qfn, sop
 
@@ -68,6 +69,7 @@ def default_request(template_id: str) -> TemplateRequest:
         bga={"representation": template_defaults(template_id)["default_bga_representation"]}
         if item.has_bga
         else None,
+        vias=ViaConfiguration() if any(f.key == "vias.enabled" for f in item.fields) else None,
     )
 
 

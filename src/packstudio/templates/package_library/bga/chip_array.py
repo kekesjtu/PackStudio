@@ -2,7 +2,6 @@ from math import pi, sqrt
 
 from packstudio.domain.enums import StructureType
 from packstudio.templates.package_library.bga.layers import build_bga_layer
-from packstudio.templates.package_library.bga.primitives import via_grid_drafts
 from packstudio.templates.package_library.core.baseline_materials import materials_for
 from packstudio.templates.package_library.core.default_library import (
     load_fields,
@@ -19,6 +18,7 @@ from packstudio.templates.package_library.core.parameters import (
     TemplateRequest,
 )
 from packstudio.templates.package_library.core.primitives import four_direction_wire_drafts
+from packstudio.templates.package_library.core.via_geometry import via_grid_drafts
 
 
 def definition() -> TemplateDefinition:
@@ -169,6 +169,7 @@ def _build(values: TemplateValues, request: TemplateRequest) -> BuiltTemplate:
                 center_x=values.number("vias.offset_x"),
                 center_y=values.number("vias.offset_y"),
                 material_id="chip-array-via",
+                configuration=request.vias,
             )
         )
     bga = build_bga_layer(
