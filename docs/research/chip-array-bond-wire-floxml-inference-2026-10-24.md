@@ -2,6 +2,9 @@
 
 日期：2026-10-24。
 
+2026-10-25 补充：[显式去球与中央去球叠加的新 FloXML 证据](chip-array-explicit-depopulation-floxml-2026-10-25.md)
+验证了非空网格保留名单。N 不一定等于几何等效前的实际剩余球数；下文 76 例为原研究的历史统计。
+
 ## 结论与证据边界
 
 仅用 Chip Array 归档 `model.xml`、配套输入 `script.xml` 和已有材料 JSON，
