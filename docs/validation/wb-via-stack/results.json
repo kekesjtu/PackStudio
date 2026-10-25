@@ -1,0 +1,683 @@
+{
+  "cases": [
+    {
+      "id": "layers4_top0_018_bottom0_018_a10_6_a20_56",
+      "inputs_mm": {
+        "A1": 0.6,
+        "A2": 0.56,
+        "top": 0.018,
+        "bottom": 0.018
+      },
+      "layers": 4,
+      "input_readback": {
+        "A1": "0.6",
+        "A2": "0.56",
+        "tz1": "0.018",
+        "tz6": "0.018",
+        "NVx": "3",
+        "NVy": "3"
+      },
+      "via_count": 9,
+      "via_zmin_mm": 0.618,
+      "via_height_mm": 0.524,
+      "via_zmax_mm": 1.142,
+      "bottom_trace_range_mm": [
+        0.6,
+        0.618
+      ],
+      "flag_range_mm": [
+        1.142,
+        1.16
+      ],
+      "bottom_clearance_mm": 0.0,
+      "top_clearance_mm": 0.0,
+      "start_hypothesis_residuals_mm": {
+        "top_offset": 0.0,
+        "bottom_offset": 0.0
+      },
+      "height_residual_mm": 0.0,
+      "internal_layers": [
+        {
+          "name": "trace_1",
+          "zmin_mm": 0.9553333333333334,
+          "height_mm": 0.036000000000000004
+        },
+        {
+          "name": "trace_2",
+          "zmin_mm": 0.8046666666666666,
+          "height_mm": 0.036000000000000004
+        }
+      ],
+      "disconnect_regions": [
+        {
+          "name": "discon3",
+          "zmin_mm": 0.8046666666666666,
+          "height_mm": 0.036000000000000004
+        }
+      ],
+      "via_material": [
+        138.59999999999997,
+        138.59999999999997,
+        138.59999999999997,
+        3214.799999999999,
+        385.0
+      ],
+      "sha256": {
+        "floxml": "29f676e245ee984d935ef7e80afdfdde421bf8a06ea1040b6c240e30259c595b",
+        "des": "c9c447a3f9d032fb04037714a27b27039a67475a8138669035890d93aa201ba0"
+      },
+      "max_reload_numeric_difference": 3.3306690738754696e-16,
+      "reload_sha256": {
+        "floxml": "bef871a0467e5f70f012995af11d7abd35c75ca5297512b6a2dc68b61663cd0f",
+        "des": "27495061c46718ba494c98ee85cf6d50cb9c924cb1eda07158bea924a5bbdae0"
+      }
+    },
+    {
+      "id": "layers4_top0_01_bottom0_018_a10_6_a20_56",
+      "inputs_mm": {
+        "A1": 0.6,
+        "A2": 0.56,
+        "top": 0.01,
+        "bottom": 0.018
+      },
+      "layers": 4,
+      "input_readback": {
+        "A1": "0.6",
+        "A2": "0.56",
+        "tz1": "0.01",
+        "tz6": "0.018",
+        "NVx": "3",
+        "NVy": "3"
+      },
+      "via_count": 9,
+      "via_zmin_mm": 0.61,
+      "via_height_mm": 0.532,
+      "via_zmax_mm": 1.142,
+      "bottom_trace_range_mm": [
+        0.6,
+        0.618
+      ],
+      "flag_range_mm": [
+        1.15,
+        1.16
+      ],
+      "bottom_clearance_mm": -0.008000000000000007,
+      "top_clearance_mm": 0.008000000000000007,
+      "start_hypothesis_residuals_mm": {
+        "top_offset": 0.0,
+        "bottom_offset": -0.008000000000000007
+      },
+      "height_residual_mm": 0.0,
+      "internal_layers": [
+        {
+          "name": "trace_1",
+          "zmin_mm": 0.9766666666666667,
+          "height_mm": 0.036000000000000004
+        },
+        {
+          "name": "trace_2",
+          "zmin_mm": 0.8233333333333334,
+          "height_mm": 0.036000000000000004
+        }
+      ],
+      "disconnect_regions": [
+        {
+          "name": "discon3",
+          "zmin_mm": 0.8073333333333335,
+          "height_mm": 0.036000000000000004
+        }
+      ],
+      "via_material": [
+        138.59999999999997,
+        138.59999999999997,
+        138.59999999999997,
+        3214.799999999999,
+        385.0
+      ],
+      "sha256": {
+        "floxml": "6bb08d41f19cfe7df9b77c6aa160c2201963141029c52235727cab1b88a16447",
+        "des": "ae2e4c8f9c02d5bc38b4e9f730f626c51537be076bc3feb59c9ce6c4d99934af"
+      },
+      "max_reload_numeric_difference": 3.3306690738754696e-16,
+      "reload_sha256": {
+        "floxml": "438ce1ea09f8b97bc7a2680030a0cd29dbbf08f5ab60849f22a22a8cfd091fe1",
+        "des": "73318c874d5b9a4a7d16669118a39c199a43cc5177b26a09412a2e33c13d2d75"
+      }
+    },
+    {
+      "id": "layers4_top0_018_bottom0_04_a10_6_a20_56",
+      "inputs_mm": {
+        "A1": 0.6,
+        "A2": 0.56,
+        "top": 0.018,
+        "bottom": 0.04
+      },
+      "layers": 4,
+      "input_readback": {
+        "A1": "0.6",
+        "A2": "0.56",
+        "tz1": "0.018",
+        "tz6": "0.04",
+        "NVx": "3",
+        "NVy": "3"
+      },
+      "via_count": 9,
+      "via_zmin_mm": 0.618,
+      "via_height_mm": 0.5020000000000001,
+      "via_zmax_mm": 1.12,
+      "bottom_trace_range_mm": [
+        0.6,
+        0.64
+      ],
+      "flag_range_mm": [
+        1.142,
+        1.16
+      ],
+      "bottom_clearance_mm": -0.02200000000000002,
+      "top_clearance_mm": 0.021999999999999797,
+      "start_hypothesis_residuals_mm": {
+        "top_offset": 0.0,
+        "bottom_offset": -0.02200000000000002
+      },
+      "height_residual_mm": 1.1102230246251565e-16,
+      "internal_layers": [
+        {
+          "name": "trace_1",
+          "zmin_mm": 0.9626666666666667,
+          "height_mm": 0.036000000000000004
+        },
+        {
+          "name": "trace_2",
+          "zmin_mm": 0.8193333333333334,
+          "height_mm": 0.036000000000000004
+        }
+      ],
+      "disconnect_regions": [
+        {
+          "name": "discon3",
+          "zmin_mm": 0.8193333333333334,
+          "height_mm": 0.036000000000000004
+        }
+      ],
+      "via_material": [
+        138.59999999999997,
+        138.59999999999997,
+        138.59999999999997,
+        3214.799999999999,
+        385.0
+      ],
+      "sha256": {
+        "floxml": "771dcd0e228a27c4aec6e13972c3f54294471f86c114ece2b965278eb8bd28e0",
+        "des": "78542bfda94c57c47dac77cbee8d96992acd29bbc45de7609b8b7b4e8db44399"
+      },
+      "max_reload_numeric_difference": 3.3306690738754696e-16,
+      "reload_sha256": {
+        "floxml": "6054fdfacc3c1439ee79f7145edb34f116e31f3a2ed972d25c0e54968c86017c",
+        "des": "2cd88c233ce0c3369f97c41219bd275e4da02041151c29424873e8ade950681b"
+      }
+    },
+    {
+      "id": "layers4_top0_01_bottom0_04_a10_6_a20_56",
+      "inputs_mm": {
+        "A1": 0.6,
+        "A2": 0.56,
+        "top": 0.01,
+        "bottom": 0.04
+      },
+      "layers": 4,
+      "input_readback": {
+        "A1": "0.6",
+        "A2": "0.56",
+        "tz1": "0.01",
+        "tz6": "0.04",
+        "NVx": "3",
+        "NVy": "3"
+      },
+      "via_count": 9,
+      "via_zmin_mm": 0.61,
+      "via_height_mm": 0.51,
+      "via_zmax_mm": 1.12,
+      "bottom_trace_range_mm": [
+        0.6,
+        0.64
+      ],
+      "flag_range_mm": [
+        1.15,
+        1.16
+      ],
+      "bottom_clearance_mm": -0.030000000000000027,
+      "top_clearance_mm": 0.029999999999999805,
+      "start_hypothesis_residuals_mm": {
+        "top_offset": 0.0,
+        "bottom_offset": -0.030000000000000027
+      },
+      "height_residual_mm": 0.0,
+      "internal_layers": [
+        {
+          "name": "trace_1",
+          "zmin_mm": 0.9840000000000001,
+          "height_mm": 0.036000000000000004
+        },
+        {
+          "name": "trace_2",
+          "zmin_mm": 0.838,
+          "height_mm": 0.036000000000000004
+        }
+      ],
+      "disconnect_regions": [
+        {
+          "name": "discon3",
+          "zmin_mm": 0.8220000000000001,
+          "height_mm": 0.036000000000000004
+        }
+      ],
+      "via_material": [
+        138.59999999999997,
+        138.59999999999997,
+        138.59999999999997,
+        3214.799999999999,
+        385.0
+      ],
+      "sha256": {
+        "floxml": "2579360c6921db4db0084539d314ec51efd8f7024c0d1a2a5e3e3c37f3b82c6b",
+        "des": "a0f54c4f81dd36fb8e06680950e3590324a705b405fc5eee6762ba8781212958"
+      },
+      "max_reload_numeric_difference": 6.938893903907228e-18,
+      "reload_sha256": {
+        "floxml": "ed6a8f1d4d7b9696bb50752da33822fa727a548627498c50ade5fe8e2d62c74c",
+        "des": "5055e5e97319d0eb80a36f29bfdb02966fa6d290de0b51f838130f0eb4e463af"
+      }
+    },
+    {
+      "id": "layers4_top0_04_bottom0_01_a10_6_a20_56",
+      "inputs_mm": {
+        "A1": 0.6,
+        "A2": 0.56,
+        "top": 0.04,
+        "bottom": 0.01
+      },
+      "layers": 4,
+      "input_readback": {
+        "A1": "0.6",
+        "A2": "0.56",
+        "tz1": "0.04",
+        "tz6": "0.01",
+        "NVx": "3",
+        "NVy": "3"
+      },
+      "via_count": 9,
+      "via_zmin_mm": 0.6399999999999999,
+      "via_height_mm": 0.51,
+      "via_zmax_mm": 1.15,
+      "bottom_trace_range_mm": [
+        0.6,
+        0.61
+      ],
+      "flag_range_mm": [
+        1.1199999999999999,
+        1.16
+      ],
+      "bottom_clearance_mm": 0.029999999999999916,
+      "top_clearance_mm": -0.030000000000000027,
+      "start_hypothesis_residuals_mm": {
+        "top_offset": -1.1102230246251565e-16,
+        "bottom_offset": 0.029999999999999916
+      },
+      "height_residual_mm": 0.0,
+      "internal_layers": [
+        {
+          "name": "trace_1",
+          "zmin_mm": 0.8939999999999998,
+          "height_mm": 0.036000000000000004
+        },
+        {
+          "name": "trace_2",
+          "zmin_mm": 0.7479999999999999,
+          "height_mm": 0.036000000000000004
+        }
+      ],
+      "disconnect_regions": [
+        {
+          "name": "discon3",
+          "zmin_mm": 0.792,
+          "height_mm": 0.036000000000000004
+        }
+      ],
+      "via_material": [
+        138.59999999999997,
+        138.59999999999997,
+        138.59999999999997,
+        3214.799999999999,
+        385.0
+      ],
+      "sha256": {
+        "floxml": "4739ad0bddc378d5c587b4877af9bf69ea7ad35497d2e3d482bb6fa5dc20044f",
+        "des": "c6d445da6cbcb1d6b0beea01e5290dd9a0de746c2c210ff5c06cf71019e382e1"
+      },
+      "max_reload_numeric_difference": 1.1102230246251565e-16,
+      "reload_sha256": {
+        "floxml": "d56b7ace51089ea11a102ab4cab5b90e6d722cf1484c8318745484725c947d19",
+        "des": "cb0d43399b2c29a16dc480941f7786e8640c6cf37782cf57b8006867a2dd814c"
+      }
+    },
+    {
+      "id": "layers4_top0_025_bottom0_025_a10_6_a20_56",
+      "inputs_mm": {
+        "A1": 0.6,
+        "A2": 0.56,
+        "top": 0.025,
+        "bottom": 0.025
+      },
+      "layers": 4,
+      "input_readback": {
+        "A1": "0.6",
+        "A2": "0.56",
+        "tz1": "0.025",
+        "tz6": "0.025",
+        "NVx": "3",
+        "NVy": "3"
+      },
+      "via_count": 9,
+      "via_zmin_mm": 0.6249999999999999,
+      "via_height_mm": 0.5100000000000001,
+      "via_zmax_mm": 1.135,
+      "bottom_trace_range_mm": [
+        0.6,
+        0.625
+      ],
+      "flag_range_mm": [
+        1.135,
+        1.16
+      ],
+      "bottom_clearance_mm": -1.1102230246251565e-16,
+      "top_clearance_mm": 0.0,
+      "start_hypothesis_residuals_mm": {
+        "top_offset": -1.1102230246251565e-16,
+        "bottom_offset": -1.1102230246251565e-16
+      },
+      "height_residual_mm": 1.1102230246251565e-16,
+      "internal_layers": [
+        {
+          "name": "trace_1",
+          "zmin_mm": 0.9389999999999998,
+          "height_mm": 0.036000000000000004
+        },
+        {
+          "name": "trace_2",
+          "zmin_mm": 0.7929999999999998,
+          "height_mm": 0.036000000000000004
+        }
+      ],
+      "disconnect_regions": [
+        {
+          "name": "discon3",
+          "zmin_mm": 0.8069999999999999,
+          "height_mm": 0.036000000000000004
+        }
+      ],
+      "via_material": [
+        138.59999999999997,
+        138.59999999999997,
+        138.59999999999997,
+        3214.799999999999,
+        385.0
+      ],
+      "sha256": {
+        "floxml": "d576518a530cfe935c7a289a44dcf82652a77f0b568f56ec260e0e156fdd5687",
+        "des": "0ab9897d140013a776f3b2e481ad9cf51c777f03892cc74e5385d24242ba615d"
+      },
+      "max_reload_numeric_difference": 6.938893903907228e-18,
+      "reload_sha256": {
+        "floxml": "c67ed8f4f5c83c13fd1b97ea50baee4a6446c755fb29c6e686af2b62ed1cbae2",
+        "des": "ddd58eea9642b5b4ef629307b638fa4347dc1bd30a66a3cb41bf3c6579d0de6c"
+      }
+    },
+    {
+      "id": "layers4_top0_012_bottom0_03_a10_8_a20_7",
+      "inputs_mm": {
+        "A1": 0.8,
+        "A2": 0.7,
+        "top": 0.012,
+        "bottom": 0.03
+      },
+      "layers": 4,
+      "input_readback": {
+        "A1": "0.8",
+        "A2": "0.7",
+        "tz1": "0.012",
+        "tz6": "0.03",
+        "NVx": "3",
+        "NVy": "3"
+      },
+      "via_count": 9,
+      "via_zmin_mm": 0.812,
+      "via_height_mm": 0.658,
+      "via_zmax_mm": 1.4700000000000002,
+      "bottom_trace_range_mm": [
+        0.8,
+        0.8300000000000001
+      ],
+      "flag_range_mm": [
+        1.488,
+        1.5
+      ],
+      "bottom_clearance_mm": -0.018000000000000016,
+      "top_clearance_mm": 0.017999999999999794,
+      "start_hypothesis_residuals_mm": {
+        "top_offset": 0.0,
+        "bottom_offset": -0.018000000000000016
+      },
+      "height_residual_mm": 1.1102230246251565e-16,
+      "internal_layers": [
+        {
+          "name": "trace_1",
+          "zmin_mm": 1.3153333333333332,
+          "height_mm": 0.036000000000000004
+        },
+        {
+          "name": "trace_2",
+          "zmin_mm": 1.1666666666666665,
+          "height_mm": 0.036000000000000004
+        }
+      ],
+      "disconnect_regions": [
+        {
+          "name": "discon3",
+          "zmin_mm": 1.1546666666666667,
+          "height_mm": 0.036000000000000004
+        }
+      ],
+      "via_material": [
+        138.59999999999997,
+        138.59999999999997,
+        138.59999999999997,
+        3214.799999999999,
+        385.0
+      ],
+      "sha256": {
+        "floxml": "fa99dbe8bf72fedf01c3d3330adc401ba9e90083ec5697a323cb49a6b458790c",
+        "des": "8f0d4716079c9aec2c00849b0238bdaa1986cb8f8c5a18477a629bc70ce2167e"
+      },
+      "max_reload_numeric_difference": 4.440892098500626e-16,
+      "reload_sha256": {
+        "floxml": "c53090c1f204e18e148707df0bdf8597fae3823df9bd5f609e82a9d1b943bd39",
+        "des": "c8ebb832264072fd6997c0fbc4341ae3c4b7a3856085d1d17b133624d5c59dad"
+      }
+    },
+    {
+      "id": "layers2_top0_01_bottom0_04_a10_6_a20_36",
+      "inputs_mm": {
+        "A1": 0.6,
+        "A2": 0.36,
+        "top": 0.01,
+        "bottom": 0.04
+      },
+      "layers": 2,
+      "input_readback": {
+        "A1": "0.6",
+        "A2": "0.36",
+        "tz1": "0.01",
+        "tz6": "0.04",
+        "NVx": "5",
+        "NVy": "5"
+      },
+      "via_count": 25,
+      "via_zmin_mm": 0.61,
+      "via_height_mm": 0.30999999999999994,
+      "via_zmax_mm": 0.9199999999999999,
+      "bottom_trace_range_mm": [
+        0.6,
+        0.64
+      ],
+      "flag_range_mm": [
+        0.9499999999999998,
+        0.9599999999999999
+      ],
+      "bottom_clearance_mm": -0.030000000000000027,
+      "top_clearance_mm": 0.029999999999999916,
+      "start_hypothesis_residuals_mm": {
+        "top_offset": 0.0,
+        "bottom_offset": -0.030000000000000027
+      },
+      "height_residual_mm": -5.551115123125783e-17,
+      "internal_layers": [],
+      "disconnect_regions": [],
+      "via_material": [
+        138.59999999999997,
+        138.59999999999997,
+        138.59999999999997,
+        3214.799999999999,
+        385.0
+      ],
+      "sha256": {
+        "floxml": "84cc87854d0e915aeb27d43800db57548903fcdb0e3ab35c39a2a4611d2739af",
+        "des": "1a7ffe9307214d0c627fa1d0929056628736e669b6fca56a8b33450b71678e48"
+      },
+      "max_reload_numeric_difference": 0.0,
+      "reload_sha256": {
+        "floxml": "84cc87854d0e915aeb27d43800db57548903fcdb0e3ab35c39a2a4611d2739af",
+        "des": "68744afc3b83639181d92385f5e9dc3a7210934794f46a7e4e80b002dc6163d8"
+      }
+    },
+    {
+      "id": "layers2_top0_04_bottom0_01_a10_6_a20_36",
+      "inputs_mm": {
+        "A1": 0.6,
+        "A2": 0.36,
+        "top": 0.04,
+        "bottom": 0.01
+      },
+      "layers": 2,
+      "input_readback": {
+        "A1": "0.6",
+        "A2": "0.36",
+        "tz1": "0.04",
+        "tz6": "0.01",
+        "NVx": "5",
+        "NVy": "5"
+      },
+      "via_count": 25,
+      "via_zmin_mm": 0.6399999999999999,
+      "via_height_mm": 0.30999999999999994,
+      "via_zmax_mm": 0.9499999999999998,
+      "bottom_trace_range_mm": [
+        0.6,
+        0.61
+      ],
+      "flag_range_mm": [
+        0.9199999999999999,
+        0.96
+      ],
+      "bottom_clearance_mm": 0.029999999999999916,
+      "top_clearance_mm": -0.029999999999999916,
+      "start_hypothesis_residuals_mm": {
+        "top_offset": -1.1102230246251565e-16,
+        "bottom_offset": 0.029999999999999916
+      },
+      "height_residual_mm": -5.551115123125783e-17,
+      "internal_layers": [],
+      "disconnect_regions": [],
+      "via_material": [
+        138.59999999999997,
+        138.59999999999997,
+        138.59999999999997,
+        3214.799999999999,
+        385.0
+      ],
+      "sha256": {
+        "floxml": "9465ead50da00d481b3a8799956dbd82a63911032a9b769c0f0daee35d589f03",
+        "des": "4483781a135d86fd2b6216a9004d8d954f3aea94ee4d4d95556bf7ed79845f19"
+      },
+      "max_reload_numeric_difference": 0.0,
+      "reload_sha256": {
+        "floxml": "9465ead50da00d481b3a8799956dbd82a63911032a9b769c0f0daee35d589f03",
+        "des": "f7c7e1a4f58a4aed9361e12e8c582276cb9793d57fc00e94401c3ebcf21a032f"
+      }
+    }
+  ],
+  "runs": {
+    "native": {
+      "exit_code": 0,
+      "binary_sha256": {
+        "flopackfloxmlhandling.dll": "1301c597999445ba908f81537e7baa773eac874b0dd9ef1507f08664ca8c2c13",
+        "flopackrealise.dll": "838ed6c2e7d40cc749b8b145f55d78e9e95495fef974d593a7641fc0aa528edd",
+        "flopackmaterials.dll": "4fdd99632751f4e7c63a2bdc93e290a3bc9ca018bbe8b7921aa7025cedb3cda3"
+      },
+      "errors": [],
+      "launcher_sha256": "9fea3c0d7d43fe088e2b62135e243dc5c69d5b776b420275fea8b112631dec66",
+      "launcher": "PowerShell Start-Process -WindowStyle Hidden",
+      "file_version": "2025.13.1.1142",
+      "executable_sha256": "de21140177f9836147fdac1f9a82bb68490d92844fb321087201667575976ba1",
+      "executable": "E:\\Program Files\\Siemens\\SimcenterFlotherm\\2504\\WinXP\\bin\\flopack.exe",
+      "exports": {
+        "layers4_top0_012_bottom0_03_a10_8_a20_7": "fa99dbe8bf72fedf01c3d3330adc401ba9e90083ec5697a323cb49a6b458790c",
+        "layers4_top0_01_bottom0_04_a10_6_a20_56": "2579360c6921db4db0084539d314ec51efd8f7024c0d1a2a5e3e3c37f3b82c6b",
+        "layers4_top0_01_bottom0_018_a10_6_a20_56": "6bb08d41f19cfe7df9b77c6aa160c2201963141029c52235727cab1b88a16447",
+        "layers4_top0_018_bottom0_018_a10_6_a20_56": "29f676e245ee984d935ef7e80afdfdde421bf8a06ea1040b6c240e30259c595b",
+        "layers2_top0_04_bottom0_01_a10_6_a20_36": "9465ead50da00d481b3a8799956dbd82a63911032a9b769c0f0daee35d589f03",
+        "layers4_top0_04_bottom0_01_a10_6_a20_56": "4739ad0bddc378d5c587b4877af9bf69ea7ad35497d2e3d482bb6fa5dc20044f",
+        "layers4_top0_025_bottom0_025_a10_6_a20_56": "d576518a530cfe935c7a289a44dcf82652a77f0b568f56ec260e0e156fdd5687",
+        "layers4_top0_018_bottom0_04_a10_6_a20_56": "771dcd0e228a27c4aec6e13972c3f54294471f86c114ece2b965278eb8bd28e0",
+        "layers2_top0_01_bottom0_04_a10_6_a20_36": "84cc87854d0e915aeb27d43800db57548903fcdb0e3ab35c39a2a4611d2739af"
+      },
+      "script_sha256": "1cb98a01da5d4289e47dfe9589b08d3959ab51884b00a37ad740707d69482967",
+      "seconds": 6.9232966
+    },
+    "reload": {
+      "launcher": "PowerShell Start-Process -WindowStyle Hidden",
+      "executable": "E:\\Program Files\\Siemens\\SimcenterFlotherm\\2504\\WinXP\\bin\\flopack.exe",
+      "exports": {
+        "layers4_top0_012_bottom0_03_a10_8_a20_7": "c53090c1f204e18e148707df0bdf8597fae3823df9bd5f609e82a9d1b943bd39",
+        "layers4_top0_025_bottom0_025_a10_6_a20_56": "c67ed8f4f5c83c13fd1b97ea50baee4a6446c755fb29c6e686af2b62ed1cbae2",
+        "layers4_top0_04_bottom0_01_a10_6_a20_56": "d56b7ace51089ea11a102ab4cab5b90e6d722cf1484c8318745484725c947d19",
+        "layers4_top0_01_bottom0_018_a10_6_a20_56": "438ce1ea09f8b97bc7a2680030a0cd29dbbf08f5ab60849f22a22a8cfd091fe1",
+        "layers2_top0_04_bottom0_01_a10_6_a20_36": "9465ead50da00d481b3a8799956dbd82a63911032a9b769c0f0daee35d589f03",
+        "layers4_top0_018_bottom0_04_a10_6_a20_56": "6054fdfacc3c1439ee79f7145edb34f116e31f3a2ed972d25c0e54968c86017c",
+        "layers4_top0_018_bottom0_018_a10_6_a20_56": "bef871a0467e5f70f012995af11d7abd35c75ca5297512b6a2dc68b61663cd0f",
+        "layers2_top0_01_bottom0_04_a10_6_a20_36": "84cc87854d0e915aeb27d43800db57548903fcdb0e3ab35c39a2a4611d2739af",
+        "layers4_top0_01_bottom0_04_a10_6_a20_56": "ed6a8f1d4d7b9696bb50752da33822fa727a548627498c50ade5fe8e2d62c74c"
+      },
+      "launcher_sha256": "9fea3c0d7d43fe088e2b62135e243dc5c69d5b776b420275fea8b112631dec66",
+      "seconds": 6.5752171,
+      "file_version": "2025.13.1.1142",
+      "script_sha256": "e34ac17d16a3116fe8629480f772f50a882ae45221d2c7a677f113f2a6042708",
+      "binary_sha256": {
+        "flopackmaterials.dll": "4fdd99632751f4e7c63a2bdc93e290a3bc9ca018bbe8b7921aa7025cedb3cda3",
+        "flopackfloxmlhandling.dll": "1301c597999445ba908f81537e7baa773eac874b0dd9ef1507f08664ca8c2c13",
+        "flopackrealise.dll": "838ed6c2e7d40cc749b8b145f55d78e9e95495fef974d593a7641fc0aa528edd"
+      },
+      "errors": [],
+      "executable_sha256": "de21140177f9836147fdac1f9a82bb68490d92844fb321087201667575976ba1",
+      "exit_code": 0
+    }
+  },
+  "conclusion": {
+    "z_min": "A1 + t_top",
+    "height": "A2 - t_top - t_bottom",
+    "z_max": "A1 + A2 - t_bottom",
+    "offset_from_between_copper_planes": "t_top - t_bottom",
+    "fresh_cases": 9,
+    "reloaded_cases": 9,
+    "passed": true
+  }
+}
