@@ -13,6 +13,8 @@ Chip Array、Wirebond PBGA、Flip Chip PBGA、Flip Chip CBGA 各 18 组变参，
 规则网格、交错、中央去球、显式网格名单和 Central Balls 均不再决定这一分支的输出。**
 这不只是主阵列坐标覆盖，Central Balls 也不会另行生成。
 关闭 CSV 开关后，已保存的 CSV 载荷被忽略，恢复原有规则网格/显式名单路径。
+后续 [非离散模式验证](equivalent-solder-ball-rules-floxml-2026-10-25.md) 进一步确认，
+请求非离散模式并开启 CSV 时，原生保存模式会切回离散，仍逐球输出纯焊料。
 
 逐例输入、保存后载荷、实际坐标、数量、原生软件指纹、文件 SHA-256 见
 [机器可读验证报告](../validation/csv_solder_ball_map_floxml_2026-10-25.json)。
