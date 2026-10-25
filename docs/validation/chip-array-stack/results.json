@@ -1,0 +1,2536 @@
+{
+  "runs": {
+    "native": {
+      "executable": "E:\\Program Files\\Siemens\\SimcenterFlotherm\\2504\\WinXP\\bin\\flopack.exe",
+      "errors": [],
+      "executable_sha256": "de21140177f9836147fdac1f9a82bb68490d92844fb321087201667575976ba1",
+      "exit_code": 0,
+      "seconds": 8.8770114,
+      "launcher_sha256": "9fea3c0d7d43fe088e2b62135e243dc5c69d5b776b420275fea8b112631dec66",
+      "binary_sha256": {
+        "flopackrealise.dll": "838ed6c2e7d40cc749b8b145f55d78e9e95495fef974d593a7641fc0aa528edd",
+        "flopackmaterials.dll": "4fdd99632751f4e7c63a2bdc93e290a3bc9ca018bbe8b7921aa7025cedb3cda3",
+        "flopackfloxmlhandling.dll": "1301c597999445ba908f81537e7baa773eac874b0dd9ef1507f08664ca8c2c13"
+      },
+      "exports": {
+        "l2_t0_01_b0_018_a10_4_a20_36_accurate_hollow": "794238bdde3664782d8902b3dd2b6b06ad9bc797abc6cba1d69d4a79335ef010",
+        "l4_t0_018_b0_018_a10_4_a20_56_accurate_hollow": "95bdad237df3331f6217cb688ac37f4a525c4bf3edab7c118bb6bd35ac88e7eb",
+        "l2_t0_012_b0_03_a10_6_a20_7_accurate_hollow": "52e2b64c8b704217d6e46d9f1a0b7ed2ce7571e42ad994709cea538b7a34268c",
+        "l2_t0_04_b0_01_a10_4_a20_36_approximate_hollow": "7e6f00137963cd049af1fbd672b9b002e1bc2bd831d1a576e6093c4cfc7e0fbb",
+        "l2_t0_01_b0_04_a10_4_a20_36_approximate_hollow": "716553867dcc5bf71247236b5d2abd456b3390194ceef83eef85e04715149268",
+        "l4_t0_04_b0_01_a10_4_a20_56_approximate_hollow": "a95696999a0aa9dd3becea55ed942312a92f44c3a822fde7a6a7f106a91077fd",
+        "l2_t0_01_b0_04_a10_4_a20_36_accurate_hollow": "d71df98e03b914c25e67984f653bac30c22f47cdc3c83e6e0603f523563f2ed6",
+        "l2_t0_018_b0_04_a10_4_a20_36_accurate_hollow": "3168b3907a921b333936e6beb473ea1da4b816afc0fd249b31e70f58a9483eff",
+        "l4_t0_01_b0_04_a10_4_a20_56_accurate_hollow": "8862177e05ab12c703e5723c3d2c6974ea3f812f9b4c09683c8660c30af4c389",
+        "l4_t0_018_b0_04_a10_4_a20_56_accurate_hollow": "d400e2ec568f20e4acfe31768b4553168a775e8b0e4fc8954d791086f05f5808",
+        "l4_t0_012_b0_03_a10_6_a20_7_accurate_hollow": "96842123cfa6ce4ab2979b3cf41b5783d0bdf3b75366529f080a3da3e8b22deb",
+        "l2_t0_04_b0_01_a10_4_a20_36_accurate_hollow": "558a7385a0adb309b453f3d0eda64c1414631dfccbf24c2a33c00851c1072be4",
+        "l4_t0_025_b0_025_a10_4_a20_56_accurate_hollow": "4ee61e7454cdcd76bf8a57784e2ae782618305aeb113178b3d9b23d76cfc31be",
+        "l4_t0_01_b0_04_a10_4_a20_56_accurate_filled": "1d6a0ce66f7a64a29689b05e2166ae2f850d6abd9d2a7b2ff70530bacb3d6bba",
+        "l2_t0_025_b0_025_a10_4_a20_36_accurate_hollow": "21c68d6cec07b13f5718b96ccfb588d093c2ed08cebdac140467058e413bbbf6",
+        "l4_t0_04_b0_01_a10_4_a20_56_accurate_hollow": "796973cd853eb255d399cde053d80beb051bf2f78cad7fe91627001ab4501023",
+        "l4_t0_01_b0_018_a10_4_a20_56_accurate_hollow": "ca046882067af7467d811f62a63bf60a3098799ecc3e6ab33ed41bbf5cd99db4",
+        "l4_t0_01_b0_04_a10_4_a20_56_approximate_hollow": "874b301fad29bd7e1d291affc892b4a8891ab111a802d415b6f549e5eb1108b7",
+        "l2_t0_018_b0_018_a10_4_a20_36_accurate_hollow": "f9adf3a4f80d76be0d4d8f77f7918d402ab39c4438007995e08975edbac12129",
+        "l2_t0_01_b0_04_a10_4_a20_36_accurate_filled": "9ec81ace155db7ea3df4d70fe46175b74e11b36113d5d692ed7c260c37c212f5"
+      },
+      "script_sha256": "229a9365ee995e4cf04d874473d52aa4062b2e4480b112e02c98be8b73db9c92",
+      "file_version": "2025.13.1.1142",
+      "launcher": "PowerShell Start-Process -WindowStyle Hidden"
+    },
+    "metals": {
+      "exports": {
+        "l2_coverage_top50": "9c4b3979b4dab639359692fc9659190ab86a329f9bf01c457fdff3538d40b9a0",
+        "l4_top_hole": "df8c58088726de365646d8508cf8e358b72454ed7b469b7728027074b06c3f6c",
+        "l2_top_hole": "ed0b0f8ec5bc42ea6f08620c10adf71306c950617241896913c31b84e8728cac",
+        "l4_grid": "35dbe31a64e8100a36e35e8c4c52a2b573399bd717e46aaa912cbfb9dadb53df",
+        "l4_coverage_top50_inner35": "d4684764f17ae2a5a70d38e68d036b305a11365fb33fc7b20d3db303b476727f",
+        "l2_offset": "4061f6b24e05b984fb098563d39587503f0429ec83f9882425080c6e0757d4c7",
+        "l4_depths": "f57bf72e472fe115e80dca614c84cadb289484ac3f2338332968ab2cd43b08fb",
+        "l4_inner_thickness": "3a9d09a1ca548ec3c1ce42bf9e57ba9d9e36ec555e605e3c8c9fcdcbb3b9fbfc"
+      },
+      "file_version": "2025.13.1.1142",
+      "seconds": 7.9286548,
+      "launcher": "PowerShell Start-Process -WindowStyle Hidden",
+      "executable_sha256": "de21140177f9836147fdac1f9a82bb68490d92844fb321087201667575976ba1",
+      "executable": "E:\\Program Files\\Siemens\\SimcenterFlotherm\\2504\\WinXP\\bin\\flopack.exe",
+      "script_sha256": "2bd84f8c9c450a93337860e8c6315a5817cff4b60059b017c180c312ca68944d",
+      "exit_code": 0,
+      "launcher_sha256": "9fea3c0d7d43fe088e2b62135e243dc5c69d5b776b420275fea8b112631dec66",
+      "binary_sha256": {
+        "flopackmaterials.dll": "4fdd99632751f4e7c63a2bdc93e290a3bc9ca018bbe8b7921aa7025cedb3cda3",
+        "flopackfloxmlhandling.dll": "1301c597999445ba908f81537e7baa773eac874b0dd9ef1507f08664ca8c2c13",
+        "flopackrealise.dll": "838ed6c2e7d40cc749b8b145f55d78e9e95495fef974d593a7641fc0aa528edd"
+      },
+      "errors": []
+    },
+    "reload": {
+      "binary_sha256": {
+        "flopackrealise.dll": "838ed6c2e7d40cc749b8b145f55d78e9e95495fef974d593a7641fc0aa528edd",
+        "flopackfloxmlhandling.dll": "1301c597999445ba908f81537e7baa773eac874b0dd9ef1507f08664ca8c2c13",
+        "flopackmaterials.dll": "4fdd99632751f4e7c63a2bdc93e290a3bc9ca018bbe8b7921aa7025cedb3cda3"
+      },
+      "launcher": "PowerShell Start-Process -WindowStyle Hidden",
+      "exit_code": 0,
+      "executable": "E:\\Program Files\\Siemens\\SimcenterFlotherm\\2504\\WinXP\\bin\\flopack.exe",
+      "exports": {
+        "l4_t0_01_b0_04_a10_4_a20_56_accurate_hollow": "e2e371282d32fdd58800d260402b5b74fc61c057c5c7b38d7e33909beec190df",
+        "l4_t0_012_b0_03_a10_6_a20_7_accurate_hollow": "4ebbdb17a8cd44475f23b538c422be4b1cb068b24c879af23b9d7afad88b4a40",
+        "l4_coverage_top50_inner35": "d4684764f17ae2a5a70d38e68d036b305a11365fb33fc7b20d3db303b476727f",
+        "l2_t0_012_b0_03_a10_6_a20_7_accurate_hollow": "52e2b64c8b704217d6e46d9f1a0b7ed2ce7571e42ad994709cea538b7a34268c",
+        "l4_t0_01_b0_04_a10_4_a20_56_approximate_hollow": "d4a59edf83b584b92479d8b242f1c6fbf4a3f667b89d435db78beb23ac055400",
+        "l2_t0_04_b0_01_a10_4_a20_36_accurate_hollow": "558a7385a0adb309b453f3d0eda64c1414631dfccbf24c2a33c00851c1072be4",
+        "l4_t0_025_b0_025_a10_4_a20_56_accurate_hollow": "070a87ebc3cbc969fe6e87637e8ba1e4faf70237d8041d928c82eb882c5bdd21",
+        "l4_inner_thickness": "3a9d09a1ca548ec3c1ce42bf9e57ba9d9e36ec555e605e3c8c9fcdcbb3b9fbfc",
+        "l4_t0_04_b0_01_a10_4_a20_56_accurate_hollow": "46f6fa2e2cee390cd9f8a3e43a2811cebbab6b3d26b9b8a719c1db7409cd971f",
+        "l4_t0_018_b0_018_a10_4_a20_56_accurate_hollow": "36b012b3d9407a45c189c55db499330683251b9e85c106930177190f7d3148db",
+        "l2_t0_01_b0_018_a10_4_a20_36_accurate_hollow": "794238bdde3664782d8902b3dd2b6b06ad9bc797abc6cba1d69d4a79335ef010",
+        "l2_top_hole": "ed0b0f8ec5bc42ea6f08620c10adf71306c950617241896913c31b84e8728cac",
+        "l2_t0_018_b0_04_a10_4_a20_36_accurate_hollow": "3168b3907a921b333936e6beb473ea1da4b816afc0fd249b31e70f58a9483eff",
+        "l4_t0_01_b0_04_a10_4_a20_56_accurate_filled": "554acdf782d35858ee2f51caae5291e9f98b35f00695a42fe9896e7f72f36057",
+        "l4_grid": "35dbe31a64e8100a36e35e8c4c52a2b573399bd717e46aaa912cbfb9dadb53df",
+        "l2_t0_04_b0_01_a10_4_a20_36_approximate_hollow": "7e6f00137963cd049af1fbd672b9b002e1bc2bd831d1a576e6093c4cfc7e0fbb",
+        "l4_depths": "f57bf72e472fe115e80dca614c84cadb289484ac3f2338332968ab2cd43b08fb",
+        "l2_coverage_top50": "9c4b3979b4dab639359692fc9659190ab86a329f9bf01c457fdff3538d40b9a0",
+        "l2_t0_025_b0_025_a10_4_a20_36_accurate_hollow": "21c68d6cec07b13f5718b96ccfb588d093c2ed08cebdac140467058e413bbbf6",
+        "l4_t0_018_b0_04_a10_4_a20_56_accurate_hollow": "3854be1ef142c23ce29c881c9db8aafcae3874fb0454c5375b7c7827dfe278cb",
+        "l4_top_hole": "df8c58088726de365646d8508cf8e358b72454ed7b469b7728027074b06c3f6c",
+        "l4_t0_04_b0_01_a10_4_a20_56_approximate_hollow": "8606a0454068b47caef5683ddf647e81ac8b92b37cae707491974cc2504eb882",
+        "l4_t0_01_b0_018_a10_4_a20_56_accurate_hollow": "1122717280be160eafd8763ef1ff4ba3ee5dcc94325e824b9cfc0ec2c96c8953",
+        "l2_offset": "4061f6b24e05b984fb098563d39587503f0429ec83f9882425080c6e0757d4c7",
+        "l2_t0_01_b0_04_a10_4_a20_36_approximate_hollow": "716553867dcc5bf71247236b5d2abd456b3390194ceef83eef85e04715149268",
+        "l2_t0_018_b0_018_a10_4_a20_36_accurate_hollow": "f9adf3a4f80d76be0d4d8f77f7918d402ab39c4438007995e08975edbac12129",
+        "l2_t0_01_b0_04_a10_4_a20_36_accurate_hollow": "d71df98e03b914c25e67984f653bac30c22f47cdc3c83e6e0603f523563f2ed6",
+        "l2_t0_01_b0_04_a10_4_a20_36_accurate_filled": "9ec81ace155db7ea3df4d70fe46175b74e11b36113d5d692ed7c260c37c212f5"
+      },
+      "script_sha256": "95879d7044c3b802aa24bb814b4f9c44bbd765641254b92c8dfe3cfb085b5009",
+      "executable_sha256": "de21140177f9836147fdac1f9a82bb68490d92844fb321087201667575976ba1",
+      "file_version": "2025.13.1.1142",
+      "seconds": 10.7803965,
+      "launcher_sha256": "9fea3c0d7d43fe088e2b62135e243dc5c69d5b776b420275fea8b112631dec66",
+      "errors": []
+    }
+  },
+  "cases": [
+    {
+      "id": "l2_t0_018_b0_018_a10_4_a20_36_accurate_hollow",
+      "layers": 2,
+      "mode": "accurate",
+      "filled": false,
+      "input_mm": {
+        "A1": 0.4,
+        "A2": 0.36,
+        "top": 0.018,
+        "bottom": 0.018
+      },
+      "via_count": 25,
+      "via_side_mm": 0.1772453850905516,
+      "via_zmin_mm": 0.41800000000000004,
+      "via_height_mm": 0.32399999999999995,
+      "via_zmax_mm": 0.742,
+      "bottom_clearance_mm": -5.551115123125783e-17,
+      "top_clearance_mm": 0.0,
+      "via_material": [
+        168.4521812499999,
+        168.4521812499999,
+        168.4521812499999,
+        3907.528287499998,
+        385.1039902452658
+      ],
+      "metal_rows": [
+        {
+          "depth": 0,
+          "thickness": 0.018,
+          "coverage": 20.0,
+          "name": "trace_0",
+          "zmin": 0.742,
+          "zmax": 0.76,
+          "properties": [
+            77.16,
+            77.16,
+            77.16,
+            3306.0,
+            631.4367816091954
+          ]
+        },
+        {
+          "depth": 0.34199999999999997,
+          "thickness": 0.018,
+          "coverage": 10.0,
+          "name": "trace_1",
+          "zmin": 0.4000000000000001,
+          "zmax": 0.4180000000000001,
+          "properties": [
+            38.68,
+            38.68,
+            38.68,
+            2603.0,
+            737.1167883211679
+          ]
+        }
+      ],
+      "holes": [],
+      "source_sha256": {
+        "floxml": "f9adf3a4f80d76be0d4d8f77f7918d402ab39c4438007995e08975edbac12129",
+        "des": "30de72f7d02928452ae8f7dff3b6260cd790d4886d36b1839f7a8a2069980397"
+      },
+      "max_reload_numeric_difference": 0.0,
+      "reload_sha256": {
+        "floxml": "f9adf3a4f80d76be0d4d8f77f7918d402ab39c4438007995e08975edbac12129",
+        "des": "24e26238fff5867135a8cc799497819ebcfba45e417c6c4787acfaac8e1c6341"
+      },
+      "verified_center_count": 25
+    },
+    {
+      "id": "l2_t0_01_b0_018_a10_4_a20_36_accurate_hollow",
+      "layers": 2,
+      "mode": "accurate",
+      "filled": false,
+      "input_mm": {
+        "A1": 0.4,
+        "A2": 0.36,
+        "top": 0.01,
+        "bottom": 0.018
+      },
+      "via_count": 25,
+      "via_side_mm": 0.1772453850905516,
+      "via_zmin_mm": 0.41800000000000004,
+      "via_height_mm": 0.33199999999999996,
+      "via_zmax_mm": 0.75,
+      "bottom_clearance_mm": -5.551115123125783e-17,
+      "top_clearance_mm": 0.0,
+      "via_material": [
+        168.4521812499999,
+        168.4521812499999,
+        168.4521812499999,
+        3907.528287499998,
+        385.1039902452658
+      ],
+      "metal_rows": [
+        {
+          "depth": 0,
+          "thickness": 0.01,
+          "coverage": 20.0,
+          "name": "trace_0",
+          "zmin": 0.75,
+          "zmax": 0.76,
+          "properties": [
+            77.16,
+            77.16,
+            77.16,
+            3306.0,
+            631.4367816091954
+          ]
+        },
+        {
+          "depth": 0.34199999999999997,
+          "thickness": 0.018,
+          "coverage": 10.0,
+          "name": "trace_1",
+          "zmin": 0.4000000000000001,
+          "zmax": 0.4180000000000001,
+          "properties": [
+            38.68,
+            38.68,
+            38.68,
+            2603.0,
+            737.1167883211679
+          ]
+        }
+      ],
+      "holes": [],
+      "source_sha256": {
+        "floxml": "794238bdde3664782d8902b3dd2b6b06ad9bc797abc6cba1d69d4a79335ef010",
+        "des": "794607355648f2dbd254f511d5f5084c0d91def031d4cb2273d4830042617e3a"
+      },
+      "max_reload_numeric_difference": 0.0,
+      "reload_sha256": {
+        "floxml": "794238bdde3664782d8902b3dd2b6b06ad9bc797abc6cba1d69d4a79335ef010",
+        "des": "9487b581a34ed058cc1f5589c72e40f6d8d35ad0897240033aec85267c6d07ef"
+      },
+      "verified_center_count": 25
+    },
+    {
+      "id": "l2_t0_018_b0_04_a10_4_a20_36_accurate_hollow",
+      "layers": 2,
+      "mode": "accurate",
+      "filled": false,
+      "input_mm": {
+        "A1": 0.4,
+        "A2": 0.36,
+        "top": 0.018,
+        "bottom": 0.04
+      },
+      "via_count": 25,
+      "via_side_mm": 0.1772453850905516,
+      "via_zmin_mm": 0.44,
+      "via_height_mm": 0.302,
+      "via_zmax_mm": 0.742,
+      "bottom_clearance_mm": -5.551115123125783e-17,
+      "top_clearance_mm": 0.0,
+      "via_material": [
+        168.4521812499999,
+        168.4521812499999,
+        168.4521812499999,
+        3907.528287499998,
+        385.1039902452658
+      ],
+      "metal_rows": [
+        {
+          "depth": 0,
+          "thickness": 0.018,
+          "coverage": 20.0,
+          "name": "trace_0",
+          "zmin": 0.742,
+          "zmax": 0.76,
+          "properties": [
+            77.16,
+            77.16,
+            77.16,
+            3306.0,
+            631.4367816091954
+          ]
+        },
+        {
+          "depth": 0.32,
+          "thickness": 0.04,
+          "coverage": 10.0,
+          "name": "trace_1",
+          "zmin": 0.4000000000000001,
+          "zmax": 0.44000000000000006,
+          "properties": [
+            38.68,
+            38.68,
+            38.68,
+            2603.0,
+            737.1167883211679
+          ]
+        }
+      ],
+      "holes": [],
+      "source_sha256": {
+        "floxml": "3168b3907a921b333936e6beb473ea1da4b816afc0fd249b31e70f58a9483eff",
+        "des": "85ddb148c4e8753087e5ed817b0433b5e1d392b20e777e1fbaa6e2a64f5260be"
+      },
+      "max_reload_numeric_difference": 0.0,
+      "reload_sha256": {
+        "floxml": "3168b3907a921b333936e6beb473ea1da4b816afc0fd249b31e70f58a9483eff",
+        "des": "e0e804834724db275804c9c928d916d1d8a0271e48ab413b9e36904c367054a1"
+      },
+      "verified_center_count": 25
+    },
+    {
+      "id": "l2_t0_01_b0_04_a10_4_a20_36_accurate_hollow",
+      "layers": 2,
+      "mode": "accurate",
+      "filled": false,
+      "input_mm": {
+        "A1": 0.4,
+        "A2": 0.36,
+        "top": 0.01,
+        "bottom": 0.04
+      },
+      "via_count": 25,
+      "via_side_mm": 0.1772453850905516,
+      "via_zmin_mm": 0.44,
+      "via_height_mm": 0.30999999999999994,
+      "via_zmax_mm": 0.75,
+      "bottom_clearance_mm": -5.551115123125783e-17,
+      "top_clearance_mm": 0.0,
+      "via_material": [
+        168.4521812499999,
+        168.4521812499999,
+        168.4521812499999,
+        3907.528287499998,
+        385.1039902452658
+      ],
+      "metal_rows": [
+        {
+          "depth": 0,
+          "thickness": 0.01,
+          "coverage": 20.0,
+          "name": "trace_0",
+          "zmin": 0.75,
+          "zmax": 0.76,
+          "properties": [
+            77.16,
+            77.16,
+            77.16,
+            3306.0,
+            631.4367816091954
+          ]
+        },
+        {
+          "depth": 0.32,
+          "thickness": 0.04,
+          "coverage": 10.0,
+          "name": "trace_1",
+          "zmin": 0.4000000000000001,
+          "zmax": 0.44000000000000006,
+          "properties": [
+            38.68,
+            38.68,
+            38.68,
+            2603.0,
+            737.1167883211679
+          ]
+        }
+      ],
+      "holes": [],
+      "source_sha256": {
+        "floxml": "d71df98e03b914c25e67984f653bac30c22f47cdc3c83e6e0603f523563f2ed6",
+        "des": "75467bb24ad125b3f328821129aef36eb31fd818b9a10c468d23b6235c8d0c78"
+      },
+      "max_reload_numeric_difference": 0.0,
+      "reload_sha256": {
+        "floxml": "d71df98e03b914c25e67984f653bac30c22f47cdc3c83e6e0603f523563f2ed6",
+        "des": "755dd570c943c62cd6eb09b37cda99c37d903be3baf1b4044b059d3b09d2aa93"
+      },
+      "verified_center_count": 25
+    },
+    {
+      "id": "l2_t0_04_b0_01_a10_4_a20_36_accurate_hollow",
+      "layers": 2,
+      "mode": "accurate",
+      "filled": false,
+      "input_mm": {
+        "A1": 0.4,
+        "A2": 0.36,
+        "top": 0.04,
+        "bottom": 0.01
+      },
+      "via_count": 25,
+      "via_side_mm": 0.1772453850905516,
+      "via_zmin_mm": 0.41000000000000003,
+      "via_height_mm": 0.30999999999999994,
+      "via_zmax_mm": 0.72,
+      "bottom_clearance_mm": -5.551115123125783e-17,
+      "top_clearance_mm": 1.1102230246251565e-16,
+      "via_material": [
+        168.4521812499999,
+        168.4521812499999,
+        168.4521812499999,
+        3907.528287499998,
+        385.1039902452658
+      ],
+      "metal_rows": [
+        {
+          "depth": 0,
+          "thickness": 0.04,
+          "coverage": 20.0,
+          "name": "trace_0",
+          "zmin": 0.7200000000000001,
+          "zmax": 0.7600000000000001,
+          "properties": [
+            77.16,
+            77.16,
+            77.16,
+            3306.0,
+            631.4367816091954
+          ]
+        },
+        {
+          "depth": 0.35,
+          "thickness": 0.01,
+          "coverage": 10.0,
+          "name": "trace_1",
+          "zmin": 0.4000000000000001,
+          "zmax": 0.4100000000000001,
+          "properties": [
+            38.68,
+            38.68,
+            38.68,
+            2603.0,
+            737.1167883211679
+          ]
+        }
+      ],
+      "holes": [],
+      "source_sha256": {
+        "floxml": "558a7385a0adb309b453f3d0eda64c1414631dfccbf24c2a33c00851c1072be4",
+        "des": "dd0028d19d5c851d0e2ccf5b81f2a8645739187827c032ea777d5c7d7c214c05"
+      },
+      "max_reload_numeric_difference": 0.0,
+      "reload_sha256": {
+        "floxml": "558a7385a0adb309b453f3d0eda64c1414631dfccbf24c2a33c00851c1072be4",
+        "des": "d549f70d52bc54dafb0838a54d20fe24d7c461544a91b30c4e8d52c673382e4e"
+      },
+      "verified_center_count": 25
+    },
+    {
+      "id": "l2_t0_025_b0_025_a10_4_a20_36_accurate_hollow",
+      "layers": 2,
+      "mode": "accurate",
+      "filled": false,
+      "input_mm": {
+        "A1": 0.4,
+        "A2": 0.36,
+        "top": 0.025,
+        "bottom": 0.025
+      },
+      "via_count": 25,
+      "via_side_mm": 0.1772453850905516,
+      "via_zmin_mm": 0.42500000000000004,
+      "via_height_mm": 0.30999999999999994,
+      "via_zmax_mm": 0.735,
+      "bottom_clearance_mm": -1.1102230246251565e-16,
+      "top_clearance_mm": 1.1102230246251565e-16,
+      "via_material": [
+        168.4521812499999,
+        168.4521812499999,
+        168.4521812499999,
+        3907.528287499998,
+        385.1039902452658
+      ],
+      "metal_rows": [
+        {
+          "depth": 0,
+          "thickness": 0.025,
+          "coverage": 20.0,
+          "name": "trace_0",
+          "zmin": 0.7350000000000001,
+          "zmax": 0.7600000000000001,
+          "properties": [
+            77.16,
+            77.16,
+            77.16,
+            3306.0,
+            631.4367816091954
+          ]
+        },
+        {
+          "depth": 0.33499999999999996,
+          "thickness": 0.025,
+          "coverage": 10.0,
+          "name": "trace_1",
+          "zmin": 0.40000000000000013,
+          "zmax": 0.42500000000000016,
+          "properties": [
+            38.68,
+            38.68,
+            38.68,
+            2603.0,
+            737.1167883211679
+          ]
+        }
+      ],
+      "holes": [],
+      "source_sha256": {
+        "floxml": "21c68d6cec07b13f5718b96ccfb588d093c2ed08cebdac140467058e413bbbf6",
+        "des": "bc4cdec2d08592ac2a626c047743e86b5b694f15482089c57432cd5b58cb3a80"
+      },
+      "max_reload_numeric_difference": 0.0,
+      "reload_sha256": {
+        "floxml": "21c68d6cec07b13f5718b96ccfb588d093c2ed08cebdac140467058e413bbbf6",
+        "des": "df42352a706bb1882c8e05f8472aaa2d7de283003a01d6471a05ae363051a756"
+      },
+      "verified_center_count": 25
+    },
+    {
+      "id": "l2_t0_012_b0_03_a10_6_a20_7_accurate_hollow",
+      "layers": 2,
+      "mode": "accurate",
+      "filled": false,
+      "input_mm": {
+        "A1": 0.6,
+        "A2": 0.7,
+        "top": 0.012,
+        "bottom": 0.03
+      },
+      "via_count": 25,
+      "via_side_mm": 0.1772453850905516,
+      "via_zmin_mm": 0.6299999999999999,
+      "via_height_mm": 0.658,
+      "via_zmax_mm": 1.2879999999999998,
+      "bottom_clearance_mm": 0.0,
+      "top_clearance_mm": 0.0,
+      "via_material": [
+        168.4521812499999,
+        168.4521812499999,
+        168.4521812499999,
+        3907.528287499998,
+        385.1039902452658
+      ],
+      "metal_rows": [
+        {
+          "depth": 0,
+          "thickness": 0.012,
+          "coverage": 20.0,
+          "name": "trace_0",
+          "zmin": 1.2879999999999998,
+          "zmax": 1.2999999999999998,
+          "properties": [
+            77.16,
+            77.16,
+            77.16,
+            3306.0,
+            631.4367816091954
+          ]
+        },
+        {
+          "depth": 0.6699999999999999,
+          "thickness": 0.03,
+          "coverage": 10.0,
+          "name": "trace_1",
+          "zmin": 0.5999999999999999,
+          "zmax": 0.6299999999999999,
+          "properties": [
+            38.68,
+            38.68,
+            38.68,
+            2603.0,
+            737.1167883211679
+          ]
+        }
+      ],
+      "holes": [],
+      "source_sha256": {
+        "floxml": "52e2b64c8b704217d6e46d9f1a0b7ed2ce7571e42ad994709cea538b7a34268c",
+        "des": "180d83b5df8b4d5b32c64da2343fedf3d1ca590391c245c67779a172b3764299"
+      },
+      "max_reload_numeric_difference": 0.0,
+      "reload_sha256": {
+        "floxml": "52e2b64c8b704217d6e46d9f1a0b7ed2ce7571e42ad994709cea538b7a34268c",
+        "des": "0f3e62c3d6b48a93f439fcc514743d4975253c0569913f81a9516ed8b10e16bd"
+      },
+      "verified_center_count": 25
+    },
+    {
+      "id": "l2_t0_01_b0_04_a10_4_a20_36_approximate_hollow",
+      "layers": 2,
+      "mode": "approximate",
+      "filled": false,
+      "input_mm": {
+        "A1": 0.4,
+        "A2": 0.36,
+        "top": 0.01,
+        "bottom": 0.04
+      },
+      "via_count": 25,
+      "via_side_mm": 0.4076643857082687,
+      "via_zmin_mm": 0.44,
+      "via_height_mm": 0.30999999999999994,
+      "via_zmax_mm": 0.75,
+      "bottom_clearance_mm": -5.551115123125783e-17,
+      "top_clearance_mm": 0.0,
+      "via_material": [
+        32.00570534026463,
+        32.00570534026463,
+        32.00570534026463,
+        2279.4949503780717,
+        747.3445780986646
+      ],
+      "metal_rows": [
+        {
+          "depth": 0,
+          "thickness": 0.01,
+          "coverage": 20.0,
+          "name": "trace_0",
+          "zmin": 0.75,
+          "zmax": 0.76,
+          "properties": [
+            77.16,
+            77.16,
+            77.16,
+            3306.0,
+            631.4367816091954
+          ]
+        },
+        {
+          "depth": 0.32,
+          "thickness": 0.04,
+          "coverage": 10.0,
+          "name": "trace_1",
+          "zmin": 0.4000000000000001,
+          "zmax": 0.44000000000000006,
+          "properties": [
+            38.68,
+            38.68,
+            38.68,
+            2603.0,
+            737.1167883211679
+          ]
+        }
+      ],
+      "holes": [],
+      "source_sha256": {
+        "floxml": "716553867dcc5bf71247236b5d2abd456b3390194ceef83eef85e04715149268",
+        "des": "9c870a8c7f8ea84b12c94be46501f2b0829699e5d5521643978a36e814b885f1"
+      },
+      "max_reload_numeric_difference": 0.0,
+      "reload_sha256": {
+        "floxml": "716553867dcc5bf71247236b5d2abd456b3390194ceef83eef85e04715149268",
+        "des": "4133d7fabef28be21d180e1d42164477df0ae4f087f4699b71626a08ec746229"
+      },
+      "verified_center_count": 25
+    },
+    {
+      "id": "l2_t0_04_b0_01_a10_4_a20_36_approximate_hollow",
+      "layers": 2,
+      "mode": "approximate",
+      "filled": false,
+      "input_mm": {
+        "A1": 0.4,
+        "A2": 0.36,
+        "top": 0.04,
+        "bottom": 0.01
+      },
+      "via_count": 25,
+      "via_side_mm": 0.4076643857082687,
+      "via_zmin_mm": 0.41000000000000003,
+      "via_height_mm": 0.30999999999999994,
+      "via_zmax_mm": 0.72,
+      "bottom_clearance_mm": -5.551115123125783e-17,
+      "top_clearance_mm": 1.1102230246251565e-16,
+      "via_material": [
+        32.00570534026463,
+        32.00570534026463,
+        32.00570534026463,
+        2279.4949503780717,
+        747.3445780986646
+      ],
+      "metal_rows": [
+        {
+          "depth": 0,
+          "thickness": 0.04,
+          "coverage": 20.0,
+          "name": "trace_0",
+          "zmin": 0.7200000000000001,
+          "zmax": 0.7600000000000001,
+          "properties": [
+            77.16,
+            77.16,
+            77.16,
+            3306.0,
+            631.4367816091954
+          ]
+        },
+        {
+          "depth": 0.35,
+          "thickness": 0.01,
+          "coverage": 10.0,
+          "name": "trace_1",
+          "zmin": 0.4000000000000001,
+          "zmax": 0.4100000000000001,
+          "properties": [
+            38.68,
+            38.68,
+            38.68,
+            2603.0,
+            737.1167883211679
+          ]
+        }
+      ],
+      "holes": [],
+      "source_sha256": {
+        "floxml": "7e6f00137963cd049af1fbd672b9b002e1bc2bd831d1a576e6093c4cfc7e0fbb",
+        "des": "1e9ea5e5299ae6772427e13bb7d2bf808c1fab83332a1d9ebab8255102fdf49c"
+      },
+      "max_reload_numeric_difference": 0.0,
+      "reload_sha256": {
+        "floxml": "7e6f00137963cd049af1fbd672b9b002e1bc2bd831d1a576e6093c4cfc7e0fbb",
+        "des": "8ef1cec6408dda9d8e5dca108abde225e36294374f4c6c992244ffcb8d3fca24"
+      },
+      "verified_center_count": 25
+    },
+    {
+      "id": "l2_t0_01_b0_04_a10_4_a20_36_accurate_filled",
+      "layers": 2,
+      "mode": "accurate",
+      "filled": true,
+      "input_mm": {
+        "A1": 0.4,
+        "A2": 0.36,
+        "top": 0.01,
+        "bottom": 0.04
+      },
+      "via_count": 25,
+      "via_side_mm": 0.1772453850905516,
+      "via_zmin_mm": 0.44,
+      "via_height_mm": 0.30999999999999994,
+      "via_zmax_mm": 0.75,
+      "bottom_clearance_mm": -5.551115123125783e-17,
+      "top_clearance_mm": 0.0,
+      "via_material": [
+        385.0,
+        385.0,
+        385.0,
+        8930.0,
+        385.0
+      ],
+      "metal_rows": [
+        {
+          "depth": 0,
+          "thickness": 0.01,
+          "coverage": 20.0,
+          "name": "trace_0",
+          "zmin": 0.75,
+          "zmax": 0.76,
+          "properties": [
+            77.16,
+            77.16,
+            77.16,
+            3306.0,
+            631.4367816091954
+          ]
+        },
+        {
+          "depth": 0.32,
+          "thickness": 0.04,
+          "coverage": 10.0,
+          "name": "trace_1",
+          "zmin": 0.4000000000000001,
+          "zmax": 0.44000000000000006,
+          "properties": [
+            38.68,
+            38.68,
+            38.68,
+            2603.0,
+            737.1167883211679
+          ]
+        }
+      ],
+      "holes": [],
+      "source_sha256": {
+        "floxml": "9ec81ace155db7ea3df4d70fe46175b74e11b36113d5d692ed7c260c37c212f5",
+        "des": "9aae761ad12fdef1baf488ecaa3bbb59b40ad206bb85986cb1625a3ab75466ed"
+      },
+      "max_reload_numeric_difference": 0.0,
+      "reload_sha256": {
+        "floxml": "9ec81ace155db7ea3df4d70fe46175b74e11b36113d5d692ed7c260c37c212f5",
+        "des": "677efc67b4ecd1a1f53746364c9d9b8d55338475789c6b38dbf9eed5dadbc4ff"
+      },
+      "verified_center_count": 25
+    },
+    {
+      "id": "l4_t0_018_b0_018_a10_4_a20_56_accurate_hollow",
+      "layers": 4,
+      "mode": "accurate",
+      "filled": false,
+      "input_mm": {
+        "A1": 0.4,
+        "A2": 0.56,
+        "top": 0.018,
+        "bottom": 0.018
+      },
+      "via_count": 25,
+      "via_side_mm": 0.1772453850905516,
+      "via_zmin_mm": 0.41800000000000004,
+      "via_height_mm": 0.524,
+      "via_zmax_mm": 0.9420000000000001,
+      "bottom_clearance_mm": -5.551115123125783e-17,
+      "top_clearance_mm": 1.1102230246251565e-16,
+      "via_material": [
+        168.4521812499999,
+        168.4521812499999,
+        168.4521812499999,
+        3907.528287499998,
+        385.1039902452658
+      ],
+      "metal_rows": [
+        {
+          "depth": 0,
+          "thickness": 0.018,
+          "coverage": 20.0,
+          "name": "trace_0",
+          "zmin": 0.9420000000000002,
+          "zmax": 0.9600000000000002,
+          "properties": [
+            77.16,
+            77.16,
+            77.16,
+            3306.0,
+            631.4367816091954
+          ]
+        },
+        {
+          "depth": 0.168666666666667,
+          "thickness": 0.036,
+          "coverage": 90.0,
+          "name": "trace_1",
+          "zmin": 0.7553333333333334,
+          "zmax": 0.7913333333333334,
+          "properties": [
+            346.52,
+            346.52,
+            346.52,
+            8227.0,
+            397.378752886836
+          ]
+        },
+        {
+          "depth": 0.319333333333333,
+          "thickness": 0.036,
+          "coverage": 90.0,
+          "name": "trace_2",
+          "zmin": 0.6046666666666668,
+          "zmax": 0.6406666666666668,
+          "properties": [
+            346.52,
+            346.52,
+            346.52,
+            8227.0,
+            397.378752886836
+          ]
+        },
+        {
+          "depth": 0.542,
+          "thickness": 0.018,
+          "coverage": 10.0,
+          "name": "trace_3",
+          "zmin": 0.4000000000000001,
+          "zmax": 0.4180000000000001,
+          "properties": [
+            38.68,
+            38.68,
+            38.68,
+            2603.0,
+            737.1167883211679
+          ]
+        }
+      ],
+      "holes": [],
+      "source_sha256": {
+        "floxml": "95bdad237df3331f6217cb688ac37f4a525c4bf3edab7c118bb6bd35ac88e7eb",
+        "des": "7dac7b6e07bb94ad5c90abd107e3983bfc6e5c45939e0c11c7ac4e8be2ce13c9"
+      },
+      "max_reload_numeric_difference": 3.3306690738754696e-16,
+      "reload_sha256": {
+        "floxml": "36b012b3d9407a45c189c55db499330683251b9e85c106930177190f7d3148db",
+        "des": "39b94174b44a0b8bc9adda81e904a54db881d19d7d88ed614909892bd2f7ab55"
+      },
+      "verified_center_count": 25
+    },
+    {
+      "id": "l4_t0_01_b0_018_a10_4_a20_56_accurate_hollow",
+      "layers": 4,
+      "mode": "accurate",
+      "filled": false,
+      "input_mm": {
+        "A1": 0.4,
+        "A2": 0.56,
+        "top": 0.01,
+        "bottom": 0.018
+      },
+      "via_count": 25,
+      "via_side_mm": 0.1772453850905516,
+      "via_zmin_mm": 0.41800000000000004,
+      "via_height_mm": 0.532,
+      "via_zmax_mm": 0.9500000000000001,
+      "bottom_clearance_mm": -5.551115123125783e-17,
+      "top_clearance_mm": 0.0,
+      "via_material": [
+        168.4521812499999,
+        168.4521812499999,
+        168.4521812499999,
+        3907.528287499998,
+        385.1039902452658
+      ],
+      "metal_rows": [
+        {
+          "depth": 0,
+          "thickness": 0.01,
+          "coverage": 20.0,
+          "name": "trace_0",
+          "zmin": 0.9500000000000001,
+          "zmax": 0.9600000000000001,
+          "properties": [
+            77.16,
+            77.16,
+            77.16,
+            3306.0,
+            631.4367816091954
+          ]
+        },
+        {
+          "depth": 0.163333333333333,
+          "thickness": 0.036,
+          "coverage": 90.0,
+          "name": "trace_1",
+          "zmin": 0.7606666666666668,
+          "zmax": 0.7966666666666669,
+          "properties": [
+            346.52,
+            346.52,
+            346.52,
+            8227.0,
+            397.378752886836
+          ]
+        },
+        {
+          "depth": 0.316666666666667,
+          "thickness": 0.036,
+          "coverage": 90.0,
+          "name": "trace_2",
+          "zmin": 0.6073333333333335,
+          "zmax": 0.6433333333333335,
+          "properties": [
+            346.52,
+            346.52,
+            346.52,
+            8227.0,
+            397.378752886836
+          ]
+        },
+        {
+          "depth": 0.542,
+          "thickness": 0.018,
+          "coverage": 10.0,
+          "name": "trace_3",
+          "zmin": 0.4000000000000001,
+          "zmax": 0.4180000000000001,
+          "properties": [
+            38.68,
+            38.68,
+            38.68,
+            2603.0,
+            737.1167883211679
+          ]
+        }
+      ],
+      "holes": [],
+      "source_sha256": {
+        "floxml": "ca046882067af7467d811f62a63bf60a3098799ecc3e6ab33ed41bbf5cd99db4",
+        "des": "8d7bdad2179e446b7be28d708f24bafcbcb176e21152b9621296fbe34fe69bc7"
+      },
+      "max_reload_numeric_difference": 3.3306690738754696e-16,
+      "reload_sha256": {
+        "floxml": "1122717280be160eafd8763ef1ff4ba3ee5dcc94325e824b9cfc0ec2c96c8953",
+        "des": "368341ec4527230919aaa98bf9d2c023e58b166878a3dbdccf95c636327eb43c"
+      },
+      "verified_center_count": 25
+    },
+    {
+      "id": "l4_t0_018_b0_04_a10_4_a20_56_accurate_hollow",
+      "layers": 4,
+      "mode": "accurate",
+      "filled": false,
+      "input_mm": {
+        "A1": 0.4,
+        "A2": 0.56,
+        "top": 0.018,
+        "bottom": 0.04
+      },
+      "via_count": 25,
+      "via_side_mm": 0.1772453850905516,
+      "via_zmin_mm": 0.44,
+      "via_height_mm": 0.5020000000000001,
+      "via_zmax_mm": 0.9420000000000002,
+      "bottom_clearance_mm": -5.551115123125783e-17,
+      "top_clearance_mm": 0.0,
+      "via_material": [
+        168.4521812499999,
+        168.4521812499999,
+        168.4521812499999,
+        3907.528287499998,
+        385.1039902452658
+      ],
+      "metal_rows": [
+        {
+          "depth": 0,
+          "thickness": 0.018,
+          "coverage": 20.0,
+          "name": "trace_0",
+          "zmin": 0.9420000000000002,
+          "zmax": 0.9600000000000002,
+          "properties": [
+            77.16,
+            77.16,
+            77.16,
+            3306.0,
+            631.4367816091954
+          ]
+        },
+        {
+          "depth": 0.161333333333333,
+          "thickness": 0.036,
+          "coverage": 90.0,
+          "name": "trace_1",
+          "zmin": 0.7626666666666668,
+          "zmax": 0.7986666666666669,
+          "properties": [
+            346.52,
+            346.52,
+            346.52,
+            8227.0,
+            397.378752886836
+          ]
+        },
+        {
+          "depth": 0.304666666666667,
+          "thickness": 0.036,
+          "coverage": 90.0,
+          "name": "trace_2",
+          "zmin": 0.6193333333333335,
+          "zmax": 0.6553333333333335,
+          "properties": [
+            346.52,
+            346.52,
+            346.52,
+            8227.0,
+            397.378752886836
+          ]
+        },
+        {
+          "depth": 0.52,
+          "thickness": 0.04,
+          "coverage": 10.0,
+          "name": "trace_3",
+          "zmin": 0.4000000000000001,
+          "zmax": 0.44000000000000006,
+          "properties": [
+            38.68,
+            38.68,
+            38.68,
+            2603.0,
+            737.1167883211679
+          ]
+        }
+      ],
+      "holes": [],
+      "source_sha256": {
+        "floxml": "d400e2ec568f20e4acfe31768b4553168a775e8b0e4fc8954d791086f05f5808",
+        "des": "d4aa9cce3b5494f21b41f878df7b104ae3b5fed97d7785f31f85740b71f6c54a"
+      },
+      "max_reload_numeric_difference": 3.3306690738754696e-16,
+      "reload_sha256": {
+        "floxml": "3854be1ef142c23ce29c881c9db8aafcae3874fb0454c5375b7c7827dfe278cb",
+        "des": "e4c4daec07f7e98d37d1564335508e2d47c60c9db55aba29b93e979df7459ffa"
+      },
+      "verified_center_count": 25
+    },
+    {
+      "id": "l4_t0_01_b0_04_a10_4_a20_56_accurate_hollow",
+      "layers": 4,
+      "mode": "accurate",
+      "filled": false,
+      "input_mm": {
+        "A1": 0.4,
+        "A2": 0.56,
+        "top": 0.01,
+        "bottom": 0.04
+      },
+      "via_count": 25,
+      "via_side_mm": 0.1772453850905516,
+      "via_zmin_mm": 0.44,
+      "via_height_mm": 0.51,
+      "via_zmax_mm": 0.95,
+      "bottom_clearance_mm": -5.551115123125783e-17,
+      "top_clearance_mm": 1.1102230246251565e-16,
+      "via_material": [
+        168.4521812499999,
+        168.4521812499999,
+        168.4521812499999,
+        3907.528287499998,
+        385.1039902452658
+      ],
+      "metal_rows": [
+        {
+          "depth": 0,
+          "thickness": 0.01,
+          "coverage": 20.0,
+          "name": "trace_0",
+          "zmin": 0.9500000000000001,
+          "zmax": 0.9600000000000001,
+          "properties": [
+            77.16,
+            77.16,
+            77.16,
+            3306.0,
+            631.4367816091954
+          ]
+        },
+        {
+          "depth": 0.156,
+          "thickness": 0.036,
+          "coverage": 90.0,
+          "name": "trace_1",
+          "zmin": 0.7680000000000001,
+          "zmax": 0.8040000000000002,
+          "properties": [
+            346.52,
+            346.52,
+            346.52,
+            8227.0,
+            397.378752886836
+          ]
+        },
+        {
+          "depth": 0.302,
+          "thickness": 0.036,
+          "coverage": 90.0,
+          "name": "trace_2",
+          "zmin": 0.6220000000000001,
+          "zmax": 0.6580000000000001,
+          "properties": [
+            346.52,
+            346.52,
+            346.52,
+            8227.0,
+            397.378752886836
+          ]
+        },
+        {
+          "depth": 0.52,
+          "thickness": 0.04,
+          "coverage": 10.0,
+          "name": "trace_3",
+          "zmin": 0.4000000000000001,
+          "zmax": 0.44000000000000006,
+          "properties": [
+            38.68,
+            38.68,
+            38.68,
+            2603.0,
+            737.1167883211679
+          ]
+        }
+      ],
+      "holes": [],
+      "source_sha256": {
+        "floxml": "8862177e05ab12c703e5723c3d2c6974ea3f812f9b4c09683c8660c30af4c389",
+        "des": "fda11ec4023e28bf00c5aaf1ac226afd1ba7cfeba8a6ded02b0b385ebe1dde4c"
+      },
+      "max_reload_numeric_difference": 0.0,
+      "reload_sha256": {
+        "floxml": "e2e371282d32fdd58800d260402b5b74fc61c057c5c7b38d7e33909beec190df",
+        "des": "064a199842d77db081ef105e3e5bb8e766998319b6e57eaa91627f1c8ebd73f3"
+      },
+      "verified_center_count": 25
+    },
+    {
+      "id": "l4_t0_04_b0_01_a10_4_a20_56_accurate_hollow",
+      "layers": 4,
+      "mode": "accurate",
+      "filled": false,
+      "input_mm": {
+        "A1": 0.4,
+        "A2": 0.56,
+        "top": 0.04,
+        "bottom": 0.01
+      },
+      "via_count": 25,
+      "via_side_mm": 0.1772453850905516,
+      "via_zmin_mm": 0.41000000000000003,
+      "via_height_mm": 0.51,
+      "via_zmax_mm": 0.92,
+      "bottom_clearance_mm": -5.551115123125783e-17,
+      "top_clearance_mm": 1.1102230246251565e-16,
+      "via_material": [
+        168.4521812499999,
+        168.4521812499999,
+        168.4521812499999,
+        3907.528287499998,
+        385.1039902452658
+      ],
+      "metal_rows": [
+        {
+          "depth": 0,
+          "thickness": 0.04,
+          "coverage": 20.0,
+          "name": "trace_0",
+          "zmin": 0.9200000000000002,
+          "zmax": 0.9600000000000002,
+          "properties": [
+            77.16,
+            77.16,
+            77.16,
+            3306.0,
+            631.4367816091954
+          ]
+        },
+        {
+          "depth": 0.186,
+          "thickness": 0.036,
+          "coverage": 90.0,
+          "name": "trace_1",
+          "zmin": 0.7380000000000002,
+          "zmax": 0.7740000000000002,
+          "properties": [
+            346.52,
+            346.52,
+            346.52,
+            8227.0,
+            397.378752886836
+          ]
+        },
+        {
+          "depth": 0.332,
+          "thickness": 0.036,
+          "coverage": 90.0,
+          "name": "trace_2",
+          "zmin": 0.5920000000000002,
+          "zmax": 0.6280000000000002,
+          "properties": [
+            346.52,
+            346.52,
+            346.52,
+            8227.0,
+            397.378752886836
+          ]
+        },
+        {
+          "depth": 0.55,
+          "thickness": 0.01,
+          "coverage": 10.0,
+          "name": "trace_3",
+          "zmin": 0.4000000000000001,
+          "zmax": 0.4100000000000001,
+          "properties": [
+            38.68,
+            38.68,
+            38.68,
+            2603.0,
+            737.1167883211679
+          ]
+        }
+      ],
+      "holes": [],
+      "source_sha256": {
+        "floxml": "796973cd853eb255d399cde053d80beb051bf2f78cad7fe91627001ab4501023",
+        "des": "947c27bc9729def7e562254c6af24bf3207860cdd87be5f853456db2f41195bc"
+      },
+      "max_reload_numeric_difference": 1.1102230246251565e-16,
+      "reload_sha256": {
+        "floxml": "46f6fa2e2cee390cd9f8a3e43a2811cebbab6b3d26b9b8a719c1db7409cd971f",
+        "des": "9e8a23ca8be13b4a208bd7d7b9a59c4ec057eff33f569e004cd90910562e8ded"
+      },
+      "verified_center_count": 25
+    },
+    {
+      "id": "l4_t0_025_b0_025_a10_4_a20_56_accurate_hollow",
+      "layers": 4,
+      "mode": "accurate",
+      "filled": false,
+      "input_mm": {
+        "A1": 0.4,
+        "A2": 0.56,
+        "top": 0.025,
+        "bottom": 0.025
+      },
+      "via_count": 25,
+      "via_side_mm": 0.1772453850905516,
+      "via_zmin_mm": 0.42500000000000004,
+      "via_height_mm": 0.5100000000000001,
+      "via_zmax_mm": 0.9350000000000002,
+      "bottom_clearance_mm": -5.551115123125783e-17,
+      "top_clearance_mm": 0.0,
+      "via_material": [
+        168.4521812499999,
+        168.4521812499999,
+        168.4521812499999,
+        3907.528287499998,
+        385.1039902452658
+      ],
+      "metal_rows": [
+        {
+          "depth": 0,
+          "thickness": 0.025,
+          "coverage": 20.0,
+          "name": "trace_0",
+          "zmin": 0.9350000000000002,
+          "zmax": 0.9600000000000002,
+          "properties": [
+            77.16,
+            77.16,
+            77.16,
+            3306.0,
+            631.4367816091954
+          ]
+        },
+        {
+          "depth": 0.171,
+          "thickness": 0.036,
+          "coverage": 90.0,
+          "name": "trace_1",
+          "zmin": 0.7530000000000001,
+          "zmax": 0.7890000000000001,
+          "properties": [
+            346.52,
+            346.52,
+            346.52,
+            8227.0,
+            397.378752886836
+          ]
+        },
+        {
+          "depth": 0.317,
+          "thickness": 0.036,
+          "coverage": 90.0,
+          "name": "trace_2",
+          "zmin": 0.6070000000000001,
+          "zmax": 0.6430000000000001,
+          "properties": [
+            346.52,
+            346.52,
+            346.52,
+            8227.0,
+            397.378752886836
+          ]
+        },
+        {
+          "depth": 0.535,
+          "thickness": 0.025,
+          "coverage": 10.0,
+          "name": "trace_3",
+          "zmin": 0.4000000000000001,
+          "zmax": 0.4250000000000001,
+          "properties": [
+            38.68,
+            38.68,
+            38.68,
+            2603.0,
+            737.1167883211679
+          ]
+        }
+      ],
+      "holes": [],
+      "source_sha256": {
+        "floxml": "4ee61e7454cdcd76bf8a57784e2ae782618305aeb113178b3d9b23d76cfc31be",
+        "des": "5e5928f3b3dbf69e489375d6eb52cdc58cb2cbfca926186d72aa0cd3f9454d3d"
+      },
+      "max_reload_numeric_difference": 0.0,
+      "reload_sha256": {
+        "floxml": "070a87ebc3cbc969fe6e87637e8ba1e4faf70237d8041d928c82eb882c5bdd21",
+        "des": "2b8bce22852c41c3c2fc1392ffa52854320779321b82a8e7b5270de8f153ee67"
+      },
+      "verified_center_count": 25
+    },
+    {
+      "id": "l4_t0_012_b0_03_a10_6_a20_7_accurate_hollow",
+      "layers": 4,
+      "mode": "accurate",
+      "filled": false,
+      "input_mm": {
+        "A1": 0.6,
+        "A2": 0.7,
+        "top": 0.012,
+        "bottom": 0.03
+      },
+      "via_count": 25,
+      "via_side_mm": 0.1772453850905516,
+      "via_zmin_mm": 0.6299999999999999,
+      "via_height_mm": 0.658,
+      "via_zmax_mm": 1.2879999999999998,
+      "bottom_clearance_mm": 0.0,
+      "top_clearance_mm": 0.0,
+      "via_material": [
+        168.4521812499999,
+        168.4521812499999,
+        168.4521812499999,
+        3907.528287499998,
+        385.1039902452658
+      ],
+      "metal_rows": [
+        {
+          "depth": 0,
+          "thickness": 0.012,
+          "coverage": 20.0,
+          "name": "trace_0",
+          "zmin": 1.2879999999999998,
+          "zmax": 1.2999999999999998,
+          "properties": [
+            77.16,
+            77.16,
+            77.16,
+            3306.0,
+            631.4367816091954
+          ]
+        },
+        {
+          "depth": 0.160666666666667,
+          "thickness": 0.036,
+          "coverage": 90.0,
+          "name": "trace_1",
+          "zmin": 1.1033333333333333,
+          "zmax": 1.1393333333333333,
+          "properties": [
+            346.52,
+            346.52,
+            346.52,
+            8227.0,
+            397.378752886836
+          ]
+        },
+        {
+          "depth": 0.309333333333333,
+          "thickness": 0.036,
+          "coverage": 90.0,
+          "name": "trace_2",
+          "zmin": 0.9546666666666666,
+          "zmax": 0.9906666666666666,
+          "properties": [
+            346.52,
+            346.52,
+            346.52,
+            8227.0,
+            397.378752886836
+          ]
+        },
+        {
+          "depth": 0.6699999999999999,
+          "thickness": 0.03,
+          "coverage": 10.0,
+          "name": "trace_3",
+          "zmin": 0.5999999999999999,
+          "zmax": 0.6299999999999999,
+          "properties": [
+            38.68,
+            38.68,
+            38.68,
+            2603.0,
+            737.1167883211679
+          ]
+        }
+      ],
+      "holes": [],
+      "source_sha256": {
+        "floxml": "96842123cfa6ce4ab2979b3cf41b5783d0bdf3b75366529f080a3da3e8b22deb",
+        "des": "0de47a3818b53d9ceb2497d935e4e57857cb1fa7784bd06b718c7cf99648fd3e"
+      },
+      "max_reload_numeric_difference": 4.440892098500626e-16,
+      "reload_sha256": {
+        "floxml": "4ebbdb17a8cd44475f23b538c422be4b1cb068b24c879af23b9d7afad88b4a40",
+        "des": "c5fa4edd9df7e8fb8ddb1543a9ed62753b7a2e4796c54c8c49a3f5c75ec842a9"
+      },
+      "verified_center_count": 25
+    },
+    {
+      "id": "l4_t0_01_b0_04_a10_4_a20_56_approximate_hollow",
+      "layers": 4,
+      "mode": "approximate",
+      "filled": false,
+      "input_mm": {
+        "A1": 0.4,
+        "A2": 0.56,
+        "top": 0.01,
+        "bottom": 0.04
+      },
+      "via_count": 25,
+      "via_side_mm": 0.4076643857082687,
+      "via_zmin_mm": 0.44,
+      "via_height_mm": 0.51,
+      "via_zmax_mm": 0.95,
+      "bottom_clearance_mm": -5.551115123125783e-17,
+      "top_clearance_mm": 1.1102230246251565e-16,
+      "via_material": [
+        32.00570534026463,
+        32.00570534026463,
+        32.00570534026463,
+        2279.4949503780717,
+        747.3445780986646
+      ],
+      "metal_rows": [
+        {
+          "depth": 0,
+          "thickness": 0.01,
+          "coverage": 20.0,
+          "name": "trace_0",
+          "zmin": 0.9500000000000001,
+          "zmax": 0.9600000000000001,
+          "properties": [
+            77.16,
+            77.16,
+            77.16,
+            3306.0,
+            631.4367816091954
+          ]
+        },
+        {
+          "depth": 0.156,
+          "thickness": 0.036,
+          "coverage": 90.0,
+          "name": "trace_1",
+          "zmin": 0.7680000000000001,
+          "zmax": 0.8040000000000002,
+          "properties": [
+            346.52,
+            346.52,
+            346.52,
+            8227.0,
+            397.378752886836
+          ]
+        },
+        {
+          "depth": 0.302,
+          "thickness": 0.036,
+          "coverage": 90.0,
+          "name": "trace_2",
+          "zmin": 0.6220000000000001,
+          "zmax": 0.6580000000000001,
+          "properties": [
+            346.52,
+            346.52,
+            346.52,
+            8227.0,
+            397.378752886836
+          ]
+        },
+        {
+          "depth": 0.52,
+          "thickness": 0.04,
+          "coverage": 10.0,
+          "name": "trace_3",
+          "zmin": 0.4000000000000001,
+          "zmax": 0.44000000000000006,
+          "properties": [
+            38.68,
+            38.68,
+            38.68,
+            2603.0,
+            737.1167883211679
+          ]
+        }
+      ],
+      "holes": [],
+      "source_sha256": {
+        "floxml": "874b301fad29bd7e1d291affc892b4a8891ab111a802d415b6f549e5eb1108b7",
+        "des": "6f21563490d778428d9d1bf7a0b54a23cb6d5807d46cc6dea5d7123aeb5c1716"
+      },
+      "max_reload_numeric_difference": 0.0,
+      "reload_sha256": {
+        "floxml": "d4a59edf83b584b92479d8b242f1c6fbf4a3f667b89d435db78beb23ac055400",
+        "des": "120b7fc71bf72b4886ba76691ae8dc7929c16bfacc68b5d4f183c4f20fdd3bf4"
+      },
+      "verified_center_count": 25
+    },
+    {
+      "id": "l4_t0_04_b0_01_a10_4_a20_56_approximate_hollow",
+      "layers": 4,
+      "mode": "approximate",
+      "filled": false,
+      "input_mm": {
+        "A1": 0.4,
+        "A2": 0.56,
+        "top": 0.04,
+        "bottom": 0.01
+      },
+      "via_count": 25,
+      "via_side_mm": 0.4076643857082687,
+      "via_zmin_mm": 0.41000000000000003,
+      "via_height_mm": 0.51,
+      "via_zmax_mm": 0.92,
+      "bottom_clearance_mm": -5.551115123125783e-17,
+      "top_clearance_mm": 1.1102230246251565e-16,
+      "via_material": [
+        32.00570534026463,
+        32.00570534026463,
+        32.00570534026463,
+        2279.4949503780717,
+        747.3445780986646
+      ],
+      "metal_rows": [
+        {
+          "depth": 0,
+          "thickness": 0.04,
+          "coverage": 20.0,
+          "name": "trace_0",
+          "zmin": 0.9200000000000002,
+          "zmax": 0.9600000000000002,
+          "properties": [
+            77.16,
+            77.16,
+            77.16,
+            3306.0,
+            631.4367816091954
+          ]
+        },
+        {
+          "depth": 0.186,
+          "thickness": 0.036,
+          "coverage": 90.0,
+          "name": "trace_1",
+          "zmin": 0.7380000000000002,
+          "zmax": 0.7740000000000002,
+          "properties": [
+            346.52,
+            346.52,
+            346.52,
+            8227.0,
+            397.378752886836
+          ]
+        },
+        {
+          "depth": 0.332,
+          "thickness": 0.036,
+          "coverage": 90.0,
+          "name": "trace_2",
+          "zmin": 0.5920000000000002,
+          "zmax": 0.6280000000000002,
+          "properties": [
+            346.52,
+            346.52,
+            346.52,
+            8227.0,
+            397.378752886836
+          ]
+        },
+        {
+          "depth": 0.55,
+          "thickness": 0.01,
+          "coverage": 10.0,
+          "name": "trace_3",
+          "zmin": 0.4000000000000001,
+          "zmax": 0.4100000000000001,
+          "properties": [
+            38.68,
+            38.68,
+            38.68,
+            2603.0,
+            737.1167883211679
+          ]
+        }
+      ],
+      "holes": [],
+      "source_sha256": {
+        "floxml": "a95696999a0aa9dd3becea55ed942312a92f44c3a822fde7a6a7f106a91077fd",
+        "des": "2868bbc7a477d4b8df441ef59ad38ef460bea16887c9b26159eb3dc9bedf6d5f"
+      },
+      "max_reload_numeric_difference": 1.1102230246251565e-16,
+      "reload_sha256": {
+        "floxml": "8606a0454068b47caef5683ddf647e81ac8b92b37cae707491974cc2504eb882",
+        "des": "f210ec3ac27d99865e9f6be6570888ca92175b5e26e17005f67d674720de4b84"
+      },
+      "verified_center_count": 25
+    },
+    {
+      "id": "l4_t0_01_b0_04_a10_4_a20_56_accurate_filled",
+      "layers": 4,
+      "mode": "accurate",
+      "filled": true,
+      "input_mm": {
+        "A1": 0.4,
+        "A2": 0.56,
+        "top": 0.01,
+        "bottom": 0.04
+      },
+      "via_count": 25,
+      "via_side_mm": 0.1772453850905516,
+      "via_zmin_mm": 0.44,
+      "via_height_mm": 0.51,
+      "via_zmax_mm": 0.95,
+      "bottom_clearance_mm": -5.551115123125783e-17,
+      "top_clearance_mm": 1.1102230246251565e-16,
+      "via_material": [
+        385.0,
+        385.0,
+        385.0,
+        8930.0,
+        385.0
+      ],
+      "metal_rows": [
+        {
+          "depth": 0,
+          "thickness": 0.01,
+          "coverage": 20.0,
+          "name": "trace_0",
+          "zmin": 0.9500000000000001,
+          "zmax": 0.9600000000000001,
+          "properties": [
+            77.16,
+            77.16,
+            77.16,
+            3306.0,
+            631.4367816091954
+          ]
+        },
+        {
+          "depth": 0.156,
+          "thickness": 0.036,
+          "coverage": 90.0,
+          "name": "trace_1",
+          "zmin": 0.7680000000000001,
+          "zmax": 0.8040000000000002,
+          "properties": [
+            346.52,
+            346.52,
+            346.52,
+            8227.0,
+            397.378752886836
+          ]
+        },
+        {
+          "depth": 0.302,
+          "thickness": 0.036,
+          "coverage": 90.0,
+          "name": "trace_2",
+          "zmin": 0.6220000000000001,
+          "zmax": 0.6580000000000001,
+          "properties": [
+            346.52,
+            346.52,
+            346.52,
+            8227.0,
+            397.378752886836
+          ]
+        },
+        {
+          "depth": 0.52,
+          "thickness": 0.04,
+          "coverage": 10.0,
+          "name": "trace_3",
+          "zmin": 0.4000000000000001,
+          "zmax": 0.44000000000000006,
+          "properties": [
+            38.68,
+            38.68,
+            38.68,
+            2603.0,
+            737.1167883211679
+          ]
+        }
+      ],
+      "holes": [],
+      "source_sha256": {
+        "floxml": "1d6a0ce66f7a64a29689b05e2166ae2f850d6abd9d2a7b2ff70530bacb3d6bba",
+        "des": "9fc4d0575a4b38516336a9e85c38f6381aacf61af6c5f1c79a0f363b1cc2b7c0"
+      },
+      "max_reload_numeric_difference": 0.0,
+      "reload_sha256": {
+        "floxml": "554acdf782d35858ee2f51caae5291e9f98b35f00695a42fe9896e7f72f36057",
+        "des": "48f28eb64ef4635bd547b4463c623e28f3ade92c64a978f8979b3a26460a818e"
+      },
+      "verified_center_count": 25
+    },
+    {
+      "id": "l2_coverage_top50",
+      "layers": 2,
+      "mode": "accurate",
+      "filled": false,
+      "input_mm": {
+        "A1": 0.4,
+        "A2": 0.36,
+        "top": 0.018,
+        "bottom": 0.018
+      },
+      "via_count": 25,
+      "via_side_mm": 0.1772453850905516,
+      "via_zmin_mm": 0.41800000000000004,
+      "via_height_mm": 0.32399999999999995,
+      "via_zmax_mm": 0.742,
+      "bottom_clearance_mm": -5.551115123125783e-17,
+      "top_clearance_mm": 0.0,
+      "via_material": [
+        168.4521812499999,
+        168.4521812499999,
+        168.4521812499999,
+        3907.528287499998,
+        385.1039902452658
+      ],
+      "metal_rows": [
+        {
+          "depth": 0,
+          "thickness": 0.018,
+          "coverage": 50.0,
+          "name": "trace_0",
+          "zmin": 0.742,
+          "zmax": 0.76,
+          "properties": [
+            192.6,
+            192.6,
+            192.6,
+            5415.0,
+            479.03508771929825
+          ]
+        },
+        {
+          "depth": 0.34199999999999997,
+          "thickness": 0.018,
+          "coverage": 10.0,
+          "name": "trace_1",
+          "zmin": 0.4000000000000001,
+          "zmax": 0.4180000000000001,
+          "properties": [
+            38.68,
+            38.68,
+            38.68,
+            2603.0,
+            737.1167883211679
+          ]
+        }
+      ],
+      "holes": [],
+      "source_sha256": {
+        "floxml": "9c4b3979b4dab639359692fc9659190ab86a329f9bf01c457fdff3538d40b9a0",
+        "des": "ebd8ffbb51f86cf92790dc572e460f37b8be7607d6af37a68f2e0d43bf6274c8"
+      },
+      "max_reload_numeric_difference": 0.0,
+      "reload_sha256": {
+        "floxml": "9c4b3979b4dab639359692fc9659190ab86a329f9bf01c457fdff3538d40b9a0",
+        "des": "7358278fecf5d2655a3da8170c59763bf27a90cd980786f51c0bbc316c853d61"
+      },
+      "verified_center_count": 25
+    },
+    {
+      "id": "l4_coverage_top50_inner35",
+      "layers": 4,
+      "mode": "accurate",
+      "filled": false,
+      "input_mm": {
+        "A1": 0.4,
+        "A2": 0.56,
+        "top": 0.018,
+        "bottom": 0.018
+      },
+      "via_count": 25,
+      "via_side_mm": 0.1772453850905516,
+      "via_zmin_mm": 0.41800000000000004,
+      "via_height_mm": 0.524,
+      "via_zmax_mm": 0.9420000000000001,
+      "bottom_clearance_mm": -5.551115123125783e-17,
+      "top_clearance_mm": 1.1102230246251565e-16,
+      "via_material": [
+        168.4521812499999,
+        168.4521812499999,
+        168.4521812499999,
+        3907.528287499998,
+        385.1039902452658
+      ],
+      "metal_rows": [
+        {
+          "depth": 0,
+          "thickness": 0.018,
+          "coverage": 50.0,
+          "name": "trace_0",
+          "zmin": 0.9420000000000002,
+          "zmax": 0.9600000000000002,
+          "properties": [
+            192.6,
+            192.6,
+            192.6,
+            5415.0,
+            479.03508771929825
+          ]
+        },
+        {
+          "depth": 0.168666666666667,
+          "thickness": 0.036,
+          "coverage": 35.0,
+          "name": "trace_1",
+          "zmin": 0.7553333333333331,
+          "zmax": 0.7913333333333331,
+          "properties": [
+            134.88,
+            134.88,
+            134.88,
+            4360.5,
+            536.8082788671024
+          ]
+        },
+        {
+          "depth": 0.319333333333333,
+          "thickness": 0.036,
+          "coverage": 90.0,
+          "name": "trace_2",
+          "zmin": 0.6046666666666671,
+          "zmax": 0.6406666666666672,
+          "properties": [
+            346.52,
+            346.52,
+            346.52,
+            8227.0,
+            397.378752886836
+          ]
+        },
+        {
+          "depth": 0.542,
+          "thickness": 0.018,
+          "coverage": 10.0,
+          "name": "trace_3",
+          "zmin": 0.4000000000000001,
+          "zmax": 0.4180000000000001,
+          "properties": [
+            38.68,
+            38.68,
+            38.68,
+            2603.0,
+            737.1167883211679
+          ]
+        }
+      ],
+      "holes": [],
+      "source_sha256": {
+        "floxml": "d4684764f17ae2a5a70d38e68d036b305a11365fb33fc7b20d3db303b476727f",
+        "des": "595177177c70520f0be5aa9d49a1cbb46b69611fe6c24c5f87ddb14dbe355091"
+      },
+      "max_reload_numeric_difference": 0.0,
+      "reload_sha256": {
+        "floxml": "d4684764f17ae2a5a70d38e68d036b305a11365fb33fc7b20d3db303b476727f",
+        "des": "1411544da56973e072ef10cfbecd4e0dc76bdcc608786091ca001b8e13e2d293"
+      },
+      "verified_center_count": 25
+    },
+    {
+      "id": "l4_depths",
+      "layers": 4,
+      "mode": "accurate",
+      "filled": false,
+      "input_mm": {
+        "A1": 0.4,
+        "A2": 0.56,
+        "top": 0.018,
+        "bottom": 0.018
+      },
+      "via_count": 25,
+      "via_side_mm": 0.1772453850905516,
+      "via_zmin_mm": 0.41800000000000004,
+      "via_height_mm": 0.524,
+      "via_zmax_mm": 0.9420000000000001,
+      "bottom_clearance_mm": -5.551115123125783e-17,
+      "top_clearance_mm": 1.1102230246251565e-16,
+      "via_material": [
+        168.4521812499999,
+        168.4521812499999,
+        168.4521812499999,
+        3907.528287499998,
+        385.1039902452658
+      ],
+      "metal_rows": [
+        {
+          "depth": 0,
+          "thickness": 0.018,
+          "coverage": 20.0,
+          "name": "trace_0",
+          "zmin": 0.9420000000000002,
+          "zmax": 0.9600000000000002,
+          "properties": [
+            77.16,
+            77.16,
+            77.16,
+            3306.0,
+            631.4367816091954
+          ]
+        },
+        {
+          "depth": 0.12,
+          "thickness": 0.036,
+          "coverage": 90.0,
+          "name": "trace_1",
+          "zmin": 0.8040000000000002,
+          "zmax": 0.8400000000000002,
+          "properties": [
+            346.52,
+            346.52,
+            346.52,
+            8227.0,
+            397.378752886836
+          ]
+        },
+        {
+          "depth": 0.33,
+          "thickness": 0.036,
+          "coverage": 90.0,
+          "name": "trace_2",
+          "zmin": 0.5940000000000001,
+          "zmax": 0.6300000000000001,
+          "properties": [
+            346.52,
+            346.52,
+            346.52,
+            8227.0,
+            397.378752886836
+          ]
+        },
+        {
+          "depth": 0.542,
+          "thickness": 0.018,
+          "coverage": 10.0,
+          "name": "trace_3",
+          "zmin": 0.4000000000000001,
+          "zmax": 0.4180000000000001,
+          "properties": [
+            38.68,
+            38.68,
+            38.68,
+            2603.0,
+            737.1167883211679
+          ]
+        }
+      ],
+      "holes": [],
+      "source_sha256": {
+        "floxml": "f57bf72e472fe115e80dca614c84cadb289484ac3f2338332968ab2cd43b08fb",
+        "des": "1648dfe9a2db28d6bb5b63396cccc858933ced457d8f6f3b6986dd7430c468bd"
+      },
+      "max_reload_numeric_difference": 0.0,
+      "reload_sha256": {
+        "floxml": "f57bf72e472fe115e80dca614c84cadb289484ac3f2338332968ab2cd43b08fb",
+        "des": "dc278b7e5b50c9e716923e246faa1957867359b8b23b234085bdac6271758461"
+      },
+      "verified_center_count": 25
+    },
+    {
+      "id": "l4_inner_thickness",
+      "layers": 4,
+      "mode": "accurate",
+      "filled": false,
+      "input_mm": {
+        "A1": 0.4,
+        "A2": 0.56,
+        "top": 0.018,
+        "bottom": 0.018
+      },
+      "via_count": 25,
+      "via_side_mm": 0.1772453850905516,
+      "via_zmin_mm": 0.41800000000000004,
+      "via_height_mm": 0.524,
+      "via_zmax_mm": 0.9420000000000001,
+      "bottom_clearance_mm": -5.551115123125783e-17,
+      "top_clearance_mm": 1.1102230246251565e-16,
+      "via_material": [
+        168.4521812499999,
+        168.4521812499999,
+        168.4521812499999,
+        3907.528287499998,
+        385.1039902452658
+      ],
+      "metal_rows": [
+        {
+          "depth": 0,
+          "thickness": 0.018,
+          "coverage": 20.0,
+          "name": "trace_0",
+          "zmin": 0.9420000000000002,
+          "zmax": 0.9600000000000002,
+          "properties": [
+            77.16,
+            77.16,
+            77.16,
+            3306.0,
+            631.4367816091954
+          ]
+        },
+        {
+          "depth": 0.168666666666667,
+          "thickness": 0.025,
+          "coverage": 90.0,
+          "name": "trace_1",
+          "zmin": 0.7663333333333332,
+          "zmax": 0.7913333333333332,
+          "properties": [
+            346.52,
+            346.52,
+            346.52,
+            8227.0,
+            397.378752886836
+          ]
+        },
+        {
+          "depth": 0.319333333333333,
+          "thickness": 0.05,
+          "coverage": 90.0,
+          "name": "trace_2",
+          "zmin": 0.5906666666666671,
+          "zmax": 0.6406666666666672,
+          "properties": [
+            346.52,
+            346.52,
+            346.52,
+            8227.0,
+            397.378752886836
+          ]
+        },
+        {
+          "depth": 0.542,
+          "thickness": 0.018,
+          "coverage": 10.0,
+          "name": "trace_3",
+          "zmin": 0.4000000000000001,
+          "zmax": 0.4180000000000001,
+          "properties": [
+            38.68,
+            38.68,
+            38.68,
+            2603.0,
+            737.1167883211679
+          ]
+        }
+      ],
+      "holes": [],
+      "source_sha256": {
+        "floxml": "3a9d09a1ca548ec3c1ce42bf9e57ba9d9e36ec555e605e3c8c9fcdcbb3b9fbfc",
+        "des": "6b2c89ba12ba72b9a5d2f190e4b8a5162b1b401939076acef97ea9e9695c0d37"
+      },
+      "max_reload_numeric_difference": 0.0,
+      "reload_sha256": {
+        "floxml": "3a9d09a1ca548ec3c1ce42bf9e57ba9d9e36ec555e605e3c8c9fcdcbb3b9fbfc",
+        "des": "0aaee28473edaa9c1d4242b8b70ca693847f94be6319c3ba0d4cc4cb458db1b7"
+      },
+      "verified_center_count": 25
+    },
+    {
+      "id": "l2_top_hole",
+      "layers": 2,
+      "mode": "accurate",
+      "filled": false,
+      "input_mm": {
+        "A1": 0.4,
+        "A2": 0.36,
+        "top": 0.018,
+        "bottom": 0.018
+      },
+      "via_count": 25,
+      "via_side_mm": 0.1772453850905516,
+      "via_zmin_mm": 0.41800000000000004,
+      "via_height_mm": 0.32399999999999995,
+      "via_zmax_mm": 0.742,
+      "bottom_clearance_mm": -5.551115123125783e-17,
+      "top_clearance_mm": 0.0,
+      "via_material": [
+        168.4521812499999,
+        168.4521812499999,
+        168.4521812499999,
+        3907.528287499998,
+        385.1039902452658
+      ],
+      "metal_rows": [
+        {
+          "depth": 0,
+          "thickness": 0.018,
+          "coverage": 20.0,
+          "name": "trace_0",
+          "zmin": 0.742,
+          "zmax": 0.76,
+          "properties": [
+            77.16,
+            77.16,
+            77.16,
+            3306.0,
+            631.4367816091954
+          ]
+        },
+        {
+          "depth": 0.34199999999999997,
+          "thickness": 0.018,
+          "coverage": 10.0,
+          "name": "trace_1",
+          "zmin": 0.4000000000000001,
+          "zmax": 0.4180000000000001,
+          "properties": [
+            38.68,
+            38.68,
+            38.68,
+            2603.0,
+            737.1167883211679
+          ]
+        }
+      ],
+      "holes": [
+        {
+          "origin": [
+            -0.7,
+            -0.5,
+            0.742
+          ],
+          "size": [
+            1.4,
+            1.0,
+            0.018
+          ],
+          "material": "Alloy-42"
+        }
+      ],
+      "source_sha256": {
+        "floxml": "ed0b0f8ec5bc42ea6f08620c10adf71306c950617241896913c31b84e8728cac",
+        "des": "3d517e2d48b08371c37cd0d8bdf4ff0b613a8feca80574c26d1b2c562b7f1ec0"
+      },
+      "max_reload_numeric_difference": 0.0,
+      "reload_sha256": {
+        "floxml": "ed0b0f8ec5bc42ea6f08620c10adf71306c950617241896913c31b84e8728cac",
+        "des": "36e4c64d8931d7f82e148bc3caf53edfabfa009a2aa540daa058aea5ad55d355"
+      },
+      "verified_center_count": 25
+    },
+    {
+      "id": "l4_top_hole",
+      "layers": 4,
+      "mode": "accurate",
+      "filled": false,
+      "input_mm": {
+        "A1": 0.4,
+        "A2": 0.56,
+        "top": 0.018,
+        "bottom": 0.018
+      },
+      "via_count": 25,
+      "via_side_mm": 0.1772453850905516,
+      "via_zmin_mm": 0.41800000000000004,
+      "via_height_mm": 0.524,
+      "via_zmax_mm": 0.9420000000000001,
+      "bottom_clearance_mm": -5.551115123125783e-17,
+      "top_clearance_mm": 1.1102230246251565e-16,
+      "via_material": [
+        168.4521812499999,
+        168.4521812499999,
+        168.4521812499999,
+        3907.528287499998,
+        385.1039902452658
+      ],
+      "metal_rows": [
+        {
+          "depth": 0,
+          "thickness": 0.018,
+          "coverage": 20.0,
+          "name": "trace_0",
+          "zmin": 0.9420000000000002,
+          "zmax": 0.9600000000000002,
+          "properties": [
+            77.16,
+            77.16,
+            77.16,
+            3306.0,
+            631.4367816091954
+          ]
+        },
+        {
+          "depth": 0.168666666666667,
+          "thickness": 0.036,
+          "coverage": 90.0,
+          "name": "trace_1",
+          "zmin": 0.7553333333333331,
+          "zmax": 0.7913333333333331,
+          "properties": [
+            346.52,
+            346.52,
+            346.52,
+            8227.0,
+            397.378752886836
+          ]
+        },
+        {
+          "depth": 0.319333333333333,
+          "thickness": 0.036,
+          "coverage": 90.0,
+          "name": "trace_2",
+          "zmin": 0.6046666666666671,
+          "zmax": 0.6406666666666672,
+          "properties": [
+            346.52,
+            346.52,
+            346.52,
+            8227.0,
+            397.378752886836
+          ]
+        },
+        {
+          "depth": 0.542,
+          "thickness": 0.018,
+          "coverage": 10.0,
+          "name": "trace_3",
+          "zmin": 0.4000000000000001,
+          "zmax": 0.4180000000000001,
+          "properties": [
+            38.68,
+            38.68,
+            38.68,
+            2603.0,
+            737.1167883211679
+          ]
+        }
+      ],
+      "holes": [
+        {
+          "origin": [
+            -0.7,
+            -0.5,
+            0.9420000000000002
+          ],
+          "size": [
+            1.4,
+            1.0,
+            0.018
+          ],
+          "material": "Alloy-42"
+        }
+      ],
+      "source_sha256": {
+        "floxml": "df8c58088726de365646d8508cf8e358b72454ed7b469b7728027074b06c3f6c",
+        "des": "f6f58a5e0b618206fd8f017b834b5014636d714a30e761c71d99c61a54a3e168"
+      },
+      "max_reload_numeric_difference": 0.0,
+      "reload_sha256": {
+        "floxml": "df8c58088726de365646d8508cf8e358b72454ed7b469b7728027074b06c3f6c",
+        "des": "c9f2440e851ad603844a46c56fafd2dbc28389ef05da48626defaa5f58e4c8eb"
+      },
+      "verified_center_count": 25
+    },
+    {
+      "id": "l2_offset",
+      "layers": 2,
+      "mode": "accurate",
+      "filled": false,
+      "input_mm": {
+        "A1": 0.4,
+        "A2": 0.36,
+        "top": 0.018,
+        "bottom": 0.018
+      },
+      "via_count": 25,
+      "via_side_mm": 0.1772453850905516,
+      "via_zmin_mm": 0.41800000000000004,
+      "via_height_mm": 0.32399999999999995,
+      "via_zmax_mm": 0.742,
+      "bottom_clearance_mm": -5.551115123125783e-17,
+      "top_clearance_mm": 0.0,
+      "via_material": [
+        168.4521812499999,
+        168.4521812499999,
+        168.4521812499999,
+        3907.528287499998,
+        385.1039902452658
+      ],
+      "metal_rows": [
+        {
+          "depth": 0,
+          "thickness": 0.018,
+          "coverage": 20.0,
+          "name": "trace_0",
+          "zmin": 0.742,
+          "zmax": 0.76,
+          "properties": [
+            77.16,
+            77.16,
+            77.16,
+            3306.0,
+            631.4367816091954
+          ]
+        },
+        {
+          "depth": 0.34199999999999997,
+          "thickness": 0.018,
+          "coverage": 10.0,
+          "name": "trace_1",
+          "zmin": 0.4000000000000001,
+          "zmax": 0.4180000000000001,
+          "properties": [
+            38.68,
+            38.68,
+            38.68,
+            2603.0,
+            737.1167883211679
+          ]
+        }
+      ],
+      "holes": [],
+      "source_sha256": {
+        "floxml": "4061f6b24e05b984fb098563d39587503f0429ec83f9882425080c6e0757d4c7",
+        "des": "3d3fa997584591508fc25852cd6bed33a72c601bee791fb4bf6d591b05f181d7"
+      },
+      "max_reload_numeric_difference": 0.0,
+      "reload_sha256": {
+        "floxml": "4061f6b24e05b984fb098563d39587503f0429ec83f9882425080c6e0757d4c7",
+        "des": "d985701bde6722cb0ced9dbde12f1891530f41e02f6edc80ce0cebae65e462a8"
+      },
+      "verified_center_count": 25
+    },
+    {
+      "id": "l4_grid",
+      "layers": 4,
+      "mode": "accurate",
+      "filled": false,
+      "input_mm": {
+        "A1": 0.4,
+        "A2": 0.56,
+        "top": 0.018,
+        "bottom": 0.018
+      },
+      "via_count": 24,
+      "via_side_mm": 0.1772453850905516,
+      "via_zmin_mm": 0.41800000000000004,
+      "via_height_mm": 0.524,
+      "via_zmax_mm": 0.9420000000000001,
+      "bottom_clearance_mm": -5.551115123125783e-17,
+      "top_clearance_mm": 1.1102230246251565e-16,
+      "via_material": [
+        168.4521812499999,
+        168.4521812499999,
+        168.4521812499999,
+        3907.528287499998,
+        385.1039902452658
+      ],
+      "metal_rows": [
+        {
+          "depth": 0,
+          "thickness": 0.018,
+          "coverage": 20.0,
+          "name": "trace_0",
+          "zmin": 0.9420000000000002,
+          "zmax": 0.9600000000000002,
+          "properties": [
+            77.16,
+            77.16,
+            77.16,
+            3306.0,
+            631.4367816091954
+          ]
+        },
+        {
+          "depth": 0.168666666666667,
+          "thickness": 0.036,
+          "coverage": 90.0,
+          "name": "trace_1",
+          "zmin": 0.7553333333333331,
+          "zmax": 0.7913333333333331,
+          "properties": [
+            346.52,
+            346.52,
+            346.52,
+            8227.0,
+            397.378752886836
+          ]
+        },
+        {
+          "depth": 0.319333333333333,
+          "thickness": 0.036,
+          "coverage": 90.0,
+          "name": "trace_2",
+          "zmin": 0.6046666666666671,
+          "zmax": 0.6406666666666672,
+          "properties": [
+            346.52,
+            346.52,
+            346.52,
+            8227.0,
+            397.378752886836
+          ]
+        },
+        {
+          "depth": 0.542,
+          "thickness": 0.018,
+          "coverage": 10.0,
+          "name": "trace_3",
+          "zmin": 0.4000000000000001,
+          "zmax": 0.4180000000000001,
+          "properties": [
+            38.68,
+            38.68,
+            38.68,
+            2603.0,
+            737.1167883211679
+          ]
+        }
+      ],
+      "holes": [],
+      "source_sha256": {
+        "floxml": "35dbe31a64e8100a36e35e8c4c52a2b573399bd717e46aaa912cbfb9dadb53df",
+        "des": "375a7a6035b4daf822e5a08299016a53a48a85affd716eb3bd1b3817621aced9"
+      },
+      "max_reload_numeric_difference": 0.0,
+      "reload_sha256": {
+        "floxml": "35dbe31a64e8100a36e35e8c4c52a2b573399bd717e46aaa912cbfb9dadb53df",
+        "des": "b1611dad200d063eedba8589d255b7d1ba50d8cbf6f6357d277b17d1c2c1a81a"
+      },
+      "verified_center_count": 24
+    }
+  ],
+  "conclusion": {
+    "zmin": "A1 + t_bottom",
+    "height": "A2 - t_top - t_bottom",
+    "zmax": "A1 + A2 - t_top",
+    "outer_layer_offset_mm": 0,
+    "fresh_stack_cases": 20,
+    "metal_table_cases": 8,
+    "reload_cases": 28,
+    "passed": true
+  }
+}
