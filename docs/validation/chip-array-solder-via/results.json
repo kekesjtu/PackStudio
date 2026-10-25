@@ -1,0 +1,3705 @@
+{
+  "summary": {
+    "profiles": 4,
+    "cases_per_profile": 31,
+    "fresh_exports": 124,
+    "reload_exports": 124,
+    "all_passed": true
+  },
+  "baseline_sources": {
+    "2": {
+      "path": "E:\\Users\\mydearlong\\Desktop\\PackStudio\\flotherm_pack_data\\validation\\chip_array_stack_2026-10-25\\native\\l2_t0_018_b0_018_a10_4_a20_36_accurate_hollow.des",
+      "sha256": "30de72f7d02928452ae8f7dff3b6260cd790d4886d36b1839f7a8a2069980397"
+    },
+    "4": {
+      "path": "E:\\Users\\mydearlong\\Desktop\\PackStudio\\flotherm_pack_data\\validation\\chip_array_stack_2026-10-25\\native\\l4_t0_018_b0_018_a10_4_a20_56_accurate_hollow.des",
+      "sha256": "7dac7b6e07bb94ad5c90abd107e3983bfc6e5c45939e0c11c7ac4e8be2ce13c9"
+    }
+  },
+  "profiles": {
+    "l2_accurate": {
+      "definition_sha256": "f5fa2963fcc0a6b9f6828d5990f96c42e65226d5036120bfb01d0f5b0da6a063",
+      "baseline_via_material": [
+        168.45218124999997,
+        168.45218124999997,
+        168.45218124999997,
+        3907.528287499999,
+        385.1039902452658
+      ],
+      "runs": {
+        "native": {
+          "exports": {
+            "csv_disabled": "f9adf3a4f80d76be0d4d8f77f7918d402ab39c4438007995e08975edbac12129",
+            "depop33": "053db441c7a0964efec2580408c8f2e6fb46f1f156b95df248594d04a1299b27",
+            "csv3_all": "22b197bc10a102d08f5fa3967efee0b18e8891f32e95fa99eef6905d8e16d084",
+            "csv3_explicit1": "22b197bc10a102d08f5fa3967efee0b18e8891f32e95fa99eef6905d8e16d084",
+            "depop52": "f9adf3a4f80d76be0d4d8f77f7918d402ab39c4438007995e08975edbac12129",
+            "explicit24_stagger": "18dfff80fc3fc4b3a5a39ae68bdd7930530cd9ab1843e919ec6f0c5a3395dadd",
+            "height05": "9e998e6df139064172cbdd68fe8aa224f4be791449dd1febf300bf91f365502b",
+            "depop22": "fd1367c6b3a8b906d1c6c68d605fef70dd80e4c99310813d391533a9b7ff5e9b",
+            "depop12": "e51637e42527f894b71940cdf9ca2cdd44967ae912d83986c687e1bfe8acdf9a",
+            "explicit_perimeter_center33": "f296c352eae1d619b43046f39619a94da423c60469296758627a40ad845fa735",
+            "grid46": "94acc442c9a196d68d61f6af74e834058f538b7687ce5db5572609ba0af25b6b",
+            "central22": "1d8b2d90c73ebe60efbb9dc76f9e9c91930fbcdf44b63d21f19b367c8ffdaa1a",
+            "diameter04": "c0dbcbe58a55ce671fe37f9cdaac8f7eea6ff51f0afd622009fd55fd49c8ec04",
+            "explicit24": "18dfff80fc3fc4b3a5a39ae68bdd7930530cd9ab1843e919ec6f0c5a3395dadd",
+            "central33": "e8e12cf19b802f659743edaa20e1a9c4b591937cccd2103ac22368f3b792d6ad",
+            "full55": "f9adf3a4f80d76be0d4d8f77f7918d402ab39c4438007995e08975edbac12129",
+            "csv3": "708bb86240759ccf146fc22c8ccfef91f9630314e776f9fda58369a6d33a6ff2",
+            "central33_stagger": "8e45e8630af77efd3ed8f3b8636fd8404a0a34290a28dbe49aed6bdb79a802e8",
+            "pitch065": "232b956c23b9822cb189ff2559b12669c2ab5be5480bdf2deacacb058d0db6f2",
+            "csv3_depop": "2529b107b09623beb8ab994e7ff4485f19fbde024563475bdadf48243b6d827a",
+            "explicit24_depop": "1c4ee0a4cfcf1a3ecc34eb3c5c4233a84c5bc474f62bb4ca3cad9f0d7b02cad7",
+            "depop11": "8bf9a9831cf99f7d579ac0cab7ea173e82aded18aee72c1ec15adfc1d738cfad",
+            "explicit1": "22ad70835409c117c3c7f95db7a8dfee7642f3fe790acdc17b7a85bd3c7cbcfe",
+            "depop_center_restore": "56c587eaefcade4390ab923deb0ccd4be0e80b67ba8ad99528f2145bd7031416",
+            "csv_empty": "a89d6cb415bb13c441ba7cf5a8874b9b0399ac4ea129ab3cd842ad8b13ecbacc",
+            "stagger_depop22": "bcf11361b761e7f95b4c199744924dbc57af035a5303f1b47448cb90bf77bd24",
+            "stagger55": "f80411cf76f21e34456ddb60fd8d0e13e44dfa1f05e80c00bc599dbb5da0ed3d",
+            "csv3_stagger": "88c05b277d94204a8dd5c3607483faafbe61751cd7f97c1f15bd587baa9e5835",
+            "csv_translated": "33eae9789152375cdd15a8f0f8b599a5d6de57d06c562d33bbe6d9473125bee7",
+            "csv_duplicates": "05df5741cd8c2da22f7ed517d52e7b65576cbbc7c747c83bd8e6fc25d20c9919",
+            "stagger46": "46a17ef73363f45bc0fbb5da3843e35c49b95e45f8f406955f4bf3b2284b4781"
+          },
+          "exit_code": 0,
+          "executable": "E:\\Program Files\\Siemens\\SimcenterFlotherm\\2504\\WinXP\\bin\\flopack.exe",
+          "binary_sha256": {
+            "flopackfloxmlhandling.dll": "1301c597999445ba908f81537e7baa773eac874b0dd9ef1507f08664ca8c2c13",
+            "flopackmaterials.dll": "4fdd99632751f4e7c63a2bdc93e290a3bc9ca018bbe8b7921aa7025cedb3cda3",
+            "flopackrealise.dll": "838ed6c2e7d40cc749b8b145f55d78e9e95495fef974d593a7641fc0aa528edd"
+          },
+          "script_sha256": "aa3c3453861d9cfb751aa50930fd60162827b595f893123048bb6ed7a015cd62",
+          "launcher": "PowerShell Start-Process -WindowStyle Hidden",
+          "launcher_sha256": "9fea3c0d7d43fe088e2b62135e243dc5c69d5b776b420275fea8b112631dec66",
+          "seconds": 11.5296032,
+          "file_version": "2025.13.1.1142",
+          "executable_sha256": "de21140177f9836147fdac1f9a82bb68490d92844fb321087201667575976ba1",
+          "errors": []
+        },
+        "reload": {
+          "binary_sha256": {
+            "flopackrealise.dll": "838ed6c2e7d40cc749b8b145f55d78e9e95495fef974d593a7641fc0aa528edd",
+            "flopackmaterials.dll": "4fdd99632751f4e7c63a2bdc93e290a3bc9ca018bbe8b7921aa7025cedb3cda3",
+            "flopackfloxmlhandling.dll": "1301c597999445ba908f81537e7baa773eac874b0dd9ef1507f08664ca8c2c13"
+          },
+          "launcher": "PowerShell Start-Process -WindowStyle Hidden",
+          "launcher_sha256": "9fea3c0d7d43fe088e2b62135e243dc5c69d5b776b420275fea8b112631dec66",
+          "script_sha256": "3510d8cb8893a06351eba407c160fe89beaf3b2ce9e86222fd302532c11a2a3e",
+          "seconds": 11.2562459,
+          "exports": {
+            "explicit24_depop": "1c4ee0a4cfcf1a3ecc34eb3c5c4233a84c5bc474f62bb4ca3cad9f0d7b02cad7",
+            "stagger_depop22": "bcf11361b761e7f95b4c199744924dbc57af035a5303f1b47448cb90bf77bd24",
+            "central33": "e8e12cf19b802f659743edaa20e1a9c4b591937cccd2103ac22368f3b792d6ad",
+            "csv3_explicit1": "22b197bc10a102d08f5fa3967efee0b18e8891f32e95fa99eef6905d8e16d084",
+            "csv3_depop": "2529b107b09623beb8ab994e7ff4485f19fbde024563475bdadf48243b6d827a",
+            "csv3_all": "22b197bc10a102d08f5fa3967efee0b18e8891f32e95fa99eef6905d8e16d084",
+            "central33_stagger": "8e45e8630af77efd3ed8f3b8636fd8404a0a34290a28dbe49aed6bdb79a802e8",
+            "central22": "1d8b2d90c73ebe60efbb9dc76f9e9c91930fbcdf44b63d21f19b367c8ffdaa1a",
+            "csv_translated": "33eae9789152375cdd15a8f0f8b599a5d6de57d06c562d33bbe6d9473125bee7",
+            "explicit_perimeter_center33": "f296c352eae1d619b43046f39619a94da423c60469296758627a40ad845fa735",
+            "csv_duplicates": "05df5741cd8c2da22f7ed517d52e7b65576cbbc7c747c83bd8e6fc25d20c9919",
+            "stagger46": "46a17ef73363f45bc0fbb5da3843e35c49b95e45f8f406955f4bf3b2284b4781",
+            "depop52": "f9adf3a4f80d76be0d4d8f77f7918d402ab39c4438007995e08975edbac12129",
+            "stagger55": "f80411cf76f21e34456ddb60fd8d0e13e44dfa1f05e80c00bc599dbb5da0ed3d",
+            "depop12": "e51637e42527f894b71940cdf9ca2cdd44967ae912d83986c687e1bfe8acdf9a",
+            "depop22": "fd1367c6b3a8b906d1c6c68d605fef70dd80e4c99310813d391533a9b7ff5e9b",
+            "depop33": "053db441c7a0964efec2580408c8f2e6fb46f1f156b95df248594d04a1299b27",
+            "explicit24": "18dfff80fc3fc4b3a5a39ae68bdd7930530cd9ab1843e919ec6f0c5a3395dadd",
+            "csv3_stagger": "88c05b277d94204a8dd5c3607483faafbe61751cd7f97c1f15bd587baa9e5835",
+            "csv_disabled": "f9adf3a4f80d76be0d4d8f77f7918d402ab39c4438007995e08975edbac12129",
+            "explicit1": "22ad70835409c117c3c7f95db7a8dfee7642f3fe790acdc17b7a85bd3c7cbcfe",
+            "grid46": "94acc442c9a196d68d61f6af74e834058f538b7687ce5db5572609ba0af25b6b",
+            "diameter04": "c0dbcbe58a55ce671fe37f9cdaac8f7eea6ff51f0afd622009fd55fd49c8ec04",
+            "explicit24_stagger": "18dfff80fc3fc4b3a5a39ae68bdd7930530cd9ab1843e919ec6f0c5a3395dadd",
+            "depop11": "8bf9a9831cf99f7d579ac0cab7ea173e82aded18aee72c1ec15adfc1d738cfad",
+            "depop_center_restore": "56c587eaefcade4390ab923deb0ccd4be0e80b67ba8ad99528f2145bd7031416",
+            "csv3": "708bb86240759ccf146fc22c8ccfef91f9630314e776f9fda58369a6d33a6ff2",
+            "height05": "9e998e6df139064172cbdd68fe8aa224f4be791449dd1febf300bf91f365502b",
+            "pitch065": "232b956c23b9822cb189ff2559b12669c2ab5be5480bdf2deacacb058d0db6f2",
+            "full55": "f9adf3a4f80d76be0d4d8f77f7918d402ab39c4438007995e08975edbac12129",
+            "csv_empty": "a89d6cb415bb13c441ba7cf5a8874b9b0399ac4ea129ab3cd842ad8b13ecbacc"
+          },
+          "exit_code": 0,
+          "executable": "E:\\Program Files\\Siemens\\SimcenterFlotherm\\2504\\WinXP\\bin\\flopack.exe",
+          "errors": [],
+          "file_version": "2025.13.1.1142",
+          "executable_sha256": "de21140177f9836147fdac1f9a82bb68490d92844fb321087201667575976ba1"
+        }
+      },
+      "cases": [
+        {
+          "id": "full55",
+          "requested_mode": 5,
+          "saved_mode": 5,
+          "native_input_changes": {},
+          "csv_enabled": false,
+          "main_ball_count": 25,
+          "center_ball_count": 0,
+          "total_ball_count": 25,
+          "via_count": 25,
+          "via_side_mm": 0.1772453850905516,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.32399999999999995,
+          "sha256": {
+            "xml": "f9adf3a4f80d76be0d4d8f77f7918d402ab39c4438007995e08975edbac12129",
+            "des": "47ecac49f4ac75cc74a572720a89806d9da4f7bbe353f0cc27a9815768437799"
+          },
+          "input_sha256": "5610d50d562bc8ff1974f74449508d6f3e5a7221cb32e78721754fffd5115e21",
+          "reload_sha256": {
+            "xml": "f9adf3a4f80d76be0d4d8f77f7918d402ab39c4438007995e08975edbac12129",
+            "des": "5ee69d2d27a964f2b4721489563de9b686d767dea8b425295766e6d64f936726"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "ee3de59f566c8af7103945ebdb8644504ded3b3d9dfeb98344e8f5c64d190fa3",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "grid46",
+          "requested_mode": 5,
+          "saved_mode": 5,
+          "native_input_changes": {},
+          "csv_enabled": false,
+          "main_ball_count": 24,
+          "center_ball_count": 0,
+          "total_ball_count": 24,
+          "via_count": 24,
+          "via_side_mm": 0.1772453850905516,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.32399999999999995,
+          "sha256": {
+            "xml": "94acc442c9a196d68d61f6af74e834058f538b7687ce5db5572609ba0af25b6b",
+            "des": "5437d8ff047fc3576790017f903468e5b5868961a292eddc7b5987eda1b3a1c9"
+          },
+          "input_sha256": "053e18e8f02cf0131757cf19fdc0cdfc628e8d73d549661e0e26d49158867132",
+          "reload_sha256": {
+            "xml": "94acc442c9a196d68d61f6af74e834058f538b7687ce5db5572609ba0af25b6b",
+            "des": "149110f69d4c80fbbac9518096e1550e62fc855e8026b29e7546971e06652c6b"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "1f34b45813d1bc9a6ade85937f1ed092a9aa8bc38a64f2dbfd551bd1976eca14",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "stagger55",
+          "requested_mode": 5,
+          "saved_mode": 5,
+          "native_input_changes": {},
+          "csv_enabled": false,
+          "main_ball_count": 13,
+          "center_ball_count": 0,
+          "total_ball_count": 13,
+          "via_count": 13,
+          "via_side_mm": 0.1772453850905516,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.32399999999999995,
+          "sha256": {
+            "xml": "f80411cf76f21e34456ddb60fd8d0e13e44dfa1f05e80c00bc599dbb5da0ed3d",
+            "des": "6fed0771d7dfaf3df42d9d20e21d19b3b0ce0fbf263335645ef657a4b3bf91d7"
+          },
+          "input_sha256": "62d95fb11a26124aad6744964bad96cbac656125238e88ec993049fd1762c11c",
+          "reload_sha256": {
+            "xml": "f80411cf76f21e34456ddb60fd8d0e13e44dfa1f05e80c00bc599dbb5da0ed3d",
+            "des": "dcbda4857bdd436b6c7f9d2d926dd827e72f22303cb3111cc55c574463fb7a12"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "f6e4d7cbd0f9d8992b8ee4325b5ad9f5abd115fbd0d2904f7dc5b3a1c91e18b1",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "stagger46",
+          "requested_mode": 5,
+          "saved_mode": 5,
+          "native_input_changes": {},
+          "csv_enabled": false,
+          "main_ball_count": 12,
+          "center_ball_count": 0,
+          "total_ball_count": 12,
+          "via_count": 12,
+          "via_side_mm": 0.1772453850905516,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.32399999999999995,
+          "sha256": {
+            "xml": "46a17ef73363f45bc0fbb5da3843e35c49b95e45f8f406955f4bf3b2284b4781",
+            "des": "9376540314ea61e92ad0c78e3232bea16f4c80bc7e1fbf6d673e8ec5d6d4ad74"
+          },
+          "input_sha256": "37fca4412c479d833e79df48572f530a6b58eedde2d2ed52cd2b76a17c506e0e",
+          "reload_sha256": {
+            "xml": "46a17ef73363f45bc0fbb5da3843e35c49b95e45f8f406955f4bf3b2284b4781",
+            "des": "f8a196b75b8ed9f6c092540222b528c32ec1ad9e8fa0c96f14755d59674fef0a"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "868108122cdc3f1c65ff6831ed92bdfdf3e1bf89b199cf34a28aab4a92f91d01",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "depop11",
+          "requested_mode": 5,
+          "saved_mode": 5,
+          "native_input_changes": {},
+          "csv_enabled": false,
+          "main_ball_count": 0,
+          "center_ball_count": 0,
+          "total_ball_count": 0,
+          "via_count": 0,
+          "via_side_mm": 0.1772453850905516,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.32399999999999995,
+          "sha256": {
+            "xml": "8bf9a9831cf99f7d579ac0cab7ea173e82aded18aee72c1ec15adfc1d738cfad",
+            "des": "156576f4060c6f78c1f53586cd727372f4ed1345d111abbb35ce88c29d830c9a"
+          },
+          "input_sha256": "91f853d7e95d435fd6b0f26a1d453a6c742b63bb3498f898171649bd605e15e2",
+          "reload_sha256": {
+            "xml": "8bf9a9831cf99f7d579ac0cab7ea173e82aded18aee72c1ec15adfc1d738cfad",
+            "des": "fe52f46900c42fe0fd6e04ab282b3c2cca7b19efc87fb0691167839622311c9b"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "via_material": null
+        },
+        {
+          "id": "depop22",
+          "requested_mode": 5,
+          "saved_mode": 5,
+          "native_input_changes": {},
+          "csv_enabled": false,
+          "main_ball_count": 16,
+          "center_ball_count": 0,
+          "total_ball_count": 16,
+          "via_count": 16,
+          "via_side_mm": 0.1772453850905516,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.32399999999999995,
+          "sha256": {
+            "xml": "fd1367c6b3a8b906d1c6c68d605fef70dd80e4c99310813d391533a9b7ff5e9b",
+            "des": "32495bfcd1cb6a1cc4b293636bd49930538e8d65c3bd7b6f8ef1d812e4321715"
+          },
+          "input_sha256": "056713a6e27d95a782716005f4a52c73b05daae53bad96ed8712305c94367cdd",
+          "reload_sha256": {
+            "xml": "fd1367c6b3a8b906d1c6c68d605fef70dd80e4c99310813d391533a9b7ff5e9b",
+            "des": "5314fd770ff6b405bd2fd73ab3a2029e400cf61309d39e6d71ae51baf5e835b7"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "260cedd2a242631632fd7e5c9645234598e4d67688bd41ee15734b1b620ed959",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "depop33",
+          "requested_mode": 5,
+          "saved_mode": 5,
+          "native_input_changes": {},
+          "csv_enabled": false,
+          "main_ball_count": 16,
+          "center_ball_count": 0,
+          "total_ball_count": 16,
+          "via_count": 16,
+          "via_side_mm": 0.1772453850905516,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.32399999999999995,
+          "sha256": {
+            "xml": "053db441c7a0964efec2580408c8f2e6fb46f1f156b95df248594d04a1299b27",
+            "des": "061be21243009fdea0af05f179f5f2c26a0b740b643eba42ae8d0fc62b6cdf26"
+          },
+          "input_sha256": "167be49c3c7663a43404e873179383e89b20d55ea8f2ef9f03ddfe5d536c3db2",
+          "reload_sha256": {
+            "xml": "053db441c7a0964efec2580408c8f2e6fb46f1f156b95df248594d04a1299b27",
+            "des": "d653c1a75a95777f90fe27248139b0a0703f19ec4243a004b27ef3d8cd740b9f"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "260cedd2a242631632fd7e5c9645234598e4d67688bd41ee15734b1b620ed959",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "depop12",
+          "requested_mode": 5,
+          "saved_mode": 5,
+          "native_input_changes": {},
+          "csv_enabled": false,
+          "main_ball_count": 10,
+          "center_ball_count": 0,
+          "total_ball_count": 10,
+          "via_count": 10,
+          "via_side_mm": 0.1772453850905516,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.32399999999999995,
+          "sha256": {
+            "xml": "e51637e42527f894b71940cdf9ca2cdd44967ae912d83986c687e1bfe8acdf9a",
+            "des": "32f958454c7c106b60a8435e96d2a66565d85592c0dd14782c301ec6266d16d7"
+          },
+          "input_sha256": "0bcc51ed2989be4a1a6faceade13967c7905efc8963630f1f357ae52ff36e30f",
+          "reload_sha256": {
+            "xml": "e51637e42527f894b71940cdf9ca2cdd44967ae912d83986c687e1bfe8acdf9a",
+            "des": "710b7c48d52f8855ad7623b4c050306af3d4ddb4c549efc10be36c5014609069"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "dbc565f9f6845ce4d93f5d3ef3325ba04a28be84babe9b974b178bf79e8ea055",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "depop52",
+          "requested_mode": 5,
+          "saved_mode": 5,
+          "native_input_changes": {},
+          "csv_enabled": false,
+          "main_ball_count": 25,
+          "center_ball_count": 0,
+          "total_ball_count": 25,
+          "via_count": 25,
+          "via_side_mm": 0.1772453850905516,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.32399999999999995,
+          "sha256": {
+            "xml": "f9adf3a4f80d76be0d4d8f77f7918d402ab39c4438007995e08975edbac12129",
+            "des": "8ed14885564ac1739582834b501f27cc1f063ffb96adea74efe184b7d02b8b75"
+          },
+          "input_sha256": "e8ee9510be40765d750abb70f58b4eedf08a4fcac54d4fac96581530da112b3c",
+          "reload_sha256": {
+            "xml": "f9adf3a4f80d76be0d4d8f77f7918d402ab39c4438007995e08975edbac12129",
+            "des": "19bf3597b16657ccbf395ee604330c591c7509dac5db71f4e25921e5c28bae38"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "ee3de59f566c8af7103945ebdb8644504ded3b3d9dfeb98344e8f5c64d190fa3",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "stagger_depop22",
+          "requested_mode": 5,
+          "saved_mode": 5,
+          "native_input_changes": {},
+          "csv_enabled": false,
+          "main_ball_count": 8,
+          "center_ball_count": 0,
+          "total_ball_count": 8,
+          "via_count": 8,
+          "via_side_mm": 0.1772453850905516,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.32399999999999995,
+          "sha256": {
+            "xml": "bcf11361b761e7f95b4c199744924dbc57af035a5303f1b47448cb90bf77bd24",
+            "des": "76d9839c80d54961957a0007f4d237d211a163fb8c2efb6020b32f11813e0be6"
+          },
+          "input_sha256": "0198c5b48359455abf95ba86751b55d48893f6191b07064be4a536ca83e7ec18",
+          "reload_sha256": {
+            "xml": "bcf11361b761e7f95b4c199744924dbc57af035a5303f1b47448cb90bf77bd24",
+            "des": "54b72f36cb8e204f523805a120264bd4f9aceafff3d7563310cada2a385c9639"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "2ddeb58c5576d47dc7a0db3d0ccc6199d4d816a2a9319c5471d34e13dadf3e9d",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "explicit24",
+          "requested_mode": 5,
+          "saved_mode": 5,
+          "native_input_changes": {},
+          "csv_enabled": false,
+          "main_ball_count": 24,
+          "center_ball_count": 0,
+          "total_ball_count": 24,
+          "via_count": 24,
+          "via_side_mm": 0.1772453850905516,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.32399999999999995,
+          "sha256": {
+            "xml": "18dfff80fc3fc4b3a5a39ae68bdd7930530cd9ab1843e919ec6f0c5a3395dadd",
+            "des": "307b240308739d7f0b434fd019d944eb23b159057541135e1d55ecf42912a49c"
+          },
+          "input_sha256": "b179b7292ccb0bbd0ee93185cbaf2a8b36dc07deca8b4bf28861e2ab9dd16607",
+          "reload_sha256": {
+            "xml": "18dfff80fc3fc4b3a5a39ae68bdd7930530cd9ab1843e919ec6f0c5a3395dadd",
+            "des": "c6483634c92b72742d487436034110f8697cd386269113d8b427be6c7c79a747"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "6e4dafe8570dc367231ba533bd55476d168d8847538791b05d89a4b0a99a9361",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "explicit1",
+          "requested_mode": 5,
+          "saved_mode": 5,
+          "native_input_changes": {},
+          "csv_enabled": false,
+          "main_ball_count": 1,
+          "center_ball_count": 0,
+          "total_ball_count": 1,
+          "via_count": 1,
+          "via_side_mm": 0.1772453850905516,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.32399999999999995,
+          "sha256": {
+            "xml": "22ad70835409c117c3c7f95db7a8dfee7642f3fe790acdc17b7a85bd3c7cbcfe",
+            "des": "d182a2893f7fcf14170802572423068d5ac8a51e861534ebc522417796df47ad"
+          },
+          "input_sha256": "f34b9b7f98c3157ec816b47b98cfc6607475c1cf97ab2e1544131113d2fba5a1",
+          "reload_sha256": {
+            "xml": "22ad70835409c117c3c7f95db7a8dfee7642f3fe790acdc17b7a85bd3c7cbcfe",
+            "des": "0dd2277f3a4f88318d98125938f03f56d1b663a7e2b8f3e42b01fa55fc5e0a49"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "0da47c08443f0ebf346b13cadcf591997e6206d3952509b22df97df1eb888cbf",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "explicit24_stagger",
+          "requested_mode": 5,
+          "saved_mode": 5,
+          "native_input_changes": {},
+          "csv_enabled": false,
+          "main_ball_count": 24,
+          "center_ball_count": 0,
+          "total_ball_count": 24,
+          "via_count": 24,
+          "via_side_mm": 0.1772453850905516,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.32399999999999995,
+          "sha256": {
+            "xml": "18dfff80fc3fc4b3a5a39ae68bdd7930530cd9ab1843e919ec6f0c5a3395dadd",
+            "des": "099352b52e75d4991288fd263f6a33dddfcfef8aca35dc8ba610ec552e67148c"
+          },
+          "input_sha256": "77f85732d9c2a4ce871426717c7beeaa205a23d2546d95efdf3b373fddbb40cc",
+          "reload_sha256": {
+            "xml": "18dfff80fc3fc4b3a5a39ae68bdd7930530cd9ab1843e919ec6f0c5a3395dadd",
+            "des": "70cd64c14cd5f1529848d67863e43b205160457c8c192f7a269a0978c986e908"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "6e4dafe8570dc367231ba533bd55476d168d8847538791b05d89a4b0a99a9361",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "explicit24_depop",
+          "requested_mode": 5,
+          "saved_mode": 5,
+          "native_input_changes": {},
+          "csv_enabled": false,
+          "main_ball_count": 24,
+          "center_ball_count": 0,
+          "total_ball_count": 24,
+          "via_count": 24,
+          "via_side_mm": 0.1772453850905516,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.32399999999999995,
+          "sha256": {
+            "xml": "1c4ee0a4cfcf1a3ecc34eb3c5c4233a84c5bc474f62bb4ca3cad9f0d7b02cad7",
+            "des": "df1f810742a0d546b96e607fab8004a29fb8c69d4913916a7343705646541c48"
+          },
+          "input_sha256": "13dc17ee9931d06f3369ab096b2db72c1b67465d1806763166f3348b76866a74",
+          "reload_sha256": {
+            "xml": "1c4ee0a4cfcf1a3ecc34eb3c5c4233a84c5bc474f62bb4ca3cad9f0d7b02cad7",
+            "des": "e073197aa795dbd5075fab086363a081901ca57eb1502a4a38c5f9436233cd26"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "6e4dafe8570dc367231ba533bd55476d168d8847538791b05d89a4b0a99a9361",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "explicit_perimeter_center33",
+          "requested_mode": 5,
+          "saved_mode": 5,
+          "native_input_changes": {},
+          "csv_enabled": false,
+          "main_ball_count": 16,
+          "center_ball_count": 9,
+          "total_ball_count": 25,
+          "via_count": 16,
+          "via_side_mm": 0.1772453850905516,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.32399999999999995,
+          "sha256": {
+            "xml": "f296c352eae1d619b43046f39619a94da423c60469296758627a40ad845fa735",
+            "des": "355e852d58486dbd9f9cb2cbeec38fc612ca0c127c69357a30ab001e44b13c99"
+          },
+          "input_sha256": "179548f40d73593adba7ad306fcf30d58843ab6fa09509f4cffbeced2e6eca8a",
+          "reload_sha256": {
+            "xml": "f296c352eae1d619b43046f39619a94da423c60469296758627a40ad845fa735",
+            "des": "127150c896b6001e9326b32d3f6f99f935a78435a6782fbb6102255f07b67e60"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "260cedd2a242631632fd7e5c9645234598e4d67688bd41ee15734b1b620ed959",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "central22",
+          "requested_mode": 5,
+          "saved_mode": 5,
+          "native_input_changes": {},
+          "csv_enabled": false,
+          "main_ball_count": 25,
+          "center_ball_count": 4,
+          "total_ball_count": 29,
+          "via_count": 25,
+          "via_side_mm": 0.1772453850905516,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.32399999999999995,
+          "sha256": {
+            "xml": "1d8b2d90c73ebe60efbb9dc76f9e9c91930fbcdf44b63d21f19b367c8ffdaa1a",
+            "des": "5da5200d0570749adc99c1678e5a2b26443588a170aaa485d09c21f5f6017458"
+          },
+          "input_sha256": "4f0033f67cf890240911b02bcd3b3b32c87975eb61c225060abf0b401bfd4609",
+          "reload_sha256": {
+            "xml": "1d8b2d90c73ebe60efbb9dc76f9e9c91930fbcdf44b63d21f19b367c8ffdaa1a",
+            "des": "ec8a3101f848effacbd30df27dc4e5e8ac24e05704ae24834d7664bfab7a2930"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "ee3de59f566c8af7103945ebdb8644504ded3b3d9dfeb98344e8f5c64d190fa3",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "central33",
+          "requested_mode": 5,
+          "saved_mode": 5,
+          "native_input_changes": {},
+          "csv_enabled": false,
+          "main_ball_count": 25,
+          "center_ball_count": 9,
+          "total_ball_count": 34,
+          "via_count": 25,
+          "via_side_mm": 0.1772453850905516,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.32399999999999995,
+          "sha256": {
+            "xml": "e8e12cf19b802f659743edaa20e1a9c4b591937cccd2103ac22368f3b792d6ad",
+            "des": "e93967412a5e13fdb430b7b894884f28dc64c5f2d05057b5b5e9caaf17b79e0c"
+          },
+          "input_sha256": "b0489f4d99007f59d315ecc29c8b7346eaa0e74457dd5b1f4f112fe5bbf2391b",
+          "reload_sha256": {
+            "xml": "e8e12cf19b802f659743edaa20e1a9c4b591937cccd2103ac22368f3b792d6ad",
+            "des": "acf5efa9a59854a6fdbbbca34ef58a50346cf590bb379fe1077482cecd2eb404"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "ee3de59f566c8af7103945ebdb8644504ded3b3d9dfeb98344e8f5c64d190fa3",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "central33_stagger",
+          "requested_mode": 5,
+          "saved_mode": 5,
+          "native_input_changes": {},
+          "csv_enabled": false,
+          "main_ball_count": 25,
+          "center_ball_count": 5,
+          "total_ball_count": 30,
+          "via_count": 25,
+          "via_side_mm": 0.1772453850905516,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.32399999999999995,
+          "sha256": {
+            "xml": "8e45e8630af77efd3ed8f3b8636fd8404a0a34290a28dbe49aed6bdb79a802e8",
+            "des": "349d35cb0d4c215871706da3a6a20fc311f983a7876d7e675c46190cdcb1986a"
+          },
+          "input_sha256": "c50bac989ff9f05f9757a5c2b85515256d5095d21a6d60cd9fe279a765b3d55e",
+          "reload_sha256": {
+            "xml": "8e45e8630af77efd3ed8f3b8636fd8404a0a34290a28dbe49aed6bdb79a802e8",
+            "des": "68b3eaad360c705b3accc35f4010e2bdc1191cbb2f1f0f263be1d2b71d6397ea"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "ee3de59f566c8af7103945ebdb8644504ded3b3d9dfeb98344e8f5c64d190fa3",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "depop_center_restore",
+          "requested_mode": 5,
+          "saved_mode": 5,
+          "native_input_changes": {},
+          "csv_enabled": false,
+          "main_ball_count": 16,
+          "center_ball_count": 9,
+          "total_ball_count": 25,
+          "via_count": 16,
+          "via_side_mm": 0.1772453850905516,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.32399999999999995,
+          "sha256": {
+            "xml": "56c587eaefcade4390ab923deb0ccd4be0e80b67ba8ad99528f2145bd7031416",
+            "des": "b5a1cd36cdac596961aa3b0902fc44fccb672c79da23f86961cd8a9e3b3e6d44"
+          },
+          "input_sha256": "dbe7cf4980e0f72c08d0f4a2b5945590d1bd230b9970a7e29c3f6f851fe90ef8",
+          "reload_sha256": {
+            "xml": "56c587eaefcade4390ab923deb0ccd4be0e80b67ba8ad99528f2145bd7031416",
+            "des": "9d3784a37505f6d86f67dbf3ca11467f060b028b223f5f119cc1602a80ce91bb"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "260cedd2a242631632fd7e5c9645234598e4d67688bd41ee15734b1b620ed959",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "csv3",
+          "requested_mode": 5,
+          "saved_mode": 5,
+          "native_input_changes": {},
+          "csv_enabled": true,
+          "main_ball_count": 3,
+          "center_ball_count": 0,
+          "total_ball_count": 3,
+          "via_count": 25,
+          "via_side_mm": 0.1772453850905516,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.32399999999999995,
+          "sha256": {
+            "xml": "708bb86240759ccf146fc22c8ccfef91f9630314e776f9fda58369a6d33a6ff2",
+            "des": "42272939a84df7a5c97602b7157e0cd2267a44b79be9829dfe29918c55258ad1"
+          },
+          "input_sha256": "1b9c9dc3805eb51ddae2ccb39b09216d12dd64db8d3eb46765e0aa352e74202f",
+          "reload_sha256": {
+            "xml": "708bb86240759ccf146fc22c8ccfef91f9630314e776f9fda58369a6d33a6ff2",
+            "des": "471301e0cce9bd900df5619ea0c170bd104b4e67b68d477cc2322f2b72675ad4"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "ee3de59f566c8af7103945ebdb8644504ded3b3d9dfeb98344e8f5c64d190fa3",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "csv3_stagger",
+          "requested_mode": 5,
+          "saved_mode": 5,
+          "native_input_changes": {},
+          "csv_enabled": true,
+          "main_ball_count": 3,
+          "center_ball_count": 0,
+          "total_ball_count": 3,
+          "via_count": 13,
+          "via_side_mm": 0.1772453850905516,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.32399999999999995,
+          "sha256": {
+            "xml": "88c05b277d94204a8dd5c3607483faafbe61751cd7f97c1f15bd587baa9e5835",
+            "des": "d60d17ff97af3e267e2b8a94f939d70abdf363a4dd09000d83f659e77575a70d"
+          },
+          "input_sha256": "2519ad379c0d07a6b74c6ed4490d84b85d5e803631e43577081cabdd9ae356fe",
+          "reload_sha256": {
+            "xml": "88c05b277d94204a8dd5c3607483faafbe61751cd7f97c1f15bd587baa9e5835",
+            "des": "cd55040e858974ce3ddd46d39b7f896f546f366b6efb58cea13c189ad97025dd"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "f6e4d7cbd0f9d8992b8ee4325b5ad9f5abd115fbd0d2904f7dc5b3a1c91e18b1",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "csv3_depop",
+          "requested_mode": 5,
+          "saved_mode": 5,
+          "native_input_changes": {},
+          "csv_enabled": true,
+          "main_ball_count": 3,
+          "center_ball_count": 0,
+          "total_ball_count": 3,
+          "via_count": 16,
+          "via_side_mm": 0.1772453850905516,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.32399999999999995,
+          "sha256": {
+            "xml": "2529b107b09623beb8ab994e7ff4485f19fbde024563475bdadf48243b6d827a",
+            "des": "6bdb32cf508459f5217e39f41ca26ad80a9200ec45ea5b6c068351f74fcbf51c"
+          },
+          "input_sha256": "9098849ead7e2c2f8f0e015688fdbb6df658ee303c014b414de561f5a2dd6b64",
+          "reload_sha256": {
+            "xml": "2529b107b09623beb8ab994e7ff4485f19fbde024563475bdadf48243b6d827a",
+            "des": "1162a97930b9d5fc298e9dffa0d1d2ea9395c115b6554948ff891c76c57cac79"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "260cedd2a242631632fd7e5c9645234598e4d67688bd41ee15734b1b620ed959",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "csv3_explicit1",
+          "requested_mode": 5,
+          "saved_mode": 5,
+          "native_input_changes": {},
+          "csv_enabled": true,
+          "main_ball_count": 3,
+          "center_ball_count": 0,
+          "total_ball_count": 3,
+          "via_count": 1,
+          "via_side_mm": 0.1772453850905516,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.32399999999999995,
+          "sha256": {
+            "xml": "22b197bc10a102d08f5fa3967efee0b18e8891f32e95fa99eef6905d8e16d084",
+            "des": "23839fe43b620556ddbbeeee9c1fb85318c4d563233efce7573421e9e24581d3"
+          },
+          "input_sha256": "e2842ad81a4e4aadbcde01da0cfc1165ec11b3c4d7ad025cfc539d76d706f194",
+          "reload_sha256": {
+            "xml": "22b197bc10a102d08f5fa3967efee0b18e8891f32e95fa99eef6905d8e16d084",
+            "des": "7b318568e55b1212f58b6f2e245cb27a4833922ec3aee4b631927e71578ccc0c"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "0da47c08443f0ebf346b13cadcf591997e6206d3952509b22df97df1eb888cbf",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "csv3_all",
+          "requested_mode": 5,
+          "saved_mode": 5,
+          "native_input_changes": {},
+          "csv_enabled": true,
+          "main_ball_count": 3,
+          "center_ball_count": 0,
+          "total_ball_count": 3,
+          "via_count": 1,
+          "via_side_mm": 0.1772453850905516,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.32399999999999995,
+          "sha256": {
+            "xml": "22b197bc10a102d08f5fa3967efee0b18e8891f32e95fa99eef6905d8e16d084",
+            "des": "f5f2aa0ebde5478a52ffc6ea079472ec5b638cb9cbd602a1136bc75b1dada8a8"
+          },
+          "input_sha256": "232a5e1405d085bcf322f2a88ee40235ccf836a9f433d19cfe3e35ee055aed1b",
+          "reload_sha256": {
+            "xml": "22b197bc10a102d08f5fa3967efee0b18e8891f32e95fa99eef6905d8e16d084",
+            "des": "e11a90113a78c2c9d8add444c652c97e1ae168a8e3b79bfe78287f2f038f61cc"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "0da47c08443f0ebf346b13cadcf591997e6206d3952509b22df97df1eb888cbf",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "csv_empty",
+          "requested_mode": 5,
+          "saved_mode": 5,
+          "native_input_changes": {},
+          "csv_enabled": true,
+          "main_ball_count": 0,
+          "center_ball_count": 0,
+          "total_ball_count": 0,
+          "via_count": 25,
+          "via_side_mm": 0.1772453850905516,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.32399999999999995,
+          "sha256": {
+            "xml": "a89d6cb415bb13c441ba7cf5a8874b9b0399ac4ea129ab3cd842ad8b13ecbacc",
+            "des": "3a9af38afc83d157f7914e1ae7dcdf780e5c08c381c7fb6b50ca005e29c1747a"
+          },
+          "input_sha256": "19dd8aeca1dc4cc2b722ee417fcb717f0c21d9e9b64062aa3886464d990b0c6a",
+          "reload_sha256": {
+            "xml": "a89d6cb415bb13c441ba7cf5a8874b9b0399ac4ea129ab3cd842ad8b13ecbacc",
+            "des": "c564ad5b0506d0735c9a18424e87858693eb7c883536e63821a2189fb53476a2"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "ee3de59f566c8af7103945ebdb8644504ded3b3d9dfeb98344e8f5c64d190fa3",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "csv_disabled",
+          "requested_mode": 5,
+          "saved_mode": 5,
+          "native_input_changes": {},
+          "csv_enabled": false,
+          "main_ball_count": 25,
+          "center_ball_count": 0,
+          "total_ball_count": 25,
+          "via_count": 25,
+          "via_side_mm": 0.1772453850905516,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.32399999999999995,
+          "sha256": {
+            "xml": "f9adf3a4f80d76be0d4d8f77f7918d402ab39c4438007995e08975edbac12129",
+            "des": "5cd852c4eabf3ef16a18fefb7cc058a152fc13b5d77b7e54248dc17f77e320e7"
+          },
+          "input_sha256": "6a62b98155b3464ca7057f00ed7539aed0b97becd2b227d776e27a180e70b7a2",
+          "reload_sha256": {
+            "xml": "f9adf3a4f80d76be0d4d8f77f7918d402ab39c4438007995e08975edbac12129",
+            "des": "96f8dcd696723cac58332478ff17bec5927718df2a132e749afd78d7c0e333d9"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "ee3de59f566c8af7103945ebdb8644504ded3b3d9dfeb98344e8f5c64d190fa3",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "csv_duplicates",
+          "requested_mode": 5,
+          "saved_mode": 5,
+          "native_input_changes": {},
+          "csv_enabled": true,
+          "main_ball_count": 2,
+          "center_ball_count": 0,
+          "total_ball_count": 2,
+          "via_count": 25,
+          "via_side_mm": 0.1772453850905516,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.32399999999999995,
+          "sha256": {
+            "xml": "05df5741cd8c2da22f7ed517d52e7b65576cbbc7c747c83bd8e6fc25d20c9919",
+            "des": "da70204dd63e3c8dd35ad5267e081097b02a7108ce289234e2e686f5e8d1d1df"
+          },
+          "input_sha256": "b4079cfa57031432a9a7d2e1162e4526f819b2ea89f06d35ad711ec5aebdc8d6",
+          "reload_sha256": {
+            "xml": "05df5741cd8c2da22f7ed517d52e7b65576cbbc7c747c83bd8e6fc25d20c9919",
+            "des": "d80fb50e6e972b736ddd2a4f40192a23bfec92936a69b83917d526d0e0b89f29"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "ee3de59f566c8af7103945ebdb8644504ded3b3d9dfeb98344e8f5c64d190fa3",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "csv_translated",
+          "requested_mode": 5,
+          "saved_mode": 5,
+          "native_input_changes": {},
+          "csv_enabled": true,
+          "main_ball_count": 3,
+          "center_ball_count": 0,
+          "total_ball_count": 3,
+          "via_count": 25,
+          "via_side_mm": 0.1772453850905516,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.32399999999999995,
+          "sha256": {
+            "xml": "33eae9789152375cdd15a8f0f8b599a5d6de57d06c562d33bbe6d9473125bee7",
+            "des": "4f9006c67ba136ffa0b15037462111c4283bc09ad885679ef1f6fa68f0f7ad78"
+          },
+          "input_sha256": "03f730cd43f80b0a48e54a74da3f9a3d5166c40c8f261e409f0601c724f0fec2",
+          "reload_sha256": {
+            "xml": "33eae9789152375cdd15a8f0f8b599a5d6de57d06c562d33bbe6d9473125bee7",
+            "des": "d3d84cff9566e0b647b4543f0f306bf20848e3f9bba510146e1f7024308ed6c9"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "ee3de59f566c8af7103945ebdb8644504ded3b3d9dfeb98344e8f5c64d190fa3",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "diameter04",
+          "requested_mode": 5,
+          "saved_mode": 5,
+          "native_input_changes": {},
+          "csv_enabled": false,
+          "main_ball_count": 25,
+          "center_ball_count": 0,
+          "total_ball_count": 25,
+          "via_count": 25,
+          "via_side_mm": 0.1772453850905516,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.32399999999999995,
+          "sha256": {
+            "xml": "c0dbcbe58a55ce671fe37f9cdaac8f7eea6ff51f0afd622009fd55fd49c8ec04",
+            "des": "adf462f01aa02db687303c0d08c63db7df82e3977040c4c5cd6d75b9ded9deac"
+          },
+          "input_sha256": "d256c051e57a8b43f5529f5c4f91f34e40be62924535dd51ba752808cde22d8c",
+          "reload_sha256": {
+            "xml": "c0dbcbe58a55ce671fe37f9cdaac8f7eea6ff51f0afd622009fd55fd49c8ec04",
+            "des": "0ba609d22cd14bb931774c8fad2c6e6d520bf789e59f5449b2f4899f969a509f"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "ee3de59f566c8af7103945ebdb8644504ded3b3d9dfeb98344e8f5c64d190fa3",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "pitch065",
+          "requested_mode": 5,
+          "saved_mode": 5,
+          "native_input_changes": {},
+          "csv_enabled": false,
+          "main_ball_count": 25,
+          "center_ball_count": 0,
+          "total_ball_count": 25,
+          "via_count": 25,
+          "via_side_mm": 0.1772453850905516,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.32399999999999995,
+          "sha256": {
+            "xml": "232b956c23b9822cb189ff2559b12669c2ab5be5480bdf2deacacb058d0db6f2",
+            "des": "48e77676d66b17eaaf41ac76a1528c29f0ca6363c611a8ebed3eb1ea5ba2bd6d"
+          },
+          "input_sha256": "e516b88fb2047a3f52264a519dd57dfa5fadb84ff77879699618bda23d6062a4",
+          "reload_sha256": {
+            "xml": "232b956c23b9822cb189ff2559b12669c2ab5be5480bdf2deacacb058d0db6f2",
+            "des": "3ccb68d08ce90c6dde836d3c6b8ba8ab08721342a41d3d66cf51f87ec77ba513"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "ee3de59f566c8af7103945ebdb8644504ded3b3d9dfeb98344e8f5c64d190fa3",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "height05",
+          "requested_mode": 5,
+          "saved_mode": 5,
+          "native_input_changes": {},
+          "csv_enabled": false,
+          "main_ball_count": 25,
+          "center_ball_count": 0,
+          "total_ball_count": 25,
+          "via_count": 25,
+          "via_side_mm": 0.1772453850905516,
+          "via_zmin_mm": 0.518,
+          "via_height_mm": 0.32399999999999995,
+          "sha256": {
+            "xml": "9e998e6df139064172cbdd68fe8aa224f4be791449dd1febf300bf91f365502b",
+            "des": "f3d6203ce33a4f5504a2c6400a0d71dfb4fdcc98a42574caed2260d7d3297e60"
+          },
+          "input_sha256": "810cc5a460d940f6e288ed9dd9330340ad1782a8460196c469e6cd5121237ce0",
+          "reload_sha256": {
+            "xml": "9e998e6df139064172cbdd68fe8aa224f4be791449dd1febf300bf91f365502b",
+            "des": "eec8e6a58304db3c9c63a8f0c5c206eb2e04bb70d3fb7d5ffab653b4bdfd3c07"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "ee3de59f566c8af7103945ebdb8644504ded3b3d9dfeb98344e8f5c64d190fa3",
+          "via_material": "same_as_full55"
+        }
+      ]
+    },
+    "l2_approximate": {
+      "definition_sha256": "a87184bd1a0888b23c76f541937432d988151792900a1aefa168fff4a6f0c428",
+      "baseline_via_material": [
+        32.00570534026464,
+        32.00570534026464,
+        32.00570534026464,
+        2279.4949503780717,
+        747.3445780986646
+      ],
+      "runs": {
+        "native": {
+          "exports": {
+            "csv_disabled": "5d424ef8c41f563b46ea6dedf1c94eec87b6913497e74b4197c0ec1f4dddade4",
+            "depop33": "a3f9356877d7a2cd947e74578d4929044865b99e36a8a7f79803ec4f2d958072",
+            "csv3_all": "9c03c30b53d1dfe08c2c3e1d626b0ebce220beed23162ffa2d06029b7e5a6368",
+            "csv3_explicit1": "9c03c30b53d1dfe08c2c3e1d626b0ebce220beed23162ffa2d06029b7e5a6368",
+            "depop52": "5d424ef8c41f563b46ea6dedf1c94eec87b6913497e74b4197c0ec1f4dddade4",
+            "explicit24_stagger": "b1170ce0cafd6ed1f2accc6be598a04ca369a192f02b0e05c1fabcec8835f4b7",
+            "height05": "f32963dde1a4ee65ee8af7bd9947475e0747dc1d32bfaf767ca8b810f4340d5c",
+            "depop22": "923be965590f0db7857d5390a9ff22de5bb810c80795960397486faedc396b77",
+            "depop12": "eabb90de2eae95258434b41195c6675c422634f1b5dcd7546a212a98bd0cf3f1",
+            "explicit_perimeter_center33": "37cac48f8de561c697aa0fc4113af6c50644c781919772477cf0534a737f0f60",
+            "grid46": "fd0e7df4359a508c16175b5791824651340209016cc5e9372fcd4ed32f9e326c",
+            "central22": "db510593ea4f0917e3467efeed3423988b57fe74603ac03a0fad12100502c4c4",
+            "diameter04": "e197e62bdc63c604ca721b06aed93e8ae2c5570cd8320f027d023e3868ed50e5",
+            "explicit24": "b1170ce0cafd6ed1f2accc6be598a04ca369a192f02b0e05c1fabcec8835f4b7",
+            "central33": "d156a37811a48e8a3f0a06225e7a507803d5c8716fc849c550c78359376766a3",
+            "full55": "5d424ef8c41f563b46ea6dedf1c94eec87b6913497e74b4197c0ec1f4dddade4",
+            "csv3": "5cc1ea123b36aab0170e17c60d2c1aa06d61c6da1b8bea0a840ce5e191e99b14",
+            "central33_stagger": "785d4bf14a71f47e4e537fb8ad75c05fb3a6f16a5bca29779d19df60e3781c26",
+            "pitch065": "ae27e3cd39352ac1016e7c369700ddd7139677b9a2eeca3dd7f364ca45df94fc",
+            "csv3_depop": "1c688e6c1afe92aeeb51a0a0804c697d3f47019f52c6d979cda76a66ae2aec8d",
+            "explicit24_depop": "e6e7bad2e3c1a51d8a3faa74e52f0be070106675239ad2d3f5a8bae65f00de02",
+            "depop11": "22295f9d01367d16bc033bd9f80fab218b9b9967ebc5e77f891d4040896120a2",
+            "explicit1": "cbae3f443c52f7ac55a28291e090b587eba9871394c53a86e5f2bc8c321d409b",
+            "depop_center_restore": "863f999c7325b6de9fedd2f16e1fa452fb3207344c49b3cf8e911b7982f0e0ef",
+            "csv_empty": "84d34c93243718715baa456463e0bbe9dfc1d71f2abe0729dd3774e49b250212",
+            "stagger_depop22": "30fc7df500b174f251ffc2d795a2b024b0a82f87fdec7bf33f8bacc36af85076",
+            "stagger55": "6c7e5415e20b70ea8b339671f239404d7129865cef1645b743495a7fa0669dc1",
+            "csv3_stagger": "dddc94812c3584507cb4df8cdeb3e737d1e04c39f7850c7be542ebede6b5ee59",
+            "csv_translated": "f93aae7a7d8d121913c6dc261b56c3ad37410dcea32d7858cd8af53866bfb2d8",
+            "csv_duplicates": "f31a7ea9214e7ddf66a28668f3f88c35602ca33e913495e9181e926431b0fc40",
+            "stagger46": "e8d6dea23dbc4dabf886b7d8cf6e19ffea8dc92706064fc3c8a8badcbdd932d8"
+          },
+          "exit_code": 0,
+          "executable": "E:\\Program Files\\Siemens\\SimcenterFlotherm\\2504\\WinXP\\bin\\flopack.exe",
+          "binary_sha256": {
+            "flopackfloxmlhandling.dll": "1301c597999445ba908f81537e7baa773eac874b0dd9ef1507f08664ca8c2c13",
+            "flopackmaterials.dll": "4fdd99632751f4e7c63a2bdc93e290a3bc9ca018bbe8b7921aa7025cedb3cda3",
+            "flopackrealise.dll": "838ed6c2e7d40cc749b8b145f55d78e9e95495fef974d593a7641fc0aa528edd"
+          },
+          "script_sha256": "1765e13d0fadedd79c32a4bcc53d31d0d45dc382fa040466038a6bab1616e7a2",
+          "launcher": "PowerShell Start-Process -WindowStyle Hidden",
+          "launcher_sha256": "9fea3c0d7d43fe088e2b62135e243dc5c69d5b776b420275fea8b112631dec66",
+          "seconds": 11.419326,
+          "file_version": "2025.13.1.1142",
+          "executable_sha256": "de21140177f9836147fdac1f9a82bb68490d92844fb321087201667575976ba1",
+          "errors": []
+        },
+        "reload": {
+          "binary_sha256": {
+            "flopackrealise.dll": "838ed6c2e7d40cc749b8b145f55d78e9e95495fef974d593a7641fc0aa528edd",
+            "flopackmaterials.dll": "4fdd99632751f4e7c63a2bdc93e290a3bc9ca018bbe8b7921aa7025cedb3cda3",
+            "flopackfloxmlhandling.dll": "1301c597999445ba908f81537e7baa773eac874b0dd9ef1507f08664ca8c2c13"
+          },
+          "launcher": "PowerShell Start-Process -WindowStyle Hidden",
+          "launcher_sha256": "9fea3c0d7d43fe088e2b62135e243dc5c69d5b776b420275fea8b112631dec66",
+          "script_sha256": "fbfdb3fc8afb8d8b814fbff451aae86ccf182ae3dd58a0baf8e48b6736d43180",
+          "seconds": 11.5709016,
+          "exports": {
+            "explicit24_depop": "e6e7bad2e3c1a51d8a3faa74e52f0be070106675239ad2d3f5a8bae65f00de02",
+            "stagger_depop22": "30fc7df500b174f251ffc2d795a2b024b0a82f87fdec7bf33f8bacc36af85076",
+            "central33": "d156a37811a48e8a3f0a06225e7a507803d5c8716fc849c550c78359376766a3",
+            "csv3_explicit1": "9c03c30b53d1dfe08c2c3e1d626b0ebce220beed23162ffa2d06029b7e5a6368",
+            "csv3_depop": "1c688e6c1afe92aeeb51a0a0804c697d3f47019f52c6d979cda76a66ae2aec8d",
+            "csv3_all": "9c03c30b53d1dfe08c2c3e1d626b0ebce220beed23162ffa2d06029b7e5a6368",
+            "central33_stagger": "785d4bf14a71f47e4e537fb8ad75c05fb3a6f16a5bca29779d19df60e3781c26",
+            "central22": "db510593ea4f0917e3467efeed3423988b57fe74603ac03a0fad12100502c4c4",
+            "csv_translated": "f93aae7a7d8d121913c6dc261b56c3ad37410dcea32d7858cd8af53866bfb2d8",
+            "explicit_perimeter_center33": "37cac48f8de561c697aa0fc4113af6c50644c781919772477cf0534a737f0f60",
+            "csv_duplicates": "f31a7ea9214e7ddf66a28668f3f88c35602ca33e913495e9181e926431b0fc40",
+            "stagger46": "e8d6dea23dbc4dabf886b7d8cf6e19ffea8dc92706064fc3c8a8badcbdd932d8",
+            "depop52": "5d424ef8c41f563b46ea6dedf1c94eec87b6913497e74b4197c0ec1f4dddade4",
+            "stagger55": "6c7e5415e20b70ea8b339671f239404d7129865cef1645b743495a7fa0669dc1",
+            "depop12": "eabb90de2eae95258434b41195c6675c422634f1b5dcd7546a212a98bd0cf3f1",
+            "depop22": "923be965590f0db7857d5390a9ff22de5bb810c80795960397486faedc396b77",
+            "depop33": "a3f9356877d7a2cd947e74578d4929044865b99e36a8a7f79803ec4f2d958072",
+            "explicit24": "b1170ce0cafd6ed1f2accc6be598a04ca369a192f02b0e05c1fabcec8835f4b7",
+            "csv3_stagger": "dddc94812c3584507cb4df8cdeb3e737d1e04c39f7850c7be542ebede6b5ee59",
+            "csv_disabled": "5d424ef8c41f563b46ea6dedf1c94eec87b6913497e74b4197c0ec1f4dddade4",
+            "explicit1": "cbae3f443c52f7ac55a28291e090b587eba9871394c53a86e5f2bc8c321d409b",
+            "grid46": "fd0e7df4359a508c16175b5791824651340209016cc5e9372fcd4ed32f9e326c",
+            "diameter04": "e197e62bdc63c604ca721b06aed93e8ae2c5570cd8320f027d023e3868ed50e5",
+            "explicit24_stagger": "b1170ce0cafd6ed1f2accc6be598a04ca369a192f02b0e05c1fabcec8835f4b7",
+            "depop11": "22295f9d01367d16bc033bd9f80fab218b9b9967ebc5e77f891d4040896120a2",
+            "depop_center_restore": "863f999c7325b6de9fedd2f16e1fa452fb3207344c49b3cf8e911b7982f0e0ef",
+            "csv3": "5cc1ea123b36aab0170e17c60d2c1aa06d61c6da1b8bea0a840ce5e191e99b14",
+            "height05": "f32963dde1a4ee65ee8af7bd9947475e0747dc1d32bfaf767ca8b810f4340d5c",
+            "pitch065": "ae27e3cd39352ac1016e7c369700ddd7139677b9a2eeca3dd7f364ca45df94fc",
+            "full55": "5d424ef8c41f563b46ea6dedf1c94eec87b6913497e74b4197c0ec1f4dddade4",
+            "csv_empty": "84d34c93243718715baa456463e0bbe9dfc1d71f2abe0729dd3774e49b250212"
+          },
+          "exit_code": 0,
+          "executable": "E:\\Program Files\\Siemens\\SimcenterFlotherm\\2504\\WinXP\\bin\\flopack.exe",
+          "errors": [],
+          "file_version": "2025.13.1.1142",
+          "executable_sha256": "de21140177f9836147fdac1f9a82bb68490d92844fb321087201667575976ba1"
+        }
+      },
+      "cases": [
+        {
+          "id": "full55",
+          "requested_mode": 3,
+          "saved_mode": 3,
+          "native_input_changes": {},
+          "csv_enabled": false,
+          "main_ball_count": 25,
+          "center_ball_count": 0,
+          "total_ball_count": 25,
+          "via_count": 25,
+          "via_side_mm": 0.4076643857082687,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.32399999999999995,
+          "sha256": {
+            "xml": "5d424ef8c41f563b46ea6dedf1c94eec87b6913497e74b4197c0ec1f4dddade4",
+            "des": "df2969f4c392e1e973e85923433f4cb1124f2b6ea70658e775484418a6e17eda"
+          },
+          "input_sha256": "789d789e18f92934a49d0db713f0420b54d37648cf28d612fc5a2f021b5e8540",
+          "reload_sha256": {
+            "xml": "5d424ef8c41f563b46ea6dedf1c94eec87b6913497e74b4197c0ec1f4dddade4",
+            "des": "c45016adb877396aa565d2f633b5c9473e48351e00dcfcb1c66f484c49615032"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "ee3de59f566c8af7103945ebdb8644504ded3b3d9dfeb98344e8f5c64d190fa3",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "grid46",
+          "requested_mode": 3,
+          "saved_mode": 3,
+          "native_input_changes": {},
+          "csv_enabled": false,
+          "main_ball_count": 24,
+          "center_ball_count": 0,
+          "total_ball_count": 24,
+          "via_count": 24,
+          "via_side_mm": 0.4076643857082687,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.32399999999999995,
+          "sha256": {
+            "xml": "fd0e7df4359a508c16175b5791824651340209016cc5e9372fcd4ed32f9e326c",
+            "des": "74d39ff151879e563c03aea06a0aa03c2daf8ec3c8f3d1b663ec0c35aab9b28d"
+          },
+          "input_sha256": "a69a77e2f87b6eeac9305afd357c3ee92db648bf359513bb5ffa0c193933cd4c",
+          "reload_sha256": {
+            "xml": "fd0e7df4359a508c16175b5791824651340209016cc5e9372fcd4ed32f9e326c",
+            "des": "47fd6589179e0d28754915301ff0371a5981fb519d5e36d07976231e402367fe"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "1f34b45813d1bc9a6ade85937f1ed092a9aa8bc38a64f2dbfd551bd1976eca14",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "stagger55",
+          "requested_mode": 3,
+          "saved_mode": 3,
+          "native_input_changes": {},
+          "csv_enabled": false,
+          "main_ball_count": 13,
+          "center_ball_count": 0,
+          "total_ball_count": 13,
+          "via_count": 13,
+          "via_side_mm": 0.4076643857082687,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.32399999999999995,
+          "sha256": {
+            "xml": "6c7e5415e20b70ea8b339671f239404d7129865cef1645b743495a7fa0669dc1",
+            "des": "1c4e441d0a844e7ed1e687da8f8fa2b4f4e491bca8083d0f781b6ab9013942ce"
+          },
+          "input_sha256": "cb34d77cca536f629109f65fe15d3bb84573a4a9a86635e63bf09dc454be375a",
+          "reload_sha256": {
+            "xml": "6c7e5415e20b70ea8b339671f239404d7129865cef1645b743495a7fa0669dc1",
+            "des": "f4f86ae07a058800f05c759c433e114ac4474e8354b7a289e4e442d82a55995a"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "f6e4d7cbd0f9d8992b8ee4325b5ad9f5abd115fbd0d2904f7dc5b3a1c91e18b1",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "stagger46",
+          "requested_mode": 3,
+          "saved_mode": 3,
+          "native_input_changes": {},
+          "csv_enabled": false,
+          "main_ball_count": 12,
+          "center_ball_count": 0,
+          "total_ball_count": 12,
+          "via_count": 12,
+          "via_side_mm": 0.4076643857082687,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.32399999999999995,
+          "sha256": {
+            "xml": "e8d6dea23dbc4dabf886b7d8cf6e19ffea8dc92706064fc3c8a8badcbdd932d8",
+            "des": "1c967de40d57eafc309dd31e084940ec13eaa7a186a23272c0c519e3d3ce5676"
+          },
+          "input_sha256": "67a31bd22d0049183cd1f9fa5ccb9b07a015a4a98e4cc59764c50280d3f4f2c1",
+          "reload_sha256": {
+            "xml": "e8d6dea23dbc4dabf886b7d8cf6e19ffea8dc92706064fc3c8a8badcbdd932d8",
+            "des": "322e232b8b862cff9ce09de16581bc805ddd33dcd39db5b7d8767af36b0db724"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "868108122cdc3f1c65ff6831ed92bdfdf3e1bf89b199cf34a28aab4a92f91d01",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "depop11",
+          "requested_mode": 3,
+          "saved_mode": 3,
+          "native_input_changes": {},
+          "csv_enabled": false,
+          "main_ball_count": 0,
+          "center_ball_count": 0,
+          "total_ball_count": 0,
+          "via_count": 0,
+          "via_side_mm": 0.4076643857082687,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.32399999999999995,
+          "sha256": {
+            "xml": "22295f9d01367d16bc033bd9f80fab218b9b9967ebc5e77f891d4040896120a2",
+            "des": "2ab34103e8107dd93749183b2a63a027a0b3ee5a3c4d091b2d0902cfdd60e23f"
+          },
+          "input_sha256": "4a6ec42b728b599e8c851520aa18305959b2595ee00f234bfa851a217fa90714",
+          "reload_sha256": {
+            "xml": "22295f9d01367d16bc033bd9f80fab218b9b9967ebc5e77f891d4040896120a2",
+            "des": "552917988edfef661e30a6a6e82d1579ab2f1691bbbd5179a0040f31b7b543ce"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "via_material": null
+        },
+        {
+          "id": "depop22",
+          "requested_mode": 3,
+          "saved_mode": 3,
+          "native_input_changes": {},
+          "csv_enabled": false,
+          "main_ball_count": 16,
+          "center_ball_count": 0,
+          "total_ball_count": 16,
+          "via_count": 16,
+          "via_side_mm": 0.4076643857082687,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.32399999999999995,
+          "sha256": {
+            "xml": "923be965590f0db7857d5390a9ff22de5bb810c80795960397486faedc396b77",
+            "des": "206994f650831054290792f7e86a0e5abbd02fdeeec84266edce42a6be39e7c9"
+          },
+          "input_sha256": "228fdbd2cb98bf5b01f2f9d629bfc55957989dc95fbf30c72f091b55a9b29d47",
+          "reload_sha256": {
+            "xml": "923be965590f0db7857d5390a9ff22de5bb810c80795960397486faedc396b77",
+            "des": "49648e1ed67b93b952385fc28905d8b094822dacb348c360eaa498c977bcd02e"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "260cedd2a242631632fd7e5c9645234598e4d67688bd41ee15734b1b620ed959",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "depop33",
+          "requested_mode": 3,
+          "saved_mode": 3,
+          "native_input_changes": {},
+          "csv_enabled": false,
+          "main_ball_count": 16,
+          "center_ball_count": 0,
+          "total_ball_count": 16,
+          "via_count": 16,
+          "via_side_mm": 0.4076643857082687,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.32399999999999995,
+          "sha256": {
+            "xml": "a3f9356877d7a2cd947e74578d4929044865b99e36a8a7f79803ec4f2d958072",
+            "des": "258e18e4965f261c8ec795895bc21ab250dddcfe894adbb9e78f7b3cf1878186"
+          },
+          "input_sha256": "0441f54116263ed616c30b0b6f89e18641065ef1f8da08f0f4ea5879e62f7800",
+          "reload_sha256": {
+            "xml": "a3f9356877d7a2cd947e74578d4929044865b99e36a8a7f79803ec4f2d958072",
+            "des": "094e2bcda8c55a8b348877301b520c21c60e18d7155ef87aec2d20dec145a459"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "260cedd2a242631632fd7e5c9645234598e4d67688bd41ee15734b1b620ed959",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "depop12",
+          "requested_mode": 3,
+          "saved_mode": 3,
+          "native_input_changes": {},
+          "csv_enabled": false,
+          "main_ball_count": 10,
+          "center_ball_count": 0,
+          "total_ball_count": 10,
+          "via_count": 10,
+          "via_side_mm": 0.4076643857082687,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.32399999999999995,
+          "sha256": {
+            "xml": "eabb90de2eae95258434b41195c6675c422634f1b5dcd7546a212a98bd0cf3f1",
+            "des": "2456b1f1162d8cd657198b051a804913d8f1ab4e79e0440635702b22f9c2545d"
+          },
+          "input_sha256": "15b38a6b40f157b352fc67660893287ed40fe6c87d75ef72760814812defc5f6",
+          "reload_sha256": {
+            "xml": "eabb90de2eae95258434b41195c6675c422634f1b5dcd7546a212a98bd0cf3f1",
+            "des": "94ea06af5b77df6e9aa87ab30183fd6e5da960e4a03852c35819c4df1c7c2dc0"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "dbc565f9f6845ce4d93f5d3ef3325ba04a28be84babe9b974b178bf79e8ea055",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "depop52",
+          "requested_mode": 3,
+          "saved_mode": 3,
+          "native_input_changes": {},
+          "csv_enabled": false,
+          "main_ball_count": 25,
+          "center_ball_count": 0,
+          "total_ball_count": 25,
+          "via_count": 25,
+          "via_side_mm": 0.4076643857082687,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.32399999999999995,
+          "sha256": {
+            "xml": "5d424ef8c41f563b46ea6dedf1c94eec87b6913497e74b4197c0ec1f4dddade4",
+            "des": "72d62a0f0241452932bad20e62278855629bde91d12e0105b47a85cf8da63c7b"
+          },
+          "input_sha256": "e6422bbf6fa6bcd8eceb6762f9d201932601a870b1bcd02c2a49bf4366a157d8",
+          "reload_sha256": {
+            "xml": "5d424ef8c41f563b46ea6dedf1c94eec87b6913497e74b4197c0ec1f4dddade4",
+            "des": "671244ef7f1110e3ce4bf63d3c3279d901f744bf11d80bd4812ac4cf5ce88ade"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "ee3de59f566c8af7103945ebdb8644504ded3b3d9dfeb98344e8f5c64d190fa3",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "stagger_depop22",
+          "requested_mode": 3,
+          "saved_mode": 3,
+          "native_input_changes": {},
+          "csv_enabled": false,
+          "main_ball_count": 8,
+          "center_ball_count": 0,
+          "total_ball_count": 8,
+          "via_count": 8,
+          "via_side_mm": 0.4076643857082687,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.32399999999999995,
+          "sha256": {
+            "xml": "30fc7df500b174f251ffc2d795a2b024b0a82f87fdec7bf33f8bacc36af85076",
+            "des": "d245ea618726b58f26e10a8a454f0c133eb56165cd420e9892d344a40f32dcb2"
+          },
+          "input_sha256": "0a04a6db4db5417c7b7b7894e2d773a5e32ef59de55e2c98b8eb24718271959c",
+          "reload_sha256": {
+            "xml": "30fc7df500b174f251ffc2d795a2b024b0a82f87fdec7bf33f8bacc36af85076",
+            "des": "e3d3f8fb572d14feefa6f8e99abd24ecae52f771570f1abeae9cff70cbff6d57"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "2ddeb58c5576d47dc7a0db3d0ccc6199d4d816a2a9319c5471d34e13dadf3e9d",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "explicit24",
+          "requested_mode": 3,
+          "saved_mode": 3,
+          "native_input_changes": {},
+          "csv_enabled": false,
+          "main_ball_count": 24,
+          "center_ball_count": 0,
+          "total_ball_count": 24,
+          "via_count": 24,
+          "via_side_mm": 0.4076643857082687,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.32399999999999995,
+          "sha256": {
+            "xml": "b1170ce0cafd6ed1f2accc6be598a04ca369a192f02b0e05c1fabcec8835f4b7",
+            "des": "3ded6fe1c1deb7f765d48554b9eb27c0c0d4e2e051df9225d86b2fa6909c56b7"
+          },
+          "input_sha256": "231c831afb2b909bdf53215fddf5b8b0728badf93132031152108277d7e5fd6a",
+          "reload_sha256": {
+            "xml": "b1170ce0cafd6ed1f2accc6be598a04ca369a192f02b0e05c1fabcec8835f4b7",
+            "des": "837d05ea0c778e86ed1f6b61dad3084659a427b01b38205be90b33d420416ba3"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "6e4dafe8570dc367231ba533bd55476d168d8847538791b05d89a4b0a99a9361",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "explicit1",
+          "requested_mode": 3,
+          "saved_mode": 3,
+          "native_input_changes": {},
+          "csv_enabled": false,
+          "main_ball_count": 1,
+          "center_ball_count": 0,
+          "total_ball_count": 1,
+          "via_count": 1,
+          "via_side_mm": 0.4076643857082687,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.32399999999999995,
+          "sha256": {
+            "xml": "cbae3f443c52f7ac55a28291e090b587eba9871394c53a86e5f2bc8c321d409b",
+            "des": "fc7c7ffbed25f0637b23da37fce7dde8c8ce87c9672103eb3bd502bf0ce2b710"
+          },
+          "input_sha256": "457cd21a2775189d8fd15192fd3a8f6b85678a580961d6b17207bd45c39f5a41",
+          "reload_sha256": {
+            "xml": "cbae3f443c52f7ac55a28291e090b587eba9871394c53a86e5f2bc8c321d409b",
+            "des": "1494a1732bd8eeb23643e196dc6cde5b18ccfc0f2d5a310e413a422c937c0a69"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "0da47c08443f0ebf346b13cadcf591997e6206d3952509b22df97df1eb888cbf",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "explicit24_stagger",
+          "requested_mode": 3,
+          "saved_mode": 3,
+          "native_input_changes": {},
+          "csv_enabled": false,
+          "main_ball_count": 24,
+          "center_ball_count": 0,
+          "total_ball_count": 24,
+          "via_count": 24,
+          "via_side_mm": 0.4076643857082687,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.32399999999999995,
+          "sha256": {
+            "xml": "b1170ce0cafd6ed1f2accc6be598a04ca369a192f02b0e05c1fabcec8835f4b7",
+            "des": "b1d0fdd53c66d0ff2e3aa284f266c1799d2b059668713b77ba5ff1425abc8ff9"
+          },
+          "input_sha256": "dd5d2a30549d93a99cc138e0c933a04481b4280254cb0ff3e0d1b5e2c9440d34",
+          "reload_sha256": {
+            "xml": "b1170ce0cafd6ed1f2accc6be598a04ca369a192f02b0e05c1fabcec8835f4b7",
+            "des": "a73fcf24666a1a42ef30b45e938ad003e2aded4cd22445bd53a48180887537cd"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "6e4dafe8570dc367231ba533bd55476d168d8847538791b05d89a4b0a99a9361",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "explicit24_depop",
+          "requested_mode": 3,
+          "saved_mode": 3,
+          "native_input_changes": {},
+          "csv_enabled": false,
+          "main_ball_count": 24,
+          "center_ball_count": 0,
+          "total_ball_count": 24,
+          "via_count": 24,
+          "via_side_mm": 0.4076643857082687,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.32399999999999995,
+          "sha256": {
+            "xml": "e6e7bad2e3c1a51d8a3faa74e52f0be070106675239ad2d3f5a8bae65f00de02",
+            "des": "e8e0348f36f31275df6916942d57e8f81636b5cb38edabca09896976f1c08265"
+          },
+          "input_sha256": "c515fc8bbb8808c1f3558b9e6c7ffb8e9677fb841b28772a9bee41e9523a45ca",
+          "reload_sha256": {
+            "xml": "e6e7bad2e3c1a51d8a3faa74e52f0be070106675239ad2d3f5a8bae65f00de02",
+            "des": "088fdfa0b5ebe6161a1530b29b2c7d96e92f4fc82239f317c0872fef440a4893"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "6e4dafe8570dc367231ba533bd55476d168d8847538791b05d89a4b0a99a9361",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "explicit_perimeter_center33",
+          "requested_mode": 3,
+          "saved_mode": 3,
+          "native_input_changes": {},
+          "csv_enabled": false,
+          "main_ball_count": 16,
+          "center_ball_count": 9,
+          "total_ball_count": 25,
+          "via_count": 16,
+          "via_side_mm": 0.4076643857082687,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.32399999999999995,
+          "sha256": {
+            "xml": "37cac48f8de561c697aa0fc4113af6c50644c781919772477cf0534a737f0f60",
+            "des": "1cd228ab9c516b43e89f07bb13e03cd1ca500604040b75f8e54eee4117117513"
+          },
+          "input_sha256": "a9039c129b7e046cb604ae6af00e140beb88653c54c21378d44f0bef5c03db80",
+          "reload_sha256": {
+            "xml": "37cac48f8de561c697aa0fc4113af6c50644c781919772477cf0534a737f0f60",
+            "des": "04623d04019de7a2c08d9dc0cf02fa466ccafcaabb32ad54b89eb6586fca86a9"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "260cedd2a242631632fd7e5c9645234598e4d67688bd41ee15734b1b620ed959",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "central22",
+          "requested_mode": 3,
+          "saved_mode": 3,
+          "native_input_changes": {},
+          "csv_enabled": false,
+          "main_ball_count": 25,
+          "center_ball_count": 4,
+          "total_ball_count": 29,
+          "via_count": 25,
+          "via_side_mm": 0.4076643857082687,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.32399999999999995,
+          "sha256": {
+            "xml": "db510593ea4f0917e3467efeed3423988b57fe74603ac03a0fad12100502c4c4",
+            "des": "faa819328f6e9af3b4fe5e5771e3c0b7bc24930d753a1d1e53c9362797d9761e"
+          },
+          "input_sha256": "ece4c88c12c9029d4777ef2863d5c8ac44a5f771428b3e470ff29e51f75a91b9",
+          "reload_sha256": {
+            "xml": "db510593ea4f0917e3467efeed3423988b57fe74603ac03a0fad12100502c4c4",
+            "des": "b64cf2cb5d9b3ee3b800150f3967be1b226d0b1ad506b408c6711c97492c8147"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "ee3de59f566c8af7103945ebdb8644504ded3b3d9dfeb98344e8f5c64d190fa3",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "central33",
+          "requested_mode": 3,
+          "saved_mode": 3,
+          "native_input_changes": {},
+          "csv_enabled": false,
+          "main_ball_count": 25,
+          "center_ball_count": 9,
+          "total_ball_count": 34,
+          "via_count": 25,
+          "via_side_mm": 0.4076643857082687,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.32399999999999995,
+          "sha256": {
+            "xml": "d156a37811a48e8a3f0a06225e7a507803d5c8716fc849c550c78359376766a3",
+            "des": "f96fcc1246e82ff3290f8ff2caef60f2668e907f7c549af407c0403ee43b267a"
+          },
+          "input_sha256": "0b42c6fe4c0ba8fa04eec41e73cb66b9811c7f4f291a44c6cba0cdd34cb63c1d",
+          "reload_sha256": {
+            "xml": "d156a37811a48e8a3f0a06225e7a507803d5c8716fc849c550c78359376766a3",
+            "des": "0a0a70bf86e095e3cc1c48fe33eb29f1fb34cd5eca7c76dd04160b916c8816d1"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "ee3de59f566c8af7103945ebdb8644504ded3b3d9dfeb98344e8f5c64d190fa3",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "central33_stagger",
+          "requested_mode": 3,
+          "saved_mode": 3,
+          "native_input_changes": {},
+          "csv_enabled": false,
+          "main_ball_count": 25,
+          "center_ball_count": 5,
+          "total_ball_count": 30,
+          "via_count": 25,
+          "via_side_mm": 0.4076643857082687,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.32399999999999995,
+          "sha256": {
+            "xml": "785d4bf14a71f47e4e537fb8ad75c05fb3a6f16a5bca29779d19df60e3781c26",
+            "des": "b05426ce77cb1208ded2fe8ff64713d4b192a628ccb460423290059a007ea854"
+          },
+          "input_sha256": "6c41588de571f530c8947f89e5d61e71542cae72ffcb371a4115f2102863f6d2",
+          "reload_sha256": {
+            "xml": "785d4bf14a71f47e4e537fb8ad75c05fb3a6f16a5bca29779d19df60e3781c26",
+            "des": "400539ad43d08f836d6aa0084e4c36385b058e1ee7eb0a3506fd79e03c3186df"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "ee3de59f566c8af7103945ebdb8644504ded3b3d9dfeb98344e8f5c64d190fa3",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "depop_center_restore",
+          "requested_mode": 3,
+          "saved_mode": 3,
+          "native_input_changes": {},
+          "csv_enabled": false,
+          "main_ball_count": 16,
+          "center_ball_count": 9,
+          "total_ball_count": 25,
+          "via_count": 16,
+          "via_side_mm": 0.4076643857082687,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.32399999999999995,
+          "sha256": {
+            "xml": "863f999c7325b6de9fedd2f16e1fa452fb3207344c49b3cf8e911b7982f0e0ef",
+            "des": "31c69aaddbb5acdff65d9c7f457291207125be0cde1b1042fc1b3ce4efba3cb4"
+          },
+          "input_sha256": "364f1e66e3587aeed8a5b176db42b529bc6421b2189d018e03d6be11453e027b",
+          "reload_sha256": {
+            "xml": "863f999c7325b6de9fedd2f16e1fa452fb3207344c49b3cf8e911b7982f0e0ef",
+            "des": "7a5527054d1131637822971d7a8a8bf577ed52844f77d2ae62ff2497cf831e39"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "260cedd2a242631632fd7e5c9645234598e4d67688bd41ee15734b1b620ed959",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "csv3",
+          "requested_mode": 3,
+          "saved_mode": 3,
+          "native_input_changes": {},
+          "csv_enabled": true,
+          "main_ball_count": 3,
+          "center_ball_count": 0,
+          "total_ball_count": 3,
+          "via_count": 25,
+          "via_side_mm": 0.4076643857082687,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.32399999999999995,
+          "sha256": {
+            "xml": "5cc1ea123b36aab0170e17c60d2c1aa06d61c6da1b8bea0a840ce5e191e99b14",
+            "des": "a765eb15c9d472cc7597fda4dd5f6a0d175e61eb39bb3b64d8a5430a67eea55a"
+          },
+          "input_sha256": "936ee3c78cb88c6e8e2e57978a7792c40058ac9c43ebb4943194cfe66e2f730b",
+          "reload_sha256": {
+            "xml": "5cc1ea123b36aab0170e17c60d2c1aa06d61c6da1b8bea0a840ce5e191e99b14",
+            "des": "70609e7c75e9926f30cd0916e926bd948aff300114b5e92dbb744e3560776dee"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "ee3de59f566c8af7103945ebdb8644504ded3b3d9dfeb98344e8f5c64d190fa3",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "csv3_stagger",
+          "requested_mode": 3,
+          "saved_mode": 3,
+          "native_input_changes": {},
+          "csv_enabled": true,
+          "main_ball_count": 3,
+          "center_ball_count": 0,
+          "total_ball_count": 3,
+          "via_count": 13,
+          "via_side_mm": 0.4076643857082687,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.32399999999999995,
+          "sha256": {
+            "xml": "dddc94812c3584507cb4df8cdeb3e737d1e04c39f7850c7be542ebede6b5ee59",
+            "des": "ed78705e0c98df51d797353cf4461ab90fe9a5262588dc106347684a5544c584"
+          },
+          "input_sha256": "85810b84b372e2ee2b48f166beb8f16e2c411d99a6e38efc14fb8d850562ff59",
+          "reload_sha256": {
+            "xml": "dddc94812c3584507cb4df8cdeb3e737d1e04c39f7850c7be542ebede6b5ee59",
+            "des": "a3c0fcf3865f901956a332ff9eede1c55d1ec829adcc3f639ffb6f37ff2f7c04"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "f6e4d7cbd0f9d8992b8ee4325b5ad9f5abd115fbd0d2904f7dc5b3a1c91e18b1",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "csv3_depop",
+          "requested_mode": 3,
+          "saved_mode": 3,
+          "native_input_changes": {},
+          "csv_enabled": true,
+          "main_ball_count": 3,
+          "center_ball_count": 0,
+          "total_ball_count": 3,
+          "via_count": 16,
+          "via_side_mm": 0.4076643857082687,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.32399999999999995,
+          "sha256": {
+            "xml": "1c688e6c1afe92aeeb51a0a0804c697d3f47019f52c6d979cda76a66ae2aec8d",
+            "des": "8904764bc6aad377824058f33f45d516af39078bd26efad5e6f38bb9fecf84f3"
+          },
+          "input_sha256": "493e350111a8f5d4fd5017f1fc58f4265ecd24574ff6a58755f00f3cf73dafc4",
+          "reload_sha256": {
+            "xml": "1c688e6c1afe92aeeb51a0a0804c697d3f47019f52c6d979cda76a66ae2aec8d",
+            "des": "5c6463a31687cce67537f97d35d02e717abcc644d4e73ce989ee83640a1179fc"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "260cedd2a242631632fd7e5c9645234598e4d67688bd41ee15734b1b620ed959",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "csv3_explicit1",
+          "requested_mode": 3,
+          "saved_mode": 3,
+          "native_input_changes": {},
+          "csv_enabled": true,
+          "main_ball_count": 3,
+          "center_ball_count": 0,
+          "total_ball_count": 3,
+          "via_count": 1,
+          "via_side_mm": 0.4076643857082687,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.32399999999999995,
+          "sha256": {
+            "xml": "9c03c30b53d1dfe08c2c3e1d626b0ebce220beed23162ffa2d06029b7e5a6368",
+            "des": "5c4c5d606bcbe990b7206269805f20bc0b74fd2e125bf7e6307955e5c43bc333"
+          },
+          "input_sha256": "80079e5b7413cb240f06ca8a3e13c98d873d8858f5074a53e8880d6726490019",
+          "reload_sha256": {
+            "xml": "9c03c30b53d1dfe08c2c3e1d626b0ebce220beed23162ffa2d06029b7e5a6368",
+            "des": "4a64081e42472d1991ff3871454b410911f15416029010853f455f7b80e969c6"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "0da47c08443f0ebf346b13cadcf591997e6206d3952509b22df97df1eb888cbf",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "csv3_all",
+          "requested_mode": 3,
+          "saved_mode": 3,
+          "native_input_changes": {},
+          "csv_enabled": true,
+          "main_ball_count": 3,
+          "center_ball_count": 0,
+          "total_ball_count": 3,
+          "via_count": 1,
+          "via_side_mm": 0.4076643857082687,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.32399999999999995,
+          "sha256": {
+            "xml": "9c03c30b53d1dfe08c2c3e1d626b0ebce220beed23162ffa2d06029b7e5a6368",
+            "des": "9773c35e084c9a63d357848e9019b8fecdb3cba7a6bcd631300b60fb43f7806e"
+          },
+          "input_sha256": "e4c896a221432d334aa1ceeaa86e2bb43e96dbf561d5841ebc57bbfe81d95b13",
+          "reload_sha256": {
+            "xml": "9c03c30b53d1dfe08c2c3e1d626b0ebce220beed23162ffa2d06029b7e5a6368",
+            "des": "70bf92b5ad73acfc3ecddf407db26626126875fef0e5538b3a907dee2afc944a"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "0da47c08443f0ebf346b13cadcf591997e6206d3952509b22df97df1eb888cbf",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "csv_empty",
+          "requested_mode": 3,
+          "saved_mode": 3,
+          "native_input_changes": {},
+          "csv_enabled": true,
+          "main_ball_count": 0,
+          "center_ball_count": 0,
+          "total_ball_count": 0,
+          "via_count": 25,
+          "via_side_mm": 0.4076643857082687,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.32399999999999995,
+          "sha256": {
+            "xml": "84d34c93243718715baa456463e0bbe9dfc1d71f2abe0729dd3774e49b250212",
+            "des": "0526c87764575026a69ad80a9fef83e3bce09a978c172020c71a7878da7372d5"
+          },
+          "input_sha256": "271e856c6f92823e6f39f8f3ab2b50a6bada98d29f3711ba791b113cba76634a",
+          "reload_sha256": {
+            "xml": "84d34c93243718715baa456463e0bbe9dfc1d71f2abe0729dd3774e49b250212",
+            "des": "e5e490b4d4d37e028076b36f31d8861d430f08dd6f43e728ed5d8f0eb9effbea"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "ee3de59f566c8af7103945ebdb8644504ded3b3d9dfeb98344e8f5c64d190fa3",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "csv_disabled",
+          "requested_mode": 3,
+          "saved_mode": 3,
+          "native_input_changes": {},
+          "csv_enabled": false,
+          "main_ball_count": 25,
+          "center_ball_count": 0,
+          "total_ball_count": 25,
+          "via_count": 25,
+          "via_side_mm": 0.4076643857082687,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.32399999999999995,
+          "sha256": {
+            "xml": "5d424ef8c41f563b46ea6dedf1c94eec87b6913497e74b4197c0ec1f4dddade4",
+            "des": "8af44dae94175ca25a33bdeb71713b29ef873f9677e82ebb81806e4abda0a978"
+          },
+          "input_sha256": "ae8bd6006e0a587681ec02b68e31e4bbc7e6c0dad10129bdc857ebc4a6f737d4",
+          "reload_sha256": {
+            "xml": "5d424ef8c41f563b46ea6dedf1c94eec87b6913497e74b4197c0ec1f4dddade4",
+            "des": "02f8460266751eeb21bbb8a85b0f22fda72af5e17a4c6c3b02a261e9954add9f"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "ee3de59f566c8af7103945ebdb8644504ded3b3d9dfeb98344e8f5c64d190fa3",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "csv_duplicates",
+          "requested_mode": 3,
+          "saved_mode": 3,
+          "native_input_changes": {},
+          "csv_enabled": true,
+          "main_ball_count": 2,
+          "center_ball_count": 0,
+          "total_ball_count": 2,
+          "via_count": 25,
+          "via_side_mm": 0.4076643857082687,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.32399999999999995,
+          "sha256": {
+            "xml": "f31a7ea9214e7ddf66a28668f3f88c35602ca33e913495e9181e926431b0fc40",
+            "des": "28ac34021b64892443d2a24a0da9a58c0af92ea141344ea89725b7abb2181430"
+          },
+          "input_sha256": "54771f1512a957ac9d265330afd307eeb2c0b22242e5d2602ea58df91b093f70",
+          "reload_sha256": {
+            "xml": "f31a7ea9214e7ddf66a28668f3f88c35602ca33e913495e9181e926431b0fc40",
+            "des": "8becccc4cf41af301e8d019ce5f818152520c4ded5b2f46dd2f801e9fa0b66e2"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "ee3de59f566c8af7103945ebdb8644504ded3b3d9dfeb98344e8f5c64d190fa3",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "csv_translated",
+          "requested_mode": 3,
+          "saved_mode": 3,
+          "native_input_changes": {},
+          "csv_enabled": true,
+          "main_ball_count": 3,
+          "center_ball_count": 0,
+          "total_ball_count": 3,
+          "via_count": 25,
+          "via_side_mm": 0.4076643857082687,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.32399999999999995,
+          "sha256": {
+            "xml": "f93aae7a7d8d121913c6dc261b56c3ad37410dcea32d7858cd8af53866bfb2d8",
+            "des": "48898ee7780c185013f4b5c9d0f26847d78639cbf49bfb58a970b76a9367840e"
+          },
+          "input_sha256": "cdc53ec3d224280707ad99d81b88358a511242c666a53d2e37d2636b4630fcca",
+          "reload_sha256": {
+            "xml": "f93aae7a7d8d121913c6dc261b56c3ad37410dcea32d7858cd8af53866bfb2d8",
+            "des": "4edc1d157ae8cc1d23bf474dd9d6921b2ff1de81f9ec9a69bbaba347f40e5046"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "ee3de59f566c8af7103945ebdb8644504ded3b3d9dfeb98344e8f5c64d190fa3",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "diameter04",
+          "requested_mode": 3,
+          "saved_mode": 3,
+          "native_input_changes": {},
+          "csv_enabled": false,
+          "main_ball_count": 25,
+          "center_ball_count": 0,
+          "total_ball_count": 25,
+          "via_count": 25,
+          "via_side_mm": 0.3544907701811032,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.32399999999999995,
+          "sha256": {
+            "xml": "e197e62bdc63c604ca721b06aed93e8ae2c5570cd8320f027d023e3868ed50e5",
+            "des": "d38f5e537068c507f4455129c95d299da057a1a7c2a44f2f4cfade99b937dd61"
+          },
+          "input_sha256": "2d36cf8727de892ae763e82d521ae09dc41f1190d677b118254c62541bc6453c",
+          "reload_sha256": {
+            "xml": "e197e62bdc63c604ca721b06aed93e8ae2c5570cd8320f027d023e3868ed50e5",
+            "des": "adb4b072dc9a12b2874c5c1ea9aa42cf0fe0ddcf1ae35d5c5f71db56ff3eec54"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "ee3de59f566c8af7103945ebdb8644504ded3b3d9dfeb98344e8f5c64d190fa3",
+          "via_material": [
+            42.26304531249999,
+            42.26304531249999,
+            42.26304531249999,
+            2401.8820718749994,
+            703.0429194052479
+          ]
+        },
+        {
+          "id": "pitch065",
+          "requested_mode": 3,
+          "saved_mode": 3,
+          "native_input_changes": {},
+          "csv_enabled": false,
+          "main_ball_count": 25,
+          "center_ball_count": 0,
+          "total_ball_count": 25,
+          "via_count": 25,
+          "via_side_mm": 0.4076643857082687,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.32399999999999995,
+          "sha256": {
+            "xml": "ae27e3cd39352ac1016e7c369700ddd7139677b9a2eeca3dd7f364ca45df94fc",
+            "des": "c1192a6fdae646b57d3760ee69bb81b6ccd84387d1f1bae8d04ca06b75ada13d"
+          },
+          "input_sha256": "7bdb072e0ed92521002907f2b72a85f24c9f684618c0a9d62b22e887481f29b4",
+          "reload_sha256": {
+            "xml": "ae27e3cd39352ac1016e7c369700ddd7139677b9a2eeca3dd7f364ca45df94fc",
+            "des": "b7bd225b13a838623f2c87b000f8626d2ffcdc04317faf9ebab51552b8f7e256"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "ee3de59f566c8af7103945ebdb8644504ded3b3d9dfeb98344e8f5c64d190fa3",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "height05",
+          "requested_mode": 3,
+          "saved_mode": 3,
+          "native_input_changes": {},
+          "csv_enabled": false,
+          "main_ball_count": 25,
+          "center_ball_count": 0,
+          "total_ball_count": 25,
+          "via_count": 25,
+          "via_side_mm": 0.4076643857082687,
+          "via_zmin_mm": 0.518,
+          "via_height_mm": 0.32399999999999995,
+          "sha256": {
+            "xml": "f32963dde1a4ee65ee8af7bd9947475e0747dc1d32bfaf767ca8b810f4340d5c",
+            "des": "22eedf4e4594bd3e0de011867f7113432eae10509d4352eb03f5d96efcd55ce3"
+          },
+          "input_sha256": "2743703fa7911682218f4fd8dbfb30ca969e539c8449a26111eb3a15cd41b00e",
+          "reload_sha256": {
+            "xml": "f32963dde1a4ee65ee8af7bd9947475e0747dc1d32bfaf767ca8b810f4340d5c",
+            "des": "cc1628c05c31ff8d60653dff4dc01695f92038230250c2f7ae97ce5db1ea258c"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "ee3de59f566c8af7103945ebdb8644504ded3b3d9dfeb98344e8f5c64d190fa3",
+          "via_material": "same_as_full55"
+        }
+      ]
+    },
+    "l4_accurate": {
+      "definition_sha256": "f5fa2963fcc0a6b9f6828d5990f96c42e65226d5036120bfb01d0f5b0da6a063",
+      "baseline_via_material": [
+        168.45218124999997,
+        168.45218124999997,
+        168.45218124999997,
+        3907.528287499999,
+        385.1039902452658
+      ],
+      "runs": {
+        "native": {
+          "exports": {
+            "csv_disabled": "36b012b3d9407a45c189c55db499330683251b9e85c106930177190f7d3148db",
+            "depop33": "ac7adbb0daefaeb1feae0620872029f3686ffb1c8e58b43d1552221a6bb74a68",
+            "csv3_all": "f7877194077785d24d6223e1ea7babfff18d6ae9498760cbcb509fa0c00e2e61",
+            "csv3_explicit1": "f7877194077785d24d6223e1ea7babfff18d6ae9498760cbcb509fa0c00e2e61",
+            "depop52": "36b012b3d9407a45c189c55db499330683251b9e85c106930177190f7d3148db",
+            "explicit24_stagger": "da744d6f7a67496e0a8767854bbf42b2651cf5d158f9ea79650d62c771764741",
+            "height05": "8409ace40d293f08d6ae18e3f2d30578121ce3485dd5187ebde945aeeb795ccb",
+            "depop22": "66c609b5f39c79dad9e85854313e2f8d38331006b58d3efeb8affce44db1b607",
+            "depop12": "2a2edc80892a4e583e01799f6d91e21e90d82bad3a369a599b45fe62992f2216",
+            "explicit_perimeter_center33": "319bb4ce2f43ee02eca8d6c8e22d00983d82e2b4cfc9a52a56c41f7b463aeea2",
+            "grid46": "764443efd376fbb3818eb8b547eb83cdb7998c6d0e32995c999f30402c12ccad",
+            "central22": "7875e6fb3d3fe67695fede1ba2ac9c3c9a2e695fbc844fbfc4a82954304e8000",
+            "diameter04": "4d71b01d51342cd964a1798708817bc23287a9599329999bb27ba13a572ca6de",
+            "explicit24": "da744d6f7a67496e0a8767854bbf42b2651cf5d158f9ea79650d62c771764741",
+            "central33": "c620b2fa191457156fde98983dda674f2fea6027fe8729cd45fea6ceba13f5ec",
+            "full55": "36b012b3d9407a45c189c55db499330683251b9e85c106930177190f7d3148db",
+            "csv3": "bb7301831c3306514811e8009a333906f16952c578e29941339bc9bbdcbb4a57",
+            "central33_stagger": "1dc6aaeb06b2767a792936beefeea8f08757eef5efa6887510e8ed2672ac1dc9",
+            "pitch065": "d96c4c8faf3b12c4322fa081338c58be7fdc0e34d9b534c3126a66572ad3873d",
+            "csv3_depop": "307c2e81447aa3a46ea064a329619dcfcf7f2ee175d3815a0233334927a58c15",
+            "explicit24_depop": "d9a5598b3f874b179e80e5406388423aebb1ab54955a7c54eb2eda17e1177848",
+            "depop11": "5cb20a34df925b6ac2528dcde6217e8ccddd8d5adbf90f42ee33ba92d7d6e86b",
+            "explicit1": "a600b4dbf66437d9d76859343efb2ae9d46a30b7180343995a3e003437910559",
+            "depop_center_restore": "02f06786de8270f8eb1f764df9fecba3d7c00f32ea9f6eb45e87218775a22e42",
+            "csv_empty": "90311374bc780d16993e9e5795531f5f7aabc17eee80a4fbaf6016e5df947fa6",
+            "stagger_depop22": "7665e56a5cdc2b0d59d14dc6883721b8f08528eda1b5be5a5c2893c3f50e7de1",
+            "stagger55": "4af23d65a781d8b26645debfe0ef047fb02d09159cd08880558f1aecf4a784dd",
+            "csv3_stagger": "c2ac044ba1c9a1133a016825fccaaa3583ebacb0c8320bbf79b1e90309717944",
+            "csv_translated": "244486f57d5ab839f71f0bbc3c957993c78f179d56c57a86bd9b027010329776",
+            "csv_duplicates": "a8c1b93444872b510f1759233031791c8ea3f5481c87addd4141aba8703cd041",
+            "stagger46": "f197126f171633f7681a311a62bfa0ee2f6af5c5cc04ca86e107d80e25241a29"
+          },
+          "exit_code": 0,
+          "executable": "E:\\Program Files\\Siemens\\SimcenterFlotherm\\2504\\WinXP\\bin\\flopack.exe",
+          "binary_sha256": {
+            "flopackfloxmlhandling.dll": "1301c597999445ba908f81537e7baa773eac874b0dd9ef1507f08664ca8c2c13",
+            "flopackmaterials.dll": "4fdd99632751f4e7c63a2bdc93e290a3bc9ca018bbe8b7921aa7025cedb3cda3",
+            "flopackrealise.dll": "838ed6c2e7d40cc749b8b145f55d78e9e95495fef974d593a7641fc0aa528edd"
+          },
+          "script_sha256": "fb0432a2f307b3a7cc2a87e12ee67131eaa41b1c4cbf5a1b5157a9b4d5ff1db7",
+          "launcher": "PowerShell Start-Process -WindowStyle Hidden",
+          "launcher_sha256": "9fea3c0d7d43fe088e2b62135e243dc5c69d5b776b420275fea8b112631dec66",
+          "seconds": 11.4101549,
+          "file_version": "2025.13.1.1142",
+          "executable_sha256": "de21140177f9836147fdac1f9a82bb68490d92844fb321087201667575976ba1",
+          "errors": []
+        },
+        "reload": {
+          "binary_sha256": {
+            "flopackrealise.dll": "838ed6c2e7d40cc749b8b145f55d78e9e95495fef974d593a7641fc0aa528edd",
+            "flopackmaterials.dll": "4fdd99632751f4e7c63a2bdc93e290a3bc9ca018bbe8b7921aa7025cedb3cda3",
+            "flopackfloxmlhandling.dll": "1301c597999445ba908f81537e7baa773eac874b0dd9ef1507f08664ca8c2c13"
+          },
+          "launcher": "PowerShell Start-Process -WindowStyle Hidden",
+          "launcher_sha256": "9fea3c0d7d43fe088e2b62135e243dc5c69d5b776b420275fea8b112631dec66",
+          "script_sha256": "01e4f7e3c7bbf4e60f168230b3b3611abd3c070832c3d4e039184fe9fb25e0e7",
+          "seconds": 11.835016,
+          "exports": {
+            "explicit24_depop": "d9a5598b3f874b179e80e5406388423aebb1ab54955a7c54eb2eda17e1177848",
+            "stagger_depop22": "7665e56a5cdc2b0d59d14dc6883721b8f08528eda1b5be5a5c2893c3f50e7de1",
+            "central33": "c620b2fa191457156fde98983dda674f2fea6027fe8729cd45fea6ceba13f5ec",
+            "csv3_explicit1": "f7877194077785d24d6223e1ea7babfff18d6ae9498760cbcb509fa0c00e2e61",
+            "csv3_depop": "307c2e81447aa3a46ea064a329619dcfcf7f2ee175d3815a0233334927a58c15",
+            "csv3_all": "f7877194077785d24d6223e1ea7babfff18d6ae9498760cbcb509fa0c00e2e61",
+            "central33_stagger": "1dc6aaeb06b2767a792936beefeea8f08757eef5efa6887510e8ed2672ac1dc9",
+            "central22": "7875e6fb3d3fe67695fede1ba2ac9c3c9a2e695fbc844fbfc4a82954304e8000",
+            "csv_translated": "244486f57d5ab839f71f0bbc3c957993c78f179d56c57a86bd9b027010329776",
+            "explicit_perimeter_center33": "319bb4ce2f43ee02eca8d6c8e22d00983d82e2b4cfc9a52a56c41f7b463aeea2",
+            "csv_duplicates": "a8c1b93444872b510f1759233031791c8ea3f5481c87addd4141aba8703cd041",
+            "stagger46": "f197126f171633f7681a311a62bfa0ee2f6af5c5cc04ca86e107d80e25241a29",
+            "depop52": "36b012b3d9407a45c189c55db499330683251b9e85c106930177190f7d3148db",
+            "stagger55": "4af23d65a781d8b26645debfe0ef047fb02d09159cd08880558f1aecf4a784dd",
+            "depop12": "2a2edc80892a4e583e01799f6d91e21e90d82bad3a369a599b45fe62992f2216",
+            "depop22": "66c609b5f39c79dad9e85854313e2f8d38331006b58d3efeb8affce44db1b607",
+            "depop33": "ac7adbb0daefaeb1feae0620872029f3686ffb1c8e58b43d1552221a6bb74a68",
+            "explicit24": "da744d6f7a67496e0a8767854bbf42b2651cf5d158f9ea79650d62c771764741",
+            "csv3_stagger": "c2ac044ba1c9a1133a016825fccaaa3583ebacb0c8320bbf79b1e90309717944",
+            "csv_disabled": "36b012b3d9407a45c189c55db499330683251b9e85c106930177190f7d3148db",
+            "explicit1": "a600b4dbf66437d9d76859343efb2ae9d46a30b7180343995a3e003437910559",
+            "grid46": "764443efd376fbb3818eb8b547eb83cdb7998c6d0e32995c999f30402c12ccad",
+            "diameter04": "4d71b01d51342cd964a1798708817bc23287a9599329999bb27ba13a572ca6de",
+            "explicit24_stagger": "da744d6f7a67496e0a8767854bbf42b2651cf5d158f9ea79650d62c771764741",
+            "depop11": "5cb20a34df925b6ac2528dcde6217e8ccddd8d5adbf90f42ee33ba92d7d6e86b",
+            "depop_center_restore": "02f06786de8270f8eb1f764df9fecba3d7c00f32ea9f6eb45e87218775a22e42",
+            "csv3": "bb7301831c3306514811e8009a333906f16952c578e29941339bc9bbdcbb4a57",
+            "height05": "8409ace40d293f08d6ae18e3f2d30578121ce3485dd5187ebde945aeeb795ccb",
+            "pitch065": "d96c4c8faf3b12c4322fa081338c58be7fdc0e34d9b534c3126a66572ad3873d",
+            "full55": "36b012b3d9407a45c189c55db499330683251b9e85c106930177190f7d3148db",
+            "csv_empty": "90311374bc780d16993e9e5795531f5f7aabc17eee80a4fbaf6016e5df947fa6"
+          },
+          "exit_code": 0,
+          "executable": "E:\\Program Files\\Siemens\\SimcenterFlotherm\\2504\\WinXP\\bin\\flopack.exe",
+          "errors": [],
+          "file_version": "2025.13.1.1142",
+          "executable_sha256": "de21140177f9836147fdac1f9a82bb68490d92844fb321087201667575976ba1"
+        }
+      },
+      "cases": [
+        {
+          "id": "full55",
+          "requested_mode": 5,
+          "saved_mode": 5,
+          "native_input_changes": {},
+          "csv_enabled": false,
+          "main_ball_count": 25,
+          "center_ball_count": 0,
+          "total_ball_count": 25,
+          "via_count": 25,
+          "via_side_mm": 0.1772453850905516,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.524,
+          "sha256": {
+            "xml": "36b012b3d9407a45c189c55db499330683251b9e85c106930177190f7d3148db",
+            "des": "e687b3354064e8963dfb303355925fd6a7040087920c072d3a13f27dd93592d2"
+          },
+          "input_sha256": "7c41a88a0290c12e7256c457164e714d36b8919206b8fbb6c6bac7fedc16ef6f",
+          "reload_sha256": {
+            "xml": "36b012b3d9407a45c189c55db499330683251b9e85c106930177190f7d3148db",
+            "des": "6c1b84b343e6753e7e83f21cb1a69cd0020c266b77965aa50bebe3c1f98c5d15"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "ee3de59f566c8af7103945ebdb8644504ded3b3d9dfeb98344e8f5c64d190fa3",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "grid46",
+          "requested_mode": 5,
+          "saved_mode": 5,
+          "native_input_changes": {},
+          "csv_enabled": false,
+          "main_ball_count": 24,
+          "center_ball_count": 0,
+          "total_ball_count": 24,
+          "via_count": 24,
+          "via_side_mm": 0.1772453850905516,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.524,
+          "sha256": {
+            "xml": "764443efd376fbb3818eb8b547eb83cdb7998c6d0e32995c999f30402c12ccad",
+            "des": "a01089992ef702148a70437134e3d6d2a0bf96e8796dc57b973dc76d2eca7ce7"
+          },
+          "input_sha256": "0402c65f4612f4c011ff82a7ded26b3b9bfe4de3d33f0b9b3aaadc6dea970584",
+          "reload_sha256": {
+            "xml": "764443efd376fbb3818eb8b547eb83cdb7998c6d0e32995c999f30402c12ccad",
+            "des": "dd52de684cd49985da55ea9b10412be84b8cc3fe6e55d1a24528069b4d31c6ac"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "1f34b45813d1bc9a6ade85937f1ed092a9aa8bc38a64f2dbfd551bd1976eca14",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "stagger55",
+          "requested_mode": 5,
+          "saved_mode": 5,
+          "native_input_changes": {},
+          "csv_enabled": false,
+          "main_ball_count": 13,
+          "center_ball_count": 0,
+          "total_ball_count": 13,
+          "via_count": 13,
+          "via_side_mm": 0.1772453850905516,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.524,
+          "sha256": {
+            "xml": "4af23d65a781d8b26645debfe0ef047fb02d09159cd08880558f1aecf4a784dd",
+            "des": "eeaa7afa14d026c87b13441af9d258f3b428ec08222131fc399730f883c19c8c"
+          },
+          "input_sha256": "0c5e511e7aafe506e746deb186d1166363985f40dcd8ae94e0a93218539649fb",
+          "reload_sha256": {
+            "xml": "4af23d65a781d8b26645debfe0ef047fb02d09159cd08880558f1aecf4a784dd",
+            "des": "57313d7e5e7194c63aab30af203ba0ee54a9eab88af19b6071adda73f54219f3"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "f6e4d7cbd0f9d8992b8ee4325b5ad9f5abd115fbd0d2904f7dc5b3a1c91e18b1",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "stagger46",
+          "requested_mode": 5,
+          "saved_mode": 5,
+          "native_input_changes": {},
+          "csv_enabled": false,
+          "main_ball_count": 12,
+          "center_ball_count": 0,
+          "total_ball_count": 12,
+          "via_count": 12,
+          "via_side_mm": 0.1772453850905516,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.524,
+          "sha256": {
+            "xml": "f197126f171633f7681a311a62bfa0ee2f6af5c5cc04ca86e107d80e25241a29",
+            "des": "73b4da2957fb10b9534be9b508afd50091f602acd13c61dc11b57d56f5fd8bc6"
+          },
+          "input_sha256": "f6dfa0b05b1291008165bf09c0609bc9f3286947051f0fd4a5ed999c2c059e4d",
+          "reload_sha256": {
+            "xml": "f197126f171633f7681a311a62bfa0ee2f6af5c5cc04ca86e107d80e25241a29",
+            "des": "2d536f729027dc17378e738aa7a2255bae39b2766446e79f12d79e2d76652cc3"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "868108122cdc3f1c65ff6831ed92bdfdf3e1bf89b199cf34a28aab4a92f91d01",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "depop11",
+          "requested_mode": 5,
+          "saved_mode": 5,
+          "native_input_changes": {},
+          "csv_enabled": false,
+          "main_ball_count": 0,
+          "center_ball_count": 0,
+          "total_ball_count": 0,
+          "via_count": 0,
+          "via_side_mm": 0.1772453850905516,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.524,
+          "sha256": {
+            "xml": "5cb20a34df925b6ac2528dcde6217e8ccddd8d5adbf90f42ee33ba92d7d6e86b",
+            "des": "5145d0b73e3e37e7558e67fd15394a49dccefac21f476e0f726d8f4e02e596ec"
+          },
+          "input_sha256": "49e47107b13867338d23a9b177228f28a2b385eca78f9675edd847caa1a38924",
+          "reload_sha256": {
+            "xml": "5cb20a34df925b6ac2528dcde6217e8ccddd8d5adbf90f42ee33ba92d7d6e86b",
+            "des": "30e5abdfae4e4eb45c64536bff3960a64fe888947c6ebde1a03dc7f9a976fbd3"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "via_material": null
+        },
+        {
+          "id": "depop22",
+          "requested_mode": 5,
+          "saved_mode": 5,
+          "native_input_changes": {},
+          "csv_enabled": false,
+          "main_ball_count": 16,
+          "center_ball_count": 0,
+          "total_ball_count": 16,
+          "via_count": 16,
+          "via_side_mm": 0.1772453850905516,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.524,
+          "sha256": {
+            "xml": "66c609b5f39c79dad9e85854313e2f8d38331006b58d3efeb8affce44db1b607",
+            "des": "4795d38ccf2b68e0751dd4e58bfbfa0c1e1888938b7c979cecef6191e9728b15"
+          },
+          "input_sha256": "07fc72d219a0e7c56a642ecbd34d151a800743f979db8fd340c18a2aa4e82573",
+          "reload_sha256": {
+            "xml": "66c609b5f39c79dad9e85854313e2f8d38331006b58d3efeb8affce44db1b607",
+            "des": "041f43d4b2bc5b012ef0a924f5ab18f7b74c6c8aff437bfc1864f54866124c7b"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "260cedd2a242631632fd7e5c9645234598e4d67688bd41ee15734b1b620ed959",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "depop33",
+          "requested_mode": 5,
+          "saved_mode": 5,
+          "native_input_changes": {},
+          "csv_enabled": false,
+          "main_ball_count": 16,
+          "center_ball_count": 0,
+          "total_ball_count": 16,
+          "via_count": 16,
+          "via_side_mm": 0.1772453850905516,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.524,
+          "sha256": {
+            "xml": "ac7adbb0daefaeb1feae0620872029f3686ffb1c8e58b43d1552221a6bb74a68",
+            "des": "04f1af3f3da1fc0cf11938c0814723dd6ef0c2dd52779cf815a4bb8c761c2bb7"
+          },
+          "input_sha256": "ef526b3aab06d8ff65357163ef48403f9526a1bbb483c574e80debe3a138035f",
+          "reload_sha256": {
+            "xml": "ac7adbb0daefaeb1feae0620872029f3686ffb1c8e58b43d1552221a6bb74a68",
+            "des": "66a2abf22da68e222f4a0aa95cd9d072b9d02a08b5059b9d4753f95d622b2095"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "260cedd2a242631632fd7e5c9645234598e4d67688bd41ee15734b1b620ed959",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "depop12",
+          "requested_mode": 5,
+          "saved_mode": 5,
+          "native_input_changes": {},
+          "csv_enabled": false,
+          "main_ball_count": 10,
+          "center_ball_count": 0,
+          "total_ball_count": 10,
+          "via_count": 10,
+          "via_side_mm": 0.1772453850905516,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.524,
+          "sha256": {
+            "xml": "2a2edc80892a4e583e01799f6d91e21e90d82bad3a369a599b45fe62992f2216",
+            "des": "97f79014e5e12cbba745b8ab829068fc749af248bf618d8c219747f720eb21ff"
+          },
+          "input_sha256": "0701f0c9c9efc7ffd7c73b3a7676e0217ce15ac98c414e40f6a8eacdfcb1ab63",
+          "reload_sha256": {
+            "xml": "2a2edc80892a4e583e01799f6d91e21e90d82bad3a369a599b45fe62992f2216",
+            "des": "7a191bd75d154b886d5b010cfe3903c2c3a916cec0d8777b7b7354d8e804de32"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "dbc565f9f6845ce4d93f5d3ef3325ba04a28be84babe9b974b178bf79e8ea055",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "depop52",
+          "requested_mode": 5,
+          "saved_mode": 5,
+          "native_input_changes": {},
+          "csv_enabled": false,
+          "main_ball_count": 25,
+          "center_ball_count": 0,
+          "total_ball_count": 25,
+          "via_count": 25,
+          "via_side_mm": 0.1772453850905516,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.524,
+          "sha256": {
+            "xml": "36b012b3d9407a45c189c55db499330683251b9e85c106930177190f7d3148db",
+            "des": "8624e3f5af95c46e6e646d0981a8ed4c67d40b30d430f254e4e1ae5d410f20ea"
+          },
+          "input_sha256": "705e36f7f80eda804bf3756215267f51812184a3e3e8b7ffef42b8f4b36a5631",
+          "reload_sha256": {
+            "xml": "36b012b3d9407a45c189c55db499330683251b9e85c106930177190f7d3148db",
+            "des": "8823b539a82ad17cca3d3e442e92f66aa4c9b5472f8bb7236faed90ffb6f3006"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "ee3de59f566c8af7103945ebdb8644504ded3b3d9dfeb98344e8f5c64d190fa3",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "stagger_depop22",
+          "requested_mode": 5,
+          "saved_mode": 5,
+          "native_input_changes": {},
+          "csv_enabled": false,
+          "main_ball_count": 8,
+          "center_ball_count": 0,
+          "total_ball_count": 8,
+          "via_count": 8,
+          "via_side_mm": 0.1772453850905516,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.524,
+          "sha256": {
+            "xml": "7665e56a5cdc2b0d59d14dc6883721b8f08528eda1b5be5a5c2893c3f50e7de1",
+            "des": "861d5040b8362a18511239546599e9bfcd3160b4bd913424001787c0849653d5"
+          },
+          "input_sha256": "c25e333e6952a28c982caa6ee968a27367a3a6c1dc833b538e2e2bbbd781874e",
+          "reload_sha256": {
+            "xml": "7665e56a5cdc2b0d59d14dc6883721b8f08528eda1b5be5a5c2893c3f50e7de1",
+            "des": "1a90d7e72e485bb0d1b47598c7dba320cd5beb9de5d529d23adabbeb4977aa62"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "2ddeb58c5576d47dc7a0db3d0ccc6199d4d816a2a9319c5471d34e13dadf3e9d",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "explicit24",
+          "requested_mode": 5,
+          "saved_mode": 5,
+          "native_input_changes": {},
+          "csv_enabled": false,
+          "main_ball_count": 24,
+          "center_ball_count": 0,
+          "total_ball_count": 24,
+          "via_count": 24,
+          "via_side_mm": 0.1772453850905516,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.524,
+          "sha256": {
+            "xml": "da744d6f7a67496e0a8767854bbf42b2651cf5d158f9ea79650d62c771764741",
+            "des": "2d8c5d491986823f7d5c4b40edc1761eb74aa0ca1b7058eee3d875278efa213c"
+          },
+          "input_sha256": "147399665716c572f3f0a74aa1334b5e1c93cb235921eeb1e0e0fec8dca84961",
+          "reload_sha256": {
+            "xml": "da744d6f7a67496e0a8767854bbf42b2651cf5d158f9ea79650d62c771764741",
+            "des": "41328b8530447173dbd4253fbffdefe2f61cbe028eccc09c3db4904b7643b67b"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "6e4dafe8570dc367231ba533bd55476d168d8847538791b05d89a4b0a99a9361",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "explicit1",
+          "requested_mode": 5,
+          "saved_mode": 5,
+          "native_input_changes": {},
+          "csv_enabled": false,
+          "main_ball_count": 1,
+          "center_ball_count": 0,
+          "total_ball_count": 1,
+          "via_count": 1,
+          "via_side_mm": 0.1772453850905516,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.524,
+          "sha256": {
+            "xml": "a600b4dbf66437d9d76859343efb2ae9d46a30b7180343995a3e003437910559",
+            "des": "4065f97b55715edd09b775800ee45a07b8aeb9978f7f3381b1f68bf69e9ca5d4"
+          },
+          "input_sha256": "43758404b6b108ba4431a33b73d868d7674e9b708b6a03e1d121c1421e349033",
+          "reload_sha256": {
+            "xml": "a600b4dbf66437d9d76859343efb2ae9d46a30b7180343995a3e003437910559",
+            "des": "045b448663d682f9642be775bdb5b7c2d01821a10096fba9bec1c6584e8e70f5"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "0da47c08443f0ebf346b13cadcf591997e6206d3952509b22df97df1eb888cbf",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "explicit24_stagger",
+          "requested_mode": 5,
+          "saved_mode": 5,
+          "native_input_changes": {},
+          "csv_enabled": false,
+          "main_ball_count": 24,
+          "center_ball_count": 0,
+          "total_ball_count": 24,
+          "via_count": 24,
+          "via_side_mm": 0.1772453850905516,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.524,
+          "sha256": {
+            "xml": "da744d6f7a67496e0a8767854bbf42b2651cf5d158f9ea79650d62c771764741",
+            "des": "435beaa04cf4578a6ce4f5ca5d85b014d14516e52972c163849d10c99759541b"
+          },
+          "input_sha256": "649df1c9f0d80b3b3c7fd7ec37661fe579dca669fe3b3636ccdcb356eb63bad5",
+          "reload_sha256": {
+            "xml": "da744d6f7a67496e0a8767854bbf42b2651cf5d158f9ea79650d62c771764741",
+            "des": "f8d56cfccdb82ab63a0bbca9ca9545361ab3c6d8277c6114080e6ac44ab0d050"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "6e4dafe8570dc367231ba533bd55476d168d8847538791b05d89a4b0a99a9361",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "explicit24_depop",
+          "requested_mode": 5,
+          "saved_mode": 5,
+          "native_input_changes": {},
+          "csv_enabled": false,
+          "main_ball_count": 24,
+          "center_ball_count": 0,
+          "total_ball_count": 24,
+          "via_count": 24,
+          "via_side_mm": 0.1772453850905516,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.524,
+          "sha256": {
+            "xml": "d9a5598b3f874b179e80e5406388423aebb1ab54955a7c54eb2eda17e1177848",
+            "des": "7396f1515b4528ebe25b137a50635e0ef6a25fdc4e75795d16ac4e8f7bca88d1"
+          },
+          "input_sha256": "eb5b61e5969a42561d3475ff4818b1526acd13bdab5ef80161db4853ccc93c4c",
+          "reload_sha256": {
+            "xml": "d9a5598b3f874b179e80e5406388423aebb1ab54955a7c54eb2eda17e1177848",
+            "des": "fa9098cd4b164278babaae0eedf051e3d36739d6ef0dfd26dd79e670920fd6e7"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "6e4dafe8570dc367231ba533bd55476d168d8847538791b05d89a4b0a99a9361",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "explicit_perimeter_center33",
+          "requested_mode": 5,
+          "saved_mode": 5,
+          "native_input_changes": {},
+          "csv_enabled": false,
+          "main_ball_count": 16,
+          "center_ball_count": 9,
+          "total_ball_count": 25,
+          "via_count": 16,
+          "via_side_mm": 0.1772453850905516,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.524,
+          "sha256": {
+            "xml": "319bb4ce2f43ee02eca8d6c8e22d00983d82e2b4cfc9a52a56c41f7b463aeea2",
+            "des": "a29f8354200161bf28b25e281327ce857f16f0a58216f5ee0a7c0f522aee3190"
+          },
+          "input_sha256": "dd5254022d2a9462747314d63813010ee2da468a9ecb9fad76df8313dd1334db",
+          "reload_sha256": {
+            "xml": "319bb4ce2f43ee02eca8d6c8e22d00983d82e2b4cfc9a52a56c41f7b463aeea2",
+            "des": "28469d91572f60cfd231abc5c63f97aab839a693f99ca948ae031d1baa057f9a"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "260cedd2a242631632fd7e5c9645234598e4d67688bd41ee15734b1b620ed959",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "central22",
+          "requested_mode": 5,
+          "saved_mode": 5,
+          "native_input_changes": {},
+          "csv_enabled": false,
+          "main_ball_count": 25,
+          "center_ball_count": 4,
+          "total_ball_count": 29,
+          "via_count": 25,
+          "via_side_mm": 0.1772453850905516,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.524,
+          "sha256": {
+            "xml": "7875e6fb3d3fe67695fede1ba2ac9c3c9a2e695fbc844fbfc4a82954304e8000",
+            "des": "30436d46c708aa84e34058323e100c08a47daafebffefa309a1385d618bb5404"
+          },
+          "input_sha256": "0d7b6f73bd49ca753eaedc810b2b8b1b09afe0e7545df324a186c82b9ea8d4e8",
+          "reload_sha256": {
+            "xml": "7875e6fb3d3fe67695fede1ba2ac9c3c9a2e695fbc844fbfc4a82954304e8000",
+            "des": "8b68c32c6e2239a2780c6bf6bd5207d9b4ab85cf6b24a80da71c4ea98540bbbb"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "ee3de59f566c8af7103945ebdb8644504ded3b3d9dfeb98344e8f5c64d190fa3",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "central33",
+          "requested_mode": 5,
+          "saved_mode": 5,
+          "native_input_changes": {},
+          "csv_enabled": false,
+          "main_ball_count": 25,
+          "center_ball_count": 9,
+          "total_ball_count": 34,
+          "via_count": 25,
+          "via_side_mm": 0.1772453850905516,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.524,
+          "sha256": {
+            "xml": "c620b2fa191457156fde98983dda674f2fea6027fe8729cd45fea6ceba13f5ec",
+            "des": "2e577e4476715ffe15b28177445458dea6345583ae5380a07d7dfbe9eb47a8f2"
+          },
+          "input_sha256": "02e16c2dfd52e2ee0f2f3aa759061d2d5a3c433c32bddeb96ba90cb4abcee0cb",
+          "reload_sha256": {
+            "xml": "c620b2fa191457156fde98983dda674f2fea6027fe8729cd45fea6ceba13f5ec",
+            "des": "54256d7f0c72eb9d3ef303f1f442a8f2a56fe32ab24aefbe2b7b659e1118efd9"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "ee3de59f566c8af7103945ebdb8644504ded3b3d9dfeb98344e8f5c64d190fa3",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "central33_stagger",
+          "requested_mode": 5,
+          "saved_mode": 5,
+          "native_input_changes": {},
+          "csv_enabled": false,
+          "main_ball_count": 25,
+          "center_ball_count": 5,
+          "total_ball_count": 30,
+          "via_count": 25,
+          "via_side_mm": 0.1772453850905516,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.524,
+          "sha256": {
+            "xml": "1dc6aaeb06b2767a792936beefeea8f08757eef5efa6887510e8ed2672ac1dc9",
+            "des": "cb2fc9407d326708e0ae01b32ecd66402ff046d48e67ba6ffa57657d0f36a30d"
+          },
+          "input_sha256": "05816cbf276c38b72300369cc7076799179204a2f773410e521c314322a21eed",
+          "reload_sha256": {
+            "xml": "1dc6aaeb06b2767a792936beefeea8f08757eef5efa6887510e8ed2672ac1dc9",
+            "des": "b29b41f2100636c2476bd2c24c70c3064c58e95f1bb3feb0facd21a713698adf"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "ee3de59f566c8af7103945ebdb8644504ded3b3d9dfeb98344e8f5c64d190fa3",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "depop_center_restore",
+          "requested_mode": 5,
+          "saved_mode": 5,
+          "native_input_changes": {},
+          "csv_enabled": false,
+          "main_ball_count": 16,
+          "center_ball_count": 9,
+          "total_ball_count": 25,
+          "via_count": 16,
+          "via_side_mm": 0.1772453850905516,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.524,
+          "sha256": {
+            "xml": "02f06786de8270f8eb1f764df9fecba3d7c00f32ea9f6eb45e87218775a22e42",
+            "des": "92c09cf921d16d8fcd50305d8cfb9d6fc0f0a17d0cd02cdca946d5ca9948925f"
+          },
+          "input_sha256": "869165d7de79da1d44ccad6aaf775bbfafb8c1f80c7549d69e11629b6cbc9ae4",
+          "reload_sha256": {
+            "xml": "02f06786de8270f8eb1f764df9fecba3d7c00f32ea9f6eb45e87218775a22e42",
+            "des": "4984d452fa200a8906b771d4d61475d5fa64e793df8043bacd2e8481c479a2e0"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "260cedd2a242631632fd7e5c9645234598e4d67688bd41ee15734b1b620ed959",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "csv3",
+          "requested_mode": 5,
+          "saved_mode": 5,
+          "native_input_changes": {},
+          "csv_enabled": true,
+          "main_ball_count": 3,
+          "center_ball_count": 0,
+          "total_ball_count": 3,
+          "via_count": 25,
+          "via_side_mm": 0.1772453850905516,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.524,
+          "sha256": {
+            "xml": "bb7301831c3306514811e8009a333906f16952c578e29941339bc9bbdcbb4a57",
+            "des": "40ea38d01960ba20d1f055e8f632aa2f8309e825af513f15f8b7af61991c0326"
+          },
+          "input_sha256": "a51cc0e24ff51c54f08045ad46f641e0cb11ad4d51a8e5ee59e685704f46533e",
+          "reload_sha256": {
+            "xml": "bb7301831c3306514811e8009a333906f16952c578e29941339bc9bbdcbb4a57",
+            "des": "5534ee231ba0754e8bcca1fe24deb363502a86492255f2c65708e19d7d8904b2"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "ee3de59f566c8af7103945ebdb8644504ded3b3d9dfeb98344e8f5c64d190fa3",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "csv3_stagger",
+          "requested_mode": 5,
+          "saved_mode": 5,
+          "native_input_changes": {},
+          "csv_enabled": true,
+          "main_ball_count": 3,
+          "center_ball_count": 0,
+          "total_ball_count": 3,
+          "via_count": 13,
+          "via_side_mm": 0.1772453850905516,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.524,
+          "sha256": {
+            "xml": "c2ac044ba1c9a1133a016825fccaaa3583ebacb0c8320bbf79b1e90309717944",
+            "des": "7858711ef48cfd137f61ac2f70d9630d655efe6b6b02a0ab72d4b92d6cb7236f"
+          },
+          "input_sha256": "8933bab570fc9496f50a72878f70c5020be6fd8d367d07612336f72de74937ce",
+          "reload_sha256": {
+            "xml": "c2ac044ba1c9a1133a016825fccaaa3583ebacb0c8320bbf79b1e90309717944",
+            "des": "b0cba2136ea3e66cadafebf813690dd9efe8535168f262ade31fe5766c0d31e1"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "f6e4d7cbd0f9d8992b8ee4325b5ad9f5abd115fbd0d2904f7dc5b3a1c91e18b1",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "csv3_depop",
+          "requested_mode": 5,
+          "saved_mode": 5,
+          "native_input_changes": {},
+          "csv_enabled": true,
+          "main_ball_count": 3,
+          "center_ball_count": 0,
+          "total_ball_count": 3,
+          "via_count": 16,
+          "via_side_mm": 0.1772453850905516,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.524,
+          "sha256": {
+            "xml": "307c2e81447aa3a46ea064a329619dcfcf7f2ee175d3815a0233334927a58c15",
+            "des": "0ca024566ecbb8d09d92788e0adf4548ae945f96d852bae092795c981f1b924a"
+          },
+          "input_sha256": "228279ef310eac5907eb0c3193f13de66b9bd26464a082ad51e6e8eec771218c",
+          "reload_sha256": {
+            "xml": "307c2e81447aa3a46ea064a329619dcfcf7f2ee175d3815a0233334927a58c15",
+            "des": "a79fa8fd7850e0163dda62f830c1c0a1fd3cae99f16185fea7df1a88672c984d"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "260cedd2a242631632fd7e5c9645234598e4d67688bd41ee15734b1b620ed959",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "csv3_explicit1",
+          "requested_mode": 5,
+          "saved_mode": 5,
+          "native_input_changes": {},
+          "csv_enabled": true,
+          "main_ball_count": 3,
+          "center_ball_count": 0,
+          "total_ball_count": 3,
+          "via_count": 1,
+          "via_side_mm": 0.1772453850905516,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.524,
+          "sha256": {
+            "xml": "f7877194077785d24d6223e1ea7babfff18d6ae9498760cbcb509fa0c00e2e61",
+            "des": "53b8e8d4f61209901ef4054190371f6de19802e1c96211478b5f002db2d0939c"
+          },
+          "input_sha256": "afea74bb7ce7a139b94a9c47e20b27800d6a2fbc352eac933078cf149370b232",
+          "reload_sha256": {
+            "xml": "f7877194077785d24d6223e1ea7babfff18d6ae9498760cbcb509fa0c00e2e61",
+            "des": "57c5d032b529e4b4b18abc30906985ef688df664a0b33240326ae9a4032bbcae"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "0da47c08443f0ebf346b13cadcf591997e6206d3952509b22df97df1eb888cbf",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "csv3_all",
+          "requested_mode": 5,
+          "saved_mode": 5,
+          "native_input_changes": {},
+          "csv_enabled": true,
+          "main_ball_count": 3,
+          "center_ball_count": 0,
+          "total_ball_count": 3,
+          "via_count": 1,
+          "via_side_mm": 0.1772453850905516,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.524,
+          "sha256": {
+            "xml": "f7877194077785d24d6223e1ea7babfff18d6ae9498760cbcb509fa0c00e2e61",
+            "des": "721fc061c3c232adfed6bce8fc22ac60d7f9a0642287620e36f527a508e71d99"
+          },
+          "input_sha256": "cb6bbd44d11a4172aa17e50555bdf92f68fae952148f76ea896e97dfb5d19e3d",
+          "reload_sha256": {
+            "xml": "f7877194077785d24d6223e1ea7babfff18d6ae9498760cbcb509fa0c00e2e61",
+            "des": "907b794ddb35869106f2007b0e9568e4de0edbb8008c3af978f9740151aaaf92"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "0da47c08443f0ebf346b13cadcf591997e6206d3952509b22df97df1eb888cbf",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "csv_empty",
+          "requested_mode": 5,
+          "saved_mode": 5,
+          "native_input_changes": {},
+          "csv_enabled": true,
+          "main_ball_count": 0,
+          "center_ball_count": 0,
+          "total_ball_count": 0,
+          "via_count": 25,
+          "via_side_mm": 0.1772453850905516,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.524,
+          "sha256": {
+            "xml": "90311374bc780d16993e9e5795531f5f7aabc17eee80a4fbaf6016e5df947fa6",
+            "des": "14417c8df859f8d9ed66a2343ca0ea8da4807746aea85476816a89bf5d576eb7"
+          },
+          "input_sha256": "c2734cad17a488220f0a65211e8f9acc6beac507a2e4ea52ac081ec24775d911",
+          "reload_sha256": {
+            "xml": "90311374bc780d16993e9e5795531f5f7aabc17eee80a4fbaf6016e5df947fa6",
+            "des": "23e0132b6f1b57b46f301a6b9d98a3695bdd28769d2a30a27dfb7c7736432cc7"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "ee3de59f566c8af7103945ebdb8644504ded3b3d9dfeb98344e8f5c64d190fa3",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "csv_disabled",
+          "requested_mode": 5,
+          "saved_mode": 5,
+          "native_input_changes": {},
+          "csv_enabled": false,
+          "main_ball_count": 25,
+          "center_ball_count": 0,
+          "total_ball_count": 25,
+          "via_count": 25,
+          "via_side_mm": 0.1772453850905516,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.524,
+          "sha256": {
+            "xml": "36b012b3d9407a45c189c55db499330683251b9e85c106930177190f7d3148db",
+            "des": "f5a4a68c8fffca334a39c911aeb3aa7f831d79836cef945d344af2132f447bd7"
+          },
+          "input_sha256": "f853c1f38ad7dd756f42f37f6461010cedf27671006bd03847ae915487f6b27a",
+          "reload_sha256": {
+            "xml": "36b012b3d9407a45c189c55db499330683251b9e85c106930177190f7d3148db",
+            "des": "4b37850665e1a97ad2e38410bc0263679876ba1486bff278b7b66730379f10d0"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "ee3de59f566c8af7103945ebdb8644504ded3b3d9dfeb98344e8f5c64d190fa3",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "csv_duplicates",
+          "requested_mode": 5,
+          "saved_mode": 5,
+          "native_input_changes": {},
+          "csv_enabled": true,
+          "main_ball_count": 2,
+          "center_ball_count": 0,
+          "total_ball_count": 2,
+          "via_count": 25,
+          "via_side_mm": 0.1772453850905516,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.524,
+          "sha256": {
+            "xml": "a8c1b93444872b510f1759233031791c8ea3f5481c87addd4141aba8703cd041",
+            "des": "1839c1d96d10681735c52e09f057d87807021164d7af0a2a44c449a5a856514f"
+          },
+          "input_sha256": "0e4f8cbbbfceef4fbfa7ec3d7666fd1f8be3af697c4cdcf691c74533f2287362",
+          "reload_sha256": {
+            "xml": "a8c1b93444872b510f1759233031791c8ea3f5481c87addd4141aba8703cd041",
+            "des": "cdef66f693e5d6ea128f37a883bf9f7e048720984b80213de221448b239d8ec1"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "ee3de59f566c8af7103945ebdb8644504ded3b3d9dfeb98344e8f5c64d190fa3",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "csv_translated",
+          "requested_mode": 5,
+          "saved_mode": 5,
+          "native_input_changes": {},
+          "csv_enabled": true,
+          "main_ball_count": 3,
+          "center_ball_count": 0,
+          "total_ball_count": 3,
+          "via_count": 25,
+          "via_side_mm": 0.1772453850905516,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.524,
+          "sha256": {
+            "xml": "244486f57d5ab839f71f0bbc3c957993c78f179d56c57a86bd9b027010329776",
+            "des": "8941f2f08bef7311935749566c911b7b5e864b4da99cdcb73acf8b15b6f68bab"
+          },
+          "input_sha256": "c09132296d1745838390dd08cb725ba494e52f7b7579376b6eed84770e4a547b",
+          "reload_sha256": {
+            "xml": "244486f57d5ab839f71f0bbc3c957993c78f179d56c57a86bd9b027010329776",
+            "des": "89b3ae5cce6678e091014855d62c1f0376ea7574b54a75a0e1a72405602678d9"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "ee3de59f566c8af7103945ebdb8644504ded3b3d9dfeb98344e8f5c64d190fa3",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "diameter04",
+          "requested_mode": 5,
+          "saved_mode": 5,
+          "native_input_changes": {},
+          "csv_enabled": false,
+          "main_ball_count": 25,
+          "center_ball_count": 0,
+          "total_ball_count": 25,
+          "via_count": 25,
+          "via_side_mm": 0.1772453850905516,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.524,
+          "sha256": {
+            "xml": "4d71b01d51342cd964a1798708817bc23287a9599329999bb27ba13a572ca6de",
+            "des": "d7a93e1332b189f6dc88656e1561d987692d031cfd5ad21e27630d304311a251"
+          },
+          "input_sha256": "961f4ebb889f3c251a19bf2201ab386b8016b460b00be359490a3548a792c22a",
+          "reload_sha256": {
+            "xml": "4d71b01d51342cd964a1798708817bc23287a9599329999bb27ba13a572ca6de",
+            "des": "1786d8de24cbf358e27303e9dc8e95154cc6ebb0ee979ec0e6ec6a86686e2aa4"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "ee3de59f566c8af7103945ebdb8644504ded3b3d9dfeb98344e8f5c64d190fa3",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "pitch065",
+          "requested_mode": 5,
+          "saved_mode": 5,
+          "native_input_changes": {},
+          "csv_enabled": false,
+          "main_ball_count": 25,
+          "center_ball_count": 0,
+          "total_ball_count": 25,
+          "via_count": 25,
+          "via_side_mm": 0.1772453850905516,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.524,
+          "sha256": {
+            "xml": "d96c4c8faf3b12c4322fa081338c58be7fdc0e34d9b534c3126a66572ad3873d",
+            "des": "04a70845544ec900f6a27d8d2e9340093a3b2f432581b7ad870d38236a8daa53"
+          },
+          "input_sha256": "e6ded3286f2130c70c8df041efb5887384281e3d0b1e0e1d2e57f48964c2f757",
+          "reload_sha256": {
+            "xml": "d96c4c8faf3b12c4322fa081338c58be7fdc0e34d9b534c3126a66572ad3873d",
+            "des": "41576d7928cbd9685045b8d554f293a0f48fd4f95d8c172a6d507d4243a9a8dd"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "ee3de59f566c8af7103945ebdb8644504ded3b3d9dfeb98344e8f5c64d190fa3",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "height05",
+          "requested_mode": 5,
+          "saved_mode": 5,
+          "native_input_changes": {},
+          "csv_enabled": false,
+          "main_ball_count": 25,
+          "center_ball_count": 0,
+          "total_ball_count": 25,
+          "via_count": 25,
+          "via_side_mm": 0.1772453850905516,
+          "via_zmin_mm": 0.518,
+          "via_height_mm": 0.524,
+          "sha256": {
+            "xml": "8409ace40d293f08d6ae18e3f2d30578121ce3485dd5187ebde945aeeb795ccb",
+            "des": "8fd432e74d7a946c809453d946c64acb2380c80fb8dfa9abd9d9177d38ea829f"
+          },
+          "input_sha256": "15f6a8ee707b6e0ab98813e6e4cf67d6c6ef0b2af0e2cd3ef34c8444a813e246",
+          "reload_sha256": {
+            "xml": "8409ace40d293f08d6ae18e3f2d30578121ce3485dd5187ebde945aeeb795ccb",
+            "des": "33bbc0f022799b573cc6c786c8f5cbd6f8e6bd0da90300cd4706dd89a91a8faa"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "ee3de59f566c8af7103945ebdb8644504ded3b3d9dfeb98344e8f5c64d190fa3",
+          "via_material": "same_as_full55"
+        }
+      ]
+    },
+    "l4_approximate": {
+      "definition_sha256": "a87184bd1a0888b23c76f541937432d988151792900a1aefa168fff4a6f0c428",
+      "baseline_via_material": [
+        32.00570534026464,
+        32.00570534026464,
+        32.00570534026464,
+        2279.4949503780717,
+        747.3445780986646
+      ],
+      "runs": {
+        "native": {
+          "exports": {
+            "csv_disabled": "4a5d94ea676f00997e1ae3693187708663af8375b93c60b619fe9c02c251272c",
+            "depop33": "44e70592cd0c418563b180fb886cd3b59a5fb826fa13025afb772b8bc327e876",
+            "csv3_all": "a15dc14655561f98290c0ad0b21f749814ce794b4becd2beba078046f4749390",
+            "csv3_explicit1": "a15dc14655561f98290c0ad0b21f749814ce794b4becd2beba078046f4749390",
+            "depop52": "4a5d94ea676f00997e1ae3693187708663af8375b93c60b619fe9c02c251272c",
+            "explicit24_stagger": "e6aa7180a10fe512d71b3137b65fe6467e352081a4c7d56f21fb5b1612078c1f",
+            "height05": "777519ccfe98fe126c7be3e8f554ce72d69899d72161f621a48daa74900b374f",
+            "depop22": "5d27e0e606d1b18f6737caaac0adc122c8f223270b6cfd3383b35890031b1ea1",
+            "depop12": "28e04965fcecfcb70e39d05d175cac640dfdb446b3f64cee16edb7a3279c0ac9",
+            "explicit_perimeter_center33": "6f72f4b7eec8809423fc051842df23de9f6d14011b1ff66feca147f7468802aa",
+            "grid46": "bf56c893e0bad82ad2b831f90b5a442567f16691d007ddd593d9a84f2a8baf73",
+            "central22": "a7c24475612231023e6751fb0471413317dcebf0ee19673bf4b98dac51fd9d27",
+            "diameter04": "eda4688007b16f6df55e58de030b7fade729560956274633efaa285bced501bf",
+            "explicit24": "e6aa7180a10fe512d71b3137b65fe6467e352081a4c7d56f21fb5b1612078c1f",
+            "central33": "c91d3a2a11eb583a974335289d3f52e8af36ea63484fbbcb63a0d67fe9913041",
+            "full55": "4a5d94ea676f00997e1ae3693187708663af8375b93c60b619fe9c02c251272c",
+            "csv3": "af3d529d009951a0225725dd3557476ebe5f6feca9edf091f6ad2bb779838876",
+            "central33_stagger": "5bbccbbfda32c1ce785c931591bad92eda4dd9640cf2fef37327ef07cbce5884",
+            "pitch065": "32ecc7cd0f017b6280542b46a00440f911e3e2738b3f9b96806876aed10df22b",
+            "csv3_depop": "6a08e4eedc3d6d5d10a0a5ae770fddeed14d7ccb88afcc71ae6acdda138b5011",
+            "explicit24_depop": "f039540d20e4948de859d0eb08dfc0d6dbce030f26d484fb996a246dbcefc47b",
+            "depop11": "15098f7041ef63bda9274d517b852db3cb6e76126035f9021b05cd91cd24dc0f",
+            "explicit1": "036ffbcf5590de49201ef2cef14117b0845e0c1bd7717791e1542855ec3edf32",
+            "depop_center_restore": "b8c1ff4bc583dbc227af704bf6b29a19b073cd6bb6afbd46a8f488998835a51d",
+            "csv_empty": "7eb1648d3afb021cc4be5f3931136bef369d5ffd621ee1949226b1bb9c5cea23",
+            "stagger_depop22": "9a73b1739e6f829c753d2792decb62c092d63d7b6042c341d10137bc503e3617",
+            "stagger55": "df98647a4fa01d563f459e6070cddae4f8f2d9395a74528599e600a76cf47687",
+            "csv3_stagger": "0c61ad548f0cf63d2ba3d3720cca2228757024958e6e80f433bca0516401feeb",
+            "csv_translated": "2d849ee7d28b29b2ad65d7a9840acbb8a743d96f285cbb6659e29208f16ab672",
+            "csv_duplicates": "96310e18ca0aeeaf9d42e17af5474292222c9c1e088bf90765834f04283de3ea",
+            "stagger46": "f5e68f7bef6401c3eba85d972e949bf3d8c9b1e587fb0f3ecce3e49e399c4c9f"
+          },
+          "exit_code": 0,
+          "executable": "E:\\Program Files\\Siemens\\SimcenterFlotherm\\2504\\WinXP\\bin\\flopack.exe",
+          "binary_sha256": {
+            "flopackfloxmlhandling.dll": "1301c597999445ba908f81537e7baa773eac874b0dd9ef1507f08664ca8c2c13",
+            "flopackmaterials.dll": "4fdd99632751f4e7c63a2bdc93e290a3bc9ca018bbe8b7921aa7025cedb3cda3",
+            "flopackrealise.dll": "838ed6c2e7d40cc749b8b145f55d78e9e95495fef974d593a7641fc0aa528edd"
+          },
+          "script_sha256": "3320c4390363b00488e1ff1f474318a468b1c449cef051939550fdbf83b0cbb7",
+          "launcher": "PowerShell Start-Process -WindowStyle Hidden",
+          "launcher_sha256": "9fea3c0d7d43fe088e2b62135e243dc5c69d5b776b420275fea8b112631dec66",
+          "seconds": 11.1188,
+          "file_version": "2025.13.1.1142",
+          "executable_sha256": "de21140177f9836147fdac1f9a82bb68490d92844fb321087201667575976ba1",
+          "errors": []
+        },
+        "reload": {
+          "binary_sha256": {
+            "flopackrealise.dll": "838ed6c2e7d40cc749b8b145f55d78e9e95495fef974d593a7641fc0aa528edd",
+            "flopackmaterials.dll": "4fdd99632751f4e7c63a2bdc93e290a3bc9ca018bbe8b7921aa7025cedb3cda3",
+            "flopackfloxmlhandling.dll": "1301c597999445ba908f81537e7baa773eac874b0dd9ef1507f08664ca8c2c13"
+          },
+          "launcher": "PowerShell Start-Process -WindowStyle Hidden",
+          "launcher_sha256": "9fea3c0d7d43fe088e2b62135e243dc5c69d5b776b420275fea8b112631dec66",
+          "script_sha256": "883b541128707ab81831d561a6c90a068e1ee2271caf3cacf9cb5c36563876ec",
+          "seconds": 11.113912,
+          "exports": {
+            "explicit24_depop": "f039540d20e4948de859d0eb08dfc0d6dbce030f26d484fb996a246dbcefc47b",
+            "stagger_depop22": "9a73b1739e6f829c753d2792decb62c092d63d7b6042c341d10137bc503e3617",
+            "central33": "c91d3a2a11eb583a974335289d3f52e8af36ea63484fbbcb63a0d67fe9913041",
+            "csv3_explicit1": "a15dc14655561f98290c0ad0b21f749814ce794b4becd2beba078046f4749390",
+            "csv3_depop": "6a08e4eedc3d6d5d10a0a5ae770fddeed14d7ccb88afcc71ae6acdda138b5011",
+            "csv3_all": "a15dc14655561f98290c0ad0b21f749814ce794b4becd2beba078046f4749390",
+            "central33_stagger": "5bbccbbfda32c1ce785c931591bad92eda4dd9640cf2fef37327ef07cbce5884",
+            "central22": "a7c24475612231023e6751fb0471413317dcebf0ee19673bf4b98dac51fd9d27",
+            "csv_translated": "2d849ee7d28b29b2ad65d7a9840acbb8a743d96f285cbb6659e29208f16ab672",
+            "explicit_perimeter_center33": "6f72f4b7eec8809423fc051842df23de9f6d14011b1ff66feca147f7468802aa",
+            "csv_duplicates": "96310e18ca0aeeaf9d42e17af5474292222c9c1e088bf90765834f04283de3ea",
+            "stagger46": "f5e68f7bef6401c3eba85d972e949bf3d8c9b1e587fb0f3ecce3e49e399c4c9f",
+            "depop52": "4a5d94ea676f00997e1ae3693187708663af8375b93c60b619fe9c02c251272c",
+            "stagger55": "df98647a4fa01d563f459e6070cddae4f8f2d9395a74528599e600a76cf47687",
+            "depop12": "28e04965fcecfcb70e39d05d175cac640dfdb446b3f64cee16edb7a3279c0ac9",
+            "depop22": "5d27e0e606d1b18f6737caaac0adc122c8f223270b6cfd3383b35890031b1ea1",
+            "depop33": "44e70592cd0c418563b180fb886cd3b59a5fb826fa13025afb772b8bc327e876",
+            "explicit24": "e6aa7180a10fe512d71b3137b65fe6467e352081a4c7d56f21fb5b1612078c1f",
+            "csv3_stagger": "0c61ad548f0cf63d2ba3d3720cca2228757024958e6e80f433bca0516401feeb",
+            "csv_disabled": "4a5d94ea676f00997e1ae3693187708663af8375b93c60b619fe9c02c251272c",
+            "explicit1": "036ffbcf5590de49201ef2cef14117b0845e0c1bd7717791e1542855ec3edf32",
+            "grid46": "bf56c893e0bad82ad2b831f90b5a442567f16691d007ddd593d9a84f2a8baf73",
+            "diameter04": "eda4688007b16f6df55e58de030b7fade729560956274633efaa285bced501bf",
+            "explicit24_stagger": "e6aa7180a10fe512d71b3137b65fe6467e352081a4c7d56f21fb5b1612078c1f",
+            "depop11": "15098f7041ef63bda9274d517b852db3cb6e76126035f9021b05cd91cd24dc0f",
+            "depop_center_restore": "b8c1ff4bc583dbc227af704bf6b29a19b073cd6bb6afbd46a8f488998835a51d",
+            "csv3": "af3d529d009951a0225725dd3557476ebe5f6feca9edf091f6ad2bb779838876",
+            "height05": "777519ccfe98fe126c7be3e8f554ce72d69899d72161f621a48daa74900b374f",
+            "pitch065": "32ecc7cd0f017b6280542b46a00440f911e3e2738b3f9b96806876aed10df22b",
+            "full55": "4a5d94ea676f00997e1ae3693187708663af8375b93c60b619fe9c02c251272c",
+            "csv_empty": "7eb1648d3afb021cc4be5f3931136bef369d5ffd621ee1949226b1bb9c5cea23"
+          },
+          "exit_code": 0,
+          "executable": "E:\\Program Files\\Siemens\\SimcenterFlotherm\\2504\\WinXP\\bin\\flopack.exe",
+          "errors": [],
+          "file_version": "2025.13.1.1142",
+          "executable_sha256": "de21140177f9836147fdac1f9a82bb68490d92844fb321087201667575976ba1"
+        }
+      },
+      "cases": [
+        {
+          "id": "full55",
+          "requested_mode": 3,
+          "saved_mode": 3,
+          "native_input_changes": {},
+          "csv_enabled": false,
+          "main_ball_count": 25,
+          "center_ball_count": 0,
+          "total_ball_count": 25,
+          "via_count": 25,
+          "via_side_mm": 0.4076643857082687,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.524,
+          "sha256": {
+            "xml": "4a5d94ea676f00997e1ae3693187708663af8375b93c60b619fe9c02c251272c",
+            "des": "f3a0e15b86eccba3d01bf905a8c542887b266ce2b3c8ced22aa7d0ba2f0f4ea2"
+          },
+          "input_sha256": "fb517cad7870e4b70c5f820bdb5f8781997a9f462ec1055a5153191af2f455b9",
+          "reload_sha256": {
+            "xml": "4a5d94ea676f00997e1ae3693187708663af8375b93c60b619fe9c02c251272c",
+            "des": "473de5dd211afe32ace887cc2a972fa837a41a3150122c934d2b686be6602dfe"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "ee3de59f566c8af7103945ebdb8644504ded3b3d9dfeb98344e8f5c64d190fa3",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "grid46",
+          "requested_mode": 3,
+          "saved_mode": 3,
+          "native_input_changes": {},
+          "csv_enabled": false,
+          "main_ball_count": 24,
+          "center_ball_count": 0,
+          "total_ball_count": 24,
+          "via_count": 24,
+          "via_side_mm": 0.4076643857082687,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.524,
+          "sha256": {
+            "xml": "bf56c893e0bad82ad2b831f90b5a442567f16691d007ddd593d9a84f2a8baf73",
+            "des": "271741e76326284cb4412e7d95be91b5a614c498dcb76bb99e19fd10c6534aa5"
+          },
+          "input_sha256": "2ea96c887264ffd2099deaee138d11b6758ba682fa8f709196e36c226b47eb9e",
+          "reload_sha256": {
+            "xml": "bf56c893e0bad82ad2b831f90b5a442567f16691d007ddd593d9a84f2a8baf73",
+            "des": "6415b496b5552d9b3bb5050c9abbd74089e3c5a2be5d9e5833d7ea5c27255df9"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "1f34b45813d1bc9a6ade85937f1ed092a9aa8bc38a64f2dbfd551bd1976eca14",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "stagger55",
+          "requested_mode": 3,
+          "saved_mode": 3,
+          "native_input_changes": {},
+          "csv_enabled": false,
+          "main_ball_count": 13,
+          "center_ball_count": 0,
+          "total_ball_count": 13,
+          "via_count": 13,
+          "via_side_mm": 0.4076643857082687,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.524,
+          "sha256": {
+            "xml": "df98647a4fa01d563f459e6070cddae4f8f2d9395a74528599e600a76cf47687",
+            "des": "9eeccd7dfcc9d56cb29ec2d03a745efc077efa3993eb3ec5325bfa17617b37df"
+          },
+          "input_sha256": "c944958bcba33a1de31ef9584fbf722d1bc105478a3d3ada93c80bff14281c16",
+          "reload_sha256": {
+            "xml": "df98647a4fa01d563f459e6070cddae4f8f2d9395a74528599e600a76cf47687",
+            "des": "ef28657025492c3bb40f5219f70e7b1cda6ad56152de2b331f01e9c52631b1a9"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "f6e4d7cbd0f9d8992b8ee4325b5ad9f5abd115fbd0d2904f7dc5b3a1c91e18b1",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "stagger46",
+          "requested_mode": 3,
+          "saved_mode": 3,
+          "native_input_changes": {},
+          "csv_enabled": false,
+          "main_ball_count": 12,
+          "center_ball_count": 0,
+          "total_ball_count": 12,
+          "via_count": 12,
+          "via_side_mm": 0.4076643857082687,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.524,
+          "sha256": {
+            "xml": "f5e68f7bef6401c3eba85d972e949bf3d8c9b1e587fb0f3ecce3e49e399c4c9f",
+            "des": "f512cdc8b4c63e6f4b5f6b850f5efe815140a51f9546b6c14805b56d0e1d8817"
+          },
+          "input_sha256": "a36b57856ef639e6141db498e4f16c26500b89631b460886c3df107657390941",
+          "reload_sha256": {
+            "xml": "f5e68f7bef6401c3eba85d972e949bf3d8c9b1e587fb0f3ecce3e49e399c4c9f",
+            "des": "2fe8cbe928a2975273f89311846c55a6b23191304e1651b0c4528034aab2980a"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "868108122cdc3f1c65ff6831ed92bdfdf3e1bf89b199cf34a28aab4a92f91d01",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "depop11",
+          "requested_mode": 3,
+          "saved_mode": 3,
+          "native_input_changes": {},
+          "csv_enabled": false,
+          "main_ball_count": 0,
+          "center_ball_count": 0,
+          "total_ball_count": 0,
+          "via_count": 0,
+          "via_side_mm": 0.4076643857082687,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.524,
+          "sha256": {
+            "xml": "15098f7041ef63bda9274d517b852db3cb6e76126035f9021b05cd91cd24dc0f",
+            "des": "23ece489886c517d0ecd366742080faa7e6aa3287a63fc30acfec5f2344256e0"
+          },
+          "input_sha256": "6701c914949858372bed81f908f34840d3ec20fa59d63d59bec5b3bb489d475a",
+          "reload_sha256": {
+            "xml": "15098f7041ef63bda9274d517b852db3cb6e76126035f9021b05cd91cd24dc0f",
+            "des": "3093abaf3996176db478d7aad09b25a6544516a6cbde75214bf07957cc4fa1d0"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "via_material": null
+        },
+        {
+          "id": "depop22",
+          "requested_mode": 3,
+          "saved_mode": 3,
+          "native_input_changes": {},
+          "csv_enabled": false,
+          "main_ball_count": 16,
+          "center_ball_count": 0,
+          "total_ball_count": 16,
+          "via_count": 16,
+          "via_side_mm": 0.4076643857082687,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.524,
+          "sha256": {
+            "xml": "5d27e0e606d1b18f6737caaac0adc122c8f223270b6cfd3383b35890031b1ea1",
+            "des": "73d8ac17e022970dbb395390422b3e9b725f92132412a933feb6f98afa62c85e"
+          },
+          "input_sha256": "48ec9bdf53a87f1bb832b29cde853f451104ab13917247bbbb3b2ee6c7af877e",
+          "reload_sha256": {
+            "xml": "5d27e0e606d1b18f6737caaac0adc122c8f223270b6cfd3383b35890031b1ea1",
+            "des": "82de89272c4fa5e11ab3d4ec9ea6942eaec47c877039a28289a6cf2feb206c70"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "260cedd2a242631632fd7e5c9645234598e4d67688bd41ee15734b1b620ed959",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "depop33",
+          "requested_mode": 3,
+          "saved_mode": 3,
+          "native_input_changes": {},
+          "csv_enabled": false,
+          "main_ball_count": 16,
+          "center_ball_count": 0,
+          "total_ball_count": 16,
+          "via_count": 16,
+          "via_side_mm": 0.4076643857082687,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.524,
+          "sha256": {
+            "xml": "44e70592cd0c418563b180fb886cd3b59a5fb826fa13025afb772b8bc327e876",
+            "des": "8efa32d9cc7f6bf72badef38cede1fe7172c2e9604e6fe53e8ae03df013d80c5"
+          },
+          "input_sha256": "e04856919de6d880db61ba37ee8e0bea3def3d8bd83824b250fcd9dff1534a13",
+          "reload_sha256": {
+            "xml": "44e70592cd0c418563b180fb886cd3b59a5fb826fa13025afb772b8bc327e876",
+            "des": "7a0f7330134f0727b10f9abc1d65db6883052baf0d11bbe93914e3c204c3ee33"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "260cedd2a242631632fd7e5c9645234598e4d67688bd41ee15734b1b620ed959",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "depop12",
+          "requested_mode": 3,
+          "saved_mode": 3,
+          "native_input_changes": {},
+          "csv_enabled": false,
+          "main_ball_count": 10,
+          "center_ball_count": 0,
+          "total_ball_count": 10,
+          "via_count": 10,
+          "via_side_mm": 0.4076643857082687,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.524,
+          "sha256": {
+            "xml": "28e04965fcecfcb70e39d05d175cac640dfdb446b3f64cee16edb7a3279c0ac9",
+            "des": "c55c60868fe80e28874c206c543633de0b741737f0ae153fb4d6c6b27ef7e693"
+          },
+          "input_sha256": "703068bb3e1d0b6e21e601958082905c85f1bebf648fbaee7da52c961b429bc5",
+          "reload_sha256": {
+            "xml": "28e04965fcecfcb70e39d05d175cac640dfdb446b3f64cee16edb7a3279c0ac9",
+            "des": "d8bde3724f6926aceb6337b887a21781a8d9b148eaec6df68480e502b86b7709"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "dbc565f9f6845ce4d93f5d3ef3325ba04a28be84babe9b974b178bf79e8ea055",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "depop52",
+          "requested_mode": 3,
+          "saved_mode": 3,
+          "native_input_changes": {},
+          "csv_enabled": false,
+          "main_ball_count": 25,
+          "center_ball_count": 0,
+          "total_ball_count": 25,
+          "via_count": 25,
+          "via_side_mm": 0.4076643857082687,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.524,
+          "sha256": {
+            "xml": "4a5d94ea676f00997e1ae3693187708663af8375b93c60b619fe9c02c251272c",
+            "des": "671d6329a8d5c3aa817465227877d81a4bae735d7363cc12b47c6ba675058d57"
+          },
+          "input_sha256": "d19a00c2769954f69bce996abaab3e25ae7f2a59017cc44d861a2224b4309e1c",
+          "reload_sha256": {
+            "xml": "4a5d94ea676f00997e1ae3693187708663af8375b93c60b619fe9c02c251272c",
+            "des": "8d27e6f3a815a52d11d567ae55e2fb7b550cfa1ee6d759c483f72ec6018dd14d"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "ee3de59f566c8af7103945ebdb8644504ded3b3d9dfeb98344e8f5c64d190fa3",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "stagger_depop22",
+          "requested_mode": 3,
+          "saved_mode": 3,
+          "native_input_changes": {},
+          "csv_enabled": false,
+          "main_ball_count": 8,
+          "center_ball_count": 0,
+          "total_ball_count": 8,
+          "via_count": 8,
+          "via_side_mm": 0.4076643857082687,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.524,
+          "sha256": {
+            "xml": "9a73b1739e6f829c753d2792decb62c092d63d7b6042c341d10137bc503e3617",
+            "des": "239ce8a7d70f968c159ce3e3540c4491e4c3fe941c62e81109806e18da677260"
+          },
+          "input_sha256": "bc24506ef86cf98c2f0d3ce99ae4f51b163bbb86b1cdb83dabca640ef54a9a3a",
+          "reload_sha256": {
+            "xml": "9a73b1739e6f829c753d2792decb62c092d63d7b6042c341d10137bc503e3617",
+            "des": "77f33da39cd7383ef41ad0d7959a2482bc05a87774c36f8e178b1f72023ef1e5"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "2ddeb58c5576d47dc7a0db3d0ccc6199d4d816a2a9319c5471d34e13dadf3e9d",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "explicit24",
+          "requested_mode": 3,
+          "saved_mode": 3,
+          "native_input_changes": {},
+          "csv_enabled": false,
+          "main_ball_count": 24,
+          "center_ball_count": 0,
+          "total_ball_count": 24,
+          "via_count": 24,
+          "via_side_mm": 0.4076643857082687,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.524,
+          "sha256": {
+            "xml": "e6aa7180a10fe512d71b3137b65fe6467e352081a4c7d56f21fb5b1612078c1f",
+            "des": "e2e46e93f947ed3f3926fc695980ef02aa4b27fd03b0907aefb38a9addedec72"
+          },
+          "input_sha256": "5ce26eccb2f312387eac5923786a4926bed71ad6ce5b22d6d39feb93b8c6eb4d",
+          "reload_sha256": {
+            "xml": "e6aa7180a10fe512d71b3137b65fe6467e352081a4c7d56f21fb5b1612078c1f",
+            "des": "11cfa6491f64f4a0e4dc7ea5141ea5471a9f3ac424a03e1cb9df58ac66656120"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "6e4dafe8570dc367231ba533bd55476d168d8847538791b05d89a4b0a99a9361",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "explicit1",
+          "requested_mode": 3,
+          "saved_mode": 3,
+          "native_input_changes": {},
+          "csv_enabled": false,
+          "main_ball_count": 1,
+          "center_ball_count": 0,
+          "total_ball_count": 1,
+          "via_count": 1,
+          "via_side_mm": 0.4076643857082687,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.524,
+          "sha256": {
+            "xml": "036ffbcf5590de49201ef2cef14117b0845e0c1bd7717791e1542855ec3edf32",
+            "des": "df288abb364a1476ed030d0c861a67607c81cdcbb75438bab8303f3d79ce2c61"
+          },
+          "input_sha256": "3786b829985c20242d0f3f030bf10278446435b89ff1bfeccb9f164879adf2fc",
+          "reload_sha256": {
+            "xml": "036ffbcf5590de49201ef2cef14117b0845e0c1bd7717791e1542855ec3edf32",
+            "des": "24cdec165a9bbdcfd29aa86edeecfdcb6abef094d32ae09f2c7a74b8f3a06b7a"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "0da47c08443f0ebf346b13cadcf591997e6206d3952509b22df97df1eb888cbf",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "explicit24_stagger",
+          "requested_mode": 3,
+          "saved_mode": 3,
+          "native_input_changes": {},
+          "csv_enabled": false,
+          "main_ball_count": 24,
+          "center_ball_count": 0,
+          "total_ball_count": 24,
+          "via_count": 24,
+          "via_side_mm": 0.4076643857082687,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.524,
+          "sha256": {
+            "xml": "e6aa7180a10fe512d71b3137b65fe6467e352081a4c7d56f21fb5b1612078c1f",
+            "des": "7d26d8aae3919d22541c2fda5a8ed774eb4aa2f9678a637704fe2ee60e2bfd65"
+          },
+          "input_sha256": "3a65b5b275c4277e2667b9ddc4c0e5c4c659045debf3aa30d9c8e4c24ed833c4",
+          "reload_sha256": {
+            "xml": "e6aa7180a10fe512d71b3137b65fe6467e352081a4c7d56f21fb5b1612078c1f",
+            "des": "4b35f73517d89d384ce1927c4dc16b6f4610775f5bd6ab56676f06942bc1966f"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "6e4dafe8570dc367231ba533bd55476d168d8847538791b05d89a4b0a99a9361",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "explicit24_depop",
+          "requested_mode": 3,
+          "saved_mode": 3,
+          "native_input_changes": {},
+          "csv_enabled": false,
+          "main_ball_count": 24,
+          "center_ball_count": 0,
+          "total_ball_count": 24,
+          "via_count": 24,
+          "via_side_mm": 0.4076643857082687,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.524,
+          "sha256": {
+            "xml": "f039540d20e4948de859d0eb08dfc0d6dbce030f26d484fb996a246dbcefc47b",
+            "des": "40a1f7484cec28686f25144fd50b13e91a607f4a7a94a56d1675a7af31fdb9e8"
+          },
+          "input_sha256": "1017656e1a7445f2d4b59f167e93c83220792ab87cbd9e9f04e20644946d38a2",
+          "reload_sha256": {
+            "xml": "f039540d20e4948de859d0eb08dfc0d6dbce030f26d484fb996a246dbcefc47b",
+            "des": "3dd2e23b4999885af64577f8d3f0301535fa0089377fd40eb93c50cc0d9b57bb"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "6e4dafe8570dc367231ba533bd55476d168d8847538791b05d89a4b0a99a9361",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "explicit_perimeter_center33",
+          "requested_mode": 3,
+          "saved_mode": 3,
+          "native_input_changes": {},
+          "csv_enabled": false,
+          "main_ball_count": 16,
+          "center_ball_count": 9,
+          "total_ball_count": 25,
+          "via_count": 16,
+          "via_side_mm": 0.4076643857082687,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.524,
+          "sha256": {
+            "xml": "6f72f4b7eec8809423fc051842df23de9f6d14011b1ff66feca147f7468802aa",
+            "des": "6954282a7f504b1db97df69c4299b5e0a5ecc01cf50e2c61919370f1fcd738a5"
+          },
+          "input_sha256": "4148b71dc965f460f57bb5dc84f6ab4b45053a86f321dfc5a837b3a6b1dade1d",
+          "reload_sha256": {
+            "xml": "6f72f4b7eec8809423fc051842df23de9f6d14011b1ff66feca147f7468802aa",
+            "des": "c422be1473bed3fe5286234ef35f3b8f1bdfc2c1badd830e8e2768c1fe4155e4"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "260cedd2a242631632fd7e5c9645234598e4d67688bd41ee15734b1b620ed959",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "central22",
+          "requested_mode": 3,
+          "saved_mode": 3,
+          "native_input_changes": {},
+          "csv_enabled": false,
+          "main_ball_count": 25,
+          "center_ball_count": 4,
+          "total_ball_count": 29,
+          "via_count": 25,
+          "via_side_mm": 0.4076643857082687,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.524,
+          "sha256": {
+            "xml": "a7c24475612231023e6751fb0471413317dcebf0ee19673bf4b98dac51fd9d27",
+            "des": "e54f83b3ccd240b5261588f60461459c68140ecb5024627e481f79c150b1fc4d"
+          },
+          "input_sha256": "aa5b5a5e69320b1f3e1f03de4f9a0ad7673691927680911021504bc478e00e56",
+          "reload_sha256": {
+            "xml": "a7c24475612231023e6751fb0471413317dcebf0ee19673bf4b98dac51fd9d27",
+            "des": "f3f7c973c97463bb6ec5752ccb48b864b180538bc9715587ccb1c24df7f65d81"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "ee3de59f566c8af7103945ebdb8644504ded3b3d9dfeb98344e8f5c64d190fa3",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "central33",
+          "requested_mode": 3,
+          "saved_mode": 3,
+          "native_input_changes": {},
+          "csv_enabled": false,
+          "main_ball_count": 25,
+          "center_ball_count": 9,
+          "total_ball_count": 34,
+          "via_count": 25,
+          "via_side_mm": 0.4076643857082687,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.524,
+          "sha256": {
+            "xml": "c91d3a2a11eb583a974335289d3f52e8af36ea63484fbbcb63a0d67fe9913041",
+            "des": "75413de41863d3930027d0d07675566c4142201729d9d3b51b91ebc1daffa688"
+          },
+          "input_sha256": "a314ce16d93f6e2f9921ec57033d67dc8dd0a62e64ead3ffed6fac9cc5925a43",
+          "reload_sha256": {
+            "xml": "c91d3a2a11eb583a974335289d3f52e8af36ea63484fbbcb63a0d67fe9913041",
+            "des": "dfc4c4232b5664ee51338c8892e59e1b753eec57c9ed0701bd5026d279e0d9db"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "ee3de59f566c8af7103945ebdb8644504ded3b3d9dfeb98344e8f5c64d190fa3",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "central33_stagger",
+          "requested_mode": 3,
+          "saved_mode": 3,
+          "native_input_changes": {},
+          "csv_enabled": false,
+          "main_ball_count": 25,
+          "center_ball_count": 5,
+          "total_ball_count": 30,
+          "via_count": 25,
+          "via_side_mm": 0.4076643857082687,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.524,
+          "sha256": {
+            "xml": "5bbccbbfda32c1ce785c931591bad92eda4dd9640cf2fef37327ef07cbce5884",
+            "des": "65499645a382a79b21acafb3f993d85d49154e08c3d0a24fa09a2266b6ec6235"
+          },
+          "input_sha256": "803ad68075ea061ecbc2f315be1add0c11f0b3080379169898be72f9db391b73",
+          "reload_sha256": {
+            "xml": "5bbccbbfda32c1ce785c931591bad92eda4dd9640cf2fef37327ef07cbce5884",
+            "des": "448bdff26ecb0faba3c646e893f69a67e5fb66d6a8c48d925437452be36c5700"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "ee3de59f566c8af7103945ebdb8644504ded3b3d9dfeb98344e8f5c64d190fa3",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "depop_center_restore",
+          "requested_mode": 3,
+          "saved_mode": 3,
+          "native_input_changes": {},
+          "csv_enabled": false,
+          "main_ball_count": 16,
+          "center_ball_count": 9,
+          "total_ball_count": 25,
+          "via_count": 16,
+          "via_side_mm": 0.4076643857082687,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.524,
+          "sha256": {
+            "xml": "b8c1ff4bc583dbc227af704bf6b29a19b073cd6bb6afbd46a8f488998835a51d",
+            "des": "67ce36bd309229c485cbde649efd0d5f565af5d4edfb793db368298626ab9444"
+          },
+          "input_sha256": "5e9e3ae7a0b4e9b68ec9844d3c9d403cd9b1332553093653a18f6b99d85b647d",
+          "reload_sha256": {
+            "xml": "b8c1ff4bc583dbc227af704bf6b29a19b073cd6bb6afbd46a8f488998835a51d",
+            "des": "a84db9c99f0ca3fe7962dbd8c5461c36a894456d68079917c9431a04440ab575"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "260cedd2a242631632fd7e5c9645234598e4d67688bd41ee15734b1b620ed959",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "csv3",
+          "requested_mode": 3,
+          "saved_mode": 3,
+          "native_input_changes": {},
+          "csv_enabled": true,
+          "main_ball_count": 3,
+          "center_ball_count": 0,
+          "total_ball_count": 3,
+          "via_count": 25,
+          "via_side_mm": 0.4076643857082687,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.524,
+          "sha256": {
+            "xml": "af3d529d009951a0225725dd3557476ebe5f6feca9edf091f6ad2bb779838876",
+            "des": "5f2b46b4c798cf406a381ad91146a8d26f9a1b90f8e97ac805aecd506793e2f0"
+          },
+          "input_sha256": "1ed81f3ede941da9f6fa225112dced9b3cad347e22d1e3c3d73a717d02bd6f46",
+          "reload_sha256": {
+            "xml": "af3d529d009951a0225725dd3557476ebe5f6feca9edf091f6ad2bb779838876",
+            "des": "d88a888e0f9a640eb3de102f942fa943f4050b29251b3c36abb514c20e411bf6"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "ee3de59f566c8af7103945ebdb8644504ded3b3d9dfeb98344e8f5c64d190fa3",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "csv3_stagger",
+          "requested_mode": 3,
+          "saved_mode": 3,
+          "native_input_changes": {},
+          "csv_enabled": true,
+          "main_ball_count": 3,
+          "center_ball_count": 0,
+          "total_ball_count": 3,
+          "via_count": 13,
+          "via_side_mm": 0.4076643857082687,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.524,
+          "sha256": {
+            "xml": "0c61ad548f0cf63d2ba3d3720cca2228757024958e6e80f433bca0516401feeb",
+            "des": "ee85121d9d844b0252a1b61dfcde3c43427f66620ac1791eb55f63f8d56e47e3"
+          },
+          "input_sha256": "d81a8f669cc19adc66f5ccbbf48fe7c84c4b1c9101bb9bb7347ed5e392c58c4c",
+          "reload_sha256": {
+            "xml": "0c61ad548f0cf63d2ba3d3720cca2228757024958e6e80f433bca0516401feeb",
+            "des": "a65e2011e0d42233c8cdc8a4d82d772ee33f1ab6ba5189f5fbfffe6e4b2e04ff"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "f6e4d7cbd0f9d8992b8ee4325b5ad9f5abd115fbd0d2904f7dc5b3a1c91e18b1",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "csv3_depop",
+          "requested_mode": 3,
+          "saved_mode": 3,
+          "native_input_changes": {},
+          "csv_enabled": true,
+          "main_ball_count": 3,
+          "center_ball_count": 0,
+          "total_ball_count": 3,
+          "via_count": 16,
+          "via_side_mm": 0.4076643857082687,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.524,
+          "sha256": {
+            "xml": "6a08e4eedc3d6d5d10a0a5ae770fddeed14d7ccb88afcc71ae6acdda138b5011",
+            "des": "a72de0b100501131f4a6434770b3c9e0018868b8be03a0611d8cee72ec36adef"
+          },
+          "input_sha256": "0c0c05c036a38e0abfb1546d1d8f469c0831b2a00607fe8b21890305ebc07673",
+          "reload_sha256": {
+            "xml": "6a08e4eedc3d6d5d10a0a5ae770fddeed14d7ccb88afcc71ae6acdda138b5011",
+            "des": "cd2523c28bfacf82441fc4c6cebab46f58272f1686b0a05873ad0d32bfb924dd"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "260cedd2a242631632fd7e5c9645234598e4d67688bd41ee15734b1b620ed959",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "csv3_explicit1",
+          "requested_mode": 3,
+          "saved_mode": 3,
+          "native_input_changes": {},
+          "csv_enabled": true,
+          "main_ball_count": 3,
+          "center_ball_count": 0,
+          "total_ball_count": 3,
+          "via_count": 1,
+          "via_side_mm": 0.4076643857082687,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.524,
+          "sha256": {
+            "xml": "a15dc14655561f98290c0ad0b21f749814ce794b4becd2beba078046f4749390",
+            "des": "d043f029815c792f4cd35b069372e3b82c043e751089dab1680c0481fea264b5"
+          },
+          "input_sha256": "49bde294311509d9cae46ccefb298fd520f93b20ee02defeaca469809b1e943c",
+          "reload_sha256": {
+            "xml": "a15dc14655561f98290c0ad0b21f749814ce794b4becd2beba078046f4749390",
+            "des": "bfed71e8dc3af36e3becae2edcab12b0e74f4edb7f55f8927f4da72658431181"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "0da47c08443f0ebf346b13cadcf591997e6206d3952509b22df97df1eb888cbf",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "csv3_all",
+          "requested_mode": 3,
+          "saved_mode": 3,
+          "native_input_changes": {},
+          "csv_enabled": true,
+          "main_ball_count": 3,
+          "center_ball_count": 0,
+          "total_ball_count": 3,
+          "via_count": 1,
+          "via_side_mm": 0.4076643857082687,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.524,
+          "sha256": {
+            "xml": "a15dc14655561f98290c0ad0b21f749814ce794b4becd2beba078046f4749390",
+            "des": "cb4505c7815ae048c7f9a85c55bd2d92057b8a51d2a85b0c03fda520c039c457"
+          },
+          "input_sha256": "7cf1c88bfa764ba187c097c8da2147df5d579f8512cab8378f5f02dd2447c657",
+          "reload_sha256": {
+            "xml": "a15dc14655561f98290c0ad0b21f749814ce794b4becd2beba078046f4749390",
+            "des": "4d8ddab23ec7314610e2a74672e1fc62de82911e41c096f15777c4b6e36887de"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "0da47c08443f0ebf346b13cadcf591997e6206d3952509b22df97df1eb888cbf",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "csv_empty",
+          "requested_mode": 3,
+          "saved_mode": 3,
+          "native_input_changes": {},
+          "csv_enabled": true,
+          "main_ball_count": 0,
+          "center_ball_count": 0,
+          "total_ball_count": 0,
+          "via_count": 25,
+          "via_side_mm": 0.4076643857082687,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.524,
+          "sha256": {
+            "xml": "7eb1648d3afb021cc4be5f3931136bef369d5ffd621ee1949226b1bb9c5cea23",
+            "des": "457ec516d0fa94ba6297299cbc547ff90c2a3810a157472de7188442c92e0c36"
+          },
+          "input_sha256": "7c6f696eff29bf02511ed29f85ae7552f97f923e7fa918bb9af43338de2a8d51",
+          "reload_sha256": {
+            "xml": "7eb1648d3afb021cc4be5f3931136bef369d5ffd621ee1949226b1bb9c5cea23",
+            "des": "c37dba0969a28e6f20cb236230cdd076482d87fc6b4b859e3d07584d47576948"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "ee3de59f566c8af7103945ebdb8644504ded3b3d9dfeb98344e8f5c64d190fa3",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "csv_disabled",
+          "requested_mode": 3,
+          "saved_mode": 3,
+          "native_input_changes": {},
+          "csv_enabled": false,
+          "main_ball_count": 25,
+          "center_ball_count": 0,
+          "total_ball_count": 25,
+          "via_count": 25,
+          "via_side_mm": 0.4076643857082687,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.524,
+          "sha256": {
+            "xml": "4a5d94ea676f00997e1ae3693187708663af8375b93c60b619fe9c02c251272c",
+            "des": "46b4a8ebc58cd9f0c4cb27fe446689520312c4f566ee1a61221b0194394e8ea5"
+          },
+          "input_sha256": "1ec22a85b5ec969ba6886233f2387e439bcf05822bbc795b9c814dec9b53aa40",
+          "reload_sha256": {
+            "xml": "4a5d94ea676f00997e1ae3693187708663af8375b93c60b619fe9c02c251272c",
+            "des": "941fa09d511671bf0e295c9e675ba70552ecb831e6e12351947a7ab05bb91fac"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "ee3de59f566c8af7103945ebdb8644504ded3b3d9dfeb98344e8f5c64d190fa3",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "csv_duplicates",
+          "requested_mode": 3,
+          "saved_mode": 3,
+          "native_input_changes": {},
+          "csv_enabled": true,
+          "main_ball_count": 2,
+          "center_ball_count": 0,
+          "total_ball_count": 2,
+          "via_count": 25,
+          "via_side_mm": 0.4076643857082687,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.524,
+          "sha256": {
+            "xml": "96310e18ca0aeeaf9d42e17af5474292222c9c1e088bf90765834f04283de3ea",
+            "des": "af72db23bf8dd4676eb65fee30c18ac2bb87c0039511386d23ecc73ac5fafb57"
+          },
+          "input_sha256": "e94fb112ff0fe355b378816472a82ced527508cbd12e7414720b7e621cc00896",
+          "reload_sha256": {
+            "xml": "96310e18ca0aeeaf9d42e17af5474292222c9c1e088bf90765834f04283de3ea",
+            "des": "cece0d344cdb7cb10aeaaa2585dd503e69901298fed1362610ca3ead6f29b36b"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "ee3de59f566c8af7103945ebdb8644504ded3b3d9dfeb98344e8f5c64d190fa3",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "csv_translated",
+          "requested_mode": 3,
+          "saved_mode": 3,
+          "native_input_changes": {},
+          "csv_enabled": true,
+          "main_ball_count": 3,
+          "center_ball_count": 0,
+          "total_ball_count": 3,
+          "via_count": 25,
+          "via_side_mm": 0.4076643857082687,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.524,
+          "sha256": {
+            "xml": "2d849ee7d28b29b2ad65d7a9840acbb8a743d96f285cbb6659e29208f16ab672",
+            "des": "6100a716502fb07acd7a9e61f36104ffcaa319dcdf01370abc8d020d515e8ab6"
+          },
+          "input_sha256": "882b289ee0838037c755671fe74da7390074b3a85001c99f9edf7fea2ea4d312",
+          "reload_sha256": {
+            "xml": "2d849ee7d28b29b2ad65d7a9840acbb8a743d96f285cbb6659e29208f16ab672",
+            "des": "938bfa82290ef0ed144a5a6e94289ce568e9f3334b6c98b711dc10ecb2e9c435"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "ee3de59f566c8af7103945ebdb8644504ded3b3d9dfeb98344e8f5c64d190fa3",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "diameter04",
+          "requested_mode": 3,
+          "saved_mode": 3,
+          "native_input_changes": {},
+          "csv_enabled": false,
+          "main_ball_count": 25,
+          "center_ball_count": 0,
+          "total_ball_count": 25,
+          "via_count": 25,
+          "via_side_mm": 0.3544907701811032,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.524,
+          "sha256": {
+            "xml": "eda4688007b16f6df55e58de030b7fade729560956274633efaa285bced501bf",
+            "des": "fc37ea1c230176d82a45963c39cc866914e18264955510a68a52e434bc81c729"
+          },
+          "input_sha256": "8594b394895a5ffc0d7434bc27f199e725d59c7d0b2cd4791bf7eefe4b73e652",
+          "reload_sha256": {
+            "xml": "eda4688007b16f6df55e58de030b7fade729560956274633efaa285bced501bf",
+            "des": "ad672bcc4c709a002d8cd4c065ab61aeceaee68534ee07573733c187f005f045"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "ee3de59f566c8af7103945ebdb8644504ded3b3d9dfeb98344e8f5c64d190fa3",
+          "via_material": [
+            42.26304531249999,
+            42.26304531249999,
+            42.26304531249999,
+            2401.8820718749994,
+            703.0429194052479
+          ]
+        },
+        {
+          "id": "pitch065",
+          "requested_mode": 3,
+          "saved_mode": 3,
+          "native_input_changes": {},
+          "csv_enabled": false,
+          "main_ball_count": 25,
+          "center_ball_count": 0,
+          "total_ball_count": 25,
+          "via_count": 25,
+          "via_side_mm": 0.4076643857082687,
+          "via_zmin_mm": 0.41800000000000004,
+          "via_height_mm": 0.524,
+          "sha256": {
+            "xml": "32ecc7cd0f017b6280542b46a00440f911e3e2738b3f9b96806876aed10df22b",
+            "des": "42734b7c4cb997dcb9945091d690931aa2be091332c01020840a1066beee092a"
+          },
+          "input_sha256": "dbffbf8bf308cf092cbd042ec4095ac0003dd388ce93098545899b2d98cbeb08",
+          "reload_sha256": {
+            "xml": "32ecc7cd0f017b6280542b46a00440f911e3e2738b3f9b96806876aed10df22b",
+            "des": "89823b339b84669560dc95e814f2747dbd5219ff0744636e47c5c98ca761d0fc"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "ee3de59f566c8af7103945ebdb8644504ded3b3d9dfeb98344e8f5c64d190fa3",
+          "via_material": "same_as_full55"
+        },
+        {
+          "id": "height05",
+          "requested_mode": 3,
+          "saved_mode": 3,
+          "native_input_changes": {},
+          "csv_enabled": false,
+          "main_ball_count": 25,
+          "center_ball_count": 0,
+          "total_ball_count": 25,
+          "via_count": 25,
+          "via_side_mm": 0.4076643857082687,
+          "via_zmin_mm": 0.518,
+          "via_height_mm": 0.524,
+          "sha256": {
+            "xml": "777519ccfe98fe126c7be3e8f554ce72d69899d72161f621a48daa74900b374f",
+            "des": "ea8502814eec7f13129c6157b308c40af0a11665d00ff1c7368b907cb7370a25"
+          },
+          "input_sha256": "c34c9bfef1c8275fa0643c5a627f7d5b93ec5ad0b368ecd3cafa0387cb3646a0",
+          "reload_sha256": {
+            "xml": "777519ccfe98fe126c7be3e8f554ce72d69899d72161f621a48daa74900b374f",
+            "des": "e373ce2c54fe63832a1c47eba77ae2b0d7249fa3045b54a887361f6bd0406e26"
+          },
+          "max_reload_numeric_difference": 0.0,
+          "via_grid_sha256": "ee3de59f566c8af7103945ebdb8644504ded3b3d9dfeb98344e8f5c64d190fa3",
+          "via_material": "same_as_full55"
+        }
+      ]
+    }
+  }
+}
