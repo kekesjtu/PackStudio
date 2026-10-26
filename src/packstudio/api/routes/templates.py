@@ -75,6 +75,6 @@ def export_library_model_to_floxml(template_id: str, request: TemplateRequest) -
         media_type="application/xml",
         headers={
             "Content-Disposition": f'attachment; filename="{template_id}.floxml"',
-            "X-PackStudio-Export-Warnings": "face-boundaries-and-mesh-controls-not-applied",
+            "X-PackStudio-Export-Warnings": "face-boundaries-not-applied",
         },
     )

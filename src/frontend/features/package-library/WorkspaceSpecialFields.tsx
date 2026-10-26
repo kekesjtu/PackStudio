@@ -52,26 +52,6 @@ export function ModelingFields({ request, onChange }: SpecialFieldsProps) {
           </TextField>
         </FieldShell>
       )}
-      <FieldShell label="最大网格尺寸预设">
-        <TextField
-          select
-          size="small"
-          value={request.mesh.resolution}
-          slotProps={{ select: { SelectDisplayProps: { 'aria-label': '最大网格尺寸预设' } } }}
-          onChange={(event) =>
-            onChange({
-              ...request,
-              mesh: {
-                resolution: event.target.value as TemplateRequest['mesh']['resolution'],
-              },
-            })
-          }
-        >
-          <MenuItem value="coarse">粗</MenuItem>
-          <MenuItem value="standard">标准</MenuItem>
-          <MenuItem value="fine">细</MenuItem>
-        </TextField>
-      </FieldShell>
     </Stack>
   )
 }

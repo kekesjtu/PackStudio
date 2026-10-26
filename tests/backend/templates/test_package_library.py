@@ -116,7 +116,6 @@ def test_every_native_baseline_is_valid_and_non_overlapping(template_id: str) ->
     assert model.metadata["implementation"] == "packstudio-native"
     assert model.metadata["template_version"] == "2.2"
     assert model.metadata["runtime_reference_data_required"] is False
-    assert model.metadata["mesh_data_included"] is False
     expected_power = 2 if template_id == "bare_die" else 0
     assert sum(source.power_w for source in model.heat_sources) == pytest.approx(expected_power)
     assert model.boundaries == []

@@ -6,7 +6,6 @@ from packstudio.templates.package_library.core.array_parameters import (
     ArrayRepresentation,
     CellIndex,
 )
-from packstudio.templates.package_library.core.mesh import MeshParameters
 from packstudio.templates.package_library.core.via_configuration import ViaConfiguration
 
 type TemplateValue = str | int | float | bool | None
@@ -51,4 +50,3 @@ class TemplateRequest(BaseModel):
     material_assignments: dict[str, str] = Field(default_factory=dict)
     custom_materials: list[Material] = Field(default_factory=list)
     die_power_w: float | None = Field(default=None, ge=0)
-    mesh: MeshParameters = Field(default_factory=MeshParameters)

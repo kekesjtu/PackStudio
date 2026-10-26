@@ -58,12 +58,14 @@ export default function WorkspaceNavigation({
             )}
           </Fragment>
         ))}
-        <NavigationItem
-          id="packstudio_modeling"
-          label="建模选项"
-          activeStep={activeStep}
-          onSelect={onSelect}
-        />
+        {schema.has_bga && (
+          <NavigationItem
+            id="packstudio_modeling"
+            label="建模选项"
+            activeStep={activeStep}
+            onSelect={onSelect}
+          />
+        )}
       </List>
     </Paper>
   )

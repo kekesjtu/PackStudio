@@ -72,8 +72,6 @@ def generate_template(
             "outline_type": "standard_outline",
             "die_type": "actual_type",
             **({} if footprint is None else {"footprint_size": footprint}),
-            "mesh_resolution": request.mesh.resolution.value,
-            "mesh_data_included": False,
             "solver_results_included": False,
             **built.metadata,
             **({} if preset is None else preset.metadata),

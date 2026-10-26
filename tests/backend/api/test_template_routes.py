@@ -77,6 +77,7 @@ def test_every_native_export_is_downloadable_and_solver_payload_free(
     template_id: str,
 ) -> None:
     defaults = client.get(f"/api/templates/{template_id}/defaults").json()
+    assert "mesh" not in defaults
 
     response = client.post(
         f"/api/templates/{template_id}/export/floxml",
@@ -89,6 +90,17 @@ def test_every_native_export_is_downloadable_and_solver_payload_free(
     assert etree.QName(root).localname == "xml_case"
     assert "Results" not in names
     assert "Mesh" not in names
+    assert b"mesh_resolution" not in response.content
+    assert b"mesh_data_included" not in response.content
+
+
+def test_removed_mesh_configuration_is_rejected() -> None:
+    defaults = client.get("/api/templates/bare_die/defaults").json()
+    defaults["mesh"] = {"resolution": "fine"}
+    for operation in ("generate", "export/floxml"):
+        response = client.post(f"/api/templates/bare_die/{operation}", json=defaults)
+        assert response.status_code == 422
+        assert any(error["loc"] == ["body", "mesh"] for error in response.json()["detail"])
 
 
 def test_removed_alias_routes_and_old_template_ids_are_not_supported() -> None:

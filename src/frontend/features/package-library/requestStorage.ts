@@ -50,7 +50,6 @@ export function restoreTemplateRequest(
         ),
       ),
       custom_materials: stored.custom_materials ?? [],
-      mesh: { ...defaults.mesh, ...stored.mesh },
     }
     return pruneViaConfiguration(pruneInactiveMaterials(pruneInactiveOverrides(restored, fields), fields), fields)
   } catch {

@@ -18,7 +18,6 @@ export const selection: WizardField = {
 export const request: TemplateRequest = {
   template_id: 'sample', design_name: '示例', overrides: {}, bga: null,
   material_assignments: {}, custom_materials: [], die_power_w: null,
-  mesh: { resolution: 'standard' },
 }
 export const schema: TemplateSchema = {
   template_id: 'sample', schema_version: 'packstudio.wizard/v2', has_bga: false,

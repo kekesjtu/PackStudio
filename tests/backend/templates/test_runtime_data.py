@@ -38,14 +38,14 @@ def test_runtime_data_is_loaded_from_the_active_installation(
     directory.mkdir(parents=True)
     (directory / "request.json").write_text(
         json.dumps(
-            {"schema_version": "packstudio.request-defaults/v1", "mesh": {"resolution": "fine"}}
+            {"schema_version": "packstudio.request-defaults/v1", "bga": {"removal_rows": 2}}
         ),
         encoding="utf-8",
     )
     library._read.cache_clear()
     try:
         assert library.library_directory() == directory
-        assert library.request_default("mesh", "resolution") == "fine"
+        assert library.request_default("bga", "removal_rows") == 2
     finally:
         library._read.cache_clear()
 
@@ -114,11 +114,11 @@ def test_material_and_request_defaults_come_from_json(isolated_library: Path) ->
         lambda payload: payload["conductivity"].update(value=123),
     )
     edit_json(
-        isolated_library / "request.json", lambda data: data["mesh"].update(resolution="fine")
+        isolated_library / "request.json", lambda data: data["vias"].update(removal_rows=2)
     )
     model = generate(default_request("bare_die"))
     assert model.materials[0].conductivity.x == 123
-    assert model.metadata["mesh_resolution"] == "fine"
+    assert default_request("qfn").vias.removal_rows == 2
 
 
 @pytest.mark.parametrize("failure", ["missing", "version", "nonfinite"])

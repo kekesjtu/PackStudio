@@ -22,7 +22,7 @@ const fields = [field('vias.rows', 3), field('vias.columns', 4), field('vias.ena
 const request: TemplateRequest = {
   template_id: 'qfn', design_name: null, bga: null, overrides: {},
   material_assignments: {}, custom_materials: [], die_power_w: null,
-  mesh: { resolution: 'standard' }, vias: value,
+  vias: value,
 }
 const schema: TemplateSchema = {
   schema_version: 'packstudio.wizard/v2', template_id: 'qfn', has_bga: false,

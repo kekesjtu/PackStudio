@@ -151,7 +151,6 @@ const defaults: TemplateRequest = {
   material_assignments: {},
   custom_materials: [],
   die_power_w: null,
-  mesh: { resolution: 'standard' },
 }
 
 const generatedModel: PackageModel = {
@@ -233,6 +232,9 @@ describe('eight-template production workspace', () => {
     expect(screen.getByText('Package substrate')).toBeInTheDocument()
     expect(screen.queryByRole('button', { name: '组件层级' })).not.toBeInTheDocument()
     expect(screen.queryByRole('button', { name: 'Layer 层级' })).not.toBeInTheDocument()
+    fireEvent.click(screen.getByRole('button', { name: '建模选项' }))
+    expect(screen.getByRole('combobox', { name: 'BGA 焊球阵列建模' })).toBeInTheDocument()
+    expect(screen.queryByLabelText('最大网格尺寸预设')).not.toBeInTheDocument()
     fireEvent.click(screen.getByRole('button', { name: '折叠 Flip Chip CBGA' }))
     expect(screen.queryByText('Package substrate')).not.toBeInTheDocument()
     fireEvent.click(screen.getByRole('button', { name: '展开 Flip Chip CBGA' }))

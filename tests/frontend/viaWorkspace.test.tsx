@@ -40,6 +40,7 @@ beforeEach(() => {
 it('passes via enablement and matrix edits through workspace generation and saving', async () => {
   render(<PackageWorkspace templateId="qfn" />)
   await screen.findByText('1 个块')
+  expect(screen.queryByRole('button', { name: '建模选项' })).not.toBeInTheDocument()
   fireEvent.click(screen.getByRole('button', { name: '热通孔' }))
   fireEvent.click(screen.getByRole('switch', { name: '启用热通孔' }))
   fireEvent.click(screen.getByRole('button', { name: '热通孔去除' }))

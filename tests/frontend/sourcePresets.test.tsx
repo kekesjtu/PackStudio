@@ -29,7 +29,7 @@ const request: TemplateRequest = {
   template_id: 'sample', design_name: 'sample',
   overrides: { 'sample.die.length': 1.5, 'sample.cover.type': 'lid_cap' },
   bga: { ...basePattern, representation: 'discrete' }, material_assignments: {},
-  custom_materials: [], die_power_w: 2, mesh: { resolution: 'standard' },
+  custom_materials: [], die_power_w: 2,
 }
 
 describe('source presets', () => {

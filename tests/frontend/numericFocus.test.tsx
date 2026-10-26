@@ -16,7 +16,6 @@ const request: TemplateRequest = {
   material_assignments: {},
   custom_materials: [],
   die_power_w: null,
-  mesh: { resolution: 'standard' },
 }
 
 const numericField: WizardField = {

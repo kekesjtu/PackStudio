@@ -93,7 +93,7 @@ def export_floxml(model: PackageModel) -> bytes:
                 "exporter": "PackStudio",
                 "profile": "FloXML / FloTHERM 2504",
                 "units": "m, W, kg/m3, J/(kg*K), W/(m*K)",
-                "limitations": "Face boundaries and mesh controls require target-software setup.",
+                "limitations": "Face boundaries require target-software setup.",
                 "boundaries": [item.model_dump(mode="json") for item in model.boundaries],
                 "metadata": model.metadata,
             },

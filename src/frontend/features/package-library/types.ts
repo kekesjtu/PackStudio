@@ -7,10 +7,6 @@ export interface CellIndex {
   column: number
 }
 
-export interface MeshParameters {
-  resolution: 'coarse' | 'standard' | 'fine'
-}
-
 export interface TemplateCatalogItem {
   id: string
   display_name: string
@@ -88,7 +84,6 @@ export interface TemplateRequest {
   material_assignments: Record<string, string>
   custom_materials: Material[]
   die_power_w: number | null
-  mesh: MeshParameters
 }
 
 export interface ViaConfiguration {
