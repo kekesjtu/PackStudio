@@ -6,9 +6,8 @@ from pathlib import Path
 import pytest
 from fastapi.testclient import TestClient
 
-import packstudio.default_parameters as library
+import packstudio.runtime_data as library
 from packstudio.api.app import create_app
-from packstudio.preset_catalog import PresetCatalog
 from packstudio.templates.package_library.catalog import (
     default_request,
     definitions,
@@ -18,29 +17,42 @@ from packstudio.templates.package_library.catalog import (
 from packstudio.templates.package_library.core.materials import production_materials
 from tools.pack_reference.des import source_record
 
-ROOT = Path(__file__).resolve().parents[3]
 
-
-def test_all_342_records_are_lossless_and_checksummed() -> None:
-    snapshot = json.loads(
-        (ROOT / "flotherm_pack_data/installation/presets.json").read_text(encoding="utf-8")
+@pytest.mark.parametrize("layout", ["source", "wheel", "frozen"])
+def test_runtime_data_is_loaded_from_the_active_installation(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch, layout: str
+) -> None:
+    checkout = tmp_path / "checkout"
+    prefix = tmp_path / "installed"
+    extracted = tmp_path / "extracted"
+    monkeypatch.setattr(library, "__file__", str(checkout / "src/packstudio/runtime_data.py"))
+    original_get_path = library.sysconfig.get_path
+    monkeypatch.setattr(
+        library.sysconfig,
+        "get_path",
+        lambda key: str(prefix) if key == "data" else original_get_path(key),
     )
-    original = {item["path"]: item for item in snapshot["records"]}
-    catalog = PresetCatalog()
-    paths = []
-    for identifier in catalog.list_ids():
-        record = catalog.read(identifier)
-        paths.append(record["source"]["path"])
-        source = original[record["source"]["path"]]
-        assert record["source"]["des_fields"] == source["fields"]
-        assert record["source"]["sha256"] == source["sha256"]
-    assert len(paths) == len(set(paths)) == 342
-    assert set(paths) == set(original)
+    monkeypatch.setattr(library.sys, "frozen", layout == "frozen", raising=False)
+    monkeypatch.setattr(library.sys, "_MEIPASS", str(extracted), raising=False)
+    directory = {"source": checkout, "wheel": prefix, "frozen": extracted}[layout] / "runtime_data"
+    directory.mkdir(parents=True)
+    (directory / "request.json").write_text(
+        json.dumps(
+            {"schema_version": "packstudio.request-defaults/v1", "mesh": {"resolution": "fine"}}
+        ),
+        encoding="utf-8",
+    )
+    library._read.cache_clear()
+    try:
+        assert library.library_directory() == directory
+        assert library.request_default("mesh", "resolution") == "fine"
+    finally:
+        library._read.cache_clear()
 
 
 @pytest.fixture
 def isolated_library(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> Path:
-    copied = tmp_path / "default_parameters"
+    copied = tmp_path / "runtime_data"
     shutil.copytree(library.library_directory(), copied)
     monkeypatch.setattr(library, "library_directory", lambda: copied)
     library._read.cache_clear()

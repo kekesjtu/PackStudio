@@ -2,18 +2,18 @@
 
 import hashlib
 import json
+import os
 from collections import Counter
 from pathlib import Path
 
 import pytest
 
 from packstudio.catalog_storage import read_catalog_entry
-from packstudio.default_parameters import library_directory
 from packstudio.material_catalog import MaterialCatalog
 from packstudio.preset_catalog import PresetCatalog
+from packstudio.runtime_data import library_directory
 from tools.pack_reference.catalog import material_names
-
-ROOT = Path(__file__).resolve().parents[2]
+from tools.pack_reference.des import source_record
 
 
 def walk_properties(branch: dict):
@@ -26,21 +26,21 @@ def walk_properties(branch: dict):
 def test_all_presets_are_individual_complete_offline_documents():
     catalog = PresetCatalog()
     ids = catalog.list_ids()
-    original = json.loads(
-        (ROOT / "flotherm_pack_data/installation/presets.json").read_text(encoding="utf-8")
-    )
-    sources = {p["path"]: p for p in original["records"]}
     assert len(ids) == 342
     counts = Counter()
     branches = 0
+    source_paths = set()
     for preset_id in ids:
         record = catalog.read(preset_id)
         counts[record["family"]] += 1
         assert record["default_branch"] == "default"
         assert set(record["material_references"]) == material_names(record["branches"])
-        source = sources[record["source"]["path"]]
-        assert record["source"]["des_fields"] == source["fields"]
-        assert record["source"]["sha256"] == source["sha256"]
+        source = record["source"]
+        assert source["path"] == f"flocentral/flopack/{record['family']}/{preset_id}.des"
+        source_paths.add(source["path"])
+        assert len(source["sha256"]) == 64
+        assert source["des_fields"]
+        assert all(isinstance(value, str) for value in source["des_fields"].values())
         expected = (
             {"default", "four_layer"}
             if record["family"]
@@ -79,6 +79,7 @@ def test_all_presets_are_individual_complete_offline_documents():
                             )
                         )
     assert branches == 416
+    assert len(source_paths) == 342
     assert counts == {
         "chip_array": 38,
         "cbga_fc": 49,
@@ -88,6 +89,19 @@ def test_all_presets_are_individual_complete_offline_documents():
         "tsop_conv": 67,
         "pbga_wb": 36,
     }
+
+
+def test_source_provenance_matches_installed_des_files():
+    installation = os.environ.get("PACK_NATIVE_INSTALLATION")
+    if not installation:
+        pytest.skip("set PACK_NATIVE_INSTALLATION to compare the original DES files")
+    root = Path(installation)
+    catalog = PresetCatalog()
+    for preset_id in catalog.list_ids():
+        source = catalog.read(preset_id)["source"]
+        original = source_record(root / source["path"], root)
+        assert source["des_fields"] == original["raw_fields"], preset_id
+        assert source["sha256"] == original["source_sha256"], preset_id
 
 
 def test_all_materials_are_named_classified_and_resolvable():

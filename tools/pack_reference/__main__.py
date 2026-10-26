@@ -13,7 +13,7 @@ from tools.pack_reference.native_details import DetailedNativePack
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("installation", type=Path)
-    parser.add_argument("--output", type=Path, default=Path("default_parameters"))
+    parser.add_argument("--output", type=Path, default=Path("runtime_data"))
     arguments = parser.parse_args()
     native = DetailedNativePack(arguments.installation)
     root = native.installation / "flocentral/flopack"

@@ -2,8 +2,8 @@
 
 import re
 
-from packstudio.default_parameters import read_defaults
 from packstudio.preset_catalog import PresetCatalog
+from packstudio.runtime_data import read_defaults
 from packstudio.templates.package_library.core.materials import material_id_for_name
 from packstudio.templates.package_library.core.native_pattern import native_bga_pattern
 from packstudio.templates.package_library.core.source_ball_pattern import source_ball_count

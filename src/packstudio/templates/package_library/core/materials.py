@@ -2,9 +2,9 @@ from collections.abc import Sequence
 from functools import lru_cache
 from pathlib import Path
 
-from packstudio.default_parameters import read_defaults
 from packstudio.domain.materials import ConductivityTensor, Material
 from packstudio.material_catalog import MaterialCatalog
+from packstudio.runtime_data import read_defaults
 
 
 @lru_cache(maxsize=1)

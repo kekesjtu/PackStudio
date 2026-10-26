@@ -125,7 +125,7 @@ def test_every_native_baseline_is_valid_and_non_overlapping(template_id: str) ->
 def test_generation_and_export_do_not_read_reference_files(
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:
-    from packstudio.default_parameters import library_directory
+    from packstudio.runtime_data import library_directory
 
     original_read = Path.read_text
 
@@ -152,7 +152,7 @@ def test_production_sources_do_not_contain_reference_repository_access() -> None
     for path in package_root.rglob("*.py"):
         source = path.read_text(encoding="utf-8")
         assert all(token not in source for token in forbidden), path
-        if path.name != "default_parameters.py":
+        if path.name != "runtime_data.py":
             assert ".read_text(" not in source, path
 
 

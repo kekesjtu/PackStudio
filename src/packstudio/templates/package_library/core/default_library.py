@@ -4,7 +4,7 @@ from dataclasses import replace
 
 from pydantic import TypeAdapter
 
-from packstudio.default_parameters import read_defaults
+from packstudio.runtime_data import read_defaults
 from packstudio.templates.package_library.core.definitions import (
     FieldDefinition,
     MaterialSelectionDefinition,

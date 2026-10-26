@@ -23,7 +23,7 @@ export default defineConfig({
       // Python environments, packaged apps and research data are not frontend inputs.
       ignored: [
         '.venv', '.pytest_cache', '.ruff_cache', 'release', 'build', 'tmp', 'temp',
-        'flotherm_pack_data', 'default_parameters', 'docs', 'figures', 'output_format',
+        'flotherm_pack_data', 'runtime_data', 'docs', 'figures', 'output_format',
         'src/packstudio', '**/__pycache__',
       ].map(directory => `${projectRoot}${directory}/**`),
     },

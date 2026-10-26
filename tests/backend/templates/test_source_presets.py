@@ -4,8 +4,8 @@ from pathlib import Path
 
 import pytest
 
-from packstudio.default_parameters import library_directory
 from packstudio.domain.enums import StructureType
+from packstudio.runtime_data import library_directory
 from packstudio.templates.package_library.catalog import generate, schema
 from packstudio.templates.package_library.core.parameters import BgaConfiguration, TemplateRequest
 from packstudio.templates.package_library.core.source_ball_pattern import source_bga_pattern

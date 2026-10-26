@@ -1,4 +1,4 @@
-"""Build the desktop backend with its portable JSON default library."""
+"""Build the desktop backend with its portable JSON runtime data."""
 
 import os
 from pathlib import Path
@@ -19,7 +19,7 @@ def main() -> None:
             "--paths",
             str(root / "src"),
             "--add-data",
-            f"{root / 'default_parameters'}{os.pathsep}default_parameters",
+            f"{root / 'runtime_data'}{os.pathsep}runtime_data",
             "--exclude-module",
             "uvloop",
             "--specpath",

@@ -4,7 +4,7 @@ from enum import StrEnum
 
 from pydantic import BaseModel, ConfigDict, Field
 
-from packstudio.default_parameters import request_default
+from packstudio.runtime_data import request_default
 
 
 class MeshResolution(StrEnum):

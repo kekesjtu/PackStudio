@@ -40,7 +40,7 @@ npm run desktop
 | `src/frontend/` | React / TypeScript 参数向导与三维界面 |
 | `src/packstudio/` | Python API、领域模型、封装生成器和 FloXML 导出器 |
 | `src/webview2/` | WPF / WebView2 独立窗口 |
-| `default_parameters/` | 运行时模板、原生预设与材料库 |
+| `runtime_data/` | 运行时模板、原生预设与材料库 |
 | `output_format/floxml/` | FloXML 契约、XSD 和示例 |
 | `tests/` | 后端、前端、启动和桌面验证 |
 | `tools/` | 开发、打包、通用原生导出与回归辅助工具 |
@@ -52,7 +52,7 @@ npm run desktop
 ## 文档与验证
 
 [文档入口](docs/README.md) · [开发说明](docs/development.md) ·
-[技术栈](docs/tech_stack.md) · [参数库](default_parameters/README.md) ·
+[技术栈](docs/tech_stack.md) · [参数库](runtime_data/README.md) ·
 [FloXML 契约](output_format/floxml/README.md) · [本机 FloSCRIPT 操作](FLOSCRIPT.md)
 
 ```powershell

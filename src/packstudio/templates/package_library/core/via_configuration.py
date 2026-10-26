@@ -2,7 +2,7 @@
 
 from pydantic import BaseModel, ConfigDict, Field
 
-from packstudio.default_parameters import request_default
+from packstudio.runtime_data import request_default
 from packstudio.templates.package_library.core.array_parameters import CellIndex
 
 

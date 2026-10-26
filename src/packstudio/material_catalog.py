@@ -1,7 +1,7 @@
 """Resolve native PACK material names from the independent JSON material library."""
 
 from packstudio.catalog_storage import read_catalog_entry
-from packstudio.default_parameters import read_default_keys, read_default_value, read_defaults
+from packstudio.runtime_data import read_default_keys, read_default_value, read_defaults
 
 
 class MaterialCatalog:

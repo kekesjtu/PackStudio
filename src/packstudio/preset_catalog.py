@@ -1,8 +1,8 @@
 """Read complete per-preset parameter records without the Flotherm installation."""
 
 from packstudio.catalog_storage import read_catalog_entry
-from packstudio.default_parameters import read_default_value, read_defaults
 from packstudio.material_catalog import MaterialCatalog
+from packstudio.runtime_data import read_default_value, read_defaults
 
 
 class PresetCatalog:

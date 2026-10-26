@@ -1,4 +1,4 @@
-# 默认参数、预设与材料库
+# 运行数据、预设与材料库
 
 生产运行从本目录读取 JSON，不依赖 PACK 安装、DLL 或原始导出文件。
 
@@ -43,3 +43,13 @@ uv run --locked python -m tools.validate_catalog_presets
 
 [预设审计](../docs/validation/catalog_presets.json)记录来源、输入哈希、生成检查与 FloXML 校验。
 审计数据不进入运行包，不替代原生模型的逐项对照验证。
+
+离线回归直接检查本目录中的 342 个预设、416 个分支、材料引用和索引哈希。
+原始 DES 字段与来源哈希的独立比对可设置 `PACK_NATIVE_INSTALLATION` 后运行：
+
+```powershell
+$env:PACK_NATIVE_INSTALLATION = 'E:\Program Files\Siemens\SimcenterFlotherm\2504'
+uv run --locked pytest tests/backend/test_preset_catalog.py::test_source_provenance_matches_installed_des_files
+```
+
+该检查直接读取安装目录中的原始 DES，不依赖已迁移前的汇总快照。

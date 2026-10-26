@@ -168,7 +168,7 @@ try {
                 "run", "--locked", "--no-sync",
                 "python", "-m", "uvicorn", "packstudio.api.app:app",
                 "--app-dir", "src", "--host", "127.0.0.1", "--port", "$BackendPort", "--reload",
-                "--reload-dir", "src/packstudio", "--reload-dir", "default_parameters",
+                "--reload-dir", "src/packstudio", "--reload-dir", "runtime_data",
                 "--reload-include=*.json"
             ) `
             -WorkingDirectory $projectRoot `

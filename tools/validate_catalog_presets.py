@@ -6,9 +6,9 @@ from pathlib import Path
 
 from lxml import etree
 
-from packstudio.default_parameters import library_directory
 from packstudio.domain.enums import StructureType
 from packstudio.exporters.floxml import export_floxml
+from packstudio.runtime_data import library_directory
 from packstudio.templates.package_library.catalog import default_request, definitions, generate
 from packstudio.templates.package_library.core.default_library import template_defaults
 from packstudio.templates.package_library.core.native_presets import expand_native_presets

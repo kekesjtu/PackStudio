@@ -1,4 +1,4 @@
-"""Read the versioned default library in source, wheel and frozen installations."""
+"""Read versioned runtime data in source, wheel and frozen installations."""
 
 import json
 import sys
@@ -11,11 +11,11 @@ from typing import Any
 
 def library_directory() -> Path:
     if getattr(sys, "frozen", False):
-        return Path(sys._MEIPASS) / "default_parameters"
-    source_directory = Path(__file__).resolve().parents[2] / "default_parameters"
+        return Path(sys._MEIPASS) / "runtime_data"
+    source_directory = Path(__file__).resolve().parents[2] / "runtime_data"
     if source_directory.is_dir():
         return source_directory
-    return Path(sysconfig.get_path("data")) / "default_parameters"
+    return Path(sysconfig.get_path("data")) / "runtime_data"
 
 
 @cache
@@ -23,13 +23,13 @@ def _read(relative: str, schema_version: str) -> dict[str, Any]:
     directory = library_directory().resolve()
     path = (directory / relative).resolve()
     if not path.is_relative_to(directory):
-        raise ValueError("default parameter path must stay within the library")
+        raise ValueError("runtime data path must stay within the library")
     try:
         payload = json.loads(path.read_text(encoding="utf-8"))
     except (OSError, ValueError) as error:
-        raise ValueError(f"cannot read default parameter file {path}: {error}") from error
+        raise ValueError(f"cannot read runtime data file {path}: {error}") from error
     if not isinstance(payload, dict) or payload.get("schema_version") != schema_version:
-        raise ValueError(f"unsupported default parameter schema in {path}")
+        raise ValueError(f"unsupported runtime data schema in {path}")
     return payload
 
 
