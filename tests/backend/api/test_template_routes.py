@@ -103,6 +103,30 @@ def test_removed_mesh_configuration_is_rejected() -> None:
         assert any(error["loc"] == ["body", "mesh"] for error in response.json()["detail"])
 
 
+def test_bare_die_uses_editable_baseline_settings_without_preset_selection() -> None:
+    schema = client.get("/api/templates/bare_die/schema").json()
+    assert [step["id"] for step in schema["steps"]] == ["die", "bumped_die"]
+    fields = [field for step in schema["steps"] for field in step["fields"]]
+    assert all(field["control"] != "footprint" for field in fields)
+    assert all(field.get("preset_values") is None for field in fields)
+
+    request = client.get("/api/templates/bare_die/defaults").json()
+    baseline = client.post("/api/templates/bare_die/generate", json=request).json()
+    die = next(block for block in baseline["blocks"] if block["structure_type"] == "die")
+    assert die["size"] == {"x": 4.9, "y": 4.9, "z": 0.22}
+    assert "footprint_size" not in baseline["metadata"]
+    request["overrides"] = {
+        "bare_die.die.length": 3.2, "bare_die.die.width": 2.5, "bare_die.die.thickness": 0.2,
+    }
+    exported = client.post("/api/templates/bare_die/export/floxml", json=request)
+    assert exported.status_code == 200
+    root = etree.fromstring(exported.content)
+    assert float(root.findtext(".//cuboid/size/x")) == pytest.approx(0.0032)
+    assert float(root.findtext(".//cuboid/size/y")) == pytest.approx(0.0025)
+    request["overrides"] = {"bare_die.footprint.size": "unsupported"}
+    assert client.post("/api/templates/bare_die/generate", json=request).status_code == 422
+
+
 def test_removed_alias_routes_and_old_template_ids_are_not_supported() -> None:
     assert client.get("/api/templates/bare_die/defaults").status_code == 200
     for path in ["reference/bare_die", "flip_chip_cbga", "fbga_fsbga", "qfp_family", "soic_family"]:

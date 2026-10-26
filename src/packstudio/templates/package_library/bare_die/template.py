@@ -22,7 +22,7 @@ def definition() -> TemplateDefinition:
         category="Bare die",
         fields=fields,
         builder=_build,
-        step_order=("package_setup", "die", "bumped_die"),
+        step_order=("die", "bumped_die"),
         material_selections=load_material_selections("bare_die", fields),
         has_flip_chip=True,
     )

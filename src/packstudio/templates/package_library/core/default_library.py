@@ -44,14 +44,18 @@ def load_fields(template_id: str) -> tuple[FieldDefinition, ...]:
     items = []
     defaults = template_defaults(template_id)
     serialized = defaults["fields"]
-    footprint = next(item for item in serialized if item["control"] == "footprint")
-    expanded = expand_native_presets(template_id, footprint, serialized)
-    selected = next(p for p in expanded["presets"] if p["value"] == footprint["default"])
+    footprint = next((item for item in serialized if item["control"] == "footprint"), None)
+    expanded = None
+    selected_values = {}
+    if footprint is not None:
+        expanded = expand_native_presets(template_id, footprint, serialized)
+        selected = next(p for p in expanded["presets"] if p["value"] == footprint["default"])
+        selected_values = selected["values"]
     for payload in serialized:
         if payload["control"] == "footprint":
             payload = expanded
-        elif payload["key"] in selected["values"]:
-            payload["default"] = selected["values"][payload["key"]]
+        elif payload["key"] in selected_values:
+            payload["default"] = selected_values[payload["key"]]
         payload.setdefault("default", None)
         payload["presets"] = tuple(
             _preset(preset, defaults["default_bga_representation"]) for preset in payload["presets"]
@@ -70,11 +74,7 @@ def load_fields(template_id: str) -> tuple[FieldDefinition, ...]:
                 if key not in fields:
                     raise ValueError(f"unknown preset parameter {template_id}/{key}")
                 _validate_value(fields[key], value)
-    footprint = next(item for item in items if item.control == "footprint")
-    selected = next(p for p in footprint.presets if p.value == footprint.default)
-    return tuple(
-        replace(item, default=selected.values.get(item.key, item.default)) for item in items
-    )
+    return tuple(items)
 
 
 def load_material_selections(
@@ -85,12 +85,14 @@ def load_material_selections(
     )
     if fields is None:
         fields = load_fields(template_id)
-    footprint = next(item for item in fields if item.control == "footprint")
-    selected = next(p for p in footprint.presets if p.value == footprint.default)
+    footprint = next((item for item in fields if item.control == "footprint"), None)
+    presets = footprint.presets if footprint is not None else ()
+    selected = next((p for p in presets if p.value == footprint.default), None)
+    assignments = selected.material_assignments if selected is not None else {}
     items = tuple(
         replace(
             item,
-            default=selected.material_assignments.get(
+            default=assignments.get(
                 item.group_id, material_id_for_name(material(item.default).name)
             ),
             options=tuple(
@@ -102,7 +104,7 @@ def load_material_selections(
                         ),
                         *(
                             p.material_assignments[item.group_id]
-                            for p in footprint.presets
+                            for p in presets
                             if item.group_id in p.material_assignments
                         ),
                     )

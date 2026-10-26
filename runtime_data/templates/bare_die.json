@@ -1,98 +1,8 @@
 {
   "schema_version": "packstudio.template-defaults/v1",
   "template_id": "bare_die",
-  "origin": "Reviewed PackStudio model specification; mapped source values explicitly referenced",
+  "origin": "PackStudio Bare Die baseline settings",
   "fields": [
-    {
-      "key": "footprint.size",
-      "step": "package_setup",
-      "label": "芯片尺寸预设",
-      "control": "footprint",
-      "default": "DIE_4_9X4_9X0_22",
-      "unit": null,
-      "minimum": null,
-      "maximum": null,
-      "options": [
-        "DIE_4_9X4_9X0_22",
-        "DIE_3X3X0_2",
-        "DIE_5X5X0_3",
-        "DIE_10X10X0_5"
-      ],
-      "option_labels": {
-        "DIE_4_9X4_9X0_22": "裸芯片 · 4.9 × 4.9 × 0.22 mm",
-        "DIE_3X3X0_2": "裸芯片 · 3 × 3 × 0.2 mm",
-        "DIE_5X5X0_3": "裸芯片 · 5 × 5 × 0.3 mm",
-        "DIE_10X10X0_5": "裸芯片 · 10 × 10 × 0.5 mm"
-      },
-      "presets": [
-        {
-          "value": "DIE_4_9X4_9X0_22",
-          "label": "裸芯片 · 4.9 × 4.9 × 0.22 mm",
-          "values": {
-            "die.length": 4.9,
-            "die.width": 4.9,
-            "die.thickness": 0.22,
-            "die.power": 2,
-            "die.flipped": false,
-            "bumps.enabled": false,
-            "bumps.total": 100,
-            "bumps.diameter": 0.12,
-            "bumps.height": 0.1
-          },
-          "origin": "PackStudio reviewed Bare Die specification; no installed .des"
-        },
-        {
-          "value": "DIE_3X3X0_2",
-          "label": "裸芯片 · 3 × 3 × 0.2 mm",
-          "values": {
-            "die.length": 3,
-            "die.width": 3,
-            "die.thickness": 0.2,
-            "die.power": 2,
-            "die.flipped": false,
-            "bumps.enabled": false,
-            "bumps.total": 100,
-            "bumps.diameter": 0.12,
-            "bumps.height": 0.1
-          },
-          "origin": "PackStudio reviewed Bare Die specification; no installed .des"
-        },
-        {
-          "value": "DIE_5X5X0_3",
-          "label": "裸芯片 · 5 × 5 × 0.3 mm",
-          "values": {
-            "die.length": 5,
-            "die.width": 5,
-            "die.thickness": 0.3,
-            "die.power": 2,
-            "die.flipped": false,
-            "bumps.enabled": false,
-            "bumps.total": 100,
-            "bumps.diameter": 0.12,
-            "bumps.height": 0.1
-          },
-          "origin": "PackStudio reviewed Bare Die specification; no installed .des"
-        },
-        {
-          "value": "DIE_10X10X0_5",
-          "label": "裸芯片 · 10 × 10 × 0.5 mm",
-          "values": {
-            "die.length": 10,
-            "die.width": 10,
-            "die.thickness": 0.5,
-            "die.power": 2,
-            "die.flipped": false,
-            "bumps.enabled": false,
-            "bumps.total": 100,
-            "bumps.diameter": 0.12,
-            "bumps.height": 0.1
-          },
-          "origin": "PackStudio reviewed Bare Die specification; no installed .des"
-        }
-      ],
-      "visible_when": {},
-      "enabled_when": {}
-    },
     {
       "key": "die.length",
       "step": "die",
@@ -105,7 +15,8 @@
       "option_labels": {},
       "presets": [],
       "visible_when": {},
-      "enabled_when": {}
+      "enabled_when": {},
+      "default": 4.9
     },
     {
       "key": "die.width",
@@ -119,7 +30,8 @@
       "option_labels": {},
       "presets": [],
       "visible_when": {},
-      "enabled_when": {}
+      "enabled_when": {},
+      "default": 4.9
     },
     {
       "key": "die.thickness",
@@ -133,7 +45,8 @@
       "option_labels": {},
       "presets": [],
       "visible_when": {},
-      "enabled_when": {}
+      "enabled_when": {},
+      "default": 0.22
     },
     {
       "key": "die.power",
@@ -147,7 +60,8 @@
       "option_labels": {},
       "presets": [],
       "visible_when": {},
-      "enabled_when": {}
+      "enabled_when": {},
+      "default": 2
     },
     {
       "key": "die.flipped",
@@ -161,7 +75,8 @@
       "option_labels": {},
       "presets": [],
       "visible_when": {},
-      "enabled_when": {}
+      "enabled_when": {},
+      "default": false
     },
     {
       "key": "bumps.enabled",
@@ -175,7 +90,8 @@
       "option_labels": {},
       "presets": [],
       "visible_when": {},
-      "enabled_when": {}
+      "enabled_when": {},
+      "default": false
     },
     {
       "key": "bumps.total",
@@ -191,7 +107,8 @@
       "visible_when": {
         "bumps.enabled": true
       },
-      "enabled_when": {}
+      "enabled_when": {},
+      "default": 100
     },
     {
       "key": "bumps.diameter",
@@ -207,7 +124,8 @@
       "visible_when": {
         "bumps.enabled": true
       },
-      "enabled_when": {}
+      "enabled_when": {},
+      "default": 0.12
     },
     {
       "key": "bumps.height",
@@ -223,7 +141,8 @@
       "visible_when": {
         "bumps.enabled": true
       },
-      "enabled_when": {}
+      "enabled_when": {},
+      "default": 0.1
     }
   ],
   "material_selections": [
@@ -304,6 +223,5 @@
       }
     }
   ],
-  "baseline_materials": [],
-  "default_bga_representation": "equivalent"
+  "baseline_materials": []
 }

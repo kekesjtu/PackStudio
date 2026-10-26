@@ -27,8 +27,8 @@ VERIFIED_JEDEC_OPTIONS = {
 }
 
 
-@pytest.mark.parametrize("template_id", list(definitions()))
-def test_every_template_has_multiple_handwritten_size_presets(template_id: str) -> None:
+@pytest.mark.parametrize("template_id", list(VERIFIED_JEDEC_OPTIONS))
+def test_native_templates_offer_multiple_size_presets(template_id: str) -> None:
     result = schema(template_id)
     fields = [field for step in result["steps"] for field in step["fields"]]
     footprint = next(field for field in fields if field["control"] == "footprint")
@@ -55,7 +55,7 @@ def test_all_source_options_include_existing_captured_floxml_variants() -> None:
         assert set(footprint.options) == set(PresetCatalog().list_ids(family))
 
 
-@pytest.mark.parametrize("template_id", list(definitions()))
+@pytest.mark.parametrize("template_id", list(VERIFIED_JEDEC_OPTIONS))
 def test_every_size_preset_generates_without_reference_data(template_id: str) -> None:
     item = definitions()[template_id]
     footprint = next(field for field in item.fields if field.control == "footprint")

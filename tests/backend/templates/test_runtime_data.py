@@ -131,8 +131,8 @@ def test_invalid_library_fails_without_hardcoded_fallback(
     else:
 
         def update(payload):
-            footprint = next(item for item in payload["fields"] if item["control"] == "footprint")
-            footprint["presets"][0]["values"]["die.thickness"] = float("nan")
+            thickness = next(item for item in payload["fields"] if item["key"] == "die.thickness")
+            thickness["default"] = float("nan")
 
         edit_json(path, update)
     with pytest.raises(ValueError):
