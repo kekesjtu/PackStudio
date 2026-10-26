@@ -6,7 +6,7 @@ import re
 import struct
 from pathlib import Path
 
-from tools.pack_native import NativePack, cpp_string, object_type, property_map, virtual
+from tools.pack_reference.native import NativePack, cpp_string, object_type, property_map, virtual
 
 EXTRA_BINARIES = {
     "flopackbackend.dll": "37177cc405980a1cbc22ef88a5d8a5af20264ba4a1ea731e331a0c96511656d5",

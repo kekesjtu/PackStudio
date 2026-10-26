@@ -7,9 +7,9 @@ import pytest
 
 from packstudio.material_catalog import MaterialCatalog
 from packstudio.preset_catalog import PresetCatalog
-from tools.pack_catalog_builder import compiled_branch
-from tools.pack_native_details import DetailedNativePack
-from tools.pack_native_materials import read_builtin_materials
+from tools.pack_reference.catalog import compiled_branch
+from tools.pack_reference.materials import read_builtin_materials
+from tools.pack_reference.native_details import DetailedNativePack
 
 INSTALLATION = os.environ.get("PACK_NATIVE_INSTALLATION")
 pytestmark = pytest.mark.skipif(

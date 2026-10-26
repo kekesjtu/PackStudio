@@ -4,7 +4,7 @@ from pathlib import Path
 import pytest
 
 from packstudio.preset_catalog import PresetCatalog
-from tools.pack_native import VERIFIED_BINARIES, NativePack
+from tools.pack_reference.native import VERIFIED_BINARIES, NativePack
 
 
 def properties(record: dict) -> dict:

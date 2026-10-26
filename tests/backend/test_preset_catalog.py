@@ -11,7 +11,7 @@ from packstudio.catalog_storage import read_catalog_entry
 from packstudio.default_parameters import library_directory
 from packstudio.material_catalog import MaterialCatalog
 from packstudio.preset_catalog import PresetCatalog
-from tools.pack_catalog_builder import material_names
+from tools.pack_reference.catalog import material_names
 
 ROOT = Path(__file__).resolve().parents[2]
 

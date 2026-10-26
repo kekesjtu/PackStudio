@@ -5,9 +5,9 @@ import json
 import re
 from pathlib import Path
 
-from tools.pack_catalog_properties import metal_rows, property_record, wizard_record
-from tools.pack_native import VERIFIED_BINARIES
-from tools.pack_native_details import EXTRA_BINARIES
+from tools.pack_reference.catalog_properties import metal_rows, property_record, wizard_record
+from tools.pack_reference.native import VERIFIED_BINARIES
+from tools.pack_reference.native_details import EXTRA_BINARIES
 
 PRESET_SCHEMA = "packstudio.preset/v1"
 MATERIAL_SCHEMA = "packstudio.material/v1"

@@ -6,7 +6,7 @@ import os
 import struct
 from pathlib import Path
 
-from tools.pack_binary import PackBinary
+from tools.pack_reference.binary import PackBinary
 
 VERIFIED_BINARIES = {
     "flopackdatasets.dll": "43312861dc31e9936bb407104292ce42ef7690a7183f44cd10b969fc8679b4a9",

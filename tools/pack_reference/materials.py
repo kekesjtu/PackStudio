@@ -3,8 +3,8 @@
 import ctypes
 import os
 
-from tools.pack_native import cpp_string
-from tools.pack_native_details import vector_items
+from tools.pack_reference.native import cpp_string
+from tools.pack_reference.native_details import vector_items
 
 
 def read_builtin_materials(native) -> list[dict]:

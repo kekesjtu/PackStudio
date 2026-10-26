@@ -37,7 +37,7 @@ Bare Die 另有四个项目尺寸预设。
 原生提取依赖本机安装及经过审核的二进制布局；切换版本需要重新核验。
 
 ```powershell
-uv run --locked python -m tools.extract_pack_catalog "E:/Program Files/Siemens/SimcenterFlotherm/2504"
+uv run --locked python -m tools.pack_reference "E:/Program Files/Siemens/SimcenterFlotherm/2504"
 uv run --locked python -m tools.validate_catalog_presets
 ```
 

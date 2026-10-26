@@ -7,7 +7,7 @@ import pytest
 
 from packstudio.templates.package_library.catalog import default_request, generate
 from packstudio.templates.package_library.core.materials import material
-from tools.pack_native_formula_probe import NativeFormulaProbe
+from tools.pack_reference.formula import NativeFormulaProbe
 
 INSTALLATION = os.environ.get("PACK_NATIVE_INSTALLATION")
 pytestmark = pytest.mark.skipif(

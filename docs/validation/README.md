@@ -24,4 +24,8 @@ uv run --locked python -m tools.validate_catalog_presets
 ```
 
 后一个命令重新生成 342 个源预设的适配审计，当前只检查 FloXML 导出。
-PACK 原生实验的复现工具仍在 `tools/`，通常需要本机安装和本地参考数据。
+通用原生导出入口见根目录 [FloSCRIPT 本机操作说明](../../FLOSCRIPT.md)。
+一次性原生实验工具已冻结归档到本机 `flotherm_pack_data/archive/legacy-tools-20261026.zip`，
+不再作为当前维护入口。历史实验数据和其中的脚本快照保持原貌。
+回归测试仍需使用的比较模块保留在 `tools/floxml_validation/`；
+原生目录、材料与参数辅助模块集中在 `tools/pack_reference/`。

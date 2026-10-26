@@ -43,7 +43,7 @@ npm run desktop
 | `default_parameters/` | 运行时模板、原生预设与材料库 |
 | `output_format/floxml/` | FloXML 契约、XSD 和示例 |
 | `tests/` | 后端、前端、启动和桌面验证 |
-| `tools/` | 开发、打包与原生验证工具 |
+| `tools/` | 开发、打包、通用原生导出与回归辅助工具 |
 | `docs/` | 当前决策、开发说明和验证数据 |
 | `archive/` | 停用格式的只读参考归档 |
 | `flotherm_pack_data/` | 本地原生参考数据，不进入分发包或 Git |
@@ -53,7 +53,7 @@ npm run desktop
 
 [文档入口](docs/README.md) · [开发说明](docs/development.md) ·
 [技术栈](docs/tech_stack.md) · [参数库](default_parameters/README.md) ·
-[FloXML 契约](output_format/floxml/README.md)
+[FloXML 契约](output_format/floxml/README.md) · [本机 FloSCRIPT 操作](FLOSCRIPT.md)
 
 ```powershell
 uv run --locked pytest

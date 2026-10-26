@@ -3,11 +3,11 @@
 import argparse
 from pathlib import Path
 
-from tools.pack_catalog_builder import write_materials, write_presets
-from tools.pack_des import source_record
-from tools.pack_native import FAMILIES
-from tools.pack_native_details import DetailedNativePack
-from tools.pack_native_materials import read_builtin_materials
+from tools.pack_reference.catalog import write_materials, write_presets
+from tools.pack_reference.des import source_record
+from tools.pack_reference.materials import read_builtin_materials
+from tools.pack_reference.native import FAMILIES
+from tools.pack_reference.native_details import DetailedNativePack
 
 
 def main() -> None:

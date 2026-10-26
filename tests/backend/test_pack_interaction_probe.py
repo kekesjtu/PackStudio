@@ -6,7 +6,7 @@ from pathlib import Path
 
 import pytest
 
-from tools.pack_native_interactions import InteractionNativePack
+from tools.pack_reference.interactions import InteractionNativePack
 
 INSTALLATION = os.environ.get("PACK_NATIVE_INSTALLATION")
 pytestmark = pytest.mark.skipif(

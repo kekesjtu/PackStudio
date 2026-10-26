@@ -4,7 +4,7 @@ import ctypes
 import struct
 
 from packstudio.domain.materials import Material
-from tools.pack_native_details import DetailedNativePack
+from tools.pack_reference.native_details import DetailedNativePack
 
 
 class NativeFormulaProbe(DetailedNativePack):

@@ -7,6 +7,7 @@
 | [协作规则](../AGENTS.md) | AI 协作和开发规范 |
 | [决策索引](decisions/README.md) | 有效功能取舍、架构和输出范围决策 |
 | [开发说明](development.md) | 启动、打包与验证命令 |
+| [FloSCRIPT 本机操作](../FLOSCRIPT.md) | 本机 PACK 脚本执行、原生导出和日志检查 |
 | [技术栈](tech_stack.md) | 当前架构与模块职责 |
 | [参数库](../default_parameters/README.md) | 运行数据、默认值和材料来源 |
 | [输出格式](../output_format/README.md) | FloXML 格式契约和示例 |

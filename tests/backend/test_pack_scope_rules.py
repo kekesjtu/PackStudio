@@ -1,6 +1,6 @@
 import pytest
 
-from tools.pack_option_rules import decision
+from tools.pack_reference.scope import decision
 
 
 def entry(prop, location="die", label=""):

@@ -4,8 +4,15 @@ import ctypes
 import struct
 from pathlib import Path
 
-from tools.pack_native import FAMILIES, cpp_string, destroy, object_type, property_map, virtual
-from tools.pack_native_details import DetailedNativePack
+from tools.pack_reference.native import (
+    FAMILIES,
+    cpp_string,
+    destroy,
+    object_type,
+    property_map,
+    virtual,
+)
+from tools.pack_reference.native_details import DetailedNativePack
 
 
 class InteractionNativePack(DetailedNativePack):

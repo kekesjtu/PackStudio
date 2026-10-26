@@ -16,7 +16,7 @@ from packstudio.templates.package_library.catalog import (
     schema,
 )
 from packstudio.templates.package_library.core.materials import production_materials
-from tools.pack_des import source_record
+from tools.pack_reference.des import source_record
 
 ROOT = Path(__file__).resolve().parents[3]
 
