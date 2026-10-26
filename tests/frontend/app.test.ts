@@ -202,13 +202,11 @@ const generatedModel: PackageModel = {
 
 describe('eight-template production workspace', () => {
   beforeEach(() => {
-    window.localStorage.clear()
     vi.stubGlobal('fetch', vi.fn(fetchResponse))
   })
 
   afterEach(() => {
     vi.unstubAllGlobals()
-    window.localStorage.clear()
   })
 
   it('loads the native wizard, preview, model tree and four-column controls', async () => {
@@ -262,32 +260,27 @@ describe('eight-template production workspace', () => {
     })
   })
 
-  it('restores existing designs while dropping removed boundary settings', async () => {
-    localStorage.setItem('packstudio.library.v3.cbga_fc', JSON.stringify({
-      ...defaults,
-      design_name: '已保存的设计',
-      overrides: { 'cbga_fc.die.length': 1.9 },
-      environment: { ambient_temperature_k: 350 },
-    }))
+  it('starts from template defaults each time the workspace is opened', async () => {
+    const workspace = render(createElement(App))
+    await screen.findByText('1 个块')
+    expect(screen.queryByRole('button', { name: '保存参数' })).not.toBeInTheDocument()
+    expect(screen.queryByText('参数已保存')).not.toBeInTheDocument()
+    expect(screen.queryByRole('button', { name: '边界条件' })).not.toBeInTheDocument()
+    fireEvent.change(screen.getByLabelText('设计名称'), { target: { value: '当前修改' } })
+    expect(screen.getByLabelText('设计名称')).toHaveValue('当前修改')
+    workspace.unmount()
     render(createElement(App))
     await screen.findByText('1 个块')
-    expect(screen.queryByRole('button', { name: '边界条件' })).not.toBeInTheDocument()
-    expect(requestBody(generateCalls()[0])).not.toHaveProperty('environment')
-    expect(requestBody(generateCalls()[0]).design_name).toBe('已保存的设计')
-    expect(requestBody(generateCalls()[0]).overrides).toEqual({ 'cbga_fc.die.length': 1.9 })
-    fireEvent.click(screen.getByRole('button', { name: '保存参数' }))
-    expect(JSON.parse(localStorage.getItem('packstudio.library.v3.cbga_fc')!))
-      .not.toHaveProperty('environment')
+    expect(screen.getByLabelText('设计名称')).toHaveValue(defaults.design_name)
+    expect(requestBody(generateCalls().at(-1))).toEqual(defaults)
   })
 
-  it('sends native numeric overrides inside the implemented range and persists them', async () => {
+  it('sends native numeric overrides inside the implemented range', async () => {
     render(createElement(App))
     await screen.findByText('1 个块')
 
     fireEvent.click(screen.getByRole('button', { name: '芯片' }))
     fireEvent.change(screen.getByLabelText('芯片长度 Ld'), { target: { value: '1.9' } })
-    fireEvent.click(screen.getByRole('button', { name: '保存参数' }))
-    expect(localStorage.getItem('packstudio.library.v3.cbga_fc')).toContain('1.9')
     fireEvent.click(screen.getByRole('button', { name: '生成模型' }))
 
     await waitFor(() => expect(generateCalls()).toHaveLength(2))

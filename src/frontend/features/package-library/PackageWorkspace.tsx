@@ -18,7 +18,6 @@ import {
   loadTemplateSchema,
 } from './api'
 import PackageInspector from './PackageInspector'
-import { restoreTemplateRequest, saveTemplateRequest } from './requestStorage'
 import type {
   Material,
   PackageModel,
@@ -44,7 +43,6 @@ export default function PackageWorkspace({ templateId }: PackageWorkspaceProps) 
   const [inspectorWidth, setInspectorWidth] = useState(340)
   const [busy, setBusy] = useState(true)
   const [dirty, setDirty] = useState(false)
-  const [saved, setSaved] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const propertyContentRef = useRef<HTMLDivElement>(null)
 
@@ -61,16 +59,13 @@ export default function PackageWorkspace({ templateId }: PackageWorkspaceProps) 
     ])
       .then(async ([loadedSchema, defaults, materials]) => {
         if (cancelled) return
-        const restored = restoreTemplateRequest(templateId, defaults, loadedSchema)
-        const initialRequest = restored ?? defaults
-        const generated = await generateTemplateModel(initialRequest)
+        const generated = await generateTemplateModel(defaults)
         if (cancelled) return
         setSchema(loadedSchema)
-        setRequest(initialRequest)
+        setRequest(defaults)
         setLibrary(materials)
         setModel(generated)
         setActiveStep('packstudio_summary')
-        setSaved(restored !== null)
         setDirty(false)
         setHiddenBlockIds(new Set())
       })
@@ -100,7 +95,6 @@ export default function PackageWorkspace({ templateId }: PackageWorkspaceProps) 
   const changeRequest = (next: TemplateRequest) => {
     setRequest(next)
     setDirty(true)
-    setSaved(false)
   }
   const handleGenerate = async () => {
     setBusy(true)
@@ -163,15 +157,6 @@ export default function PackageWorkspace({ templateId }: PackageWorkspaceProps) 
             <Button variant="contained" disabled={busy} onClick={handleGenerate}>
               {busy ? <CircularProgress size={21} color="inherit" /> : '生成模型'}
             </Button>
-            <Button
-              variant="outlined"
-              onClick={() => {
-                saveTemplateRequest(templateId, request)
-                setSaved(true)
-              }}
-            >
-              保存参数
-            </Button>
             <Button variant="outlined" disabled={busy || !model} onClick={handleExport}>
               导出 FloXML
             </Button>
@@ -187,7 +172,6 @@ export default function PackageWorkspace({ templateId }: PackageWorkspaceProps) 
             <Stack direction="row" spacing={0.75}>
               {model && <Chip size="small" label={`${model.blocks.length} 个块`} />}
               {dirty && <Chip size="small" color="warning" label="参数已修改" />}
-              {saved && <Chip size="small" color="success" label="参数已保存" />}
             </Stack>
           </Stack>
           <ModelPreview

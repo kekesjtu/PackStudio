@@ -10,7 +10,6 @@ vi.mock('../../src/frontend/features/model-editor/ModelPreview', () => ({ defaul
 
 beforeEach(() => {
   vi.resetAllMocks()
-  localStorage.clear()
   vi.mocked(api.loadTemplateSchema).mockResolvedValue(schema)
   vi.mocked(api.loadTemplateDefaults).mockResolvedValue(request)
   vi.mocked(api.loadTemplateMaterials).mockResolvedValue([safe, suspect])
@@ -19,10 +18,9 @@ beforeEach(() => {
 })
 
 describe('workspace compact material labels and exports', () => {
-  it('shows labels without a central warning after saved designs are restored', async () => {
-    localStorage.setItem('packstudio.library.v3.sample', JSON.stringify(request))
+  it('shows labels without a central warning for the initial design', async () => {
     render(<PackageWorkspace templateId="sample" />)
-    expect(await screen.findByText('参数已保存')).toBeInTheDocument()
+    await screen.findByText('1 个块')
     expect(screen.getByText('物性待核实')).toBeInTheDocument()
     expect(screen.queryByRole('alert')).not.toBeInTheDocument()
     expect(api.generateTemplateModel).toHaveBeenCalledWith(request)

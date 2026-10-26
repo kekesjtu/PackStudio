@@ -30,14 +30,13 @@ const schema: TemplateSchema = {
 
 beforeEach(() => {
   vi.resetAllMocks()
-  localStorage.clear()
   vi.mocked(api.loadTemplateSchema).mockResolvedValue(schema)
   vi.mocked(api.loadTemplateDefaults).mockResolvedValue(defaults)
   vi.mocked(api.loadTemplateMaterials).mockResolvedValue([])
   vi.mocked(api.generateTemplateModel).mockResolvedValue(model)
 })
 
-it('passes via enablement and matrix edits through workspace generation and saving', async () => {
+it('passes via enablement and matrix edits through workspace generation', async () => {
   render(<PackageWorkspace templateId="qfn" />)
   await screen.findByText('1 个块')
   expect(screen.queryByRole('button', { name: '建模选项' })).not.toBeInTheDocument()
@@ -46,11 +45,10 @@ it('passes via enablement and matrix edits through workspace generation and savi
   fireEvent.click(screen.getByRole('button', { name: '热通孔去除' }))
   fireEvent.click(screen.getByRole('switch', { name: '热通孔去除' }))
   fireEvent.click(screen.getByRole('button', { name: '行 2，列 3，添加显式去孔' }))
-  fireEvent.click(screen.getByRole('button', { name: '保存参数' }))
-  const saved = JSON.parse(localStorage.getItem('packstudio.library.v3.qfn')!)
-  expect(saved.overrides['qfn.vias.enabled']).toBe(true)
-  expect(saved.vias).toEqual({ ...defaults.vias, removal_enabled: true, omitted_cells: [{ row: 2, column: 3 }] })
   fireEvent.click(screen.getByRole('button', { name: '生成模型' }))
   await waitFor(() => expect(api.generateTemplateModel).toHaveBeenCalledTimes(2))
-  expect(api.generateTemplateModel).toHaveBeenLastCalledWith(saved)
+  expect(api.generateTemplateModel).toHaveBeenLastCalledWith({
+    ...defaults, overrides: { 'qfn.vias.enabled': true },
+    vias: { ...defaults.vias, removal_enabled: true, omitted_cells: [{ row: 2, column: 3 }] },
+  })
 })

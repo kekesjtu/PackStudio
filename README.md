@@ -8,7 +8,7 @@
 - 八类封装：Chip Array、Bare Die、Flip Chip CBGA、Flip Chip PBGA、PQFP、QFN、SOP、Wirebond PBGA。
 - 按封装组件组织的参数向导，提供外形预设、几何参数、材料属性和芯片功率输入。
 - 三维矩形块预览、父子模型树、组件检查和递归显示/隐藏。
-- 材料库浏览、当前方案物性编辑，以及参数保存与恢复。
+- 材料库浏览与当前方案物性编辑。
 - FloXML 文件下载；Windows 独立窗口提供原生保存对话框。
 
 功能范围以 [requirements.md](requirements.md) 为准。

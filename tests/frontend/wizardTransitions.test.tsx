@@ -1,10 +1,9 @@
 import { fireEvent, render, screen } from '@testing-library/react'
 import { describe, expect, it, vi } from 'vitest'
 import WizardFields from '../../src/frontend/features/package-library/WizardFields'
-import { restoreTemplateRequest, saveTemplateRequest } from '../../src/frontend/features/package-library/requestStorage'
 import updateWizardRequest from '../../src/frontend/features/package-library/updateWizardRequest'
 import { valueFor } from '../../src/frontend/features/package-library/wizardValues'
-import type { TemplateRequest, TemplateSchema, WizardField } from '../../src/frontend/features/package-library/types'
+import type { TemplateRequest, WizardField } from '../../src/frontend/features/package-library/types'
 import fixtures from './fixtures/flipChipSchema.json'
 
 // Generated from the backend schema; each family retains its default and 100-ball footprint.
@@ -17,7 +16,7 @@ for (const [templateId, fixture] of Object.entries(fixtures)) {
   const lidLength = field('lid.length')
 
   describe(`${templateId} wizard transitions with real schema`, () => {
-    it('selects layer constituents and preserves choices through footprint and storage changes', () => {
+    it('selects layer constituents and preserves choices through footprint changes', () => {
       const selections = ['group-bump-solder', 'group-underfill', 'group-bga-solder'].map((group) =>
         fields.find((item) => item.material_group_id === group)!)
       const onChange = vi.fn()
@@ -37,16 +36,6 @@ for (const [templateId, fixture] of Object.entries(fixtures)) {
       const next = updateWizardRequest(request, footprint,
         footprint.options.find((option) => option !== footprint.default)!, fields)
       expect(next.material_assignments).toEqual(request.material_assignments)
-      saveTemplateRequest(templateId, next)
-      const schema: TemplateSchema = {
-        schema_version: 'packstudio.wizard/v2', template_id: templateId,
-        steps: [{ id: 'all', label: 'all', fields }], has_bga: true,
-        special_rules: { outline_type: 'standard_outline', die_type: 'actual_type',
-          bga_pattern: null, flip_chip_bumps: 'thick_orthotropic_equivalent' },
-      }
-      const restored = restoreTemplateRequest(templateId, defaults, schema)!
-      expect(restored.material_assignments).toEqual(request.material_assignments)
-      localStorage.removeItem(`packstudio.library.v3.${templateId}`)
     })
 
     it('preserves cover, power, material and representation while replacing preset dimensions', () => {
@@ -95,25 +84,6 @@ for (const [templateId, fixture] of Object.entries(fixtures)) {
       const returned = onChange.mock.calls[1][0] as TemplateRequest
       expect(valueFor(lidLength, returned, fields)).toBe(6)
       expect(returned.overrides[lidLength.target_id]).toBeUndefined()
-    })
-
-    it('cleans previously saved hidden overrides before initial generation', () => {
-      const saved: TemplateRequest = {
-        ...defaults, overrides: { [cover.target_id]: 'plate', [lidLength.target_id]: 6.1 },
-        material_assignments: { 'group-lid': 'aluminum' },
-      }
-      saveTemplateRequest(templateId, saved)
-      const schema: TemplateSchema = {
-        schema_version: 'packstudio.wizard/v2', template_id: templateId,
-        steps: [{ id: 'all', label: 'all', fields }], has_bga: true,
-        special_rules: { outline_type: 'standard_outline', die_type: 'actual_type',
-          bga_pattern: null, flip_chip_bumps: null },
-      }
-      const restored = restoreTemplateRequest(templateId, defaults, schema)!
-      expect(valueFor(cover, restored, fields)).toBe('plate')
-      expect(restored.overrides[lidLength.target_id]).toBeUndefined()
-      expect(restored.material_assignments['group-lid']).toBeUndefined()
-      localStorage.removeItem(`packstudio.library.v3.${templateId}`)
     })
 
     it('cleans overrides of disabled fields as well as hidden fields', () => {

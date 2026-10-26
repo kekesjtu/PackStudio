@@ -46,7 +46,6 @@ npm run desktop
 ```
 
 默认后端端口为 18080，可用 `-Port 18081` 指定或 `-Port 0` 自动分配。
-窗口保存的方案与普通浏览器隔离。更换端口会改变本地存储来源。
 日志位于 `%LOCALAPPDATA%\PackStudio\WebView2\backend.log`。
 
 ## 打包

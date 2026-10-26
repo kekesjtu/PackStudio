@@ -2,9 +2,8 @@ import { fireEvent, render, screen } from '@testing-library/react'
 import { describe, expect, it, vi } from 'vitest'
 
 import ViaRemovalPanel from '../../src/frontend/features/package-library/ViaRemovalPanel'
-import { restoreTemplateRequest, saveTemplateRequest } from '../../src/frontend/features/package-library/requestStorage'
 import { pruneViaConfiguration, viaDimensions } from '../../src/frontend/features/package-library/viaConfiguration'
-import type { TemplateRequest, TemplateSchema, ViaConfiguration, WizardField } from '../../src/frontend/features/package-library/types'
+import type { TemplateRequest, ViaConfiguration, WizardField } from '../../src/frontend/features/package-library/types'
 
 const value: ViaConfiguration = {
   removal_enabled: true, removal_rows: 1, removal_columns: 1, omitted_cells: [],
@@ -23,11 +22,6 @@ const request: TemplateRequest = {
   template_id: 'qfn', design_name: null, bga: null, overrides: {},
   material_assignments: {}, custom_materials: [], die_power_w: null,
   vias: value,
-}
-const schema: TemplateSchema = {
-  schema_version: 'packstudio.wizard/v2', template_id: 'qfn', has_bga: false,
-  steps: [{ id: 'thermal_vias', label: '热通孔', fields }],
-  special_rules: { outline_type: 'standard_outline', die_type: 'actual_type', bga_pattern: null, flip_chip_bumps: null },
 }
 
 describe('thermal via removal', () => {
@@ -49,23 +43,13 @@ describe('thermal via removal', () => {
     expect(onChange.mock.calls[0][0].omitted_cells).toEqual([])
   })
 
-  it('restores saved via cells and upgrades older saved requests', () => {
-    const saved = { ...request, vias: { ...value, omitted_cells: [{ row: 2, column: 3 }] } }
-    saveTemplateRequest('qfn', saved)
-    expect(restoreTemplateRequest('qfn', request, schema)?.vias).toEqual(saved.vias)
-    const older = { ...request }
-    delete older.vias
-    saveTemplateRequest('qfn', older)
-    expect(restoreTemplateRequest('qfn', request, schema)?.vias).toEqual(value)
-  })
-
   it('uses Chip Array solder dimensions and removes stale cells after shrinking arrays', () => {
     const chipFields = [field('bga.rows', 3), field('bga.columns', 4)]
     expect(viaDimensions(chipFields, request)).toEqual({ rows: 3, columns: 4 })
-    const saved = { ...request, overrides: { 'qfn.vias.rows': 2, 'qfn.vias.columns': 2 },
+    const resized = { ...request, overrides: { 'qfn.vias.rows': 2, 'qfn.vias.columns': 2 },
       vias: { ...value, removal_rows: 3, removal_columns: 4,
         omitted_cells: [{ row: 0, column: 0 }, { row: 2, column: 3 }] } }
-    expect(pruneViaConfiguration(saved, fields).vias).toEqual({
+    expect(pruneViaConfiguration(resized, fields).vias).toEqual({
       ...value, removal_rows: 2, removal_columns: 2, omitted_cells: [{ row: 0, column: 0 }],
     })
   })
