@@ -10,11 +10,11 @@ class SolderStyleValues(Protocol):
     rows: int
     columns: int
     center_solder_enabled: bool
-    center_solder_rows: int
-    center_solder_columns: int
+    center_solder_rows: int | None
+    center_solder_columns: int | None
     solder_removal_enabled: bool
-    removal_rows: int
-    removal_columns: int
+    removal_rows: int | None
+    removal_columns: int | None
     omitted_cells: list[CellLocation]
     allow_asymmetric_regions: bool
 
@@ -60,9 +60,11 @@ def validate_solder_style(parameters: SolderStyleValues) -> None:
 def center_bounds(
     rows: int,
     columns: int,
-    region_rows: int,
-    region_columns: int,
+    region_rows: int | None,
+    region_columns: int | None,
 ) -> tuple[int, int, int, int]:
+    if region_rows is None or region_columns is None:
+        raise ValueError("region requires both row and column counts")
     row_start = (rows - region_rows) // 2
     column_start = (columns - region_columns) // 2
     return (
@@ -80,10 +82,12 @@ def is_in_bounds(row: int, column: int, bounds: tuple[int, int, int, int]) -> bo
 
 def _validate_center_region(
     parameters: SolderStyleValues,
-    region_rows: int,
-    region_columns: int,
+    region_rows: int | None,
+    region_columns: int | None,
     label: str,
 ) -> None:
+    if region_rows is None or region_columns is None:
+        raise ValueError(f"{label} requires both row and column counts")
     if label == "solder removal" and (region_rows == 0 or region_columns == 0):
         if region_rows != region_columns:
             raise ValueError(
@@ -107,13 +111,13 @@ def _has_present_solder(
         parameters.columns,
         parameters.center_solder_rows,
         parameters.center_solder_columns,
-    )
+    ) if parameters.center_solder_enabled else (0, 0, 0, 0)
     removal = center_bounds(
         parameters.rows,
         parameters.columns,
         parameters.removal_rows,
         parameters.removal_columns,
-    )
+    ) if parameters.solder_removal_enabled else (0, 0, 0, 0)
     for row in range(parameters.rows):
         for column in range(parameters.columns):
             if (row, column) in omitted:

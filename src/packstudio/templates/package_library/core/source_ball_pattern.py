@@ -15,15 +15,15 @@ def source_bga_pattern(
         return None, []
     configuration = BgaConfiguration().model_dump(mode="json")
     notes = []
-    if raw.get("depop_center") == "CHECKED":
+    configuration["solder_removal_enabled"] = raw.get("depop_center") == "CHECKED"
+    configuration["center_solder_enabled"] = raw.get("central_balls") == "CHECKED"
+    if raw.get("MEp") is not None and raw.get("MDp") is not None:
         configuration.update(
-            solder_removal_enabled=True,
             removal_rows=raw["ME"] - raw["MEp"],
             removal_columns=raw["MD"] - raw["MDp"],
         )
-    if raw.get("central_balls") == "CHECKED":
+    if raw.get("MEc") is not None and raw.get("MDc") is not None:
         configuration.update(
-            center_solder_enabled=True,
             center_solder_rows=raw["MEc"],
             center_solder_columns=raw["MDc"],
         )
@@ -31,6 +31,10 @@ def source_bga_pattern(
         ("solder_removal_enabled", "removal_rows", "removal_columns"),
         ("center_solder_enabled", "center_solder_rows", "center_solder_columns"),
     ):
+        if configuration[enabled] and (
+            configuration[row] is None or configuration[column] is None
+        ):
+            raise ValueError(f"native {enabled} requires both row and column counts")
         if configuration[enabled] and (
             (raw["ME"] - configuration[row]) % 2 or (raw["MD"] - configuration[column]) % 2
         ):
@@ -76,8 +80,11 @@ def _parse_ball_coordinates(value: str, columns: int, rows: int) -> set[tuple[in
 def source_ball_count(raw: dict, bga: dict) -> int:
     center = center_bounds(
         raw["ME"], raw["MD"], bga["center_solder_rows"], bga["center_solder_columns"]
+    ) if bga["center_solder_enabled"] else (0, 0, 0, 0)
+    removal = (
+        center_bounds(raw["ME"], raw["MD"], bga["removal_rows"], bga["removal_columns"])
+        if bga["solder_removal_enabled"] else (0, 0, 0, 0)
     )
-    removal = center_bounds(raw["ME"], raw["MD"], bga["removal_rows"], bga["removal_columns"])
     omitted = {(cell["row"], cell["column"]) for cell in bga["omitted_cells"]}
     return sum(
         (row, column) not in omitted

@@ -42,16 +42,18 @@ export default function BgaConfigurationPanel({
               label="中央行数"
               value={value.center_solder_rows}
               integer
+              allowEmpty
               onChange={(center_solder_rows) =>
-                update({ center_solder_rows: center_solder_rows ?? 1 })
+                update({ center_solder_rows })
               }
             />
             <NumberInput
               label="中央列数"
               value={value.center_solder_columns}
               integer
+              allowEmpty
               onChange={(center_solder_columns) =>
-                update({ center_solder_columns: center_solder_columns ?? 1 })
+                update({ center_solder_columns })
               }
             />
           </Stack>
@@ -85,13 +87,15 @@ export default function BgaConfigurationPanel({
               label="去球区行数"
               value={value.removal_rows}
               integer
-              onChange={(removal_rows) => update({ removal_rows: removal_rows ?? 1 })}
+              allowEmpty
+              onChange={(removal_rows) => update({ removal_rows })}
             />
             <NumberInput
               label="去球区列数"
               value={value.removal_columns}
               integer
-              onChange={(removal_columns) => update({ removal_columns: removal_columns ?? 1 })}
+              allowEmpty
+              onChange={(removal_columns) => update({ removal_columns })}
             />
           </Stack>
           <SolderRemovalMatrix

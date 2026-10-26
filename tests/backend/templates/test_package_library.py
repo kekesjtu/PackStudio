@@ -79,6 +79,13 @@ def test_every_declared_component_material_can_be_applied_to_its_group() -> None
                 fields[key].target_id(template_id): value
                 for key, value in selection.visible_when.items()
             }
+            if selection.visible_when.get("thermal_land.enabled"):
+                overrides[f"{template_id}.thermal_land.thickness"] = 0.05
+            if selection.visible_when.get("spreader.enabled"):
+                overrides.update({f"{template_id}.spreader.{key}": value for key, value in {
+                    "length": 4, "width": 4, "thickness": 0.018,
+                    "hole_length": 6, "hole_width": 6,
+                }.items()})
             for material_id in selection.options:
                 model = generate(
                     TemplateRequest(

@@ -25,6 +25,20 @@ const request: TemplateRequest = {
 }
 
 describe('thermal via removal', () => {
+  it('keeps missing region counts blank through editing and request pruning', () => {
+    const onChange = vi.fn()
+    const blank = { ...value, removal_rows: null, removal_columns: null }
+    const props = { enabled: true, rows: 3, columns: 4, onChange }
+    const { rerender } = render(<ViaRemovalPanel value={blank} {...props} />)
+    expect(screen.getByLabelText('去孔区行数')).toHaveValue(null)
+    expect(screen.getByLabelText('去孔区列数')).toHaveValue(null)
+    fireEvent.change(screen.getByLabelText('去孔区行数'), { target: { value: '2' } })
+    rerender(<ViaRemovalPanel value={onChange.mock.calls[0][0]} {...props} />)
+    fireEvent.change(screen.getByLabelText('去孔区行数'), { target: { value: '' } })
+    expect(onChange.mock.calls[1][0]).toEqual(blank)
+    expect(pruneViaConfiguration({ ...request, vias: blank }, fields).vias).toEqual(blank)
+  })
+
   it('reuses the matrix with via labels and independent cell selection', () => {
     const onChange = vi.fn()
     render(<ViaRemovalPanel value={value} enabled rows={3} columns={3} onChange={onChange} />)

@@ -1,7 +1,7 @@
 {
   "schema_version": "packstudio.template-defaults/v1",
   "template_id": "qfn",
-  "origin": "Reviewed PackStudio model specification; mapped source values explicitly referenced; via editing values: reviewed qfn opt_v2_c002_modelviasas_discrete/script.xml; ignored native branches do not specify dimensions",
+  "origin": "Reviewed PackStudio model specification; mapped source values explicitly referenced",
   "fields": [
     {
       "key": "footprint.size",
@@ -396,8 +396,7 @@
       "visible_when": {
         "thermal_land.enabled": true
       },
-      "enabled_when": {},
-      "editor_default": 0.05
+      "enabled_when": {}
     },
     {
       "key": "vias.enabled",
@@ -427,8 +426,7 @@
       "visible_when": {
         "vias.enabled": true
       },
-      "enabled_when": {},
-      "editor_default": 0.85
+      "enabled_when": {}
     },
     {
       "key": "vias.diameter",
@@ -444,8 +442,7 @@
       "visible_when": {
         "vias.enabled": true
       },
-      "enabled_when": {},
-      "editor_default": 0.2
+      "enabled_when": {}
     },
     {
       "key": "vias.plating",
@@ -461,8 +458,7 @@
       "visible_when": {
         "vias.enabled": true
       },
-      "enabled_when": {},
-      "editor_default": 0.02
+      "enabled_when": {}
     },
     {
       "key": "vias.pitch",
@@ -478,8 +474,7 @@
       "visible_when": {
         "vias.enabled": true
       },
-      "enabled_when": {},
-      "editor_default": 0.5
+      "enabled_when": {}
     },
     {
       "key": "vias.columns",
@@ -495,8 +490,7 @@
       "visible_when": {
         "vias.enabled": true
       },
-      "enabled_when": {},
-      "editor_default": 5
+      "enabled_when": {}
     },
     {
       "key": "vias.rows",
@@ -512,8 +506,7 @@
       "visible_when": {
         "vias.enabled": true
       },
-      "enabled_when": {},
-      "editor_default": 5
+      "enabled_when": {}
     }
   ],
   "material_selections": [

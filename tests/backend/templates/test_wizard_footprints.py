@@ -190,7 +190,10 @@ def test_pqfp_and_sop_use_thermal_land_and_solder_instead_of_exposed_pad_option(
     model = generate(
         TemplateRequest(
             template_id=template_id,
-            overrides={f"{template_id}.thermal_land.enabled": True},
+            overrides={
+                f"{template_id}.thermal_land.enabled": True,
+                f"{template_id}.thermal_land.thickness": 0.05,
+            },
         )
     )
 

@@ -62,8 +62,7 @@ def _adapt(record: dict, binding: dict, fields: list[dict]) -> dict:
             )
         elif native["status"] == "not_applicable":
             inactive[key] = "/".join(path)
-            if key == "leads.count_y":
-                values[key] = 0
+            values[key] = None
         else:
             raise ValueError(f"native value unavailable for {record['id']}/{key}: {native}")
     notes = []
@@ -71,10 +70,10 @@ def _adapt(record: dict, binding: dict, fields: list[dict]) -> dict:
         notes.append(
             "PACK 未启用的参数："
             + ", ".join(sorted(inactive))
-            + "；仅保留编辑初值，不计入当前模型。"
+            + "；原生未给定数值，保持空白，不计入当前模型。"
         )
     if record["id"] == "QFN_3X3_6":
-        notes.append("two-sided QFN：Y 侧无引脚，未使用的节距仅保留编辑初值。")
+        notes.append("two-sided QFN：Y 侧无引脚，未使用的行数与节距保持空白。")
     bga, pattern_notes = native_bga_pattern(branch, values)
     notes.extend(pattern_notes)
     if bga is not None:
@@ -103,7 +102,7 @@ def _adapt(record: dict, binding: dict, fields: list[dict]) -> dict:
         },
         "audit": {
             "native_parameter_paths": binding["parameters"],
-            "inactive_editor_defaults": inactive,
+            "inactive_parameters": inactive,
             "project_only_fields": [
                 f["key"]
                 for f in fields

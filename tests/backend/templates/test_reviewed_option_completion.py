@@ -19,6 +19,10 @@ from packstudio.templates.package_library.core.parameters import TemplateRequest
 from packstudio.templates.package_library.core.via_configuration import ViaConfiguration
 
 ROOT = Path(__file__).resolve().parents[3]
+QFN_VIA_INPUT = {
+    "vias.enabled": True, "vias.length": 0.85, "vias.diameter": 0.2,
+    "vias.plating": 0.02, "vias.pitch": 0.5, "vias.rows": 5, "vias.columns": 5,
+}
 
 
 def validate_exports(model):
@@ -82,7 +86,10 @@ def test_wirebond_spreader_controls_and_material_reach_geometry_and_exports():
 @pytest.mark.parametrize("template", ["pbga_wb", "chip_array", "qfn"])
 def test_via_region_and_explicit_removal_union_preserves_material_and_cells(template):
     prefix = "bga" if template == "chip_array" else "vias"
-    r = request(template, **{"vias.enabled": True, f"{prefix}.rows": 3, f"{prefix}.columns": 4})
+    via_input = QFN_VIA_INPUT if template == "qfn" else {}
+    r = request(template, **{
+        **via_input, "vias.enabled": True, f"{prefix}.rows": 3, f"{prefix}.columns": 4,
+    })
     baseline = generate(r)
     config = ViaConfiguration(
         removal_enabled=True,
@@ -127,7 +134,7 @@ def test_qfn_via_dimensions_shell_properties_and_disabled_branch():
     assert not any(
         b.structure_type is StructureType.VIA for b in generate(default_request("qfn")).blocks
     )
-    model = generate(request("qfn", **{"vias.enabled": True}))
+    model = generate(request("qfn", **QFN_VIA_INPUT))
     vias = [b for b in model.blocks if b.structure_type is StructureType.VIA]
     assert len(vias) == 25
     assert vias[0].size.x == pytest.approx(sqrt(pi) * 0.2 / 2)
@@ -153,7 +160,7 @@ def test_qfn_via_dimensions_shell_properties_and_disabled_branch():
 )
 def test_qfn_rejects_invalid_via_geometry(values, error):
     with pytest.raises(ValueError, match=error):
-        generate(request("qfn", **{"vias.enabled": True, **values}))
+        generate(request("qfn", **{**QFN_VIA_INPUT, **values}))
 
 
 @pytest.mark.parametrize(
@@ -167,9 +174,11 @@ def test_qfn_rejects_invalid_via_geometry(values, error):
 def test_invalid_via_removal_is_rejected(config, error):
     with pytest.raises(ValueError, match=error):
         generate(
-            request("qfn", **{"vias.enabled": True}).model_copy(
+            request("qfn", **QFN_VIA_INPUT).model_copy(
                 update={
-                    "vias": ViaConfiguration(removal_enabled=True, **config),
+                    "vias": ViaConfiguration(**{
+                        "removal_enabled": True, "removal_rows": 0, "removal_columns": 0, **config,
+                    }),
                 }
             )
         )

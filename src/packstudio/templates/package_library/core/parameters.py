@@ -1,7 +1,6 @@
 from pydantic import BaseModel, ConfigDict, Field
 
 from packstudio.domain.materials import Material
-from packstudio.runtime_data import request_default
 from packstudio.templates.package_library.core.array_parameters import (
     ArrayRepresentation,
     CellIndex,
@@ -14,29 +13,15 @@ type TemplateValue = str | int | float | bool | None
 class BgaConfiguration(BaseModel):
     model_config = ConfigDict(frozen=True, extra="forbid", validate_default=True)
 
-    representation: ArrayRepresentation = Field(
-        default_factory=lambda: request_default("bga", "representation"), validate_default=True
-    )
-    center_solder_enabled: bool = Field(
-        default_factory=lambda: request_default("bga", "center_solder_enabled")
-    )
-    center_solder_rows: int = Field(
-        default_factory=lambda: request_default("bga", "center_solder_rows"), ge=1
-    )
-    center_solder_columns: int = Field(
-        default_factory=lambda: request_default("bga", "center_solder_columns"), ge=1
-    )
-    solder_removal_enabled: bool = Field(
-        default_factory=lambda: request_default("bga", "solder_removal_enabled")
-    )
-    removal_rows: int = Field(default_factory=lambda: request_default("bga", "removal_rows"), ge=0)
-    removal_columns: int = Field(
-        default_factory=lambda: request_default("bga", "removal_columns"), ge=0
-    )
+    representation: ArrayRepresentation | None = None
+    center_solder_enabled: bool = False
+    center_solder_rows: int | None = Field(default=None, ge=1)
+    center_solder_columns: int | None = Field(default=None, ge=1)
+    solder_removal_enabled: bool = False
+    removal_rows: int | None = Field(default=None, ge=0)
+    removal_columns: int | None = Field(default=None, ge=0)
     omitted_cells: list[CellIndex] = Field(default_factory=list)
-    allow_asymmetric_regions: bool = Field(
-        default_factory=lambda: request_default("bga", "allow_asymmetric_regions")
-    )
+    allow_asymmetric_regions: bool = False
 
 
 class TemplateRequest(BaseModel):

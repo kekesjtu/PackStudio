@@ -17,6 +17,26 @@ const pattern: BgaConfiguration = {
 }
 
 describe('BGA solder removal matrix', () => {
+  it.each(['center', 'removal'] as const)('keeps missing %s counts blank when enabled and cleared', (section) => {
+    const onChange = vi.fn()
+    const initial = { ...pattern, center_solder_enabled: false, solder_removal_enabled: false,
+      center_solder_rows: null, center_solder_columns: null, removal_rows: null, removal_columns: null }
+    const props = { section, rows: 3, columns: 3, onChange }
+    const { rerender } = render(<BgaConfigurationPanel value={initial} {...props} />)
+    fireEvent.click(screen.getByRole('switch', { name: section === 'center' ? '中央焊球' : '焊球去除' }))
+    const enabled = onChange.mock.calls[0][0] as BgaConfiguration
+    rerender(<BgaConfigurationPanel value={enabled} {...props} />)
+    const label = section === 'center' ? '中央行数' : '去球区行数'
+    const key = section === 'center' ? 'center_solder_rows' : 'removal_rows'
+    expect(screen.getByLabelText(label)).toHaveValue(null)
+    fireEvent.change(screen.getByLabelText(label), { target: { value: '1' } })
+    const edited = onChange.mock.calls[1][0] as BgaConfiguration
+    expect(edited[key]).toBe(1)
+    rerender(<BgaConfigurationPanel value={edited} {...props} />)
+    fireEvent.change(screen.getByLabelText(label), { target: { value: '' } })
+    expect(onChange.mock.calls[2][0][key]).toBeNull()
+  })
+
   it('hides explicit removal controls while solder removal is disabled', () => {
     render(
       <BgaConfigurationPanel

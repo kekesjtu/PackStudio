@@ -36,16 +36,18 @@ def test_runtime_data_is_loaded_from_the_active_installation(
     monkeypatch.setattr(library.sys, "_MEIPASS", str(extracted), raising=False)
     directory = {"source": checkout, "wheel": prefix, "frozen": extracted}[layout] / "runtime_data"
     directory.mkdir(parents=True)
-    (directory / "request.json").write_text(
+    (directory / "pack_bindings.json").write_text(
         json.dumps(
-            {"schema_version": "packstudio.request-defaults/v1", "bga": {"removal_rows": 2}}
+            {"schema_version": "packstudio.pack-bindings/v1", "families": {"sample": 2}}
         ),
         encoding="utf-8",
     )
     library._read.cache_clear()
     try:
         assert library.library_directory() == directory
-        assert library.request_default("bga", "removal_rows") == 2
+        assert library.read_default_value(
+            "pack_bindings.json", "packstudio.pack-bindings/v1", "families", "sample"
+        ) == 2
     finally:
         library._read.cache_clear()
 
@@ -106,19 +108,15 @@ def test_source_preset_values_are_read_at_runtime(isolated_library: Path) -> Non
     assert die.size.x == 1.9
 
 
-def test_material_and_request_defaults_come_from_json(isolated_library: Path) -> None:
+def test_material_defaults_come_from_json(isolated_library: Path) -> None:
     edit_indexed(
         isolated_library,
         "materials",
         "Silicon (Pure)",
         lambda payload: payload["conductivity"].update(value=123),
     )
-    edit_json(
-        isolated_library / "request.json", lambda data: data["vias"].update(removal_rows=2)
-    )
     model = generate(default_request("bare_die"))
     assert model.materials[0].conductivity.x == 123
-    assert default_request("qfn").vias.removal_rows == 2
 
 
 @pytest.mark.parametrize("failure", ["missing", "version", "nonfinite"])
@@ -133,9 +131,8 @@ def test_invalid_library_fails_without_hardcoded_fallback(
     else:
 
         def update(payload):
-            next(item for item in payload["fields"] if item["key"] == "die.thickness")[
-                "default"
-            ] = float("nan")
+            footprint = next(item for item in payload["fields"] if item["control"] == "footprint")
+            footprint["presets"][0]["values"]["die.thickness"] = float("nan")
 
         edit_json(path, update)
     with pytest.raises(ValueError):
@@ -173,10 +170,10 @@ def test_selected_defaults_keep_nested_mutations_out_of_the_cache() -> None:
     changed = library.read_default_value(*arguments, identifiers[0])
     changed.clear()
     assert library.read_default_value(*arguments, identifiers[0]) == original
-    request_arguments = ("request.json", "packstudio.request-defaults/v1")
-    section = library.read_default_value(*request_arguments, "bga")
-    section["representation"] = "invalid"
-    assert library.request_default("bga", "representation") != "invalid"
+    template_arguments = ("templates/cbga_fc.json", "packstudio.template-defaults/v1", "fields")
+    fields = library.read_default_value(*template_arguments)
+    fields.clear()
+    assert library.read_default_value(*template_arguments)
 
 
 def test_changing_default_selection_does_not_relabel_it_as_captured(isolated_library: Path) -> None:
@@ -207,3 +204,52 @@ def test_original_des_parser_preserves_blanks_and_rejects_duplicates(tmp_path: P
     path.write_text("D|6\nD|7\n", encoding="utf-8")
     with pytest.raises(ValueError, match="duplicate"):
         source_record(path, tmp_path)
+
+
+@pytest.mark.parametrize("section", ["center", "removal"])
+def test_native_blank_bga_counts_require_input_only_after_enabling(section: str) -> None:
+    client = TestClient(create_app())
+    payload = client.get("/api/templates/cbga_fc/defaults").json()
+    prefix = "center_solder" if section == "center" else "removal"
+    switch = "center_solder_enabled" if section == "center" else "solder_removal_enabled"
+    assert payload["bga"][f"{prefix}_rows"] is None
+    assert payload["bga"][f"{prefix}_columns"] is None
+    assert client.post("/api/templates/cbga_fc/generate", json=payload).status_code == 200
+    payload["bga"][switch] = True
+    missing = client.post("/api/templates/cbga_fc/generate", json=payload)
+    assert missing.status_code == 422
+    assert "requires both row and column counts" in missing.json()["detail"]
+    payload["bga"].update({f"{prefix}_rows": 1, f"{prefix}_columns": 1})
+    assert client.post("/api/templates/cbga_fc/generate", json=payload).status_code == 200
+    payload["bga"][f"{prefix}_rows"] = None
+    assert client.post("/api/templates/cbga_fc/export/floxml", json=payload).status_code == 422
+
+
+def test_disabled_native_branch_keeps_values_when_the_source_supplies_them(
+    isolated_library: Path,
+) -> None:
+    def update(payload):
+        fields = payload["branches"]["default"]["groups"]["centralBalls"]["properties"]
+        fields["numberCentralRowsMDp"].update(value=3, status="specified")
+        fields["numberCentralRowsMEp"].update(value=3, status="specified")
+
+    edit_indexed(isolated_library, "presets", "CBGAFC_49_6X6mm", update)
+    client = TestClient(create_app())
+    payload = client.get("/api/templates/cbga_fc/defaults").json()
+    assert payload["bga"]["center_solder_enabled"] is False
+    assert payload["bga"]["center_solder_rows"] == payload["bga"]["center_solder_columns"] == 3
+    assert generate(default_request("cbga_fc")).metadata["solder_ball_count"] == 49
+
+
+def test_missing_native_via_dimensions_stay_blank_after_enabling() -> None:
+    client = TestClient(create_app())
+    result = client.get("/api/templates/qfn/schema").json()
+    fields = {f["property_name"]: f for step in result["steps"] for f in step["fields"]}
+    for key in ("vias.length", "vias.diameter", "vias.plating", "vias.pitch", "vias.rows"):
+        assert fields[key]["default"] is None
+    payload = client.get("/api/templates/qfn/defaults").json()
+    assert payload["vias"]["removal_rows"] is None
+    payload["overrides"]["qfn.vias.enabled"] = True
+    response = client.post("/api/templates/qfn/generate", json=payload)
+    assert response.status_code == 422
+    assert "vias.diameter requires a value" in response.json()["detail"]

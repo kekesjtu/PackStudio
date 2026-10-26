@@ -67,11 +67,11 @@ export interface BgaConfiguration {
   allow_asymmetric_regions?: boolean
   representation: 'equivalent' | 'discrete'
   center_solder_enabled: boolean
-  center_solder_rows: number
-  center_solder_columns: number
+  center_solder_rows: number | null
+  center_solder_columns: number | null
   solder_removal_enabled: boolean
-  removal_rows: number
-  removal_columns: number
+  removal_rows: number | null
+  removal_columns: number | null
   omitted_cells: CellIndex[]
 }
 
@@ -88,8 +88,8 @@ export interface TemplateRequest {
 
 export interface ViaConfiguration {
   removal_enabled: boolean
-  removal_rows: number
-  removal_columns: number
+  removal_rows: number | null
+  removal_columns: number | null
   omitted_cells: CellIndex[]
 }
 

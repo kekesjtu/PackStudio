@@ -1,6 +1,5 @@
 """Apply preset defaults before explicit request inputs, without mutating either."""
 
-from packstudio.templates.package_library.core.default_library import template_defaults
 from packstudio.templates.package_library.core.definitions import PresetOption, TemplateDefinition
 from packstudio.templates.package_library.core.parameters import BgaConfiguration, TemplateRequest
 
@@ -17,9 +16,11 @@ def resolve_preset_request(
     if preset is None or preset.bga is None:
         return request, preset
     configuration = preset.bga.model_dump()
-    configuration["representation"] = template_defaults(definition.id)["default_bga_representation"]
     if request.bga is not None:
-        configuration.update(request.bga.model_dump(include=request.bga.model_fields_set))
+        changes = request.bga.model_dump(include=request.bga.model_fields_set)
+        if changes.get("representation") is None:
+            changes.pop("representation", None)
+        configuration.update(changes)
         if (
             "solder_removal_enabled" in request.bga.model_fields_set
             and not request.bga.solder_removal_enabled

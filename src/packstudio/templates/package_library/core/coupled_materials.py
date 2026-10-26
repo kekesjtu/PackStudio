@@ -74,6 +74,8 @@ def coupled_materials(
             )
     else:
         for axis, transverse_axis in (("x", "y"), ("y", "x")):
+            if values.is_missing(f"leads.count_{transverse_axis}"):
+                continue
             count = values.integer(f"leads.count_{transverse_axis}")
             if not count:
                 continue

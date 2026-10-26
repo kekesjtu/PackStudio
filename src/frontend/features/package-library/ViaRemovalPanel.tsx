@@ -34,15 +34,15 @@ export default function ViaRemovalPanel({ value, enabled, rows, columns, onChang
       />
       {value.removal_enabled && <>
         <Stack direction="row" spacing={1}>
-          <NumberInput label="去孔区行数" value={value.removal_rows} integer
-            onChange={(removal_rows) => update({ removal_rows: removal_rows ?? 0 })} />
-          <NumberInput label="去孔区列数" value={value.removal_columns} integer
-            onChange={(removal_columns) => update({ removal_columns: removal_columns ?? 0 })} />
+          <NumberInput label="去孔区行数" value={value.removal_rows} integer allowEmpty
+            onChange={(removal_rows) => update({ removal_rows })} />
+          <NumberInput label="去孔区列数" value={value.removal_columns} integer allowEmpty
+            onChange={(removal_columns) => update({ removal_columns })} />
         </Stack>
-        <SolderRemovalMatrix kind="via" rows={rows} columns={columns}
+        {rows > 0 && columns > 0 && <SolderRemovalMatrix kind="via" rows={rows} columns={columns}
           omittedCells={value.omitted_cells} removalRows={value.removal_rows}
           removalColumns={value.removal_columns}
-          onChange={(omitted_cells) => update({ omitted_cells })} />
+          onChange={(omitted_cells) => update({ omitted_cells })} />}
       </>}
     </Stack>
   )

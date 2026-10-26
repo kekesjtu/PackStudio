@@ -58,9 +58,10 @@ def _build(values: TemplateValues, request: TemplateRequest) -> BuiltTemplate:
     die_z = die_attach_z + attach
     die_top = die_z + die_thickness
     count_x = values.integer("leads.count_x")
-    count_y = values.integer("leads.count_y")
+    # A native two-sided preset leaves the absent side's count and pitch unfilled.
+    count_y = 0 if values.is_missing("leads.count_y") else values.integer("leads.count_y")
     pitch_x = values.number("leads.pitch_x")
-    pitch_y = values.number("leads.pitch_y")
+    pitch_y = values.number("leads.pitch_y") if count_y else 0
     lead_width = values.number("leads.width")
     _validate(values, length, width)
     span_x = (count_x - 1) * pitch_x + lead_width
@@ -194,7 +195,8 @@ def _build(values: TemplateValues, request: TemplateRequest) -> BuiltTemplate:
 
 
 def _validate(values: TemplateValues, length: float, width: float) -> None:
-    if values.integer("leads.count_x") + values.integer("leads.count_y") == 0:
+    count_y = 0 if values.is_missing("leads.count_y") else values.integer("leads.count_y")
+    if values.integer("leads.count_x") + count_y == 0:
         raise ValueError("QFN must have leads on at least one pair of sides")
     if max(values.number("die.length"), values.number("pad.length")) > length:
         raise ValueError("die and DAP must fit inside the QFN body")
@@ -203,7 +205,7 @@ def _validate(values: TemplateValues, length: float, width: float) -> None:
     if values.number("leads.exposed_thickness") >= values.number("leads.thickness"):
         raise ValueError("exposed lead thickness must be less than lead thickness")
     span_x = (values.integer("leads.count_x") - 1) * values.number("leads.pitch_x")
-    span_y = (values.integer("leads.count_y") - 1) * values.number("leads.pitch_y")
+    span_y = (count_y - 1) * values.number("leads.pitch_y") if count_y else 0
     if span_x + values.number("leads.width") > length:
         raise ValueError("top/bottom QFN leads do not fit the package")
     if span_y + values.number("leads.width") > width:

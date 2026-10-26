@@ -26,13 +26,14 @@ def template_defaults(template_id: str) -> dict:
     return payload
 
 
-def _preset(payload: dict) -> PresetOption:
+def _preset(payload: dict, representation: str) -> PresetOption:
     return _PRESET_ADAPTER.validate_python(
         {
             "value": payload["value"],
             "label": payload["label"],
             "values": payload["values"],
-            "bga": payload.get("bga"),
+            "bga": {**payload["bga"], "representation": representation}
+            if payload.get("bga") is not None else None,
             "metadata": payload.get("metadata", {}),
             "material_assignments": payload.get("material_assignments", {}),
         }
@@ -41,18 +42,20 @@ def _preset(payload: dict) -> PresetOption:
 
 def load_fields(template_id: str) -> tuple[FieldDefinition, ...]:
     items = []
-    serialized = template_defaults(template_id)["fields"]
+    defaults = template_defaults(template_id)
+    serialized = defaults["fields"]
     footprint = next(item for item in serialized if item["control"] == "footprint")
     expanded = expand_native_presets(template_id, footprint, serialized)
     selected = next(p for p in expanded["presets"] if p["value"] == footprint["default"])
     for payload in serialized:
         if payload["control"] == "footprint":
             payload = expanded
-        elif template_id != "bare_die" and payload["key"] in selected["values"]:
+        elif payload["key"] in selected["values"]:
             payload["default"] = selected["values"][payload["key"]]
-        elif "editor_default" in payload:
-            payload["default"] = payload.pop("editor_default")
-        payload["presets"] = tuple(_preset(preset) for preset in payload["presets"])
+        payload.setdefault("default", None)
+        payload["presets"] = tuple(
+            _preset(preset, defaults["default_bga_representation"]) for preset in payload["presets"]
+        )
         item = _FIELD_ADAPTER.validate_python(payload)
         _validate_value(item, item.default)
         if item.presets and tuple(preset.value for preset in item.presets) != item.options:

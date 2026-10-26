@@ -139,6 +139,9 @@ class TemplateDefinition:
         ]
         if inactive:
             raise ValueError(f"parameters are inactive in the current branch: {inactive}")
+        for target_id, value in request.overrides.items():
+            if value is None:
+                raise ValueError(f"{by_target[target_id].key} requires a value")
         self._validate_material_assignments(request, values)
         return TemplateValues(values)
 
@@ -174,8 +177,13 @@ class TemplateValues:
     def matches(self, conditions: dict[str, TemplateValue]) -> bool:
         return _matches(conditions, self._values)
 
+    def is_missing(self, key: str) -> bool:
+        return self._values[key] is None
+
     def number(self, key: str) -> float:
         value = self._values[key]
+        if value is None:
+            raise ValueError(f"{key} requires a value")
         if not isinstance(value, int | float) or isinstance(value, bool):
             raise ValueError(f"{key} is not numeric")
         return float(value)
@@ -200,6 +208,8 @@ class TemplateValues:
 
 
 def _validate_value(item: FieldDefinition, value: TemplateValue) -> None:
+    if value is None:
+        return
     if item.control == "checkbox" and not isinstance(value, bool):
         raise ValueError(f"{item.key} must be boolean")
     if item.control in {"number", "integer", "integer_spinbox"}:

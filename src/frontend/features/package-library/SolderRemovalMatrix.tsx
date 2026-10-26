@@ -7,8 +7,8 @@ interface SolderRemovalMatrixProps {
   rows: number
   columns: number
   omittedCells: CellIndex[]
-  removalRows: number
-  removalColumns: number
+  removalRows: number | null
+  removalColumns: number | null
   onChange: (cells: CellIndex[]) => void
   kind?: 'solder' | 'via'
 }
@@ -135,9 +135,10 @@ function isInsideArray(cell: CellIndex, rows: number, columns: number) {
 function centeredBounds(
   rows: number,
   columns: number,
-  regionRows: number,
-  regionColumns: number,
+  regionRows: number | null,
+  regionColumns: number | null,
 ): CellBounds | null {
+  if (regionRows === null || regionColumns === null) return null
   if (regionRows <= 0 || regionColumns <= 0) return null
   const rowStart = Math.floor((rows - regionRows) / 2)
   const columnStart = Math.floor((columns - regionColumns) / 2)

@@ -51,7 +51,3 @@ def read_default_keys(relative: str, schema_version: str, *keys: str) -> tuple[s
     for key in keys:
         value = value[key]
     return tuple(value)
-
-
-def request_default(section: str, key: str) -> Any:
-    return read_default_value("request.json", "packstudio.request-defaults/v1", section, key)
