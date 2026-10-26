@@ -3,7 +3,7 @@
 ## 环境
 
 需要 uv、Node.js 22.12+ 和 npm。Python 版本以 `.python-version` 为准。
-使用仓库 `.venv`，不依赖 conda；依赖由锁文件固定。
+解释器与仓库 `.venv` 由 uv 管理，依赖由锁文件固定。
 
 ```powershell
 uv sync --locked --python-preference only-managed
@@ -82,7 +82,7 @@ uv run --locked python -m tools.validate_catalog_presets
 ```
 
 该命令实际重建模型并更新 `docs/validation/catalog_presets.json`。
-报告的通过结果仅覆盖记录的检查，不代表全部 PACK 功能已经复刻。
+报告列出验证案例、输入指纹、几何引用与 FloXML XSD 检查结果。
 
 ## 临时文件
 

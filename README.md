@@ -12,8 +12,7 @@
 - FloXML 文件下载；Windows 独立窗口提供原生保存对话框。
 
 功能范围以 [requirements.md](requirements.md) 为准。
-相对 PACK 的主动功能取舍只有[决策索引](docs/decisions/README.md)列出的三项；
-其中 bumps 的 Isotropic Cuboid 要求与现有实现尚未对齐。
+封装建模范围、实现对照与工程约定见[决策索引](docs/decisions/README.md)。
 
 ## 快速开始
 
@@ -45,8 +44,7 @@ npm run desktop
 | `tests/` | 后端、前端、启动和桌面验证 |
 | `tools/` | 开发、打包、通用原生导出与回归辅助工具 |
 | `docs/` | 当前决策、开发说明和验证数据 |
-| `archive/` | 停用格式的只读参考归档 |
-| `flotherm_pack_data/` | 本地原生参考数据，不进入分发包或 Git |
+| `flotherm_pack_data/` | 本地原生参考数据 |
 | `tmp/` | 临时产物与日志 |
 
 ## 文档与验证
