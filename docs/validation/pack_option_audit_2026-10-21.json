@@ -240,9 +240,7 @@
         "spreaderThicknessTspr": 0.018,
         "spreaderWidthWspr": 9.4
       },
-      "generated_spreader_blocks": [
-        "backside-spreader-part-1"
-      ],
+      "generated_spreader_blocks": ["backside-spreader-part-1"],
       "source": "flocentral/flopack/pbga_wb/PBGA_192_17X17mm.des"
     },
     "material_candidate_checks": [
@@ -2035,9 +2033,7 @@
       "screenshots": [],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "request.design_name"
-      ],
+      "targets": ["request.design_name"],
       "reason": ""
     },
     {
@@ -2053,9 +2049,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "request.design_name"
-      ],
+      "targets": ["request.design_name"],
       "reason": ""
     },
     {
@@ -2167,9 +2161,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "die.power"
-      ],
+      "targets": ["die.power"],
       "reason": ""
     },
     {
@@ -2217,9 +2209,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "die.length"
-      ],
+      "targets": ["die.length"],
       "reason": ""
     },
     {
@@ -2235,9 +2225,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "die.width"
-      ],
+      "targets": ["die.width"],
       "reason": ""
     },
     {
@@ -2253,9 +2241,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "die.thickness"
-      ],
+      "targets": ["die.thickness"],
       "reason": ""
     },
     {
@@ -2264,10 +2250,7 @@
       "location": "die",
       "label": "Die Material",
       "native_property": "dieMaterial",
-      "reference_options": [
-        "Si",
-        "GaAs"
-      ],
+      "reference_options": ["Si", "GaAs"],
       "registry_entry": 14,
       "screenshots": [
         "flotherm_pack_data/templates/bare_die/screenshots/step_02_die.png",
@@ -2275,9 +2258,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "material.group-die"
-      ],
+      "targets": ["material.group-die"],
       "reason": "ADR27：Si / GaAs 均已开放"
     },
     {
@@ -2293,9 +2274,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "die.flipped"
-      ],
+      "targets": ["die.flipped"],
       "reason": ""
     },
     {
@@ -2311,9 +2290,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "bumps.enabled"
-      ],
+      "targets": ["bumps.enabled"],
       "reason": ""
     },
     {
@@ -2329,9 +2306,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "bumps.total"
-      ],
+      "targets": ["bumps.total"],
       "reason": ""
     },
     {
@@ -2347,9 +2322,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "bumps.diameter"
-      ],
+      "targets": ["bumps.diameter"],
       "reason": ""
     },
     {
@@ -2365,9 +2338,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "bumps.height"
-      ],
+      "targets": ["bumps.height"],
       "reason": ""
     },
     {
@@ -2399,9 +2370,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "material.group-bump-solder"
-      ],
+      "targets": ["material.group-bump-solder"],
       "reason": ""
     },
     {
@@ -2433,9 +2402,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "material.group-underfill"
-      ],
+      "targets": ["material.group-underfill"],
       "reason": ""
     },
     {
@@ -2444,10 +2411,7 @@
       "location": "modeling_options",
       "label": "Solder Bump Modeling",
       "native_property": "solderBumpModeling",
-      "reference_options": [
-        "Collapsed Cuboid",
-        "Orthotropic Cuboid"
-      ],
+      "reference_options": ["Collapsed Cuboid", "Orthotropic Cuboid"],
       "registry_entry": 24,
       "screenshots": [
         "flotherm_pack_data/templates/bare_die/screenshots/step_04_modeling_options.png",
@@ -2480,11 +2444,7 @@
       "location": "modeling_options",
       "label": "Grid Density",
       "native_property": "gridDensity",
-      "reference_options": [
-        "Coarse",
-        "Medium",
-        "Fine"
-      ],
+      "reference_options": ["Coarse", "Medium", "Fine"],
       "registry_entry": 26,
       "screenshots": [
         "flotherm_pack_data/templates/bare_die/screenshots/step_04_modeling_options.png",
@@ -2492,9 +2452,7 @@
       ],
       "status": "adapted",
       "finding": null,
-      "targets": [
-        "request.mesh.resolution"
-      ],
+      "targets": ["request.mesh.resolution"],
       "reason": "项目最大网格尺寸预设替代 PACK 网格区域"
     },
     {
@@ -2508,9 +2466,7 @@
       "screenshots": [],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "request.design_name"
-      ],
+      "targets": ["request.design_name"],
       "reason": ""
     },
     {
@@ -2519,10 +2475,7 @@
       "location": "starter",
       "label": "Outline Type",
       "native_property": "outlineType",
-      "reference_options": [
-        "standardOutline",
-        "nonStandardOutline"
-      ],
+      "reference_options": ["standardOutline", "nonStandardOutline"],
       "registry_entry": 1,
       "screenshots": [],
       "status": "explicit_tradeoff",
@@ -2580,9 +2533,7 @@
       "screenshots": [],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "footprint.size"
-      ],
+      "targets": ["footprint.size"],
       "reason": ""
     },
     {
@@ -2591,10 +2542,7 @@
       "location": "starter",
       "label": "Die Type",
       "native_property": "dieType",
-      "reference_options": [
-        "actualDie",
-        "thermalDie"
-      ],
+      "reference_options": ["actualDie", "thermalDie"],
       "registry_entry": 3,
       "screenshots": [],
       "status": "explicit_tradeoff",
@@ -2608,10 +2556,7 @@
       "location": "starter",
       "label": "Substrate Layer",
       "native_property": "substrateLayer",
-      "reference_options": [
-        "2-Layer",
-        "4-Layer"
-      ],
+      "reference_options": ["2-Layer", "4-Layer"],
       "registry_entry": 4,
       "screenshots": [],
       "status": "explicit_tradeoff",
@@ -2630,9 +2575,7 @@
       "screenshots": [],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "trace.top_thickness"
-      ],
+      "targets": ["trace.top_thickness"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -2646,9 +2589,7 @@
       "screenshots": [],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "trace.bottom_thickness"
-      ],
+      "targets": ["trace.bottom_thickness"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -2664,9 +2605,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "request.design_name"
-      ],
+      "targets": ["request.design_name"],
       "reason": ""
     },
     {
@@ -2778,9 +2717,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "package.length"
-      ],
+      "targets": ["package.length"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -2796,9 +2733,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "package.width"
-      ],
+      "targets": ["package.width"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -2814,9 +2749,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "substrate.thickness"
-      ],
+      "targets": ["substrate.thickness"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -2848,9 +2781,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "group-substrate"
-      ],
+      "targets": ["group-substrate"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -2866,9 +2797,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "die.power"
-      ],
+      "targets": ["die.power"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -2900,9 +2829,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "die.length"
-      ],
+      "targets": ["die.length"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -2918,9 +2845,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "die.width"
-      ],
+      "targets": ["die.width"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -2936,9 +2861,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "die.thickness"
-      ],
+      "targets": ["die.thickness"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -2954,9 +2877,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "die.attach"
-      ],
+      "targets": ["die.attach"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -2988,9 +2909,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "group-die-attach"
-      ],
+      "targets": ["group-die-attach"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -3006,9 +2925,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "encapsulant.thickness"
-      ],
+      "targets": ["encapsulant.thickness"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -3040,9 +2957,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "group-encapsulant"
-      ],
+      "targets": ["group-encapsulant"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -3058,9 +2973,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "solder_mask.thickness"
-      ],
+      "targets": ["solder_mask.thickness"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -3092,9 +3005,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "group-solder-mask"
-      ],
+      "targets": ["group-solder-mask"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -3110,9 +3021,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "bond_wire.extent_length"
-      ],
+      "targets": ["bond_wire.extent_length"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -3128,9 +3037,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "bond_wire.extent_width"
-      ],
+      "targets": ["bond_wire.extent_width"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -3146,9 +3053,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "bond_wire.diameter"
-      ],
+      "targets": ["bond_wire.diameter"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -3180,9 +3085,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "group-bond-wires"
-      ],
+      "targets": ["group-bond-wires"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -3191,10 +3094,7 @@
       "location": "bond_wires",
       "label": "Number of Bond Wires equals Solder Balls",
       "native_property": "numberBondWiresEqualsSolderBalls",
-      "reference_options": [
-        "Yes",
-        "No"
-      ],
+      "reference_options": ["Yes", "No"],
       "registry_entry": 38,
       "screenshots": [
         "flotherm_pack_data/templates/chip_array/screenshots/step_05_bond_wires.png",
@@ -3218,9 +3118,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "vias.diameter"
-      ],
+      "targets": ["vias.diameter"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -3229,10 +3127,7 @@
       "location": "vias",
       "label": "Filled Vias",
       "native_property": "filledVias",
-      "reference_options": [
-        "Yes",
-        "No"
-      ],
+      "reference_options": ["Yes", "No"],
       "registry_entry": 40,
       "screenshots": [
         "flotherm_pack_data/templates/chip_array/screenshots/step_06_vias.png"
@@ -3255,9 +3150,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "vias.plating"
-      ],
+      "targets": ["vias.plating"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -3298,10 +3191,7 @@
       "location": "metal_layers",
       "label": "Substrate Layer",
       "native_property": "substrateLayer",
-      "reference_options": [
-        "2-Layer",
-        "4-Layer"
-      ],
+      "reference_options": ["2-Layer", "4-Layer"],
       "registry_entry": 44,
       "screenshots": [
         "flotherm_pack_data/templates/chip_array/screenshots/step_07_metal_layers.png"
@@ -3404,9 +3294,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "bga.columns"
-      ],
+      "targets": ["bga.columns"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -3422,9 +3310,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "bga.rows"
-      ],
+      "targets": ["bga.rows"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -3440,9 +3326,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "bga.diameter"
-      ],
+      "targets": ["bga.diameter"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -3458,9 +3342,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "bga.pitch"
-      ],
+      "targets": ["bga.pitch"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -3476,9 +3358,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "bga.height"
-      ],
+      "targets": ["bga.height"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -3510,9 +3390,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "group-bga-solder"
-      ],
+      "targets": ["group-bga-solder"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -3560,9 +3438,7 @@
       ],
       "status": "adapted",
       "finding": null,
-      "targets": [
-        "request.bga.solder_removal_enabled"
-      ],
+      "targets": ["request.bga.solder_removal_enabled"],
       "reason": "采用 ADR5 的去球/中央区与等效表达"
     },
     {
@@ -3578,9 +3454,7 @@
       ],
       "status": "adapted",
       "finding": null,
-      "targets": [
-        "request.bga.removal_columns"
-      ],
+      "targets": ["request.bga.removal_columns"],
       "reason": "采用 ADR5 的去球/中央区与等效表达"
     },
     {
@@ -3596,9 +3470,7 @@
       ],
       "status": "adapted",
       "finding": null,
-      "targets": [
-        "request.bga.removal_rows"
-      ],
+      "targets": ["request.bga.removal_rows"],
       "reason": "采用 ADR5 的去球/中央区与等效表达"
     },
     {
@@ -3614,9 +3486,7 @@
       ],
       "status": "adapted",
       "finding": null,
-      "targets": [
-        "request.bga.omitted_cells"
-      ],
+      "targets": ["request.bga.omitted_cells"],
       "reason": "显式索引替代交互去球表及文件导入"
     },
     {
@@ -3632,9 +3502,7 @@
       ],
       "status": "adapted",
       "finding": null,
-      "targets": [
-        "request.bga.center_solder_enabled"
-      ],
+      "targets": ["request.bga.center_solder_enabled"],
       "reason": "采用 ADR5 的去球/中央区与等效表达"
     },
     {
@@ -3650,9 +3518,7 @@
       ],
       "status": "adapted",
       "finding": null,
-      "targets": [
-        "request.bga.center_solder_columns"
-      ],
+      "targets": ["request.bga.center_solder_columns"],
       "reason": "采用 ADR5 的去球/中央区与等效表达"
     },
     {
@@ -3668,9 +3534,7 @@
       ],
       "status": "adapted",
       "finding": null,
-      "targets": [
-        "request.bga.center_solder_rows"
-      ],
+      "targets": ["request.bga.center_solder_rows"],
       "reason": "采用 ADR5 的去球/中央区与等效表达"
     },
     {
@@ -3695,9 +3559,7 @@
       "location": "modeling_options",
       "label": "Model Solder Ball Array As",
       "native_property": "modelSolderBallArrayAs",
-      "reference_options": [
-        "Discrete Cuboids"
-      ],
+      "reference_options": ["Discrete Cuboids"],
       "registry_entry": 67,
       "screenshots": [
         "flotherm_pack_data/templates/chip_array/screenshots/step_11_modeling_options.png"
@@ -3713,10 +3575,7 @@
       "location": "modeling_options",
       "label": "Via Modeling",
       "native_property": "viaModeling",
-      "reference_options": [
-        "Approximate",
-        "Accurate"
-      ],
+      "reference_options": ["Approximate", "Accurate"],
       "registry_entry": 68,
       "screenshots": [
         "flotherm_pack_data/templates/chip_array/screenshots/step_11_modeling_options.png",
@@ -3740,9 +3599,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "vias.offset_x"
-      ],
+      "targets": ["vias.offset_x"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -3758,9 +3615,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "vias.offset_y"
-      ],
+      "targets": ["vias.offset_y"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -3769,10 +3624,7 @@
       "location": "modeling_options",
       "label": "Bond Wire Modeling",
       "native_property": "bondWireModeling",
-      "reference_options": [
-        "Include",
-        "Ignore"
-      ],
+      "reference_options": ["Include", "Ignore"],
       "registry_entry": 71,
       "screenshots": [
         "flotherm_pack_data/templates/chip_array/screenshots/step_11_modeling_options.png",
@@ -3805,20 +3657,14 @@
       "location": "modeling_options",
       "label": "Grid Density",
       "native_property": "gridDensity",
-      "reference_options": [
-        "Coarse",
-        "Medium",
-        "Fine"
-      ],
+      "reference_options": ["Coarse", "Medium", "Fine"],
       "registry_entry": 73,
       "screenshots": [
         "flotherm_pack_data/templates/chip_array/screenshots/step_11_modeling_options.png"
       ],
       "status": "adapted",
       "finding": null,
-      "targets": [
-        "request.mesh.resolution"
-      ],
+      "targets": ["request.mesh.resolution"],
       "reason": "项目最大网格尺寸预设替代 PACK 网格区域"
     },
     {
@@ -3832,9 +3678,7 @@
       "screenshots": [],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "request.design_name"
-      ],
+      "targets": ["request.design_name"],
       "reason": ""
     },
     {
@@ -3843,10 +3687,7 @@
       "location": "starter",
       "label": "Outline Type",
       "native_property": "outlineType",
-      "reference_options": [
-        "standardOutline",
-        "nonStandardOutline"
-      ],
+      "reference_options": ["standardOutline", "nonStandardOutline"],
       "registry_entry": 1,
       "screenshots": [],
       "status": "explicit_tradeoff",
@@ -3876,9 +3717,7 @@
       "screenshots": [],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "footprint.size"
-      ],
+      "targets": ["footprint.size"],
       "reason": ""
     },
     {
@@ -3887,19 +3726,12 @@
       "location": "starter",
       "label": "Top Cover",
       "native_property": "topCover",
-      "reference_options": [
-        "bareDie",
-        "lid",
-        "plate",
-        "encapsulant"
-      ],
+      "reference_options": ["bareDie", "lid", "plate", "encapsulant"],
       "registry_entry": 3,
       "screenshots": [],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "cover.type"
-      ],
+      "targets": ["cover.type"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -3915,9 +3747,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "request.design_name"
-      ],
+      "targets": ["request.design_name"],
       "reason": ""
     },
     {
@@ -4029,9 +3859,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "substrate.length"
-      ],
+      "targets": ["substrate.length"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -4047,9 +3875,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "substrate.width"
-      ],
+      "targets": ["substrate.width"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -4065,9 +3891,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "substrate.thickness"
-      ],
+      "targets": ["substrate.thickness"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -4110,9 +3934,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "group-substrate"
-      ],
+      "targets": ["group-substrate"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -4128,9 +3950,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "die.power"
-      ],
+      "targets": ["die.power"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -4178,9 +3998,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "die.length"
-      ],
+      "targets": ["die.length"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -4196,9 +4014,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "die.width"
-      ],
+      "targets": ["die.width"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -4214,9 +4030,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "die.thickness"
-      ],
+      "targets": ["die.thickness"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -4225,10 +4039,7 @@
       "location": "flip_chip_bumps",
       "label": "Array Type",
       "native_property": "arrayType",
-      "reference_options": [
-        "regularArray",
-        "nonRegularArray"
-      ],
+      "reference_options": ["regularArray", "nonRegularArray"],
       "registry_entry": 22,
       "screenshots": [
         "flotherm_pack_data/templates/cbga_fc/screenshots/step_04_flip_chip_bumps.png"
@@ -4251,9 +4062,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "bumps.total"
-      ],
+      "targets": ["bumps.total"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -4301,9 +4110,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "bumps.diameter"
-      ],
+      "targets": ["bumps.diameter"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -4319,9 +4126,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "bumps.height"
-      ],
+      "targets": ["bumps.height"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -4362,9 +4167,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "group-bump-solder"
-      ],
+      "targets": ["group-bump-solder"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -4420,9 +4223,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "group-underfill"
-      ],
+      "targets": ["group-underfill"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -4438,9 +4239,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "bga.columns"
-      ],
+      "targets": ["bga.columns"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -4456,9 +4255,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "bga.rows"
-      ],
+      "targets": ["bga.rows"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -4474,9 +4271,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "bga.diameter"
-      ],
+      "targets": ["bga.diameter"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -4492,9 +4287,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "bga.pitch"
-      ],
+      "targets": ["bga.pitch"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -4510,9 +4303,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "bga.height"
-      ],
+      "targets": ["bga.height"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -4544,9 +4335,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "group-bga-solder"
-      ],
+      "targets": ["group-bga-solder"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -4610,9 +4399,7 @@
       ],
       "status": "adapted",
       "finding": null,
-      "targets": [
-        "request.bga.solder_removal_enabled"
-      ],
+      "targets": ["request.bga.solder_removal_enabled"],
       "reason": "采用 ADR5 的去球/中央区与等效表达"
     },
     {
@@ -4628,9 +4415,7 @@
       ],
       "status": "adapted",
       "finding": null,
-      "targets": [
-        "request.bga.removal_columns"
-      ],
+      "targets": ["request.bga.removal_columns"],
       "reason": "采用 ADR5 的去球/中央区与等效表达"
     },
     {
@@ -4646,9 +4431,7 @@
       ],
       "status": "adapted",
       "finding": null,
-      "targets": [
-        "request.bga.removal_rows"
-      ],
+      "targets": ["request.bga.removal_rows"],
       "reason": "采用 ADR5 的去球/中央区与等效表达"
     },
     {
@@ -4664,9 +4447,7 @@
       ],
       "status": "adapted",
       "finding": null,
-      "targets": [
-        "request.bga.omitted_cells"
-      ],
+      "targets": ["request.bga.omitted_cells"],
       "reason": "显式索引替代交互去球表及文件导入"
     },
     {
@@ -4682,9 +4463,7 @@
       ],
       "status": "adapted",
       "finding": null,
-      "targets": [
-        "request.bga.center_solder_enabled"
-      ],
+      "targets": ["request.bga.center_solder_enabled"],
       "reason": "采用 ADR5 的去球/中央区与等效表达"
     },
     {
@@ -4700,9 +4479,7 @@
       ],
       "status": "adapted",
       "finding": null,
-      "targets": [
-        "request.bga.center_solder_columns"
-      ],
+      "targets": ["request.bga.center_solder_columns"],
       "reason": "采用 ADR5 的去球/中央区与等效表达"
     },
     {
@@ -4718,9 +4495,7 @@
       ],
       "status": "adapted",
       "finding": null,
-      "targets": [
-        "request.bga.center_solder_rows"
-      ],
+      "targets": ["request.bga.center_solder_rows"],
       "reason": "采用 ADR5 的去球/中央区与等效表达"
     },
     {
@@ -4745,21 +4520,14 @@
       "location": "top_cover",
       "label": "Top Cover",
       "native_property": "topCover",
-      "reference_options": [
-        "bareDie",
-        "lid",
-        "plate",
-        "encapsulant"
-      ],
+      "reference_options": ["bareDie", "lid", "plate", "encapsulant"],
       "registry_entry": 51,
       "screenshots": [
         "flotherm_pack_data/templates/cbga_fc/screenshots/step_08_top_cover.png"
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "cover.type"
-      ],
+      "targets": ["cover.type"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -4992,10 +4760,7 @@
       "location": "modeling_options",
       "label": "Model Solder Ball Array As",
       "native_property": "modelSolderBallArrayAs",
-      "reference_options": [
-        "orthotropicCuboid",
-        "discreteCuboids"
-      ],
+      "reference_options": ["orthotropicCuboid", "discreteCuboids"],
       "registry_entry": 66,
       "screenshots": [
         "flotherm_pack_data/templates/cbga_fc/screenshots/step_10_modeling_options.png"
@@ -5011,10 +4776,7 @@
       "location": "modeling_options",
       "label": "Model Flip Chip Bumps As",
       "native_property": "modelFlipChipBumpsAs",
-      "reference_options": [
-        "collapsedCuboid",
-        "isotropicCuboid"
-      ],
+      "reference_options": ["collapsedCuboid", "isotropicCuboid"],
       "registry_entry": 67,
       "screenshots": [
         "flotherm_pack_data/templates/cbga_fc/screenshots/step_10_modeling_options.png"
@@ -5046,20 +4808,14 @@
       "location": "modeling_options",
       "label": "Grid Density",
       "native_property": "gridDensity",
-      "reference_options": [
-        "coarse",
-        "medium",
-        "fine"
-      ],
+      "reference_options": ["coarse", "medium", "fine"],
       "registry_entry": 69,
       "screenshots": [
         "flotherm_pack_data/templates/cbga_fc/screenshots/step_10_modeling_options.png"
       ],
       "status": "adapted",
       "finding": null,
-      "targets": [
-        "request.mesh.resolution"
-      ],
+      "targets": ["request.mesh.resolution"],
       "reason": "项目最大网格尺寸预设替代 PACK 网格区域"
     },
     {
@@ -5075,9 +4831,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "lid.length"
-      ],
+      "targets": ["lid.length"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -5093,9 +4847,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "lid.width"
-      ],
+      "targets": ["lid.width"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -5111,9 +4863,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "lid.thickness"
-      ],
+      "targets": ["lid.thickness"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -5129,9 +4879,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "lid.base_thickness"
-      ],
+      "targets": ["lid.base_thickness"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -5147,10 +4895,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "lid.die_attach",
-        "plate.die_attach"
-      ],
+      "targets": ["lid.die_attach", "plate.die_attach"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -5166,9 +4911,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "lid.adhesive"
-      ],
+      "targets": ["lid.adhesive"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -5177,10 +4920,7 @@
       "location": "top_cover.lid",
       "label": "Stiffener",
       "native_property": "stiffener",
-      "reference_options": [
-        "no",
-        "yes"
-      ],
+      "reference_options": ["no", "yes"],
       "registry_entry": 76,
       "screenshots": [
         "flotherm_pack_data/templates/cbga_fc/screenshots/step_08_top_cover.png"
@@ -5283,9 +5023,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "plate.length"
-      ],
+      "targets": ["plate.length"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -5301,9 +5039,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "plate.width"
-      ],
+      "targets": ["plate.width"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -5319,9 +5055,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "plate.thickness"
-      ],
+      "targets": ["plate.thickness"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -5337,9 +5071,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "cover.length"
-      ],
+      "targets": ["cover.length"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -5355,9 +5087,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "cover.width"
-      ],
+      "targets": ["cover.width"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -5389,9 +5119,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "cover.thickness"
-      ],
+      "targets": ["cover.thickness"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -5405,9 +5133,7 @@
       "screenshots": [],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "request.design_name"
-      ],
+      "targets": ["request.design_name"],
       "reason": ""
     },
     {
@@ -5416,10 +5142,7 @@
       "location": "starter",
       "label": "Outline Type",
       "native_property": "outlineType",
-      "reference_options": [
-        "standardOutline",
-        "nonStandardOutline"
-      ],
+      "reference_options": ["standardOutline", "nonStandardOutline"],
       "registry_entry": 1,
       "screenshots": [],
       "status": "explicit_tradeoff",
@@ -5449,9 +5172,7 @@
       "screenshots": [],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "footprint.size"
-      ],
+      "targets": ["footprint.size"],
       "reason": ""
     },
     {
@@ -5460,19 +5181,12 @@
       "location": "starter",
       "label": "Top Cover",
       "native_property": "topCover",
-      "reference_options": [
-        "bareDie",
-        "lid",
-        "plate",
-        "encapsulant"
-      ],
+      "reference_options": ["bareDie", "lid", "plate", "encapsulant"],
       "registry_entry": 3,
       "screenshots": [],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "cover.type"
-      ],
+      "targets": ["cover.type"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -5488,9 +5202,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "request.design_name"
-      ],
+      "targets": ["request.design_name"],
       "reason": ""
     },
     {
@@ -5602,9 +5314,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "substrate.length"
-      ],
+      "targets": ["substrate.length"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -5620,9 +5330,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "substrate.width"
-      ],
+      "targets": ["substrate.width"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -5638,9 +5346,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "substrate.thickness"
-      ],
+      "targets": ["substrate.thickness"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -5672,9 +5378,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "group-substrate"
-      ],
+      "targets": ["group-substrate"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -5690,9 +5394,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "die.power"
-      ],
+      "targets": ["die.power"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -5740,9 +5442,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "die.length"
-      ],
+      "targets": ["die.length"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -5758,9 +5458,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "die.width"
-      ],
+      "targets": ["die.width"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -5776,9 +5474,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "die.thickness"
-      ],
+      "targets": ["die.thickness"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -5787,10 +5483,7 @@
       "location": "flip_chip_bumps",
       "label": "Array Type",
       "native_property": "arrayType",
-      "reference_options": [
-        "regularArray",
-        "nonRegularArray"
-      ],
+      "reference_options": ["regularArray", "nonRegularArray"],
       "registry_entry": 22,
       "screenshots": [
         "flotherm_pack_data/templates/pbga_fc/screenshots/step_04_flip_chip_bumps.png",
@@ -5814,9 +5507,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "bumps.total"
-      ],
+      "targets": ["bumps.total"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -5864,9 +5555,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "bumps.diameter"
-      ],
+      "targets": ["bumps.diameter"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -5882,9 +5571,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "bumps.height"
-      ],
+      "targets": ["bumps.height"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -5916,9 +5603,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "group-bump-solder"
-      ],
+      "targets": ["group-bump-solder"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -5966,9 +5651,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "group-underfill"
-      ],
+      "targets": ["group-underfill"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -6201,10 +5884,7 @@
       "location": "upper_built_up_region",
       "label": "Filled Vias",
       "native_property": "filledVias",
-      "reference_options": [
-        "Yes",
-        "No"
-      ],
+      "reference_options": ["Yes", "No"],
       "registry_entry": 47,
       "screenshots": [
         "flotherm_pack_data/templates/pbga_fc/screenshots/step_07_upper_built_up_region.png",
@@ -6317,10 +5997,7 @@
       "location": "lower_built_up_region",
       "label": "Filled Vias",
       "native_property": "filledVias",
-      "reference_options": [
-        "Yes",
-        "No"
-      ],
+      "reference_options": ["Yes", "No"],
       "registry_entry": 54,
       "screenshots": [
         "flotherm_pack_data/templates/pbga_fc/screenshots/step_08_lower_built_up_region.png"
@@ -6359,9 +6036,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "bga.columns"
-      ],
+      "targets": ["bga.columns"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -6377,9 +6052,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "bga.rows"
-      ],
+      "targets": ["bga.rows"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -6395,9 +6068,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "bga.diameter"
-      ],
+      "targets": ["bga.diameter"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -6413,9 +6084,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "bga.pitch"
-      ],
+      "targets": ["bga.pitch"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -6431,9 +6100,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "bga.height"
-      ],
+      "targets": ["bga.height"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -6465,9 +6132,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "group-bga-solder"
-      ],
+      "targets": ["group-bga-solder"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -6531,9 +6196,7 @@
       ],
       "status": "adapted",
       "finding": null,
-      "targets": [
-        "request.bga.solder_removal_enabled"
-      ],
+      "targets": ["request.bga.solder_removal_enabled"],
       "reason": "采用 ADR5 的去球/中央区与等效表达"
     },
     {
@@ -6549,9 +6212,7 @@
       ],
       "status": "adapted",
       "finding": null,
-      "targets": [
-        "request.bga.removal_columns"
-      ],
+      "targets": ["request.bga.removal_columns"],
       "reason": "采用 ADR5 的去球/中央区与等效表达"
     },
     {
@@ -6567,9 +6228,7 @@
       ],
       "status": "adapted",
       "finding": null,
-      "targets": [
-        "request.bga.removal_rows"
-      ],
+      "targets": ["request.bga.removal_rows"],
       "reason": "采用 ADR5 的去球/中央区与等效表达"
     },
     {
@@ -6585,9 +6244,7 @@
       ],
       "status": "adapted",
       "finding": null,
-      "targets": [
-        "request.bga.omitted_cells"
-      ],
+      "targets": ["request.bga.omitted_cells"],
       "reason": "显式索引替代交互去球表及文件导入"
     },
     {
@@ -6603,9 +6260,7 @@
       ],
       "status": "adapted",
       "finding": null,
-      "targets": [
-        "request.bga.center_solder_enabled"
-      ],
+      "targets": ["request.bga.center_solder_enabled"],
       "reason": "采用 ADR5 的去球/中央区与等效表达"
     },
     {
@@ -6621,9 +6276,7 @@
       ],
       "status": "adapted",
       "finding": null,
-      "targets": [
-        "request.bga.center_solder_columns"
-      ],
+      "targets": ["request.bga.center_solder_columns"],
       "reason": "采用 ADR5 的去球/中央区与等效表达"
     },
     {
@@ -6639,9 +6292,7 @@
       ],
       "status": "adapted",
       "finding": null,
-      "targets": [
-        "request.bga.center_solder_rows"
-      ],
+      "targets": ["request.bga.center_solder_rows"],
       "reason": "采用 ADR5 的去球/中央区与等效表达"
     },
     {
@@ -6666,21 +6317,14 @@
       "location": "top_cover",
       "label": "Top Cover",
       "native_property": "topCover",
-      "reference_options": [
-        "bareDie",
-        "lid",
-        "plate",
-        "encapsulant"
-      ],
+      "reference_options": ["bareDie", "lid", "plate", "encapsulant"],
       "registry_entry": 74,
       "screenshots": [
         "flotherm_pack_data/templates/pbga_fc/screenshots/step_12_top_cover.png"
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "cover.type"
-      ],
+      "targets": ["cover.type"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -6705,10 +6349,7 @@
       "location": "modeling_options",
       "label": "Model Solder Ball Array As",
       "native_property": "modelSolderBallArrayAs",
-      "reference_options": [
-        "orthotropicCuboid",
-        "discreteCuboids"
-      ],
+      "reference_options": ["orthotropicCuboid", "discreteCuboids"],
       "registry_entry": 76,
       "screenshots": [
         "flotherm_pack_data/templates/pbga_fc/screenshots/step_14_modeling_options.png",
@@ -6725,10 +6366,7 @@
       "location": "modeling_options",
       "label": "Model Core Vias As",
       "native_property": "modelCoreViasAs",
-      "reference_options": [
-        "orthotropicCuboid",
-        "discreteCuboids"
-      ],
+      "reference_options": ["orthotropicCuboid", "discreteCuboids"],
       "registry_entry": 77,
       "screenshots": [
         "flotherm_pack_data/templates/pbga_fc/screenshots/step_14_modeling_options.png",
@@ -6745,10 +6383,7 @@
       "location": "modeling_options",
       "label": "Model Flip Chip Bumps As",
       "native_property": "modelFlipChipBumpsAs",
-      "reference_options": [
-        "collapsedCuboid",
-        "isotropicCuboid"
-      ],
+      "reference_options": ["collapsedCuboid", "isotropicCuboid"],
       "registry_entry": 78,
       "screenshots": [
         "flotherm_pack_data/templates/pbga_fc/screenshots/step_14_modeling_options.png",
@@ -6781,11 +6416,7 @@
       "location": "modeling_options",
       "label": "Grid Density",
       "native_property": "gridDensity",
-      "reference_options": [
-        "coarse",
-        "medium",
-        "fine"
-      ],
+      "reference_options": ["coarse", "medium", "fine"],
       "registry_entry": 80,
       "screenshots": [
         "flotherm_pack_data/templates/pbga_fc/screenshots/step_14_modeling_options.png",
@@ -6793,9 +6424,7 @@
       ],
       "status": "adapted",
       "finding": null,
-      "targets": [
-        "request.mesh.resolution"
-      ],
+      "targets": ["request.mesh.resolution"],
       "reason": "项目最大网格尺寸预设替代 PACK 网格区域"
     },
     {
@@ -6811,9 +6440,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "lid.length"
-      ],
+      "targets": ["lid.length"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -6829,9 +6456,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "lid.width"
-      ],
+      "targets": ["lid.width"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -6847,9 +6472,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "lid.thickness"
-      ],
+      "targets": ["lid.thickness"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -6865,9 +6488,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "lid.base_thickness"
-      ],
+      "targets": ["lid.base_thickness"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -6883,10 +6504,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "lid.die_attach",
-        "plate.die_attach"
-      ],
+      "targets": ["lid.die_attach", "plate.die_attach"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -6902,9 +6520,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "lid.adhesive"
-      ],
+      "targets": ["lid.adhesive"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -6913,10 +6529,7 @@
       "location": "top_cover.lid",
       "label": "Stiffener",
       "native_property": "stiffener",
-      "reference_options": [
-        "no",
-        "yes"
-      ],
+      "reference_options": ["no", "yes"],
       "registry_entry": 87,
       "screenshots": [
         "flotherm_pack_data/templates/pbga_fc/screenshots/step_12_top_cover.png"
@@ -7019,9 +6632,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "plate.length"
-      ],
+      "targets": ["plate.length"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -7037,9 +6648,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "plate.width"
-      ],
+      "targets": ["plate.width"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -7055,9 +6664,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "plate.thickness"
-      ],
+      "targets": ["plate.thickness"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -7073,9 +6680,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "cover.length"
-      ],
+      "targets": ["cover.length"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -7091,9 +6696,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "cover.width"
-      ],
+      "targets": ["cover.width"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -7125,9 +6728,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "cover.thickness"
-      ],
+      "targets": ["cover.thickness"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -7285,9 +6886,7 @@
       "screenshots": [],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "request.design_name"
-      ],
+      "targets": ["request.design_name"],
       "reason": ""
     },
     {
@@ -7296,10 +6895,7 @@
       "location": "starter",
       "label": "Outline Type",
       "native_property": "outlineType",
-      "reference_options": [
-        "standardOutline",
-        "nonStandardOutline"
-      ],
+      "reference_options": ["standardOutline", "nonStandardOutline"],
       "registry_entry": 1,
       "screenshots": [],
       "status": "explicit_tradeoff",
@@ -7365,9 +6961,7 @@
       "screenshots": [],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "footprint.size"
-      ],
+      "targets": ["footprint.size"],
       "reason": ""
     },
     {
@@ -7383,9 +6977,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "request.design_name"
-      ],
+      "targets": ["request.design_name"],
       "reason": ""
     },
     {
@@ -7497,9 +7089,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "package.length"
-      ],
+      "targets": ["package.length"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -7515,9 +7105,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "package.width"
-      ],
+      "targets": ["package.width"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -7533,9 +7121,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "package.standoff"
-      ],
+      "targets": ["package.standoff"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -7551,9 +7137,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "encapsulant.thickness"
-      ],
+      "targets": ["encapsulant.thickness"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -7585,9 +7169,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "group-encapsulant"
-      ],
+      "targets": ["group-encapsulant"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -7603,9 +7185,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "die.power"
-      ],
+      "targets": ["die.power"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -7653,9 +7233,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "die.length"
-      ],
+      "targets": ["die.length"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -7671,9 +7249,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "die.width"
-      ],
+      "targets": ["die.width"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -7689,9 +7265,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "die.thickness"
-      ],
+      "targets": ["die.thickness"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -7707,9 +7281,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "die.attach"
-      ],
+      "targets": ["die.attach"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -7741,9 +7313,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "group-die-attach"
-      ],
+      "targets": ["group-die-attach"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -7759,9 +7329,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "leads.length"
-      ],
+      "targets": ["leads.length"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -7777,9 +7345,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "leads.width"
-      ],
+      "targets": ["leads.width"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -7795,9 +7361,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "leads.exposed_thickness"
-      ],
+      "targets": ["leads.exposed_thickness"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -7813,9 +7377,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "leads.thickness"
-      ],
+      "targets": ["leads.thickness"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -7831,9 +7393,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "leads.etch"
-      ],
+      "targets": ["leads.etch"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -7865,9 +7425,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "group-lead-frame"
-      ],
+      "targets": ["group-lead-frame"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -7883,9 +7441,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "leads.pitch_x"
-      ],
+      "targets": ["leads.pitch_x"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -7901,9 +7457,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "leads.pitch_y"
-      ],
+      "targets": ["leads.pitch_y"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -7935,9 +7489,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "group-solder"
-      ],
+      "targets": ["group-solder"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -7953,9 +7505,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "leads.count_x"
-      ],
+      "targets": ["leads.count_x"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -7971,9 +7521,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "leads.count_y"
-      ],
+      "targets": ["leads.count_y"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -7989,9 +7537,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "pad.length"
-      ],
+      "targets": ["pad.length"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -8007,9 +7553,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "pad.width"
-      ],
+      "targets": ["pad.width"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -8025,9 +7569,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "pad.exposed_length"
-      ],
+      "targets": ["pad.exposed_length"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -8043,9 +7585,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "pad.exposed_width"
-      ],
+      "targets": ["pad.exposed_width"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -8077,9 +7617,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "group-lead-frame"
-      ],
+      "targets": ["group-lead-frame"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -8095,9 +7633,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "bond_wire.length_x"
-      ],
+      "targets": ["bond_wire.length_x"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -8113,9 +7649,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "bond_wire.length_y"
-      ],
+      "targets": ["bond_wire.length_y"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -8131,9 +7665,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "bond_wire.diameter"
-      ],
+      "targets": ["bond_wire.diameter"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -8165,9 +7697,7 @@
       ],
       "status": "restricted_material",
       "finding": null,
-      "targets": [
-        "group-bond-wires"
-      ],
+      "targets": ["group-bond-wires"],
       "reason": "组件入口存在，候选子集见材料专项 R01"
     },
     {
@@ -8183,9 +7713,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "thermal_land.enabled"
-      ],
+      "targets": ["thermal_land.enabled"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -8201,9 +7729,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "thermal_land.thickness"
-      ],
+      "targets": ["thermal_land.thickness"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -8235,9 +7761,7 @@
       ],
       "status": "restricted_material",
       "finding": null,
-      "targets": [
-        "group-thermal-land"
-      ],
+      "targets": ["group-thermal-land"],
       "reason": "组件入口存在，候选子集见材料专项 R01"
     },
     {
@@ -8246,11 +7770,7 @@
       "location": "vias",
       "label": "Model Vias As",
       "native_property": "modelViasAs",
-      "reference_options": [
-        "discrete",
-        "lumped",
-        "ignored"
-      ],
+      "reference_options": ["discrete", "lumped", "ignored"],
       "registry_entry": 53,
       "screenshots": [
         "flotherm_pack_data/templates/qfn/screenshots/step_08_vias.png",
@@ -8274,9 +7794,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "vias.length"
-      ],
+      "targets": ["vias.length"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -8292,9 +7810,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "vias.diameter"
-      ],
+      "targets": ["vias.diameter"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -8310,9 +7826,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "vias.plating"
-      ],
+      "targets": ["vias.plating"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -8328,9 +7842,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "vias.pitch"
-      ],
+      "targets": ["vias.pitch"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -8346,9 +7858,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "vias.columns"
-      ],
+      "targets": ["vias.columns"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -8364,9 +7874,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "vias.rows"
-      ],
+      "targets": ["vias.rows"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -8375,10 +7883,7 @@
       "location": "modeling_options",
       "label": "Model Leads and Solder Interconnect As",
       "native_property": "modelLeadAndSolderInterconnectAs",
-      "reference_options": [
-        "discreteLeads",
-        "orthotropicCuboid"
-      ],
+      "reference_options": ["discreteLeads", "orthotropicCuboid"],
       "registry_entry": 60,
       "screenshots": [
         "flotherm_pack_data/templates/qfn/screenshots/step_09_modeling_options.png",
@@ -8395,9 +7900,7 @@
       "location": "modeling_options",
       "label": "Model Bond Wires As",
       "native_property": "modelBondWiresAs",
-      "reference_options": [
-        "lumped"
-      ],
+      "reference_options": ["lumped"],
       "registry_entry": 61,
       "screenshots": [
         "flotherm_pack_data/templates/qfn/screenshots/step_09_modeling_options.png"
@@ -8445,20 +7948,14 @@
       "location": "modeling_options",
       "label": "Grid Density",
       "native_property": "gridDensity",
-      "reference_options": [
-        "coarse",
-        "medium",
-        "fine"
-      ],
+      "reference_options": ["coarse", "medium", "fine"],
       "registry_entry": 64,
       "screenshots": [
         "flotherm_pack_data/templates/qfn/screenshots/step_09_modeling_options.png"
       ],
       "status": "adapted",
       "finding": null,
-      "targets": [
-        "request.mesh.resolution"
-      ],
+      "targets": ["request.mesh.resolution"],
       "reason": "项目最大网格尺寸预设替代 PACK 网格区域"
     },
     {
@@ -8472,9 +7969,7 @@
       "screenshots": [],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "request.design_name"
-      ],
+      "targets": ["request.design_name"],
       "reason": ""
     },
     {
@@ -8483,10 +7978,7 @@
       "location": "starter",
       "label": "Outline Type",
       "native_property": "outlineType",
-      "reference_options": [
-        "standardOutline",
-        "nonStandardOutline"
-      ],
+      "reference_options": ["standardOutline", "nonStandardOutline"],
       "registry_entry": 1,
       "screenshots": [],
       "status": "explicit_tradeoff",
@@ -8500,18 +7992,12 @@
       "location": "starter",
       "label": "PQFP Package Type",
       "native_property": "pqfpPackageType",
-      "reference_options": [
-        "lqfp",
-        "mqfp",
-        "tqfp"
-      ],
+      "reference_options": ["lqfp", "mqfp", "tqfp"],
       "registry_entry": 2,
       "screenshots": [],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "package.type"
-      ],
+      "targets": ["package.type"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -8525,9 +8011,7 @@
       "screenshots": [],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "footprint.size"
-      ],
+      "targets": ["footprint.size"],
       "reason": ""
     },
     {
@@ -8536,10 +8020,7 @@
       "location": "starter",
       "label": "Die Type",
       "native_property": "dieType",
-      "reference_options": [
-        "actualDie",
-        "thermalDie"
-      ],
+      "reference_options": ["actualDie", "thermalDie"],
       "registry_entry": 4,
       "screenshots": [],
       "status": "explicit_tradeoff",
@@ -8574,9 +8055,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "request.design_name"
-      ],
+      "targets": ["request.design_name"],
       "reason": ""
     },
     {
@@ -8688,9 +8167,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "package.length"
-      ],
+      "targets": ["package.length"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -8706,9 +8183,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "package.width"
-      ],
+      "targets": ["package.width"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -8724,9 +8199,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "package.standoff"
-      ],
+      "targets": ["package.standoff"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -8742,9 +8215,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "body.length"
-      ],
+      "targets": ["body.length"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -8760,9 +8231,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "body.width"
-      ],
+      "targets": ["body.width"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -8778,9 +8247,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "body.thickness"
-      ],
+      "targets": ["body.thickness"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -8813,10 +8280,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "group-encapsulant",
-        "group-tie-bar-plates"
-      ],
+      "targets": ["group-encapsulant", "group-tie-bar-plates"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -8832,9 +8296,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "die.power"
-      ],
+      "targets": ["die.power"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -8882,9 +8344,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "die.length"
-      ],
+      "targets": ["die.length"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -8900,9 +8360,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "die.width"
-      ],
+      "targets": ["die.width"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -8918,9 +8376,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "die.thickness"
-      ],
+      "targets": ["die.thickness"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -8936,9 +8392,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "die.attach"
-      ],
+      "targets": ["die.attach"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -8970,9 +8424,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "group-die-attach"
-      ],
+      "targets": ["group-die-attach"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -8988,9 +8440,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "flag.length"
-      ],
+      "targets": ["flag.length"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -9006,9 +8456,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "flag.width"
-      ],
+      "targets": ["flag.width"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -9024,9 +8472,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "flag.coverage"
-      ],
+      "targets": ["flag.coverage"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -9042,9 +8488,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "flag.downset"
-      ],
+      "targets": ["flag.downset"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -9060,9 +8504,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "tie_bar.width"
-      ],
+      "targets": ["tie_bar.width"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -9078,9 +8520,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "leads.gap_x"
-      ],
+      "targets": ["leads.gap_x"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -9096,9 +8536,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "leads.gap_y"
-      ],
+      "targets": ["leads.gap_y"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -9114,9 +8552,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "leads.pitch"
-      ],
+      "targets": ["leads.pitch"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -9132,9 +8568,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "leads.thickness"
-      ],
+      "targets": ["leads.thickness"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -9150,9 +8584,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "leads.width"
-      ],
+      "targets": ["leads.width"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -9168,9 +8600,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "leads.height"
-      ],
+      "targets": ["leads.height"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -9186,9 +8616,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "leads.foot_length"
-      ],
+      "targets": ["leads.foot_length"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -9220,11 +8648,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "group-die-flag",
-        "group-lead-frame",
-        "group-tie-bars"
-      ],
+      "targets": ["group-die-flag", "group-lead-frame", "group-tie-bars"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -9240,9 +8664,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "leads.count_x"
-      ],
+      "targets": ["leads.count_x"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -9258,9 +8680,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "leads.count_y"
-      ],
+      "targets": ["leads.count_y"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -9269,10 +8689,7 @@
       "location": "lead_frame",
       "label": "User Defined Leadframe Coverage",
       "native_property": "userDefinedLeadframeCoverage",
-      "reference_options": [
-        "yes",
-        "noDefaultIsBe"
-      ],
+      "reference_options": ["yes", "noDefaultIsBe"],
       "registry_entry": 46,
       "screenshots": [
         "flotherm_pack_data/templates/pqfp/screenshots/step_06_lead_frame.png",
@@ -9312,9 +8729,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "bond_wire.length_x"
-      ],
+      "targets": ["bond_wire.length_x"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -9330,9 +8745,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "bond_wire.length_y"
-      ],
+      "targets": ["bond_wire.length_y"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -9348,9 +8761,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "bond_wire.diameter"
-      ],
+      "targets": ["bond_wire.diameter"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -9382,9 +8793,7 @@
       ],
       "status": "restricted_material",
       "finding": null,
-      "targets": [
-        "group-bond-wires"
-      ],
+      "targets": ["group-bond-wires"],
       "reason": "组件入口存在，候选子集见材料专项 R01"
     },
     {
@@ -9400,9 +8809,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "bond_wire.count"
-      ],
+      "targets": ["bond_wire.count"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -9418,9 +8825,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "thermal_land.enabled"
-      ],
+      "targets": ["thermal_land.enabled"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -9436,9 +8841,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "thermal_land.thickness"
-      ],
+      "targets": ["thermal_land.thickness"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -9470,10 +8873,7 @@
       ],
       "status": "restricted_material",
       "finding": null,
-      "targets": [
-        "group-thermal-land",
-        "group-thermal-solder"
-      ],
+      "targets": ["group-thermal-land", "group-thermal-solder"],
       "reason": "组件入口存在，候选子集见材料专项 R01"
     },
     {
@@ -9505,10 +8905,7 @@
       ],
       "status": "restricted_material",
       "finding": null,
-      "targets": [
-        "group-thermal-land",
-        "group-thermal-solder"
-      ],
+      "targets": ["group-thermal-land", "group-thermal-solder"],
       "reason": "组件入口存在，候选子集见材料专项 R01"
     },
     {
@@ -9517,10 +8914,7 @@
       "location": "modeling_options",
       "label": "Model Lead Frames As",
       "native_property": "modelLeadFrameAs",
-      "reference_options": [
-        "Isotropic Cuboid",
-        "Orthotropic Cuboid"
-      ],
+      "reference_options": ["Isotropic Cuboid", "Orthotropic Cuboid"],
       "registry_entry": 60,
       "screenshots": [
         "flotherm_pack_data/templates/pqfp/screenshots/step_09_modeling_options.png",
@@ -9537,10 +8931,7 @@
       "location": "modeling_options",
       "label": "Model Bond Wires As",
       "native_property": "modelBondWiresAs",
-      "reference_options": [
-        "Isotropic Cuboid",
-        "Orthotropic Cuboid"
-      ],
+      "reference_options": ["Isotropic Cuboid", "Orthotropic Cuboid"],
       "registry_entry": 61,
       "screenshots": [
         "flotherm_pack_data/templates/pqfp/screenshots/step_09_modeling_options.png",
@@ -9557,10 +8948,7 @@
       "location": "modeling_options",
       "label": "Model Tie Bars As",
       "native_property": "modelTieBarsAs",
-      "reference_options": [
-        "Approximate",
-        "Accurate"
-      ],
+      "reference_options": ["Approximate", "Accurate"],
       "registry_entry": 62,
       "screenshots": [
         "flotherm_pack_data/templates/pqfp/screenshots/step_09_modeling_options.png",
@@ -9593,11 +8981,7 @@
       "location": "modeling_options",
       "label": "Grid Density",
       "native_property": "gridDensity",
-      "reference_options": [
-        "Coarse",
-        "Medium",
-        "Fine"
-      ],
+      "reference_options": ["Coarse", "Medium", "Fine"],
       "registry_entry": 64,
       "screenshots": [
         "flotherm_pack_data/templates/pqfp/screenshots/step_09_modeling_options.png",
@@ -9605,9 +8989,7 @@
       ],
       "status": "adapted",
       "finding": null,
-      "targets": [
-        "request.mesh.resolution"
-      ],
+      "targets": ["request.mesh.resolution"],
       "reason": "项目最大网格尺寸预设替代 PACK 网格区域"
     },
     {
@@ -9621,9 +9003,7 @@
       "screenshots": [],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "request.design_name"
-      ],
+      "targets": ["request.design_name"],
       "reason": ""
     },
     {
@@ -9632,10 +9012,7 @@
       "location": "starter",
       "label": "Outline Type",
       "native_property": "outlineType",
-      "reference_options": [
-        "standardOutline",
-        "nonStandardOutline"
-      ],
+      "reference_options": ["standardOutline", "nonStandardOutline"],
       "registry_entry": 1,
       "screenshots": [],
       "status": "explicit_tradeoff",
@@ -9649,19 +9026,12 @@
       "location": "starter",
       "label": "SOP Package Type",
       "native_property": "sopPackageType",
-      "reference_options": [
-        "soic/sop/so",
-        "ssop",
-        "tsop",
-        "tssop"
-      ],
+      "reference_options": ["soic/sop/so", "ssop", "tsop", "tssop"],
       "registry_entry": 2,
       "screenshots": [],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "package.type"
-      ],
+      "targets": ["package.type"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -9675,9 +9045,7 @@
       "screenshots": [],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "footprint.size"
-      ],
+      "targets": ["footprint.size"],
       "reason": ""
     },
     {
@@ -9686,10 +9054,7 @@
       "location": "starter",
       "label": "Die Type",
       "native_property": "dieType",
-      "reference_options": [
-        "actualDie",
-        "thermalDie"
-      ],
+      "reference_options": ["actualDie", "thermalDie"],
       "registry_entry": 4,
       "screenshots": [],
       "status": "explicit_tradeoff",
@@ -9724,9 +9089,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "request.design_name"
-      ],
+      "targets": ["request.design_name"],
       "reason": ""
     },
     {
@@ -9838,9 +9201,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "package.length"
-      ],
+      "targets": ["package.length"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -9856,9 +9217,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "package.width"
-      ],
+      "targets": ["package.width"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -9874,9 +9233,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "package.standoff"
-      ],
+      "targets": ["package.standoff"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -9892,9 +9249,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "body.length"
-      ],
+      "targets": ["body.length"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -9910,9 +9265,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "body.width"
-      ],
+      "targets": ["body.width"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -9928,9 +9281,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "body.thickness"
-      ],
+      "targets": ["body.thickness"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -9963,9 +9314,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "group-encapsulant"
-      ],
+      "targets": ["group-encapsulant"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -9981,9 +9330,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "die.power"
-      ],
+      "targets": ["die.power"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -10031,9 +9378,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "die.length"
-      ],
+      "targets": ["die.length"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -10049,9 +9394,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "die.width"
-      ],
+      "targets": ["die.width"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -10067,9 +9410,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "die.thickness"
-      ],
+      "targets": ["die.thickness"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -10085,9 +9426,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "die.attach"
-      ],
+      "targets": ["die.attach"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -10119,9 +9458,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "group-die-attach"
-      ],
+      "targets": ["group-die-attach"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -10137,9 +9474,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "flag.length"
-      ],
+      "targets": ["flag.length"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -10155,9 +9490,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "flag.width"
-      ],
+      "targets": ["flag.width"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -10173,9 +9506,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "flag.thickness"
-      ],
+      "targets": ["flag.thickness"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -10191,9 +9522,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "flag.coverage"
-      ],
+      "targets": ["flag.coverage"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -10209,9 +9538,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "flag.downset"
-      ],
+      "targets": ["flag.downset"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -10244,9 +9571,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "group-die-flag"
-      ],
+      "targets": ["group-die-flag"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -10262,9 +9587,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "tie_bar.width"
-      ],
+      "targets": ["tie_bar.width"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -10280,9 +9603,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "leads.total"
-      ],
+      "targets": ["leads.total"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -10298,9 +9619,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "leads.gap"
-      ],
+      "targets": ["leads.gap"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -10316,9 +9635,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "leads.pitch"
-      ],
+      "targets": ["leads.pitch"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -10334,9 +9651,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "leads.thickness"
-      ],
+      "targets": ["leads.thickness"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -10352,9 +9667,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "leads.width"
-      ],
+      "targets": ["leads.width"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -10370,9 +9683,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "leads.height"
-      ],
+      "targets": ["leads.height"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -10388,9 +9699,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "leads.foot_length"
-      ],
+      "targets": ["leads.foot_length"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -10422,10 +9731,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "group-tie-bars",
-        "group-lead-frame"
-      ],
+      "targets": ["group-tie-bars", "group-lead-frame"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -10434,10 +9740,7 @@
       "location": "lead_frame",
       "label": "User Defined Leadframe Coverage",
       "native_property": "userDefinedLeadframeCoverage",
-      "reference_options": [
-        "yes",
-        "noDefaultIsBe"
-      ],
+      "reference_options": ["yes", "noDefaultIsBe"],
       "registry_entry": 47,
       "screenshots": [
         "flotherm_pack_data/templates/sop/screenshots/step_06_lead_frame.png",
@@ -10477,9 +9780,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "bond_wire.length"
-      ],
+      "targets": ["bond_wire.length"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -10495,9 +9796,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "bond_wire.diameter"
-      ],
+      "targets": ["bond_wire.diameter"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -10529,9 +9828,7 @@
       ],
       "status": "restricted_material",
       "finding": null,
-      "targets": [
-        "group-bond-wires"
-      ],
+      "targets": ["group-bond-wires"],
       "reason": "组件入口存在，候选子集见材料专项 R01"
     },
     {
@@ -10547,9 +9844,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "bond_wire.count"
-      ],
+      "targets": ["bond_wire.count"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -10565,9 +9860,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "thermal_land.enabled"
-      ],
+      "targets": ["thermal_land.enabled"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -10583,9 +9876,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "thermal_land.thickness"
-      ],
+      "targets": ["thermal_land.thickness"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -10617,10 +9908,7 @@
       ],
       "status": "restricted_material",
       "finding": null,
-      "targets": [
-        "group-thermal-land",
-        "group-thermal-solder"
-      ],
+      "targets": ["group-thermal-land", "group-thermal-solder"],
       "reason": "组件入口存在，候选子集见材料专项 R01"
     },
     {
@@ -10652,10 +9940,7 @@
       ],
       "status": "restricted_material",
       "finding": null,
-      "targets": [
-        "group-thermal-land",
-        "group-thermal-solder"
-      ],
+      "targets": ["group-thermal-land", "group-thermal-solder"],
       "reason": "组件入口存在，候选子集见材料专项 R01"
     },
     {
@@ -10664,9 +9949,7 @@
       "location": "modeling_options",
       "label": "Model Lead Frames As",
       "native_property": "modelLeadFrameAs",
-      "reference_options": [
-        "Isotropic Cuboid"
-      ],
+      "reference_options": ["Isotropic Cuboid"],
       "registry_entry": 60,
       "screenshots": [
         "flotherm_pack_data/templates/sop/screenshots/step_09_modeling_options.png"
@@ -10682,10 +9965,7 @@
       "location": "modeling_options",
       "label": "Model Bond Wires As",
       "native_property": "modelBondWiresAs",
-      "reference_options": [
-        "Isotropic Cuboid",
-        "Orthotropic Cuboid"
-      ],
+      "reference_options": ["Isotropic Cuboid", "Orthotropic Cuboid"],
       "registry_entry": 61,
       "screenshots": [
         "flotherm_pack_data/templates/sop/screenshots/step_09_modeling_options.png",
@@ -10718,11 +9998,7 @@
       "location": "modeling_options",
       "label": "Grid Density",
       "native_property": "gridDensity",
-      "reference_options": [
-        "Coarse",
-        "Medium",
-        "Fine"
-      ],
+      "reference_options": ["Coarse", "Medium", "Fine"],
       "registry_entry": 63,
       "screenshots": [
         "flotherm_pack_data/templates/sop/screenshots/step_09_modeling_options.png",
@@ -10730,9 +10006,7 @@
       ],
       "status": "adapted",
       "finding": null,
-      "targets": [
-        "request.mesh.resolution"
-      ],
+      "targets": ["request.mesh.resolution"],
       "reason": "项目最大网格尺寸预设替代 PACK 网格区域"
     },
     {
@@ -10746,9 +10020,7 @@
       "screenshots": [],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "request.design_name"
-      ],
+      "targets": ["request.design_name"],
       "reason": ""
     },
     {
@@ -10757,10 +10029,7 @@
       "location": "starter",
       "label": "Outline Type",
       "native_property": "outlineType",
-      "reference_options": [
-        "standardOutline",
-        "nonStandardOutline"
-      ],
+      "reference_options": ["standardOutline", "nonStandardOutline"],
       "registry_entry": 1,
       "screenshots": [],
       "status": "explicit_tradeoff",
@@ -10816,9 +10085,7 @@
       "screenshots": [],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "footprint.size"
-      ],
+      "targets": ["footprint.size"],
       "reason": ""
     },
     {
@@ -10827,10 +10094,7 @@
       "location": "starter",
       "label": "Die Type",
       "native_property": "dieType",
-      "reference_options": [
-        "actualDie",
-        "thermalDie"
-      ],
+      "reference_options": ["actualDie", "thermalDie"],
       "registry_entry": 3,
       "screenshots": [],
       "status": "explicit_tradeoff",
@@ -10844,10 +10108,7 @@
       "location": "starter",
       "label": "Substrate Layer",
       "native_property": "substrateLayer",
-      "reference_options": [
-        "2-Layer",
-        "4-Layer"
-      ],
+      "reference_options": ["2-Layer", "4-Layer"],
       "registry_entry": 4,
       "screenshots": [],
       "status": "explicit_tradeoff",
@@ -10866,9 +10127,7 @@
       "screenshots": [],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "trace.top_thickness"
-      ],
+      "targets": ["trace.top_thickness"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -10882,9 +10141,7 @@
       "screenshots": [],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "trace.bottom_thickness"
-      ],
+      "targets": ["trace.bottom_thickness"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -10914,9 +10171,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "request.design_name"
-      ],
+      "targets": ["request.design_name"],
       "reason": ""
     },
     {
@@ -11028,9 +10283,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "package.length"
-      ],
+      "targets": ["package.length"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -11046,9 +10299,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "package.width"
-      ],
+      "targets": ["package.width"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -11064,9 +10315,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "substrate.thickness"
-      ],
+      "targets": ["substrate.thickness"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -11098,9 +10347,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "group-substrate"
-      ],
+      "targets": ["group-substrate"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -11116,9 +10363,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "encapsulant.length"
-      ],
+      "targets": ["encapsulant.length"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -11134,9 +10379,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "encapsulant.width"
-      ],
+      "targets": ["encapsulant.width"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -11152,9 +10395,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "encapsulant.thickness"
-      ],
+      "targets": ["encapsulant.thickness"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -11186,9 +10427,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "group-encapsulant"
-      ],
+      "targets": ["group-encapsulant"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -11204,9 +10443,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "flag.length"
-      ],
+      "targets": ["flag.length"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -11222,9 +10459,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "flag.width"
-      ],
+      "targets": ["flag.width"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -11256,9 +10491,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "solder_mask.thickness"
-      ],
+      "targets": ["solder_mask.thickness"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -11290,9 +10523,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "group-solder-mask"
-      ],
+      "targets": ["group-solder-mask"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -11308,9 +10539,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "die.power"
-      ],
+      "targets": ["die.power"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -11342,9 +10571,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "die.length"
-      ],
+      "targets": ["die.length"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -11360,9 +10587,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "die.width"
-      ],
+      "targets": ["die.width"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -11378,9 +10603,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "die.thickness"
-      ],
+      "targets": ["die.thickness"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -11396,9 +10619,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "die.attach"
-      ],
+      "targets": ["die.attach"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -11430,9 +10651,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "group-die-attach"
-      ],
+      "targets": ["group-die-attach"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -11448,9 +10667,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "bond_wire.total"
-      ],
+      "targets": ["bond_wire.total"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -11466,9 +10683,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "bond_wire.extent_length"
-      ],
+      "targets": ["bond_wire.extent_length"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -11484,9 +10699,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "bond_wire.extent_width"
-      ],
+      "targets": ["bond_wire.extent_width"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -11502,9 +10715,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "bond_wire.diameter"
-      ],
+      "targets": ["bond_wire.diameter"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -11536,9 +10747,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "group-bond-wires"
-      ],
+      "targets": ["group-bond-wires"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -11554,9 +10763,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "vias.columns"
-      ],
+      "targets": ["vias.columns"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -11572,9 +10779,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "vias.rows"
-      ],
+      "targets": ["vias.rows"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -11590,9 +10795,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "vias.diameter"
-      ],
+      "targets": ["vias.diameter"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -11608,9 +10811,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "vias.pitch"
-      ],
+      "targets": ["vias.pitch"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -11626,9 +10827,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "vias.plating"
-      ],
+      "targets": ["vias.plating"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -11708,9 +10907,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "bga.columns"
-      ],
+      "targets": ["bga.columns"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -11726,9 +10923,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "bga.rows"
-      ],
+      "targets": ["bga.rows"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -11744,9 +10939,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "bga.diameter"
-      ],
+      "targets": ["bga.diameter"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -11762,9 +10955,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "bga.pitch"
-      ],
+      "targets": ["bga.pitch"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -11780,9 +10971,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "bga.height"
-      ],
+      "targets": ["bga.height"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -11814,9 +11003,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "group-bga-solder"
-      ],
+      "targets": ["group-bga-solder"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -12056,9 +11243,7 @@
       ],
       "status": "adapted",
       "finding": null,
-      "targets": [
-        "request.bga.solder_removal_enabled"
-      ],
+      "targets": ["request.bga.solder_removal_enabled"],
       "reason": "采用 ADR5 的去球/中央区与等效表达"
     },
     {
@@ -12074,9 +11259,7 @@
       ],
       "status": "adapted",
       "finding": null,
-      "targets": [
-        "request.bga.removal_columns"
-      ],
+      "targets": ["request.bga.removal_columns"],
       "reason": "采用 ADR5 的去球/中央区与等效表达"
     },
     {
@@ -12092,9 +11275,7 @@
       ],
       "status": "adapted",
       "finding": null,
-      "targets": [
-        "request.bga.removal_rows"
-      ],
+      "targets": ["request.bga.removal_rows"],
       "reason": "采用 ADR5 的去球/中央区与等效表达"
     },
     {
@@ -12110,9 +11291,7 @@
       ],
       "status": "adapted",
       "finding": null,
-      "targets": [
-        "request.bga.omitted_cells"
-      ],
+      "targets": ["request.bga.omitted_cells"],
       "reason": "显式索引替代交互去球表及文件导入"
     },
     {
@@ -12128,9 +11307,7 @@
       ],
       "status": "adapted",
       "finding": null,
-      "targets": [
-        "request.bga.center_solder_enabled"
-      ],
+      "targets": ["request.bga.center_solder_enabled"],
       "reason": "采用 ADR5 的去球/中央区与等效表达"
     },
     {
@@ -12146,9 +11323,7 @@
       ],
       "status": "adapted",
       "finding": null,
-      "targets": [
-        "request.bga.center_solder_columns"
-      ],
+      "targets": ["request.bga.center_solder_columns"],
       "reason": "采用 ADR5 的去球/中央区与等效表达"
     },
     {
@@ -12164,9 +11339,7 @@
       ],
       "status": "adapted",
       "finding": null,
-      "targets": [
-        "request.bga.center_solder_rows"
-      ],
+      "targets": ["request.bga.center_solder_rows"],
       "reason": "采用 ADR5 的去球/中央区与等效表达"
     },
     {
@@ -12198,9 +11371,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "spreader.enabled"
-      ],
+      "targets": ["spreader.enabled"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -12216,9 +11387,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "spreader.length"
-      ],
+      "targets": ["spreader.length"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -12234,9 +11403,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "spreader.width"
-      ],
+      "targets": ["spreader.width"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -12252,9 +11419,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "spreader.thickness"
-      ],
+      "targets": ["spreader.thickness"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -12286,9 +11451,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "group-backside-spreader"
-      ],
+      "targets": ["group-backside-spreader"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -12304,9 +11467,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "spreader.hole_length"
-      ],
+      "targets": ["spreader.hole_length"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -12322,9 +11483,7 @@
       ],
       "status": "implemented",
       "finding": null,
-      "targets": [
-        "spreader.hole_width"
-      ],
+      "targets": ["spreader.hole_width"],
       "reason": "明确原生属性绑定；材料仍受组件白名单限制"
     },
     {
@@ -12375,10 +11534,7 @@
       "location": "modeling_options",
       "label": "Model Bond Wires As",
       "native_property": "modelBondWiresAs",
-      "reference_options": [
-        "isotropicCuboid",
-        "orthotropicCuboid"
-      ],
+      "reference_options": ["isotropicCuboid", "orthotropicCuboid"],
       "registry_entry": 93,
       "screenshots": [
         "flotherm_pack_data/templates/pbga_wb/screenshots/step_13_modeling_options.png",
@@ -12411,11 +11567,7 @@
       "location": "modeling_options",
       "label": "Grid Density",
       "native_property": "gridDensity",
-      "reference_options": [
-        "coarse",
-        "medium",
-        "fine"
-      ],
+      "reference_options": ["coarse", "medium", "fine"],
       "registry_entry": 95,
       "screenshots": [
         "flotherm_pack_data/templates/pbga_wb/screenshots/step_13_modeling_options.png",
@@ -12423,9 +11575,7 @@
       ],
       "status": "adapted",
       "finding": null,
-      "targets": [
-        "request.mesh.resolution"
-      ],
+      "targets": ["request.mesh.resolution"],
       "reason": "项目最大网格尺寸预设替代 PACK 网格区域"
     }
   ]
