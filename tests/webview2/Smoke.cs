@@ -65,10 +65,21 @@ public static class Smoke
 
   private static async Task CheckDownloadAsync(MainWindow window, string data)
   {
+    var defaultDownloads = Path.Combine(data, "browser-downloads");
+    Directory.CreateDirectory(defaultDownloads);
+    window.Browser.CoreWebView2.Profile.DefaultDownloadFolderPath = defaultDownloads;
+    var downloadStatus = "未触发下载事件";
+    window.Browser.CoreWebView2.DownloadStarting += (_, eventArgs) =>
+    {
+      var download = eventArgs.DownloadOperation;
+      downloadStatus = $"保存路径：{eventArgs.ResultFilePath}；状态：{download.State}";
+      download.StateChanged += (_, _) =>
+        downloadStatus = $"状态：{download.State}；中断原因：{download.InterruptReason}";
+    };
     await window.Browser.ExecuteScriptAsync("""
-      [...document.querySelectorAll('button')].find(button => button.textContent === '导出 PTA XML').click();
+      [...document.querySelectorAll('button')].find(button => button.textContent.trim() === '导出 FloXML').click();
       """);
-    var path = Path.Combine(data, "cbga_fc.xml");
+    var path = Path.Combine(data, "cbga_fc.floxml");
     for (var attempt = 0; attempt < 100; attempt++)
     {
       if (File.Exists(path) && new FileInfo(path).Length > 0)
@@ -76,14 +87,14 @@ public static class Smoke
         try
         {
           var root = XDocument.Load(path).Root;
-          if (root?.Name.LocalName == "Structure") return;
+          if (root?.Name.LocalName == "xml_case") return;
         }
         catch (IOException) { }
         catch (System.Xml.XmlException) { }
       }
       await Task.Delay(100);
     }
-    throw new InvalidOperationException("浏览器 Blob 下载未通过宿主保存为有效 PTA XML。");
+    throw new InvalidOperationException($"浏览器 Blob 下载未通过宿主保存为有效 FloXML。{downloadStatus}");
   }
 
   private static async Task CheckForceCloseAsync(string root, string data)
@@ -199,9 +210,9 @@ public static class Smoke
                 const generated = await post(`/api/templates/${id}/generate`);
                 if (!generated.ok) throw new Error(`${id} 生成失败`);
                 const model = await generated.json();
-                const exported = await post(`/api/templates/${id}/export/pta`);
+                const exported = await post(`/api/templates/${id}/export/floxml`);
                 const xml = new DOMParser().parseFromString(await exported.text(), 'application/xml');
-                if (!exported.ok || xml.documentElement.localName !== 'Structure' || !model.blocks.length)
+                if (!exported.ok || xml.documentElement.localName !== 'xml_case' || !model.blocks.length)
                   throw new Error(`${id} 导出失败`);
                 results.push({id, blocks: model.blocks.length});
               }

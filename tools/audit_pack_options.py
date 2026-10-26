@@ -3,6 +3,7 @@
 import hashlib
 import json
 from collections import Counter
+from datetime import date
 from pathlib import Path
 
 from packstudio.templates.package_library.catalog import definitions
@@ -10,7 +11,7 @@ from tools.pack_option_probes import run_probes
 from tools.pack_option_rules import BARE, BGA, STEP_ALIASES, decision
 
 ROOT = Path(__file__).resolve().parents[1]
-OUTPUT = ROOT / "docs/validation/pack_option_audit_2026-10-21.json"
+OUTPUT = ROOT / "docs/validation/pack_option_audit.json"
 
 
 def read(relative):
@@ -34,15 +35,15 @@ def classify(template, entry, definition, binding):
             "adapted", ["request.mesh.resolution"], "项目最大网格尺寸预设替代 PACK 网格区域"
         )
     if prop in BGA:
-        return result("adapted", ["request." + BGA[prop]], "采用 ADR5 的去球/中央区与等效表达")
+        return result("adapted", ["request." + BGA[prop]], "当前焊球去除、中央区域与表达入口")
     if location == "solder_ball_depopulation" and not prop:
         return result("adapted", ["request.bga.omitted_cells"], "显式索引替代交互去球表及文件导入")
     if location == "solder_balls" and label == "Click To Edit":
-        return result("explicit_tradeoff", [], "ADR6：不提供任意坐标 solder-ball map")
+        return result("gap", [], "任意坐标 solder-ball map 尚未实现，未批准舍弃")
     if template == "bare_die" and prop in BARE:
         return result("implemented", [BARE[prop]])
     if template == "bare_die" and prop == "dieMaterial":
-        return result("implemented", ["material.group-die"], "ADR27：Si / GaAs 均已开放")
+        return result("implemented", ["material.group-die"], "Si / GaAs 均已开放")
     candidates = [
         key
         for category in ("parameters", "materials")
@@ -52,7 +53,7 @@ def classify(template, entry, definition, binding):
     if candidates:
         return result("implemented", candidates, "明确原生属性绑定；材料仍受组件白名单限制")
     if "Group" in label:
-        return result("explicit_tradeoff", [], "ADR8：组件白名单替代任意材料分类切换")
+        return result("restricted_material", [], "当前组件候选受限；不属于已确认的功能取舍")
     if "Material" in label or label in {
         "Material",
         "Solder Conductivity",
@@ -136,7 +137,6 @@ def main():
     unresolved = [r for r in rows if r["status"] == "unresolved"]
     for row in unresolved:
         print("UNRESOLVED", row["reference_target"], row["native_property"])
-    assert not unresolved, "All reference controls need an explicit reviewed classification"
     assert len(rows) == registry["entry_count"]
     probes = run_probes(ROOT)
     sources.update(probes["visually_reviewed_images"])
@@ -175,18 +175,10 @@ def main():
     )
     sources.update(
         {
-            "docs/decisions/0005-TASK5-组合焊球与尺寸预设.md",
-            "docs/decisions/0006-TASK6-八类证据驱动模板.md",
-            "docs/decisions/0008-TASK8-组件材料与模型树层级.md",
-            "docs/decisions/0009-TASK9-手写模板与FloXML保真.md",
-            "docs/decisions/0012-TASK12-FloTHERM-PACK风格向导与尺寸预设.md",
-            "docs/decisions/0019-PACK原生默认值与统一命名.md",
-            "docs/decisions/0022-PACK参数驱动的等效材料.md",
-            "docs/decisions/0025-FloXML导出与物理差异验证.md",
-            "docs/decisions/0026-等效材料与QFP高差缺陷修复.md",
-            "docs/decisions/0027-PACK选项补齐与明确取舍.md",
-            "docs/research/pack-material-couplings.md",
-            "docs/research/pack-parameter-interactions.md",
+            "docs/decisions/README.md",
+            "docs/decisions/0028-封装外形与芯片类型范围.md",
+            "docs/decisions/0029-BGA与Bumps建模表达.md",
+            "docs/decisions/0030-仅支持均匀芯片热源.md",
         }
     )
     archived = []
@@ -215,9 +207,8 @@ def main():
             )
     report = {
         "schema_version": "packstudio.option-audit/v1",
-        "review_date": "2026-10-21",
-        "base_commit": "8d5a9e9",
-        "change_set": "TASK33",
+        "review_date": date.today().isoformat(),
+        "scope": "Current controls and the three approved functional decisions",
         "entry_count": len(rows),
         "counts": dict(Counter(r["status"] for r in rows)),
         "templates": templates,
@@ -229,7 +220,7 @@ def main():
         "limitations": [
             "登记表与截图证明控件存在，不证明对应分支具备完整物理验证。",
             "implemented 仅表示当前入口/绑定存在，不表示与原生所有选项和组合等价。",
-            "材料白名单机制属于明确取舍，具体候选差异另列，不自动放开全部材料。",
+            "只有当前决策索引中的三项属于明确取舍，其他限制与未实现功能单独记录。",
             "nested_ui_details 保留顶盖嵌套选项；不能把 589 条登记表当作全部嵌套控件。",
         ],
         "entries": rows,

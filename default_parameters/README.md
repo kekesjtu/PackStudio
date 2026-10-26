@@ -1,61 +1,45 @@
 # 默认参数、预设与材料库
 
-运行时只读取本目录 JSON，不需要 FloTHERM 安装、DLL 或 FloXML。
+生产运行从本目录读取 JSON，不依赖 PACK 安装、DLL 或原始导出文件。
+
+## 数据组织
 
 | 路径 | 内容 |
 | --- | --- |
-| `presets/<family>/<原始名称>.json` | 342 个原生预设、参数状态、未选分支、计算值和原始 DES 字段 |
-| `presets/index.json` | 预设族、文件路径、分支及内容 SHA-256 |
-| `materials/<分类>/<文件>.json` | 131 个 PACK 内置材料，按十类保存，名称为唯一引用键 |
-| `materials/index.json` | 名称、分类、文件路径和 SHA-256 |
-| `materials/runtime.json` | 运行材料 ID/颜色映射及空气、界面材料等项目定义；不重复 PACK 物性 |
-| `pack_bindings.json` | 当前支持参数和材料组件到原生记录的明确路径 |
-| `templates/<PACK 模板 ID>.json` | 界面字段、范围、条件、默认规格及审核等效材料 |
-| `request.json` | 当前方案与编辑操作的项目初始设置 |
+| `presets/<family>/<原始名称>.json` | 342 个原生预设、参数状态、未选分支及原始 DES 字段 |
+| `presets/index.json` | 预设路径、分支与来源哈希 |
+| `materials/<分类>/<文件>.json` | PACK 内置材料记录 |
+| `materials/index.json` | 材料名称、分类、路径和哈希 |
+| `materials/runtime.json` | 运行材料 ID、颜色与项目补充材料 |
+| `pack_bindings.json` | 已实现字段和材料组件到原生数据的路径映射 |
+| `templates/<模板 ID>.json` | 向导字段、范围、条件、默认规格与审核物性 |
+| `request.json` | 当前方案的项目初始设置 |
 
-八种类型按 PACK 顺序为：Chip Array (`chip_array`)、Bare Die (`bare_die`)、Flip Chip CBGA
-(`cbga_fc`)、Flip Chip PBGA (`pbga_fc`)、PQFP (`pqfp`)、QFN (`qfn`)、SOP (`sop`)、Wirebond
-PBGA (`pbga_wb`)。PQFP 与 SOP 子类型来自原生向导，Footprint 按子类型筛选。
-SOP 来源目录仍为 PACK 安装中的 `tsop_conv`，QFN 来源目录为 `QFN`，不改写来源名称。
-Bare Die 没有安装目录 DES，保留四个项目审核的尺寸预设。
+八类模板 ID 为 `chip_array`、`bare_die`、`cbga_fc`、`pbga_fc`、`pqfp`、`qfn`、
+`sop`、`pbga_wb`。原始来源的 QFN、tsop_conv 等目录名保留用于追溯。
+Bare Die 另有四个项目尺寸预设。
 
-## 默认值与适配边界
+## 读取与覆盖
 
-选择预设后读取原生默认分支，按 `pack_bindings.json` 投影已实现字段和材料，再应用用户
-显式修改并生成项目等效几何。有效默认值不再用旧 FloXML 基线补全。
-例如 Flip Chip PBGA 基板厚度为 1.15 mm；Wirebond PBGA 的两层默认厚度按原生规则取
-0.36 或 0.56 mm。完整库还保留 74 个四层分支，界面仍采用当前已实现的两层模型。
+读取预设后，通过绑定表投影当前支持的字段和材料，再应用当前方案的修改。
+有效默认值、禁用分支的编辑初值与不适用状态分别保存，不推测缺失物性。
+完整原生记录不代表所有结构和编辑入口均已实现；实现缺口不自动成为功能取舍。
 
-原生 `not_applicable` 没有虚构物性或尺寸。未启用散热焊盘的厚度等只保留 `editor_default`，
-由用户启用后调整；双侧 QFN 没有 Y 侧引脚。默认值路径和编辑初值范围见
-[适配审计](../docs/validation/catalog_presets.json)。未实现的控制项留在完整库，不添加无效开关。
+材料选择参与组分等效计算，显式等效材料物性覆盖具有最终优先级。
+温度依赖材料的原始系数与参考温度留在库中；当前常量模型使用参考温度值并记录来源。
+当前 bumps 的物性算法仍待按 [ADR-0029](../docs/decisions/0029-BGA与Bumps建模表达.md)对齐。
 
-材料随预设按名称解析。常量各向同性和正交各向异性物性直接用于模型。温度依赖材料的
-系数、参考温度和原始存储完整保留；当前常量模型采用原生参考温度值并在材料来源中标注。
-审核的家族等效张量仍在模板文件中作为基线；键合线、过孔和 PQFP/SOP 承载台在生产阶段按
-PACK 保留分支及当前参数/组分重算，见 [联动公式](../docs/research/pack-material-couplings.md)。
-组件选材参与组分计算，不把计算后的等效块覆盖为纯金属。完整预设不表示完整几何复刻。
+默认值只在运行数据中维护，不在生成器添加重复数值或静默回退。
+分发方式见[运行数据决策](../docs/decisions/0016-JSON运行参数与参考数据解耦.md)。
 
-凸点焊料和 BGA 焊料的候选集合来自材料库 `Alloys (Solders)` 分类，underfill 来自 PACK
-默认选材的 `Others` 分类。候选 ID 显式存于各模板 JSON；两类 Flip Chip 的默认凸点焊料和
-underfill、四类 BGA 的默认焊料通过 `pack_bindings.json` 的原生材料路径读取。Bare Die
-的可选凸点沿用项目默认选材，关闭凸点时隐藏其选材字段。
+## 提取与验证
 
-`group-bump-solder`、`group-underfill`、`group-bga-solder` 是物理组分选择键；它们参与构建
-已有等效层，不创建重复几何或模型树节点。模型材料来源保留组分 ID，便于核对。
-
-逐球列表仅在原生去球开关启用时生效。部分 Chip Array 名称中的 48/80 与原生启用阵列的
-49/81 不一致，界面和审计保留提示，不按文件名猜测去球。
-
-## 复现与检查
-
-提取工具直接读取 DES 和经过 SHA-256 审核的 PACK 2504 原生参数对象，无需 Floscript 导出。
-换版本必须重新审核二进制布局，不能绕过版本检查。
+原生提取依赖本机安装及经过审核的二进制布局；切换版本需要重新核验。
 
 ```powershell
-uv run --locked python -m tools.extract_pack_catalog "E:\Program Files\Siemens\SimcenterFlotherm\2504"
+uv run --locked python -m tools.extract_pack_catalog "E:/Program Files/Siemens/SimcenterFlotherm/2504"
 uv run --locked python -m tools.validate_catalog_presets
 ```
 
-审计位于 `docs/validation/catalog_presets.json`，不进入运行包。旧 `flotherm/` 转录、
-`source_adapters.json`、根级 `materials.json`、重复原生快照和旧提取脚本已删除，历史内容通过 Git 查看。
+[预设审计](../docs/validation/catalog_presets.json)记录来源、输入哈希、生成检查与 FloXML 校验。
+审计数据不进入运行包，不替代原生模型的逐项对照验证。

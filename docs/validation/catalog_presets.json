@@ -477,7 +477,7 @@
     "presets/tsop_conv/TSSOP_80_6_1x17.json": "f79eb6b3eadd528fdb79461a480366c43ba11a1425fe209793bf53ed2e2b0e33",
     "presets/tsop_conv/TSSOP_8_3x3.json": "33e022f95c7756480315ac3c831ab62987f532e3681cb2066b9590052d08da17",
     "presets/tsop_conv/TSSOP_8_4_4x3.json": "0b9ab9b17313cc7acf474e95c8420aa578dcfa41a3791df96c2729ea44179256",
-    "request.json": "9b2b04678c06aa951b9650ad9d4299270881c39779470d2d0919fdd2c228c091",
+    "request.json": "ecd8dc19f3316e5bda2b7ada09e6fa5cf322ed8d9eb39de4d617b791383f080f",
     "templates/bare_die.json": "b80a52c77f8c503aa993f309e9c78ad3fab9e682706e504500bc4c3937cd6c89",
     "templates/cbga_fc.json": "343655421c17afccd68236ffe471e314fe576789272296691034bdb8914faf97",
     "templates/chip_array.json": "8be33e38eed2cfad893657f1117a0b4123b3a21e44f01959f082df0298473d71",
@@ -492,19 +492,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 759,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 759,
-          "pta_boolean_blocks": 632,
-          "pta_xml": "passed",
           "solder_ball_count": 100
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 260,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 260,
-          "pta_boolean_blocks": 133,
-          "pta_xml": "passed",
           "solder_ball_count": 100
         }
       },
@@ -679,19 +677,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 759,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 759,
-          "pta_boolean_blocks": 632,
-          "pta_xml": "passed",
           "solder_ball_count": 100
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 260,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 260,
-          "pta_boolean_blocks": 133,
-          "pta_xml": "passed",
           "solder_ball_count": 100
         }
       },
@@ -866,19 +862,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 892,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 892,
-          "pta_boolean_blocks": 717,
-          "pta_xml": "passed",
           "solder_ball_count": 108
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 356,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 356,
-          "pta_boolean_blocks": 181,
-          "pta_xml": "passed",
           "solder_ball_count": 108
         }
       },
@@ -1053,19 +1047,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 908,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 908,
-          "pta_boolean_blocks": 758,
-          "pta_xml": "passed",
           "solder_ball_count": 121
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 304,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 304,
-          "pta_boolean_blocks": 154,
-          "pta_xml": "passed",
           "solder_ball_count": 121
         }
       },
@@ -1240,19 +1232,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 992,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 992,
-          "pta_boolean_blocks": 817,
-          "pta_xml": "passed",
           "solder_ball_count": 128
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 356,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 356,
-          "pta_boolean_blocks": 181,
-          "pta_xml": "passed",
           "solder_ball_count": 128
         }
       },
@@ -1427,19 +1417,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 1071,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 1071,
-          "pta_boolean_blocks": 896,
-          "pta_xml": "passed",
           "solder_ball_count": 144
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 352,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 352,
-          "pta_boolean_blocks": 177,
-          "pta_xml": "passed",
           "solder_ball_count": 144
         }
       },
@@ -1614,19 +1602,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 1071,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 1071,
-          "pta_boolean_blocks": 896,
-          "pta_xml": "passed",
           "solder_ball_count": 144
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 352,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 352,
-          "pta_boolean_blocks": 177,
-          "pta_xml": "passed",
           "solder_ball_count": 144
         }
       },
@@ -1801,19 +1787,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 1260,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 1260,
-          "pta_boolean_blocks": 1029,
-          "pta_xml": "passed",
           "solder_ball_count": 160
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 464,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 464,
-          "pta_boolean_blocks": 233,
-          "pta_xml": "passed",
           "solder_ball_count": 160
         }
       },
@@ -1988,19 +1972,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 1248,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 1248,
-          "pta_boolean_blocks": 1046,
-          "pta_xml": "passed",
           "solder_ball_count": 169
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 404,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 404,
-          "pta_boolean_blocks": 202,
-          "pta_xml": "passed",
           "solder_ball_count": 169
         }
       },
@@ -2175,19 +2157,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 1248,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 1248,
-          "pta_boolean_blocks": 1046,
-          "pta_xml": "passed",
           "solder_ball_count": 169
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 404,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 404,
-          "pta_boolean_blocks": 202,
-          "pta_xml": "passed",
           "solder_ball_count": 169
         }
       },
@@ -2362,19 +2342,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 1400,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 1400,
-          "pta_boolean_blocks": 1138,
-          "pta_xml": "passed",
           "solder_ball_count": 176
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 524,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 524,
-          "pta_boolean_blocks": 262,
-          "pta_xml": "passed",
           "solder_ball_count": 176
         }
       },
@@ -2549,19 +2527,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 1544,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 1544,
-          "pta_boolean_blocks": 1249,
-          "pta_xml": "passed",
           "solder_ball_count": 192
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 588,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 588,
-          "pta_boolean_blocks": 293,
-          "pta_xml": "passed",
           "solder_ball_count": 192
         }
       },
@@ -2736,19 +2712,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 1439,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 1439,
-          "pta_boolean_blocks": 1208,
-          "pta_xml": "passed",
           "solder_ball_count": 196
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 460,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 460,
-          "pta_boolean_blocks": 229,
-          "pta_xml": "passed",
           "solder_ball_count": 196
         }
       },
@@ -2923,19 +2897,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 1692,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 1692,
-          "pta_boolean_blocks": 1362,
-          "pta_xml": "passed",
           "solder_ball_count": 208
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 656,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 656,
-          "pta_boolean_blocks": 326,
-          "pta_xml": "passed",
           "solder_ball_count": 208
         }
       },
@@ -3110,19 +3082,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 1540,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 1540,
-          "pta_boolean_blocks": 1286,
-          "pta_xml": "passed",
           "solder_ball_count": 209
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 496,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 496,
-          "pta_boolean_blocks": 242,
-          "pta_xml": "passed",
           "solder_ball_count": 209
         }
       },
@@ -3297,19 +3267,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 218,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 218,
-          "pta_boolean_blocks": 182,
-          "pta_xml": "passed",
           "solder_ball_count": 25
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 94,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 94,
-          "pta_boolean_blocks": 58,
-          "pta_xml": "passed",
           "solder_ball_count": 25
         }
       },
@@ -3484,19 +3452,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 2160,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 2160,
-          "pta_boolean_blocks": 1713,
-          "pta_xml": "passed",
           "solder_ball_count": 256
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 884,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 884,
-          "pta_boolean_blocks": 437,
-          "pta_xml": "passed",
           "solder_ball_count": 256
         }
       },
@@ -3671,19 +3637,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 1863,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 1863,
-          "pta_boolean_blocks": 1568,
-          "pta_xml": "passed",
           "solder_ball_count": 256
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 584,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 584,
-          "pta_boolean_blocks": 289,
-          "pta_xml": "passed",
           "solder_ball_count": 256
         }
       },
@@ -3858,19 +3822,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 2492,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 2492,
-          "pta_boolean_blocks": 1957,
-          "pta_xml": "passed",
           "solder_ball_count": 288
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 1056,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 1056,
-          "pta_boolean_blocks": 521,
-          "pta_xml": "passed",
           "solder_ball_count": 288
         }
       },
@@ -4045,19 +4007,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 2343,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 2343,
-          "pta_boolean_blocks": 1976,
-          "pta_xml": "passed",
           "solder_ball_count": 324
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 724,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 724,
-          "pta_boolean_blocks": 357,
-          "pta_xml": "passed",
           "solder_ball_count": 324
         }
       },
@@ -4232,19 +4192,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 271,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 271,
-          "pta_boolean_blocks": 224,
-          "pta_xml": "passed",
           "solder_ball_count": 32
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 112,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 112,
-          "pta_boolean_blocks": 65,
-          "pta_xml": "passed",
           "solder_ball_count": 32
         }
       },
@@ -4419,19 +4377,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 303,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 303,
-          "pta_boolean_blocks": 248,
-          "pta_xml": "passed",
           "solder_ball_count": 36
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 124,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 124,
-          "pta_boolean_blocks": 69,
-          "pta_xml": "passed",
           "solder_ball_count": 36
         }
       },
@@ -4606,19 +4562,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 352,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 352,
-          "pta_boolean_blocks": 282,
-          "pta_xml": "passed",
           "solder_ball_count": 40
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 156,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 156,
-          "pta_boolean_blocks": 86,
-          "pta_xml": "passed",
           "solder_ball_count": 40
         }
       },
@@ -4793,19 +4747,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 329,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 329,
-          "pta_boolean_blocks": 272,
-          "pta_xml": "passed",
           "solder_ball_count": 40
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 130,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 130,
-          "pta_boolean_blocks": 73,
-          "pta_xml": "passed",
           "solder_ball_count": 40
         }
       },
@@ -4980,19 +4932,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 329,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 329,
-          "pta_boolean_blocks": 272,
-          "pta_xml": "passed",
           "solder_ball_count": 40
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 130,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 130,
-          "pta_boolean_blocks": 73,
-          "pta_xml": "passed",
           "solder_ball_count": 40
         }
       },
@@ -5167,19 +5117,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 396,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 396,
-          "pta_boolean_blocks": 326,
-          "pta_xml": "passed",
           "solder_ball_count": 49
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 152,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 152,
-          "pta_boolean_blocks": 82,
-          "pta_xml": "passed",
           "solder_ball_count": 49
         }
       },
@@ -5354,19 +5302,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 387,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 387,
-          "pta_boolean_blocks": 320,
-          "pta_xml": "passed",
           "solder_ball_count": 48
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 148,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 148,
-          "pta_boolean_blocks": 81,
-          "pta_xml": "passed",
           "solder_ball_count": 48
         }
       },
@@ -5541,19 +5487,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 396,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 396,
-          "pta_boolean_blocks": 326,
-          "pta_xml": "passed",
           "solder_ball_count": 49
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 152,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 152,
-          "pta_boolean_blocks": 82,
-          "pta_xml": "passed",
           "solder_ball_count": 49
         }
       },
@@ -5728,19 +5672,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 387,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 387,
-          "pta_boolean_blocks": 320,
-          "pta_xml": "passed",
           "solder_ball_count": 48
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 148,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 148,
-          "pta_boolean_blocks": 81,
-          "pta_xml": "passed",
           "solder_ball_count": 48
         }
       },
@@ -5915,19 +5857,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 387,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 387,
-          "pta_boolean_blocks": 320,
-          "pta_xml": "passed",
           "solder_ball_count": 48
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 148,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 148,
-          "pta_boolean_blocks": 81,
-          "pta_xml": "passed",
           "solder_ball_count": 48
         }
       },
@@ -6102,19 +6042,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 387,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 387,
-          "pta_boolean_blocks": 320,
-          "pta_xml": "passed",
           "solder_ball_count": 48
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 148,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 148,
-          "pta_boolean_blocks": 81,
-          "pta_xml": "passed",
           "solder_ball_count": 48
         }
       },
@@ -6289,19 +6227,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 396,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 396,
-          "pta_boolean_blocks": 326,
-          "pta_xml": "passed",
           "solder_ball_count": 49
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 152,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 152,
-          "pta_boolean_blocks": 82,
-          "pta_xml": "passed",
           "solder_ball_count": 49
         }
       },
@@ -6476,19 +6412,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 500,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 500,
-          "pta_boolean_blocks": 394,
-          "pta_xml": "passed",
           "solder_ball_count": 56
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 224,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 224,
-          "pta_boolean_blocks": 118,
-          "pta_xml": "passed",
           "solder_ball_count": 56
         }
       },
@@ -6663,19 +6597,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 503,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 503,
-          "pta_boolean_blocks": 416,
-          "pta_xml": "passed",
           "solder_ball_count": 64
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 184,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 184,
-          "pta_boolean_blocks": 97,
-          "pta_xml": "passed",
           "solder_ball_count": 64
         }
       },
@@ -6850,19 +6782,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 503,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 503,
-          "pta_boolean_blocks": 416,
-          "pta_xml": "passed",
           "solder_ball_count": 64
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 184,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 184,
-          "pta_boolean_blocks": 97,
-          "pta_xml": "passed",
           "solder_ball_count": 64
         }
       },
@@ -7037,19 +6967,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 624,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 624,
-          "pta_boolean_blocks": 518,
-          "pta_xml": "passed",
           "solder_ball_count": 81
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 220,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 220,
-          "pta_boolean_blocks": 114,
-          "pta_xml": "passed",
           "solder_ball_count": 81
         }
       },
@@ -7224,19 +7152,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 624,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 624,
-          "pta_boolean_blocks": 518,
-          "pta_xml": "passed",
           "solder_ball_count": 81
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 220,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 220,
-          "pta_boolean_blocks": 114,
-          "pta_xml": "passed",
           "solder_ball_count": 81
         }
       },
@@ -7411,19 +7337,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 752,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 752,
-          "pta_boolean_blocks": 577,
-          "pta_xml": "passed",
           "solder_ball_count": 80
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 356,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 356,
-          "pta_boolean_blocks": 181,
-          "pta_xml": "passed",
           "solder_ball_count": 80
         }
       },
@@ -7598,19 +7522,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 503,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 503,
-          "pta_boolean_blocks": 503,
-          "pta_xml": "passed",
           "solder_ball_count": 100
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 4,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 4,
-          "pta_boolean_blocks": 4,
-          "pta_xml": "passed",
           "solder_ball_count": 100
         }
       },
@@ -7842,19 +7764,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 5187,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 5187,
-          "pta_boolean_blocks": 5187,
-          "pta_xml": "passed",
           "solder_ball_count": 1036
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 12,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 12,
-          "pta_boolean_blocks": 12,
-          "pta_xml": "passed",
           "solder_ball_count": 1036
         }
       },
@@ -8086,19 +8006,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 5448,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 5448,
-          "pta_boolean_blocks": 5448,
-          "pta_xml": "passed",
           "solder_ball_count": 1089
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 4,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 4,
-          "pta_boolean_blocks": 4,
-          "pta_xml": "passed",
           "solder_ball_count": 1089
         }
       },
@@ -8330,19 +8248,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 5783,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 5783,
-          "pta_boolean_blocks": 5783,
-          "pta_xml": "passed",
           "solder_ball_count": 1156
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 4,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 4,
-          "pta_boolean_blocks": 4,
-          "pta_xml": "passed",
           "solder_ball_count": 1156
         }
       },
@@ -8574,19 +8490,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 5812,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 5812,
-          "pta_boolean_blocks": 5812,
-          "pta_xml": "passed",
           "solder_ball_count": 1161
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 12,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 12,
-          "pta_boolean_blocks": 12,
-          "pta_xml": "passed",
           "solder_ball_count": 1161
         }
       },
@@ -8818,19 +8732,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 598,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 598,
-          "pta_boolean_blocks": 598,
-          "pta_xml": "passed",
           "solder_ball_count": 119
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 4,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 4,
-          "pta_boolean_blocks": 4,
-          "pta_xml": "passed",
           "solder_ball_count": 119
         }
       },
@@ -9062,19 +8974,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 6128,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 6128,
-          "pta_boolean_blocks": 6128,
-          "pta_xml": "passed",
           "solder_ball_count": 1225
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 4,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 4,
-          "pta_boolean_blocks": 4,
-          "pta_xml": "passed",
           "solder_ball_count": 1225
         }
       },
@@ -9306,19 +9216,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 6483,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 6483,
-          "pta_boolean_blocks": 6483,
-          "pta_xml": "passed",
           "solder_ball_count": 1296
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 4,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 4,
-          "pta_boolean_blocks": 4,
-          "pta_xml": "passed",
           "solder_ball_count": 1296
         }
       },
@@ -9550,19 +9458,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 6483,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 6483,
-          "pta_boolean_blocks": 6483,
-          "pta_xml": "passed",
           "solder_ball_count": 1296
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 4,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 4,
-          "pta_boolean_blocks": 4,
-          "pta_xml": "passed",
           "solder_ball_count": 1296
         }
       },
@@ -9794,19 +9700,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 6812,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 6812,
-          "pta_boolean_blocks": 6812,
-          "pta_xml": "passed",
           "solder_ball_count": 1361
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 12,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 12,
-          "pta_boolean_blocks": 12,
-          "pta_xml": "passed",
           "solder_ball_count": 1361
         }
       },
@@ -10038,19 +9942,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 6848,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 6848,
-          "pta_boolean_blocks": 6848,
-          "pta_xml": "passed",
           "solder_ball_count": 1369
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 4,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 4,
-          "pta_boolean_blocks": 4,
-          "pta_xml": "passed",
           "solder_ball_count": 1369
         }
       },
@@ -10282,19 +10184,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 7092,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 7092,
-          "pta_boolean_blocks": 7092,
-          "pta_xml": "passed",
           "solder_ball_count": 1417
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 12,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 12,
-          "pta_boolean_blocks": 12,
-          "pta_xml": "passed",
           "solder_ball_count": 1417
         }
       },
@@ -10526,19 +10426,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 723,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 723,
-          "pta_boolean_blocks": 723,
-          "pta_xml": "passed",
           "solder_ball_count": 144
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 4,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 4,
-          "pta_boolean_blocks": 4,
-          "pta_xml": "passed",
           "solder_ball_count": 144
         }
       },
@@ -10770,19 +10668,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 723,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 723,
-          "pta_boolean_blocks": 723,
-          "pta_xml": "passed",
           "solder_ball_count": 144
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 4,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 4,
-          "pta_boolean_blocks": 4,
-          "pta_xml": "passed",
           "solder_ball_count": 144
         }
       },
@@ -11014,19 +10910,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 7527,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 7527,
-          "pta_boolean_blocks": 7527,
-          "pta_xml": "passed",
           "solder_ball_count": 1504
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 12,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 12,
-          "pta_boolean_blocks": 12,
-          "pta_xml": "passed",
           "solder_ball_count": 1504
         }
       },
@@ -11258,19 +11152,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 7608,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 7608,
-          "pta_boolean_blocks": 7608,
-          "pta_xml": "passed",
           "solder_ball_count": 1521
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 4,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 4,
-          "pta_boolean_blocks": 4,
-          "pta_xml": "passed",
           "solder_ball_count": 1521
         }
       },
@@ -11502,19 +11394,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 768,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 768,
-          "pta_boolean_blocks": 768,
-          "pta_xml": "passed",
           "solder_ball_count": 153
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 4,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 4,
-          "pta_boolean_blocks": 4,
-          "pta_xml": "passed",
           "solder_ball_count": 153
         }
       },
@@ -11746,19 +11636,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 7812,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 7812,
-          "pta_boolean_blocks": 7812,
-          "pta_xml": "passed",
           "solder_ball_count": 1561
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 12,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 12,
-          "pta_boolean_blocks": 12,
-          "pta_xml": "passed",
           "solder_ball_count": 1561
         }
       },
@@ -11990,19 +11878,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 8004,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 8004,
-          "pta_boolean_blocks": 8004,
-          "pta_xml": "passed",
           "solder_ball_count": 1600
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 8,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 8,
-          "pta_boolean_blocks": 8,
-          "pta_xml": "passed",
           "solder_ball_count": 1600
         }
       },
@@ -12234,19 +12120,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 8408,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 8408,
-          "pta_boolean_blocks": 8408,
-          "pta_xml": "passed",
           "solder_ball_count": 1681
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 4,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 4,
-          "pta_boolean_blocks": 4,
-          "pta_xml": "passed",
           "solder_ball_count": 1681
         }
       },
@@ -12478,19 +12362,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 8408,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 8408,
-          "pta_boolean_blocks": 8408,
-          "pta_xml": "passed",
           "solder_ball_count": 1681
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 4,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 4,
-          "pta_boolean_blocks": 4,
-          "pta_xml": "passed",
           "solder_ball_count": 1681
         }
       },
@@ -12722,19 +12604,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 848,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 848,
-          "pta_boolean_blocks": 848,
-          "pta_xml": "passed",
           "solder_ball_count": 169
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 4,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 4,
-          "pta_boolean_blocks": 4,
-          "pta_xml": "passed",
           "solder_ball_count": 169
         }
       },
@@ -12966,19 +12846,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 848,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 848,
-          "pta_boolean_blocks": 848,
-          "pta_xml": "passed",
           "solder_ball_count": 169
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 4,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 4,
-          "pta_boolean_blocks": 4,
-          "pta_xml": "passed",
           "solder_ball_count": 169
         }
       },
@@ -13210,19 +13088,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 8667,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 8667,
-          "pta_boolean_blocks": 8667,
-          "pta_xml": "passed",
           "solder_ball_count": 1732
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 12,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 12,
-          "pta_boolean_blocks": 12,
-          "pta_xml": "passed",
           "solder_ball_count": 1732
         }
       },
@@ -13454,19 +13330,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 9248,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 9248,
-          "pta_boolean_blocks": 9248,
-          "pta_xml": "passed",
           "solder_ball_count": 1849
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 4,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 4,
-          "pta_boolean_blocks": 4,
-          "pta_xml": "passed",
           "solder_ball_count": 1849
         }
       },
@@ -13698,19 +13572,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 564,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 564,
-          "pta_boolean_blocks": 564,
-          "pta_xml": "passed",
           "solder_ball_count": 112
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 8,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 8,
-          "pta_boolean_blocks": 8,
-          "pta_xml": "passed",
           "solder_ball_count": 112
         }
       },
@@ -13942,19 +13814,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 9683,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 9683,
-          "pta_boolean_blocks": 9683,
-          "pta_xml": "passed",
           "solder_ball_count": 1936
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 4,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 4,
-          "pta_boolean_blocks": 4,
-          "pta_xml": "passed",
           "solder_ball_count": 1936
         }
       },
@@ -14186,19 +14056,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 983,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 983,
-          "pta_boolean_blocks": 983,
-          "pta_xml": "passed",
           "solder_ball_count": 196
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 4,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 4,
-          "pta_boolean_blocks": 4,
-          "pta_xml": "passed",
           "solder_ball_count": 196
         }
       },
@@ -14430,19 +14298,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 983,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 983,
-          "pta_boolean_blocks": 983,
-          "pta_xml": "passed",
           "solder_ball_count": 196
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 4,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 4,
-          "pta_boolean_blocks": 4,
-          "pta_xml": "passed",
           "solder_ball_count": 196
         }
       },
@@ -14674,19 +14540,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 10583,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 10583,
-          "pta_boolean_blocks": 10583,
-          "pta_xml": "passed",
           "solder_ball_count": 2116
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 4,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 4,
-          "pta_boolean_blocks": 4,
-          "pta_xml": "passed",
           "solder_ball_count": 2116
         }
       },
@@ -14918,19 +14782,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 804,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 804,
-          "pta_boolean_blocks": 804,
-          "pta_xml": "passed",
           "solder_ball_count": 160
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 8,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 8,
-          "pta_boolean_blocks": 8,
-          "pta_xml": "passed",
           "solder_ball_count": 160
         }
       },
@@ -15162,19 +15024,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 1808,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 1808,
-          "pta_boolean_blocks": 1808,
-          "pta_xml": "passed",
           "solder_ball_count": 361
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 4,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 4,
-          "pta_boolean_blocks": 4,
-          "pta_xml": "passed",
           "solder_ball_count": 361
         }
       },
@@ -15406,19 +15266,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 2107,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 2107,
-          "pta_boolean_blocks": 2107,
-          "pta_xml": "passed",
           "solder_ball_count": 420
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 12,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 12,
-          "pta_boolean_blocks": 12,
-          "pta_xml": "passed",
           "solder_ball_count": 420
         }
       },
@@ -15650,19 +15508,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 2204,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 2204,
-          "pta_boolean_blocks": 2204,
-          "pta_xml": "passed",
           "solder_ball_count": 440
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 8,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 8,
-          "pta_boolean_blocks": 8,
-          "pta_xml": "passed",
           "solder_ball_count": 440
         }
       },
@@ -15894,19 +15750,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 2423,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 2423,
-          "pta_boolean_blocks": 2423,
-          "pta_xml": "passed",
           "solder_ball_count": 484
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 4,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 4,
-          "pta_boolean_blocks": 4,
-          "pta_xml": "passed",
           "solder_ball_count": 484
         }
       },
@@ -16138,19 +15992,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 248,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 248,
-          "pta_boolean_blocks": 248,
-          "pta_xml": "passed",
           "solder_ball_count": 49
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 4,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 4,
-          "pta_boolean_blocks": 4,
-          "pta_xml": "passed",
           "solder_ball_count": 49
         }
       },
@@ -16382,19 +16234,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 248,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 248,
-          "pta_boolean_blocks": 248,
-          "pta_xml": "passed",
           "solder_ball_count": 49
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 4,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 4,
-          "pta_boolean_blocks": 4,
-          "pta_xml": "passed",
           "solder_ball_count": 49
         }
       },
@@ -16626,19 +16476,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 2847,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 2847,
-          "pta_boolean_blocks": 2847,
-          "pta_xml": "passed",
           "solder_ball_count": 568
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 12,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 12,
-          "pta_boolean_blocks": 12,
-          "pta_xml": "passed",
           "solder_ball_count": 568
         }
       },
@@ -16870,19 +16718,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 3128,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 3128,
-          "pta_boolean_blocks": 3128,
-          "pta_xml": "passed",
           "solder_ball_count": 625
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 4,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 4,
-          "pta_boolean_blocks": 4,
-          "pta_xml": "passed",
           "solder_ball_count": 625
         }
       },
@@ -17114,19 +16960,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 323,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 323,
-          "pta_boolean_blocks": 323,
-          "pta_xml": "passed",
           "solder_ball_count": 64
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 4,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 4,
-          "pta_boolean_blocks": 4,
-          "pta_xml": "passed",
           "solder_ball_count": 64
         }
       },
@@ -17358,19 +17202,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 323,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 323,
-          "pta_boolean_blocks": 323,
-          "pta_xml": "passed",
           "solder_ball_count": 64
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 4,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 4,
-          "pta_boolean_blocks": 4,
-          "pta_xml": "passed",
           "solder_ball_count": 64
         }
       },
@@ -17602,19 +17444,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 323,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 323,
-          "pta_boolean_blocks": 323,
-          "pta_xml": "passed",
           "solder_ball_count": 64
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 4,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 4,
-          "pta_boolean_blocks": 4,
-          "pta_xml": "passed",
           "solder_ball_count": 64
         }
       },
@@ -17846,19 +17686,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 3383,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 3383,
-          "pta_boolean_blocks": 3383,
-          "pta_xml": "passed",
           "solder_ball_count": 676
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 4,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 4,
-          "pta_boolean_blocks": 4,
-          "pta_xml": "passed",
           "solder_ball_count": 676
         }
       },
@@ -18090,19 +17928,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 3967,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 3967,
-          "pta_boolean_blocks": 3967,
-          "pta_xml": "passed",
           "solder_ball_count": 792
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 12,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 12,
-          "pta_boolean_blocks": 12,
-          "pta_xml": "passed",
           "solder_ball_count": 792
         }
       },
@@ -18334,19 +18170,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 408,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 408,
-          "pta_boolean_blocks": 408,
-          "pta_xml": "passed",
           "solder_ball_count": 81
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 4,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 4,
-          "pta_boolean_blocks": 4,
-          "pta_xml": "passed",
           "solder_ball_count": 81
         }
       },
@@ -18578,19 +18412,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 408,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 408,
-          "pta_boolean_blocks": 408,
-          "pta_xml": "passed",
           "solder_ball_count": 81
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 4,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 4,
-          "pta_boolean_blocks": 4,
-          "pta_xml": "passed",
           "solder_ball_count": 81
         }
       },
@@ -18822,19 +18654,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 4503,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 4503,
-          "pta_boolean_blocks": 4503,
-          "pta_xml": "passed",
           "solder_ball_count": 900
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 4,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 4,
-          "pta_boolean_blocks": 4,
-          "pta_xml": "passed",
           "solder_ball_count": 900
         }
       },
@@ -19066,19 +18896,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 4503,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 4503,
-          "pta_boolean_blocks": 4503,
-          "pta_xml": "passed",
           "solder_ball_count": 900
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 4,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 4,
-          "pta_boolean_blocks": 4,
-          "pta_xml": "passed",
           "solder_ball_count": 900
         }
       },
@@ -19310,19 +19138,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 4827,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 4827,
-          "pta_boolean_blocks": 4827,
-          "pta_xml": "passed",
           "solder_ball_count": 964
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 12,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 12,
-          "pta_boolean_blocks": 12,
-          "pta_xml": "passed",
           "solder_ball_count": 964
         }
       },
@@ -19554,19 +19380,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 503,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 503,
-          "pta_boolean_blocks": 503,
-          "pta_xml": "passed",
           "solder_ball_count": 100
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 4,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 4,
-          "pta_boolean_blocks": 4,
-          "pta_xml": "passed",
           "solder_ball_count": 100
         }
       },
@@ -19798,19 +19622,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 5187,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 5187,
-          "pta_boolean_blocks": 5187,
-          "pta_xml": "passed",
           "solder_ball_count": 1036
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 12,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 12,
-          "pta_boolean_blocks": 12,
-          "pta_xml": "passed",
           "solder_ball_count": 1036
         }
       },
@@ -20042,19 +19864,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 5448,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 5448,
-          "pta_boolean_blocks": 5448,
-          "pta_xml": "passed",
           "solder_ball_count": 1089
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 4,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 4,
-          "pta_boolean_blocks": 4,
-          "pta_xml": "passed",
           "solder_ball_count": 1089
         }
       },
@@ -20286,19 +20106,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 5783,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 5783,
-          "pta_boolean_blocks": 5783,
-          "pta_xml": "passed",
           "solder_ball_count": 1156
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 4,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 4,
-          "pta_boolean_blocks": 4,
-          "pta_xml": "passed",
           "solder_ball_count": 1156
         }
       },
@@ -20530,19 +20348,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 5812,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 5812,
-          "pta_boolean_blocks": 5812,
-          "pta_xml": "passed",
           "solder_ball_count": 1161
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 12,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 12,
-          "pta_boolean_blocks": 12,
-          "pta_xml": "passed",
           "solder_ball_count": 1161
         }
       },
@@ -20774,19 +20590,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 598,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 598,
-          "pta_boolean_blocks": 598,
-          "pta_xml": "passed",
           "solder_ball_count": 119
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 4,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 4,
-          "pta_boolean_blocks": 4,
-          "pta_xml": "passed",
           "solder_ball_count": 119
         }
       },
@@ -21018,19 +20832,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 6128,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 6128,
-          "pta_boolean_blocks": 6128,
-          "pta_xml": "passed",
           "solder_ball_count": 1225
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 4,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 4,
-          "pta_boolean_blocks": 4,
-          "pta_xml": "passed",
           "solder_ball_count": 1225
         }
       },
@@ -21262,19 +21074,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 6483,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 6483,
-          "pta_boolean_blocks": 6483,
-          "pta_xml": "passed",
           "solder_ball_count": 1296
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 4,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 4,
-          "pta_boolean_blocks": 4,
-          "pta_xml": "passed",
           "solder_ball_count": 1296
         }
       },
@@ -21506,19 +21316,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 6812,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 6812,
-          "pta_boolean_blocks": 6812,
-          "pta_xml": "passed",
           "solder_ball_count": 1361
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 12,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 12,
-          "pta_boolean_blocks": 12,
-          "pta_xml": "passed",
           "solder_ball_count": 1361
         }
       },
@@ -21750,19 +21558,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 6848,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 6848,
-          "pta_boolean_blocks": 6848,
-          "pta_xml": "passed",
           "solder_ball_count": 1369
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 4,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 4,
-          "pta_boolean_blocks": 4,
-          "pta_xml": "passed",
           "solder_ball_count": 1369
         }
       },
@@ -21994,19 +21800,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 7092,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 7092,
-          "pta_boolean_blocks": 7092,
-          "pta_xml": "passed",
           "solder_ball_count": 1417
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 12,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 12,
-          "pta_boolean_blocks": 12,
-          "pta_xml": "passed",
           "solder_ball_count": 1417
         }
       },
@@ -22238,19 +22042,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 723,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 723,
-          "pta_boolean_blocks": 723,
-          "pta_xml": "passed",
           "solder_ball_count": 144
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 4,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 4,
-          "pta_boolean_blocks": 4,
-          "pta_xml": "passed",
           "solder_ball_count": 144
         }
       },
@@ -22482,19 +22284,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 723,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 723,
-          "pta_boolean_blocks": 723,
-          "pta_xml": "passed",
           "solder_ball_count": 144
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 4,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 4,
-          "pta_boolean_blocks": 4,
-          "pta_xml": "passed",
           "solder_ball_count": 144
         }
       },
@@ -22726,19 +22526,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 7527,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 7527,
-          "pta_boolean_blocks": 7527,
-          "pta_xml": "passed",
           "solder_ball_count": 1504
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 12,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 12,
-          "pta_boolean_blocks": 12,
-          "pta_xml": "passed",
           "solder_ball_count": 1504
         }
       },
@@ -22970,19 +22768,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 7608,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 7608,
-          "pta_boolean_blocks": 7608,
-          "pta_xml": "passed",
           "solder_ball_count": 1521
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 4,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 4,
-          "pta_boolean_blocks": 4,
-          "pta_xml": "passed",
           "solder_ball_count": 1521
         }
       },
@@ -23214,19 +23010,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 768,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 768,
-          "pta_boolean_blocks": 768,
-          "pta_xml": "passed",
           "solder_ball_count": 153
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 4,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 4,
-          "pta_boolean_blocks": 4,
-          "pta_xml": "passed",
           "solder_ball_count": 153
         }
       },
@@ -23458,19 +23252,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 7812,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 7812,
-          "pta_boolean_blocks": 7812,
-          "pta_xml": "passed",
           "solder_ball_count": 1561
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 12,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 12,
-          "pta_boolean_blocks": 12,
-          "pta_xml": "passed",
           "solder_ball_count": 1561
         }
       },
@@ -23702,19 +23494,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 8408,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 8408,
-          "pta_boolean_blocks": 8408,
-          "pta_xml": "passed",
           "solder_ball_count": 1681
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 4,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 4,
-          "pta_boolean_blocks": 4,
-          "pta_xml": "passed",
           "solder_ball_count": 1681
         }
       },
@@ -23946,19 +23736,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 8408,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 8408,
-          "pta_boolean_blocks": 8408,
-          "pta_xml": "passed",
           "solder_ball_count": 1681
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 4,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 4,
-          "pta_boolean_blocks": 4,
-          "pta_xml": "passed",
           "solder_ball_count": 1681
         }
       },
@@ -24190,19 +23978,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 848,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 848,
-          "pta_boolean_blocks": 848,
-          "pta_xml": "passed",
           "solder_ball_count": 169
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 4,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 4,
-          "pta_boolean_blocks": 4,
-          "pta_xml": "passed",
           "solder_ball_count": 169
         }
       },
@@ -24434,19 +24220,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 848,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 848,
-          "pta_boolean_blocks": 848,
-          "pta_xml": "passed",
           "solder_ball_count": 169
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 4,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 4,
-          "pta_boolean_blocks": 4,
-          "pta_xml": "passed",
           "solder_ball_count": 169
         }
       },
@@ -24678,19 +24462,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 8667,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 8667,
-          "pta_boolean_blocks": 8667,
-          "pta_xml": "passed",
           "solder_ball_count": 1732
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 12,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 12,
-          "pta_boolean_blocks": 12,
-          "pta_xml": "passed",
           "solder_ball_count": 1732
         }
       },
@@ -24922,19 +24704,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 9248,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 9248,
-          "pta_boolean_blocks": 9248,
-          "pta_xml": "passed",
           "solder_ball_count": 1849
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 4,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 4,
-          "pta_boolean_blocks": 4,
-          "pta_xml": "passed",
           "solder_ball_count": 1849
         }
       },
@@ -25166,19 +24946,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 564,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 564,
-          "pta_boolean_blocks": 564,
-          "pta_xml": "passed",
           "solder_ball_count": 112
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 8,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 8,
-          "pta_boolean_blocks": 8,
-          "pta_xml": "passed",
           "solder_ball_count": 112
         }
       },
@@ -25410,19 +25188,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 9683,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 9683,
-          "pta_boolean_blocks": 9683,
-          "pta_xml": "passed",
           "solder_ball_count": 1936
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 4,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 4,
-          "pta_boolean_blocks": 4,
-          "pta_xml": "passed",
           "solder_ball_count": 1936
         }
       },
@@ -25654,19 +25430,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 983,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 983,
-          "pta_boolean_blocks": 983,
-          "pta_xml": "passed",
           "solder_ball_count": 196
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 4,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 4,
-          "pta_boolean_blocks": 4,
-          "pta_xml": "passed",
           "solder_ball_count": 196
         }
       },
@@ -25898,19 +25672,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 983,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 983,
-          "pta_boolean_blocks": 983,
-          "pta_xml": "passed",
           "solder_ball_count": 196
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 4,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 4,
-          "pta_boolean_blocks": 4,
-          "pta_xml": "passed",
           "solder_ball_count": 196
         }
       },
@@ -26142,19 +25914,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 10583,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 10583,
-          "pta_boolean_blocks": 10583,
-          "pta_xml": "passed",
           "solder_ball_count": 2116
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 4,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 4,
-          "pta_boolean_blocks": 4,
-          "pta_xml": "passed",
           "solder_ball_count": 2116
         }
       },
@@ -26386,19 +26156,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 804,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 804,
-          "pta_boolean_blocks": 804,
-          "pta_xml": "passed",
           "solder_ball_count": 160
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 8,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 8,
-          "pta_boolean_blocks": 8,
-          "pta_xml": "passed",
           "solder_ball_count": 160
         }
       },
@@ -26630,19 +26398,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 2107,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 2107,
-          "pta_boolean_blocks": 2107,
-          "pta_xml": "passed",
           "solder_ball_count": 420
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 12,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 12,
-          "pta_boolean_blocks": 12,
-          "pta_xml": "passed",
           "solder_ball_count": 420
         }
       },
@@ -26874,19 +26640,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 2423,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 2423,
-          "pta_boolean_blocks": 2423,
-          "pta_xml": "passed",
           "solder_ball_count": 484
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 4,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 4,
-          "pta_boolean_blocks": 4,
-          "pta_xml": "passed",
           "solder_ball_count": 484
         }
       },
@@ -27118,19 +26882,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 248,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 248,
-          "pta_boolean_blocks": 248,
-          "pta_xml": "passed",
           "solder_ball_count": 49
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 4,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 4,
-          "pta_boolean_blocks": 4,
-          "pta_xml": "passed",
           "solder_ball_count": 49
         }
       },
@@ -27362,19 +27124,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 248,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 248,
-          "pta_boolean_blocks": 248,
-          "pta_xml": "passed",
           "solder_ball_count": 49
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 4,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 4,
-          "pta_boolean_blocks": 4,
-          "pta_xml": "passed",
           "solder_ball_count": 49
         }
       },
@@ -27606,19 +27366,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 2847,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 2847,
-          "pta_boolean_blocks": 2847,
-          "pta_xml": "passed",
           "solder_ball_count": 568
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 12,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 12,
-          "pta_boolean_blocks": 12,
-          "pta_xml": "passed",
           "solder_ball_count": 568
         }
       },
@@ -27850,19 +27608,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 2852,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 2852,
-          "pta_boolean_blocks": 2852,
-          "pta_xml": "passed",
           "solder_ball_count": 569
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 12,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 12,
-          "pta_boolean_blocks": 12,
-          "pta_xml": "passed",
           "solder_ball_count": 569
         }
       },
@@ -28094,19 +27850,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 3128,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 3128,
-          "pta_boolean_blocks": 3128,
-          "pta_xml": "passed",
           "solder_ball_count": 625
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 4,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 4,
-          "pta_boolean_blocks": 4,
-          "pta_xml": "passed",
           "solder_ball_count": 625
         }
       },
@@ -28338,19 +28092,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 323,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 323,
-          "pta_boolean_blocks": 323,
-          "pta_xml": "passed",
           "solder_ball_count": 64
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 4,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 4,
-          "pta_boolean_blocks": 4,
-          "pta_xml": "passed",
           "solder_ball_count": 64
         }
       },
@@ -28582,19 +28334,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 323,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 323,
-          "pta_boolean_blocks": 323,
-          "pta_xml": "passed",
           "solder_ball_count": 64
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 4,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 4,
-          "pta_boolean_blocks": 4,
-          "pta_xml": "passed",
           "solder_ball_count": 64
         }
       },
@@ -28826,19 +28576,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 323,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 323,
-          "pta_boolean_blocks": 323,
-          "pta_xml": "passed",
           "solder_ball_count": 64
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 4,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 4,
-          "pta_boolean_blocks": 4,
-          "pta_xml": "passed",
           "solder_ball_count": 64
         }
       },
@@ -29070,19 +28818,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 3383,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 3383,
-          "pta_boolean_blocks": 3383,
-          "pta_xml": "passed",
           "solder_ball_count": 676
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 4,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 4,
-          "pta_boolean_blocks": 4,
-          "pta_xml": "passed",
           "solder_ball_count": 676
         }
       },
@@ -29314,19 +29060,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 3967,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 3967,
-          "pta_boolean_blocks": 3967,
-          "pta_xml": "passed",
           "solder_ball_count": 792
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 12,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 12,
-          "pta_boolean_blocks": 12,
-          "pta_xml": "passed",
           "solder_ball_count": 792
         }
       },
@@ -29558,19 +29302,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 408,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 408,
-          "pta_boolean_blocks": 408,
-          "pta_xml": "passed",
           "solder_ball_count": 81
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 4,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 4,
-          "pta_boolean_blocks": 4,
-          "pta_xml": "passed",
           "solder_ball_count": 81
         }
       },
@@ -29802,19 +29544,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 408,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 408,
-          "pta_boolean_blocks": 408,
-          "pta_xml": "passed",
           "solder_ball_count": 81
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 4,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 4,
-          "pta_boolean_blocks": 4,
-          "pta_xml": "passed",
           "solder_ball_count": 81
         }
       },
@@ -30046,19 +29786,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 4503,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 4503,
-          "pta_boolean_blocks": 4503,
-          "pta_xml": "passed",
           "solder_ball_count": 900
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 4,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 4,
-          "pta_boolean_blocks": 4,
-          "pta_xml": "passed",
           "solder_ball_count": 900
         }
       },
@@ -30290,19 +30028,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 4827,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 4827,
-          "pta_boolean_blocks": 4827,
-          "pta_xml": "passed",
           "solder_ball_count": 964
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 12,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 12,
-          "pta_boolean_blocks": 12,
-          "pta_xml": "passed",
           "solder_ball_count": 964
         }
       },
@@ -30534,11 +30270,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 219,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 219,
-          "pta_boolean_blocks": 124,
-          "pta_xml": "passed"
+          "physical_blocks": 219
         }
       },
       "parameter_audit": {
@@ -30760,11 +30495,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 209,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 209,
-          "pta_boolean_blocks": 123,
-          "pta_xml": "passed"
+          "physical_blocks": 209
         }
       },
       "parameter_audit": {
@@ -30986,11 +30720,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 219,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 219,
-          "pta_boolean_blocks": 124,
-          "pta_xml": "passed"
+          "physical_blocks": 219
         }
       },
       "parameter_audit": {
@@ -31212,11 +30945,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 219,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 219,
-          "pta_boolean_blocks": 124,
-          "pta_xml": "passed"
+          "physical_blocks": 219
         }
       },
       "parameter_audit": {
@@ -31438,11 +31170,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 209,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 209,
-          "pta_boolean_blocks": 123,
-          "pta_xml": "passed"
+          "physical_blocks": 209
         }
       },
       "parameter_audit": {
@@ -31664,11 +31395,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 203,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 203,
-          "pta_boolean_blocks": 123,
-          "pta_xml": "passed"
+          "physical_blocks": 203
         }
       },
       "parameter_audit": {
@@ -31890,11 +31620,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 203,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 203,
-          "pta_boolean_blocks": 123,
-          "pta_xml": "passed"
+          "physical_blocks": 203
         }
       },
       "parameter_audit": {
@@ -32116,11 +31845,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 203,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 203,
-          "pta_boolean_blocks": 123,
-          "pta_xml": "passed"
+          "physical_blocks": 203
         }
       },
       "parameter_audit": {
@@ -32342,11 +32070,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 203,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 203,
-          "pta_boolean_blocks": 123,
-          "pta_xml": "passed"
+          "physical_blocks": 203
         }
       },
       "parameter_audit": {
@@ -32568,11 +32295,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 203,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 203,
-          "pta_boolean_blocks": 123,
-          "pta_xml": "passed"
+          "physical_blocks": 203
         }
       },
       "parameter_audit": {
@@ -32794,11 +32520,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 203,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 203,
-          "pta_boolean_blocks": 123,
-          "pta_xml": "passed"
+          "physical_blocks": 203
         }
       },
       "parameter_audit": {
@@ -33020,11 +32745,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 203,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 203,
-          "pta_boolean_blocks": 123,
-          "pta_xml": "passed"
+          "physical_blocks": 203
         }
       },
       "parameter_audit": {
@@ -33246,11 +32970,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 286,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 286,
-          "pta_boolean_blocks": 124,
-          "pta_xml": "passed"
+          "physical_blocks": 286
         }
       },
       "parameter_audit": {
@@ -33472,11 +33195,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 211,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 211,
-          "pta_boolean_blocks": 124,
-          "pta_xml": "passed"
+          "physical_blocks": 211
         }
       },
       "parameter_audit": {
@@ -33698,11 +33420,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 211,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 211,
-          "pta_boolean_blocks": 124,
-          "pta_xml": "passed"
+          "physical_blocks": 211
         }
       },
       "parameter_audit": {
@@ -33924,11 +33645,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 211,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 211,
-          "pta_boolean_blocks": 124,
-          "pta_xml": "passed"
+          "physical_blocks": 211
         }
       },
       "parameter_audit": {
@@ -34150,11 +33870,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 211,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 211,
-          "pta_boolean_blocks": 124,
-          "pta_xml": "passed"
+          "physical_blocks": 211
         }
       },
       "parameter_audit": {
@@ -34376,11 +34095,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 211,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 211,
-          "pta_boolean_blocks": 124,
-          "pta_xml": "passed"
+          "physical_blocks": 211
         }
       },
       "parameter_audit": {
@@ -34602,11 +34320,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 211,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 211,
-          "pta_boolean_blocks": 124,
-          "pta_xml": "passed"
+          "physical_blocks": 211
         }
       },
       "parameter_audit": {
@@ -34828,11 +34545,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 219,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 219,
-          "pta_boolean_blocks": 124,
-          "pta_xml": "passed"
+          "physical_blocks": 219
         }
       },
       "parameter_audit": {
@@ -35054,11 +34770,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 211,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 211,
-          "pta_boolean_blocks": 124,
-          "pta_xml": "passed"
+          "physical_blocks": 211
         }
       },
       "parameter_audit": {
@@ -35280,11 +34995,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 219,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 219,
-          "pta_boolean_blocks": 115,
-          "pta_xml": "passed"
+          "physical_blocks": 219
         }
       },
       "parameter_audit": {
@@ -35506,11 +35220,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 225,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 225,
-          "pta_boolean_blocks": 119,
-          "pta_xml": "passed"
+          "physical_blocks": 225
         }
       },
       "parameter_audit": {
@@ -35732,11 +35445,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 219,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 219,
-          "pta_boolean_blocks": 119,
-          "pta_xml": "passed"
+          "physical_blocks": 219
         }
       },
       "parameter_audit": {
@@ -35958,11 +35670,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 225,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 225,
-          "pta_boolean_blocks": 119,
-          "pta_xml": "passed"
+          "physical_blocks": 225
         }
       },
       "parameter_audit": {
@@ -36184,11 +35895,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 219,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 219,
-          "pta_boolean_blocks": 119,
-          "pta_xml": "passed"
+          "physical_blocks": 219
         }
       },
       "parameter_audit": {
@@ -36410,11 +36120,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 219,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 219,
-          "pta_boolean_blocks": 119,
-          "pta_xml": "passed"
+          "physical_blocks": 219
         }
       },
       "parameter_audit": {
@@ -36636,11 +36345,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 219,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 219,
-          "pta_boolean_blocks": 119,
-          "pta_xml": "passed"
+          "physical_blocks": 219
         }
       },
       "parameter_audit": {
@@ -36862,11 +36570,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 219,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 219,
-          "pta_boolean_blocks": 119,
-          "pta_xml": "passed"
+          "physical_blocks": 219
         }
       },
       "parameter_audit": {
@@ -37088,11 +36795,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 219,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 219,
-          "pta_boolean_blocks": 119,
-          "pta_xml": "passed"
+          "physical_blocks": 219
         }
       },
       "parameter_audit": {
@@ -37314,11 +37020,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 219,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 219,
-          "pta_boolean_blocks": 119,
-          "pta_xml": "passed"
+          "physical_blocks": 219
         }
       },
       "parameter_audit": {
@@ -37540,11 +37245,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 219,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 219,
-          "pta_boolean_blocks": 119,
-          "pta_xml": "passed"
+          "physical_blocks": 219
         }
       },
       "parameter_audit": {
@@ -37766,11 +37470,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 219,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 219,
-          "pta_boolean_blocks": 119,
-          "pta_xml": "passed"
+          "physical_blocks": 219
         }
       },
       "parameter_audit": {
@@ -37992,11 +37695,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 219,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 219,
-          "pta_boolean_blocks": 124,
-          "pta_xml": "passed"
+          "physical_blocks": 219
         }
       },
       "parameter_audit": {
@@ -38218,11 +37920,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 219,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 219,
-          "pta_boolean_blocks": 119,
-          "pta_xml": "passed"
+          "physical_blocks": 219
         }
       },
       "parameter_audit": {
@@ -38444,11 +38145,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 219,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 219,
-          "pta_boolean_blocks": 119,
-          "pta_xml": "passed"
+          "physical_blocks": 219
         }
       },
       "parameter_audit": {
@@ -38670,11 +38370,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 211,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 211,
-          "pta_boolean_blocks": 115,
-          "pta_xml": "passed"
+          "physical_blocks": 211
         }
       },
       "parameter_audit": {
@@ -38896,11 +38595,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 211,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 211,
-          "pta_boolean_blocks": 115,
-          "pta_xml": "passed"
+          "physical_blocks": 211
         }
       },
       "parameter_audit": {
@@ -39122,11 +38820,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 211,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 211,
-          "pta_boolean_blocks": 115,
-          "pta_xml": "passed"
+          "physical_blocks": 211
         }
       },
       "parameter_audit": {
@@ -39348,11 +39045,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 211,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 211,
-          "pta_boolean_blocks": 115,
-          "pta_xml": "passed"
+          "physical_blocks": 211
         }
       },
       "parameter_audit": {
@@ -39574,11 +39270,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 211,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 211,
-          "pta_boolean_blocks": 115,
-          "pta_xml": "passed"
+          "physical_blocks": 211
         }
       },
       "parameter_audit": {
@@ -39800,11 +39495,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 211,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 211,
-          "pta_boolean_blocks": 115,
-          "pta_xml": "passed"
+          "physical_blocks": 211
         }
       },
       "parameter_audit": {
@@ -40026,11 +39720,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 217,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 217,
-          "pta_boolean_blocks": 119,
-          "pta_xml": "passed"
+          "physical_blocks": 217
         }
       },
       "parameter_audit": {
@@ -40252,11 +39945,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 211,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 211,
-          "pta_boolean_blocks": 115,
-          "pta_xml": "passed"
+          "physical_blocks": 211
         }
       },
       "parameter_audit": {
@@ -40478,11 +40170,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 217,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 217,
-          "pta_boolean_blocks": 119,
-          "pta_xml": "passed"
+          "physical_blocks": 217
         }
       },
       "parameter_audit": {
@@ -40704,11 +40395,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 203,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 203,
-          "pta_boolean_blocks": 113,
-          "pta_xml": "passed"
+          "physical_blocks": 203
         }
       },
       "parameter_audit": {
@@ -40930,11 +40620,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 209,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 209,
-          "pta_boolean_blocks": 113,
-          "pta_xml": "passed"
+          "physical_blocks": 209
         }
       },
       "parameter_audit": {
@@ -41156,11 +40845,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 203,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 203,
-          "pta_boolean_blocks": 113,
-          "pta_xml": "passed"
+          "physical_blocks": 203
         }
       },
       "parameter_audit": {
@@ -41382,11 +41070,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 209,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 209,
-          "pta_boolean_blocks": 113,
-          "pta_xml": "passed"
+          "physical_blocks": 209
         }
       },
       "parameter_audit": {
@@ -41608,11 +41295,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 203,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 203,
-          "pta_boolean_blocks": 113,
-          "pta_xml": "passed"
+          "physical_blocks": 203
         }
       },
       "parameter_audit": {
@@ -41834,11 +41520,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 203,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 203,
-          "pta_boolean_blocks": 113,
-          "pta_xml": "passed"
+          "physical_blocks": 203
         }
       },
       "parameter_audit": {
@@ -42060,11 +41745,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 203,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 203,
-          "pta_boolean_blocks": 113,
-          "pta_xml": "passed"
+          "physical_blocks": 203
         }
       },
       "parameter_audit": {
@@ -42286,11 +41970,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 286,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 286,
-          "pta_boolean_blocks": 114,
-          "pta_xml": "passed"
+          "physical_blocks": 286
         }
       },
       "parameter_audit": {
@@ -42512,11 +42195,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 195,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 195,
-          "pta_boolean_blocks": 113,
-          "pta_xml": "passed"
+          "physical_blocks": 195
         }
       },
       "parameter_audit": {
@@ -42738,11 +42420,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 195,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 195,
-          "pta_boolean_blocks": 113,
-          "pta_xml": "passed"
+          "physical_blocks": 195
         }
       },
       "parameter_audit": {
@@ -42964,11 +42645,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 211,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 211,
-          "pta_boolean_blocks": 114,
-          "pta_xml": "passed"
+          "physical_blocks": 211
         }
       },
       "parameter_audit": {
@@ -43190,11 +42870,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 195,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 195,
-          "pta_boolean_blocks": 113,
-          "pta_xml": "passed"
+          "physical_blocks": 195
         }
       },
       "parameter_audit": {
@@ -43416,11 +43095,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 195,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 195,
-          "pta_boolean_blocks": 113,
-          "pta_xml": "passed"
+          "physical_blocks": 195
         }
       },
       "parameter_audit": {
@@ -43642,11 +43320,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 195,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 195,
-          "pta_boolean_blocks": 113,
-          "pta_xml": "passed"
+          "physical_blocks": 195
         }
       },
       "parameter_audit": {
@@ -43868,11 +43545,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 203,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 203,
-          "pta_boolean_blocks": 113,
-          "pta_xml": "passed"
+          "physical_blocks": 203
         }
       },
       "parameter_audit": {
@@ -44094,11 +43770,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 195,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 195,
-          "pta_boolean_blocks": 113,
-          "pta_xml": "passed"
+          "physical_blocks": 195
         }
       },
       "parameter_audit": {
@@ -44320,11 +43995,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 778,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 778,
-          "pta_boolean_blocks": 160,
-          "pta_xml": "passed"
+          "physical_blocks": 778
         }
       },
       "parameter_audit": {
@@ -44565,11 +44239,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 908,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 908,
-          "pta_boolean_blocks": 184,
-          "pta_xml": "passed"
+          "physical_blocks": 908
         }
       },
       "parameter_audit": {
@@ -44810,11 +44483,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 1168,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 1168,
-          "pta_boolean_blocks": 232,
-          "pta_xml": "passed"
+          "physical_blocks": 1168
         }
       },
       "parameter_audit": {
@@ -45055,11 +44727,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 1250,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 1250,
-          "pta_boolean_blocks": 244,
-          "pta_xml": "passed"
+          "physical_blocks": 1250
         }
       },
       "parameter_audit": {
@@ -45300,11 +44971,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 1664,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 1664,
-          "pta_boolean_blocks": 328,
-          "pta_xml": "passed"
+          "physical_blocks": 1664
         }
       },
       "parameter_audit": {
@@ -45545,11 +45215,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 196,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 196,
-          "pta_boolean_blocks": 64,
-          "pta_xml": "passed"
+          "physical_blocks": 196
         }
       },
       "parameter_audit": {
@@ -45790,11 +45459,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 309,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 309,
-          "pta_boolean_blocks": 76,
-          "pta_xml": "passed"
+          "physical_blocks": 309
         }
       },
       "parameter_audit": {
@@ -46035,11 +45703,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 94,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 94,
-          "pta_boolean_blocks": 38,
-          "pta_xml": "passed"
+          "physical_blocks": 94
         }
       },
       "parameter_audit": {
@@ -46282,11 +45949,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 158,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 158,
-          "pta_boolean_blocks": 52,
-          "pta_xml": "passed"
+          "physical_blocks": 158
         }
       },
       "parameter_audit": {
@@ -46527,11 +46193,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 503,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 503,
-          "pta_boolean_blocks": 88,
-          "pta_xml": "passed"
+          "physical_blocks": 503
         }
       },
       "parameter_audit": {
@@ -46772,11 +46437,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 198,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 198,
-          "pta_boolean_blocks": 64,
-          "pta_xml": "passed"
+          "physical_blocks": 198
         }
       },
       "parameter_audit": {
@@ -47017,11 +46681,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 317,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 317,
-          "pta_boolean_blocks": 76,
-          "pta_xml": "passed"
+          "physical_blocks": 317
         }
       },
       "parameter_audit": {
@@ -47262,11 +46925,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 314,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 314,
-          "pta_boolean_blocks": 76,
-          "pta_xml": "passed"
+          "physical_blocks": 314
         }
       },
       "parameter_audit": {
@@ -47507,11 +47169,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 381,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 381,
-          "pta_boolean_blocks": 88,
-          "pta_xml": "passed"
+          "physical_blocks": 381
         }
       },
       "parameter_audit": {
@@ -47752,11 +47413,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 442,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 442,
-          "pta_boolean_blocks": 100,
-          "pta_xml": "passed"
+          "physical_blocks": 442
         }
       },
       "parameter_audit": {
@@ -47997,11 +47657,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 589,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 589,
-          "pta_boolean_blocks": 100,
-          "pta_xml": "passed"
+          "physical_blocks": 589
         }
       },
       "parameter_audit": {
@@ -48242,11 +47901,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 390,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 390,
-          "pta_boolean_blocks": 100,
-          "pta_xml": "passed"
+          "physical_blocks": 390
         }
       },
       "parameter_audit": {
@@ -48487,11 +48145,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 476,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 476,
-          "pta_boolean_blocks": 112,
-          "pta_xml": "passed"
+          "physical_blocks": 476
         }
       },
       "parameter_audit": {
@@ -48732,11 +48389,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 317,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 317,
-          "pta_boolean_blocks": 76,
-          "pta_xml": "passed"
+          "physical_blocks": 317
         }
       },
       "parameter_audit": {
@@ -48977,11 +48633,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 383,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 383,
-          "pta_boolean_blocks": 88,
-          "pta_xml": "passed"
+          "physical_blocks": 383
         }
       },
       "parameter_audit": {
@@ -49222,11 +48877,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 400,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 400,
-          "pta_boolean_blocks": 100,
-          "pta_xml": "passed"
+          "physical_blocks": 400
         }
       },
       "parameter_audit": {
@@ -49467,11 +49121,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 462,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 462,
-          "pta_boolean_blocks": 112,
-          "pta_xml": "passed"
+          "physical_blocks": 462
         }
       },
       "parameter_audit": {
@@ -49712,11 +49365,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 521,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 521,
-          "pta_boolean_blocks": 124,
-          "pta_xml": "passed"
+          "physical_blocks": 521
         }
       },
       "parameter_audit": {
@@ -49957,11 +49609,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 383,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 383,
-          "pta_boolean_blocks": 88,
-          "pta_xml": "passed"
+          "physical_blocks": 383
         }
       },
       "parameter_audit": {
@@ -50202,11 +49853,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 447,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 447,
-          "pta_boolean_blocks": 100,
-          "pta_xml": "passed"
+          "physical_blocks": 447
         }
       },
       "parameter_audit": {
@@ -50447,11 +50097,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 478,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 478,
-          "pta_boolean_blocks": 112,
-          "pta_xml": "passed"
+          "physical_blocks": 478
         }
       },
       "parameter_audit": {
@@ -50692,11 +50341,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 562,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 562,
-          "pta_boolean_blocks": 124,
-          "pta_xml": "passed"
+          "physical_blocks": 562
         }
       },
       "parameter_audit": {
@@ -50937,11 +50585,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 643,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 643,
-          "pta_boolean_blocks": 136,
-          "pta_xml": "passed"
+          "physical_blocks": 643
         }
       },
       "parameter_audit": {
@@ -51182,11 +50829,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 713,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 713,
-          "pta_boolean_blocks": 148,
-          "pta_xml": "passed"
+          "physical_blocks": 713
         }
       },
       "parameter_audit": {
@@ -51427,11 +51073,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 732,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 732,
-          "pta_boolean_blocks": 142,
-          "pta_xml": "passed"
+          "physical_blocks": 732
         }
       },
       "parameter_audit": {
@@ -51672,11 +51317,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 513,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 513,
-          "pta_boolean_blocks": 112,
-          "pta_xml": "passed"
+          "physical_blocks": 513
         }
       },
       "parameter_audit": {
@@ -51917,11 +51561,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 577,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 577,
-          "pta_boolean_blocks": 124,
-          "pta_xml": "passed"
+          "physical_blocks": 577
         }
       },
       "parameter_audit": {
@@ -52162,11 +51805,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 643,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 643,
-          "pta_boolean_blocks": 136,
-          "pta_xml": "passed"
+          "physical_blocks": 643
         }
       },
       "parameter_audit": {
@@ -52407,11 +52049,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 707,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 707,
-          "pta_boolean_blocks": 148,
-          "pta_xml": "passed"
+          "physical_blocks": 707
         }
       },
       "parameter_audit": {
@@ -52652,11 +52293,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 773,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 773,
-          "pta_boolean_blocks": 160,
-          "pta_xml": "passed"
+          "physical_blocks": 773
         }
       },
       "parameter_audit": {
@@ -52897,11 +52537,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 851,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 851,
-          "pta_boolean_blocks": 172,
-          "pta_xml": "passed"
+          "physical_blocks": 851
         }
       },
       "parameter_audit": {
@@ -53142,11 +52781,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 579,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 579,
-          "pta_boolean_blocks": 124,
-          "pta_xml": "passed"
+          "physical_blocks": 579
         }
       },
       "parameter_audit": {
@@ -53387,11 +53025,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 707,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 707,
-          "pta_boolean_blocks": 148,
-          "pta_xml": "passed"
+          "physical_blocks": 707
         }
       },
       "parameter_audit": {
@@ -53632,11 +53269,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 837,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 837,
-          "pta_boolean_blocks": 172,
-          "pta_xml": "passed"
+          "physical_blocks": 837
         }
       },
       "parameter_audit": {
@@ -53877,11 +53513,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 908,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 908,
-          "pta_boolean_blocks": 184,
-          "pta_xml": "passed"
+          "physical_blocks": 908
         }
       },
       "parameter_audit": {
@@ -54122,11 +53757,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 984,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 984,
-          "pta_boolean_blocks": 196,
-          "pta_xml": "passed"
+          "physical_blocks": 984
         }
       },
       "parameter_audit": {
@@ -54367,11 +54001,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 722,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 722,
-          "pta_boolean_blocks": 160,
-          "pta_xml": "passed"
+          "physical_blocks": 722
         }
       },
       "parameter_audit": {
@@ -54612,11 +54245,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 844,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 844,
-          "pta_boolean_blocks": 172,
-          "pta_xml": "passed"
+          "physical_blocks": 844
         }
       },
       "parameter_audit": {
@@ -54857,11 +54489,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 967,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 967,
-          "pta_boolean_blocks": 196,
-          "pta_xml": "passed"
+          "physical_blocks": 967
         }
       },
       "parameter_audit": {
@@ -55102,11 +54733,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 1038,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 1038,
-          "pta_boolean_blocks": 208,
-          "pta_xml": "passed"
+          "physical_blocks": 1038
         }
       },
       "parameter_audit": {
@@ -55347,11 +54977,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 1117,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 1117,
-          "pta_boolean_blocks": 220,
-          "pta_xml": "passed"
+          "physical_blocks": 1117
         }
       },
       "parameter_audit": {
@@ -55592,11 +55221,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 143,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 143,
-          "pta_boolean_blocks": 58,
-          "pta_xml": "passed"
+          "physical_blocks": 143
         }
       },
       "parameter_audit": {
@@ -55805,11 +55433,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 143,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 143,
-          "pta_boolean_blocks": 58,
-          "pta_xml": "passed"
+          "physical_blocks": 143
         }
       },
       "parameter_audit": {
@@ -56018,11 +55645,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 143,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 143,
-          "pta_boolean_blocks": 57,
-          "pta_xml": "passed"
+          "physical_blocks": 143
         }
       },
       "parameter_audit": {
@@ -56231,11 +55857,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 143,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 143,
-          "pta_boolean_blocks": 57,
-          "pta_xml": "passed"
+          "physical_blocks": 143
         }
       },
       "parameter_audit": {
@@ -56444,11 +56069,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 143,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 143,
-          "pta_boolean_blocks": 57,
-          "pta_xml": "passed"
+          "physical_blocks": 143
         }
       },
       "parameter_audit": {
@@ -56657,11 +56281,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 143,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 143,
-          "pta_boolean_blocks": 57,
-          "pta_xml": "passed"
+          "physical_blocks": 143
         }
       },
       "parameter_audit": {
@@ -56870,11 +56493,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 143,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 143,
-          "pta_boolean_blocks": 58,
-          "pta_xml": "passed"
+          "physical_blocks": 143
         }
       },
       "parameter_audit": {
@@ -57083,11 +56705,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 143,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 143,
-          "pta_boolean_blocks": 57,
-          "pta_xml": "passed"
+          "physical_blocks": 143
         }
       },
       "parameter_audit": {
@@ -57296,11 +56917,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 143,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 143,
-          "pta_boolean_blocks": 58,
-          "pta_xml": "passed"
+          "physical_blocks": 143
         }
       },
       "parameter_audit": {
@@ -57509,11 +57129,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 143,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 143,
-          "pta_boolean_blocks": 58,
-          "pta_xml": "passed"
+          "physical_blocks": 143
         }
       },
       "parameter_audit": {
@@ -57722,11 +57341,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 143,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 143,
-          "pta_boolean_blocks": 57,
-          "pta_xml": "passed"
+          "physical_blocks": 143
         }
       },
       "parameter_audit": {
@@ -57935,11 +57553,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 143,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 143,
-          "pta_boolean_blocks": 58,
-          "pta_xml": "passed"
+          "physical_blocks": 143
         }
       },
       "parameter_audit": {
@@ -58148,11 +57765,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 143,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 143,
-          "pta_boolean_blocks": 58,
-          "pta_xml": "passed"
+          "physical_blocks": 143
         }
       },
       "parameter_audit": {
@@ -58361,11 +57977,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 143,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 143,
-          "pta_boolean_blocks": 57,
-          "pta_xml": "passed"
+          "physical_blocks": 143
         }
       },
       "parameter_audit": {
@@ -58574,11 +58189,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 143,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 143,
-          "pta_boolean_blocks": 58,
-          "pta_xml": "passed"
+          "physical_blocks": 143
         }
       },
       "parameter_audit": {
@@ -58787,11 +58401,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 143,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 143,
-          "pta_boolean_blocks": 58,
-          "pta_xml": "passed"
+          "physical_blocks": 143
         }
       },
       "parameter_audit": {
@@ -59000,11 +58613,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 143,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 143,
-          "pta_boolean_blocks": 58,
-          "pta_xml": "passed"
+          "physical_blocks": 143
         }
       },
       "parameter_audit": {
@@ -59213,11 +58825,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 143,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 143,
-          "pta_boolean_blocks": 58,
-          "pta_xml": "passed"
+          "physical_blocks": 143
         }
       },
       "parameter_audit": {
@@ -59426,11 +59037,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 143,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 143,
-          "pta_boolean_blocks": 58,
-          "pta_xml": "passed"
+          "physical_blocks": 143
         }
       },
       "parameter_audit": {
@@ -59639,11 +59249,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 143,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 143,
-          "pta_boolean_blocks": 58,
-          "pta_xml": "passed"
+          "physical_blocks": 143
         }
       },
       "parameter_audit": {
@@ -59852,11 +59461,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 143,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 143,
-          "pta_boolean_blocks": 58,
-          "pta_xml": "passed"
+          "physical_blocks": 143
         }
       },
       "parameter_audit": {
@@ -60065,11 +59673,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 143,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 143,
-          "pta_boolean_blocks": 58,
-          "pta_xml": "passed"
+          "physical_blocks": 143
         }
       },
       "parameter_audit": {
@@ -60278,11 +59885,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 143,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 143,
-          "pta_boolean_blocks": 58,
-          "pta_xml": "passed"
+          "physical_blocks": 143
         }
       },
       "parameter_audit": {
@@ -60491,11 +60097,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 143,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 143,
-          "pta_boolean_blocks": 57,
-          "pta_xml": "passed"
+          "physical_blocks": 143
         }
       },
       "parameter_audit": {
@@ -60704,11 +60309,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 143,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 143,
-          "pta_boolean_blocks": 57,
-          "pta_xml": "passed"
+          "physical_blocks": 143
         }
       },
       "parameter_audit": {
@@ -60917,11 +60521,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 143,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 143,
-          "pta_boolean_blocks": 57,
-          "pta_xml": "passed"
+          "physical_blocks": 143
         }
       },
       "parameter_audit": {
@@ -61130,11 +60733,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 143,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 143,
-          "pta_boolean_blocks": 57,
-          "pta_xml": "passed"
+          "physical_blocks": 143
         }
       },
       "parameter_audit": {
@@ -61343,11 +60945,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 143,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 143,
-          "pta_boolean_blocks": 58,
-          "pta_xml": "passed"
+          "physical_blocks": 143
         }
       },
       "parameter_audit": {
@@ -61556,11 +61157,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 119,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 119,
-          "pta_boolean_blocks": 58,
-          "pta_xml": "passed"
+          "physical_blocks": 119
         }
       },
       "parameter_audit": {
@@ -61769,11 +61369,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 141,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 141,
-          "pta_boolean_blocks": 47,
-          "pta_xml": "passed"
+          "physical_blocks": 141
         }
       },
       "parameter_audit": {
@@ -61982,11 +61581,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 141,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 141,
-          "pta_boolean_blocks": 47,
-          "pta_xml": "passed"
+          "physical_blocks": 141
         }
       },
       "parameter_audit": {
@@ -62195,11 +61793,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 141,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 141,
-          "pta_boolean_blocks": 47,
-          "pta_xml": "passed"
+          "physical_blocks": 141
         }
       },
       "parameter_audit": {
@@ -62408,11 +62005,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 147,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 147,
-          "pta_boolean_blocks": 47,
-          "pta_xml": "passed"
+          "physical_blocks": 147
         }
       },
       "parameter_audit": {
@@ -62621,11 +62217,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 141,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 141,
-          "pta_boolean_blocks": 47,
-          "pta_xml": "passed"
+          "physical_blocks": 141
         }
       },
       "parameter_audit": {
@@ -62834,11 +62429,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 141,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 141,
-          "pta_boolean_blocks": 47,
-          "pta_xml": "passed"
+          "physical_blocks": 141
         }
       },
       "parameter_audit": {
@@ -63047,11 +62641,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 147,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 147,
-          "pta_boolean_blocks": 47,
-          "pta_xml": "passed"
+          "physical_blocks": 147
         }
       },
       "parameter_audit": {
@@ -63260,11 +62853,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 141,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 141,
-          "pta_boolean_blocks": 47,
-          "pta_xml": "passed"
+          "physical_blocks": 141
         }
       },
       "parameter_audit": {
@@ -63473,11 +63065,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 141,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 141,
-          "pta_boolean_blocks": 47,
-          "pta_xml": "passed"
+          "physical_blocks": 141
         }
       },
       "parameter_audit": {
@@ -63686,11 +63277,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 147,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 147,
-          "pta_boolean_blocks": 47,
-          "pta_xml": "passed"
+          "physical_blocks": 147
         }
       },
       "parameter_audit": {
@@ -63899,11 +63489,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 141,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 141,
-          "pta_boolean_blocks": 47,
-          "pta_xml": "passed"
+          "physical_blocks": 141
         }
       },
       "parameter_audit": {
@@ -64112,11 +63701,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 141,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 141,
-          "pta_boolean_blocks": 47,
-          "pta_xml": "passed"
+          "physical_blocks": 141
         }
       },
       "parameter_audit": {
@@ -64325,11 +63913,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 147,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 147,
-          "pta_boolean_blocks": 47,
-          "pta_xml": "passed"
+          "physical_blocks": 147
         }
       },
       "parameter_audit": {
@@ -64538,11 +64125,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 141,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 141,
-          "pta_boolean_blocks": 47,
-          "pta_xml": "passed"
+          "physical_blocks": 141
         }
       },
       "parameter_audit": {
@@ -64751,11 +64337,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 141,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 141,
-          "pta_boolean_blocks": 47,
-          "pta_xml": "passed"
+          "physical_blocks": 141
         }
       },
       "parameter_audit": {
@@ -64964,11 +64549,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 147,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 147,
-          "pta_boolean_blocks": 47,
-          "pta_xml": "passed"
+          "physical_blocks": 147
         }
       },
       "parameter_audit": {
@@ -65177,11 +64761,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 141,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 141,
-          "pta_boolean_blocks": 47,
-          "pta_xml": "passed"
+          "physical_blocks": 141
         }
       },
       "parameter_audit": {
@@ -65390,11 +64973,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 141,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 141,
-          "pta_boolean_blocks": 47,
-          "pta_xml": "passed"
+          "physical_blocks": 141
         }
       },
       "parameter_audit": {
@@ -65603,11 +65185,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 141,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 141,
-          "pta_boolean_blocks": 47,
-          "pta_xml": "passed"
+          "physical_blocks": 141
         }
       },
       "parameter_audit": {
@@ -65816,11 +65397,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 141,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 141,
-          "pta_boolean_blocks": 47,
-          "pta_xml": "passed"
+          "physical_blocks": 141
         }
       },
       "parameter_audit": {
@@ -66029,11 +65609,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 141,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 141,
-          "pta_boolean_blocks": 47,
-          "pta_xml": "passed"
+          "physical_blocks": 141
         }
       },
       "parameter_audit": {
@@ -66242,11 +65821,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 141,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 141,
-          "pta_boolean_blocks": 47,
-          "pta_xml": "passed"
+          "physical_blocks": 141
         }
       },
       "parameter_audit": {
@@ -66455,11 +66033,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 141,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 141,
-          "pta_boolean_blocks": 47,
-          "pta_xml": "passed"
+          "physical_blocks": 141
         }
       },
       "parameter_audit": {
@@ -66668,11 +66245,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 141,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 141,
-          "pta_boolean_blocks": 47,
-          "pta_xml": "passed"
+          "physical_blocks": 141
         }
       },
       "parameter_audit": {
@@ -66881,11 +66457,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 141,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 141,
-          "pta_boolean_blocks": 47,
-          "pta_xml": "passed"
+          "physical_blocks": 141
         }
       },
       "parameter_audit": {
@@ -67094,11 +66669,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 141,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 141,
-          "pta_boolean_blocks": 47,
-          "pta_xml": "passed"
+          "physical_blocks": 141
         }
       },
       "parameter_audit": {
@@ -67307,11 +66881,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 141,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 141,
-          "pta_boolean_blocks": 47,
-          "pta_xml": "passed"
+          "physical_blocks": 141
         }
       },
       "parameter_audit": {
@@ -67520,11 +67093,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 141,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 141,
-          "pta_boolean_blocks": 47,
-          "pta_xml": "passed"
+          "physical_blocks": 141
         }
       },
       "parameter_audit": {
@@ -67733,11 +67305,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 141,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 141,
-          "pta_boolean_blocks": 47,
-          "pta_xml": "passed"
+          "physical_blocks": 141
         }
       },
       "parameter_audit": {
@@ -67946,11 +67517,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 141,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 141,
-          "pta_boolean_blocks": 47,
-          "pta_xml": "passed"
+          "physical_blocks": 141
         }
       },
       "parameter_audit": {
@@ -68159,11 +67729,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 141,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 141,
-          "pta_boolean_blocks": 47,
-          "pta_xml": "passed"
+          "physical_blocks": 141
         }
       },
       "parameter_audit": {
@@ -68372,11 +67941,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 141,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 141,
-          "pta_boolean_blocks": 47,
-          "pta_xml": "passed"
+          "physical_blocks": 141
         }
       },
       "parameter_audit": {
@@ -68585,11 +68153,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 141,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 141,
-          "pta_boolean_blocks": 47,
-          "pta_xml": "passed"
+          "physical_blocks": 141
         }
       },
       "parameter_audit": {
@@ -68798,11 +68365,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 141,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 141,
-          "pta_boolean_blocks": 47,
-          "pta_xml": "passed"
+          "physical_blocks": 141
         }
       },
       "parameter_audit": {
@@ -69011,11 +68577,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 141,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 141,
-          "pta_boolean_blocks": 47,
-          "pta_xml": "passed"
+          "physical_blocks": 141
         }
       },
       "parameter_audit": {
@@ -69224,11 +68789,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 141,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 141,
-          "pta_boolean_blocks": 47,
-          "pta_xml": "passed"
+          "physical_blocks": 141
         }
       },
       "parameter_audit": {
@@ -69437,11 +69001,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 141,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 141,
-          "pta_boolean_blocks": 47,
-          "pta_xml": "passed"
+          "physical_blocks": 141
         }
       },
       "parameter_audit": {
@@ -69650,11 +69213,10 @@
     {
       "cases": {
         "native": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 141,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
-          "physical_blocks": 141,
-          "pta_boolean_blocks": 47,
-          "pta_xml": "passed"
+          "physical_blocks": 141
         }
       },
       "parameter_audit": {
@@ -69863,19 +69425,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 788,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 788,
-          "pta_boolean_blocks": 667,
-          "pta_xml": "passed",
           "solder_ball_count": 121
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 184,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 184,
-          "pta_boolean_blocks": 63,
-          "pta_xml": "passed",
           "solder_ball_count": 121
         }
       },
@@ -70128,19 +69688,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 1028,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 1028,
-          "pta_boolean_blocks": 907,
-          "pta_xml": "passed",
           "solder_ball_count": 169
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 184,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 184,
-          "pta_boolean_blocks": 63,
-          "pta_xml": "passed",
           "solder_ball_count": 169
         }
       },
@@ -70393,19 +69951,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 1156,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 1156,
-          "pta_boolean_blocks": 1027,
-          "pta_xml": "passed",
           "solder_ball_count": 192
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 200,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 200,
-          "pta_boolean_blocks": 71,
-          "pta_xml": "passed",
           "solder_ball_count": 192
         }
       },
@@ -70653,19 +70209,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 1163,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 1163,
-          "pta_boolean_blocks": 1042,
-          "pta_xml": "passed",
           "solder_ball_count": 196
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 184,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 184,
-          "pta_boolean_blocks": 63,
-          "pta_xml": "passed",
           "solder_ball_count": 196
         }
       },
@@ -70918,19 +70472,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 1239,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 1239,
-          "pta_boolean_blocks": 1110,
-          "pta_xml": "passed",
           "solder_ball_count": 208
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 204,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 204,
-          "pta_boolean_blocks": 75,
-          "pta_xml": "passed",
           "solder_ball_count": 208
         }
       },
@@ -71178,19 +70730,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 1236,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 1236,
-          "pta_boolean_blocks": 1107,
-          "pta_xml": "passed",
           "solder_ball_count": 208
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 200,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 200,
-          "pta_boolean_blocks": 71,
-          "pta_xml": "passed",
           "solder_ball_count": 208
         }
       },
@@ -71438,19 +70988,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 1284,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 1284,
-          "pta_boolean_blocks": 1155,
-          "pta_xml": "passed",
           "solder_ball_count": 217
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 204,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 204,
-          "pta_boolean_blocks": 75,
-          "pta_xml": "passed",
           "solder_ball_count": 217
         }
       },
@@ -71698,19 +71246,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 1308,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 1308,
-          "pta_boolean_blocks": 1187,
-          "pta_xml": "passed",
           "solder_ball_count": 225
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 184,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 184,
-          "pta_boolean_blocks": 63,
-          "pta_xml": "passed",
           "solder_ball_count": 225
         }
       },
@@ -71963,19 +71509,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 1463,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 1463,
-          "pta_boolean_blocks": 1342,
-          "pta_xml": "passed",
           "solder_ball_count": 256
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 184,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 184,
-          "pta_boolean_blocks": 63,
-          "pta_xml": "passed",
           "solder_ball_count": 256
         }
       },
@@ -72228,19 +71772,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 1463,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 1463,
-          "pta_boolean_blocks": 1342,
-          "pta_xml": "passed",
           "solder_ball_count": 256
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 184,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 184,
-          "pta_boolean_blocks": 63,
-          "pta_xml": "passed",
           "solder_ball_count": 256
         }
       },
@@ -72493,19 +72035,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 1476,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 1476,
-          "pta_boolean_blocks": 1347,
-          "pta_xml": "passed",
           "solder_ball_count": 256
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 200,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 200,
-          "pta_boolean_blocks": 71,
-          "pta_xml": "passed",
           "solder_ball_count": 256
         }
       },
@@ -72753,19 +72293,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 1559,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 1559,
-          "pta_boolean_blocks": 1430,
-          "pta_xml": "passed",
           "solder_ball_count": 272
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 204,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 204,
-          "pta_boolean_blocks": 75,
-          "pta_xml": "passed",
           "solder_ball_count": 272
         }
       },
@@ -73013,19 +72551,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 1636,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 1636,
-          "pta_boolean_blocks": 1507,
-          "pta_xml": "passed",
           "solder_ball_count": 288
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 200,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 200,
-          "pta_boolean_blocks": 71,
-          "pta_xml": "passed",
           "solder_ball_count": 288
         }
       },
@@ -73273,19 +72809,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 1696,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 1696,
-          "pta_boolean_blocks": 1567,
-          "pta_xml": "passed",
           "solder_ball_count": 300
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 200,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 200,
-          "pta_boolean_blocks": 71,
-          "pta_xml": "passed",
           "solder_ball_count": 300
         }
       },
@@ -73533,19 +73067,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 1716,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 1716,
-          "pta_boolean_blocks": 1587,
-          "pta_xml": "passed",
           "solder_ball_count": 304
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 200,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 200,
-          "pta_boolean_blocks": 71,
-          "pta_xml": "passed",
           "solder_ball_count": 304
         }
       },
@@ -73793,19 +73325,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 1779,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 1779,
-          "pta_boolean_blocks": 1650,
-          "pta_xml": "passed",
           "solder_ball_count": 316
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 204,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 204,
-          "pta_boolean_blocks": 75,
-          "pta_xml": "passed",
           "solder_ball_count": 316
         }
       },
@@ -74053,19 +73583,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 1819,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 1819,
-          "pta_boolean_blocks": 1690,
-          "pta_xml": "passed",
           "solder_ball_count": 324
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 204,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 204,
-          "pta_boolean_blocks": 75,
-          "pta_xml": "passed",
           "solder_ball_count": 324
         }
       },
@@ -74313,19 +73841,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 1844,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 1844,
-          "pta_boolean_blocks": 1715,
-          "pta_xml": "passed",
           "solder_ball_count": 329
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 204,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 204,
-          "pta_boolean_blocks": 75,
-          "pta_xml": "passed",
           "solder_ball_count": 329
         }
       },
@@ -74573,19 +74099,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 1956,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 1956,
-          "pta_boolean_blocks": 1827,
-          "pta_xml": "passed",
           "solder_ball_count": 352
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 200,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 200,
-          "pta_boolean_blocks": 71,
-          "pta_xml": "passed",
           "solder_ball_count": 352
         }
       },
@@ -74833,19 +74357,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 2124,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 2124,
-          "pta_boolean_blocks": 1995,
-          "pta_xml": "passed",
           "solder_ball_count": 385
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 204,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 204,
-          "pta_boolean_blocks": 75,
-          "pta_xml": "passed",
           "solder_ball_count": 385
         }
       },
@@ -75093,19 +74615,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 2139,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 2139,
-          "pta_boolean_blocks": 2010,
-          "pta_xml": "passed",
           "solder_ball_count": 388
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 204,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 204,
-          "pta_boolean_blocks": 75,
-          "pta_xml": "passed",
           "solder_ball_count": 388
         }
       },
@@ -75353,19 +74873,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 2279,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 2279,
-          "pta_boolean_blocks": 2150,
-          "pta_xml": "passed",
           "solder_ball_count": 416
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 204,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 204,
-          "pta_boolean_blocks": 75,
-          "pta_xml": "passed",
           "solder_ball_count": 416
         }
       },
@@ -75613,19 +75131,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 2296,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 2296,
-          "pta_boolean_blocks": 2167,
-          "pta_xml": "passed",
           "solder_ball_count": 420
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 200,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 200,
-          "pta_boolean_blocks": 71,
-          "pta_xml": "passed",
           "solder_ball_count": 420
         }
       },
@@ -75873,19 +75389,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 2364,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 2364,
-          "pta_boolean_blocks": 2235,
-          "pta_xml": "passed",
           "solder_ball_count": 433
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 204,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 204,
-          "pta_boolean_blocks": 75,
-          "pta_xml": "passed",
           "solder_ball_count": 433
         }
       },
@@ -76133,19 +75647,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 2459,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 2459,
-          "pta_boolean_blocks": 2350,
-          "pta_xml": "passed",
           "solder_ball_count": 456
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 184,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 184,
-          "pta_boolean_blocks": 75,
-          "pta_xml": "passed",
           "solder_ball_count": 456
         }
       },
@@ -76393,19 +75905,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 2479,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 2479,
-          "pta_boolean_blocks": 2350,
-          "pta_xml": "passed",
           "solder_ball_count": 456
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 204,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 204,
-          "pta_boolean_blocks": 75,
-          "pta_xml": "passed",
           "solder_ball_count": 456
         }
       },
@@ -76653,19 +76163,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 2779,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 2779,
-          "pta_boolean_blocks": 2650,
-          "pta_xml": "passed",
           "solder_ball_count": 516
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 204,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 204,
-          "pta_boolean_blocks": 75,
-          "pta_xml": "passed",
           "solder_ball_count": 516
         }
       },
@@ -76913,19 +76421,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 2819,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 2819,
-          "pta_boolean_blocks": 2690,
-          "pta_xml": "passed",
           "solder_ball_count": 524
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 204,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 204,
-          "pta_boolean_blocks": 75,
-          "pta_xml": "passed",
           "solder_ball_count": 524
         }
       },
@@ -77173,19 +76679,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 3019,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 3019,
-          "pta_boolean_blocks": 2890,
-          "pta_xml": "passed",
           "solder_ball_count": 564
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 204,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 204,
-          "pta_boolean_blocks": 75,
-          "pta_xml": "passed",
           "solder_ball_count": 564
         }
       },
@@ -77433,19 +76937,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 3079,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 3079,
-          "pta_boolean_blocks": 2950,
-          "pta_xml": "passed",
           "solder_ball_count": 576
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 204,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 204,
-          "pta_boolean_blocks": 75,
-          "pta_xml": "passed",
           "solder_ball_count": 576
         }
       },
@@ -77693,19 +77195,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 3099,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 3099,
-          "pta_boolean_blocks": 2970,
-          "pta_xml": "passed",
           "solder_ball_count": 580
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 204,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 204,
-          "pta_boolean_blocks": 75,
-          "pta_xml": "passed",
           "solder_ball_count": 580
         }
       },
@@ -77953,19 +77453,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 3556,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 3556,
-          "pta_boolean_blocks": 3427,
-          "pta_xml": "passed",
           "solder_ball_count": 672
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 200,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 200,
-          "pta_boolean_blocks": 71,
-          "pta_xml": "passed",
           "solder_ball_count": 672
         }
       },
@@ -78213,19 +77711,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 3563,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 3563,
-          "pta_boolean_blocks": 3442,
-          "pta_xml": "passed",
           "solder_ball_count": 676
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 184,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 184,
-          "pta_boolean_blocks": 63,
-          "pta_xml": "passed",
           "solder_ball_count": 676
         }
       },
@@ -78478,19 +77974,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 3599,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 3599,
-          "pta_boolean_blocks": 3470,
-          "pta_xml": "passed",
           "solder_ball_count": 680
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 204,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 204,
-          "pta_boolean_blocks": 75,
-          "pta_xml": "passed",
           "solder_ball_count": 680
         }
       },
@@ -78738,19 +78232,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 4421,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 4421,
-          "pta_boolean_blocks": 4292,
-          "pta_xml": "passed",
           "solder_ball_count": 845
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 200,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 200,
-          "pta_boolean_blocks": 71,
-          "pta_xml": "passed",
           "solder_ball_count": 845
         }
       },
@@ -78998,19 +78490,17 @@
     {
       "cases": {
         "discrete": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 4676,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 4676,
-          "pta_boolean_blocks": 4547,
-          "pta_xml": "passed",
           "solder_ball_count": 896
         },
         "equivalent": {
-          "ecxml_xsd": "passed",
+          "floxml_cuboids": 200,
+          "floxml_xsd": "passed",
           "geometry_references": "passed",
           "physical_blocks": 200,
-          "pta_boolean_blocks": 71,
-          "pta_xml": "passed",
           "solder_ball_count": 896
         }
       },
@@ -79256,7 +78746,7 @@
       "template_id": "pbga_wb"
     }
   ],
-  "schema_version": "packstudio.catalog-adaptation-audit/v1",
-  "scope": "Generation, material/group references, nonoverlap, positive sizes, BGA count parity, ECXML XSD and PTA XML; no native PACK comparison for new presets.",
+  "schema_version": "packstudio.catalog-adaptation-audit/v2",
+  "scope": "Generation, material/group references, nonoverlap, positive sizes, BGA count parity and FloXML XSD; no native PACK comparison for new presets.",
   "source_count": 342
 }

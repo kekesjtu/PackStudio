@@ -25,7 +25,7 @@ test('frontend watcher skips backend and generated trees while retaining live fr
     '.venv/Lib/site-packages', 'release/backend', 'build/backend',
     'tmp/test-output', 'temp/cache', '.pytest_cache', '.ruff_cache',
     'flotherm_pack_data/templates', 'default_parameters/templates',
-    'docs/tasks', 'figures/references', 'output_format/cases',
+    'docs/decisions', 'figures/references', 'output_format/floxml',
     'src/packstudio/api', 'tools/__pycache__',
   ]
   const liveFiles = [

@@ -1,116 +1,42 @@
-# PackStudio 技术栈
+# 技术栈与架构
 
-## 1. 选型结论
+## 数据流
 
-PackStudio 采用“浏览器界面 + 本地 Python 服务”的前后端分离架构：
+React 参数向导通过本地 HTTP API 提交参数；FastAPI 校验输入并调用封装生成器，
+返回统一的物理块模型。前端用同一模型显示三维预览与模型树，FloXML 导出器输出文件。
 
-```text
-React 参数向导 / 三维预览
-              ↓ REST / JSON
-FastAPI 参数校验与模型生成
-              ↓
-统一领域模型（矩形块、材料、热源、边界条件）
-              ↓
-PTA XML 等下游文件格式
-```
+依赖方向为 `api → templates → domain ← exporters`。
+接口层处理协议，模板模块负责几何和等效物性，领域层校验模型，导出器负责格式映射。
 
-该架构把交互展示与热模型规则分开。领域模型和导出器不依赖 UI，后续可以被命令行、
-批处理或其他客户端复用。
+## 组件
 
-## 2. 前端技术栈
-
-| 技术 | 基线 | 作用 |
+| 层次 | 技术 | 职责 |
 | --- | --- | --- |
-| React | 19 | 组织模板选择、分步参数表单、材料配置和导出检查等交互界面 |
-| TypeScript | 5.9+ | 为组件属性、API 数据和表单状态提供静态类型检查 |
-| Vite | 8 | 开发服务器、热更新、TypeScript 构建和生产资源打包 |
-| Material UI | 7 | 提供表单、列表、步骤导航、弹窗和主题能力，快速建立一致的工程 UI |
-| Three.js + React Three Fiber | Three.js r180+ / R3F 9 | 将笛卡尔矩形块渲染为可旋转、选取和高亮的三维预览 |
-| Vitest + Testing Library | Vitest 4 | 验证组件行为、向导状态和用户可见结果 |
-| ESLint | 9 | 检查 TypeScript/React 的常见错误和 Hooks 使用规则 |
+| 界面 | React、TypeScript、Material UI | 参数向导、材料编辑和模型检查 |
+| 三维 | Three.js、React Three Fiber、Drei | 矩形块预览、选择与显隐 |
+| 前端构建 | Vite、npm | 开发服务、资源构建与依赖锁定 |
+| 服务 | Python 3.13、FastAPI、Uvicorn | 本地 API 与静态资源托管 |
+| 领域 | Pydantic、NumPy | 参数校验、几何和材料计算 |
+| 输出 | lxml | FloXML 序列化与开发期 XSD 校验 |
+| Windows 窗口 | WPF、.NET 10、WebView2 | 托管页面、文件保存和后端生命周期 |
+| 后端分发 | PyInstaller | 携带 Python、服务代码和运行参数库 |
+| 质量 | pytest、Ruff、Vitest、Testing Library、ESLint | 回归测试、静态检查和格式检查 |
 
-选择说明：
+准确依赖版本以 `uv.lock`、`package-lock.json` 和 .NET 锁文件为准。
+Python 解释器由 `.python-version` 固定，使用 uv 管理仓库 `.venv`。
 
-- React 适合将每一种封装及其步骤拆成可组合组件，TypeScript 能约束复杂参数对象。
-- Vite 8 提供轻量开发服务器和生产构建；其官方要求为 Node.js 20.19+ 或 22.12+，
-  项目统一要求 Node.js 22.12+。
-- R3F 9 与 React 19 对应，既保留 Three.js 能力，又能让三维对象跟随 React 状态更新。
-- Material UI 覆盖 Flotherm PACK 参考界面中大量使用的导航、输入框、选择器和树形信息。
+## 数据与部署
 
-## 3. 后端技术栈
+`default_parameters/` 是生产运行数据来源，与安装目录和研究资料解耦。
+前后端交换 JSON；生成后的物理块包含几何、材料、热源和组件层级。
+当前预览和导出使用轴对齐矩形块，内部长度单位为 mm，FloXML 长度单位为 m。
 
-| 技术 | 基线 | 作用 |
-| --- | --- | --- |
-| Python | 3.13 | 实现参数校验、几何生成、材料计算、输出适配和自动化测试 |
-| FastAPI | 0.115+ | 提供本地 REST API，并自动生成 OpenAPI 接口文档 |
-| Pydantic | 2.10+ | 定义参数、矩形块、材料、热源和边界条件的领域数据模型及约束 |
-| NumPy | 2.1+ | 处理阵列坐标、批量矩形块生成和等效材料属性计算 |
-| lxml | 5.3+ | 生成 PTA XML，并按随仓库保存的 XSD 校验 ECXML |
-| Uvicorn | 0.32+ | 运行本地 ASGI 服务 |
-| pytest + pytest-cov | pytest 8.3+ | 执行领域规则、API、导出快照和回归测试 |
-| Ruff | 0.8+ | 统一 Python 代码检查、导入排序和格式校验 |
+浏览器模式由启动脚本管理前后端；独立窗口加载自身启动的本地后端和前端产物，
+关闭窗口时清理其服务进程。运行包不需要 Node、uv 或独立 Python。
 
-后端内部按依赖方向划分：
+## 决策与维护入口
 
-```text
-api → templates → domain ← exporters
-```
-
-- `domain` 只包含统一数据模型和不依赖框架的规则。
-- `templates` 将封装参数转换为领域模型。
-- `exporters` 只消费领域模型，不反向依赖具体模板。
-- `api` 负责协议适配，不承载几何或热学业务规则。
-
-## 4. 数据与接口策略
-
-- 前后端交换 JSON，接口契约由 FastAPI/OpenAPI 描述。
-- 后端内部以 Pydantic 模型作为唯一可信数据结构，避免 UI 对象直接进入导出器。
-- 几何统一表达为与坐标轴平行的矩形块，并显式携带单位、材料、源项和结构类型。
-- PTA XML 示例属于外部接口契约；导出实现需要使用黄金文件和结构化对比测试。
-- MVP 不引入数据库。内置模板先使用受版本控制的声明式文件；确有用户模板检索、迁移需求时，
-  再评估 SQLite。
-
-## 5. 开发和发布工具
-
-| 工具 | 作用 |
-| --- | --- |
-| uv + 仓库 `.venv` 环境 | 固定 Python 3.13 和 Python 依赖入口 |
-| npm | 管理前端依赖并生成锁文件 |
-| `pyproject.toml` | 集中声明 Python 包、依赖、pytest 和 Ruff 配置 |
-| `uv.lock` / `.python-version` | 锁定依赖和 uv 管理的 Python 版本 |
-| `.editorconfig` | 统一编码、换行和缩进 |
-| Git 功能分支 | 隔离功能开发；长任务仅暂存，不由 Agent 自动提交 |
-
-Python 环境于 2026-09-30 切换为 uv 0.12.19 管理的 CPython 3.13.15；
-开发与打包组全部记录在 `uv.lock`。前端继续由 npm 管理。
-
-## 6. 当前明确不采用的技术
-
-- 不采用 CAD/B-Rep 内核：当前需求只需要轴对齐矩形块，复杂 CAD 内核会增加不必要的模型语义。
-- 不在本项目引入网格器或求解器：它们属于需求明确排除的下游模块。
-- Windows 桌面采用 WPF / WebView2 + PyInstaller（TASK23），旧 Electron 实现已移除。
-  WebView2 复用 React 静态资源和独立 Python 后端，为 PTA 集成准备宿主代码；
-  开发与后端打包入口统一使用 uv。
-- MVP 不部署云端服务，也不引入账号、权限和多租户系统。
-
-## 7. 官方资料
-
-- [React 中使用 TypeScript](https://react.dev/learn/typescript)
-- [Vite 入门与 Node.js 要求](https://vite.dev/guide/)
-- [Material UI 概览](https://mui.com/material-ui/getting-started/)
-- [React Three Fiber 介绍与版本对应关系](https://r3f.docs.pmnd.rs/)
-- [FastAPI 功能与 OpenAPI/Pydantic 支持](https://fastapi.tiangolo.com/features/)
-- [Pydantic Models](https://docs.pydantic.dev/latest/concepts/models/)
-- [NumPy 文档](https://numpy.org/doc/stable/)
-- [uv 锁定与同步](https://docs.astral.sh/uv/concepts/projects/sync/)
-- [pytest 入门](https://docs.pytest.org/en/stable/getting-started.html)
-- [Ruff 文档](https://docs.astral.sh/ruff/)
-- [Vitest 入门](https://vitest.dev/guide/)
-
-## 8. JSON 默认参数库（TASK16）
-
-默认字段/预设/选材/物性由根目录 default_parameters/ 读取，采用带版本的 JSON，
-源字符串与类型化值同时保存。开发模式定位源码库，wheel 使用 setuptools data-files，
-冻结 EXE 通过 PyInstaller --add-data 分发；npm 打包入口调用 tools/build_backend.py，
-使用绝对路径避免 specpath 改变资源相对位置。
-生产请求不再包含 environment，模型不自动生成冷却边界；通用领域边界类型仅保留格式兼容。
+- [架构决策](decisions/0001-采用-Web-前后端分离架构.md)
+- [运行数据决策](decisions/0016-JSON运行参数与参考数据解耦.md)
+- [桌面宿主决策](decisions/0024-WebView2独立宿主验证.md)
+- [开发与打包](development.md)

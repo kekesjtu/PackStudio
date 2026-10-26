@@ -7,7 +7,7 @@ import packstudio
 from packstudio.domain.enums import StructureType
 from packstudio.domain.geometry import find_overlapping_pairs
 from packstudio.domain.materials import ConductivityTensor
-from packstudio.exporters.pta_xml import export_pta_xml
+from packstudio.exporters.floxml import export_floxml
 from packstudio.templates.package_library.catalog import (
     catalog,
     default_request,
@@ -141,8 +141,8 @@ def test_generation_and_export_do_not_read_reference_files(
 
     for template_id in definitions():
         model = generate(default_request(template_id))
-        payload = export_pta_xml(model)
-        assert etree.fromstring(payload).tag.endswith("Structure")
+        payload = export_floxml(model)
+        assert etree.fromstring(payload).tag == "xml_case"
 
 
 def test_production_sources_do_not_contain_reference_repository_access() -> None:

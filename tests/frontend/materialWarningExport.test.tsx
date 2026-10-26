@@ -29,22 +29,17 @@ describe('workspace compact material labels and exports', () => {
     expect(api.downloadTemplateModel).not.toHaveBeenCalled()
   })
 
-  it.each([
-    ['pta', 'PTA XML'], ['ecxml', 'ECXML'], ['floxml', 'FloXML（FloTHERM）'],
-  ] as const)('exports the current request to %s without a central warning', async (format, label) => {
+  it('exports the current request to FloXML without a central warning', async () => {
     vi.mocked(api.loadTemplateSchema).mockResolvedValue({ ...schema, steps: [] })
     render(<PackageWorkspace templateId="sample" />)
     await screen.findByText('1 个块')
     expect(screen.queryByRole('alert')).not.toBeInTheDocument()
     fireEvent.change(screen.getByLabelText('设计名称'), { target: { value: '当前修改' } })
-    if (format !== 'pta') {
-      fireEvent.mouseDown(screen.getByLabelText('导出格式'))
-      fireEvent.click(screen.getByRole('option', { name: label }))
-    }
+    expect(screen.queryByLabelText('导出格式')).not.toBeInTheDocument()
     fireEvent.click(screen.getByRole('button', { name: /^导出 / }))
     await waitFor(() => expect(api.downloadTemplateModel).toHaveBeenCalledOnce())
     expect(api.generateTemplateModel).toHaveBeenCalledOnce()
-    expect(api.downloadTemplateModel).toHaveBeenCalledWith({ ...request, design_name: '当前修改' }, format)
+    expect(api.downloadTemplateModel).toHaveBeenCalledWith({ ...request, design_name: '当前修改' })
     expect(screen.queryByText('材料热容数据警告')).not.toBeInTheDocument()
   })
 
@@ -68,7 +63,7 @@ describe('workspace compact material labels and exports', () => {
     render(<PackageWorkspace templateId="sample" />)
     await screen.findByText('1 个块')
     vi.mocked(api.downloadTemplateModel).mockRejectedValueOnce(new Error('模型无效'))
-    fireEvent.click(screen.getByRole('button', { name: '导出 PTA XML' }))
+    fireEvent.click(screen.getByRole('button', { name: '导出 FloXML' }))
     expect(await screen.findByText('模型无效')).toBeInTheDocument()
     expect(api.downloadTemplateModel).toHaveBeenCalledOnce()
   })

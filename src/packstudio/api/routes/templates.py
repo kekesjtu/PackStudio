@@ -1,9 +1,7 @@
 from fastapi import APIRouter, HTTPException, Response
 
 from packstudio.domain.model import PackageModel
-from packstudio.exporters.ecxml import export_ecxml
 from packstudio.exporters.floxml import export_floxml
-from packstudio.exporters.pta_xml import export_pta_xml
 from packstudio.templates.package_library.catalog import (
     catalog,
     default_request,
@@ -62,42 +60,6 @@ def generate_library_model(
         return generate(request)
     except ValueError as error:
         raise HTTPException(status_code=422, detail=str(error)) from error
-
-
-@router.post("/{template_id}/export/pta")
-def export_library_model_to_pta(
-    template_id: str,
-    request: TemplateRequest,
-) -> Response:
-    if request.template_id != template_id:
-        raise HTTPException(status_code=422, detail="request template_id does not match route")
-    try:
-        payload = export_pta_xml(generate(request))
-    except ValueError as error:
-        raise HTTPException(status_code=422, detail=str(error)) from error
-    return Response(
-        content=payload,
-        media_type="application/xml",
-        headers={"Content-Disposition": f'attachment; filename="{template_id}.xml"'},
-    )
-
-
-@router.post("/{template_id}/export/ecxml")
-def export_library_model_to_ecxml(template_id: str, request: TemplateRequest) -> Response:
-    if request.template_id != template_id:
-        raise HTTPException(status_code=422, detail="request template_id does not match route")
-    try:
-        payload = export_ecxml(generate(request))
-    except ValueError as error:
-        raise HTTPException(status_code=422, detail=str(error)) from error
-    return Response(
-        content=payload,
-        media_type="application/xml",
-        headers={
-            "Content-Disposition": (f'attachment; filename="{template_id}.ecxml"'),
-            "X-PackStudio-Export-Warnings": "face-boundaries-and-mesh-controls-not-applied",
-        },
-    )
 
 
 @router.post("/{template_id}/export/floxml")

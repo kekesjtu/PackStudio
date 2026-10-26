@@ -1,4 +1,4 @@
-"""Reproduce the 342-source adaptation audit and both interchange checks."""
+"""Reproduce the 342-source adaptation audit with FloXML exports."""
 
 import hashlib
 import json
@@ -8,9 +8,7 @@ from lxml import etree
 
 from packstudio.default_parameters import library_directory
 from packstudio.domain.enums import StructureType
-from packstudio.exporters.ecxml import export_ecxml
-from packstudio.exporters.pta_constants import MODEL_NAMESPACE
-from packstudio.exporters.pta_xml import export_pta_xml
+from packstudio.exporters.floxml import export_floxml
 from packstudio.templates.package_library.catalog import default_request, definitions, generate
 from packstudio.templates.package_library.core.default_library import template_defaults
 from packstudio.templates.package_library.core.native_presets import expand_native_presets
@@ -20,28 +18,25 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 def validate_exports(model, schema: etree.XMLSchema) -> dict:
-    ecxml = etree.fromstring(export_ecxml(model))
-    schema.assertValid(ecxml)
-    assert len(ecxml.findall(".//solid3dBlock")) == len(model.blocks)
-    pta = etree.fromstring(export_pta_xml(model))
-    namespace = {"m": MODEL_NAMESPACE}
-    blocks = pta.xpath("./m:Layers/m:Layer/m:Blocks/m:Block", namespaces=namespace)
-    assert blocks
-    assert set(pta.xpath(".//m:Block/m:MaterialName/text()", namespaces=namespace)) <= {
+    root = etree.fromstring(export_floxml(model))
+    schema.assertValid(root)
+    blocks = root.findall(".//cuboid")
+    assert len(blocks) == len(model.blocks)
+    assert {block.findtext("name") for block in blocks} == {block.id for block in model.blocks}
+    assert {block.findtext("material") for block in blocks} <= {
         material.id for material in model.materials
     }
     assert not model.boundaries
     return {
         "physical_blocks": len(model.blocks),
-        "pta_boolean_blocks": len(blocks),
-        "ecxml_xsd": "passed",
-        "pta_xml": "passed",
+        "floxml_cuboids": len(blocks),
+        "floxml_xsd": "passed",
         "geometry_references": "passed",
     }
 
 
 def main() -> None:
-    schema = etree.XMLSchema(etree.parse(str(ROOT / "output_format/ecxml/ECXML.xsd")))
+    schema = etree.XMLSchema(etree.parse(str(ROOT / "output_format/floxml/xmlSchema.xsd")))
     records = []
     cases = 0
     for template_id, definition in definitions().items():
@@ -98,12 +93,12 @@ def main() -> None:
         for path in sorted(directory.rglob("*.json"))
     }
     report = {
-        "schema_version": "packstudio.catalog-adaptation-audit/v1",
+        "schema_version": "packstudio.catalog-adaptation-audit/v2",
         "source_count": 342,
         "model_export_cases": cases,
         "input_sha256": inputs,
         "scope": "Generation, material/group references, nonoverlap, positive sizes, "
-        "BGA count parity, ECXML XSD and PTA XML; no native PACK comparison for new presets.",
+        "BGA count parity and FloXML XSD; no native PACK comparison for new presets.",
         "records": records,
     }
     (ROOT / "docs/validation/catalog_presets.json").write_text(

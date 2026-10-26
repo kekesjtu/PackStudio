@@ -1,17 +1,40 @@
 # FloXML 契约
 
-五份 XSD 原样复制自本机 FloTHERM 2504：
-`E:\Program Files\Siemens\SimcenterFlotherm\2504\WinXP\PlugIns\XML_PLUGIN_SCHEMA`。
-这些厂商契约文件保留原始内容与长度，不按项目 Python/TS 的 300 行规范拆分。
-生产导出器不依赖它们，也不依赖安装目录。
+## 文件与单位
 
-`bare-die.floxml` 是当前 PackageModel 的导出样例，根为 `xml_case`；
-ECXML 的 `neutralXML` 是另一种格式。单位为 m、W、kg/m³、J/(kg·K)、W/(m·K)。
-材料名为唯一 ID，显示名在 notes，避免同名材料引用歧义。
+输出根节点为 `xml_case`，通过 `assembly` 维护组件层级，`cuboid` 表达物理矩形块。
+示例为 [bare-die.floxml](bare-die.floxml)。
 
-生产输出是有限厚度物理块和体热源。源几何不含材料，不能计入质量。
-未设置目标求解域、默认散热边界、辐射或 PACK collapsed 几何；
-当前外部边界/网格值仅记入 notes，不保证导入器应用。
+| 物理量 | 输出单位 |
+| --- | --- |
+| 位置、尺寸 | m；内部 mm 在导出时换算 |
+| 功率 | W |
+| 密度 | kg/m³ |
+| 比热 | J/(kg·K) |
+| 导热率 | W/(m·K) |
 
-格式检查：`uv run --locked pytest tests/backend/exporters/test_floxml.py`。
-已检查 XSD 和逐块保真；实际 FloTHERM 导入后的求解/网格行为仍需下游验证。
+材料以唯一 ID 引用，显示名称保存在 notes；支持常量各向同性与正交各向异性材料。
+几何、材料、物性和功率从当前生成模型映射，不在导出阶段重新计算封装。
+
+## 当前导出行为
+
+导出器输出当前模型中的有限厚度物理块，保留组件父子关系。
+同一块的多个功率项累加；热源几何不附带材料，不计入实体质量。
+当前芯片功率使用体热源，不能据此宣称与所有原生面热源分布等价。
+
+当前不生成目标求解域、冷却边界或网格；边界与网格控制需要在目标软件中设置。
+模型已有的外部边界信息和元数据仅保存在 notes 供追溯，不能视为导入后自动生效。
+这些是当前实现行为与限制，不构成新的 PACK 功能取舍。
+
+## XSD 与验证
+
+五份 XSD 来自本机 FloTHERM 2504 的 `XML_PLUGIN_SCHEMA` 目录，
+保留厂商文件原始内容，不按代码行数规范拆分。
+生产运行不读取 XSD 或厂商安装目录。
+
+```powershell
+uv run --locked pytest tests/backend/exporters/test_floxml.py
+```
+
+测试检查 XSD、块坐标和尺寸、层级、材料绑定、物性与功率。
+XSD 通过不代替实际 FloTHERM 导入、网格划分和求解验收。

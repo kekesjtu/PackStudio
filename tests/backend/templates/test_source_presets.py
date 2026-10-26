@@ -92,12 +92,14 @@ def test_persisted_export_audit_covers_all_sources_and_current_inputs() -> None:
         )
     )
     assert report["source_count"] == len(report["records"]) == 342
+    assert report["schema_version"] == "packstudio.catalog-adaptation-audit/v2"
     assert report["model_export_cases"] == 510
     assert len({record["preset_source_path"] for record in report["records"]}) == 342
     for relative, digest in report["input_sha256"].items():
         assert hashlib.sha256((library_directory() / relative).read_bytes()).hexdigest() == digest
     assert all(
-        case["ecxml_xsd"] == case["pta_xml"] == "passed"
+        case["geometry_references"] == case["floxml_xsd"] == "passed"
+        and case["floxml_cuboids"] == case["physical_blocks"]
         for record in report["records"]
         for case in record["cases"].values()
     )

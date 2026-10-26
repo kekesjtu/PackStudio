@@ -26,14 +26,11 @@ export const generateTemplateModel = (request: TemplateRequest) =>
     request,
   )
 
-export type ExportFormat = 'pta' | 'ecxml' | 'floxml'
-
 export async function downloadTemplateModel(
   request: TemplateRequest,
-  format: ExportFormat,
 ): Promise<void> {
   const response = await fetch(
-    `${baseUrl}/${request.template_id}/export/${format}`,
+    `${baseUrl}/${request.template_id}/export/floxml`,
     {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -44,7 +41,7 @@ export async function downloadTemplateModel(
   const url = URL.createObjectURL(await response.blob())
   const anchor = document.createElement('a')
   anchor.href = url
-  anchor.download = `${request.template_id}.${format === 'pta' ? 'xml' : format}`
+  anchor.download = `${request.template_id}.floxml`
   anchor.click()
   URL.revokeObjectURL(url)
 }

@@ -3,19 +3,15 @@ import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
 import Chip from '@mui/material/Chip'
 import CircularProgress from '@mui/material/CircularProgress'
-import MenuItem from '@mui/material/MenuItem'
 import Paper from '@mui/material/Paper'
 import Stack from '@mui/material/Stack'
-import TextField from '@mui/material/TextField'
 import Typography from '@mui/material/Typography'
 import { useEffect, useMemo, useRef, useState, type CSSProperties } from 'react'
 
 import ColumnResizer from '../model-editor/ColumnResizer'
 import ModelPreview from '../model-editor/ModelPreview'
-import FieldShell from '../../ui/FieldShell'
 import {
   downloadTemplateModel,
-  type ExportFormat,
   generateTemplateModel,
   loadTemplateDefaults,
   loadTemplateMaterials,
@@ -49,7 +45,6 @@ export default function PackageWorkspace({ templateId }: PackageWorkspaceProps) 
   const [busy, setBusy] = useState(true)
   const [dirty, setDirty] = useState(false)
   const [saved, setSaved] = useState(false)
-  const [exportFormat, setExportFormat] = useState<ExportFormat>('pta')
   const [error, setError] = useState<string | null>(null)
   const propertyContentRef = useRef<HTMLDivElement>(null)
 
@@ -125,7 +120,7 @@ export default function PackageWorkspace({ templateId }: PackageWorkspaceProps) 
     setBusy(true)
     setError(null)
     try {
-      await downloadTemplateModel(request, exportFormat)
+      await downloadTemplateModel(request)
     } catch (reason: unknown) {
       setError(errorMessage(reason))
     } finally {
@@ -164,20 +159,6 @@ export default function PackageWorkspace({ templateId }: PackageWorkspaceProps) 
           <Box ref={propertyContentRef} className="property-content">
             {renderStep(schema, activeStep, allFields, request, library, changeRequest)}
           </Box>
-          <FieldShell label="导出格式" className="export-field">
-            <TextField
-              select
-              fullWidth
-              size="small"
-              value={exportFormat}
-              slotProps={{ select: { SelectDisplayProps: { 'aria-label': '导出格式' } } }}
-              onChange={(event) => setExportFormat(event.target.value as ExportFormat)}
-            >
-              <MenuItem value="pta">PTA XML</MenuItem>
-              <MenuItem value="ecxml">ECXML</MenuItem>
-              <MenuItem value="floxml">FloXML（FloTHERM）</MenuItem>
-            </TextField>
-          </FieldShell>
           <Stack direction={{ xs: 'column', sm: 'row' }} spacing={1} className="action-bar">
             <Button variant="contained" disabled={busy} onClick={handleGenerate}>
               {busy ? <CircularProgress size={21} color="inherit" /> : '生成模型'}
@@ -192,7 +173,7 @@ export default function PackageWorkspace({ templateId }: PackageWorkspaceProps) 
               保存参数
             </Button>
             <Button variant="outlined" disabled={busy || !model} onClick={handleExport}>
-              {`导出 ${exportFormat === 'pta' ? 'PTA XML' : exportFormat === 'ecxml' ? 'ECXML' : 'FloXML'}`}
+              导出 FloXML
             </Button>
           </Stack>
         </Box>
@@ -200,9 +181,6 @@ export default function PackageWorkspace({ templateId }: PackageWorkspaceProps) 
       <ColumnResizer value={propertyWidth} onChange={setPropertyWidth} ariaLabel="调整属性栏宽度" placement="property" />
       <Box className="preview-column">
         {error && <Alert severity="error">{error}</Alert>}
-        {exportFormat !== 'pta' && <Alert severity="info">
-          {exportFormat === 'ecxml' ? 'ECXML' : 'FloXML'} 导出几何、材料与功率。边界条件和网格控制需在目标软件中重新设置。
-        </Alert>}
         <Paper component="section" className="preview-panel">
           <Stack direction="row" justifyContent="space-between" spacing={1} className="panel-heading preview-heading">
             <Typography variant="h5">三维建模区</Typography>

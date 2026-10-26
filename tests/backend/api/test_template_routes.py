@@ -7,6 +7,11 @@ from packstudio.api.app import app
 client = TestClient(app)
 
 
+def test_only_floxml_export_is_registered() -> None:
+    export_paths = {path for path in app.openapi()["paths"] if "/export/" in path}
+    assert export_paths == {"/api/templates/{template_id}/export/floxml"}
+
+
 def test_template_catalog_lists_all_native_templates() -> None:
     response = client.get("/api/templates")
 
@@ -74,14 +79,14 @@ def test_every_native_export_is_downloadable_and_solver_payload_free(
     defaults = client.get(f"/api/templates/{template_id}/defaults").json()
 
     response = client.post(
-        f"/api/templates/{template_id}/export/pta",
+        f"/api/templates/{template_id}/export/floxml",
         json=defaults,
     )
     root = etree.fromstring(response.content)
     names = {etree.QName(element).localname for element in root.iter()}
 
     assert response.status_code == 200
-    assert etree.QName(root).localname == "Structure"
+    assert etree.QName(root).localname == "xml_case"
     assert "Results" not in names
     assert "Mesh" not in names
 

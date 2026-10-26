@@ -145,7 +145,9 @@ public sealed class MainWindow : Window
     var dialog = new SaveFileDialog
     {
       FileName = filename,
-      Filter = "模型文件 (*.xml;*.ecxml)|*.xml;*.ecxml|所有文件 (*.*)|*.*",
+      Filter = "FloXML 模型 (*.floxml)|*.floxml",
+      DefaultExt = ".floxml",
+      AddExtension = true,
     };
     return dialog.ShowDialog(this) == true ? dialog.FileName : null;
   }

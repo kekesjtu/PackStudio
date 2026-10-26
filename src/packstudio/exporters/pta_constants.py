@@ -1,6 +1,0 @@
-MODEL_NAMESPACE = "http://schemas.datacontract.org/2004/07/ThermalSim.Models"
-BOUNDARY_NAMESPACE = "http://schemas.datacontract.org/2004/07/ThermalSim.Models.BoundaryConditions"
-ARRAY_NAMESPACE = "http://schemas.microsoft.com/2003/10/Serialization/Arrays"
-DIALOG_NAMESPACE = "http://schemas.datacontract.org/2004/07/ThermalSim.Dialogs"
-MEDIA_NAMESPACE = "http://schemas.datacontract.org/2004/07/System.Windows.Media"
-XSI_NAMESPACE = "http://www.w3.org/2001/XMLSchema-instance"

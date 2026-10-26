@@ -89,7 +89,7 @@ def test_sop_solid_tie_bars_are_not_confused_with_mixed_lead_envelopes():
     assert all(r["attribution"] == "F1-equivalent-metal-overwritten" for r in leads)
 
 
-def test_corrected_normal_bump_value_does_not_label_in_plane_model_choice_as_defect():
+def test_bump_difference_is_an_open_alignment_gap_not_an_approved_choice():
     evidence = Path(__file__).parents[2] / "docs/validation/floxml/evidence.zip"
     with ZipFile(evidence) as archive:
         details = json.loads(archive.read("cases/fc-solder-edit/comparison.json"))
@@ -99,3 +99,5 @@ def test_corrected_normal_bump_value_does_not_label_in_plane_model_choice_as_def
         {"id": "fc-solder-edit", "template": "pbga_fc", "kind": "constituent_material"}, details
     )
     assert all(f["category"] != "confirmed_implementation_defect" for f in findings)
+    assert all(f["category"] != "explicit_functional_choice" for f in findings)
+    assert any(f["id"] == "U9-bump-isotropic-alignment" for f in findings)

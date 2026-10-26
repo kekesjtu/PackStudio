@@ -11,10 +11,10 @@ def classify(case, details):
 
     for difference in details["normalized"]["differences"]:
         roles = {difference["pack_role"], difference["packstudio_role"]}
-        bump_in_plane_choice = "flip_chip_bump" in roles and set(
+        bump_in_plane_gap = "flip_chip_bump" in roles and set(
             difference["property_differences"]
         ) <= {"kx", "ky"}
-        if case["kind"] == "constituent_material" and not bump_in_plane_choice:
+        if case["kind"] == "constituent_material" and not bump_in_plane_gap:
             category, reason = "confirmed_implementation_defect", "F2-constituent-edit-propagation"
         elif case["id"] == "qfp-small-height" and roles == {"encapsulant", "bond_wire"}:
             category, reason = (
@@ -26,7 +26,7 @@ def classify(case, details):
         elif "lead_frame" in roles and case["template"] in {"pqfp", "sop"}:
             category, reason = "confirmed_implementation_defect", "F1-equivalent-metal-overwritten"
         elif "flip_chip_bump" in roles:
-            category, reason = "explicit_functional_choice", "C1-volumetric-orthotropic-bumps"
+            category, reason = "implementation_gap", "U9-bump-isotropic-alignment"
         else:
             category, reason = (
                 "insufficient_evidence",
@@ -35,7 +35,7 @@ def classify(case, details):
         difference["category"] = category
         difference["attribution"] = reason
         if case["kind"] == "constituent_material" and "flip_chip_bump" in roles:
-            difference["additional_attributions"] = ["C1-volumetric-orthotropic-bumps"]
+            difference["additional_attributions"] = ["U9-bump-isotropic-alignment"]
     if details["normalized"]["differences"]:
         for reason in sorted({d["attribution"] for d in details["normalized"]["differences"]}):
             selected = [
@@ -49,11 +49,11 @@ def classify(case, details):
             )
     if case["kind"] == "constituent_material" and case["template"] in {"cbga_fc", "pbga_fc"}:
         add(
-            "explicit_functional_choice",
-            "C1-volumetric-orthotropic-bumps",
-            "In-plane native scalar versus project tensor also reflects the declared network; "
+            "implementation_gap",
+            "U9-bump-isotropic-alignment",
+            "ADR-0029 requires Isotropic Cuboid; the current orthotropic layer is not aligned. "
             "Constituent sensitivity and normal conductivity are checked independently.",
-            "documented",
+            "open",
         )
     extra = details["raw"]["unmatched_packstudio"]
     unexpected = [
@@ -79,23 +79,21 @@ def classify(case, details):
         )
     if details["normalized"]["packstudio_only_volume_mm3"] > 1e-6:
         add(
-            "explicit_functional_choice"
-            if case["template"] == "chip_array"
-            else "insufficient_evidence",
+            "insufficient_evidence",
             "C2-static-air-or-extra-region",
             details["normalized"]["packstudio_only_volume_mm3"],
-            "documented_project_static_air" if case["template"] == "chip_array" else "open",
+            "open",
         )
     if details["native_collapsed_solids"]:
         add(
-            "explicit_functional_choice",
+            "insufficient_evidence",
             "C3-collapsed-versus-volume-solids",
             details["native_collapsed_solids"],
             "nominal_volume_comparison_only",
         )
     if details["native_temperature_materials"]:
         add(
-            "explicit_functional_choice",
+            "insufficient_evidence",
             "C4-reference-temperature-constant",
             details["native_temperature_materials"],
             "documented",
@@ -130,7 +128,7 @@ def classify(case, details):
         )
     if any(s["collapse"] for s in details["sources"]["pack"]):
         add(
-            "explicit_functional_choice",
+            "insufficient_evidence",
             "C5-surface-versus-volume-heat-source",
             details["sources"],
             "total_power_checked_spatial_distribution_differs",

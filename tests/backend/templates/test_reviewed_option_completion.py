@@ -7,9 +7,7 @@ import pytest
 from lxml import etree
 
 from packstudio.domain.enums import StructureType
-from packstudio.exporters.ecxml import export_ecxml
 from packstudio.exporters.floxml import export_floxml
-from packstudio.exporters.pta_xml import export_pta_xml
 from packstudio.templates.package_library.catalog import (
     default_request,
     definitions,
@@ -24,13 +22,9 @@ ROOT = Path(__file__).resolve().parents[3]
 
 
 def validate_exports(model):
-    for export, path in (
-        (export_ecxml, "ecxml/ECXML.xsd"),
-        (export_floxml, "floxml/xmlSchema.xsd"),
-    ):
-        root = etree.fromstring(export(model))
-        etree.XMLSchema(etree.parse(str(ROOT / "output_format" / path))).assertValid(root)
-    assert etree.fromstring(export_pta_xml(model)) is not None
+    root = etree.fromstring(export_floxml(model))
+    path = ROOT / "output_format/floxml/xmlSchema.xsd"
+    etree.XMLSchema(etree.parse(str(path))).assertValid(root)
 
 
 def request(template, **values):
@@ -143,7 +137,7 @@ def test_qfn_via_dimensions_shell_properties_and_disabled_branch():
     assert via.conductivity.x == pytest.approx(138.6)
     assert via.density == pytest.approx(3214.8)
     assert via.specific_heat == 385
-    assert etree.fromstring(export_pta_xml(model)) is not None
+    validate_exports(model)
     assert etree.fromstring(export_floxml(model)) is not None
     with pytest.raises(ValueError, match="inactive"):
         generate(request("qfn", **{"vias.length": 1}))

@@ -1,1 +1,1 @@
-"""Model exporters for downstream solver formats."""
+"""FloXML export for downstream thermal analysis."""
