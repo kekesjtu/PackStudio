@@ -176,9 +176,9 @@ def main():
     sources.update(
         {
             "docs/decisions/README.md",
-            "docs/decisions/0028-封装外形与芯片类型范围.md",
-            "docs/decisions/0029-BGA与Bumps建模表达.md",
-            "docs/decisions/0030-仅支持均匀芯片热源.md",
+            "docs/decisions/封装外形与芯片类型范围.md",
+            "docs/decisions/BGA与Bumps建模表达.md",
+            "docs/decisions/仅支持均匀芯片热源.md",
         }
     )
     archived = []

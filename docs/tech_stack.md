@@ -36,7 +36,7 @@ Python 解释器由 `.python-version` 固定，使用 uv 管理仓库 `.venv`。
 
 ## 决策与维护入口
 
-- [架构决策](decisions/0001-采用-Web-前后端分离架构.md)
-- [运行数据决策](decisions/0016-JSON运行参数与参考数据解耦.md)
-- [桌面宿主决策](decisions/0024-WebView2独立宿主验证.md)
+- [架构决策](decisions/采用-Web-前后端分离架构.md)
+- [运行数据决策](decisions/JSON运行参数与参考数据解耦.md)
+- [桌面宿主决策](decisions/WebView2独立宿主.md)
 - [开发与打包](development.md)

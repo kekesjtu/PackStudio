@@ -1,8 +1,8 @@
 """Reviewed scope rules for the offline PACK option inventory."""
 
 FIXED = {
-    "outlineType": "ADR-0028：只提供 Standard Outline",
-    "dieType": "ADR-0028：只提供 Actual Die",
+    "outlineType": "《封装外形与芯片类型范围》：只提供 Standard Outline",
+    "dieType": "《封装外形与芯片类型范围》：只提供 Actual Die",
 }
 
 BGA = {
@@ -51,9 +51,9 @@ def decision(template, entry):
     if template == "pbga_fc" and location == "metal_layers":
         return "gap", "C01", "未开放显式金属层栈；不属于已确认的功能取舍"
     if prop in {"nonUniformDieHeat", "nonUniformDieHeatDialog"}:
-        return "explicit_tradeoff", None, "ADR-0030：八类模板不实现非均匀芯片热源"
+        return "explicit_tradeoff", None, "《仅支持均匀芯片热源》：八类模板不实现非均匀芯片热源"
     if location == "die" and label == "Click To Edit":
-        return "explicit_tradeoff", None, "ADR-0030：不实现非均匀热源编辑器"
+        return "explicit_tradeoff", None, "《仅支持均匀芯片热源》：不实现非均匀热源编辑器"
     if prop in {"userDefinedLeadframeCoverage", "leadframeCoveragePercentage"}:
         return "gap", "G03", "自定义覆盖率入口未实现；不属于已确认的功能取舍"
     if template == "chip_array":
@@ -76,6 +76,10 @@ def decision(template, entry):
         return None
     if prop and (prop.startswith("model") or prop in {"solderBumpModeling", "viaModeling"}):
         if "bump" in location.lower() or "bump" in prop.lower():
-            return "implementation_gap", None, "ADR-0029 要求 Isotropic Cuboid，当前为正交等效层"
+            return (
+                "implementation_gap",
+                None,
+                "《BGA与Bumps建模表达》要求 Isotropic Cuboid，当前为正交等效层",
+            )
         return "gap", None, "当前建模表达未完整开放；不属于已确认的功能取舍"
     return None

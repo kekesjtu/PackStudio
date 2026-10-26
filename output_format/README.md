@@ -14,4 +14,4 @@ output_format/
 
 停止使用的格式规范、样例及历史说明已保存到
 [参考资料归档](../archive/README.md)，不参与当前生产导出和格式校验。
-输出范围决策见 [ADR-0031](../docs/decisions/0031-仅保留FloXML输出.md)。
+输出范围决策见 [FloXML 输出决策](../docs/decisions/仅保留FloXML输出.md)。

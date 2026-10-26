@@ -51,7 +51,8 @@ def classify(case, details):
         add(
             "implementation_gap",
             "U9-bump-isotropic-alignment",
-            "ADR-0029 requires Isotropic Cuboid; the current orthotropic layer is not aligned. "
+            "The BGA/Bumps decision requires Isotropic Cuboid; "
+            "the current orthotropic layer is not aligned. "
             "Constituent sensitivity and normal conductivity are checked independently.",
             "open",
         )
