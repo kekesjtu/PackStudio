@@ -1,0 +1,15 @@
+input[type='number'][data-numeric-kind='integer']::-webkit-inner-spin-button,
+input[type='number'][data-numeric-kind='integer']::-webkit-outer-spin-button {
+  opacity: 1;
+}
+
+input[type='number'][data-numeric-kind='decimal'] {
+  appearance: textfield;
+  -moz-appearance: textfield;
+}
+
+input[type='number'][data-numeric-kind='decimal']::-webkit-inner-spin-button,
+input[type='number'][data-numeric-kind='decimal']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

@@ -1,7 +1,7 @@
 import TextField from '@mui/material/TextField'
-import type { FocusEvent } from 'react'
 
 import FieldShell from '../../ui/FieldShell'
+import numericInput from '../../ui/numericInput'
 
 interface NumberInputProps {
   label: string
@@ -38,8 +38,7 @@ export default function NumberInput({
         slotProps={{
           htmlInput: {
             'aria-label': label,
-            step: integer ? 1 : 'any',
-            onFocus: (event: FocusEvent<HTMLInputElement>) => event.currentTarget.select(),
+            ...numericInput(integer),
           },
         }}
         fullWidth

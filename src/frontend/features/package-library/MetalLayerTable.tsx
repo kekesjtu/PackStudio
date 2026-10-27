@@ -2,6 +2,7 @@ import Button from '@mui/material/Button'
 import Stack from '@mui/material/Stack'
 import TextField from '@mui/material/TextField'
 import FieldShell from '../../ui/FieldShell'
+import numericInput from '../../ui/numericInput'
 
 interface Row { depth: number | null; thickness: number | null; coverage: number | null }
 
@@ -18,7 +19,9 @@ export default function MetalLayerTable({ label, value, enabled, onChange, outer
           key={key} size="small" type="number"
           disabled={!enabled || (outerFaces && key === 'depth' && (index === 0 || index === rows.length - 1))}
           label={{ depth: 'Depth', thickness: 'Thickness', coverage: 'Coverage' }[key]}
-          value={row[key] ?? ''} slotProps={{ htmlInput: { 'aria-label': `${label} 第 ${index + 1} 行 ${key}` } }}
+          value={row[key] ?? ''} slotProps={{ htmlInput: {
+            'aria-label': `${label} 第 ${index + 1} 行 ${key}`, ...numericInput(),
+          } }}
           onChange={(event) => update(rows.map((r, i) => i === index
             ? { ...r, [key]: event.target.value === '' ? null : Number(event.target.value) } : r))}
         />)}

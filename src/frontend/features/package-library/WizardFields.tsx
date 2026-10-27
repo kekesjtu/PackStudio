@@ -4,9 +4,9 @@ import Stack from '@mui/material/Stack'
 import Switch from '@mui/material/Switch'
 import TextField from '@mui/material/TextField'
 import Typography from '@mui/material/Typography'
-import type { FocusEvent } from 'react'
 
 import FieldShell from '../../ui/FieldShell'
+import numericInput from '../../ui/numericInput'
 import MaterialSelect from './MaterialSelect'
 import MetalLayerTable from './MetalLayerTable'
 
@@ -136,9 +136,7 @@ function Field({
             : {
                 htmlInput: {
                   'aria-label': field.label,
-                  ...(numeric
-                    ? { onFocus: (event: FocusEvent<HTMLInputElement>) => event.currentTarget.select() }
-                    : {}),
+                  ...(numeric ? numericInput(field.control.startsWith('integer')) : {}),
                   ...(numericValues.length > 1
                     ? { min: Math.min(...numericValues), max: Math.max(...numericValues) }
                     : {}),
