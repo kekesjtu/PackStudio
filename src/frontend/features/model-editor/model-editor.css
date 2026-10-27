@@ -191,6 +191,13 @@
   min-height: 26px;
 }
 
+.tree-group-title {
+  display: flex;
+  min-width: 0;
+  flex: 1;
+  padding: 2px;
+}
+
 .tree-group-toggle {
   min-width: 0;
   flex: 1;

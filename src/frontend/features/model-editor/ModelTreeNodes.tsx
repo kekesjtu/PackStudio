@@ -37,19 +37,23 @@ export default function ModelTreeNodes(props: TreeNodesProps) {
     const { group } = entry
     const blockIds = props.data.descendantIds.get(group.id) ?? []
     const visibleCount = blockIds.filter((id) => !props.hiddenBlockIds.has(id)).length
-    const expanded = !props.collapsedGroupIds.has(group.id)
+    const isRoot = props.parentId === null
+    const expanded = isRoot || !props.collapsedGroupIds.has(group.id)
+    const label = <Typography component="span" variant="body2" fontWeight={700} className="tree-group-name">
+      {group.name}
+    </Typography>
     return (
       <Box key={`group:${group.id}`} className="tree-group">
         <Stack direction="row" spacing={0.75} alignItems="center" className="tree-group-label"
           onContextMenu={(event) => props.onOpenContextMenu(event, { kind: 'group', blockIds })}>
-          <ButtonBase className="tree-group-toggle" aria-expanded={expanded}
-            aria-label={`${expanded ? '折叠' : '展开'} ${group.name}`}
-            onClick={() => props.onToggleGroup(group.id)}>
-            <span className="tree-group-chevron" aria-hidden="true">{expanded ? '−' : '+'}</span>
-            <Typography component="span" variant="body2" fontWeight={700} className="tree-group-name">
-              {group.name}
-            </Typography>
-          </ButtonBase>
+          {isRoot ? <Box className="tree-group-title">{label}</Box> : (
+            <ButtonBase className="tree-group-toggle" aria-expanded={expanded}
+              aria-label={`${expanded ? '折叠' : '展开'} ${group.name}`}
+              onClick={() => props.onToggleGroup(group.id)}>
+              <span className="tree-group-chevron" aria-hidden="true">{expanded ? '−' : '+'}</span>
+              {label}
+            </ButtonBase>
+          )}
           <Chip label={`${visibleCount}/${blockIds.length}`} size="small" variant="outlined" />
         </Stack>
         {expanded && <ModelTreeNodes {...props} parentId={group.id} />}

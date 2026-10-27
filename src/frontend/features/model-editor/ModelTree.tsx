@@ -32,8 +32,11 @@ export default function ModelTree(props: ModelTreeProps) {
   if (!props.model) return <Typography color="text.secondary">尚未生成模型。</Typography>
 
   const data = buildTreeData(props.model)
-  const groupIds = props.model.groups.map((group) => group.id)
-  const allCollapsed = groupIds.length > 0 && groupIds.every((id) => collapsedGroupIds.has(id))
+  const rootIds = new Set(props.model.groups.filter((group) => group.parent_id === null).map((group) => group.id))
+  const secondLevelIds = props.model.groups
+    .filter((group) => group.parent_id !== null && rootIds.has(group.parent_id))
+    .map((group) => group.id)
+  const allCollapsed = secondLevelIds.length > 0 && secondLevelIds.every((id) => collapsedGroupIds.has(id))
   const closeMenu = () => setContextMenu(null)
   const openContextMenu = (event: MouseEvent, target: TreeTarget | null) => {
     event.preventDefault()
@@ -70,9 +73,11 @@ export default function ModelTree(props: ModelTreeProps) {
       onContextMenu={(event) => openContextMenu(event, null)}>
       <Box className="model-tree-toolbar">
         <Button size="small" className="model-tree-toggle-all"
+          disabled={secondLevelIds.length === 0}
           aria-label={allCollapsed ? '全部展开' : '全部折叠'}
-          title={allCollapsed ? '展开所有父节点' : '折叠所有父节点'}
-          onClick={() => setCollapsedGroupIds(allCollapsed ? new Set() : new Set(groupIds))}>
+          title={allCollapsed ? '展开所有可折叠节点' : '折叠所有二级节点'}
+          onClick={() => setCollapsedGroupIds((current) => allCollapsed
+            ? new Set() : new Set([...current, ...secondLevelIds]))}>
           <span aria-hidden="true">{allCollapsed ? '⊞' : '⊟'}</span>
           {allCollapsed ? '全部展开' : '全部折叠'}
         </Button>

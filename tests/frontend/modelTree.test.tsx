@@ -90,16 +90,44 @@ describe('ModelTree', () => {
     expect(screen.getByText('Die attach')).toBeInTheDocument()
   })
 
-  it('collapses and expands the complete tree with one toolbar button', () => {
+  it('collapses only second-level groups and keeps root and second-level titles visible', () => {
     renderTree()
 
     fireEvent.click(screen.getByRole('button', { name: '全部折叠' }))
-    expect(screen.queryByText('Die assembly')).not.toBeInTheDocument()
+    expect(screen.getByText('Test package')).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: '展开 Die assembly' })).toBeInTheDocument()
     expect(screen.queryByText('Die block')).not.toBeInTheDocument()
 
     fireEvent.click(screen.getByRole('button', { name: '全部展开' }))
     expect(screen.getByText('Die assembly')).toBeInTheDocument()
     expect(screen.getByText('Die block')).toBeInTheDocument()
+  })
+
+  it('keeps the root permanently expanded without a collapse control', () => {
+    renderTree()
+    expect(screen.queryByRole('button', { name: '折叠 Test package' })).not.toBeInTheDocument()
+    fireEvent.click(screen.getByText('Test package'))
+    expect(screen.getByRole('button', { name: '折叠 Die assembly' })).toBeInTheDocument()
+    expect(screen.getByText('Die block')).toBeInTheDocument()
+  })
+
+  it('preserves deeper collapse state when closing second-level groups and expands all depths on demand', () => {
+    renderTree()
+    fireEvent.click(screen.getByRole('button', { name: '折叠 Die attach' }))
+    fireEvent.click(screen.getByRole('button', { name: '全部折叠' }))
+    fireEvent.click(screen.getByRole('button', { name: '展开 Die assembly' }))
+    expect(screen.getByRole('button', { name: '展开 Die attach' })).toBeInTheDocument()
+    expect(screen.queryByText('Die attach block')).not.toBeInTheDocument()
+    fireEvent.click(screen.getByRole('button', { name: '全部折叠' }))
+    fireEvent.click(screen.getByRole('button', { name: '全部展开' }))
+    expect(screen.getByText('Die attach block')).toBeInTheDocument()
+  })
+
+  it('keeps direct root blocks visible when the root is the only group', () => {
+    renderTree({ ...model, groups: [{ ...model.groups[0], block_ids: blocks.map((item) => item.id) }] })
+    expect(screen.getByRole('button', { name: '全部折叠' })).toBeDisabled()
+    expect(screen.getByText('Die block')).toBeInTheDocument()
+    expect(screen.getByText('Die attach block')).toBeInTheDocument()
   })
 
   it('applies parent visibility changes to every descendant block', () => {
@@ -174,7 +202,7 @@ describe('ModelTree', () => {
     const before = structuredClone(stacked)
     renderTree(stacked)
     expect(screen.getAllByRole('button').map((button) => button.textContent)).toEqual([
-      '⊟全部折叠', '−Test package', '−Die assembly', '−Die attach',
+      '⊟全部折叠', '−Die assembly', '−Die attach',
       'Die attach block', 'Die block', '−Substrate', 'Substrate block', '−Empty',
     ])
     expect(stacked).toEqual(before)
