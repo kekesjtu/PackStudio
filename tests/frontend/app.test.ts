@@ -236,7 +236,8 @@ describe('eight-template production workspace', () => {
     fireEvent.click(screen.getByRole('button', { name: '折叠 Flip Chip CBGA' }))
     expect(screen.queryByText('Package substrate')).not.toBeInTheDocument()
     fireEvent.click(screen.getByRole('button', { name: '展开 Flip Chip CBGA' }))
-    fireEvent.click(screen.getByRole('button', { name: '隐藏 Substrate' }))
+    fireEvent.contextMenu(screen.getByRole('button', { name: '折叠 Substrate' }))
+    fireEvent.click(screen.getByRole('menuitem', { name: '隐藏这个分组' }))
     expect(screen.getByText('已隐藏')).toBeInTheDocument()
   })
 
@@ -343,6 +344,7 @@ describe('eight-template production workspace', () => {
     render(createElement(App))
     await screen.findByText('1 个块')
     fireEvent.click(screen.getByRole('button', { name: '芯片' }))
+    fireEvent.click(screen.getByRole('button', { name: /Alumina alumina/ }))
     fireEvent.change(screen.getByLabelText('kx'), { target: { value: '18' } })
     fireEvent.click(screen.getByRole('button', { name: '生成模型' }))
     await waitFor(() => expect(generateCalls()).toHaveLength(2))

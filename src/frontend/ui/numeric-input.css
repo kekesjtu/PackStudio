@@ -13,3 +13,21 @@ input[type='number'][data-numeric-kind='decimal']::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
+
+.numeric-unit.MuiInputAdornment-root {
+  margin-left: 2px;
+  white-space: nowrap;
+}
+
+.numeric-unit .MuiTypography-root {
+  color: inherit;
+  font-size: 0.62rem;
+}
+
+.MuiInputBase-root.MuiInputBase-adornedEnd:has(.numeric-unit) {
+  padding-right: 6px;
+}
+
+.MuiInputBase-root.Mui-disabled .numeric-unit {
+  color: #95a1a9;
+}

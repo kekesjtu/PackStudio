@@ -3,6 +3,7 @@ import Stack from '@mui/material/Stack'
 import TextField from '@mui/material/TextField'
 
 import FieldShell from '../../ui/FieldShell'
+import NumberInput from '../model-editor/NumberInput'
 import type { TemplateRequest } from './types'
 
 interface SpecialFieldsProps {
@@ -22,14 +23,18 @@ export function SummaryFields({ request, onChange }: SpecialFieldsProps) {
         />
       </FieldShell>
       {(['part_number', 'vendor', 'max_power_w', 'max_junction_temperature_c', 'max_case_temperature_c', 'notes'] as const).map((key) => {
-        const label = { part_number: '器件型号', vendor: '厂商名称', max_power_w: '最大额定功率 (W)',
-          max_junction_temperature_c: '最高工作结温 (°C)', max_case_temperature_c: '最高壳温 (°C)', notes: '备注' }[key]
+        const label = { part_number: '器件型号', vendor: '厂商名称', max_power_w: '最大额定功率',
+          max_junction_temperature_c: '最高工作结温', max_case_temperature_c: '最高壳温', notes: '备注' }[key]
         const numeric = key.startsWith('max_')
+        const value = request.summary?.[key]
+        if (numeric) return <NumberInput key={key} label={label} allowEmpty
+          unit={key === 'max_power_w' ? 'W' : '°C'} value={typeof value === 'number' ? value : null}
+          onChange={(value) => onChange({ ...request, summary: { ...request.summary, [key]: value } })} />
         return <FieldShell key={key} label={label}><TextField size="small"
-          type={numeric ? 'number' : 'text'} multiline={key === 'notes'}
+          multiline={key === 'notes'}
           value={request.summary?.[key] ?? ''} slotProps={{ htmlInput: { 'aria-label': label } }}
           onChange={(e) => onChange({ ...request, summary: { ...request.summary,
-            [key]: numeric ? (e.target.value === '' ? null : Number(e.target.value)) : e.target.value } })} />
+            [key]: e.target.value } })} />
         </FieldShell>
       })}
     </Stack>

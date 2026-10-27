@@ -7,6 +7,7 @@ import Typography from '@mui/material/Typography'
 
 import FieldShell from '../../ui/FieldShell'
 import numericInput from '../../ui/numericInput'
+import NumericUnit from '../../ui/NumericUnit'
 import MaterialSelect from './MaterialSelect'
 import MetalLayerTable from './MetalLayerTable'
 
@@ -112,6 +113,7 @@ function Field({
     )
   }
   const numeric = ['number', 'integer', 'integer_spinbox'].includes(field.control)
+  const integer = field.control.startsWith('integer')
   const values = field.supported_values.filter((item) => item !== null)
   const useSelect = !numeric && (values.length > 1 || field.control === 'footprint')
   const numericValues = [field.minimum, field.maximum].filter(
@@ -124,7 +126,10 @@ function Field({
       ? `允许范围 ${numericValues[0]} – ${numericValues[1]}${field.unit ? ` ${field.unit}` : ''}`
       : undefined
   return (
-    <FieldShell label={field.label} hint={field.help_text ?? interval} disabled={!enabled}>
+    <FieldShell label={field.label} unit={integer ? field.unit ?? undefined : undefined}
+      hint={field.help_text ?? (numeric ? undefined : interval)}
+      sideHint={numeric ? interval : undefined} disabled={!enabled}
+      className={numeric ? 'field-shell-numeric' : undefined}>
       <TextField
         value={value ?? ''}
         type={numeric && !useSelect ? 'number' : undefined}
@@ -135,9 +140,11 @@ function Field({
           useSelect
             ? { select: { native: true, inputProps: { 'aria-label': field.label } } }
             : {
+                input: { endAdornment: numeric && !integer && field.unit
+                  ? <NumericUnit unit={field.unit} /> : undefined },
                 htmlInput: {
                   'aria-label': field.label,
-                  ...(numeric ? numericInput(field.control.startsWith('integer')) : {}),
+                  ...(numeric ? numericInput(integer) : {}),
                   ...(numericValues.length > 1
                     ? { min: Math.min(...numericValues), max: Math.max(...numericValues) }
                     : {}),

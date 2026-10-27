@@ -269,6 +269,17 @@ body {
   line-height: 1.4;
 }
 
+.field-control-row {
+  display: grid;
+  grid-template-columns: minmax(80px, 1fr) auto;
+  align-items: center;
+  gap: 8px;
+}
+
+.field-side-hint {
+  white-space: nowrap;
+}
+
 .field-shell[data-disabled='true'] .field-label,
 .field-shell[data-disabled='true'] .field-unit {
   color: #95a1a9;
@@ -364,7 +375,7 @@ body {
   padding: 24px;
 }
 
-@media (max-width: 1300px) {
+@media (max-width: 1450px) {
   .template-workspace {
     grid-template-columns:
       156px var(--property-width) 8px minmax(300px, 1fr) 8px var(--inspector-width);

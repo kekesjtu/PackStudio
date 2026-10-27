@@ -5,7 +5,7 @@ const nativeOrder = [
   'Ceramics', 'Metals', 'Others', 'Resins', 'Semiconductors', 'Substrate Dielectrics',
 ]
 
-export function groupedMaterials(field: WizardField, materials: Material[]) {
+export function groupedMaterials(field: Pick<WizardField, 'options'>, materials: Material[]) {
   const available = new Map(materials.map((material) => [material.id, material]))
   const groups = new Map<string, string[]>()
   for (const option of field.options) {

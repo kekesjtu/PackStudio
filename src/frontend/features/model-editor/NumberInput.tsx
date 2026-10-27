@@ -2,6 +2,7 @@ import TextField from '@mui/material/TextField'
 
 import FieldShell from '../../ui/FieldShell'
 import numericInput from '../../ui/numericInput'
+import NumericUnit from '../../ui/NumericUnit'
 
 interface NumberInputProps {
   label: string
@@ -21,7 +22,7 @@ export default function NumberInput({
   allowEmpty = false,
 }: NumberInputProps) {
   return (
-    <FieldShell label={label} unit={unit} className="field-shell-numeric">
+    <FieldShell label={label} unit={integer ? unit : undefined} className="field-shell-numeric">
       <TextField
         type="number"
         size="small"
@@ -36,6 +37,7 @@ export default function NumberInput({
           onChange(Number.isFinite(parsed) ? parsed : 0)
         }}
         slotProps={{
+          input: { endAdornment: !integer && unit ? <NumericUnit unit={unit} /> : undefined },
           htmlInput: {
             'aria-label': label,
             ...numericInput(integer),

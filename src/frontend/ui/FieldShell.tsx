@@ -6,19 +6,21 @@ interface FieldShellProps {
   label: string
   unit?: string
   hint?: ReactNode
+  sideHint?: ReactNode
   disabled?: boolean
   className?: string
   children: ReactNode
 }
 
 /**
- * 把字段标题、单位和输入控件分成彼此独立的行。
+ * 字段标题位于输入框外，范围提示与输入控件同排。
  * 工业软件的表单标题位于输入框外，不能与输入框边框叠在一起。
  */
 export default function FieldShell({
   label,
   unit,
   hint,
+  sideHint,
   disabled = false,
   className,
   children,
@@ -38,7 +40,14 @@ export default function FieldShell({
           </Typography>
         )}
       </Box>
-      {children}
+      {sideHint ? (
+        <Box className="field-control-row">
+          {children}
+          <Typography component="span" className="field-hint field-side-hint">
+            {sideHint}
+          </Typography>
+        </Box>
+      ) : children}
       {hint && (
         <Typography component="span" className="field-hint">
           {hint}

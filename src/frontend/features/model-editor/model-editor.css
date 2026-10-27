@@ -41,9 +41,31 @@
 
 .material-browser {
   display: grid;
-  grid-template-rows: minmax(150px, 1fr) minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr);
   gap: 6px;
   height: 100%;
+}
+
+.material-browser[data-has-selection='true'] {
+  grid-template-rows: minmax(150px, 1fr) minmax(0, 1fr);
+}
+
+.material-browser-group {
+  list-style: none;
+}
+
+.material-browser-group .MuiListSubheader-root {
+  border-bottom: 1px solid #c3ccd2;
+  background: #e9eef1;
+  padding: 4px 6px;
+  color: #3d5160;
+  font-size: 0.7rem;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.material-fields .field-grid-3 {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 140px), 1fr));
 }
 
 .material-browser-list {
@@ -118,9 +140,18 @@
 }
 
 .tree-group {
-  margin-left: calc(var(--tree-depth) * 12px);
+  margin-left: 20px;
   border-left: 1px solid #dde3e6;
-  padding: 3px 0 3px 8px;
+  padding: 3px 0 3px 0;
+}
+
+.model-tree > .tree-group {
+  margin-left: 6px;
+}
+
+.tree-group > .tree-block {
+  width: calc(100% - 20px);
+  margin-left: 20px;
 }
 
 .tree-group-label {

@@ -1,14 +1,14 @@
 import { useState, type MouseEvent } from 'react'
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
-import ButtonBase from '@mui/material/ButtonBase'
-import Chip from '@mui/material/Chip'
+import Divider from '@mui/material/Divider'
 import Menu from '@mui/material/Menu'
 import MenuItem from '@mui/material/MenuItem'
-import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
 
-import type { AxisAlignedBlock, ModelGroup, PackageModel } from './types'
+import ModelTreeNodes from './ModelTreeNodes'
+import buildTreeData, { type TreeTarget } from './modelTreeData'
+import type { PackageModel } from './types'
 
 interface ModelTreeProps {
   model: PackageModel | null
@@ -23,161 +23,39 @@ interface ModelTreeProps {
 interface ContextMenuState {
   mouseX: number
   mouseY: number
-  blockId: string
-}
-
-interface TreeData {
-  blocks: Map<string, AxisAlignedBlock>
-  children: Map<string | null, ModelGroup[]>
-  descendantIds: Map<string, string[]>
-}
-
-interface NodeProps {
-  label: string
-  blockIds: string[]
-  depth: number
-  data: TreeData
-  selectedBlockId: string | null
-  hiddenBlockIds: ReadonlySet<string>
-  onSelectBlock: (blockId: string) => void
-  onSetBlocksHidden: (blockIds: string[], hidden: boolean) => void
-  onOpenContextMenu: (event: MouseEvent, blockId: string) => void
-  expanded: boolean
-  onToggle: () => void
-  children?: React.ReactNode
-}
-
-function TreeNode(props: NodeProps) {
-  const visibleCount = props.blockIds.filter((id) => !props.hiddenBlockIds.has(id)).length
-  const allHidden = props.blockIds.length > 0 && visibleCount === 0
-  return (
-    <Box className="tree-group" sx={{ '--tree-depth': props.depth }}>
-      <Stack direction="row" spacing={0.75} alignItems="center" className="tree-group-label">
-        <ButtonBase
-          className="tree-group-toggle"
-          aria-expanded={props.expanded}
-          aria-label={`${props.expanded ? '折叠' : '展开'} ${props.label}`}
-          onClick={props.onToggle}
-        >
-          <span className="tree-group-chevron" aria-hidden="true">
-            {props.expanded ? '−' : '+'}
-          </span>
-          <Typography
-            component="span"
-            variant="body2"
-            fontWeight={700}
-            className="tree-group-name"
-          >
-            {props.label}
-          </Typography>
-        </ButtonBase>
-        <Chip
-          label={`${visibleCount}/${props.blockIds.length}`}
-          size="small"
-          variant="outlined"
-        />
-        {props.blockIds.length > 0 && (
-          <Button
-            size="small"
-            onClick={() => props.onSetBlocksHidden(props.blockIds, !allHidden)}
-            aria-label={`${allHidden ? '显示' : '隐藏'} ${props.label}`}
-          >
-            {allHidden ? '显示' : '隐藏'}
-          </Button>
-        )}
-      </Stack>
-      {props.expanded && props.children}
-    </Box>
-  )
-}
-
-function BlockRows(props: {
-  blockIds: string[]
-  data: TreeData
-  selectedBlockId: string | null
-  hiddenBlockIds: ReadonlySet<string>
-  onSelectBlock: (blockId: string) => void
-  onOpenContextMenu: (event: MouseEvent, blockId: string) => void
-}) {
-  return props.blockIds.map((blockId) => {
-    const block = props.data.blocks.get(blockId)
-    if (!block) return null
-    const hidden = props.hiddenBlockIds.has(block.id)
-    return (
-      <ButtonBase
-        key={block.id}
-        className="tree-block"
-        data-selected={block.id === props.selectedBlockId}
-        data-hidden={hidden}
-        onClick={() => props.onSelectBlock(block.id)}
-        onContextMenu={(event) => props.onOpenContextMenu(event, block.id)}
-      >
-        <span>{block.name}</span>
-        {hidden && <small>已隐藏</small>}
-      </ButtonBase>
-    )
-  })
-}
-
-function GroupNode(props: {
-  group: ModelGroup
-  depth: number
-  data: TreeData
-  selectedBlockId: string | null
-  hiddenBlockIds: ReadonlySet<string>
-  onSelectBlock: (blockId: string) => void
-  onSetBlocksHidden: (blockIds: string[], hidden: boolean) => void
-  onOpenContextMenu: (event: MouseEvent, blockId: string) => void
-  collapsedGroupIds: ReadonlySet<string>
-  onToggleGroup: (groupId: string) => void
-}) {
-  const expanded = !props.collapsedGroupIds.has(props.group.id)
-  const childGroups = props.data.children.get(props.group.id) ?? []
-  const blockIds = props.data.descendantIds.get(props.group.id) ?? []
-  return (
-    <TreeNode
-      {...props}
-      label={props.group.name}
-      blockIds={blockIds}
-      expanded={expanded}
-      onToggle={() => props.onToggleGroup(props.group.id)}
-    >
-      <BlockRows {...props} blockIds={props.group.block_ids} />
-      {childGroups.map((group) => (
-        <GroupNode key={group.id} {...props} group={group} depth={props.depth + 1} />
-      ))}
-    </TreeNode>
-  )
+  target: TreeTarget | null
 }
 
 export default function ModelTree(props: ModelTreeProps) {
   const [contextMenu, setContextMenu] = useState<ContextMenuState | null>(null)
-  const [collapsedGroupIds, setCollapsedGroupIds] = useState<Set<string>>(
-    () => new Set(),
-  )
-  if (!props.model) {
-    return <Typography color="text.secondary">尚未生成模型。</Typography>
-  }
+  const [collapsedGroupIds, setCollapsedGroupIds] = useState<Set<string>>(() => new Set())
+  if (!props.model) return <Typography color="text.secondary">尚未生成模型。</Typography>
 
   const data = buildTreeData(props.model)
-  const rootGroups = data.children.get(null) ?? []
   const groupIds = props.model.groups.map((group) => group.id)
-  const allCollapsed =
-    groupIds.length > 0 && groupIds.every((groupId) => collapsedGroupIds.has(groupId))
+  const allCollapsed = groupIds.length > 0 && groupIds.every((id) => collapsedGroupIds.has(id))
   const closeMenu = () => setContextMenu(null)
-  const setBlocksHidden = (blockIds: string[], hidden: boolean) => {
-    for (const blockId of blockIds) props.onSetBlockHidden(blockId, hidden)
-  }
-  const openContextMenu = (event: MouseEvent, blockId: string) => {
+  const openContextMenu = (event: MouseEvent, target: TreeTarget | null) => {
     event.preventDefault()
-    setContextMenu({ mouseX: event.clientX + 2, mouseY: event.clientY - 6, blockId })
+    event.stopPropagation()
+    setContextMenu({ mouseX: event.clientX + 2, mouseY: event.clientY - 6, target })
   }
-  const runContextAction = (action: (blockId: string) => void) => {
-    if (contextMenu) action(contextMenu.blockId)
+  const target = contextMenu?.target
+  const targetHidden = target && target.blockIds.length > 0 &&
+    target.blockIds.every((id) => props.hiddenBlockIds.has(id))
+  const targetNoun = target?.kind === 'group' ? '这个分组' : '这个模型'
+  const toggleTargetVisibility = () => {
+    target?.blockIds.forEach((id) => props.onSetBlockHidden(id, !targetHidden))
     closeMenu()
   }
-  const contextBlockHidden =
-    contextMenu !== null && props.hiddenBlockIds.has(contextMenu.blockId)
+  const showOnlyTarget = () => {
+    if (target?.kind === 'block') props.onShowOnlyBlock(target.blockIds[0])
+    else if (target) {
+      const ids = new Set(target.blockIds)
+      props.model!.blocks.forEach((block) => props.onSetBlockHidden(block.id, !ids.has(block.id)))
+    }
+    closeMenu()
+  }
   const toggleGroup = (groupId: string) => {
     setCollapsedGroupIds((current) => {
       const next = new Set(current)
@@ -186,92 +64,41 @@ export default function ModelTree(props: ModelTreeProps) {
       return next
     })
   }
-  const toggleAllGroups = () => {
-    setCollapsedGroupIds(allCollapsed ? new Set() : new Set(groupIds))
-  }
-  const nodeProps = {
-    data,
-    selectedBlockId: props.selectedBlockId,
-    hiddenBlockIds: props.hiddenBlockIds,
-    onSelectBlock: props.onSelectBlock,
-    onSetBlocksHidden: setBlocksHidden,
-    onOpenContextMenu: openContextMenu,
-    collapsedGroupIds,
-    onToggleGroup: toggleGroup,
-  }
 
   return (
-    <Box className="model-tree">
+    <Box className="model-tree" role="region" aria-label="模型树"
+      onContextMenu={(event) => openContextMenu(event, null)}>
       <Box className="model-tree-toolbar">
-        <Button
-          size="small"
-          className="model-tree-toggle-all"
+        <Button size="small" className="model-tree-toggle-all"
           aria-label={allCollapsed ? '全部展开' : '全部折叠'}
           title={allCollapsed ? '展开所有父节点' : '折叠所有父节点'}
-          onClick={toggleAllGroups}
-        >
+          onClick={() => setCollapsedGroupIds(allCollapsed ? new Set() : new Set(groupIds))}>
           <span aria-hidden="true">{allCollapsed ? '⊞' : '⊟'}</span>
           {allCollapsed ? '全部展开' : '全部折叠'}
         </Button>
       </Box>
-      {rootGroups.map((group) => (
-        <GroupNode key={group.id} {...nodeProps} group={group} depth={0} />
-      ))}
-      <Menu
-        open={contextMenu !== null}
-        onClose={closeMenu}
-        anchorReference="anchorPosition"
-        anchorPosition={
-          contextMenu
-            ? { top: contextMenu.mouseY, left: contextMenu.mouseX }
-            : undefined
-        }
-      >
-        <MenuItem
-          onClick={() =>
-            runContextAction((blockId) =>
-              props.onSetBlockHidden(blockId, !contextBlockHidden),
-            )
-          }
-        >
-          {contextBlockHidden ? '显示这个模型' : '隐藏这个模型'}
-        </MenuItem>
-        <MenuItem onClick={() => runContextAction(props.onShowOnlyBlock)}>
-          只显示这个模型
-        </MenuItem>
-        <MenuItem
-          onClick={() => {
-            props.onShowAllBlocks()
-            closeMenu()
-          }}
-        >
-          显示全部模型
-        </MenuItem>
+      <ModelTreeNodes parentId={null} data={data} selectedBlockId={props.selectedBlockId}
+        hiddenBlockIds={props.hiddenBlockIds} collapsedGroupIds={collapsedGroupIds}
+        onSelectBlock={props.onSelectBlock} onToggleGroup={toggleGroup}
+        onOpenContextMenu={openContextMenu} />
+      <Menu open={contextMenu !== null} onClose={closeMenu} anchorReference="anchorPosition"
+        onContextMenu={(event) => { event.preventDefault(); event.stopPropagation() }}
+        anchorPosition={contextMenu ? { top: contextMenu.mouseY, left: contextMenu.mouseX } : undefined}>
+        {target && [
+          <MenuItem key="visibility" disabled={target.blockIds.length === 0} onClick={toggleTargetVisibility}>
+            {targetHidden ? '显示' : '隐藏'}{targetNoun}
+          </MenuItem>,
+          <MenuItem key="only" disabled={target.blockIds.length === 0} onClick={showOnlyTarget}>
+            只显示{targetNoun}
+          </MenuItem>,
+          <Divider key="divider" />,
+        ]}
+        <MenuItem onClick={() => { props.onShowAllBlocks(); closeMenu() }}>显示全部模型</MenuItem>
+        <MenuItem onClick={() => {
+          props.model!.blocks.forEach((block) => props.onSetBlockHidden(block.id, true))
+          closeMenu()
+        }}>隐藏全部模型</MenuItem>
       </Menu>
     </Box>
   )
-}
-
-function buildTreeData(model: PackageModel): TreeData {
-  const children = new Map<string | null, ModelGroup[]>()
-  for (const group of model.groups) {
-    const items = children.get(group.parent_id) ?? []
-    items.push(group)
-    children.set(group.parent_id, items)
-  }
-  const descendantIds = new Map<string, string[]>()
-  const collect = (group: ModelGroup): string[] => {
-    const ids = [
-      ...group.block_ids,
-      ...(children.get(group.id) ?? []).flatMap((child) => collect(child)),
-    ]
-    descendantIds.set(group.id, ids)
-    return ids
-  }
-  for (const root of children.get(null) ?? []) collect(root)
-  return {
-    blocks: new Map(model.blocks.map((block) => [block.id, block])),
-    children,
-    descendantIds,
-  }
 }
