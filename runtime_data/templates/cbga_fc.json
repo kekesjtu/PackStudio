@@ -701,10 +701,11 @@
       "options": [],
       "option_labels": {},
       "presets": [],
-      "visible_when": {
+      "visible_when": {},
+      "enabled_when": {
         "cover.type": "encapsulant"
       },
-      "enabled_when": {}
+      "help_text": "顶部结构选择“塑封体（Encapsulant）”时可用。"
     },
     {
       "key": "slug.length",
@@ -1023,7 +1024,7 @@
     {
       "group_id": "group-slug",
       "label": "散热块材料",
-      "default": "",
+      "default": "copper",
       "step": "slug",
       "options": [
         "",
@@ -1037,7 +1038,7 @@
     {
       "group_id": "group-slug-adhesive",
       "label": "支脚粘接材料",
-      "default": "",
+      "default": "stiffener-adhesive",
       "step": "slug",
       "options": [
         "",

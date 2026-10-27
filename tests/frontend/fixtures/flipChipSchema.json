@@ -4943,10 +4943,11 @@
         "evidence_status": "implemented",
         "editable": true,
         "material_group_id": null,
-        "visible_when": {
+        "visible_when": null,
+        "enabled_when": {
           "cover.type": "encapsulant"
         },
-        "enabled_when": null
+        "help_text": "顶部结构选择“塑封体（Encapsulant）”时可用。"
       },
       {
         "target_id": "cbga_fc.slug.length",
@@ -5206,7 +5207,7 @@
         "component": "group-slug",
         "label": "散热块材料",
         "control": "material",
-        "default": "",
+        "default": "copper",
         "unit": null,
         "minimum": null,
         "maximum": null,
@@ -5499,7 +5500,7 @@
         "component": "group-slug-adhesive",
         "label": "支脚粘接材料",
         "control": "material",
-        "default": "",
+        "default": "stiffener-adhesive",
         "unit": null,
         "minimum": null,
         "maximum": null,
@@ -10785,6 +10786,39 @@
         "enabled_when": null
       },
       {
+        "target_id": "pbga_fc.vias.modeling",
+        "ui_location": "modeling",
+        "component": "modeling",
+        "label": "芯层通孔建模",
+        "control": "select",
+        "default": "discrete",
+        "unit": null,
+        "minimum": null,
+        "maximum": null,
+        "options": [
+          "discrete",
+          "equivalent"
+        ],
+        "option_labels": null,
+        "preset_values": null,
+        "classification": "enum_option",
+        "preset_bga": null,
+        "preset_materials": null,
+        "preset_notes": null,
+        "property_name": "vias.modeling",
+        "supported_values": [
+          "discrete",
+          "equivalent"
+        ],
+        "evidence_status": "implemented",
+        "editable": true,
+        "material_group_id": null,
+        "visible_when": {
+          "vias.enabled": true
+        },
+        "enabled_when": null
+      },
+      {
         "target_id": "pbga_fc.slug.enabled",
         "ui_location": "slug",
         "component": "slug",
@@ -11069,7 +11103,7 @@
         "component": "group-slug",
         "label": "散热块材料",
         "control": "material",
-        "default": "",
+        "default": "copper",
         "unit": null,
         "minimum": null,
         "maximum": null,
@@ -11362,7 +11396,7 @@
         "component": "group-slug-adhesive",
         "label": "支脚粘接材料",
         "control": "material",
-        "default": "",
+        "default": "stiffener-adhesive",
         "unit": null,
         "minimum": null,
         "maximum": null,
@@ -11802,39 +11836,6 @@
         "preset_notes": null,
         "property_name": "vias.plating",
         "supported_values": [],
-        "evidence_status": "implemented",
-        "editable": true,
-        "material_group_id": null,
-        "visible_when": {
-          "vias.enabled": true
-        },
-        "enabled_when": null
-      },
-      {
-        "target_id": "pbga_fc.vias.modeling",
-        "ui_location": "thermal_vias",
-        "component": "thermal_vias",
-        "label": "芯层通孔建模",
-        "control": "select",
-        "default": "discrete",
-        "unit": null,
-        "minimum": null,
-        "maximum": null,
-        "options": [
-          "discrete",
-          "equivalent"
-        ],
-        "option_labels": null,
-        "preset_values": null,
-        "classification": "enum_option",
-        "preset_bga": null,
-        "preset_materials": null,
-        "preset_notes": null,
-        "property_name": "vias.modeling",
-        "supported_values": [
-          "discrete",
-          "equivalent"
-        ],
         "evidence_status": "implemented",
         "editable": true,
         "material_group_id": null,
@@ -12349,7 +12350,7 @@
         "component": "group-upper",
         "label": "增层介质",
         "control": "material",
-        "default": "",
+        "default": "bt",
         "unit": null,
         "minimum": null,
         "maximum": null,
@@ -12828,7 +12829,7 @@
         "component": "group-lower",
         "label": "增层介质",
         "control": "material",
-        "default": "",
+        "default": "bt",
         "unit": null,
         "minimum": null,
         "maximum": null,

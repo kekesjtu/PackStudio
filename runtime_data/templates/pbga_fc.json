@@ -972,7 +972,7 @@
       "key": "vias.modeling",
       "label": "芯层通孔建模",
       "default": "discrete",
-      "step": "thermal_vias",
+      "step": "modeling",
       "control": "select",
       "unit": null,
       "minimum": null,
@@ -1392,7 +1392,7 @@
     {
       "group_id": "group-slug",
       "label": "散热块材料",
-      "default": "",
+      "default": "copper",
       "step": "slug",
       "options": [
         "",
@@ -1406,7 +1406,7 @@
     {
       "group_id": "group-slug-adhesive",
       "label": "支脚粘接材料",
-      "default": "",
+      "default": "stiffener-adhesive",
       "step": "slug",
       "options": [
         "",
@@ -1431,7 +1431,7 @@
     {
       "group_id": "group-upper",
       "label": "增层介质",
-      "default": "",
+      "default": "bt",
       "step": "upper_built_up",
       "options": [
         "",
@@ -1444,7 +1444,7 @@
     {
       "group_id": "group-lower",
       "label": "增层介质",
-      "default": "",
+      "default": "bt",
       "step": "lower_built_up",
       "options": [
         "",

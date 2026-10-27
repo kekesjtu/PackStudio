@@ -3,13 +3,14 @@ import FormControlLabel from '@mui/material/FormControlLabel'
 import Stack from '@mui/material/Stack'
 import Switch from '@mui/material/Switch'
 import TextField from '@mui/material/TextField'
+import Typography from '@mui/material/Typography'
 import type { FocusEvent } from 'react'
 
 import FieldShell from '../../ui/FieldShell'
 import MaterialSelect from './MaterialSelect'
 import MetalLayerTable from './MetalLayerTable'
 
-import { fieldValues, filterFootprints, isVisible, matches, valueFor } from './wizardValues'
+import { defaultFor, fieldValues, filterFootprints, isVisible, matches, valueFor } from './wizardValues'
 import updateWizardRequest from './updateWizardRequest'
 
 import type {
@@ -49,7 +50,9 @@ export default function WizardFields({
         return (
           <Field
             key={field.target_id}
-            field={filterFootprints(field, allFields, request)}
+            field={field.control === 'material'
+              ? { ...field, default: defaultFor(field, request, allFields) }
+              : filterFootprints(field, allFields, request)}
             value={valueFor(field, request, allFields)}
             enabled={enabled}
             materials={[...available.values()]}
@@ -86,17 +89,20 @@ function Field({
     outerFaces={field.target_id === 'chip_array.metal.layers'} />
   if (field.control === 'checkbox') {
     return (
-      <FormControlLabel
-        className="field-switch"
-        control={
-          <Switch
-            checked={Boolean(value)}
-            disabled={!enabled}
-            onChange={(event) => onChange(event.target.checked)}
-          />
-        }
-        label={field.label}
-      />
+      <Stack spacing={0.5}>
+        <FormControlLabel
+          className="field-switch"
+          control={
+            <Switch
+              checked={Boolean(value)}
+              disabled={!enabled}
+              onChange={(event) => onChange(event.target.checked)}
+            />
+          }
+          label={field.label}
+        />
+        {field.help_text && <Typography variant="caption" color="text.secondary">{field.help_text}</Typography>}
+      </Stack>
     )
   }
   if (field.control === 'material') {
@@ -117,7 +123,7 @@ function Field({
       ? `允许范围 ${numericValues[0]} – ${numericValues[1]}${field.unit ? ` ${field.unit}` : ''}`
       : undefined
   return (
-    <FieldShell label={field.label} hint={interval} disabled={!enabled}>
+    <FieldShell label={field.label} hint={field.help_text ?? interval} disabled={!enabled}>
       <TextField
         value={value ?? ''}
         type={numeric && !useSelect ? 'number' : undefined}

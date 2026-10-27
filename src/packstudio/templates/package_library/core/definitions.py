@@ -38,6 +38,7 @@ class FieldDefinition:
     presets: tuple[PresetOption, ...] = ()
     visible_when: dict[str, TemplateValue] = field(default_factory=dict)
     enabled_when: dict[str, TemplateValue] = field(default_factory=dict)
+    help_text: str | None = None
 
     def target_id(self, template_id: str) -> str:
         return f"{template_id}.{self.key}"

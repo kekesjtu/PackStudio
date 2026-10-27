@@ -32,6 +32,8 @@ Bumps 物性使用有厚度的各向同性等效算法，建模约定与实现�
 [BGA 与 Bumps 建模表达](../docs/decisions/BGA与Bumps建模表达.md)。
 
 材料选项中的 `*` 展开为运行材料库；空字符串表示 No Attachment。
+组件选材按材料库分类组织“材料组 + 组内材料”，原生缺省材料的默认值见
+[材料组与默认材料](../docs/decisions/材料组与默认材料.md)。
 金属层表以 Depth、Thickness、Coverage 保存，运行输入长度单位为 mm、覆盖率单位为 %。
 Chip Array 的两层/四层选择初始化层表，表格编辑与外层铜厚输入联动。
 Bare Die、两个 FC 和 Chip Array 的建模与证据见

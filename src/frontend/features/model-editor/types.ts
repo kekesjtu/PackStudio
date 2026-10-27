@@ -7,6 +7,7 @@ export interface ConductivityTensor {
 export interface Material {
   id: string
   name: string
+  category?: string
   conductivity: ConductivityTensor
   density: number
   specific_heat: number

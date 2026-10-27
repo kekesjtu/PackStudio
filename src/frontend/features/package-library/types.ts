@@ -42,6 +42,7 @@ export interface WizardField {
   visible_when?: Record<string, WizardValue>
   enabled_when?: Record<string, WizardValue>
   hidden_when?: Record<string, WizardValue>
+  help_text?: string
 }
 
 export interface WizardStep {

@@ -60,6 +60,7 @@ def build_wizard_schema(definition: TemplateDefinition) -> dict[str, Any]:
                 "material_group_id": None,
                 "visible_when": item.visible_when or None,
                 "enabled_when": item.enabled_when or None,
+                **({"help_text": item.help_text} if item.help_text else {}),
             }
         )
     for item in definition.material_selections:

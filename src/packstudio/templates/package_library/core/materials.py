@@ -29,6 +29,7 @@ def production_materials() -> dict[str, Material]:
         materials[identifier] = Material(
             id=identifier,
             name=record["name"],
+            category=record["category"],
             conductivity=tensor,
             density=record["density"]["value"],
             specific_heat=record["specific_heat"]["value"],

@@ -20,6 +20,7 @@ class Material(BaseModel):
 
     id: str = Field(pattern=r"^[a-z0-9][a-z0-9._-]*$")
     name: str = Field(min_length=1, max_length=120)
+    category: str = Field(default="Others", min_length=1, max_length=120)
     conductivity: ConductivityTensor
     density: float = Field(gt=0, description="kg/m^3")
     specific_heat: float = Field(gt=0, description="J/(kg*K)")

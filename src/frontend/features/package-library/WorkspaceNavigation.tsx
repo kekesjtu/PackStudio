@@ -28,7 +28,7 @@ export default function WorkspaceNavigation({
           activeStep={activeStep}
           onSelect={onSelect}
         />
-        {schema.steps.map((step) => (
+        {schema.steps.filter((step) => step.id !== 'modeling').map((step) => (
           <Fragment key={step.id}>
             <NavigationItem
               id={step.id}
@@ -58,7 +58,7 @@ export default function WorkspaceNavigation({
             )}
           </Fragment>
         ))}
-        {schema.has_bga && (
+        {(schema.has_bga || schema.steps.some((step) => step.id === 'modeling')) && (
           <NavigationItem
             id="packstudio_modeling"
             label="建模选项"

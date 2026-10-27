@@ -1,3 +1,5 @@
+import Stack from '@mui/material/Stack'
+
 import BgaConfigurationPanel from './BgaConfigurationPanel'
 import NativeBgaPanel from './NativeBgaPanel'
 import SolderBallMap from './SolderBallMap'
@@ -51,8 +53,13 @@ export function renderStep(
       />
     )
   }
-  if (activeStep === 'packstudio_modeling') {
-    return <ModelingFields request={request} onChange={onChange} />
+  if (activeStep === 'packstudio_modeling' || activeStep === 'modeling') {
+    const modeling = schema.steps.find((step) => step.id === 'modeling')
+    return <Stack spacing={2}>
+      <ModelingFields request={request} onChange={onChange} />
+      {modeling && <WizardFields step={modeling} allFields={allFields}
+        request={request} materials={materials} onChange={onChange} />}
+    </Stack>
   }
   const step = schema.steps.find((item) => item.id === activeStep) ?? schema.steps[0]
   return <>
@@ -68,7 +75,7 @@ export function stepTitle(schema: TemplateSchema, stepId: string) {
   if (stepId === 'packstudio_bga_removal') return '焊球去除'
   if (stepId === 'packstudio_bga_center') return '中央焊球'
   if (stepId === 'packstudio_via_removal') return '热通孔去除'
-  if (stepId === 'packstudio_modeling') return '建模选项'
+  if (stepId === 'packstudio_modeling' || stepId === 'modeling') return '建模选项'
   return schema.steps.find((step) => step.id === stepId)?.label ?? '参数'
 }
 
