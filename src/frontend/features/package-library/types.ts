@@ -64,6 +64,13 @@ export interface TemplateSchema {
 }
 
 export interface BgaConfiguration {
+  depopulated_center?: boolean | null
+  staggered?: boolean
+  center_staggered?: boolean
+  populated_rows?: number | null
+  populated_columns?: number | null
+  ball_map_enabled?: boolean
+  ball_map?: Array<{ id: string; x: number; y: number }>
   allow_asymmetric_regions?: boolean
   representation: 'equivalent' | 'discrete'
   center_solder_enabled: boolean
@@ -76,6 +83,8 @@ export interface BgaConfiguration {
 }
 
 export interface TemplateRequest {
+  summary?: { part_number?: string; vendor?: string; max_power_w?: number | null;
+    max_junction_temperature_c?: number | null; max_case_temperature_c?: number | null; notes?: string }
   template_id: string
   design_name: string | null
   overrides: Record<string, WizardValue>

@@ -57,6 +57,13 @@ export default function MaterialFields({
           onChange={(value) => onChange({ ...material, specific_heat: value ?? 0 })}
         />
       </Box>
+      {material.conductivity_coefficient != null && <Box className="field-grid">
+        <NumberInput label="导热温度系数" value={material.conductivity_coefficient}
+          onChange={(value) => onChange({ ...material, conductivity_coefficient: value ?? 0 })} />
+        <NumberInput label="导热参考温度" unit="°C"
+          value={material.conductivity_reference_temperature_c ?? 0}
+          onChange={(value) => onChange({ ...material, conductivity_reference_temperature_c: value ?? 0 })} />
+      </Box>}
     </Box>
   )
 }

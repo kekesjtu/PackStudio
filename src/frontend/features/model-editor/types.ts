@@ -12,6 +12,8 @@ export interface Material {
   specific_heat: number
   color: string
   source?: string | null
+  conductivity_coefficient?: number | null
+  conductivity_reference_temperature_c?: number | null
 }
 
 export type StructureType =
@@ -41,7 +43,7 @@ export interface AxisAlignedBlock {
   structure_type: StructureType
   origin: { x: number; y: number; z: number }
   size: { x: number; y: number; z: number }
-  material_id: string
+  material_id: string | null
   parent_group_id: string
   metadata: Record<string, string | number | boolean>
 }
@@ -68,6 +70,7 @@ export interface BoundaryCondition {
 }
 
 export interface PackageModel {
+  warnings?: string[]
   schema_version: 'packstudio.model/v1'
   template_id: string
   name: string

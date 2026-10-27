@@ -8,8 +8,14 @@ from packstudio.domain.model import ModelGroup, PackageModel
 from packstudio.domain.thermal import HeatSource
 from packstudio.templates.package_library.core.coupled_materials import coupled_materials
 from packstudio.templates.package_library.core.definitions import TemplateDefinition
-from packstudio.templates.package_library.core.geometry import DraftBlock, normalize_drafts
+from packstudio.templates.package_library.core.geometry import (
+    DraftBlock,
+    normalize_drafts,
+    preserve_drafts,
+)
 from packstudio.templates.package_library.core.materials import production_materials
+from packstudio.templates.package_library.core.native_auxiliary import native_auxiliary
+from packstudio.templates.package_library.core.native_metadata import native_metadata
 from packstudio.templates.package_library.core.parameters import TemplateRequest
 from packstudio.templates.package_library.core.preset_request import resolve_preset_request
 
@@ -33,7 +39,11 @@ def generate_template(
     effective_request = definition.resolve_material_request(request, values)
     # Layer builders need resolved constituents before calculating equivalents.
     built: BuiltTemplate = definition.builder(values, effective_request)
-    normalized = normalize_drafts(built.drafts)
+    normalized = (
+        preserve_drafts(built.drafts)
+        if definition.id in {"bare_die", "chip_array", "cbga_fc", "pbga_fc"}
+        else normalize_drafts(built.drafts)
+    )
     blocks = [*normalized.blocks, *built.blocks]
     group_names = {**normalized.group_names, **built.group_names}
     materials = {**production_materials()}
@@ -45,15 +55,23 @@ def generate_template(
     # Physical constituent edits feed the rules above. Explicit edits to a
     # generated material remain user overrides, as for existing via materials.
     materials.update((item.id, item) for item in request.custom_materials if item.id in derived_ids)
-    blocks = _apply_material_assignments(blocks, materials, effective_request, derived_ids)
+    generated_ids = (
+        {item.id for item in built.materials if item.id not in production_materials()}
+        if definition.id in {"bare_die", "chip_array", "cbga_fc", "pbga_fc"}
+        else set()
+    )
+    blocks = _apply_material_assignments(
+        blocks, materials, effective_request, derived_ids, generated_ids
+    )
     groups = _build_groups(blocks, group_names, definition.display_name)
     power = request.die_power_w if request.die_power_w is not None else built.power_w
     heat_sources = _build_heat_sources(blocks, power)
-    used_ids = {block.material_id for block in blocks}
+    used_ids = {block.material_id for block in blocks if block.material_id is not None}
     footprint = next(
         (values.text(field.key) for field in definition.fields if field.control == "footprint"),
         None,
     )
+    extra_metadata = {**built.metadata, **native_metadata(values, request, blocks)}
     return PackageModel(
         template_id=definition.id,
         name=request.design_name or definition.display_name,
@@ -62,6 +80,7 @@ def generate_template(
         groups=groups,
         heat_sources=heat_sources,
         boundaries=[],
+        auxiliary_geometry=native_auxiliary(values, request, blocks, extra_metadata),
         metadata={
             "implementation": "packstudio-native",
             "template_version": "2.2",
@@ -75,6 +94,7 @@ def generate_template(
             "solver_results_included": False,
             **built.metadata,
             **({} if preset is None else preset.metadata),
+            **extra_metadata,
         },
     )
 
@@ -84,23 +104,30 @@ def _apply_material_assignments(
     materials: dict[str, Material],
     request: TemplateRequest,
     derived_ids: set[str],
+    generated_ids: set[str],
 ) -> list[AxisAlignedBlock]:
-    missing = sorted(set(request.material_assignments.values()) - set(materials))
+    missing = sorted(set(request.material_assignments.values()) - set(materials) - {""})
     if missing:
         raise ValueError(f"unknown material assignments: {missing}")
     return [
         block
-        if block.material_id in derived_ids
-        and (
-            block.parent_group_id
-            in {
-                "group-bond-wires",
-                "group-die-flag",
-                "group-vias",
-                "group-lead-frame",
-                "group-traces",
-            }
-            or (block.parent_group_id == "group-tie-bars" and block.material_id == "pqfp-tie-bar")
+        if block.material_id in generated_ids
+        or (
+            block.material_id in derived_ids
+            and (
+                block.parent_group_id
+                in {
+                    "group-bond-wires",
+                    "group-die-flag",
+                    "group-vias",
+                    "group-lead-frame",
+                    "group-traces",
+                }
+                or (
+                    block.parent_group_id == "group-tie-bars"
+                    and block.material_id == "pqfp-tie-bar"
+                )
+            )
         )
         else block.model_copy(
             update={
@@ -111,6 +138,7 @@ def _apply_material_assignments(
                         block.material_id,
                     ),
                 )
+                or None
             }
         )
         for block in blocks
@@ -126,6 +154,8 @@ def _build_groups(
     for block in blocks:
         grouped[block.parent_group_id].append(block.id)
     groups = [ModelGroup(id="package", name=package_name)]
+    if "group-center-solder-ball" in grouped and "group-solder-ball" not in grouped:
+        groups.append(ModelGroup(id="group-solder-ball", name="Solder balls", parent_id="package"))
     for group_id, block_ids in grouped.items():
         parent_id = "group-solder-ball" if group_id == "group-center-solder-ball" else "package"
         groups.append(

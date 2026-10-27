@@ -23,7 +23,7 @@ def validate_exports(model, schema: etree.XMLSchema) -> dict:
     blocks = root.findall(".//cuboid")
     assert len(blocks) == len(model.blocks)
     assert {block.findtext("name") for block in blocks} == {block.id for block in model.blocks}
-    assert {block.findtext("material") for block in blocks} <= {
+    assert {block.findtext("material") for block in blocks} - {None} <= {
         material.id for material in model.materials
     }
     assert not model.boundaries
@@ -54,6 +54,8 @@ def main() -> None:
                 "cases": {},
             }
             representations = ["equivalent", "discrete"] if definition.has_bga else [None]
+            if (preset.get("bga") or {}).get("omitted_cells"):
+                representations = ["discrete"]
             counts = []
             for representation in representations:
                 request = default_request(template_id).model_copy(
@@ -97,7 +99,7 @@ def main() -> None:
         "source_count": 342,
         "model_export_cases": cases,
         "input_sha256": inputs,
-        "scope": "Generation, material/group references, nonoverlap, positive sizes, "
+        "scope": "Generation, material/group references, overlap warnings, positive sizes, "
         "BGA count parity and FloXML XSD; no native PACK comparison for new presets.",
         "records": records,
     }

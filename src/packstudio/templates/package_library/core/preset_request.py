@@ -21,6 +21,8 @@ def resolve_preset_request(
         if changes.get("representation") is None:
             changes.pop("representation", None)
         configuration.update(changes)
+        if "solder_removal_enabled" in changes and "depopulated_center" not in changes:
+            configuration["depopulated_center"] = changes["solder_removal_enabled"]
         if (
             "solder_removal_enabled" in request.bga.model_fields_set
             and not request.bga.solder_removal_enabled

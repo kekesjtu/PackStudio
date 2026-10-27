@@ -18,6 +18,7 @@ def via_grid_drafts(
     center_y: float = 0,
     material_id: str = "copper",
     configuration: ViaConfiguration | None = None,
+    native_row_order: bool = False,
 ) -> list[DraftBlock]:
     if diameter > pitch:
         raise ValueError("via diameter must not exceed the pitch")
@@ -28,7 +29,8 @@ def via_grid_drafts(
             if (row, column) in omitted:
                 continue
             x = (column - (columns - 1) / 2) * pitch + center_x
-            y = (row - (rows - 1) / 2) * pitch + center_y
+            native_row = (rows - 1) / 2 - row
+            y = (native_row if native_row_order else -native_row) * pitch + center_y
             drafts.append(
                 centered_draft(
                     f"{prefix}-r{row + 1}-c{column + 1}",

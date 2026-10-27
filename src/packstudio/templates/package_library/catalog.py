@@ -69,7 +69,9 @@ def default_request(template_id: str) -> TemplateRequest:
         bga={"representation": template_defaults(template_id)["default_bga_representation"]}
         if item.has_bga
         else None,
-        vias=ViaConfiguration() if any(f.key == "vias.enabled" for f in item.fields) else None,
+        vias=ViaConfiguration()
+        if template_id != "chip_array" and any(f.key == "vias.enabled" for f in item.fields)
+        else None,
     )
 
 

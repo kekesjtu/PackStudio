@@ -31,9 +31,7 @@ def source_bga_pattern(
         ("solder_removal_enabled", "removal_rows", "removal_columns"),
         ("center_solder_enabled", "center_solder_rows", "center_solder_columns"),
     ):
-        if configuration[enabled] and (
-            configuration[row] is None or configuration[column] is None
-        ):
+        if configuration[enabled] and (configuration[row] is None or configuration[column] is None):
             raise ValueError(f"native {enabled} requires both row and column counts")
         if configuration[enabled] and (
             (raw["ME"] - configuration[row]) % 2 or (raw["MD"] - configuration[column]) % 2
@@ -78,12 +76,15 @@ def _parse_ball_coordinates(value: str, columns: int, rows: int) -> set[tuple[in
 
 
 def source_ball_count(raw: dict, bga: dict) -> int:
-    center = center_bounds(
-        raw["ME"], raw["MD"], bga["center_solder_rows"], bga["center_solder_columns"]
-    ) if bga["center_solder_enabled"] else (0, 0, 0, 0)
+    center = (
+        center_bounds(raw["ME"], raw["MD"], bga["center_solder_rows"], bga["center_solder_columns"])
+        if bga["center_solder_enabled"]
+        else (0, 0, 0, 0)
+    )
     removal = (
         center_bounds(raw["ME"], raw["MD"], bga["removal_rows"], bga["removal_columns"])
-        if bga["solder_removal_enabled"] else (0, 0, 0, 0)
+        if bga["solder_removal_enabled"]
+        else (0, 0, 0, 0)
     )
     omitted = {(cell["row"], cell["column"]) for cell in bga["omitted_cells"]}
     return sum(

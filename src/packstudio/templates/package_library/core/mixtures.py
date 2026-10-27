@@ -33,6 +33,8 @@ def mix_material(
             "conductivity": ConductivityTensor(**conductivity),
             "density": density,
             "specific_heat": specific_heat,
+            "conductivity_coefficient": None,
+            "conductivity_reference_temperature_c": None,
             "source": f"PACK derived mixture; metal={metal.id}; matrix={matrix.id}; "
             f"volume_fraction={fraction:.16g}",
         }

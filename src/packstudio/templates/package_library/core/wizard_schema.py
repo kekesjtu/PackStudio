@@ -104,9 +104,7 @@ def build_wizard_schema(definition: TemplateDefinition) -> dict[str, Any]:
             "bga_pattern": (
                 "implicit_full_with_center_and_removal" if definition.has_bga else None
             ),
-            "flip_chip_bumps": (
-                "thick_orthotropic_equivalent" if definition.has_flip_chip else None
-            ),
+            "flip_chip_bumps": ("thick_isotropic_equivalent" if definition.has_flip_chip else None),
         },
     }
 

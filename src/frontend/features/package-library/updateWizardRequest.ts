@@ -25,6 +25,46 @@ export default function updateWizardRequest(
   }
   if (field.control === 'footprint') return selectFootprint(request, field, value, fields)
   const overrides = { ...request.overrides }
+  if (field.property_name === 'substrate.layers' && request.template_id === 'chip_array') {
+    const height = value === '4-Layer' ? 0.56 : 0.36
+    const prefix = request.template_id + '.'
+    const read = (key: string, fallback: number) => {
+      const input = fields.find((f) => f.property_name === key)
+      return input ? Number(valueFor(input, request, fields)) : fallback
+    }
+    const top = read('trace.top_thickness', 0.018), bottom = read('trace.bottom_thickness', 0.018)
+    const gap = (height - top - bottom - 2 * 0.036) / 3
+    const layers = [
+      { depth: 0, thickness: top, coverage: 20 },
+      ...(value === '4-Layer' ? [
+        { depth: top + gap, thickness: 0.036, coverage: 90 },
+        { depth: top + 2 * gap, thickness: 0.036, coverage: 90 },
+      ] : []),
+      { depth: height - bottom, thickness: bottom, coverage: 10 },
+    ]
+    overrides[prefix + 'substrate.thickness'] = height
+    overrides[prefix + 'metal.layers'] = JSON.stringify(layers)
+  }
+  if (field.property_name === 'bumps.enabled' && value === true && request.template_id === 'bare_die') {
+    overrides['bare_die.die.flipped'] = true
+  }
+  if (request.template_id === 'chip_array') {
+    const tableField = fields.find((candidate) => candidate.property_name === 'metal.layers')
+    const tableValue = field.property_name === 'metal.layers' ? value
+      : tableField ? valueFor(tableField, request, fields) : null
+    if (tableField && typeof tableValue === 'string') {
+      const layers = JSON.parse(tableValue) as Array<{ depth: number; thickness: number | null; coverage: number }>
+      if (layers.length >= 2) {
+        if (field.property_name === 'metal.layers') {
+          overrides['chip_array.trace.top_thickness'] = layers[0].thickness
+          overrides['chip_array.trace.bottom_thickness'] = layers.at(-1)!.thickness
+        } else if (field.property_name === 'trace.top_thickness' || field.property_name === 'trace.bottom_thickness') {
+          layers[field.property_name === 'trace.top_thickness' ? 0 : layers.length - 1].thickness = value as number | null
+          overrides[tableField.target_id] = JSON.stringify(layers)
+        }
+      }
+    }
+  }
   if (sameValue(value, defaultFor(field, request, fields))) delete overrides[field.target_id]
   else overrides[field.target_id] = value
   return activeRequest({ ...request, overrides }, fields)
@@ -51,7 +91,12 @@ function selectFootprint(
   const pattern = footprint.preset_bga?.[String(value)]
   const bga = pattern && request.bga
     ? { ...pattern, representation: request.bga.representation } : request.bga
-  return activeRequest({ ...next, bga }, fields)
+  const selected = activeRequest({ ...next, bga }, fields)
+  const layers = fields.find((candidate) => candidate.property_name === 'substrate.layers')
+  if (layers && request.template_id === 'chip_array' && valueFor(layers, selected, fields) === '4-Layer') {
+    return updateWizardRequest(selected, layers, '4-Layer', fields)
+  }
+  return selected
 }
 
 function activeRequest(request: TemplateRequest, fields: WizardField[]) {

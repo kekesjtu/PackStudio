@@ -14,6 +14,7 @@ def reference_request(template_id: str, overrides: dict | None = None):
     changes = overrides or {}
     values.update({key.removeprefix(f"{template_id}."): value for key, value in changes.items()})
     item = definition(template_id)
+    defaults = {field.key: field.default for field in item.fields}
     request = default_request(template_id)
     return request.model_copy(
         update={
@@ -21,8 +22,14 @@ def reference_request(template_id: str, overrides: dict | None = None):
                 field.target_id(template_id): values[field.key]
                 for field in item.fields
                 if field.key in values
-                and all(values.get(key) == value for key, value in field.visible_when.items())
-                and all(values.get(key) == value for key, value in field.enabled_when.items())
+                and all(
+                    values.get(key, defaults.get(key)) == value
+                    for key, value in field.visible_when.items()
+                )
+                and all(
+                    values.get(key, defaults.get(key)) == value
+                    for key, value in field.enabled_when.items()
+                )
             }
         }
     )

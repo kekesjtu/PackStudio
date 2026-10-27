@@ -36,7 +36,7 @@ export default function WorkspaceNavigation({
               activeStep={activeStep}
               onSelect={onSelect}
             />
-            {step.id === 'thermal_vias' && (
+            {step.id === 'thermal_vias' && schema.template_id !== 'chip_array' && (
               <NavigationItem id="packstudio_via_removal" label="热通孔去除"
                 activeStep={activeStep} onSelect={onSelect} />
             )}

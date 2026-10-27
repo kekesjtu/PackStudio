@@ -12,6 +12,7 @@
 | `floxml/results.json` | 记录对应证据批次的模型比较结果与分类 |
 | `floxml-model-fixes/results.json` | 提供专项模型比较数据 |
 | `catalog_presets.json` | 记录 342 个源预设的输入哈希、几何引用与 FloXML XSD 审计 |
+| [target-pack-fidelity](target-pack-fidelity/README.md) | Bare Die、两个 FC 与 Chip Array 的 93 组原生证据及建模规则 |
 
 `tests/backend/test_floxml_comparison.py` 与
 `tests/backend/templates/test_leadframe_model_fixes.py` 读取原生导出证据；

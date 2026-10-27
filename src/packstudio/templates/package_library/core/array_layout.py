@@ -150,20 +150,28 @@ def _cell_state(
     omitted = {(cell.row, cell.column) for cell in parameters.omitted_cells}
     if (row, column) in omitted:
         return (False, "void")
-    center = center_bounds(
-        parameters.rows,
-        parameters.columns,
-        parameters.center_solder_rows,
-        parameters.center_solder_columns,
-    ) if parameters.center_solder_enabled else (0, 0, 0, 0)
+    center = (
+        center_bounds(
+            parameters.rows,
+            parameters.columns,
+            parameters.center_solder_rows,
+            parameters.center_solder_columns,
+        )
+        if parameters.center_solder_enabled
+        else (0, 0, 0, 0)
+    )
     if parameters.center_solder_enabled and is_in_bounds(row, column, center):
         return (True, "center")
-    removal = center_bounds(
-        parameters.rows,
-        parameters.columns,
-        parameters.removal_rows,
-        parameters.removal_columns,
-    ) if parameters.solder_removal_enabled else (0, 0, 0, 0)
+    removal = (
+        center_bounds(
+            parameters.rows,
+            parameters.columns,
+            parameters.removal_rows,
+            parameters.removal_columns,
+        )
+        if parameters.solder_removal_enabled
+        else (0, 0, 0, 0)
+    )
     if parameters.solder_removal_enabled and is_in_bounds(row, column, removal):
         return (False, "void")
     if parameters.center_solder_enabled or parameters.solder_removal_enabled:

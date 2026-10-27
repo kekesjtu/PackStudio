@@ -62,4 +62,3 @@ class SolderBallParameters(ArrayLayerParameters):
     def validate_solder_style(self) -> "SolderBallParameters":
         validate_solder_style(self)
         return self
-

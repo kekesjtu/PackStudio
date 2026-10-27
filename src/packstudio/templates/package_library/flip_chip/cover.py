@@ -24,7 +24,11 @@ def append_top_structure(
                 (
                     values.number("cover.length"),
                     values.number("cover.width"),
-                    values.number("cover.thickness"),
+                    (
+                        die_top - substrate_top
+                        if values.boolean("cover.flush")
+                        else values.number("cover.thickness")
+                    ),
                 ),
                 substrate_top,
                 "epoxy-mold",
@@ -55,20 +59,30 @@ def _append_lid(
     if min(cavity_length, cavity_width) <= 0:
         raise ValueError("lid side walls leave no central cavity")
     wall_height = die_top - substrate_top
+    stiffener = values.boolean("stiffener.enabled")
+    if stiffener:
+        length = values.number("stiffener.length")
+        width = values.number("stiffener.width")
+        cavity_length = values.number("stiffener.cavity_length")
+        cavity_width = values.number("stiffener.cavity_width")
     drafts.extend(
         (
             centered_draft(
                 "lid",
                 "Lid",
                 StructureType.LID,
-                (length, width, values.number("lid.thickness")),
+                (
+                    values.number("lid.length"),
+                    values.number("lid.width"),
+                    values.number("lid.thickness"),
+                ),
                 die_top,
                 "aluminum",
                 "group-lid",
                 "Lid",
             ),
             *rectangular_ring_drafts(
-                "lid-wall",
+                "stiffener" if stiffener else "lid-wall",
                 length,
                 width,
                 cavity_length,
@@ -77,8 +91,8 @@ def _append_lid(
                 wall_height,
                 StructureType.LID,
                 "aluminum",
-                "group-lid",
-                "Lid",
+                "group-stiffener" if stiffener else "group-lid",
+                "Stiffener" if stiffener else "Lid",
             ),
             *rectangular_ring_drafts(
                 "lid-adhesive",
@@ -86,7 +100,7 @@ def _append_lid(
                 width,
                 cavity_length,
                 cavity_width,
-                substrate_top,
+                die_top if stiffener else substrate_top,
                 values.number("lid.adhesive"),
                 StructureType.DIE_ATTACH,
                 "stiffener-adhesive",
@@ -105,6 +119,22 @@ def _append_lid(
             ),
         )
     )
+    if stiffener:
+        drafts.extend(
+            rectangular_ring_drafts(
+                "stiffener-adhesive",
+                length,
+                width,
+                cavity_length,
+                cavity_width,
+                substrate_top,
+                values.number("stiffener.adhesive"),
+                StructureType.DIE_ATTACH,
+                "stiffener-adhesive",
+                "group-stiffener-adhesive",
+                "Stiffener adhesive",
+            )
+        )
 
 
 def _append_plate(

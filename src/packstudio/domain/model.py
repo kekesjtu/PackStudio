@@ -3,7 +3,13 @@ from typing import Literal, Protocol
 
 from pydantic import BaseModel, ConfigDict, Field, model_validator
 
-from packstudio.domain.geometry import AxisAlignedBlock, MetadataValue, find_overlapping_pairs
+from packstudio.domain.geometry import (
+    AxisAlignedBlock,
+    MetadataValue,
+    Point3D,
+    Size3D,
+    find_overlapping_pairs,
+)
 from packstudio.domain.materials import Material
 from packstudio.domain.thermal import BoundaryCondition, HeatSource
 
@@ -26,6 +32,14 @@ class ModelGroup(BaseModel):
     block_ids: list[str] = Field(default_factory=list)
 
 
+class AuxiliaryGeometry(BaseModel):
+    model_config = ConfigDict(frozen=True)
+    kind: Literal["region", "monitor_point"]
+    name: str
+    origin: Point3D
+    size: Size3D | None = None
+
+
 class PackageModel(BaseModel):
     model_config = ConfigDict(frozen=True)
 
@@ -40,6 +54,8 @@ class PackageModel(BaseModel):
     heat_sources: list[HeatSource] = Field(default_factory=list)
     boundaries: list[BoundaryCondition] = Field(default_factory=list)
     metadata: dict[str, MetadataValue] = Field(default_factory=dict)
+    warnings: list[str] = Field(default_factory=list)
+    auxiliary_geometry: list[AuxiliaryGeometry] = Field(default_factory=list)
 
     @model_validator(mode="after")
     def validate_references_and_geometry(self) -> "PackageModel":
@@ -50,7 +66,7 @@ class PackageModel(BaseModel):
         _unique_ids(self.boundaries, "boundary")
 
         for block in self.blocks:
-            if block.material_id not in material_ids:
+            if block.material_id is not None and block.material_id not in material_ids:
                 raise ValueError(
                     f"block {block.id} references unknown material {block.material_id}"
                 )
@@ -84,7 +100,10 @@ class PackageModel(BaseModel):
         overlaps = find_overlapping_pairs(self.blocks)
         if overlaps:
             preview = ", ".join(f"{left}/{right}" for left, right in overlaps[:5])
-            raise ValueError(f"model contains overlapping blocks: {preview}")
+            warning = f"模型包含 {len(overlaps)} 对重叠块：{preview}"
+            object.__setattr__(self, "warnings", [warning])
+        else:
+            object.__setattr__(self, "warnings", [])
         return self
 
 

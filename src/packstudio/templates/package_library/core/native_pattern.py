@@ -28,4 +28,11 @@ def native_bga_pattern(branch: dict, values: dict) -> tuple[dict | None, list[st
     if center["centralBalls"]["value"]:
         raw["central_balls"] = "CHECKED"
     pattern, converted_notes = source_bga_pattern(raw, values, "balls")
+    pattern.update(
+        depopulated_center=depop["depopulatedCenter"]["value"] if cells else None,
+        populated_rows=raw.get("MEp"),
+        populated_columns=raw.get("MDp"),
+        staggered=groups["solderBalls"]["properties"]["staggeredMatrix"]["value"],
+        center_staggered=center["staggeredMatrix"]["value"],
+    )
     return pattern, notes + converted_notes

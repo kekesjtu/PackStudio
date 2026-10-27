@@ -4,12 +4,12 @@ from math import pi
 
 from packstudio.domain.materials import ConductivityTensor, Material
 from packstudio.preset_catalog import PresetCatalog
+from packstudio.templates.package_library.bga.native_solder import wire_count
 from packstudio.templates.package_library.core.definitions import TemplateValues
 from packstudio.templates.package_library.core.leadframe_materials import leadframe_materials
 from packstudio.templates.package_library.core.materials import material_id_for_name
 from packstudio.templates.package_library.core.mixtures import mix_material
 from packstudio.templates.package_library.core.parameters import TemplateRequest
-from packstudio.templates.package_library.core.source_ball_pattern import source_ball_count
 from packstudio.templates.package_library.core.wirebond_copper import wirebond_copper
 
 
@@ -41,9 +41,10 @@ def coupled_materials(
         if template_id == "chip_array":
             # This native branch follows the solder-ball count; explicit omission
             # composition remains the project's separate BGA modeling policy.
-            count = source_ball_count(
-                {"ME": values.integer("bga.rows"), "MD": values.integer("bga.columns")},
-                request.bga.model_dump(),
+            count = (
+                wire_count(request.bga, values.integer("bga.rows"), values.integer("bga.columns"))
+                if values.boolean("bond_wire.auto_count")
+                else values.integer("bond_wire.total")
             )
         else:
             count = values.integer(
@@ -118,7 +119,7 @@ def coupled_materials(
     if template_id == "pbga_wb":
         branch = PresetCatalog().read_branch(values.text("footprint.size"))
         result.extend(wirebond_copper(branch, request, available))
-    if template_id in {"chip_array", "pbga_wb"} and values.boolean("vias.enabled"):
+    if template_id == "pbga_wb" and values.boolean("vias.enabled"):
         branch = PresetCatalog().read_branch(values.text("footprint.size"))
         name = branch["groups"]["metalLayers"]["properties"]["materialOfMetal"]["value"]
         metal = available[material_id_for_name(name)]
@@ -126,31 +127,16 @@ def coupled_materials(
         if plating > diameter / 2:
             raise ValueError("via plating must not exceed the via radius")
         fraction = 1 - ((diameter - 2 * plating) / diameter) ** 2
-        if template_id == "chip_array":
-            if branch["groups"]["vias"]["properties"]["filledVias"]["value"] == "yes":
-                fraction = 1
-            result.append(
-                mix_material(
-                    available["chip-array-via"],
-                    metal,
-                    available["static-air"],
-                    fraction,
-                    set("xyz"),
-                )
+        original = available["wirebond-via"]
+        result.append(
+            original.model_copy(
+                update={
+                    "conductivity": ConductivityTensor.isotropic(fraction * metal.conductivity.x),
+                    "density": fraction * metal.density,
+                    "specific_heat": metal.specific_heat,
+                    "source": f"PACK derived hollow via; metal={metal.id}; "
+                    f"shell_fraction={fraction:.16g}",
+                }
             )
-        else:
-            original = available["wirebond-via"]
-            result.append(
-                original.model_copy(
-                    update={
-                        "conductivity": ConductivityTensor.isotropic(
-                            fraction * metal.conductivity.x
-                        ),
-                        "density": fraction * metal.density,
-                        "specific_heat": metal.specific_heat,
-                        "source": f"PACK derived hollow via; metal={metal.id}; "
-                        f"shell_fraction={fraction:.16g}",
-                    }
-                )
-            )
+        )
     return result

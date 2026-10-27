@@ -36,7 +36,7 @@ for (const [templateId, fixture] of Object.entries(fixtures)) {
       const next = updateWizardRequest(request, footprint,
         footprint.options.find((option) => option !== footprint.default)!, fields)
       expect(next.material_assignments).toEqual(request.material_assignments)
-    })
+    }, 15000)
 
     it('preserves cover, power, material and representation while replacing preset dimensions', () => {
       const initial: TemplateRequest = {

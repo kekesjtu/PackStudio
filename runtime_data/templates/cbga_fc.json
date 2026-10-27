@@ -127,7 +127,9 @@
       "options": [],
       "option_labels": {},
       "presets": [],
-      "visible_when": {},
+      "visible_when": {
+        "bumps.array_type": "non_regular"
+      },
       "enabled_when": {}
     },
     {
@@ -459,6 +461,412 @@
         "cover.type": "plate"
       },
       "enabled_when": {}
+    },
+    {
+      "key": "grid.enabled",
+      "label": "局部网格",
+      "default": true,
+      "step": "modeling",
+      "control": "checkbox",
+      "unit": null,
+      "minimum": null,
+      "maximum": null,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "grid.density",
+      "label": "网格密度",
+      "default": "fine",
+      "step": "modeling",
+      "control": "select",
+      "unit": null,
+      "minimum": null,
+      "maximum": null,
+      "options": [
+        "coarse",
+        "medium",
+        "fine"
+      ],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {
+        "grid.enabled": true
+      },
+      "enabled_when": {}
+    },
+    {
+      "key": "bumps.array_type",
+      "label": "凸点阵列类型",
+      "default": "non_regular",
+      "step": "flip_chip_bumps",
+      "control": "select",
+      "unit": null,
+      "minimum": null,
+      "maximum": null,
+      "options": [
+        "non_regular",
+        "regular"
+      ],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "bumps.columns",
+      "label": "X 向凸点数 MDC4",
+      "default": null,
+      "step": "flip_chip_bumps",
+      "control": "integer",
+      "unit": null,
+      "minimum": null,
+      "maximum": null,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {
+        "bumps.array_type": "regular"
+      },
+      "enabled_when": {}
+    },
+    {
+      "key": "bumps.rows",
+      "label": "Y 向凸点数 MEC4",
+      "default": null,
+      "step": "flip_chip_bumps",
+      "control": "integer",
+      "unit": null,
+      "minimum": null,
+      "maximum": null,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {
+        "bumps.array_type": "regular"
+      },
+      "enabled_when": {}
+    },
+    {
+      "key": "bumps.underfill",
+      "label": "包含底填充",
+      "default": true,
+      "step": "flip_chip_bumps",
+      "control": "checkbox",
+      "unit": null,
+      "minimum": null,
+      "maximum": null,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "cover.flush",
+      "label": "芯片顶面齐平",
+      "default": false,
+      "step": "top_cover",
+      "control": "checkbox",
+      "unit": null,
+      "minimum": null,
+      "maximum": null,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {
+        "cover.type": "encapsulant"
+      },
+      "enabled_when": {}
+    },
+    {
+      "key": "stiffener.enabled",
+      "label": "加强环",
+      "default": false,
+      "step": "top_cover",
+      "control": "checkbox",
+      "unit": null,
+      "minimum": null,
+      "maximum": null,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {
+        "cover.type": "lid"
+      },
+      "enabled_when": {}
+    },
+    {
+      "key": "stiffener.length",
+      "label": "外框长度 Ls",
+      "default": null,
+      "step": "top_cover",
+      "control": "number",
+      "unit": "mm",
+      "minimum": null,
+      "maximum": null,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {
+        "cover.type": "lid",
+        "stiffener.enabled": true
+      },
+      "enabled_when": {}
+    },
+    {
+      "key": "stiffener.width",
+      "label": "外框宽度 Ws",
+      "default": null,
+      "step": "top_cover",
+      "control": "number",
+      "unit": "mm",
+      "minimum": null,
+      "maximum": null,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {
+        "cover.type": "lid",
+        "stiffener.enabled": true
+      },
+      "enabled_when": {}
+    },
+    {
+      "key": "stiffener.cavity_length",
+      "label": "内腔长度 Lsc",
+      "default": null,
+      "step": "top_cover",
+      "control": "number",
+      "unit": "mm",
+      "minimum": null,
+      "maximum": null,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {
+        "cover.type": "lid",
+        "stiffener.enabled": true
+      },
+      "enabled_when": {}
+    },
+    {
+      "key": "stiffener.cavity_width",
+      "label": "内腔宽度 Wsc",
+      "default": null,
+      "step": "top_cover",
+      "control": "number",
+      "unit": "mm",
+      "minimum": null,
+      "maximum": null,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {
+        "cover.type": "lid",
+        "stiffener.enabled": true
+      },
+      "enabled_when": {}
+    },
+    {
+      "key": "stiffener.adhesive",
+      "label": "加强环粘接厚度",
+      "default": null,
+      "step": "top_cover",
+      "control": "number",
+      "unit": "mm",
+      "minimum": null,
+      "maximum": null,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {
+        "cover.type": "lid",
+        "stiffener.enabled": true
+      },
+      "enabled_when": {}
+    },
+    {
+      "key": "slug.enabled",
+      "label": "包含嵌入式散热块",
+      "default": false,
+      "step": "slug",
+      "control": "checkbox",
+      "unit": null,
+      "minimum": null,
+      "maximum": null,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {
+        "cover.type": "encapsulant"
+      },
+      "enabled_when": {}
+    },
+    {
+      "key": "slug.length",
+      "label": "散热块长度 Lsl",
+      "default": null,
+      "step": "slug",
+      "control": "number",
+      "unit": "mm",
+      "minimum": null,
+      "maximum": null,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {
+        "cover.type": "encapsulant",
+        "slug.enabled": true
+      },
+      "enabled_when": {}
+    },
+    {
+      "key": "slug.width",
+      "label": "散热块宽度 Wsl",
+      "default": null,
+      "step": "slug",
+      "control": "number",
+      "unit": "mm",
+      "minimum": null,
+      "maximum": null,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {
+        "cover.type": "encapsulant",
+        "slug.enabled": true
+      },
+      "enabled_when": {}
+    },
+    {
+      "key": "slug.thickness",
+      "label": "散热块厚度 tsl",
+      "default": null,
+      "step": "slug",
+      "control": "number",
+      "unit": "mm",
+      "minimum": null,
+      "maximum": null,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {
+        "cover.type": "encapsulant",
+        "slug.enabled": true
+      },
+      "enabled_when": {}
+    },
+    {
+      "key": "slug.diameter",
+      "label": "散热块直径 ds",
+      "default": null,
+      "step": "slug",
+      "control": "number",
+      "unit": "mm",
+      "minimum": null,
+      "maximum": null,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {
+        "cover.type": "encapsulant",
+        "slug.enabled": true
+      },
+      "enabled_when": {}
+    },
+    {
+      "key": "slug.foot_length",
+      "label": "支脚延伸长度 Lsf",
+      "default": null,
+      "step": "slug",
+      "control": "number",
+      "unit": "mm",
+      "minimum": null,
+      "maximum": null,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {
+        "cover.type": "encapsulant",
+        "slug.enabled": true
+      },
+      "enabled_when": {}
+    },
+    {
+      "key": "slug.foot_width",
+      "label": "支脚延伸宽度 Wsf",
+      "default": null,
+      "step": "slug",
+      "control": "number",
+      "unit": "mm",
+      "minimum": null,
+      "maximum": null,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {
+        "cover.type": "encapsulant",
+        "slug.enabled": true
+      },
+      "enabled_when": {}
+    },
+    {
+      "key": "slug.offset",
+      "label": "散热块偏移 Gs",
+      "default": null,
+      "step": "slug",
+      "control": "number",
+      "unit": "mm",
+      "minimum": null,
+      "maximum": null,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {
+        "cover.type": "encapsulant",
+        "slug.enabled": true
+      },
+      "enabled_when": {}
+    },
+    {
+      "key": "slug.clearance",
+      "label": "支脚净空 gsf",
+      "default": null,
+      "step": "slug",
+      "control": "number",
+      "unit": "mm",
+      "minimum": null,
+      "maximum": null,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {
+        "cover.type": "encapsulant",
+        "slug.enabled": true
+      },
+      "enabled_when": {}
+    },
+    {
+      "key": "slug.adhesive_enabled",
+      "label": "支脚下包含粘接层",
+      "default": false,
+      "step": "slug",
+      "control": "checkbox",
+      "unit": null,
+      "minimum": null,
+      "maximum": null,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {
+        "cover.type": "encapsulant",
+        "slug.enabled": true
+      },
+      "enabled_when": {}
     }
   ],
   "material_selections": [
@@ -468,7 +876,7 @@
       "label": "陶瓷基板材料",
       "default": "alumina",
       "options": [
-        "alumina"
+        "*"
       ],
       "visible_when": {}
     },
@@ -488,8 +896,7 @@
       "label": "塑封材料",
       "default": "epoxy-mold",
       "options": [
-        "epoxy-mold",
-        "eme-7730lf"
+        "*"
       ],
       "visible_when": {
         "cover.type": "encapsulant"
@@ -501,7 +908,7 @@
       "label": "顶盖材料",
       "default": "aluminum",
       "options": [
-        "aluminum"
+        "*"
       ],
       "visible_when": {
         "cover.type": "lid"
@@ -513,7 +920,7 @@
       "label": "顶盖侧壁粘接材料",
       "default": "stiffener-adhesive",
       "options": [
-        "stiffener-adhesive"
+        "*"
       ],
       "visible_when": {
         "cover.type": "lid"
@@ -525,7 +932,7 @@
       "label": "顶盖芯片连接材料",
       "default": "flip-cap-grease",
       "options": [
-        "flip-cap-grease"
+        "*"
       ],
       "visible_when": {
         "cover.type": "lid"
@@ -537,7 +944,7 @@
       "label": "热板材料",
       "default": "aluminum",
       "options": [
-        "aluminum"
+        "*"
       ],
       "visible_when": {
         "cover.type": "plate"
@@ -549,7 +956,7 @@
       "label": "热板芯片连接材料",
       "default": "flip-cap-grease",
       "options": [
-        "flip-cap-grease"
+        "*"
       ],
       "visible_when": {
         "cover.type": "plate"
@@ -561,13 +968,7 @@
       "label": "凸点焊料",
       "default": "solder-pb90",
       "options": [
-        "solder_au80_sn20_c60e3552",
-        "solder_au88_ge12_a4f15d5e",
-        "solder_eutectic_au_si_1e9ad7cf",
-        "solder_eutectic_au_si_ab86266b",
-        "solder-pb90",
-        "solder-sn63",
-        "solder_sn96_5_ag3_5_21e11737"
+        "*"
       ],
       "visible_when": {}
     },
@@ -577,14 +978,11 @@
       "label": "底部填充材料",
       "default": "underfill",
       "options": [
-        "diamond_synthetic_cf0b14c3",
-        "underfill",
-        "glass_typical_94544dc5",
-        "glass_lid_seal_typical_1a444a20",
-        "plexiglass_typical_0a954091",
-        "solder-mask"
+        "*"
       ],
-      "visible_when": {}
+      "visible_when": {
+        "bumps.underfill": true
+      }
     },
     {
       "group_id": "group-bga-solder",
@@ -592,15 +990,64 @@
       "label": "BGA 焊球材料",
       "default": "solder-sn63",
       "options": [
-        "solder_au80_sn20_c60e3552",
-        "solder_au88_ge12_a4f15d5e",
-        "solder_eutectic_au_si_1e9ad7cf",
-        "solder_eutectic_au_si_ab86266b",
-        "solder-pb90",
-        "solder-sn63",
-        "solder_sn96_5_ag3_5_21e11737"
+        "*"
       ],
       "visible_when": {}
+    },
+    {
+      "group_id": "group-stiffener",
+      "label": "加强环材料",
+      "default": "steel_stainless_302_cr18_ni8_38fdf21b",
+      "step": "top_cover",
+      "options": [
+        "*"
+      ],
+      "visible_when": {
+        "cover.type": "lid",
+        "stiffener.enabled": true
+      }
+    },
+    {
+      "group_id": "group-stiffener-adhesive",
+      "label": "加强环粘接材料",
+      "default": "stiffener-adhesive",
+      "step": "top_cover",
+      "options": [
+        "*"
+      ],
+      "visible_when": {
+        "cover.type": "lid",
+        "stiffener.enabled": true
+      }
+    },
+    {
+      "group_id": "group-slug",
+      "label": "散热块材料",
+      "default": "",
+      "step": "slug",
+      "options": [
+        "",
+        "*"
+      ],
+      "visible_when": {
+        "cover.type": "encapsulant",
+        "slug.enabled": true
+      }
+    },
+    {
+      "group_id": "group-slug-adhesive",
+      "label": "支脚粘接材料",
+      "default": "",
+      "step": "slug",
+      "options": [
+        "",
+        "*"
+      ],
+      "visible_when": {
+        "cover.type": "encapsulant",
+        "slug.enabled": true,
+        "slug.adhesive_enabled": true
+      }
     }
   ],
   "baseline_materials": [],

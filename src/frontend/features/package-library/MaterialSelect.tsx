@@ -1,8 +1,6 @@
-import Box from '@mui/material/Box'
 import Chip from '@mui/material/Chip'
 import MenuItem from '@mui/material/MenuItem'
 import TextField from '@mui/material/TextField'
-import Typography from '@mui/material/Typography'
 
 import FieldShell from '../../ui/FieldShell'
 import materialQuality from '../model-editor/materialQuality'
@@ -48,13 +46,13 @@ export default function MaterialSelect({ field, value, enabled, materials, onCha
 }
 
 function MaterialLabel({ id, material }: { id: string; material?: Material }) {
-  const name = material?.name ?? id
+  const name = material?.name ?? (id || 'No Attachment')
   return (
-    <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, width: '100%', minWidth: 0 }}>
-      <Typography component="span" title={name} sx={{ flex: 1, minWidth: 0 }} noWrap>{name}</Typography>
+    <span style={{ display: 'flex', alignItems: 'center', gap: 8, width: '100%', minWidth: 0 }}>
+      <span title={name} style={{ flex: 1, minWidth: 0, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{name}</span>
       {material && materialQuality(material) && (
         <Chip size="small" color="warning" label="物性待核实" sx={{ flexShrink: 0 }} />
       )}
-    </Box>
+    </span>
   )
 }

@@ -103,6 +103,28 @@ def test_selected_bga_solder_reaches_both_center_and_perimeter_and_keeps_air(
     materials = {m.id: m for m in model.materials}
     if representation == "discrete":
         assert all(materials[b.material_id] == solder for b in solids)
+    elif template != "pbga_wb":
+        air = material("static-air")
+        for group, physical_count in [
+            ("group-solder-ball", count - 1),
+            ("group-center-solder-ball", 1),
+        ]:
+            regions = [b for b in solids if b.parent_group_id == group]
+            output = materials[regions[0].material_id]
+            fraction = (
+                physical_count
+                * pi
+                * (request.overrides[f"{template}.bga.diameter"] / 2) ** 2
+                / sum(b.size.x * b.size.y for b in regions)
+            )
+            assert output.conductivity.z == pytest.approx(
+                fraction * 80 + (1 - fraction) * air.conductivity.z
+            )
+            assert output.density == pytest.approx(fraction * 7500 + (1 - fraction) * air.density)
+            assert output.conductivity.x == output.conductivity.y == air.conductivity.x
+            assert output.specific_heat * output.density == pytest.approx(
+                fraction * 7500 * 350 + (1 - fraction) * air.density * air.specific_heat
+            )
     else:
         result = materials["solder-ball-equivalent"]
         assert all(b.material_id == result.id for b in solids)
@@ -139,7 +161,7 @@ def test_selection_contract_and_inactive_bare_die_materials_are_validated():
     with pytest.raises(ValueError, match="not allowed"):
         generate(
             default_request("cbga_fc").model_copy(
-                update={"material_assignments": {"group-bump-solder": "silicon"}}
+                update={"material_assignments": {"group-bump-solder": "missing-material"}}
             )
         )
     with pytest.raises(ValueError, match="inactive"):

@@ -270,7 +270,8 @@
       "option_labels": {},
       "presets": [],
       "visible_when": {
-        "vias.enabled": true
+        "vias.enabled": true,
+        "vias.filled": false
       },
       "enabled_when": {}
     },
@@ -375,6 +376,189 @@
       "presets": [],
       "visible_when": {},
       "enabled_when": {}
+    },
+    {
+      "key": "grid.enabled",
+      "label": "局部网格",
+      "default": true,
+      "step": "modeling",
+      "control": "checkbox",
+      "unit": null,
+      "minimum": null,
+      "maximum": null,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "grid.density",
+      "label": "网格密度",
+      "default": "fine",
+      "step": "modeling",
+      "control": "select",
+      "unit": null,
+      "minimum": null,
+      "maximum": null,
+      "options": [
+        "coarse",
+        "medium",
+        "fine"
+      ],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {
+        "grid.enabled": true
+      },
+      "enabled_when": {}
+    },
+    {
+      "key": "substrate.layers",
+      "label": "基板层数",
+      "default": "2-Layer",
+      "step": "package_setup",
+      "control": "select",
+      "unit": null,
+      "minimum": null,
+      "maximum": null,
+      "options": [
+        "2-Layer",
+        "4-Layer"
+      ],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "bond_wire.auto_count",
+      "label": "键合线数量等于焊球",
+      "default": true,
+      "step": "bond_wires",
+      "control": "checkbox",
+      "unit": null,
+      "minimum": null,
+      "maximum": null,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "bond_wire.total",
+      "label": "键合线总数 Nw",
+      "default": null,
+      "step": "bond_wires",
+      "control": "integer",
+      "unit": null,
+      "minimum": null,
+      "maximum": null,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {
+        "bond_wire.auto_count": false
+      },
+      "enabled_when": {}
+    },
+    {
+      "key": "bond_wire.include",
+      "label": "包含键合线",
+      "default": true,
+      "step": "bond_wires",
+      "control": "checkbox",
+      "unit": null,
+      "minimum": null,
+      "maximum": null,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "vias.filled",
+      "label": "填充通孔",
+      "default": false,
+      "step": "thermal_vias",
+      "control": "checkbox",
+      "unit": null,
+      "minimum": null,
+      "maximum": null,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {
+        "vias.enabled": true
+      },
+      "enabled_when": {}
+    },
+    {
+      "key": "vias.modeling",
+      "label": "通孔建模",
+      "default": "accurate",
+      "step": "thermal_vias",
+      "control": "select",
+      "unit": null,
+      "minimum": null,
+      "maximum": null,
+      "options": [
+        "accurate",
+        "approximate"
+      ],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {
+        "vias.enabled": true
+      },
+      "enabled_when": {}
+    },
+    {
+      "key": "metal.layers",
+      "label": "金属层表（Depth / Thickness / Coverage）",
+      "default": "[]",
+      "step": "metal_layers",
+      "control": "table",
+      "unit": null,
+      "minimum": null,
+      "maximum": null,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "metal.hole_length",
+      "label": "顶层中央区域长度 Lml",
+      "default": null,
+      "step": "metal_layers",
+      "control": "number",
+      "unit": "mm",
+      "minimum": null,
+      "maximum": null,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "metal.hole_width",
+      "label": "顶层中央区域宽度 Wml",
+      "default": null,
+      "step": "metal_layers",
+      "control": "number",
+      "unit": "mm",
+      "minimum": null,
+      "maximum": null,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
     }
   ],
   "material_selections": [
@@ -384,7 +568,7 @@
       "label": "基板材料",
       "default": "bt",
       "options": [
-        "bt"
+        "*"
       ],
       "visible_when": {}
     },
@@ -404,7 +588,7 @@
       "label": "芯片粘接材料",
       "default": "qmi-595",
       "options": [
-        "qmi-595"
+        "*"
       ],
       "visible_when": {}
     },
@@ -414,8 +598,7 @@
       "label": "塑封材料",
       "default": "epoxy-mold",
       "options": [
-        "epoxy-mold",
-        "eme-7730lf"
+        "*"
       ],
       "visible_when": {}
     },
@@ -425,7 +608,7 @@
       "label": "键合线材料",
       "default": "gold",
       "options": [
-        "gold"
+        "*"
       ],
       "visible_when": {}
     },
@@ -435,7 +618,7 @@
       "label": "阻焊层材料",
       "default": "solder-mask",
       "options": [
-        "solder-mask"
+        "*"
       ],
       "visible_when": {}
     },
@@ -445,13 +628,27 @@
       "label": "BGA 焊球材料",
       "default": "solder-sn63",
       "options": [
-        "solder_au80_sn20_c60e3552",
-        "solder_au88_ge12_a4f15d5e",
-        "solder_eutectic_au_si_1e9ad7cf",
-        "solder_eutectic_au_si_ab86266b",
-        "solder-pb90",
-        "solder-sn63",
-        "solder_sn96_5_ag3_5_21e11737"
+        "*"
+      ],
+      "visible_when": {}
+    },
+    {
+      "group_id": "group-metal",
+      "label": "金属材料",
+      "default": "copper",
+      "step": "metal_layers",
+      "options": [
+        "*"
+      ],
+      "visible_when": {}
+    },
+    {
+      "group_id": "group-trace-hole",
+      "label": "顶层中央区域材料",
+      "default": "alloy_42_8021e087",
+      "step": "metal_layers",
+      "options": [
+        "*"
       ],
       "visible_when": {}
     }

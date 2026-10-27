@@ -7,6 +7,7 @@
 | [封装外形与芯片类型](封装外形与芯片类型范围.md) | Standard Outline 与 Actual Die |
 | [BGA 与 Bumps 表达](BGA与Bumps建模表达.md) | BGA 的离散、等效表达与 Bumps 的 Isotropic Cuboid 约定 |
 | [均匀芯片热源](仅支持均匀芯片热源.md) | 芯片总功率按体积均匀分配 |
+| [重叠块与警告](重叠块与警告.md) | 建模、三维渲染与导出允许重叠块，并返回 warning |
 | [QFP Tie Bars 建模选项](QFP连接筋建模选项.md) | QFP 连接筋的建模选项范围 |
 | [QFP 连接筋板输出范围](QFP连接筋板输出范围.md) | QFP 的 tiebar_plt 几何与输出范围 |
 

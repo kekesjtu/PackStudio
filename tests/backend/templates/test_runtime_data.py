@@ -37,17 +37,18 @@ def test_runtime_data_is_loaded_from_the_active_installation(
     directory = {"source": checkout, "wheel": prefix, "frozen": extracted}[layout] / "runtime_data"
     directory.mkdir(parents=True)
     (directory / "pack_bindings.json").write_text(
-        json.dumps(
-            {"schema_version": "packstudio.pack-bindings/v1", "families": {"sample": 2}}
-        ),
+        json.dumps({"schema_version": "packstudio.pack-bindings/v1", "families": {"sample": 2}}),
         encoding="utf-8",
     )
     library._read.cache_clear()
     try:
         assert library.library_directory() == directory
-        assert library.read_default_value(
-            "pack_bindings.json", "packstudio.pack-bindings/v1", "families", "sample"
-        ) == 2
+        assert (
+            library.read_default_value(
+                "pack_bindings.json", "packstudio.pack-bindings/v1", "families", "sample"
+            )
+            == 2
+        )
     finally:
         library._read.cache_clear()
 

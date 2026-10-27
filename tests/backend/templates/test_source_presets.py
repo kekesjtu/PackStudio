@@ -155,16 +155,16 @@ def test_switching_off_source_coordinate_removal_restores_full_array() -> None:
     assert model.metadata["solder_ball_count"] == 49
 
 
-def test_explicit_only_removal_requires_both_dimensions_zero() -> None:
-    with pytest.raises(ValueError, match="both region dimensions"):
-        generate(
-            request(
-                "cbga_fc",
-                "CBGAFC_49_6X6mm",
-                bga=BgaConfiguration(
-                    solder_removal_enabled=True,
-                    removal_rows=0,
-                    removal_columns=1,
-                ),
-            )
+def test_native_full_populated_axis_preserves_the_full_array() -> None:
+    model = generate(
+        request(
+            "cbga_fc",
+            "CBGAFC_49_6X6mm",
+            bga=BgaConfiguration(
+                solder_removal_enabled=True,
+                removal_rows=0,
+                removal_columns=1,
+            ),
         )
+    )
+    assert model.metadata["solder_ball_count"] == 49

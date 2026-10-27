@@ -89,7 +89,7 @@ export default function ModelPreview({
               <PackageBlock
                 key={block.id}
                 block={block}
-                material={materials.get(block.material_id)}
+                material={materials.get(block.material_id ?? '')}
                 selected={block.id === selectedBlockId}
                 onSelect={onSelectBlock}
               />

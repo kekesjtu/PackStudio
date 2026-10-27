@@ -1,4 +1,6 @@
 import BgaConfigurationPanel from './BgaConfigurationPanel'
+import NativeBgaPanel from './NativeBgaPanel'
+import SolderBallMap from './SolderBallMap'
 import ViaRemovalPanel from './ViaRemovalPanel'
 import WizardFields from './WizardFields'
 import { ModelingFields, SummaryFields } from './WorkspaceSpecialFields'
@@ -14,6 +16,8 @@ export function renderStep(
   materials: Material[],
   onChange: (request: TemplateRequest) => void,
 ) {
+  const nativeBalls = ['chip_array', 'cbga_fc', 'pbga_fc'].includes(request.template_id)
+  const BallPanel = nativeBalls ? NativeBgaPanel : BgaConfigurationPanel
   if (activeStep === 'packstudio_summary') {
     return <SummaryFields request={request} onChange={onChange} />
   }
@@ -27,7 +31,7 @@ export function renderStep(
   }
   if (activeStep === 'packstudio_bga_removal' && request.bga) {
     return (
-      <BgaConfigurationPanel
+      <BallPanel
         section="removal"
         value={request.bga}
         rows={arrayRows}
@@ -38,7 +42,7 @@ export function renderStep(
   }
   if (activeStep === 'packstudio_bga_center' && request.bga) {
     return (
-      <BgaConfigurationPanel
+      <BallPanel
         section="center"
         value={request.bga}
         rows={arrayRows}
@@ -51,7 +55,12 @@ export function renderStep(
     return <ModelingFields request={request} onChange={onChange} />
   }
   const step = schema.steps.find((item) => item.id === activeStep) ?? schema.steps[0]
-  return <WizardFields step={step} allFields={allFields} request={request} materials={materials} onChange={onChange} />
+  return <>
+    <WizardFields step={step} allFields={allFields} request={request} materials={materials} onChange={onChange} />
+    {nativeBalls && activeStep === 'solder_balls' && request.bga && <SolderBallMap
+      key={request.template_id + String(request.overrides[`${request.template_id}.footprint.size`])}
+      value={request.bga} onChange={(bga) => onChange({ ...request, bga })} />}
+  </>
 }
 
 export function stepTitle(schema: TemplateSchema, stepId: string) {

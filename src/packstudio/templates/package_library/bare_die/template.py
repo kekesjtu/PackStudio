@@ -34,10 +34,12 @@ def _build(values: TemplateValues, request: TemplateRequest) -> BuiltTemplate:
     thickness = values.number("die.thickness")
     flipped = values.boolean("die.flipped")
     bumped = values.boolean("bumps.enabled")
+    bump_height = values.number("bumps.height") if bumped else 0
+    die_z = bump_height
+    bump_z = 0
     bump_layer = (
-        build_flip_chip_layer(values, length, width, 0, request=request) if bumped else None
+        build_flip_chip_layer(values, length, width, bump_z, request=request) if bumped else None
     )
-    die_z = values.number("bumps.height") if bumped else 0
     die_material = material(request.material_assignments["group-die"], request.custom_materials)
     return BuiltTemplate(
         drafts=[
@@ -60,7 +62,7 @@ def _build(values: TemplateValues, request: TemplateRequest) -> BuiltTemplate:
         metadata={
             "flipped_die": flipped,
             "bumped_die": bumped,
-            "bump_representation": ("thick_orthotropic_equivalent" if bumped else "not_present"),
+            "bump_representation": ("thick_isotropic_equivalent" if bumped else "not_present"),
             **({} if bump_layer is None else bump_layer.metadata),
         },
     )

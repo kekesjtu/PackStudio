@@ -56,7 +56,7 @@ def test_native_schema_and_generation_use_packstudio_special_rules() -> None:
     assert generated.json()["metadata"]["solder_ball_footprint_x_mm"] == pytest.approx(5.3)
     assert generated.json()["metadata"]["flip_chip_bump_footprint_x_mm"] == pytest.approx(1.8)
     assert generated.json()["metadata"]["flip_chip_bump_representation"] == (
-        "thick_orthotropic_equivalent"
+        "thick_isotropic_equivalent"
     )
 
 
@@ -105,7 +105,7 @@ def test_removed_mesh_configuration_is_rejected() -> None:
 
 def test_bare_die_uses_editable_baseline_settings_without_preset_selection() -> None:
     schema = client.get("/api/templates/bare_die/schema").json()
-    assert [step["id"] for step in schema["steps"]] == ["die", "bumped_die"]
+    assert [step["id"] for step in schema["steps"]] == ["die", "bumped_die", "modeling"]
     fields = [field for step in schema["steps"] for field in step["fields"]]
     assert all(field["control"] != "footprint" for field in fields)
     assert all(field.get("preset_values") is None for field in fields)
@@ -116,7 +116,9 @@ def test_bare_die_uses_editable_baseline_settings_without_preset_selection() -> 
     assert die["size"] == {"x": 4.9, "y": 4.9, "z": 0.22}
     assert "footprint_size" not in baseline["metadata"]
     request["overrides"] = {
-        "bare_die.die.length": 3.2, "bare_die.die.width": 2.5, "bare_die.die.thickness": 0.2,
+        "bare_die.die.length": 3.2,
+        "bare_die.die.width": 2.5,
+        "bare_die.die.thickness": 0.2,
     }
     exported = client.post("/api/templates/bare_die/export/floxml", json=request)
     assert exported.status_code == 200

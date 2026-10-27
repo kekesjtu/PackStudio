@@ -20,8 +20,13 @@ from packstudio.templates.package_library.core.via_configuration import ViaConfi
 
 ROOT = Path(__file__).resolve().parents[3]
 QFN_VIA_INPUT = {
-    "vias.enabled": True, "vias.length": 0.85, "vias.diameter": 0.2,
-    "vias.plating": 0.02, "vias.pitch": 0.5, "vias.rows": 5, "vias.columns": 5,
+    "vias.enabled": True,
+    "vias.length": 0.85,
+    "vias.diameter": 0.2,
+    "vias.plating": 0.02,
+    "vias.pitch": 0.5,
+    "vias.rows": 5,
+    "vias.columns": 5,
 }
 
 
@@ -83,13 +88,19 @@ def test_wirebond_spreader_controls_and_material_reach_geometry_and_exports():
         generate(r.model_copy(update={"overrides": {"pbga_wb.spreader.enabled": False}}))
 
 
-@pytest.mark.parametrize("template", ["pbga_wb", "chip_array", "qfn"])
+@pytest.mark.parametrize("template", ["pbga_wb", "qfn"])
 def test_via_region_and_explicit_removal_union_preserves_material_and_cells(template):
     prefix = "bga" if template == "chip_array" else "vias"
     via_input = QFN_VIA_INPUT if template == "qfn" else {}
-    r = request(template, **{
-        **via_input, "vias.enabled": True, f"{prefix}.rows": 3, f"{prefix}.columns": 4,
-    })
+    r = request(
+        template,
+        **{
+            **via_input,
+            "vias.enabled": True,
+            f"{prefix}.rows": 3,
+            f"{prefix}.columns": 4,
+        },
+    )
     baseline = generate(r)
     config = ViaConfiguration(
         removal_enabled=True,
@@ -176,9 +187,14 @@ def test_invalid_via_removal_is_rejected(config, error):
         generate(
             request("qfn", **QFN_VIA_INPUT).model_copy(
                 update={
-                    "vias": ViaConfiguration(**{
-                        "removal_enabled": True, "removal_rows": 0, "removal_columns": 0, **config,
-                    }),
+                    "vias": ViaConfiguration(
+                        **{
+                            "removal_enabled": True,
+                            "removal_rows": 0,
+                            "removal_columns": 0,
+                            **config,
+                        }
+                    ),
                 }
             )
         )

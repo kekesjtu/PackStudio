@@ -10,6 +10,23 @@ from packstudio.templates.package_library.core.via_configuration import ViaConfi
 type TemplateValue = str | int | float | bool | None
 
 
+class BallMapPoint(BaseModel):
+    model_config = ConfigDict(frozen=True, extra="forbid", allow_inf_nan=False)
+    id: str = Field(min_length=1, max_length=120)
+    x: float
+    y: float
+
+
+class PackageSummary(BaseModel):
+    model_config = ConfigDict(frozen=True, extra="forbid", allow_inf_nan=False)
+    part_number: str = ""
+    vendor: str = ""
+    max_power_w: float | None = Field(default=None, ge=0)
+    max_junction_temperature_c: float | None = None
+    max_case_temperature_c: float | None = None
+    notes: str = ""
+
+
 class BgaConfiguration(BaseModel):
     model_config = ConfigDict(frozen=True, extra="forbid", validate_default=True)
 
@@ -18,10 +35,17 @@ class BgaConfiguration(BaseModel):
     center_solder_rows: int | None = Field(default=None, ge=1)
     center_solder_columns: int | None = Field(default=None, ge=1)
     solder_removal_enabled: bool = False
+    depopulated_center: bool | None = None
     removal_rows: int | None = Field(default=None, ge=0)
     removal_columns: int | None = Field(default=None, ge=0)
     omitted_cells: list[CellIndex] = Field(default_factory=list)
     allow_asymmetric_regions: bool = False
+    staggered: bool = False
+    center_staggered: bool = False
+    populated_rows: int | None = Field(default=None, ge=0)
+    populated_columns: int | None = Field(default=None, ge=0)
+    ball_map_enabled: bool = False
+    ball_map: list[BallMapPoint] = Field(default_factory=list)
 
 
 class TemplateRequest(BaseModel):
@@ -29,6 +53,7 @@ class TemplateRequest(BaseModel):
 
     template_id: str = Field(pattern=r"^[a-z0-9][a-z0-9_]*$")
     design_name: str | None = Field(default=None, max_length=160)
+    summary: PackageSummary = Field(default_factory=PackageSummary)
     overrides: dict[str, TemplateValue] = Field(default_factory=dict)
     bga: BgaConfiguration | None = None
     vias: ViaConfiguration | None = None

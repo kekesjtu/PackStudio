@@ -11,7 +11,11 @@ from packstudio.templates.package_library.core.definitions import (
     PresetOption,
     _validate_value,
 )
-from packstudio.templates.package_library.core.materials import material, material_id_for_name
+from packstudio.templates.package_library.core.materials import (
+    material,
+    material_id_for_name,
+    production_materials,
+)
 from packstudio.templates.package_library.core.native_presets import expand_native_presets
 
 _PRESET_ADAPTER = TypeAdapter(PresetOption)
@@ -33,7 +37,8 @@ def _preset(payload: dict, representation: str) -> PresetOption:
             "label": payload["label"],
             "values": payload["values"],
             "bga": {**payload["bga"], "representation": representation}
-            if payload.get("bga") is not None else None,
+            if payload.get("bga") is not None
+            else None,
             "metadata": payload.get("metadata", {}),
             "material_assignments": payload.get("material_assignments", {}),
         }
@@ -83,6 +88,17 @@ def load_material_selections(
     items = _MATERIAL_SELECTION_ADAPTER.validate_python(
         template_defaults(template_id)["material_selections"]
     )
+    items = tuple(
+        replace(
+            item,
+            options=tuple(
+                identifier
+                for option in item.options
+                for identifier in (production_materials() if option == "*" else (option,))
+            ),
+        )
+        for item in items
+    )
     if fields is None:
         fields = load_fields(template_id)
     footprint = next((item for item in fields if item.control == "footprint"), None)
@@ -93,13 +109,14 @@ def load_material_selections(
         replace(
             item,
             default=assignments.get(
-                item.group_id, material_id_for_name(material(item.default).name)
+                item.group_id,
+                material_id_for_name(material(item.default).name) if item.default else "",
             ),
             options=tuple(
                 dict.fromkeys(
                     (
                         *(
-                            material_id_for_name(material(identifier).name)
+                            material_id_for_name(material(identifier).name) if identifier else ""
                             for identifier in item.options
                         ),
                         *(

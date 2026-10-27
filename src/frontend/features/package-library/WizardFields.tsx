@@ -7,6 +7,7 @@ import type { FocusEvent } from 'react'
 
 import FieldShell from '../../ui/FieldShell'
 import MaterialSelect from './MaterialSelect'
+import MetalLayerTable from './MetalLayerTable'
 
 import { fieldValues, filterFootprints, isVisible, matches, valueFor } from './wizardValues'
 import updateWizardRequest from './updateWizardRequest'
@@ -80,6 +81,9 @@ function Field({
   materials: Material[]
   onChange: (value: WizardValue) => void
 }) {
+  if (field.control === 'table') return <MetalLayerTable label={field.label}
+    value={String(value ?? '[]')} enabled={enabled} onChange={onChange}
+    outerFaces={field.target_id === 'chip_array.metal.layers'} />
   if (field.control === 'checkbox') {
     return (
       <FormControlLabel

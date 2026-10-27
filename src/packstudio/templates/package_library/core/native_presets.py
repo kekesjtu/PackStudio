@@ -1,5 +1,6 @@
 """Map supported wizard inputs to explicit paths in the complete native catalog."""
 
+import json
 import re
 
 from packstudio.preset_catalog import PresetCatalog
@@ -23,6 +24,30 @@ def at_path(record: dict, path: list[str]):
     for part in path:
         node = node[part]
     return node
+
+
+def native_value(key, value):
+    if isinstance(value, list):
+        return json.dumps(
+            [
+                {
+                    "depth": row["depth_m"] * 1000,
+                    "thickness": row["thickness_m"] * 1000,
+                    "coverage": row["coverage_percent"],
+                }
+                for row in value
+                if row.get("status") == "specified"
+            ]
+        )
+    if key in {"vias.filled", "bond_wire.auto_count", "upper.filled", "lower.filled"}:
+        return value == "yes"
+    if key == "bumps.array_type":
+        return {"regularArray": "regular", "nonRegularArray": "non_regular"}[value]
+    if key == "vias.enabled" and isinstance(value, str):
+        return value != "ignored"
+    if key == "cover.type" and value == "bareDie":
+        return "bare_die"
+    return value
 
 
 def expand_native_presets(template_id: str, field: dict, fields: list[dict]) -> dict:
@@ -49,17 +74,12 @@ def _adapt(record: dict, binding: dict, fields: list[dict]) -> dict:
     values, inactive = {}, {}
     for key, path in binding["parameters"].items():
         native = at_path(branch, path)
+        if isinstance(native, list):
+            native = {"value": native}
         if isinstance(native, bool):
             values[key] = native
         elif "value" in native:
-            value = native["value"]
-            values[key] = (
-                value != "ignored"
-                if key == "vias.enabled" and isinstance(value, str)
-                else "bare_die"
-                if key == "cover.type" and value == "bareDie"
-                else value
-            )
+            values[key] = native_value(key, native["value"])
         elif native["status"] == "not_applicable":
             inactive[key] = "/".join(path)
             values[key] = None

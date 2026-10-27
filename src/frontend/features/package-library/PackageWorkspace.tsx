@@ -166,6 +166,7 @@ export default function PackageWorkspace({ templateId }: PackageWorkspaceProps) 
       <ColumnResizer value={propertyWidth} onChange={setPropertyWidth} ariaLabel="调整属性栏宽度" placement="property" />
       <Box className="preview-column">
         {error && <Alert severity="error">{error}</Alert>}
+        {model?.warnings?.map((warning) => <Alert severity="warning" key={warning}>{warning}</Alert>)}
         <Paper component="section" className="preview-panel">
           <Stack direction="row" justifyContent="space-between" spacing={1} className="panel-heading preview-heading">
             <Typography variant="h5">三维建模区</Typography>

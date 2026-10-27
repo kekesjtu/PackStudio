@@ -33,7 +33,7 @@ class AxisAlignedBlock(BaseModel):
     structure_type: StructureType
     origin: Point3D
     size: Size3D
-    material_id: str = Field(pattern=r"^[a-z0-9][a-z0-9._-]*$")
+    material_id: str | None = Field(default=None, pattern=r"^[a-z0-9][a-z0-9._-]*$")
     parent_group_id: str = Field(pattern=r"^[a-z0-9][a-z0-9._-]*$")
     metadata: dict[str, MetadataValue] = Field(default_factory=dict)
 

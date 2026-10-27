@@ -22,7 +22,8 @@ function runProbe(shell, uri, timeoutSeconds = 10) {
     Wait-ForEndpoint -Uri ${quote(uri)} -Stage 'Test readiness' -BackendProcess $currentProcess -FrontendProcess $currentProcess -TimeoutSeconds ${timeoutSeconds}
   `
   return new Promise((resolve, reject) => {
-    const child = spawn(shell, ['-NoProfile', '-NonInteractive', '-Command', command], {
+    // Execute this repository's fixture in the test child, independent of the user's policy.
+    const child = spawn(shell, ['-NoProfile', '-NonInteractive', '-ExecutionPolicy', 'Bypass', '-Command', command], {
       windowsHide: true,
       env: { ...process.env, HTTP_PROXY: 'http://127.0.0.1:1', NO_PROXY: '' },
     })

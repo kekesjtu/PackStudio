@@ -106,18 +106,26 @@ def _has_present_solder(
     parameters: SolderStyleValues,
     omitted: set[tuple[int, int]],
 ) -> bool:
-    center = center_bounds(
-        parameters.rows,
-        parameters.columns,
-        parameters.center_solder_rows,
-        parameters.center_solder_columns,
-    ) if parameters.center_solder_enabled else (0, 0, 0, 0)
-    removal = center_bounds(
-        parameters.rows,
-        parameters.columns,
-        parameters.removal_rows,
-        parameters.removal_columns,
-    ) if parameters.solder_removal_enabled else (0, 0, 0, 0)
+    center = (
+        center_bounds(
+            parameters.rows,
+            parameters.columns,
+            parameters.center_solder_rows,
+            parameters.center_solder_columns,
+        )
+        if parameters.center_solder_enabled
+        else (0, 0, 0, 0)
+    )
+    removal = (
+        center_bounds(
+            parameters.rows,
+            parameters.columns,
+            parameters.removal_rows,
+            parameters.removal_columns,
+        )
+        if parameters.solder_removal_enabled
+        else (0, 0, 0, 0)
+    )
     for row in range(parameters.rows):
         for column in range(parameters.columns):
             if (row, column) in omitted:

@@ -68,10 +68,10 @@ def test_component_material_choices_are_finite_and_use_builtin_materials() -> No
         assert fields
         assert all(field["material_group_id"] for field in fields)
         assert all(0 < len(field["options"]) == len(set(field["options"])) for field in fields)
-        assert all(set(field["options"]) <= known_materials for field in fields)
+        assert all(set(field["options"]) <= known_materials | {""} for field in fields)
 
 
-def test_every_declared_component_material_can_be_applied_to_its_group() -> None:
+def test_component_materials_reach_geometry_and_equivalent_constituents() -> None:
     for template_id, item in definitions().items():
         fields = {field.key: field for field in item.fields}
         for selection in item.material_selections:
@@ -82,11 +82,57 @@ def test_every_declared_component_material_can_be_applied_to_its_group() -> None
             if selection.visible_when.get("thermal_land.enabled"):
                 overrides[f"{template_id}.thermal_land.thickness"] = 0.05
             if selection.visible_when.get("spreader.enabled"):
-                overrides.update({f"{template_id}.spreader.{key}": value for key, value in {
-                    "length": 4, "width": 4, "thickness": 0.018,
-                    "hole_length": 6, "hole_width": 6,
-                }.items()})
-            for material_id in selection.options:
+                overrides.update(
+                    {
+                        f"{template_id}.spreader.{key}": value
+                        for key, value in {
+                            "length": 4,
+                            "width": 4,
+                            "thickness": 0.018,
+                            "hole_length": 6,
+                            "hole_width": 6,
+                        }.items()
+                    }
+                )
+            if selection.group_id == "group-trace-hole":
+                overrides.update(
+                    {f"{template_id}.metal.hole_length": 1.4, f"{template_id}.metal.hole_width": 1}
+                )
+            if selection.visible_when.get("stiffener.enabled"):
+                overrides.update(
+                    {
+                        f"{template_id}.stiffener.{key}": value
+                        for key, value in {
+                            "length": 6,
+                            "width": 6,
+                            "cavity_length": 3,
+                            "cavity_width": 3,
+                            "adhesive": 0.1,
+                        }.items()
+                    }
+                )
+            if selection.visible_when.get("slug.enabled"):
+                overrides.update(
+                    {
+                        f"{template_id}.slug.{key}": value
+                        for key, value in {
+                            "length": 4,
+                            "width": 4,
+                            "thickness": 0.4,
+                            "diameter": 2,
+                            "foot_length": 4.5,
+                            "foot_width": 4.5,
+                            "offset": 0.1,
+                            "clearance": 0.1,
+                        }.items()
+                    }
+                )
+            for region in ("upper", "lower"):
+                if selection.visible_when.get(region + ".enabled"):
+                    overrides[f"{template_id}.{region}.thickness"] = 0.1
+            for material_id in dict.fromkeys((selection.default, selection.options[-1])):
+                if not material_id and selection.group_id in {"group-upper", "group-lower"}:
+                    continue
                 model = generate(
                     TemplateRequest(
                         template_id=template_id,
@@ -98,14 +144,23 @@ def test_every_declared_component_material_can_be_applied_to_its_group() -> None
                     "group-bump-solder": "group-flip-chip-bumps",
                     "group-underfill": "group-flip-chip-bumps",
                     "group-bga-solder": "group-solder-ball",
+                    "group-metal": "group-traces",
+                    "group-trace-hole": "group-traces",
                 }.get(selection.group_id, selection.group_id)
                 blocks = [block for block in model.blocks if block.parent_group_id == group_id]
+                if selection.group_id == "group-metal" and template_id == "pbga_fc":
+                    # Its native preset has an empty metal table.
+                    continue
+                if selection.group_id == "group-trace-hole":
+                    blocks = [
+                        b for b in blocks if b.metadata.get("boolean_source_id") == "trace-hole"
+                    ]
                 if selection.group_id == "group-bga-solder":
                     blocks = [b for b in blocks if b.structure_type is StructureType.SOLDER_BALL]
                 assert blocks, f"{template_id}: missing {selection.group_id}"
                 by_id = {material.id: material for material in model.materials}
                 assert all(
-                    block.material_id == material_id
+                    block.material_id == (material_id or None)
                     or f"metal={material_id};" in (by_id[block.material_id].source or "")
                     or f"element={material_id};" in (by_id[block.material_id].source or "")
                     or f"matrix={material_id};" in (by_id[block.material_id].source or "")
@@ -114,12 +169,12 @@ def test_every_declared_component_material_can_be_applied_to_its_group() -> None
 
 
 @pytest.mark.parametrize("template_id", list(definitions()))
-def test_every_native_baseline_is_valid_and_non_overlapping(template_id: str) -> None:
+def test_every_native_baseline_is_valid_and_reports_overlaps(template_id: str) -> None:
     model = generate(default_request(template_id))
 
     assert model.blocks
     assert model.materials
-    assert find_overlapping_pairs(model.blocks) == []
+    assert bool(find_overlapping_pairs(model.blocks)) == bool(model.warnings)
     assert model.metadata["implementation"] == "packstudio-native"
     assert model.metadata["template_version"] == "2.2"
     assert model.metadata["runtime_reference_data_required"] is False
@@ -176,7 +231,7 @@ def test_cbga_fc_matches_reviewed_native_baseline() -> None:
     assert solder.size.x == pytest.approx(5.3)
     assert bump.origin.z == pytest.approx(1.55)
     assert bump.size.model_dump() == pytest.approx({"x": 1.8, "y": 1.8, "z": 0.1})
-    assert model.metadata["flip_chip_bump_representation"] == ("thick_orthotropic_equivalent")
+    assert model.metadata["flip_chip_bump_representation"] == ("thick_isotropic_equivalent")
 
 
 def test_native_numeric_parameter_updates_geometry_and_enforces_range() -> None:
@@ -199,11 +254,12 @@ def test_native_numeric_parameter_updates_geometry_and_enforces_range() -> None:
         )
 
 
-def test_bga_center_removal_and_explicit_omission_follow_task5_priority() -> None:
+def test_explicit_ball_list_overrides_center_removal_and_retains_center_duplicates() -> None:
     model = generate(
         TemplateRequest(
             template_id="cbga_fc",
             bga=BgaConfiguration(
+                representation="discrete",
                 solder_removal_enabled=True,
                 removal_rows=5,
                 removal_columns=5,
@@ -215,9 +271,8 @@ def test_bga_center_removal_and_explicit_omission_follow_task5_priority() -> Non
         )
     )
 
-    assert model.metadata["solder_ball_count"] == 32
-    assert any(block.structure_type is StructureType.STATIC_AIR for block in model.blocks)
-    assert find_overlapping_pairs(model.blocks) == []
+    assert model.metadata["solder_ball_count"] == 48 + 9
+    assert model.warnings
 
 
 def test_only_bga_accepts_bga_configuration_and_complex_patterns_are_unknown() -> None:

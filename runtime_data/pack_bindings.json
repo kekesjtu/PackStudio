@@ -201,6 +201,138 @@
           "plate",
           "properties",
           "dieAttachThicknessTda"
+        ],
+        "grid.enabled": [
+          "groups",
+          "modelingOptions",
+          "properties",
+          "localizeGrid"
+        ],
+        "grid.density": [
+          "groups",
+          "modelingOptions",
+          "properties",
+          "gridDensity"
+        ],
+        "bumps.array_type": [
+          "groups",
+          "flipChipBumps",
+          "properties",
+          "arrayType"
+        ],
+        "bumps.columns": [
+          "groups",
+          "flipChipBumps",
+          "properties",
+          "numberOfBumpsInXMDC4"
+        ],
+        "bumps.rows": [
+          "groups",
+          "flipChipBumps",
+          "properties",
+          "numberOfBumpsInYMEC4"
+        ],
+        "bumps.underfill": [
+          "groups",
+          "flipChipBumps",
+          "properties",
+          "underfill"
+        ],
+        "cover.flush": [
+          "groups",
+          "topCover",
+          "children",
+          "encapsulant",
+          "properties",
+          "enableDieFlush"
+        ],
+        "stiffener.length": [
+          "groups",
+          "topCover",
+          "children",
+          "lid",
+          "properties",
+          "stiffenerLengthLs"
+        ],
+        "stiffener.width": [
+          "groups",
+          "topCover",
+          "children",
+          "lid",
+          "properties",
+          "stiffenerWidthWs"
+        ],
+        "stiffener.cavity_length": [
+          "groups",
+          "topCover",
+          "children",
+          "lid",
+          "properties",
+          "stiffenerCavityLengthLsc"
+        ],
+        "stiffener.cavity_width": [
+          "groups",
+          "topCover",
+          "children",
+          "lid",
+          "properties",
+          "stiffenerCavityWidthWsc"
+        ],
+        "stiffener.adhesive": [
+          "groups",
+          "topCover",
+          "children",
+          "lid",
+          "properties",
+          "stiffenerAdhesiveThickness"
+        ],
+        "slug.length": [
+          "groups",
+          "dropInSlug",
+          "properties",
+          "slugLengthLsl"
+        ],
+        "slug.width": [
+          "groups",
+          "dropInSlug",
+          "properties",
+          "slugWidthWsl"
+        ],
+        "slug.thickness": [
+          "groups",
+          "dropInSlug",
+          "properties",
+          "slugThicknessTsl"
+        ],
+        "slug.diameter": [
+          "groups",
+          "dropInSlug",
+          "properties",
+          "slugDiameterDs"
+        ],
+        "slug.foot_length": [
+          "groups",
+          "dropInSlug",
+          "properties",
+          "slugFootExtendLengthLsf"
+        ],
+        "slug.foot_width": [
+          "groups",
+          "dropInSlug",
+          "properties",
+          "slugFootExtendWidthWsf"
+        ],
+        "slug.offset": [
+          "groups",
+          "dropInSlug",
+          "properties",
+          "slugOffsetGs"
+        ],
+        "slug.clearance": [
+          "groups",
+          "dropInSlug",
+          "properties",
+          "slugFootClearanceGsf"
         ]
       },
       "materials": {
@@ -484,6 +616,245 @@
           "plate",
           "properties",
           "dieAttachThicknessTda"
+        ],
+        "grid.enabled": [
+          "groups",
+          "modelingOptions",
+          "properties",
+          "localizeGrid"
+        ],
+        "grid.density": [
+          "groups",
+          "modelingOptions",
+          "properties",
+          "gridDensity"
+        ],
+        "bumps.array_type": [
+          "groups",
+          "flipChipBumps",
+          "properties",
+          "arrayType"
+        ],
+        "bumps.columns": [
+          "groups",
+          "flipChipBumps",
+          "properties",
+          "numberOfBumpsInXMDC4"
+        ],
+        "bumps.rows": [
+          "groups",
+          "flipChipBumps",
+          "properties",
+          "numberOfBumpsInYMEC4"
+        ],
+        "bumps.underfill": [
+          "groups",
+          "flipChipBumps",
+          "properties",
+          "underfill"
+        ],
+        "cover.flush": [
+          "groups",
+          "topCover",
+          "children",
+          "encapsulant",
+          "properties",
+          "enableDieFlush"
+        ],
+        "stiffener.length": [
+          "groups",
+          "topCover",
+          "children",
+          "lid",
+          "properties",
+          "stiffenerLengthLs"
+        ],
+        "stiffener.width": [
+          "groups",
+          "topCover",
+          "children",
+          "lid",
+          "properties",
+          "stiffenerWidthWs"
+        ],
+        "stiffener.cavity_length": [
+          "groups",
+          "topCover",
+          "children",
+          "lid",
+          "properties",
+          "stiffenerCavityLengthLsc"
+        ],
+        "stiffener.cavity_width": [
+          "groups",
+          "topCover",
+          "children",
+          "lid",
+          "properties",
+          "stiffenerCavityWidthWsc"
+        ],
+        "stiffener.adhesive": [
+          "groups",
+          "topCover",
+          "children",
+          "lid",
+          "properties",
+          "stiffenerAdhesiveThickness"
+        ],
+        "slug.length": [
+          "groups",
+          "dropInSlug",
+          "properties",
+          "slugLengthLsl"
+        ],
+        "slug.width": [
+          "groups",
+          "dropInSlug",
+          "properties",
+          "slugWidthWsl"
+        ],
+        "slug.thickness": [
+          "groups",
+          "dropInSlug",
+          "properties",
+          "slugThicknessTsl"
+        ],
+        "slug.diameter": [
+          "groups",
+          "dropInSlug",
+          "properties",
+          "slugDiameterDs"
+        ],
+        "slug.foot_length": [
+          "groups",
+          "dropInSlug",
+          "properties",
+          "slugFootExtendLengthLsf"
+        ],
+        "slug.foot_width": [
+          "groups",
+          "dropInSlug",
+          "properties",
+          "slugFootExtendWidthWsf"
+        ],
+        "slug.offset": [
+          "groups",
+          "dropInSlug",
+          "properties",
+          "slugOffsetGs"
+        ],
+        "slug.clearance": [
+          "groups",
+          "dropInSlug",
+          "properties",
+          "slugFootClearanceGsf"
+        ],
+        "vias.columns": [
+          "groups",
+          "coreVias",
+          "properties",
+          "numberOfThermalViasInXNVx"
+        ],
+        "vias.rows": [
+          "groups",
+          "coreVias",
+          "properties",
+          "numberOfThermalViasInYNVy"
+        ],
+        "vias.pitch": [
+          "groups",
+          "coreVias",
+          "properties",
+          "viaPitchEv"
+        ],
+        "vias.diameter": [
+          "groups",
+          "coreVias",
+          "properties",
+          "viaDiameterDv"
+        ],
+        "vias.plating": [
+          "groups",
+          "coreVias",
+          "properties",
+          "platingThicknessTpl"
+        ],
+        "metal.layers": [
+          "groups",
+          "metalLayers",
+          "metal_layers"
+        ],
+        "upper.thickness": [
+          "groups",
+          "upperBuiltUpRegion",
+          "properties",
+          "thicknessA2b1"
+        ],
+        "upper.count": [
+          "groups",
+          "upperBuiltUpRegion",
+          "properties",
+          "totalNumberOfMicroViasNb1"
+        ],
+        "upper.diameter": [
+          "groups",
+          "upperBuiltUpRegion",
+          "properties",
+          "viaDiameterDvb1"
+        ],
+        "upper.plating": [
+          "groups",
+          "upperBuiltUpRegion",
+          "properties",
+          "platingThicknessTpl"
+        ],
+        "upper.filled": [
+          "groups",
+          "upperBuiltUpRegion",
+          "properties",
+          "filledVias"
+        ],
+        "upper.layers": [
+          "groups",
+          "upperBuiltUpRegion",
+          "properties",
+          "metalLayersTable"
+        ],
+        "lower.thickness": [
+          "groups",
+          "lowerBuiltUpRegion",
+          "properties",
+          "thicknessA2b2"
+        ],
+        "lower.count": [
+          "groups",
+          "lowerBuiltUpRegion",
+          "properties",
+          "totalNumberOfMicroViasNb2"
+        ],
+        "lower.diameter": [
+          "groups",
+          "lowerBuiltUpRegion",
+          "properties",
+          "viaDiameterDvb2"
+        ],
+        "lower.plating": [
+          "groups",
+          "lowerBuiltUpRegion",
+          "properties",
+          "platingThicknessTpl"
+        ],
+        "lower.filled": [
+          "groups",
+          "lowerBuiltUpRegion",
+          "properties",
+          "filledVias"
+        ],
+        "lower.layers": [
+          "groups",
+          "lowerBuiltUpRegion",
+          "properties",
+          "metalLayersTable"
         ]
       },
       "materials": {
@@ -564,6 +935,12 @@
           "flipChipBumps",
           "properties",
           "underfillMaterial"
+        ],
+        "group-metal": [
+          "groups",
+          "metalLayers",
+          "properties",
+          "materialOfMetal"
         ]
       }
     },
@@ -986,6 +1363,59 @@
           "groups",
           "vias",
           "enabled"
+        ],
+        "grid.enabled": [
+          "groups",
+          "modelingOptions",
+          "properties",
+          "localizeGrid"
+        ],
+        "grid.density": [
+          "groups",
+          "modelingOptions",
+          "properties",
+          "gridDensity"
+        ],
+        "bond_wire.auto_count": [
+          "groups",
+          "bondWires",
+          "properties",
+          "numberBondWiresEqualsSolderBalls"
+        ],
+        "bond_wire.total": [
+          "groups",
+          "bondWires",
+          "properties",
+          "numberOfBondWiresNw"
+        ],
+        "vias.filled": [
+          "groups",
+          "vias",
+          "properties",
+          "filledVias"
+        ],
+        "vias.modeling": [
+          "groups",
+          "modelingOptions",
+          "properties",
+          "viaModeling"
+        ],
+        "metal.layers": [
+          "groups",
+          "metalLayers",
+          "metal_layers"
+        ],
+        "metal.hole_length": [
+          "groups",
+          "metalLayers",
+          "properties",
+          "lengthLml"
+        ],
+        "metal.hole_width": [
+          "groups",
+          "metalLayers",
+          "properties",
+          "widthWml"
         ]
       },
       "materials": {
@@ -1030,6 +1460,18 @@
           "solderBalls",
           "properties",
           "solderMaterial"
+        ],
+        "group-metal": [
+          "groups",
+          "metalLayers",
+          "properties",
+          "materialOfMetal"
+        ],
+        "group-trace-hole": [
+          "groups",
+          "metalLayers",
+          "properties",
+          "conductivity"
         ]
       }
     },

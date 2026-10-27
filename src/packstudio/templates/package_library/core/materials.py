@@ -33,10 +33,12 @@ def production_materials() -> dict[str, Material]:
             density=record["density"]["value"],
             specific_heat=record["specific_heat"]["value"],
             color=entry["color"],
+            conductivity_coefficient=conductivity.get("coefficient"),
+            conductivity_reference_temperature_c=conductivity.get("reference_temperature"),
             source="PACK built-in material; "
             + (
-                "constant conductivity at native reference temperature "
-                f"{conductivity['reference_temperature']} C; temperature law retained in catalog"
+                "temperature-dependent conductivity; native reference temperature "
+                f"{conductivity['reference_temperature']} C"
                 if conductivity["model"] == "temperature_dependent"
                 else conductivity["model"]
             ),

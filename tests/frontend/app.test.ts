@@ -245,7 +245,7 @@ describe('eight-template production workspace', () => {
     await screen.findByText('1 个块')
 
     fireEvent.click(screen.getByRole('button', { name: '焊球去除' }))
-    fireEvent.click(screen.getByRole('switch', { name: '焊球去除' }))
+    fireEvent.click(screen.getByRole('switch', { name: '中央去球' }))
     fireEvent.click(screen.getByRole('button', { name: '中央焊球' }))
     fireEvent.click(screen.getByRole('switch', { name: '中央焊球' }))
     expect(screen.queryByText(/交错阵列/)).not.toBeInTheDocument()

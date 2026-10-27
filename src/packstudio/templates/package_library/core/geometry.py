@@ -19,7 +19,7 @@ class DraftBlock:
     structure_type: StructureType
     origin: tuple[float, float, float]
     size: tuple[float, float, float]
-    material_id: str
+    material_id: str | None
     group_id: str
     group_name: str
     priority: int = 20
@@ -93,6 +93,30 @@ def corner_draft(
         group_name=group_name,
         priority=priority,
         metadata=metadata or {},
+    )
+
+
+def preserve_drafts(drafts: list[DraftBlock]) -> NormalizedDrafts:
+    """Keep PACK cuboids, including intentional overlaps, in source order."""
+    return NormalizedDrafts(
+        blocks=[
+            AxisAlignedBlock(
+                id=f"{draft.id}-part-1",
+                name=draft.name,
+                structure_type=draft.structure_type,
+                origin=Point3D(**dict(zip("xyz", draft.origin, strict=True))),
+                size=Size3D(**dict(zip("xyz", draft.size, strict=True))),
+                material_id=draft.material_id,
+                parent_group_id=draft.group_id,
+                metadata={
+                    **draft.metadata,
+                    BOOLEAN_SOURCE_ID_KEY: draft.id,
+                    BOOLEAN_SOURCE_NAME_KEY: draft.name,
+                },
+            )
+            for draft in drafts
+        ],
+        group_names={draft.group_id: draft.group_name for draft in drafts},
     )
 
 

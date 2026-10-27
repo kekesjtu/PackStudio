@@ -100,6 +100,8 @@ class TemplateDefinition:
             raise ValueError("BGA configuration is only valid for BGA templates")
         if request.vias is not None and not any(f.key == "vias.enabled" for f in self.fields):
             raise ValueError("via configuration is only valid for templates with thermal vias")
+        if self.id == "chip_array" and request.vias is not None and request.vias.removal_enabled:
+            raise ValueError("Chip Array 通孔去除由焊球主阵列控制")
         by_target = {item.target_id(self.id): item for item in self.fields}
         by_key = {item.key: item for item in self.fields}
         unknown = sorted(set(request.overrides) - set(by_target))
@@ -122,6 +124,29 @@ class TemplateDefinition:
             for key, value in preset.values.items():
                 _validate_value(by_key[key], value)
             values.update(preset.values)
+        if (
+            self.id == "chip_array"
+            and request.overrides.get("chip_array.substrate.layers") == "4-Layer"
+        ):
+            import json
+
+            from packstudio.preset_catalog import PresetCatalog
+
+            branch = PresetCatalog().read_branch(values["footprint.size"], "four_layer")
+            values["substrate.thickness"] = branch["groups"]["overallPackage"]["properties"][
+                "substrateThicknessA2"
+            ]["value"]
+            values["metal.layers"] = json.dumps(
+                [
+                    {
+                        "depth": r["depth_m"] * 1000,
+                        "thickness": r["thickness_m"] * 1000,
+                        "coverage": r["coverage_percent"],
+                    }
+                    for r in branch["groups"]["metalLayers"]["metal_layers"]
+                    if r.get("status") == "specified"
+                ]
+            )
         for target_id, value in request.overrides.items():
             item = by_target[target_id]
             _validate_value(item, value)
@@ -139,8 +164,16 @@ class TemplateDefinition:
         ]
         if inactive:
             raise ValueError(f"parameters are inactive in the current branch: {inactive}")
+        optional = {
+            "metal.hole_length",
+            "metal.hole_width",
+            "upper.count",
+            "lower.count",
+            "upper.plating",
+            "lower.plating",
+        }
         for target_id, value in request.overrides.items():
-            if value is None:
+            if value is None and by_target[target_id].key not in optional:
                 raise ValueError(f"{by_target[target_id].key} requires a value")
         self._validate_material_assignments(request, values)
         return TemplateValues(values)
@@ -205,6 +238,11 @@ class TemplateValues:
         if not isinstance(value, str):
             raise ValueError(f"{key} is not text")
         return value
+
+    def table(self, key: str) -> list[dict[str, float]]:
+        from packstudio.templates.package_library.core.metal_layers import parse_layers
+
+        return parse_layers(self.text(key))
 
 
 def _validate_value(item: FieldDefinition, value: TemplateValue) -> None:

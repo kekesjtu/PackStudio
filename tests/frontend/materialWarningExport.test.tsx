@@ -18,6 +18,18 @@ beforeEach(() => {
 })
 
 describe('workspace compact material labels and exports', () => {
+  it('shows overlap warnings while retaining generation and export', async () => {
+    const warning = '模型包含 1 对重叠块：body/insert'
+    vi.mocked(api.generateTemplateModel).mockResolvedValue({ ...model, warnings: [warning] })
+    render(<PackageWorkspace templateId="sample" />)
+    expect(await screen.findByText(warning)).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: '生成模型' })).toBeEnabled()
+    expect(screen.getByRole('button', { name: '导出 FloXML' })).toBeEnabled()
+    fireEvent.click(screen.getByRole('button', { name: '导出 FloXML' }))
+    await waitFor(() => expect(api.downloadTemplateModel).toHaveBeenCalledWith(request))
+    expect(screen.getByText(warning)).toBeInTheDocument()
+  })
+
   it('shows labels without a central warning for the initial design', async () => {
     render(<PackageWorkspace templateId="sample" />)
     await screen.findByText('1 个块')

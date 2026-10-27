@@ -1,5 +1,3 @@
-from math import pi, sqrt
-
 from packstudio.domain.enums import StructureType
 from packstudio.templates.package_library.bga.layers import build_bga_layer
 from packstudio.templates.package_library.core.baseline_materials import materials_for
@@ -18,7 +16,6 @@ from packstudio.templates.package_library.core.parameters import (
     TemplateRequest,
 )
 from packstudio.templates.package_library.core.primitives import four_direction_wire_drafts
-from packstudio.templates.package_library.core.via_geometry import via_grid_drafts
 
 
 def definition() -> TemplateDefinition:
@@ -108,26 +105,6 @@ def _build(values: TemplateValues, request: TemplateRequest) -> BuiltTemplate:
             priority=100,
         ),
         centered_draft(
-            "trace-top",
-            "Top trace",
-            StructureType.TRACE,
-            (length, width, top_trace),
-            substrate_top - top_trace,
-            "chip-array-trace-top",
-            "group-traces",
-            "Dielectric & traces",
-        ),
-        centered_draft(
-            "trace-bottom",
-            "Bottom trace",
-            StructureType.TRACE,
-            (length, width, bottom_trace),
-            bga_height,
-            "chip-array-trace-bottom",
-            "group-traces",
-            "Dielectric & traces",
-        ),
-        centered_draft(
             "die-attach",
             "Die attach",
             StructureType.DIE_ATTACH,
@@ -155,23 +132,11 @@ def _build(values: TemplateValues, request: TemplateRequest) -> BuiltTemplate:
             "chip-array-bondwire-y",
         ),
     ]
-    if values.boolean("vias.enabled"):
-        via_side = sqrt(pi) * values.number("vias.diameter") / 2
-        drafts.extend(
-            via_grid_drafts(
-                "thermal-via",
-                values.integer("bga.rows"),
-                values.integer("bga.columns"),
-                values.number("bga.pitch"),
-                via_side,
-                bga_height + bottom_trace,
-                substrate - top_trace - bottom_trace,
-                center_x=values.number("vias.offset_x"),
-                center_y=values.number("vias.offset_y"),
-                material_id="chip-array-via",
-                configuration=request.vias,
-            )
-        )
+    from packstudio.templates.package_library.bga.chip_array_details import append_details
+
+    derived = append_details(drafts, values, request)
+    if not values.boolean("bond_wire.include"):
+        drafts = [draft for draft in drafts if draft.structure_type is not StructureType.BOND_WIRE]
     bga = build_bga_layer(
         values,
         request.bga or BgaConfiguration(representation="discrete"),
@@ -181,7 +146,7 @@ def _build(values: TemplateValues, request: TemplateRequest) -> BuiltTemplate:
     return BuiltTemplate(
         drafts=drafts,
         blocks=bga.blocks,
-        materials=[*materials_for("chip_array"), *bga.materials],
+        materials=[*materials_for("chip_array"), *bga.materials, *derived],
         group_names=bga.group_names,
         power_w=values.number("die.power"),
         metadata={

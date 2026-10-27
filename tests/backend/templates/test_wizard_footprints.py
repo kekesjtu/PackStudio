@@ -203,7 +203,7 @@ def test_pqfp_and_sop_use_thermal_land_and_solder_instead_of_exposed_pad_option(
     assert any(block.parent_group_id == "group-thermal-solder" for block in model.blocks)
 
 
-def test_bare_die_bumps_use_a_thick_orthotropic_equivalent_layer() -> None:
+def test_bare_die_bumps_use_a_thick_isotropic_equivalent_layer() -> None:
     model = generate(
         TemplateRequest(
             template_id="bare_die",
@@ -211,7 +211,7 @@ def test_bare_die_bumps_use_a_thick_orthotropic_equivalent_layer() -> None:
         )
     )
 
-    assert model.metadata["bump_representation"] == "thick_orthotropic_equivalent"
+    assert model.metadata["bump_representation"] == "thick_isotropic_equivalent"
     bump = next(
         block for block in model.blocks if block.structure_type is StructureType.FLIP_CHIP_BUMP
     )

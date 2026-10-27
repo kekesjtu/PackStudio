@@ -21,6 +21,17 @@ export function SummaryFields({ request, onChange }: SpecialFieldsProps) {
           onChange={(event) => onChange({ ...request, design_name: event.target.value })}
         />
       </FieldShell>
+      {(['part_number', 'vendor', 'max_power_w', 'max_junction_temperature_c', 'max_case_temperature_c', 'notes'] as const).map((key) => {
+        const label = { part_number: '器件型号', vendor: '厂商名称', max_power_w: '最大额定功率 (W)',
+          max_junction_temperature_c: '最高工作结温 (°C)', max_case_temperature_c: '最高壳温 (°C)', notes: '备注' }[key]
+        const numeric = key.startsWith('max_')
+        return <FieldShell key={key} label={label}><TextField size="small"
+          type={numeric ? 'number' : 'text'} multiline={key === 'notes'}
+          value={request.summary?.[key] ?? ''} slotProps={{ htmlInput: { 'aria-label': label } }}
+          onChange={(e) => onChange({ ...request, summary: { ...request.summary,
+            [key]: numeric ? (e.target.value === '' ? null : Number(e.target.value)) : e.target.value } })} />
+        </FieldShell>
+      })}
     </Stack>
   )
 }
@@ -47,7 +58,8 @@ export function ModelingFields({ request, onChange }: SpecialFieldsProps) {
               })
             }
           >
-            <MenuItem value="equivalent">正交各向异性等效层</MenuItem>
+            <MenuItem value="equivalent" disabled={['chip_array', 'pbga_fc', 'cbga_fc'].includes(request.template_id)
+              && (request.bga.ball_map_enabled || request.bga.omitted_cells.length > 0)}>正交各向异性等效层</MenuItem>
             <MenuItem value="discrete">离散建模</MenuItem>
           </TextField>
         </FieldShell>
