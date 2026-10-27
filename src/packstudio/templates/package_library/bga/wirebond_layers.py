@@ -32,7 +32,7 @@ def internal_layers(values, request, rows):
             f"Trace {i}",
             StructureType.TRACE,
             (values.number("package.length"), values.number("package.width"), row["thickness"]),
-            top - row["depth"] - 2 * rows[0]["thickness"],
+            top - row["depth"] - row["thickness"],
             f"wirebond-trace-{i}",
             "group-traces",
             "Dielectric & traces",

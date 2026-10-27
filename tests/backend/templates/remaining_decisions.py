@@ -19,6 +19,15 @@ def decision_geometry(root, family):
         cuboids = {c.findtext("name"): c for c in root.findall(".//cuboid")}
         bottom = cuboids.get("bottom_trace", cuboids.get("bottomtrace1"))
         top = cuboids.get("toptrace1")
+        if top is not None:
+            # The inner-metal depth decision uses each layer's own thickness.
+            for name, cuboid in cuboids.items():
+                if name.startswith("trace_"):
+                    cuboid.find("position/z").text = str(
+                        number(cuboid, "position/z")
+                        + 2 * number(top, "size/z")
+                        - number(cuboid, "size/z")
+                    )
         if bottom is not None and top is not None:
             z = number(bottom, "position/z") + number(bottom, "size/z")
             for cuboid in root.findall(".//cuboid"):

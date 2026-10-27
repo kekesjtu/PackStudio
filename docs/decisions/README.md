@@ -20,6 +20,7 @@
 | --- | --- |
 | [原生bug：FC PBGA 通孔等效基体导热率](原生bug-FC-PBGA通孔等效基体导热率.md) | 各向同性基板使用同值三向导热率参与 Core Vias 等效 |
 | [原生bug：Wirebond PBGA 通孔纵向位置](原生bug-Wirebond-PBGA通孔纵向位置.md) | 通孔上下端面贴合两外层铜的内表面 |
+| [原生bug：Wirebond PBGA 内层铜纵向位置](原生bug-Wirebond-PBGA内层铜纵向位置.md) | 内层铜按 Depth 与自身厚度定位，与对应断开区对齐 |
 | [原生bug：SOP 芯片与胶层堆叠](原生bug-SOP芯片与胶层堆叠.md) | 承载台、芯片胶与芯片连续堆叠，键合线端点联动 |
 | [原生bug：SOP 键合线线长参数](原生bug-SOP键合线线长参数.md) | 精简可编辑线长输入，显示只读名义路径长度 |
 
