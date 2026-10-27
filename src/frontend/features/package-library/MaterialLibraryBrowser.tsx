@@ -1,9 +1,9 @@
 import Box from '@mui/material/Box'
+import ButtonBase from '@mui/material/ButtonBase'
 import Chip from '@mui/material/Chip'
 import List from '@mui/material/List'
 import ListItemButton from '@mui/material/ListItemButton'
 import ListItemText from '@mui/material/ListItemText'
-import ListSubheader from '@mui/material/ListSubheader'
 import Stack from '@mui/material/Stack'
 import TextField from '@mui/material/TextField'
 import Typography from '@mui/material/Typography'
@@ -25,6 +25,7 @@ export default function MaterialLibraryBrowser({
   onChange,
 }: MaterialLibraryBrowserProps) {
   const [selectedId, setSelectedId] = useState('')
+  const [expandedCategories, setExpandedCategories] = useState<Set<string>>(() => new Set())
   const selected = materials.find((material) => material.id === selectedId)
   const available = new Map(materials.map((material) => [material.id, material]))
   const groups = groupedMaterials({ options: materials.map((material) => material.id) }, materials)
@@ -38,29 +39,40 @@ export default function MaterialLibraryBrowser({
   return (
     <Box className="material-browser" data-has-selection={Boolean(selected)}>
       <List dense disablePadding className="material-browser-list" aria-label="材料分组">
-        {[...groups].map(([category, ids]) => (
-          <Box component="li" key={category} className="material-browser-group">
-            <ListSubheader component="div" role="heading" aria-level={3}>
-              {category} <span>({ids.length})</span>
-            </ListSubheader>
-            <List dense disablePadding aria-label={category}>
-              {ids.map((id) => {
-                const material = available.get(id)!
-                return (
-                  <ListItemButton
-                    key={material.id}
-                    selected={material.id === selected?.id}
-                    onClick={() => setSelectedId(material.id)}
-                  >
-                    <Box className="material-swatch" sx={{ backgroundColor: material.color }} />
-                    <ListItemText primary={material.name} secondary={material.id} sx={{ ml: 1 }} />
-                    {materialQuality(material) && <Chip size="small" color="warning" label="物性待核实" />}
-                  </ListItemButton>
-                )
-              })}
-            </List>
-          </Box>
-        ))}
+        {[...groups].map(([category, ids]) => {
+          const expanded = expandedCategories.has(category)
+          return (
+            <Box component="li" key={category} className="material-browser-group">
+              <ButtonBase className="material-group-toggle" aria-expanded={expanded}
+                aria-label={`${expanded ? '折叠' : '展开'} ${category}`}
+                onClick={() => setExpandedCategories((current) => {
+                  const next = new Set(current)
+                  if (next.has(category)) next.delete(category)
+                  else next.add(category)
+                  return next
+                })}>
+                <span className="material-group-chevron" aria-hidden="true">{expanded ? '−' : '+'}</span>
+                <span>{category}</span> <span className="material-group-count">({ids.length})</span>
+              </ButtonBase>
+              {expanded && <List dense disablePadding aria-label={category}>
+                {ids.map((id) => {
+                  const material = available.get(id)!
+                  return (
+                    <ListItemButton
+                      key={material.id}
+                      selected={material.id === selected?.id}
+                      onClick={() => setSelectedId(material.id)}
+                    >
+                      <Box className="material-swatch" sx={{ backgroundColor: material.color }} />
+                      <ListItemText primary={material.name} secondary={material.id} sx={{ ml: 1 }} />
+                      {materialQuality(material) && <Chip size="small" color="warning" label="物性待核实" />}
+                    </ListItemButton>
+                  )
+                })}
+              </List>}
+            </Box>
+          )
+        })}
       </List>
       {selected && <Box className="material-browser-details" role="region" aria-label="材料属性">
         <Stack direction="row" justifyContent="space-between" alignItems="center" spacing={1}>

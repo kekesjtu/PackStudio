@@ -31,6 +31,7 @@ describe('material heat-capacity data warnings', () => {
 
   it('keeps only the compact library tag and clears it when corrected', () => {
     const { rerender } = render(<MaterialLibraryBrowser materials={[suspect]} onChange={vi.fn()} />)
+    fireEvent.click(screen.getByRole('button', { name: '展开 Others' }))
     expect(screen.getByText('物性待核实')).toBeInTheDocument()
     expect(screen.queryByRole('alert')).not.toBeInTheDocument()
     rerender(<MaterialLibraryBrowser materials={[{ ...safe, id: suspect.id }]} onChange={vi.fn()} />)

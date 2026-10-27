@@ -54,7 +54,11 @@
   list-style: none;
 }
 
-.material-browser-group .MuiListSubheader-root {
+.material-browser-group .material-group-toggle {
+  display: flex;
+  width: 100%;
+  justify-content: flex-start;
+  gap: 5px;
   border-bottom: 1px solid #c3ccd2;
   background: #e9eef1;
   padding: 4px 6px;
@@ -62,6 +66,35 @@
   font-size: 0.7rem;
   font-weight: 700;
   line-height: 1.5;
+  text-align: left;
+}
+
+.material-browser-group .material-group-toggle:hover,
+.material-browser-group .material-group-toggle:focus-visible {
+  background: #dce7ed;
+}
+
+.material-group-chevron {
+  flex: 0 0 12px;
+  width: 12px;
+  height: 12px;
+  border: 1px solid #94a3ad;
+  background: #fbfcfc;
+  font-family: 'Consolas', monospace;
+  font-size: 0.75rem;
+  line-height: 10px;
+  text-align: center;
+}
+
+.material-group-count {
+  color: #6b7b85;
+  font-weight: 400;
+}
+
+.material-browser-group > .MuiList-root {
+  margin-left: 12px;
+  border-left: 1px solid #dde3e6;
+  padding-left: 7px;
 }
 
 .material-fields .field-grid-3 {

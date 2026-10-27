@@ -33,6 +33,7 @@ describe('workspace compact material labels and exports', () => {
   it('shows labels without a central warning for the initial design', async () => {
     render(<PackageWorkspace templateId="sample" />)
     await screen.findByText('1 个块')
+    fireEvent.click(screen.getByRole('button', { name: '展开 Others' }))
     expect(screen.getByText('物性待核实')).toBeInTheDocument()
     expect(screen.queryByRole('alert')).not.toBeInTheDocument()
     expect(api.generateTemplateModel).toHaveBeenCalledWith(request)
@@ -56,6 +57,7 @@ describe('workspace compact material labels and exports', () => {
   it('removes the material label after both properties are corrected', async () => {
     render(<PackageWorkspace templateId="sample" />)
     await screen.findByText('1 个块')
+    fireEvent.click(screen.getByRole('button', { name: '展开 Others' }))
     fireEvent.click(screen.getByRole('button', { name: /芯片胶.*adhesive/ }))
     fireEvent.change(screen.getByLabelText('密度'), { target: { value: '2200' } })
     fireEvent.change(screen.getByLabelText('比热'), { target: { value: '900' } })
