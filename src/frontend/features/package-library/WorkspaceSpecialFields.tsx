@@ -1,4 +1,3 @@
-import MenuItem from '@mui/material/MenuItem'
 import Stack from '@mui/material/Stack'
 import TextField from '@mui/material/TextField'
 
@@ -37,38 +36,6 @@ export function SummaryFields({ request, onChange }: SpecialFieldsProps) {
             [key]: e.target.value } })} />
         </FieldShell>
       })}
-    </Stack>
-  )
-}
-
-export function ModelingFields({ request, onChange }: SpecialFieldsProps) {
-  return (
-    <Stack spacing={1.5}>
-      {request.bga && (
-        <FieldShell label="BGA 焊球阵列建模">
-          <TextField
-            select
-            size="small"
-            value={request.bga.representation}
-            slotProps={{ select: { SelectDisplayProps: { 'aria-label': 'BGA 焊球阵列建模' } } }}
-            onChange={(event) =>
-              onChange({
-                ...request,
-                bga: request.bga && {
-                  ...request.bga,
-                  representation: event.target.value as NonNullable<
-                    TemplateRequest['bga']
-                  >['representation'],
-                },
-              })
-            }
-          >
-            <MenuItem value="equivalent" disabled={['chip_array', 'pbga_fc', 'cbga_fc', 'pbga_wb'].includes(request.template_id)
-              && (request.bga.ball_map_enabled || request.bga.omitted_cells.length > 0)}>正交各向异性等效层</MenuItem>
-            <MenuItem value="discrete">离散建模</MenuItem>
-          </TextField>
-        </FieldShell>
-      )}
     </Stack>
   )
 }

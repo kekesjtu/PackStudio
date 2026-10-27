@@ -11,10 +11,10 @@ interface PackageInspectorProps {
   model: PackageModel | null
   library: Material[]
   request: TemplateRequest
-  selectedBlockId: string | null
+  selectedBlockIds: ReadonlySet<string>
   hiddenBlockIds: ReadonlySet<string>
   onRequestChange: (request: TemplateRequest) => void
-  onSelectBlock: (blockId: string) => void
+  onSelectBlocks: (blockIds: string[]) => void
   onSetBlockHidden: (blockId: string, hidden: boolean) => void
   onShowOnlyBlock: (blockId: string) => void
   onShowAllBlocks: () => void
@@ -40,9 +40,9 @@ export default function PackageInspector(props: PackageInspectorProps) {
         {tab === 'tree' ? (
           <ModelTree
             model={props.model}
-            selectedBlockId={props.selectedBlockId}
+            selectedBlockIds={props.selectedBlockIds}
             hiddenBlockIds={props.hiddenBlockIds}
-            onSelectBlock={props.onSelectBlock}
+            onSelectBlocks={props.onSelectBlocks}
             onSetBlockHidden={props.onSetBlockHidden}
             onShowOnlyBlock={props.onShowOnlyBlock}
             onShowAllBlocks={props.onShowAllBlocks}

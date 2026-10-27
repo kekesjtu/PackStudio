@@ -37,7 +37,7 @@ export default function PackageWorkspace({ templateId }: PackageWorkspaceProps) 
   const [library, setLibrary] = useState<Material[]>([])
   const [model, setModel] = useState<PackageModel | null>(null)
   const [activeStep, setActiveStep] = useState('summary')
-  const [selectedBlockId, setSelectedBlockId] = useState<string | null>(null)
+  const [selectedBlockIds, setSelectedBlockIds] = useState<Set<string>>(() => new Set())
   const [hiddenBlockIds, setHiddenBlockIds] = useState<Set<string>>(() => new Set())
   const [propertyWidth, setPropertyWidth] = useState(390)
   const [inspectorWidth, setInspectorWidth] = useState(340)
@@ -68,6 +68,7 @@ export default function PackageWorkspace({ templateId }: PackageWorkspaceProps) 
         setActiveStep('packstudio_summary')
         setDirty(false)
         setHiddenBlockIds(new Set())
+        setSelectedBlockIds(new Set())
       })
       .catch((reason: unknown) => {
         if (!cancelled) setError(errorMessage(reason))
@@ -104,6 +105,7 @@ export default function PackageWorkspace({ templateId }: PackageWorkspaceProps) 
       setModel(generated)
       setDirty(false)
       setHiddenBlockIds(new Set())
+      setSelectedBlockIds(new Set())
     } catch (reason: unknown) {
       setError(errorMessage(reason))
     } finally {
@@ -177,9 +179,9 @@ export default function PackageWorkspace({ templateId }: PackageWorkspaceProps) 
           </Stack>
           <ModelPreview
             model={model}
-            selectedBlockId={selectedBlockId}
+            selectedBlockIds={selectedBlockIds}
             hiddenBlockIds={hiddenBlockIds}
-            onSelectBlock={setSelectedBlockId}
+            onSelectBlock={(id) => setSelectedBlockIds(new Set(id ? [id] : []))}
           />
         </Paper>
       </Box>
@@ -189,10 +191,10 @@ export default function PackageWorkspace({ templateId }: PackageWorkspaceProps) 
           model={model}
           library={library}
           request={request}
-          selectedBlockId={selectedBlockId}
+          selectedBlockIds={selectedBlockIds}
           hiddenBlockIds={hiddenBlockIds}
           onRequestChange={changeRequest}
-          onSelectBlock={setSelectedBlockId}
+          onSelectBlocks={(ids) => setSelectedBlockIds(new Set(ids))}
           onSetBlockHidden={hideBlock}
           onShowOnlyBlock={showOnlyBlock}
           onShowAllBlocks={() => setHiddenBlockIds(new Set())}

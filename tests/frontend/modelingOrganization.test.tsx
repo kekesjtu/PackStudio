@@ -19,7 +19,7 @@ describe('modeling and conditional Slug controls', () => {
       {renderStep(schema, 'packstudio_modeling', fields, request, [], vi.fn())}</>)
     expect(screen.getAllByRole('button', { name: '建模选项' })).toHaveLength(1)
     expect(screen.queryByRole('button', { name: 'modeling' })).not.toBeInTheDocument()
-    expect(screen.getByRole('combobox', { name: 'BGA 焊球阵列建模' })).toBeInTheDocument()
+    expect(screen.getByRole('combobox', { name: 'Model Solder Ball Array As' })).toBeInTheDocument()
     expect(screen.getByRole('switch', { name: '局部网格' })).toBeInTheDocument()
     expect(screen.getByLabelText('网格密度')).toBeInTheDocument()
   })

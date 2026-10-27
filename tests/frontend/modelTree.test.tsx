@@ -1,4 +1,5 @@
 import { fireEvent, render, screen } from '@testing-library/react'
+import { useState } from 'react'
 import { describe, expect, it, vi } from 'vitest'
 
 import ModelTree from '../../src/frontend/features/model-editor/ModelTree'
@@ -54,19 +55,21 @@ function renderTree(treeModel = model, hiddenBlockIds = new Set<string>()) {
   const onSetBlockHidden = vi.fn()
   const onShowOnlyBlock = vi.fn()
   const onShowAllBlocks = vi.fn()
-  const onSelectBlock = vi.fn()
-  render(
-    <ModelTree
+  const onSelectBlocks = vi.fn()
+  function StatefulTree() {
+    const [selected, setSelected] = useState<Set<string>>(() => new Set())
+    return <ModelTree
       model={treeModel}
-      selectedBlockId={null}
+      selectedBlockIds={selected}
       hiddenBlockIds={hiddenBlockIds}
-      onSelectBlock={onSelectBlock}
+      onSelectBlocks={(ids) => { onSelectBlocks(ids); setSelected(new Set(ids)) }}
       onSetBlockHidden={onSetBlockHidden}
       onShowOnlyBlock={onShowOnlyBlock}
       onShowAllBlocks={onShowAllBlocks}
-    />,
-  )
-  return { onSetBlockHidden, onShowOnlyBlock, onShowAllBlocks, onSelectBlock }
+    />
+  }
+  render(<StatefulTree />)
+  return { onSetBlockHidden, onShowOnlyBlock, onShowAllBlocks, onSelectBlocks }
 }
 
 describe('ModelTree', () => {
@@ -166,9 +169,9 @@ describe('ModelTree', () => {
   })
 
   it('keeps left clicks for selection and uses the block context menu for visibility', () => {
-    const { onSelectBlock, onSetBlockHidden, onShowOnlyBlock } = renderTree()
+    const { onSelectBlocks, onSetBlockHidden, onShowOnlyBlock } = renderTree()
     fireEvent.click(screen.getByRole('button', { name: 'Die block' }))
-    expect(onSelectBlock).toHaveBeenCalledWith('die-block')
+    expect(onSelectBlocks).toHaveBeenCalledWith(['die-block'])
     expect(onSetBlockHidden).not.toHaveBeenCalled()
     fireEvent.contextMenu(screen.getByRole('button', { name: 'Die block' }))
     fireEvent.click(screen.getByRole('menuitem', { name: '隐藏这个模型' }))

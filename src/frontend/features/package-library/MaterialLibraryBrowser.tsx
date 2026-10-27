@@ -61,7 +61,7 @@ export default function MaterialLibraryBrowser({
                     <ListItemButton
                       key={material.id}
                       selected={material.id === selected?.id}
-                      onClick={() => setSelectedId(material.id)}
+                      onClick={() => setSelectedId((current) => current === material.id ? '' : material.id)}
                     >
                       <Box className="material-swatch" sx={{ backgroundColor: material.color }} />
                       <ListItemText primary={material.name} secondary={material.id} sx={{ ml: 1 }} />

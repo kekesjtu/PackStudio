@@ -99,6 +99,12 @@ class TemplateDefinition:
             raise ValueError(f"request template_id must be {self.id}")
         if request.bga is not None and not self.has_bga:
             raise ValueError("BGA configuration is only valid for BGA templates")
+        if (
+            request.bga is not None
+            and request.bga.representation == "isotropic"
+            and self.id != "pbga_wb"
+        ):
+            raise ValueError("Isotropic Cuboid solder balls are only available for Wirebond PBGA")
         if request.vias is not None and not any(f.key == "vias.enabled" for f in self.fields):
             raise ValueError("via configuration is only valid for templates with thermal vias")
         if self.id == "chip_array" and request.vias is not None and request.vias.removal_enabled:

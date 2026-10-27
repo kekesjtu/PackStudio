@@ -12,7 +12,7 @@ import type { AxisAlignedBlock, Material, PackageModel } from './types'
 
 interface ModelPreviewProps {
   model: PackageModel | null
-  selectedBlockId: string | null
+  selectedBlockIds: ReadonlySet<string>
   hiddenBlockIds: ReadonlySet<string>
   onSelectBlock: (blockId: string | null) => void
 }
@@ -52,7 +52,7 @@ function PackageBlock({ block, material, selected, onSelect }: PackageBlockProps
 
 export default function ModelPreview({
   model,
-  selectedBlockId,
+  selectedBlockIds,
   hiddenBlockIds,
   onSelectBlock,
 }: ModelPreviewProps) {
@@ -90,7 +90,7 @@ export default function ModelPreview({
                 key={block.id}
                 block={block}
                 material={materials.get(block.material_id ?? '')}
-                selected={block.id === selectedBlockId}
+                selected={selectedBlockIds.has(block.id)}
                 onSelect={onSelectBlock}
               />
             ))}

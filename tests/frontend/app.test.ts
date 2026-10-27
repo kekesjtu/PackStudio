@@ -231,7 +231,7 @@ describe('eight-template production workspace', () => {
     expect(screen.queryByRole('button', { name: '组件层级' })).not.toBeInTheDocument()
     expect(screen.queryByRole('button', { name: 'Layer 层级' })).not.toBeInTheDocument()
     fireEvent.click(screen.getByRole('button', { name: '建模选项' }))
-    expect(screen.getByRole('combobox', { name: 'BGA 焊球阵列建模' })).toBeInTheDocument()
+    expect(screen.getByRole('combobox', { name: 'Model Solder Ball Array As' })).toBeInTheDocument()
     expect(screen.queryByLabelText('最大网格尺寸预设')).not.toBeInTheDocument()
     expect(screen.queryByRole('button', { name: '折叠 Flip Chip CBGA' })).not.toBeInTheDocument()
     fireEvent.click(screen.getByRole('button', { name: '全部折叠' }))

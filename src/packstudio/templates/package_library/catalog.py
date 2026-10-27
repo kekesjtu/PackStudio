@@ -41,7 +41,15 @@ def catalog() -> list[dict[str, Any]]:
             "display_name": item.display_name,
             "category": item.category,
             "has_bga": item.has_bga,
-            "bga_representations": (["equivalent", "discrete"] if item.has_bga else []),
+            "bga_representations": (
+                ["discrete"]
+                if item.id == "chip_array"
+                else ["isotropic", "discrete", "equivalent"]
+                if item.id == "pbga_wb"
+                else ["equivalent", "discrete"]
+                if item.has_bga
+                else []
+            ),
             "implementation_status": "packstudio_native",
             "runtime_reference_data_required": False,
         }

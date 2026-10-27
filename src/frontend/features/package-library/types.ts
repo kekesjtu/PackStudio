@@ -1,6 +1,7 @@
 import type { Material, PackageModel } from '../model-editor/types'
 
 export type WizardValue = string | number | boolean | null
+export type BgaRepresentation = 'equivalent' | 'isotropic' | 'discrete'
 
 export interface CellIndex {
   row: number
@@ -12,7 +13,7 @@ export interface TemplateCatalogItem {
   display_name: string
   category: string
   has_bga: boolean
-  bga_representations: Array<'equivalent' | 'discrete'>
+  bga_representations: BgaRepresentation[]
   implementation_status: 'packstudio_native'
   runtime_reference_data_required: false
 }
@@ -74,7 +75,7 @@ export interface BgaConfiguration {
   ball_map_enabled?: boolean
   ball_map?: Array<{ id: string; x: number; y: number }>
   allow_asymmetric_regions?: boolean
-  representation: 'equivalent' | 'discrete'
+  representation: BgaRepresentation
   center_solder_enabled: boolean
   center_solder_rows: number | null
   center_solder_columns: number | null

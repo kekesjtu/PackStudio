@@ -2,12 +2,17 @@
 
 ## 决策
 
-- BGA 焊球提供离散和等效两种表达。
+- BGA 焊球建模下拉框采用 PACK 的字段名 `Model Solder Ball Array As` 和选项名称。
+- Chip Array 提供 `Discrete Cuboids`；Flip Chip CBGA/PBGA 提供 `Orthotropic Cuboid` 与 `Discrete Cuboids`。
+- Wirebond PBGA 提供 `Isotropic Cuboid`、`Discrete Cuboids` 与 `Orthotropic Cuboid`。
 - Bumps 采用有厚度的 Isotropic Cuboid 等效层。
+- 凸点建模使用下拉框展示单个 `Isotropic Cuboid` 选项，FC 字段名为 `Model Flip Chip Bumps As`，Bare Die 为 `Solder Bump Modeling`。
+- 建模选项页按几何建模控件、局部网格开关和网格密度的顺序排列。
 
 ## 实现对照
 
-BGA 生成器提供离散焊球与正交各向异性等效层。
+BGA 生成器提供离散焊球与正交各向异性等效层；Wirebond PBGA 同时提供各向同性等效层，三向导热率取焊料与空气的轴向并联混合值。
+等效层的密度按体积加权、比热按质量加权。显式去球和 Solder Ball Map 使用离散表达。
 Bumps 生成器使用有厚度的各向同性等效层，三方向导热率采用焊料与底填材料的并联混合值。
 密度按体积加权，比热按质量加权。FC 的底填关闭分支使用空气作为基体。
 

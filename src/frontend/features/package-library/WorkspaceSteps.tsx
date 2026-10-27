@@ -6,7 +6,8 @@ import SolderBallMap from './SolderBallMap'
 import SopNominalPaths from './SopNominalPaths'
 import ViaRemovalPanel from './ViaRemovalPanel'
 import WizardFields from './WizardFields'
-import { ModelingFields, SummaryFields } from './WorkspaceSpecialFields'
+import { SummaryFields } from './WorkspaceSpecialFields'
+import ModelingFields from './ModelingFields'
 import type { Material, TemplateRequest, TemplateSchema, WizardField } from './types'
 import { valueFor } from './wizardValues'
 import { viaDimensions } from './viaConfiguration'
@@ -56,9 +57,13 @@ export function renderStep(
   }
   if (activeStep === 'packstudio_modeling' || activeStep === 'modeling') {
     const modeling = schema.steps.find((step) => step.id === 'modeling')
+    const gridFields = modeling?.fields.filter((field) => field.property_name?.startsWith('grid.')) ?? []
+    const modelFields = modeling?.fields.filter((field) => !field.property_name?.startsWith('grid.')) ?? []
     return <Stack spacing={2}>
       <ModelingFields request={request} onChange={onChange} />
-      {modeling && <WizardFields step={modeling} allFields={allFields}
+      {modeling && modelFields.length > 0 && <WizardFields step={{ ...modeling, fields: modelFields }} allFields={allFields}
+        request={request} materials={materials} onChange={onChange} />}
+      {modeling && gridFields.length > 0 && <WizardFields step={{ ...modeling, fields: gridFields }} allFields={allFields}
         request={request} materials={materials} onChange={onChange} />}
     </Stack>
   }

@@ -178,6 +178,10 @@ def test_fixed_outline_and_actual_die_are_not_presented_as_restricted_choices() 
 def test_only_bga_templates_advertise_array_representation_choices() -> None:
     for item in catalog():
         expected = ["equivalent", "discrete"] if item["has_bga"] else []
+        if item["id"] == "chip_array":
+            expected = ["discrete"]
+        elif item["id"] == "pbga_wb":
+            expected = ["isotropic", "discrete", "equivalent"]
         assert item["bga_representations"] == expected
 
 

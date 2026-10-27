@@ -77,7 +77,9 @@ def build_native_solder(values, config, request, base_z=0):
     air = material("static-air", request.custom_materials)
     drafts, materials = [], [solder, air]
     count = 0
-    equivalent = config.representation.value == "equivalent"
+    representation = str(config.representation)
+    equivalent = representation != "discrete"
+    isotropic = representation == "isotropic"
     if equivalent and (config.ball_map_enabled or config.omitted_cells):
         raise ValueError("显式去球及 Solder Ball Map 使用离散建模")
 
@@ -126,18 +128,20 @@ def build_native_solder(values, config, request, base_z=0):
         n = nr * nc - (nr - rp) * (nc - cp) if depop else nr * nc
         fraction = n * pi * diameter**2 / (4 * area) * (0.5 if staggered else 1)
         density = fraction * solder.density + (1 - fraction) * air.density
+        axial_conductivity = fraction * solder.conductivity.z + (1 - fraction) * air.conductivity.z
+        tensor = "isotropic" if isotropic else "orthotropic"
         result = solder.model_copy(
             update={
                 "source": f"PACK derived BGA; element={solder.id}; matrix={air.id}; "
                 f"volume_fraction={fraction:.16g}",
                 "id": "solder-ball-center-equivalent" if center else "solder-ball-equivalent",
-                "name": "Solder ball orthotropic equivalent",
+                "name": f"Solder ball {tensor} equivalent",
                 "conductivity_coefficient": None,
                 "conductivity_reference_temperature_c": None,
                 "conductivity": ConductivityTensor(
-                    x=air.conductivity.x,
-                    y=air.conductivity.y,
-                    z=fraction * solder.conductivity.z + (1 - fraction) * air.conductivity.z,
+                    x=axial_conductivity if isotropic else air.conductivity.x,
+                    y=axial_conductivity if isotropic else air.conductivity.y,
+                    z=axial_conductivity,
                 ),
                 "density": density,
                 "specific_heat": (
@@ -162,7 +166,7 @@ def build_native_solder(values, config, request, base_z=0):
                 block(f"{identifier}-{suffix}", x, y, sx, sy, result.id, center)
         for draft in drafts:
             if draft.material_id == result.id:
-                draft.metadata.update(fill_fraction=fraction, tensor="orthotropic")
+                draft.metadata.update(fill_fraction=fraction, tensor=tensor)
 
     if config.ball_map_enabled:
         ids = [p.id for p in config.ball_map]
@@ -192,7 +196,7 @@ def build_native_solder(values, config, request, base_z=0):
         group_names=preserved.group_names,
         metadata={
             "solder_ball_count": count,
-            "solder_ball_representation": config.representation.value,
+            "solder_ball_representation": representation,
             "solder_ball_footprint_x_mm": (columns - 1) * pitch + diameter,
             "solder_ball_footprint_y_mm": (rows - 1) * pitch + diameter,
         },

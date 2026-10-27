@@ -14,6 +14,14 @@ export interface TreeTarget {
   blockIds: string[]
 }
 
+export function visibleBlockIds(data: TreeData, collapsedGroupIds: ReadonlySet<string>, parentId: string | null = null): string[] {
+  return (data.entries.get(parentId) ?? []).flatMap((entry) => {
+    if (entry.kind === 'block') return [entry.block.id]
+    return parentId === null || !collapsedGroupIds.has(entry.group.id)
+      ? visibleBlockIds(data, collapsedGroupIds, entry.group.id) : []
+  })
+}
+
 export default function buildTreeData(model: PackageModel): TreeData {
   const blocks = new Map(model.blocks.map((block) => [block.id, block]))
   const groups = new Map(model.groups.map((group) => [group.id, group]))

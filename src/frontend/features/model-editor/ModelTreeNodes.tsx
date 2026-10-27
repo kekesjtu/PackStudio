@@ -10,10 +10,10 @@ import type { TreeData, TreeTarget } from './modelTreeData'
 interface TreeNodesProps {
   parentId: string | null
   data: TreeData
-  selectedBlockId: string | null
+  selectedBlockIds: ReadonlySet<string>
   hiddenBlockIds: ReadonlySet<string>
   collapsedGroupIds: ReadonlySet<string>
-  onSelectBlock: (blockId: string) => void
+  onSelectBlock: (event: MouseEvent, blockId: string) => void
   onToggleGroup: (groupId: string) => void
   onOpenContextMenu: (event: MouseEvent, target: TreeTarget | null) => void
 }
@@ -25,8 +25,9 @@ export default function ModelTreeNodes(props: TreeNodesProps) {
       const hidden = props.hiddenBlockIds.has(block.id)
       return (
         <ButtonBase key={`block:${block.id}`} className="tree-block"
-          data-selected={block.id === props.selectedBlockId} data-hidden={hidden}
-          onClick={() => props.onSelectBlock(block.id)}
+          data-selected={props.selectedBlockIds.has(block.id)} data-hidden={hidden}
+          aria-pressed={props.selectedBlockIds.has(block.id)}
+          onClick={(event) => props.onSelectBlock(event, block.id)}
           onContextMenu={(event) => props.onOpenContextMenu(event,
             { kind: 'block', blockIds: [block.id] })}>
           <span>{block.name}</span>

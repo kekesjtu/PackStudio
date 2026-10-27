@@ -1,3 +1,5 @@
+from typing import Literal
+
 from pydantic import BaseModel, ConfigDict, Field
 
 from packstudio.domain.materials import Material
@@ -30,7 +32,7 @@ class PackageSummary(BaseModel):
 class BgaConfiguration(BaseModel):
     model_config = ConfigDict(frozen=True, extra="forbid", validate_default=True)
 
-    representation: ArrayRepresentation | None = None
+    representation: ArrayRepresentation | Literal["isotropic"] | None = None
     center_solder_enabled: bool = False
     center_solder_rows: int | None = Field(default=None, ge=1)
     center_solder_columns: int | None = Field(default=None, ge=1)
