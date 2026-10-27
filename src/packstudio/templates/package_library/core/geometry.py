@@ -1,4 +1,4 @@
-from dataclasses import dataclass, field, replace
+from dataclasses import dataclass, field
 
 from packstudio.domain.enums import StructureType
 from packstudio.domain.geometry import (
@@ -8,8 +8,6 @@ from packstudio.domain.geometry import (
     Point3D,
     Size3D,
 )
-
-_TOLERANCE = 1e-9
 
 
 @dataclass(frozen=True)
@@ -118,73 +116,3 @@ def preserve_drafts(drafts: list[DraftBlock]) -> NormalizedDrafts:
         ],
         group_names={draft.group_id: draft.group_name for draft in drafts},
     )
-
-
-def normalize_drafts(drafts: list[DraftBlock]) -> NormalizedDrafts:
-    accepted: list[DraftBlock] = []
-    for source in sorted(drafts, key=lambda item: (item.priority, item.volume, item.id)):
-        remaining = [source]
-        for blocker in accepted:
-            remaining = [
-                piece for candidate in remaining for piece in _subtract(candidate, blocker)
-            ]
-            if not remaining:
-                break
-        accepted.extend(remaining)
-
-    counters: dict[str, int] = {}
-    blocks: list[AxisAlignedBlock] = []
-    for piece in accepted:
-        counters[piece.id] = counters.get(piece.id, 0) + 1
-        part = counters[piece.id]
-        blocks.append(
-            AxisAlignedBlock(
-                id=f"{piece.id}-part-{part}",
-                name=piece.name if part == 1 else f"{piece.name} part {part}",
-                structure_type=piece.structure_type,
-                origin=Point3D(
-                    x=piece.origin[0],
-                    y=piece.origin[1],
-                    z=piece.origin[2],
-                ),
-                size=Size3D(x=piece.size[0], y=piece.size[1], z=piece.size[2]),
-                material_id=piece.material_id,
-                parent_group_id=piece.group_id,
-                metadata={
-                    **piece.metadata,
-                    BOOLEAN_SOURCE_ID_KEY: piece.id,
-                    BOOLEAN_SOURCE_NAME_KEY: piece.name,
-                },
-            )
-        )
-    return NormalizedDrafts(
-        blocks=blocks,
-        group_names={piece.group_id: piece.group_name for piece in accepted},
-    )
-
-
-def _subtract(candidate: DraftBlock, blocker: DraftBlock) -> list[DraftBlock]:
-    candidate_max = candidate.maximum
-    blocker_max = blocker.maximum
-    low = tuple(max(candidate.origin[index], blocker.origin[index]) for index in range(3))
-    high = tuple(min(candidate_max[index], blocker_max[index]) for index in range(3))
-    if any(high[index] <= low[index] + _TOLERANCE for index in range(3)):
-        return [candidate]
-
-    x0, y0, z0 = candidate.origin
-    x1, y1, z1 = candidate_max
-    ix0, iy0, iz0 = low
-    ix1, iy1, iz1 = high
-    boxes = [
-        ((x0, y0, z0), (ix0 - x0, y1 - y0, z1 - z0)),
-        ((ix1, y0, z0), (x1 - ix1, y1 - y0, z1 - z0)),
-        ((ix0, y0, z0), (ix1 - ix0, iy0 - y0, z1 - z0)),
-        ((ix0, iy1, z0), (ix1 - ix0, y1 - iy1, z1 - z0)),
-        ((ix0, iy0, z0), (ix1 - ix0, iy1 - iy0, iz0 - z0)),
-        ((ix0, iy0, iz1), (ix1 - ix0, iy1 - iy0, z1 - iz1)),
-    ]
-    return [
-        replace(candidate, origin=origin, size=size)
-        for origin, size in boxes
-        if min(size) > _TOLERANCE
-    ]

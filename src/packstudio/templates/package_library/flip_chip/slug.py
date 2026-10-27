@@ -7,8 +7,10 @@ from packstudio.templates.package_library.core.geometry import centered_draft
 from packstudio.templates.package_library.core.primitives import rectangular_ring_drafts
 
 
-def append_slug(drafts, values, substrate_top):
-    if not values.matches({"cover.type": "encapsulant", "slug.enabled": True}):
+def append_slug(drafts, values, substrate_top, *, wirebond=False):
+    if not values.boolean("slug.enabled") or (
+        not wirebond and values.text("cover.type") != "encapsulant"
+    ):
         return
     length, width = values.number("slug.length"), values.number("slug.width")
     thickness = values.number("slug.thickness")
@@ -16,12 +18,13 @@ def append_slug(drafts, values, substrate_top):
     offset, clearance = values.number("slug.offset"), values.number("slug.clearance")
     encap_height = (
         values.number("bumps.height") + values.number("die.thickness")
-        if values.boolean("cover.flush")
-        else values.number("cover.thickness")
+        if not wirebond and values.boolean("cover.flush")
+        else values.number("encapsulant.thickness" if wirebond else "cover.thickness")
     )
     top = substrate_top + encap_height
     horizontal_z = top - thickness - offset
-    foot_z = substrate_top + values.number("bumps.height") + clearance
+    foot_z = substrate_top + (values.number("solder_mask.thickness") if wirebond
+                             else values.number("bumps.height")) + clearance
     material_id, group, label = "aluminum", "group-slug", "Drop-in slug"
     drafts.append(
         centered_draft(

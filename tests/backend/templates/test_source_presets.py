@@ -67,11 +67,11 @@ def test_clearing_a_populated_qfn_side_does_not_turn_it_into_an_absent_side() ->
         generate(TemplateRequest(template_id="qfn", overrides={"qfn.leads.count_y": None}))
 
 
-@pytest.mark.parametrize("preset,count", [("PBGA_576_40X40mm", 576), ("PBGA_845_40X40mm", 845)])
+@pytest.mark.parametrize("preset,count", [("PBGA_576_40X40mm", 576), ("PBGA_845_40X40mm", 792)])
 def test_parity_mismatches_are_explicitly_audited(preset: str, count: int) -> None:
     model = generate(request("pbga_wb", preset))
     assert model.metadata["solder_ball_count"] == count
-    assert "半个节距" in model.metadata["preset_notes"]
+    assert "每侧向下取整" in model.metadata["preset_notes"]
     assert model.metadata["preset_geometry_status"] == "native-defaults-adapted"
 
 

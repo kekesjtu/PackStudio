@@ -12,5 +12,5 @@ QFP 不建模、不输出 `tiebar_plt`。
 
 ## 实现对照
 
-`pqfp_tie_bar_drafts` 包含 `tie-bar-plate-*` 物理块，所属组件为 `group-tie-bar-plates`。
-FloXML 导出器消费生成模型中的物理块，该生成逻辑与本决策的几何及输出范围存在实现差距。
+`pqfp_tie_bar_drafts` 生成四角八条连接筋，使用连接筋等效材料。
+向导的组件选材与 FloXML 导出采用同一组连接筋实体。

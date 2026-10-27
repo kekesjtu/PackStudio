@@ -2,7 +2,6 @@
 
 import re
 
-from packstudio.templates.package_library.core.array_solder_style import center_bounds, is_in_bounds
 from packstudio.templates.package_library.core.parameters import BgaConfiguration
 
 
@@ -38,8 +37,7 @@ def source_bga_pattern(
         ):
             configuration["allow_asymmetric_regions"] = True
             notes.append(
-                "源区域与全阵列奇偶不同，按负轴方向取整定位，区域中心偏移半个节距；"
-                "尚未完成原生 PACK 位置对照。"
+                "阵列与区域奇偶不同；外围满布行列按每侧向下取整，中央焊球按独立阵列居中。"
             )
     ball_map = raw.get(ball_map_symbol) if ball_map_symbol else None
     if isinstance(ball_map, str) and ball_map.strip():
@@ -76,25 +74,11 @@ def _parse_ball_coordinates(value: str, columns: int, rows: int) -> set[tuple[in
 
 
 def source_ball_count(raw: dict, bga: dict) -> int:
-    center = (
-        center_bounds(raw["ME"], raw["MD"], bga["center_solder_rows"], bga["center_solder_columns"])
-        if bga["center_solder_enabled"]
-        else (0, 0, 0, 0)
-    )
-    removal = (
-        center_bounds(raw["ME"], raw["MD"], bga["removal_rows"], bga["removal_columns"])
-        if bga["solder_removal_enabled"]
-        else (0, 0, 0, 0)
-    )
-    omitted = {(cell["row"], cell["column"]) for cell in bga["omitted_cells"]}
-    return sum(
-        (row, column) not in omitted
-        and (
-            bga["center_solder_enabled"]
-            and is_in_bounds(row, column, center)
-            or not bga["solder_removal_enabled"]
-            or not is_in_bounds(row, column, removal)
-        )
-        for row in range(raw["ME"])
-        for column in range(raw["MD"])
-    )
+    from packstudio.templates.package_library.bga.native_solder import main_cells
+
+    configuration = BgaConfiguration.model_validate(bga)
+    count = len(main_cells(configuration, raw["ME"], raw["MD"]))
+    if configuration.center_solder_enabled:
+        center_count = configuration.center_solder_rows * configuration.center_solder_columns
+        count += (center_count + 1) // 2 if configuration.center_staggered else center_count
+    return count

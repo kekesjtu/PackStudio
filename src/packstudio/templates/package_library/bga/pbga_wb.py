@@ -1,8 +1,11 @@
-from math import pi, sqrt
-
 from packstudio.domain.enums import StructureType
 from packstudio.templates.package_library.bga.backside_spreader import bottom_layers
 from packstudio.templates.package_library.bga.layers import build_bga_layer
+from packstudio.templates.package_library.bga.wirebond_layers import (
+    copper_materials,
+    internal_layers,
+    metal_rows,
+)
 from packstudio.templates.package_library.core.baseline_materials import materials_for
 from packstudio.templates.package_library.core.default_library import (
     load_fields,
@@ -14,6 +17,8 @@ from packstudio.templates.package_library.core.definitions import (
 )
 from packstudio.templates.package_library.core.generator import BuiltTemplate
 from packstudio.templates.package_library.core.geometry import centered_draft
+from packstudio.templates.package_library.core.hollow_vias import hollow_vias
+from packstudio.templates.package_library.core.materials import material
 from packstudio.templates.package_library.core.parameters import (
     BgaConfiguration,
     TemplateRequest,
@@ -22,7 +27,7 @@ from packstudio.templates.package_library.core.primitives import (
     four_direction_wire_drafts,
     rectangular_ring_drafts,
 )
-from packstudio.templates.package_library.core.via_geometry import via_grid_drafts
+from packstudio.templates.package_library.flip_chip.slug import append_slug
 
 
 def definition() -> TemplateDefinition:
@@ -42,6 +47,7 @@ def definition() -> TemplateDefinition:
             "thermal_vias",
             "metal_layers",
             "solder_balls",
+            "slug",
             "backside_spreader",
         ),
         material_selections=load_material_selections("pbga_wb", fields),
@@ -54,8 +60,9 @@ def _build(values: TemplateValues, request: TemplateRequest) -> BuiltTemplate:
     width = values.number("package.width")
     substrate = values.number("substrate.thickness")
     bga_height = values.number("bga.height")
-    top_trace = values.number("trace.top_thickness")
-    bottom_trace = values.number("trace.bottom_thickness")
+    rows = metal_rows(values, request)
+    top_trace = rows[0]["thickness"]
+    bottom_trace = rows[-1]["thickness"]
     substrate_top = bga_height + substrate
     mask = values.number("solder_mask.thickness")
     die_length = values.number("die.length")
@@ -123,7 +130,8 @@ def _build(values: TemplateValues, request: TemplateRequest) -> BuiltTemplate:
             "group-traces",
             "Top traces",
         ),
-        *bottom_layers(values),
+        *bottom_layers(values, bottom_trace),
+        *internal_layers(values, request, rows),
         centered_draft(
             "die-flag",
             "Die flag",
@@ -185,20 +193,19 @@ def _build(values: TemplateValues, request: TemplateRequest) -> BuiltTemplate:
             "wirebond-bondwire-y",
         ),
     ]
+    via_materials = []
     if values.boolean("vias.enabled"):
-        drafts.extend(
-            via_grid_drafts(
-                "thermal-via",
-                values.integer("vias.rows"),
-                values.integer("vias.columns"),
-                values.number("vias.pitch"),
-                sqrt(pi) * values.number("vias.diameter") / 2,
-                bga_height + top_trace,
-                substrate - top_trace - bottom_trace,
-                material_id="wirebond-via",
-                configuration=request.vias,
-            )
+        via_drafts, via_materials = hollow_vias(
+            values,
+            request,
+            material(request.material_assignments["group-traces"], request.custom_materials),
+            material(request.material_assignments["group-substrate"], request.custom_materials),
+            "wirebond-via",
+            bga_height + bottom_trace,
+            substrate - top_trace - bottom_trace,
         )
+        drafts.extend(via_drafts)
+    append_slug(drafts, values, substrate_top, wirebond=True)
     bga = build_bga_layer(
         values,
         request.bga or BgaConfiguration(),
@@ -208,7 +215,12 @@ def _build(values: TemplateValues, request: TemplateRequest) -> BuiltTemplate:
     return BuiltTemplate(
         drafts=drafts,
         blocks=bga.blocks,
-        materials=[*materials_for("pbga_wb"), *bga.materials],
+        materials=[
+            *materials_for("pbga_wb"),
+            *bga.materials,
+            *via_materials,
+            *copper_materials(values, request, rows),
+        ],
         group_names=bga.group_names,
         power_w=values.number("die.power"),
         metadata={

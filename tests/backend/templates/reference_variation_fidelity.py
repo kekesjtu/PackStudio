@@ -8,6 +8,7 @@ import pytest
 from packstudio.domain.enums import StructureType
 from packstudio.templates.package_library.catalog import definition
 from tests.backend.templates.reference_requests import reference_request
+from tests.backend.templates.remaining_decisions import decision_geometry
 
 REFERENCE_ROOT = Path(__file__).parents[3] / "flotherm_pack_data" / "templates"
 
@@ -198,7 +199,9 @@ def _record(origin: tuple[float, ...], size: tuple[float, ...]) -> GeometryRecor
 
 
 def _reference_geometry(path: Path) -> Counter[GeometryRecord]:
-    root = ElementTree.parse(path).getroot()
+    root = decision_geometry(
+        ElementTree.parse(path).getroot(), path.relative_to(REFERENCE_ROOT).parts[0]
+    )
     records: Counter[GeometryRecord] = Counter()
     for cuboid in root.findall(".//cuboid"):
         position = cuboid.find("position")

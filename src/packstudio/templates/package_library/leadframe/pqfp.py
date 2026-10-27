@@ -117,6 +117,7 @@ def _build(values: TemplateValues, _request: TemplateRequest) -> BuiltTemplate:
             diameter,
             "pqfp-bondwire-x",
             "pqfp-bondwire-y",
+            minimum_vertical_height=diameter / 4,
         ),
         *pqfp_leadframe_drafts(
             package_length,
@@ -154,7 +155,6 @@ def _build(values: TemplateValues, _request: TemplateRequest) -> BuiltTemplate:
             values.number("tie_bar.width"),
             flag_z,
             lead_thickness,
-            (gap_x + gap_y) / 2,
         ),
     ]
     if values.boolean("thermal_land.enabled"):

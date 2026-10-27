@@ -204,11 +204,10 @@ def pqfp_tie_bar_drafts(
     bar_width: float,
     z: float,
     thickness: float,
-    plating_height: float,
 ) -> list[DraftBlock]:
     x_span = body_length / 2 - flag_length / 2
     y_span = body_width / 2 - flag_width / 2
-    if min(x_span, y_span, plating_height) <= 0:
+    if min(x_span, y_span) <= 0:
         raise ValueError("QFP tie-bar dimensions are inconsistent")
     x_records = (
         ("right-upper", flag_length / 2, flag_width / 2 - bar_width),
@@ -238,16 +237,6 @@ def pqfp_tie_bar_drafts(
                     "pqfp-tie-bar",
                     "group-tie-bars",
                     "Tie bars",
-                ),
-                corner_draft(
-                    f"tie-bar-plate-{name}",
-                    f"Tie-bar plate {name}",
-                    StructureType.ENCAPSULANT,
-                    (*origin, z + thickness),
-                    (*size, plating_height),
-                    "epoxy-mold",
-                    "group-tie-bar-plates",
-                    "Tie-bar plates",
                 ),
             )
         )

@@ -28,8 +28,8 @@ def native_auxiliary(values, request, blocks, metadata):
             kind="monitor_point", name="CaseTemp", origin=Point3D(x=0, y=0, z=0.99 * height)
         )
     )
-    length = metadata["solder_ball_footprint_x_mm"]
-    width = metadata["solder_ball_footprint_y_mm"]
+    length = metadata.get("solder_ball_footprint_x_mm", metadata["native_grid_length_mm"])
+    width = metadata.get("solder_ball_footprint_y_mm", metadata["native_grid_width_mm"])
 
     def region(name, length, width, z):
         return AuxiliaryGeometry(
@@ -39,10 +39,16 @@ def native_auxiliary(values, request, blocks, metadata):
             size=Size3D(x=length, y=width, z=1),
         )
 
+    if request.template_id in {"pqfp", "sop", "qfn"}:
+        length = values.number("body.length" if request.template_id == "sop" else "package.length")
+        width = values.number("package.width")
     result.append(region("z_bottom", length, width, 0))
     length, width = die.size.x, die.size.y
-    if request.template_id == "chip_array":
+    if request.template_id in {"chip_array", "qfn"}:
         length, width = values.number("package.length"), values.number("package.width")
+    elif request.template_id in {"pqfp", "sop", "pbga_wb"}:
+        prefix = "encapsulant" if request.template_id == "pbga_wb" else "body"
+        length, width = values.number(prefix + ".length"), values.number(prefix + ".width")
     else:
         kind = values.text("cover.type")
         prefix = {"lid": "lid", "plate": "plate", "encapsulant": "cover"}.get(kind)

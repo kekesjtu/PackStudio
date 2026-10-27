@@ -10,7 +10,6 @@ from packstudio.templates.package_library.core.coupled_materials import coupled_
 from packstudio.templates.package_library.core.definitions import TemplateDefinition
 from packstudio.templates.package_library.core.geometry import (
     DraftBlock,
-    normalize_drafts,
     preserve_drafts,
 )
 from packstudio.templates.package_library.core.materials import production_materials
@@ -39,11 +38,7 @@ def generate_template(
     effective_request = definition.resolve_material_request(request, values)
     # Layer builders need resolved constituents before calculating equivalents.
     built: BuiltTemplate = definition.builder(values, effective_request)
-    normalized = (
-        preserve_drafts(built.drafts)
-        if definition.id in {"bare_die", "chip_array", "cbga_fc", "pbga_fc"}
-        else normalize_drafts(built.drafts)
-    )
+    normalized = preserve_drafts(built.drafts)
     blocks = [*normalized.blocks, *built.blocks]
     group_names = {**normalized.group_names, **built.group_names}
     materials = {**production_materials()}
@@ -55,11 +50,7 @@ def generate_template(
     # Physical constituent edits feed the rules above. Explicit edits to a
     # generated material remain user overrides, as for existing via materials.
     materials.update((item.id, item) for item in request.custom_materials if item.id in derived_ids)
-    generated_ids = (
-        {item.id for item in built.materials if item.id not in production_materials()}
-        if definition.id in {"bare_die", "chip_array", "cbga_fc", "pbga_fc"}
-        else set()
-    )
+    generated_ids = {item.id for item in built.materials if item.id not in production_materials()}
     blocks = _apply_material_assignments(
         blocks, materials, effective_request, derived_ids, generated_ids
     )
@@ -125,7 +116,7 @@ def _apply_material_assignments(
                 }
                 or (
                     block.parent_group_id == "group-tie-bars"
-                    and block.material_id == "pqfp-tie-bar"
+                    and block.material_id in {"pqfp-tie-bar", "sop-die-flag"}
                 )
             )
         )

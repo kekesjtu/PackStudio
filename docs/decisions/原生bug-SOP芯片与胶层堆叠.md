@@ -54,8 +54,8 @@ $$
 ## 实现对照
 
 `src/packstudio/templates/package_library/leadframe/sop.py` 的 `_build`
-使用 `flag_z + lead_thickness` 作为 `die_z`，芯片与胶层同时使用该起点。
-该计算与本决策的承载台实际顶面、胶层和芯片连续堆叠存在实现差距。
+使用 `flag_z + flag_thickness` 作为胶层底面，胶层顶面作为芯片底面。
+塑封容纳校验使用堆叠后的实际芯片顶面。
 键合线生成使用 `die_top` 与 `lead_top`，其端点随堆叠坐标联动。
 
 ## 验收标准

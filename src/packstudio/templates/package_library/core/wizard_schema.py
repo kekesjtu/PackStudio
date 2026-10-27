@@ -61,6 +61,11 @@ def build_wizard_schema(definition: TemplateDefinition) -> dict[str, Any]:
                 "visible_when": item.visible_when or None,
                 "enabled_when": item.enabled_when or None,
                 **({"help_text": item.help_text} if item.help_text else {}),
+                **(
+                    {"layer_initialization": _wb_initializations(definition)}
+                    if definition.id == "pbga_wb" and item.key == "substrate.layers"
+                    else {}
+                ),
             }
         )
     for item in definition.material_selections:
@@ -118,3 +123,37 @@ def _classification(item: FieldDefinition) -> str:
     if item.control in {"number", "integer", "integer_spinbox"}:
         return "numeric_parameter"
     return "enum_option"
+
+
+def _wb_initializations(definition):
+    from packstudio.templates.package_library.core.family_initialization import (
+        initialize_family_values,
+    )
+
+    footprint = next(f for f in definition.fields if f.control == "footprint")
+    result = {}
+    for preset in footprint.presets:
+        values = {f.key: f.default for f in definition.fields}
+        values.update(preset.values)
+        values["footprint.size"] = preset.value
+        layers = {"2-Layer": values.copy()}
+        initialize_family_values("pbga_wb", values, {"pbga_wb.substrate.layers": "4-Layer"})
+        layers["4-Layer"] = values
+        result[preset.value] = {
+            layer: {
+                f"pbga_wb.{key}": val
+                for key, val in entries.items()
+                if key
+                in {
+                    "substrate.thickness",
+                    "metal.layers",
+                    "vias.rows",
+                    "vias.columns",
+                    "trace.top_thickness",
+                    "trace.bottom_thickness",
+                }
+                or key.startswith("spreader.")
+            }
+            for layer, entries in layers.items()
+        }
+    return result

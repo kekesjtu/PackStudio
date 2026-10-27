@@ -6,9 +6,9 @@ from packstudio.templates.package_library.core.geometry import DraftBlock, cente
 from packstudio.templates.package_library.core.primitives import rectangular_ring_drafts
 
 
-def bottom_layers(values: TemplateValues) -> list[DraftBlock]:
+def bottom_layers(values: TemplateValues, thickness: float | None = None) -> list[DraftBlock]:
     length, width = values.number("package.length"), values.number("package.width")
-    thickness = values.number("trace.bottom_thickness")
+    thickness = values.number("trace.bottom_thickness") if thickness is None else thickness
     z = values.number("bga.height")
     if not values.boolean("spreader.enabled"):
         return [

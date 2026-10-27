@@ -30,6 +30,7 @@ export interface WizardField {
   options: WizardValue[]
   option_labels?: Record<string, string>
   preset_values?: Record<string, Record<string, WizardValue>>
+  layer_initialization?: Record<string, Record<string, Record<string, WizardValue>>>
   preset_bga?: Record<string, BgaConfiguration>
   preset_notes?: Record<string, string>
   preset_materials?: Record<string, Record<string, string>>

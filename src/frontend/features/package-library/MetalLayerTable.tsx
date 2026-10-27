@@ -1,13 +1,15 @@
 import Button from '@mui/material/Button'
+import Checkbox from '@mui/material/Checkbox'
+import FormControlLabel from '@mui/material/FormControlLabel'
 import Stack from '@mui/material/Stack'
 import TextField from '@mui/material/TextField'
 import FieldShell from '../../ui/FieldShell'
 import numericInput from '../../ui/numericInput'
 
-interface Row { depth: number | null; thickness: number | null; coverage: number | null }
+interface Row { depth: number | null; thickness: number | null; coverage: number | null; disconnect?: boolean }
 
-export default function MetalLayerTable({ label, value, enabled, onChange, outerFaces = false }: {
-  label: string; value: string; enabled: boolean; onChange: (value: string) => void; outerFaces?: boolean
+export default function MetalLayerTable({ label, value, enabled, onChange, outerFaces = false, disconnect = false }: {
+  label: string; value: string; enabled: boolean; onChange: (value: string) => void; outerFaces?: boolean; disconnect?: boolean
 }) {
   let rows: Row[] = []
   try { rows = JSON.parse(value) as Row[] } catch { /* Backend reports malformed table input. */ }
@@ -25,6 +27,11 @@ export default function MetalLayerTable({ label, value, enabled, onChange, outer
           onChange={(event) => update(rows.map((r, i) => i === index
             ? { ...r, [key]: event.target.value === '' ? null : Number(event.target.value) } : r))}
         />)}
+        {disconnect && <FormControlLabel label="Disconnect to Via" control={<Checkbox
+          checked={row.disconnect ?? false} disabled={!enabled}
+          slotProps={{ input: { 'aria-label': `${label} 第 ${index + 1} 行 disconnect` } }}
+          onChange={(event) => update(rows.map((r, i) => i === index
+            ? { ...r, disconnect: event.target.checked } : r))} />} />}
         <Button disabled={!enabled} aria-label={`删除第 ${index + 1} 层`}
           onClick={() => update(rows.filter((_, i) => i !== index))}>删除</Button>
       </Stack>)}

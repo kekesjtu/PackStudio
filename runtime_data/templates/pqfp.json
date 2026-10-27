@@ -424,7 +424,7 @@
       "label": "键合线数量",
       "control": "integer_spinbox",
       "unit": null,
-      "minimum": 1,
+      "minimum": 0,
       "maximum": 500,
       "options": [],
       "option_labels": {},
@@ -466,7 +466,7 @@
       "label": "散热焊盘厚度",
       "control": "number",
       "unit": "mm",
-      "minimum": 0.01,
+      "minimum": 0.001,
       "maximum": 1,
       "options": [],
       "option_labels": {},
@@ -474,6 +474,125 @@
       "visible_when": {
         "thermal_land.enabled": true
       },
+      "enabled_when": {}
+    },
+    {
+      "key": "grid.enabled",
+      "label": "局部网格",
+      "control": "checkbox",
+      "default": true,
+      "step": "modeling",
+      "unit": null,
+      "minimum": null,
+      "maximum": null,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "grid.density",
+      "label": "网格密度",
+      "control": "combobox",
+      "default": "fine",
+      "step": "modeling",
+      "unit": null,
+      "minimum": null,
+      "maximum": null,
+      "options": [
+        "coarse",
+        "medium",
+        "fine"
+      ],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {
+        "grid.enabled": true
+      },
+      "enabled_when": {}
+    },
+    {
+      "key": "bond_wire.modeling",
+      "label": "键合线建模方式",
+      "control": "combobox",
+      "default": "orthotropicCuboid",
+      "step": "modeling",
+      "unit": null,
+      "minimum": null,
+      "maximum": null,
+      "options": [
+        "isotropicCuboid",
+        "orthotropicCuboid"
+      ],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "package.exposed_pad",
+      "label": "裸露焊盘初始化",
+      "control": "checkbox",
+      "default": false,
+      "step": "package_setup",
+      "unit": null,
+      "minimum": null,
+      "maximum": null,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "leads.custom_coverage",
+      "label": "自定义引线框覆盖率",
+      "control": "checkbox",
+      "default": false,
+      "step": "leadframe",
+      "unit": null,
+      "minimum": null,
+      "maximum": null,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "leads.coverage",
+      "label": "内部引线框覆盖率",
+      "control": "number",
+      "default": 50,
+      "step": "leadframe",
+      "unit": "%",
+      "minimum": 0,
+      "maximum": 100,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {
+        "leads.custom_coverage": true
+      },
+      "enabled_when": {}
+    },
+    {
+      "key": "leads.modeling",
+      "label": "引线框建模方式",
+      "control": "combobox",
+      "default": "orthotropicCuboid",
+      "step": "modeling",
+      "unit": null,
+      "minimum": null,
+      "maximum": null,
+      "options": [
+        "isotropicCuboid",
+        "orthotropicCuboid"
+      ],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
       "enabled_when": {}
     }
   ],
@@ -484,8 +603,7 @@
       "label": "塑封材料",
       "default": "epoxy-mold",
       "options": [
-        "epoxy-mold",
-        "eme-7730lf"
+        "*"
       ],
       "visible_when": {}
     },
@@ -505,19 +623,7 @@
       "label": "芯片粘接材料",
       "default": "dieattach-84-1lmis",
       "options": [
-        "dieattach-84-1lmis",
-        "dieattach-2600bt"
-      ],
-      "visible_when": {}
-    },
-    {
-      "group_id": "group-die-flag",
-      "step": "die_flag_tie_bars",
-      "label": "芯片承载台材料",
-      "default": "leadframe-c194",
-      "options": [
-        "leadframe-c194",
-        "copper"
+        "*"
       ],
       "visible_when": {}
     },
@@ -527,29 +633,7 @@
       "label": "引线框材料",
       "default": "leadframe-c194",
       "options": [
-        "leadframe-c194",
-        "copper"
-      ],
-      "visible_when": {}
-    },
-    {
-      "group_id": "group-tie-bars",
-      "step": "die_flag_tie_bars",
-      "label": "连接筋材料",
-      "default": "leadframe-c194",
-      "options": [
-        "leadframe-c194",
-        "copper"
-      ],
-      "visible_when": {}
-    },
-    {
-      "group_id": "group-tie-bar-plates",
-      "step": "die_flag_tie_bars",
-      "label": "连接筋填充材料",
-      "default": "epoxy-mold",
-      "options": [
-        "epoxy-mold"
+        "*"
       ],
       "visible_when": {}
     },
@@ -559,7 +643,7 @@
       "label": "键合线材料",
       "default": "gold",
       "options": [
-        "gold"
+        "*"
       ],
       "visible_when": {}
     },
@@ -567,10 +651,9 @@
       "group_id": "group-thermal-land",
       "step": "thermal_land_solder",
       "label": "散热焊盘材料",
-      "default": "leadframe-c194",
+      "default": "copper",
       "options": [
-        "leadframe-c194",
-        "copper"
+        "*"
       ],
       "visible_when": {
         "thermal_land.enabled": true
@@ -582,7 +665,7 @@
       "label": "焊料材料",
       "default": "solder-sn63",
       "options": [
-        "solder-sn63"
+        "*"
       ],
       "visible_when": {
         "thermal_land.enabled": true

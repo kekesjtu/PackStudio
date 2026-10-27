@@ -103,7 +103,7 @@ def test_selected_bga_solder_reaches_both_center_and_perimeter_and_keeps_air(
     materials = {m.id: m for m in model.materials}
     if representation == "discrete":
         assert all(materials[b.material_id] == solder for b in solids)
-    elif template != "pbga_wb":
+    else:
         air = material("static-air")
         for group, physical_count in [
             ("group-solder-ball", count - 1),
@@ -125,26 +125,6 @@ def test_selected_bga_solder_reaches_both_center_and_perimeter_and_keeps_air(
             assert output.specific_heat * output.density == pytest.approx(
                 fraction * 7500 * 350 + (1 - fraction) * air.density * air.specific_heat
             )
-    else:
-        result = materials["solder-ball-equivalent"]
-        assert all(b.material_id == result.id for b in solids)
-        fraction = (
-            count
-            * pi
-            * (request.overrides[f"{template}.bga.diameter"] / 2) ** 2
-            / sum(b.size.x * b.size.y for b in solids)
-        )
-        air = material("static-air")
-        density = fraction * 7500 + (1 - fraction) * air.density
-        assert result.conductivity.x == air.conductivity.x
-        assert result.conductivity.y == air.conductivity.y
-        assert result.conductivity.z == pytest.approx(
-            fraction * 80 + (1 - fraction) * air.conductivity.z
-        )
-        assert result.density == pytest.approx(density)
-        assert result.specific_heat * density == pytest.approx(
-            fraction * 7500 * 350 + (1 - fraction) * air.density * air.specific_heat
-        )
     root = etree.fromstring(export_floxml(model))
     for identifier in {b.material_id for b in solids}:
         exported = root.xpath(f"./attributes/materials/*[name='{identifier}']")[0]

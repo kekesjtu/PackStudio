@@ -388,7 +388,7 @@
       "label": "散热焊盘厚度",
       "control": "number",
       "unit": "mm",
-      "minimum": 0.01,
+      "minimum": 0.001,
       "maximum": 1,
       "options": [],
       "option_labels": {},
@@ -507,6 +507,95 @@
         "vias.enabled": true
       },
       "enabled_when": {}
+    },
+    {
+      "key": "grid.enabled",
+      "label": "局部网格",
+      "control": "checkbox",
+      "default": true,
+      "step": "modeling",
+      "unit": null,
+      "minimum": null,
+      "maximum": null,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "grid.density",
+      "label": "网格密度",
+      "control": "combobox",
+      "default": "fine",
+      "step": "modeling",
+      "unit": null,
+      "minimum": null,
+      "maximum": null,
+      "options": [
+        "coarse",
+        "medium",
+        "fine"
+      ],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {
+        "grid.enabled": true
+      },
+      "enabled_when": {}
+    },
+    {
+      "key": "leads.modeling",
+      "label": "引脚与焊料互连建模方式",
+      "control": "combobox",
+      "default": "discreteLeads",
+      "step": "modeling",
+      "unit": null,
+      "minimum": null,
+      "maximum": null,
+      "options": [
+        "discreteLeads",
+        "orthotropicCuboid"
+      ],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "bond_wire.steps",
+      "label": "键合线离散分段数量",
+      "control": "integer_spinbox",
+      "default": 1,
+      "step": "modeling",
+      "unit": null,
+      "minimum": 1,
+      "maximum": 100,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "vias.modeling",
+      "label": "通孔建模方式",
+      "control": "combobox",
+      "default": "discrete",
+      "step": "thermal_vias",
+      "unit": null,
+      "minimum": null,
+      "maximum": null,
+      "options": [
+        "discrete",
+        "lumped"
+      ],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {
+        "vias.enabled": true
+      },
+      "enabled_when": {}
     }
   ],
   "material_selections": [
@@ -516,8 +605,7 @@
       "label": "塑封材料",
       "default": "eme-7730lf",
       "options": [
-        "eme-7730lf",
-        "epoxy-mold"
+        "*"
       ],
       "visible_when": {}
     },
@@ -537,8 +625,7 @@
       "label": "芯片粘接材料",
       "default": "dieattach-2600bt",
       "options": [
-        "dieattach-2600bt",
-        "dieattach-84-1lmis"
+        "*"
       ],
       "visible_when": {}
     },
@@ -548,8 +635,7 @@
       "label": "DAP 材料",
       "default": "leadframe-c194",
       "options": [
-        "leadframe-c194",
-        "copper"
+        "*"
       ],
       "visible_when": {}
     },
@@ -559,8 +645,7 @@
       "label": "引线框材料",
       "default": "leadframe-c194",
       "options": [
-        "leadframe-c194",
-        "copper"
+        "*"
       ],
       "visible_when": {}
     },
@@ -570,7 +655,7 @@
       "label": "键合线材料",
       "default": "gold",
       "options": [
-        "gold"
+        "*"
       ],
       "visible_when": {}
     },
@@ -580,7 +665,7 @@
       "label": "焊料材料",
       "default": "solder-sn63",
       "options": [
-        "solder-sn63"
+        "*"
       ],
       "visible_when": {}
     },
@@ -588,10 +673,9 @@
       "group_id": "group-thermal-land",
       "step": "thermal_land",
       "label": "散热焊盘材料",
-      "default": "leadframe-c194",
+      "default": "copper",
       "options": [
-        "leadframe-c194",
-        "copper"
+        "*"
       ],
       "visible_when": {
         "thermal_land.enabled": true

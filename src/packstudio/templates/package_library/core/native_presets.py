@@ -26,7 +26,7 @@ def at_path(record: dict, path: list[str]):
     return node
 
 
-def native_value(key, value):
+def native_value(key, value, *, disconnect=False):
     if isinstance(value, list):
         return json.dumps(
             [
@@ -34,6 +34,8 @@ def native_value(key, value):
                     "depth": row["depth_m"] * 1000,
                     "thickness": row["thickness_m"] * 1000,
                     "coverage": row["coverage_percent"],
+                    **({"disconnect": row["disconnect_to_vias"]}
+                       if disconnect and "disconnect_to_vias" in row else {}),
                 }
                 for row in value
                 if row.get("status") == "specified"
@@ -41,6 +43,10 @@ def native_value(key, value):
         )
     if key in {"vias.filled", "bond_wire.auto_count", "upper.filled", "lower.filled"}:
         return value == "yes"
+    if key == "leads.custom_coverage":
+        return value == "yes"
+    if key == "vias.modeling" and value == "ignored":
+        return "discrete"
     if key == "bumps.array_type":
         return {"regularArray": "regular", "nonRegularArray": "non_regular"}[value]
     if key == "vias.enabled" and isinstance(value, str):
@@ -73,13 +79,17 @@ def _adapt(record: dict, binding: dict, fields: list[dict]) -> dict:
     branch = record["branches"][record["default_branch"]]
     values, inactive = {}, {}
     for key, path in binding["parameters"].items():
+        if key not in {f["key"] for f in fields}:
+            continue
         native = at_path(branch, path)
         if isinstance(native, list):
             native = {"value": native}
         if isinstance(native, bool):
             values[key] = native
         elif "value" in native:
-            values[key] = native_value(key, native["value"])
+            values[key] = native_value(
+                key, native["value"], disconnect=binding["family"] == "pbga_wb"
+            )
         elif native["status"] == "not_applicable":
             inactive[key] = "/".join(path)
             values[key] = None

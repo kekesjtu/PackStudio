@@ -11,11 +11,9 @@ from packstudio.templates.package_library.core.definitions import (
 from packstudio.templates.package_library.core.generator import BuiltTemplate
 from packstudio.templates.package_library.core.geometry import centered_draft
 from packstudio.templates.package_library.core.parameters import TemplateRequest
-from packstudio.templates.package_library.core.primitives import four_direction_wire_drafts
-from packstudio.templates.package_library.leadframe.qfn_primitives import (
-    qfn_interconnect_drafts,
-)
+from packstudio.templates.package_library.leadframe.qfn_interconnect import interconnect
 from packstudio.templates.package_library.leadframe.qfn_vias import qfn_vias
+from packstudio.templates.package_library.leadframe.qfn_wires import qfn_wires
 
 
 def definition() -> TemplateDefinition:
@@ -62,13 +60,9 @@ def _build(values: TemplateValues, request: TemplateRequest) -> BuiltTemplate:
     count_y = 0 if values.is_missing("leads.count_y") else values.integer("leads.count_y")
     pitch_x = values.number("leads.pitch_x")
     pitch_y = values.number("leads.pitch_y") if count_y else 0
-    lead_width = values.number("leads.width")
     _validate(values, length, width)
-    span_x = (count_x - 1) * pitch_x + lead_width
-    span_y = (count_y - 1) * pitch_y + lead_width
-    diameter = values.number("bond_wire.diameter")
-    wire_x_end = length / 2 - values.number("leads.length") - values.number("leads.etch")
-    wire_y_end = width / 2 - values.number("leads.length") - values.number("leads.etch")
+    wires, wire_materials = qfn_wires(values, request, die_top, die_attach_z)
+    leads, lead_materials = interconnect(values, request, count_x, count_y, pitch_x, pitch_y)
 
     drafts = [
         centered_draft(
@@ -132,39 +126,8 @@ def _build(values: TemplateValues, request: TemplateRequest) -> BuiltTemplate:
             "group-die",
             "Die",
         ),
-        *four_direction_wire_drafts(
-            "bond-wire",
-            die_length,
-            die_width,
-            wire_x_end,
-            wire_y_end,
-            wire_x_end,
-            wire_y_end,
-            span_y,
-            span_x,
-            die_top - diameter,
-            die_attach_z,
-            die_top - die_attach_z,
-            diameter,
-            "qfn-bondwire-x",
-            "qfn-bondwire-y",
-            x_enabled=count_y > 0,
-            y_enabled=count_x > 0,
-        ),
-        *qfn_interconnect_drafts(
-            length,
-            width,
-            count_x,
-            count_y,
-            pitch_x,
-            pitch_y,
-            lead_width,
-            values.number("leads.length"),
-            values.number("leads.exposed_thickness"),
-            values.number("leads.thickness"),
-            values.number("leads.etch"),
-            standoff,
-        ),
+        *wires,
+        *leads,
     ]
     if values.boolean("thermal_land.enabled"):
         land = values.number("thermal_land.thickness")
@@ -183,7 +146,7 @@ def _build(values: TemplateValues, request: TemplateRequest) -> BuiltTemplate:
     via_drafts, via_materials = qfn_vias(values, request)
     return BuiltTemplate(
         drafts=[*drafts, *via_drafts],
-        materials=[*materials_for("qfn"), *via_materials],
+        materials=[*materials_for("qfn"), *via_materials, *wire_materials, *lead_materials],
         power_w=values.number("die.power"),
         metadata={
             "lead_count": 2 * count_x + 2 * count_y,

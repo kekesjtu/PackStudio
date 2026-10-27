@@ -11,6 +11,7 @@ import pytest
 from packstudio.templates.package_library.catalog import definition, generate
 from packstudio.templates.package_library.core.materials import material
 from tests.backend.templates.reference_requests import reference_request
+from tests.backend.templates.remaining_decisions import decision_geometry
 
 ROOT = Path(__file__).parents[3]
 
@@ -63,7 +64,7 @@ def test_final_lead_envelopes_retain_native_equivalent_properties(template):
     )
     if template == "sop":
         assert all(
-            b.material_id != "sop-die-flag"
+            b.material_id == "sop-die-flag"
             for b in model.blocks
             if b.parent_group_id == "group-tie-bars"
         )
@@ -121,6 +122,7 @@ def test_negative_height_raw_geometry_and_wire_material_match_native_pack():
     built = item.builder(values, item.resolve_material_request(request, values))
     with ZipFile(ROOT / "docs/validation/floxml/evidence.zip") as archive:
         native = ET.fromstring(archive.read("cases/qfp-negative/native.xml"))
+    decision_geometry(native, "pqfp")
     expected = Counter(
         tuple(
             round(float(e.findtext(f"{field}/{a}")) * 1000, 9)

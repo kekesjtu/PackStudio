@@ -16,6 +16,11 @@ def leadframe_materials(
     fraction = values.number("leads.width") / values.number("leads.pitch")
     result = []
     for location, matrix in [("inner", mold), ("outer", available["static-air"])]:
+        coverage = (
+            values.number("leads.coverage") / 100
+            if location == "inner" and values.boolean("leads.custom_coverage")
+            else fraction
+        )
         axes = ["x", "y"] if template == "pqfp" else [None]
         for axis in axes:
             identifier = f"{template}-leadframe-{location}" + (f"-{axis}" if axis else "")
@@ -24,12 +29,14 @@ def leadframe_materials(
                     available[identifier],
                     metal,
                     matrix,
-                    fraction,
-                    {axis, "z"} if axis else set("xyz"),
+                    coverage,
+                    {axis, "z"}
+                    if axis and values.text("leads.modeling") == "orthotropicCuboid"
+                    else set("xyz"),
                 )
             )
     if template == "pqfp":
-        metal = available[request.material_assignments["group-tie-bars"]]
+        metal = available[request.material_assignments["group-lead-frame"]]
         a = (values.number("body.length") - values.number("flag.length")) / 2
         b = (values.number("body.width") - values.number("flag.width")) / 2
         if min(a, b) <= 0:

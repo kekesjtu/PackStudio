@@ -125,29 +125,11 @@ class TemplateDefinition:
             for key, value in preset.values.items():
                 _validate_value(by_key[key], value)
             values.update(preset.values)
-        if (
-            self.id == "chip_array"
-            and request.overrides.get("chip_array.substrate.layers") == "4-Layer"
-        ):
-            import json
+        from packstudio.templates.package_library.core.family_initialization import (
+            initialize_family_values,
+        )
 
-            from packstudio.preset_catalog import PresetCatalog
-
-            branch = PresetCatalog().read_branch(values["footprint.size"], "four_layer")
-            values["substrate.thickness"] = branch["groups"]["overallPackage"]["properties"][
-                "substrateThicknessA2"
-            ]["value"]
-            values["metal.layers"] = json.dumps(
-                [
-                    {
-                        "depth": r["depth_m"] * 1000,
-                        "thickness": r["thickness_m"] * 1000,
-                        "coverage": r["coverage_percent"],
-                    }
-                    for r in branch["groups"]["metalLayers"]["metal_layers"]
-                    if r.get("status") == "specified"
-                ]
-            )
+        initialize_family_values(self.id, values, request.overrides)
         for target_id, value in request.overrides.items():
             item = by_target[target_id]
             _validate_value(item, value)

@@ -39,8 +39,9 @@ PACK 原生通孔范围为 $0.61\sim0.92$ mm；
 ## 实现对照
 
 `src/packstudio/templates/package_library/bga/pbga_wb.py` 的 `_build`
-使用 `bga_height + top_trace` 作为通孔起点，孔高为 `substrate - top_trace - bottom_trace`。
-该起点与本决策的底铜层顶面存在实现差距。
+从金属层表取得实际顶、底铜厚，使用 `bga_height + bottom_trace` 作为通孔起点，
+孔高为 `substrate - top_trace - bottom_trace`。
+公共 `hollow_vias` 生成离散孔或保留完整阵列包络的等效块。
 
 ## 验收标准
 

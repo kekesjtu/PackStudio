@@ -2,15 +2,12 @@
 
 from math import pi
 
-from packstudio.domain.materials import ConductivityTensor, Material
-from packstudio.preset_catalog import PresetCatalog
+from packstudio.domain.materials import Material
 from packstudio.templates.package_library.bga.native_solder import wire_count
 from packstudio.templates.package_library.core.definitions import TemplateValues
 from packstudio.templates.package_library.core.leadframe_materials import leadframe_materials
-from packstudio.templates.package_library.core.materials import material_id_for_name
 from packstudio.templates.package_library.core.mixtures import mix_material
 from packstudio.templates.package_library.core.parameters import TemplateRequest
-from packstudio.templates.package_library.core.wirebond_copper import wirebond_copper
 
 
 def coupled_materials(
@@ -19,7 +16,7 @@ def coupled_materials(
     request: TemplateRequest,
     available: dict[str, Material],
 ) -> list[Material]:
-    if template_id not in {"pbga_wb", "chip_array", "pqfp", "sop", "qfn"}:
+    if template_id not in {"pbga_wb", "chip_array", "pqfp", "sop"}:
         return []
 
     def component(group: str) -> Material:
@@ -73,38 +70,19 @@ def coupled_materials(
                 * values.number(f"bond_wire.length_{axis}")
                 / (span * transverse * diameter)
             )
-    else:
-        for axis, transverse_axis in (("x", "y"), ("y", "x")):
-            if values.is_missing(f"leads.count_{transverse_axis}"):
-                continue
-            count = values.integer(f"leads.count_{transverse_axis}")
-            if not count:
-                continue
-            transverse = (count - 1) * values.number(
-                f"leads.pitch_{transverse_axis}"
-            ) + values.number("leads.width")
-            package_axis = values.number("package.length" if axis == "x" else "package.width")
-            die_axis = die_length if axis == "x" else die_width
-            span = (
-                (package_axis - die_axis) / 2
-                - values.number("leads.length")
-                - values.number("leads.etch")
-            )
-            fractions[axis] = (
-                count
-                * pi
-                * diameter**2
-                / 4
-                * values.number(f"bond_wire.length_{axis}")
-                / (span * transverse * diameter)
-            )
     result = []
     for axis, fraction in fractions.items():
         identifier = f"{prefix}-bondwire-{axis}"
-        result.append(mix_material(available[identifier], wire, matrix, fraction, {axis, "z"}))
+        parallel = (
+            set("xyz")
+            if template_id != "chip_array"
+            and values.text("bond_wire.modeling") == "isotropicCuboid"
+            else {axis, "z"}
+        )
+        result.append(mix_material(available[identifier], wire, matrix, fraction, parallel))
     if template_id in {"pqfp", "sop"}:
         result.extend(leadframe_materials(template_id, values, request, available))
-        metal = component("group-die-flag")
+        metal = component("group-die-flag" if template_id == "sop" else "group-lead-frame")
         fraction = values.number("flag.coverage") / 100
         result.append(
             mix_material(
@@ -114,29 +92,6 @@ def coupled_materials(
                 fraction,
                 set("xyz"),
                 include_matrix_conductivity=False,
-            )
-        )
-    if template_id == "pbga_wb":
-        branch = PresetCatalog().read_branch(values.text("footprint.size"))
-        result.extend(wirebond_copper(branch, request, available))
-    if template_id == "pbga_wb" and values.boolean("vias.enabled"):
-        branch = PresetCatalog().read_branch(values.text("footprint.size"))
-        name = branch["groups"]["metalLayers"]["properties"]["materialOfMetal"]["value"]
-        metal = available[material_id_for_name(name)]
-        diameter, plating = values.number("vias.diameter"), values.number("vias.plating")
-        if plating > diameter / 2:
-            raise ValueError("via plating must not exceed the via radius")
-        fraction = 1 - ((diameter - 2 * plating) / diameter) ** 2
-        original = available["wirebond-via"]
-        result.append(
-            original.model_copy(
-                update={
-                    "conductivity": ConductivityTensor.isotropic(fraction * metal.conductivity.x),
-                    "density": fraction * metal.density,
-                    "specific_heat": metal.specific_heat,
-                    "source": f"PACK derived hollow via; metal={metal.id}; "
-                    f"shell_fraction={fraction:.16g}",
-                }
             )
         )
     return result

@@ -35,9 +35,12 @@ Bumps 物性使用有厚度的各向同性等效算法，建模约定与实现�
 组件选材按材料库分类组织“材料组 + 组内材料”，原生缺省材料的默认值见
 [材料组与默认材料](../docs/decisions/材料组与默认材料.md)。
 金属层表以 Depth、Thickness、Coverage 保存，运行输入长度单位为 mm、覆盖率单位为 %。
-Chip Array 的两层/四层选择初始化层表，表格编辑与外层铜厚输入联动。
+Chip Array 与 Wirebond PBGA 的两层/四层选择初始化层表，表格编辑与外层铜厚输入联动。
+Wirebond PBGA 的层表包含逐层 Disconnect to Via 开关。
 Bare Die、两个 FC 和 Chip Array 的建模与证据见
 [原生对照](../docs/validation/target-pack-fidelity/README.md)。
+PQFP、QFN、SOP 与 Wirebond PBGA 的建模规则和全预设对照见
+[四类线焊封装原生对照](../docs/validation/remaining-pack-fidelity/README.md)。
 
 封装参数初值在原生预设或 Bare Die 基线设置中维护，用户输入覆盖方案中的对应值。
 参数来源与空值处理见[预设参数规则](../docs/decisions/预设参数来源与空值规则.md)。

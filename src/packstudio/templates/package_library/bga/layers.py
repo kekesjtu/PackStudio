@@ -18,7 +18,7 @@ def build_bga_layer(
     base_z: float = 0,
     request: TemplateRequest,
 ) -> LayerBuild:
-    if request.template_id in {"chip_array", "pbga_fc", "cbga_fc"}:
+    if request.template_id in {"chip_array", "pbga_fc", "cbga_fc", "pbga_wb"}:
         from packstudio.templates.package_library.bga.native_solder import build_native_solder
 
         return build_native_solder(values, configuration, request, base_z)

@@ -58,7 +58,7 @@ export function ModelingFields({ request, onChange }: SpecialFieldsProps) {
               })
             }
           >
-            <MenuItem value="equivalent" disabled={['chip_array', 'pbga_fc', 'cbga_fc'].includes(request.template_id)
+            <MenuItem value="equivalent" disabled={['chip_array', 'pbga_fc', 'cbga_fc', 'pbga_wb'].includes(request.template_id)
               && (request.bga.ball_map_enabled || request.bga.omitted_cells.length > 0)}>正交各向异性等效层</MenuItem>
             <MenuItem value="discrete">离散建模</MenuItem>
           </TextField>

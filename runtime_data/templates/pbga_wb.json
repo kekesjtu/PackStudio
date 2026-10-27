@@ -248,7 +248,7 @@
       "label": "键合线总数",
       "control": "integer_spinbox",
       "unit": null,
-      "minimum": 1,
+      "minimum": 0,
       "maximum": 1000,
       "options": [],
       "option_labels": {},
@@ -555,6 +555,297 @@
         "spreader.enabled": true
       },
       "enabled_when": {}
+    },
+    {
+      "key": "grid.enabled",
+      "label": "局部网格",
+      "control": "checkbox",
+      "default": true,
+      "step": "modeling",
+      "unit": null,
+      "minimum": null,
+      "maximum": null,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "grid.density",
+      "label": "网格密度",
+      "control": "combobox",
+      "default": "fine",
+      "step": "modeling",
+      "unit": null,
+      "minimum": null,
+      "maximum": null,
+      "options": [
+        "coarse",
+        "medium",
+        "fine"
+      ],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {
+        "grid.enabled": true
+      },
+      "enabled_when": {}
+    },
+    {
+      "key": "bond_wire.modeling",
+      "label": "键合线建模方式",
+      "control": "combobox",
+      "default": "orthotropicCuboid",
+      "step": "modeling",
+      "unit": null,
+      "minimum": null,
+      "maximum": null,
+      "options": [
+        "isotropicCuboid",
+        "orthotropicCuboid"
+      ],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "substrate.layers",
+      "label": "基板层数",
+      "control": "combobox",
+      "default": "2-Layer",
+      "step": "package_setup",
+      "unit": null,
+      "minimum": null,
+      "maximum": null,
+      "options": [
+        "2-Layer",
+        "4-Layer"
+      ],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "flag.coverage",
+      "label": "承载台金属覆盖率 Cf",
+      "control": "number",
+      "default": null,
+      "step": "die_flag_solder_mask",
+      "unit": "%",
+      "minimum": 1,
+      "maximum": 100,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "metal.layers",
+      "label": "金属层表",
+      "control": "table",
+      "default": null,
+      "step": "metal_layers",
+      "unit": null,
+      "minimum": null,
+      "maximum": null,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "vias.modeling",
+      "label": "通孔建模方式",
+      "control": "combobox",
+      "default": "discreteCuboids",
+      "step": "modeling",
+      "unit": null,
+      "minimum": null,
+      "maximum": null,
+      "options": [
+        "discreteCuboids",
+        "isotropicCuboid",
+        "orthotropicCuboid"
+      ],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {
+        "vias.enabled": true
+      },
+      "enabled_when": {}
+    },
+    {
+      "key": "slug.enabled",
+      "label": "包含嵌入式散热块",
+      "default": false,
+      "step": "slug",
+      "control": "checkbox",
+      "unit": null,
+      "minimum": null,
+      "maximum": null,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {}
+    },
+    {
+      "key": "slug.length",
+      "label": "散热块长度 Lsl",
+      "default": null,
+      "step": "slug",
+      "control": "number",
+      "unit": "mm",
+      "minimum": null,
+      "maximum": null,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {
+        "slug.enabled": true
+      },
+      "enabled_when": {}
+    },
+    {
+      "key": "slug.width",
+      "label": "散热块宽度 Wsl",
+      "default": null,
+      "step": "slug",
+      "control": "number",
+      "unit": "mm",
+      "minimum": null,
+      "maximum": null,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {
+        "slug.enabled": true
+      },
+      "enabled_when": {}
+    },
+    {
+      "key": "slug.thickness",
+      "label": "散热块厚度 tsl",
+      "default": null,
+      "step": "slug",
+      "control": "number",
+      "unit": "mm",
+      "minimum": null,
+      "maximum": null,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {
+        "slug.enabled": true
+      },
+      "enabled_when": {}
+    },
+    {
+      "key": "slug.diameter",
+      "label": "散热块直径 ds",
+      "default": null,
+      "step": "slug",
+      "control": "number",
+      "unit": "mm",
+      "minimum": null,
+      "maximum": null,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {
+        "slug.enabled": true
+      },
+      "enabled_when": {}
+    },
+    {
+      "key": "slug.foot_length",
+      "label": "支脚延伸长度 Lsf",
+      "default": null,
+      "step": "slug",
+      "control": "number",
+      "unit": "mm",
+      "minimum": null,
+      "maximum": null,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {
+        "slug.enabled": true
+      },
+      "enabled_when": {}
+    },
+    {
+      "key": "slug.foot_width",
+      "label": "支脚延伸宽度 Wsf",
+      "default": null,
+      "step": "slug",
+      "control": "number",
+      "unit": "mm",
+      "minimum": null,
+      "maximum": null,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {
+        "slug.enabled": true
+      },
+      "enabled_when": {}
+    },
+    {
+      "key": "slug.offset",
+      "label": "散热块偏移 Gs",
+      "default": null,
+      "step": "slug",
+      "control": "number",
+      "unit": "mm",
+      "minimum": null,
+      "maximum": null,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {
+        "slug.enabled": true
+      },
+      "enabled_when": {}
+    },
+    {
+      "key": "slug.clearance",
+      "label": "支脚净空 gsf",
+      "default": null,
+      "step": "slug",
+      "control": "number",
+      "unit": "mm",
+      "minimum": null,
+      "maximum": null,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {
+        "slug.enabled": true
+      },
+      "enabled_when": {}
+    },
+    {
+      "key": "slug.adhesive_enabled",
+      "label": "支脚下包含粘接层",
+      "default": false,
+      "step": "slug",
+      "control": "checkbox",
+      "unit": null,
+      "minimum": null,
+      "maximum": null,
+      "options": [],
+      "option_labels": {},
+      "presets": [],
+      "visible_when": {
+        "slug.enabled": true
+      },
+      "enabled_when": {}
     }
   ],
   "material_selections": [
@@ -564,7 +855,7 @@
       "label": "基板材料",
       "default": "bt",
       "options": [
-        "bt"
+        "*"
       ],
       "visible_when": {}
     },
@@ -584,7 +875,7 @@
       "label": "芯片粘接材料",
       "default": "ablestik-8510aa",
       "options": [
-        "ablestik-8510aa"
+        "*"
       ],
       "visible_when": {}
     },
@@ -594,8 +885,7 @@
       "label": "塑封材料",
       "default": "epoxy-mold",
       "options": [
-        "epoxy-mold",
-        "eme-7730lf"
+        "*"
       ],
       "visible_when": {}
     },
@@ -605,7 +895,7 @@
       "label": "键合线材料",
       "default": "gold",
       "options": [
-        "gold"
+        "*"
       ],
       "visible_when": {}
     },
@@ -615,7 +905,7 @@
       "label": "阻焊层材料",
       "default": "solder-mask",
       "options": [
-        "solder-mask"
+        "*"
       ],
       "visible_when": {}
     },
@@ -625,13 +915,7 @@
       "label": "BGA 焊球材料",
       "default": "solder-sn63",
       "options": [
-        "solder_au80_sn20_c60e3552",
-        "solder_au88_ge12_a4f15d5e",
-        "solder_eutectic_au_si_1e9ad7cf",
-        "solder_eutectic_au_si_ab86266b",
-        "solder-pb90",
-        "solder-sn63",
-        "solder_sn96_5_ag3_5_21e11737"
+        "*"
       ],
       "visible_when": {}
     },
@@ -641,32 +925,45 @@
       "label": "扩散片材料",
       "default": "copper",
       "options": [
-        "copper",
-        "alloy_42_8021e087",
-        "cu_c15100_000a763b",
-        "cu_c15500_0b01d2b8",
-        "cu_c15715_cfbf0931",
-        "cu_c19010_668c5e06",
-        "cu_c19210_9f77a3a2",
-        "leadframe-c194",
-        "cu_c19500_343073c0",
-        "cu_c19700_da8bfa52",
-        "cu_c50710_e84adbb4",
-        "cu_c7025_8af052ec",
-        "cu_cda_194_36a6868b",
-        "cu_eftec_23z_44d98146",
-        "cu_eftec_3_598a7a50",
-        "cu_eftec_64t_86630329",
-        "cu_eftec_7_dc47c690",
-        "cu_klf125_f802a2e7",
-        "cu_mf_202_aa5f5941",
-        "cu_olin_7025_1356d81b",
-        "cu_tamac5_d796274c",
-        "kovar_8af46e97",
-        "kovar_ni29_co17_31a50cf6"
+        "*"
       ],
       "visible_when": {
         "spreader.enabled": true
+      }
+    },
+    {
+      "group_id": "group-traces",
+      "step": "metal_layers",
+      "label": "金属层材料",
+      "default": "copper",
+      "options": [
+        "*"
+      ],
+      "visible_when": {}
+    },
+    {
+      "group_id": "group-slug",
+      "label": "散热块材料",
+      "default": "copper",
+      "step": "slug",
+      "options": [
+        "*"
+      ],
+      "visible_when": {
+        "slug.enabled": true
+      }
+    },
+    {
+      "group_id": "group-slug-adhesive",
+      "label": "支脚粘接材料",
+      "default": "stiffener-adhesive",
+      "step": "slug",
+      "options": [
+        "*"
+      ],
+      "visible_when": {
+        "slug.enabled": true,
+        "slug.adhesive_enabled": true
       }
     }
   ],

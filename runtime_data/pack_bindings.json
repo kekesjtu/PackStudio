@@ -1163,6 +1163,105 @@
           "backsideSpreader",
           "properties",
           "bottomTraceHoleWidthWbt"
+        ],
+        "grid.enabled": [
+          "groups",
+          "modelingOptions",
+          "properties",
+          "localizeGrid"
+        ],
+        "grid.density": [
+          "groups",
+          "modelingOptions",
+          "properties",
+          "gridDensity"
+        ],
+        "bond_wire.modeling": [
+          "groups",
+          "modelingOptions",
+          "properties",
+          "modelBondWiresAs"
+        ],
+        "substrate.layers": [
+          "wizard",
+          "substrateLayer"
+        ],
+        "metal.layers": [
+          "groups",
+          "metalLayers",
+          "metal_layers"
+        ],
+        "flag.coverage": [
+          "groups",
+          "dieFlagAndSolderMask",
+          "properties",
+          "coveragePercentageCf"
+        ],
+        "vias.modeling": [
+          "groups",
+          "modelingOptions",
+          "properties",
+          "modelThermalViasAs"
+        ],
+        "slug.enabled": [
+          "groups",
+          "dropInSlug",
+          "properties",
+          "includeSlug"
+        ],
+        "slug.length": [
+          "groups",
+          "dropInSlug",
+          "properties",
+          "slugLengthLsl"
+        ],
+        "slug.width": [
+          "groups",
+          "dropInSlug",
+          "properties",
+          "slugWidthWsl"
+        ],
+        "slug.thickness": [
+          "groups",
+          "dropInSlug",
+          "properties",
+          "slugThicknessTsl"
+        ],
+        "slug.diameter": [
+          "groups",
+          "dropInSlug",
+          "properties",
+          "slugDiameterDs"
+        ],
+        "slug.foot_length": [
+          "groups",
+          "dropInSlug",
+          "properties",
+          "slugFootExtendLengthLsf"
+        ],
+        "slug.foot_width": [
+          "groups",
+          "dropInSlug",
+          "properties",
+          "slugFootExtendWidthWsf"
+        ],
+        "slug.offset": [
+          "groups",
+          "dropInSlug",
+          "properties",
+          "slugOffsetGs"
+        ],
+        "slug.clearance": [
+          "groups",
+          "dropInSlug",
+          "properties",
+          "slugFootClearanceGsf"
+        ],
+        "slug.adhesive_enabled": [
+          "groups",
+          "dropInSlug",
+          "properties",
+          "adhesivePresentUnderSlugFoot"
         ]
       },
       "materials": {
@@ -1213,6 +1312,24 @@
           "backsideSpreader",
           "properties",
           "spreaderMaterial"
+        ],
+        "group-traces": [
+          "groups",
+          "metalLayers",
+          "properties",
+          "materialOfMetal"
+        ],
+        "group-slug": [
+          "groups",
+          "dropInSlug",
+          "properties",
+          "slugMaterial"
+        ],
+        "group-slug-adhesive": [
+          "groups",
+          "dropInSlug",
+          "properties",
+          "slugAdhesiveMaterial"
         ]
       }
     },
@@ -1681,6 +1798,36 @@
           "vias",
           "properties",
           "numberOfViasInYVE"
+        ],
+        "grid.enabled": [
+          "groups",
+          "modelingOptions",
+          "properties",
+          "localizeGrid"
+        ],
+        "grid.density": [
+          "groups",
+          "modelingOptions",
+          "properties",
+          "gridDensity"
+        ],
+        "leads.modeling": [
+          "groups",
+          "modelingOptions",
+          "properties",
+          "modelLeadAndSolderInterconnectAs"
+        ],
+        "bond_wire.steps": [
+          "groups",
+          "modelingOptions",
+          "properties",
+          "numberOfDiscreteBondwireSteps"
+        ],
+        "vias.modeling": [
+          "groups",
+          "vias",
+          "properties",
+          "modelViasAs"
         ]
       },
       "materials": {
@@ -1920,6 +2067,46 @@
         "package.type": [
           "wizard",
           "pqfpPackageType"
+        ],
+        "grid.enabled": [
+          "groups",
+          "modelingOptions",
+          "properties",
+          "localizeGrid"
+        ],
+        "grid.density": [
+          "groups",
+          "modelingOptions",
+          "properties",
+          "gridDensity"
+        ],
+        "bond_wire.modeling": [
+          "groups",
+          "modelingOptions",
+          "properties",
+          "modelBondWiresAs"
+        ],
+        "package.exposed_pad": [
+          "wizard",
+          "exposedPad"
+        ],
+        "leads.custom_coverage": [
+          "groups",
+          "leadFrame",
+          "properties",
+          "userDefinedLeadframeCoverage"
+        ],
+        "leads.coverage": [
+          "groups",
+          "leadFrame",
+          "properties",
+          "leadframeCoveragePercentage"
+        ],
+        "leads.modeling": [
+          "groups",
+          "modelingOptions",
+          "properties",
+          "modelLeadFrameAs"
         ]
       },
       "materials": {
@@ -1941,35 +2128,29 @@
           "properties",
           "dieAttachMaterial"
         ],
-        "group-die-flag": [
-          "groups",
-          "leadFrame",
-          "properties",
-          "leadframeMaterial"
-        ],
         "group-lead-frame": [
           "groups",
           "leadFrame",
           "properties",
           "leadframeMaterial"
         ],
-        "group-tie-bars": [
-          "groups",
-          "leadFrame",
-          "properties",
-          "leadframeMaterial"
-        ],
-        "group-tie-bar-plates": [
-          "groups",
-          "encapsulant",
-          "properties",
-          "encapsulantMaterial"
-        ],
         "group-bond-wires": [
           "groups",
           "bondWires",
           "properties",
           "material"
+        ],
+        "group-thermal-land": [
+          "groups",
+          "thermalLandAndSolder",
+          "properties",
+          "landMaterial"
+        ],
+        "group-thermal-solder": [
+          "groups",
+          "thermalLandAndSolder",
+          "properties",
+          "solderMaterial"
         ]
       }
     },
@@ -2153,6 +2334,40 @@
         "package.type": [
           "wizard",
           "sopPackageType"
+        ],
+        "grid.enabled": [
+          "groups",
+          "modelingOptions",
+          "properties",
+          "localizeGrid"
+        ],
+        "grid.density": [
+          "groups",
+          "modelingOptions",
+          "properties",
+          "gridDensity"
+        ],
+        "bond_wire.modeling": [
+          "groups",
+          "modelingOptions",
+          "properties",
+          "modelBondWiresAs"
+        ],
+        "package.exposed_pad": [
+          "wizard",
+          "exposedPad"
+        ],
+        "leads.custom_coverage": [
+          "groups",
+          "leadFrame",
+          "properties",
+          "userDefinedLeadframeCoverage"
+        ],
+        "leads.coverage": [
+          "groups",
+          "leadFrame",
+          "properties",
+          "leadframeCoveragePercentage"
         ]
       },
       "materials": {
@@ -2174,18 +2389,6 @@
           "properties",
           "dieAttachMaterial"
         ],
-        "group-die-flag": [
-          "groups",
-          "dieFlagAndTieBars",
-          "properties",
-          "dieFlagMaterial"
-        ],
-        "group-tie-bars": [
-          "groups",
-          "leadFrame",
-          "properties",
-          "leadframeMaterial"
-        ],
         "group-lead-frame": [
           "groups",
           "leadFrame",
@@ -2197,6 +2400,24 @@
           "bondWires",
           "properties",
           "material"
+        ],
+        "group-thermal-land": [
+          "groups",
+          "thermalLandAndSolder",
+          "properties",
+          "landMaterial"
+        ],
+        "group-thermal-solder": [
+          "groups",
+          "thermalLandAndSolder",
+          "properties",
+          "solderMaterial"
+        ],
+        "group-die-flag": [
+          "groups",
+          "dieFlagAndTieBars",
+          "properties",
+          "dieFlagMaterial"
         ]
       }
     }

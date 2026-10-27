@@ -11,6 +11,7 @@ from packstudio.templates.package_library.catalog import (
     definition,
 )
 from tests.backend.templates.reference_requests import reference_request
+from tests.backend.templates.remaining_decisions import decision_geometry
 
 REFERENCE_ROOT = Path(__file__).parents[3] / "flotherm_pack_data" / "templates"
 TEMPLATE_IDS = (
@@ -34,7 +35,10 @@ def _record(origin: tuple[float, ...], size: tuple[float, ...]) -> GeometryRecor
 
 
 def _reference_geometry(template_id: str) -> Counter[GeometryRecord]:
-    root = ElementTree.parse(REFERENCE_ROOT / template_id / "baseline" / "model.xml").getroot()
+    root = decision_geometry(
+        ElementTree.parse(REFERENCE_ROOT / template_id / "baseline" / "model.xml").getroot(),
+        template_id,
+    )
     records: Counter[GeometryRecord] = Counter()
     for cuboid in root.findall(".//cuboid"):
         position = cuboid.find("position")
@@ -145,7 +149,10 @@ def _reference_material_records(
     template_id: str,
     excluded_geometry: set[GeometryRecord],
 ) -> Counter[MaterialRecord]:
-    root = ElementTree.parse(REFERENCE_ROOT / template_id / "baseline" / "model.xml").getroot()
+    root = decision_geometry(
+        ElementTree.parse(REFERENCE_ROOT / template_id / "baseline" / "model.xml").getroot(),
+        template_id,
+    )
     materials = _reference_materials(root)
     records: Counter[MaterialRecord] = Counter()
     for cuboid in root.findall(".//cuboid"):

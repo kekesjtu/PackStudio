@@ -86,7 +86,8 @@ function Field({
 }) {
   if (field.control === 'table') return <MetalLayerTable label={field.label}
     value={String(value ?? '[]')} enabled={enabled} onChange={onChange}
-    outerFaces={field.target_id === 'chip_array.metal.layers'} />
+    outerFaces={['chip_array.metal.layers', 'pbga_wb.metal.layers'].includes(field.target_id)}
+    disconnect={field.target_id === 'pbga_wb.metal.layers'} />
   if (field.control === 'checkbox') {
     return (
       <Stack spacing={0.5}>

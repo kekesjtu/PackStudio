@@ -55,7 +55,8 @@ def _build(values: TemplateValues, _request: TemplateRequest) -> BuiltTemplate:
     lead_z = standoff + values.number("leads.height")
     lead_top = lead_z + lead_thickness
     flag_z = lead_z - values.number("flag.downset")
-    die_z = flag_z + lead_thickness
+    die_attach_z = flag_z + flag_thickness
+    die_z = die_attach_z + values.number("die.attach")
     die_top = die_z + die_thickness
     diameter = values.number("bond_wire.diameter")
     lead_count = values.integer("leads.total")
@@ -65,6 +66,8 @@ def _build(values: TemplateValues, _request: TemplateRequest) -> BuiltTemplate:
     wire_x_vertical = wire_x_end if die_above_leads else die_length / 2 - diameter
     wire_y_vertical = wire_y_end if die_above_leads else die_width / 2 - diameter
     _validate(values)
+    if die_top > standoff + values.number("body.thickness"):
+        raise ValueError("SOP die and attach must fit inside the encapsulant")
 
     drafts = [
         centered_draft(
@@ -121,6 +124,7 @@ def _build(values: TemplateValues, _request: TemplateRequest) -> BuiltTemplate:
             diameter,
             "sop-bondwire-x",
             "sop-bondwire-y",
+            minimum_vertical_height=diameter / 4,
         ),
         *sop_leadframe_drafts(
             overall_width,
@@ -140,7 +144,7 @@ def _build(values: TemplateValues, _request: TemplateRequest) -> BuiltTemplate:
             "Die attach",
             StructureType.DIE_ATTACH,
             (die_length, die_width, values.number("die.attach")),
-            die_z,
+            die_attach_z,
             "dieattach-84-1lmis",
             "group-die-attach",
             "Die attach",

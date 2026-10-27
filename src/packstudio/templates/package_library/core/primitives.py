@@ -21,6 +21,7 @@ def four_direction_wire_drafts(
     *,
     x_enabled: bool = True,
     y_enabled: bool = True,
+    minimum_vertical_height: float = 0,
 ) -> list[DraftBlock]:
     x_length = x_horizontal_end - die_length / 2
     y_length = y_horizontal_end - die_width / 2
@@ -104,7 +105,7 @@ def four_direction_wire_drafts(
         for draft in drafts
         if (x_enabled or draft.id.endswith(("upper", "lower")))
         and (y_enabled or draft.id.endswith(("left", "right")))
-        and (vertical_height > 0 or not draft.id.startswith(f"{prefix}-v-"))
+        and (vertical_height > minimum_vertical_height or not draft.id.startswith(f"{prefix}-v-"))
     ]
 
 
