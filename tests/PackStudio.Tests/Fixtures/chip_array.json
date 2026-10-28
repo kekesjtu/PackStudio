@@ -1,0 +1,1784 @@
+{
+  "schema_version": "packstudio.model/v1",
+  "template_id": "chip_array",
+  "name": "Chip Array",
+  "length_unit": "mm",
+  "coordinate_system": {
+    "origin": "package bottom-plane center (FloTHERM PACK)",
+    "x_axis": "package length",
+    "y_axis": "package width",
+    "z_axis": "upward through package thickness"
+  },
+  "materials": [
+    {
+      "id": "bt",
+      "name": "BT",
+      "category": "Substrate Dielectrics",
+      "conductivity": {
+        "x": 0.2,
+        "y": 0.2,
+        "z": 0.2
+      },
+      "density": 1900.0,
+      "specific_heat": 921.0,
+      "color": "#2E7D62",
+      "source": "PACK built-in material; constant_isotropic",
+      "conductivity_coefficient": null,
+      "conductivity_reference_temperature_c": null
+    },
+    {
+      "id": "chip-array-bondwire-x",
+      "name": "bondwire1",
+      "category": "Others",
+      "conductivity": {
+        "x": 30.881013751892503,
+        "y": 0.68,
+        "z": 30.881013751892503
+      },
+      "density": 3607.598944816067,
+      "specific_heat": 471.67405109241815,
+      "color": "#D9A928",
+      "source": "PACK derived mixture; metal=gold; matrix=epoxy-mold; volume_fraction=0.1022653858590428",
+      "conductivity_coefficient": null,
+      "conductivity_reference_temperature_c": null
+    },
+    {
+      "id": "chip-array-bondwire-y",
+      "name": "bondwire2",
+      "category": "Others",
+      "conductivity": {
+        "x": 0.68,
+        "y": 30.881013751892503,
+        "z": 30.881013751892503
+      },
+      "density": 3607.598944816067,
+      "specific_heat": 471.67405109241815,
+      "color": "#D9A928",
+      "source": "PACK derived mixture; metal=gold; matrix=epoxy-mold; volume_fraction=0.1022653858590428",
+      "conductivity_coefficient": null,
+      "conductivity_reference_temperature_c": null
+    },
+    {
+      "id": "chip-array-via",
+      "name": "Chip Array via",
+      "category": "Metals",
+      "conductivity": {
+        "x": 168.4521812499999,
+        "y": 168.4521812499999,
+        "z": 168.4521812499999
+      },
+      "density": 3907.528287499998,
+      "specific_heat": 385.1039902452658,
+      "color": "#C46A32",
+      "source": "PACK derived mixture; metal=copper; matrix=static-air; volume_fraction=0.4374999999999998",
+      "conductivity_coefficient": null,
+      "conductivity_reference_temperature_c": null
+    },
+    {
+      "id": "epoxy-mold",
+      "name": "Epoxy Overmold (Typical)",
+      "category": "Resins",
+      "conductivity": {
+        "x": 0.68,
+        "y": 0.68,
+        "z": 0.68
+      },
+      "density": 1820.0,
+      "specific_heat": 882.0,
+      "color": "#343B46",
+      "source": "PACK built-in material; constant_isotropic",
+      "conductivity_coefficient": null,
+      "conductivity_reference_temperature_c": null
+    },
+    {
+      "id": "qmi-595",
+      "name": "QMI 595",
+      "category": "Attachment Materials",
+      "conductivity": {
+        "x": 1.4,
+        "y": 1.4,
+        "z": 1.4
+      },
+      "density": 1.0,
+      "specific_heat": 1.0,
+      "color": "#C89042",
+      "source": "PACK built-in material; constant_isotropic",
+      "conductivity_coefficient": null,
+      "conductivity_reference_temperature_c": null
+    },
+    {
+      "id": "silicon",
+      "name": "Silicon (Pure)",
+      "category": "Semiconductors",
+      "conductivity": {
+        "x": 117.5,
+        "y": 117.5,
+        "z": 117.5
+      },
+      "density": 2330.0,
+      "specific_heat": 700.0,
+      "color": "#667085",
+      "source": "PACK built-in material; temperature-dependent conductivity; native reference temperature 100.0 C",
+      "conductivity_coefficient": -0.42,
+      "conductivity_reference_temperature_c": 100.0
+    },
+    {
+      "id": "solder-mask",
+      "name": "Solder Mask Material",
+      "category": "Others",
+      "conductivity": {
+        "x": 0.25,
+        "y": 0.25,
+        "z": 0.25
+      },
+      "density": 1.0,
+      "specific_heat": 1.0,
+      "color": "#216C4A",
+      "source": "PACK built-in material; constant_isotropic",
+      "conductivity_coefficient": null,
+      "conductivity_reference_temperature_c": null
+    },
+    {
+      "id": "solder-sn63",
+      "name": "Solder (Sn63/Pb37)",
+      "category": "Alloys (Solders)",
+      "conductivity": {
+        "x": 50.9,
+        "y": 50.9,
+        "z": 50.9
+      },
+      "density": 8400.0,
+      "specific_heat": 150.0,
+      "color": "#AEB7C4",
+      "source": "PACK built-in material; constant_isotropic",
+      "conductivity_coefficient": null,
+      "conductivity_reference_temperature_c": null
+    },
+    {
+      "id": "trace-0",
+      "name": "trace-0",
+      "category": "Metals",
+      "conductivity": {
+        "x": 77.16,
+        "y": 77.16,
+        "z": 77.16
+      },
+      "density": 3306.0,
+      "specific_heat": 631.4367816091954,
+      "color": "#C46A32",
+      "source": "PACK derived mixture; metal=copper; matrix=bt; volume_fraction=0.2",
+      "conductivity_coefficient": null,
+      "conductivity_reference_temperature_c": null
+    },
+    {
+      "id": "trace-1",
+      "name": "trace-1",
+      "category": "Metals",
+      "conductivity": {
+        "x": 38.68,
+        "y": 38.68,
+        "z": 38.68
+      },
+      "density": 2603.0,
+      "specific_heat": 737.1167883211679,
+      "color": "#C46A32",
+      "source": "PACK derived mixture; metal=copper; matrix=bt; volume_fraction=0.1",
+      "conductivity_coefficient": null,
+      "conductivity_reference_temperature_c": null
+    }
+  ],
+  "blocks": [
+    {
+      "id": "encapsulant-part-1",
+      "name": "Encapsulant",
+      "structure_type": "encapsulant",
+      "origin": {
+        "x": -2.0,
+        "y": -2.0,
+        "z": 0.76
+      },
+      "size": {
+        "x": 4.0,
+        "y": 4.0,
+        "z": 0.65
+      },
+      "material_id": "epoxy-mold",
+      "parent_group_id": "group-encapsulant",
+      "metadata": {
+        "boolean_source_id": "encapsulant",
+        "boolean_source_name": "Encapsulant"
+      }
+    },
+    {
+      "id": "die-part-1",
+      "name": "Silicon die",
+      "structure_type": "die",
+      "origin": {
+        "x": -0.6,
+        "y": -0.6,
+        "z": 0.81
+      },
+      "size": {
+        "x": 1.2,
+        "y": 1.2,
+        "z": 0.3
+      },
+      "material_id": "silicon",
+      "parent_group_id": "group-die",
+      "metadata": {
+        "boolean_source_id": "die",
+        "boolean_source_name": "Silicon die"
+      }
+    },
+    {
+      "id": "solder-mask-part-1",
+      "name": "Solder mask",
+      "structure_type": "solder_mask",
+      "origin": {
+        "x": -0.6,
+        "y": -0.6,
+        "z": 0.76
+      },
+      "size": {
+        "x": 1.2,
+        "y": 1.2,
+        "z": 0.05
+      },
+      "material_id": "solder-mask",
+      "parent_group_id": "group-solder-mask",
+      "metadata": {
+        "boolean_source_id": "solder-mask",
+        "boolean_source_name": "Solder mask"
+      }
+    },
+    {
+      "id": "dielectric-part-1",
+      "name": "BT dielectric",
+      "structure_type": "substrate",
+      "origin": {
+        "x": -2.0,
+        "y": -2.0,
+        "z": 0.4
+      },
+      "size": {
+        "x": 4.0,
+        "y": 4.0,
+        "z": 0.36
+      },
+      "material_id": "bt",
+      "parent_group_id": "group-substrate",
+      "metadata": {
+        "boolean_source_id": "dielectric",
+        "boolean_source_name": "BT dielectric"
+      }
+    },
+    {
+      "id": "die-attach-part-1",
+      "name": "Die attach",
+      "structure_type": "die_attach",
+      "origin": {
+        "x": -0.6,
+        "y": -0.6,
+        "z": 0.81
+      },
+      "size": {
+        "x": 1.2,
+        "y": 1.2,
+        "z": 0.025
+      },
+      "material_id": "qmi-595",
+      "parent_group_id": "group-die-attach",
+      "metadata": {
+        "boolean_source_id": "die-attach",
+        "boolean_source_name": "Die attach"
+      }
+    },
+    {
+      "id": "bond-wire-h-right-part-1",
+      "name": "Bond wires horizontal right",
+      "structure_type": "bond_wire",
+      "origin": {
+        "x": 0.6,
+        "y": -0.6,
+        "z": 1.0850000000000002
+      },
+      "size": {
+        "x": 0.375,
+        "y": 1.2,
+        "z": 0.025
+      },
+      "material_id": "chip-array-bondwire-x",
+      "parent_group_id": "group-bond-wires",
+      "metadata": {
+        "boolean_source_id": "bond-wire-h-right",
+        "boolean_source_name": "Bond wires horizontal right"
+      }
+    },
+    {
+      "id": "bond-wire-h-left-part-1",
+      "name": "Bond wires horizontal left",
+      "structure_type": "bond_wire",
+      "origin": {
+        "x": -0.975,
+        "y": -0.6,
+        "z": 1.0850000000000002
+      },
+      "size": {
+        "x": 0.375,
+        "y": 1.2,
+        "z": 0.025
+      },
+      "material_id": "chip-array-bondwire-x",
+      "parent_group_id": "group-bond-wires",
+      "metadata": {
+        "boolean_source_id": "bond-wire-h-left",
+        "boolean_source_name": "Bond wires horizontal left"
+      }
+    },
+    {
+      "id": "bond-wire-h-upper-part-1",
+      "name": "Bond wires horizontal upper",
+      "structure_type": "bond_wire",
+      "origin": {
+        "x": -0.6,
+        "y": 0.6,
+        "z": 1.0850000000000002
+      },
+      "size": {
+        "x": 1.2,
+        "y": 0.375,
+        "z": 0.025
+      },
+      "material_id": "chip-array-bondwire-y",
+      "parent_group_id": "group-bond-wires",
+      "metadata": {
+        "boolean_source_id": "bond-wire-h-upper",
+        "boolean_source_name": "Bond wires horizontal upper"
+      }
+    },
+    {
+      "id": "bond-wire-h-lower-part-1",
+      "name": "Bond wires horizontal lower",
+      "structure_type": "bond_wire",
+      "origin": {
+        "x": -0.6,
+        "y": -0.975,
+        "z": 1.0850000000000002
+      },
+      "size": {
+        "x": 1.2,
+        "y": 0.375,
+        "z": 0.025
+      },
+      "material_id": "chip-array-bondwire-y",
+      "parent_group_id": "group-bond-wires",
+      "metadata": {
+        "boolean_source_id": "bond-wire-h-lower",
+        "boolean_source_name": "Bond wires horizontal lower"
+      }
+    },
+    {
+      "id": "bond-wire-v-right-part-1",
+      "name": "Bond wires vertical right",
+      "structure_type": "bond_wire",
+      "origin": {
+        "x": 0.975,
+        "y": -0.6,
+        "z": 0.76
+      },
+      "size": {
+        "x": 0.025,
+        "y": 1.2,
+        "z": 0.3500000000000001
+      },
+      "material_id": "chip-array-bondwire-x",
+      "parent_group_id": "group-bond-wires",
+      "metadata": {
+        "boolean_source_id": "bond-wire-v-right",
+        "boolean_source_name": "Bond wires vertical right"
+      }
+    },
+    {
+      "id": "bond-wire-v-left-part-1",
+      "name": "Bond wires vertical left",
+      "structure_type": "bond_wire",
+      "origin": {
+        "x": -1.0,
+        "y": -0.6,
+        "z": 0.76
+      },
+      "size": {
+        "x": 0.025,
+        "y": 1.2,
+        "z": 0.3500000000000001
+      },
+      "material_id": "chip-array-bondwire-x",
+      "parent_group_id": "group-bond-wires",
+      "metadata": {
+        "boolean_source_id": "bond-wire-v-left",
+        "boolean_source_name": "Bond wires vertical left"
+      }
+    },
+    {
+      "id": "bond-wire-v-upper-part-1",
+      "name": "Bond wires vertical upper",
+      "structure_type": "bond_wire",
+      "origin": {
+        "x": -0.6,
+        "y": 0.975,
+        "z": 0.76
+      },
+      "size": {
+        "x": 1.2,
+        "y": 0.025,
+        "z": 0.3500000000000001
+      },
+      "material_id": "chip-array-bondwire-y",
+      "parent_group_id": "group-bond-wires",
+      "metadata": {
+        "boolean_source_id": "bond-wire-v-upper",
+        "boolean_source_name": "Bond wires vertical upper"
+      }
+    },
+    {
+      "id": "bond-wire-v-lower-part-1",
+      "name": "Bond wires vertical lower",
+      "structure_type": "bond_wire",
+      "origin": {
+        "x": -0.6,
+        "y": -1.0,
+        "z": 0.76
+      },
+      "size": {
+        "x": 1.2,
+        "y": 0.025,
+        "z": 0.3500000000000001
+      },
+      "material_id": "chip-array-bondwire-y",
+      "parent_group_id": "group-bond-wires",
+      "metadata": {
+        "boolean_source_id": "bond-wire-v-lower",
+        "boolean_source_name": "Bond wires vertical lower"
+      }
+    },
+    {
+      "id": "trace-0-part-1",
+      "name": "trace-0",
+      "structure_type": "trace",
+      "origin": {
+        "x": -2.0,
+        "y": -2.0,
+        "z": 0.742
+      },
+      "size": {
+        "x": 4.0,
+        "y": 4.0,
+        "z": 0.018
+      },
+      "material_id": "trace-0",
+      "parent_group_id": "group-traces",
+      "metadata": {
+        "boolean_source_id": "trace-0",
+        "boolean_source_name": "trace-0"
+      }
+    },
+    {
+      "id": "trace-1-part-1",
+      "name": "trace-1",
+      "structure_type": "trace",
+      "origin": {
+        "x": -2.0,
+        "y": -2.0,
+        "z": 0.4
+      },
+      "size": {
+        "x": 4.0,
+        "y": 4.0,
+        "z": 0.018
+      },
+      "material_id": "trace-1",
+      "parent_group_id": "group-traces",
+      "metadata": {
+        "boolean_source_id": "trace-1",
+        "boolean_source_name": "trace-1"
+      }
+    },
+    {
+      "id": "thermal-via-r1-c1-part-1",
+      "name": "Via 1,1",
+      "structure_type": "via",
+      "origin": {
+        "x": -1.288622692545276,
+        "y": -1.288622692545276,
+        "z": 0.41800000000000004
+      },
+      "size": {
+        "x": 0.1772453850905516,
+        "y": 0.1772453850905516,
+        "z": 0.32399999999999995
+      },
+      "material_id": "chip-array-via",
+      "parent_group_id": "group-vias",
+      "metadata": {
+        "boolean_source_id": "thermal-via-r1-c1",
+        "boolean_source_name": "Via 1,1"
+      }
+    },
+    {
+      "id": "thermal-via-r1-c2-part-1",
+      "name": "Via 1,2",
+      "structure_type": "via",
+      "origin": {
+        "x": -0.4886226925452758,
+        "y": -1.288622692545276,
+        "z": 0.41800000000000004
+      },
+      "size": {
+        "x": 0.1772453850905516,
+        "y": 0.1772453850905516,
+        "z": 0.32399999999999995
+      },
+      "material_id": "chip-array-via",
+      "parent_group_id": "group-vias",
+      "metadata": {
+        "boolean_source_id": "thermal-via-r1-c2",
+        "boolean_source_name": "Via 1,2"
+      }
+    },
+    {
+      "id": "thermal-via-r1-c3-part-1",
+      "name": "Via 1,3",
+      "structure_type": "via",
+      "origin": {
+        "x": 0.31137730745472425,
+        "y": -1.288622692545276,
+        "z": 0.41800000000000004
+      },
+      "size": {
+        "x": 0.1772453850905516,
+        "y": 0.1772453850905516,
+        "z": 0.32399999999999995
+      },
+      "material_id": "chip-array-via",
+      "parent_group_id": "group-vias",
+      "metadata": {
+        "boolean_source_id": "thermal-via-r1-c3",
+        "boolean_source_name": "Via 1,3"
+      }
+    },
+    {
+      "id": "thermal-via-r1-c4-part-1",
+      "name": "Via 1,4",
+      "structure_type": "via",
+      "origin": {
+        "x": 1.1113773074547244,
+        "y": -1.288622692545276,
+        "z": 0.41800000000000004
+      },
+      "size": {
+        "x": 0.1772453850905516,
+        "y": 0.1772453850905516,
+        "z": 0.32399999999999995
+      },
+      "material_id": "chip-array-via",
+      "parent_group_id": "group-vias",
+      "metadata": {
+        "boolean_source_id": "thermal-via-r1-c4",
+        "boolean_source_name": "Via 1,4"
+      }
+    },
+    {
+      "id": "thermal-via-r1-c5-part-1",
+      "name": "Via 1,5",
+      "structure_type": "via",
+      "origin": {
+        "x": 1.9113773074547242,
+        "y": -1.288622692545276,
+        "z": 0.41800000000000004
+      },
+      "size": {
+        "x": 0.1772453850905516,
+        "y": 0.1772453850905516,
+        "z": 0.32399999999999995
+      },
+      "material_id": "chip-array-via",
+      "parent_group_id": "group-vias",
+      "metadata": {
+        "boolean_source_id": "thermal-via-r1-c5",
+        "boolean_source_name": "Via 1,5"
+      }
+    },
+    {
+      "id": "thermal-via-r2-c1-part-1",
+      "name": "Via 2,1",
+      "structure_type": "via",
+      "origin": {
+        "x": -1.288622692545276,
+        "y": -0.4886226925452758,
+        "z": 0.41800000000000004
+      },
+      "size": {
+        "x": 0.1772453850905516,
+        "y": 0.1772453850905516,
+        "z": 0.32399999999999995
+      },
+      "material_id": "chip-array-via",
+      "parent_group_id": "group-vias",
+      "metadata": {
+        "boolean_source_id": "thermal-via-r2-c1",
+        "boolean_source_name": "Via 2,1"
+      }
+    },
+    {
+      "id": "thermal-via-r2-c2-part-1",
+      "name": "Via 2,2",
+      "structure_type": "via",
+      "origin": {
+        "x": -0.4886226925452758,
+        "y": -0.4886226925452758,
+        "z": 0.41800000000000004
+      },
+      "size": {
+        "x": 0.1772453850905516,
+        "y": 0.1772453850905516,
+        "z": 0.32399999999999995
+      },
+      "material_id": "chip-array-via",
+      "parent_group_id": "group-vias",
+      "metadata": {
+        "boolean_source_id": "thermal-via-r2-c2",
+        "boolean_source_name": "Via 2,2"
+      }
+    },
+    {
+      "id": "thermal-via-r2-c3-part-1",
+      "name": "Via 2,3",
+      "structure_type": "via",
+      "origin": {
+        "x": 0.31137730745472425,
+        "y": -0.4886226925452758,
+        "z": 0.41800000000000004
+      },
+      "size": {
+        "x": 0.1772453850905516,
+        "y": 0.1772453850905516,
+        "z": 0.32399999999999995
+      },
+      "material_id": "chip-array-via",
+      "parent_group_id": "group-vias",
+      "metadata": {
+        "boolean_source_id": "thermal-via-r2-c3",
+        "boolean_source_name": "Via 2,3"
+      }
+    },
+    {
+      "id": "thermal-via-r2-c4-part-1",
+      "name": "Via 2,4",
+      "structure_type": "via",
+      "origin": {
+        "x": 1.1113773074547244,
+        "y": -0.4886226925452758,
+        "z": 0.41800000000000004
+      },
+      "size": {
+        "x": 0.1772453850905516,
+        "y": 0.1772453850905516,
+        "z": 0.32399999999999995
+      },
+      "material_id": "chip-array-via",
+      "parent_group_id": "group-vias",
+      "metadata": {
+        "boolean_source_id": "thermal-via-r2-c4",
+        "boolean_source_name": "Via 2,4"
+      }
+    },
+    {
+      "id": "thermal-via-r2-c5-part-1",
+      "name": "Via 2,5",
+      "structure_type": "via",
+      "origin": {
+        "x": 1.9113773074547242,
+        "y": -0.4886226925452758,
+        "z": 0.41800000000000004
+      },
+      "size": {
+        "x": 0.1772453850905516,
+        "y": 0.1772453850905516,
+        "z": 0.32399999999999995
+      },
+      "material_id": "chip-array-via",
+      "parent_group_id": "group-vias",
+      "metadata": {
+        "boolean_source_id": "thermal-via-r2-c5",
+        "boolean_source_name": "Via 2,5"
+      }
+    },
+    {
+      "id": "thermal-via-r3-c1-part-1",
+      "name": "Via 3,1",
+      "structure_type": "via",
+      "origin": {
+        "x": -1.288622692545276,
+        "y": 0.31137730745472425,
+        "z": 0.41800000000000004
+      },
+      "size": {
+        "x": 0.1772453850905516,
+        "y": 0.1772453850905516,
+        "z": 0.32399999999999995
+      },
+      "material_id": "chip-array-via",
+      "parent_group_id": "group-vias",
+      "metadata": {
+        "boolean_source_id": "thermal-via-r3-c1",
+        "boolean_source_name": "Via 3,1"
+      }
+    },
+    {
+      "id": "thermal-via-r3-c2-part-1",
+      "name": "Via 3,2",
+      "structure_type": "via",
+      "origin": {
+        "x": -0.4886226925452758,
+        "y": 0.31137730745472425,
+        "z": 0.41800000000000004
+      },
+      "size": {
+        "x": 0.1772453850905516,
+        "y": 0.1772453850905516,
+        "z": 0.32399999999999995
+      },
+      "material_id": "chip-array-via",
+      "parent_group_id": "group-vias",
+      "metadata": {
+        "boolean_source_id": "thermal-via-r3-c2",
+        "boolean_source_name": "Via 3,2"
+      }
+    },
+    {
+      "id": "thermal-via-r3-c3-part-1",
+      "name": "Via 3,3",
+      "structure_type": "via",
+      "origin": {
+        "x": 0.31137730745472425,
+        "y": 0.31137730745472425,
+        "z": 0.41800000000000004
+      },
+      "size": {
+        "x": 0.1772453850905516,
+        "y": 0.1772453850905516,
+        "z": 0.32399999999999995
+      },
+      "material_id": "chip-array-via",
+      "parent_group_id": "group-vias",
+      "metadata": {
+        "boolean_source_id": "thermal-via-r3-c3",
+        "boolean_source_name": "Via 3,3"
+      }
+    },
+    {
+      "id": "thermal-via-r3-c4-part-1",
+      "name": "Via 3,4",
+      "structure_type": "via",
+      "origin": {
+        "x": 1.1113773074547244,
+        "y": 0.31137730745472425,
+        "z": 0.41800000000000004
+      },
+      "size": {
+        "x": 0.1772453850905516,
+        "y": 0.1772453850905516,
+        "z": 0.32399999999999995
+      },
+      "material_id": "chip-array-via",
+      "parent_group_id": "group-vias",
+      "metadata": {
+        "boolean_source_id": "thermal-via-r3-c4",
+        "boolean_source_name": "Via 3,4"
+      }
+    },
+    {
+      "id": "thermal-via-r3-c5-part-1",
+      "name": "Via 3,5",
+      "structure_type": "via",
+      "origin": {
+        "x": 1.9113773074547242,
+        "y": 0.31137730745472425,
+        "z": 0.41800000000000004
+      },
+      "size": {
+        "x": 0.1772453850905516,
+        "y": 0.1772453850905516,
+        "z": 0.32399999999999995
+      },
+      "material_id": "chip-array-via",
+      "parent_group_id": "group-vias",
+      "metadata": {
+        "boolean_source_id": "thermal-via-r3-c5",
+        "boolean_source_name": "Via 3,5"
+      }
+    },
+    {
+      "id": "thermal-via-r4-c1-part-1",
+      "name": "Via 4,1",
+      "structure_type": "via",
+      "origin": {
+        "x": -1.288622692545276,
+        "y": 1.1113773074547244,
+        "z": 0.41800000000000004
+      },
+      "size": {
+        "x": 0.1772453850905516,
+        "y": 0.1772453850905516,
+        "z": 0.32399999999999995
+      },
+      "material_id": "chip-array-via",
+      "parent_group_id": "group-vias",
+      "metadata": {
+        "boolean_source_id": "thermal-via-r4-c1",
+        "boolean_source_name": "Via 4,1"
+      }
+    },
+    {
+      "id": "thermal-via-r4-c2-part-1",
+      "name": "Via 4,2",
+      "structure_type": "via",
+      "origin": {
+        "x": -0.4886226925452758,
+        "y": 1.1113773074547244,
+        "z": 0.41800000000000004
+      },
+      "size": {
+        "x": 0.1772453850905516,
+        "y": 0.1772453850905516,
+        "z": 0.32399999999999995
+      },
+      "material_id": "chip-array-via",
+      "parent_group_id": "group-vias",
+      "metadata": {
+        "boolean_source_id": "thermal-via-r4-c2",
+        "boolean_source_name": "Via 4,2"
+      }
+    },
+    {
+      "id": "thermal-via-r4-c3-part-1",
+      "name": "Via 4,3",
+      "structure_type": "via",
+      "origin": {
+        "x": 0.31137730745472425,
+        "y": 1.1113773074547244,
+        "z": 0.41800000000000004
+      },
+      "size": {
+        "x": 0.1772453850905516,
+        "y": 0.1772453850905516,
+        "z": 0.32399999999999995
+      },
+      "material_id": "chip-array-via",
+      "parent_group_id": "group-vias",
+      "metadata": {
+        "boolean_source_id": "thermal-via-r4-c3",
+        "boolean_source_name": "Via 4,3"
+      }
+    },
+    {
+      "id": "thermal-via-r4-c4-part-1",
+      "name": "Via 4,4",
+      "structure_type": "via",
+      "origin": {
+        "x": 1.1113773074547244,
+        "y": 1.1113773074547244,
+        "z": 0.41800000000000004
+      },
+      "size": {
+        "x": 0.1772453850905516,
+        "y": 0.1772453850905516,
+        "z": 0.32399999999999995
+      },
+      "material_id": "chip-array-via",
+      "parent_group_id": "group-vias",
+      "metadata": {
+        "boolean_source_id": "thermal-via-r4-c4",
+        "boolean_source_name": "Via 4,4"
+      }
+    },
+    {
+      "id": "thermal-via-r4-c5-part-1",
+      "name": "Via 4,5",
+      "structure_type": "via",
+      "origin": {
+        "x": 1.9113773074547242,
+        "y": 1.1113773074547244,
+        "z": 0.41800000000000004
+      },
+      "size": {
+        "x": 0.1772453850905516,
+        "y": 0.1772453850905516,
+        "z": 0.32399999999999995
+      },
+      "material_id": "chip-array-via",
+      "parent_group_id": "group-vias",
+      "metadata": {
+        "boolean_source_id": "thermal-via-r4-c5",
+        "boolean_source_name": "Via 4,5"
+      }
+    },
+    {
+      "id": "thermal-via-r5-c1-part-1",
+      "name": "Via 5,1",
+      "structure_type": "via",
+      "origin": {
+        "x": -1.288622692545276,
+        "y": 1.9113773074547242,
+        "z": 0.41800000000000004
+      },
+      "size": {
+        "x": 0.1772453850905516,
+        "y": 0.1772453850905516,
+        "z": 0.32399999999999995
+      },
+      "material_id": "chip-array-via",
+      "parent_group_id": "group-vias",
+      "metadata": {
+        "boolean_source_id": "thermal-via-r5-c1",
+        "boolean_source_name": "Via 5,1"
+      }
+    },
+    {
+      "id": "thermal-via-r5-c2-part-1",
+      "name": "Via 5,2",
+      "structure_type": "via",
+      "origin": {
+        "x": -0.4886226925452758,
+        "y": 1.9113773074547242,
+        "z": 0.41800000000000004
+      },
+      "size": {
+        "x": 0.1772453850905516,
+        "y": 0.1772453850905516,
+        "z": 0.32399999999999995
+      },
+      "material_id": "chip-array-via",
+      "parent_group_id": "group-vias",
+      "metadata": {
+        "boolean_source_id": "thermal-via-r5-c2",
+        "boolean_source_name": "Via 5,2"
+      }
+    },
+    {
+      "id": "thermal-via-r5-c3-part-1",
+      "name": "Via 5,3",
+      "structure_type": "via",
+      "origin": {
+        "x": 0.31137730745472425,
+        "y": 1.9113773074547242,
+        "z": 0.41800000000000004
+      },
+      "size": {
+        "x": 0.1772453850905516,
+        "y": 0.1772453850905516,
+        "z": 0.32399999999999995
+      },
+      "material_id": "chip-array-via",
+      "parent_group_id": "group-vias",
+      "metadata": {
+        "boolean_source_id": "thermal-via-r5-c3",
+        "boolean_source_name": "Via 5,3"
+      }
+    },
+    {
+      "id": "thermal-via-r5-c4-part-1",
+      "name": "Via 5,4",
+      "structure_type": "via",
+      "origin": {
+        "x": 1.1113773074547244,
+        "y": 1.9113773074547242,
+        "z": 0.41800000000000004
+      },
+      "size": {
+        "x": 0.1772453850905516,
+        "y": 0.1772453850905516,
+        "z": 0.32399999999999995
+      },
+      "material_id": "chip-array-via",
+      "parent_group_id": "group-vias",
+      "metadata": {
+        "boolean_source_id": "thermal-via-r5-c4",
+        "boolean_source_name": "Via 5,4"
+      }
+    },
+    {
+      "id": "thermal-via-r5-c5-part-1",
+      "name": "Via 5,5",
+      "structure_type": "via",
+      "origin": {
+        "x": 1.9113773074547242,
+        "y": 1.9113773074547242,
+        "z": 0.41800000000000004
+      },
+      "size": {
+        "x": 0.1772453850905516,
+        "y": 0.1772453850905516,
+        "z": 0.32399999999999995
+      },
+      "material_id": "chip-array-via",
+      "parent_group_id": "group-vias",
+      "metadata": {
+        "boolean_source_id": "thermal-via-r5-c5",
+        "boolean_source_name": "Via 5,5"
+      }
+    },
+    {
+      "id": "solder-ball-r1-c1-part-1",
+      "name": "solder-ball-r1-c1",
+      "structure_type": "solder_ball",
+      "origin": {
+        "x": -1.8038321928541343,
+        "y": -1.8038321928541343,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.4076643857082687,
+        "y": 0.4076643857082687,
+        "z": 0.4
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder-ball",
+      "metadata": {
+        "boolean_source_id": "solder-ball-r1-c1",
+        "boolean_source_name": "solder-ball-r1-c1"
+      }
+    },
+    {
+      "id": "solder-ball-r1-c2-part-1",
+      "name": "solder-ball-r1-c2",
+      "structure_type": "solder_ball",
+      "origin": {
+        "x": -1.0038321928541345,
+        "y": -1.8038321928541343,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.4076643857082687,
+        "y": 0.4076643857082687,
+        "z": 0.4
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder-ball",
+      "metadata": {
+        "boolean_source_id": "solder-ball-r1-c2",
+        "boolean_source_name": "solder-ball-r1-c2"
+      }
+    },
+    {
+      "id": "solder-ball-r1-c3-part-1",
+      "name": "solder-ball-r1-c3",
+      "structure_type": "solder_ball",
+      "origin": {
+        "x": -0.20383219285413434,
+        "y": -1.8038321928541343,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.4076643857082687,
+        "y": 0.4076643857082687,
+        "z": 0.4
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder-ball",
+      "metadata": {
+        "boolean_source_id": "solder-ball-r1-c3",
+        "boolean_source_name": "solder-ball-r1-c3"
+      }
+    },
+    {
+      "id": "solder-ball-r1-c4-part-1",
+      "name": "solder-ball-r1-c4",
+      "structure_type": "solder_ball",
+      "origin": {
+        "x": 0.5961678071458657,
+        "y": -1.8038321928541343,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.4076643857082687,
+        "y": 0.4076643857082687,
+        "z": 0.4
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder-ball",
+      "metadata": {
+        "boolean_source_id": "solder-ball-r1-c4",
+        "boolean_source_name": "solder-ball-r1-c4"
+      }
+    },
+    {
+      "id": "solder-ball-r1-c5-part-1",
+      "name": "solder-ball-r1-c5",
+      "structure_type": "solder_ball",
+      "origin": {
+        "x": 1.3961678071458659,
+        "y": -1.8038321928541343,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.4076643857082687,
+        "y": 0.4076643857082687,
+        "z": 0.4
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder-ball",
+      "metadata": {
+        "boolean_source_id": "solder-ball-r1-c5",
+        "boolean_source_name": "solder-ball-r1-c5"
+      }
+    },
+    {
+      "id": "solder-ball-r2-c1-part-1",
+      "name": "solder-ball-r2-c1",
+      "structure_type": "solder_ball",
+      "origin": {
+        "x": -1.8038321928541343,
+        "y": -1.0038321928541345,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.4076643857082687,
+        "y": 0.4076643857082687,
+        "z": 0.4
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder-ball",
+      "metadata": {
+        "boolean_source_id": "solder-ball-r2-c1",
+        "boolean_source_name": "solder-ball-r2-c1"
+      }
+    },
+    {
+      "id": "solder-ball-r2-c2-part-1",
+      "name": "solder-ball-r2-c2",
+      "structure_type": "solder_ball",
+      "origin": {
+        "x": -1.0038321928541345,
+        "y": -1.0038321928541345,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.4076643857082687,
+        "y": 0.4076643857082687,
+        "z": 0.4
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder-ball",
+      "metadata": {
+        "boolean_source_id": "solder-ball-r2-c2",
+        "boolean_source_name": "solder-ball-r2-c2"
+      }
+    },
+    {
+      "id": "solder-ball-r2-c3-part-1",
+      "name": "solder-ball-r2-c3",
+      "structure_type": "solder_ball",
+      "origin": {
+        "x": -0.20383219285413434,
+        "y": -1.0038321928541345,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.4076643857082687,
+        "y": 0.4076643857082687,
+        "z": 0.4
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder-ball",
+      "metadata": {
+        "boolean_source_id": "solder-ball-r2-c3",
+        "boolean_source_name": "solder-ball-r2-c3"
+      }
+    },
+    {
+      "id": "solder-ball-r2-c4-part-1",
+      "name": "solder-ball-r2-c4",
+      "structure_type": "solder_ball",
+      "origin": {
+        "x": 0.5961678071458657,
+        "y": -1.0038321928541345,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.4076643857082687,
+        "y": 0.4076643857082687,
+        "z": 0.4
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder-ball",
+      "metadata": {
+        "boolean_source_id": "solder-ball-r2-c4",
+        "boolean_source_name": "solder-ball-r2-c4"
+      }
+    },
+    {
+      "id": "solder-ball-r2-c5-part-1",
+      "name": "solder-ball-r2-c5",
+      "structure_type": "solder_ball",
+      "origin": {
+        "x": 1.3961678071458659,
+        "y": -1.0038321928541345,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.4076643857082687,
+        "y": 0.4076643857082687,
+        "z": 0.4
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder-ball",
+      "metadata": {
+        "boolean_source_id": "solder-ball-r2-c5",
+        "boolean_source_name": "solder-ball-r2-c5"
+      }
+    },
+    {
+      "id": "solder-ball-r3-c1-part-1",
+      "name": "solder-ball-r3-c1",
+      "structure_type": "solder_ball",
+      "origin": {
+        "x": -1.8038321928541343,
+        "y": -0.20383219285413434,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.4076643857082687,
+        "y": 0.4076643857082687,
+        "z": 0.4
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder-ball",
+      "metadata": {
+        "boolean_source_id": "solder-ball-r3-c1",
+        "boolean_source_name": "solder-ball-r3-c1"
+      }
+    },
+    {
+      "id": "solder-ball-r3-c2-part-1",
+      "name": "solder-ball-r3-c2",
+      "structure_type": "solder_ball",
+      "origin": {
+        "x": -1.0038321928541345,
+        "y": -0.20383219285413434,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.4076643857082687,
+        "y": 0.4076643857082687,
+        "z": 0.4
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder-ball",
+      "metadata": {
+        "boolean_source_id": "solder-ball-r3-c2",
+        "boolean_source_name": "solder-ball-r3-c2"
+      }
+    },
+    {
+      "id": "solder-ball-r3-c3-part-1",
+      "name": "solder-ball-r3-c3",
+      "structure_type": "solder_ball",
+      "origin": {
+        "x": -0.20383219285413434,
+        "y": -0.20383219285413434,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.4076643857082687,
+        "y": 0.4076643857082687,
+        "z": 0.4
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder-ball",
+      "metadata": {
+        "boolean_source_id": "solder-ball-r3-c3",
+        "boolean_source_name": "solder-ball-r3-c3"
+      }
+    },
+    {
+      "id": "solder-ball-r3-c4-part-1",
+      "name": "solder-ball-r3-c4",
+      "structure_type": "solder_ball",
+      "origin": {
+        "x": 0.5961678071458657,
+        "y": -0.20383219285413434,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.4076643857082687,
+        "y": 0.4076643857082687,
+        "z": 0.4
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder-ball",
+      "metadata": {
+        "boolean_source_id": "solder-ball-r3-c4",
+        "boolean_source_name": "solder-ball-r3-c4"
+      }
+    },
+    {
+      "id": "solder-ball-r3-c5-part-1",
+      "name": "solder-ball-r3-c5",
+      "structure_type": "solder_ball",
+      "origin": {
+        "x": 1.3961678071458659,
+        "y": -0.20383219285413434,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.4076643857082687,
+        "y": 0.4076643857082687,
+        "z": 0.4
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder-ball",
+      "metadata": {
+        "boolean_source_id": "solder-ball-r3-c5",
+        "boolean_source_name": "solder-ball-r3-c5"
+      }
+    },
+    {
+      "id": "solder-ball-r4-c1-part-1",
+      "name": "solder-ball-r4-c1",
+      "structure_type": "solder_ball",
+      "origin": {
+        "x": -1.8038321928541343,
+        "y": 0.5961678071458657,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.4076643857082687,
+        "y": 0.4076643857082687,
+        "z": 0.4
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder-ball",
+      "metadata": {
+        "boolean_source_id": "solder-ball-r4-c1",
+        "boolean_source_name": "solder-ball-r4-c1"
+      }
+    },
+    {
+      "id": "solder-ball-r4-c2-part-1",
+      "name": "solder-ball-r4-c2",
+      "structure_type": "solder_ball",
+      "origin": {
+        "x": -1.0038321928541345,
+        "y": 0.5961678071458657,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.4076643857082687,
+        "y": 0.4076643857082687,
+        "z": 0.4
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder-ball",
+      "metadata": {
+        "boolean_source_id": "solder-ball-r4-c2",
+        "boolean_source_name": "solder-ball-r4-c2"
+      }
+    },
+    {
+      "id": "solder-ball-r4-c3-part-1",
+      "name": "solder-ball-r4-c3",
+      "structure_type": "solder_ball",
+      "origin": {
+        "x": -0.20383219285413434,
+        "y": 0.5961678071458657,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.4076643857082687,
+        "y": 0.4076643857082687,
+        "z": 0.4
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder-ball",
+      "metadata": {
+        "boolean_source_id": "solder-ball-r4-c3",
+        "boolean_source_name": "solder-ball-r4-c3"
+      }
+    },
+    {
+      "id": "solder-ball-r4-c4-part-1",
+      "name": "solder-ball-r4-c4",
+      "structure_type": "solder_ball",
+      "origin": {
+        "x": 0.5961678071458657,
+        "y": 0.5961678071458657,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.4076643857082687,
+        "y": 0.4076643857082687,
+        "z": 0.4
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder-ball",
+      "metadata": {
+        "boolean_source_id": "solder-ball-r4-c4",
+        "boolean_source_name": "solder-ball-r4-c4"
+      }
+    },
+    {
+      "id": "solder-ball-r4-c5-part-1",
+      "name": "solder-ball-r4-c5",
+      "structure_type": "solder_ball",
+      "origin": {
+        "x": 1.3961678071458659,
+        "y": 0.5961678071458657,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.4076643857082687,
+        "y": 0.4076643857082687,
+        "z": 0.4
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder-ball",
+      "metadata": {
+        "boolean_source_id": "solder-ball-r4-c5",
+        "boolean_source_name": "solder-ball-r4-c5"
+      }
+    },
+    {
+      "id": "solder-ball-r5-c1-part-1",
+      "name": "solder-ball-r5-c1",
+      "structure_type": "solder_ball",
+      "origin": {
+        "x": -1.8038321928541343,
+        "y": 1.3961678071458659,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.4076643857082687,
+        "y": 0.4076643857082687,
+        "z": 0.4
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder-ball",
+      "metadata": {
+        "boolean_source_id": "solder-ball-r5-c1",
+        "boolean_source_name": "solder-ball-r5-c1"
+      }
+    },
+    {
+      "id": "solder-ball-r5-c2-part-1",
+      "name": "solder-ball-r5-c2",
+      "structure_type": "solder_ball",
+      "origin": {
+        "x": -1.0038321928541345,
+        "y": 1.3961678071458659,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.4076643857082687,
+        "y": 0.4076643857082687,
+        "z": 0.4
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder-ball",
+      "metadata": {
+        "boolean_source_id": "solder-ball-r5-c2",
+        "boolean_source_name": "solder-ball-r5-c2"
+      }
+    },
+    {
+      "id": "solder-ball-r5-c3-part-1",
+      "name": "solder-ball-r5-c3",
+      "structure_type": "solder_ball",
+      "origin": {
+        "x": -0.20383219285413434,
+        "y": 1.3961678071458659,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.4076643857082687,
+        "y": 0.4076643857082687,
+        "z": 0.4
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder-ball",
+      "metadata": {
+        "boolean_source_id": "solder-ball-r5-c3",
+        "boolean_source_name": "solder-ball-r5-c3"
+      }
+    },
+    {
+      "id": "solder-ball-r5-c4-part-1",
+      "name": "solder-ball-r5-c4",
+      "structure_type": "solder_ball",
+      "origin": {
+        "x": 0.5961678071458657,
+        "y": 1.3961678071458659,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.4076643857082687,
+        "y": 0.4076643857082687,
+        "z": 0.4
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder-ball",
+      "metadata": {
+        "boolean_source_id": "solder-ball-r5-c4",
+        "boolean_source_name": "solder-ball-r5-c4"
+      }
+    },
+    {
+      "id": "solder-ball-r5-c5-part-1",
+      "name": "solder-ball-r5-c5",
+      "structure_type": "solder_ball",
+      "origin": {
+        "x": 1.3961678071458659,
+        "y": 1.3961678071458659,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.4076643857082687,
+        "y": 0.4076643857082687,
+        "z": 0.4
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder-ball",
+      "metadata": {
+        "boolean_source_id": "solder-ball-r5-c5",
+        "boolean_source_name": "solder-ball-r5-c5"
+      }
+    }
+  ],
+  "groups": [
+    {
+      "id": "package",
+      "name": "Chip Array",
+      "parent_id": null,
+      "block_ids": []
+    },
+    {
+      "id": "group-encapsulant",
+      "name": "Encapsulant",
+      "parent_id": "package",
+      "block_ids": [
+        "encapsulant-part-1"
+      ]
+    },
+    {
+      "id": "group-die",
+      "name": "Die",
+      "parent_id": "package",
+      "block_ids": [
+        "die-part-1"
+      ]
+    },
+    {
+      "id": "group-solder-mask",
+      "name": "Solder mask",
+      "parent_id": "package",
+      "block_ids": [
+        "solder-mask-part-1"
+      ]
+    },
+    {
+      "id": "group-substrate",
+      "name": "Dielectric & traces",
+      "parent_id": "package",
+      "block_ids": [
+        "dielectric-part-1"
+      ]
+    },
+    {
+      "id": "group-die-attach",
+      "name": "Die attach",
+      "parent_id": "package",
+      "block_ids": [
+        "die-attach-part-1"
+      ]
+    },
+    {
+      "id": "group-bond-wires",
+      "name": "Bond wires",
+      "parent_id": "package",
+      "block_ids": [
+        "bond-wire-h-right-part-1",
+        "bond-wire-h-left-part-1",
+        "bond-wire-h-upper-part-1",
+        "bond-wire-h-lower-part-1",
+        "bond-wire-v-right-part-1",
+        "bond-wire-v-left-part-1",
+        "bond-wire-v-upper-part-1",
+        "bond-wire-v-lower-part-1"
+      ]
+    },
+    {
+      "id": "group-traces",
+      "name": "Dielectric & traces",
+      "parent_id": "package",
+      "block_ids": [
+        "trace-0-part-1",
+        "trace-1-part-1"
+      ]
+    },
+    {
+      "id": "group-vias",
+      "name": "Vias",
+      "parent_id": "package",
+      "block_ids": [
+        "thermal-via-r1-c1-part-1",
+        "thermal-via-r1-c2-part-1",
+        "thermal-via-r1-c3-part-1",
+        "thermal-via-r1-c4-part-1",
+        "thermal-via-r1-c5-part-1",
+        "thermal-via-r2-c1-part-1",
+        "thermal-via-r2-c2-part-1",
+        "thermal-via-r2-c3-part-1",
+        "thermal-via-r2-c4-part-1",
+        "thermal-via-r2-c5-part-1",
+        "thermal-via-r3-c1-part-1",
+        "thermal-via-r3-c2-part-1",
+        "thermal-via-r3-c3-part-1",
+        "thermal-via-r3-c4-part-1",
+        "thermal-via-r3-c5-part-1",
+        "thermal-via-r4-c1-part-1",
+        "thermal-via-r4-c2-part-1",
+        "thermal-via-r4-c3-part-1",
+        "thermal-via-r4-c4-part-1",
+        "thermal-via-r4-c5-part-1",
+        "thermal-via-r5-c1-part-1",
+        "thermal-via-r5-c2-part-1",
+        "thermal-via-r5-c3-part-1",
+        "thermal-via-r5-c4-part-1",
+        "thermal-via-r5-c5-part-1"
+      ]
+    },
+    {
+      "id": "group-solder-ball",
+      "name": "Solder balls",
+      "parent_id": "package",
+      "block_ids": [
+        "solder-ball-r1-c1-part-1",
+        "solder-ball-r1-c2-part-1",
+        "solder-ball-r1-c3-part-1",
+        "solder-ball-r1-c4-part-1",
+        "solder-ball-r1-c5-part-1",
+        "solder-ball-r2-c1-part-1",
+        "solder-ball-r2-c2-part-1",
+        "solder-ball-r2-c3-part-1",
+        "solder-ball-r2-c4-part-1",
+        "solder-ball-r2-c5-part-1",
+        "solder-ball-r3-c1-part-1",
+        "solder-ball-r3-c2-part-1",
+        "solder-ball-r3-c3-part-1",
+        "solder-ball-r3-c4-part-1",
+        "solder-ball-r3-c5-part-1",
+        "solder-ball-r4-c1-part-1",
+        "solder-ball-r4-c2-part-1",
+        "solder-ball-r4-c3-part-1",
+        "solder-ball-r4-c4-part-1",
+        "solder-ball-r4-c5-part-1",
+        "solder-ball-r5-c1-part-1",
+        "solder-ball-r5-c2-part-1",
+        "solder-ball-r5-c3-part-1",
+        "solder-ball-r5-c4-part-1",
+        "solder-ball-r5-c5-part-1"
+      ]
+    }
+  ],
+  "heat_sources": [
+    {
+      "id": "die-source-1",
+      "name": "Die heat source 1",
+      "block_id": "die-part-1",
+      "power_w": 0.0
+    }
+  ],
+  "boundaries": [],
+  "metadata": {
+    "implementation": "packstudio-native",
+    "template_version": "2.2",
+    "reference_basis": "versioned JSON defaults with reviewed FloTHERM PACK 2504 mappings",
+    "default_parameter_schema": "packstudio.default-parameters/v1",
+    "reference_geometry_status": "supported-parameters-with-family-equivalent-geometry",
+    "runtime_reference_data_required": false,
+    "outline_type": "standard_outline",
+    "die_type": "actual_type",
+    "footprint_size": "ChipArray_24_4X4mm_0_8",
+    "solver_results_included": false,
+    "solder_ball_count": 25,
+    "solder_ball_representation": "discrete",
+    "solder_ball_footprint_x_mm": 3.66,
+    "solder_ball_footprint_y_mm": 3.66,
+    "reference_baseline": "FloTHERM PACK 2504 ChipArray_24_4X4mm_0_8",
+    "preset_source_path": "flocentral/flopack/chip_array/ChipArray_24_4X4mm_0_8.des",
+    "preset_source_sha256": "a400f386d37ee6a93dee5d12851265301437bfd015764fb4ca061766310514ae",
+    "preset_geometry_status": "native-defaults-adapted",
+    "preset_notes": "PACK 未启用的参数：metal.hole_length, metal.hole_width；原生未给定数值，保持空白，不计入当前模型。 名称球数 24 与原生启用阵列球数 25 不一致；采用原生参数。",
+    "summary.part_number": "",
+    "summary.vendor": "",
+    "summary.notes": "",
+    "native_grid_enabled": true,
+    "native_grid_density": "fine",
+    "native_grid_length_mm": 4.0,
+    "native_grid_width_mm": 4.0,
+    "native_grid_height_mm": 1.4100000000000001
+  },
+  "warnings": [
+    "模型包含 39 对重叠块：dielectric-part-1/trace-0-part-1, dielectric-part-1/trace-1-part-1, dielectric-part-1/thermal-via-r1-c1-part-1, dielectric-part-1/thermal-via-r2-c1-part-1, dielectric-part-1/thermal-via-r3-c1-part-1"
+  ],
+  "auxiliary_geometry": [
+    {
+      "kind": "monitor_point",
+      "name": "DieJunction_Temp",
+      "origin": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 1.1085
+      },
+      "size": null
+    },
+    {
+      "kind": "monitor_point",
+      "name": "CaseTemp",
+      "origin": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 1.3959000000000001
+      },
+      "size": null
+    },
+    {
+      "kind": "region",
+      "name": "z_bottom",
+      "origin": {
+        "x": -1.83,
+        "y": -1.83,
+        "z": 0.0
+      },
+      "size": {
+        "x": 3.66,
+        "y": 3.66,
+        "z": 1.0
+      }
+    },
+    {
+      "kind": "region",
+      "name": "z_top",
+      "origin": {
+        "x": -2.0,
+        "y": -2.0,
+        "z": 1.4100000000000001
+      },
+      "size": {
+        "x": 4.0,
+        "y": 4.0,
+        "z": 1.0
+      }
+    }
+  ]
+}

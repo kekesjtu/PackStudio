@@ -1,0 +1,7183 @@
+{
+  "schema_version": "packstudio.model/v1",
+  "template_id": "qfn",
+  "name": "QFN",
+  "length_unit": "mm",
+  "coordinate_system": {
+    "origin": "package bottom-plane center (FloTHERM PACK)",
+    "x_axis": "package length",
+    "y_axis": "package width",
+    "z_axis": "upward through package thickness"
+  },
+  "materials": [
+    {
+      "id": "dieattach-2600bt",
+      "name": "DieAttach-2600BT",
+      "category": "Attachment Materials",
+      "conductivity": {
+        "x": 20.0,
+        "y": 20.0,
+        "z": 20.0
+      },
+      "density": 1.0,
+      "specific_heat": 1.0,
+      "color": "#D79A3B",
+      "source": "PACK built-in material; constant_isotropic",
+      "conductivity_coefficient": null,
+      "conductivity_reference_temperature_c": null
+    },
+    {
+      "id": "eme-7730lf",
+      "name": "EME-7730LF",
+      "category": "Resins",
+      "conductivity": {
+        "x": 0.88,
+        "y": 0.88,
+        "z": 0.88
+      },
+      "density": 2010.0,
+      "specific_heat": 1.0,
+      "color": "#414A57",
+      "source": "PACK built-in material; constant_isotropic",
+      "conductivity_coefficient": null,
+      "conductivity_reference_temperature_c": null
+    },
+    {
+      "id": "leadframe-c194",
+      "name": "Cu-C19400",
+      "category": "Alloys (Leadframe)",
+      "conductivity": {
+        "x": 260.0,
+        "y": 260.0,
+        "z": 260.0
+      },
+      "density": 8800.0,
+      "specific_heat": 1.0,
+      "color": "#B96331",
+      "source": "PACK built-in material; constant_isotropic",
+      "conductivity_coefficient": null,
+      "conductivity_reference_temperature_c": null
+    },
+    {
+      "id": "qfn-bondwire-x",
+      "name": "qfn-bondwire-x",
+      "category": "Metals",
+      "conductivity": {
+        "x": 18.61877851901951,
+        "y": 0.88,
+        "z": 18.61877851901951
+      },
+      "density": 3049.2500697812666,
+      "specific_heat": 50.83800293167736,
+      "color": "#D9A928",
+      "source": "PACK derived mixture; metal=gold; matrix=eme-7730lf; volume_fraction=0.06010700230082512",
+      "conductivity_coefficient": null,
+      "conductivity_reference_temperature_c": null
+    },
+    {
+      "id": "qfn-bondwire-y",
+      "name": "qfn-bondwire-y",
+      "category": "Metals",
+      "conductivity": {
+        "x": 0.88,
+        "y": 18.61877851901951,
+        "z": 18.61877851901951
+      },
+      "density": 3049.2500697812666,
+      "specific_heat": 50.83800293167736,
+      "color": "#D9A928",
+      "source": "PACK derived mixture; metal=gold; matrix=eme-7730lf; volume_fraction=0.06010700230082512",
+      "conductivity_coefficient": null,
+      "conductivity_reference_temperature_c": null
+    },
+    {
+      "id": "silicon",
+      "name": "Silicon (Pure)",
+      "category": "Semiconductors",
+      "conductivity": {
+        "x": 117.5,
+        "y": 117.5,
+        "z": 117.5
+      },
+      "density": 2330.0,
+      "specific_heat": 700.0,
+      "color": "#667085",
+      "source": "PACK built-in material; temperature-dependent conductivity; native reference temperature 100.0 C",
+      "conductivity_coefficient": -0.42,
+      "conductivity_reference_temperature_c": 100.0
+    },
+    {
+      "id": "solder-sn63",
+      "name": "Solder (Sn63/Pb37)",
+      "category": "Alloys (Solders)",
+      "conductivity": {
+        "x": 50.9,
+        "y": 50.9,
+        "z": 50.9
+      },
+      "density": 8400.0,
+      "specific_heat": 150.0,
+      "color": "#AEB7C4",
+      "source": "PACK built-in material; constant_isotropic",
+      "conductivity_coefficient": null,
+      "conductivity_reference_temperature_c": null
+    }
+  ],
+  "blocks": [
+    {
+      "id": "encapsulant-part-1",
+      "name": "QFN encapsulant",
+      "structure_type": "encapsulant",
+      "origin": {
+        "x": -6.0,
+        "y": -6.0,
+        "z": 0.05
+      },
+      "size": {
+        "x": 12.0,
+        "y": 12.0,
+        "z": 0.85
+      },
+      "material_id": "eme-7730lf",
+      "parent_group_id": "group-encapsulant",
+      "metadata": {
+        "boolean_source_id": "encapsulant",
+        "boolean_source_name": "QFN encapsulant"
+      }
+    },
+    {
+      "id": "dap-upper-part-1",
+      "name": "Die attach pad",
+      "structure_type": "exposed_pad",
+      "origin": {
+        "x": -5.4,
+        "y": -5.4,
+        "z": 0.15000000000000002
+      },
+      "size": {
+        "x": 10.8,
+        "y": 10.8,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-exposed-pad",
+      "metadata": {
+        "boolean_source_id": "dap-upper",
+        "boolean_source_name": "Die attach pad"
+      }
+    },
+    {
+      "id": "dap-exposed-part-1",
+      "name": "Exposed pad",
+      "structure_type": "exposed_pad",
+      "origin": {
+        "x": -5.275,
+        "y": -5.275,
+        "z": 0.05
+      },
+      "size": {
+        "x": 10.55,
+        "y": 10.55,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-exposed-pad",
+      "metadata": {
+        "boolean_source_id": "dap-exposed",
+        "boolean_source_name": "Exposed pad"
+      }
+    },
+    {
+      "id": "center-solder-part-1",
+      "name": "Center solder",
+      "structure_type": "solder",
+      "origin": {
+        "x": -5.275,
+        "y": -5.275,
+        "z": 0.0
+      },
+      "size": {
+        "x": 10.55,
+        "y": 10.55,
+        "z": 0.05
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder",
+      "metadata": {
+        "boolean_source_id": "center-solder",
+        "boolean_source_name": "Center solder"
+      }
+    },
+    {
+      "id": "die-attach-part-1",
+      "name": "Die attach",
+      "structure_type": "die_attach",
+      "origin": {
+        "x": -2.7,
+        "y": -2.7,
+        "z": 0.25
+      },
+      "size": {
+        "x": 5.4,
+        "y": 5.4,
+        "z": 0.025
+      },
+      "material_id": "dieattach-2600bt",
+      "parent_group_id": "group-die-attach",
+      "metadata": {
+        "boolean_source_id": "die-attach",
+        "boolean_source_name": "Die attach"
+      }
+    },
+    {
+      "id": "die-part-1",
+      "name": "Silicon die",
+      "structure_type": "die",
+      "origin": {
+        "x": -2.7,
+        "y": -2.7,
+        "z": 0.275
+      },
+      "size": {
+        "x": 5.4,
+        "y": 5.4,
+        "z": 0.25
+      },
+      "material_id": "silicon",
+      "parent_group_id": "group-die",
+      "metadata": {
+        "boolean_source_id": "die",
+        "boolean_source_name": "Silicon die"
+      }
+    },
+    {
+      "id": "qfn-bondwire-x--1-part-1",
+      "name": "qfn-bondwire-x",
+      "structure_type": "bond_wire",
+      "origin": {
+        "x": -5.45,
+        "y": -4.9,
+        "z": 0.495
+      },
+      "size": {
+        "x": 2.75,
+        "y": 9.8,
+        "z": 0.03
+      },
+      "material_id": "qfn-bondwire-x",
+      "parent_group_id": "group-bond-wires",
+      "metadata": {
+        "boolean_source_id": "qfn-bondwire-x--1",
+        "boolean_source_name": "qfn-bondwire-x"
+      }
+    },
+    {
+      "id": "qfn-bondwire-x-1-part-1",
+      "name": "qfn-bondwire-x",
+      "structure_type": "bond_wire",
+      "origin": {
+        "x": 2.7,
+        "y": -4.9,
+        "z": 0.495
+      },
+      "size": {
+        "x": 2.75,
+        "y": 9.8,
+        "z": 0.03
+      },
+      "material_id": "qfn-bondwire-x",
+      "parent_group_id": "group-bond-wires",
+      "metadata": {
+        "boolean_source_id": "qfn-bondwire-x-1",
+        "boolean_source_name": "qfn-bondwire-x"
+      }
+    },
+    {
+      "id": "qfn-bondwire-x-v--1-part-1",
+      "name": "qfn-bondwire-x-v",
+      "structure_type": "bond_wire",
+      "origin": {
+        "x": -5.48,
+        "y": -4.9,
+        "z": 0.25
+      },
+      "size": {
+        "x": 0.03,
+        "y": 9.8,
+        "z": 0.275
+      },
+      "material_id": "qfn-bondwire-x",
+      "parent_group_id": "group-bond-wires",
+      "metadata": {
+        "boolean_source_id": "qfn-bondwire-x-v--1",
+        "boolean_source_name": "qfn-bondwire-x-v"
+      }
+    },
+    {
+      "id": "qfn-bondwire-x-v-1-part-1",
+      "name": "qfn-bondwire-x-v",
+      "structure_type": "bond_wire",
+      "origin": {
+        "x": 5.45,
+        "y": -4.9,
+        "z": 0.25
+      },
+      "size": {
+        "x": 0.03,
+        "y": 9.8,
+        "z": 0.275
+      },
+      "material_id": "qfn-bondwire-x",
+      "parent_group_id": "group-bond-wires",
+      "metadata": {
+        "boolean_source_id": "qfn-bondwire-x-v-1",
+        "boolean_source_name": "qfn-bondwire-x-v"
+      }
+    },
+    {
+      "id": "qfn-bondwire-y--1-part-1",
+      "name": "qfn-bondwire-y",
+      "structure_type": "bond_wire",
+      "origin": {
+        "x": -4.9,
+        "y": -5.45,
+        "z": 0.495
+      },
+      "size": {
+        "x": 9.8,
+        "y": 2.75,
+        "z": 0.03
+      },
+      "material_id": "qfn-bondwire-y",
+      "parent_group_id": "group-bond-wires",
+      "metadata": {
+        "boolean_source_id": "qfn-bondwire-y--1",
+        "boolean_source_name": "qfn-bondwire-y"
+      }
+    },
+    {
+      "id": "qfn-bondwire-y-1-part-1",
+      "name": "qfn-bondwire-y",
+      "structure_type": "bond_wire",
+      "origin": {
+        "x": -4.9,
+        "y": 2.7,
+        "z": 0.495
+      },
+      "size": {
+        "x": 9.8,
+        "y": 2.75,
+        "z": 0.03
+      },
+      "material_id": "qfn-bondwire-y",
+      "parent_group_id": "group-bond-wires",
+      "metadata": {
+        "boolean_source_id": "qfn-bondwire-y-1",
+        "boolean_source_name": "qfn-bondwire-y"
+      }
+    },
+    {
+      "id": "qfn-bondwire-y-v--1-part-1",
+      "name": "qfn-bondwire-y-v",
+      "structure_type": "bond_wire",
+      "origin": {
+        "x": -4.9,
+        "y": -5.48,
+        "z": 0.25
+      },
+      "size": {
+        "x": 9.8,
+        "y": 0.03,
+        "z": 0.275
+      },
+      "material_id": "qfn-bondwire-y",
+      "parent_group_id": "group-bond-wires",
+      "metadata": {
+        "boolean_source_id": "qfn-bondwire-y-v--1",
+        "boolean_source_name": "qfn-bondwire-y-v"
+      }
+    },
+    {
+      "id": "qfn-bondwire-y-v-1-part-1",
+      "name": "qfn-bondwire-y-v",
+      "structure_type": "bond_wire",
+      "origin": {
+        "x": -4.9,
+        "y": 5.45,
+        "z": 0.25
+      },
+      "size": {
+        "x": 9.8,
+        "y": 0.03,
+        "z": 0.275
+      },
+      "material_id": "qfn-bondwire-y",
+      "parent_group_id": "group-bond-wires",
+      "metadata": {
+        "boolean_source_id": "qfn-bondwire-y-v-1",
+        "boolean_source_name": "qfn-bondwire-y-v"
+      }
+    },
+    {
+      "id": "solder-lower-1-part-1",
+      "name": "Solder lower-1",
+      "structure_type": "solder",
+      "origin": {
+        "x": -4.9,
+        "y": -6.0,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.5,
+        "z": 0.05
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder",
+      "metadata": {
+        "boolean_source_id": "solder-lower-1",
+        "boolean_source_name": "Solder lower-1"
+      }
+    },
+    {
+      "id": "lead-lower-lower-1-part-1",
+      "name": "Lead lower lower-1",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -4.9,
+        "y": -6.0,
+        "z": 0.05
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.5,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-lower-lower-1",
+        "boolean_source_name": "Lead lower lower-1"
+      }
+    },
+    {
+      "id": "lead-upper-lower-1-part-1",
+      "name": "Lead upper lower-1",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -4.9,
+        "y": -6.0,
+        "z": 0.15000000000000002
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.55,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-upper-lower-1",
+        "boolean_source_name": "Lead upper lower-1"
+      }
+    },
+    {
+      "id": "solder-upper-1-part-1",
+      "name": "Solder upper-1",
+      "structure_type": "solder",
+      "origin": {
+        "x": -4.9,
+        "y": 5.5,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.5,
+        "z": 0.05
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder",
+      "metadata": {
+        "boolean_source_id": "solder-upper-1",
+        "boolean_source_name": "Solder upper-1"
+      }
+    },
+    {
+      "id": "lead-lower-upper-1-part-1",
+      "name": "Lead lower upper-1",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -4.9,
+        "y": 5.5,
+        "z": 0.05
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.5,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-lower-upper-1",
+        "boolean_source_name": "Lead lower upper-1"
+      }
+    },
+    {
+      "id": "lead-upper-upper-1-part-1",
+      "name": "Lead upper upper-1",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -4.9,
+        "y": 5.45,
+        "z": 0.15000000000000002
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.55,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-upper-upper-1",
+        "boolean_source_name": "Lead upper upper-1"
+      }
+    },
+    {
+      "id": "solder-lower-2-part-1",
+      "name": "Solder lower-2",
+      "structure_type": "solder",
+      "origin": {
+        "x": -4.5,
+        "y": -6.0,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.5,
+        "z": 0.05
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder",
+      "metadata": {
+        "boolean_source_id": "solder-lower-2",
+        "boolean_source_name": "Solder lower-2"
+      }
+    },
+    {
+      "id": "lead-lower-lower-2-part-1",
+      "name": "Lead lower lower-2",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -4.5,
+        "y": -6.0,
+        "z": 0.05
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.5,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-lower-lower-2",
+        "boolean_source_name": "Lead lower lower-2"
+      }
+    },
+    {
+      "id": "lead-upper-lower-2-part-1",
+      "name": "Lead upper lower-2",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -4.5,
+        "y": -6.0,
+        "z": 0.15000000000000002
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.55,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-upper-lower-2",
+        "boolean_source_name": "Lead upper lower-2"
+      }
+    },
+    {
+      "id": "solder-upper-2-part-1",
+      "name": "Solder upper-2",
+      "structure_type": "solder",
+      "origin": {
+        "x": -4.5,
+        "y": 5.5,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.5,
+        "z": 0.05
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder",
+      "metadata": {
+        "boolean_source_id": "solder-upper-2",
+        "boolean_source_name": "Solder upper-2"
+      }
+    },
+    {
+      "id": "lead-lower-upper-2-part-1",
+      "name": "Lead lower upper-2",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -4.5,
+        "y": 5.5,
+        "z": 0.05
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.5,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-lower-upper-2",
+        "boolean_source_name": "Lead lower upper-2"
+      }
+    },
+    {
+      "id": "lead-upper-upper-2-part-1",
+      "name": "Lead upper upper-2",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -4.5,
+        "y": 5.45,
+        "z": 0.15000000000000002
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.55,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-upper-upper-2",
+        "boolean_source_name": "Lead upper upper-2"
+      }
+    },
+    {
+      "id": "solder-lower-3-part-1",
+      "name": "Solder lower-3",
+      "structure_type": "solder",
+      "origin": {
+        "x": -4.1,
+        "y": -6.0,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.5,
+        "z": 0.05
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder",
+      "metadata": {
+        "boolean_source_id": "solder-lower-3",
+        "boolean_source_name": "Solder lower-3"
+      }
+    },
+    {
+      "id": "lead-lower-lower-3-part-1",
+      "name": "Lead lower lower-3",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -4.1,
+        "y": -6.0,
+        "z": 0.05
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.5,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-lower-lower-3",
+        "boolean_source_name": "Lead lower lower-3"
+      }
+    },
+    {
+      "id": "lead-upper-lower-3-part-1",
+      "name": "Lead upper lower-3",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -4.1,
+        "y": -6.0,
+        "z": 0.15000000000000002
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.55,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-upper-lower-3",
+        "boolean_source_name": "Lead upper lower-3"
+      }
+    },
+    {
+      "id": "solder-upper-3-part-1",
+      "name": "Solder upper-3",
+      "structure_type": "solder",
+      "origin": {
+        "x": -4.1,
+        "y": 5.5,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.5,
+        "z": 0.05
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder",
+      "metadata": {
+        "boolean_source_id": "solder-upper-3",
+        "boolean_source_name": "Solder upper-3"
+      }
+    },
+    {
+      "id": "lead-lower-upper-3-part-1",
+      "name": "Lead lower upper-3",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -4.1,
+        "y": 5.5,
+        "z": 0.05
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.5,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-lower-upper-3",
+        "boolean_source_name": "Lead lower upper-3"
+      }
+    },
+    {
+      "id": "lead-upper-upper-3-part-1",
+      "name": "Lead upper upper-3",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -4.1,
+        "y": 5.45,
+        "z": 0.15000000000000002
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.55,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-upper-upper-3",
+        "boolean_source_name": "Lead upper upper-3"
+      }
+    },
+    {
+      "id": "solder-lower-4-part-1",
+      "name": "Solder lower-4",
+      "structure_type": "solder",
+      "origin": {
+        "x": -3.7,
+        "y": -6.0,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.5,
+        "z": 0.05
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder",
+      "metadata": {
+        "boolean_source_id": "solder-lower-4",
+        "boolean_source_name": "Solder lower-4"
+      }
+    },
+    {
+      "id": "lead-lower-lower-4-part-1",
+      "name": "Lead lower lower-4",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -3.7,
+        "y": -6.0,
+        "z": 0.05
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.5,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-lower-lower-4",
+        "boolean_source_name": "Lead lower lower-4"
+      }
+    },
+    {
+      "id": "lead-upper-lower-4-part-1",
+      "name": "Lead upper lower-4",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -3.7,
+        "y": -6.0,
+        "z": 0.15000000000000002
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.55,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-upper-lower-4",
+        "boolean_source_name": "Lead upper lower-4"
+      }
+    },
+    {
+      "id": "solder-upper-4-part-1",
+      "name": "Solder upper-4",
+      "structure_type": "solder",
+      "origin": {
+        "x": -3.7,
+        "y": 5.5,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.5,
+        "z": 0.05
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder",
+      "metadata": {
+        "boolean_source_id": "solder-upper-4",
+        "boolean_source_name": "Solder upper-4"
+      }
+    },
+    {
+      "id": "lead-lower-upper-4-part-1",
+      "name": "Lead lower upper-4",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -3.7,
+        "y": 5.5,
+        "z": 0.05
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.5,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-lower-upper-4",
+        "boolean_source_name": "Lead lower upper-4"
+      }
+    },
+    {
+      "id": "lead-upper-upper-4-part-1",
+      "name": "Lead upper upper-4",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -3.7,
+        "y": 5.45,
+        "z": 0.15000000000000002
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.55,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-upper-upper-4",
+        "boolean_source_name": "Lead upper upper-4"
+      }
+    },
+    {
+      "id": "solder-lower-5-part-1",
+      "name": "Solder lower-5",
+      "structure_type": "solder",
+      "origin": {
+        "x": -3.3000000000000003,
+        "y": -6.0,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.5,
+        "z": 0.05
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder",
+      "metadata": {
+        "boolean_source_id": "solder-lower-5",
+        "boolean_source_name": "Solder lower-5"
+      }
+    },
+    {
+      "id": "lead-lower-lower-5-part-1",
+      "name": "Lead lower lower-5",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -3.3000000000000003,
+        "y": -6.0,
+        "z": 0.05
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.5,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-lower-lower-5",
+        "boolean_source_name": "Lead lower lower-5"
+      }
+    },
+    {
+      "id": "lead-upper-lower-5-part-1",
+      "name": "Lead upper lower-5",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -3.3000000000000003,
+        "y": -6.0,
+        "z": 0.15000000000000002
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.55,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-upper-lower-5",
+        "boolean_source_name": "Lead upper lower-5"
+      }
+    },
+    {
+      "id": "solder-upper-5-part-1",
+      "name": "Solder upper-5",
+      "structure_type": "solder",
+      "origin": {
+        "x": -3.3000000000000003,
+        "y": 5.5,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.5,
+        "z": 0.05
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder",
+      "metadata": {
+        "boolean_source_id": "solder-upper-5",
+        "boolean_source_name": "Solder upper-5"
+      }
+    },
+    {
+      "id": "lead-lower-upper-5-part-1",
+      "name": "Lead lower upper-5",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -3.3000000000000003,
+        "y": 5.5,
+        "z": 0.05
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.5,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-lower-upper-5",
+        "boolean_source_name": "Lead lower upper-5"
+      }
+    },
+    {
+      "id": "lead-upper-upper-5-part-1",
+      "name": "Lead upper upper-5",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -3.3000000000000003,
+        "y": 5.45,
+        "z": 0.15000000000000002
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.55,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-upper-upper-5",
+        "boolean_source_name": "Lead upper upper-5"
+      }
+    },
+    {
+      "id": "solder-lower-6-part-1",
+      "name": "Solder lower-6",
+      "structure_type": "solder",
+      "origin": {
+        "x": -2.9000000000000004,
+        "y": -6.0,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.5,
+        "z": 0.05
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder",
+      "metadata": {
+        "boolean_source_id": "solder-lower-6",
+        "boolean_source_name": "Solder lower-6"
+      }
+    },
+    {
+      "id": "lead-lower-lower-6-part-1",
+      "name": "Lead lower lower-6",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -2.9000000000000004,
+        "y": -6.0,
+        "z": 0.05
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.5,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-lower-lower-6",
+        "boolean_source_name": "Lead lower lower-6"
+      }
+    },
+    {
+      "id": "lead-upper-lower-6-part-1",
+      "name": "Lead upper lower-6",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -2.9000000000000004,
+        "y": -6.0,
+        "z": 0.15000000000000002
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.55,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-upper-lower-6",
+        "boolean_source_name": "Lead upper lower-6"
+      }
+    },
+    {
+      "id": "solder-upper-6-part-1",
+      "name": "Solder upper-6",
+      "structure_type": "solder",
+      "origin": {
+        "x": -2.9000000000000004,
+        "y": 5.5,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.5,
+        "z": 0.05
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder",
+      "metadata": {
+        "boolean_source_id": "solder-upper-6",
+        "boolean_source_name": "Solder upper-6"
+      }
+    },
+    {
+      "id": "lead-lower-upper-6-part-1",
+      "name": "Lead lower upper-6",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -2.9000000000000004,
+        "y": 5.5,
+        "z": 0.05
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.5,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-lower-upper-6",
+        "boolean_source_name": "Lead lower upper-6"
+      }
+    },
+    {
+      "id": "lead-upper-upper-6-part-1",
+      "name": "Lead upper upper-6",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -2.9000000000000004,
+        "y": 5.45,
+        "z": 0.15000000000000002
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.55,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-upper-upper-6",
+        "boolean_source_name": "Lead upper upper-6"
+      }
+    },
+    {
+      "id": "solder-lower-7-part-1",
+      "name": "Solder lower-7",
+      "structure_type": "solder",
+      "origin": {
+        "x": -2.5000000000000004,
+        "y": -6.0,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.5,
+        "z": 0.05
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder",
+      "metadata": {
+        "boolean_source_id": "solder-lower-7",
+        "boolean_source_name": "Solder lower-7"
+      }
+    },
+    {
+      "id": "lead-lower-lower-7-part-1",
+      "name": "Lead lower lower-7",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -2.5000000000000004,
+        "y": -6.0,
+        "z": 0.05
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.5,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-lower-lower-7",
+        "boolean_source_name": "Lead lower lower-7"
+      }
+    },
+    {
+      "id": "lead-upper-lower-7-part-1",
+      "name": "Lead upper lower-7",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -2.5000000000000004,
+        "y": -6.0,
+        "z": 0.15000000000000002
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.55,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-upper-lower-7",
+        "boolean_source_name": "Lead upper lower-7"
+      }
+    },
+    {
+      "id": "solder-upper-7-part-1",
+      "name": "Solder upper-7",
+      "structure_type": "solder",
+      "origin": {
+        "x": -2.5000000000000004,
+        "y": 5.5,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.5,
+        "z": 0.05
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder",
+      "metadata": {
+        "boolean_source_id": "solder-upper-7",
+        "boolean_source_name": "Solder upper-7"
+      }
+    },
+    {
+      "id": "lead-lower-upper-7-part-1",
+      "name": "Lead lower upper-7",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -2.5000000000000004,
+        "y": 5.5,
+        "z": 0.05
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.5,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-lower-upper-7",
+        "boolean_source_name": "Lead lower upper-7"
+      }
+    },
+    {
+      "id": "lead-upper-upper-7-part-1",
+      "name": "Lead upper upper-7",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -2.5000000000000004,
+        "y": 5.45,
+        "z": 0.15000000000000002
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.55,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-upper-upper-7",
+        "boolean_source_name": "Lead upper upper-7"
+      }
+    },
+    {
+      "id": "solder-lower-8-part-1",
+      "name": "Solder lower-8",
+      "structure_type": "solder",
+      "origin": {
+        "x": -2.1,
+        "y": -6.0,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.5,
+        "z": 0.05
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder",
+      "metadata": {
+        "boolean_source_id": "solder-lower-8",
+        "boolean_source_name": "Solder lower-8"
+      }
+    },
+    {
+      "id": "lead-lower-lower-8-part-1",
+      "name": "Lead lower lower-8",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -2.1,
+        "y": -6.0,
+        "z": 0.05
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.5,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-lower-lower-8",
+        "boolean_source_name": "Lead lower lower-8"
+      }
+    },
+    {
+      "id": "lead-upper-lower-8-part-1",
+      "name": "Lead upper lower-8",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -2.1,
+        "y": -6.0,
+        "z": 0.15000000000000002
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.55,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-upper-lower-8",
+        "boolean_source_name": "Lead upper lower-8"
+      }
+    },
+    {
+      "id": "solder-upper-8-part-1",
+      "name": "Solder upper-8",
+      "structure_type": "solder",
+      "origin": {
+        "x": -2.1,
+        "y": 5.5,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.5,
+        "z": 0.05
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder",
+      "metadata": {
+        "boolean_source_id": "solder-upper-8",
+        "boolean_source_name": "Solder upper-8"
+      }
+    },
+    {
+      "id": "lead-lower-upper-8-part-1",
+      "name": "Lead lower upper-8",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -2.1,
+        "y": 5.5,
+        "z": 0.05
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.5,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-lower-upper-8",
+        "boolean_source_name": "Lead lower upper-8"
+      }
+    },
+    {
+      "id": "lead-upper-upper-8-part-1",
+      "name": "Lead upper upper-8",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -2.1,
+        "y": 5.45,
+        "z": 0.15000000000000002
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.55,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-upper-upper-8",
+        "boolean_source_name": "Lead upper upper-8"
+      }
+    },
+    {
+      "id": "solder-lower-9-part-1",
+      "name": "Solder lower-9",
+      "structure_type": "solder",
+      "origin": {
+        "x": -1.7000000000000002,
+        "y": -6.0,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.5,
+        "z": 0.05
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder",
+      "metadata": {
+        "boolean_source_id": "solder-lower-9",
+        "boolean_source_name": "Solder lower-9"
+      }
+    },
+    {
+      "id": "lead-lower-lower-9-part-1",
+      "name": "Lead lower lower-9",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -1.7000000000000002,
+        "y": -6.0,
+        "z": 0.05
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.5,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-lower-lower-9",
+        "boolean_source_name": "Lead lower lower-9"
+      }
+    },
+    {
+      "id": "lead-upper-lower-9-part-1",
+      "name": "Lead upper lower-9",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -1.7000000000000002,
+        "y": -6.0,
+        "z": 0.15000000000000002
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.55,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-upper-lower-9",
+        "boolean_source_name": "Lead upper lower-9"
+      }
+    },
+    {
+      "id": "solder-upper-9-part-1",
+      "name": "Solder upper-9",
+      "structure_type": "solder",
+      "origin": {
+        "x": -1.7000000000000002,
+        "y": 5.5,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.5,
+        "z": 0.05
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder",
+      "metadata": {
+        "boolean_source_id": "solder-upper-9",
+        "boolean_source_name": "Solder upper-9"
+      }
+    },
+    {
+      "id": "lead-lower-upper-9-part-1",
+      "name": "Lead lower upper-9",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -1.7000000000000002,
+        "y": 5.5,
+        "z": 0.05
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.5,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-lower-upper-9",
+        "boolean_source_name": "Lead lower upper-9"
+      }
+    },
+    {
+      "id": "lead-upper-upper-9-part-1",
+      "name": "Lead upper upper-9",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -1.7000000000000002,
+        "y": 5.45,
+        "z": 0.15000000000000002
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.55,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-upper-upper-9",
+        "boolean_source_name": "Lead upper upper-9"
+      }
+    },
+    {
+      "id": "solder-lower-10-part-1",
+      "name": "Solder lower-10",
+      "structure_type": "solder",
+      "origin": {
+        "x": -1.3000000000000003,
+        "y": -6.0,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.5,
+        "z": 0.05
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder",
+      "metadata": {
+        "boolean_source_id": "solder-lower-10",
+        "boolean_source_name": "Solder lower-10"
+      }
+    },
+    {
+      "id": "lead-lower-lower-10-part-1",
+      "name": "Lead lower lower-10",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -1.3000000000000003,
+        "y": -6.0,
+        "z": 0.05
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.5,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-lower-lower-10",
+        "boolean_source_name": "Lead lower lower-10"
+      }
+    },
+    {
+      "id": "lead-upper-lower-10-part-1",
+      "name": "Lead upper lower-10",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -1.3000000000000003,
+        "y": -6.0,
+        "z": 0.15000000000000002
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.55,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-upper-lower-10",
+        "boolean_source_name": "Lead upper lower-10"
+      }
+    },
+    {
+      "id": "solder-upper-10-part-1",
+      "name": "Solder upper-10",
+      "structure_type": "solder",
+      "origin": {
+        "x": -1.3000000000000003,
+        "y": 5.5,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.5,
+        "z": 0.05
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder",
+      "metadata": {
+        "boolean_source_id": "solder-upper-10",
+        "boolean_source_name": "Solder upper-10"
+      }
+    },
+    {
+      "id": "lead-lower-upper-10-part-1",
+      "name": "Lead lower upper-10",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -1.3000000000000003,
+        "y": 5.5,
+        "z": 0.05
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.5,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-lower-upper-10",
+        "boolean_source_name": "Lead lower upper-10"
+      }
+    },
+    {
+      "id": "lead-upper-upper-10-part-1",
+      "name": "Lead upper upper-10",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -1.3000000000000003,
+        "y": 5.45,
+        "z": 0.15000000000000002
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.55,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-upper-upper-10",
+        "boolean_source_name": "Lead upper upper-10"
+      }
+    },
+    {
+      "id": "solder-lower-11-part-1",
+      "name": "Solder lower-11",
+      "structure_type": "solder",
+      "origin": {
+        "x": -0.9,
+        "y": -6.0,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.5,
+        "z": 0.05
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder",
+      "metadata": {
+        "boolean_source_id": "solder-lower-11",
+        "boolean_source_name": "Solder lower-11"
+      }
+    },
+    {
+      "id": "lead-lower-lower-11-part-1",
+      "name": "Lead lower lower-11",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -0.9,
+        "y": -6.0,
+        "z": 0.05
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.5,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-lower-lower-11",
+        "boolean_source_name": "Lead lower lower-11"
+      }
+    },
+    {
+      "id": "lead-upper-lower-11-part-1",
+      "name": "Lead upper lower-11",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -0.9,
+        "y": -6.0,
+        "z": 0.15000000000000002
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.55,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-upper-lower-11",
+        "boolean_source_name": "Lead upper lower-11"
+      }
+    },
+    {
+      "id": "solder-upper-11-part-1",
+      "name": "Solder upper-11",
+      "structure_type": "solder",
+      "origin": {
+        "x": -0.9,
+        "y": 5.5,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.5,
+        "z": 0.05
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder",
+      "metadata": {
+        "boolean_source_id": "solder-upper-11",
+        "boolean_source_name": "Solder upper-11"
+      }
+    },
+    {
+      "id": "lead-lower-upper-11-part-1",
+      "name": "Lead lower upper-11",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -0.9,
+        "y": 5.5,
+        "z": 0.05
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.5,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-lower-upper-11",
+        "boolean_source_name": "Lead lower upper-11"
+      }
+    },
+    {
+      "id": "lead-upper-upper-11-part-1",
+      "name": "Lead upper upper-11",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -0.9,
+        "y": 5.45,
+        "z": 0.15000000000000002
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.55,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-upper-upper-11",
+        "boolean_source_name": "Lead upper upper-11"
+      }
+    },
+    {
+      "id": "solder-lower-12-part-1",
+      "name": "Solder lower-12",
+      "structure_type": "solder",
+      "origin": {
+        "x": -0.5,
+        "y": -6.0,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.5,
+        "z": 0.05
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder",
+      "metadata": {
+        "boolean_source_id": "solder-lower-12",
+        "boolean_source_name": "Solder lower-12"
+      }
+    },
+    {
+      "id": "lead-lower-lower-12-part-1",
+      "name": "Lead lower lower-12",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -0.5,
+        "y": -6.0,
+        "z": 0.05
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.5,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-lower-lower-12",
+        "boolean_source_name": "Lead lower lower-12"
+      }
+    },
+    {
+      "id": "lead-upper-lower-12-part-1",
+      "name": "Lead upper lower-12",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -0.5,
+        "y": -6.0,
+        "z": 0.15000000000000002
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.55,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-upper-lower-12",
+        "boolean_source_name": "Lead upper lower-12"
+      }
+    },
+    {
+      "id": "solder-upper-12-part-1",
+      "name": "Solder upper-12",
+      "structure_type": "solder",
+      "origin": {
+        "x": -0.5,
+        "y": 5.5,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.5,
+        "z": 0.05
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder",
+      "metadata": {
+        "boolean_source_id": "solder-upper-12",
+        "boolean_source_name": "Solder upper-12"
+      }
+    },
+    {
+      "id": "lead-lower-upper-12-part-1",
+      "name": "Lead lower upper-12",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -0.5,
+        "y": 5.5,
+        "z": 0.05
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.5,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-lower-upper-12",
+        "boolean_source_name": "Lead lower upper-12"
+      }
+    },
+    {
+      "id": "lead-upper-upper-12-part-1",
+      "name": "Lead upper upper-12",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -0.5,
+        "y": 5.45,
+        "z": 0.15000000000000002
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.55,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-upper-upper-12",
+        "boolean_source_name": "Lead upper upper-12"
+      }
+    },
+    {
+      "id": "solder-lower-13-part-1",
+      "name": "Solder lower-13",
+      "structure_type": "solder",
+      "origin": {
+        "x": -0.1,
+        "y": -6.0,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.5,
+        "z": 0.05
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder",
+      "metadata": {
+        "boolean_source_id": "solder-lower-13",
+        "boolean_source_name": "Solder lower-13"
+      }
+    },
+    {
+      "id": "lead-lower-lower-13-part-1",
+      "name": "Lead lower lower-13",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -0.1,
+        "y": -6.0,
+        "z": 0.05
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.5,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-lower-lower-13",
+        "boolean_source_name": "Lead lower lower-13"
+      }
+    },
+    {
+      "id": "lead-upper-lower-13-part-1",
+      "name": "Lead upper lower-13",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -0.1,
+        "y": -6.0,
+        "z": 0.15000000000000002
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.55,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-upper-lower-13",
+        "boolean_source_name": "Lead upper lower-13"
+      }
+    },
+    {
+      "id": "solder-upper-13-part-1",
+      "name": "Solder upper-13",
+      "structure_type": "solder",
+      "origin": {
+        "x": -0.1,
+        "y": 5.5,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.5,
+        "z": 0.05
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder",
+      "metadata": {
+        "boolean_source_id": "solder-upper-13",
+        "boolean_source_name": "Solder upper-13"
+      }
+    },
+    {
+      "id": "lead-lower-upper-13-part-1",
+      "name": "Lead lower upper-13",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -0.1,
+        "y": 5.5,
+        "z": 0.05
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.5,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-lower-upper-13",
+        "boolean_source_name": "Lead lower upper-13"
+      }
+    },
+    {
+      "id": "lead-upper-upper-13-part-1",
+      "name": "Lead upper upper-13",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -0.1,
+        "y": 5.45,
+        "z": 0.15000000000000002
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.55,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-upper-upper-13",
+        "boolean_source_name": "Lead upper upper-13"
+      }
+    },
+    {
+      "id": "solder-lower-14-part-1",
+      "name": "Solder lower-14",
+      "structure_type": "solder",
+      "origin": {
+        "x": 0.30000000000000004,
+        "y": -6.0,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.5,
+        "z": 0.05
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder",
+      "metadata": {
+        "boolean_source_id": "solder-lower-14",
+        "boolean_source_name": "Solder lower-14"
+      }
+    },
+    {
+      "id": "lead-lower-lower-14-part-1",
+      "name": "Lead lower lower-14",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": 0.30000000000000004,
+        "y": -6.0,
+        "z": 0.05
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.5,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-lower-lower-14",
+        "boolean_source_name": "Lead lower lower-14"
+      }
+    },
+    {
+      "id": "lead-upper-lower-14-part-1",
+      "name": "Lead upper lower-14",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": 0.30000000000000004,
+        "y": -6.0,
+        "z": 0.15000000000000002
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.55,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-upper-lower-14",
+        "boolean_source_name": "Lead upper lower-14"
+      }
+    },
+    {
+      "id": "solder-upper-14-part-1",
+      "name": "Solder upper-14",
+      "structure_type": "solder",
+      "origin": {
+        "x": 0.30000000000000004,
+        "y": 5.5,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.5,
+        "z": 0.05
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder",
+      "metadata": {
+        "boolean_source_id": "solder-upper-14",
+        "boolean_source_name": "Solder upper-14"
+      }
+    },
+    {
+      "id": "lead-lower-upper-14-part-1",
+      "name": "Lead lower upper-14",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": 0.30000000000000004,
+        "y": 5.5,
+        "z": 0.05
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.5,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-lower-upper-14",
+        "boolean_source_name": "Lead lower upper-14"
+      }
+    },
+    {
+      "id": "lead-upper-upper-14-part-1",
+      "name": "Lead upper upper-14",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": 0.30000000000000004,
+        "y": 5.45,
+        "z": 0.15000000000000002
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.55,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-upper-upper-14",
+        "boolean_source_name": "Lead upper upper-14"
+      }
+    },
+    {
+      "id": "solder-lower-15-part-1",
+      "name": "Solder lower-15",
+      "structure_type": "solder",
+      "origin": {
+        "x": 0.7000000000000001,
+        "y": -6.0,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.5,
+        "z": 0.05
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder",
+      "metadata": {
+        "boolean_source_id": "solder-lower-15",
+        "boolean_source_name": "Solder lower-15"
+      }
+    },
+    {
+      "id": "lead-lower-lower-15-part-1",
+      "name": "Lead lower lower-15",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": 0.7000000000000001,
+        "y": -6.0,
+        "z": 0.05
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.5,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-lower-lower-15",
+        "boolean_source_name": "Lead lower lower-15"
+      }
+    },
+    {
+      "id": "lead-upper-lower-15-part-1",
+      "name": "Lead upper lower-15",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": 0.7000000000000001,
+        "y": -6.0,
+        "z": 0.15000000000000002
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.55,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-upper-lower-15",
+        "boolean_source_name": "Lead upper lower-15"
+      }
+    },
+    {
+      "id": "solder-upper-15-part-1",
+      "name": "Solder upper-15",
+      "structure_type": "solder",
+      "origin": {
+        "x": 0.7000000000000001,
+        "y": 5.5,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.5,
+        "z": 0.05
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder",
+      "metadata": {
+        "boolean_source_id": "solder-upper-15",
+        "boolean_source_name": "Solder upper-15"
+      }
+    },
+    {
+      "id": "lead-lower-upper-15-part-1",
+      "name": "Lead lower upper-15",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": 0.7000000000000001,
+        "y": 5.5,
+        "z": 0.05
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.5,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-lower-upper-15",
+        "boolean_source_name": "Lead lower upper-15"
+      }
+    },
+    {
+      "id": "lead-upper-upper-15-part-1",
+      "name": "Lead upper upper-15",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": 0.7000000000000001,
+        "y": 5.45,
+        "z": 0.15000000000000002
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.55,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-upper-upper-15",
+        "boolean_source_name": "Lead upper upper-15"
+      }
+    },
+    {
+      "id": "solder-lower-16-part-1",
+      "name": "Solder lower-16",
+      "structure_type": "solder",
+      "origin": {
+        "x": 1.1,
+        "y": -6.0,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.5,
+        "z": 0.05
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder",
+      "metadata": {
+        "boolean_source_id": "solder-lower-16",
+        "boolean_source_name": "Solder lower-16"
+      }
+    },
+    {
+      "id": "lead-lower-lower-16-part-1",
+      "name": "Lead lower lower-16",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": 1.1,
+        "y": -6.0,
+        "z": 0.05
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.5,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-lower-lower-16",
+        "boolean_source_name": "Lead lower lower-16"
+      }
+    },
+    {
+      "id": "lead-upper-lower-16-part-1",
+      "name": "Lead upper lower-16",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": 1.1,
+        "y": -6.0,
+        "z": 0.15000000000000002
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.55,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-upper-lower-16",
+        "boolean_source_name": "Lead upper lower-16"
+      }
+    },
+    {
+      "id": "solder-upper-16-part-1",
+      "name": "Solder upper-16",
+      "structure_type": "solder",
+      "origin": {
+        "x": 1.1,
+        "y": 5.5,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.5,
+        "z": 0.05
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder",
+      "metadata": {
+        "boolean_source_id": "solder-upper-16",
+        "boolean_source_name": "Solder upper-16"
+      }
+    },
+    {
+      "id": "lead-lower-upper-16-part-1",
+      "name": "Lead lower upper-16",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": 1.1,
+        "y": 5.5,
+        "z": 0.05
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.5,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-lower-upper-16",
+        "boolean_source_name": "Lead lower upper-16"
+      }
+    },
+    {
+      "id": "lead-upper-upper-16-part-1",
+      "name": "Lead upper upper-16",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": 1.1,
+        "y": 5.45,
+        "z": 0.15000000000000002
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.55,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-upper-upper-16",
+        "boolean_source_name": "Lead upper upper-16"
+      }
+    },
+    {
+      "id": "solder-lower-17-part-1",
+      "name": "Solder lower-17",
+      "structure_type": "solder",
+      "origin": {
+        "x": 1.5,
+        "y": -6.0,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.5,
+        "z": 0.05
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder",
+      "metadata": {
+        "boolean_source_id": "solder-lower-17",
+        "boolean_source_name": "Solder lower-17"
+      }
+    },
+    {
+      "id": "lead-lower-lower-17-part-1",
+      "name": "Lead lower lower-17",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": 1.5,
+        "y": -6.0,
+        "z": 0.05
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.5,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-lower-lower-17",
+        "boolean_source_name": "Lead lower lower-17"
+      }
+    },
+    {
+      "id": "lead-upper-lower-17-part-1",
+      "name": "Lead upper lower-17",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": 1.5,
+        "y": -6.0,
+        "z": 0.15000000000000002
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.55,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-upper-lower-17",
+        "boolean_source_name": "Lead upper lower-17"
+      }
+    },
+    {
+      "id": "solder-upper-17-part-1",
+      "name": "Solder upper-17",
+      "structure_type": "solder",
+      "origin": {
+        "x": 1.5,
+        "y": 5.5,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.5,
+        "z": 0.05
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder",
+      "metadata": {
+        "boolean_source_id": "solder-upper-17",
+        "boolean_source_name": "Solder upper-17"
+      }
+    },
+    {
+      "id": "lead-lower-upper-17-part-1",
+      "name": "Lead lower upper-17",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": 1.5,
+        "y": 5.5,
+        "z": 0.05
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.5,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-lower-upper-17",
+        "boolean_source_name": "Lead lower upper-17"
+      }
+    },
+    {
+      "id": "lead-upper-upper-17-part-1",
+      "name": "Lead upper upper-17",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": 1.5,
+        "y": 5.45,
+        "z": 0.15000000000000002
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.55,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-upper-upper-17",
+        "boolean_source_name": "Lead upper upper-17"
+      }
+    },
+    {
+      "id": "solder-lower-18-part-1",
+      "name": "Solder lower-18",
+      "structure_type": "solder",
+      "origin": {
+        "x": 1.9,
+        "y": -6.0,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.5,
+        "z": 0.05
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder",
+      "metadata": {
+        "boolean_source_id": "solder-lower-18",
+        "boolean_source_name": "Solder lower-18"
+      }
+    },
+    {
+      "id": "lead-lower-lower-18-part-1",
+      "name": "Lead lower lower-18",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": 1.9,
+        "y": -6.0,
+        "z": 0.05
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.5,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-lower-lower-18",
+        "boolean_source_name": "Lead lower lower-18"
+      }
+    },
+    {
+      "id": "lead-upper-lower-18-part-1",
+      "name": "Lead upper lower-18",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": 1.9,
+        "y": -6.0,
+        "z": 0.15000000000000002
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.55,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-upper-lower-18",
+        "boolean_source_name": "Lead upper lower-18"
+      }
+    },
+    {
+      "id": "solder-upper-18-part-1",
+      "name": "Solder upper-18",
+      "structure_type": "solder",
+      "origin": {
+        "x": 1.9,
+        "y": 5.5,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.5,
+        "z": 0.05
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder",
+      "metadata": {
+        "boolean_source_id": "solder-upper-18",
+        "boolean_source_name": "Solder upper-18"
+      }
+    },
+    {
+      "id": "lead-lower-upper-18-part-1",
+      "name": "Lead lower upper-18",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": 1.9,
+        "y": 5.5,
+        "z": 0.05
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.5,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-lower-upper-18",
+        "boolean_source_name": "Lead lower upper-18"
+      }
+    },
+    {
+      "id": "lead-upper-upper-18-part-1",
+      "name": "Lead upper upper-18",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": 1.9,
+        "y": 5.45,
+        "z": 0.15000000000000002
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.55,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-upper-upper-18",
+        "boolean_source_name": "Lead upper upper-18"
+      }
+    },
+    {
+      "id": "solder-lower-19-part-1",
+      "name": "Solder lower-19",
+      "structure_type": "solder",
+      "origin": {
+        "x": 2.3000000000000003,
+        "y": -6.0,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.5,
+        "z": 0.05
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder",
+      "metadata": {
+        "boolean_source_id": "solder-lower-19",
+        "boolean_source_name": "Solder lower-19"
+      }
+    },
+    {
+      "id": "lead-lower-lower-19-part-1",
+      "name": "Lead lower lower-19",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": 2.3000000000000003,
+        "y": -6.0,
+        "z": 0.05
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.5,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-lower-lower-19",
+        "boolean_source_name": "Lead lower lower-19"
+      }
+    },
+    {
+      "id": "lead-upper-lower-19-part-1",
+      "name": "Lead upper lower-19",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": 2.3000000000000003,
+        "y": -6.0,
+        "z": 0.15000000000000002
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.55,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-upper-lower-19",
+        "boolean_source_name": "Lead upper lower-19"
+      }
+    },
+    {
+      "id": "solder-upper-19-part-1",
+      "name": "Solder upper-19",
+      "structure_type": "solder",
+      "origin": {
+        "x": 2.3000000000000003,
+        "y": 5.5,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.5,
+        "z": 0.05
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder",
+      "metadata": {
+        "boolean_source_id": "solder-upper-19",
+        "boolean_source_name": "Solder upper-19"
+      }
+    },
+    {
+      "id": "lead-lower-upper-19-part-1",
+      "name": "Lead lower upper-19",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": 2.3000000000000003,
+        "y": 5.5,
+        "z": 0.05
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.5,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-lower-upper-19",
+        "boolean_source_name": "Lead lower upper-19"
+      }
+    },
+    {
+      "id": "lead-upper-upper-19-part-1",
+      "name": "Lead upper upper-19",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": 2.3000000000000003,
+        "y": 5.45,
+        "z": 0.15000000000000002
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.55,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-upper-upper-19",
+        "boolean_source_name": "Lead upper upper-19"
+      }
+    },
+    {
+      "id": "solder-lower-20-part-1",
+      "name": "Solder lower-20",
+      "structure_type": "solder",
+      "origin": {
+        "x": 2.7,
+        "y": -6.0,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.5,
+        "z": 0.05
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder",
+      "metadata": {
+        "boolean_source_id": "solder-lower-20",
+        "boolean_source_name": "Solder lower-20"
+      }
+    },
+    {
+      "id": "lead-lower-lower-20-part-1",
+      "name": "Lead lower lower-20",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": 2.7,
+        "y": -6.0,
+        "z": 0.05
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.5,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-lower-lower-20",
+        "boolean_source_name": "Lead lower lower-20"
+      }
+    },
+    {
+      "id": "lead-upper-lower-20-part-1",
+      "name": "Lead upper lower-20",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": 2.7,
+        "y": -6.0,
+        "z": 0.15000000000000002
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.55,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-upper-lower-20",
+        "boolean_source_name": "Lead upper lower-20"
+      }
+    },
+    {
+      "id": "solder-upper-20-part-1",
+      "name": "Solder upper-20",
+      "structure_type": "solder",
+      "origin": {
+        "x": 2.7,
+        "y": 5.5,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.5,
+        "z": 0.05
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder",
+      "metadata": {
+        "boolean_source_id": "solder-upper-20",
+        "boolean_source_name": "Solder upper-20"
+      }
+    },
+    {
+      "id": "lead-lower-upper-20-part-1",
+      "name": "Lead lower upper-20",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": 2.7,
+        "y": 5.5,
+        "z": 0.05
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.5,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-lower-upper-20",
+        "boolean_source_name": "Lead lower upper-20"
+      }
+    },
+    {
+      "id": "lead-upper-upper-20-part-1",
+      "name": "Lead upper upper-20",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": 2.7,
+        "y": 5.45,
+        "z": 0.15000000000000002
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.55,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-upper-upper-20",
+        "boolean_source_name": "Lead upper upper-20"
+      }
+    },
+    {
+      "id": "solder-lower-21-part-1",
+      "name": "Solder lower-21",
+      "structure_type": "solder",
+      "origin": {
+        "x": 3.1,
+        "y": -6.0,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.5,
+        "z": 0.05
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder",
+      "metadata": {
+        "boolean_source_id": "solder-lower-21",
+        "boolean_source_name": "Solder lower-21"
+      }
+    },
+    {
+      "id": "lead-lower-lower-21-part-1",
+      "name": "Lead lower lower-21",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": 3.1,
+        "y": -6.0,
+        "z": 0.05
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.5,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-lower-lower-21",
+        "boolean_source_name": "Lead lower lower-21"
+      }
+    },
+    {
+      "id": "lead-upper-lower-21-part-1",
+      "name": "Lead upper lower-21",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": 3.1,
+        "y": -6.0,
+        "z": 0.15000000000000002
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.55,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-upper-lower-21",
+        "boolean_source_name": "Lead upper lower-21"
+      }
+    },
+    {
+      "id": "solder-upper-21-part-1",
+      "name": "Solder upper-21",
+      "structure_type": "solder",
+      "origin": {
+        "x": 3.1,
+        "y": 5.5,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.5,
+        "z": 0.05
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder",
+      "metadata": {
+        "boolean_source_id": "solder-upper-21",
+        "boolean_source_name": "Solder upper-21"
+      }
+    },
+    {
+      "id": "lead-lower-upper-21-part-1",
+      "name": "Lead lower upper-21",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": 3.1,
+        "y": 5.5,
+        "z": 0.05
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.5,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-lower-upper-21",
+        "boolean_source_name": "Lead lower upper-21"
+      }
+    },
+    {
+      "id": "lead-upper-upper-21-part-1",
+      "name": "Lead upper upper-21",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": 3.1,
+        "y": 5.45,
+        "z": 0.15000000000000002
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.55,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-upper-upper-21",
+        "boolean_source_name": "Lead upper upper-21"
+      }
+    },
+    {
+      "id": "solder-lower-22-part-1",
+      "name": "Solder lower-22",
+      "structure_type": "solder",
+      "origin": {
+        "x": 3.5,
+        "y": -6.0,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.5,
+        "z": 0.05
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder",
+      "metadata": {
+        "boolean_source_id": "solder-lower-22",
+        "boolean_source_name": "Solder lower-22"
+      }
+    },
+    {
+      "id": "lead-lower-lower-22-part-1",
+      "name": "Lead lower lower-22",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": 3.5,
+        "y": -6.0,
+        "z": 0.05
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.5,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-lower-lower-22",
+        "boolean_source_name": "Lead lower lower-22"
+      }
+    },
+    {
+      "id": "lead-upper-lower-22-part-1",
+      "name": "Lead upper lower-22",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": 3.5,
+        "y": -6.0,
+        "z": 0.15000000000000002
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.55,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-upper-lower-22",
+        "boolean_source_name": "Lead upper lower-22"
+      }
+    },
+    {
+      "id": "solder-upper-22-part-1",
+      "name": "Solder upper-22",
+      "structure_type": "solder",
+      "origin": {
+        "x": 3.5,
+        "y": 5.5,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.5,
+        "z": 0.05
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder",
+      "metadata": {
+        "boolean_source_id": "solder-upper-22",
+        "boolean_source_name": "Solder upper-22"
+      }
+    },
+    {
+      "id": "lead-lower-upper-22-part-1",
+      "name": "Lead lower upper-22",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": 3.5,
+        "y": 5.5,
+        "z": 0.05
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.5,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-lower-upper-22",
+        "boolean_source_name": "Lead lower upper-22"
+      }
+    },
+    {
+      "id": "lead-upper-upper-22-part-1",
+      "name": "Lead upper upper-22",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": 3.5,
+        "y": 5.45,
+        "z": 0.15000000000000002
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.55,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-upper-upper-22",
+        "boolean_source_name": "Lead upper upper-22"
+      }
+    },
+    {
+      "id": "solder-lower-23-part-1",
+      "name": "Solder lower-23",
+      "structure_type": "solder",
+      "origin": {
+        "x": 3.9,
+        "y": -6.0,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.5,
+        "z": 0.05
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder",
+      "metadata": {
+        "boolean_source_id": "solder-lower-23",
+        "boolean_source_name": "Solder lower-23"
+      }
+    },
+    {
+      "id": "lead-lower-lower-23-part-1",
+      "name": "Lead lower lower-23",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": 3.9,
+        "y": -6.0,
+        "z": 0.05
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.5,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-lower-lower-23",
+        "boolean_source_name": "Lead lower lower-23"
+      }
+    },
+    {
+      "id": "lead-upper-lower-23-part-1",
+      "name": "Lead upper lower-23",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": 3.9,
+        "y": -6.0,
+        "z": 0.15000000000000002
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.55,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-upper-lower-23",
+        "boolean_source_name": "Lead upper lower-23"
+      }
+    },
+    {
+      "id": "solder-upper-23-part-1",
+      "name": "Solder upper-23",
+      "structure_type": "solder",
+      "origin": {
+        "x": 3.9,
+        "y": 5.5,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.5,
+        "z": 0.05
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder",
+      "metadata": {
+        "boolean_source_id": "solder-upper-23",
+        "boolean_source_name": "Solder upper-23"
+      }
+    },
+    {
+      "id": "lead-lower-upper-23-part-1",
+      "name": "Lead lower upper-23",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": 3.9,
+        "y": 5.5,
+        "z": 0.05
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.5,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-lower-upper-23",
+        "boolean_source_name": "Lead lower upper-23"
+      }
+    },
+    {
+      "id": "lead-upper-upper-23-part-1",
+      "name": "Lead upper upper-23",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": 3.9,
+        "y": 5.45,
+        "z": 0.15000000000000002
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.55,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-upper-upper-23",
+        "boolean_source_name": "Lead upper upper-23"
+      }
+    },
+    {
+      "id": "solder-lower-24-part-1",
+      "name": "Solder lower-24",
+      "structure_type": "solder",
+      "origin": {
+        "x": 4.300000000000001,
+        "y": -6.0,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.5,
+        "z": 0.05
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder",
+      "metadata": {
+        "boolean_source_id": "solder-lower-24",
+        "boolean_source_name": "Solder lower-24"
+      }
+    },
+    {
+      "id": "lead-lower-lower-24-part-1",
+      "name": "Lead lower lower-24",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": 4.300000000000001,
+        "y": -6.0,
+        "z": 0.05
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.5,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-lower-lower-24",
+        "boolean_source_name": "Lead lower lower-24"
+      }
+    },
+    {
+      "id": "lead-upper-lower-24-part-1",
+      "name": "Lead upper lower-24",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": 4.300000000000001,
+        "y": -6.0,
+        "z": 0.15000000000000002
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.55,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-upper-lower-24",
+        "boolean_source_name": "Lead upper lower-24"
+      }
+    },
+    {
+      "id": "solder-upper-24-part-1",
+      "name": "Solder upper-24",
+      "structure_type": "solder",
+      "origin": {
+        "x": 4.300000000000001,
+        "y": 5.5,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.5,
+        "z": 0.05
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder",
+      "metadata": {
+        "boolean_source_id": "solder-upper-24",
+        "boolean_source_name": "Solder upper-24"
+      }
+    },
+    {
+      "id": "lead-lower-upper-24-part-1",
+      "name": "Lead lower upper-24",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": 4.300000000000001,
+        "y": 5.5,
+        "z": 0.05
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.5,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-lower-upper-24",
+        "boolean_source_name": "Lead lower upper-24"
+      }
+    },
+    {
+      "id": "lead-upper-upper-24-part-1",
+      "name": "Lead upper upper-24",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": 4.300000000000001,
+        "y": 5.45,
+        "z": 0.15000000000000002
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.55,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-upper-upper-24",
+        "boolean_source_name": "Lead upper upper-24"
+      }
+    },
+    {
+      "id": "solder-lower-25-part-1",
+      "name": "Solder lower-25",
+      "structure_type": "solder",
+      "origin": {
+        "x": 4.700000000000001,
+        "y": -6.0,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.5,
+        "z": 0.05
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder",
+      "metadata": {
+        "boolean_source_id": "solder-lower-25",
+        "boolean_source_name": "Solder lower-25"
+      }
+    },
+    {
+      "id": "lead-lower-lower-25-part-1",
+      "name": "Lead lower lower-25",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": 4.700000000000001,
+        "y": -6.0,
+        "z": 0.05
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.5,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-lower-lower-25",
+        "boolean_source_name": "Lead lower lower-25"
+      }
+    },
+    {
+      "id": "lead-upper-lower-25-part-1",
+      "name": "Lead upper lower-25",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": 4.700000000000001,
+        "y": -6.0,
+        "z": 0.15000000000000002
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.55,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-upper-lower-25",
+        "boolean_source_name": "Lead upper lower-25"
+      }
+    },
+    {
+      "id": "solder-upper-25-part-1",
+      "name": "Solder upper-25",
+      "structure_type": "solder",
+      "origin": {
+        "x": 4.700000000000001,
+        "y": 5.5,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.5,
+        "z": 0.05
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder",
+      "metadata": {
+        "boolean_source_id": "solder-upper-25",
+        "boolean_source_name": "Solder upper-25"
+      }
+    },
+    {
+      "id": "lead-lower-upper-25-part-1",
+      "name": "Lead lower upper-25",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": 4.700000000000001,
+        "y": 5.5,
+        "z": 0.05
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.5,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-lower-upper-25",
+        "boolean_source_name": "Lead lower upper-25"
+      }
+    },
+    {
+      "id": "lead-upper-upper-25-part-1",
+      "name": "Lead upper upper-25",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": 4.700000000000001,
+        "y": 5.45,
+        "z": 0.15000000000000002
+      },
+      "size": {
+        "x": 0.2,
+        "y": 0.55,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-upper-upper-25",
+        "boolean_source_name": "Lead upper upper-25"
+      }
+    },
+    {
+      "id": "solder-left-1-part-1",
+      "name": "Solder left-1",
+      "structure_type": "solder",
+      "origin": {
+        "x": -6.0,
+        "y": -4.9,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.5,
+        "y": 0.2,
+        "z": 0.05
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder",
+      "metadata": {
+        "boolean_source_id": "solder-left-1",
+        "boolean_source_name": "Solder left-1"
+      }
+    },
+    {
+      "id": "lead-lower-left-1-part-1",
+      "name": "Lead lower left-1",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -6.0,
+        "y": -4.9,
+        "z": 0.05
+      },
+      "size": {
+        "x": 0.5,
+        "y": 0.2,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-lower-left-1",
+        "boolean_source_name": "Lead lower left-1"
+      }
+    },
+    {
+      "id": "lead-upper-left-1-part-1",
+      "name": "Lead upper left-1",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -6.0,
+        "y": -4.9,
+        "z": 0.15000000000000002
+      },
+      "size": {
+        "x": 0.55,
+        "y": 0.2,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-upper-left-1",
+        "boolean_source_name": "Lead upper left-1"
+      }
+    },
+    {
+      "id": "solder-right-1-part-1",
+      "name": "Solder right-1",
+      "structure_type": "solder",
+      "origin": {
+        "x": 5.5,
+        "y": -4.9,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.5,
+        "y": 0.2,
+        "z": 0.05
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder",
+      "metadata": {
+        "boolean_source_id": "solder-right-1",
+        "boolean_source_name": "Solder right-1"
+      }
+    },
+    {
+      "id": "lead-lower-right-1-part-1",
+      "name": "Lead lower right-1",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": 5.5,
+        "y": -4.9,
+        "z": 0.05
+      },
+      "size": {
+        "x": 0.5,
+        "y": 0.2,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-lower-right-1",
+        "boolean_source_name": "Lead lower right-1"
+      }
+    },
+    {
+      "id": "lead-upper-right-1-part-1",
+      "name": "Lead upper right-1",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": 5.45,
+        "y": -4.9,
+        "z": 0.15000000000000002
+      },
+      "size": {
+        "x": 0.55,
+        "y": 0.2,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-upper-right-1",
+        "boolean_source_name": "Lead upper right-1"
+      }
+    },
+    {
+      "id": "solder-left-2-part-1",
+      "name": "Solder left-2",
+      "structure_type": "solder",
+      "origin": {
+        "x": -6.0,
+        "y": -4.5,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.5,
+        "y": 0.2,
+        "z": 0.05
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder",
+      "metadata": {
+        "boolean_source_id": "solder-left-2",
+        "boolean_source_name": "Solder left-2"
+      }
+    },
+    {
+      "id": "lead-lower-left-2-part-1",
+      "name": "Lead lower left-2",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -6.0,
+        "y": -4.5,
+        "z": 0.05
+      },
+      "size": {
+        "x": 0.5,
+        "y": 0.2,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-lower-left-2",
+        "boolean_source_name": "Lead lower left-2"
+      }
+    },
+    {
+      "id": "lead-upper-left-2-part-1",
+      "name": "Lead upper left-2",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -6.0,
+        "y": -4.5,
+        "z": 0.15000000000000002
+      },
+      "size": {
+        "x": 0.55,
+        "y": 0.2,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-upper-left-2",
+        "boolean_source_name": "Lead upper left-2"
+      }
+    },
+    {
+      "id": "solder-right-2-part-1",
+      "name": "Solder right-2",
+      "structure_type": "solder",
+      "origin": {
+        "x": 5.5,
+        "y": -4.5,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.5,
+        "y": 0.2,
+        "z": 0.05
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder",
+      "metadata": {
+        "boolean_source_id": "solder-right-2",
+        "boolean_source_name": "Solder right-2"
+      }
+    },
+    {
+      "id": "lead-lower-right-2-part-1",
+      "name": "Lead lower right-2",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": 5.5,
+        "y": -4.5,
+        "z": 0.05
+      },
+      "size": {
+        "x": 0.5,
+        "y": 0.2,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-lower-right-2",
+        "boolean_source_name": "Lead lower right-2"
+      }
+    },
+    {
+      "id": "lead-upper-right-2-part-1",
+      "name": "Lead upper right-2",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": 5.45,
+        "y": -4.5,
+        "z": 0.15000000000000002
+      },
+      "size": {
+        "x": 0.55,
+        "y": 0.2,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-upper-right-2",
+        "boolean_source_name": "Lead upper right-2"
+      }
+    },
+    {
+      "id": "solder-left-3-part-1",
+      "name": "Solder left-3",
+      "structure_type": "solder",
+      "origin": {
+        "x": -6.0,
+        "y": -4.1,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.5,
+        "y": 0.2,
+        "z": 0.05
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder",
+      "metadata": {
+        "boolean_source_id": "solder-left-3",
+        "boolean_source_name": "Solder left-3"
+      }
+    },
+    {
+      "id": "lead-lower-left-3-part-1",
+      "name": "Lead lower left-3",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -6.0,
+        "y": -4.1,
+        "z": 0.05
+      },
+      "size": {
+        "x": 0.5,
+        "y": 0.2,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-lower-left-3",
+        "boolean_source_name": "Lead lower left-3"
+      }
+    },
+    {
+      "id": "lead-upper-left-3-part-1",
+      "name": "Lead upper left-3",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -6.0,
+        "y": -4.1,
+        "z": 0.15000000000000002
+      },
+      "size": {
+        "x": 0.55,
+        "y": 0.2,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-upper-left-3",
+        "boolean_source_name": "Lead upper left-3"
+      }
+    },
+    {
+      "id": "solder-right-3-part-1",
+      "name": "Solder right-3",
+      "structure_type": "solder",
+      "origin": {
+        "x": 5.5,
+        "y": -4.1,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.5,
+        "y": 0.2,
+        "z": 0.05
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder",
+      "metadata": {
+        "boolean_source_id": "solder-right-3",
+        "boolean_source_name": "Solder right-3"
+      }
+    },
+    {
+      "id": "lead-lower-right-3-part-1",
+      "name": "Lead lower right-3",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": 5.5,
+        "y": -4.1,
+        "z": 0.05
+      },
+      "size": {
+        "x": 0.5,
+        "y": 0.2,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-lower-right-3",
+        "boolean_source_name": "Lead lower right-3"
+      }
+    },
+    {
+      "id": "lead-upper-right-3-part-1",
+      "name": "Lead upper right-3",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": 5.45,
+        "y": -4.1,
+        "z": 0.15000000000000002
+      },
+      "size": {
+        "x": 0.55,
+        "y": 0.2,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-upper-right-3",
+        "boolean_source_name": "Lead upper right-3"
+      }
+    },
+    {
+      "id": "solder-left-4-part-1",
+      "name": "Solder left-4",
+      "structure_type": "solder",
+      "origin": {
+        "x": -6.0,
+        "y": -3.7,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.5,
+        "y": 0.2,
+        "z": 0.05
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder",
+      "metadata": {
+        "boolean_source_id": "solder-left-4",
+        "boolean_source_name": "Solder left-4"
+      }
+    },
+    {
+      "id": "lead-lower-left-4-part-1",
+      "name": "Lead lower left-4",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -6.0,
+        "y": -3.7,
+        "z": 0.05
+      },
+      "size": {
+        "x": 0.5,
+        "y": 0.2,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-lower-left-4",
+        "boolean_source_name": "Lead lower left-4"
+      }
+    },
+    {
+      "id": "lead-upper-left-4-part-1",
+      "name": "Lead upper left-4",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -6.0,
+        "y": -3.7,
+        "z": 0.15000000000000002
+      },
+      "size": {
+        "x": 0.55,
+        "y": 0.2,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-upper-left-4",
+        "boolean_source_name": "Lead upper left-4"
+      }
+    },
+    {
+      "id": "solder-right-4-part-1",
+      "name": "Solder right-4",
+      "structure_type": "solder",
+      "origin": {
+        "x": 5.5,
+        "y": -3.7,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.5,
+        "y": 0.2,
+        "z": 0.05
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder",
+      "metadata": {
+        "boolean_source_id": "solder-right-4",
+        "boolean_source_name": "Solder right-4"
+      }
+    },
+    {
+      "id": "lead-lower-right-4-part-1",
+      "name": "Lead lower right-4",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": 5.5,
+        "y": -3.7,
+        "z": 0.05
+      },
+      "size": {
+        "x": 0.5,
+        "y": 0.2,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-lower-right-4",
+        "boolean_source_name": "Lead lower right-4"
+      }
+    },
+    {
+      "id": "lead-upper-right-4-part-1",
+      "name": "Lead upper right-4",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": 5.45,
+        "y": -3.7,
+        "z": 0.15000000000000002
+      },
+      "size": {
+        "x": 0.55,
+        "y": 0.2,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-upper-right-4",
+        "boolean_source_name": "Lead upper right-4"
+      }
+    },
+    {
+      "id": "solder-left-5-part-1",
+      "name": "Solder left-5",
+      "structure_type": "solder",
+      "origin": {
+        "x": -6.0,
+        "y": -3.3000000000000003,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.5,
+        "y": 0.2,
+        "z": 0.05
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder",
+      "metadata": {
+        "boolean_source_id": "solder-left-5",
+        "boolean_source_name": "Solder left-5"
+      }
+    },
+    {
+      "id": "lead-lower-left-5-part-1",
+      "name": "Lead lower left-5",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -6.0,
+        "y": -3.3000000000000003,
+        "z": 0.05
+      },
+      "size": {
+        "x": 0.5,
+        "y": 0.2,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-lower-left-5",
+        "boolean_source_name": "Lead lower left-5"
+      }
+    },
+    {
+      "id": "lead-upper-left-5-part-1",
+      "name": "Lead upper left-5",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -6.0,
+        "y": -3.3000000000000003,
+        "z": 0.15000000000000002
+      },
+      "size": {
+        "x": 0.55,
+        "y": 0.2,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-upper-left-5",
+        "boolean_source_name": "Lead upper left-5"
+      }
+    },
+    {
+      "id": "solder-right-5-part-1",
+      "name": "Solder right-5",
+      "structure_type": "solder",
+      "origin": {
+        "x": 5.5,
+        "y": -3.3000000000000003,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.5,
+        "y": 0.2,
+        "z": 0.05
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder",
+      "metadata": {
+        "boolean_source_id": "solder-right-5",
+        "boolean_source_name": "Solder right-5"
+      }
+    },
+    {
+      "id": "lead-lower-right-5-part-1",
+      "name": "Lead lower right-5",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": 5.5,
+        "y": -3.3000000000000003,
+        "z": 0.05
+      },
+      "size": {
+        "x": 0.5,
+        "y": 0.2,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-lower-right-5",
+        "boolean_source_name": "Lead lower right-5"
+      }
+    },
+    {
+      "id": "lead-upper-right-5-part-1",
+      "name": "Lead upper right-5",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": 5.45,
+        "y": -3.3000000000000003,
+        "z": 0.15000000000000002
+      },
+      "size": {
+        "x": 0.55,
+        "y": 0.2,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-upper-right-5",
+        "boolean_source_name": "Lead upper right-5"
+      }
+    },
+    {
+      "id": "solder-left-6-part-1",
+      "name": "Solder left-6",
+      "structure_type": "solder",
+      "origin": {
+        "x": -6.0,
+        "y": -2.9000000000000004,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.5,
+        "y": 0.2,
+        "z": 0.05
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder",
+      "metadata": {
+        "boolean_source_id": "solder-left-6",
+        "boolean_source_name": "Solder left-6"
+      }
+    },
+    {
+      "id": "lead-lower-left-6-part-1",
+      "name": "Lead lower left-6",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -6.0,
+        "y": -2.9000000000000004,
+        "z": 0.05
+      },
+      "size": {
+        "x": 0.5,
+        "y": 0.2,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-lower-left-6",
+        "boolean_source_name": "Lead lower left-6"
+      }
+    },
+    {
+      "id": "lead-upper-left-6-part-1",
+      "name": "Lead upper left-6",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -6.0,
+        "y": -2.9000000000000004,
+        "z": 0.15000000000000002
+      },
+      "size": {
+        "x": 0.55,
+        "y": 0.2,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-upper-left-6",
+        "boolean_source_name": "Lead upper left-6"
+      }
+    },
+    {
+      "id": "solder-right-6-part-1",
+      "name": "Solder right-6",
+      "structure_type": "solder",
+      "origin": {
+        "x": 5.5,
+        "y": -2.9000000000000004,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.5,
+        "y": 0.2,
+        "z": 0.05
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder",
+      "metadata": {
+        "boolean_source_id": "solder-right-6",
+        "boolean_source_name": "Solder right-6"
+      }
+    },
+    {
+      "id": "lead-lower-right-6-part-1",
+      "name": "Lead lower right-6",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": 5.5,
+        "y": -2.9000000000000004,
+        "z": 0.05
+      },
+      "size": {
+        "x": 0.5,
+        "y": 0.2,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-lower-right-6",
+        "boolean_source_name": "Lead lower right-6"
+      }
+    },
+    {
+      "id": "lead-upper-right-6-part-1",
+      "name": "Lead upper right-6",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": 5.45,
+        "y": -2.9000000000000004,
+        "z": 0.15000000000000002
+      },
+      "size": {
+        "x": 0.55,
+        "y": 0.2,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-upper-right-6",
+        "boolean_source_name": "Lead upper right-6"
+      }
+    },
+    {
+      "id": "solder-left-7-part-1",
+      "name": "Solder left-7",
+      "structure_type": "solder",
+      "origin": {
+        "x": -6.0,
+        "y": -2.5000000000000004,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.5,
+        "y": 0.2,
+        "z": 0.05
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder",
+      "metadata": {
+        "boolean_source_id": "solder-left-7",
+        "boolean_source_name": "Solder left-7"
+      }
+    },
+    {
+      "id": "lead-lower-left-7-part-1",
+      "name": "Lead lower left-7",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -6.0,
+        "y": -2.5000000000000004,
+        "z": 0.05
+      },
+      "size": {
+        "x": 0.5,
+        "y": 0.2,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-lower-left-7",
+        "boolean_source_name": "Lead lower left-7"
+      }
+    },
+    {
+      "id": "lead-upper-left-7-part-1",
+      "name": "Lead upper left-7",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -6.0,
+        "y": -2.5000000000000004,
+        "z": 0.15000000000000002
+      },
+      "size": {
+        "x": 0.55,
+        "y": 0.2,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-upper-left-7",
+        "boolean_source_name": "Lead upper left-7"
+      }
+    },
+    {
+      "id": "solder-right-7-part-1",
+      "name": "Solder right-7",
+      "structure_type": "solder",
+      "origin": {
+        "x": 5.5,
+        "y": -2.5000000000000004,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.5,
+        "y": 0.2,
+        "z": 0.05
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder",
+      "metadata": {
+        "boolean_source_id": "solder-right-7",
+        "boolean_source_name": "Solder right-7"
+      }
+    },
+    {
+      "id": "lead-lower-right-7-part-1",
+      "name": "Lead lower right-7",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": 5.5,
+        "y": -2.5000000000000004,
+        "z": 0.05
+      },
+      "size": {
+        "x": 0.5,
+        "y": 0.2,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-lower-right-7",
+        "boolean_source_name": "Lead lower right-7"
+      }
+    },
+    {
+      "id": "lead-upper-right-7-part-1",
+      "name": "Lead upper right-7",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": 5.45,
+        "y": -2.5000000000000004,
+        "z": 0.15000000000000002
+      },
+      "size": {
+        "x": 0.55,
+        "y": 0.2,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-upper-right-7",
+        "boolean_source_name": "Lead upper right-7"
+      }
+    },
+    {
+      "id": "solder-left-8-part-1",
+      "name": "Solder left-8",
+      "structure_type": "solder",
+      "origin": {
+        "x": -6.0,
+        "y": -2.1,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.5,
+        "y": 0.2,
+        "z": 0.05
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder",
+      "metadata": {
+        "boolean_source_id": "solder-left-8",
+        "boolean_source_name": "Solder left-8"
+      }
+    },
+    {
+      "id": "lead-lower-left-8-part-1",
+      "name": "Lead lower left-8",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -6.0,
+        "y": -2.1,
+        "z": 0.05
+      },
+      "size": {
+        "x": 0.5,
+        "y": 0.2,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-lower-left-8",
+        "boolean_source_name": "Lead lower left-8"
+      }
+    },
+    {
+      "id": "lead-upper-left-8-part-1",
+      "name": "Lead upper left-8",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -6.0,
+        "y": -2.1,
+        "z": 0.15000000000000002
+      },
+      "size": {
+        "x": 0.55,
+        "y": 0.2,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-upper-left-8",
+        "boolean_source_name": "Lead upper left-8"
+      }
+    },
+    {
+      "id": "solder-right-8-part-1",
+      "name": "Solder right-8",
+      "structure_type": "solder",
+      "origin": {
+        "x": 5.5,
+        "y": -2.1,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.5,
+        "y": 0.2,
+        "z": 0.05
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder",
+      "metadata": {
+        "boolean_source_id": "solder-right-8",
+        "boolean_source_name": "Solder right-8"
+      }
+    },
+    {
+      "id": "lead-lower-right-8-part-1",
+      "name": "Lead lower right-8",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": 5.5,
+        "y": -2.1,
+        "z": 0.05
+      },
+      "size": {
+        "x": 0.5,
+        "y": 0.2,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-lower-right-8",
+        "boolean_source_name": "Lead lower right-8"
+      }
+    },
+    {
+      "id": "lead-upper-right-8-part-1",
+      "name": "Lead upper right-8",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": 5.45,
+        "y": -2.1,
+        "z": 0.15000000000000002
+      },
+      "size": {
+        "x": 0.55,
+        "y": 0.2,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-upper-right-8",
+        "boolean_source_name": "Lead upper right-8"
+      }
+    },
+    {
+      "id": "solder-left-9-part-1",
+      "name": "Solder left-9",
+      "structure_type": "solder",
+      "origin": {
+        "x": -6.0,
+        "y": -1.7000000000000002,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.5,
+        "y": 0.2,
+        "z": 0.05
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder",
+      "metadata": {
+        "boolean_source_id": "solder-left-9",
+        "boolean_source_name": "Solder left-9"
+      }
+    },
+    {
+      "id": "lead-lower-left-9-part-1",
+      "name": "Lead lower left-9",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -6.0,
+        "y": -1.7000000000000002,
+        "z": 0.05
+      },
+      "size": {
+        "x": 0.5,
+        "y": 0.2,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-lower-left-9",
+        "boolean_source_name": "Lead lower left-9"
+      }
+    },
+    {
+      "id": "lead-upper-left-9-part-1",
+      "name": "Lead upper left-9",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -6.0,
+        "y": -1.7000000000000002,
+        "z": 0.15000000000000002
+      },
+      "size": {
+        "x": 0.55,
+        "y": 0.2,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-upper-left-9",
+        "boolean_source_name": "Lead upper left-9"
+      }
+    },
+    {
+      "id": "solder-right-9-part-1",
+      "name": "Solder right-9",
+      "structure_type": "solder",
+      "origin": {
+        "x": 5.5,
+        "y": -1.7000000000000002,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.5,
+        "y": 0.2,
+        "z": 0.05
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder",
+      "metadata": {
+        "boolean_source_id": "solder-right-9",
+        "boolean_source_name": "Solder right-9"
+      }
+    },
+    {
+      "id": "lead-lower-right-9-part-1",
+      "name": "Lead lower right-9",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": 5.5,
+        "y": -1.7000000000000002,
+        "z": 0.05
+      },
+      "size": {
+        "x": 0.5,
+        "y": 0.2,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-lower-right-9",
+        "boolean_source_name": "Lead lower right-9"
+      }
+    },
+    {
+      "id": "lead-upper-right-9-part-1",
+      "name": "Lead upper right-9",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": 5.45,
+        "y": -1.7000000000000002,
+        "z": 0.15000000000000002
+      },
+      "size": {
+        "x": 0.55,
+        "y": 0.2,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-upper-right-9",
+        "boolean_source_name": "Lead upper right-9"
+      }
+    },
+    {
+      "id": "solder-left-10-part-1",
+      "name": "Solder left-10",
+      "structure_type": "solder",
+      "origin": {
+        "x": -6.0,
+        "y": -1.3000000000000003,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.5,
+        "y": 0.2,
+        "z": 0.05
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder",
+      "metadata": {
+        "boolean_source_id": "solder-left-10",
+        "boolean_source_name": "Solder left-10"
+      }
+    },
+    {
+      "id": "lead-lower-left-10-part-1",
+      "name": "Lead lower left-10",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -6.0,
+        "y": -1.3000000000000003,
+        "z": 0.05
+      },
+      "size": {
+        "x": 0.5,
+        "y": 0.2,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-lower-left-10",
+        "boolean_source_name": "Lead lower left-10"
+      }
+    },
+    {
+      "id": "lead-upper-left-10-part-1",
+      "name": "Lead upper left-10",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -6.0,
+        "y": -1.3000000000000003,
+        "z": 0.15000000000000002
+      },
+      "size": {
+        "x": 0.55,
+        "y": 0.2,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-upper-left-10",
+        "boolean_source_name": "Lead upper left-10"
+      }
+    },
+    {
+      "id": "solder-right-10-part-1",
+      "name": "Solder right-10",
+      "structure_type": "solder",
+      "origin": {
+        "x": 5.5,
+        "y": -1.3000000000000003,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.5,
+        "y": 0.2,
+        "z": 0.05
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder",
+      "metadata": {
+        "boolean_source_id": "solder-right-10",
+        "boolean_source_name": "Solder right-10"
+      }
+    },
+    {
+      "id": "lead-lower-right-10-part-1",
+      "name": "Lead lower right-10",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": 5.5,
+        "y": -1.3000000000000003,
+        "z": 0.05
+      },
+      "size": {
+        "x": 0.5,
+        "y": 0.2,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-lower-right-10",
+        "boolean_source_name": "Lead lower right-10"
+      }
+    },
+    {
+      "id": "lead-upper-right-10-part-1",
+      "name": "Lead upper right-10",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": 5.45,
+        "y": -1.3000000000000003,
+        "z": 0.15000000000000002
+      },
+      "size": {
+        "x": 0.55,
+        "y": 0.2,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-upper-right-10",
+        "boolean_source_name": "Lead upper right-10"
+      }
+    },
+    {
+      "id": "solder-left-11-part-1",
+      "name": "Solder left-11",
+      "structure_type": "solder",
+      "origin": {
+        "x": -6.0,
+        "y": -0.9,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.5,
+        "y": 0.2,
+        "z": 0.05
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder",
+      "metadata": {
+        "boolean_source_id": "solder-left-11",
+        "boolean_source_name": "Solder left-11"
+      }
+    },
+    {
+      "id": "lead-lower-left-11-part-1",
+      "name": "Lead lower left-11",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -6.0,
+        "y": -0.9,
+        "z": 0.05
+      },
+      "size": {
+        "x": 0.5,
+        "y": 0.2,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-lower-left-11",
+        "boolean_source_name": "Lead lower left-11"
+      }
+    },
+    {
+      "id": "lead-upper-left-11-part-1",
+      "name": "Lead upper left-11",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -6.0,
+        "y": -0.9,
+        "z": 0.15000000000000002
+      },
+      "size": {
+        "x": 0.55,
+        "y": 0.2,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-upper-left-11",
+        "boolean_source_name": "Lead upper left-11"
+      }
+    },
+    {
+      "id": "solder-right-11-part-1",
+      "name": "Solder right-11",
+      "structure_type": "solder",
+      "origin": {
+        "x": 5.5,
+        "y": -0.9,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.5,
+        "y": 0.2,
+        "z": 0.05
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder",
+      "metadata": {
+        "boolean_source_id": "solder-right-11",
+        "boolean_source_name": "Solder right-11"
+      }
+    },
+    {
+      "id": "lead-lower-right-11-part-1",
+      "name": "Lead lower right-11",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": 5.5,
+        "y": -0.9,
+        "z": 0.05
+      },
+      "size": {
+        "x": 0.5,
+        "y": 0.2,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-lower-right-11",
+        "boolean_source_name": "Lead lower right-11"
+      }
+    },
+    {
+      "id": "lead-upper-right-11-part-1",
+      "name": "Lead upper right-11",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": 5.45,
+        "y": -0.9,
+        "z": 0.15000000000000002
+      },
+      "size": {
+        "x": 0.55,
+        "y": 0.2,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-upper-right-11",
+        "boolean_source_name": "Lead upper right-11"
+      }
+    },
+    {
+      "id": "solder-left-12-part-1",
+      "name": "Solder left-12",
+      "structure_type": "solder",
+      "origin": {
+        "x": -6.0,
+        "y": -0.5,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.5,
+        "y": 0.2,
+        "z": 0.05
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder",
+      "metadata": {
+        "boolean_source_id": "solder-left-12",
+        "boolean_source_name": "Solder left-12"
+      }
+    },
+    {
+      "id": "lead-lower-left-12-part-1",
+      "name": "Lead lower left-12",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -6.0,
+        "y": -0.5,
+        "z": 0.05
+      },
+      "size": {
+        "x": 0.5,
+        "y": 0.2,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-lower-left-12",
+        "boolean_source_name": "Lead lower left-12"
+      }
+    },
+    {
+      "id": "lead-upper-left-12-part-1",
+      "name": "Lead upper left-12",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -6.0,
+        "y": -0.5,
+        "z": 0.15000000000000002
+      },
+      "size": {
+        "x": 0.55,
+        "y": 0.2,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-upper-left-12",
+        "boolean_source_name": "Lead upper left-12"
+      }
+    },
+    {
+      "id": "solder-right-12-part-1",
+      "name": "Solder right-12",
+      "structure_type": "solder",
+      "origin": {
+        "x": 5.5,
+        "y": -0.5,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.5,
+        "y": 0.2,
+        "z": 0.05
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder",
+      "metadata": {
+        "boolean_source_id": "solder-right-12",
+        "boolean_source_name": "Solder right-12"
+      }
+    },
+    {
+      "id": "lead-lower-right-12-part-1",
+      "name": "Lead lower right-12",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": 5.5,
+        "y": -0.5,
+        "z": 0.05
+      },
+      "size": {
+        "x": 0.5,
+        "y": 0.2,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-lower-right-12",
+        "boolean_source_name": "Lead lower right-12"
+      }
+    },
+    {
+      "id": "lead-upper-right-12-part-1",
+      "name": "Lead upper right-12",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": 5.45,
+        "y": -0.5,
+        "z": 0.15000000000000002
+      },
+      "size": {
+        "x": 0.55,
+        "y": 0.2,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-upper-right-12",
+        "boolean_source_name": "Lead upper right-12"
+      }
+    },
+    {
+      "id": "solder-left-13-part-1",
+      "name": "Solder left-13",
+      "structure_type": "solder",
+      "origin": {
+        "x": -6.0,
+        "y": -0.1,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.5,
+        "y": 0.2,
+        "z": 0.05
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder",
+      "metadata": {
+        "boolean_source_id": "solder-left-13",
+        "boolean_source_name": "Solder left-13"
+      }
+    },
+    {
+      "id": "lead-lower-left-13-part-1",
+      "name": "Lead lower left-13",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -6.0,
+        "y": -0.1,
+        "z": 0.05
+      },
+      "size": {
+        "x": 0.5,
+        "y": 0.2,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-lower-left-13",
+        "boolean_source_name": "Lead lower left-13"
+      }
+    },
+    {
+      "id": "lead-upper-left-13-part-1",
+      "name": "Lead upper left-13",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -6.0,
+        "y": -0.1,
+        "z": 0.15000000000000002
+      },
+      "size": {
+        "x": 0.55,
+        "y": 0.2,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-upper-left-13",
+        "boolean_source_name": "Lead upper left-13"
+      }
+    },
+    {
+      "id": "solder-right-13-part-1",
+      "name": "Solder right-13",
+      "structure_type": "solder",
+      "origin": {
+        "x": 5.5,
+        "y": -0.1,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.5,
+        "y": 0.2,
+        "z": 0.05
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder",
+      "metadata": {
+        "boolean_source_id": "solder-right-13",
+        "boolean_source_name": "Solder right-13"
+      }
+    },
+    {
+      "id": "lead-lower-right-13-part-1",
+      "name": "Lead lower right-13",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": 5.5,
+        "y": -0.1,
+        "z": 0.05
+      },
+      "size": {
+        "x": 0.5,
+        "y": 0.2,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-lower-right-13",
+        "boolean_source_name": "Lead lower right-13"
+      }
+    },
+    {
+      "id": "lead-upper-right-13-part-1",
+      "name": "Lead upper right-13",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": 5.45,
+        "y": -0.1,
+        "z": 0.15000000000000002
+      },
+      "size": {
+        "x": 0.55,
+        "y": 0.2,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-upper-right-13",
+        "boolean_source_name": "Lead upper right-13"
+      }
+    },
+    {
+      "id": "solder-left-14-part-1",
+      "name": "Solder left-14",
+      "structure_type": "solder",
+      "origin": {
+        "x": -6.0,
+        "y": 0.30000000000000004,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.5,
+        "y": 0.2,
+        "z": 0.05
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder",
+      "metadata": {
+        "boolean_source_id": "solder-left-14",
+        "boolean_source_name": "Solder left-14"
+      }
+    },
+    {
+      "id": "lead-lower-left-14-part-1",
+      "name": "Lead lower left-14",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -6.0,
+        "y": 0.30000000000000004,
+        "z": 0.05
+      },
+      "size": {
+        "x": 0.5,
+        "y": 0.2,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-lower-left-14",
+        "boolean_source_name": "Lead lower left-14"
+      }
+    },
+    {
+      "id": "lead-upper-left-14-part-1",
+      "name": "Lead upper left-14",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -6.0,
+        "y": 0.30000000000000004,
+        "z": 0.15000000000000002
+      },
+      "size": {
+        "x": 0.55,
+        "y": 0.2,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-upper-left-14",
+        "boolean_source_name": "Lead upper left-14"
+      }
+    },
+    {
+      "id": "solder-right-14-part-1",
+      "name": "Solder right-14",
+      "structure_type": "solder",
+      "origin": {
+        "x": 5.5,
+        "y": 0.30000000000000004,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.5,
+        "y": 0.2,
+        "z": 0.05
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder",
+      "metadata": {
+        "boolean_source_id": "solder-right-14",
+        "boolean_source_name": "Solder right-14"
+      }
+    },
+    {
+      "id": "lead-lower-right-14-part-1",
+      "name": "Lead lower right-14",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": 5.5,
+        "y": 0.30000000000000004,
+        "z": 0.05
+      },
+      "size": {
+        "x": 0.5,
+        "y": 0.2,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-lower-right-14",
+        "boolean_source_name": "Lead lower right-14"
+      }
+    },
+    {
+      "id": "lead-upper-right-14-part-1",
+      "name": "Lead upper right-14",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": 5.45,
+        "y": 0.30000000000000004,
+        "z": 0.15000000000000002
+      },
+      "size": {
+        "x": 0.55,
+        "y": 0.2,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-upper-right-14",
+        "boolean_source_name": "Lead upper right-14"
+      }
+    },
+    {
+      "id": "solder-left-15-part-1",
+      "name": "Solder left-15",
+      "structure_type": "solder",
+      "origin": {
+        "x": -6.0,
+        "y": 0.7000000000000001,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.5,
+        "y": 0.2,
+        "z": 0.05
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder",
+      "metadata": {
+        "boolean_source_id": "solder-left-15",
+        "boolean_source_name": "Solder left-15"
+      }
+    },
+    {
+      "id": "lead-lower-left-15-part-1",
+      "name": "Lead lower left-15",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -6.0,
+        "y": 0.7000000000000001,
+        "z": 0.05
+      },
+      "size": {
+        "x": 0.5,
+        "y": 0.2,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-lower-left-15",
+        "boolean_source_name": "Lead lower left-15"
+      }
+    },
+    {
+      "id": "lead-upper-left-15-part-1",
+      "name": "Lead upper left-15",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -6.0,
+        "y": 0.7000000000000001,
+        "z": 0.15000000000000002
+      },
+      "size": {
+        "x": 0.55,
+        "y": 0.2,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-upper-left-15",
+        "boolean_source_name": "Lead upper left-15"
+      }
+    },
+    {
+      "id": "solder-right-15-part-1",
+      "name": "Solder right-15",
+      "structure_type": "solder",
+      "origin": {
+        "x": 5.5,
+        "y": 0.7000000000000001,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.5,
+        "y": 0.2,
+        "z": 0.05
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder",
+      "metadata": {
+        "boolean_source_id": "solder-right-15",
+        "boolean_source_name": "Solder right-15"
+      }
+    },
+    {
+      "id": "lead-lower-right-15-part-1",
+      "name": "Lead lower right-15",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": 5.5,
+        "y": 0.7000000000000001,
+        "z": 0.05
+      },
+      "size": {
+        "x": 0.5,
+        "y": 0.2,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-lower-right-15",
+        "boolean_source_name": "Lead lower right-15"
+      }
+    },
+    {
+      "id": "lead-upper-right-15-part-1",
+      "name": "Lead upper right-15",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": 5.45,
+        "y": 0.7000000000000001,
+        "z": 0.15000000000000002
+      },
+      "size": {
+        "x": 0.55,
+        "y": 0.2,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-upper-right-15",
+        "boolean_source_name": "Lead upper right-15"
+      }
+    },
+    {
+      "id": "solder-left-16-part-1",
+      "name": "Solder left-16",
+      "structure_type": "solder",
+      "origin": {
+        "x": -6.0,
+        "y": 1.1,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.5,
+        "y": 0.2,
+        "z": 0.05
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder",
+      "metadata": {
+        "boolean_source_id": "solder-left-16",
+        "boolean_source_name": "Solder left-16"
+      }
+    },
+    {
+      "id": "lead-lower-left-16-part-1",
+      "name": "Lead lower left-16",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -6.0,
+        "y": 1.1,
+        "z": 0.05
+      },
+      "size": {
+        "x": 0.5,
+        "y": 0.2,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-lower-left-16",
+        "boolean_source_name": "Lead lower left-16"
+      }
+    },
+    {
+      "id": "lead-upper-left-16-part-1",
+      "name": "Lead upper left-16",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -6.0,
+        "y": 1.1,
+        "z": 0.15000000000000002
+      },
+      "size": {
+        "x": 0.55,
+        "y": 0.2,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-upper-left-16",
+        "boolean_source_name": "Lead upper left-16"
+      }
+    },
+    {
+      "id": "solder-right-16-part-1",
+      "name": "Solder right-16",
+      "structure_type": "solder",
+      "origin": {
+        "x": 5.5,
+        "y": 1.1,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.5,
+        "y": 0.2,
+        "z": 0.05
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder",
+      "metadata": {
+        "boolean_source_id": "solder-right-16",
+        "boolean_source_name": "Solder right-16"
+      }
+    },
+    {
+      "id": "lead-lower-right-16-part-1",
+      "name": "Lead lower right-16",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": 5.5,
+        "y": 1.1,
+        "z": 0.05
+      },
+      "size": {
+        "x": 0.5,
+        "y": 0.2,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-lower-right-16",
+        "boolean_source_name": "Lead lower right-16"
+      }
+    },
+    {
+      "id": "lead-upper-right-16-part-1",
+      "name": "Lead upper right-16",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": 5.45,
+        "y": 1.1,
+        "z": 0.15000000000000002
+      },
+      "size": {
+        "x": 0.55,
+        "y": 0.2,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-upper-right-16",
+        "boolean_source_name": "Lead upper right-16"
+      }
+    },
+    {
+      "id": "solder-left-17-part-1",
+      "name": "Solder left-17",
+      "structure_type": "solder",
+      "origin": {
+        "x": -6.0,
+        "y": 1.5,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.5,
+        "y": 0.2,
+        "z": 0.05
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder",
+      "metadata": {
+        "boolean_source_id": "solder-left-17",
+        "boolean_source_name": "Solder left-17"
+      }
+    },
+    {
+      "id": "lead-lower-left-17-part-1",
+      "name": "Lead lower left-17",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -6.0,
+        "y": 1.5,
+        "z": 0.05
+      },
+      "size": {
+        "x": 0.5,
+        "y": 0.2,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-lower-left-17",
+        "boolean_source_name": "Lead lower left-17"
+      }
+    },
+    {
+      "id": "lead-upper-left-17-part-1",
+      "name": "Lead upper left-17",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -6.0,
+        "y": 1.5,
+        "z": 0.15000000000000002
+      },
+      "size": {
+        "x": 0.55,
+        "y": 0.2,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-upper-left-17",
+        "boolean_source_name": "Lead upper left-17"
+      }
+    },
+    {
+      "id": "solder-right-17-part-1",
+      "name": "Solder right-17",
+      "structure_type": "solder",
+      "origin": {
+        "x": 5.5,
+        "y": 1.5,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.5,
+        "y": 0.2,
+        "z": 0.05
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder",
+      "metadata": {
+        "boolean_source_id": "solder-right-17",
+        "boolean_source_name": "Solder right-17"
+      }
+    },
+    {
+      "id": "lead-lower-right-17-part-1",
+      "name": "Lead lower right-17",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": 5.5,
+        "y": 1.5,
+        "z": 0.05
+      },
+      "size": {
+        "x": 0.5,
+        "y": 0.2,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-lower-right-17",
+        "boolean_source_name": "Lead lower right-17"
+      }
+    },
+    {
+      "id": "lead-upper-right-17-part-1",
+      "name": "Lead upper right-17",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": 5.45,
+        "y": 1.5,
+        "z": 0.15000000000000002
+      },
+      "size": {
+        "x": 0.55,
+        "y": 0.2,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-upper-right-17",
+        "boolean_source_name": "Lead upper right-17"
+      }
+    },
+    {
+      "id": "solder-left-18-part-1",
+      "name": "Solder left-18",
+      "structure_type": "solder",
+      "origin": {
+        "x": -6.0,
+        "y": 1.9,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.5,
+        "y": 0.2,
+        "z": 0.05
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder",
+      "metadata": {
+        "boolean_source_id": "solder-left-18",
+        "boolean_source_name": "Solder left-18"
+      }
+    },
+    {
+      "id": "lead-lower-left-18-part-1",
+      "name": "Lead lower left-18",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -6.0,
+        "y": 1.9,
+        "z": 0.05
+      },
+      "size": {
+        "x": 0.5,
+        "y": 0.2,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-lower-left-18",
+        "boolean_source_name": "Lead lower left-18"
+      }
+    },
+    {
+      "id": "lead-upper-left-18-part-1",
+      "name": "Lead upper left-18",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -6.0,
+        "y": 1.9,
+        "z": 0.15000000000000002
+      },
+      "size": {
+        "x": 0.55,
+        "y": 0.2,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-upper-left-18",
+        "boolean_source_name": "Lead upper left-18"
+      }
+    },
+    {
+      "id": "solder-right-18-part-1",
+      "name": "Solder right-18",
+      "structure_type": "solder",
+      "origin": {
+        "x": 5.5,
+        "y": 1.9,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.5,
+        "y": 0.2,
+        "z": 0.05
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder",
+      "metadata": {
+        "boolean_source_id": "solder-right-18",
+        "boolean_source_name": "Solder right-18"
+      }
+    },
+    {
+      "id": "lead-lower-right-18-part-1",
+      "name": "Lead lower right-18",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": 5.5,
+        "y": 1.9,
+        "z": 0.05
+      },
+      "size": {
+        "x": 0.5,
+        "y": 0.2,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-lower-right-18",
+        "boolean_source_name": "Lead lower right-18"
+      }
+    },
+    {
+      "id": "lead-upper-right-18-part-1",
+      "name": "Lead upper right-18",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": 5.45,
+        "y": 1.9,
+        "z": 0.15000000000000002
+      },
+      "size": {
+        "x": 0.55,
+        "y": 0.2,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-upper-right-18",
+        "boolean_source_name": "Lead upper right-18"
+      }
+    },
+    {
+      "id": "solder-left-19-part-1",
+      "name": "Solder left-19",
+      "structure_type": "solder",
+      "origin": {
+        "x": -6.0,
+        "y": 2.3000000000000003,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.5,
+        "y": 0.2,
+        "z": 0.05
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder",
+      "metadata": {
+        "boolean_source_id": "solder-left-19",
+        "boolean_source_name": "Solder left-19"
+      }
+    },
+    {
+      "id": "lead-lower-left-19-part-1",
+      "name": "Lead lower left-19",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -6.0,
+        "y": 2.3000000000000003,
+        "z": 0.05
+      },
+      "size": {
+        "x": 0.5,
+        "y": 0.2,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-lower-left-19",
+        "boolean_source_name": "Lead lower left-19"
+      }
+    },
+    {
+      "id": "lead-upper-left-19-part-1",
+      "name": "Lead upper left-19",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -6.0,
+        "y": 2.3000000000000003,
+        "z": 0.15000000000000002
+      },
+      "size": {
+        "x": 0.55,
+        "y": 0.2,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-upper-left-19",
+        "boolean_source_name": "Lead upper left-19"
+      }
+    },
+    {
+      "id": "solder-right-19-part-1",
+      "name": "Solder right-19",
+      "structure_type": "solder",
+      "origin": {
+        "x": 5.5,
+        "y": 2.3000000000000003,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.5,
+        "y": 0.2,
+        "z": 0.05
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder",
+      "metadata": {
+        "boolean_source_id": "solder-right-19",
+        "boolean_source_name": "Solder right-19"
+      }
+    },
+    {
+      "id": "lead-lower-right-19-part-1",
+      "name": "Lead lower right-19",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": 5.5,
+        "y": 2.3000000000000003,
+        "z": 0.05
+      },
+      "size": {
+        "x": 0.5,
+        "y": 0.2,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-lower-right-19",
+        "boolean_source_name": "Lead lower right-19"
+      }
+    },
+    {
+      "id": "lead-upper-right-19-part-1",
+      "name": "Lead upper right-19",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": 5.45,
+        "y": 2.3000000000000003,
+        "z": 0.15000000000000002
+      },
+      "size": {
+        "x": 0.55,
+        "y": 0.2,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-upper-right-19",
+        "boolean_source_name": "Lead upper right-19"
+      }
+    },
+    {
+      "id": "solder-left-20-part-1",
+      "name": "Solder left-20",
+      "structure_type": "solder",
+      "origin": {
+        "x": -6.0,
+        "y": 2.7,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.5,
+        "y": 0.2,
+        "z": 0.05
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder",
+      "metadata": {
+        "boolean_source_id": "solder-left-20",
+        "boolean_source_name": "Solder left-20"
+      }
+    },
+    {
+      "id": "lead-lower-left-20-part-1",
+      "name": "Lead lower left-20",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -6.0,
+        "y": 2.7,
+        "z": 0.05
+      },
+      "size": {
+        "x": 0.5,
+        "y": 0.2,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-lower-left-20",
+        "boolean_source_name": "Lead lower left-20"
+      }
+    },
+    {
+      "id": "lead-upper-left-20-part-1",
+      "name": "Lead upper left-20",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -6.0,
+        "y": 2.7,
+        "z": 0.15000000000000002
+      },
+      "size": {
+        "x": 0.55,
+        "y": 0.2,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-upper-left-20",
+        "boolean_source_name": "Lead upper left-20"
+      }
+    },
+    {
+      "id": "solder-right-20-part-1",
+      "name": "Solder right-20",
+      "structure_type": "solder",
+      "origin": {
+        "x": 5.5,
+        "y": 2.7,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.5,
+        "y": 0.2,
+        "z": 0.05
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder",
+      "metadata": {
+        "boolean_source_id": "solder-right-20",
+        "boolean_source_name": "Solder right-20"
+      }
+    },
+    {
+      "id": "lead-lower-right-20-part-1",
+      "name": "Lead lower right-20",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": 5.5,
+        "y": 2.7,
+        "z": 0.05
+      },
+      "size": {
+        "x": 0.5,
+        "y": 0.2,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-lower-right-20",
+        "boolean_source_name": "Lead lower right-20"
+      }
+    },
+    {
+      "id": "lead-upper-right-20-part-1",
+      "name": "Lead upper right-20",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": 5.45,
+        "y": 2.7,
+        "z": 0.15000000000000002
+      },
+      "size": {
+        "x": 0.55,
+        "y": 0.2,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-upper-right-20",
+        "boolean_source_name": "Lead upper right-20"
+      }
+    },
+    {
+      "id": "solder-left-21-part-1",
+      "name": "Solder left-21",
+      "structure_type": "solder",
+      "origin": {
+        "x": -6.0,
+        "y": 3.1,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.5,
+        "y": 0.2,
+        "z": 0.05
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder",
+      "metadata": {
+        "boolean_source_id": "solder-left-21",
+        "boolean_source_name": "Solder left-21"
+      }
+    },
+    {
+      "id": "lead-lower-left-21-part-1",
+      "name": "Lead lower left-21",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -6.0,
+        "y": 3.1,
+        "z": 0.05
+      },
+      "size": {
+        "x": 0.5,
+        "y": 0.2,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-lower-left-21",
+        "boolean_source_name": "Lead lower left-21"
+      }
+    },
+    {
+      "id": "lead-upper-left-21-part-1",
+      "name": "Lead upper left-21",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -6.0,
+        "y": 3.1,
+        "z": 0.15000000000000002
+      },
+      "size": {
+        "x": 0.55,
+        "y": 0.2,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-upper-left-21",
+        "boolean_source_name": "Lead upper left-21"
+      }
+    },
+    {
+      "id": "solder-right-21-part-1",
+      "name": "Solder right-21",
+      "structure_type": "solder",
+      "origin": {
+        "x": 5.5,
+        "y": 3.1,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.5,
+        "y": 0.2,
+        "z": 0.05
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder",
+      "metadata": {
+        "boolean_source_id": "solder-right-21",
+        "boolean_source_name": "Solder right-21"
+      }
+    },
+    {
+      "id": "lead-lower-right-21-part-1",
+      "name": "Lead lower right-21",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": 5.5,
+        "y": 3.1,
+        "z": 0.05
+      },
+      "size": {
+        "x": 0.5,
+        "y": 0.2,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-lower-right-21",
+        "boolean_source_name": "Lead lower right-21"
+      }
+    },
+    {
+      "id": "lead-upper-right-21-part-1",
+      "name": "Lead upper right-21",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": 5.45,
+        "y": 3.1,
+        "z": 0.15000000000000002
+      },
+      "size": {
+        "x": 0.55,
+        "y": 0.2,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-upper-right-21",
+        "boolean_source_name": "Lead upper right-21"
+      }
+    },
+    {
+      "id": "solder-left-22-part-1",
+      "name": "Solder left-22",
+      "structure_type": "solder",
+      "origin": {
+        "x": -6.0,
+        "y": 3.5,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.5,
+        "y": 0.2,
+        "z": 0.05
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder",
+      "metadata": {
+        "boolean_source_id": "solder-left-22",
+        "boolean_source_name": "Solder left-22"
+      }
+    },
+    {
+      "id": "lead-lower-left-22-part-1",
+      "name": "Lead lower left-22",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -6.0,
+        "y": 3.5,
+        "z": 0.05
+      },
+      "size": {
+        "x": 0.5,
+        "y": 0.2,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-lower-left-22",
+        "boolean_source_name": "Lead lower left-22"
+      }
+    },
+    {
+      "id": "lead-upper-left-22-part-1",
+      "name": "Lead upper left-22",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -6.0,
+        "y": 3.5,
+        "z": 0.15000000000000002
+      },
+      "size": {
+        "x": 0.55,
+        "y": 0.2,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-upper-left-22",
+        "boolean_source_name": "Lead upper left-22"
+      }
+    },
+    {
+      "id": "solder-right-22-part-1",
+      "name": "Solder right-22",
+      "structure_type": "solder",
+      "origin": {
+        "x": 5.5,
+        "y": 3.5,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.5,
+        "y": 0.2,
+        "z": 0.05
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder",
+      "metadata": {
+        "boolean_source_id": "solder-right-22",
+        "boolean_source_name": "Solder right-22"
+      }
+    },
+    {
+      "id": "lead-lower-right-22-part-1",
+      "name": "Lead lower right-22",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": 5.5,
+        "y": 3.5,
+        "z": 0.05
+      },
+      "size": {
+        "x": 0.5,
+        "y": 0.2,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-lower-right-22",
+        "boolean_source_name": "Lead lower right-22"
+      }
+    },
+    {
+      "id": "lead-upper-right-22-part-1",
+      "name": "Lead upper right-22",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": 5.45,
+        "y": 3.5,
+        "z": 0.15000000000000002
+      },
+      "size": {
+        "x": 0.55,
+        "y": 0.2,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-upper-right-22",
+        "boolean_source_name": "Lead upper right-22"
+      }
+    },
+    {
+      "id": "solder-left-23-part-1",
+      "name": "Solder left-23",
+      "structure_type": "solder",
+      "origin": {
+        "x": -6.0,
+        "y": 3.9,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.5,
+        "y": 0.2,
+        "z": 0.05
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder",
+      "metadata": {
+        "boolean_source_id": "solder-left-23",
+        "boolean_source_name": "Solder left-23"
+      }
+    },
+    {
+      "id": "lead-lower-left-23-part-1",
+      "name": "Lead lower left-23",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -6.0,
+        "y": 3.9,
+        "z": 0.05
+      },
+      "size": {
+        "x": 0.5,
+        "y": 0.2,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-lower-left-23",
+        "boolean_source_name": "Lead lower left-23"
+      }
+    },
+    {
+      "id": "lead-upper-left-23-part-1",
+      "name": "Lead upper left-23",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -6.0,
+        "y": 3.9,
+        "z": 0.15000000000000002
+      },
+      "size": {
+        "x": 0.55,
+        "y": 0.2,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-upper-left-23",
+        "boolean_source_name": "Lead upper left-23"
+      }
+    },
+    {
+      "id": "solder-right-23-part-1",
+      "name": "Solder right-23",
+      "structure_type": "solder",
+      "origin": {
+        "x": 5.5,
+        "y": 3.9,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.5,
+        "y": 0.2,
+        "z": 0.05
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder",
+      "metadata": {
+        "boolean_source_id": "solder-right-23",
+        "boolean_source_name": "Solder right-23"
+      }
+    },
+    {
+      "id": "lead-lower-right-23-part-1",
+      "name": "Lead lower right-23",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": 5.5,
+        "y": 3.9,
+        "z": 0.05
+      },
+      "size": {
+        "x": 0.5,
+        "y": 0.2,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-lower-right-23",
+        "boolean_source_name": "Lead lower right-23"
+      }
+    },
+    {
+      "id": "lead-upper-right-23-part-1",
+      "name": "Lead upper right-23",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": 5.45,
+        "y": 3.9,
+        "z": 0.15000000000000002
+      },
+      "size": {
+        "x": 0.55,
+        "y": 0.2,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-upper-right-23",
+        "boolean_source_name": "Lead upper right-23"
+      }
+    },
+    {
+      "id": "solder-left-24-part-1",
+      "name": "Solder left-24",
+      "structure_type": "solder",
+      "origin": {
+        "x": -6.0,
+        "y": 4.300000000000001,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.5,
+        "y": 0.2,
+        "z": 0.05
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder",
+      "metadata": {
+        "boolean_source_id": "solder-left-24",
+        "boolean_source_name": "Solder left-24"
+      }
+    },
+    {
+      "id": "lead-lower-left-24-part-1",
+      "name": "Lead lower left-24",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -6.0,
+        "y": 4.300000000000001,
+        "z": 0.05
+      },
+      "size": {
+        "x": 0.5,
+        "y": 0.2,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-lower-left-24",
+        "boolean_source_name": "Lead lower left-24"
+      }
+    },
+    {
+      "id": "lead-upper-left-24-part-1",
+      "name": "Lead upper left-24",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -6.0,
+        "y": 4.300000000000001,
+        "z": 0.15000000000000002
+      },
+      "size": {
+        "x": 0.55,
+        "y": 0.2,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-upper-left-24",
+        "boolean_source_name": "Lead upper left-24"
+      }
+    },
+    {
+      "id": "solder-right-24-part-1",
+      "name": "Solder right-24",
+      "structure_type": "solder",
+      "origin": {
+        "x": 5.5,
+        "y": 4.300000000000001,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.5,
+        "y": 0.2,
+        "z": 0.05
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder",
+      "metadata": {
+        "boolean_source_id": "solder-right-24",
+        "boolean_source_name": "Solder right-24"
+      }
+    },
+    {
+      "id": "lead-lower-right-24-part-1",
+      "name": "Lead lower right-24",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": 5.5,
+        "y": 4.300000000000001,
+        "z": 0.05
+      },
+      "size": {
+        "x": 0.5,
+        "y": 0.2,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-lower-right-24",
+        "boolean_source_name": "Lead lower right-24"
+      }
+    },
+    {
+      "id": "lead-upper-right-24-part-1",
+      "name": "Lead upper right-24",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": 5.45,
+        "y": 4.300000000000001,
+        "z": 0.15000000000000002
+      },
+      "size": {
+        "x": 0.55,
+        "y": 0.2,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-upper-right-24",
+        "boolean_source_name": "Lead upper right-24"
+      }
+    },
+    {
+      "id": "solder-left-25-part-1",
+      "name": "Solder left-25",
+      "structure_type": "solder",
+      "origin": {
+        "x": -6.0,
+        "y": 4.700000000000001,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.5,
+        "y": 0.2,
+        "z": 0.05
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder",
+      "metadata": {
+        "boolean_source_id": "solder-left-25",
+        "boolean_source_name": "Solder left-25"
+      }
+    },
+    {
+      "id": "lead-lower-left-25-part-1",
+      "name": "Lead lower left-25",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -6.0,
+        "y": 4.700000000000001,
+        "z": 0.05
+      },
+      "size": {
+        "x": 0.5,
+        "y": 0.2,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-lower-left-25",
+        "boolean_source_name": "Lead lower left-25"
+      }
+    },
+    {
+      "id": "lead-upper-left-25-part-1",
+      "name": "Lead upper left-25",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -6.0,
+        "y": 4.700000000000001,
+        "z": 0.15000000000000002
+      },
+      "size": {
+        "x": 0.55,
+        "y": 0.2,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-upper-left-25",
+        "boolean_source_name": "Lead upper left-25"
+      }
+    },
+    {
+      "id": "solder-right-25-part-1",
+      "name": "Solder right-25",
+      "structure_type": "solder",
+      "origin": {
+        "x": 5.5,
+        "y": 4.700000000000001,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.5,
+        "y": 0.2,
+        "z": 0.05
+      },
+      "material_id": "solder-sn63",
+      "parent_group_id": "group-solder",
+      "metadata": {
+        "boolean_source_id": "solder-right-25",
+        "boolean_source_name": "Solder right-25"
+      }
+    },
+    {
+      "id": "lead-lower-right-25-part-1",
+      "name": "Lead lower right-25",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": 5.5,
+        "y": 4.700000000000001,
+        "z": 0.05
+      },
+      "size": {
+        "x": 0.5,
+        "y": 0.2,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-lower-right-25",
+        "boolean_source_name": "Lead lower right-25"
+      }
+    },
+    {
+      "id": "lead-upper-right-25-part-1",
+      "name": "Lead upper right-25",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": 5.45,
+        "y": 4.700000000000001,
+        "z": 0.15000000000000002
+      },
+      "size": {
+        "x": 0.55,
+        "y": 0.2,
+        "z": 0.1
+      },
+      "material_id": "leadframe-c194",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "lead-upper-right-25",
+        "boolean_source_name": "Lead upper right-25"
+      }
+    }
+  ],
+  "groups": [
+    {
+      "id": "package",
+      "name": "QFN",
+      "parent_id": null,
+      "block_ids": []
+    },
+    {
+      "id": "group-encapsulant",
+      "name": "Encapsulant",
+      "parent_id": "package",
+      "block_ids": [
+        "encapsulant-part-1"
+      ]
+    },
+    {
+      "id": "group-exposed-pad",
+      "name": "Exposed pad",
+      "parent_id": "package",
+      "block_ids": [
+        "dap-upper-part-1",
+        "dap-exposed-part-1"
+      ]
+    },
+    {
+      "id": "group-solder",
+      "name": "Solder",
+      "parent_id": "package",
+      "block_ids": [
+        "center-solder-part-1",
+        "solder-lower-1-part-1",
+        "solder-upper-1-part-1",
+        "solder-lower-2-part-1",
+        "solder-upper-2-part-1",
+        "solder-lower-3-part-1",
+        "solder-upper-3-part-1",
+        "solder-lower-4-part-1",
+        "solder-upper-4-part-1",
+        "solder-lower-5-part-1",
+        "solder-upper-5-part-1",
+        "solder-lower-6-part-1",
+        "solder-upper-6-part-1",
+        "solder-lower-7-part-1",
+        "solder-upper-7-part-1",
+        "solder-lower-8-part-1",
+        "solder-upper-8-part-1",
+        "solder-lower-9-part-1",
+        "solder-upper-9-part-1",
+        "solder-lower-10-part-1",
+        "solder-upper-10-part-1",
+        "solder-lower-11-part-1",
+        "solder-upper-11-part-1",
+        "solder-lower-12-part-1",
+        "solder-upper-12-part-1",
+        "solder-lower-13-part-1",
+        "solder-upper-13-part-1",
+        "solder-lower-14-part-1",
+        "solder-upper-14-part-1",
+        "solder-lower-15-part-1",
+        "solder-upper-15-part-1",
+        "solder-lower-16-part-1",
+        "solder-upper-16-part-1",
+        "solder-lower-17-part-1",
+        "solder-upper-17-part-1",
+        "solder-lower-18-part-1",
+        "solder-upper-18-part-1",
+        "solder-lower-19-part-1",
+        "solder-upper-19-part-1",
+        "solder-lower-20-part-1",
+        "solder-upper-20-part-1",
+        "solder-lower-21-part-1",
+        "solder-upper-21-part-1",
+        "solder-lower-22-part-1",
+        "solder-upper-22-part-1",
+        "solder-lower-23-part-1",
+        "solder-upper-23-part-1",
+        "solder-lower-24-part-1",
+        "solder-upper-24-part-1",
+        "solder-lower-25-part-1",
+        "solder-upper-25-part-1",
+        "solder-left-1-part-1",
+        "solder-right-1-part-1",
+        "solder-left-2-part-1",
+        "solder-right-2-part-1",
+        "solder-left-3-part-1",
+        "solder-right-3-part-1",
+        "solder-left-4-part-1",
+        "solder-right-4-part-1",
+        "solder-left-5-part-1",
+        "solder-right-5-part-1",
+        "solder-left-6-part-1",
+        "solder-right-6-part-1",
+        "solder-left-7-part-1",
+        "solder-right-7-part-1",
+        "solder-left-8-part-1",
+        "solder-right-8-part-1",
+        "solder-left-9-part-1",
+        "solder-right-9-part-1",
+        "solder-left-10-part-1",
+        "solder-right-10-part-1",
+        "solder-left-11-part-1",
+        "solder-right-11-part-1",
+        "solder-left-12-part-1",
+        "solder-right-12-part-1",
+        "solder-left-13-part-1",
+        "solder-right-13-part-1",
+        "solder-left-14-part-1",
+        "solder-right-14-part-1",
+        "solder-left-15-part-1",
+        "solder-right-15-part-1",
+        "solder-left-16-part-1",
+        "solder-right-16-part-1",
+        "solder-left-17-part-1",
+        "solder-right-17-part-1",
+        "solder-left-18-part-1",
+        "solder-right-18-part-1",
+        "solder-left-19-part-1",
+        "solder-right-19-part-1",
+        "solder-left-20-part-1",
+        "solder-right-20-part-1",
+        "solder-left-21-part-1",
+        "solder-right-21-part-1",
+        "solder-left-22-part-1",
+        "solder-right-22-part-1",
+        "solder-left-23-part-1",
+        "solder-right-23-part-1",
+        "solder-left-24-part-1",
+        "solder-right-24-part-1",
+        "solder-left-25-part-1",
+        "solder-right-25-part-1"
+      ]
+    },
+    {
+      "id": "group-die-attach",
+      "name": "Die attach",
+      "parent_id": "package",
+      "block_ids": [
+        "die-attach-part-1"
+      ]
+    },
+    {
+      "id": "group-die",
+      "name": "Die",
+      "parent_id": "package",
+      "block_ids": [
+        "die-part-1"
+      ]
+    },
+    {
+      "id": "group-bond-wires",
+      "name": "Bond wires",
+      "parent_id": "package",
+      "block_ids": [
+        "qfn-bondwire-x--1-part-1",
+        "qfn-bondwire-x-1-part-1",
+        "qfn-bondwire-x-v--1-part-1",
+        "qfn-bondwire-x-v-1-part-1",
+        "qfn-bondwire-y--1-part-1",
+        "qfn-bondwire-y-1-part-1",
+        "qfn-bondwire-y-v--1-part-1",
+        "qfn-bondwire-y-v-1-part-1"
+      ]
+    },
+    {
+      "id": "group-lead-frame",
+      "name": "Lead frame",
+      "parent_id": "package",
+      "block_ids": [
+        "lead-lower-lower-1-part-1",
+        "lead-upper-lower-1-part-1",
+        "lead-lower-upper-1-part-1",
+        "lead-upper-upper-1-part-1",
+        "lead-lower-lower-2-part-1",
+        "lead-upper-lower-2-part-1",
+        "lead-lower-upper-2-part-1",
+        "lead-upper-upper-2-part-1",
+        "lead-lower-lower-3-part-1",
+        "lead-upper-lower-3-part-1",
+        "lead-lower-upper-3-part-1",
+        "lead-upper-upper-3-part-1",
+        "lead-lower-lower-4-part-1",
+        "lead-upper-lower-4-part-1",
+        "lead-lower-upper-4-part-1",
+        "lead-upper-upper-4-part-1",
+        "lead-lower-lower-5-part-1",
+        "lead-upper-lower-5-part-1",
+        "lead-lower-upper-5-part-1",
+        "lead-upper-upper-5-part-1",
+        "lead-lower-lower-6-part-1",
+        "lead-upper-lower-6-part-1",
+        "lead-lower-upper-6-part-1",
+        "lead-upper-upper-6-part-1",
+        "lead-lower-lower-7-part-1",
+        "lead-upper-lower-7-part-1",
+        "lead-lower-upper-7-part-1",
+        "lead-upper-upper-7-part-1",
+        "lead-lower-lower-8-part-1",
+        "lead-upper-lower-8-part-1",
+        "lead-lower-upper-8-part-1",
+        "lead-upper-upper-8-part-1",
+        "lead-lower-lower-9-part-1",
+        "lead-upper-lower-9-part-1",
+        "lead-lower-upper-9-part-1",
+        "lead-upper-upper-9-part-1",
+        "lead-lower-lower-10-part-1",
+        "lead-upper-lower-10-part-1",
+        "lead-lower-upper-10-part-1",
+        "lead-upper-upper-10-part-1",
+        "lead-lower-lower-11-part-1",
+        "lead-upper-lower-11-part-1",
+        "lead-lower-upper-11-part-1",
+        "lead-upper-upper-11-part-1",
+        "lead-lower-lower-12-part-1",
+        "lead-upper-lower-12-part-1",
+        "lead-lower-upper-12-part-1",
+        "lead-upper-upper-12-part-1",
+        "lead-lower-lower-13-part-1",
+        "lead-upper-lower-13-part-1",
+        "lead-lower-upper-13-part-1",
+        "lead-upper-upper-13-part-1",
+        "lead-lower-lower-14-part-1",
+        "lead-upper-lower-14-part-1",
+        "lead-lower-upper-14-part-1",
+        "lead-upper-upper-14-part-1",
+        "lead-lower-lower-15-part-1",
+        "lead-upper-lower-15-part-1",
+        "lead-lower-upper-15-part-1",
+        "lead-upper-upper-15-part-1",
+        "lead-lower-lower-16-part-1",
+        "lead-upper-lower-16-part-1",
+        "lead-lower-upper-16-part-1",
+        "lead-upper-upper-16-part-1",
+        "lead-lower-lower-17-part-1",
+        "lead-upper-lower-17-part-1",
+        "lead-lower-upper-17-part-1",
+        "lead-upper-upper-17-part-1",
+        "lead-lower-lower-18-part-1",
+        "lead-upper-lower-18-part-1",
+        "lead-lower-upper-18-part-1",
+        "lead-upper-upper-18-part-1",
+        "lead-lower-lower-19-part-1",
+        "lead-upper-lower-19-part-1",
+        "lead-lower-upper-19-part-1",
+        "lead-upper-upper-19-part-1",
+        "lead-lower-lower-20-part-1",
+        "lead-upper-lower-20-part-1",
+        "lead-lower-upper-20-part-1",
+        "lead-upper-upper-20-part-1",
+        "lead-lower-lower-21-part-1",
+        "lead-upper-lower-21-part-1",
+        "lead-lower-upper-21-part-1",
+        "lead-upper-upper-21-part-1",
+        "lead-lower-lower-22-part-1",
+        "lead-upper-lower-22-part-1",
+        "lead-lower-upper-22-part-1",
+        "lead-upper-upper-22-part-1",
+        "lead-lower-lower-23-part-1",
+        "lead-upper-lower-23-part-1",
+        "lead-lower-upper-23-part-1",
+        "lead-upper-upper-23-part-1",
+        "lead-lower-lower-24-part-1",
+        "lead-upper-lower-24-part-1",
+        "lead-lower-upper-24-part-1",
+        "lead-upper-upper-24-part-1",
+        "lead-lower-lower-25-part-1",
+        "lead-upper-lower-25-part-1",
+        "lead-lower-upper-25-part-1",
+        "lead-upper-upper-25-part-1",
+        "lead-lower-left-1-part-1",
+        "lead-upper-left-1-part-1",
+        "lead-lower-right-1-part-1",
+        "lead-upper-right-1-part-1",
+        "lead-lower-left-2-part-1",
+        "lead-upper-left-2-part-1",
+        "lead-lower-right-2-part-1",
+        "lead-upper-right-2-part-1",
+        "lead-lower-left-3-part-1",
+        "lead-upper-left-3-part-1",
+        "lead-lower-right-3-part-1",
+        "lead-upper-right-3-part-1",
+        "lead-lower-left-4-part-1",
+        "lead-upper-left-4-part-1",
+        "lead-lower-right-4-part-1",
+        "lead-upper-right-4-part-1",
+        "lead-lower-left-5-part-1",
+        "lead-upper-left-5-part-1",
+        "lead-lower-right-5-part-1",
+        "lead-upper-right-5-part-1",
+        "lead-lower-left-6-part-1",
+        "lead-upper-left-6-part-1",
+        "lead-lower-right-6-part-1",
+        "lead-upper-right-6-part-1",
+        "lead-lower-left-7-part-1",
+        "lead-upper-left-7-part-1",
+        "lead-lower-right-7-part-1",
+        "lead-upper-right-7-part-1",
+        "lead-lower-left-8-part-1",
+        "lead-upper-left-8-part-1",
+        "lead-lower-right-8-part-1",
+        "lead-upper-right-8-part-1",
+        "lead-lower-left-9-part-1",
+        "lead-upper-left-9-part-1",
+        "lead-lower-right-9-part-1",
+        "lead-upper-right-9-part-1",
+        "lead-lower-left-10-part-1",
+        "lead-upper-left-10-part-1",
+        "lead-lower-right-10-part-1",
+        "lead-upper-right-10-part-1",
+        "lead-lower-left-11-part-1",
+        "lead-upper-left-11-part-1",
+        "lead-lower-right-11-part-1",
+        "lead-upper-right-11-part-1",
+        "lead-lower-left-12-part-1",
+        "lead-upper-left-12-part-1",
+        "lead-lower-right-12-part-1",
+        "lead-upper-right-12-part-1",
+        "lead-lower-left-13-part-1",
+        "lead-upper-left-13-part-1",
+        "lead-lower-right-13-part-1",
+        "lead-upper-right-13-part-1",
+        "lead-lower-left-14-part-1",
+        "lead-upper-left-14-part-1",
+        "lead-lower-right-14-part-1",
+        "lead-upper-right-14-part-1",
+        "lead-lower-left-15-part-1",
+        "lead-upper-left-15-part-1",
+        "lead-lower-right-15-part-1",
+        "lead-upper-right-15-part-1",
+        "lead-lower-left-16-part-1",
+        "lead-upper-left-16-part-1",
+        "lead-lower-right-16-part-1",
+        "lead-upper-right-16-part-1",
+        "lead-lower-left-17-part-1",
+        "lead-upper-left-17-part-1",
+        "lead-lower-right-17-part-1",
+        "lead-upper-right-17-part-1",
+        "lead-lower-left-18-part-1",
+        "lead-upper-left-18-part-1",
+        "lead-lower-right-18-part-1",
+        "lead-upper-right-18-part-1",
+        "lead-lower-left-19-part-1",
+        "lead-upper-left-19-part-1",
+        "lead-lower-right-19-part-1",
+        "lead-upper-right-19-part-1",
+        "lead-lower-left-20-part-1",
+        "lead-upper-left-20-part-1",
+        "lead-lower-right-20-part-1",
+        "lead-upper-right-20-part-1",
+        "lead-lower-left-21-part-1",
+        "lead-upper-left-21-part-1",
+        "lead-lower-right-21-part-1",
+        "lead-upper-right-21-part-1",
+        "lead-lower-left-22-part-1",
+        "lead-upper-left-22-part-1",
+        "lead-lower-right-22-part-1",
+        "lead-upper-right-22-part-1",
+        "lead-lower-left-23-part-1",
+        "lead-upper-left-23-part-1",
+        "lead-lower-right-23-part-1",
+        "lead-upper-right-23-part-1",
+        "lead-lower-left-24-part-1",
+        "lead-upper-left-24-part-1",
+        "lead-lower-right-24-part-1",
+        "lead-upper-right-24-part-1",
+        "lead-lower-left-25-part-1",
+        "lead-upper-left-25-part-1",
+        "lead-lower-right-25-part-1",
+        "lead-upper-right-25-part-1"
+      ]
+    }
+  ],
+  "heat_sources": [
+    {
+      "id": "die-source-1",
+      "name": "Die heat source 1",
+      "block_id": "die-part-1",
+      "power_w": 0.0
+    }
+  ],
+  "boundaries": [],
+  "metadata": {
+    "implementation": "packstudio-native",
+    "template_version": "2.2",
+    "reference_basis": "versioned JSON defaults with reviewed FloTHERM PACK 2504 mappings",
+    "default_parameter_schema": "packstudio.default-parameters/v1",
+    "reference_geometry_status": "supported-parameters-with-family-equivalent-geometry",
+    "runtime_reference_data_required": false,
+    "outline_type": "standard_outline",
+    "die_type": "actual_type",
+    "footprint_size": "QFN_12X12_100",
+    "solver_results_included": false,
+    "lead_count": 100,
+    "reference_baseline": "FloTHERM PACK 2504 QFN_12X12_100",
+    "thermal_land_enabled": false,
+    "thermal_vias_enabled": false,
+    "preset_source_path": "flocentral/flopack/QFN/QFN_12X12_100.des",
+    "preset_source_sha256": "84e649a8a99215c2cc4da18cf1c964d739b83c1ba923bb3fd9d97fa9a9857afa",
+    "preset_geometry_status": "native-defaults-adapted",
+    "preset_notes": "PACK 未启用的参数：thermal_land.thickness, vias.columns, vias.diameter, vias.length, vias.pitch, vias.plating, vias.rows；原生未给定数值，保持空白，不计入当前模型。",
+    "summary.part_number": "",
+    "summary.vendor": "",
+    "summary.notes": "",
+    "native_grid_enabled": true,
+    "native_grid_density": "fine",
+    "native_grid_length_mm": 12.0,
+    "native_grid_width_mm": 12.0,
+    "native_grid_height_mm": 0.9
+  },
+  "warnings": [
+    "模型包含 216 对重叠块：encapsulant-part-1/lead-lower-left-1-part-1, encapsulant-part-1/lead-upper-left-1-part-1, encapsulant-part-1/lead-lower-left-2-part-1, encapsulant-part-1/lead-upper-left-2-part-1, encapsulant-part-1/lead-lower-left-3-part-1"
+  ],
+  "auxiliary_geometry": [
+    {
+      "kind": "monitor_point",
+      "name": "DieJunction_Temp",
+      "origin": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.52375
+      },
+      "size": null
+    },
+    {
+      "kind": "monitor_point",
+      "name": "CaseTemp",
+      "origin": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.891
+      },
+      "size": null
+    },
+    {
+      "kind": "region",
+      "name": "z_bottom",
+      "origin": {
+        "x": -6.0,
+        "y": -6.0,
+        "z": 0.0
+      },
+      "size": {
+        "x": 12.0,
+        "y": 12.0,
+        "z": 1.0
+      }
+    },
+    {
+      "kind": "region",
+      "name": "z_top",
+      "origin": {
+        "x": -6.0,
+        "y": -6.0,
+        "z": 0.9
+      },
+      "size": {
+        "x": 12.0,
+        "y": 12.0,
+        "z": 1.0
+      }
+    }
+  ]
+}

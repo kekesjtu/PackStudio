@@ -3,13 +3,12 @@
 import ctypes
 import struct
 
-from packstudio.domain.materials import Material
 from tools.pack_reference.native_details import DetailedNativePack
 
 
 class NativeFormulaProbe(DetailedNativePack):
     @staticmethod
-    def material_storage(material: Material):
+    def material_storage(material):
         storage = ctypes.create_string_buffer(0x90)
         struct.pack_into("<dd", storage, 0x40, material.density, material.specific_heat)
         struct.pack_into("<d", storage, 0x60, material.conductivity.x)

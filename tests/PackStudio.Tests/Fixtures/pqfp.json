@@ -1,0 +1,1130 @@
+{
+  "schema_version": "packstudio.model/v1",
+  "template_id": "pqfp",
+  "name": "PQFP",
+  "length_unit": "mm",
+  "coordinate_system": {
+    "origin": "package bottom-plane center (FloTHERM PACK)",
+    "x_axis": "package length",
+    "y_axis": "package width",
+    "z_axis": "upward through package thickness"
+  },
+  "materials": [
+    {
+      "id": "die-attach",
+      "name": "DieAttach-84-1LMIS",
+      "category": "Attachment Materials",
+      "conductivity": {
+        "x": 2.5,
+        "y": 2.5,
+        "z": 2.5
+      },
+      "density": 1.0,
+      "specific_heat": 1.0,
+      "color": "#C89042",
+      "source": "PACK built-in material; constant_isotropic",
+      "conductivity_coefficient": null,
+      "conductivity_reference_temperature_c": null
+    },
+    {
+      "id": "epoxy-mold",
+      "name": "Epoxy Overmold (Typical)",
+      "category": "Resins",
+      "conductivity": {
+        "x": 0.68,
+        "y": 0.68,
+        "z": 0.68
+      },
+      "density": 1820.0,
+      "specific_heat": 882.0,
+      "color": "#343B46",
+      "source": "PACK built-in material; constant_isotropic",
+      "conductivity_coefficient": null,
+      "conductivity_reference_temperature_c": null
+    },
+    {
+      "id": "pqfp-bondwire-x",
+      "name": "bondwire1",
+      "category": "Others",
+      "conductivity": {
+        "x": 54.888305139242654,
+        "y": 0.68,
+        "z": 54.888305139242654
+      },
+      "density": 5028.59126992402,
+      "specific_heat": 353.6214185791504,
+      "color": "#D9A928",
+      "source": "PACK derived mixture; metal=gold; matrix=epoxy-mold; volume_fraction=0.1835578529704817",
+      "conductivity_coefficient": null,
+      "conductivity_reference_temperature_c": null
+    },
+    {
+      "id": "pqfp-bondwire-y",
+      "name": "bondwire2",
+      "category": "Others",
+      "conductivity": {
+        "x": 0.68,
+        "y": 54.888305139242654,
+        "z": 54.888305139242654
+      },
+      "density": 5028.59126992402,
+      "specific_heat": 353.6214185791504,
+      "color": "#D9A928",
+      "source": "PACK derived mixture; metal=gold; matrix=epoxy-mold; volume_fraction=0.1835578529704817",
+      "conductivity_coefficient": null,
+      "conductivity_reference_temperature_c": null
+    },
+    {
+      "id": "pqfp-die-flag",
+      "name": "die_flag",
+      "category": "Others",
+      "conductivity": {
+        "x": 180.9,
+        "y": 180.9,
+        "z": 180.9
+      },
+      "density": 6068.0,
+      "specific_heat": 444.6268951878708,
+      "color": "#B96331",
+      "source": "PACK derived mixture; metal=cu_eftec_64t_86630329; matrix=epoxy-mold; volume_fraction=0.6",
+      "conductivity_coefficient": null,
+      "conductivity_reference_temperature_c": null
+    },
+    {
+      "id": "pqfp-leadframe-inner-x",
+      "name": "LeadFrame_1x",
+      "category": "Others",
+      "conductivity": {
+        "x": 151.09,
+        "y": 0.68,
+        "z": 151.09
+      },
+      "density": 5360.0,
+      "specific_heat": 469.37873134328356,
+      "color": "#B96331",
+      "source": "PACK derived mixture; metal=cu_eftec_64t_86630329; matrix=epoxy-mold; volume_fraction=0.5",
+      "conductivity_coefficient": null,
+      "conductivity_reference_temperature_c": null
+    },
+    {
+      "id": "pqfp-leadframe-inner-y",
+      "name": "LeadFrame_1y",
+      "category": "Others",
+      "conductivity": {
+        "x": 0.68,
+        "y": 151.09,
+        "z": 151.09
+      },
+      "density": 5360.0,
+      "specific_heat": 469.37873134328356,
+      "color": "#B96331",
+      "source": "PACK derived mixture; metal=cu_eftec_64t_86630329; matrix=epoxy-mold; volume_fraction=0.5",
+      "conductivity_coefficient": null,
+      "conductivity_reference_temperature_c": null
+    },
+    {
+      "id": "pqfp-leadframe-outer-x",
+      "name": "LeadFrame_2x",
+      "category": "Others",
+      "conductivity": {
+        "x": 150.76305,
+        "y": 0.0261,
+        "z": 150.76305
+      },
+      "density": 4450.5807,
+      "specific_heat": 385.08115691509647,
+      "color": "#B96331",
+      "source": "PACK derived mixture; metal=cu_eftec_64t_86630329; matrix=static-air; volume_fraction=0.5",
+      "conductivity_coefficient": null,
+      "conductivity_reference_temperature_c": null
+    },
+    {
+      "id": "pqfp-leadframe-outer-y",
+      "name": "LeadFrame_2y",
+      "category": "Others",
+      "conductivity": {
+        "x": 0.0261,
+        "y": 150.76305,
+        "z": 150.76305
+      },
+      "density": 4450.5807,
+      "specific_heat": 385.08115691509647,
+      "color": "#B96331",
+      "source": "PACK derived mixture; metal=cu_eftec_64t_86630329; matrix=static-air; volume_fraction=0.5",
+      "conductivity_coefficient": null,
+      "conductivity_reference_temperature_c": null
+    },
+    {
+      "id": "pqfp-tie-bar",
+      "name": "tie_bar",
+      "category": "Others",
+      "conductivity": {
+        "x": 106.59634726387203,
+        "y": 106.59634726387203,
+        "z": 0.68
+      },
+      "density": 8900.0,
+      "specific_heat": 385.0,
+      "color": "#B96331",
+      "source": "PACK tie-bar geometry factor=2.82842712474619; metal=cu_eftec_64t_86630329;",
+      "conductivity_coefficient": null,
+      "conductivity_reference_temperature_c": null
+    },
+    {
+      "id": "silicon",
+      "name": "Silicon (Pure)",
+      "category": "Semiconductors",
+      "conductivity": {
+        "x": 117.5,
+        "y": 117.5,
+        "z": 117.5
+      },
+      "density": 2330.0,
+      "specific_heat": 700.0,
+      "color": "#667085",
+      "source": "PACK built-in material; temperature-dependent conductivity; native reference temperature 100.0 C",
+      "conductivity_coefficient": -0.42,
+      "conductivity_reference_temperature_c": 100.0
+    }
+  ],
+  "blocks": [
+    {
+      "id": "encapsulant-part-1",
+      "name": "PQFP encapsulant",
+      "structure_type": "encapsulant",
+      "origin": {
+        "x": -3.5,
+        "y": -3.5,
+        "z": 0.1
+      },
+      "size": {
+        "x": 7.0,
+        "y": 7.0,
+        "z": 1.4
+      },
+      "material_id": "epoxy-mold",
+      "parent_group_id": "group-encapsulant",
+      "metadata": {
+        "boolean_source_id": "encapsulant",
+        "boolean_source_name": "PQFP encapsulant"
+      }
+    },
+    {
+      "id": "die-part-1",
+      "name": "Silicon die",
+      "structure_type": "die",
+      "origin": {
+        "x": -1.05,
+        "y": -1.05,
+        "z": 0.663
+      },
+      "size": {
+        "x": 2.1,
+        "y": 2.1,
+        "z": 0.35
+      },
+      "material_id": "silicon",
+      "parent_group_id": "group-die",
+      "metadata": {
+        "boolean_source_id": "die",
+        "boolean_source_name": "Silicon die"
+      }
+    },
+    {
+      "id": "die-flag-part-1",
+      "name": "Die flag",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -1.47,
+        "y": -1.47,
+        "z": 0.475
+      },
+      "size": {
+        "x": 2.94,
+        "y": 2.94,
+        "z": 0.15
+      },
+      "material_id": "pqfp-die-flag",
+      "parent_group_id": "group-die-flag",
+      "metadata": {
+        "boolean_source_id": "die-flag",
+        "boolean_source_name": "Die flag"
+      }
+    },
+    {
+      "id": "bond-wire-h-right-part-1",
+      "name": "Bond wires horizontal right",
+      "structure_type": "bond_wire",
+      "origin": {
+        "x": 1.05,
+        "y": -1.05,
+        "z": 0.9829999999999999
+      },
+      "size": {
+        "x": 0.8399999999999999,
+        "y": 2.1,
+        "z": 0.03
+      },
+      "material_id": "pqfp-bondwire-x",
+      "parent_group_id": "group-bond-wires",
+      "metadata": {
+        "boolean_source_id": "bond-wire-h-right",
+        "boolean_source_name": "Bond wires horizontal right"
+      }
+    },
+    {
+      "id": "bond-wire-h-left-part-1",
+      "name": "Bond wires horizontal left",
+      "structure_type": "bond_wire",
+      "origin": {
+        "x": -1.89,
+        "y": -1.05,
+        "z": 0.9829999999999999
+      },
+      "size": {
+        "x": 0.8399999999999999,
+        "y": 2.1,
+        "z": 0.03
+      },
+      "material_id": "pqfp-bondwire-x",
+      "parent_group_id": "group-bond-wires",
+      "metadata": {
+        "boolean_source_id": "bond-wire-h-left",
+        "boolean_source_name": "Bond wires horizontal left"
+      }
+    },
+    {
+      "id": "bond-wire-h-upper-part-1",
+      "name": "Bond wires horizontal upper",
+      "structure_type": "bond_wire",
+      "origin": {
+        "x": -1.05,
+        "y": 1.05,
+        "z": 0.9829999999999999
+      },
+      "size": {
+        "x": 2.1,
+        "y": 0.8399999999999999,
+        "z": 0.03
+      },
+      "material_id": "pqfp-bondwire-y",
+      "parent_group_id": "group-bond-wires",
+      "metadata": {
+        "boolean_source_id": "bond-wire-h-upper",
+        "boolean_source_name": "Bond wires horizontal upper"
+      }
+    },
+    {
+      "id": "bond-wire-h-lower-part-1",
+      "name": "Bond wires horizontal lower",
+      "structure_type": "bond_wire",
+      "origin": {
+        "x": -1.05,
+        "y": -1.89,
+        "z": 0.9829999999999999
+      },
+      "size": {
+        "x": 2.1,
+        "y": 0.8399999999999999,
+        "z": 0.03
+      },
+      "material_id": "pqfp-bondwire-y",
+      "parent_group_id": "group-bond-wires",
+      "metadata": {
+        "boolean_source_id": "bond-wire-h-lower",
+        "boolean_source_name": "Bond wires horizontal lower"
+      }
+    },
+    {
+      "id": "bond-wire-v-right-part-1",
+      "name": "Bond wires vertical right",
+      "structure_type": "bond_wire",
+      "origin": {
+        "x": 1.89,
+        "y": -1.05,
+        "z": 0.875
+      },
+      "size": {
+        "x": 0.03,
+        "y": 2.1,
+        "z": 0.1379999999999999
+      },
+      "material_id": "pqfp-bondwire-x",
+      "parent_group_id": "group-bond-wires",
+      "metadata": {
+        "boolean_source_id": "bond-wire-v-right",
+        "boolean_source_name": "Bond wires vertical right"
+      }
+    },
+    {
+      "id": "bond-wire-v-left-part-1",
+      "name": "Bond wires vertical left",
+      "structure_type": "bond_wire",
+      "origin": {
+        "x": -1.92,
+        "y": -1.05,
+        "z": 0.875
+      },
+      "size": {
+        "x": 0.03,
+        "y": 2.1,
+        "z": 0.1379999999999999
+      },
+      "material_id": "pqfp-bondwire-x",
+      "parent_group_id": "group-bond-wires",
+      "metadata": {
+        "boolean_source_id": "bond-wire-v-left",
+        "boolean_source_name": "Bond wires vertical left"
+      }
+    },
+    {
+      "id": "bond-wire-v-upper-part-1",
+      "name": "Bond wires vertical upper",
+      "structure_type": "bond_wire",
+      "origin": {
+        "x": -1.05,
+        "y": 1.89,
+        "z": 0.875
+      },
+      "size": {
+        "x": 2.1,
+        "y": 0.03,
+        "z": 0.1379999999999999
+      },
+      "material_id": "pqfp-bondwire-y",
+      "parent_group_id": "group-bond-wires",
+      "metadata": {
+        "boolean_source_id": "bond-wire-v-upper",
+        "boolean_source_name": "Bond wires vertical upper"
+      }
+    },
+    {
+      "id": "bond-wire-v-lower-part-1",
+      "name": "Bond wires vertical lower",
+      "structure_type": "bond_wire",
+      "origin": {
+        "x": -1.05,
+        "y": -1.92,
+        "z": 0.875
+      },
+      "size": {
+        "x": 2.1,
+        "y": 0.03,
+        "z": 0.1379999999999999
+      },
+      "material_id": "pqfp-bondwire-y",
+      "parent_group_id": "group-bond-wires",
+      "metadata": {
+        "boolean_source_id": "bond-wire-v-lower",
+        "boolean_source_name": "Bond wires vertical lower"
+      }
+    },
+    {
+      "id": "pqfp-inner-right-part-1",
+      "name": "Lead frame right",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": 1.89,
+        "y": -3.0000000000000004,
+        "z": 0.725
+      },
+      "size": {
+        "x": 1.61,
+        "y": 6.000000000000001,
+        "z": 0.15
+      },
+      "material_id": "pqfp-leadframe-inner-x",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "pqfp-inner-right",
+        "boolean_source_name": "Lead frame right"
+      }
+    },
+    {
+      "id": "pqfp-inner-left-part-1",
+      "name": "Lead frame left",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -3.5,
+        "y": -3.0000000000000004,
+        "z": 0.725
+      },
+      "size": {
+        "x": 1.61,
+        "y": 6.000000000000001,
+        "z": 0.15
+      },
+      "material_id": "pqfp-leadframe-inner-x",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "pqfp-inner-left",
+        "boolean_source_name": "Lead frame left"
+      }
+    },
+    {
+      "id": "pqfp-inner-upper-part-1",
+      "name": "Lead frame upper",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -3.0000000000000004,
+        "y": 1.89,
+        "z": 0.725
+      },
+      "size": {
+        "x": 6.000000000000001,
+        "y": 1.61,
+        "z": 0.15
+      },
+      "material_id": "pqfp-leadframe-inner-y",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "pqfp-inner-upper",
+        "boolean_source_name": "Lead frame upper"
+      }
+    },
+    {
+      "id": "pqfp-inner-lower-part-1",
+      "name": "Lead frame lower",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -3.0000000000000004,
+        "y": -3.5,
+        "z": 0.725
+      },
+      "size": {
+        "x": 6.000000000000001,
+        "y": 1.61,
+        "z": 0.15
+      },
+      "material_id": "pqfp-leadframe-inner-y",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "pqfp-inner-lower",
+        "boolean_source_name": "Lead frame lower"
+      }
+    },
+    {
+      "id": "pqfp-outer-right-part-1",
+      "name": "Lead frame right",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": 3.5,
+        "y": -3.0000000000000004,
+        "z": 0.725
+      },
+      "size": {
+        "x": 0.75,
+        "y": 6.000000000000001,
+        "z": 0.15
+      },
+      "material_id": "pqfp-leadframe-outer-x",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "pqfp-outer-right",
+        "boolean_source_name": "Lead frame right"
+      }
+    },
+    {
+      "id": "pqfp-outer-left-part-1",
+      "name": "Lead frame left",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -4.25,
+        "y": -3.0000000000000004,
+        "z": 0.725
+      },
+      "size": {
+        "x": 0.75,
+        "y": 6.000000000000001,
+        "z": 0.15
+      },
+      "material_id": "pqfp-leadframe-outer-x",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "pqfp-outer-left",
+        "boolean_source_name": "Lead frame left"
+      }
+    },
+    {
+      "id": "pqfp-outer-upper-part-1",
+      "name": "Lead frame upper",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -3.0000000000000004,
+        "y": 3.5,
+        "z": 0.725
+      },
+      "size": {
+        "x": 6.000000000000001,
+        "y": 0.75,
+        "z": 0.15
+      },
+      "material_id": "pqfp-leadframe-outer-y",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "pqfp-outer-upper",
+        "boolean_source_name": "Lead frame upper"
+      }
+    },
+    {
+      "id": "pqfp-outer-lower-part-1",
+      "name": "Lead frame lower",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -3.0000000000000004,
+        "y": -4.25,
+        "z": 0.725
+      },
+      "size": {
+        "x": 6.000000000000001,
+        "y": 0.75,
+        "z": 0.15
+      },
+      "material_id": "pqfp-leadframe-outer-y",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "pqfp-outer-lower",
+        "boolean_source_name": "Lead frame lower"
+      }
+    },
+    {
+      "id": "pqfp-right-part-1",
+      "name": "Lead frame right",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": 4.1,
+        "y": -3.0000000000000004,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.15,
+        "y": 6.000000000000001,
+        "z": 0.725
+      },
+      "material_id": "pqfp-leadframe-outer-x",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "pqfp-right",
+        "boolean_source_name": "Lead frame right"
+      }
+    },
+    {
+      "id": "pqfp-left-part-1",
+      "name": "Lead frame left",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -4.25,
+        "y": -3.0000000000000004,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.15,
+        "y": 6.000000000000001,
+        "z": 0.725
+      },
+      "material_id": "pqfp-leadframe-outer-x",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "pqfp-left",
+        "boolean_source_name": "Lead frame left"
+      }
+    },
+    {
+      "id": "pqfp-upper-part-1",
+      "name": "Lead frame upper",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -3.0000000000000004,
+        "y": 4.1,
+        "z": 0.0
+      },
+      "size": {
+        "x": 6.000000000000001,
+        "y": 0.15,
+        "z": 0.725
+      },
+      "material_id": "pqfp-leadframe-outer-y",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "pqfp-upper",
+        "boolean_source_name": "Lead frame upper"
+      }
+    },
+    {
+      "id": "pqfp-lower-part-1",
+      "name": "Lead frame lower",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -3.0000000000000004,
+        "y": -4.25,
+        "z": 0.0
+      },
+      "size": {
+        "x": 6.000000000000001,
+        "y": 0.15,
+        "z": 0.725
+      },
+      "material_id": "pqfp-leadframe-outer-y",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "pqfp-lower",
+        "boolean_source_name": "Lead frame lower"
+      }
+    },
+    {
+      "id": "pqfp-foot-right-part-1",
+      "name": "Lead frame foot-right",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": 4.25,
+        "y": -3.0000000000000004,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.25,
+        "y": 6.000000000000001,
+        "z": 0.15
+      },
+      "material_id": "pqfp-leadframe-outer-x",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "pqfp-foot-right",
+        "boolean_source_name": "Lead frame foot-right"
+      }
+    },
+    {
+      "id": "pqfp-foot-left-part-1",
+      "name": "Lead frame foot-left",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -4.5,
+        "y": -3.0000000000000004,
+        "z": 0.0
+      },
+      "size": {
+        "x": 0.25,
+        "y": 6.000000000000001,
+        "z": 0.15
+      },
+      "material_id": "pqfp-leadframe-outer-x",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "pqfp-foot-left",
+        "boolean_source_name": "Lead frame foot-left"
+      }
+    },
+    {
+      "id": "pqfp-foot-upper-part-1",
+      "name": "Lead frame foot-upper",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -3.0000000000000004,
+        "y": 4.25,
+        "z": 0.0
+      },
+      "size": {
+        "x": 6.000000000000001,
+        "y": 0.25,
+        "z": 0.15
+      },
+      "material_id": "pqfp-leadframe-outer-y",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "pqfp-foot-upper",
+        "boolean_source_name": "Lead frame foot-upper"
+      }
+    },
+    {
+      "id": "pqfp-foot-lower-part-1",
+      "name": "Lead frame foot-lower",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -3.0000000000000004,
+        "y": -4.5,
+        "z": 0.0
+      },
+      "size": {
+        "x": 6.000000000000001,
+        "y": 0.25,
+        "z": 0.15
+      },
+      "material_id": "pqfp-leadframe-outer-y",
+      "parent_group_id": "group-lead-frame",
+      "metadata": {
+        "boolean_source_id": "pqfp-foot-lower",
+        "boolean_source_name": "Lead frame foot-lower"
+      }
+    },
+    {
+      "id": "die-attach-part-1",
+      "name": "Die attach",
+      "structure_type": "die_attach",
+      "origin": {
+        "x": -1.05,
+        "y": -1.05,
+        "z": 0.625
+      },
+      "size": {
+        "x": 2.1,
+        "y": 2.1,
+        "z": 0.038
+      },
+      "material_id": "die-attach",
+      "parent_group_id": "group-die-attach",
+      "metadata": {
+        "boolean_source_id": "die-attach",
+        "boolean_source_name": "Die attach"
+      }
+    },
+    {
+      "id": "tie-bar-right-upper-part-1",
+      "name": "Tie bar right-upper",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": 1.47,
+        "y": 0.97,
+        "z": 0.475
+      },
+      "size": {
+        "x": 2.0300000000000002,
+        "y": 0.5,
+        "z": 0.15
+      },
+      "material_id": "pqfp-tie-bar",
+      "parent_group_id": "group-tie-bars",
+      "metadata": {
+        "boolean_source_id": "tie-bar-right-upper",
+        "boolean_source_name": "Tie bar right-upper"
+      }
+    },
+    {
+      "id": "tie-bar-left-upper-part-1",
+      "name": "Tie bar left-upper",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -3.5,
+        "y": 0.97,
+        "z": 0.475
+      },
+      "size": {
+        "x": 2.0300000000000002,
+        "y": 0.5,
+        "z": 0.15
+      },
+      "material_id": "pqfp-tie-bar",
+      "parent_group_id": "group-tie-bars",
+      "metadata": {
+        "boolean_source_id": "tie-bar-left-upper",
+        "boolean_source_name": "Tie bar left-upper"
+      }
+    },
+    {
+      "id": "tie-bar-left-lower-part-1",
+      "name": "Tie bar left-lower",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -3.5,
+        "y": -1.47,
+        "z": 0.475
+      },
+      "size": {
+        "x": 2.0300000000000002,
+        "y": 0.5,
+        "z": 0.15
+      },
+      "material_id": "pqfp-tie-bar",
+      "parent_group_id": "group-tie-bars",
+      "metadata": {
+        "boolean_source_id": "tie-bar-left-lower",
+        "boolean_source_name": "Tie bar left-lower"
+      }
+    },
+    {
+      "id": "tie-bar-right-lower-part-1",
+      "name": "Tie bar right-lower",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": 1.47,
+        "y": -1.47,
+        "z": 0.475
+      },
+      "size": {
+        "x": 2.0300000000000002,
+        "y": 0.5,
+        "z": 0.15
+      },
+      "material_id": "pqfp-tie-bar",
+      "parent_group_id": "group-tie-bars",
+      "metadata": {
+        "boolean_source_id": "tie-bar-right-lower",
+        "boolean_source_name": "Tie bar right-lower"
+      }
+    },
+    {
+      "id": "tie-bar-upper-right-part-1",
+      "name": "Tie bar upper-right",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": 0.97,
+        "y": 1.47,
+        "z": 0.475
+      },
+      "size": {
+        "x": 0.5,
+        "y": 2.0300000000000002,
+        "z": 0.15
+      },
+      "material_id": "pqfp-tie-bar",
+      "parent_group_id": "group-tie-bars",
+      "metadata": {
+        "boolean_source_id": "tie-bar-upper-right",
+        "boolean_source_name": "Tie bar upper-right"
+      }
+    },
+    {
+      "id": "tie-bar-upper-left-part-1",
+      "name": "Tie bar upper-left",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -1.47,
+        "y": 1.47,
+        "z": 0.475
+      },
+      "size": {
+        "x": 0.5,
+        "y": 2.0300000000000002,
+        "z": 0.15
+      },
+      "material_id": "pqfp-tie-bar",
+      "parent_group_id": "group-tie-bars",
+      "metadata": {
+        "boolean_source_id": "tie-bar-upper-left",
+        "boolean_source_name": "Tie bar upper-left"
+      }
+    },
+    {
+      "id": "tie-bar-lower-left-part-1",
+      "name": "Tie bar lower-left",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -1.47,
+        "y": -3.5,
+        "z": 0.475
+      },
+      "size": {
+        "x": 0.5,
+        "y": 2.0300000000000002,
+        "z": 0.15
+      },
+      "material_id": "pqfp-tie-bar",
+      "parent_group_id": "group-tie-bars",
+      "metadata": {
+        "boolean_source_id": "tie-bar-lower-left",
+        "boolean_source_name": "Tie bar lower-left"
+      }
+    },
+    {
+      "id": "tie-bar-lower-right-part-1",
+      "name": "Tie bar lower-right",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": 0.97,
+        "y": -3.5,
+        "z": 0.475
+      },
+      "size": {
+        "x": 0.5,
+        "y": 2.0300000000000002,
+        "z": 0.15
+      },
+      "material_id": "pqfp-tie-bar",
+      "parent_group_id": "group-tie-bars",
+      "metadata": {
+        "boolean_source_id": "tie-bar-lower-right",
+        "boolean_source_name": "Tie bar lower-right"
+      }
+    }
+  ],
+  "groups": [
+    {
+      "id": "package",
+      "name": "PQFP",
+      "parent_id": null,
+      "block_ids": []
+    },
+    {
+      "id": "group-encapsulant",
+      "name": "Encapsulant",
+      "parent_id": "package",
+      "block_ids": [
+        "encapsulant-part-1"
+      ]
+    },
+    {
+      "id": "group-die",
+      "name": "Die",
+      "parent_id": "package",
+      "block_ids": [
+        "die-part-1"
+      ]
+    },
+    {
+      "id": "group-die-flag",
+      "name": "Die flag",
+      "parent_id": "package",
+      "block_ids": [
+        "die-flag-part-1"
+      ]
+    },
+    {
+      "id": "group-bond-wires",
+      "name": "Bond wires",
+      "parent_id": "package",
+      "block_ids": [
+        "bond-wire-h-right-part-1",
+        "bond-wire-h-left-part-1",
+        "bond-wire-h-upper-part-1",
+        "bond-wire-h-lower-part-1",
+        "bond-wire-v-right-part-1",
+        "bond-wire-v-left-part-1",
+        "bond-wire-v-upper-part-1",
+        "bond-wire-v-lower-part-1"
+      ]
+    },
+    {
+      "id": "group-lead-frame",
+      "name": "Lead frame",
+      "parent_id": "package",
+      "block_ids": [
+        "pqfp-inner-right-part-1",
+        "pqfp-inner-left-part-1",
+        "pqfp-inner-upper-part-1",
+        "pqfp-inner-lower-part-1",
+        "pqfp-outer-right-part-1",
+        "pqfp-outer-left-part-1",
+        "pqfp-outer-upper-part-1",
+        "pqfp-outer-lower-part-1",
+        "pqfp-right-part-1",
+        "pqfp-left-part-1",
+        "pqfp-upper-part-1",
+        "pqfp-lower-part-1",
+        "pqfp-foot-right-part-1",
+        "pqfp-foot-left-part-1",
+        "pqfp-foot-upper-part-1",
+        "pqfp-foot-lower-part-1"
+      ]
+    },
+    {
+      "id": "group-die-attach",
+      "name": "Die attach",
+      "parent_id": "package",
+      "block_ids": [
+        "die-attach-part-1"
+      ]
+    },
+    {
+      "id": "group-tie-bars",
+      "name": "Tie bars",
+      "parent_id": "package",
+      "block_ids": [
+        "tie-bar-right-upper-part-1",
+        "tie-bar-left-upper-part-1",
+        "tie-bar-left-lower-part-1",
+        "tie-bar-right-lower-part-1",
+        "tie-bar-upper-right-part-1",
+        "tie-bar-upper-left-part-1",
+        "tie-bar-lower-left-part-1",
+        "tie-bar-lower-right-part-1"
+      ]
+    }
+  ],
+  "heat_sources": [
+    {
+      "id": "die-source-1",
+      "name": "Die heat source 1",
+      "block_id": "die-part-1",
+      "power_w": 0.0
+    }
+  ],
+  "boundaries": [],
+  "metadata": {
+    "implementation": "packstudio-native",
+    "template_version": "2.2",
+    "reference_basis": "versioned JSON defaults with reviewed FloTHERM PACK 2504 mappings",
+    "default_parameter_schema": "packstudio.default-parameters/v1",
+    "reference_geometry_status": "supported-parameters-with-family-equivalent-geometry",
+    "runtime_reference_data_required": false,
+    "outline_type": "standard_outline",
+    "die_type": "actual_type",
+    "footprint_size": "LQFP_32_7X7mm",
+    "solver_results_included": false,
+    "lead_count": 32,
+    "reference_baseline": "FloTHERM PACK 2504 LQFP_32_7X7mm",
+    "thermal_land_and_solder_enabled": false,
+    "preset_source_path": "flocentral/flopack/pqfp/LQFP_32_7X7mm.des",
+    "preset_source_sha256": "cb509d3913b6c7b065a09a1208c34cbaacf6f1410fc1fa41fffe9ed9fec55435",
+    "preset_geometry_status": "native-defaults-adapted",
+    "preset_notes": "PACK 未启用的参数：thermal_land.thickness；原生未给定数值，保持空白，不计入当前模型。",
+    "summary.part_number": "",
+    "summary.vendor": "",
+    "summary.notes": "",
+    "native_grid_enabled": true,
+    "native_grid_density": "fine",
+    "native_grid_length_mm": 9.0,
+    "native_grid_width_mm": 9.0,
+    "native_grid_height_mm": 1.5
+  },
+  "warnings": [
+    "模型包含 27 对重叠块：encapsulant-part-1/pqfp-inner-left-part-1, encapsulant-part-1/tie-bar-left-upper-part-1, encapsulant-part-1/tie-bar-left-lower-part-1, encapsulant-part-1/pqfp-inner-upper-part-1, pqfp-inner-left-part-1/pqfp-inner-upper-part-1"
+  ],
+  "auxiliary_geometry": [
+    {
+      "kind": "monitor_point",
+      "name": "DieJunction_Temp",
+      "origin": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 1.01125
+      },
+      "size": null
+    },
+    {
+      "kind": "monitor_point",
+      "name": "CaseTemp",
+      "origin": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 1.4849999999999999
+      },
+      "size": null
+    },
+    {
+      "kind": "region",
+      "name": "z_bottom",
+      "origin": {
+        "x": -4.5,
+        "y": -4.5,
+        "z": 0.0
+      },
+      "size": {
+        "x": 9.0,
+        "y": 9.0,
+        "z": 1.0
+      }
+    },
+    {
+      "kind": "region",
+      "name": "z_top",
+      "origin": {
+        "x": -3.5,
+        "y": -3.5,
+        "z": 1.5
+      },
+      "size": {
+        "x": 7.0,
+        "y": 7.0,
+        "z": 1.0
+      }
+    }
+  ]
+}

@@ -2,8 +2,7 @@
 
 import json
 
-from packstudio.templates.package_library.catalog import definition
-from packstudio.templates.package_library.core.parameters import TemplateRequest
+from tools.dotnet_core import resolve_values
 from tools.floscript.des import read_des, write_des
 
 
@@ -26,14 +25,11 @@ def cases(baseline, inputs):
         )
         path = inputs / (identifier + ".des")
         write_des(path, data)
-        request = TemplateRequest(
-            template_id="pbga_wb", overrides={"pbga_wb.substrate.layers": "4-Layer"}
-        )
-        rows = definition("pbga_wb").validate_request(request).table("metal.layers")
+        payload = {"template_id": "pbga_wb", "overrides": {"pbga_wb.substrate.layers": "4-Layer"}}
+        rows = json.loads(resolve_values(payload)["metal.layers"])
         rows[0]["thickness"] = top
         rows[1].update(thickness=inner, depth=depth, disconnect=True)
         rows[2]["disconnect"] = False
-        payload = request.model_dump(mode="json")
         payload["overrides"]["pbga_wb.metal.layers"] = json.dumps(rows)
         result.append(
             {

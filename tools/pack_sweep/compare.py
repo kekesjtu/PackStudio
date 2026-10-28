@@ -3,9 +3,7 @@
 from math import isclose
 from xml.etree import ElementTree as ET
 
-from packstudio.exporters.floxml import export_floxml
-from packstudio.templates.package_library.catalog import generate
-from packstudio.templates.package_library.core.parameters import TemplateRequest
+from tools.dotnet_core import export_floxml
 from tools.pack_sweep.decisions import decision_geometry
 from tools.pack_sweep.geometry import fingerprint
 
@@ -23,8 +21,7 @@ def compare_model(native_path, request):
 def compare_native(native, request):
     family = request["template_id"]
     native = decision_geometry(native, family)
-    model = generate(TemplateRequest.model_validate(request))
-    actual = ET.fromstring(export_floxml(model))
+    actual = ET.fromstring(export_floxml(request))
     expected_shapes, actual_shapes = fingerprint(native), fingerprint(actual)
     if expected_shapes.keys() != actual_shapes.keys():
         raise ValueError(
@@ -88,14 +85,18 @@ def compare_native(native, request):
     ):
         raise ValueError(f"{family}: temperature-dependent material laws differ")
     power = sum(float(s.findtext("power")) for s in native.findall("attributes/sources/source_att"))
-    if not isclose(power, sum(s.power_w for s in model.heat_sources), abs_tol=1e-10):
+    if not isclose(
+        power,
+        sum(float(s.findtext("power")) for s in actual.findall("attributes/sources/source_att")),
+        abs_tol=1e-10,
+    ):
         raise ValueError(f"{family}: total power differs")
     return {
         "geometry": "passed",
         "materials": "passed",
         "auxiliary": "passed",
         "power": "passed",
-        "blocks": len(model.blocks),
+        "blocks": len(actual.findall(".//cuboid")),
         "decision_policy": family,
         "material_exceptions": sorted(exceptions),
     }

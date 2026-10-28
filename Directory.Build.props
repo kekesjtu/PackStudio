@@ -1,10 +1,1 @@
-<Project>
-  <PropertyGroup>
-    <BaseIntermediateOutputPath>$(MSBuildThisFileDirectory)build/dotnet/$(MSBuildProjectName)/obj/</BaseIntermediateOutputPath>
-    <BaseOutputPath>$(MSBuildThisFileDirectory)build/dotnet/$(MSBuildProjectName)/bin/</BaseOutputPath>
-    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
-    <Nullable>enable</Nullable>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-  </PropertyGroup>
-</Project>
+<Project><PropertyGroup><TargetFramework>net10.0</TargetFramework><Nullable>enable</Nullable><ImplicitUsings>enable</ImplicitUsings><RestorePackagesWithLockFile>true</RestorePackagesWithLockFile><TreatWarningsAsErrors>true</TreatWarningsAsErrors></PropertyGroup></Project>
