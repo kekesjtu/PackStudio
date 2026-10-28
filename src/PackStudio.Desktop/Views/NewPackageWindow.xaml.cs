@@ -11,6 +11,8 @@ public partial class NewPackageWindow : Window
     Template template = null!;
     bool syncing;
     bool customizing;
+    bool closed;
+    string? preparedFamily;
     public ProjectDocument Draft { get; private set; } = new();
     public ProjectDocument? CreatedDocument { get; private set; }
 
@@ -18,17 +20,53 @@ public partial class NewPackageWindow : Window
     {
         this.catalog = catalog;
         InitializeComponent();
+        Closed += (_, _) => closed = true;
         var choices = new ListCollectionView(PackagePresentation.Choices.ToList());
         choices.GroupDescriptions.Add(new PropertyGroupDescription(nameof(PackageChoice.Group)));
         TemplateList.ItemsSource = choices;
         TemplateList.SelectedValue = initialFamily;
     }
 
-    void Template_Changed(object sender, SelectionChangedEventArgs e)
+    async Task<bool> PrepareTemplateAsync()
     {
         if (TemplateList.SelectedValue is not string id)
-            return;
-        template = catalog.Load(id);
+            return false;
+        if (preparedFamily == id) return true;
+        NextButton.IsEnabled = TemplateList.IsEnabled = false;
+        NextButton.Content = "正在加载…";
+        TemplateError.Visibility = Visibility.Collapsed;
+        try
+        {
+            var loaded = await Task.Run(() => catalog.Load(id));
+            if (closed) return false;
+            preparedFamily = null;
+            InitializeTemplate(loaded);
+            preparedFamily = id;
+            return true;
+        }
+        catch (Exception ex)
+        {
+            if (!closed)
+            {
+                TemplateError.Text = "无法加载模板：" + ex.Message;
+                TemplateError.Visibility = Visibility.Visible;
+            }
+            return false;
+        }
+        finally
+        {
+            if (!closed)
+            {
+                NextButton.IsEnabled = TemplateList.IsEnabled = true;
+                NextButton.Content = "下一步 >";
+            }
+        }
+    }
+
+    void InitializeTemplate(Template loaded)
+    {
+        template = loaded;
+        string id = template.Info.Id;
         syncing = true;
         DesignNameBox.Text = template.Info.Name;
         var variants = template.Presets.Select(p => p.Values["package.type"].Text()).Distinct().Where(v => v.Length > 0).ToList();
@@ -84,10 +122,11 @@ public partial class NewPackageWindow : Window
         RefreshCreationOptions();
     }
 
-    void Next_Click(object sender, RoutedEventArgs e)
+    async void Next_Click(object sender, RoutedEventArgs e)
     {
         if (!customizing)
         {
+            if (!await PrepareTemplateAsync()) return;
             customizing = true;
             TemplateList.Visibility = Visibility.Collapsed;
             CustomizePage.Visibility = Visibility.Visible;
@@ -114,6 +153,7 @@ public partial class NewPackageWindow : Window
     public bool TryCreate()
     {
         CreatedDocument = null;
+        if (preparedFamily == null) return false;
         string name = DesignNameBox.Text.Trim();
         if (name.Length == 0 || name.Length > 160)
         {

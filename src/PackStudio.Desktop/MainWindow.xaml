@@ -55,9 +55,18 @@
   <GridSplitter x:Name="LeftColumnSplitter" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
                 Background="#D7DFE6" ResizeDirection="Columns" ResizeBehavior="PreviousAndNext" ShowsPreview="False"/>
   <ad:DockingManager Grid.Column="2"><layout:LayoutRoot><layout:LayoutPanel><layout:LayoutDocumentPane><layout:LayoutDocument Title="三维模型" CanClose="False" CanFloat="False"><Grid Background="#EDF1F5">
-<helix:HelixViewport3D x:Name="Viewport" ShowCoordinateSystem="True" ShowViewCube="False" CoordinateSystemHorizontalPosition="Right" CoordinateSystemVerticalPosition="Bottom" ModelUpDirection="0,0,1" PanGesture="LeftClick" PanGesture2="{x:Null}" RotateGesture="RightClick" RotateGesture2="{x:Null}" ZoomExtentsWhenLoaded="True" Background="#EDF1F5" PreviewMouseLeftButtonDown="Viewport_PointerDown" PreviewMouseMove="Viewport_PointerMove" PreviewMouseLeftButtonUp="Viewport_PointerUp"><helix:HelixViewport3D.Camera><PerspectiveCamera Position="20,-28,22" LookDirection="-20,28,-20" UpDirection="0,0,1" FieldOfView="40"/></helix:HelixViewport3D.Camera><helix:DefaultLights/></helix:HelixViewport3D>
+<helix:HelixViewport3D x:Name="Viewport" SizeChanged="UpdateViewportScale" ShowCoordinateSystem="True" ShowViewCube="False" CoordinateSystemHorizontalPosition="Right" CoordinateSystemVerticalPosition="Bottom" ModelUpDirection="0,0,1" PanGesture="LeftClick" PanGesture2="{x:Null}" RotateGesture="RightClick" RotateGesture2="{x:Null}" ZoomExtentsWhenLoaded="True" Background="#EDF1F5" PreviewMouseLeftButtonDown="Viewport_PointerDown" PreviewMouseMove="Viewport_PointerMove" PreviewMouseLeftButtonUp="Viewport_PointerUp"><helix:HelixViewport3D.Camera><PerspectiveCamera Position="20,-28,22" LookDirection="-20,28,-20" UpDirection="0,0,1" FieldOfView="40"/></helix:HelixViewport3D.Camera><helix:DefaultLights/></helix:HelixViewport3D>
 
-<Border x:Name="WarningsPanel" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="12" Padding="10,8" MaxWidth="360"
+<Border x:Name="ViewportScaleOverlay" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="18" Padding="12,8" Background="#EEFFFFFF" CornerRadius="4" IsHitTestVisible="False" Visibility="Collapsed" Loaded="UpdateViewportScale">
+  <StackPanel>
+    <TextBlock x:Name="ScaleLabel" Text="— mm" FontSize="11" Foreground="#344255" HorizontalAlignment="Center" Margin="0,0,0,3"/>
+    <Canvas x:Name="ScaleBarLine" Width="120" Height="10">
+      <Line X1="0" Y1="5" X2="120" Y2="5" Stroke="#344255" StrokeThickness="1.5"/>
+      <Line X1="0" Y1="1" X2="0" Y2="9" Stroke="#344255" StrokeThickness="1.5"/>
+      <Line X1="120" Y1="1" X2="120" Y2="9" Stroke="#344255" StrokeThickness="1.5"/>
+    </Canvas>
+  </StackPanel>
+</Border><Border x:Name="WarningsPanel" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="12" Padding="10,8" MaxWidth="360"
         Background="#FFFFF4D6" BorderBrush="#E3C37B" BorderThickness="1" CornerRadius="4" IsHitTestVisible="False">
   <Border.Style><Style TargetType="Border"><Style.Triggers>
     <DataTrigger Binding="{Binding Text, ElementName=WarningsText}" Value=""><Setter Property="Visibility" Value="Collapsed"/></DataTrigger>

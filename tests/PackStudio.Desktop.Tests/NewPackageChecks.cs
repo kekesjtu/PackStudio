@@ -14,7 +14,20 @@ static class NewPackageChecks
     static T Control<T>(FrameworkElement window, string name)
         where T : FrameworkElement => (T)window.FindName(name);
     static void Click(Button button) => button.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
-    public static ProjectDocument CreateDraft(PackageCatalog catalog, string family)
+    internal static async Task OpenCustomize(NewPackageWindow dialog)
+    {
+        Click(Control<Button>(dialog, "NextButton"));
+        long deadline = Environment.TickCount64 + 15000;
+        while (Control<FrameworkElement>(dialog, "CustomizePage").Visibility != Visibility.Visible)
+        {
+            if (Control<FrameworkElement>(dialog, "TemplateError").Visibility == Visibility.Visible)
+                throw new Exception(Control<TextBlock>(dialog, "TemplateError").Text);
+            if (Environment.TickCount64 > deadline) throw new TimeoutException("template initialization timed out");
+            await Task.Delay(10);
+        }
+    }
+
+    public static async Task<ProjectDocument> CreateDraft(PackageCatalog catalog, string family)
     {
         var dialog = new NewPackageWindow(catalog, family)
         {
@@ -27,7 +40,7 @@ static class NewPackageChecks
         {
             if (family == "qfn")
                 Capture(dialog, "new-package-templates.png");
-            Click(Control<Button>(dialog, "NextButton"));
+            await OpenCustomize(dialog);
             if (Control<FrameworkElement>(dialog, "CustomizePage").Visibility != Visibility.Visible)
                 throw new Exception("customization page did not open");
             var name = Control<TextBox>(dialog, "DesignNameBox");
@@ -51,7 +64,7 @@ static class NewPackageChecks
 
             var values = dialog.Draft.Values.DeepClone();
             Click(Control<Button>(dialog, "BackButton"));
-            Click(Control<Button>(dialog, "NextButton"));
+            await OpenCustomize(dialog);
             if (!JToken.DeepEquals(values, dialog.Draft.Values) || name.Text != "测试方案 " + family)
                 throw new Exception("back/next discarded draft inputs");
             if (!dialog.TryCreate() || dialog.CreatedDocument is not ProjectDocument result)
@@ -76,12 +89,12 @@ static class NewPackageChecks
     {
         var document = workspace.Document;
         var model = workspace.Model;
-        _ = window.Dispatcher.BeginInvoke(() =>
+        _ = window.Dispatcher.BeginInvoke(async () =>
         {
             var dialog = window.OwnedWindows.OfType<NewPackageWindow>().Single();
             dialog.Opacity = 0;
             Control<ListBox>(dialog, "TemplateList").SelectedValue = "pqfp";
-            Click(Control<Button>(dialog, "NextButton"));
+            await OpenCustomize(dialog);
             Control<TextBox>(dialog, "DesignNameBox").Text = "不应覆盖当前方案";
             dialog.Close();
         });
@@ -93,12 +106,12 @@ static class NewPackageChecks
 
     public static async Task FinishCreatesProject(MainWindow window, Workspace workspace)
     {
-        _ = window.Dispatcher.BeginInvoke(() =>
+        _ = window.Dispatcher.BeginInvoke(async () =>
         {
             var dialog = window.OwnedWindows.OfType<NewPackageWindow>().Single();
             dialog.Opacity = 0;
             Control<ListBox>(dialog, "TemplateList").SelectedValue = "qfn";
-            Click(Control<Button>(dialog, "NextButton"));
+            await OpenCustomize(dialog);
             Control<TextBox>(dialog, "DesignNameBox").Text = "QFN — 布局验证";
             Click(Control<Button>(dialog, "NextButton"));
         });

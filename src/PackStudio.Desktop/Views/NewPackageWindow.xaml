@@ -13,9 +13,10 @@
         <Button Content="取消" IsCancel="True" MinWidth="85"/>
       </StackPanel>
     </Border>
+    <TextBlock x:Name="TemplateError" DockPanel.Dock="Bottom" Visibility="Collapsed" Foreground="#B42318" TextWrapping="Wrap" Margin="18,0,18,10"/>
     <TextBlock x:Name="StageTitle" DockPanel.Dock="Top" Text="选择起始模板" FontSize="18" FontWeight="SemiBold" Margin="18,16,18,12"/>
     <Grid Margin="18,0,18,16">
-      <ListBox x:Name="TemplateList" SelectedValuePath="Id" SelectionChanged="Template_Changed"
+      <ListBox x:Name="TemplateList" SelectedValuePath="Id"
                BorderThickness="0" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
         <ListBox.ItemsPanel><ItemsPanelTemplate><WrapPanel/></ItemsPanelTemplate></ListBox.ItemsPanel>
         <ListBox.ItemContainerStyle>

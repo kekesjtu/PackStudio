@@ -26,12 +26,13 @@ public static class Program
                 var vm = (Workspace)window.DataContext;
                 while (vm.IsBusy)
                     await Task.Delay(20);
+                await TemplateSelectionChecks.Run();
                 NewPackageChecks.CancelPreservesProject(window, vm);
                 var steps = (ListBox)window.FindName("StepList");
                 var fields = (StackPanel)window.FindName("FieldsPanel");
                 foreach (var family in PackageCatalog.Families)
                 {
-                    var created = NewPackageChecks.CreateDraft(vm.Catalog, family.Id);
+                    var created = await NewPackageChecks.CreateDraft(vm.Catalog, family.Id);
                     vm.Load(created);
                     if (steps.Items[0] is not WizardStep { Key: "summary" })
                         throw new Exception("summary must be first");
@@ -74,6 +75,7 @@ public static class Program
 
                 await NewPackageChecks.FinishCreatesProject(window, vm);
                 WorkspaceChecks.Run(window, vm);
+                await ViewportScaleChecks.Run(window);
             }
             catch (Exception ex)
             {

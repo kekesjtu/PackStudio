@@ -13,6 +13,7 @@ public partial class MainWindow : Window
     public MainWindow()
     {
         InitializeComponent();
+        InitializeViewportScale();
         DataContext = workspace;
         workspace.DocumentChanged += RefreshDocument;
         workspace.ModelChanged += RefreshModel;
