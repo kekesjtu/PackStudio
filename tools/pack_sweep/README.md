@@ -46,16 +46,15 @@ flotherm_pack_data/
       model.des
       input.des          # 仅 DES 附件/参数探针需要
       native_run.json
-      validate.py
       verification.json
 ```
 
 `script.xml` 使用点目录内的相对路径，可交给 `tools.floscript run` 再次执行。
 原生版本、二进制哈希、批次脚本哈希和点文件哈希保存在 `native_run.json`。
-每个点的验证脚本调用同一套验证逻辑：
+通过统一命令验证整个参考库或指定扫参点：
 
 ```powershell
-uv run --locked python flotherm_pack_data/template/bare_die/baseline/validate.py
+uv run --locked python -m tools.pack_sweep validate
 uv run --locked python -m tools.pack_sweep validate --point flotherm_pack_data/template/bare_die/baseline
 ```
 

@@ -12,17 +12,6 @@ from tools.floscript.script import validate as validate_xml
 from tools.floscript.script import write_xml
 from tools.pack_sweep.archive import digest
 
-VALIDATOR = '''"""Validate this native reference point from the repository environment."""
-from pathlib import Path
-import sys
-
-point = Path(__file__).resolve().parent
-repository = next(p for p in point.parents if (p / "tools/pack_sweep").is_dir())
-sys.path.insert(0, str(repository))
-from tools.pack_sweep.__main__ import main
-raise SystemExit(main(["validate", "--point", str(point)]))
-'''
-
 
 def dump(path, payload):
     path.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
@@ -69,7 +58,6 @@ def write_point(point, destination, runtime, token, run, installation=INSTALLATI
         shutil.copy2(runtime / (token + extension), destination / ("model" + extension))
     if point.input_des:
         shutil.copy2(point.input_des, destination / "input.des")
-    (destination / "validate.py").write_text(VALIDATOR, encoding="utf-8")
     names = ["model.xml", "model.des", "case.json", "script.xml"]
     if point.input_des:
         names.append("input.des")

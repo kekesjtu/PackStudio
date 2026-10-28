@@ -68,7 +68,6 @@ source = ["packstudio"]
 [tool.ruff]
 line-length = 100
 target-version = "py313"
-extend-exclude = ["flotherm_pack_data"]
 
 [tool.ruff.lint]
 select = ["B", "E", "F", "I", "SIM", "UP"]

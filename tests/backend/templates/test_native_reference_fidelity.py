@@ -44,7 +44,6 @@ def test_reference_index_covers_every_point_and_preserves_native_schema_errors(s
             errors.append(directory)
         else:
             assert run["checks"]["floxml_schema"]
-        assert (directory / "validate.py").is_file()
     assert len(errors) == 7
     assert all(p.name == "opt_v2_c001_outlinetype_nonstandardoutline" for p in errors)
     for image in json.loads((ROOT / "screenshots.json").read_text(encoding="utf-8")):
