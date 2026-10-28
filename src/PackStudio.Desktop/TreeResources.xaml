@@ -55,11 +55,14 @@
         <ControlTemplate TargetType="local:ModelRootItem">
           <Grid>
             <Grid.RowDefinitions><RowDefinition Height="28"/><RowDefinition Height="Auto"/></Grid.RowDefinitions>
-            <Border x:Name="RowBackground" Padding="23,0,3,0" BorderBrush="#F1F4F7" BorderThickness="0,0,0,1">
+            <Border x:Name="RowBackground" Padding="23,0,3,0" Background="Transparent" BorderBrush="#F1F4F7" BorderThickness="0,0,0,1">
               <ContentPresenter x:Name="PART_Header" ContentSource="Header" HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
             </Border>
             <ItemsPresenter Grid.Row="1" Margin="20,0,0,0"/>
           </Grid>
+          <ControlTemplate.Triggers>
+            <Trigger Property="local:TreeRow.IsHighlighted" Value="True"><Setter TargetName="RowBackground" Property="Background" Value="#D8E9FB"/></Trigger>
+          </ControlTemplate.Triggers>
         </ControlTemplate>
       </Setter.Value>
     </Setter>

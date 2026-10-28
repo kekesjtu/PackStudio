@@ -1,6 +1,5 @@
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Media3D;
 using HelixToolkit.Wpf;
@@ -40,6 +39,7 @@ public partial class MainWindow
         {
             ModelTree.Items.Clear();
             rangeAnchor = null;
+            inspectedGroup = null;
             var root = TreeItem(new("package", model.Name, model.Blocks));
             root.IsExpanded = true;
             ModelTree.Items.Add(root);
@@ -68,15 +68,22 @@ public partial class MainWindow
             }
         }
 
-        foreach (var item in TreeItems())
-            if (item.Tag is Node n)
-            {
-                bool selected = n.Block != null && workspace.Selected.Contains(n.Id), hidden = n.Block != null && workspace.Hidden.Contains(n.Id);
-                string count = n.Block == null ? $"{n.Blocks.Count(b => !workspace.Hidden.Contains(b.Id))}/{n.Blocks.Count}" : "";
-                item.Header = new TreeRow(n.Name, n.Block == null, count, hidden: hidden, modelGroup: true);
-                TreeRow.SetIsHighlighted(item, selected);
-                System.Windows.Automation.AutomationProperties.SetName(item, n.Name + (hidden ? "（隐藏）" : ""));
-            }
+        updatingModelTree = true;
+        try
+        {
+            foreach (var item in TreeItems())
+                if (item.Tag is Node n)
+                {
+                    bool selected = n.Block != null ? workspace.Selected.Contains(n.Id) : inspectedGroup?.Id == n.Id;
+                    bool hidden = n.Block != null && workspace.Hidden.Contains(n.Id);
+                    string count = n.Block == null ? $"{n.Blocks.Count(b => !workspace.Hidden.Contains(b.Id))}/{n.Blocks.Count}" : "";
+                    item.Header = new TreeRow(n.Name, n.Block == null, count, hidden: hidden, modelGroup: true);
+                    item.IsSelected = selected && workspace.Selected.Count <= 1;
+                    TreeRow.SetIsHighlighted(item, selected);
+                    System.Windows.Automation.AutomationProperties.SetName(item, n.Name + (hidden ? "（隐藏）" : ""));
+                }
+        }
+        finally { updatingModelTree = false; }
 
         Viewport.Children.Clear();
         hitTargets.Clear();
@@ -162,95 +169,5 @@ public partial class MainWindow
         foreach (var item in TreeItems())
             if (item.Items.Count > 0)
                 item.IsExpanded = item.Tag is Node { Id: "package" } || expand;
-    }
-
-    void Tree_MouseDown(object sender, MouseButtonEventArgs e)
-    {
-        var element = e.OriginalSource as DependencyObject;
-        while (element != null && element is not TreeViewItem)
-            element = VisualTreeHelper.GetParent(element);
-        if (element is TreeViewItem { Tag: Node { Block: not null } node })
-        {
-            SelectBlock(node.Id);
-            e.Handled = true;
-        }
-    }
-
-    void SelectBlock(string id)
-    {
-        bool control = Keyboard.Modifiers.HasFlag(ModifierKeys.Control), shift = Keyboard.Modifiers.HasFlag(ModifierKeys.Shift);
-        var visible = TreeItems().Where(i => i.Tag is Node { Block: not null } && AncestorsExpanded(i)).Select(i => ((Node)i.Tag).Id).ToList();
-        if (shift && rangeAnchor != null && visible.Contains(rangeAnchor) && visible.Contains(id))
-        {
-            if (!control)
-                workspace.Selected.Clear();
-            int a = visible.IndexOf(rangeAnchor), b = visible.IndexOf(id);
-            workspace.Selected.UnionWith(visible.Skip(Math.Min(a, b)).Take(Math.Abs(a - b) + 1));
-        }
-        else
-        {
-            if (!control)
-                workspace.Selected.Clear();
-            if (!workspace.Selected.Add(id) && control)
-                workspace.Selected.Remove(id);
-            rangeAnchor = id;
-        }
-
-        RefreshModel();
-    }
-
-    static bool AncestorsExpanded(TreeViewItem item)
-    {
-        var parent = ItemsControl.ItemsControlFromItemContainer(item);
-        while (parent is TreeViewItem node)
-        {
-            if (!node.IsExpanded)
-                return false;
-            parent = ItemsControl.ItemsControlFromItemContainer(node);
-        }
-
-        return true;
-    }
-
-    void SelectViewportBlock(Point point)
-    {
-        string? id = null;
-        VisualTreeHelper.HitTest(Viewport.Viewport, null, result =>
-        {
-            if (result is RayMeshGeometry3DHitTestResult mesh && hitTargets.TryGetValue(mesh.VisualHit, out var hit))
-            {
-                id = hit;
-                return HitTestResultBehavior.Stop;
-            }
-
-            return HitTestResultBehavior.Continue;
-        }, new PointHitTestParameters(point));
-        workspace.Selected.Clear();
-        if (id != null)
-            workspace.Selected.Add(id);
-        rangeAnchor = id;
-        RefreshModel();
-    }
-
-    void UpdateInspector()
-    {
-        if (workspace.Model is not PackageModel model)
-            return;
-        var blocks = model.Blocks.Where(b => workspace.Selected.Contains(b.Id)).ToList();
-        if (blocks.Count == 0)
-        {
-            Inspector.Text = "在模型树或三维视图中选择组件。\n\n右键菜单可递归显示、隐藏或隔离组件。\nCtrl 多选，Shift 连选。";
-            return;
-        }
-
-        if (blocks.Count > 1)
-        {
-            Inspector.Text = $"已选择 {blocks.Count} 个矩形块\n总体积：{blocks.Sum(b => b.Size.Volume):G6} mm³";
-            return;
-        }
-
-        var b = blocks[0];
-        var m = model.Materials[b.MaterialId];
-        Inspector.Text = $"{b.Name}\n\n类型：{b.StructureType}\n位置：{b.Origin.X:G6}, {b.Origin.Y:G6}, {b.Origin.Z:G6} mm\n尺寸：{b.Size.X:G6} × {b.Size.Y:G6} × {b.Size.Z:G6} mm\n\n材料：{m.Name}\nkx / ky / kz：\n{m.Conductivity.X:G6} / {m.Conductivity.Y:G6} / {m.Conductivity.Z:G6} W/(m·K)\n密度：{m.Density:G6} kg/m³\n比热：{m.SpecificHeat:G6} J/(kg·K)\n功率：{model.Sources.Where(s => s.BlockId == b.Id).Sum(s => s.Power):G6} W";
     }
 }
