@@ -31,12 +31,6 @@ $$
 
 本项等效物性以本决策公式作为验收依据，原生 FloXML 样本作为原生行为证据保存。
 
-## 实现对照
-
-`src/packstudio/domain/materials.py` 的 `Material.expand_isotropic_conductivity` 将标量展开为三向张量。
-`src/packstudio/templates/package_library/flip_chip/substrate.py` 的 `append_substrate`
-在 Core Vias 等效分支将三向相等的基板导热率置零，该分支与本决策存在实现差距。
-`core/mixtures.py` 的 `mix_material` 提供基体平面导热率与轴向并联混合计算。
 
 ## 验收标准
 

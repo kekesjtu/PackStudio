@@ -51,12 +51,6 @@ $$
 其他组件的重叠表达遵循[重叠块与警告](重叠块与警告.md)。
 本项几何以堆叠和接触关系作为验收依据，原生 FloXML 样本作为原生行为证据保存。
 
-## 实现对照
-
-`src/packstudio/templates/package_library/leadframe/sop.py` 的 `_build`
-使用 `flag_z + flag_thickness` 作为胶层底面，胶层顶面作为芯片底面。
-塑封容纳校验使用堆叠后的实际芯片顶面。
-键合线生成使用 `die_top` 与 `lead_top`，其端点随堆叠坐标联动。
 
 ## 验收标准
 

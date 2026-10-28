@@ -49,14 +49,6 @@ SOP 的活动参数、运行时字段和参数向导保持一致，可编辑键�
 原生 DES 与 FloXML 样本保留 `Lbw` 作为参考证据。
 本项以活动参数范围、几何派生显示和现有体积分数公式作为验收依据。
 
-## 实现对照
-
-`runtime_data/templates/sop.json` 定义线数、线径及方向物性选项，
-`runtime_data/pack_bindings.json` 保存原生线长的追溯映射。
-`src/packstudio/templates/package_library/leadframe/sop.py` 按尺寸和端点生成键合线，
-`core/coupled_materials.py` 使用上述 $f$ 计算 SOP 键合线等效物性。
-`SopNominalPaths.tsx` 从当前方案尺寸计算两个方向的只读名义路径。
-原生参数映射承担参考数据追溯职责，活动字段由运行模板定义。
 
 ## 验收标准
 

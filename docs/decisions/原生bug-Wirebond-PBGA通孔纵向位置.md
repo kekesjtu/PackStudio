@@ -36,12 +36,6 @@ PACK 原生通孔范围为 $0.61\sim0.92$ mm；
 
 本项纵向位置以铜层接触关系作为验收依据，原生 FloXML 样本作为原生行为证据保存。
 
-## 实现对照
-
-`src/packstudio/templates/package_library/bga/pbga_wb.py` 的 `_build`
-从金属层表取得实际顶、底铜厚，使用 `bga_height + bottom_trace` 作为通孔起点，
-孔高为 `substrate - top_trace - bottom_trace`。
-公共 `hollow_vias` 生成离散孔或保留完整阵列包络的等效块。
 
 ## 验收标准
 
