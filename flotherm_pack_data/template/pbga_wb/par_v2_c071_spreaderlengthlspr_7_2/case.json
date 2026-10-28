@@ -1,0 +1,27 @@
+{
+  "template": "pbga_wb",
+  "id": "par_v2_c071_spreaderlengthlspr_7_2",
+  "origin": "legacy",
+  "commands": [
+    "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>",
+    "<modify_component name=\"backsideSpreader\" new_value=\"true\" property_name=\"includeBacksideSpreader\" />",
+    "<modify_component name=\"backsideSpreader\" new_value=\"8\" property_name=\"spreaderWidthWspr\" />",
+    "<modify_component name=\"backsideSpreader\" new_value=\"0.5\" property_name=\"spreaderThicknessTspr\" />",
+    "<modify_component name=\"backsideSpreader\" new_value=\"5\" property_name=\"bottomTraceHoleLengthLbt\" />",
+    "<modify_component name=\"backsideSpreader\" new_value=\"5\" property_name=\"bottomTraceHoleWidthWbt\" />",
+    "<modify_component name=\"backsideSpreader\" new_value=\"7.2\" property_name=\"spreaderLengthLspr\" />"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "numeric_parameter",
+    "target": {
+      "component": "backsideSpreader",
+      "property": "spreaderLengthLspr",
+      "label": "Spreader Length Lspr",
+      "baseline": 8,
+      "value": 7.2
+    },
+    "comparison_baseline": "br_v2_backsidespreader_spreaderlengthlspr/model.xml",
+    "expected_outcome": "semantic_change"
+  }
+}

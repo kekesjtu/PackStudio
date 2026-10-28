@@ -1,0 +1,33 @@
+{
+  "template": "chip_array",
+  "id": "chip_array-explicit-True",
+  "origin": "fidelity",
+  "commands": [
+    "<load_des filename=\"input.des\" />"
+  ],
+  "request": {
+    "template_id": "chip_array",
+    "overrides": {
+      "chip_array.bga.rows": 5,
+      "chip_array.bga.columns": 5
+    },
+    "bga": {
+      "representation": "discrete",
+      "solder_removal_enabled": true,
+      "depopulated_center": true,
+      "populated_rows": 2,
+      "populated_columns": 2,
+      "staggered": true,
+      "omitted_cells": [
+        {
+          "row": 0,
+          "column": 0
+        }
+      ]
+    }
+  },
+  "metadata": {},
+  "input_members": {
+    "chip_array-explicit-True.des": "d7d77bd83419c9920a477ec0670bbafc5b02b17d3093a8362849e19891ec5850"
+  }
+}

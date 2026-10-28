@@ -42,8 +42,8 @@ npm run desktop
 | `output_format/floxml/` | FloXML 契约、XSD 和示例 |
 | `tests/` | 后端、前端、启动和桌面验证 |
 | `tools/` | 开发、打包、通用原生导出与回归辅助工具 |
-| `docs/` | 产品需求、设计决策和参考数据 |
-| `flotherm_pack_data/` | 本地原生参考数据 |
+| `docs/` | 产品需求与设计决策 |
+| `flotherm_pack_data/` | 纳入版本控制的原生扫参、导出、截图与验证结果 |
 | `tmp/` | 临时产物与日志 |
 
 ## 测试与构建
@@ -60,8 +60,7 @@ npm run build
 
 [需求说明](docs/requirements.md) · [开发与验证操作](tools/README.md) ·
 [运行数据](runtime_data/README.md) · [FloXML 契约](output_format/floxml/README.md) ·
-[FloSCRIPT 本机操作](FLOSCRIPT.md) · [PACK 扫参与参考库重建](tools/pack_sweep/README.md) ·
-[验证数据](docs/validation/README.md)
+[FloSCRIPT 本机操作](FLOSCRIPT.md) · [PACK 扫参与参考库重建](tools/pack_sweep/README.md)
 
 | 决策 | 范围 |
 | --- | --- |

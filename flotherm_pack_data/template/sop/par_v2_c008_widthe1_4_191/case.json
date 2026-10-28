@@ -1,0 +1,22 @@
+{
+  "template": "sop",
+  "id": "par_v2_c008_widthe1_4_191",
+  "origin": "legacy",
+  "commands": [
+    "<new_package package_type=\"tsop_conv\">\n        <new_value new_value=\"SOP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"soic/sop/so\" property_name=\"sopPackageType\" />\n        <new_value new_value=\"SOP_8_3_81x4_93\" property_name=\"sopJedecFootprint\" />\n    </new_package>",
+    "<modify_component name=\"encapsulant\" new_value=\"4.191\" property_name=\"widthE1\" />"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "numeric_parameter",
+    "target": {
+      "component": "encapsulant",
+      "property": "widthE1",
+      "label": "Width E1",
+      "baseline": 3.81,
+      "value": 4.191
+    },
+    "comparison_baseline": "baseline/model.xml",
+    "expected_outcome": "semantic_change"
+  }
+}

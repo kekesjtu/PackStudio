@@ -1,14 +1,10 @@
-import hashlib
-import json
-from pathlib import Path
-
 import pytest
 
 from packstudio.domain.enums import StructureType
-from packstudio.runtime_data import library_directory
 from packstudio.templates.package_library.catalog import generate, schema
 from packstudio.templates.package_library.core.parameters import BgaConfiguration, TemplateRequest
 from packstudio.templates.package_library.core.source_ball_pattern import source_bga_pattern
+from tools.validate_catalog_presets import audit_catalog
 
 
 def request(template_id: str, preset: str, **parameters) -> TemplateRequest:
@@ -90,18 +86,12 @@ def test_native_cover_and_power_defaults_are_part_of_preset_values() -> None:
     )
 
 
-def test_persisted_export_audit_covers_all_sources_and_current_inputs() -> None:
-    report = json.loads(
-        (Path(__file__).parents[3] / "docs/validation/catalog_presets.json").read_text(
-            encoding="utf-8"
-        )
-    )
+def test_export_audit_generates_and_checks_all_current_sources() -> None:
+    report = audit_catalog()
     assert report["source_count"] == len(report["records"]) == 342
     assert report["schema_version"] == "packstudio.catalog-adaptation-audit/v2"
     assert report["model_export_cases"] == 510
     assert len({record["preset_source_path"] for record in report["records"]}) == 342
-    for relative, digest in report["input_sha256"].items():
-        assert hashlib.sha256((library_directory() / relative).read_bytes()).hexdigest() == digest
     assert all(
         case["geometry_references"] == case["floxml_xsd"] == "passed"
         and case["floxml_cuboids"] == case["physical_blocks"]

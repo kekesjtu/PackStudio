@@ -1,0 +1,22 @@
+{
+  "template": "qfn",
+  "id": "par_v2_c027_leadetch_0_045",
+  "origin": "legacy",
+  "commands": [
+    "<new_package package_type=\"QFN\">\n        <new_value new_value=\"QFN\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"QFN_12X12_100\" property_name=\"jedecFootprint\" />\n    </new_package>",
+    "<modify_component name=\"leadAndSolderInterconnect\" new_value=\"0.045\" property_name=\"leadEtch\" />"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "numeric_parameter",
+    "target": {
+      "component": "leadAndSolderInterconnect",
+      "property": "leadEtch",
+      "label": "Lead Etch",
+      "baseline": 0.05,
+      "value": 0.045
+    },
+    "comparison_baseline": "baseline/model.xml",
+    "expected_outcome": "semantic_change"
+  }
+}

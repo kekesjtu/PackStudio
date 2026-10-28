@@ -1,0 +1,30 @@
+{
+  "template": "qfn",
+  "id": "qfn-vias-lumped",
+  "origin": "fidelity",
+  "commands": [
+    "<new_package package_type=\"QFN\"><new_value new_value=\"qfn\" property_name=\"designName\" /><new_value new_value=\"standardOutline\" property_name=\"outlineType\" /><new_value new_value=\"QFN_12X12_100\" property_name=\"jedecFootprint\" /></new_package>",
+    "<modify_component name=\"vias\" new_value=\"lumped\" property_name=\"modelViasAs\" />",
+    "<modify_component name=\"vias\" new_value=\"3\" property_name=\"numberOfViasInXVD\" />",
+    "<modify_component name=\"vias\" new_value=\"4\" property_name=\"numberOfViasInYVE\" />",
+    "<modify_component name=\"vias\" new_value=\"0.2\" property_name=\"viasDiameterDv\" />",
+    "<modify_component name=\"vias\" new_value=\"0.5\" property_name=\"viasPitchEv\" />",
+    "<modify_component name=\"vias\" new_value=\"0.025\" property_name=\"platingThicknessTpl\" />",
+    "<modify_component name=\"vias\" new_value=\"1.2\" property_name=\"viasLengthLv\" />"
+  ],
+  "request": {
+    "template_id": "qfn",
+    "overrides": {
+      "qfn.vias.enabled": true,
+      "qfn.vias.modeling": "lumped",
+      "qfn.vias.columns": 3,
+      "qfn.vias.rows": 4,
+      "qfn.vias.diameter": 0.2,
+      "qfn.vias.pitch": 0.5,
+      "qfn.vias.plating": 0.025,
+      "qfn.vias.length": 1.2
+    },
+    "material_assignments": {}
+  },
+  "metadata": {}
+}

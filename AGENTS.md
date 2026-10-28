@@ -17,7 +17,7 @@ PackStudio AI 协作开发指南。本文档为 AI Agent 提供项目结构、�
 | `docs/requirements.md` | 宏观需求定义     | 功能需求、产品参考，**大方向开发以此为准**                                                     |
 | `docs/decisions/`      | 技术决策         | 每项重要技术/功能决策一个文件，记录背景、方案、理由                                            |
 | `runtime_data/`        | 运行数据         | 序列化预设、默认值、材料库、程序运行时读取的 UI 模板                                           |
-| `flotherm_pack_data/`  | 本地数据         | Flotherm PACK 导出参考模型数据，用于学习模型建模方法和具体字段。便于复刻。仅本地保存不推送云端 |
+| `flotherm_pack_data/`  | 原生参考数据     | 纳入版本控制的 Flotherm PACK 扫参输入、原生导出、截图与验证结果；完整归档仅本地保存 |
 | `output_format/`       | 输出文件格式规范 | 输出格式的示例文件，作为接口契约                                                               |
 | `src/`                 | 源代码           | 所有生产代码，按功能模块分子目录                                                               |
 | `tests/`               | 测试代码         | 与 `src/` 对应；前端 `*.test.ts(x)`，Python `test_*.py`                                        |

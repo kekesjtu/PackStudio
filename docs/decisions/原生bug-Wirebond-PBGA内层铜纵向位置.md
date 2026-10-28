@@ -42,8 +42,8 @@ PACK 2025.13.1.1142 的原生内层铜底面为 $z_s-Z_n-2t_{\rm top}$，
 原生铜层为 $0.940\sim0.976$，断开区为 $0.924\sim0.960$；
 本决策规定两者均为 $0.924\sim0.960$。
 
-`docs/validation/wb-metal-depth/evidence.zip` 保存六组原生输入、DES 回读、
-FloSCRIPT、FloXML、版本、哈希和 XSD 检查结果。
+`flotherm_pack_data/template/pbga_wb/` 下的 `metal-depth-*` 扫参点保存六组原生输入、
+DES 回读、FloSCRIPT、FloXML、版本、哈希和 XSD 检查结果。
 源证据保留原生坐标；本项按 Depth 定义和铜层与断开区对齐关系验收。
 
 

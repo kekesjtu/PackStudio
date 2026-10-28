@@ -1,0 +1,18 @@
+{
+  "template": "pbga_fc",
+  "id": "pbga_fc-flush",
+  "origin": "fidelity",
+  "commands": [
+    "<new_package package_type=\"pbga_fc\"><new_value new_value=\"pbga_fc\" property_name=\"designName\" /><new_value new_value=\"standardOutline\" property_name=\"outlineType\" /><new_value new_value=\"PBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" /><new_value new_value=\"encapsulant\" property_name=\"topCover\" /></new_package>",
+    "<modify_component name=\"topCover\" new_value=\"true\" property_name=\"enableDieFlush\" />"
+  ],
+  "request": {
+    "template_id": "pbga_fc",
+    "overrides": {
+      "pbga_fc.cover.type": "encapsulant",
+      "pbga_fc.cover.flush": true
+    },
+    "material_assignments": {}
+  },
+  "metadata": {}
+}

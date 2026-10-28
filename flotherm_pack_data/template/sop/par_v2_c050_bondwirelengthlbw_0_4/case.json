@@ -1,0 +1,22 @@
+{
+  "template": "sop",
+  "id": "par_v2_c050_bondwirelengthlbw_0_4",
+  "origin": "legacy",
+  "commands": [
+    "<new_package package_type=\"tsop_conv\">\n        <new_value new_value=\"SOP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"soic/sop/so\" property_name=\"sopPackageType\" />\n        <new_value new_value=\"SOP_8_3_81x4_93\" property_name=\"sopJedecFootprint\" />\n    </new_package>",
+    "<modify_component name=\"bondWires\" new_value=\"0.4\" property_name=\"bondWireLengthLbw\" />"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "numeric_parameter",
+    "target": {
+      "component": "bondWires",
+      "property": "bondWireLengthLbw",
+      "label": "Bond Wire Length Lbw",
+      "baseline": 0.2283,
+      "value": 0.4
+    },
+    "comparison_baseline": "baseline/model.xml",
+    "expected_outcome": "accepted_no_floxml_effect"
+  }
+}

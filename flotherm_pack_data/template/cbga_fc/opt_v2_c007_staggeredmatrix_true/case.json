@@ -1,0 +1,25 @@
+{
+  "template": "cbga_fc",
+  "id": "opt_v2_c007_staggeredmatrix_true",
+  "origin": "legacy",
+  "commands": [
+    "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+    "<modify_component name=\"centralBalls\" new_value=\"true\" property_name=\"centralBalls\" />",
+    "<modify_component name=\"centralBalls\" new_value=\"2\" property_name=\"numberCentralRowsMDp\" />",
+    "<modify_component name=\"centralBalls\" new_value=\"2\" property_name=\"numberCentralRowsMEp\" />",
+    "<modify_component name=\"centralBalls\" new_value=\"true\" property_name=\"staggeredMatrix\" />"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "boolean_option",
+    "target": {
+      "component": "centralBalls",
+      "property": "staggeredMatrix",
+      "label": "Staggered Matrix",
+      "baseline": false,
+      "value": true
+    },
+    "comparison_baseline": "br_v2_centralballs_staggeredmatrix/model.xml",
+    "expected_outcome": "semantic_change"
+  }
+}

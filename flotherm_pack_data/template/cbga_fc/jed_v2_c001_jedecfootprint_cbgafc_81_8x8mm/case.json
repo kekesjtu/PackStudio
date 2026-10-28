@@ -1,0 +1,21 @@
+{
+  "template": "cbga_fc",
+  "id": "jed_v2_c001_jedecfootprint_cbgafc_81_8x8mm",
+  "origin": "legacy",
+  "commands": [
+    "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_81_8X8mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "jedec_preset",
+    "target": {
+      "component": "new_package",
+      "property": "jedecFootprint",
+      "label": "JEDEC Footprint",
+      "baseline": "CBGAFC_49_6X6mm",
+      "value": "CBGAFC_81_8X8mm"
+    },
+    "comparison_baseline": "baseline/model.xml",
+    "expected_outcome": "semantic_change"
+  }
+}

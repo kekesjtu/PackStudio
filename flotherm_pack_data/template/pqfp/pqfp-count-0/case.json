@@ -1,0 +1,17 @@
+{
+  "template": "pqfp",
+  "id": "pqfp-count-0",
+  "origin": "fidelity",
+  "commands": [
+    "<new_package package_type=\"pqfp\"><new_value new_value=\"pqfp\" property_name=\"designName\" /><new_value new_value=\"standardOutline\" property_name=\"outlineType\" /><new_value new_value=\"actualDie\" property_name=\"dieType\" /><new_value new_value=\"false\" property_name=\"exposedPad\" /><new_value new_value=\"lqfp\" property_name=\"pqfpPackageType\" /><new_value new_value=\"LQFP_32_7X7mm\" property_name=\"lqfpJedecFootprint\" /></new_package>",
+    "<modify_component name=\"bondWires\" new_value=\"0\" property_name=\"numberOfBondWiresN\" />"
+  ],
+  "request": {
+    "template_id": "pqfp",
+    "overrides": {
+      "pqfp.bond_wire.count": 0
+    },
+    "material_assignments": {}
+  },
+  "metadata": {}
+}

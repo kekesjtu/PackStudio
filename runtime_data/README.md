@@ -37,10 +37,8 @@ Bumps 物性使用有厚度的各向同性等效算法，建模约定见
 金属层表以 Depth、Thickness、Coverage 保存，运行输入长度单位为 mm、覆盖率单位为 %。
 Chip Array 与 Wirebond PBGA 的两层/四层选择初始化层表，表格编辑与外层铜厚输入联动。
 Wirebond PBGA 的层表包含逐层 Disconnect to Via 开关。
-Bare Die、两个 FC 和 Chip Array 的建模与证据见
-[原生对照](../docs/validation/target-pack-fidelity/README.md)。
-PQFP、QFN、SOP 与 Wirebond PBGA 的建模规则和全预设对照见
-[四类线焊封装原生对照](../docs/validation/remaining-pack-fidelity/README.md)。
+八类模板的原生扫参、导出与截图统一保存在 `flotherm_pack_data/template/`，
+重建与验证方式见[原生参考库工具](../tools/pack_sweep/README.md)。
 
 封装参数初值在原生预设或 Bare Die 基线设置中维护，用户输入覆盖方案中的对应值。
 参数来源与空值处理见[预设参数规则](../docs/decisions/预设参数来源与空值规则.md)。
@@ -55,8 +53,9 @@ uv run --locked python -m tools.pack_reference "E:/Program Files/Siemens/Simcent
 uv run --locked python -m tools.validate_catalog_presets
 ```
 
-[预设审计](../docs/validation/catalog_presets.json)记录来源、输入哈希、生成检查与 FloXML 校验。
-审计覆盖报告列出的生成与格式检查，原生模型的几何和物性通过逐项对照验证。
+预设审计实际生成模型，检查材料和几何引用、BGA 数量以及 FloXML XSD，默认输出校验汇总。
+需要保存机器报告时显式传入 `--report tmp/YYYY-MM-DD-catalog-audit/report.json`。
+原生模型的几何和物性通过参考库中的逐项对照验证。
 
 离线回归直接检查本目录中的 342 个预设、416 个分支、材料引用和索引哈希。
 原始 DES 字段与来源哈希的独立比对可设置 `PACK_NATIVE_INSTALLATION` 后运行：

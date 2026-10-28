@@ -1,0 +1,1408 @@
+{
+  "template_id": "qfn",
+  "baseline": {
+    "model": "baseline/model.xml"
+  },
+  "points": [
+    "baseline",
+    "br_v2_modelingoptions_numberofdiscretebondwiresteps",
+    "br_v2_vias_modelviasas",
+    "br_v2_vias_numberofviasinxvd",
+    "br_v2_vias_numberofviasinyve",
+    "br_v2_vias_platingthicknesstpl",
+    "br_v2_vias_viasdiameterdv",
+    "br_v2_vias_viaslengthlv",
+    "br_v2_vias_viaspitchev",
+    "jed_v2_c001_jedecfootprint_qfn_6x6_36",
+    "jed_v2_c002_jedecfootprint_qfn_3x3_8",
+    "opt_v2_c001_nonuniformdieheat_true",
+    "opt_v2_c001_outlinetype_nonstandardoutline",
+    "opt_v2_c002_localizegrid_false",
+    "opt_v2_c002_modelviasas_discrete",
+    "opt_v2_c003_modelviasas_lumped",
+    "opt_v2_c004_modelleadandsolderinterconne_orthotropiccuboid",
+    "opt_v2_c005_griddensity_coarse",
+    "opt_v2_c006_griddensity_medium",
+    "par_v2_c001_lengthd_10_8",
+    "par_v2_c002_lengthd_13_2",
+    "par_v2_c003_widthe_10_8",
+    "par_v2_c004_widthe_13_2",
+    "par_v2_c005_standoffa1_0_045",
+    "par_v2_c006_standoffa1_0_055",
+    "par_v2_c007_encapsulantthicknessa2_0_765",
+    "par_v2_c008_encapsulantthicknessa2_0_935",
+    "par_v2_c009_packagepower_1_0",
+    "par_v2_c010_packagepower_2_0",
+    "par_v2_c011_dielengthld_4_86",
+    "par_v2_c012_dielengthld_5_94",
+    "par_v2_c013_diewidthwd_4_86",
+    "par_v2_c014_diewidthwd_5_94",
+    "par_v2_c015_diethicknesstd_0_225",
+    "par_v2_c016_diethicknesstd_0_275",
+    "par_v2_c017_dieattachthicknesstda_0_0225",
+    "par_v2_c018_dieattachthicknesstda_0_0275",
+    "par_v2_c019_exposedleadlengthl_0_45",
+    "par_v2_c020_exposedleadlengthl_0_55",
+    "par_v2_c021_leadwidthb_0_18",
+    "par_v2_c022_leadwidthb_0_22",
+    "par_v2_c023_exposedleadthickness_0_09",
+    "par_v2_c024_exposedleadthickness_0_11",
+    "par_v2_c025_leadthicknessa3_0_18",
+    "par_v2_c026_leadthicknessa3_0_22",
+    "par_v2_c027_leadetch_0_045",
+    "par_v2_c028_leadetch_0_055",
+    "par_v2_c029_pitchinxdirectionex_0_36",
+    "par_v2_c030_pitchinxdirectionex_0_44",
+    "par_v2_c031_pitchinydirectioney_0_36",
+    "par_v2_c032_pitchinydirectioney_0_44",
+    "par_v2_c033_numberofleadsontopbottommd_24",
+    "par_v2_c034_numberofleadsontopbottommd_26",
+    "par_v2_c035_numberofleadsonleftrightme_24",
+    "par_v2_c036_numberofleadsonleftrightme_26",
+    "par_v2_c037_daplengthlp_9_72",
+    "par_v2_c038_daplengthlp_11_88",
+    "par_v2_c039_dapwidthwp_9_72",
+    "par_v2_c040_dapwidthwp_11_88",
+    "par_v2_c041_exposedpadlength_9_495",
+    "par_v2_c042_exposedpadlength_11_605",
+    "par_v2_c043_exposedpadwidth_9_495",
+    "par_v2_c044_exposedpadwidth_11_605",
+    "par_v2_c045_bondwirelengthonleftrightlbw_2_475",
+    "par_v2_c046_bondwirelengthonleftrightlbw_3_025",
+    "par_v2_c047_bondwirelengthontopbottomlbw_2_475",
+    "par_v2_c048_bondwirelengthontopbottomlbw_3_025",
+    "par_v2_c049_bondwirediameterdbw_0_027",
+    "par_v2_c050_bondwirediameterdbw_0_033",
+    "par_v2_c051_viaslengthlv_0_765",
+    "par_v2_c052_viaslengthlv_0_935",
+    "par_v2_c053_viasdiameterdv_0_18",
+    "par_v2_c054_viasdiameterdv_0_22",
+    "par_v2_c055_platingthicknesstpl_0_018",
+    "par_v2_c056_platingthicknesstpl_0_022",
+    "par_v2_c057_viaspitchev_0_45",
+    "par_v2_c058_viaspitchev_0_55",
+    "par_v2_c059_numberofviasinxvd_4",
+    "par_v2_c060_numberofviasinxvd_6",
+    "par_v2_c061_numberofviasinyve_4",
+    "par_v2_c062_numberofviasinyve_6",
+    "par_v2_c063_numberofdiscretebondwirestep_4",
+    "par_v2_c064_numberofdiscretebondwirestep_6",
+    "qfn-baseline",
+    "qfn-grid-coarse",
+    "qfn-grid-medium",
+    "qfn-grid-off",
+    "qfn-rectangle-stepped",
+    "qfn-interconnect-lumped",
+    "qfn-steps-2",
+    "qfn-steps-3",
+    "qfn-steps-5",
+    "qfn-vias-discrete",
+    "qfn-vias-lumped",
+    "preset-qfn-0",
+    "preset-qfn-1",
+    "preset-qfn-2",
+    "preset-qfn-3",
+    "preset-qfn-4",
+    "preset-qfn-5",
+    "preset-qfn-6",
+    "preset-qfn-7",
+    "preset-qfn-8",
+    "preset-qfn-9",
+    "preset-qfn-10",
+    "preset-qfn-11",
+    "preset-qfn-12",
+    "preset-qfn-13",
+    "preset-qfn-14",
+    "preset-qfn-15",
+    "preset-qfn-16",
+    "preset-qfn-17",
+    "preset-qfn-18",
+    "preset-qfn-19",
+    "preset-qfn-20",
+    "preset-qfn-21",
+    "preset-qfn-22",
+    "preset-qfn-23",
+    "preset-qfn-24",
+    "preset-qfn-25",
+    "preset-qfn-26",
+    "preset-qfn-27",
+    "preset-qfn-28",
+    "preset-qfn-29",
+    "preset-qfn-30",
+    "preset-qfn-31",
+    "preset-qfn-32",
+    "preset-qfn-33",
+    "preset-qfn-34",
+    "preset-qfn-35",
+    "preset-qfn-36",
+    "preset-qfn-37",
+    "preset-qfn-38",
+    "preset-qfn-39",
+    "preset-qfn-40",
+    "preset-qfn-41",
+    "preset-qfn-42",
+    "preset-qfn-43",
+    "preset-qfn-44",
+    "preset-qfn-45"
+  ],
+  "variations": [
+    {
+      "variation_id": "jed_v2_c001_jedecfootprint_qfn_6x6_36",
+      "kind": "jedec_preset",
+      "target": {
+        "component": "new_package",
+        "property": "jedecFootprint",
+        "label": "JEDEC Footprint",
+        "baseline": "QFN_12X12_100",
+        "value": "QFN_6X6_36"
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change",
+      "artifacts": {
+        "model": "jed_v2_c001_jedecfootprint_qfn_6x6_36/model.xml",
+        "script": "jed_v2_c001_jedecfootprint_qfn_6x6_36/script.xml"
+      }
+    },
+    {
+      "variation_id": "jed_v2_c002_jedecfootprint_qfn_3x3_8",
+      "kind": "jedec_preset",
+      "target": {
+        "component": "new_package",
+        "property": "jedecFootprint",
+        "label": "JEDEC Footprint",
+        "baseline": "QFN_12X12_100",
+        "value": "QFN_3X3_8"
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change",
+      "artifacts": {
+        "model": "jed_v2_c002_jedecfootprint_qfn_3x3_8/model.xml",
+        "script": "jed_v2_c002_jedecfootprint_qfn_3x3_8/script.xml"
+      }
+    },
+    {
+      "variation_id": "opt_v2_c001_nonuniformdieheat_true",
+      "kind": "boolean_option",
+      "target": {
+        "component": "die",
+        "property": "nonUniformDieHeat",
+        "label": "Non-uniform Die Heat",
+        "baseline": false,
+        "value": true
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change",
+      "artifacts": {
+        "model": "opt_v2_c001_nonuniformdieheat_true/model.xml",
+        "script": "opt_v2_c001_nonuniformdieheat_true/script.xml"
+      }
+    },
+    {
+      "variation_id": "opt_v2_c001_outlinetype_nonstandardoutline",
+      "kind": "enum_option",
+      "target": {
+        "component": "new_package",
+        "property": "outlineType",
+        "label": "Outline Type",
+        "baseline": "standardOutline",
+        "value": "nonStandardOutline"
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change",
+      "artifacts": {
+        "model": "opt_v2_c001_outlinetype_nonstandardoutline/model.xml",
+        "script": "opt_v2_c001_outlinetype_nonstandardoutline/script.xml"
+      }
+    },
+    {
+      "variation_id": "opt_v2_c002_localizegrid_false",
+      "kind": "boolean_option",
+      "target": {
+        "component": "modelingOptions",
+        "property": "localizeGrid",
+        "label": "Localize Grid",
+        "baseline": true,
+        "value": false
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change",
+      "artifacts": {
+        "model": "opt_v2_c002_localizegrid_false/model.xml",
+        "script": "opt_v2_c002_localizegrid_false/script.xml"
+      }
+    },
+    {
+      "variation_id": "opt_v2_c002_modelviasas_discrete",
+      "kind": "enum_option",
+      "target": {
+        "component": "vias",
+        "property": "modelViasAs",
+        "label": "Model Vias As",
+        "baseline": "ignored",
+        "value": "discrete"
+      },
+      "comparison_baseline": "br_v2_vias_modelviasas/model.xml",
+      "expected_outcome": "semantic_change",
+      "artifacts": {
+        "model": "opt_v2_c002_modelviasas_discrete/model.xml",
+        "script": "opt_v2_c002_modelviasas_discrete/script.xml"
+      }
+    },
+    {
+      "variation_id": "opt_v2_c003_modelviasas_lumped",
+      "kind": "enum_option",
+      "target": {
+        "component": "vias",
+        "property": "modelViasAs",
+        "label": "Model Vias As",
+        "baseline": "ignored",
+        "value": "lumped"
+      },
+      "comparison_baseline": "br_v2_vias_modelviasas/model.xml",
+      "expected_outcome": "semantic_change",
+      "artifacts": {
+        "model": "opt_v2_c003_modelviasas_lumped/model.xml",
+        "script": "opt_v2_c003_modelviasas_lumped/script.xml"
+      }
+    },
+    {
+      "variation_id": "opt_v2_c004_modelleadandsolderinterconne_orthotropiccuboid",
+      "kind": "enum_option",
+      "target": {
+        "component": "modelingOptions",
+        "property": "modelLeadAndSolderInterconnectAs",
+        "label": "Model Leads and Solder Interconnect As",
+        "baseline": "discreteLeads",
+        "value": "orthotropicCuboid"
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change",
+      "artifacts": {
+        "model": "opt_v2_c004_modelleadandsolderinterconne_orthotropiccuboid/model.xml",
+        "script": "opt_v2_c004_modelleadandsolderinterconne_orthotropiccuboid/script.xml"
+      }
+    },
+    {
+      "variation_id": "opt_v2_c005_griddensity_coarse",
+      "kind": "enum_option",
+      "target": {
+        "component": "modelingOptions",
+        "property": "gridDensity",
+        "label": "Grid Density",
+        "baseline": "fine",
+        "value": "coarse"
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change",
+      "artifacts": {
+        "model": "opt_v2_c005_griddensity_coarse/model.xml",
+        "script": "opt_v2_c005_griddensity_coarse/script.xml"
+      }
+    },
+    {
+      "variation_id": "opt_v2_c006_griddensity_medium",
+      "kind": "enum_option",
+      "target": {
+        "component": "modelingOptions",
+        "property": "gridDensity",
+        "label": "Grid Density",
+        "baseline": "fine",
+        "value": "medium"
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change",
+      "artifacts": {
+        "model": "opt_v2_c006_griddensity_medium/model.xml",
+        "script": "opt_v2_c006_griddensity_medium/script.xml"
+      }
+    },
+    {
+      "variation_id": "par_v2_c001_lengthd_10_8",
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "overallPackage",
+        "property": "lengthD",
+        "label": "Length D",
+        "baseline": 12,
+        "value": 10.8
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change",
+      "artifacts": {
+        "model": "par_v2_c001_lengthd_10_8/model.xml",
+        "script": "par_v2_c001_lengthd_10_8/script.xml"
+      }
+    },
+    {
+      "variation_id": "par_v2_c002_lengthd_13_2",
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "overallPackage",
+        "property": "lengthD",
+        "label": "Length D",
+        "baseline": 12,
+        "value": 13.2
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change",
+      "artifacts": {
+        "model": "par_v2_c002_lengthd_13_2/model.xml",
+        "script": "par_v2_c002_lengthd_13_2/script.xml"
+      }
+    },
+    {
+      "variation_id": "par_v2_c003_widthe_10_8",
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "overallPackage",
+        "property": "widthE",
+        "label": "Width E",
+        "baseline": 12,
+        "value": 10.8
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change",
+      "artifacts": {
+        "model": "par_v2_c003_widthe_10_8/model.xml",
+        "script": "par_v2_c003_widthe_10_8/script.xml"
+      }
+    },
+    {
+      "variation_id": "par_v2_c004_widthe_13_2",
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "overallPackage",
+        "property": "widthE",
+        "label": "Width E",
+        "baseline": 12,
+        "value": 13.2
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change",
+      "artifacts": {
+        "model": "par_v2_c004_widthe_13_2/model.xml",
+        "script": "par_v2_c004_widthe_13_2/script.xml"
+      }
+    },
+    {
+      "variation_id": "par_v2_c005_standoffa1_0_045",
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "overallPackage",
+        "property": "standoffA1",
+        "label": "Standoff A1",
+        "baseline": 0.05,
+        "value": 0.045
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change",
+      "artifacts": {
+        "model": "par_v2_c005_standoffa1_0_045/model.xml",
+        "script": "par_v2_c005_standoffa1_0_045/script.xml"
+      }
+    },
+    {
+      "variation_id": "par_v2_c006_standoffa1_0_055",
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "overallPackage",
+        "property": "standoffA1",
+        "label": "Standoff A1",
+        "baseline": 0.05,
+        "value": 0.055
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change",
+      "artifacts": {
+        "model": "par_v2_c006_standoffa1_0_055/model.xml",
+        "script": "par_v2_c006_standoffa1_0_055/script.xml"
+      }
+    },
+    {
+      "variation_id": "par_v2_c007_encapsulantthicknessa2_0_765",
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "overallPackage",
+        "property": "encapsulantThicknessA2",
+        "label": "Encapsulant Thickness A2",
+        "baseline": 0.85,
+        "value": 0.765
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change",
+      "artifacts": {
+        "model": "par_v2_c007_encapsulantthicknessa2_0_765/model.xml",
+        "script": "par_v2_c007_encapsulantthicknessa2_0_765/script.xml"
+      }
+    },
+    {
+      "variation_id": "par_v2_c008_encapsulantthicknessa2_0_935",
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "overallPackage",
+        "property": "encapsulantThicknessA2",
+        "label": "Encapsulant Thickness A2",
+        "baseline": 0.85,
+        "value": 0.935
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change",
+      "artifacts": {
+        "model": "par_v2_c008_encapsulantthicknessa2_0_935/model.xml",
+        "script": "par_v2_c008_encapsulantthicknessa2_0_935/script.xml"
+      }
+    },
+    {
+      "variation_id": "par_v2_c009_packagepower_1_0",
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "die",
+        "property": "packagePower",
+        "label": "Package Power",
+        "baseline": 0,
+        "value": 1.0
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change",
+      "artifacts": {
+        "model": "par_v2_c009_packagepower_1_0/model.xml",
+        "script": "par_v2_c009_packagepower_1_0/script.xml"
+      }
+    },
+    {
+      "variation_id": "par_v2_c010_packagepower_2_0",
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "die",
+        "property": "packagePower",
+        "label": "Package Power",
+        "baseline": 0,
+        "value": 2.0
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change",
+      "artifacts": {
+        "model": "par_v2_c010_packagepower_2_0/model.xml",
+        "script": "par_v2_c010_packagepower_2_0/script.xml"
+      }
+    },
+    {
+      "variation_id": "par_v2_c011_dielengthld_4_86",
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "die",
+        "property": "dieLengthLd",
+        "label": "Die Length Ld",
+        "baseline": 5.4,
+        "value": 4.86
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change",
+      "artifacts": {
+        "model": "par_v2_c011_dielengthld_4_86/model.xml",
+        "script": "par_v2_c011_dielengthld_4_86/script.xml"
+      }
+    },
+    {
+      "variation_id": "par_v2_c012_dielengthld_5_94",
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "die",
+        "property": "dieLengthLd",
+        "label": "Die Length Ld",
+        "baseline": 5.4,
+        "value": 5.94
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change",
+      "artifacts": {
+        "model": "par_v2_c012_dielengthld_5_94/model.xml",
+        "script": "par_v2_c012_dielengthld_5_94/script.xml"
+      }
+    },
+    {
+      "variation_id": "par_v2_c013_diewidthwd_4_86",
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "die",
+        "property": "dieWidthWd",
+        "label": "Die Width Wd",
+        "baseline": 5.4,
+        "value": 4.86
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change",
+      "artifacts": {
+        "model": "par_v2_c013_diewidthwd_4_86/model.xml",
+        "script": "par_v2_c013_diewidthwd_4_86/script.xml"
+      }
+    },
+    {
+      "variation_id": "par_v2_c014_diewidthwd_5_94",
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "die",
+        "property": "dieWidthWd",
+        "label": "Die Width Wd",
+        "baseline": 5.4,
+        "value": 5.94
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change",
+      "artifacts": {
+        "model": "par_v2_c014_diewidthwd_5_94/model.xml",
+        "script": "par_v2_c014_diewidthwd_5_94/script.xml"
+      }
+    },
+    {
+      "variation_id": "par_v2_c015_diethicknesstd_0_225",
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "die",
+        "property": "dieThicknessTd",
+        "label": "Die Thickness td",
+        "baseline": 0.25,
+        "value": 0.225
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change",
+      "artifacts": {
+        "model": "par_v2_c015_diethicknesstd_0_225/model.xml",
+        "script": "par_v2_c015_diethicknesstd_0_225/script.xml"
+      }
+    },
+    {
+      "variation_id": "par_v2_c016_diethicknesstd_0_275",
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "die",
+        "property": "dieThicknessTd",
+        "label": "Die Thickness td",
+        "baseline": 0.25,
+        "value": 0.275
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change",
+      "artifacts": {
+        "model": "par_v2_c016_diethicknesstd_0_275/model.xml",
+        "script": "par_v2_c016_diethicknesstd_0_275/script.xml"
+      }
+    },
+    {
+      "variation_id": "par_v2_c017_dieattachthicknesstda_0_0225",
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "die",
+        "property": "dieAttachThicknessTda",
+        "label": "Die Attach Thickness tda",
+        "baseline": 0.025,
+        "value": 0.0225
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change",
+      "artifacts": {
+        "model": "par_v2_c017_dieattachthicknesstda_0_0225/model.xml",
+        "script": "par_v2_c017_dieattachthicknesstda_0_0225/script.xml"
+      }
+    },
+    {
+      "variation_id": "par_v2_c018_dieattachthicknesstda_0_0275",
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "die",
+        "property": "dieAttachThicknessTda",
+        "label": "Die Attach Thickness tda",
+        "baseline": 0.025,
+        "value": 0.0275
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change",
+      "artifacts": {
+        "model": "par_v2_c018_dieattachthicknesstda_0_0275/model.xml",
+        "script": "par_v2_c018_dieattachthicknesstda_0_0275/script.xml"
+      }
+    },
+    {
+      "variation_id": "par_v2_c019_exposedleadlengthl_0_45",
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "leadAndSolderInterconnect",
+        "property": "exposedLeadLengthL",
+        "label": "Exposed Lead Length L",
+        "baseline": 0.5,
+        "value": 0.45
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change",
+      "artifacts": {
+        "model": "par_v2_c019_exposedleadlengthl_0_45/model.xml",
+        "script": "par_v2_c019_exposedleadlengthl_0_45/script.xml"
+      }
+    },
+    {
+      "variation_id": "par_v2_c020_exposedleadlengthl_0_55",
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "leadAndSolderInterconnect",
+        "property": "exposedLeadLengthL",
+        "label": "Exposed Lead Length L",
+        "baseline": 0.5,
+        "value": 0.55
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change",
+      "artifacts": {
+        "model": "par_v2_c020_exposedleadlengthl_0_55/model.xml",
+        "script": "par_v2_c020_exposedleadlengthl_0_55/script.xml"
+      }
+    },
+    {
+      "variation_id": "par_v2_c021_leadwidthb_0_18",
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "leadAndSolderInterconnect",
+        "property": "leadWidthB",
+        "label": "Lead Width b",
+        "baseline": 0.2,
+        "value": 0.18
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change",
+      "artifacts": {
+        "model": "par_v2_c021_leadwidthb_0_18/model.xml",
+        "script": "par_v2_c021_leadwidthb_0_18/script.xml"
+      }
+    },
+    {
+      "variation_id": "par_v2_c022_leadwidthb_0_22",
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "leadAndSolderInterconnect",
+        "property": "leadWidthB",
+        "label": "Lead Width b",
+        "baseline": 0.2,
+        "value": 0.22
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change",
+      "artifacts": {
+        "model": "par_v2_c022_leadwidthb_0_22/model.xml",
+        "script": "par_v2_c022_leadwidthb_0_22/script.xml"
+      }
+    },
+    {
+      "variation_id": "par_v2_c023_exposedleadthickness_0_09",
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "leadAndSolderInterconnect",
+        "property": "exposedLeadThickness",
+        "label": "Exposed Lead Thickness",
+        "baseline": 0.1,
+        "value": 0.09
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change",
+      "artifacts": {
+        "model": "par_v2_c023_exposedleadthickness_0_09/model.xml",
+        "script": "par_v2_c023_exposedleadthickness_0_09/script.xml"
+      }
+    },
+    {
+      "variation_id": "par_v2_c024_exposedleadthickness_0_11",
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "leadAndSolderInterconnect",
+        "property": "exposedLeadThickness",
+        "label": "Exposed Lead Thickness",
+        "baseline": 0.1,
+        "value": 0.11
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change",
+      "artifacts": {
+        "model": "par_v2_c024_exposedleadthickness_0_11/model.xml",
+        "script": "par_v2_c024_exposedleadthickness_0_11/script.xml"
+      }
+    },
+    {
+      "variation_id": "par_v2_c025_leadthicknessa3_0_18",
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "leadAndSolderInterconnect",
+        "property": "leadThicknessA3",
+        "label": "Lead Thickness A3",
+        "baseline": 0.2,
+        "value": 0.18
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change",
+      "artifacts": {
+        "model": "par_v2_c025_leadthicknessa3_0_18/model.xml",
+        "script": "par_v2_c025_leadthicknessa3_0_18/script.xml"
+      }
+    },
+    {
+      "variation_id": "par_v2_c026_leadthicknessa3_0_22",
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "leadAndSolderInterconnect",
+        "property": "leadThicknessA3",
+        "label": "Lead Thickness A3",
+        "baseline": 0.2,
+        "value": 0.22
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change",
+      "artifacts": {
+        "model": "par_v2_c026_leadthicknessa3_0_22/model.xml",
+        "script": "par_v2_c026_leadthicknessa3_0_22/script.xml"
+      }
+    },
+    {
+      "variation_id": "par_v2_c027_leadetch_0_045",
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "leadAndSolderInterconnect",
+        "property": "leadEtch",
+        "label": "Lead Etch",
+        "baseline": 0.05,
+        "value": 0.045
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change",
+      "artifacts": {
+        "model": "par_v2_c027_leadetch_0_045/model.xml",
+        "script": "par_v2_c027_leadetch_0_045/script.xml"
+      }
+    },
+    {
+      "variation_id": "par_v2_c028_leadetch_0_055",
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "leadAndSolderInterconnect",
+        "property": "leadEtch",
+        "label": "Lead Etch",
+        "baseline": 0.05,
+        "value": 0.055
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change",
+      "artifacts": {
+        "model": "par_v2_c028_leadetch_0_055/model.xml",
+        "script": "par_v2_c028_leadetch_0_055/script.xml"
+      }
+    },
+    {
+      "variation_id": "par_v2_c029_pitchinxdirectionex_0_36",
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "leadAndSolderInterconnect",
+        "property": "pitchInXDirectionEx",
+        "label": "Pitch in X Direction ex",
+        "baseline": 0.4,
+        "value": 0.36
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change",
+      "artifacts": {
+        "model": "par_v2_c029_pitchinxdirectionex_0_36/model.xml",
+        "script": "par_v2_c029_pitchinxdirectionex_0_36/script.xml"
+      }
+    },
+    {
+      "variation_id": "par_v2_c030_pitchinxdirectionex_0_44",
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "leadAndSolderInterconnect",
+        "property": "pitchInXDirectionEx",
+        "label": "Pitch in X Direction ex",
+        "baseline": 0.4,
+        "value": 0.44
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change",
+      "artifacts": {
+        "model": "par_v2_c030_pitchinxdirectionex_0_44/model.xml",
+        "script": "par_v2_c030_pitchinxdirectionex_0_44/script.xml"
+      }
+    },
+    {
+      "variation_id": "par_v2_c031_pitchinydirectioney_0_36",
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "leadAndSolderInterconnect",
+        "property": "pitchInYDirectionEy",
+        "label": "Pitch in Y Direction ey",
+        "baseline": 0.4,
+        "value": 0.36
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change",
+      "artifacts": {
+        "model": "par_v2_c031_pitchinydirectioney_0_36/model.xml",
+        "script": "par_v2_c031_pitchinydirectioney_0_36/script.xml"
+      }
+    },
+    {
+      "variation_id": "par_v2_c032_pitchinydirectioney_0_44",
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "leadAndSolderInterconnect",
+        "property": "pitchInYDirectionEy",
+        "label": "Pitch in Y Direction ey",
+        "baseline": 0.4,
+        "value": 0.44
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change",
+      "artifacts": {
+        "model": "par_v2_c032_pitchinydirectioney_0_44/model.xml",
+        "script": "par_v2_c032_pitchinydirectioney_0_44/script.xml"
+      }
+    },
+    {
+      "variation_id": "par_v2_c033_numberofleadsontopbottommd_24",
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "leadAndSolderInterconnect",
+        "property": "numberOfLeadsOnTopBottomMD",
+        "label": "Number of Leads on Top/Bottom MD",
+        "baseline": 25,
+        "value": 24
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change",
+      "artifacts": {
+        "model": "par_v2_c033_numberofleadsontopbottommd_24/model.xml",
+        "script": "par_v2_c033_numberofleadsontopbottommd_24/script.xml"
+      }
+    },
+    {
+      "variation_id": "par_v2_c034_numberofleadsontopbottommd_26",
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "leadAndSolderInterconnect",
+        "property": "numberOfLeadsOnTopBottomMD",
+        "label": "Number of Leads on Top/Bottom MD",
+        "baseline": 25,
+        "value": 26
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change",
+      "artifacts": {
+        "model": "par_v2_c034_numberofleadsontopbottommd_26/model.xml",
+        "script": "par_v2_c034_numberofleadsontopbottommd_26/script.xml"
+      }
+    },
+    {
+      "variation_id": "par_v2_c035_numberofleadsonleftrightme_24",
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "leadAndSolderInterconnect",
+        "property": "numberOfLeadsOnLeftRightME",
+        "label": "Number of Leads on Left/Right ME",
+        "baseline": 25,
+        "value": 24
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change",
+      "artifacts": {
+        "model": "par_v2_c035_numberofleadsonleftrightme_24/model.xml",
+        "script": "par_v2_c035_numberofleadsonleftrightme_24/script.xml"
+      }
+    },
+    {
+      "variation_id": "par_v2_c036_numberofleadsonleftrightme_26",
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "leadAndSolderInterconnect",
+        "property": "numberOfLeadsOnLeftRightME",
+        "label": "Number of Leads on Left/Right ME",
+        "baseline": 25,
+        "value": 26
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change",
+      "artifacts": {
+        "model": "par_v2_c036_numberofleadsonleftrightme_26/model.xml",
+        "script": "par_v2_c036_numberofleadsonleftrightme_26/script.xml"
+      }
+    },
+    {
+      "variation_id": "par_v2_c037_daplengthlp_9_72",
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "dap",
+        "property": "dapLengthLp",
+        "label": "DAP Length Lp",
+        "baseline": 10.8,
+        "value": 9.72
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change",
+      "artifacts": {
+        "model": "par_v2_c037_daplengthlp_9_72/model.xml",
+        "script": "par_v2_c037_daplengthlp_9_72/script.xml"
+      }
+    },
+    {
+      "variation_id": "par_v2_c038_daplengthlp_11_88",
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "dap",
+        "property": "dapLengthLp",
+        "label": "DAP Length Lp",
+        "baseline": 10.8,
+        "value": 11.88
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change",
+      "artifacts": {
+        "model": "par_v2_c038_daplengthlp_11_88/model.xml",
+        "script": "par_v2_c038_daplengthlp_11_88/script.xml"
+      }
+    },
+    {
+      "variation_id": "par_v2_c039_dapwidthwp_9_72",
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "dap",
+        "property": "dapWidthWp",
+        "label": "DAP Width Wp",
+        "baseline": 10.8,
+        "value": 9.72
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change",
+      "artifacts": {
+        "model": "par_v2_c039_dapwidthwp_9_72/model.xml",
+        "script": "par_v2_c039_dapwidthwp_9_72/script.xml"
+      }
+    },
+    {
+      "variation_id": "par_v2_c040_dapwidthwp_11_88",
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "dap",
+        "property": "dapWidthWp",
+        "label": "DAP Width Wp",
+        "baseline": 10.8,
+        "value": 11.88
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change",
+      "artifacts": {
+        "model": "par_v2_c040_dapwidthwp_11_88/model.xml",
+        "script": "par_v2_c040_dapwidthwp_11_88/script.xml"
+      }
+    },
+    {
+      "variation_id": "par_v2_c041_exposedpadlength_9_495",
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "dap",
+        "property": "exposedPADLength",
+        "label": "Exposed PAD Length",
+        "baseline": 10.55,
+        "value": 9.495
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change",
+      "artifacts": {
+        "model": "par_v2_c041_exposedpadlength_9_495/model.xml",
+        "script": "par_v2_c041_exposedpadlength_9_495/script.xml"
+      }
+    },
+    {
+      "variation_id": "par_v2_c042_exposedpadlength_11_605",
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "dap",
+        "property": "exposedPADLength",
+        "label": "Exposed PAD Length",
+        "baseline": 10.55,
+        "value": 11.605
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change",
+      "artifacts": {
+        "model": "par_v2_c042_exposedpadlength_11_605/model.xml",
+        "script": "par_v2_c042_exposedpadlength_11_605/script.xml"
+      }
+    },
+    {
+      "variation_id": "par_v2_c043_exposedpadwidth_9_495",
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "dap",
+        "property": "exposedPADWidth",
+        "label": "Exposed PAD Width",
+        "baseline": 10.55,
+        "value": 9.495
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change",
+      "artifacts": {
+        "model": "par_v2_c043_exposedpadwidth_9_495/model.xml",
+        "script": "par_v2_c043_exposedpadwidth_9_495/script.xml"
+      }
+    },
+    {
+      "variation_id": "par_v2_c044_exposedpadwidth_11_605",
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "dap",
+        "property": "exposedPADWidth",
+        "label": "Exposed PAD Width",
+        "baseline": 10.55,
+        "value": 11.605
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change",
+      "artifacts": {
+        "model": "par_v2_c044_exposedpadwidth_11_605/model.xml",
+        "script": "par_v2_c044_exposedpadwidth_11_605/script.xml"
+      }
+    },
+    {
+      "variation_id": "par_v2_c045_bondwirelengthonleftrightlbw_2_475",
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "bondWires",
+        "property": "bondWireLengthOnLeftRightLbwx",
+        "label": "Bond Wire Length On Left/Right Lbwx",
+        "baseline": 2.75,
+        "value": 2.475
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change",
+      "artifacts": {
+        "model": "par_v2_c045_bondwirelengthonleftrightlbw_2_475/model.xml",
+        "script": "par_v2_c045_bondwirelengthonleftrightlbw_2_475/script.xml"
+      }
+    },
+    {
+      "variation_id": "par_v2_c046_bondwirelengthonleftrightlbw_3_025",
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "bondWires",
+        "property": "bondWireLengthOnLeftRightLbwx",
+        "label": "Bond Wire Length On Left/Right Lbwx",
+        "baseline": 2.75,
+        "value": 3.025
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change",
+      "artifacts": {
+        "model": "par_v2_c046_bondwirelengthonleftrightlbw_3_025/model.xml",
+        "script": "par_v2_c046_bondwirelengthonleftrightlbw_3_025/script.xml"
+      }
+    },
+    {
+      "variation_id": "par_v2_c047_bondwirelengthontopbottomlbw_2_475",
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "bondWires",
+        "property": "bondWireLengthOnTopBottomLbwy",
+        "label": "Bond Wire Length On Top/Bottom Lbwy",
+        "baseline": 2.75,
+        "value": 2.475
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change",
+      "artifacts": {
+        "model": "par_v2_c047_bondwirelengthontopbottomlbw_2_475/model.xml",
+        "script": "par_v2_c047_bondwirelengthontopbottomlbw_2_475/script.xml"
+      }
+    },
+    {
+      "variation_id": "par_v2_c048_bondwirelengthontopbottomlbw_3_025",
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "bondWires",
+        "property": "bondWireLengthOnTopBottomLbwy",
+        "label": "Bond Wire Length On Top/Bottom Lbwy",
+        "baseline": 2.75,
+        "value": 3.025
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change",
+      "artifacts": {
+        "model": "par_v2_c048_bondwirelengthontopbottomlbw_3_025/model.xml",
+        "script": "par_v2_c048_bondwirelengthontopbottomlbw_3_025/script.xml"
+      }
+    },
+    {
+      "variation_id": "par_v2_c049_bondwirediameterdbw_0_027",
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "bondWires",
+        "property": "bondWireDiameterDbw",
+        "label": "Bond Wire Diameter dbw",
+        "baseline": 0.03,
+        "value": 0.027
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change",
+      "artifacts": {
+        "model": "par_v2_c049_bondwirediameterdbw_0_027/model.xml",
+        "script": "par_v2_c049_bondwirediameterdbw_0_027/script.xml"
+      }
+    },
+    {
+      "variation_id": "par_v2_c050_bondwirediameterdbw_0_033",
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "bondWires",
+        "property": "bondWireDiameterDbw",
+        "label": "Bond Wire Diameter dbw",
+        "baseline": 0.03,
+        "value": 0.033
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change",
+      "artifacts": {
+        "model": "par_v2_c050_bondwirediameterdbw_0_033/model.xml",
+        "script": "par_v2_c050_bondwirediameterdbw_0_033/script.xml"
+      }
+    },
+    {
+      "variation_id": "par_v2_c051_viaslengthlv_0_765",
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "vias",
+        "property": "viasLengthLv",
+        "label": "Vias Length Lv",
+        "baseline": 0.85,
+        "value": 0.765
+      },
+      "comparison_baseline": "br_v2_vias_viaslengthlv/model.xml",
+      "expected_outcome": "semantic_change",
+      "artifacts": {
+        "model": "par_v2_c051_viaslengthlv_0_765/model.xml",
+        "script": "par_v2_c051_viaslengthlv_0_765/script.xml"
+      }
+    },
+    {
+      "variation_id": "par_v2_c052_viaslengthlv_0_935",
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "vias",
+        "property": "viasLengthLv",
+        "label": "Vias Length Lv",
+        "baseline": 0.85,
+        "value": 0.935
+      },
+      "comparison_baseline": "br_v2_vias_viaslengthlv/model.xml",
+      "expected_outcome": "semantic_change",
+      "artifacts": {
+        "model": "par_v2_c052_viaslengthlv_0_935/model.xml",
+        "script": "par_v2_c052_viaslengthlv_0_935/script.xml"
+      }
+    },
+    {
+      "variation_id": "par_v2_c053_viasdiameterdv_0_18",
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "vias",
+        "property": "viasDiameterDv",
+        "label": "Vias Diameter Dv",
+        "baseline": 0.2,
+        "value": 0.18
+      },
+      "comparison_baseline": "br_v2_vias_viasdiameterdv/model.xml",
+      "expected_outcome": "semantic_change",
+      "artifacts": {
+        "model": "par_v2_c053_viasdiameterdv_0_18/model.xml",
+        "script": "par_v2_c053_viasdiameterdv_0_18/script.xml"
+      }
+    },
+    {
+      "variation_id": "par_v2_c054_viasdiameterdv_0_22",
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "vias",
+        "property": "viasDiameterDv",
+        "label": "Vias Diameter Dv",
+        "baseline": 0.2,
+        "value": 0.22
+      },
+      "comparison_baseline": "br_v2_vias_viasdiameterdv/model.xml",
+      "expected_outcome": "semantic_change",
+      "artifacts": {
+        "model": "par_v2_c054_viasdiameterdv_0_22/model.xml",
+        "script": "par_v2_c054_viasdiameterdv_0_22/script.xml"
+      }
+    },
+    {
+      "variation_id": "par_v2_c055_platingthicknesstpl_0_018",
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "vias",
+        "property": "platingThicknessTpl",
+        "label": "Plating Thickness tpl",
+        "baseline": 0.02,
+        "value": 0.018
+      },
+      "comparison_baseline": "br_v2_vias_platingthicknesstpl/model.xml",
+      "expected_outcome": "semantic_change",
+      "artifacts": {
+        "model": "par_v2_c055_platingthicknesstpl_0_018/model.xml",
+        "script": "par_v2_c055_platingthicknesstpl_0_018/script.xml"
+      }
+    },
+    {
+      "variation_id": "par_v2_c056_platingthicknesstpl_0_022",
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "vias",
+        "property": "platingThicknessTpl",
+        "label": "Plating Thickness tpl",
+        "baseline": 0.02,
+        "value": 0.022
+      },
+      "comparison_baseline": "br_v2_vias_platingthicknesstpl/model.xml",
+      "expected_outcome": "semantic_change",
+      "artifacts": {
+        "model": "par_v2_c056_platingthicknesstpl_0_022/model.xml",
+        "script": "par_v2_c056_platingthicknesstpl_0_022/script.xml"
+      }
+    },
+    {
+      "variation_id": "par_v2_c057_viaspitchev_0_45",
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "vias",
+        "property": "viasPitchEv",
+        "label": "Vias Pitch ev",
+        "baseline": 0.5,
+        "value": 0.45
+      },
+      "comparison_baseline": "br_v2_vias_viaspitchev/model.xml",
+      "expected_outcome": "semantic_change",
+      "artifacts": {
+        "model": "par_v2_c057_viaspitchev_0_45/model.xml",
+        "script": "par_v2_c057_viaspitchev_0_45/script.xml"
+      }
+    },
+    {
+      "variation_id": "par_v2_c058_viaspitchev_0_55",
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "vias",
+        "property": "viasPitchEv",
+        "label": "Vias Pitch ev",
+        "baseline": 0.5,
+        "value": 0.55
+      },
+      "comparison_baseline": "br_v2_vias_viaspitchev/model.xml",
+      "expected_outcome": "semantic_change",
+      "artifacts": {
+        "model": "par_v2_c058_viaspitchev_0_55/model.xml",
+        "script": "par_v2_c058_viaspitchev_0_55/script.xml"
+      }
+    },
+    {
+      "variation_id": "par_v2_c059_numberofviasinxvd_4",
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "vias",
+        "property": "numberOfViasInXVD",
+        "label": "Number of Vias in X VD",
+        "baseline": 5,
+        "value": 4
+      },
+      "comparison_baseline": "br_v2_vias_numberofviasinxvd/model.xml",
+      "expected_outcome": "semantic_change",
+      "artifacts": {
+        "model": "par_v2_c059_numberofviasinxvd_4/model.xml",
+        "script": "par_v2_c059_numberofviasinxvd_4/script.xml"
+      }
+    },
+    {
+      "variation_id": "par_v2_c060_numberofviasinxvd_6",
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "vias",
+        "property": "numberOfViasInXVD",
+        "label": "Number of Vias in X VD",
+        "baseline": 5,
+        "value": 6
+      },
+      "comparison_baseline": "br_v2_vias_numberofviasinxvd/model.xml",
+      "expected_outcome": "semantic_change",
+      "artifacts": {
+        "model": "par_v2_c060_numberofviasinxvd_6/model.xml",
+        "script": "par_v2_c060_numberofviasinxvd_6/script.xml"
+      }
+    },
+    {
+      "variation_id": "par_v2_c061_numberofviasinyve_4",
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "vias",
+        "property": "numberOfViasInYVE",
+        "label": "Number of Vias in Y VE",
+        "baseline": 5,
+        "value": 4
+      },
+      "comparison_baseline": "br_v2_vias_numberofviasinyve/model.xml",
+      "expected_outcome": "semantic_change",
+      "artifacts": {
+        "model": "par_v2_c061_numberofviasinyve_4/model.xml",
+        "script": "par_v2_c061_numberofviasinyve_4/script.xml"
+      }
+    },
+    {
+      "variation_id": "par_v2_c062_numberofviasinyve_6",
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "vias",
+        "property": "numberOfViasInYVE",
+        "label": "Number of Vias in Y VE",
+        "baseline": 5,
+        "value": 6
+      },
+      "comparison_baseline": "br_v2_vias_numberofviasinyve/model.xml",
+      "expected_outcome": "semantic_change",
+      "artifacts": {
+        "model": "par_v2_c062_numberofviasinyve_6/model.xml",
+        "script": "par_v2_c062_numberofviasinyve_6/script.xml"
+      }
+    },
+    {
+      "variation_id": "par_v2_c063_numberofdiscretebondwirestep_4",
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "modelingOptions",
+        "property": "numberOfDiscreteBondwireSteps",
+        "label": "Number of Discrete Steps",
+        "baseline": 5,
+        "value": 4
+      },
+      "comparison_baseline": "br_v2_modelingoptions_numberofdiscretebondwiresteps/model.xml",
+      "expected_outcome": "semantic_change",
+      "artifacts": {
+        "model": "par_v2_c063_numberofdiscretebondwirestep_4/model.xml",
+        "script": "par_v2_c063_numberofdiscretebondwirestep_4/script.xml"
+      }
+    },
+    {
+      "variation_id": "par_v2_c064_numberofdiscretebondwirestep_6",
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "modelingOptions",
+        "property": "numberOfDiscreteBondwireSteps",
+        "label": "Number of Discrete Steps",
+        "baseline": 5,
+        "value": 6
+      },
+      "comparison_baseline": "br_v2_modelingoptions_numberofdiscretebondwiresteps/model.xml",
+      "expected_outcome": "semantic_change",
+      "artifacts": {
+        "model": "par_v2_c064_numberofdiscretebondwirestep_6/model.xml",
+        "script": "par_v2_c064_numberofdiscretebondwirestep_6/script.xml"
+      }
+    }
+  ]
+}

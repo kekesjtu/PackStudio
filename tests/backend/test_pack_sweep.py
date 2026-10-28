@@ -1,12 +1,12 @@
 """Reference-tool contracts independent of a licensed PACK process."""
 
-import json
 from pathlib import Path
 from xml.etree import ElementTree as ET
 from zipfile import ZipFile
 
 import pytest
 
+from tests.backend.templates.native_references import product_cases
 from tools.pack_sweep.archive import archive_tree, digest
 from tools.pack_sweep.catalog import Point, fidelity_points, initial_points
 from tools.pack_sweep.publish import publish
@@ -17,16 +17,11 @@ ROOT = Path(__file__).parents[2]
 
 
 def test_fidelity_factory_preserves_independent_capture_requests():
-    expected = {}
-    for name in ("target-pack-fidelity", "remaining-pack-fidelity"):
-        with ZipFile(ROOT / "docs/validation" / name / "evidence.zip") as archive:
-            expected.update(
-                {
-                    row["id"]: row["request"]
-                    for row in json.loads(archive.read("cases.json"))
-                    if not row["commands"][0].startswith("<load_des")
-                }
-            )
+    expected = {
+        row["id"]: row["request"]
+        for row in product_cases()
+        if ET.fromstring(row["commands"][0]).tag != "load_des"
+    }
     actual = {point.id: point.request for point in fidelity_points()}
     assert actual == expected
     points = initial_points()

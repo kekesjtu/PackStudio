@@ -1,0 +1,23 @@
+{
+  "template": "pqfp",
+  "id": "opt_v2_c003_includethermallandandsolder_true",
+  "origin": "legacy",
+  "commands": [
+    "<new_package package_type=\"pqfp\">\n        <new_value new_value=\"PQFP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"lqfp\" property_name=\"pqfpPackageType\" />\n        <new_value new_value=\"LQFP_32_7X7mm\" property_name=\"lqfpJedecFootprint\" />\n    </new_package>",
+    "<modify_component name=\"thermalLandAndSolder\" new_value=\"0.05\" property_name=\"landThickness\" />",
+    "<modify_component name=\"thermalLandAndSolder\" new_value=\"true\" property_name=\"includeThermalLandAndSolder\" />"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "boolean_option",
+    "target": {
+      "component": "thermalLandAndSolder",
+      "property": "includeThermalLandAndSolder",
+      "label": "Include Thermal Land and Solder",
+      "baseline": false,
+      "value": true
+    },
+    "comparison_baseline": "br_v2_thermallandandsolder_includethermallandandsolder/model.xml",
+    "expected_outcome": "semantic_change"
+  }
+}

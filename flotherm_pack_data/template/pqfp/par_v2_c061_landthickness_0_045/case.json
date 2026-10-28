@@ -1,0 +1,23 @@
+{
+  "template": "pqfp",
+  "id": "par_v2_c061_landthickness_0_045",
+  "origin": "legacy",
+  "commands": [
+    "<new_package package_type=\"pqfp\">\n        <new_value new_value=\"PQFP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"lqfp\" property_name=\"pqfpPackageType\" />\n        <new_value new_value=\"LQFP_32_7X7mm\" property_name=\"lqfpJedecFootprint\" />\n    </new_package>",
+    "<modify_component name=\"thermalLandAndSolder\" new_value=\"true\" property_name=\"includeThermalLandAndSolder\" />",
+    "<modify_component name=\"thermalLandAndSolder\" new_value=\"0.045\" property_name=\"landThickness\" />"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "numeric_parameter",
+    "target": {
+      "component": "thermalLandAndSolder",
+      "property": "landThickness",
+      "label": "Land Thickness",
+      "baseline": 0.05,
+      "value": 0.045
+    },
+    "comparison_baseline": "br_v2_thermallandandsolder_landthickness/model.xml",
+    "expected_outcome": "semantic_change"
+  }
+}

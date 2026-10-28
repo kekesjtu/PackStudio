@@ -1,0 +1,26 @@
+{
+  "status": "success",
+  "checks": {
+    "script_schema": true,
+    "outputs": true,
+    "floxml_schema": true
+  },
+  "file_version": "2025.13.1.1142",
+  "executable_sha256": "de21140177f9836147fdac1f9a82bb68490d92844fb321087201667575976ba1",
+  "binary_sha256": {
+    "flopackrealise.dll": "838ed6c2e7d40cc749b8b145f55d78e9e95495fef974d593a7641fc0aa528edd",
+    "flopackfloxmlhandling.dll": "1301c597999445ba908f81537e7baa773eac874b0dd9ef1507f08664ca8c2c13",
+    "flopackmaterials.dll": "4fdd99632751f4e7c63a2bdc93e290a3bc9ca018bbe8b7921aa7025cedb3cda3"
+  },
+  "launcher_sha256": "abd583f58e1fbecbea8b03234119def96ad645a76b689fe1ba32542c0f6031a7",
+  "batch_script_sha256": "e399996ef3603f68e36d12ebf91ae1c5503b69810800e7bbb4738ed8c4c3120a",
+  "native_case_id": "p000034",
+  "files": {
+    "model.xml": "be4edee47051b7dc94b4e7602dabfc00ff77a4b37b933c717c3f4c89c6924dba",
+    "model.des": "477fcdb238f7d261d2409264b057ee1562a16b0cbaa3575f83c86f5c3f6b589c",
+    "case.json": "6090dfd853c20a9c458c0ab946950ed85d980385e07894ce1975bc4662b3bcb8",
+    "script.xml": "1cb83684b10264ca6f653f115c0555c5add7339daebd4b67b02394113f9a9e15"
+  },
+  "batch_status": "failed",
+  "native_schema_error": null
+}

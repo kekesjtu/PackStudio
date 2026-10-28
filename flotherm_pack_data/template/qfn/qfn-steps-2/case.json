@@ -1,0 +1,17 @@
+{
+  "template": "qfn",
+  "id": "qfn-steps-2",
+  "origin": "fidelity",
+  "commands": [
+    "<new_package package_type=\"QFN\"><new_value new_value=\"qfn\" property_name=\"designName\" /><new_value new_value=\"standardOutline\" property_name=\"outlineType\" /><new_value new_value=\"QFN_12X12_100\" property_name=\"jedecFootprint\" /></new_package>",
+    "<modify_component name=\"modelingOptions\" new_value=\"2\" property_name=\"numberOfDiscreteBondwireSteps\" />"
+  ],
+  "request": {
+    "template_id": "qfn",
+    "overrides": {
+      "qfn.bond_wire.steps": 2
+    },
+    "material_assignments": {}
+  },
+  "metadata": {}
+}

@@ -1,0 +1,22 @@
+{
+  "template": "qfn",
+  "id": "opt_v2_c002_localizegrid_false",
+  "origin": "legacy",
+  "commands": [
+    "<new_package package_type=\"QFN\">\n        <new_value new_value=\"QFN\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"QFN_12X12_100\" property_name=\"jedecFootprint\" />\n    </new_package>",
+    "<modify_component name=\"modelingOptions\" new_value=\"false\" property_name=\"localizeGrid\" />"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "boolean_option",
+    "target": {
+      "component": "modelingOptions",
+      "property": "localizeGrid",
+      "label": "Localize Grid",
+      "baseline": true,
+      "value": false
+    },
+    "comparison_baseline": "baseline/model.xml",
+    "expected_outcome": "semantic_change"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "template": "pqfp",
+  "id": "preset-pqfp-50",
+  "origin": "fidelity",
+  "commands": [
+    "<new_package package_type=\"pqfp\"><new_value new_value=\"pqfp\" property_name=\"designName\" /><new_value new_value=\"standardOutline\" property_name=\"outlineType\" /><new_value new_value=\"actualDie\" property_name=\"dieType\" /><new_value new_value=\"false\" property_name=\"exposedPad\" /><new_value new_value=\"tqfp\" property_name=\"pqfpPackageType\" /><new_value new_value=\"TQFP_144_20X20mm\" property_name=\"tqfpJedecFootprint\" /></new_package>"
+  ],
+  "request": {
+    "template_id": "pqfp",
+    "overrides": {
+      "pqfp.footprint.size": "TQFP_144_20X20mm"
+    },
+    "material_assignments": {}
+  },
+  "metadata": {}
+}

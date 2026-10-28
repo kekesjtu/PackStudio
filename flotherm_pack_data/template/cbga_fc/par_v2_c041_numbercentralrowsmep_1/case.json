@@ -1,0 +1,24 @@
+{
+  "template": "cbga_fc",
+  "id": "par_v2_c041_numbercentralrowsmep_1",
+  "origin": "legacy",
+  "commands": [
+    "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+    "<modify_component name=\"centralBalls\" new_value=\"true\" property_name=\"centralBalls\" />",
+    "<modify_component name=\"centralBalls\" new_value=\"2\" property_name=\"numberCentralRowsMDp\" />",
+    "<modify_component name=\"centralBalls\" new_value=\"1\" property_name=\"numberCentralRowsMEp\" />"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "numeric_parameter",
+    "target": {
+      "component": "centralBalls",
+      "property": "numberCentralRowsMEp",
+      "label": "Number Central Rows MEc",
+      "baseline": 2,
+      "value": 1
+    },
+    "comparison_baseline": "br_v2_centralballs_numbercentralrowsmep/model.xml",
+    "expected_outcome": "semantic_change"
+  }
+}

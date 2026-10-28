@@ -1,0 +1,21 @@
+{
+  "template": "chip_array",
+  "id": "opt_v2_c001_outlinetype_nonstandardoutline",
+  "origin": "legacy",
+  "commands": [
+    "<new_package package_type=\"chip_array\">\n        <new_value new_value=\"Chip Array\" property_name=\"designName\" />\n        <new_value new_value=\"nonStandardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"ChipArray_24_4X4mm_0_8\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n    </new_package>"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "enum_option",
+    "target": {
+      "component": "new_package",
+      "property": "outlineType",
+      "label": "Outline Type",
+      "baseline": "standardOutline",
+      "value": "nonStandardOutline"
+    },
+    "comparison_baseline": "baseline/model.xml",
+    "expected_outcome": "semantic_change"
+  }
+}

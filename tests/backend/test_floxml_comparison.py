@@ -1,7 +1,5 @@
-import json
 from dataclasses import replace
 from pathlib import Path
-from zipfile import ZipFile
 
 import pytest
 
@@ -77,9 +75,21 @@ def test_reader_accumulates_nested_translations_and_inherits_material(tmp_path: 
 
 
 def test_sop_solid_tie_bars_are_not_confused_with_mixed_lead_envelopes():
-    evidence = Path(__file__).parents[2] / "docs/validation/floxml/evidence.zip"
-    with ZipFile(evidence) as archive:
-        details = json.loads(archive.read("cases/sop-baseline/comparison.json"))
+    bars = Box(
+        "bar", (0.0, 0.0, 0.0), (1.0, 1.0, 1.0), "a", path="/group-tie-bars/bar", role="tie_bar"
+    )
+    leads = Box(
+        "lead",
+        (2.0, 0.0, 0.0),
+        (1.0, 1.0, 1.0),
+        "a",
+        path="/group-lead-frame/lead",
+        role="lead_frame",
+    )
+    native = Document([bars, leads], MATERIALS, [], {}, [], [])
+    generated = [replace(b, material="b") for b in (bars, leads)]
+    exported = Document(generated, MATERIALS, [], {}, [], [])
+    details = compare(native, exported, generated, MATERIALS)
     classify({"id": "sop-baseline", "kind": "baseline", "template": "sop"}, details)
     rows = details["normalized"]["differences"]
     bars = [r for r in rows if "/group-tie-bars/" in r["packstudio_path"]]
@@ -90,11 +100,11 @@ def test_sop_solid_tie_bars_are_not_confused_with_mixed_lead_envelopes():
 
 
 def test_bump_difference_is_an_open_alignment_gap_not_an_approved_choice():
-    evidence = Path(__file__).parents[2] / "docs/validation/floxml/evidence.zip"
-    with ZipFile(evidence) as archive:
-        details = json.loads(archive.read("cases/fc-solder-edit/comparison.json"))
-    for row in details["normalized"]["differences"]:
-        row["property_differences"].pop("kz")
+    bump = Box("bump", (0.0, 0.0, 0.0), (1.0, 1.0, 1.0), "a", role="flip_chip_bump")
+    native = Document([bump], MATERIALS, [], {}, [], [])
+    edited = dict(MATERIALS, a=(5.0, 6.0, 3.0, 1000.0, 500.0))
+    exported = Document([bump], edited, [], {}, [], [])
+    details = compare(native, exported, [bump], edited)
     findings = classify(
         {"id": "fc-solder-edit", "template": "pbga_fc", "kind": "constituent_material"}, details
     )

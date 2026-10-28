@@ -1,5 +1,6 @@
 """Reproduce the 342-source adaptation audit with FloXML exports."""
 
+import argparse
 import hashlib
 import json
 from pathlib import Path
@@ -35,7 +36,7 @@ def validate_exports(model, schema: etree.XMLSchema) -> dict:
     }
 
 
-def main() -> None:
+def audit_catalog() -> dict:
     schema = etree.XMLSchema(etree.parse(str(ROOT / "output_format/floxml/xmlSchema.xsd")))
     records = []
     cases = 0
@@ -103,11 +104,22 @@ def main() -> None:
         "BGA count parity and FloXML XSD; no native PACK comparison for new presets.",
         "records": records,
     }
-    (ROOT / "docs/validation/catalog_presets.json").write_text(
-        json.dumps(report, ensure_ascii=False, indent=2, sort_keys=True) + "\n",
-        encoding="utf-8",
-        newline="\n",
-    )
+    return report
+
+
+def main(argv=None) -> None:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--report", type=Path, help="optional JSON report path")
+    args = parser.parse_args(argv)
+    report = audit_catalog()
+    if args.report:
+        args.report.parent.mkdir(parents=True, exist_ok=True)
+        args.report.write_text(
+            json.dumps(report, ensure_ascii=False, indent=2, sort_keys=True) + "\n",
+            encoding="utf-8",
+            newline="\n",
+        )
+    records, cases = report["records"], report["model_export_cases"]
     print(f"{len(records)} sources, {cases} model/export cases passed", flush=True)
 
 

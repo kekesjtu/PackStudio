@@ -1,0 +1,28 @@
+{
+  "template": "cbga_fc",
+  "id": "cbga_fc-equivalent-staggered-center",
+  "origin": "fidelity",
+  "commands": [
+    "<new_package package_type=\"cbga_fc\"><new_value new_value=\"cbga_fc\" property_name=\"designName\" /><new_value new_value=\"standardOutline\" property_name=\"outlineType\" /><new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" /><new_value new_value=\"bareDie\" property_name=\"topCover\" /></new_package>",
+    "<modify_component name=\"modelingOptions\" new_value=\"orthotropicCuboid\" property_name=\"modelSolderBallArrayAs\" />",
+    "<modify_component name=\"solderBalls\" new_value=\"true\" property_name=\"staggeredMatrix\" />",
+    "<modify_component name=\"centralBalls\" new_value=\"true\" property_name=\"centralBalls\" />",
+    "<modify_component name=\"centralBalls\" new_value=\"3\" property_name=\"numberCentralRowsMDp\" />",
+    "<modify_component name=\"centralBalls\" new_value=\"3\" property_name=\"numberCentralRowsMEp\" />",
+    "<modify_component name=\"centralBalls\" new_value=\"true\" property_name=\"staggeredMatrix\" />"
+  ],
+  "request": {
+    "template_id": "cbga_fc",
+    "overrides": {},
+    "material_assignments": {},
+    "bga": {
+      "representation": "equivalent",
+      "staggered": true,
+      "center_solder_enabled": true,
+      "center_solder_rows": 3,
+      "center_solder_columns": 3,
+      "center_staggered": true
+    }
+  },
+  "metadata": {}
+}

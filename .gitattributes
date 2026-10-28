@@ -23,3 +23,6 @@ uv.lock text eol=lf
 
 # Preserve the vendor schema byte-for-byte, including its original whitespace.
 output_format/floxml/*.xsd -text -whitespace
+
+# Reference fingerprints cover the exact native bytes, including line endings.
+flotherm_pack_data/** -text -whitespace

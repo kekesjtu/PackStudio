@@ -10,4 +10,4 @@
 - [FloXML 契约](../../output_format/floxml/README.md)维护字段、单位与导出行为。
 - 厂商 XSD 和示例位于 `output_format/floxml/`。
 - 导出测试检查 XML 结构、单位换算、几何、材料绑定与功率。
-- 原生导出证据与模型比较数据位于 `docs/validation/`，用作回归输入。
+- 原生导出证据位于 `flotherm_pack_data/template/<模板>/<扫参点>/`，纳入版本控制并用作回归输入。

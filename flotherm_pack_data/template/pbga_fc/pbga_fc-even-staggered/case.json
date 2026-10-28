@@ -1,0 +1,23 @@
+{
+  "template": "pbga_fc",
+  "id": "pbga_fc-even-staggered",
+  "origin": "fidelity",
+  "commands": [
+    "<load_des filename=\"input.des\" />"
+  ],
+  "request": {
+    "template_id": "pbga_fc",
+    "overrides": {
+      "pbga_fc.bga.rows": 4,
+      "pbga_fc.bga.columns": 5
+    },
+    "bga": {
+      "representation": "discrete",
+      "staggered": true
+    }
+  },
+  "metadata": {},
+  "input_members": {
+    "pbga_fc-even-staggered.des": "3d66be0a0d0d1b077f51b7850a5d7e26f20d18726b8ec939046f2c58fe9f5388"
+  }
+}

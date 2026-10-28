@@ -1,0 +1,41 @@
+{
+  "template": "cbga_fc",
+  "id": "cbga_fc-csv-3",
+  "origin": "fidelity",
+  "commands": [
+    "<load_des filename=\"input.des\" />"
+  ],
+  "request": {
+    "template_id": "cbga_fc",
+    "bga": {
+      "representation": "discrete",
+      "ball_map_enabled": true,
+      "ball_map": [
+        {
+          "id": "A",
+          "x": -1.1,
+          "y": 0.3
+        },
+        {
+          "id": "B",
+          "x": 0.25,
+          "y": -0.7
+        },
+        {
+          "id": "C",
+          "x": 0.25,
+          "y": -0.7
+        }
+      ],
+      "staggered": true,
+      "center_solder_enabled": true,
+      "center_solder_rows": 2,
+      "center_solder_columns": 2
+    }
+  },
+  "metadata": {},
+  "input_members": {
+    "cbga_fc-csv-3.des": "2694d21e7081a9be80852f0e280d7aa409252304aa824db9ddd69a9200cbde85",
+    "cbga_fc-csv-3.var2": "13afb2d831dac1a6d49aadec57d19f2a8685a53131611763ee78454b86f546f4"
+  }
+}

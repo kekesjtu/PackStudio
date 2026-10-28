@@ -1,0 +1,25 @@
+{
+  "template": "chip_array",
+  "id": "chip_array-csv-0",
+  "origin": "fidelity",
+  "commands": [
+    "<load_des filename=\"input.des\" />"
+  ],
+  "request": {
+    "template_id": "chip_array",
+    "bga": {
+      "representation": "discrete",
+      "ball_map_enabled": true,
+      "ball_map": [],
+      "staggered": true,
+      "center_solder_enabled": true,
+      "center_solder_rows": 2,
+      "center_solder_columns": 2
+    }
+  },
+  "metadata": {},
+  "input_members": {
+    "chip_array-csv-0.des": "32b6772103331dd8e1a1ad4d3018c0f54e3709bc52aca9f63e984b06210705b7",
+    "chip_array-csv-0.var2": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

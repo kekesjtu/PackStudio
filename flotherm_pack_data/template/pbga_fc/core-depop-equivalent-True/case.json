@@ -1,0 +1,79 @@
+{
+  "template": "pbga_fc",
+  "id": "core-depop-equivalent-True",
+  "origin": "fidelity",
+  "commands": [
+    "<load_des filename=\"input.des\" />"
+  ],
+  "request": {
+    "template_id": "pbga_fc",
+    "overrides": {
+      "pbga_fc.vias.enabled": true,
+      "pbga_fc.vias.columns": 3,
+      "pbga_fc.vias.rows": 4,
+      "pbga_fc.vias.diameter": 0.2,
+      "pbga_fc.vias.pitch": 0.5,
+      "pbga_fc.vias.plating": 0.025,
+      "pbga_fc.vias.modeling": "equivalent"
+    },
+    "material_assignments": {
+      "group-substrate": "bt"
+    },
+    "vias": {
+      "removal_enabled": true,
+      "removal_rows": 0,
+      "removal_columns": 0,
+      "omitted_cells": [
+        {
+          "row": 0,
+          "column": 1
+        },
+        {
+          "row": 0,
+          "column": 2
+        },
+        {
+          "row": 1,
+          "column": 0
+        },
+        {
+          "row": 1,
+          "column": 1
+        },
+        {
+          "row": 1,
+          "column": 2
+        },
+        {
+          "row": 2,
+          "column": 0
+        },
+        {
+          "row": 2,
+          "column": 1
+        },
+        {
+          "row": 2,
+          "column": 2
+        },
+        {
+          "row": 3,
+          "column": 0
+        },
+        {
+          "row": 3,
+          "column": 1
+        },
+        {
+          "row": 3,
+          "column": 2
+        }
+      ]
+    }
+  },
+  "metadata": {},
+  "input_members": {
+    "core-depop-equivalent-True.des": "4ad5e7c7eaba0c3b1062ca91cccb443c622a449837a261da6986f7a02db15375",
+    "core-depop-equivalent-True.var3": "b8ad1bd2ff50021ff6a1239585cc9ccde31e70072299c3cc910da54f9e791f7c"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "template": "qfn",
+  "id": "qfn-rectangle-stepped",
+  "origin": "fidelity",
+  "commands": [
+    "<new_package package_type=\"QFN\"><new_value new_value=\"qfn\" property_name=\"designName\" /><new_value new_value=\"standardOutline\" property_name=\"outlineType\" /><new_value new_value=\"QFN_12X12_100\" property_name=\"jedecFootprint\" /></new_package>",
+    "<modify_component name=\"overallPackage\" new_value=\"13\" property_name=\"lengthD\" />",
+    "<modify_component name=\"die\" new_value=\"5.8\" property_name=\"dieLengthLd\" />",
+    "<modify_component name=\"modelingOptions\" new_value=\"3\" property_name=\"numberOfDiscreteBondwireSteps\" />"
+  ],
+  "request": {
+    "template_id": "qfn",
+    "overrides": {
+      "qfn.package.length": 13,
+      "qfn.die.length": 5.8,
+      "qfn.bond_wire.steps": 3
+    },
+    "material_assignments": {}
+  },
+  "metadata": {}
+}

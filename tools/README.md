@@ -78,14 +78,14 @@ npm run test:desktop
 桌面验证检查实际页面、WebGL、八类生成和 FloXML 下载、原生保存、宿主消息、
 端口冲突与进程清理，需要 Windows 桌面会话和相应运行时。
 
-342 个源预设的生成与 FloXML 审计：
+源预设的生成与 FloXML 审计：
 
 ```powershell
 uv run --locked python -m tools.validate_catalog_presets
 ```
 
-该命令实际重建模型并更新 `docs/validation/catalog_presets.json`。
-报告列出验证案例、输入指纹、几何引用与 FloXML XSD 检查结果。
+该命令实际生成模型，检查材料和几何引用、BGA 数量以及 FloXML XSD，默认输出汇总。
+需要保留机器报告时，显式传入 `--report tmp/YYYY-MM-DD-catalog-audit/report.json`。
 
 ## 临时文件
 

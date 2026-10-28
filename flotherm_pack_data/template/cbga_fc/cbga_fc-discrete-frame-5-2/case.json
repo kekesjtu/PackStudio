@@ -1,0 +1,31 @@
+{
+  "template": "cbga_fc",
+  "id": "cbga_fc-discrete-frame-5-2",
+  "origin": "fidelity",
+  "commands": [
+    "<new_package package_type=\"cbga_fc\"><new_value new_value=\"cbga_fc\" property_name=\"designName\" /><new_value new_value=\"standardOutline\" property_name=\"outlineType\" /><new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" /><new_value new_value=\"bareDie\" property_name=\"topCover\" /></new_package>",
+    "<modify_component name=\"modelingOptions\" new_value=\"discreteCuboids\" property_name=\"modelSolderBallArrayAs\" />",
+    "<modify_component name=\"solderBallDepopulation\" new_value=\"true\" property_name=\"depopulatedCenter\" />",
+    "<modify_component name=\"solderBallDepopulation\" new_value=\"2\" property_name=\"numberFullyPopulatedRowsMDp\" />",
+    "<modify_component name=\"solderBallDepopulation\" new_value=\"5\" property_name=\"numberFullyPopulatedRowsMEp\" />",
+    "<modify_component name=\"solderBalls\" new_value=\"5\" property_name=\"numberOfSolderBallsInXMD\" />",
+    "<modify_component name=\"solderBalls\" new_value=\"5\" property_name=\"numberOfSolderBallsInYME\" />",
+    "<modify_component name=\"solderBalls\" new_value=\"0.5\" property_name=\"ballDiameterB\" />"
+  ],
+  "request": {
+    "template_id": "cbga_fc",
+    "overrides": {
+      "cbga_fc.bga.columns": 5,
+      "cbga_fc.bga.rows": 5,
+      "cbga_fc.bga.diameter": 0.5
+    },
+    "material_assignments": {},
+    "bga": {
+      "representation": "discrete",
+      "solder_removal_enabled": true,
+      "populated_rows": 5,
+      "populated_columns": 2
+    }
+  },
+  "metadata": {}
+}

@@ -1,0 +1,33 @@
+{
+  "template": "pbga_wb",
+  "id": "metal-depth-t0.018-i0.036-d0.2",
+  "origin": "fidelity",
+  "commands": [
+    "<load_des filename=\"input.des\" />"
+  ],
+  "request": {
+    "template_id": "pbga_wb",
+    "design_name": null,
+    "summary": {
+      "part_number": "",
+      "vendor": "",
+      "max_power_w": null,
+      "max_junction_temperature_c": null,
+      "max_case_temperature_c": null,
+      "notes": ""
+    },
+    "overrides": {
+      "pbga_wb.substrate.layers": "4-Layer",
+      "pbga_wb.metal.layers": "[{\"depth\": 0.0, \"thickness\": 0.018, \"coverage\": 30.0, \"disconnect\": false}, {\"depth\": 0.2, \"thickness\": 0.036, \"coverage\": 90.0, \"disconnect\": true}, {\"depth\": 0.3193333333333333, \"thickness\": 0.036000000000000004, \"coverage\": 90.0, \"disconnect\": false}, {\"depth\": 0.542, \"thickness\": 0.018000000000000002, \"coverage\": 10.0, \"disconnect\": false}]"
+    },
+    "bga": null,
+    "vias": null,
+    "material_assignments": {},
+    "custom_materials": [],
+    "die_power_w": null
+  },
+  "metadata": {},
+  "input_members": {
+    "metal-depth-t0.018-i0.036-d0.2.des": "8d30f6ecba4326a748fb51ebaf21a29b493cdf578b0e6e0578d516817ff6f12a"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "template": "qfn",
+  "id": "br_v2_vias_numberofviasinxvd",
+  "origin": "legacy",
+  "commands": [
+    "<new_package package_type=\"QFN\">\n        <new_value new_value=\"QFN\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"QFN_12X12_100\" property_name=\"jedecFootprint\" />\n    </new_package>",
+    "<modify_component name=\"vias\" new_value=\"discrete\" property_name=\"modelViasAs\" />",
+    "<modify_component name=\"vias\" new_value=\"0.85\" property_name=\"viasLengthLv\" />",
+    "<modify_component name=\"vias\" new_value=\"0.2\" property_name=\"viasDiameterDv\" />",
+    "<modify_component name=\"vias\" new_value=\"0.02\" property_name=\"platingThicknessTpl\" />",
+    "<modify_component name=\"vias\" new_value=\"0.5\" property_name=\"viasPitchEv\" />",
+    "<modify_component name=\"vias\" new_value=\"5\" property_name=\"numberOfViasInYVE\" />",
+    "<modify_component name=\"vias\" new_value=\"5\" property_name=\"numberOfViasInXVD\" />"
+  ],
+  "request": null,
+  "metadata": {}
+}

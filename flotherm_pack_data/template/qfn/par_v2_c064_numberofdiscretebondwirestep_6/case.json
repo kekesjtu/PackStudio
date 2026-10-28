@@ -1,0 +1,22 @@
+{
+  "template": "qfn",
+  "id": "par_v2_c064_numberofdiscretebondwirestep_6",
+  "origin": "legacy",
+  "commands": [
+    "<new_package package_type=\"QFN\">\n        <new_value new_value=\"QFN\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"QFN_12X12_100\" property_name=\"jedecFootprint\" />\n    </new_package>",
+    "<modify_component name=\"modelingOptions\" new_value=\"6\" property_name=\"numberOfDiscreteBondwireSteps\" />"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "numeric_parameter",
+    "target": {
+      "component": "modelingOptions",
+      "property": "numberOfDiscreteBondwireSteps",
+      "label": "Number of Discrete Steps",
+      "baseline": 5,
+      "value": 6
+    },
+    "comparison_baseline": "br_v2_modelingoptions_numberofdiscretebondwiresteps/model.xml",
+    "expected_outcome": "semantic_change"
+  }
+}

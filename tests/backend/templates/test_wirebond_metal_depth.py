@@ -1,10 +1,8 @@
 """Metal depth contract and disconnect alignment against native probe evidence."""
 
-import hashlib
 import json
 from pathlib import Path
 from xml.etree import ElementTree as ET
-from zipfile import ZipFile
 
 import pytest
 from lxml import etree
@@ -12,14 +10,29 @@ from lxml import etree
 from packstudio.exporters.floxml import export_floxml
 from packstudio.templates.package_library.catalog import definition, generate
 from packstudio.templates.package_library.core.parameters import TemplateRequest
+from tests.backend.templates.native_references import product_cases, verify_fingerprints
+from tools.floscript.des import read_des
 
 ROOT = Path(__file__).parents[3]
-EVIDENCE = ROOT / "docs/validation/wb-metal-depth/evidence.zip"
 
 
 def cases():
-    with ZipFile(EVIDENCE) as archive:
-        return json.loads(archive.read("cases.json"))
+    result = []
+    for case in product_cases():
+        if case["template"] == "pbga_wb" and case["id"].startswith("metal-depth-"):
+            data = read_des(case["directory"] / "input.des")
+            result.append(
+                {
+                    **case,
+                    "inputs_mm": {
+                        "top": float(data["tz1"]),
+                        "inner": float(data["tz2"]),
+                        "depth": float(data["z2"]),
+                    },
+                }
+            )
+    assert len(result) == 6
+    return result
 
 
 def request_for(case, mode):
@@ -48,8 +61,7 @@ def request_for(case, mode):
 @pytest.mark.parametrize("case", cases(), ids=lambda c: c["id"])
 @pytest.mark.parametrize("mode", ["discreteCuboids", "orthotropicCuboid", "isotropicCuboid"])
 def test_inner_copper_and_disconnect_follow_native_depth_contract(case, mode):
-    with ZipFile(EVIDENCE) as archive:
-        native = ET.fromstring(archive.read(case["id"] + ".xml"))
+    native = ET.parse(case["directory"] / "model.xml").getroot()
     native_disconnect = next(
         b for b in native.findall(".//cuboid") if b.findtext("name") == "discon2"
     )
@@ -91,16 +103,18 @@ def test_inner_depth_and_thickness_apply_to_layers_without_disconnect():
 
 
 def test_original_probe_evidence_preserves_parameters_and_native_offset():
-    with ZipFile(EVIDENCE) as archive:
-        run = json.loads(archive.read("run.json"))
-        assert run["status"] == "success" and all(run["checks"].values())
-        for identifier, digest in run["exports"].items():
-            assert hashlib.sha256(archive.read(identifier + ".xml")).hexdigest() == digest
-        results = json.loads(archive.read("results.json"))
-        for row in results:
-            assert float(row["readback"]["tz1"]) == row["top"]
-            assert float(row["readback"]["tz2"]) == row["inner"]
-            assert float(row["readback"]["z2"]) == row["depth"]
-            assert row["discon2"][0] - row["trace_1"][0] == pytest.approx(
-                2 * row["top"] - row["inner"]
-            )
+    for case in cases():
+        directory, inputs = case["directory"], case["inputs_mm"]
+        assert all(verify_fingerprints(directory)["checks"].values())
+        readback = read_des(directory / "model.des")
+        assert float(readback["tz1"]) == inputs["top"]
+        assert float(readback["tz2"]) == inputs["inner"]
+        assert float(readback["z2"]) == inputs["depth"]
+        cuboids = {
+            b.findtext("name"): b for b in ET.parse(directory / "model.xml").findall(".//cuboid")
+        }
+        offset = (
+            float(cuboids["discon2"].findtext("position/z"))
+            - float(cuboids["trace_1"].findtext("position/z"))
+        ) * 1000
+        assert offset == pytest.approx(2 * inputs["top"] - inputs["inner"])

@@ -4,7 +4,6 @@ from collections import Counter
 from math import hypot, pi
 from pathlib import Path
 from xml.etree import ElementTree as ET
-from zipfile import ZipFile
 
 import pytest
 
@@ -120,8 +119,9 @@ def test_negative_height_raw_geometry_and_wire_material_match_native_pack():
     item = definition("pqfp")
     values = item.validate_request(request)
     built = item.builder(values, item.resolve_material_request(request, values))
-    with ZipFile(ROOT / "docs/validation/floxml/evidence.zip") as archive:
-        native = ET.fromstring(archive.read("cases/qfp-negative/native.xml"))
+    native = ET.parse(
+        ROOT / "flotherm_pack_data/template/pqfp/pqfp-height-0.44/model.xml"
+    ).getroot()
     decision_geometry(native, "pqfp")
     expected = Counter(
         tuple(

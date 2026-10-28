@@ -1,0 +1,33 @@
+{
+  "template": "pbga_fc",
+  "id": "pbga_fc-explicit-True",
+  "origin": "fidelity",
+  "commands": [
+    "<load_des filename=\"input.des\" />"
+  ],
+  "request": {
+    "template_id": "pbga_fc",
+    "overrides": {
+      "pbga_fc.bga.rows": 5,
+      "pbga_fc.bga.columns": 5
+    },
+    "bga": {
+      "representation": "discrete",
+      "solder_removal_enabled": true,
+      "depopulated_center": true,
+      "populated_rows": 2,
+      "populated_columns": 2,
+      "staggered": true,
+      "omitted_cells": [
+        {
+          "row": 0,
+          "column": 0
+        }
+      ]
+    }
+  },
+  "metadata": {},
+  "input_members": {
+    "pbga_fc-explicit-True.des": "006d49e7aa0cdc7c0ce128030629a779d56cad5b8ee2ea23ecb25c2b1bd3650c"
+  }
+}

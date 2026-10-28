@@ -1,0 +1,16 @@
+{
+  "template": "qfn",
+  "id": "preset-qfn-36",
+  "origin": "fidelity",
+  "commands": [
+    "<new_package package_type=\"QFN\"><new_value new_value=\"qfn\" property_name=\"designName\" /><new_value new_value=\"standardOutline\" property_name=\"outlineType\" /><new_value new_value=\"QFN_8X8_32\" property_name=\"jedecFootprint\" /></new_package>"
+  ],
+  "request": {
+    "template_id": "qfn",
+    "overrides": {
+      "qfn.footprint.size": "QFN_8X8_32"
+    },
+    "material_assignments": {}
+  },
+  "metadata": {}
+}
