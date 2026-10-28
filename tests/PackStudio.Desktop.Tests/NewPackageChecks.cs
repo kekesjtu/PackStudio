@@ -116,16 +116,21 @@ static class NewPackageChecks
         Console.WriteLine("PASS finish New Package and visible sidebar navigation");
     }
 
-    static void Capture(Window window, string name)
+    internal static void Capture(Window window, string name)
     {
         window.UpdateLayout();
         var content = (FrameworkElement)window.Content;
-        var bitmap = new RenderTargetBitmap((int)Math.Ceiling(content.ActualWidth), (int)Math.Ceiling(content.ActualHeight), 96, 96, PixelFormats.Pbgra32);
+        var margin = content.Margin;
+        double width = content.ActualWidth + margin.Left + margin.Right;
+        double height = content.ActualHeight + margin.Top + margin.Bottom;
+        var bitmap = new RenderTargetBitmap((int)Math.Ceiling(width), (int)Math.Ceiling(height), 96, 96, PixelFormats.Pbgra32);
         var background = new DrawingVisual();
         using (var dc = background.RenderOpen())
-            dc.DrawRectangle(window.Background, null, new Rect(0, 0, content.ActualWidth, content.ActualHeight));
+        {
+            dc.DrawRectangle(window.Background, null, new Rect(0, 0, width, height));
+            dc.DrawRectangle(new VisualBrush(content), null, new Rect(margin.Left, margin.Top, content.ActualWidth, content.ActualHeight));
+        }
         bitmap.Render(background);
-        bitmap.Render(content);
         var encoder = new PngBitmapEncoder();
         encoder.Frames.Add(BitmapFrame.Create(bitmap));
         Directory.CreateDirectory(PreviewDirectory);

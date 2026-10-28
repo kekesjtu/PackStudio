@@ -13,6 +13,13 @@ PackStudio 前端与后端统一采用本机 PTA 的技术栈，面向 Windows �
 - JSON 运行数据与 FloXML XSD 是可分发资源，不依赖本机 PTA、Flotherm PACK 或参考归档。
 - 保留八类封装、材料等效规则、均匀芯片热源、模型树和 FloXML 接口契约。
 
+## 工作区交互
+
+向导、三维模型、模型树与属性三个区域支持拖动分隔条实时调整尺寸；区域内部的上下分隔条采用相同交互。
+三维视图左键拖动平移、右键拖动旋转、滚轮缩放；单击保留实体选择，平移结束保留原选择。
+方位指示仅使用右下角 XYZ 坐标轴。左下角状态栏显示操作与模型状态，无固定单位图例。
+FloXML 导出使用文档与向外箭头图标。
+
 ## 技术栈参照
 
 本机 PTA 安装清单声明 .NET 10，CommunityToolkit.Mvvm 8.3.2、HelixToolkit.Wpf 3.1.2、Fluent.Ribbon 9.0.4、Dirkster.AvalonDock 5.0.0、Newtonsoft.Json 13.0.3 与 NLog 4.5.10。使用的第三方运行依赖与参照保持同版本，通过 NuGet 锁文件固定。

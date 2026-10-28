@@ -71,6 +71,7 @@ public static class Program
                 }
 
                 await NewPackageChecks.FinishCreatesProject(window, vm);
+                WorkspaceChecks.Run(window, vm);
             }
             catch (Exception ex)
             {

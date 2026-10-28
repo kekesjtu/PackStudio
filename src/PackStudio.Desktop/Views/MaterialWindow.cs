@@ -9,7 +9,7 @@ namespace PackStudio.Desktop;
 public sealed class MaterialWindow : Window
 {
     readonly Workspace workspace;
-    readonly TreeView list = new();
+    readonly TreeView list = new() { Name = "MaterialTree" };
     readonly StackPanel editor = new()
     {
         Visibility = Visibility.Collapsed
@@ -27,6 +27,9 @@ public sealed class MaterialWindow : Window
         Title = "材料库 — 当前方案物性";
         Width = 900;
         Height = 620;
+        MinWidth = 720;
+        FontFamily = new FontFamily("Microsoft YaHei UI");
+        FontSize = 12;
         WindowStartupLocation = WindowStartupLocation.CenterOwner;
         var root = new Grid
         {
@@ -48,6 +51,7 @@ public sealed class MaterialWindow : Window
         DockPanel.SetDock(filter, Dock.Top);
         left.Children.Add(filter);
         left.Children.Add(list);
+        list.Style = (Style)FindResource("ExplorerTree");
         Grid.SetColumn(editor, 1);
         root.Children.Add(editor);
         editor.Children.Add(description);
@@ -90,12 +94,20 @@ public sealed class MaterialWindow : Window
             {
                 var category = new TreeViewItem
                 {
-                    Header = $"{group.Key} ({group.Count()})",
+                    Header = new TreeRow(group.Key, true, group.Count().ToString()),
                     Tag = group.Key,
+                    Style = (Style)FindResource("ExplorerTreeItem"),
                     IsExpanded = filter.Text.Length > 0 || expanded.Contains(group.Key)
                 };
                 foreach (var material in group.OrderBy(m => m.Name))
-                    category.Items.Add(new TreeViewItem { Header = material.Name, Tag = material, Padding = new(2, 4, 0, 4) });
+                {
+                    var item = new TreeViewItem { Header = new TreeRow(material.Name, false,
+                        swatch: (Color)ColorConverter.ConvertFromString(material.Color)), Tag = material,
+                        Style = (Style)FindResource("ExplorerTreeItem") };
+                    System.Windows.Automation.AutomationProperties.SetName(item, material.Name);
+                    category.Items.Add(item);
+                }
+                System.Windows.Automation.AutomationProperties.SetName(category, $"{group.Key} ({group.Count()})");
                 list.Items.Add(category);
             }
         }
@@ -105,8 +117,18 @@ public sealed class MaterialWindow : Window
         list.PreviewMouseLeftButtonDown += (_, e) =>
         {
             var element = e.OriginalSource as DependencyObject;
+            bool expander = false;
             while (element != null && element is not TreeViewItem)
+            {
+                if (element is System.Windows.Controls.Primitives.ToggleButton) expander = true;
                 element = VisualTreeHelper.GetParent(element);
+            }
+            if (!expander && element is TreeViewItem { Tag: string } category)
+            {
+                category.IsExpanded = !category.IsExpanded;
+                e.Handled = true;
+                return;
+            }
             if (element is TreeViewItem { Tag: Material material } item && selected?.Id == material.Id)
             {
                 selected = null;

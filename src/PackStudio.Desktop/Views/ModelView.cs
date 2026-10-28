@@ -72,9 +72,10 @@ public partial class MainWindow
             if (item.Tag is Node n)
             {
                 bool selected = n.Block != null && workspace.Selected.Contains(n.Id), hidden = n.Block != null && workspace.Hidden.Contains(n.Id);
-                item.Header = n.Block == null ? $"{n.Name}  {n.Blocks.Count(b => !workspace.Hidden.Contains(b.Id))}/{n.Blocks.Count}" : n.Name;
-                item.Foreground = hidden ? Brushes.Silver : selected ? Brushes.DodgerBlue : Brushes.DarkSlateGray;
-                item.FontWeight = selected ? FontWeights.SemiBold : FontWeights.Normal;
+                string count = n.Block == null ? $"{n.Blocks.Count(b => !workspace.Hidden.Contains(b.Id))}/{n.Blocks.Count}" : "";
+                item.Header = new TreeRow(n.Name, n.Block == null, count, hidden: hidden, modelGroup: true);
+                TreeRow.SetIsHighlighted(item, selected);
+                System.Windows.Automation.AutomationProperties.SetName(item, n.Name + (hidden ? "（隐藏）" : ""));
             }
 
         Viewport.Children.Clear();
@@ -114,7 +115,7 @@ public partial class MainWindow
         {
             Header = node.Name,
             Tag = node,
-            Padding = new(2, 4, 0, 4)
+            Style = (Style)FindResource("ExplorerTreeItem")
         };
         item.ContextMenuOpening += (_, e) =>
         {
@@ -213,7 +214,7 @@ public partial class MainWindow
         return true;
     }
 
-    void Viewport_MouseDown(object sender, MouseButtonEventArgs e)
+    void SelectViewportBlock(Point point)
     {
         string? id = null;
         VisualTreeHelper.HitTest(Viewport.Viewport, null, result =>
@@ -225,7 +226,7 @@ public partial class MainWindow
             }
 
             return HitTestResultBehavior.Continue;
-        }, new PointHitTestParameters(e.GetPosition(Viewport.Viewport)));
+        }, new PointHitTestParameters(point));
         workspace.Selected.Clear();
         if (id != null)
             workspace.Selected.Add(id);
