@@ -9,7 +9,7 @@ using PackStudio.Core;
 namespace PackStudio.Desktop;
 public partial class MainWindow
 {
-    static FrameworkElement Numeric(JToken? value, bool integer, string unit, Action<JToken> changed)
+    internal static FrameworkElement Numeric(JToken? value, bool integer, string unit, Action<JToken> changed)
     {
         var border = new Border
         {

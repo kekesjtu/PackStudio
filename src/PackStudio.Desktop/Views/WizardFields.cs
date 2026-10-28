@@ -11,9 +11,12 @@ public partial class MainWindow
 {
     static readonly Dictionary<string, string> Labels = new()
     {
+        ["summary"] = "概要",
         ["package_setup"] = "封装规格",
         ["overall_package"] = "整体封装",
         ["package_substrate"] = "封装基板",
+        ["upper_built_up"] = "上部增层区域",
+        ["lower_built_up"] = "下部增层区域",
         ["die"] = "芯片",
         ["encapsulant"] = "塑封",
         ["flip_chip_bumps"] = "倒装芯片凸点",
@@ -38,22 +41,37 @@ public partial class MainWindow
     void RefreshFields()
     {
         FieldsPanel.Children.Clear();
-        if (StepBox.SelectedValue is not string step)
+        if (StepList.SelectedValue is not string step)
             return;
+        SectionTitle.Text = StepLabel(step);
+        if (step == "summary")
+        {
+            AddSummary();
+            return;
+        }
+
         var values = workspace.Document.Values;
-        if (workspace.Template.Fields.Any(f => f["control"].Text() == "footprint" && f["step"].Text() == step))
-            FieldsPanel.Children.Add(new TextBlock { Text = $"{workspace.Template.Info.Name}\n\n当前预设：{workspace.Document.PresetId}\n\n选择标准封装外形后，按步骤编辑几何、材料与功率。", TextWrapping = TextWrapping.Wrap, Foreground = Brushes.SlateGray, Margin = new(0, 8, 0, 14) });
         foreach (var f in workspace.Template.Fields.Where(f => f["step"].Text() == step && f["control"].Text() != "footprint"))
         {
             if (!JsonData.Matches(f["visible_when"] as JObject, values))
                 continue;
             string key = f["key"].Text(), control = f["control"].Text();
-            var host = new StackPanel
+            bool isTable = control is "metal_layers" or "layer_table" || key.EndsWith(".layers", StringComparison.Ordinal) && control != "select" && values[key]?.Type == JTokenType.String && values[key]!.ToString().TrimStart().StartsWith('[');
+            var editors = new StackPanel();
+            var host = FieldRow(f["label"].Text(), editors);
+            host.IsEnabled = JsonData.Matches(f["enabled_when"] as JObject, values);
+            if (isTable)
             {
-                Margin = new(0, 0, 0, 14),
-                IsEnabled = JsonData.Matches(f["enabled_when"] as JObject, values)
-            };
-            host.Children.Add(new TextBlock { Text = f["label"].Text(), Margin = new(0, 0, 0, 5), TextWrapping = TextWrapping.Wrap, Foreground = new SolidColorBrush(Color.FromRgb(52, 66, 85)) });
+                host.RowDefinitions.Add(new() { Height = GridLength.Auto });
+                host.RowDefinitions.Add(new() { Height = GridLength.Auto });
+                Grid.SetColumnSpan(host.Children[0], 2);
+                ((TextBlock)host.Children[0]).HorizontalAlignment = HorizontalAlignment.Left;
+                Grid.SetColumn(editors, 0);
+                Grid.SetColumnSpan(editors, 2);
+                Grid.SetRow(editors, 1);
+                editors.Margin = new(0, 6, 0, 0);
+            }
+
             void Set(JToken? value, bool refresh = false)
             {
                 values[key] = value ?? JValue.CreateNull();
@@ -71,7 +89,7 @@ public partial class MainWindow
                 };
                 box.Checked += (_, _) => Set(true, true);
                 box.Unchecked += (_, _) => Set(false, true);
-                host.Children.Add(box);
+                editors.Children.Add(box);
             }
             else if (f["options"] is JArray options && options.Count > 0)
             {
@@ -88,9 +106,9 @@ public partial class MainWindow
                     if (box.SelectedValue is JToken value)
                         Set(value.DeepClone(), true);
                 };
-                host.Children.Add(box);
+                editors.Children.Add(box);
             }
-            else if (control is "metal_layers" or "layer_table" || key.EndsWith(".layers", StringComparison.Ordinal) && control != "select" && values[key]?.Type == JTokenType.String && values[key]!.ToString().TrimStart().StartsWith('['))
+            else if (isTable)
             {
                 JArray rows;
                 try
@@ -102,13 +120,13 @@ public partial class MainWindow
                     rows = [];
                 }
 
-                host.Children.Add(Table(rows, new[] { ("depth", "深度 mm", typeof(double)), ("thickness", "厚度 mm", typeof(double)), ("coverage", "覆盖率 %", typeof(double)), ("disconnect", "断开通孔", typeof(bool)) }, a => Set(a.ToString(Newtonsoft.Json.Formatting.None))));
+                editors.Children.Add(Table(rows, new[] { ("depth", "深度 mm", typeof(double)), ("thickness", "厚度 mm", typeof(double)), ("coverage", "覆盖率 %", typeof(double)), ("disconnect", "断开通孔", typeof(bool)) }, a => Set(a.ToString(Newtonsoft.Json.Formatting.None))));
             }
             else if (control is "number" or "integer" or "integer_spinbox")
             {
                 var row = new Grid();
                 row.ColumnDefinitions.Add(new() { Width = new GridLength(1, GridUnitType.Star) });
-                row.ColumnDefinitions.Add(new() { Width = new GridLength(105) });
+                row.ColumnDefinitions.Add(new() { Width = new GridLength(76) });
                 var input = Numeric(values[key], control.StartsWith("integer"), f["unit"].Text(), n => Set(n));
                 row.Children.Add(input);
                 string lo = f["minimum"]?.Type != JTokenType.Null ? f["minimum"].Text() : "", hi = f["maximum"]?.Type != JTokenType.Null ? f["maximum"].Text() : "";
@@ -123,7 +141,7 @@ public partial class MainWindow
                 };
                 Grid.SetColumn(range, 1);
                 row.Children.Add(range);
-                host.Children.Add(row);
+                editors.Children.Add(row);
             }
             else
             {
@@ -132,11 +150,11 @@ public partial class MainWindow
                     Text = values[key].Text()
                 };
                 box.TextChanged += (_, _) => Set(box.Text);
-                host.Children.Add(box);
+                editors.Children.Add(box);
             }
 
             if (f["help_text"].Text()is string help && help.Length > 0)
-                host.Children.Add(new TextBlock { Text = help, TextWrapping = TextWrapping.Wrap, Foreground = Brushes.SlateGray, FontSize = 11, Margin = new(0, 5, 0, 0) });
+                editors.Children.Add(new TextBlock { Text = help, TextWrapping = TextWrapping.Wrap, Foreground = Brushes.SlateGray, FontSize = 11, Margin = new(0, 5, 0, 0) });
             FieldsPanel.Children.Add(host);
         }
 

@@ -2,22 +2,50 @@
 <DockPanel>
 <fluent:Ribbon DockPanel.Dock="Top" IsQuickAccessToolBarVisible="False" IsToolBarVisible="False">
 <fluent:RibbonTabItem Header="建模">
-<fluent:RibbonGroupBox Header="方案"><fluent:Button Header="新建" Click="New_Click"><fluent:Button.LargeIcon><TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE710;" FontSize="24" Foreground="#395D87"/></fluent:Button.LargeIcon></fluent:Button><fluent:Button Header="打开" Click="Open_Click"><fluent:Button.LargeIcon><TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE8E5;" FontSize="24" Foreground="#395D87"/></fluent:Button.LargeIcon></fluent:Button><fluent:Button Header="保存方案" Click="Save_Click"><fluent:Button.LargeIcon><TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE74E;" FontSize="24" Foreground="#395D87"/></fluent:Button.LargeIcon></fluent:Button></fluent:RibbonGroupBox>
+<fluent:RibbonGroupBox Header="方案"><fluent:Button x:Name="NewPackageButton" Header="新建" Click="New_Click"><fluent:Button.LargeIcon><TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE710;" FontSize="24" Foreground="#395D87"/></fluent:Button.LargeIcon></fluent:Button><fluent:Button Header="打开" Click="Open_Click"><fluent:Button.LargeIcon><TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE8E5;" FontSize="24" Foreground="#395D87"/></fluent:Button.LargeIcon></fluent:Button><fluent:Button Header="保存方案" Click="Save_Click"><fluent:Button.LargeIcon><TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE74E;" FontSize="24" Foreground="#395D87"/></fluent:Button.LargeIcon></fluent:Button></fluent:RibbonGroupBox>
 <fluent:RibbonGroupBox Header="模型"><fluent:Button Header="生成模型" Command="{Binding GenerateCommand}"><fluent:Button.LargeIcon><TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE768;" FontSize="24" Foreground="#395D87"/></fluent:Button.LargeIcon></fluent:Button><fluent:Button x:Name="ExportButton" Header="导出 FloXML" Click="Export_Click" IsEnabled="{Binding IsCurrent}"><fluent:Button.LargeIcon><TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE74D;" FontSize="24" Foreground="#395D87"/></fluent:Button.LargeIcon></fluent:Button><fluent:Button Header="材料库" Click="Materials_Click"><fluent:Button.LargeIcon><TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE8F1;" FontSize="24" Foreground="#395D87"/></fluent:Button.LargeIcon></fluent:Button></fluent:RibbonGroupBox>
 <fluent:RibbonGroupBox Header="视图"><fluent:Button Header="适应窗口" Click="Fit_Click"><fluent:Button.LargeIcon><TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE9A6;" FontSize="24" Foreground="#395D87"/></fluent:Button.LargeIcon></fluent:Button><fluent:Button Header="显示全部" Click="ShowAll_Click"><fluent:Button.LargeIcon><TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE890;" FontSize="24" Foreground="#395D87"/></fluent:Button.LargeIcon></fluent:Button><fluent:Button Header="隐藏全部" Click="HideAll_Click"><fluent:Button.LargeIcon><TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xED1A;" FontSize="24" Foreground="#395D87"/></fluent:Button.LargeIcon></fluent:Button><fluent:Button Header="全部展开" Click="Expand_Click"><fluent:Button.LargeIcon><TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE8A3;" FontSize="24" Foreground="#395D87"/></fluent:Button.LargeIcon></fluent:Button><fluent:Button Header="全部折叠" Click="Collapse_Click"><fluent:Button.LargeIcon><TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE8A4;" FontSize="24" Foreground="#395D87"/></fluent:Button.LargeIcon></fluent:Button></fluent:RibbonGroupBox>
 </fluent:RibbonTabItem></fluent:Ribbon>
 <StatusBar DockPanel.Dock="Bottom" Background="#E8EDF2"><StatusBarItem><TextBlock Text="{Binding Status}" TextTrimming="CharacterEllipsis"/></StatusBarItem><Separator/><StatusBarItem><TextBlock Text="mm · W · W/(m·K)"/></StatusBarItem></StatusBar>
 <ad:DockingManager x:Name="DockManager">
 <layout:LayoutRoot><layout:LayoutPanel Orientation="Horizontal">
-<layout:LayoutAnchorablePane DockWidth="425"><layout:LayoutAnchorable Title="参数向导" CanClose="False" CanHide="False" CanFloat="False">
-<DockPanel Margin="12"><StackPanel DockPanel.Dock="Top">
-<TextBlock Text="封装类型" Foreground="#526174" Margin="0,0,0,4"/><ComboBox x:Name="FamilyBox" DisplayMemberPath="Name" SelectedValuePath="Id" SelectionChanged="Family_Changed"/>
-<TextBlock Text="原生外形预设" Foreground="#526174" Margin="0,10,0,4"/><ComboBox x:Name="PresetBox" DisplayMemberPath="Id" SelectedValuePath="Id" SelectionChanged="Preset_Changed"/>
-<TextBlock Text="方案名称" Foreground="#526174" Margin="0,10,0,4"/><TextBox x:Name="NameBox" TextChanged="Name_Changed"/>
-<ComboBox x:Name="StepBox" DisplayMemberPath="Label" SelectedValuePath="Key" SelectionChanged="Step_Changed" Margin="0,14,0,8"/>
-</StackPanel><StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,8,0,0"><Button Content="上一步" Click="Previous_Click"/><Button Content="下一步" Click="Next_Click"/></StackPanel>
-<ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled"><StackPanel x:Name="FieldsPanel"/></ScrollViewer>
-</DockPanel></layout:LayoutAnchorable></layout:LayoutAnchorablePane>
+<layout:LayoutAnchorablePane DockWidth="425"><layout:LayoutAnchorable Title="封装向导" CanClose="False" CanHide="False" CanFloat="False">
+<Grid Margin="5,0,5,5" Background="#F1F1F1">
+  <Grid.RowDefinitions><RowDefinition Height="70"/><RowDefinition Height="*" MinHeight="190"/><RowDefinition Height="6"/><RowDefinition Height="310" MinHeight="180"/></Grid.RowDefinitions>
+  <Grid Margin="8,8,5,8">
+    <Grid.ColumnDefinitions><ColumnDefinition Width="110"/><ColumnDefinition Width="*"/></Grid.ColumnDefinitions>
+    <ContentControl x:Name="PackagePreview" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"/>
+    <StackPanel Grid.Column="1" VerticalAlignment="Center" Margin="10,0,0,0">
+      <TextBlock x:Name="PackageTitle" FontWeight="SemiBold" FontSize="14"/>
+      <TextBlock x:Name="PackageSubtitle" TextWrapping="Wrap" FontSize="11" Foreground="#526174" Margin="0,4,0,0"/>
+    </StackPanel>
+  </Grid>
+  <ListBox x:Name="StepList" Grid.Row="1" SelectedValuePath="Key" SelectionChanged="Step_Changed"
+           Background="White" BorderBrush="#B8B8B8" BorderThickness="1" Padding="0"
+           ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+    <ListBox.ItemContainerStyle>
+      <Style TargetType="ListBoxItem">
+        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+        <Setter Property="Padding" Value="4,3"/>
+        <Setter Property="Template">
+          <Setter.Value><ControlTemplate TargetType="ListBoxItem">
+            <Border x:Name="Selection" Background="Transparent" Padding="{TemplateBinding Padding}"><ContentPresenter/></Border>
+            <ControlTemplate.Triggers>
+              <Trigger Property="IsSelected" Value="True"><Setter TargetName="Selection" Property="Background" Value="#CEE7EB"/></Trigger>
+              <Trigger Property="IsMouseOver" Value="True"><Setter TargetName="Selection" Property="Background" Value="#E4F0F3"/></Trigger>
+            </ControlTemplate.Triggers>
+          </ControlTemplate></Setter.Value>
+        </Setter>
+      </Style>
+    </ListBox.ItemContainerStyle>
+    <ListBox.ItemTemplate><DataTemplate><DockPanel><TextBlock Text="◆" Foreground="#1659AB" Margin="0,0,8,0"/><TextBlock Text="{Binding Label}" VerticalAlignment="Center"/></DockPanel></DataTemplate></ListBox.ItemTemplate>
+  </ListBox>
+  <GridSplitter Grid.Row="2" Height="6" HorizontalAlignment="Stretch" Background="#E4E4E4"/>
+  <DockPanel Grid.Row="3" Margin="5,6,3,0">
+    <TextBlock x:Name="SectionTitle" DockPanel.Dock="Top" FontWeight="SemiBold" Margin="2,0,0,9"/>
+    <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled"><StackPanel x:Name="FieldsPanel" Margin="0,0,7,0"/></ScrollViewer>
+  </DockPanel>
+</Grid></layout:LayoutAnchorable></layout:LayoutAnchorablePane>
 <layout:LayoutDocumentPane><layout:LayoutDocument Title="三维模型" CanClose="False" CanFloat="False"><Grid Background="#EDF1F5">
 <helix:HelixViewport3D x:Name="Viewport" ShowCoordinateSystem="True" ShowViewCube="True" ZoomExtentsWhenLoaded="True" Background="#EDF1F5" PreviewMouseLeftButtonDown="Viewport_MouseDown"><helix:HelixViewport3D.Camera><PerspectiveCamera Position="20,-28,22" LookDirection="-20,28,-20" UpDirection="0,0,1" FieldOfView="40"/></helix:HelixViewport3D.Camera><helix:DefaultLights/></helix:HelixViewport3D>
 <Border VerticalAlignment="Top" HorizontalAlignment="Left" Margin="16" Padding="12,8" Background="#EEFFFFFF" CornerRadius="4"><TextBlock Text="旋转：鼠标右键拖动    缩放：滚轮    平移：Shift + 右键" Foreground="#526174" FontSize="11"/></Border>

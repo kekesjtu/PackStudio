@@ -16,7 +16,6 @@ public partial class MainWindow : Window
         DataContext = workspace;
         workspace.DocumentChanged += RefreshDocument;
         workspace.ModelChanged += RefreshModel;
-        FamilyBox.ItemsSource = PackageCatalog.Families;
         RefreshDocument();
         Loaded += async (_, _) => await workspace.GenerateAsync();
     }
@@ -24,31 +23,18 @@ public partial class MainWindow : Window
     void RefreshDocument()
     {
         loading = true;
-        FamilyBox.SelectedValue = workspace.Document.TemplateId;
-        PresetBox.ItemsSource = workspace.Template.Presets;
-        PresetBox.SelectedValue = workspace.Document.PresetId;
-        PresetBox.IsEnabled = workspace.Template.Presets.Count > 0;
-        NameBox.Text = workspace.Document.Name;
-        var steps = workspace.Template.Fields.Select(f => f["step"]!.ToString()).Concat(workspace.Template.MaterialSelections.Select(s => s["step"]!.ToString())).Distinct().Select(key => new { Key = key, Label = StepLabel(key) }).ToList();
-        StepBox.ItemsSource = steps;
-        StepBox.SelectedIndex = 0;
+        var choice = PackagePresentation.Choices.Single(c => c.Id == workspace.Document.TemplateId);
+        PackageTitle.Text = choice.Name;
+        PackageSubtitle.Text = choice.Description;
+        PackagePreview.Content = new PackageIcon
+        {
+            TemplateId = choice.Id
+        };
+        Title = workspace.Document.Name + " — PackStudio";
+        StepList.ItemsSource = PackagePresentation.StepKeys(workspace.Template).Select(key => new WizardStep(key, StepLabel(key))).ToList();
+        StepList.SelectedIndex = 0;
         loading = false;
         RefreshFields();
-    }
-
-    void Family_Changed(object sender, SelectionChangedEventArgs e)
-    {
-        if (!loading && FamilyBox.SelectedValue is string id)
-        {
-            workspace.Select(id);
-            projectPath = null;
-        }
-    }
-
-    void Preset_Changed(object sender, SelectionChangedEventArgs e)
-    {
-        if (!loading && PresetBox.SelectedValue is string id)
-            workspace.Select(workspace.Document.TemplateId, id);
     }
 
     void Step_Changed(object sender, SelectionChangedEventArgs e)
@@ -61,26 +47,21 @@ public partial class MainWindow : Window
     {
         if (!loading)
         {
-            workspace.Document.Name = NameBox.Text;
+            workspace.Document.Name = ((TextBox)sender).Text;
+            Title = workspace.Document.Name + " — PackStudio";
             workspace.Dirty();
         }
     }
 
-    void Previous_Click(object sender, RoutedEventArgs e)
-    {
-        if (StepBox.SelectedIndex > 0)
-            StepBox.SelectedIndex--;
-    }
-
-    void Next_Click(object sender, RoutedEventArgs e)
-    {
-        if (StepBox.SelectedIndex < StepBox.Items.Count - 1)
-            StepBox.SelectedIndex++;
-    }
-
     async void New_Click(object sender, RoutedEventArgs e)
     {
-        workspace.Select("bare_die", "");
+        var dialog = new NewPackageWindow(workspace.Catalog, workspace.Document.TemplateId)
+        {
+            Owner = this
+        };
+        if (dialog.ShowDialog() != true || dialog.CreatedDocument == null)
+            return;
+        workspace.Load(dialog.CreatedDocument);
         projectPath = null;
         await workspace.GenerateAsync();
     }

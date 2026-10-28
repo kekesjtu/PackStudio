@@ -19,17 +19,14 @@ public partial class MainWindow
         if (id.Length > 0 && allowed.All(m => m.Id != id) && workspace.Catalog.Materials.Items.TryGetValue(id, out var current))
             allowed.Add(current);
         allowed = allowed.GroupBy(m => m.Name).Select(g => g.FirstOrDefault(m => m.Id == id) ?? g.OrderBy(m => m.Id.Length).ThenBy(m => m.Id).First()).ToList();
-        FieldsPanel.Children.Add(new TextBlock { Text = selection["label"].Text(), Margin = new(0, 5, 0, 5) });
         var groups = new ComboBox
         {
             ItemsSource = allowed.Select(m => m.Category).Distinct().Order().ToList(),
-            Margin = new(0, 0, 0, 4)
         };
         var box = new ComboBox
         {
             DisplayMemberPath = "Name",
-            SelectedValuePath = "Id",
-            Margin = new(0, 0, 0, 15)
+            SelectedValuePath = "Id"
         };
         bool initialized = false;
         void Filter(bool select)
@@ -51,8 +48,9 @@ public partial class MainWindow
                 workspace.Dirty();
             }
         };
-        FieldsPanel.Children.Add(groups);
-        FieldsPanel.Children.Add(box);
+        FieldsPanel.Children.Add(new Separator { Margin = new(0, 4, 0, 8) });
+        FieldsPanel.Children.Add(FieldRow("材料组", groups));
+        FieldsPanel.Children.Add(FieldRow(selection["label"].Text(), box));
     }
 
     void AddBga()
