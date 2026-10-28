@@ -1,0 +1,1933 @@
+{
+  "schema": "packstudio.sweep-spec/v1",
+  "template_id": "pbga_wb",
+  "points": [
+    {
+      "id": "baseline",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>"
+      ]
+    },
+    {
+      "id": "br_v2_backsidespreader_bottomtraceholelengthlbt",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>",
+        "<modify_component name=\"backsideSpreader\" new_value=\"true\" property_name=\"includeBacksideSpreader\" />",
+        "<modify_component name=\"backsideSpreader\" new_value=\"8\" property_name=\"spreaderLengthLspr\" />",
+        "<modify_component name=\"backsideSpreader\" new_value=\"8\" property_name=\"spreaderWidthWspr\" />",
+        "<modify_component name=\"backsideSpreader\" new_value=\"0.5\" property_name=\"spreaderThicknessTspr\" />",
+        "<modify_component name=\"backsideSpreader\" new_value=\"5\" property_name=\"bottomTraceHoleWidthWbt\" />",
+        "<modify_component name=\"backsideSpreader\" new_value=\"5\" property_name=\"bottomTraceHoleLengthLbt\" />"
+      ]
+    },
+    {
+      "id": "br_v2_backsidespreader_bottomtraceholewidthwbt",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>",
+        "<modify_component name=\"backsideSpreader\" new_value=\"true\" property_name=\"includeBacksideSpreader\" />",
+        "<modify_component name=\"backsideSpreader\" new_value=\"8\" property_name=\"spreaderLengthLspr\" />",
+        "<modify_component name=\"backsideSpreader\" new_value=\"8\" property_name=\"spreaderWidthWspr\" />",
+        "<modify_component name=\"backsideSpreader\" new_value=\"0.5\" property_name=\"spreaderThicknessTspr\" />",
+        "<modify_component name=\"backsideSpreader\" new_value=\"5\" property_name=\"bottomTraceHoleLengthLbt\" />",
+        "<modify_component name=\"backsideSpreader\" new_value=\"5\" property_name=\"bottomTraceHoleWidthWbt\" />"
+      ]
+    },
+    {
+      "id": "br_v2_backsidespreader_includebacksidespreader",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>",
+        "<modify_component name=\"backsideSpreader\" new_value=\"8\" property_name=\"spreaderLengthLspr\" />",
+        "<modify_component name=\"backsideSpreader\" new_value=\"8\" property_name=\"spreaderWidthWspr\" />",
+        "<modify_component name=\"backsideSpreader\" new_value=\"0.5\" property_name=\"spreaderThicknessTspr\" />",
+        "<modify_component name=\"backsideSpreader\" new_value=\"5\" property_name=\"bottomTraceHoleLengthLbt\" />",
+        "<modify_component name=\"backsideSpreader\" new_value=\"5\" property_name=\"bottomTraceHoleWidthWbt\" />",
+        "<modify_component name=\"backsideSpreader\" new_value=\"false\" property_name=\"includeBacksideSpreader\" />"
+      ]
+    },
+    {
+      "id": "br_v2_backsidespreader_spreaderlengthlspr",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>",
+        "<modify_component name=\"backsideSpreader\" new_value=\"true\" property_name=\"includeBacksideSpreader\" />",
+        "<modify_component name=\"backsideSpreader\" new_value=\"8\" property_name=\"spreaderWidthWspr\" />",
+        "<modify_component name=\"backsideSpreader\" new_value=\"0.5\" property_name=\"spreaderThicknessTspr\" />",
+        "<modify_component name=\"backsideSpreader\" new_value=\"5\" property_name=\"bottomTraceHoleLengthLbt\" />",
+        "<modify_component name=\"backsideSpreader\" new_value=\"5\" property_name=\"bottomTraceHoleWidthWbt\" />",
+        "<modify_component name=\"backsideSpreader\" new_value=\"8\" property_name=\"spreaderLengthLspr\" />"
+      ]
+    },
+    {
+      "id": "br_v2_backsidespreader_spreaderthicknesstspr",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>",
+        "<modify_component name=\"backsideSpreader\" new_value=\"true\" property_name=\"includeBacksideSpreader\" />",
+        "<modify_component name=\"backsideSpreader\" new_value=\"8\" property_name=\"spreaderLengthLspr\" />",
+        "<modify_component name=\"backsideSpreader\" new_value=\"8\" property_name=\"spreaderWidthWspr\" />",
+        "<modify_component name=\"backsideSpreader\" new_value=\"5\" property_name=\"bottomTraceHoleLengthLbt\" />",
+        "<modify_component name=\"backsideSpreader\" new_value=\"5\" property_name=\"bottomTraceHoleWidthWbt\" />",
+        "<modify_component name=\"backsideSpreader\" new_value=\"0.5\" property_name=\"spreaderThicknessTspr\" />"
+      ]
+    },
+    {
+      "id": "br_v2_backsidespreader_spreaderwidthwspr",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>",
+        "<modify_component name=\"backsideSpreader\" new_value=\"true\" property_name=\"includeBacksideSpreader\" />",
+        "<modify_component name=\"backsideSpreader\" new_value=\"8\" property_name=\"spreaderLengthLspr\" />",
+        "<modify_component name=\"backsideSpreader\" new_value=\"0.5\" property_name=\"spreaderThicknessTspr\" />",
+        "<modify_component name=\"backsideSpreader\" new_value=\"5\" property_name=\"bottomTraceHoleLengthLbt\" />",
+        "<modify_component name=\"backsideSpreader\" new_value=\"5\" property_name=\"bottomTraceHoleWidthWbt\" />",
+        "<modify_component name=\"backsideSpreader\" new_value=\"8\" property_name=\"spreaderWidthWspr\" />"
+      ]
+    },
+    {
+      "id": "br_v2_centralballs_centralballs",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>",
+        "<modify_component name=\"centralBalls\" new_value=\"2\" property_name=\"numberCentralRowsMDp\" />",
+        "<modify_component name=\"centralBalls\" new_value=\"2\" property_name=\"numberCentralRowsMEp\" />",
+        "<modify_component name=\"centralBalls\" new_value=\"false\" property_name=\"centralBalls\" />"
+      ]
+    },
+    {
+      "id": "br_v2_centralballs_numbercentralrowsmdp",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>",
+        "<modify_component name=\"centralBalls\" new_value=\"true\" property_name=\"centralBalls\" />",
+        "<modify_component name=\"centralBalls\" new_value=\"2\" property_name=\"numberCentralRowsMEp\" />",
+        "<modify_component name=\"centralBalls\" new_value=\"2\" property_name=\"numberCentralRowsMDp\" />"
+      ]
+    },
+    {
+      "id": "br_v2_centralballs_numbercentralrowsmep",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>",
+        "<modify_component name=\"centralBalls\" new_value=\"true\" property_name=\"centralBalls\" />",
+        "<modify_component name=\"centralBalls\" new_value=\"2\" property_name=\"numberCentralRowsMDp\" />",
+        "<modify_component name=\"centralBalls\" new_value=\"2\" property_name=\"numberCentralRowsMEp\" />"
+      ]
+    },
+    {
+      "id": "br_v2_centralballs_staggeredmatrix",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>",
+        "<modify_component name=\"centralBalls\" new_value=\"true\" property_name=\"centralBalls\" />",
+        "<modify_component name=\"centralBalls\" new_value=\"2\" property_name=\"numberCentralRowsMDp\" />",
+        "<modify_component name=\"centralBalls\" new_value=\"2\" property_name=\"numberCentralRowsMEp\" />",
+        "<modify_component name=\"centralBalls\" new_value=\"false\" property_name=\"staggeredMatrix\" />"
+      ]
+    },
+    {
+      "id": "br_v2_solderballdepopulation_depopulatedcenter",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>",
+        "<modify_component name=\"solderBallDepopulation\" new_value=\"2\" property_name=\"numberFullyPopulatedRowsMDp\" />",
+        "<modify_component name=\"solderBallDepopulation\" new_value=\"2\" property_name=\"numberFullyPopulatedRowsMEp\" />",
+        "<modify_component name=\"solderBallDepopulation\" new_value=\"false\" property_name=\"depopulatedCenter\" />"
+      ]
+    },
+    {
+      "id": "br_v2_solderballdepopulation_numberfullypopulatedrowsmdp",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>",
+        "<modify_component name=\"solderBallDepopulation\" new_value=\"true\" property_name=\"depopulatedCenter\" />",
+        "<modify_component name=\"solderBallDepopulation\" new_value=\"2\" property_name=\"numberFullyPopulatedRowsMEp\" />",
+        "<modify_component name=\"solderBallDepopulation\" new_value=\"2\" property_name=\"numberFullyPopulatedRowsMDp\" />"
+      ]
+    },
+    {
+      "id": "br_v2_solderballdepopulation_numberfullypopulatedrowsmep",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>",
+        "<modify_component name=\"solderBallDepopulation\" new_value=\"true\" property_name=\"depopulatedCenter\" />",
+        "<modify_component name=\"solderBallDepopulation\" new_value=\"2\" property_name=\"numberFullyPopulatedRowsMDp\" />",
+        "<modify_component name=\"solderBallDepopulation\" new_value=\"2\" property_name=\"numberFullyPopulatedRowsMEp\" />"
+      ]
+    },
+    {
+      "id": "jed_v2_c001_jedecfootprint_pbga_352_35x35mm",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_352_35X35mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>"
+      ],
+      "kind": "jedec_preset",
+      "target": {
+        "component": "new_package",
+        "property": "jedecFootprint",
+        "label": "JEDEC Footprint",
+        "baseline": "PBGA_121_15X15mm",
+        "value": "PBGA_352_35X35mm"
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "jed_v2_c002_jedecfootprint_pbga_896_40x40mm",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_896_40X40mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>"
+      ],
+      "kind": "jedec_preset",
+      "target": {
+        "component": "new_package",
+        "property": "jedecFootprint",
+        "label": "JEDEC Footprint",
+        "baseline": "PBGA_121_15X15mm",
+        "value": "PBGA_896_40X40mm"
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "opt_v2_c001_includeslug_true",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"true\" property_name=\"includeSlug\" />\n    </new_package>"
+      ],
+      "kind": "boolean_option",
+      "target": {
+        "component": "new_package",
+        "property": "includeSlug",
+        "label": "Include Slug",
+        "baseline": false,
+        "value": true
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "opt_v2_c001_outlinetype_nonstandardoutline",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"nonStandardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>"
+      ],
+      "kind": "enum_option",
+      "target": {
+        "component": "new_package",
+        "property": "outlineType",
+        "label": "Outline Type",
+        "baseline": "standardOutline",
+        "value": "nonStandardOutline"
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "opt_v2_c002_dietype_thermaldie",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"thermalDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>"
+      ],
+      "kind": "enum_option",
+      "target": {
+        "component": "new_package",
+        "property": "dieType",
+        "label": "Die Type",
+        "baseline": "actualDie",
+        "value": "thermalDie"
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "opt_v2_c002_nonuniformdieheat_true",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>",
+        "<modify_component name=\"die\" new_value=\"true\" property_name=\"nonUniformDieHeat\" />"
+      ],
+      "kind": "boolean_option",
+      "target": {
+        "component": "die",
+        "property": "nonUniformDieHeat",
+        "label": "Non-uniform Die Heat",
+        "baseline": false,
+        "value": true
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "opt_v2_c003_staggeredmatrix_true",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>",
+        "<modify_component name=\"solderBalls\" new_value=\"true\" property_name=\"staggeredMatrix\" />"
+      ],
+      "kind": "boolean_option",
+      "target": {
+        "component": "solderBalls",
+        "property": "staggeredMatrix",
+        "label": "Staggered Matrix",
+        "baseline": false,
+        "value": true
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "opt_v2_c003_substratelayer_4_layer",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"4-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>"
+      ],
+      "kind": "enum_option",
+      "target": {
+        "component": "new_package",
+        "property": "substrateLayer",
+        "label": "Substrate Layer",
+        "baseline": "2-Layer",
+        "value": "4-Layer"
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "opt_v2_c004_modelsolderballarrayas_isotropiccuboid",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>",
+        "<modify_component name=\"modelingOptions\" new_value=\"isotropicCuboid\" property_name=\"modelSolderBallArrayAs\" />"
+      ],
+      "kind": "enum_option",
+      "target": {
+        "component": "modelingOptions",
+        "property": "modelSolderBallArrayAs",
+        "label": "Model Solder Ball Array As",
+        "baseline": "orthotropicCuboid",
+        "value": "isotropicCuboid"
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "opt_v2_c004_solderballmap_true",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>",
+        "<modify_component name=\"solderBalls\" new_value=\"true\" property_name=\"solderBallMap\" />"
+      ],
+      "kind": "boolean_option",
+      "target": {
+        "component": "solderBalls",
+        "property": "solderBallMap",
+        "label": "Solder Ball Map",
+        "baseline": false,
+        "value": true
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "opt_v2_c005_depopulatedcenter_true",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>",
+        "<modify_component name=\"solderBallDepopulation\" new_value=\"2\" property_name=\"numberFullyPopulatedRowsMDp\" />",
+        "<modify_component name=\"solderBallDepopulation\" new_value=\"2\" property_name=\"numberFullyPopulatedRowsMEp\" />",
+        "<modify_component name=\"solderBallDepopulation\" new_value=\"true\" property_name=\"depopulatedCenter\" />"
+      ],
+      "kind": "boolean_option",
+      "target": {
+        "component": "solderBallDepopulation",
+        "property": "depopulatedCenter",
+        "label": "Depopulated Center",
+        "baseline": false,
+        "value": true
+      },
+      "comparison_baseline": "br_v2_solderballdepopulation_depopulatedcenter/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "opt_v2_c005_modelsolderballarrayas_discretecuboids",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>",
+        "<modify_component name=\"modelingOptions\" new_value=\"discreteCuboids\" property_name=\"modelSolderBallArrayAs\" />"
+      ],
+      "kind": "enum_option",
+      "target": {
+        "component": "modelingOptions",
+        "property": "modelSolderBallArrayAs",
+        "label": "Model Solder Ball Array As",
+        "baseline": "orthotropicCuboid",
+        "value": "discreteCuboids"
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "opt_v2_c006_centralballs_true",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>",
+        "<modify_component name=\"centralBalls\" new_value=\"2\" property_name=\"numberCentralRowsMDp\" />",
+        "<modify_component name=\"centralBalls\" new_value=\"2\" property_name=\"numberCentralRowsMEp\" />",
+        "<modify_component name=\"centralBalls\" new_value=\"true\" property_name=\"centralBalls\" />"
+      ],
+      "kind": "boolean_option",
+      "target": {
+        "component": "centralBalls",
+        "property": "centralBalls",
+        "label": "Central Balls",
+        "baseline": false,
+        "value": true
+      },
+      "comparison_baseline": "br_v2_centralballs_centralballs/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "opt_v2_c006_modelthermalviasas_isotropiccuboid",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>",
+        "<modify_component name=\"modelingOptions\" new_value=\"isotropicCuboid\" property_name=\"modelThermalViasAs\" />"
+      ],
+      "kind": "enum_option",
+      "target": {
+        "component": "modelingOptions",
+        "property": "modelThermalViasAs",
+        "label": "Model Thermal Vias As",
+        "baseline": "discreteCuboids",
+        "value": "isotropicCuboid"
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "opt_v2_c007_modelthermalviasas_orthotropiccuboid",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>",
+        "<modify_component name=\"modelingOptions\" new_value=\"orthotropicCuboid\" property_name=\"modelThermalViasAs\" />"
+      ],
+      "kind": "enum_option",
+      "target": {
+        "component": "modelingOptions",
+        "property": "modelThermalViasAs",
+        "label": "Model Thermal Vias As",
+        "baseline": "discreteCuboids",
+        "value": "orthotropicCuboid"
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "opt_v2_c007_staggeredmatrix_true",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>",
+        "<modify_component name=\"centralBalls\" new_value=\"true\" property_name=\"centralBalls\" />",
+        "<modify_component name=\"centralBalls\" new_value=\"2\" property_name=\"numberCentralRowsMDp\" />",
+        "<modify_component name=\"centralBalls\" new_value=\"2\" property_name=\"numberCentralRowsMEp\" />",
+        "<modify_component name=\"centralBalls\" new_value=\"true\" property_name=\"staggeredMatrix\" />"
+      ],
+      "kind": "boolean_option",
+      "target": {
+        "component": "centralBalls",
+        "property": "staggeredMatrix",
+        "label": "Staggered Matrix",
+        "baseline": false,
+        "value": true
+      },
+      "comparison_baseline": "br_v2_centralballs_staggeredmatrix/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "opt_v2_c008_includebacksidespreader_true",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>",
+        "<modify_component name=\"backsideSpreader\" new_value=\"8\" property_name=\"spreaderLengthLspr\" />",
+        "<modify_component name=\"backsideSpreader\" new_value=\"8\" property_name=\"spreaderWidthWspr\" />",
+        "<modify_component name=\"backsideSpreader\" new_value=\"0.5\" property_name=\"spreaderThicknessTspr\" />",
+        "<modify_component name=\"backsideSpreader\" new_value=\"5\" property_name=\"bottomTraceHoleLengthLbt\" />",
+        "<modify_component name=\"backsideSpreader\" new_value=\"5\" property_name=\"bottomTraceHoleWidthWbt\" />",
+        "<modify_component name=\"backsideSpreader\" new_value=\"true\" property_name=\"includeBacksideSpreader\" />"
+      ],
+      "kind": "boolean_option",
+      "target": {
+        "component": "backsideSpreader",
+        "property": "includeBacksideSpreader",
+        "label": "Include Backside Spreader",
+        "baseline": false,
+        "value": true
+      },
+      "comparison_baseline": "br_v2_backsidespreader_includebacksidespreader/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "opt_v2_c008_modelbondwiresas_isotropiccuboid",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>",
+        "<modify_component name=\"modelingOptions\" new_value=\"isotropicCuboid\" property_name=\"modelBondWiresAs\" />"
+      ],
+      "kind": "enum_option",
+      "target": {
+        "component": "modelingOptions",
+        "property": "modelBondWiresAs",
+        "label": "Model Bond Wires As",
+        "baseline": "orthotropicCuboid",
+        "value": "isotropicCuboid"
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "opt_v2_c009_griddensity_coarse",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>",
+        "<modify_component name=\"modelingOptions\" new_value=\"coarse\" property_name=\"gridDensity\" />"
+      ],
+      "kind": "enum_option",
+      "target": {
+        "component": "modelingOptions",
+        "property": "gridDensity",
+        "label": "Grid Density",
+        "baseline": "fine",
+        "value": "coarse"
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "opt_v2_c009_localizegrid_false",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>",
+        "<modify_component name=\"modelingOptions\" new_value=\"false\" property_name=\"localizeGrid\" />"
+      ],
+      "kind": "boolean_option",
+      "target": {
+        "component": "modelingOptions",
+        "property": "localizeGrid",
+        "label": "Localize Grid",
+        "baseline": true,
+        "value": false
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "opt_v2_c010_griddensity_medium",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>",
+        "<modify_component name=\"modelingOptions\" new_value=\"medium\" property_name=\"gridDensity\" />"
+      ],
+      "kind": "enum_option",
+      "target": {
+        "component": "modelingOptions",
+        "property": "gridDensity",
+        "label": "Grid Density",
+        "baseline": "fine",
+        "value": "medium"
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c001_topsignallayerthickness_0_0162",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.0162\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "new_package",
+        "property": "topSignalLayerThickness",
+        "label": "Top Layer",
+        "baseline": 0.018,
+        "value": 0.0162
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c002_topsignallayerthickness_0_0198",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.0198\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "new_package",
+        "property": "topSignalLayerThickness",
+        "label": "Top Layer",
+        "baseline": 0.018,
+        "value": 0.0198
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c003_bottomsignallayerthickness_0_0162",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.0162\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "new_package",
+        "property": "bottomSignalLayerThickness",
+        "label": "Bottom Layer",
+        "baseline": 0.018,
+        "value": 0.0162
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c004_bottomsignallayerthickness_0_0198",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.0198\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "new_package",
+        "property": "bottomSignalLayerThickness",
+        "label": "Bottom Layer",
+        "baseline": 0.018,
+        "value": 0.0198
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c005_substratelengthd_13_5",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>",
+        "<modify_component name=\"packageSubstrate\" new_value=\"13.5\" property_name=\"substrateLengthD\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "packageSubstrate",
+        "property": "substrateLengthD",
+        "label": "Substrate Length D",
+        "baseline": 15,
+        "value": 13.5
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c006_substratelengthd_16_5",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>",
+        "<modify_component name=\"packageSubstrate\" new_value=\"16.5\" property_name=\"substrateLengthD\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "packageSubstrate",
+        "property": "substrateLengthD",
+        "label": "Substrate Length D",
+        "baseline": 15,
+        "value": 16.5
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c007_substratewidthe_13_5",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>",
+        "<modify_component name=\"packageSubstrate\" new_value=\"13.5\" property_name=\"substrateWidthE\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "packageSubstrate",
+        "property": "substrateWidthE",
+        "label": "Substrate Width E",
+        "baseline": 15,
+        "value": 13.5
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c008_substratewidthe_16_5",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>",
+        "<modify_component name=\"packageSubstrate\" new_value=\"16.5\" property_name=\"substrateWidthE\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "packageSubstrate",
+        "property": "substrateWidthE",
+        "label": "Substrate Width E",
+        "baseline": 15,
+        "value": 16.5
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c009_substratethicknessa2_0_324",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>",
+        "<modify_component name=\"packageSubstrate\" new_value=\"0.324\" property_name=\"substrateThicknessA2\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "packageSubstrate",
+        "property": "substrateThicknessA2",
+        "label": "Substrate Thickness A2",
+        "baseline": 0.36,
+        "value": 0.324
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c010_substratethicknessa2_0_396",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>",
+        "<modify_component name=\"packageSubstrate\" new_value=\"0.396\" property_name=\"substrateThicknessA2\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "packageSubstrate",
+        "property": "substrateThicknessA2",
+        "label": "Substrate Thickness A2",
+        "baseline": 0.36,
+        "value": 0.396
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c011_lengthle_11_7",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>",
+        "<modify_component name=\"encapsulant\" new_value=\"11.7\" property_name=\"lengthLe\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "encapsulant",
+        "property": "lengthLe",
+        "label": "Length Le",
+        "baseline": 13,
+        "value": 11.7
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c012_lengthle_14_3",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>",
+        "<modify_component name=\"encapsulant\" new_value=\"14.3\" property_name=\"lengthLe\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "encapsulant",
+        "property": "lengthLe",
+        "label": "Length Le",
+        "baseline": 13,
+        "value": 14.3
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c013_widthwe_11_7",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>",
+        "<modify_component name=\"encapsulant\" new_value=\"11.7\" property_name=\"widthWe\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "encapsulant",
+        "property": "widthWe",
+        "label": "Width We",
+        "baseline": 13,
+        "value": 11.7
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c014_widthwe_14_3",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>",
+        "<modify_component name=\"encapsulant\" new_value=\"14.3\" property_name=\"widthWe\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "encapsulant",
+        "property": "widthWe",
+        "label": "Width We",
+        "baseline": 13,
+        "value": 14.3
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c015_thicknesste_0_72",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>",
+        "<modify_component name=\"encapsulant\" new_value=\"0.72\" property_name=\"thicknessTe\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "encapsulant",
+        "property": "thicknessTe",
+        "label": "Thickness te",
+        "baseline": 0.8,
+        "value": 0.72
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c016_thicknesste_0_88",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>",
+        "<modify_component name=\"encapsulant\" new_value=\"0.88\" property_name=\"thicknessTe\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "encapsulant",
+        "property": "thicknessTe",
+        "label": "Thickness te",
+        "baseline": 0.8,
+        "value": 0.88
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c017_dieflaglf_5_85",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>",
+        "<modify_component name=\"dieFlagAndSolderMask\" new_value=\"5.85\" property_name=\"dieFlagLf\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "dieFlagAndSolderMask",
+        "property": "dieFlagLf",
+        "label": "Die Flag Lf",
+        "baseline": 6.5,
+        "value": 5.85
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c018_dieflaglf_7_15",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>",
+        "<modify_component name=\"dieFlagAndSolderMask\" new_value=\"7.15\" property_name=\"dieFlagLf\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "dieFlagAndSolderMask",
+        "property": "dieFlagLf",
+        "label": "Die Flag Lf",
+        "baseline": 6.5,
+        "value": 7.15
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c019_dieflagwf_5_85",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>",
+        "<modify_component name=\"dieFlagAndSolderMask\" new_value=\"5.85\" property_name=\"dieFlagWf\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "dieFlagAndSolderMask",
+        "property": "dieFlagWf",
+        "label": "Die Flag Wf",
+        "baseline": 6.5,
+        "value": 5.85
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c020_dieflagwf_7_15",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>",
+        "<modify_component name=\"dieFlagAndSolderMask\" new_value=\"7.15\" property_name=\"dieFlagWf\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "dieFlagAndSolderMask",
+        "property": "dieFlagWf",
+        "label": "Die Flag Wf",
+        "baseline": 6.5,
+        "value": 7.15
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c021_coveragepercentagecf_54_0",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>",
+        "<modify_component name=\"dieFlagAndSolderMask\" new_value=\"54\" property_name=\"coveragePercentageCf\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "dieFlagAndSolderMask",
+        "property": "coveragePercentageCf",
+        "label": "Coverage Cf",
+        "baseline": 60,
+        "value": 54.0
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c022_coveragepercentagecf_66_0",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>",
+        "<modify_component name=\"dieFlagAndSolderMask\" new_value=\"66\" property_name=\"coveragePercentageCf\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "dieFlagAndSolderMask",
+        "property": "coveragePercentageCf",
+        "label": "Coverage Cf",
+        "baseline": 60,
+        "value": 66.0
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c023_soldermaskthickness_0_045",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>",
+        "<modify_component name=\"dieFlagAndSolderMask\" new_value=\"0.045\" property_name=\"solderMaskThickness\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "dieFlagAndSolderMask",
+        "property": "solderMaskThickness",
+        "label": "Solder Mask Thickness",
+        "baseline": 0.05,
+        "value": 0.045
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c024_soldermaskthickness_0_055",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>",
+        "<modify_component name=\"dieFlagAndSolderMask\" new_value=\"0.055\" property_name=\"solderMaskThickness\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "dieFlagAndSolderMask",
+        "property": "solderMaskThickness",
+        "label": "Solder Mask Thickness",
+        "baseline": 0.05,
+        "value": 0.055
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c025_packagepower_1_0",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>",
+        "<modify_component name=\"die\" new_value=\"1\" property_name=\"packagePower\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "die",
+        "property": "packagePower",
+        "label": "Package Power",
+        "baseline": 0,
+        "value": 1.0
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c026_packagepower_2_0",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>",
+        "<modify_component name=\"die\" new_value=\"2\" property_name=\"packagePower\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "die",
+        "property": "packagePower",
+        "label": "Package Power",
+        "baseline": 0,
+        "value": 2.0
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c027_dielengthld_4_05",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>",
+        "<modify_component name=\"die\" new_value=\"4.05\" property_name=\"dieLengthLd\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "die",
+        "property": "dieLengthLd",
+        "label": "Die Length Ld",
+        "baseline": 4.5,
+        "value": 4.05
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c028_dielengthld_4_95",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>",
+        "<modify_component name=\"die\" new_value=\"4.95\" property_name=\"dieLengthLd\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "die",
+        "property": "dieLengthLd",
+        "label": "Die Length Ld",
+        "baseline": 4.5,
+        "value": 4.95
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c029_diewidthwd_4_05",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>",
+        "<modify_component name=\"die\" new_value=\"4.05\" property_name=\"dieWidthWd\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "die",
+        "property": "dieWidthWd",
+        "label": "Die Width Wd",
+        "baseline": 4.5,
+        "value": 4.05
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c030_diewidthwd_4_95",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>",
+        "<modify_component name=\"die\" new_value=\"4.95\" property_name=\"dieWidthWd\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "die",
+        "property": "dieWidthWd",
+        "label": "Die Width Wd",
+        "baseline": 4.5,
+        "value": 4.95
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c031_diethicknesstd_0_27",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>",
+        "<modify_component name=\"die\" new_value=\"0.27\" property_name=\"dieThicknessTd\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "die",
+        "property": "dieThicknessTd",
+        "label": "Die Thickness td",
+        "baseline": 0.3,
+        "value": 0.27
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c032_diethicknesstd_0_33",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>",
+        "<modify_component name=\"die\" new_value=\"0.33\" property_name=\"dieThicknessTd\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "die",
+        "property": "dieThicknessTd",
+        "label": "Die Thickness td",
+        "baseline": 0.3,
+        "value": 0.33
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c033_dieattachthicknesstda_0_0225",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>",
+        "<modify_component name=\"die\" new_value=\"0.0225\" property_name=\"dieAttachThicknessTda\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "die",
+        "property": "dieAttachThicknessTda",
+        "label": "Die Attach Thickness tda",
+        "baseline": 0.025,
+        "value": 0.0225
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c034_dieattachthicknesstda_0_0275",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>",
+        "<modify_component name=\"die\" new_value=\"0.0275\" property_name=\"dieAttachThicknessTda\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "die",
+        "property": "dieAttachThicknessTda",
+        "label": "Die Attach Thickness tda",
+        "baseline": 0.025,
+        "value": 0.0275
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c035_numberofbondwiresnw_120",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>",
+        "<modify_component name=\"die\" new_value=\"120\" property_name=\"numberOfBondWiresNw\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "die",
+        "property": "numberOfBondWiresNw",
+        "label": "Number of Bond Wires Nw",
+        "baseline": 121,
+        "value": 120
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c036_numberofbondwiresnw_122",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>",
+        "<modify_component name=\"die\" new_value=\"122\" property_name=\"numberOfBondWiresNw\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "die",
+        "property": "numberOfBondWiresNw",
+        "label": "Number of Bond Wires Nw",
+        "baseline": 121,
+        "value": 122
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c037_bondwireextentlengthlw_7_65",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>",
+        "<modify_component name=\"die\" new_value=\"7.65\" property_name=\"bondWireExtentLengthLw\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "die",
+        "property": "bondWireExtentLengthLw",
+        "label": "Extent of Bond Wire Pads Lw",
+        "baseline": 8.5,
+        "value": 7.65
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c038_bondwireextentlengthlw_9_35",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>",
+        "<modify_component name=\"die\" new_value=\"9.35\" property_name=\"bondWireExtentLengthLw\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "die",
+        "property": "bondWireExtentLengthLw",
+        "label": "Extent of Bond Wire Pads Lw",
+        "baseline": 8.5,
+        "value": 9.35
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c039_bondwireextentwidthww_7_65",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>",
+        "<modify_component name=\"die\" new_value=\"7.65\" property_name=\"bondWireExtentWidthWw\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "die",
+        "property": "bondWireExtentWidthWw",
+        "label": "Extent of Bond Wire Pads Ww",
+        "baseline": 8.5,
+        "value": 7.65
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c040_bondwireextentwidthww_9_35",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>",
+        "<modify_component name=\"die\" new_value=\"9.35\" property_name=\"bondWireExtentWidthWw\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "die",
+        "property": "bondWireExtentWidthWw",
+        "label": "Extent of Bond Wire Pads Ww",
+        "baseline": 8.5,
+        "value": 9.35
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c041_bondwirediameterdw_0_027",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>",
+        "<modify_component name=\"die\" new_value=\"0.027\" property_name=\"bondWireDiameterDw\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "die",
+        "property": "bondWireDiameterDw",
+        "label": "Bond Wire Diameter dw",
+        "baseline": 0.03,
+        "value": 0.027
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c042_bondwirediameterdw_0_033",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>",
+        "<modify_component name=\"die\" new_value=\"0.033\" property_name=\"bondWireDiameterDw\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "die",
+        "property": "bondWireDiameterDw",
+        "label": "Bond Wire Diameter dw",
+        "baseline": 0.03,
+        "value": 0.033
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c043_numberofthermalviasinxnvx_4",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>",
+        "<modify_component name=\"thermalVias\" new_value=\"4\" property_name=\"numberOfThermalViasInXNVx\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "thermalVias",
+        "property": "numberOfThermalViasInXNVx",
+        "label": "Number of Thermal Vias in X NVx",
+        "baseline": 5,
+        "value": 4
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c044_numberofthermalviasinxnvx_6",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>",
+        "<modify_component name=\"thermalVias\" new_value=\"6\" property_name=\"numberOfThermalViasInXNVx\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "thermalVias",
+        "property": "numberOfThermalViasInXNVx",
+        "label": "Number of Thermal Vias in X NVx",
+        "baseline": 5,
+        "value": 6
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c045_numberofthermalviasinynvy_4",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>",
+        "<modify_component name=\"thermalVias\" new_value=\"4\" property_name=\"numberOfThermalViasInYNVy\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "thermalVias",
+        "property": "numberOfThermalViasInYNVy",
+        "label": "Number of Thermal Vias in Y NVy",
+        "baseline": 5,
+        "value": 4
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c046_numberofthermalviasinynvy_6",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>",
+        "<modify_component name=\"thermalVias\" new_value=\"6\" property_name=\"numberOfThermalViasInYNVy\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "thermalVias",
+        "property": "numberOfThermalViasInYNVy",
+        "label": "Number of Thermal Vias in Y NVy",
+        "baseline": 5,
+        "value": 6
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c047_viadiameterdv_0_225",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>",
+        "<modify_component name=\"thermalVias\" new_value=\"0.225\" property_name=\"viaDiameterDv\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "thermalVias",
+        "property": "viaDiameterDv",
+        "label": "Via Diameter dv",
+        "baseline": 0.25,
+        "value": 0.225
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c048_viadiameterdv_0_275",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>",
+        "<modify_component name=\"thermalVias\" new_value=\"0.275\" property_name=\"viaDiameterDv\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "thermalVias",
+        "property": "viaDiameterDv",
+        "label": "Via Diameter dv",
+        "baseline": 0.25,
+        "value": 0.275
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c049_viapitchev_1_143",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>",
+        "<modify_component name=\"thermalVias\" new_value=\"1.143\" property_name=\"viaPitchEv\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "thermalVias",
+        "property": "viaPitchEv",
+        "label": "Via Pitch ev",
+        "baseline": 1.27,
+        "value": 1.143
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c050_viapitchev_1_397",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>",
+        "<modify_component name=\"thermalVias\" new_value=\"1.397\" property_name=\"viaPitchEv\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "thermalVias",
+        "property": "viaPitchEv",
+        "label": "Via Pitch ev",
+        "baseline": 1.27,
+        "value": 1.397
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c051_platingthicknesstpl_0_0225",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>",
+        "<modify_component name=\"thermalVias\" new_value=\"0.0225\" property_name=\"platingThicknessTpl\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "thermalVias",
+        "property": "platingThicknessTpl",
+        "label": "Plating Thickness tpl",
+        "baseline": 0.025,
+        "value": 0.0225
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c052_platingthicknesstpl_0_0275",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>",
+        "<modify_component name=\"thermalVias\" new_value=\"0.0275\" property_name=\"platingThicknessTpl\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "thermalVias",
+        "property": "platingThicknessTpl",
+        "label": "Plating Thickness tpl",
+        "baseline": 0.025,
+        "value": 0.0275
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c053_numberofsolderballsinxmd_10",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>",
+        "<modify_component name=\"solderBalls\" new_value=\"10\" property_name=\"numberOfSolderBallsInXMD\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "solderBalls",
+        "property": "numberOfSolderBallsInXMD",
+        "label": "Number of Solder Balls in X MD",
+        "baseline": 11,
+        "value": 10
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c054_numberofsolderballsinxmd_12",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>",
+        "<modify_component name=\"solderBalls\" new_value=\"12\" property_name=\"numberOfSolderBallsInXMD\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "solderBalls",
+        "property": "numberOfSolderBallsInXMD",
+        "label": "Number of Solder Balls in X MD",
+        "baseline": 11,
+        "value": 12
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c055_numberofsolderballsinyme_10",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>",
+        "<modify_component name=\"solderBalls\" new_value=\"10\" property_name=\"numberOfSolderBallsInYME\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "solderBalls",
+        "property": "numberOfSolderBallsInYME",
+        "label": "Number of Solder Balls in Y ME",
+        "baseline": 11,
+        "value": 10
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c056_numberofsolderballsinyme_12",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>",
+        "<modify_component name=\"solderBalls\" new_value=\"12\" property_name=\"numberOfSolderBallsInYME\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "solderBalls",
+        "property": "numberOfSolderBallsInYME",
+        "label": "Number of Solder Balls in Y ME",
+        "baseline": 11,
+        "value": 12
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c057_balldiameterb_0_675",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>",
+        "<modify_component name=\"solderBalls\" new_value=\"0.675\" property_name=\"ballDiameterB\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "solderBalls",
+        "property": "ballDiameterB",
+        "label": "Ball Diameter b",
+        "baseline": 0.75,
+        "value": 0.675
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c058_balldiameterb_0_825",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>",
+        "<modify_component name=\"solderBalls\" new_value=\"0.825\" property_name=\"ballDiameterB\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "solderBalls",
+        "property": "ballDiameterB",
+        "label": "Ball Diameter b",
+        "baseline": 0.75,
+        "value": 0.825
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c059_ballpitche_1_143",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>",
+        "<modify_component name=\"solderBalls\" new_value=\"1.143\" property_name=\"ballPitchE\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "solderBalls",
+        "property": "ballPitchE",
+        "label": "Ball Pitch e",
+        "baseline": 1.27,
+        "value": 1.143
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c060_ballpitche_1_397",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>",
+        "<modify_component name=\"solderBalls\" new_value=\"1.397\" property_name=\"ballPitchE\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "solderBalls",
+        "property": "ballPitchE",
+        "label": "Ball Pitch e",
+        "baseline": 1.27,
+        "value": 1.397
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c061_substratestandoffa1_0_54",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>",
+        "<modify_component name=\"solderBalls\" new_value=\"0.54\" property_name=\"substrateStandoffA1\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "solderBalls",
+        "property": "substrateStandoffA1",
+        "label": "Substrate Stand-off A1",
+        "baseline": 0.6,
+        "value": 0.54
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c062_substratestandoffa1_0_66",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>",
+        "<modify_component name=\"solderBalls\" new_value=\"0.66\" property_name=\"substrateStandoffA1\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "solderBalls",
+        "property": "substrateStandoffA1",
+        "label": "Substrate Stand-off A1",
+        "baseline": 0.6,
+        "value": 0.66
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c063_numberfullypopulatedrowsmdp_1",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>",
+        "<modify_component name=\"solderBallDepopulation\" new_value=\"true\" property_name=\"depopulatedCenter\" />",
+        "<modify_component name=\"solderBallDepopulation\" new_value=\"2\" property_name=\"numberFullyPopulatedRowsMEp\" />",
+        "<modify_component name=\"solderBallDepopulation\" new_value=\"1\" property_name=\"numberFullyPopulatedRowsMDp\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "solderBallDepopulation",
+        "property": "numberFullyPopulatedRowsMDp",
+        "label": "Number of Fully Populated Rows MDp",
+        "baseline": 2,
+        "value": 1
+      },
+      "comparison_baseline": "br_v2_solderballdepopulation_numberfullypopulatedrowsmdp/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c064_numberfullypopulatedrowsmdp_3",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>",
+        "<modify_component name=\"solderBallDepopulation\" new_value=\"true\" property_name=\"depopulatedCenter\" />",
+        "<modify_component name=\"solderBallDepopulation\" new_value=\"2\" property_name=\"numberFullyPopulatedRowsMEp\" />",
+        "<modify_component name=\"solderBallDepopulation\" new_value=\"3\" property_name=\"numberFullyPopulatedRowsMDp\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "solderBallDepopulation",
+        "property": "numberFullyPopulatedRowsMDp",
+        "label": "Number of Fully Populated Rows MDp",
+        "baseline": 2,
+        "value": 3
+      },
+      "comparison_baseline": "br_v2_solderballdepopulation_numberfullypopulatedrowsmdp/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c065_numberfullypopulatedrowsmep_1",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>",
+        "<modify_component name=\"solderBallDepopulation\" new_value=\"true\" property_name=\"depopulatedCenter\" />",
+        "<modify_component name=\"solderBallDepopulation\" new_value=\"2\" property_name=\"numberFullyPopulatedRowsMDp\" />",
+        "<modify_component name=\"solderBallDepopulation\" new_value=\"1\" property_name=\"numberFullyPopulatedRowsMEp\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "solderBallDepopulation",
+        "property": "numberFullyPopulatedRowsMEp",
+        "label": "Number of Fully Populated Rows MEp",
+        "baseline": 2,
+        "value": 1
+      },
+      "comparison_baseline": "br_v2_solderballdepopulation_numberfullypopulatedrowsmep/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c066_numberfullypopulatedrowsmep_3",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>",
+        "<modify_component name=\"solderBallDepopulation\" new_value=\"true\" property_name=\"depopulatedCenter\" />",
+        "<modify_component name=\"solderBallDepopulation\" new_value=\"2\" property_name=\"numberFullyPopulatedRowsMDp\" />",
+        "<modify_component name=\"solderBallDepopulation\" new_value=\"3\" property_name=\"numberFullyPopulatedRowsMEp\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "solderBallDepopulation",
+        "property": "numberFullyPopulatedRowsMEp",
+        "label": "Number of Fully Populated Rows MEp",
+        "baseline": 2,
+        "value": 3
+      },
+      "comparison_baseline": "br_v2_solderballdepopulation_numberfullypopulatedrowsmep/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c067_numbercentralrowsmdp_1",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>",
+        "<modify_component name=\"centralBalls\" new_value=\"true\" property_name=\"centralBalls\" />",
+        "<modify_component name=\"centralBalls\" new_value=\"2\" property_name=\"numberCentralRowsMEp\" />",
+        "<modify_component name=\"centralBalls\" new_value=\"1\" property_name=\"numberCentralRowsMDp\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "centralBalls",
+        "property": "numberCentralRowsMDp",
+        "label": "Number of Central Rows MDc",
+        "baseline": 2,
+        "value": 1
+      },
+      "comparison_baseline": "br_v2_centralballs_numbercentralrowsmdp/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c068_numbercentralrowsmdp_3",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>",
+        "<modify_component name=\"centralBalls\" new_value=\"true\" property_name=\"centralBalls\" />",
+        "<modify_component name=\"centralBalls\" new_value=\"2\" property_name=\"numberCentralRowsMEp\" />",
+        "<modify_component name=\"centralBalls\" new_value=\"3\" property_name=\"numberCentralRowsMDp\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "centralBalls",
+        "property": "numberCentralRowsMDp",
+        "label": "Number of Central Rows MDc",
+        "baseline": 2,
+        "value": 3
+      },
+      "comparison_baseline": "br_v2_centralballs_numbercentralrowsmdp/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c069_numbercentralrowsmep_1",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>",
+        "<modify_component name=\"centralBalls\" new_value=\"true\" property_name=\"centralBalls\" />",
+        "<modify_component name=\"centralBalls\" new_value=\"2\" property_name=\"numberCentralRowsMDp\" />",
+        "<modify_component name=\"centralBalls\" new_value=\"1\" property_name=\"numberCentralRowsMEp\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "centralBalls",
+        "property": "numberCentralRowsMEp",
+        "label": "Number of Central Rows MEc",
+        "baseline": 2,
+        "value": 1
+      },
+      "comparison_baseline": "br_v2_centralballs_numbercentralrowsmep/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c070_numbercentralrowsmep_3",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>",
+        "<modify_component name=\"centralBalls\" new_value=\"true\" property_name=\"centralBalls\" />",
+        "<modify_component name=\"centralBalls\" new_value=\"2\" property_name=\"numberCentralRowsMDp\" />",
+        "<modify_component name=\"centralBalls\" new_value=\"3\" property_name=\"numberCentralRowsMEp\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "centralBalls",
+        "property": "numberCentralRowsMEp",
+        "label": "Number of Central Rows MEc",
+        "baseline": 2,
+        "value": 3
+      },
+      "comparison_baseline": "br_v2_centralballs_numbercentralrowsmep/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c071_spreaderlengthlspr_7_2",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>",
+        "<modify_component name=\"backsideSpreader\" new_value=\"true\" property_name=\"includeBacksideSpreader\" />",
+        "<modify_component name=\"backsideSpreader\" new_value=\"8\" property_name=\"spreaderWidthWspr\" />",
+        "<modify_component name=\"backsideSpreader\" new_value=\"0.5\" property_name=\"spreaderThicknessTspr\" />",
+        "<modify_component name=\"backsideSpreader\" new_value=\"5\" property_name=\"bottomTraceHoleLengthLbt\" />",
+        "<modify_component name=\"backsideSpreader\" new_value=\"5\" property_name=\"bottomTraceHoleWidthWbt\" />",
+        "<modify_component name=\"backsideSpreader\" new_value=\"7.2\" property_name=\"spreaderLengthLspr\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "backsideSpreader",
+        "property": "spreaderLengthLspr",
+        "label": "Spreader Length Lspr",
+        "baseline": 8,
+        "value": 7.2
+      },
+      "comparison_baseline": "br_v2_backsidespreader_spreaderlengthlspr/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c072_spreaderlengthlspr_8_8",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>",
+        "<modify_component name=\"backsideSpreader\" new_value=\"true\" property_name=\"includeBacksideSpreader\" />",
+        "<modify_component name=\"backsideSpreader\" new_value=\"8\" property_name=\"spreaderWidthWspr\" />",
+        "<modify_component name=\"backsideSpreader\" new_value=\"0.5\" property_name=\"spreaderThicknessTspr\" />",
+        "<modify_component name=\"backsideSpreader\" new_value=\"5\" property_name=\"bottomTraceHoleLengthLbt\" />",
+        "<modify_component name=\"backsideSpreader\" new_value=\"5\" property_name=\"bottomTraceHoleWidthWbt\" />",
+        "<modify_component name=\"backsideSpreader\" new_value=\"8.8\" property_name=\"spreaderLengthLspr\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "backsideSpreader",
+        "property": "spreaderLengthLspr",
+        "label": "Spreader Length Lspr",
+        "baseline": 8,
+        "value": 8.8
+      },
+      "comparison_baseline": "br_v2_backsidespreader_spreaderlengthlspr/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c073_spreaderwidthwspr_7_2",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>",
+        "<modify_component name=\"backsideSpreader\" new_value=\"true\" property_name=\"includeBacksideSpreader\" />",
+        "<modify_component name=\"backsideSpreader\" new_value=\"8\" property_name=\"spreaderLengthLspr\" />",
+        "<modify_component name=\"backsideSpreader\" new_value=\"0.5\" property_name=\"spreaderThicknessTspr\" />",
+        "<modify_component name=\"backsideSpreader\" new_value=\"5\" property_name=\"bottomTraceHoleLengthLbt\" />",
+        "<modify_component name=\"backsideSpreader\" new_value=\"5\" property_name=\"bottomTraceHoleWidthWbt\" />",
+        "<modify_component name=\"backsideSpreader\" new_value=\"7.2\" property_name=\"spreaderWidthWspr\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "backsideSpreader",
+        "property": "spreaderWidthWspr",
+        "label": "Spreader Width Wspr",
+        "baseline": 8,
+        "value": 7.2
+      },
+      "comparison_baseline": "br_v2_backsidespreader_spreaderwidthwspr/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c074_spreaderwidthwspr_8_8",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>",
+        "<modify_component name=\"backsideSpreader\" new_value=\"true\" property_name=\"includeBacksideSpreader\" />",
+        "<modify_component name=\"backsideSpreader\" new_value=\"8\" property_name=\"spreaderLengthLspr\" />",
+        "<modify_component name=\"backsideSpreader\" new_value=\"0.5\" property_name=\"spreaderThicknessTspr\" />",
+        "<modify_component name=\"backsideSpreader\" new_value=\"5\" property_name=\"bottomTraceHoleLengthLbt\" />",
+        "<modify_component name=\"backsideSpreader\" new_value=\"5\" property_name=\"bottomTraceHoleWidthWbt\" />",
+        "<modify_component name=\"backsideSpreader\" new_value=\"8.8\" property_name=\"spreaderWidthWspr\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "backsideSpreader",
+        "property": "spreaderWidthWspr",
+        "label": "Spreader Width Wspr",
+        "baseline": 8,
+        "value": 8.8
+      },
+      "comparison_baseline": "br_v2_backsidespreader_spreaderwidthwspr/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c075_spreaderthicknesstspr_0_45",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>",
+        "<modify_component name=\"backsideSpreader\" new_value=\"true\" property_name=\"includeBacksideSpreader\" />",
+        "<modify_component name=\"backsideSpreader\" new_value=\"8\" property_name=\"spreaderLengthLspr\" />",
+        "<modify_component name=\"backsideSpreader\" new_value=\"8\" property_name=\"spreaderWidthWspr\" />",
+        "<modify_component name=\"backsideSpreader\" new_value=\"5\" property_name=\"bottomTraceHoleLengthLbt\" />",
+        "<modify_component name=\"backsideSpreader\" new_value=\"5\" property_name=\"bottomTraceHoleWidthWbt\" />",
+        "<modify_component name=\"backsideSpreader\" new_value=\"0.45\" property_name=\"spreaderThicknessTspr\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "backsideSpreader",
+        "property": "spreaderThicknessTspr",
+        "label": "Spreader Thickness tspr",
+        "baseline": 0.5,
+        "value": 0.45
+      },
+      "comparison_baseline": "br_v2_backsidespreader_spreaderthicknesstspr/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c076_spreaderthicknesstspr_0_55",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>",
+        "<modify_component name=\"backsideSpreader\" new_value=\"true\" property_name=\"includeBacksideSpreader\" />",
+        "<modify_component name=\"backsideSpreader\" new_value=\"8\" property_name=\"spreaderLengthLspr\" />",
+        "<modify_component name=\"backsideSpreader\" new_value=\"8\" property_name=\"spreaderWidthWspr\" />",
+        "<modify_component name=\"backsideSpreader\" new_value=\"5\" property_name=\"bottomTraceHoleLengthLbt\" />",
+        "<modify_component name=\"backsideSpreader\" new_value=\"5\" property_name=\"bottomTraceHoleWidthWbt\" />",
+        "<modify_component name=\"backsideSpreader\" new_value=\"0.55\" property_name=\"spreaderThicknessTspr\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "backsideSpreader",
+        "property": "spreaderThicknessTspr",
+        "label": "Spreader Thickness tspr",
+        "baseline": 0.5,
+        "value": 0.55
+      },
+      "comparison_baseline": "br_v2_backsidespreader_spreaderthicknesstspr/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c077_bottomtraceholelengthlbt_4_5",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>",
+        "<modify_component name=\"backsideSpreader\" new_value=\"true\" property_name=\"includeBacksideSpreader\" />",
+        "<modify_component name=\"backsideSpreader\" new_value=\"8\" property_name=\"spreaderLengthLspr\" />",
+        "<modify_component name=\"backsideSpreader\" new_value=\"8\" property_name=\"spreaderWidthWspr\" />",
+        "<modify_component name=\"backsideSpreader\" new_value=\"0.5\" property_name=\"spreaderThicknessTspr\" />",
+        "<modify_component name=\"backsideSpreader\" new_value=\"5\" property_name=\"bottomTraceHoleWidthWbt\" />",
+        "<modify_component name=\"backsideSpreader\" new_value=\"4.5\" property_name=\"bottomTraceHoleLengthLbt\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "backsideSpreader",
+        "property": "bottomTraceHoleLengthLbt",
+        "label": "Bottom Trace Hole Length Lbt",
+        "baseline": 5,
+        "value": 4.5
+      },
+      "comparison_baseline": "br_v2_backsidespreader_bottomtraceholelengthlbt/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c078_bottomtraceholelengthlbt_5_5",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>",
+        "<modify_component name=\"backsideSpreader\" new_value=\"true\" property_name=\"includeBacksideSpreader\" />",
+        "<modify_component name=\"backsideSpreader\" new_value=\"8\" property_name=\"spreaderLengthLspr\" />",
+        "<modify_component name=\"backsideSpreader\" new_value=\"8\" property_name=\"spreaderWidthWspr\" />",
+        "<modify_component name=\"backsideSpreader\" new_value=\"0.5\" property_name=\"spreaderThicknessTspr\" />",
+        "<modify_component name=\"backsideSpreader\" new_value=\"5\" property_name=\"bottomTraceHoleWidthWbt\" />",
+        "<modify_component name=\"backsideSpreader\" new_value=\"5.5\" property_name=\"bottomTraceHoleLengthLbt\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "backsideSpreader",
+        "property": "bottomTraceHoleLengthLbt",
+        "label": "Bottom Trace Hole Length Lbt",
+        "baseline": 5,
+        "value": 5.5
+      },
+      "comparison_baseline": "br_v2_backsidespreader_bottomtraceholelengthlbt/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c079_bottomtraceholewidthwbt_4_5",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>",
+        "<modify_component name=\"backsideSpreader\" new_value=\"true\" property_name=\"includeBacksideSpreader\" />",
+        "<modify_component name=\"backsideSpreader\" new_value=\"8\" property_name=\"spreaderLengthLspr\" />",
+        "<modify_component name=\"backsideSpreader\" new_value=\"8\" property_name=\"spreaderWidthWspr\" />",
+        "<modify_component name=\"backsideSpreader\" new_value=\"0.5\" property_name=\"spreaderThicknessTspr\" />",
+        "<modify_component name=\"backsideSpreader\" new_value=\"5\" property_name=\"bottomTraceHoleLengthLbt\" />",
+        "<modify_component name=\"backsideSpreader\" new_value=\"4.5\" property_name=\"bottomTraceHoleWidthWbt\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "backsideSpreader",
+        "property": "bottomTraceHoleWidthWbt",
+        "label": "Bottom Trace Hole Width Wbt",
+        "baseline": 5,
+        "value": 4.5
+      },
+      "comparison_baseline": "br_v2_backsidespreader_bottomtraceholewidthwbt/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c080_bottomtraceholewidthwbt_5_5",
+      "commands": [
+        "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>",
+        "<modify_component name=\"backsideSpreader\" new_value=\"true\" property_name=\"includeBacksideSpreader\" />",
+        "<modify_component name=\"backsideSpreader\" new_value=\"8\" property_name=\"spreaderLengthLspr\" />",
+        "<modify_component name=\"backsideSpreader\" new_value=\"8\" property_name=\"spreaderWidthWspr\" />",
+        "<modify_component name=\"backsideSpreader\" new_value=\"0.5\" property_name=\"spreaderThicknessTspr\" />",
+        "<modify_component name=\"backsideSpreader\" new_value=\"5\" property_name=\"bottomTraceHoleLengthLbt\" />",
+        "<modify_component name=\"backsideSpreader\" new_value=\"5.5\" property_name=\"bottomTraceHoleWidthWbt\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "backsideSpreader",
+        "property": "bottomTraceHoleWidthWbt",
+        "label": "Bottom Trace Hole Width Wbt",
+        "baseline": 5,
+        "value": 5.5
+      },
+      "comparison_baseline": "br_v2_backsidespreader_bottomtraceholewidthwbt/model.xml",
+      "expected_outcome": "semantic_change"
+    }
+  ]
+}

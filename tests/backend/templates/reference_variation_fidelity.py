@@ -8,9 +8,9 @@ import pytest
 from packstudio.domain.enums import StructureType
 from packstudio.templates.package_library.catalog import definition
 from tests.backend.templates.reference_requests import reference_request
-from tests.backend.templates.remaining_decisions import decision_geometry
+from tools.pack_sweep.decisions import decision_geometry
 
-REFERENCE_ROOT = Path(__file__).parents[3] / "flotherm_pack_data" / "templates"
+REFERENCE_ROOT = Path(__file__).parents[3] / "flotherm_pack_data" / "template"
 
 FIELD_PROPERTIES = {
     "bare_die": {
@@ -239,7 +239,7 @@ def _native_geometry(
 def _cover_cases() -> list[object]:
     cases = []
     for template_id in ("cbga_fc", "pbga_fc"):
-        manifest_path = REFERENCE_ROOT / template_id / "xml_variations.json"
+        manifest_path = REFERENCE_ROOT / template_id / "index.json"
         manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
         for item in manifest["variations"]:
             if item["target"]["property"] != "topCover":
@@ -262,7 +262,7 @@ def _cover_cases() -> list[object]:
 def _variation_cases() -> list[object]:
     cases = []
     for template_id, mappings in FIELD_PROPERTIES.items():
-        manifest_path = REFERENCE_ROOT / template_id / "xml_variations.json"
+        manifest_path = REFERENCE_ROOT / template_id / "index.json"
         manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
         fields_by_property = {property_name: field for field, property_name in mappings.items()}
         for item in manifest["variations"]:

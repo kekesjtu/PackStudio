@@ -1,5 +1,8 @@
 # 开发与验证
 
+PACK 原生 XML 扫参、DES 导出和本地参考库重建见
+[原生扫参与参考库](pack_sweep/README.md)。
+
 ## 环境
 
 需要 uv、Node.js 22.12+ 和 npm。Python 版本以 `.python-version` 为准。

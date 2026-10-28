@@ -4,6 +4,9 @@
 FloSCRIPT 并导出原生 FloXML。命令在项目根目录运行，Python 使用 uv 管理的仓库环境。
 文档描述通用操作、运行约定和检查方法。
 
+批量模板扫参、完整归档和参考库重建使用
+[tools/pack_sweep](tools/pack_sweep/README.md)，其底层执行统一调用本文的 `tools.floscript`。
+
 ## 本机路径
 
 | 用途 | 路径 |

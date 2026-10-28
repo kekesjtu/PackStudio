@@ -1,0 +1,1369 @@
+{
+  "schema": "packstudio.sweep-spec/v1",
+  "template_id": "pqfp",
+  "points": [
+    {
+      "id": "baseline",
+      "commands": [
+        "<new_package package_type=\"pqfp\">\n        <new_value new_value=\"PQFP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"lqfp\" property_name=\"pqfpPackageType\" />\n        <new_value new_value=\"LQFP_32_7X7mm\" property_name=\"lqfpJedecFootprint\" />\n    </new_package>"
+      ]
+    },
+    {
+      "id": "br_v2_leadframe_leadframecoveragepercentage",
+      "commands": [
+        "<new_package package_type=\"pqfp\">\n        <new_value new_value=\"PQFP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"lqfp\" property_name=\"pqfpPackageType\" />\n        <new_value new_value=\"LQFP_32_7X7mm\" property_name=\"lqfpJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"leadFrame\" new_value=\"yes\" property_name=\"userDefinedLeadframeCoverage\" />",
+        "<modify_component name=\"leadFrame\" new_value=\"40\" property_name=\"leadframeCoveragePercentage\" />"
+      ]
+    },
+    {
+      "id": "br_v2_leadframe_userdefinedleadframecoverage",
+      "commands": [
+        "<new_package package_type=\"pqfp\">\n        <new_value new_value=\"PQFP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"lqfp\" property_name=\"pqfpPackageType\" />\n        <new_value new_value=\"LQFP_32_7X7mm\" property_name=\"lqfpJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"leadFrame\" new_value=\"40\" property_name=\"leadframeCoveragePercentage\" />",
+        "<modify_component name=\"leadFrame\" new_value=\"noDefaultIsBe\" property_name=\"userDefinedLeadframeCoverage\" />"
+      ]
+    },
+    {
+      "id": "br_v2_thermallandandsolder_includethermallandandsolder",
+      "commands": [
+        "<new_package package_type=\"pqfp\">\n        <new_value new_value=\"PQFP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"lqfp\" property_name=\"pqfpPackageType\" />\n        <new_value new_value=\"LQFP_32_7X7mm\" property_name=\"lqfpJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"thermalLandAndSolder\" new_value=\"0.05\" property_name=\"landThickness\" />",
+        "<modify_component name=\"thermalLandAndSolder\" new_value=\"false\" property_name=\"includeThermalLandAndSolder\" />"
+      ]
+    },
+    {
+      "id": "br_v2_thermallandandsolder_landthickness",
+      "commands": [
+        "<new_package package_type=\"pqfp\">\n        <new_value new_value=\"PQFP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"lqfp\" property_name=\"pqfpPackageType\" />\n        <new_value new_value=\"LQFP_32_7X7mm\" property_name=\"lqfpJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"thermalLandAndSolder\" new_value=\"true\" property_name=\"includeThermalLandAndSolder\" />",
+        "<modify_component name=\"thermalLandAndSolder\" new_value=\"0.05\" property_name=\"landThickness\" />"
+      ]
+    },
+    {
+      "id": "jed_v2_c001_lqfpjedecfootprint_lqfp_100_14x20mm",
+      "commands": [
+        "<new_package package_type=\"pqfp\">\n        <new_value new_value=\"PQFP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"lqfp\" property_name=\"pqfpPackageType\" />\n        <new_value new_value=\"LQFP_100_14X20mm\" property_name=\"lqfpJedecFootprint\" />\n    </new_package>"
+      ],
+      "kind": "jedec_preset",
+      "target": {
+        "component": "new_package",
+        "property": "lqfpJedecFootprint",
+        "label": "JEDEC Footprint",
+        "baseline": "LQFP_32_7X7mm",
+        "value": "LQFP_100_14X20mm"
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "jed_v2_c002_lqfpjedecfootprint_lqfp_208_28x28mm",
+      "commands": [
+        "<new_package package_type=\"pqfp\">\n        <new_value new_value=\"PQFP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"lqfp\" property_name=\"pqfpPackageType\" />\n        <new_value new_value=\"LQFP_208_28X28mm\" property_name=\"lqfpJedecFootprint\" />\n    </new_package>"
+      ],
+      "kind": "jedec_preset",
+      "target": {
+        "component": "new_package",
+        "property": "lqfpJedecFootprint",
+        "label": "JEDEC Footprint",
+        "baseline": "LQFP_32_7X7mm",
+        "value": "LQFP_208_28X28mm"
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "opt_v2_c001_exposedpad_true",
+      "commands": [
+        "<new_package package_type=\"pqfp\">\n        <new_value new_value=\"PQFP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"true\" property_name=\"exposedPad\" />\n        <new_value new_value=\"lqfp\" property_name=\"pqfpPackageType\" />\n        <new_value new_value=\"LQFP_32_7X7mm\" property_name=\"lqfpJedecFootprint\" />\n    </new_package>"
+      ],
+      "kind": "boolean_option",
+      "target": {
+        "component": "new_package",
+        "property": "exposedPad",
+        "label": "Exposed Pad",
+        "baseline": false,
+        "value": true
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "opt_v2_c001_outlinetype_nonstandardoutline",
+      "commands": [
+        "<new_package package_type=\"pqfp\">\n        <new_value new_value=\"PQFP\" property_name=\"designName\" />\n        <new_value new_value=\"nonStandardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"lqfp\" property_name=\"pqfpPackageType\" />\n        <new_value new_value=\"LQFP_32_7X7mm\" property_name=\"lqfpJedecFootprint\" />\n    </new_package>"
+      ],
+      "kind": "enum_option",
+      "target": {
+        "component": "new_package",
+        "property": "outlineType",
+        "label": "Outline Type",
+        "baseline": "standardOutline",
+        "value": "nonStandardOutline"
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "opt_v2_c002_nonuniformdieheat_true",
+      "commands": [
+        "<new_package package_type=\"pqfp\">\n        <new_value new_value=\"PQFP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"lqfp\" property_name=\"pqfpPackageType\" />\n        <new_value new_value=\"LQFP_32_7X7mm\" property_name=\"lqfpJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"die\" new_value=\"true\" property_name=\"nonUniformDieHeat\" />"
+      ],
+      "kind": "boolean_option",
+      "target": {
+        "component": "die",
+        "property": "nonUniformDieHeat",
+        "label": "Non-uniform Die Heat",
+        "baseline": false,
+        "value": true
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "opt_v2_c002_pqfppackagetype_mqfp",
+      "commands": [
+        "<new_package package_type=\"pqfp\">\n        <new_value new_value=\"PQFP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"mqfp\" property_name=\"pqfpPackageType\" />\n        <new_value new_value=\"MQFP_44_10X10mm\" property_name=\"mqfpJedecFootprint\" />\n    </new_package>"
+      ],
+      "kind": "enum_option",
+      "target": {
+        "component": "new_package",
+        "property": "pqfpPackageType",
+        "label": "PQFP Package Type",
+        "baseline": "lqfp",
+        "value": "mqfp"
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "opt_v2_c003_includethermallandandsolder_true",
+      "commands": [
+        "<new_package package_type=\"pqfp\">\n        <new_value new_value=\"PQFP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"lqfp\" property_name=\"pqfpPackageType\" />\n        <new_value new_value=\"LQFP_32_7X7mm\" property_name=\"lqfpJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"thermalLandAndSolder\" new_value=\"0.05\" property_name=\"landThickness\" />",
+        "<modify_component name=\"thermalLandAndSolder\" new_value=\"true\" property_name=\"includeThermalLandAndSolder\" />"
+      ],
+      "kind": "boolean_option",
+      "target": {
+        "component": "thermalLandAndSolder",
+        "property": "includeThermalLandAndSolder",
+        "label": "Include Thermal Land and Solder",
+        "baseline": false,
+        "value": true
+      },
+      "comparison_baseline": "br_v2_thermallandandsolder_includethermallandandsolder/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "opt_v2_c003_pqfppackagetype_tqfp",
+      "commands": [
+        "<new_package package_type=\"pqfp\">\n        <new_value new_value=\"PQFP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"tqfp\" property_name=\"pqfpPackageType\" />\n        <new_value new_value=\"TQFP_32_7X7mm\" property_name=\"tqfpJedecFootprint\" />\n    </new_package>"
+      ],
+      "kind": "enum_option",
+      "target": {
+        "component": "new_package",
+        "property": "pqfpPackageType",
+        "label": "PQFP Package Type",
+        "baseline": "lqfp",
+        "value": "tqfp"
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "opt_v2_c004_dietype_thermaldie",
+      "commands": [
+        "<new_package package_type=\"pqfp\">\n        <new_value new_value=\"PQFP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"thermalDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"lqfp\" property_name=\"pqfpPackageType\" />\n        <new_value new_value=\"LQFP_32_7X7mm\" property_name=\"lqfpJedecFootprint\" />\n    </new_package>"
+      ],
+      "kind": "enum_option",
+      "target": {
+        "component": "new_package",
+        "property": "dieType",
+        "label": "Die Type",
+        "baseline": "actualDie",
+        "value": "thermalDie"
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "opt_v2_c004_localizegrid_false",
+      "commands": [
+        "<new_package package_type=\"pqfp\">\n        <new_value new_value=\"PQFP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"lqfp\" property_name=\"pqfpPackageType\" />\n        <new_value new_value=\"LQFP_32_7X7mm\" property_name=\"lqfpJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"modelingOptions\" new_value=\"false\" property_name=\"localizeGrid\" />"
+      ],
+      "kind": "boolean_option",
+      "target": {
+        "component": "modelingOptions",
+        "property": "localizeGrid",
+        "label": "Localize Grid",
+        "baseline": true,
+        "value": false
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "opt_v2_c005_userdefinedleadframecoverage_yes",
+      "commands": [
+        "<new_package package_type=\"pqfp\">\n        <new_value new_value=\"PQFP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"lqfp\" property_name=\"pqfpPackageType\" />\n        <new_value new_value=\"LQFP_32_7X7mm\" property_name=\"lqfpJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"leadFrame\" new_value=\"40\" property_name=\"leadframeCoveragePercentage\" />",
+        "<modify_component name=\"leadFrame\" new_value=\"yes\" property_name=\"userDefinedLeadframeCoverage\" />"
+      ],
+      "kind": "enum_option",
+      "target": {
+        "component": "leadFrame",
+        "property": "userDefinedLeadframeCoverage",
+        "label": "User Defined Leadframe Coverage",
+        "baseline": "noDefaultIsBe",
+        "value": "yes"
+      },
+      "comparison_baseline": "br_v2_leadframe_userdefinedleadframecoverage/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "opt_v2_c006_modelleadframeas_isotropiccuboid",
+      "commands": [
+        "<new_package package_type=\"pqfp\">\n        <new_value new_value=\"PQFP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"lqfp\" property_name=\"pqfpPackageType\" />\n        <new_value new_value=\"LQFP_32_7X7mm\" property_name=\"lqfpJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"modelingOptions\" new_value=\"isotropicCuboid\" property_name=\"modelLeadFrameAs\" />"
+      ],
+      "kind": "enum_option",
+      "target": {
+        "component": "modelingOptions",
+        "property": "modelLeadFrameAs",
+        "label": "Model Lead Frames As",
+        "baseline": "orthotropicCuboid",
+        "value": "isotropicCuboid"
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "opt_v2_c007_modelbondwiresas_isotropiccuboid",
+      "commands": [
+        "<new_package package_type=\"pqfp\">\n        <new_value new_value=\"PQFP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"lqfp\" property_name=\"pqfpPackageType\" />\n        <new_value new_value=\"LQFP_32_7X7mm\" property_name=\"lqfpJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"modelingOptions\" new_value=\"isotropicCuboid\" property_name=\"modelBondWiresAs\" />"
+      ],
+      "kind": "enum_option",
+      "target": {
+        "component": "modelingOptions",
+        "property": "modelBondWiresAs",
+        "label": "Model Bond Wires As",
+        "baseline": "orthotropicCuboid",
+        "value": "isotropicCuboid"
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "opt_v2_c008_modeltiebarsas_approximate",
+      "commands": [
+        "<new_package package_type=\"pqfp\">\n        <new_value new_value=\"PQFP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"lqfp\" property_name=\"pqfpPackageType\" />\n        <new_value new_value=\"LQFP_32_7X7mm\" property_name=\"lqfpJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"modelingOptions\" new_value=\"approximate\" property_name=\"modelTieBarsAs\" />"
+      ],
+      "kind": "enum_option",
+      "target": {
+        "component": "modelingOptions",
+        "property": "modelTieBarsAs",
+        "label": "Model Tie Bars As",
+        "baseline": "accurate",
+        "value": "approximate"
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "opt_v2_c009_griddensity_coarse",
+      "commands": [
+        "<new_package package_type=\"pqfp\">\n        <new_value new_value=\"PQFP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"lqfp\" property_name=\"pqfpPackageType\" />\n        <new_value new_value=\"LQFP_32_7X7mm\" property_name=\"lqfpJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"modelingOptions\" new_value=\"coarse\" property_name=\"gridDensity\" />"
+      ],
+      "kind": "enum_option",
+      "target": {
+        "component": "modelingOptions",
+        "property": "gridDensity",
+        "label": "Grid Density",
+        "baseline": "fine",
+        "value": "coarse"
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "opt_v2_c010_griddensity_medium",
+      "commands": [
+        "<new_package package_type=\"pqfp\">\n        <new_value new_value=\"PQFP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"lqfp\" property_name=\"pqfpPackageType\" />\n        <new_value new_value=\"LQFP_32_7X7mm\" property_name=\"lqfpJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"modelingOptions\" new_value=\"medium\" property_name=\"gridDensity\" />"
+      ],
+      "kind": "enum_option",
+      "target": {
+        "component": "modelingOptions",
+        "property": "gridDensity",
+        "label": "Grid Density",
+        "baseline": "fine",
+        "value": "medium"
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c001_lengthd_8_1",
+      "commands": [
+        "<new_package package_type=\"pqfp\">\n        <new_value new_value=\"PQFP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"lqfp\" property_name=\"pqfpPackageType\" />\n        <new_value new_value=\"LQFP_32_7X7mm\" property_name=\"lqfpJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"overallPackage\" new_value=\"8.1\" property_name=\"lengthD\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "overallPackage",
+        "property": "lengthD",
+        "label": "Length D",
+        "baseline": 9,
+        "value": 8.1
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c002_lengthd_9_9",
+      "commands": [
+        "<new_package package_type=\"pqfp\">\n        <new_value new_value=\"PQFP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"lqfp\" property_name=\"pqfpPackageType\" />\n        <new_value new_value=\"LQFP_32_7X7mm\" property_name=\"lqfpJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"overallPackage\" new_value=\"9.9\" property_name=\"lengthD\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "overallPackage",
+        "property": "lengthD",
+        "label": "Length D",
+        "baseline": 9,
+        "value": 9.9
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c003_widthe_8_1",
+      "commands": [
+        "<new_package package_type=\"pqfp\">\n        <new_value new_value=\"PQFP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"lqfp\" property_name=\"pqfpPackageType\" />\n        <new_value new_value=\"LQFP_32_7X7mm\" property_name=\"lqfpJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"overallPackage\" new_value=\"8.1\" property_name=\"widthE\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "overallPackage",
+        "property": "widthE",
+        "label": "Width E",
+        "baseline": 9,
+        "value": 8.1
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c004_widthe_9_9",
+      "commands": [
+        "<new_package package_type=\"pqfp\">\n        <new_value new_value=\"PQFP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"lqfp\" property_name=\"pqfpPackageType\" />\n        <new_value new_value=\"LQFP_32_7X7mm\" property_name=\"lqfpJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"overallPackage\" new_value=\"9.9\" property_name=\"widthE\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "overallPackage",
+        "property": "widthE",
+        "label": "Width E",
+        "baseline": 9,
+        "value": 9.9
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c005_standoffa1_0_09",
+      "commands": [
+        "<new_package package_type=\"pqfp\">\n        <new_value new_value=\"PQFP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"lqfp\" property_name=\"pqfpPackageType\" />\n        <new_value new_value=\"LQFP_32_7X7mm\" property_name=\"lqfpJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"overallPackage\" new_value=\"0.09\" property_name=\"standoffA1\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "overallPackage",
+        "property": "standoffA1",
+        "label": "Standoff A1",
+        "baseline": 0.1,
+        "value": 0.09
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c006_standoffa1_0_11",
+      "commands": [
+        "<new_package package_type=\"pqfp\">\n        <new_value new_value=\"PQFP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"lqfp\" property_name=\"pqfpPackageType\" />\n        <new_value new_value=\"LQFP_32_7X7mm\" property_name=\"lqfpJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"overallPackage\" new_value=\"0.11\" property_name=\"standoffA1\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "overallPackage",
+        "property": "standoffA1",
+        "label": "Standoff A1",
+        "baseline": 0.1,
+        "value": 0.11
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c007_lengthd1_6_3",
+      "commands": [
+        "<new_package package_type=\"pqfp\">\n        <new_value new_value=\"PQFP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"lqfp\" property_name=\"pqfpPackageType\" />\n        <new_value new_value=\"LQFP_32_7X7mm\" property_name=\"lqfpJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"encapsulant\" new_value=\"6.3\" property_name=\"lengthD1\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "encapsulant",
+        "property": "lengthD1",
+        "label": "Length D1",
+        "baseline": 7,
+        "value": 6.3
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c008_lengthd1_7_7",
+      "commands": [
+        "<new_package package_type=\"pqfp\">\n        <new_value new_value=\"PQFP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"lqfp\" property_name=\"pqfpPackageType\" />\n        <new_value new_value=\"LQFP_32_7X7mm\" property_name=\"lqfpJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"encapsulant\" new_value=\"7.7\" property_name=\"lengthD1\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "encapsulant",
+        "property": "lengthD1",
+        "label": "Length D1",
+        "baseline": 7,
+        "value": 7.7
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c009_widthe1_6_3",
+      "commands": [
+        "<new_package package_type=\"pqfp\">\n        <new_value new_value=\"PQFP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"lqfp\" property_name=\"pqfpPackageType\" />\n        <new_value new_value=\"LQFP_32_7X7mm\" property_name=\"lqfpJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"encapsulant\" new_value=\"6.3\" property_name=\"widthE1\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "encapsulant",
+        "property": "widthE1",
+        "label": "Width E1",
+        "baseline": 7,
+        "value": 6.3
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c010_widthe1_7_7",
+      "commands": [
+        "<new_package package_type=\"pqfp\">\n        <new_value new_value=\"PQFP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"lqfp\" property_name=\"pqfpPackageType\" />\n        <new_value new_value=\"LQFP_32_7X7mm\" property_name=\"lqfpJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"encapsulant\" new_value=\"7.7\" property_name=\"widthE1\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "encapsulant",
+        "property": "widthE1",
+        "label": "Width E1",
+        "baseline": 7,
+        "value": 7.7
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c011_thicknessa2_1_26",
+      "commands": [
+        "<new_package package_type=\"pqfp\">\n        <new_value new_value=\"PQFP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"lqfp\" property_name=\"pqfpPackageType\" />\n        <new_value new_value=\"LQFP_32_7X7mm\" property_name=\"lqfpJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"encapsulant\" new_value=\"1.26\" property_name=\"thicknessA2\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "encapsulant",
+        "property": "thicknessA2",
+        "label": "Thickness A2",
+        "baseline": 1.4,
+        "value": 1.26
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c012_thicknessa2_1_54",
+      "commands": [
+        "<new_package package_type=\"pqfp\">\n        <new_value new_value=\"PQFP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"lqfp\" property_name=\"pqfpPackageType\" />\n        <new_value new_value=\"LQFP_32_7X7mm\" property_name=\"lqfpJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"encapsulant\" new_value=\"1.54\" property_name=\"thicknessA2\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "encapsulant",
+        "property": "thicknessA2",
+        "label": "Thickness A2",
+        "baseline": 1.4,
+        "value": 1.54
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c013_packagepower_1_0",
+      "commands": [
+        "<new_package package_type=\"pqfp\">\n        <new_value new_value=\"PQFP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"lqfp\" property_name=\"pqfpPackageType\" />\n        <new_value new_value=\"LQFP_32_7X7mm\" property_name=\"lqfpJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"die\" new_value=\"1\" property_name=\"packagePower\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "die",
+        "property": "packagePower",
+        "label": "Package Power",
+        "baseline": 0,
+        "value": 1.0
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c014_packagepower_2_0",
+      "commands": [
+        "<new_package package_type=\"pqfp\">\n        <new_value new_value=\"PQFP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"lqfp\" property_name=\"pqfpPackageType\" />\n        <new_value new_value=\"LQFP_32_7X7mm\" property_name=\"lqfpJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"die\" new_value=\"2\" property_name=\"packagePower\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "die",
+        "property": "packagePower",
+        "label": "Package Power",
+        "baseline": 0,
+        "value": 2.0
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c015_dielengthld_1_89",
+      "commands": [
+        "<new_package package_type=\"pqfp\">\n        <new_value new_value=\"PQFP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"lqfp\" property_name=\"pqfpPackageType\" />\n        <new_value new_value=\"LQFP_32_7X7mm\" property_name=\"lqfpJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"die\" new_value=\"1.89\" property_name=\"dieLengthLd\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "die",
+        "property": "dieLengthLd",
+        "label": "Die Length Ld",
+        "baseline": 2.1,
+        "value": 1.89
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c016_dielengthld_2_31",
+      "commands": [
+        "<new_package package_type=\"pqfp\">\n        <new_value new_value=\"PQFP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"lqfp\" property_name=\"pqfpPackageType\" />\n        <new_value new_value=\"LQFP_32_7X7mm\" property_name=\"lqfpJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"die\" new_value=\"2.31\" property_name=\"dieLengthLd\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "die",
+        "property": "dieLengthLd",
+        "label": "Die Length Ld",
+        "baseline": 2.1,
+        "value": 2.31
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c017_diewidthwd_1_89",
+      "commands": [
+        "<new_package package_type=\"pqfp\">\n        <new_value new_value=\"PQFP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"lqfp\" property_name=\"pqfpPackageType\" />\n        <new_value new_value=\"LQFP_32_7X7mm\" property_name=\"lqfpJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"die\" new_value=\"1.89\" property_name=\"dieWidthWd\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "die",
+        "property": "dieWidthWd",
+        "label": "Die Width Wd",
+        "baseline": 2.1,
+        "value": 1.89
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c018_diewidthwd_2_31",
+      "commands": [
+        "<new_package package_type=\"pqfp\">\n        <new_value new_value=\"PQFP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"lqfp\" property_name=\"pqfpPackageType\" />\n        <new_value new_value=\"LQFP_32_7X7mm\" property_name=\"lqfpJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"die\" new_value=\"2.31\" property_name=\"dieWidthWd\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "die",
+        "property": "dieWidthWd",
+        "label": "Die Width Wd",
+        "baseline": 2.1,
+        "value": 2.31
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c019_diethicknesstd_0_315",
+      "commands": [
+        "<new_package package_type=\"pqfp\">\n        <new_value new_value=\"PQFP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"lqfp\" property_name=\"pqfpPackageType\" />\n        <new_value new_value=\"LQFP_32_7X7mm\" property_name=\"lqfpJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"die\" new_value=\"0.315\" property_name=\"dieThicknessTd\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "die",
+        "property": "dieThicknessTd",
+        "label": "Die Thickness td",
+        "baseline": 0.35,
+        "value": 0.315
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c020_diethicknesstd_0_385",
+      "commands": [
+        "<new_package package_type=\"pqfp\">\n        <new_value new_value=\"PQFP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"lqfp\" property_name=\"pqfpPackageType\" />\n        <new_value new_value=\"LQFP_32_7X7mm\" property_name=\"lqfpJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"die\" new_value=\"0.385\" property_name=\"dieThicknessTd\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "die",
+        "property": "dieThicknessTd",
+        "label": "Die Thickness td",
+        "baseline": 0.35,
+        "value": 0.385
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c021_dieattachthicknesstda_0_0342",
+      "commands": [
+        "<new_package package_type=\"pqfp\">\n        <new_value new_value=\"PQFP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"lqfp\" property_name=\"pqfpPackageType\" />\n        <new_value new_value=\"LQFP_32_7X7mm\" property_name=\"lqfpJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"die\" new_value=\"0.0342\" property_name=\"dieAttachThicknessTda\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "die",
+        "property": "dieAttachThicknessTda",
+        "label": "Die Attach Thickness tda",
+        "baseline": 0.038,
+        "value": 0.0342
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c022_dieattachthicknesstda_0_0418",
+      "commands": [
+        "<new_package package_type=\"pqfp\">\n        <new_value new_value=\"PQFP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"lqfp\" property_name=\"pqfpPackageType\" />\n        <new_value new_value=\"LQFP_32_7X7mm\" property_name=\"lqfpJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"die\" new_value=\"0.0418\" property_name=\"dieAttachThicknessTda\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "die",
+        "property": "dieAttachThicknessTda",
+        "label": "Die Attach Thickness tda",
+        "baseline": 0.038,
+        "value": 0.0418
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c023_dieflaglf_2_646",
+      "commands": [
+        "<new_package package_type=\"pqfp\">\n        <new_value new_value=\"PQFP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"lqfp\" property_name=\"pqfpPackageType\" />\n        <new_value new_value=\"LQFP_32_7X7mm\" property_name=\"lqfpJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"dieFlagAndTieBars\" new_value=\"2.646\" property_name=\"dieFlagLf\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "dieFlagAndTieBars",
+        "property": "dieFlagLf",
+        "label": "Die Flag Lf",
+        "baseline": 2.94,
+        "value": 2.646
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c024_dieflaglf_3_234",
+      "commands": [
+        "<new_package package_type=\"pqfp\">\n        <new_value new_value=\"PQFP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"lqfp\" property_name=\"pqfpPackageType\" />\n        <new_value new_value=\"LQFP_32_7X7mm\" property_name=\"lqfpJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"dieFlagAndTieBars\" new_value=\"3.234\" property_name=\"dieFlagLf\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "dieFlagAndTieBars",
+        "property": "dieFlagLf",
+        "label": "Die Flag Lf",
+        "baseline": 2.94,
+        "value": 3.234
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c025_dieflagwf_2_646",
+      "commands": [
+        "<new_package package_type=\"pqfp\">\n        <new_value new_value=\"PQFP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"lqfp\" property_name=\"pqfpPackageType\" />\n        <new_value new_value=\"LQFP_32_7X7mm\" property_name=\"lqfpJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"dieFlagAndTieBars\" new_value=\"2.646\" property_name=\"dieFlagWf\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "dieFlagAndTieBars",
+        "property": "dieFlagWf",
+        "label": "Die Flag Wf",
+        "baseline": 2.94,
+        "value": 2.646
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c026_dieflagwf_3_234",
+      "commands": [
+        "<new_package package_type=\"pqfp\">\n        <new_value new_value=\"PQFP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"lqfp\" property_name=\"pqfpPackageType\" />\n        <new_value new_value=\"LQFP_32_7X7mm\" property_name=\"lqfpJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"dieFlagAndTieBars\" new_value=\"3.234\" property_name=\"dieFlagWf\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "dieFlagAndTieBars",
+        "property": "dieFlagWf",
+        "label": "Die Flag Wf",
+        "baseline": 2.94,
+        "value": 3.234
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c027_metalcoveragefordieflagcf_54_0",
+      "commands": [
+        "<new_package package_type=\"pqfp\">\n        <new_value new_value=\"PQFP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"lqfp\" property_name=\"pqfpPackageType\" />\n        <new_value new_value=\"LQFP_32_7X7mm\" property_name=\"lqfpJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"dieFlagAndTieBars\" new_value=\"54\" property_name=\"metalCoverageForDieFlagCf\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "dieFlagAndTieBars",
+        "property": "metalCoverageForDieFlagCf",
+        "label": "Metal Coverage for Die Flag Cf",
+        "baseline": 60,
+        "value": 54.0
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c028_metalcoveragefordieflagcf_66_0",
+      "commands": [
+        "<new_package package_type=\"pqfp\">\n        <new_value new_value=\"PQFP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"lqfp\" property_name=\"pqfpPackageType\" />\n        <new_value new_value=\"LQFP_32_7X7mm\" property_name=\"lqfpJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"dieFlagAndTieBars\" new_value=\"66\" property_name=\"metalCoverageForDieFlagCf\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "dieFlagAndTieBars",
+        "property": "metalCoverageForDieFlagCf",
+        "label": "Metal Coverage for Die Flag Cf",
+        "baseline": 60,
+        "value": 66.0
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c029_dieflagdownsetddf_0_225",
+      "commands": [
+        "<new_package package_type=\"pqfp\">\n        <new_value new_value=\"PQFP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"lqfp\" property_name=\"pqfpPackageType\" />\n        <new_value new_value=\"LQFP_32_7X7mm\" property_name=\"lqfpJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"dieFlagAndTieBars\" new_value=\"0.225\" property_name=\"dieFlagDownsetDdf\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "dieFlagAndTieBars",
+        "property": "dieFlagDownsetDdf",
+        "label": "Die Flag Downset df",
+        "baseline": 0.25,
+        "value": 0.225
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c030_dieflagdownsetddf_0_275",
+      "commands": [
+        "<new_package package_type=\"pqfp\">\n        <new_value new_value=\"PQFP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"lqfp\" property_name=\"pqfpPackageType\" />\n        <new_value new_value=\"LQFP_32_7X7mm\" property_name=\"lqfpJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"dieFlagAndTieBars\" new_value=\"0.275\" property_name=\"dieFlagDownsetDdf\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "dieFlagAndTieBars",
+        "property": "dieFlagDownsetDdf",
+        "label": "Die Flag Downset df",
+        "baseline": 0.25,
+        "value": 0.275
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c031_tiebarwidthwtb_0_45",
+      "commands": [
+        "<new_package package_type=\"pqfp\">\n        <new_value new_value=\"PQFP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"lqfp\" property_name=\"pqfpPackageType\" />\n        <new_value new_value=\"LQFP_32_7X7mm\" property_name=\"lqfpJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"dieFlagAndTieBars\" new_value=\"0.45\" property_name=\"tieBarWidthWtb\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "dieFlagAndTieBars",
+        "property": "tieBarWidthWtb",
+        "label": "Tie Bar Width Wtb",
+        "baseline": 0.5,
+        "value": 0.45
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c032_tiebarwidthwtb_0_55",
+      "commands": [
+        "<new_package package_type=\"pqfp\">\n        <new_value new_value=\"PQFP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"lqfp\" property_name=\"pqfpPackageType\" />\n        <new_value new_value=\"LQFP_32_7X7mm\" property_name=\"lqfpJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"dieFlagAndTieBars\" new_value=\"0.55\" property_name=\"tieBarWidthWtb\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "dieFlagAndTieBars",
+        "property": "tieBarWidthWtb",
+        "label": "Tie Bar Width Wtb",
+        "baseline": 0.5,
+        "value": 0.55
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c033_leadframeflaggapg1_0_378",
+      "commands": [
+        "<new_package package_type=\"pqfp\">\n        <new_value new_value=\"PQFP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"lqfp\" property_name=\"pqfpPackageType\" />\n        <new_value new_value=\"LQFP_32_7X7mm\" property_name=\"lqfpJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"leadFrame\" new_value=\"0.378\" property_name=\"leadframeFlagGapG1\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "leadFrame",
+        "property": "leadframeFlagGapG1",
+        "label": "Leadframe-Flag Gap g1",
+        "baseline": 0.42,
+        "value": 0.378
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c034_leadframeflaggapg1_0_462",
+      "commands": [
+        "<new_package package_type=\"pqfp\">\n        <new_value new_value=\"PQFP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"lqfp\" property_name=\"pqfpPackageType\" />\n        <new_value new_value=\"LQFP_32_7X7mm\" property_name=\"lqfpJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"leadFrame\" new_value=\"0.462\" property_name=\"leadframeFlagGapG1\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "leadFrame",
+        "property": "leadframeFlagGapG1",
+        "label": "Leadframe-Flag Gap g1",
+        "baseline": 0.42,
+        "value": 0.462
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c035_leadframeflaggapg2_0_378",
+      "commands": [
+        "<new_package package_type=\"pqfp\">\n        <new_value new_value=\"PQFP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"lqfp\" property_name=\"pqfpPackageType\" />\n        <new_value new_value=\"LQFP_32_7X7mm\" property_name=\"lqfpJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"leadFrame\" new_value=\"0.378\" property_name=\"leadframeFlagGapG2\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "leadFrame",
+        "property": "leadframeFlagGapG2",
+        "label": "Leadframe-Flag Gap g2",
+        "baseline": 0.42,
+        "value": 0.378
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c036_leadframeflaggapg2_0_462",
+      "commands": [
+        "<new_package package_type=\"pqfp\">\n        <new_value new_value=\"PQFP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"lqfp\" property_name=\"pqfpPackageType\" />\n        <new_value new_value=\"LQFP_32_7X7mm\" property_name=\"lqfpJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"leadFrame\" new_value=\"0.462\" property_name=\"leadframeFlagGapG2\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "leadFrame",
+        "property": "leadframeFlagGapG2",
+        "label": "Leadframe-Flag Gap g2",
+        "baseline": 0.42,
+        "value": 0.462
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c037_pitche_0_72",
+      "commands": [
+        "<new_package package_type=\"pqfp\">\n        <new_value new_value=\"PQFP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"lqfp\" property_name=\"pqfpPackageType\" />\n        <new_value new_value=\"LQFP_32_7X7mm\" property_name=\"lqfpJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"leadFrame\" new_value=\"0.72\" property_name=\"pitchE\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "leadFrame",
+        "property": "pitchE",
+        "label": "Pitch e",
+        "baseline": 0.8,
+        "value": 0.72
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c038_pitche_0_88",
+      "commands": [
+        "<new_package package_type=\"pqfp\">\n        <new_value new_value=\"PQFP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"lqfp\" property_name=\"pqfpPackageType\" />\n        <new_value new_value=\"LQFP_32_7X7mm\" property_name=\"lqfpJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"leadFrame\" new_value=\"0.88\" property_name=\"pitchE\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "leadFrame",
+        "property": "pitchE",
+        "label": "Pitch e",
+        "baseline": 0.8,
+        "value": 0.88
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c039_leadthicknesstl_0_135",
+      "commands": [
+        "<new_package package_type=\"pqfp\">\n        <new_value new_value=\"PQFP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"lqfp\" property_name=\"pqfpPackageType\" />\n        <new_value new_value=\"LQFP_32_7X7mm\" property_name=\"lqfpJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"leadFrame\" new_value=\"0.135\" property_name=\"leadThicknessTl\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "leadFrame",
+        "property": "leadThicknessTl",
+        "label": "Lead Thickness tl",
+        "baseline": 0.15,
+        "value": 0.135
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c040_leadthicknesstl_0_165",
+      "commands": [
+        "<new_package package_type=\"pqfp\">\n        <new_value new_value=\"PQFP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"lqfp\" property_name=\"pqfpPackageType\" />\n        <new_value new_value=\"LQFP_32_7X7mm\" property_name=\"lqfpJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"leadFrame\" new_value=\"0.165\" property_name=\"leadThicknessTl\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "leadFrame",
+        "property": "leadThicknessTl",
+        "label": "Lead Thickness tl",
+        "baseline": 0.15,
+        "value": 0.165
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c041_leadwidthb_0_36",
+      "commands": [
+        "<new_package package_type=\"pqfp\">\n        <new_value new_value=\"PQFP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"lqfp\" property_name=\"pqfpPackageType\" />\n        <new_value new_value=\"LQFP_32_7X7mm\" property_name=\"lqfpJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"leadFrame\" new_value=\"0.36\" property_name=\"leadWidthB\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "leadFrame",
+        "property": "leadWidthB",
+        "label": "Lead Width B",
+        "baseline": 0.4,
+        "value": 0.36
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c042_leadwidthb_0_44",
+      "commands": [
+        "<new_package package_type=\"pqfp\">\n        <new_value new_value=\"PQFP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"lqfp\" property_name=\"pqfpPackageType\" />\n        <new_value new_value=\"LQFP_32_7X7mm\" property_name=\"lqfpJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"leadFrame\" new_value=\"0.44\" property_name=\"leadWidthB\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "leadFrame",
+        "property": "leadWidthB",
+        "label": "Lead Width B",
+        "baseline": 0.4,
+        "value": 0.44
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c043_leadframeheighthl_0_5625",
+      "commands": [
+        "<new_package package_type=\"pqfp\">\n        <new_value new_value=\"PQFP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"lqfp\" property_name=\"pqfpPackageType\" />\n        <new_value new_value=\"LQFP_32_7X7mm\" property_name=\"lqfpJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"leadFrame\" new_value=\"0.5625\" property_name=\"leadframeHeightHl\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "leadFrame",
+        "property": "leadframeHeightHl",
+        "label": "Lead Frame Height h1",
+        "baseline": 0.625,
+        "value": 0.5625
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c044_leadframeheighthl_0_6875",
+      "commands": [
+        "<new_package package_type=\"pqfp\">\n        <new_value new_value=\"PQFP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"lqfp\" property_name=\"pqfpPackageType\" />\n        <new_value new_value=\"LQFP_32_7X7mm\" property_name=\"lqfpJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"leadFrame\" new_value=\"0.6875\" property_name=\"leadframeHeightHl\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "leadFrame",
+        "property": "leadframeHeightHl",
+        "label": "Lead Frame Height h1",
+        "baseline": 0.625,
+        "value": 0.6875
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c045_leadfootlengthwl_0_36",
+      "commands": [
+        "<new_package package_type=\"pqfp\">\n        <new_value new_value=\"PQFP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"lqfp\" property_name=\"pqfpPackageType\" />\n        <new_value new_value=\"LQFP_32_7X7mm\" property_name=\"lqfpJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"leadFrame\" new_value=\"0.36\" property_name=\"leadfootLengthWl\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "leadFrame",
+        "property": "leadfootLengthWl",
+        "label": "Lead Foot Length Wl",
+        "baseline": 0.4,
+        "value": 0.36
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c046_leadfootlengthwl_0_44",
+      "commands": [
+        "<new_package package_type=\"pqfp\">\n        <new_value new_value=\"PQFP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"lqfp\" property_name=\"pqfpPackageType\" />\n        <new_value new_value=\"LQFP_32_7X7mm\" property_name=\"lqfpJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"leadFrame\" new_value=\"0.44\" property_name=\"leadfootLengthWl\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "leadFrame",
+        "property": "leadfootLengthWl",
+        "label": "Lead Foot Length Wl",
+        "baseline": 0.4,
+        "value": 0.44
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c047_numberofleadsontopbottommd_7",
+      "commands": [
+        "<new_package package_type=\"pqfp\">\n        <new_value new_value=\"PQFP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"lqfp\" property_name=\"pqfpPackageType\" />\n        <new_value new_value=\"LQFP_32_7X7mm\" property_name=\"lqfpJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"leadFrame\" new_value=\"7\" property_name=\"numberOfLeadsOnTopBottomMD\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "leadFrame",
+        "property": "numberOfLeadsOnTopBottomMD",
+        "label": "Number of Leads on Top/Bottom MD",
+        "baseline": 8,
+        "value": 7
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c048_numberofleadsontopbottommd_9",
+      "commands": [
+        "<new_package package_type=\"pqfp\">\n        <new_value new_value=\"PQFP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"lqfp\" property_name=\"pqfpPackageType\" />\n        <new_value new_value=\"LQFP_32_7X7mm\" property_name=\"lqfpJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"leadFrame\" new_value=\"9\" property_name=\"numberOfLeadsOnTopBottomMD\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "leadFrame",
+        "property": "numberOfLeadsOnTopBottomMD",
+        "label": "Number of Leads on Top/Bottom MD",
+        "baseline": 8,
+        "value": 9
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c049_numberofleadsonleftrightme_7",
+      "commands": [
+        "<new_package package_type=\"pqfp\">\n        <new_value new_value=\"PQFP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"lqfp\" property_name=\"pqfpPackageType\" />\n        <new_value new_value=\"LQFP_32_7X7mm\" property_name=\"lqfpJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"leadFrame\" new_value=\"7\" property_name=\"numberOfLeadsOnLeftRightME\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "leadFrame",
+        "property": "numberOfLeadsOnLeftRightME",
+        "label": "Number of Leads on Left/Right ME",
+        "baseline": 8,
+        "value": 7
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c050_numberofleadsonleftrightme_9",
+      "commands": [
+        "<new_package package_type=\"pqfp\">\n        <new_value new_value=\"PQFP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"lqfp\" property_name=\"pqfpPackageType\" />\n        <new_value new_value=\"LQFP_32_7X7mm\" property_name=\"lqfpJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"leadFrame\" new_value=\"9\" property_name=\"numberOfLeadsOnLeftRightME\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "leadFrame",
+        "property": "numberOfLeadsOnLeftRightME",
+        "label": "Number of Leads on Left/Right ME",
+        "baseline": 8,
+        "value": 9
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c051_leadframecoveragepercentage_36_0",
+      "commands": [
+        "<new_package package_type=\"pqfp\">\n        <new_value new_value=\"PQFP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"lqfp\" property_name=\"pqfpPackageType\" />\n        <new_value new_value=\"LQFP_32_7X7mm\" property_name=\"lqfpJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"leadFrame\" new_value=\"yes\" property_name=\"userDefinedLeadframeCoverage\" />",
+        "<modify_component name=\"leadFrame\" new_value=\"36\" property_name=\"leadframeCoveragePercentage\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "leadFrame",
+        "property": "leadframeCoveragePercentage",
+        "label": "Leadframe Coverage",
+        "baseline": 40,
+        "value": 36.0
+      },
+      "comparison_baseline": "br_v2_leadframe_leadframecoveragepercentage/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c052_leadframecoveragepercentage_44_0",
+      "commands": [
+        "<new_package package_type=\"pqfp\">\n        <new_value new_value=\"PQFP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"lqfp\" property_name=\"pqfpPackageType\" />\n        <new_value new_value=\"LQFP_32_7X7mm\" property_name=\"lqfpJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"leadFrame\" new_value=\"yes\" property_name=\"userDefinedLeadframeCoverage\" />",
+        "<modify_component name=\"leadFrame\" new_value=\"44\" property_name=\"leadframeCoveragePercentage\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "leadFrame",
+        "property": "leadframeCoveragePercentage",
+        "label": "Leadframe Coverage",
+        "baseline": 40,
+        "value": 44.0
+      },
+      "comparison_baseline": "br_v2_leadframe_leadframecoveragepercentage/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c053_bondwirelengthonleftrightlbw_1_8",
+      "commands": [
+        "<new_package package_type=\"pqfp\">\n        <new_value new_value=\"PQFP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"lqfp\" property_name=\"pqfpPackageType\" />\n        <new_value new_value=\"LQFP_32_7X7mm\" property_name=\"lqfpJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"bondWires\" new_value=\"1.8\" property_name=\"bondWireLengthOnLeftRightLbwx\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "bondWires",
+        "property": "bondWireLengthOnLeftRightLbwx",
+        "label": "Bond Wire Length On Left/Right Lbwx",
+        "baseline": 2,
+        "value": 1.8
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c054_bondwirelengthonleftrightlbw_2_2",
+      "commands": [
+        "<new_package package_type=\"pqfp\">\n        <new_value new_value=\"PQFP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"lqfp\" property_name=\"pqfpPackageType\" />\n        <new_value new_value=\"LQFP_32_7X7mm\" property_name=\"lqfpJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"bondWires\" new_value=\"2.2\" property_name=\"bondWireLengthOnLeftRightLbwx\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "bondWires",
+        "property": "bondWireLengthOnLeftRightLbwx",
+        "label": "Bond Wire Length On Left/Right Lbwx",
+        "baseline": 2,
+        "value": 2.2
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c055_bondwirelengthontopbottomlbw_1_8",
+      "commands": [
+        "<new_package package_type=\"pqfp\">\n        <new_value new_value=\"PQFP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"lqfp\" property_name=\"pqfpPackageType\" />\n        <new_value new_value=\"LQFP_32_7X7mm\" property_name=\"lqfpJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"bondWires\" new_value=\"1.8\" property_name=\"bondWireLengthOnTopBottomLbwy\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "bondWires",
+        "property": "bondWireLengthOnTopBottomLbwy",
+        "label": "Bond Wire Length On Top/Bottom Lbwy",
+        "baseline": 2,
+        "value": 1.8
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c056_bondwirelengthontopbottomlbw_2_2",
+      "commands": [
+        "<new_package package_type=\"pqfp\">\n        <new_value new_value=\"PQFP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"lqfp\" property_name=\"pqfpPackageType\" />\n        <new_value new_value=\"LQFP_32_7X7mm\" property_name=\"lqfpJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"bondWires\" new_value=\"2.2\" property_name=\"bondWireLengthOnTopBottomLbwy\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "bondWires",
+        "property": "bondWireLengthOnTopBottomLbwy",
+        "label": "Bond Wire Length On Top/Bottom Lbwy",
+        "baseline": 2,
+        "value": 2.2
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c057_bondwirediameterdbw_0_027",
+      "commands": [
+        "<new_package package_type=\"pqfp\">\n        <new_value new_value=\"PQFP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"lqfp\" property_name=\"pqfpPackageType\" />\n        <new_value new_value=\"LQFP_32_7X7mm\" property_name=\"lqfpJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"bondWires\" new_value=\"0.027\" property_name=\"bondWireDiameterDbw\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "bondWires",
+        "property": "bondWireDiameterDbw",
+        "label": "Bond Wire Diameter dbw",
+        "baseline": 0.03,
+        "value": 0.027
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c058_bondwirediameterdbw_0_033",
+      "commands": [
+        "<new_package package_type=\"pqfp\">\n        <new_value new_value=\"PQFP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"lqfp\" property_name=\"pqfpPackageType\" />\n        <new_value new_value=\"LQFP_32_7X7mm\" property_name=\"lqfpJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"bondWires\" new_value=\"0.033\" property_name=\"bondWireDiameterDbw\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "bondWires",
+        "property": "bondWireDiameterDbw",
+        "label": "Bond Wire Diameter dbw",
+        "baseline": 0.03,
+        "value": 0.033
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c059_numberofbondwiresn_30",
+      "commands": [
+        "<new_package package_type=\"pqfp\">\n        <new_value new_value=\"PQFP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"lqfp\" property_name=\"pqfpPackageType\" />\n        <new_value new_value=\"LQFP_32_7X7mm\" property_name=\"lqfpJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"bondWires\" new_value=\"30\" property_name=\"numberOfBondWiresN\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "bondWires",
+        "property": "numberOfBondWiresN",
+        "label": "Number of Bond Wires N",
+        "baseline": 32,
+        "value": 30
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c060_numberofbondwiresn_31",
+      "commands": [
+        "<new_package package_type=\"pqfp\">\n        <new_value new_value=\"PQFP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"lqfp\" property_name=\"pqfpPackageType\" />\n        <new_value new_value=\"LQFP_32_7X7mm\" property_name=\"lqfpJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"bondWires\" new_value=\"31\" property_name=\"numberOfBondWiresN\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "bondWires",
+        "property": "numberOfBondWiresN",
+        "label": "Number of Bond Wires N",
+        "baseline": 32,
+        "value": 31
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c061_landthickness_0_045",
+      "commands": [
+        "<new_package package_type=\"pqfp\">\n        <new_value new_value=\"PQFP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"lqfp\" property_name=\"pqfpPackageType\" />\n        <new_value new_value=\"LQFP_32_7X7mm\" property_name=\"lqfpJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"thermalLandAndSolder\" new_value=\"true\" property_name=\"includeThermalLandAndSolder\" />",
+        "<modify_component name=\"thermalLandAndSolder\" new_value=\"0.045\" property_name=\"landThickness\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "thermalLandAndSolder",
+        "property": "landThickness",
+        "label": "Land Thickness",
+        "baseline": 0.05,
+        "value": 0.045
+      },
+      "comparison_baseline": "br_v2_thermallandandsolder_landthickness/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c062_landthickness_0_055",
+      "commands": [
+        "<new_package package_type=\"pqfp\">\n        <new_value new_value=\"PQFP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"lqfp\" property_name=\"pqfpPackageType\" />\n        <new_value new_value=\"LQFP_32_7X7mm\" property_name=\"lqfpJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"thermalLandAndSolder\" new_value=\"true\" property_name=\"includeThermalLandAndSolder\" />",
+        "<modify_component name=\"thermalLandAndSolder\" new_value=\"0.055\" property_name=\"landThickness\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "thermalLandAndSolder",
+        "property": "landThickness",
+        "label": "Land Thickness",
+        "baseline": 0.05,
+        "value": 0.055
+      },
+      "comparison_baseline": "br_v2_thermallandandsolder_landthickness/model.xml",
+      "expected_outcome": "semantic_change"
+    }
+  ]
+}

@@ -1,0 +1,1249 @@
+{
+  "schema": "packstudio.sweep-spec/v1",
+  "template_id": "sop",
+  "points": [
+    {
+      "id": "baseline",
+      "commands": [
+        "<new_package package_type=\"tsop_conv\">\n        <new_value new_value=\"SOP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"soic/sop/so\" property_name=\"sopPackageType\" />\n        <new_value new_value=\"SOP_8_3_81x4_93\" property_name=\"sopJedecFootprint\" />\n    </new_package>"
+      ]
+    },
+    {
+      "id": "br_v2_leadframe_leadframecoveragepercentage",
+      "commands": [
+        "<new_package package_type=\"tsop_conv\">\n        <new_value new_value=\"SOP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"soic/sop/so\" property_name=\"sopPackageType\" />\n        <new_value new_value=\"SOP_8_3_81x4_93\" property_name=\"sopJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"leadFrame\" new_value=\"yes\" property_name=\"userDefinedLeadframeCoverage\" />",
+        "<modify_component name=\"leadFrame\" new_value=\"40\" property_name=\"leadframeCoveragePercentage\" />"
+      ]
+    },
+    {
+      "id": "br_v2_leadframe_userdefinedleadframecoverage",
+      "commands": [
+        "<new_package package_type=\"tsop_conv\">\n        <new_value new_value=\"SOP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"soic/sop/so\" property_name=\"sopPackageType\" />\n        <new_value new_value=\"SOP_8_3_81x4_93\" property_name=\"sopJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"leadFrame\" new_value=\"40\" property_name=\"leadframeCoveragePercentage\" />",
+        "<modify_component name=\"leadFrame\" new_value=\"noDefaultIsBe\" property_name=\"userDefinedLeadframeCoverage\" />"
+      ]
+    },
+    {
+      "id": "br_v2_thermallandandsolder_includethermallandandsolder",
+      "commands": [
+        "<new_package package_type=\"tsop_conv\">\n        <new_value new_value=\"SOP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"soic/sop/so\" property_name=\"sopPackageType\" />\n        <new_value new_value=\"SOP_8_3_81x4_93\" property_name=\"sopJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"thermalLandAndSolder\" new_value=\"0.05\" property_name=\"landThickness\" />",
+        "<modify_component name=\"thermalLandAndSolder\" new_value=\"false\" property_name=\"includeThermalLandAndSolder\" />"
+      ]
+    },
+    {
+      "id": "br_v2_thermallandandsolder_landthickness",
+      "commands": [
+        "<new_package package_type=\"tsop_conv\">\n        <new_value new_value=\"SOP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"soic/sop/so\" property_name=\"sopPackageType\" />\n        <new_value new_value=\"SOP_8_3_81x4_93\" property_name=\"sopJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"thermalLandAndSolder\" new_value=\"true\" property_name=\"includeThermalLandAndSolder\" />",
+        "<modify_component name=\"thermalLandAndSolder\" new_value=\"0.05\" property_name=\"landThickness\" />"
+      ]
+    },
+    {
+      "id": "jed_v2_c001_sopjedecfootprint_sop_28_7_6x17_9",
+      "commands": [
+        "<new_package package_type=\"tsop_conv\">\n        <new_value new_value=\"SOP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"soic/sop/so\" property_name=\"sopPackageType\" />\n        <new_value new_value=\"SOP_28_7_6x17_9\" property_name=\"sopJedecFootprint\" />\n    </new_package>"
+      ],
+      "kind": "jedec_preset",
+      "target": {
+        "component": "new_package",
+        "property": "sopJedecFootprint",
+        "label": "JEDEC Footprint",
+        "baseline": "SOP_8_3_81x4_93",
+        "value": "SOP_28_7_6x17_9"
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "jed_v2_c002_sopjedecfootprint_sop_44_13_3x28_2",
+      "commands": [
+        "<new_package package_type=\"tsop_conv\">\n        <new_value new_value=\"SOP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"soic/sop/so\" property_name=\"sopPackageType\" />\n        <new_value new_value=\"SOP_44_13_3x28_2\" property_name=\"sopJedecFootprint\" />\n    </new_package>"
+      ],
+      "kind": "jedec_preset",
+      "target": {
+        "component": "new_package",
+        "property": "sopJedecFootprint",
+        "label": "JEDEC Footprint",
+        "baseline": "SOP_8_3_81x4_93",
+        "value": "SOP_44_13_3x28_2"
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "opt_v2_c001_exposedpad_true",
+      "commands": [
+        "<new_package package_type=\"tsop_conv\">\n        <new_value new_value=\"SOP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"true\" property_name=\"exposedPad\" />\n        <new_value new_value=\"soic/sop/so\" property_name=\"sopPackageType\" />\n        <new_value new_value=\"SOP_8_3_81x4_93\" property_name=\"sopJedecFootprint\" />\n    </new_package>"
+      ],
+      "kind": "boolean_option",
+      "target": {
+        "component": "new_package",
+        "property": "exposedPad",
+        "label": "Exposed Pad",
+        "baseline": false,
+        "value": true
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "opt_v2_c001_outlinetype_nonstandardoutline",
+      "commands": [
+        "<new_package package_type=\"tsop_conv\">\n        <new_value new_value=\"SOP\" property_name=\"designName\" />\n        <new_value new_value=\"nonStandardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"soic/sop/so\" property_name=\"sopPackageType\" />\n        <new_value new_value=\"SOP_8_3_81x4_93\" property_name=\"sopJedecFootprint\" />\n    </new_package>"
+      ],
+      "kind": "enum_option",
+      "target": {
+        "component": "new_package",
+        "property": "outlineType",
+        "label": "Outline Type",
+        "baseline": "standardOutline",
+        "value": "nonStandardOutline"
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "opt_v2_c002_nonuniformdieheat_true",
+      "commands": [
+        "<new_package package_type=\"tsop_conv\">\n        <new_value new_value=\"SOP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"soic/sop/so\" property_name=\"sopPackageType\" />\n        <new_value new_value=\"SOP_8_3_81x4_93\" property_name=\"sopJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"die\" new_value=\"true\" property_name=\"nonUniformDieHeat\" />"
+      ],
+      "kind": "boolean_option",
+      "target": {
+        "component": "die",
+        "property": "nonUniformDieHeat",
+        "label": "Non-uniform Die Heat",
+        "baseline": false,
+        "value": true
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "opt_v2_c002_soppackagetype_ssop",
+      "commands": [
+        "<new_package package_type=\"tsop_conv\">\n        <new_value new_value=\"SOP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"ssop\" property_name=\"sopPackageType\" />\n        <new_value new_value=\"SSOP_8_5_3x3_0\" property_name=\"ssopJedecFootprint\" />\n    </new_package>"
+      ],
+      "kind": "enum_option",
+      "target": {
+        "component": "new_package",
+        "property": "sopPackageType",
+        "label": "SOP Package Type",
+        "baseline": "soic/sop/so",
+        "value": "ssop"
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "opt_v2_c003_includethermallandandsolder_true",
+      "commands": [
+        "<new_package package_type=\"tsop_conv\">\n        <new_value new_value=\"SOP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"soic/sop/so\" property_name=\"sopPackageType\" />\n        <new_value new_value=\"SOP_8_3_81x4_93\" property_name=\"sopJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"thermalLandAndSolder\" new_value=\"0.05\" property_name=\"landThickness\" />",
+        "<modify_component name=\"thermalLandAndSolder\" new_value=\"true\" property_name=\"includeThermalLandAndSolder\" />"
+      ],
+      "kind": "boolean_option",
+      "target": {
+        "component": "thermalLandAndSolder",
+        "property": "includeThermalLandAndSolder",
+        "label": "Include Thermal Land and Solder",
+        "baseline": false,
+        "value": true
+      },
+      "comparison_baseline": "br_v2_thermallandandsolder_includethermallandandsolder/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "opt_v2_c003_soppackagetype_tsop",
+      "commands": [
+        "<new_package package_type=\"tsop_conv\">\n        <new_value new_value=\"SOP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"tsop\" property_name=\"sopPackageType\" />\n        <new_value new_value=\"TSOP_20_7_6x17_1\" property_name=\"tsopJedecFootprint\" />\n    </new_package>"
+      ],
+      "kind": "enum_option",
+      "target": {
+        "component": "new_package",
+        "property": "sopPackageType",
+        "label": "SOP Package Type",
+        "baseline": "soic/sop/so",
+        "value": "tsop"
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "opt_v2_c004_localizegrid_false",
+      "commands": [
+        "<new_package package_type=\"tsop_conv\">\n        <new_value new_value=\"SOP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"soic/sop/so\" property_name=\"sopPackageType\" />\n        <new_value new_value=\"SOP_8_3_81x4_93\" property_name=\"sopJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"modelingOptions\" new_value=\"false\" property_name=\"localizeGrid\" />"
+      ],
+      "kind": "boolean_option",
+      "target": {
+        "component": "modelingOptions",
+        "property": "localizeGrid",
+        "label": "Localize Grid",
+        "baseline": true,
+        "value": false
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "opt_v2_c004_soppackagetype_tssop",
+      "commands": [
+        "<new_package package_type=\"tsop_conv\">\n        <new_value new_value=\"SOP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"tssop\" property_name=\"sopPackageType\" />\n        <new_value new_value=\"TSSOP_8_3x3\" property_name=\"tssopJedecFootprint\" />\n    </new_package>"
+      ],
+      "kind": "enum_option",
+      "target": {
+        "component": "new_package",
+        "property": "sopPackageType",
+        "label": "SOP Package Type",
+        "baseline": "soic/sop/so",
+        "value": "tssop"
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "opt_v2_c005_dietype_thermaldie",
+      "commands": [
+        "<new_package package_type=\"tsop_conv\">\n        <new_value new_value=\"SOP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"thermalDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"soic/sop/so\" property_name=\"sopPackageType\" />\n        <new_value new_value=\"SOP_8_3_81x4_93\" property_name=\"sopJedecFootprint\" />\n    </new_package>"
+      ],
+      "kind": "enum_option",
+      "target": {
+        "component": "new_package",
+        "property": "dieType",
+        "label": "Die Type",
+        "baseline": "actualDie",
+        "value": "thermalDie"
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "accepted_no_floxml_effect"
+    },
+    {
+      "id": "opt_v2_c006_userdefinedleadframecoverage_yes",
+      "commands": [
+        "<new_package package_type=\"tsop_conv\">\n        <new_value new_value=\"SOP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"soic/sop/so\" property_name=\"sopPackageType\" />\n        <new_value new_value=\"SOP_8_3_81x4_93\" property_name=\"sopJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"leadFrame\" new_value=\"40\" property_name=\"leadframeCoveragePercentage\" />",
+        "<modify_component name=\"leadFrame\" new_value=\"yes\" property_name=\"userDefinedLeadframeCoverage\" />"
+      ],
+      "kind": "enum_option",
+      "target": {
+        "component": "leadFrame",
+        "property": "userDefinedLeadframeCoverage",
+        "label": "User Defined Leadframe Coverage",
+        "baseline": "noDefaultIsBe",
+        "value": "yes"
+      },
+      "comparison_baseline": "br_v2_leadframe_userdefinedleadframecoverage/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "opt_v2_c007_modelbondwiresas_isotropiccuboid",
+      "commands": [
+        "<new_package package_type=\"tsop_conv\">\n        <new_value new_value=\"SOP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"soic/sop/so\" property_name=\"sopPackageType\" />\n        <new_value new_value=\"SOP_8_3_81x4_93\" property_name=\"sopJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"modelingOptions\" new_value=\"isotropicCuboid\" property_name=\"modelBondWiresAs\" />"
+      ],
+      "kind": "enum_option",
+      "target": {
+        "component": "modelingOptions",
+        "property": "modelBondWiresAs",
+        "label": "Model Bond Wires As",
+        "baseline": "orthotropicCuboid",
+        "value": "isotropicCuboid"
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "opt_v2_c008_griddensity_coarse",
+      "commands": [
+        "<new_package package_type=\"tsop_conv\">\n        <new_value new_value=\"SOP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"soic/sop/so\" property_name=\"sopPackageType\" />\n        <new_value new_value=\"SOP_8_3_81x4_93\" property_name=\"sopJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"modelingOptions\" new_value=\"coarse\" property_name=\"gridDensity\" />"
+      ],
+      "kind": "enum_option",
+      "target": {
+        "component": "modelingOptions",
+        "property": "gridDensity",
+        "label": "Grid Density",
+        "baseline": "fine",
+        "value": "coarse"
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "opt_v2_c009_griddensity_medium",
+      "commands": [
+        "<new_package package_type=\"tsop_conv\">\n        <new_value new_value=\"SOP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"soic/sop/so\" property_name=\"sopPackageType\" />\n        <new_value new_value=\"SOP_8_3_81x4_93\" property_name=\"sopJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"modelingOptions\" new_value=\"medium\" property_name=\"gridDensity\" />"
+      ],
+      "kind": "enum_option",
+      "target": {
+        "component": "modelingOptions",
+        "property": "gridDensity",
+        "label": "Grid Density",
+        "baseline": "fine",
+        "value": "medium"
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c001_widthe_5_4",
+      "commands": [
+        "<new_package package_type=\"tsop_conv\">\n        <new_value new_value=\"SOP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"soic/sop/so\" property_name=\"sopPackageType\" />\n        <new_value new_value=\"SOP_8_3_81x4_93\" property_name=\"sopJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"overallPackage\" new_value=\"5.4\" property_name=\"widthE\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "overallPackage",
+        "property": "widthE",
+        "label": "Width E",
+        "baseline": 6,
+        "value": 5.4
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c002_widthe_6_6",
+      "commands": [
+        "<new_package package_type=\"tsop_conv\">\n        <new_value new_value=\"SOP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"soic/sop/so\" property_name=\"sopPackageType\" />\n        <new_value new_value=\"SOP_8_3_81x4_93\" property_name=\"sopJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"overallPackage\" new_value=\"6.6\" property_name=\"widthE\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "overallPackage",
+        "property": "widthE",
+        "label": "Width E",
+        "baseline": 6,
+        "value": 6.6
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c003_standoffa1_0_135",
+      "commands": [
+        "<new_package package_type=\"tsop_conv\">\n        <new_value new_value=\"SOP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"soic/sop/so\" property_name=\"sopPackageType\" />\n        <new_value new_value=\"SOP_8_3_81x4_93\" property_name=\"sopJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"overallPackage\" new_value=\"0.135\" property_name=\"standoffA1\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "overallPackage",
+        "property": "standoffA1",
+        "label": "Standoff A1",
+        "baseline": 0.15,
+        "value": 0.135
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c004_standoffa1_0_165",
+      "commands": [
+        "<new_package package_type=\"tsop_conv\">\n        <new_value new_value=\"SOP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"soic/sop/so\" property_name=\"sopPackageType\" />\n        <new_value new_value=\"SOP_8_3_81x4_93\" property_name=\"sopJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"overallPackage\" new_value=\"0.165\" property_name=\"standoffA1\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "overallPackage",
+        "property": "standoffA1",
+        "label": "Standoff A1",
+        "baseline": 0.15,
+        "value": 0.165
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c005_lengthd1_4_437",
+      "commands": [
+        "<new_package package_type=\"tsop_conv\">\n        <new_value new_value=\"SOP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"soic/sop/so\" property_name=\"sopPackageType\" />\n        <new_value new_value=\"SOP_8_3_81x4_93\" property_name=\"sopJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"encapsulant\" new_value=\"4.437\" property_name=\"lengthD1\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "encapsulant",
+        "property": "lengthD1",
+        "label": "Length D1",
+        "baseline": 4.93,
+        "value": 4.437
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c006_lengthd1_5_423",
+      "commands": [
+        "<new_package package_type=\"tsop_conv\">\n        <new_value new_value=\"SOP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"soic/sop/so\" property_name=\"sopPackageType\" />\n        <new_value new_value=\"SOP_8_3_81x4_93\" property_name=\"sopJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"encapsulant\" new_value=\"5.423\" property_name=\"lengthD1\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "encapsulant",
+        "property": "lengthD1",
+        "label": "Length D1",
+        "baseline": 4.93,
+        "value": 5.423
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c007_widthe1_3_429",
+      "commands": [
+        "<new_package package_type=\"tsop_conv\">\n        <new_value new_value=\"SOP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"soic/sop/so\" property_name=\"sopPackageType\" />\n        <new_value new_value=\"SOP_8_3_81x4_93\" property_name=\"sopJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"encapsulant\" new_value=\"3.429\" property_name=\"widthE1\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "encapsulant",
+        "property": "widthE1",
+        "label": "Width E1",
+        "baseline": 3.81,
+        "value": 3.429
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c008_widthe1_4_191",
+      "commands": [
+        "<new_package package_type=\"tsop_conv\">\n        <new_value new_value=\"SOP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"soic/sop/so\" property_name=\"sopPackageType\" />\n        <new_value new_value=\"SOP_8_3_81x4_93\" property_name=\"sopJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"encapsulant\" new_value=\"4.191\" property_name=\"widthE1\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "encapsulant",
+        "property": "widthE1",
+        "label": "Width E1",
+        "baseline": 3.81,
+        "value": 4.191
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c009_thicknessa2_1_323",
+      "commands": [
+        "<new_package package_type=\"tsop_conv\">\n        <new_value new_value=\"SOP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"soic/sop/so\" property_name=\"sopPackageType\" />\n        <new_value new_value=\"SOP_8_3_81x4_93\" property_name=\"sopJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"encapsulant\" new_value=\"1.323\" property_name=\"thicknessA2\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "encapsulant",
+        "property": "thicknessA2",
+        "label": "Thickness A2",
+        "baseline": 1.47,
+        "value": 1.323
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c010_thicknessa2_1_617",
+      "commands": [
+        "<new_package package_type=\"tsop_conv\">\n        <new_value new_value=\"SOP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"soic/sop/so\" property_name=\"sopPackageType\" />\n        <new_value new_value=\"SOP_8_3_81x4_93\" property_name=\"sopJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"encapsulant\" new_value=\"1.617\" property_name=\"thicknessA2\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "encapsulant",
+        "property": "thicknessA2",
+        "label": "Thickness A2",
+        "baseline": 1.47,
+        "value": 1.617
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c011_packagepower_1_0",
+      "commands": [
+        "<new_package package_type=\"tsop_conv\">\n        <new_value new_value=\"SOP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"soic/sop/so\" property_name=\"sopPackageType\" />\n        <new_value new_value=\"SOP_8_3_81x4_93\" property_name=\"sopJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"die\" new_value=\"1\" property_name=\"packagePower\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "die",
+        "property": "packagePower",
+        "label": "Package Power",
+        "baseline": 0,
+        "value": 1.0
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c012_packagepower_2_0",
+      "commands": [
+        "<new_package package_type=\"tsop_conv\">\n        <new_value new_value=\"SOP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"soic/sop/so\" property_name=\"sopPackageType\" />\n        <new_value new_value=\"SOP_8_3_81x4_93\" property_name=\"sopJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"die\" new_value=\"2\" property_name=\"packagePower\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "die",
+        "property": "packagePower",
+        "label": "Package Power",
+        "baseline": 0,
+        "value": 2.0
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c013_dielengthld_1_3311",
+      "commands": [
+        "<new_package package_type=\"tsop_conv\">\n        <new_value new_value=\"SOP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"soic/sop/so\" property_name=\"sopPackageType\" />\n        <new_value new_value=\"SOP_8_3_81x4_93\" property_name=\"sopJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"die\" new_value=\"1.3311\" property_name=\"dieLengthLd\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "die",
+        "property": "dieLengthLd",
+        "label": "Die Length Ld",
+        "baseline": 1.479,
+        "value": 1.3311
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c014_dielengthld_1_6269",
+      "commands": [
+        "<new_package package_type=\"tsop_conv\">\n        <new_value new_value=\"SOP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"soic/sop/so\" property_name=\"sopPackageType\" />\n        <new_value new_value=\"SOP_8_3_81x4_93\" property_name=\"sopJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"die\" new_value=\"1.6269\" property_name=\"dieLengthLd\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "die",
+        "property": "dieLengthLd",
+        "label": "Die Length Ld",
+        "baseline": 1.479,
+        "value": 1.6269
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c015_diewidthwd_1_0287",
+      "commands": [
+        "<new_package package_type=\"tsop_conv\">\n        <new_value new_value=\"SOP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"soic/sop/so\" property_name=\"sopPackageType\" />\n        <new_value new_value=\"SOP_8_3_81x4_93\" property_name=\"sopJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"die\" new_value=\"1.0287\" property_name=\"dieWidthWd\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "die",
+        "property": "dieWidthWd",
+        "label": "Die Width Wd",
+        "baseline": 1.143,
+        "value": 1.0287
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c016_diewidthwd_1_2573",
+      "commands": [
+        "<new_package package_type=\"tsop_conv\">\n        <new_value new_value=\"SOP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"soic/sop/so\" property_name=\"sopPackageType\" />\n        <new_value new_value=\"SOP_8_3_81x4_93\" property_name=\"sopJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"die\" new_value=\"1.2573\" property_name=\"dieWidthWd\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "die",
+        "property": "dieWidthWd",
+        "label": "Die Width Wd",
+        "baseline": 1.143,
+        "value": 1.2573
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c017_diethicknesstd_0_342",
+      "commands": [
+        "<new_package package_type=\"tsop_conv\">\n        <new_value new_value=\"SOP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"soic/sop/so\" property_name=\"sopPackageType\" />\n        <new_value new_value=\"SOP_8_3_81x4_93\" property_name=\"sopJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"die\" new_value=\"0.342\" property_name=\"dieThicknessTd\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "die",
+        "property": "dieThicknessTd",
+        "label": "Die Thickness td",
+        "baseline": 0.38,
+        "value": 0.342
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c018_diethicknesstd_0_418",
+      "commands": [
+        "<new_package package_type=\"tsop_conv\">\n        <new_value new_value=\"SOP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"soic/sop/so\" property_name=\"sopPackageType\" />\n        <new_value new_value=\"SOP_8_3_81x4_93\" property_name=\"sopJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"die\" new_value=\"0.418\" property_name=\"dieThicknessTd\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "die",
+        "property": "dieThicknessTd",
+        "label": "Die Thickness td",
+        "baseline": 0.38,
+        "value": 0.418
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c019_dieattachthicknesstda_0_0342",
+      "commands": [
+        "<new_package package_type=\"tsop_conv\">\n        <new_value new_value=\"SOP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"soic/sop/so\" property_name=\"sopPackageType\" />\n        <new_value new_value=\"SOP_8_3_81x4_93\" property_name=\"sopJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"die\" new_value=\"0.0342\" property_name=\"dieAttachThicknessTda\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "die",
+        "property": "dieAttachThicknessTda",
+        "label": "Die Attach Thickness tda",
+        "baseline": 0.038,
+        "value": 0.0342
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c020_dieattachthicknesstda_0_0418",
+      "commands": [
+        "<new_package package_type=\"tsop_conv\">\n        <new_value new_value=\"SOP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"soic/sop/so\" property_name=\"sopPackageType\" />\n        <new_value new_value=\"SOP_8_3_81x4_93\" property_name=\"sopJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"die\" new_value=\"0.0418\" property_name=\"dieAttachThicknessTda\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "die",
+        "property": "dieAttachThicknessTda",
+        "label": "Die Attach Thickness tda",
+        "baseline": 0.038,
+        "value": 0.0418
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c021_dieflaglf_1_59732",
+      "commands": [
+        "<new_package package_type=\"tsop_conv\">\n        <new_value new_value=\"SOP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"soic/sop/so\" property_name=\"sopPackageType\" />\n        <new_value new_value=\"SOP_8_3_81x4_93\" property_name=\"sopJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"dieFlagAndTieBars\" new_value=\"1.59732\" property_name=\"dieFlagLf\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "dieFlagAndTieBars",
+        "property": "dieFlagLf",
+        "label": "Die Flag Lf",
+        "baseline": 1.7748,
+        "value": 1.59732
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c022_dieflaglf_1_95228",
+      "commands": [
+        "<new_package package_type=\"tsop_conv\">\n        <new_value new_value=\"SOP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"soic/sop/so\" property_name=\"sopPackageType\" />\n        <new_value new_value=\"SOP_8_3_81x4_93\" property_name=\"sopJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"dieFlagAndTieBars\" new_value=\"1.95228\" property_name=\"dieFlagLf\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "dieFlagAndTieBars",
+        "property": "dieFlagLf",
+        "label": "Die Flag Lf",
+        "baseline": 1.7748,
+        "value": 1.95228
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c023_dieflagwf_1_23444",
+      "commands": [
+        "<new_package package_type=\"tsop_conv\">\n        <new_value new_value=\"SOP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"soic/sop/so\" property_name=\"sopPackageType\" />\n        <new_value new_value=\"SOP_8_3_81x4_93\" property_name=\"sopJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"dieFlagAndTieBars\" new_value=\"1.23444\" property_name=\"dieFlagWf\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "dieFlagAndTieBars",
+        "property": "dieFlagWf",
+        "label": "Die Flag Wf",
+        "baseline": 1.3716,
+        "value": 1.23444
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c024_dieflagwf_1_50876",
+      "commands": [
+        "<new_package package_type=\"tsop_conv\">\n        <new_value new_value=\"SOP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"soic/sop/so\" property_name=\"sopPackageType\" />\n        <new_value new_value=\"SOP_8_3_81x4_93\" property_name=\"sopJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"dieFlagAndTieBars\" new_value=\"1.50876\" property_name=\"dieFlagWf\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "dieFlagAndTieBars",
+        "property": "dieFlagWf",
+        "label": "Die Flag Wf",
+        "baseline": 1.3716,
+        "value": 1.50876
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c025_dieflagthicknesstf_0_18",
+      "commands": [
+        "<new_package package_type=\"tsop_conv\">\n        <new_value new_value=\"SOP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"soic/sop/so\" property_name=\"sopPackageType\" />\n        <new_value new_value=\"SOP_8_3_81x4_93\" property_name=\"sopJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"dieFlagAndTieBars\" new_value=\"0.18\" property_name=\"dieFlagThicknessTf\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "dieFlagAndTieBars",
+        "property": "dieFlagThicknessTf",
+        "label": "Die Flag Thickness tf",
+        "baseline": 0.2,
+        "value": 0.18
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c026_dieflagthicknesstf_0_22",
+      "commands": [
+        "<new_package package_type=\"tsop_conv\">\n        <new_value new_value=\"SOP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"soic/sop/so\" property_name=\"sopPackageType\" />\n        <new_value new_value=\"SOP_8_3_81x4_93\" property_name=\"sopJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"dieFlagAndTieBars\" new_value=\"0.22\" property_name=\"dieFlagThicknessTf\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "dieFlagAndTieBars",
+        "property": "dieFlagThicknessTf",
+        "label": "Die Flag Thickness tf",
+        "baseline": 0.2,
+        "value": 0.22
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c027_metalcoveragefordieflagcf_54_0",
+      "commands": [
+        "<new_package package_type=\"tsop_conv\">\n        <new_value new_value=\"SOP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"soic/sop/so\" property_name=\"sopPackageType\" />\n        <new_value new_value=\"SOP_8_3_81x4_93\" property_name=\"sopJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"dieFlagAndTieBars\" new_value=\"54\" property_name=\"metalCoverageForDieFlagCf\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "dieFlagAndTieBars",
+        "property": "metalCoverageForDieFlagCf",
+        "label": "Metal Coverage for Die Flag Cf",
+        "baseline": 60,
+        "value": 54.0
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c028_metalcoveragefordieflagcf_66_0",
+      "commands": [
+        "<new_package package_type=\"tsop_conv\">\n        <new_value new_value=\"SOP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"soic/sop/so\" property_name=\"sopPackageType\" />\n        <new_value new_value=\"SOP_8_3_81x4_93\" property_name=\"sopJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"dieFlagAndTieBars\" new_value=\"66\" property_name=\"metalCoverageForDieFlagCf\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "dieFlagAndTieBars",
+        "property": "metalCoverageForDieFlagCf",
+        "label": "Metal Coverage for Die Flag Cf",
+        "baseline": 60,
+        "value": 66.0
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c029_dieflagdownsetddf_0_36",
+      "commands": [
+        "<new_package package_type=\"tsop_conv\">\n        <new_value new_value=\"SOP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"soic/sop/so\" property_name=\"sopPackageType\" />\n        <new_value new_value=\"SOP_8_3_81x4_93\" property_name=\"sopJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"dieFlagAndTieBars\" new_value=\"0.36\" property_name=\"dieFlagDownsetDdf\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "dieFlagAndTieBars",
+        "property": "dieFlagDownsetDdf",
+        "label": "Die Flag Downset df",
+        "baseline": 0.4,
+        "value": 0.36
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c030_dieflagdownsetddf_0_44",
+      "commands": [
+        "<new_package package_type=\"tsop_conv\">\n        <new_value new_value=\"SOP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"soic/sop/so\" property_name=\"sopPackageType\" />\n        <new_value new_value=\"SOP_8_3_81x4_93\" property_name=\"sopJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"dieFlagAndTieBars\" new_value=\"0.44\" property_name=\"dieFlagDownsetDdf\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "dieFlagAndTieBars",
+        "property": "dieFlagDownsetDdf",
+        "label": "Die Flag Downset df",
+        "baseline": 0.4,
+        "value": 0.44
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c031_tiebarwidthwtb_0_36",
+      "commands": [
+        "<new_package package_type=\"tsop_conv\">\n        <new_value new_value=\"SOP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"soic/sop/so\" property_name=\"sopPackageType\" />\n        <new_value new_value=\"SOP_8_3_81x4_93\" property_name=\"sopJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"dieFlagAndTieBars\" new_value=\"0.36\" property_name=\"tieBarWidthWtb\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "dieFlagAndTieBars",
+        "property": "tieBarWidthWtb",
+        "label": "Tie Bar Width Wtb",
+        "baseline": 0.4,
+        "value": 0.36
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c032_tiebarwidthwtb_0_44",
+      "commands": [
+        "<new_package package_type=\"tsop_conv\">\n        <new_value new_value=\"SOP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"soic/sop/so\" property_name=\"sopPackageType\" />\n        <new_value new_value=\"SOP_8_3_81x4_93\" property_name=\"sopJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"dieFlagAndTieBars\" new_value=\"0.44\" property_name=\"tieBarWidthWtb\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "dieFlagAndTieBars",
+        "property": "tieBarWidthWtb",
+        "label": "Tie Bar Width Wtb",
+        "baseline": 0.4,
+        "value": 0.44
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c033_totalnumberofleadsmt_6",
+      "commands": [
+        "<new_package package_type=\"tsop_conv\">\n        <new_value new_value=\"SOP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"soic/sop/so\" property_name=\"sopPackageType\" />\n        <new_value new_value=\"SOP_8_3_81x4_93\" property_name=\"sopJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"leadFrame\" new_value=\"6\" property_name=\"totalNumberOfLeadsMT\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "leadFrame",
+        "property": "totalNumberOfLeadsMT",
+        "label": "Total Number of Leads MT",
+        "baseline": 8,
+        "value": 6
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c034_totalnumberofleadsmt_10",
+      "commands": [
+        "<new_package package_type=\"tsop_conv\">\n        <new_value new_value=\"SOP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"soic/sop/so\" property_name=\"sopPackageType\" />\n        <new_value new_value=\"SOP_8_3_81x4_93\" property_name=\"sopJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"leadFrame\" new_value=\"10\" property_name=\"totalNumberOfLeadsMT\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "leadFrame",
+        "property": "totalNumberOfLeadsMT",
+        "label": "Total Number of Leads MT",
+        "baseline": 8,
+        "value": 10
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c035_leadframeflaggapg1_0_1026",
+      "commands": [
+        "<new_package package_type=\"tsop_conv\">\n        <new_value new_value=\"SOP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"soic/sop/so\" property_name=\"sopPackageType\" />\n        <new_value new_value=\"SOP_8_3_81x4_93\" property_name=\"sopJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"leadFrame\" new_value=\"0.1026\" property_name=\"leadframeFlagGapG1\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "leadFrame",
+        "property": "leadframeFlagGapG1",
+        "label": "Leadframe-Flag Gap g1",
+        "baseline": 0.114,
+        "value": 0.1026
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c036_leadframeflaggapg1_0_1254",
+      "commands": [
+        "<new_package package_type=\"tsop_conv\">\n        <new_value new_value=\"SOP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"soic/sop/so\" property_name=\"sopPackageType\" />\n        <new_value new_value=\"SOP_8_3_81x4_93\" property_name=\"sopJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"leadFrame\" new_value=\"0.1254\" property_name=\"leadframeFlagGapG1\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "leadFrame",
+        "property": "leadframeFlagGapG1",
+        "label": "Leadframe-Flag Gap g1",
+        "baseline": 0.114,
+        "value": 0.1254
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c037_pitche_1_143",
+      "commands": [
+        "<new_package package_type=\"tsop_conv\">\n        <new_value new_value=\"SOP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"soic/sop/so\" property_name=\"sopPackageType\" />\n        <new_value new_value=\"SOP_8_3_81x4_93\" property_name=\"sopJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"leadFrame\" new_value=\"1.143\" property_name=\"pitchE\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "leadFrame",
+        "property": "pitchE",
+        "label": "Pitch e",
+        "baseline": 1.27,
+        "value": 1.143
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c038_pitche_1_397",
+      "commands": [
+        "<new_package package_type=\"tsop_conv\">\n        <new_value new_value=\"SOP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"soic/sop/so\" property_name=\"sopPackageType\" />\n        <new_value new_value=\"SOP_8_3_81x4_93\" property_name=\"sopJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"leadFrame\" new_value=\"1.397\" property_name=\"pitchE\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "leadFrame",
+        "property": "pitchE",
+        "label": "Pitch e",
+        "baseline": 1.27,
+        "value": 1.397
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c039_leadthicknesstl_0_18",
+      "commands": [
+        "<new_package package_type=\"tsop_conv\">\n        <new_value new_value=\"SOP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"soic/sop/so\" property_name=\"sopPackageType\" />\n        <new_value new_value=\"SOP_8_3_81x4_93\" property_name=\"sopJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"leadFrame\" new_value=\"0.18\" property_name=\"leadThicknessTl\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "leadFrame",
+        "property": "leadThicknessTl",
+        "label": "Lead Thickness tl",
+        "baseline": 0.2,
+        "value": 0.18
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c040_leadthicknesstl_0_22",
+      "commands": [
+        "<new_package package_type=\"tsop_conv\">\n        <new_value new_value=\"SOP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"soic/sop/so\" property_name=\"sopPackageType\" />\n        <new_value new_value=\"SOP_8_3_81x4_93\" property_name=\"sopJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"leadFrame\" new_value=\"0.22\" property_name=\"leadThicknessTl\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "leadFrame",
+        "property": "leadThicknessTl",
+        "label": "Lead Thickness tl",
+        "baseline": 0.2,
+        "value": 0.22
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c041_leadwidthb_0_36",
+      "commands": [
+        "<new_package package_type=\"tsop_conv\">\n        <new_value new_value=\"SOP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"soic/sop/so\" property_name=\"sopPackageType\" />\n        <new_value new_value=\"SOP_8_3_81x4_93\" property_name=\"sopJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"leadFrame\" new_value=\"0.36\" property_name=\"leadWidthB\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "leadFrame",
+        "property": "leadWidthB",
+        "label": "Lead Width B",
+        "baseline": 0.4,
+        "value": 0.36
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c042_leadwidthb_0_44",
+      "commands": [
+        "<new_package package_type=\"tsop_conv\">\n        <new_value new_value=\"SOP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"soic/sop/so\" property_name=\"sopPackageType\" />\n        <new_value new_value=\"SOP_8_3_81x4_93\" property_name=\"sopJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"leadFrame\" new_value=\"0.44\" property_name=\"leadWidthB\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "leadFrame",
+        "property": "leadWidthB",
+        "label": "Lead Width B",
+        "baseline": 0.4,
+        "value": 0.44
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c043_leadframeheighthl_0_5715",
+      "commands": [
+        "<new_package package_type=\"tsop_conv\">\n        <new_value new_value=\"SOP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"soic/sop/so\" property_name=\"sopPackageType\" />\n        <new_value new_value=\"SOP_8_3_81x4_93\" property_name=\"sopJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"leadFrame\" new_value=\"0.5715\" property_name=\"leadframeHeightHl\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "leadFrame",
+        "property": "leadframeHeightHl",
+        "label": "Lead Frame Height h1",
+        "baseline": 0.635,
+        "value": 0.5715
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c044_leadframeheighthl_0_6985",
+      "commands": [
+        "<new_package package_type=\"tsop_conv\">\n        <new_value new_value=\"SOP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"soic/sop/so\" property_name=\"sopPackageType\" />\n        <new_value new_value=\"SOP_8_3_81x4_93\" property_name=\"sopJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"leadFrame\" new_value=\"0.6985\" property_name=\"leadframeHeightHl\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "leadFrame",
+        "property": "leadframeHeightHl",
+        "label": "Lead Frame Height h1",
+        "baseline": 0.635,
+        "value": 0.6985
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c045_leadfootlengthlft_0_49275",
+      "commands": [
+        "<new_package package_type=\"tsop_conv\">\n        <new_value new_value=\"SOP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"soic/sop/so\" property_name=\"sopPackageType\" />\n        <new_value new_value=\"SOP_8_3_81x4_93\" property_name=\"sopJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"leadFrame\" new_value=\"0.49275\" property_name=\"leadfootLengthLft\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "leadFrame",
+        "property": "leadfootLengthLft",
+        "label": "Lead Foot Length Lfl",
+        "baseline": 0.5475,
+        "value": 0.49275
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c046_leadfootlengthlft_0_60225",
+      "commands": [
+        "<new_package package_type=\"tsop_conv\">\n        <new_value new_value=\"SOP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"soic/sop/so\" property_name=\"sopPackageType\" />\n        <new_value new_value=\"SOP_8_3_81x4_93\" property_name=\"sopJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"leadFrame\" new_value=\"0.60225\" property_name=\"leadfootLengthLft\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "leadFrame",
+        "property": "leadfootLengthLft",
+        "label": "Lead Foot Length Lfl",
+        "baseline": 0.5475,
+        "value": 0.60225
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c047_leadframecoveragepercentage_36_0",
+      "commands": [
+        "<new_package package_type=\"tsop_conv\">\n        <new_value new_value=\"SOP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"soic/sop/so\" property_name=\"sopPackageType\" />\n        <new_value new_value=\"SOP_8_3_81x4_93\" property_name=\"sopJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"leadFrame\" new_value=\"yes\" property_name=\"userDefinedLeadframeCoverage\" />",
+        "<modify_component name=\"leadFrame\" new_value=\"36\" property_name=\"leadframeCoveragePercentage\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "leadFrame",
+        "property": "leadframeCoveragePercentage",
+        "label": "Leadframe Coverage",
+        "baseline": 40,
+        "value": 36.0
+      },
+      "comparison_baseline": "br_v2_leadframe_leadframecoveragepercentage/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c048_leadframecoveragepercentage_44_0",
+      "commands": [
+        "<new_package package_type=\"tsop_conv\">\n        <new_value new_value=\"SOP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"soic/sop/so\" property_name=\"sopPackageType\" />\n        <new_value new_value=\"SOP_8_3_81x4_93\" property_name=\"sopJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"leadFrame\" new_value=\"yes\" property_name=\"userDefinedLeadframeCoverage\" />",
+        "<modify_component name=\"leadFrame\" new_value=\"44\" property_name=\"leadframeCoveragePercentage\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "leadFrame",
+        "property": "leadframeCoveragePercentage",
+        "label": "Leadframe Coverage",
+        "baseline": 40,
+        "value": 44.0
+      },
+      "comparison_baseline": "br_v2_leadframe_leadframecoveragepercentage/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c049_bondwirelengthlbw_0_3",
+      "commands": [
+        "<new_package package_type=\"tsop_conv\">\n        <new_value new_value=\"SOP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"soic/sop/so\" property_name=\"sopPackageType\" />\n        <new_value new_value=\"SOP_8_3_81x4_93\" property_name=\"sopJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"bondWires\" new_value=\"0.3\" property_name=\"bondWireLengthLbw\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "bondWires",
+        "property": "bondWireLengthLbw",
+        "label": "Bond Wire Length Lbw",
+        "baseline": 0.2283,
+        "value": 0.3
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "accepted_no_floxml_effect"
+    },
+    {
+      "id": "par_v2_c050_bondwirelengthlbw_0_4",
+      "commands": [
+        "<new_package package_type=\"tsop_conv\">\n        <new_value new_value=\"SOP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"soic/sop/so\" property_name=\"sopPackageType\" />\n        <new_value new_value=\"SOP_8_3_81x4_93\" property_name=\"sopJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"bondWires\" new_value=\"0.4\" property_name=\"bondWireLengthLbw\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "bondWires",
+        "property": "bondWireLengthLbw",
+        "label": "Bond Wire Length Lbw",
+        "baseline": 0.2283,
+        "value": 0.4
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "accepted_no_floxml_effect"
+    },
+    {
+      "id": "par_v2_c051_bondwirediameterdbw_0_027",
+      "commands": [
+        "<new_package package_type=\"tsop_conv\">\n        <new_value new_value=\"SOP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"soic/sop/so\" property_name=\"sopPackageType\" />\n        <new_value new_value=\"SOP_8_3_81x4_93\" property_name=\"sopJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"bondWires\" new_value=\"0.027\" property_name=\"bondWireDiameterDbw\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "bondWires",
+        "property": "bondWireDiameterDbw",
+        "label": "Bond Wire Diameter dbw",
+        "baseline": 0.03,
+        "value": 0.027
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c052_bondwirediameterdbw_0_033",
+      "commands": [
+        "<new_package package_type=\"tsop_conv\">\n        <new_value new_value=\"SOP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"soic/sop/so\" property_name=\"sopPackageType\" />\n        <new_value new_value=\"SOP_8_3_81x4_93\" property_name=\"sopJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"bondWires\" new_value=\"0.033\" property_name=\"bondWireDiameterDbw\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "bondWires",
+        "property": "bondWireDiameterDbw",
+        "label": "Bond Wire Diameter dbw",
+        "baseline": 0.03,
+        "value": 0.033
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c053_numberofbondwiresn_7",
+      "commands": [
+        "<new_package package_type=\"tsop_conv\">\n        <new_value new_value=\"SOP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"soic/sop/so\" property_name=\"sopPackageType\" />\n        <new_value new_value=\"SOP_8_3_81x4_93\" property_name=\"sopJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"bondWires\" new_value=\"7\" property_name=\"numberOfBondWiresN\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "bondWires",
+        "property": "numberOfBondWiresN",
+        "label": "Number of Bond Wires N",
+        "baseline": 8,
+        "value": 7
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c054_numberofbondwiresn_9",
+      "commands": [
+        "<new_package package_type=\"tsop_conv\">\n        <new_value new_value=\"SOP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"soic/sop/so\" property_name=\"sopPackageType\" />\n        <new_value new_value=\"SOP_8_3_81x4_93\" property_name=\"sopJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"bondWires\" new_value=\"9\" property_name=\"numberOfBondWiresN\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "bondWires",
+        "property": "numberOfBondWiresN",
+        "label": "Number of Bond Wires N",
+        "baseline": 8,
+        "value": 9
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c055_landthickness_0_045",
+      "commands": [
+        "<new_package package_type=\"tsop_conv\">\n        <new_value new_value=\"SOP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"soic/sop/so\" property_name=\"sopPackageType\" />\n        <new_value new_value=\"SOP_8_3_81x4_93\" property_name=\"sopJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"thermalLandAndSolder\" new_value=\"true\" property_name=\"includeThermalLandAndSolder\" />",
+        "<modify_component name=\"thermalLandAndSolder\" new_value=\"0.045\" property_name=\"landThickness\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "thermalLandAndSolder",
+        "property": "landThickness",
+        "label": "Land Thickness",
+        "baseline": 0.05,
+        "value": 0.045
+      },
+      "comparison_baseline": "br_v2_thermallandandsolder_landthickness/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c056_landthickness_0_055",
+      "commands": [
+        "<new_package package_type=\"tsop_conv\">\n        <new_value new_value=\"SOP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"soic/sop/so\" property_name=\"sopPackageType\" />\n        <new_value new_value=\"SOP_8_3_81x4_93\" property_name=\"sopJedecFootprint\" />\n    </new_package>",
+        "<modify_component name=\"thermalLandAndSolder\" new_value=\"true\" property_name=\"includeThermalLandAndSolder\" />",
+        "<modify_component name=\"thermalLandAndSolder\" new_value=\"0.055\" property_name=\"landThickness\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "thermalLandAndSolder",
+        "property": "landThickness",
+        "label": "Land Thickness",
+        "baseline": 0.05,
+        "value": 0.055
+      },
+      "comparison_baseline": "br_v2_thermallandandsolder_landthickness/model.xml",
+      "expected_outcome": "semantic_change"
+    }
+  ]
+}

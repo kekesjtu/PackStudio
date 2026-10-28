@@ -10,7 +10,7 @@ from packstudio.templates.package_library.catalog import default_request, genera
 from packstudio.templates.package_library.core.materials import material
 from tests.backend.templates.reference_requests import reference_request
 
-ROOT = Path(__file__).parents[3] / "flotherm_pack_data/templates"
+ROOT = Path(__file__).parents[3] / "flotherm_pack_data/template"
 FIELDS = {
     "pbga_wb": {"numberOfBondWiresNw": "bond_wire.total", "platingThicknessTpl": "vias.plating"},
     "chip_array": {"platingThicknessTpl": "vias.plating"},
@@ -50,7 +50,7 @@ MATERIALS = {
 def cases():
     result = []
     for template, fields in FIELDS.items():
-        manifest = json.loads((ROOT / template / "xml_variations.json").read_text(encoding="utf-8"))
+        manifest = json.loads((ROOT / template / "index.json").read_text(encoding="utf-8"))
         for row in manifest["variations"]:
             prop = row["target"]["property"]
             if row["kind"] == "numeric_parameter" and prop in fields:

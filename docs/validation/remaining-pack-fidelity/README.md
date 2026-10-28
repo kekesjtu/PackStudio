@@ -41,10 +41,11 @@ FloXML、程序指纹及 XSD 验证结果，覆盖四类全部 210 个预设和 
 
 回归通过公共生成与导出接口逐块比较坐标、尺寸、数量、三向导热率、密度和比热，
 并比较原生网格约束、监测点、区域、局部网格开关及总功率。
-项目决策差异在独立测试辅助模块中按原生组件坐标校正；源证据保留原值。
+项目决策差异在公共比对工具中按原生组件坐标校正；源证据保留原值。
 
 ```powershell
-uv run --locked python -m tools.remaining_fidelity --output tmp/remaining-native --archive docs/validation/remaining-pack-fidelity/evidence.zip
 uv run --locked pytest tests/backend/templates/test_remaining_pack_fidelity.py
 uv run --locked python -m tools.validate_catalog_presets
 ```
+
+原生扫参与参考库重建入口见 [tools/pack_sweep](../../../tools/pack_sweep/README.md)。

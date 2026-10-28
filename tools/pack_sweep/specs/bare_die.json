@@ -1,0 +1,233 @@
+{
+  "schema": "packstudio.sweep-spec/v1",
+  "template_id": "bare_die",
+  "points": [
+    {
+      "id": "baseline",
+      "commands": [
+        "<new_package package_type=\"Die\">\n        <new_value new_value=\"Die\" property_name=\"designName\" />\n    </new_package>"
+      ]
+    },
+    {
+      "id": "opt_v2_c001_griddensity_coarse",
+      "commands": [
+        "<new_package package_type=\"Die\">\n        <new_value new_value=\"Die\" property_name=\"designName\" />\n    </new_package>",
+        "<modify_component name=\"modelingOptions\" new_value=\"coarse\" property_name=\"gridDensity\" />"
+      ],
+      "kind": "enum_option",
+      "target": {
+        "component": "modelingOptions",
+        "property": "gridDensity",
+        "label": "Grid Density",
+        "baseline": "fine",
+        "value": "coarse"
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "opt_v2_c001_nonuniformdieheat_true",
+      "commands": [
+        "<new_package package_type=\"Die\">\n        <new_value new_value=\"Die\" property_name=\"designName\" />\n    </new_package>",
+        "<modify_component name=\"die\" new_value=\"true\" property_name=\"nonUniformDieHeat\" />"
+      ],
+      "kind": "boolean_option",
+      "target": {
+        "component": "die",
+        "property": "nonUniformDieHeat",
+        "label": "Non-uniform Die Heat",
+        "baseline": false,
+        "value": true
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "opt_v2_c002_flippeddie_true",
+      "commands": [
+        "<new_package package_type=\"Die\">\n        <new_value new_value=\"Die\" property_name=\"designName\" />\n    </new_package>",
+        "<modify_component name=\"die\" new_value=\"true\" property_name=\"flippedDie\" />"
+      ],
+      "kind": "boolean_option",
+      "target": {
+        "component": "die",
+        "property": "flippedDie",
+        "label": "Flipped Die",
+        "baseline": false,
+        "value": true
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "opt_v2_c002_griddensity_medium",
+      "commands": [
+        "<new_package package_type=\"Die\">\n        <new_value new_value=\"Die\" property_name=\"designName\" />\n    </new_package>",
+        "<modify_component name=\"modelingOptions\" new_value=\"medium\" property_name=\"gridDensity\" />"
+      ],
+      "kind": "enum_option",
+      "target": {
+        "component": "modelingOptions",
+        "property": "gridDensity",
+        "label": "Grid Density",
+        "baseline": "fine",
+        "value": "medium"
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "opt_v2_c003_localizegrid_false",
+      "commands": [
+        "<new_package package_type=\"Die\">\n        <new_value new_value=\"Die\" property_name=\"designName\" />\n    </new_package>",
+        "<modify_component name=\"modelingOptions\" new_value=\"false\" property_name=\"localizeGrid\" />"
+      ],
+      "kind": "boolean_option",
+      "target": {
+        "component": "modelingOptions",
+        "property": "localizeGrid",
+        "label": "Localize Grid",
+        "baseline": true,
+        "value": false
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c001_packagepower_1_8",
+      "commands": [
+        "<new_package package_type=\"Die\">\n        <new_value new_value=\"Die\" property_name=\"designName\" />\n    </new_package>",
+        "<modify_component name=\"die\" new_value=\"1.8\" property_name=\"packagePower\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "die",
+        "property": "packagePower",
+        "label": "Package Power",
+        "baseline": 2,
+        "value": 1.8
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c002_packagepower_2_2",
+      "commands": [
+        "<new_package package_type=\"Die\">\n        <new_value new_value=\"Die\" property_name=\"designName\" />\n    </new_package>",
+        "<modify_component name=\"die\" new_value=\"2.2\" property_name=\"packagePower\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "die",
+        "property": "packagePower",
+        "label": "Package Power",
+        "baseline": 2,
+        "value": 2.2
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c003_dielengthld_4_41",
+      "commands": [
+        "<new_package package_type=\"Die\">\n        <new_value new_value=\"Die\" property_name=\"designName\" />\n    </new_package>",
+        "<modify_component name=\"die\" new_value=\"4.41\" property_name=\"dieLengthLd\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "die",
+        "property": "dieLengthLd",
+        "label": "Die Length Ld",
+        "baseline": 4.9,
+        "value": 4.41
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c004_dielengthld_5_39",
+      "commands": [
+        "<new_package package_type=\"Die\">\n        <new_value new_value=\"Die\" property_name=\"designName\" />\n    </new_package>",
+        "<modify_component name=\"die\" new_value=\"5.39\" property_name=\"dieLengthLd\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "die",
+        "property": "dieLengthLd",
+        "label": "Die Length Ld",
+        "baseline": 4.9,
+        "value": 5.39
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c005_diewidthwd_4_41",
+      "commands": [
+        "<new_package package_type=\"Die\">\n        <new_value new_value=\"Die\" property_name=\"designName\" />\n    </new_package>",
+        "<modify_component name=\"die\" new_value=\"4.41\" property_name=\"dieWidthWd\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "die",
+        "property": "dieWidthWd",
+        "label": "Die Width Wd",
+        "baseline": 4.9,
+        "value": 4.41
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c006_diewidthwd_5_39",
+      "commands": [
+        "<new_package package_type=\"Die\">\n        <new_value new_value=\"Die\" property_name=\"designName\" />\n    </new_package>",
+        "<modify_component name=\"die\" new_value=\"5.39\" property_name=\"dieWidthWd\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "die",
+        "property": "dieWidthWd",
+        "label": "Die Width Wd",
+        "baseline": 4.9,
+        "value": 5.39
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c007_diethicknesstd_0_198",
+      "commands": [
+        "<new_package package_type=\"Die\">\n        <new_value new_value=\"Die\" property_name=\"designName\" />\n    </new_package>",
+        "<modify_component name=\"die\" new_value=\"0.198\" property_name=\"dieThicknessTd\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "die",
+        "property": "dieThicknessTd",
+        "label": "Die Thickness td",
+        "baseline": 0.22,
+        "value": 0.198
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c008_diethicknesstd_0_242",
+      "commands": [
+        "<new_package package_type=\"Die\">\n        <new_value new_value=\"Die\" property_name=\"designName\" />\n    </new_package>",
+        "<modify_component name=\"die\" new_value=\"0.242\" property_name=\"dieThicknessTd\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "die",
+        "property": "dieThicknessTd",
+        "label": "Die Thickness td",
+        "baseline": 0.22,
+        "value": 0.242
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    }
+  ]
+}

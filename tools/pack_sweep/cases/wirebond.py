@@ -2,8 +2,8 @@
 
 from xml.etree import ElementTree as ET
 
-from tools.remaining_inputs import case_adder
-from tools.remaining_presets import append_presets
+from tools.pack_sweep.cases.presets import append_presets
+from tools.pack_sweep.inputs import case_adder
 
 
 def cases():
@@ -63,9 +63,12 @@ def cases():
                     {"flag.coverage": coverage},
                 )
         if family == "sop":
-            add("sop-flag-copper", family,
+            add(
+                "sop-flag-copper",
+                family,
                 [("dieFlagAndTieBars", "dieFlagMaterial", "Copper (Pure)")],
-                assignments={"group-die-flag": "copper"})
+                assignments={"group-die-flag": "copper"},
+            )
             for downset in (0.3, 0.414, 0.418, 0.422, 0.5):
                 add(
                     "sop-height-" + str(downset),
@@ -275,9 +278,18 @@ def cases():
                     },
                 )
                 for row, thickness in [(0, 0.01), (5, 0.04)]:
-                    result[-1]["commands"].append(ET.tostring(ET.Element(
-                        "modify_component_table_row", name="metalLayers",
-                        property_name="metalLayersTable", row=str(row), column="1",
-                        new_value=str(thickness)), encoding="unicode"))
+                    result[-1]["commands"].append(
+                        ET.tostring(
+                            ET.Element(
+                                "modify_component_table_row",
+                                name="metalLayers",
+                                property_name="metalLayersTable",
+                                row=str(row),
+                                column="1",
+                                new_value=str(thickness),
+                            ),
+                            encoding="unicode",
+                        )
+                    )
     append_presets(add)
     return result

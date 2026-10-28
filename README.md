@@ -60,7 +60,8 @@ npm run build
 
 [需求说明](docs/requirements.md) · [开发与验证操作](tools/README.md) ·
 [运行数据](runtime_data/README.md) · [FloXML 契约](output_format/floxml/README.md) ·
-[FloSCRIPT 本机操作](FLOSCRIPT.md) · [验证数据](docs/validation/README.md)
+[FloSCRIPT 本机操作](FLOSCRIPT.md) · [PACK 扫参与参考库重建](tools/pack_sweep/README.md) ·
+[验证数据](docs/validation/README.md)
 
 | 决策 | 范围 |
 | --- | --- |

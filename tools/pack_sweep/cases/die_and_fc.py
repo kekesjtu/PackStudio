@@ -3,52 +3,13 @@
 import json
 from xml.etree import ElementTree as ET
 
-from tools.floscript.script import component_element, new_package_element
+from tools.pack_sweep.inputs import case_adder
 
 
 def cases():
     result = []
 
-    def add(
-        identifier, family, changes=(), overrides=None, bga=None, assignments=None, wizard=None
-    ):
-        defaults = {"designName": family, "outlineType": "standardOutline"}
-        if family == "bare_die":
-            defaults.pop("outlineType")
-        if family != "bare_die":
-            defaults["jedecFootprint"] = {
-                "chip_array": "ChipArray_24_4X4mm_0_8",
-                "cbga_fc": "CBGAFC_49_6X6mm",
-                "pbga_fc": "PBGAFC_49_6X6mm",
-            }[family]
-        if family in {"cbga_fc", "pbga_fc"}:
-            defaults["topCover"] = "bareDie"
-        if family == "chip_array":
-            defaults.update(
-                dieType="actualDie",
-                substrateLayer="2-Layer",
-                topSignalLayerThickness="0.018",
-                bottomSignalLayerThickness="0.018",
-            )
-        defaults.update(wizard or {})
-        commands = [
-            ET.tostring(
-                new_package_element("Die" if family == "bare_die" else family, defaults),
-                encoding="unicode",
-            )
-        ]
-        commands.extend(
-            ET.tostring(component_element(*change), encoding="unicode") for change in changes
-        )
-        # Heat sources are volumetric by project decision; no collapsed source comparison.
-        payload = {
-            "template_id": family,
-            "overrides": {f"{family}.{k}": v for k, v in (overrides or {}).items()},
-            "material_assignments": assignments or {},
-        }
-        if bga is not None:
-            payload["bga"] = bga
-        result.append({"id": identifier, "commands": commands, "request": payload})
+    add = case_adder(result)
 
     for family in ("bare_die", "cbga_fc", "pbga_fc", "chip_array"):
         add(family + "-baseline", family)

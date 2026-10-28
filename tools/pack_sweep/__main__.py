@@ -1,0 +1,80 @@
+"""Archive, rebuild and validate the local native PACK reference library."""
+
+import argparse
+import json
+from datetime import datetime
+from pathlib import Path
+
+from tools.floscript.environment import INSTALLATION
+from tools.pack_sweep.archive import archive_tree
+from tools.pack_sweep.rebuild import rebuild
+from tools.pack_sweep.validate import validate_point, validate_tree
+
+REPOSITORY = Path(__file__).resolve().parents[2]
+
+
+def workspace_path(path):
+    path = path.resolve()
+    if not path.is_relative_to(REPOSITORY) or path == REPOSITORY:
+        raise ValueError("write paths must stay inside the repository")
+    return path
+
+
+def main(argv=None):
+    parser = argparse.ArgumentParser(description=__doc__)
+    commands = parser.add_subparsers(dest="command", required=True)
+    archive = commands.add_parser("archive", help="archive and hash-check the entire data tree")
+    archive.add_argument("--source", type=Path, default=REPOSITORY / "flotherm_pack_data")
+    archive.add_argument("--archive", type=Path, required=True)
+    build = commands.add_parser("rebuild", help="replay native inputs and publish verified data")
+    build.add_argument("--output", type=Path, default=REPOSITORY / "flotherm_pack_data")
+    build.add_argument(
+        "--work",
+        type=Path,
+        default=REPOSITORY / "tmp" / (datetime.now().strftime("%Y-%m-%d") + "-pack-sweep"),
+    )
+    build.add_argument("--snapshot", type=Path)
+    build.add_argument("--template", action="append", dest="templates")
+    build.add_argument("--batch-size", type=int, default=64)
+    build.add_argument("--timeout", type=int, default=180)
+    build.add_argument("--installation", type=Path, default=INSTALLATION)
+    validate = commands.add_parser("validate", help="validate a point or the complete data tree")
+    target = validate.add_mutually_exclusive_group()
+    target.add_argument("--point", type=Path)
+    target.add_argument("--root", type=Path, default=REPOSITORY / "flotherm_pack_data")
+    validate.add_argument("--installation", type=Path, default=INSTALLATION)
+    args = parser.parse_args(argv)
+    if args.command == "archive":
+        result = archive_tree(args.source, workspace_path(args.archive))
+        result = {k: v for k, v in result.items() if k != "files"}
+    elif args.command == "rebuild":
+        output, work = workspace_path(args.output), workspace_path(args.work)
+        if output != REPOSITORY / "flotherm_pack_data" and not output.is_relative_to(
+            REPOSITORY / "tmp"
+        ):
+            raise ValueError("--output must be flotherm_pack_data or a directory under tmp/")
+        if not work.is_relative_to(REPOSITORY / "tmp") or work == REPOSITORY / "tmp":
+            raise ValueError("--work must be a task directory under tmp/")
+        result = rebuild(
+            output,
+            work,
+            args.installation.resolve(),
+            args.snapshot.resolve() if args.snapshot else None,
+            args.templates,
+            args.batch_size,
+            args.timeout,
+        )
+    else:
+        result = (
+            validate_point(args.point.resolve(), args.installation)
+            if args.point
+            else validate_tree(args.root.resolve(), args.installation)
+        )
+        if not args.point:
+            result = {k: v for k, v in result.items() if k != "points"}
+    print(json.dumps(result, ensure_ascii=False, indent=2))
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

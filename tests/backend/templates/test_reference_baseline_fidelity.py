@@ -11,9 +11,9 @@ from packstudio.templates.package_library.catalog import (
     definition,
 )
 from tests.backend.templates.reference_requests import reference_request
-from tests.backend.templates.remaining_decisions import decision_geometry
+from tools.pack_sweep.decisions import decision_geometry
 
-REFERENCE_ROOT = Path(__file__).parents[3] / "flotherm_pack_data" / "templates"
+REFERENCE_ROOT = Path(__file__).parents[3] / "flotherm_pack_data" / "template"
 TEMPLATE_IDS = (
     "cbga_fc",
     "pbga_fc",

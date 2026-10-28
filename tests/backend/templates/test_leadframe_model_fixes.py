@@ -11,7 +11,7 @@ import pytest
 from packstudio.templates.package_library.catalog import definition, generate
 from packstudio.templates.package_library.core.materials import material
 from tests.backend.templates.reference_requests import reference_request
-from tests.backend.templates.remaining_decisions import decision_geometry
+from tools.pack_sweep.decisions import decision_geometry
 
 ROOT = Path(__file__).parents[3]
 
@@ -25,7 +25,7 @@ def test_final_lead_envelopes_retain_native_equivalent_properties(template):
     model = generate(reference_request(template))
     originals = {
         e.findtext("name"): e
-        for e in ET.parse(ROOT / f"flotherm_pack_data/templates/{template}/baseline/model.xml")
+        for e in ET.parse(ROOT / f"flotherm_pack_data/template/{template}/baseline/model.xml")
         .getroot()
         .find("attributes/materials")
     }

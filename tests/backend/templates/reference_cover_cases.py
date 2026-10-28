@@ -3,7 +3,7 @@ from pathlib import Path
 
 import pytest
 
-REFERENCE_ROOT = Path(__file__).parents[3] / "flotherm_pack_data" / "templates"
+REFERENCE_ROOT = Path(__file__).parents[3] / "flotherm_pack_data" / "template"
 
 COVER_PROPERTIES = {
     "lidLengthLc": ("lid", "lid.length"),
@@ -24,7 +24,7 @@ COVER_PROPERTIES = {
 def cover_numeric_cases() -> list[object]:
     cases = []
     for template_id in ("cbga_fc", "pbga_fc"):
-        manifest_path = REFERENCE_ROOT / template_id / "xml_variations.json"
+        manifest_path = REFERENCE_ROOT / template_id / "index.json"
         manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
         for item in manifest["variations"]:
             property_name = item["target"]["property"]

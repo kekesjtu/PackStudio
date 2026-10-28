@@ -6,7 +6,7 @@ from zipfile import ZIP_DEFLATED, ZipFile
 from tools.floscript.des import read_des
 
 
-def cases(baselines: Path, inputs: Path):
+def cases(baselines: Path, inputs: Path, *, families=None):
     inputs.mkdir(parents=True, exist_ok=True)
     result = []
 
@@ -30,6 +30,8 @@ def cases(baselines: Path, inputs: Path):
         )
 
     for family in ("chip_array", "cbga_fc", "pbga_fc"):
+        if families is not None and family not in families:
+            continue
         for center in (False, True):
             cells = ":".join(f"{c}x{r}" for c in range(5) for r in range(5) if (r, c) != (0, 0))
             changes = dict(
@@ -102,6 +104,8 @@ def cases(baselines: Path, inputs: Path):
         )
     for mode in ("discrete", "equivalent"):
         for isotropic in (False, True):
+            if families is not None and "pbga_fc" not in families:
+                continue
             add(
                 f"core-depop-{mode}-{isotropic}",
                 "pbga_fc",

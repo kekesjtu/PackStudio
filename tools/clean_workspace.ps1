@@ -33,7 +33,7 @@ if (Test-Path -LiteralPath $viteCache) {
     $candidates += @(Get-ChildItem -LiteralPath $viteCache -Directory -Filter 'deps_temp_*' |
         Select-Object -ExpandProperty FullName)
 }
-foreach ($source in @('src', 'tests', 'tools', 'flotherm_pack_data/validation')) {
+foreach ($source in @('src', 'tests', 'tools', 'flotherm_pack_data/template')) {
     $sourcePath = Join-Path $projectRoot $source
     if (Test-Path -LiteralPath $sourcePath) {
         $candidates += @(Get-ChildItem -LiteralPath $sourcePath -Directory -Recurse -Filter '__pycache__' |

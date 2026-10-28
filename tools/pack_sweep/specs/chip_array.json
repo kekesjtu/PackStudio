@@ -1,0 +1,1445 @@
+{
+  "schema": "packstudio.sweep-spec/v1",
+  "template_id": "chip_array",
+  "points": [
+    {
+      "id": "baseline",
+      "commands": [
+        "<new_package package_type=\"chip_array\">\n        <new_value new_value=\"Chip Array\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"ChipArray_24_4X4mm_0_8\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n    </new_package>"
+      ]
+    },
+    {
+      "id": "br_v2_bondwires_numberbondwiresequalssolderballs",
+      "commands": [
+        "<new_package package_type=\"chip_array\">\n        <new_value new_value=\"Chip Array\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"ChipArray_24_4X4mm_0_8\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n    </new_package>",
+        "<modify_component name=\"bondWires\" new_value=\"16\" property_name=\"numberOfBondWiresNw\" />",
+        "<modify_component name=\"bondWires\" new_value=\"yes\" property_name=\"numberBondWiresEqualsSolderBalls\" />"
+      ]
+    },
+    {
+      "id": "br_v2_centralballs_centralballs",
+      "commands": [
+        "<new_package package_type=\"chip_array\">\n        <new_value new_value=\"Chip Array\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"ChipArray_24_4X4mm_0_8\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n    </new_package>",
+        "<modify_component name=\"centralBalls\" new_value=\"2\" property_name=\"numberCentralRowsMDp\" />",
+        "<modify_component name=\"centralBalls\" new_value=\"2\" property_name=\"numberCentralRowsMEp\" />",
+        "<modify_component name=\"centralBalls\" new_value=\"false\" property_name=\"centralBalls\" />"
+      ]
+    },
+    {
+      "id": "br_v2_centralballs_numbercentralrowsmdp",
+      "commands": [
+        "<new_package package_type=\"chip_array\">\n        <new_value new_value=\"Chip Array\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"ChipArray_24_4X4mm_0_8\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n    </new_package>",
+        "<modify_component name=\"centralBalls\" new_value=\"true\" property_name=\"centralBalls\" />",
+        "<modify_component name=\"centralBalls\" new_value=\"2\" property_name=\"numberCentralRowsMEp\" />",
+        "<modify_component name=\"centralBalls\" new_value=\"2\" property_name=\"numberCentralRowsMDp\" />"
+      ]
+    },
+    {
+      "id": "br_v2_centralballs_numbercentralrowsmep",
+      "commands": [
+        "<new_package package_type=\"chip_array\">\n        <new_value new_value=\"Chip Array\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"ChipArray_24_4X4mm_0_8\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n    </new_package>",
+        "<modify_component name=\"centralBalls\" new_value=\"true\" property_name=\"centralBalls\" />",
+        "<modify_component name=\"centralBalls\" new_value=\"2\" property_name=\"numberCentralRowsMDp\" />",
+        "<modify_component name=\"centralBalls\" new_value=\"2\" property_name=\"numberCentralRowsMEp\" />"
+      ]
+    },
+    {
+      "id": "br_v2_centralballs_staggeredmatrix",
+      "commands": [
+        "<new_package package_type=\"chip_array\">\n        <new_value new_value=\"Chip Array\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"ChipArray_24_4X4mm_0_8\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n    </new_package>",
+        "<modify_component name=\"centralBalls\" new_value=\"true\" property_name=\"centralBalls\" />",
+        "<modify_component name=\"centralBalls\" new_value=\"2\" property_name=\"numberCentralRowsMDp\" />",
+        "<modify_component name=\"centralBalls\" new_value=\"2\" property_name=\"numberCentralRowsMEp\" />",
+        "<modify_component name=\"centralBalls\" new_value=\"false\" property_name=\"staggeredMatrix\" />"
+      ]
+    },
+    {
+      "id": "br_v2_metallayers_lengthlml",
+      "commands": [
+        "<new_package package_type=\"chip_array\">\n        <new_value new_value=\"Chip Array\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"ChipArray_24_4X4mm_0_8\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n    </new_package>",
+        "<modify_component name=\"metalLayers\" new_value=\"1\" property_name=\"widthWml\" />",
+        "<modify_component name=\"metalLayers\" new_value=\"1\" property_name=\"lengthLml\" />"
+      ]
+    },
+    {
+      "id": "br_v2_metallayers_widthwml",
+      "commands": [
+        "<new_package package_type=\"chip_array\">\n        <new_value new_value=\"Chip Array\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"ChipArray_24_4X4mm_0_8\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n    </new_package>",
+        "<modify_component name=\"metalLayers\" new_value=\"1\" property_name=\"lengthLml\" />",
+        "<modify_component name=\"metalLayers\" new_value=\"1\" property_name=\"widthWml\" />"
+      ]
+    },
+    {
+      "id": "br_v2_solderballdepopulation_depopulatedcenter",
+      "commands": [
+        "<new_package package_type=\"chip_array\">\n        <new_value new_value=\"Chip Array\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"ChipArray_24_4X4mm_0_8\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n    </new_package>",
+        "<modify_component name=\"solderBallDepopulation\" new_value=\"2\" property_name=\"numberFullyPopulatedRowsMDp\" />",
+        "<modify_component name=\"solderBallDepopulation\" new_value=\"2\" property_name=\"numberFullyPopulatedRowsMEp\" />",
+        "<modify_component name=\"solderBallDepopulation\" new_value=\"false\" property_name=\"depopulatedCenter\" />"
+      ]
+    },
+    {
+      "id": "br_v2_solderballdepopulation_numberfullypopulatedrowsmdp",
+      "commands": [
+        "<new_package package_type=\"chip_array\">\n        <new_value new_value=\"Chip Array\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"ChipArray_24_4X4mm_0_8\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n    </new_package>",
+        "<modify_component name=\"solderBallDepopulation\" new_value=\"true\" property_name=\"depopulatedCenter\" />",
+        "<modify_component name=\"solderBallDepopulation\" new_value=\"2\" property_name=\"numberFullyPopulatedRowsMEp\" />",
+        "<modify_component name=\"solderBallDepopulation\" new_value=\"2\" property_name=\"numberFullyPopulatedRowsMDp\" />"
+      ]
+    },
+    {
+      "id": "br_v2_solderballdepopulation_numberfullypopulatedrowsmep",
+      "commands": [
+        "<new_package package_type=\"chip_array\">\n        <new_value new_value=\"Chip Array\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"ChipArray_24_4X4mm_0_8\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n    </new_package>",
+        "<modify_component name=\"solderBallDepopulation\" new_value=\"true\" property_name=\"depopulatedCenter\" />",
+        "<modify_component name=\"solderBallDepopulation\" new_value=\"2\" property_name=\"numberFullyPopulatedRowsMDp\" />",
+        "<modify_component name=\"solderBallDepopulation\" new_value=\"2\" property_name=\"numberFullyPopulatedRowsMEp\" />"
+      ]
+    },
+    {
+      "id": "jed_v2_c001_jedecfootprint_chiparray_100_10x10mm",
+      "commands": [
+        "<new_package package_type=\"chip_array\">\n        <new_value new_value=\"Chip Array\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"ChipArray_100_10X10mm_0_8\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n    </new_package>"
+      ],
+      "kind": "jedec_preset",
+      "target": {
+        "component": "new_package",
+        "property": "jedecFootprint",
+        "label": "JEDEC Footprint",
+        "baseline": "ChipArray_24_4X4mm_0_8",
+        "value": "ChipArray_100_10X10mm_0_8"
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "jed_v2_c002_jedecfootprint_chiparray_324_19x19mm",
+      "commands": [
+        "<new_package package_type=\"chip_array\">\n        <new_value new_value=\"Chip Array\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"ChipArray_324_19X19mm_1\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n    </new_package>"
+      ],
+      "kind": "jedec_preset",
+      "target": {
+        "component": "new_package",
+        "property": "jedecFootprint",
+        "label": "JEDEC Footprint",
+        "baseline": "ChipArray_24_4X4mm_0_8",
+        "value": "ChipArray_324_19X19mm_1"
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "opt_v2_c001_nonuniformdieheat_true",
+      "commands": [
+        "<new_package package_type=\"chip_array\">\n        <new_value new_value=\"Chip Array\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"ChipArray_24_4X4mm_0_8\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n    </new_package>",
+        "<modify_component name=\"die\" new_value=\"true\" property_name=\"nonUniformDieHeat\" />"
+      ],
+      "kind": "boolean_option",
+      "target": {
+        "component": "die",
+        "property": "nonUniformDieHeat",
+        "label": "Non-uniform Die Heat",
+        "baseline": false,
+        "value": true
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "opt_v2_c001_outlinetype_nonstandardoutline",
+      "commands": [
+        "<new_package package_type=\"chip_array\">\n        <new_value new_value=\"Chip Array\" property_name=\"designName\" />\n        <new_value new_value=\"nonStandardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"ChipArray_24_4X4mm_0_8\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n    </new_package>"
+      ],
+      "kind": "enum_option",
+      "target": {
+        "component": "new_package",
+        "property": "outlineType",
+        "label": "Outline Type",
+        "baseline": "standardOutline",
+        "value": "nonStandardOutline"
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "opt_v2_c002_dietype_thermaldie",
+      "commands": [
+        "<new_package package_type=\"chip_array\">\n        <new_value new_value=\"Chip Array\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"ChipArray_24_4X4mm_0_8\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"thermalDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n    </new_package>"
+      ],
+      "kind": "enum_option",
+      "target": {
+        "component": "new_package",
+        "property": "dieType",
+        "label": "Die Type",
+        "baseline": "actualDie",
+        "value": "thermalDie"
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "opt_v2_c002_staggeredmatrix_true",
+      "commands": [
+        "<new_package package_type=\"chip_array\">\n        <new_value new_value=\"Chip Array\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"ChipArray_24_4X4mm_0_8\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n    </new_package>",
+        "<modify_component name=\"solderBalls\" new_value=\"true\" property_name=\"staggeredMatrix\" />"
+      ],
+      "kind": "boolean_option",
+      "target": {
+        "component": "solderBalls",
+        "property": "staggeredMatrix",
+        "label": "Staggered Matrix",
+        "baseline": false,
+        "value": true
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "opt_v2_c003_solderballmap_true",
+      "commands": [
+        "<new_package package_type=\"chip_array\">\n        <new_value new_value=\"Chip Array\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"ChipArray_24_4X4mm_0_8\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n    </new_package>",
+        "<modify_component name=\"solderBalls\" new_value=\"true\" property_name=\"solderBallMap\" />"
+      ],
+      "kind": "boolean_option",
+      "target": {
+        "component": "solderBalls",
+        "property": "solderBallMap",
+        "label": "Solder Ball Map",
+        "baseline": false,
+        "value": true
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "opt_v2_c003_substratelayer_4_layer",
+      "commands": [
+        "<new_package package_type=\"chip_array\">\n        <new_value new_value=\"Chip Array\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"ChipArray_24_4X4mm_0_8\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"4-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n    </new_package>"
+      ],
+      "kind": "enum_option",
+      "target": {
+        "component": "new_package",
+        "property": "substrateLayer",
+        "label": "Substrate Layer",
+        "baseline": "2-Layer",
+        "value": "4-Layer"
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "opt_v2_c004_depopulatedcenter_true",
+      "commands": [
+        "<new_package package_type=\"chip_array\">\n        <new_value new_value=\"Chip Array\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"ChipArray_24_4X4mm_0_8\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n    </new_package>",
+        "<modify_component name=\"solderBallDepopulation\" new_value=\"2\" property_name=\"numberFullyPopulatedRowsMDp\" />",
+        "<modify_component name=\"solderBallDepopulation\" new_value=\"2\" property_name=\"numberFullyPopulatedRowsMEp\" />",
+        "<modify_component name=\"solderBallDepopulation\" new_value=\"true\" property_name=\"depopulatedCenter\" />"
+      ],
+      "kind": "boolean_option",
+      "target": {
+        "component": "solderBallDepopulation",
+        "property": "depopulatedCenter",
+        "label": "Depopulated Center",
+        "baseline": false,
+        "value": true
+      },
+      "comparison_baseline": "br_v2_solderballdepopulation_depopulatedcenter/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "opt_v2_c004_numberbondwiresequalssolderb_no",
+      "commands": [
+        "<new_package package_type=\"chip_array\">\n        <new_value new_value=\"Chip Array\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"ChipArray_24_4X4mm_0_8\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n    </new_package>",
+        "<modify_component name=\"bondWires\" new_value=\"16\" property_name=\"numberOfBondWiresNw\" />",
+        "<modify_component name=\"bondWires\" new_value=\"no\" property_name=\"numberBondWiresEqualsSolderBalls\" />"
+      ],
+      "kind": "enum_option",
+      "target": {
+        "component": "bondWires",
+        "property": "numberBondWiresEqualsSolderBalls",
+        "label": "Number of Bond Wires equals Solder Balls",
+        "baseline": "yes",
+        "value": "no"
+      },
+      "comparison_baseline": "br_v2_bondwires_numberbondwiresequalssolderballs/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "opt_v2_c005_centralballs_true",
+      "commands": [
+        "<new_package package_type=\"chip_array\">\n        <new_value new_value=\"Chip Array\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"ChipArray_24_4X4mm_0_8\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n    </new_package>",
+        "<modify_component name=\"centralBalls\" new_value=\"2\" property_name=\"numberCentralRowsMDp\" />",
+        "<modify_component name=\"centralBalls\" new_value=\"2\" property_name=\"numberCentralRowsMEp\" />",
+        "<modify_component name=\"centralBalls\" new_value=\"true\" property_name=\"centralBalls\" />"
+      ],
+      "kind": "boolean_option",
+      "target": {
+        "component": "centralBalls",
+        "property": "centralBalls",
+        "label": "Central Balls",
+        "baseline": false,
+        "value": true
+      },
+      "comparison_baseline": "br_v2_centralballs_centralballs/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "opt_v2_c005_filledvias_yes",
+      "commands": [
+        "<new_package package_type=\"chip_array\">\n        <new_value new_value=\"Chip Array\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"ChipArray_24_4X4mm_0_8\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n    </new_package>",
+        "<modify_component name=\"vias\" new_value=\"yes\" property_name=\"filledVias\" />"
+      ],
+      "kind": "enum_option",
+      "target": {
+        "component": "vias",
+        "property": "filledVias",
+        "label": "Filled Vias",
+        "baseline": "no",
+        "value": "yes"
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "opt_v2_c006_staggeredmatrix_true",
+      "commands": [
+        "<new_package package_type=\"chip_array\">\n        <new_value new_value=\"Chip Array\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"ChipArray_24_4X4mm_0_8\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n    </new_package>",
+        "<modify_component name=\"centralBalls\" new_value=\"true\" property_name=\"centralBalls\" />",
+        "<modify_component name=\"centralBalls\" new_value=\"2\" property_name=\"numberCentralRowsMDp\" />",
+        "<modify_component name=\"centralBalls\" new_value=\"2\" property_name=\"numberCentralRowsMEp\" />",
+        "<modify_component name=\"centralBalls\" new_value=\"true\" property_name=\"staggeredMatrix\" />"
+      ],
+      "kind": "boolean_option",
+      "target": {
+        "component": "centralBalls",
+        "property": "staggeredMatrix",
+        "label": "Staggered Matrix",
+        "baseline": false,
+        "value": true
+      },
+      "comparison_baseline": "br_v2_centralballs_staggeredmatrix/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "opt_v2_c006_viamodeling_approximate",
+      "commands": [
+        "<new_package package_type=\"chip_array\">\n        <new_value new_value=\"Chip Array\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"ChipArray_24_4X4mm_0_8\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n    </new_package>",
+        "<modify_component name=\"modelingOptions\" new_value=\"approximate\" property_name=\"viaModeling\" />"
+      ],
+      "kind": "enum_option",
+      "target": {
+        "component": "modelingOptions",
+        "property": "viaModeling",
+        "label": "Via Modeling",
+        "baseline": "accurate",
+        "value": "approximate"
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "opt_v2_c007_bondwiremodeling_ignore",
+      "commands": [
+        "<new_package package_type=\"chip_array\">\n        <new_value new_value=\"Chip Array\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"ChipArray_24_4X4mm_0_8\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n    </new_package>",
+        "<modify_component name=\"modelingOptions\" new_value=\"ignore\" property_name=\"bondWireModeling\" />"
+      ],
+      "kind": "enum_option",
+      "target": {
+        "component": "modelingOptions",
+        "property": "bondWireModeling",
+        "label": "Bond Wire Modeling",
+        "baseline": "include",
+        "value": "ignore"
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "opt_v2_c007_localizegrid_false",
+      "commands": [
+        "<new_package package_type=\"chip_array\">\n        <new_value new_value=\"Chip Array\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"ChipArray_24_4X4mm_0_8\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n    </new_package>",
+        "<modify_component name=\"modelingOptions\" new_value=\"false\" property_name=\"localizeGrid\" />"
+      ],
+      "kind": "boolean_option",
+      "target": {
+        "component": "modelingOptions",
+        "property": "localizeGrid",
+        "label": "Localize Grid",
+        "baseline": true,
+        "value": false
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "opt_v2_c008_griddensity_coarse",
+      "commands": [
+        "<new_package package_type=\"chip_array\">\n        <new_value new_value=\"Chip Array\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"ChipArray_24_4X4mm_0_8\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n    </new_package>",
+        "<modify_component name=\"modelingOptions\" new_value=\"coarse\" property_name=\"gridDensity\" />"
+      ],
+      "kind": "enum_option",
+      "target": {
+        "component": "modelingOptions",
+        "property": "gridDensity",
+        "label": "Grid Density",
+        "baseline": "fine",
+        "value": "coarse"
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "opt_v2_c009_griddensity_medium",
+      "commands": [
+        "<new_package package_type=\"chip_array\">\n        <new_value new_value=\"Chip Array\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"ChipArray_24_4X4mm_0_8\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n    </new_package>",
+        "<modify_component name=\"modelingOptions\" new_value=\"medium\" property_name=\"gridDensity\" />"
+      ],
+      "kind": "enum_option",
+      "target": {
+        "component": "modelingOptions",
+        "property": "gridDensity",
+        "label": "Grid Density",
+        "baseline": "fine",
+        "value": "medium"
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c001_topsignallayerthickness_0_0162",
+      "commands": [
+        "<new_package package_type=\"chip_array\">\n        <new_value new_value=\"Chip Array\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"ChipArray_24_4X4mm_0_8\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.0162\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n    </new_package>"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "new_package",
+        "property": "topSignalLayerThickness",
+        "label": "Top Layer",
+        "baseline": 0.018,
+        "value": 0.0162
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c002_topsignallayerthickness_0_0198",
+      "commands": [
+        "<new_package package_type=\"chip_array\">\n        <new_value new_value=\"Chip Array\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"ChipArray_24_4X4mm_0_8\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.0198\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n    </new_package>"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "new_package",
+        "property": "topSignalLayerThickness",
+        "label": "Top Layer",
+        "baseline": 0.018,
+        "value": 0.0198
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c003_bottomsignallayerthickness_0_0162",
+      "commands": [
+        "<new_package package_type=\"chip_array\">\n        <new_value new_value=\"Chip Array\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"ChipArray_24_4X4mm_0_8\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.0162\" property_name=\"bottomSignalLayerThickness\" />\n    </new_package>"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "new_package",
+        "property": "bottomSignalLayerThickness",
+        "label": "Bottom Layer",
+        "baseline": 0.018,
+        "value": 0.0162
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c004_bottomsignallayerthickness_0_0198",
+      "commands": [
+        "<new_package package_type=\"chip_array\">\n        <new_value new_value=\"Chip Array\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"ChipArray_24_4X4mm_0_8\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.0198\" property_name=\"bottomSignalLayerThickness\" />\n    </new_package>"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "new_package",
+        "property": "bottomSignalLayerThickness",
+        "label": "Bottom Layer",
+        "baseline": 0.018,
+        "value": 0.0198
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c005_lengthd_3_6",
+      "commands": [
+        "<new_package package_type=\"chip_array\">\n        <new_value new_value=\"Chip Array\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"ChipArray_24_4X4mm_0_8\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n    </new_package>",
+        "<modify_component name=\"overallPackage\" new_value=\"3.6\" property_name=\"lengthD\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "overallPackage",
+        "property": "lengthD",
+        "label": "Length D",
+        "baseline": 4,
+        "value": 3.6
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c006_lengthd_4_4",
+      "commands": [
+        "<new_package package_type=\"chip_array\">\n        <new_value new_value=\"Chip Array\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"ChipArray_24_4X4mm_0_8\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n    </new_package>",
+        "<modify_component name=\"overallPackage\" new_value=\"4.4\" property_name=\"lengthD\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "overallPackage",
+        "property": "lengthD",
+        "label": "Length D",
+        "baseline": 4,
+        "value": 4.4
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c007_widthe_3_6",
+      "commands": [
+        "<new_package package_type=\"chip_array\">\n        <new_value new_value=\"Chip Array\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"ChipArray_24_4X4mm_0_8\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n    </new_package>",
+        "<modify_component name=\"overallPackage\" new_value=\"3.6\" property_name=\"widthE\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "overallPackage",
+        "property": "widthE",
+        "label": "Width E",
+        "baseline": 4,
+        "value": 3.6
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c008_widthe_4_4",
+      "commands": [
+        "<new_package package_type=\"chip_array\">\n        <new_value new_value=\"Chip Array\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"ChipArray_24_4X4mm_0_8\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n    </new_package>",
+        "<modify_component name=\"overallPackage\" new_value=\"4.4\" property_name=\"widthE\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "overallPackage",
+        "property": "widthE",
+        "label": "Width E",
+        "baseline": 4,
+        "value": 4.4
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c009_substratethicknessa2_0_324",
+      "commands": [
+        "<new_package package_type=\"chip_array\">\n        <new_value new_value=\"Chip Array\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"ChipArray_24_4X4mm_0_8\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n    </new_package>",
+        "<modify_component name=\"overallPackage\" new_value=\"0.324\" property_name=\"substrateThicknessA2\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "overallPackage",
+        "property": "substrateThicknessA2",
+        "label": "Substrate Thickness A2",
+        "baseline": 0.36,
+        "value": 0.324
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c010_substratethicknessa2_0_396",
+      "commands": [
+        "<new_package package_type=\"chip_array\">\n        <new_value new_value=\"Chip Array\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"ChipArray_24_4X4mm_0_8\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n    </new_package>",
+        "<modify_component name=\"overallPackage\" new_value=\"0.396\" property_name=\"substrateThicknessA2\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "overallPackage",
+        "property": "substrateThicknessA2",
+        "label": "Substrate Thickness A2",
+        "baseline": 0.36,
+        "value": 0.396
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c011_packagepower_1_0",
+      "commands": [
+        "<new_package package_type=\"chip_array\">\n        <new_value new_value=\"Chip Array\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"ChipArray_24_4X4mm_0_8\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n    </new_package>",
+        "<modify_component name=\"die\" new_value=\"1\" property_name=\"packagePower\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "die",
+        "property": "packagePower",
+        "label": "Package Power",
+        "baseline": 0,
+        "value": 1.0
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c012_packagepower_2_0",
+      "commands": [
+        "<new_package package_type=\"chip_array\">\n        <new_value new_value=\"Chip Array\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"ChipArray_24_4X4mm_0_8\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n    </new_package>",
+        "<modify_component name=\"die\" new_value=\"2\" property_name=\"packagePower\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "die",
+        "property": "packagePower",
+        "label": "Package Power",
+        "baseline": 0,
+        "value": 2.0
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c013_dielengthld_1_08",
+      "commands": [
+        "<new_package package_type=\"chip_array\">\n        <new_value new_value=\"Chip Array\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"ChipArray_24_4X4mm_0_8\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n    </new_package>",
+        "<modify_component name=\"die\" new_value=\"1.08\" property_name=\"dieLengthLd\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "die",
+        "property": "dieLengthLd",
+        "label": "Die Length Ld",
+        "baseline": 1.2,
+        "value": 1.08
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c014_dielengthld_1_32",
+      "commands": [
+        "<new_package package_type=\"chip_array\">\n        <new_value new_value=\"Chip Array\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"ChipArray_24_4X4mm_0_8\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n    </new_package>",
+        "<modify_component name=\"die\" new_value=\"1.32\" property_name=\"dieLengthLd\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "die",
+        "property": "dieLengthLd",
+        "label": "Die Length Ld",
+        "baseline": 1.2,
+        "value": 1.32
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c015_diewidthwd_1_08",
+      "commands": [
+        "<new_package package_type=\"chip_array\">\n        <new_value new_value=\"Chip Array\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"ChipArray_24_4X4mm_0_8\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n    </new_package>",
+        "<modify_component name=\"die\" new_value=\"1.08\" property_name=\"dieWidthWd\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "die",
+        "property": "dieWidthWd",
+        "label": "Die Width Wd",
+        "baseline": 1.2,
+        "value": 1.08
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c016_diewidthwd_1_32",
+      "commands": [
+        "<new_package package_type=\"chip_array\">\n        <new_value new_value=\"Chip Array\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"ChipArray_24_4X4mm_0_8\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n    </new_package>",
+        "<modify_component name=\"die\" new_value=\"1.32\" property_name=\"dieWidthWd\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "die",
+        "property": "dieWidthWd",
+        "label": "Die Width Wd",
+        "baseline": 1.2,
+        "value": 1.32
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c017_diethicknesstd_0_27",
+      "commands": [
+        "<new_package package_type=\"chip_array\">\n        <new_value new_value=\"Chip Array\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"ChipArray_24_4X4mm_0_8\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n    </new_package>",
+        "<modify_component name=\"die\" new_value=\"0.27\" property_name=\"dieThicknessTd\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "die",
+        "property": "dieThicknessTd",
+        "label": "Die Thickness td",
+        "baseline": 0.3,
+        "value": 0.27
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c018_diethicknesstd_0_33",
+      "commands": [
+        "<new_package package_type=\"chip_array\">\n        <new_value new_value=\"Chip Array\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"ChipArray_24_4X4mm_0_8\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n    </new_package>",
+        "<modify_component name=\"die\" new_value=\"0.33\" property_name=\"dieThicknessTd\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "die",
+        "property": "dieThicknessTd",
+        "label": "Die Thickness td",
+        "baseline": 0.3,
+        "value": 0.33
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c019_dieattachthicknesstda_0_0225",
+      "commands": [
+        "<new_package package_type=\"chip_array\">\n        <new_value new_value=\"Chip Array\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"ChipArray_24_4X4mm_0_8\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n    </new_package>",
+        "<modify_component name=\"die\" new_value=\"0.0225\" property_name=\"dieAttachThicknessTda\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "die",
+        "property": "dieAttachThicknessTda",
+        "label": "Die Attach Thickness tda",
+        "baseline": 0.025,
+        "value": 0.0225
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c020_dieattachthicknesstda_0_0275",
+      "commands": [
+        "<new_package package_type=\"chip_array\">\n        <new_value new_value=\"Chip Array\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"ChipArray_24_4X4mm_0_8\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n    </new_package>",
+        "<modify_component name=\"die\" new_value=\"0.0275\" property_name=\"dieAttachThicknessTda\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "die",
+        "property": "dieAttachThicknessTda",
+        "label": "Die Attach Thickness tda",
+        "baseline": 0.025,
+        "value": 0.0275
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c021_thicknesste_0_585",
+      "commands": [
+        "<new_package package_type=\"chip_array\">\n        <new_value new_value=\"Chip Array\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"ChipArray_24_4X4mm_0_8\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n    </new_package>",
+        "<modify_component name=\"encapsulant\" new_value=\"0.585\" property_name=\"thicknessTe\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "encapsulant",
+        "property": "thicknessTe",
+        "label": "Thickness te",
+        "baseline": 0.65,
+        "value": 0.585
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c022_thicknesste_0_715",
+      "commands": [
+        "<new_package package_type=\"chip_array\">\n        <new_value new_value=\"Chip Array\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"ChipArray_24_4X4mm_0_8\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n    </new_package>",
+        "<modify_component name=\"encapsulant\" new_value=\"0.715\" property_name=\"thicknessTe\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "encapsulant",
+        "property": "thicknessTe",
+        "label": "Thickness te",
+        "baseline": 0.65,
+        "value": 0.715
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c023_soldermaskthicknesstsm_0_045",
+      "commands": [
+        "<new_package package_type=\"chip_array\">\n        <new_value new_value=\"Chip Array\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"ChipArray_24_4X4mm_0_8\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n    </new_package>",
+        "<modify_component name=\"encapsulant\" new_value=\"0.045\" property_name=\"solderMaskThicknessTsm\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "encapsulant",
+        "property": "solderMaskThicknessTsm",
+        "label": "Solder Mask Thickness tsm",
+        "baseline": 0.05,
+        "value": 0.045
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c024_soldermaskthicknesstsm_0_055",
+      "commands": [
+        "<new_package package_type=\"chip_array\">\n        <new_value new_value=\"Chip Array\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"ChipArray_24_4X4mm_0_8\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n    </new_package>",
+        "<modify_component name=\"encapsulant\" new_value=\"0.055\" property_name=\"solderMaskThicknessTsm\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "encapsulant",
+        "property": "solderMaskThicknessTsm",
+        "label": "Solder Mask Thickness tsm",
+        "baseline": 0.05,
+        "value": 0.055
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c025_extentofbondwirepadslw_1_8",
+      "commands": [
+        "<new_package package_type=\"chip_array\">\n        <new_value new_value=\"Chip Array\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"ChipArray_24_4X4mm_0_8\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n    </new_package>",
+        "<modify_component name=\"bondWires\" new_value=\"1.8\" property_name=\"extentOfBondWirePadsLw\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "bondWires",
+        "property": "extentOfBondWirePadsLw",
+        "label": "Extent of Bond Wire Pads Lw",
+        "baseline": 2,
+        "value": 1.8
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c026_extentofbondwirepadslw_2_2",
+      "commands": [
+        "<new_package package_type=\"chip_array\">\n        <new_value new_value=\"Chip Array\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"ChipArray_24_4X4mm_0_8\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n    </new_package>",
+        "<modify_component name=\"bondWires\" new_value=\"2.2\" property_name=\"extentOfBondWirePadsLw\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "bondWires",
+        "property": "extentOfBondWirePadsLw",
+        "label": "Extent of Bond Wire Pads Lw",
+        "baseline": 2,
+        "value": 2.2
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c027_extentofbondwirepadsww_1_8",
+      "commands": [
+        "<new_package package_type=\"chip_array\">\n        <new_value new_value=\"Chip Array\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"ChipArray_24_4X4mm_0_8\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n    </new_package>",
+        "<modify_component name=\"bondWires\" new_value=\"1.8\" property_name=\"extentOfBondWirePadsWw\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "bondWires",
+        "property": "extentOfBondWirePadsWw",
+        "label": "Extent of Bond Wire Pads Ww",
+        "baseline": 2,
+        "value": 1.8
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c028_extentofbondwirepadsww_2_2",
+      "commands": [
+        "<new_package package_type=\"chip_array\">\n        <new_value new_value=\"Chip Array\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"ChipArray_24_4X4mm_0_8\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n    </new_package>",
+        "<modify_component name=\"bondWires\" new_value=\"2.2\" property_name=\"extentOfBondWirePadsWw\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "bondWires",
+        "property": "extentOfBondWirePadsWw",
+        "label": "Extent of Bond Wire Pads Ww",
+        "baseline": 2,
+        "value": 2.2
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c029_bondwirediameterdw_0_0225",
+      "commands": [
+        "<new_package package_type=\"chip_array\">\n        <new_value new_value=\"Chip Array\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"ChipArray_24_4X4mm_0_8\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n    </new_package>",
+        "<modify_component name=\"bondWires\" new_value=\"0.0225\" property_name=\"bondWireDiameterDw\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "bondWires",
+        "property": "bondWireDiameterDw",
+        "label": "Bond Wire Diameter dw",
+        "baseline": 0.025,
+        "value": 0.0225
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c030_bondwirediameterdw_0_0275",
+      "commands": [
+        "<new_package package_type=\"chip_array\">\n        <new_value new_value=\"Chip Array\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"ChipArray_24_4X4mm_0_8\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n    </new_package>",
+        "<modify_component name=\"bondWires\" new_value=\"0.0275\" property_name=\"bondWireDiameterDw\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "bondWires",
+        "property": "bondWireDiameterDw",
+        "label": "Bond Wire Diameter dw",
+        "baseline": 0.025,
+        "value": 0.0275
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c031_viadiameterdv_0_18",
+      "commands": [
+        "<new_package package_type=\"chip_array\">\n        <new_value new_value=\"Chip Array\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"ChipArray_24_4X4mm_0_8\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n    </new_package>",
+        "<modify_component name=\"vias\" new_value=\"0.18\" property_name=\"viaDiameterDv\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "vias",
+        "property": "viaDiameterDv",
+        "label": "Via Diameter dv",
+        "baseline": 0.2,
+        "value": 0.18
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c032_viadiameterdv_0_22",
+      "commands": [
+        "<new_package package_type=\"chip_array\">\n        <new_value new_value=\"Chip Array\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"ChipArray_24_4X4mm_0_8\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n    </new_package>",
+        "<modify_component name=\"vias\" new_value=\"0.22\" property_name=\"viaDiameterDv\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "vias",
+        "property": "viaDiameterDv",
+        "label": "Via Diameter dv",
+        "baseline": 0.2,
+        "value": 0.22
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c033_platingthicknesstpl_0_0225",
+      "commands": [
+        "<new_package package_type=\"chip_array\">\n        <new_value new_value=\"Chip Array\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"ChipArray_24_4X4mm_0_8\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n    </new_package>",
+        "<modify_component name=\"vias\" new_value=\"0.0225\" property_name=\"platingThicknessTpl\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "vias",
+        "property": "platingThicknessTpl",
+        "label": "Plating Thickness tpl",
+        "baseline": 0.025,
+        "value": 0.0225
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c034_platingthicknesstpl_0_0275",
+      "commands": [
+        "<new_package package_type=\"chip_array\">\n        <new_value new_value=\"Chip Array\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"ChipArray_24_4X4mm_0_8\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n    </new_package>",
+        "<modify_component name=\"vias\" new_value=\"0.0275\" property_name=\"platingThicknessTpl\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "vias",
+        "property": "platingThicknessTpl",
+        "label": "Plating Thickness tpl",
+        "baseline": 0.025,
+        "value": 0.0275
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c035_lengthlml_0_9",
+      "commands": [
+        "<new_package package_type=\"chip_array\">\n        <new_value new_value=\"Chip Array\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"ChipArray_24_4X4mm_0_8\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n    </new_package>",
+        "<modify_component name=\"metalLayers\" new_value=\"1\" property_name=\"widthWml\" />",
+        "<modify_component name=\"metalLayers\" new_value=\"0.9\" property_name=\"lengthLml\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "metalLayers",
+        "property": "lengthLml",
+        "label": "Top Metal Layer Hole Length Lml",
+        "baseline": 1,
+        "value": 0.9
+      },
+      "comparison_baseline": "br_v2_metallayers_lengthlml/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c036_lengthlml_1_1",
+      "commands": [
+        "<new_package package_type=\"chip_array\">\n        <new_value new_value=\"Chip Array\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"ChipArray_24_4X4mm_0_8\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n    </new_package>",
+        "<modify_component name=\"metalLayers\" new_value=\"1\" property_name=\"widthWml\" />",
+        "<modify_component name=\"metalLayers\" new_value=\"1.1\" property_name=\"lengthLml\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "metalLayers",
+        "property": "lengthLml",
+        "label": "Top Metal Layer Hole Length Lml",
+        "baseline": 1,
+        "value": 1.1
+      },
+      "comparison_baseline": "br_v2_metallayers_lengthlml/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c037_widthwml_0_9",
+      "commands": [
+        "<new_package package_type=\"chip_array\">\n        <new_value new_value=\"Chip Array\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"ChipArray_24_4X4mm_0_8\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n    </new_package>",
+        "<modify_component name=\"metalLayers\" new_value=\"1\" property_name=\"lengthLml\" />",
+        "<modify_component name=\"metalLayers\" new_value=\"0.9\" property_name=\"widthWml\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "metalLayers",
+        "property": "widthWml",
+        "label": "Top Metal Layer Hole Width Wml",
+        "baseline": 1,
+        "value": 0.9
+      },
+      "comparison_baseline": "br_v2_metallayers_widthwml/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c038_widthwml_1_1",
+      "commands": [
+        "<new_package package_type=\"chip_array\">\n        <new_value new_value=\"Chip Array\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"ChipArray_24_4X4mm_0_8\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n    </new_package>",
+        "<modify_component name=\"metalLayers\" new_value=\"1\" property_name=\"lengthLml\" />",
+        "<modify_component name=\"metalLayers\" new_value=\"1.1\" property_name=\"widthWml\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "metalLayers",
+        "property": "widthWml",
+        "label": "Top Metal Layer Hole Width Wml",
+        "baseline": 1,
+        "value": 1.1
+      },
+      "comparison_baseline": "br_v2_metallayers_widthwml/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c039_numberofsolderballsinxmd_4",
+      "commands": [
+        "<new_package package_type=\"chip_array\">\n        <new_value new_value=\"Chip Array\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"ChipArray_24_4X4mm_0_8\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n    </new_package>",
+        "<modify_component name=\"solderBalls\" new_value=\"4\" property_name=\"numberOfSolderBallsInXMD\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "solderBalls",
+        "property": "numberOfSolderBallsInXMD",
+        "label": "Number of Solder Balls in X MD",
+        "baseline": 5,
+        "value": 4
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c040_numberofsolderballsinxmd_6",
+      "commands": [
+        "<new_package package_type=\"chip_array\">\n        <new_value new_value=\"Chip Array\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"ChipArray_24_4X4mm_0_8\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n    </new_package>",
+        "<modify_component name=\"solderBalls\" new_value=\"6\" property_name=\"numberOfSolderBallsInXMD\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "solderBalls",
+        "property": "numberOfSolderBallsInXMD",
+        "label": "Number of Solder Balls in X MD",
+        "baseline": 5,
+        "value": 6
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c041_numberofsolderballsinyme_4",
+      "commands": [
+        "<new_package package_type=\"chip_array\">\n        <new_value new_value=\"Chip Array\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"ChipArray_24_4X4mm_0_8\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n    </new_package>",
+        "<modify_component name=\"solderBalls\" new_value=\"4\" property_name=\"numberOfSolderBallsInYME\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "solderBalls",
+        "property": "numberOfSolderBallsInYME",
+        "label": "Number of Solder Balls in Y ME",
+        "baseline": 5,
+        "value": 4
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c042_numberofsolderballsinyme_6",
+      "commands": [
+        "<new_package package_type=\"chip_array\">\n        <new_value new_value=\"Chip Array\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"ChipArray_24_4X4mm_0_8\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n    </new_package>",
+        "<modify_component name=\"solderBalls\" new_value=\"6\" property_name=\"numberOfSolderBallsInYME\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "solderBalls",
+        "property": "numberOfSolderBallsInYME",
+        "label": "Number of Solder Balls in Y ME",
+        "baseline": 5,
+        "value": 6
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c043_balldiameterb_0_414",
+      "commands": [
+        "<new_package package_type=\"chip_array\">\n        <new_value new_value=\"Chip Array\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"ChipArray_24_4X4mm_0_8\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n    </new_package>",
+        "<modify_component name=\"solderBalls\" new_value=\"0.414\" property_name=\"ballDiameterB\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "solderBalls",
+        "property": "ballDiameterB",
+        "label": "Ball Diameter b",
+        "baseline": 0.46,
+        "value": 0.414
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c044_balldiameterb_0_506",
+      "commands": [
+        "<new_package package_type=\"chip_array\">\n        <new_value new_value=\"Chip Array\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"ChipArray_24_4X4mm_0_8\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n    </new_package>",
+        "<modify_component name=\"solderBalls\" new_value=\"0.506\" property_name=\"ballDiameterB\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "solderBalls",
+        "property": "ballDiameterB",
+        "label": "Ball Diameter b",
+        "baseline": 0.46,
+        "value": 0.506
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c045_ballpitche_0_72",
+      "commands": [
+        "<new_package package_type=\"chip_array\">\n        <new_value new_value=\"Chip Array\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"ChipArray_24_4X4mm_0_8\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n    </new_package>",
+        "<modify_component name=\"solderBalls\" new_value=\"0.72\" property_name=\"ballPitchE\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "solderBalls",
+        "property": "ballPitchE",
+        "label": "Ball Pitch e",
+        "baseline": 0.8,
+        "value": 0.72
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c046_ballpitche_0_88",
+      "commands": [
+        "<new_package package_type=\"chip_array\">\n        <new_value new_value=\"Chip Array\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"ChipArray_24_4X4mm_0_8\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n    </new_package>",
+        "<modify_component name=\"solderBalls\" new_value=\"0.88\" property_name=\"ballPitchE\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "solderBalls",
+        "property": "ballPitchE",
+        "label": "Ball Pitch e",
+        "baseline": 0.8,
+        "value": 0.88
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c047_substratestandoffa1_0_36",
+      "commands": [
+        "<new_package package_type=\"chip_array\">\n        <new_value new_value=\"Chip Array\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"ChipArray_24_4X4mm_0_8\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n    </new_package>",
+        "<modify_component name=\"solderBalls\" new_value=\"0.36\" property_name=\"substrateStandoffA1\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "solderBalls",
+        "property": "substrateStandoffA1",
+        "label": "Substrate Stand-off A1",
+        "baseline": 0.4,
+        "value": 0.36
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c048_substratestandoffa1_0_44",
+      "commands": [
+        "<new_package package_type=\"chip_array\">\n        <new_value new_value=\"Chip Array\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"ChipArray_24_4X4mm_0_8\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n    </new_package>",
+        "<modify_component name=\"solderBalls\" new_value=\"0.44\" property_name=\"substrateStandoffA1\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "solderBalls",
+        "property": "substrateStandoffA1",
+        "label": "Substrate Stand-off A1",
+        "baseline": 0.4,
+        "value": 0.44
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c049_numberfullypopulatedrowsmdp_1",
+      "commands": [
+        "<new_package package_type=\"chip_array\">\n        <new_value new_value=\"Chip Array\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"ChipArray_24_4X4mm_0_8\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n    </new_package>",
+        "<modify_component name=\"solderBallDepopulation\" new_value=\"true\" property_name=\"depopulatedCenter\" />",
+        "<modify_component name=\"solderBallDepopulation\" new_value=\"2\" property_name=\"numberFullyPopulatedRowsMEp\" />",
+        "<modify_component name=\"solderBallDepopulation\" new_value=\"1\" property_name=\"numberFullyPopulatedRowsMDp\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "solderBallDepopulation",
+        "property": "numberFullyPopulatedRowsMDp",
+        "label": "Number of Fully Populated Rows MDp",
+        "baseline": 2,
+        "value": 1
+      },
+      "comparison_baseline": "br_v2_solderballdepopulation_numberfullypopulatedrowsmdp/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c050_numberfullypopulatedrowsmdp_3",
+      "commands": [
+        "<new_package package_type=\"chip_array\">\n        <new_value new_value=\"Chip Array\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"ChipArray_24_4X4mm_0_8\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n    </new_package>",
+        "<modify_component name=\"solderBallDepopulation\" new_value=\"true\" property_name=\"depopulatedCenter\" />",
+        "<modify_component name=\"solderBallDepopulation\" new_value=\"2\" property_name=\"numberFullyPopulatedRowsMEp\" />",
+        "<modify_component name=\"solderBallDepopulation\" new_value=\"3\" property_name=\"numberFullyPopulatedRowsMDp\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "solderBallDepopulation",
+        "property": "numberFullyPopulatedRowsMDp",
+        "label": "Number of Fully Populated Rows MDp",
+        "baseline": 2,
+        "value": 3
+      },
+      "comparison_baseline": "br_v2_solderballdepopulation_numberfullypopulatedrowsmdp/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c051_numberfullypopulatedrowsmep_1",
+      "commands": [
+        "<new_package package_type=\"chip_array\">\n        <new_value new_value=\"Chip Array\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"ChipArray_24_4X4mm_0_8\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n    </new_package>",
+        "<modify_component name=\"solderBallDepopulation\" new_value=\"true\" property_name=\"depopulatedCenter\" />",
+        "<modify_component name=\"solderBallDepopulation\" new_value=\"2\" property_name=\"numberFullyPopulatedRowsMDp\" />",
+        "<modify_component name=\"solderBallDepopulation\" new_value=\"1\" property_name=\"numberFullyPopulatedRowsMEp\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "solderBallDepopulation",
+        "property": "numberFullyPopulatedRowsMEp",
+        "label": "Number of Fully Populated Rows MEp",
+        "baseline": 2,
+        "value": 1
+      },
+      "comparison_baseline": "br_v2_solderballdepopulation_numberfullypopulatedrowsmep/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c052_numberfullypopulatedrowsmep_3",
+      "commands": [
+        "<new_package package_type=\"chip_array\">\n        <new_value new_value=\"Chip Array\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"ChipArray_24_4X4mm_0_8\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n    </new_package>",
+        "<modify_component name=\"solderBallDepopulation\" new_value=\"true\" property_name=\"depopulatedCenter\" />",
+        "<modify_component name=\"solderBallDepopulation\" new_value=\"2\" property_name=\"numberFullyPopulatedRowsMDp\" />",
+        "<modify_component name=\"solderBallDepopulation\" new_value=\"3\" property_name=\"numberFullyPopulatedRowsMEp\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "solderBallDepopulation",
+        "property": "numberFullyPopulatedRowsMEp",
+        "label": "Number of Fully Populated Rows MEp",
+        "baseline": 2,
+        "value": 3
+      },
+      "comparison_baseline": "br_v2_solderballdepopulation_numberfullypopulatedrowsmep/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c053_numbercentralrowsmdp_1",
+      "commands": [
+        "<new_package package_type=\"chip_array\">\n        <new_value new_value=\"Chip Array\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"ChipArray_24_4X4mm_0_8\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n    </new_package>",
+        "<modify_component name=\"centralBalls\" new_value=\"true\" property_name=\"centralBalls\" />",
+        "<modify_component name=\"centralBalls\" new_value=\"2\" property_name=\"numberCentralRowsMEp\" />",
+        "<modify_component name=\"centralBalls\" new_value=\"1\" property_name=\"numberCentralRowsMDp\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "centralBalls",
+        "property": "numberCentralRowsMDp",
+        "label": "Number of Central Rows MDc",
+        "baseline": 2,
+        "value": 1
+      },
+      "comparison_baseline": "br_v2_centralballs_numbercentralrowsmdp/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c054_numbercentralrowsmdp_3",
+      "commands": [
+        "<new_package package_type=\"chip_array\">\n        <new_value new_value=\"Chip Array\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"ChipArray_24_4X4mm_0_8\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n    </new_package>",
+        "<modify_component name=\"centralBalls\" new_value=\"true\" property_name=\"centralBalls\" />",
+        "<modify_component name=\"centralBalls\" new_value=\"2\" property_name=\"numberCentralRowsMEp\" />",
+        "<modify_component name=\"centralBalls\" new_value=\"3\" property_name=\"numberCentralRowsMDp\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "centralBalls",
+        "property": "numberCentralRowsMDp",
+        "label": "Number of Central Rows MDc",
+        "baseline": 2,
+        "value": 3
+      },
+      "comparison_baseline": "br_v2_centralballs_numbercentralrowsmdp/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c055_numbercentralrowsmep_1",
+      "commands": [
+        "<new_package package_type=\"chip_array\">\n        <new_value new_value=\"Chip Array\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"ChipArray_24_4X4mm_0_8\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n    </new_package>",
+        "<modify_component name=\"centralBalls\" new_value=\"true\" property_name=\"centralBalls\" />",
+        "<modify_component name=\"centralBalls\" new_value=\"2\" property_name=\"numberCentralRowsMDp\" />",
+        "<modify_component name=\"centralBalls\" new_value=\"1\" property_name=\"numberCentralRowsMEp\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "centralBalls",
+        "property": "numberCentralRowsMEp",
+        "label": "Number of Central Rows MEc",
+        "baseline": 2,
+        "value": 1
+      },
+      "comparison_baseline": "br_v2_centralballs_numbercentralrowsmep/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c056_numbercentralrowsmep_3",
+      "commands": [
+        "<new_package package_type=\"chip_array\">\n        <new_value new_value=\"Chip Array\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"ChipArray_24_4X4mm_0_8\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n    </new_package>",
+        "<modify_component name=\"centralBalls\" new_value=\"true\" property_name=\"centralBalls\" />",
+        "<modify_component name=\"centralBalls\" new_value=\"2\" property_name=\"numberCentralRowsMDp\" />",
+        "<modify_component name=\"centralBalls\" new_value=\"3\" property_name=\"numberCentralRowsMEp\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "centralBalls",
+        "property": "numberCentralRowsMEp",
+        "label": "Number of Central Rows MEc",
+        "baseline": 2,
+        "value": 3
+      },
+      "comparison_baseline": "br_v2_centralballs_numbercentralrowsmep/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c057_viaoffsetinx_0_36",
+      "commands": [
+        "<new_package package_type=\"chip_array\">\n        <new_value new_value=\"Chip Array\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"ChipArray_24_4X4mm_0_8\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n    </new_package>",
+        "<modify_component name=\"modelingOptions\" new_value=\"0.36\" property_name=\"viaOffsetInX\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "modelingOptions",
+        "property": "viaOffsetInX",
+        "label": "Via Offset in X",
+        "baseline": 0.4,
+        "value": 0.36
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c058_viaoffsetinx_0_44",
+      "commands": [
+        "<new_package package_type=\"chip_array\">\n        <new_value new_value=\"Chip Array\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"ChipArray_24_4X4mm_0_8\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n    </new_package>",
+        "<modify_component name=\"modelingOptions\" new_value=\"0.44\" property_name=\"viaOffsetInX\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "modelingOptions",
+        "property": "viaOffsetInX",
+        "label": "Via Offset in X",
+        "baseline": 0.4,
+        "value": 0.44
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c059_viaoffsetiny_0_36",
+      "commands": [
+        "<new_package package_type=\"chip_array\">\n        <new_value new_value=\"Chip Array\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"ChipArray_24_4X4mm_0_8\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n    </new_package>",
+        "<modify_component name=\"modelingOptions\" new_value=\"0.36\" property_name=\"viaOffsetInY\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "modelingOptions",
+        "property": "viaOffsetInY",
+        "label": "Via Offset in Y",
+        "baseline": 0.4,
+        "value": 0.36
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c060_viaoffsetiny_0_44",
+      "commands": [
+        "<new_package package_type=\"chip_array\">\n        <new_value new_value=\"Chip Array\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"ChipArray_24_4X4mm_0_8\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n    </new_package>",
+        "<modify_component name=\"modelingOptions\" new_value=\"0.44\" property_name=\"viaOffsetInY\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "modelingOptions",
+        "property": "viaOffsetInY",
+        "label": "Via Offset in Y",
+        "baseline": 0.4,
+        "value": 0.44
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    }
+  ]
+}

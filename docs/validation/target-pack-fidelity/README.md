@@ -38,7 +38,8 @@ FC PBGA 正交通孔在各向同性基板分支保留原生的零基体导热率
 空 CSV、材料联动、上下增层、微通孔和散热块支脚。
 
 ```powershell
-uv run --locked python -m tools.pack_fidelity --output tmp/target-pack-run --archive docs/validation/target-pack-fidelity/evidence.zip
 uv run --locked pytest tests/backend/templates/test_target_pack_fidelity.py
 uv run --locked python -m tools.validate_catalog_presets
 ```
+
+原生扫参与参考库重建入口见 [tools/pack_sweep](../../../tools/pack_sweep/README.md)。

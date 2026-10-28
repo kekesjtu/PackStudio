@@ -1,0 +1,2682 @@
+{
+  "schema": "packstudio.sweep-spec/v1",
+  "template_id": "cbga_fc",
+  "points": [
+    {
+      "id": "baseline",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>"
+      ]
+    },
+    {
+      "id": "br_v2_centralballs_centralballs",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"centralBalls\" new_value=\"2\" property_name=\"numberCentralRowsMDp\" />",
+        "<modify_component name=\"centralBalls\" new_value=\"2\" property_name=\"numberCentralRowsMEp\" />",
+        "<modify_component name=\"centralBalls\" new_value=\"false\" property_name=\"centralBalls\" />"
+      ]
+    },
+    {
+      "id": "br_v2_centralballs_numbercentralrowsmdp",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"centralBalls\" new_value=\"true\" property_name=\"centralBalls\" />",
+        "<modify_component name=\"centralBalls\" new_value=\"2\" property_name=\"numberCentralRowsMEp\" />",
+        "<modify_component name=\"centralBalls\" new_value=\"2\" property_name=\"numberCentralRowsMDp\" />"
+      ]
+    },
+    {
+      "id": "br_v2_centralballs_numbercentralrowsmep",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"centralBalls\" new_value=\"true\" property_name=\"centralBalls\" />",
+        "<modify_component name=\"centralBalls\" new_value=\"2\" property_name=\"numberCentralRowsMDp\" />",
+        "<modify_component name=\"centralBalls\" new_value=\"2\" property_name=\"numberCentralRowsMEp\" />"
+      ]
+    },
+    {
+      "id": "br_v2_centralballs_staggeredmatrix",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"centralBalls\" new_value=\"true\" property_name=\"centralBalls\" />",
+        "<modify_component name=\"centralBalls\" new_value=\"2\" property_name=\"numberCentralRowsMDp\" />",
+        "<modify_component name=\"centralBalls\" new_value=\"2\" property_name=\"numberCentralRowsMEp\" />",
+        "<modify_component name=\"centralBalls\" new_value=\"false\" property_name=\"staggeredMatrix\" />"
+      ]
+    },
+    {
+      "id": "br_v2_dropinslug_adhesivepresentunderslugfoot",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"topCover\" new_value=\"encapsulant\" property_name=\"topCover\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"true\" property_name=\"includeSlug\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"4\" property_name=\"slugLengthLsl\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"4\" property_name=\"slugWidthWsl\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"0.4\" property_name=\"slugThicknessTsl\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"2\" property_name=\"slugDiameterDs\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"4.5\" property_name=\"slugFootExtendLengthLsf\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"4.5\" property_name=\"slugFootExtendWidthWsf\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"0.1\" property_name=\"slugOffsetGs\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"0.1\" property_name=\"slugFootClearanceGsf\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"false\" property_name=\"adhesivePresentUnderSlugFoot\" />"
+      ]
+    },
+    {
+      "id": "br_v2_dropinslug_includeslug",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"topCover\" new_value=\"encapsulant\" property_name=\"topCover\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"4\" property_name=\"slugLengthLsl\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"4\" property_name=\"slugWidthWsl\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"0.4\" property_name=\"slugThicknessTsl\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"2\" property_name=\"slugDiameterDs\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"4.5\" property_name=\"slugFootExtendLengthLsf\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"4.5\" property_name=\"slugFootExtendWidthWsf\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"0.1\" property_name=\"slugOffsetGs\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"0.1\" property_name=\"slugFootClearanceGsf\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"false\" property_name=\"includeSlug\" />"
+      ]
+    },
+    {
+      "id": "br_v2_dropinslug_slugdiameterds",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"topCover\" new_value=\"encapsulant\" property_name=\"topCover\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"true\" property_name=\"includeSlug\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"4\" property_name=\"slugLengthLsl\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"4\" property_name=\"slugWidthWsl\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"0.4\" property_name=\"slugThicknessTsl\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"4.5\" property_name=\"slugFootExtendLengthLsf\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"4.5\" property_name=\"slugFootExtendWidthWsf\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"0.1\" property_name=\"slugOffsetGs\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"0.1\" property_name=\"slugFootClearanceGsf\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"2\" property_name=\"slugDiameterDs\" />"
+      ]
+    },
+    {
+      "id": "br_v2_dropinslug_slugfootclearancegsf",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"topCover\" new_value=\"encapsulant\" property_name=\"topCover\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"true\" property_name=\"includeSlug\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"4\" property_name=\"slugLengthLsl\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"4\" property_name=\"slugWidthWsl\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"0.4\" property_name=\"slugThicknessTsl\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"2\" property_name=\"slugDiameterDs\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"4.5\" property_name=\"slugFootExtendLengthLsf\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"4.5\" property_name=\"slugFootExtendWidthWsf\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"0.1\" property_name=\"slugOffsetGs\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"0.1\" property_name=\"slugFootClearanceGsf\" />"
+      ]
+    },
+    {
+      "id": "br_v2_dropinslug_slugfootextendlengthlsf",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"topCover\" new_value=\"encapsulant\" property_name=\"topCover\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"true\" property_name=\"includeSlug\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"4\" property_name=\"slugLengthLsl\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"4\" property_name=\"slugWidthWsl\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"0.4\" property_name=\"slugThicknessTsl\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"2\" property_name=\"slugDiameterDs\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"4.5\" property_name=\"slugFootExtendWidthWsf\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"0.1\" property_name=\"slugOffsetGs\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"0.1\" property_name=\"slugFootClearanceGsf\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"4.5\" property_name=\"slugFootExtendLengthLsf\" />"
+      ]
+    },
+    {
+      "id": "br_v2_dropinslug_slugfootextendwidthwsf",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"topCover\" new_value=\"encapsulant\" property_name=\"topCover\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"true\" property_name=\"includeSlug\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"4\" property_name=\"slugLengthLsl\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"4\" property_name=\"slugWidthWsl\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"0.4\" property_name=\"slugThicknessTsl\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"2\" property_name=\"slugDiameterDs\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"4.5\" property_name=\"slugFootExtendLengthLsf\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"0.1\" property_name=\"slugOffsetGs\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"0.1\" property_name=\"slugFootClearanceGsf\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"4.5\" property_name=\"slugFootExtendWidthWsf\" />"
+      ]
+    },
+    {
+      "id": "br_v2_dropinslug_sluglengthlsl",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"topCover\" new_value=\"encapsulant\" property_name=\"topCover\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"true\" property_name=\"includeSlug\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"4\" property_name=\"slugWidthWsl\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"0.4\" property_name=\"slugThicknessTsl\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"2\" property_name=\"slugDiameterDs\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"4.5\" property_name=\"slugFootExtendLengthLsf\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"4.5\" property_name=\"slugFootExtendWidthWsf\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"0.1\" property_name=\"slugOffsetGs\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"0.1\" property_name=\"slugFootClearanceGsf\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"4\" property_name=\"slugLengthLsl\" />"
+      ]
+    },
+    {
+      "id": "br_v2_dropinslug_slugoffsetgs",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"topCover\" new_value=\"encapsulant\" property_name=\"topCover\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"true\" property_name=\"includeSlug\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"4\" property_name=\"slugLengthLsl\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"4\" property_name=\"slugWidthWsl\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"0.4\" property_name=\"slugThicknessTsl\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"2\" property_name=\"slugDiameterDs\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"4.5\" property_name=\"slugFootExtendLengthLsf\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"4.5\" property_name=\"slugFootExtendWidthWsf\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"0.1\" property_name=\"slugFootClearanceGsf\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"0.1\" property_name=\"slugOffsetGs\" />"
+      ]
+    },
+    {
+      "id": "br_v2_dropinslug_slugthicknesstsl",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"topCover\" new_value=\"encapsulant\" property_name=\"topCover\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"true\" property_name=\"includeSlug\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"4\" property_name=\"slugLengthLsl\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"4\" property_name=\"slugWidthWsl\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"2\" property_name=\"slugDiameterDs\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"4.5\" property_name=\"slugFootExtendLengthLsf\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"4.5\" property_name=\"slugFootExtendWidthWsf\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"0.1\" property_name=\"slugOffsetGs\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"0.1\" property_name=\"slugFootClearanceGsf\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"0.4\" property_name=\"slugThicknessTsl\" />"
+      ]
+    },
+    {
+      "id": "br_v2_dropinslug_slugwidthwsl",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"topCover\" new_value=\"encapsulant\" property_name=\"topCover\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"true\" property_name=\"includeSlug\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"4\" property_name=\"slugLengthLsl\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"0.4\" property_name=\"slugThicknessTsl\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"2\" property_name=\"slugDiameterDs\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"4.5\" property_name=\"slugFootExtendLengthLsf\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"4.5\" property_name=\"slugFootExtendWidthWsf\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"0.1\" property_name=\"slugOffsetGs\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"0.1\" property_name=\"slugFootClearanceGsf\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"4\" property_name=\"slugWidthWsl\" />"
+      ]
+    },
+    {
+      "id": "br_v2_flipchipbumps_arraytype",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"flipChipBumps\" new_value=\"6\" property_name=\"numberOfBumpsInXMDC4\" />",
+        "<modify_component name=\"flipChipBumps\" new_value=\"6\" property_name=\"numberOfBumpsInYMEC4\" />",
+        "<modify_component name=\"flipChipBumps\" new_value=\"nonRegularArray\" property_name=\"arrayType\" />"
+      ]
+    },
+    {
+      "id": "br_v2_flipchipbumps_numberofbumpsinxmdc4",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"flipChipBumps\" new_value=\"regularArray\" property_name=\"arrayType\" />",
+        "<modify_component name=\"flipChipBumps\" new_value=\"6\" property_name=\"numberOfBumpsInYMEC4\" />",
+        "<modify_component name=\"flipChipBumps\" new_value=\"6\" property_name=\"numberOfBumpsInXMDC4\" />"
+      ]
+    },
+    {
+      "id": "br_v2_flipchipbumps_numberofbumpsinymec4",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"flipChipBumps\" new_value=\"regularArray\" property_name=\"arrayType\" />",
+        "<modify_component name=\"flipChipBumps\" new_value=\"6\" property_name=\"numberOfBumpsInXMDC4\" />",
+        "<modify_component name=\"flipChipBumps\" new_value=\"6\" property_name=\"numberOfBumpsInYMEC4\" />"
+      ]
+    },
+    {
+      "id": "br_v2_solderballdepopulation_depopulatedcenter",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"solderBallDepopulation\" new_value=\"2\" property_name=\"numberFullyPopulatedRowsMDp\" />",
+        "<modify_component name=\"solderBallDepopulation\" new_value=\"2\" property_name=\"numberFullyPopulatedRowsMEp\" />",
+        "<modify_component name=\"solderBallDepopulation\" new_value=\"false\" property_name=\"depopulatedCenter\" />"
+      ]
+    },
+    {
+      "id": "br_v2_solderballdepopulation_numberfullypopulatedrowsmdp",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"solderBallDepopulation\" new_value=\"true\" property_name=\"depopulatedCenter\" />",
+        "<modify_component name=\"solderBallDepopulation\" new_value=\"2\" property_name=\"numberFullyPopulatedRowsMEp\" />",
+        "<modify_component name=\"solderBallDepopulation\" new_value=\"2\" property_name=\"numberFullyPopulatedRowsMDp\" />"
+      ]
+    },
+    {
+      "id": "br_v2_solderballdepopulation_numberfullypopulatedrowsmep",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"solderBallDepopulation\" new_value=\"true\" property_name=\"depopulatedCenter\" />",
+        "<modify_component name=\"solderBallDepopulation\" new_value=\"2\" property_name=\"numberFullyPopulatedRowsMDp\" />",
+        "<modify_component name=\"solderBallDepopulation\" new_value=\"2\" property_name=\"numberFullyPopulatedRowsMEp\" />"
+      ]
+    },
+    {
+      "id": "br_v2_topcover_dieattachthicknesstda",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"topCover\" new_value=\"lid\" property_name=\"topCover\" />",
+        "<modify_component name=\"topCover\" new_value=\"0.05\" property_name=\"dieAttachThicknessTda\" />"
+      ]
+    },
+    {
+      "id": "br_v2_topcover_enabledieflush",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"topCover\" new_value=\"encapsulant\" property_name=\"topCover\" />",
+        "<modify_component name=\"topCover\" new_value=\"false\" property_name=\"enableDieFlush\" />"
+      ]
+    },
+    {
+      "id": "br_v2_topcover_lengthle",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"topCover\" new_value=\"encapsulant\" property_name=\"topCover\" />",
+        "<modify_component name=\"topCover\" new_value=\"4\" property_name=\"lengthLe\" />"
+      ]
+    },
+    {
+      "id": "br_v2_topcover_lidadhesivethickness",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"topCover\" new_value=\"lid\" property_name=\"topCover\" />",
+        "<modify_component name=\"topCover\" new_value=\"0.2\" property_name=\"lidAdhesiveThickness\" />"
+      ]
+    },
+    {
+      "id": "br_v2_topcover_lidbasethicknesstcb",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"topCover\" new_value=\"lid\" property_name=\"topCover\" />",
+        "<modify_component name=\"topCover\" new_value=\"2.5\" property_name=\"lidBaseThicknessTcb\" />"
+      ]
+    },
+    {
+      "id": "br_v2_topcover_lidlengthlc",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"topCover\" new_value=\"lid\" property_name=\"topCover\" />",
+        "<modify_component name=\"topCover\" new_value=\"6\" property_name=\"lidLengthLc\" />"
+      ]
+    },
+    {
+      "id": "br_v2_topcover_lidthicknesstc",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"topCover\" new_value=\"lid\" property_name=\"topCover\" />",
+        "<modify_component name=\"topCover\" new_value=\"1\" property_name=\"lidThicknessTc\" />"
+      ]
+    },
+    {
+      "id": "br_v2_topcover_lidwidthwc",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"topCover\" new_value=\"lid\" property_name=\"topCover\" />",
+        "<modify_component name=\"topCover\" new_value=\"6\" property_name=\"lidWidthWc\" />"
+      ]
+    },
+    {
+      "id": "br_v2_topcover_platelengthlc",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"topCover\" new_value=\"plate\" property_name=\"topCover\" />",
+        "<modify_component name=\"topCover\" new_value=\"6\" property_name=\"plateLengthLc\" />"
+      ]
+    },
+    {
+      "id": "br_v2_topcover_platethicknesstc",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"topCover\" new_value=\"plate\" property_name=\"topCover\" />",
+        "<modify_component name=\"topCover\" new_value=\"1\" property_name=\"plateThicknessTc\" />"
+      ]
+    },
+    {
+      "id": "br_v2_topcover_platewidthwc",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"topCover\" new_value=\"plate\" property_name=\"topCover\" />",
+        "<modify_component name=\"topCover\" new_value=\"6\" property_name=\"plateWidthWc\" />"
+      ]
+    },
+    {
+      "id": "br_v2_topcover_stiffener",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"topCover\" new_value=\"lid\" property_name=\"topCover\" />",
+        "<modify_component name=\"topCover\" new_value=\"6\" property_name=\"stiffenerLengthLs\" />",
+        "<modify_component name=\"topCover\" new_value=\"6\" property_name=\"stiffenerWidthWs\" />",
+        "<modify_component name=\"topCover\" new_value=\"3\" property_name=\"stiffenerCavityLengthLsc\" />",
+        "<modify_component name=\"topCover\" new_value=\"3\" property_name=\"stiffenerCavityWidthWsc\" />",
+        "<modify_component name=\"topCover\" new_value=\"0.1\" property_name=\"stiffenerAdhesiveThickness\" />",
+        "<modify_component name=\"topCover\" new_value=\"no\" property_name=\"stiffener\" />"
+      ]
+    },
+    {
+      "id": "br_v2_topcover_stiffeneradhesivethickness",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"topCover\" new_value=\"lid\" property_name=\"topCover\" />",
+        "<modify_component name=\"topCover\" new_value=\"yes\" property_name=\"stiffener\" />",
+        "<modify_component name=\"topCover\" new_value=\"6\" property_name=\"stiffenerLengthLs\" />",
+        "<modify_component name=\"topCover\" new_value=\"6\" property_name=\"stiffenerWidthWs\" />",
+        "<modify_component name=\"topCover\" new_value=\"3\" property_name=\"stiffenerCavityLengthLsc\" />",
+        "<modify_component name=\"topCover\" new_value=\"3\" property_name=\"stiffenerCavityWidthWsc\" />",
+        "<modify_component name=\"topCover\" new_value=\"0.1\" property_name=\"stiffenerAdhesiveThickness\" />"
+      ]
+    },
+    {
+      "id": "br_v2_topcover_stiffenercavitylengthlsc",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"topCover\" new_value=\"lid\" property_name=\"topCover\" />",
+        "<modify_component name=\"topCover\" new_value=\"yes\" property_name=\"stiffener\" />",
+        "<modify_component name=\"topCover\" new_value=\"6\" property_name=\"stiffenerLengthLs\" />",
+        "<modify_component name=\"topCover\" new_value=\"6\" property_name=\"stiffenerWidthWs\" />",
+        "<modify_component name=\"topCover\" new_value=\"3\" property_name=\"stiffenerCavityWidthWsc\" />",
+        "<modify_component name=\"topCover\" new_value=\"0.1\" property_name=\"stiffenerAdhesiveThickness\" />",
+        "<modify_component name=\"topCover\" new_value=\"3\" property_name=\"stiffenerCavityLengthLsc\" />"
+      ]
+    },
+    {
+      "id": "br_v2_topcover_stiffenercavitywidthwsc",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"topCover\" new_value=\"lid\" property_name=\"topCover\" />",
+        "<modify_component name=\"topCover\" new_value=\"yes\" property_name=\"stiffener\" />",
+        "<modify_component name=\"topCover\" new_value=\"6\" property_name=\"stiffenerLengthLs\" />",
+        "<modify_component name=\"topCover\" new_value=\"6\" property_name=\"stiffenerWidthWs\" />",
+        "<modify_component name=\"topCover\" new_value=\"3\" property_name=\"stiffenerCavityLengthLsc\" />",
+        "<modify_component name=\"topCover\" new_value=\"0.1\" property_name=\"stiffenerAdhesiveThickness\" />",
+        "<modify_component name=\"topCover\" new_value=\"3\" property_name=\"stiffenerCavityWidthWsc\" />"
+      ]
+    },
+    {
+      "id": "br_v2_topcover_stiffenerlengthls",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"topCover\" new_value=\"lid\" property_name=\"topCover\" />",
+        "<modify_component name=\"topCover\" new_value=\"yes\" property_name=\"stiffener\" />",
+        "<modify_component name=\"topCover\" new_value=\"6\" property_name=\"stiffenerWidthWs\" />",
+        "<modify_component name=\"topCover\" new_value=\"3\" property_name=\"stiffenerCavityLengthLsc\" />",
+        "<modify_component name=\"topCover\" new_value=\"3\" property_name=\"stiffenerCavityWidthWsc\" />",
+        "<modify_component name=\"topCover\" new_value=\"0.1\" property_name=\"stiffenerAdhesiveThickness\" />",
+        "<modify_component name=\"topCover\" new_value=\"6\" property_name=\"stiffenerLengthLs\" />"
+      ]
+    },
+    {
+      "id": "br_v2_topcover_stiffenerwidthws",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"topCover\" new_value=\"lid\" property_name=\"topCover\" />",
+        "<modify_component name=\"topCover\" new_value=\"yes\" property_name=\"stiffener\" />",
+        "<modify_component name=\"topCover\" new_value=\"6\" property_name=\"stiffenerLengthLs\" />",
+        "<modify_component name=\"topCover\" new_value=\"3\" property_name=\"stiffenerCavityLengthLsc\" />",
+        "<modify_component name=\"topCover\" new_value=\"3\" property_name=\"stiffenerCavityWidthWsc\" />",
+        "<modify_component name=\"topCover\" new_value=\"0.1\" property_name=\"stiffenerAdhesiveThickness\" />",
+        "<modify_component name=\"topCover\" new_value=\"6\" property_name=\"stiffenerWidthWs\" />"
+      ]
+    },
+    {
+      "id": "br_v2_topcover_thicknesste",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"topCover\" new_value=\"encapsulant\" property_name=\"topCover\" />",
+        "<modify_component name=\"topCover\" new_value=\"1.2\" property_name=\"thicknessTe\" />"
+      ]
+    },
+    {
+      "id": "br_v2_topcover_widthwe",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"topCover\" new_value=\"encapsulant\" property_name=\"topCover\" />",
+        "<modify_component name=\"topCover\" new_value=\"4\" property_name=\"widthWe\" />"
+      ]
+    },
+    {
+      "id": "jed_v2_c001_jedecfootprint_cbgafc_81_8x8mm",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_81_8X8mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>"
+      ],
+      "kind": "jedec_preset",
+      "target": {
+        "component": "new_package",
+        "property": "jedecFootprint",
+        "label": "JEDEC Footprint",
+        "baseline": "CBGAFC_49_6X6mm",
+        "value": "CBGAFC_81_8X8mm"
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "jed_v2_c002_jedecfootprint_cbgafc_144_10x10mm",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_144_10X10mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>"
+      ],
+      "kind": "jedec_preset",
+      "target": {
+        "component": "new_package",
+        "property": "jedecFootprint",
+        "label": "JEDEC Footprint",
+        "baseline": "CBGAFC_49_6X6mm",
+        "value": "CBGAFC_144_10X10mm"
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "opt_v2_c001_nonuniformdieheat_true",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"die\" new_value=\"true\" property_name=\"nonUniformDieHeat\" />"
+      ],
+      "kind": "boolean_option",
+      "target": {
+        "component": "die",
+        "property": "nonUniformDieHeat",
+        "label": "Non-uniform Die Heat",
+        "baseline": false,
+        "value": true
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "opt_v2_c001_outlinetype_nonstandardoutline",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"nonStandardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>"
+      ],
+      "kind": "enum_option",
+      "target": {
+        "component": "new_package",
+        "property": "outlineType",
+        "label": "Outline Type",
+        "baseline": "standardOutline",
+        "value": "nonStandardOutline"
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "opt_v2_c002_topcover_lid",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"lid\" property_name=\"topCover\" />\n    </new_package>"
+      ],
+      "kind": "enum_option",
+      "target": {
+        "component": "new_package",
+        "property": "topCover",
+        "label": "Top Cover",
+        "baseline": "bareDie",
+        "value": "lid"
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "opt_v2_c002_underfill_false",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"flipChipBumps\" new_value=\"false\" property_name=\"underfill\" />"
+      ],
+      "kind": "boolean_option",
+      "target": {
+        "component": "flipChipBumps",
+        "property": "underfill",
+        "label": "Underfill",
+        "baseline": true,
+        "value": false
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "opt_v2_c003_staggeredmatrix_true",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"solderBalls\" new_value=\"true\" property_name=\"staggeredMatrix\" />"
+      ],
+      "kind": "boolean_option",
+      "target": {
+        "component": "solderBalls",
+        "property": "staggeredMatrix",
+        "label": "Staggered Matrix",
+        "baseline": false,
+        "value": true
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "opt_v2_c003_topcover_plate",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"plate\" property_name=\"topCover\" />\n    </new_package>"
+      ],
+      "kind": "enum_option",
+      "target": {
+        "component": "new_package",
+        "property": "topCover",
+        "label": "Top Cover",
+        "baseline": "bareDie",
+        "value": "plate"
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "opt_v2_c004_solderballmap_true",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"solderBalls\" new_value=\"true\" property_name=\"solderBallMap\" />"
+      ],
+      "kind": "boolean_option",
+      "target": {
+        "component": "solderBalls",
+        "property": "solderBallMap",
+        "label": "Solder Ball Map",
+        "baseline": false,
+        "value": true
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "opt_v2_c004_topcover_encapsulant",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"encapsulant\" property_name=\"topCover\" />\n    </new_package>"
+      ],
+      "kind": "enum_option",
+      "target": {
+        "component": "new_package",
+        "property": "topCover",
+        "label": "Top Cover",
+        "baseline": "bareDie",
+        "value": "encapsulant"
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "opt_v2_c005_arraytype_regulararray",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"flipChipBumps\" new_value=\"6\" property_name=\"numberOfBumpsInXMDC4\" />",
+        "<modify_component name=\"flipChipBumps\" new_value=\"6\" property_name=\"numberOfBumpsInYMEC4\" />",
+        "<modify_component name=\"flipChipBumps\" new_value=\"regularArray\" property_name=\"arrayType\" />"
+      ],
+      "kind": "enum_option",
+      "target": {
+        "component": "flipChipBumps",
+        "property": "arrayType",
+        "label": "Array Type",
+        "baseline": "nonRegularArray",
+        "value": "regularArray"
+      },
+      "comparison_baseline": "br_v2_flipchipbumps_arraytype/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "opt_v2_c005_depopulatedcenter_true",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"solderBallDepopulation\" new_value=\"2\" property_name=\"numberFullyPopulatedRowsMDp\" />",
+        "<modify_component name=\"solderBallDepopulation\" new_value=\"2\" property_name=\"numberFullyPopulatedRowsMEp\" />",
+        "<modify_component name=\"solderBallDepopulation\" new_value=\"true\" property_name=\"depopulatedCenter\" />"
+      ],
+      "kind": "boolean_option",
+      "target": {
+        "component": "solderBallDepopulation",
+        "property": "depopulatedCenter",
+        "label": "Depopulated Center",
+        "baseline": false,
+        "value": true
+      },
+      "comparison_baseline": "br_v2_solderballdepopulation_depopulatedcenter/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "opt_v2_c006_centralballs_true",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"centralBalls\" new_value=\"2\" property_name=\"numberCentralRowsMDp\" />",
+        "<modify_component name=\"centralBalls\" new_value=\"2\" property_name=\"numberCentralRowsMEp\" />",
+        "<modify_component name=\"centralBalls\" new_value=\"true\" property_name=\"centralBalls\" />"
+      ],
+      "kind": "boolean_option",
+      "target": {
+        "component": "centralBalls",
+        "property": "centralBalls",
+        "label": "Central Balls",
+        "baseline": false,
+        "value": true
+      },
+      "comparison_baseline": "br_v2_centralballs_centralballs/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "opt_v2_c006_modelsolderballarrayas_discretecuboids",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"modelingOptions\" new_value=\"discreteCuboids\" property_name=\"modelSolderBallArrayAs\" />"
+      ],
+      "kind": "enum_option",
+      "target": {
+        "component": "modelingOptions",
+        "property": "modelSolderBallArrayAs",
+        "label": "Model Solder Ball Array As",
+        "baseline": "orthotropicCuboid",
+        "value": "discreteCuboids"
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "opt_v2_c007_modelflipchipbumpsas_collapsedcuboid",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"modelingOptions\" new_value=\"collapsedCuboid\" property_name=\"modelFlipChipBumpsAs\" />"
+      ],
+      "kind": "enum_option",
+      "target": {
+        "component": "modelingOptions",
+        "property": "modelFlipChipBumpsAs",
+        "label": "Model Flip Chip Bumps As",
+        "baseline": "isotropicCuboid",
+        "value": "collapsedCuboid"
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "opt_v2_c007_staggeredmatrix_true",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"centralBalls\" new_value=\"true\" property_name=\"centralBalls\" />",
+        "<modify_component name=\"centralBalls\" new_value=\"2\" property_name=\"numberCentralRowsMDp\" />",
+        "<modify_component name=\"centralBalls\" new_value=\"2\" property_name=\"numberCentralRowsMEp\" />",
+        "<modify_component name=\"centralBalls\" new_value=\"true\" property_name=\"staggeredMatrix\" />"
+      ],
+      "kind": "boolean_option",
+      "target": {
+        "component": "centralBalls",
+        "property": "staggeredMatrix",
+        "label": "Staggered Matrix",
+        "baseline": false,
+        "value": true
+      },
+      "comparison_baseline": "br_v2_centralballs_staggeredmatrix/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "opt_v2_c008_griddensity_coarse",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"modelingOptions\" new_value=\"coarse\" property_name=\"gridDensity\" />"
+      ],
+      "kind": "enum_option",
+      "target": {
+        "component": "modelingOptions",
+        "property": "gridDensity",
+        "label": "Grid Density",
+        "baseline": "fine",
+        "value": "coarse"
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "opt_v2_c008_includeslug_true",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"topCover\" new_value=\"encapsulant\" property_name=\"topCover\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"4\" property_name=\"slugLengthLsl\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"4\" property_name=\"slugWidthWsl\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"0.4\" property_name=\"slugThicknessTsl\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"2\" property_name=\"slugDiameterDs\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"4.5\" property_name=\"slugFootExtendLengthLsf\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"4.5\" property_name=\"slugFootExtendWidthWsf\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"0.1\" property_name=\"slugOffsetGs\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"0.1\" property_name=\"slugFootClearanceGsf\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"true\" property_name=\"includeSlug\" />"
+      ],
+      "kind": "boolean_option",
+      "target": {
+        "component": "dropInSlug",
+        "property": "includeSlug",
+        "label": "Include Slug",
+        "baseline": false,
+        "value": true
+      },
+      "comparison_baseline": "br_v2_dropinslug_includeslug/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "opt_v2_c009_adhesivepresentunderslugfoot_true",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"topCover\" new_value=\"encapsulant\" property_name=\"topCover\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"true\" property_name=\"includeSlug\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"4\" property_name=\"slugLengthLsl\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"4\" property_name=\"slugWidthWsl\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"0.4\" property_name=\"slugThicknessTsl\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"2\" property_name=\"slugDiameterDs\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"4.5\" property_name=\"slugFootExtendLengthLsf\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"4.5\" property_name=\"slugFootExtendWidthWsf\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"0.1\" property_name=\"slugOffsetGs\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"0.1\" property_name=\"slugFootClearanceGsf\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"true\" property_name=\"adhesivePresentUnderSlugFoot\" />"
+      ],
+      "kind": "boolean_option",
+      "target": {
+        "component": "dropInSlug",
+        "property": "adhesivePresentUnderSlugFoot",
+        "label": "Adhesive Present Under Slug Foot",
+        "baseline": false,
+        "value": true
+      },
+      "comparison_baseline": "br_v2_dropinslug_adhesivepresentunderslugfoot/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "opt_v2_c009_griddensity_medium",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"modelingOptions\" new_value=\"medium\" property_name=\"gridDensity\" />"
+      ],
+      "kind": "enum_option",
+      "target": {
+        "component": "modelingOptions",
+        "property": "gridDensity",
+        "label": "Grid Density",
+        "baseline": "fine",
+        "value": "medium"
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "opt_v2_c010_localizegrid_false",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"modelingOptions\" new_value=\"false\" property_name=\"localizeGrid\" />"
+      ],
+      "kind": "boolean_option",
+      "target": {
+        "component": "modelingOptions",
+        "property": "localizeGrid",
+        "label": "Localize Grid",
+        "baseline": true,
+        "value": false
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "opt_v2_c010_stiffener_yes",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"topCover\" new_value=\"lid\" property_name=\"topCover\" />",
+        "<modify_component name=\"topCover\" new_value=\"6\" property_name=\"stiffenerLengthLs\" />",
+        "<modify_component name=\"topCover\" new_value=\"6\" property_name=\"stiffenerWidthWs\" />",
+        "<modify_component name=\"topCover\" new_value=\"3\" property_name=\"stiffenerCavityLengthLsc\" />",
+        "<modify_component name=\"topCover\" new_value=\"3\" property_name=\"stiffenerCavityWidthWsc\" />",
+        "<modify_component name=\"topCover\" new_value=\"0.1\" property_name=\"stiffenerAdhesiveThickness\" />",
+        "<modify_component name=\"topCover\" new_value=\"yes\" property_name=\"stiffener\" />"
+      ],
+      "kind": "enum_option",
+      "target": {
+        "component": "topCover",
+        "property": "stiffener",
+        "label": "Stiffener",
+        "baseline": "no",
+        "value": "yes"
+      },
+      "comparison_baseline": "br_v2_topcover_stiffener/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "opt_v2_c011_enabledieflush_true",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"topCover\" new_value=\"encapsulant\" property_name=\"topCover\" />",
+        "<modify_component name=\"topCover\" new_value=\"true\" property_name=\"enableDieFlush\" />"
+      ],
+      "kind": "boolean_option",
+      "target": {
+        "component": "topCover",
+        "property": "enableDieFlush",
+        "label": "Enable Die Flush",
+        "baseline": false,
+        "value": true
+      },
+      "comparison_baseline": "br_v2_topcover_enabledieflush/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c001_substratelengthd_5_4",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"packageSubstrate\" new_value=\"5.4\" property_name=\"substrateLengthD\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "packageSubstrate",
+        "property": "substrateLengthD",
+        "label": "Length D",
+        "baseline": 6,
+        "value": 5.4
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c002_substratelengthd_6_6",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"packageSubstrate\" new_value=\"6.6\" property_name=\"substrateLengthD\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "packageSubstrate",
+        "property": "substrateLengthD",
+        "label": "Length D",
+        "baseline": 6,
+        "value": 6.6
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c003_substratewidthe_5_4",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"packageSubstrate\" new_value=\"5.4\" property_name=\"substrateWidthE\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "packageSubstrate",
+        "property": "substrateWidthE",
+        "label": "Width E",
+        "baseline": 6,
+        "value": 5.4
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c004_substratewidthe_6_6",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"packageSubstrate\" new_value=\"6.6\" property_name=\"substrateWidthE\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "packageSubstrate",
+        "property": "substrateWidthE",
+        "label": "Width E",
+        "baseline": 6,
+        "value": 6.6
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c005_substratethicknessa2_1_035",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"packageSubstrate\" new_value=\"1.035\" property_name=\"substrateThicknessA2\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "packageSubstrate",
+        "property": "substrateThicknessA2",
+        "label": "Thickness A2",
+        "baseline": 1.15,
+        "value": 1.035
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c006_substratethicknessa2_1_265",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"packageSubstrate\" new_value=\"1.265\" property_name=\"substrateThicknessA2\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "packageSubstrate",
+        "property": "substrateThicknessA2",
+        "label": "Thickness A2",
+        "baseline": 1.15,
+        "value": 1.265
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c007_packagepower_1_0",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"die\" new_value=\"1\" property_name=\"packagePower\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "die",
+        "property": "packagePower",
+        "label": "Package Power",
+        "baseline": 0,
+        "value": 1.0
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c008_packagepower_2_0",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"die\" new_value=\"2\" property_name=\"packagePower\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "die",
+        "property": "packagePower",
+        "label": "Package Power",
+        "baseline": 0,
+        "value": 2.0
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c009_dielengthld_1_62",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"die\" new_value=\"1.62\" property_name=\"dieLengthLd\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "die",
+        "property": "dieLengthLd",
+        "label": "Die Length Ld",
+        "baseline": 1.8,
+        "value": 1.62
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c010_dielengthld_1_98",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"die\" new_value=\"1.98\" property_name=\"dieLengthLd\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "die",
+        "property": "dieLengthLd",
+        "label": "Die Length Ld",
+        "baseline": 1.8,
+        "value": 1.98
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c011_diewidthwd_1_62",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"die\" new_value=\"1.62\" property_name=\"dieWidthWd\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "die",
+        "property": "dieWidthWd",
+        "label": "Die Width Wd",
+        "baseline": 1.8,
+        "value": 1.62
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c012_diewidthwd_1_98",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"die\" new_value=\"1.98\" property_name=\"dieWidthWd\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "die",
+        "property": "dieWidthWd",
+        "label": "Die Width Wd",
+        "baseline": 1.8,
+        "value": 1.98
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c013_diethicknesstd_0_549",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"die\" new_value=\"0.549\" property_name=\"dieThicknessTd\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "die",
+        "property": "dieThicknessTd",
+        "label": "Die Thickness td",
+        "baseline": 0.61,
+        "value": 0.549
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c014_diethicknesstd_0_671",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"die\" new_value=\"0.671\" property_name=\"dieThicknessTd\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "die",
+        "property": "dieThicknessTd",
+        "label": "Die Thickness td",
+        "baseline": 0.61,
+        "value": 0.671
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c015_totalnumberofbumpsmnc4_48",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"flipChipBumps\" new_value=\"48\" property_name=\"totalNumberOfBumpsMNC4\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "flipChipBumps",
+        "property": "totalNumberOfBumpsMNC4",
+        "label": "Total Number of Bumps MNC4",
+        "baseline": 49,
+        "value": 48
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c016_totalnumberofbumpsmnc4_50",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"flipChipBumps\" new_value=\"50\" property_name=\"totalNumberOfBumpsMNC4\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "flipChipBumps",
+        "property": "totalNumberOfBumpsMNC4",
+        "label": "Total Number of Bumps MNC4",
+        "baseline": 49,
+        "value": 50
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c017_numberofbumpsinxmdc4_5",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"flipChipBumps\" new_value=\"regularArray\" property_name=\"arrayType\" />",
+        "<modify_component name=\"flipChipBumps\" new_value=\"6\" property_name=\"numberOfBumpsInYMEC4\" />",
+        "<modify_component name=\"flipChipBumps\" new_value=\"5\" property_name=\"numberOfBumpsInXMDC4\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "flipChipBumps",
+        "property": "numberOfBumpsInXMDC4",
+        "label": "Number of Bumps in X MDC4",
+        "baseline": 6,
+        "value": 5
+      },
+      "comparison_baseline": "br_v2_flipchipbumps_numberofbumpsinxmdc4/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c018_numberofbumpsinxmdc4_7",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"flipChipBumps\" new_value=\"regularArray\" property_name=\"arrayType\" />",
+        "<modify_component name=\"flipChipBumps\" new_value=\"6\" property_name=\"numberOfBumpsInYMEC4\" />",
+        "<modify_component name=\"flipChipBumps\" new_value=\"7\" property_name=\"numberOfBumpsInXMDC4\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "flipChipBumps",
+        "property": "numberOfBumpsInXMDC4",
+        "label": "Number of Bumps in X MDC4",
+        "baseline": 6,
+        "value": 7
+      },
+      "comparison_baseline": "br_v2_flipchipbumps_numberofbumpsinxmdc4/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c019_numberofbumpsinymec4_5",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"flipChipBumps\" new_value=\"regularArray\" property_name=\"arrayType\" />",
+        "<modify_component name=\"flipChipBumps\" new_value=\"6\" property_name=\"numberOfBumpsInXMDC4\" />",
+        "<modify_component name=\"flipChipBumps\" new_value=\"5\" property_name=\"numberOfBumpsInYMEC4\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "flipChipBumps",
+        "property": "numberOfBumpsInYMEC4",
+        "label": "Number of Bumps in Y MEC4",
+        "baseline": 6,
+        "value": 5
+      },
+      "comparison_baseline": "br_v2_flipchipbumps_numberofbumpsinymec4/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c020_numberofbumpsinymec4_7",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"flipChipBumps\" new_value=\"regularArray\" property_name=\"arrayType\" />",
+        "<modify_component name=\"flipChipBumps\" new_value=\"6\" property_name=\"numberOfBumpsInXMDC4\" />",
+        "<modify_component name=\"flipChipBumps\" new_value=\"7\" property_name=\"numberOfBumpsInYMEC4\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "flipChipBumps",
+        "property": "numberOfBumpsInYMEC4",
+        "label": "Number of Bumps in Y MEC4",
+        "baseline": 6,
+        "value": 7
+      },
+      "comparison_baseline": "br_v2_flipchipbumps_numberofbumpsinymec4/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c021_bumpdiameterbc4_0_108",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"flipChipBumps\" new_value=\"0.108\" property_name=\"bumpDiameterBC4\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "flipChipBumps",
+        "property": "bumpDiameterBC4",
+        "label": "Bump Diameter",
+        "baseline": 0.12,
+        "value": 0.108
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c022_bumpdiameterbc4_0_132",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"flipChipBumps\" new_value=\"0.132\" property_name=\"bumpDiameterBC4\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "flipChipBumps",
+        "property": "bumpDiameterBC4",
+        "label": "Bump Diameter",
+        "baseline": 0.12,
+        "value": 0.132
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c023_bumpheighttc4_0_09",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"flipChipBumps\" new_value=\"0.09\" property_name=\"bumpHeightTC4\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "flipChipBumps",
+        "property": "bumpHeightTC4",
+        "label": "Bump Height",
+        "baseline": 0.1,
+        "value": 0.09
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c024_bumpheighttc4_0_11",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"flipChipBumps\" new_value=\"0.11\" property_name=\"bumpHeightTC4\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "flipChipBumps",
+        "property": "bumpHeightTC4",
+        "label": "Bump Height",
+        "baseline": 0.1,
+        "value": 0.11
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c025_numberofsolderballsinxmd_6",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"solderBalls\" new_value=\"6\" property_name=\"numberOfSolderBallsInXMD\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "solderBalls",
+        "property": "numberOfSolderBallsInXMD",
+        "label": "Number in X MD",
+        "baseline": 7,
+        "value": 6
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c026_numberofsolderballsinxmd_8",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"solderBalls\" new_value=\"8\" property_name=\"numberOfSolderBallsInXMD\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "solderBalls",
+        "property": "numberOfSolderBallsInXMD",
+        "label": "Number in X MD",
+        "baseline": 7,
+        "value": 8
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c027_numberofsolderballsinyme_6",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"solderBalls\" new_value=\"6\" property_name=\"numberOfSolderBallsInYME\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "solderBalls",
+        "property": "numberOfSolderBallsInYME",
+        "label": "Number in Y ME",
+        "baseline": 7,
+        "value": 6
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c028_numberofsolderballsinyme_8",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"solderBalls\" new_value=\"8\" property_name=\"numberOfSolderBallsInYME\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "solderBalls",
+        "property": "numberOfSolderBallsInYME",
+        "label": "Number in Y ME",
+        "baseline": 7,
+        "value": 8
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c029_balldiameterb_0_45",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"solderBalls\" new_value=\"0.45\" property_name=\"ballDiameterB\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "solderBalls",
+        "property": "ballDiameterB",
+        "label": "Ball Diameter",
+        "baseline": 0.5,
+        "value": 0.45
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c030_balldiameterb_0_55",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"solderBalls\" new_value=\"0.55\" property_name=\"ballDiameterB\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "solderBalls",
+        "property": "ballDiameterB",
+        "label": "Ball Diameter",
+        "baseline": 0.5,
+        "value": 0.55
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c031_ballpitche_0_72",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"solderBalls\" new_value=\"0.72\" property_name=\"ballPitchE\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "solderBalls",
+        "property": "ballPitchE",
+        "label": "Pitch",
+        "baseline": 0.8,
+        "value": 0.72
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c032_ballpitche_0_88",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"solderBalls\" new_value=\"0.88\" property_name=\"ballPitchE\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "solderBalls",
+        "property": "ballPitchE",
+        "label": "Pitch",
+        "baseline": 0.8,
+        "value": 0.88
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c033_substratestandoffa1_0_36",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"solderBalls\" new_value=\"0.36\" property_name=\"substrateStandoffA1\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "solderBalls",
+        "property": "substrateStandoffA1",
+        "label": "Substrate Stand-off A1",
+        "baseline": 0.4,
+        "value": 0.36
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c034_substratestandoffa1_0_44",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"solderBalls\" new_value=\"0.44\" property_name=\"substrateStandoffA1\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "solderBalls",
+        "property": "substrateStandoffA1",
+        "label": "Substrate Stand-off A1",
+        "baseline": 0.4,
+        "value": 0.44
+      },
+      "comparison_baseline": "baseline/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c035_numberfullypopulatedrowsmdp_1",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"solderBallDepopulation\" new_value=\"true\" property_name=\"depopulatedCenter\" />",
+        "<modify_component name=\"solderBallDepopulation\" new_value=\"2\" property_name=\"numberFullyPopulatedRowsMEp\" />",
+        "<modify_component name=\"solderBallDepopulation\" new_value=\"1\" property_name=\"numberFullyPopulatedRowsMDp\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "solderBallDepopulation",
+        "property": "numberFullyPopulatedRowsMDp",
+        "label": "Number of Fully Populated Rows MDp",
+        "baseline": 2,
+        "value": 1
+      },
+      "comparison_baseline": "br_v2_solderballdepopulation_numberfullypopulatedrowsmdp/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c036_numberfullypopulatedrowsmdp_3",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"solderBallDepopulation\" new_value=\"true\" property_name=\"depopulatedCenter\" />",
+        "<modify_component name=\"solderBallDepopulation\" new_value=\"2\" property_name=\"numberFullyPopulatedRowsMEp\" />",
+        "<modify_component name=\"solderBallDepopulation\" new_value=\"3\" property_name=\"numberFullyPopulatedRowsMDp\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "solderBallDepopulation",
+        "property": "numberFullyPopulatedRowsMDp",
+        "label": "Number of Fully Populated Rows MDp",
+        "baseline": 2,
+        "value": 3
+      },
+      "comparison_baseline": "br_v2_solderballdepopulation_numberfullypopulatedrowsmdp/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c037_numberfullypopulatedrowsmep_1",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"solderBallDepopulation\" new_value=\"true\" property_name=\"depopulatedCenter\" />",
+        "<modify_component name=\"solderBallDepopulation\" new_value=\"2\" property_name=\"numberFullyPopulatedRowsMDp\" />",
+        "<modify_component name=\"solderBallDepopulation\" new_value=\"1\" property_name=\"numberFullyPopulatedRowsMEp\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "solderBallDepopulation",
+        "property": "numberFullyPopulatedRowsMEp",
+        "label": "Number of Fully Populated Rows MEp",
+        "baseline": 2,
+        "value": 1
+      },
+      "comparison_baseline": "br_v2_solderballdepopulation_numberfullypopulatedrowsmep/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c038_numberfullypopulatedrowsmep_3",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"solderBallDepopulation\" new_value=\"true\" property_name=\"depopulatedCenter\" />",
+        "<modify_component name=\"solderBallDepopulation\" new_value=\"2\" property_name=\"numberFullyPopulatedRowsMDp\" />",
+        "<modify_component name=\"solderBallDepopulation\" new_value=\"3\" property_name=\"numberFullyPopulatedRowsMEp\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "solderBallDepopulation",
+        "property": "numberFullyPopulatedRowsMEp",
+        "label": "Number of Fully Populated Rows MEp",
+        "baseline": 2,
+        "value": 3
+      },
+      "comparison_baseline": "br_v2_solderballdepopulation_numberfullypopulatedrowsmep/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c039_numbercentralrowsmdp_1",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"centralBalls\" new_value=\"true\" property_name=\"centralBalls\" />",
+        "<modify_component name=\"centralBalls\" new_value=\"2\" property_name=\"numberCentralRowsMEp\" />",
+        "<modify_component name=\"centralBalls\" new_value=\"1\" property_name=\"numberCentralRowsMDp\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "centralBalls",
+        "property": "numberCentralRowsMDp",
+        "label": "Number Central Rows MDc",
+        "baseline": 2,
+        "value": 1
+      },
+      "comparison_baseline": "br_v2_centralballs_numbercentralrowsmdp/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c040_numbercentralrowsmdp_3",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"centralBalls\" new_value=\"true\" property_name=\"centralBalls\" />",
+        "<modify_component name=\"centralBalls\" new_value=\"2\" property_name=\"numberCentralRowsMEp\" />",
+        "<modify_component name=\"centralBalls\" new_value=\"3\" property_name=\"numberCentralRowsMDp\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "centralBalls",
+        "property": "numberCentralRowsMDp",
+        "label": "Number Central Rows MDc",
+        "baseline": 2,
+        "value": 3
+      },
+      "comparison_baseline": "br_v2_centralballs_numbercentralrowsmdp/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c041_numbercentralrowsmep_1",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"centralBalls\" new_value=\"true\" property_name=\"centralBalls\" />",
+        "<modify_component name=\"centralBalls\" new_value=\"2\" property_name=\"numberCentralRowsMDp\" />",
+        "<modify_component name=\"centralBalls\" new_value=\"1\" property_name=\"numberCentralRowsMEp\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "centralBalls",
+        "property": "numberCentralRowsMEp",
+        "label": "Number Central Rows MEc",
+        "baseline": 2,
+        "value": 1
+      },
+      "comparison_baseline": "br_v2_centralballs_numbercentralrowsmep/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c042_numbercentralrowsmep_3",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"centralBalls\" new_value=\"true\" property_name=\"centralBalls\" />",
+        "<modify_component name=\"centralBalls\" new_value=\"2\" property_name=\"numberCentralRowsMDp\" />",
+        "<modify_component name=\"centralBalls\" new_value=\"3\" property_name=\"numberCentralRowsMEp\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "centralBalls",
+        "property": "numberCentralRowsMEp",
+        "label": "Number Central Rows MEc",
+        "baseline": 2,
+        "value": 3
+      },
+      "comparison_baseline": "br_v2_centralballs_numbercentralrowsmep/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c043_sluglengthlsl_3_6",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"topCover\" new_value=\"encapsulant\" property_name=\"topCover\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"true\" property_name=\"includeSlug\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"4\" property_name=\"slugWidthWsl\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"0.4\" property_name=\"slugThicknessTsl\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"2\" property_name=\"slugDiameterDs\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"4.5\" property_name=\"slugFootExtendLengthLsf\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"4.5\" property_name=\"slugFootExtendWidthWsf\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"0.1\" property_name=\"slugOffsetGs\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"0.1\" property_name=\"slugFootClearanceGsf\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"3.6\" property_name=\"slugLengthLsl\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "dropInSlug",
+        "property": "slugLengthLsl",
+        "label": "Slug Length Lsl",
+        "baseline": 4,
+        "value": 3.6
+      },
+      "comparison_baseline": "br_v2_dropinslug_sluglengthlsl/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c044_sluglengthlsl_4_4",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"topCover\" new_value=\"encapsulant\" property_name=\"topCover\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"true\" property_name=\"includeSlug\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"4\" property_name=\"slugWidthWsl\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"0.4\" property_name=\"slugThicknessTsl\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"2\" property_name=\"slugDiameterDs\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"4.5\" property_name=\"slugFootExtendLengthLsf\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"4.5\" property_name=\"slugFootExtendWidthWsf\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"0.1\" property_name=\"slugOffsetGs\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"0.1\" property_name=\"slugFootClearanceGsf\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"4.4\" property_name=\"slugLengthLsl\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "dropInSlug",
+        "property": "slugLengthLsl",
+        "label": "Slug Length Lsl",
+        "baseline": 4,
+        "value": 4.4
+      },
+      "comparison_baseline": "br_v2_dropinslug_sluglengthlsl/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c045_slugwidthwsl_3_6",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"topCover\" new_value=\"encapsulant\" property_name=\"topCover\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"true\" property_name=\"includeSlug\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"4\" property_name=\"slugLengthLsl\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"0.4\" property_name=\"slugThicknessTsl\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"2\" property_name=\"slugDiameterDs\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"4.5\" property_name=\"slugFootExtendLengthLsf\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"4.5\" property_name=\"slugFootExtendWidthWsf\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"0.1\" property_name=\"slugOffsetGs\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"0.1\" property_name=\"slugFootClearanceGsf\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"3.6\" property_name=\"slugWidthWsl\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "dropInSlug",
+        "property": "slugWidthWsl",
+        "label": "Slug Width Wsl",
+        "baseline": 4,
+        "value": 3.6
+      },
+      "comparison_baseline": "br_v2_dropinslug_slugwidthwsl/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c046_slugwidthwsl_4_4",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"topCover\" new_value=\"encapsulant\" property_name=\"topCover\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"true\" property_name=\"includeSlug\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"4\" property_name=\"slugLengthLsl\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"0.4\" property_name=\"slugThicknessTsl\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"2\" property_name=\"slugDiameterDs\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"4.5\" property_name=\"slugFootExtendLengthLsf\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"4.5\" property_name=\"slugFootExtendWidthWsf\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"0.1\" property_name=\"slugOffsetGs\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"0.1\" property_name=\"slugFootClearanceGsf\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"4.4\" property_name=\"slugWidthWsl\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "dropInSlug",
+        "property": "slugWidthWsl",
+        "label": "Slug Width Wsl",
+        "baseline": 4,
+        "value": 4.4
+      },
+      "comparison_baseline": "br_v2_dropinslug_slugwidthwsl/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c047_slugthicknesstsl_0_36",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"topCover\" new_value=\"encapsulant\" property_name=\"topCover\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"true\" property_name=\"includeSlug\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"4\" property_name=\"slugLengthLsl\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"4\" property_name=\"slugWidthWsl\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"2\" property_name=\"slugDiameterDs\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"4.5\" property_name=\"slugFootExtendLengthLsf\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"4.5\" property_name=\"slugFootExtendWidthWsf\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"0.1\" property_name=\"slugOffsetGs\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"0.1\" property_name=\"slugFootClearanceGsf\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"0.36\" property_name=\"slugThicknessTsl\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "dropInSlug",
+        "property": "slugThicknessTsl",
+        "label": "Slug Thickness tsl",
+        "baseline": 0.4,
+        "value": 0.36
+      },
+      "comparison_baseline": "br_v2_dropinslug_slugthicknesstsl/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c048_slugthicknesstsl_0_44",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"topCover\" new_value=\"encapsulant\" property_name=\"topCover\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"true\" property_name=\"includeSlug\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"4\" property_name=\"slugLengthLsl\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"4\" property_name=\"slugWidthWsl\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"2\" property_name=\"slugDiameterDs\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"4.5\" property_name=\"slugFootExtendLengthLsf\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"4.5\" property_name=\"slugFootExtendWidthWsf\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"0.1\" property_name=\"slugOffsetGs\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"0.1\" property_name=\"slugFootClearanceGsf\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"0.44\" property_name=\"slugThicknessTsl\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "dropInSlug",
+        "property": "slugThicknessTsl",
+        "label": "Slug Thickness tsl",
+        "baseline": 0.4,
+        "value": 0.44
+      },
+      "comparison_baseline": "br_v2_dropinslug_slugthicknesstsl/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c049_slugdiameterds_1_8",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"topCover\" new_value=\"encapsulant\" property_name=\"topCover\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"true\" property_name=\"includeSlug\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"4\" property_name=\"slugLengthLsl\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"4\" property_name=\"slugWidthWsl\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"0.4\" property_name=\"slugThicknessTsl\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"4.5\" property_name=\"slugFootExtendLengthLsf\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"4.5\" property_name=\"slugFootExtendWidthWsf\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"0.1\" property_name=\"slugOffsetGs\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"0.1\" property_name=\"slugFootClearanceGsf\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"1.8\" property_name=\"slugDiameterDs\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "dropInSlug",
+        "property": "slugDiameterDs",
+        "label": "Slug Diameter ds",
+        "baseline": 2,
+        "value": 1.8
+      },
+      "comparison_baseline": "br_v2_dropinslug_slugdiameterds/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c050_slugdiameterds_2_2",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"topCover\" new_value=\"encapsulant\" property_name=\"topCover\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"true\" property_name=\"includeSlug\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"4\" property_name=\"slugLengthLsl\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"4\" property_name=\"slugWidthWsl\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"0.4\" property_name=\"slugThicknessTsl\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"4.5\" property_name=\"slugFootExtendLengthLsf\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"4.5\" property_name=\"slugFootExtendWidthWsf\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"0.1\" property_name=\"slugOffsetGs\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"0.1\" property_name=\"slugFootClearanceGsf\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"2.2\" property_name=\"slugDiameterDs\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "dropInSlug",
+        "property": "slugDiameterDs",
+        "label": "Slug Diameter ds",
+        "baseline": 2,
+        "value": 2.2
+      },
+      "comparison_baseline": "br_v2_dropinslug_slugdiameterds/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c051_slugfootextendlengthlsf_4_05",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"topCover\" new_value=\"encapsulant\" property_name=\"topCover\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"true\" property_name=\"includeSlug\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"4\" property_name=\"slugLengthLsl\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"4\" property_name=\"slugWidthWsl\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"0.4\" property_name=\"slugThicknessTsl\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"2\" property_name=\"slugDiameterDs\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"4.5\" property_name=\"slugFootExtendWidthWsf\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"0.1\" property_name=\"slugOffsetGs\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"0.1\" property_name=\"slugFootClearanceGsf\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"4.05\" property_name=\"slugFootExtendLengthLsf\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "dropInSlug",
+        "property": "slugFootExtendLengthLsf",
+        "label": "Slug Foot Extend Length Lsf",
+        "baseline": 4.5,
+        "value": 4.05
+      },
+      "comparison_baseline": "br_v2_dropinslug_slugfootextendlengthlsf/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c052_slugfootextendlengthlsf_4_95",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"topCover\" new_value=\"encapsulant\" property_name=\"topCover\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"true\" property_name=\"includeSlug\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"4\" property_name=\"slugLengthLsl\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"4\" property_name=\"slugWidthWsl\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"0.4\" property_name=\"slugThicknessTsl\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"2\" property_name=\"slugDiameterDs\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"4.5\" property_name=\"slugFootExtendWidthWsf\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"0.1\" property_name=\"slugOffsetGs\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"0.1\" property_name=\"slugFootClearanceGsf\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"4.95\" property_name=\"slugFootExtendLengthLsf\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "dropInSlug",
+        "property": "slugFootExtendLengthLsf",
+        "label": "Slug Foot Extend Length Lsf",
+        "baseline": 4.5,
+        "value": 4.95
+      },
+      "comparison_baseline": "br_v2_dropinslug_slugfootextendlengthlsf/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c053_slugfootextendwidthwsf_4_05",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"topCover\" new_value=\"encapsulant\" property_name=\"topCover\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"true\" property_name=\"includeSlug\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"4\" property_name=\"slugLengthLsl\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"4\" property_name=\"slugWidthWsl\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"0.4\" property_name=\"slugThicknessTsl\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"2\" property_name=\"slugDiameterDs\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"4.5\" property_name=\"slugFootExtendLengthLsf\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"0.1\" property_name=\"slugOffsetGs\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"0.1\" property_name=\"slugFootClearanceGsf\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"4.05\" property_name=\"slugFootExtendWidthWsf\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "dropInSlug",
+        "property": "slugFootExtendWidthWsf",
+        "label": "Slug Foot Extend Width Wsf",
+        "baseline": 4.5,
+        "value": 4.05
+      },
+      "comparison_baseline": "br_v2_dropinslug_slugfootextendwidthwsf/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c054_slugfootextendwidthwsf_4_95",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"topCover\" new_value=\"encapsulant\" property_name=\"topCover\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"true\" property_name=\"includeSlug\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"4\" property_name=\"slugLengthLsl\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"4\" property_name=\"slugWidthWsl\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"0.4\" property_name=\"slugThicknessTsl\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"2\" property_name=\"slugDiameterDs\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"4.5\" property_name=\"slugFootExtendLengthLsf\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"0.1\" property_name=\"slugOffsetGs\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"0.1\" property_name=\"slugFootClearanceGsf\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"4.95\" property_name=\"slugFootExtendWidthWsf\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "dropInSlug",
+        "property": "slugFootExtendWidthWsf",
+        "label": "Slug Foot Extend Width Wsf",
+        "baseline": 4.5,
+        "value": 4.95
+      },
+      "comparison_baseline": "br_v2_dropinslug_slugfootextendwidthwsf/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c055_slugoffsetgs_0_09",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"topCover\" new_value=\"encapsulant\" property_name=\"topCover\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"true\" property_name=\"includeSlug\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"4\" property_name=\"slugLengthLsl\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"4\" property_name=\"slugWidthWsl\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"0.4\" property_name=\"slugThicknessTsl\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"2\" property_name=\"slugDiameterDs\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"4.5\" property_name=\"slugFootExtendLengthLsf\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"4.5\" property_name=\"slugFootExtendWidthWsf\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"0.1\" property_name=\"slugFootClearanceGsf\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"0.09\" property_name=\"slugOffsetGs\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "dropInSlug",
+        "property": "slugOffsetGs",
+        "label": "Slug Offset Gs",
+        "baseline": 0.1,
+        "value": 0.09
+      },
+      "comparison_baseline": "br_v2_dropinslug_slugoffsetgs/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c056_slugoffsetgs_0_11",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"topCover\" new_value=\"encapsulant\" property_name=\"topCover\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"true\" property_name=\"includeSlug\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"4\" property_name=\"slugLengthLsl\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"4\" property_name=\"slugWidthWsl\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"0.4\" property_name=\"slugThicknessTsl\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"2\" property_name=\"slugDiameterDs\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"4.5\" property_name=\"slugFootExtendLengthLsf\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"4.5\" property_name=\"slugFootExtendWidthWsf\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"0.1\" property_name=\"slugFootClearanceGsf\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"0.11\" property_name=\"slugOffsetGs\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "dropInSlug",
+        "property": "slugOffsetGs",
+        "label": "Slug Offset Gs",
+        "baseline": 0.1,
+        "value": 0.11
+      },
+      "comparison_baseline": "br_v2_dropinslug_slugoffsetgs/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c057_slugfootclearancegsf_0_09",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"topCover\" new_value=\"encapsulant\" property_name=\"topCover\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"true\" property_name=\"includeSlug\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"4\" property_name=\"slugLengthLsl\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"4\" property_name=\"slugWidthWsl\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"0.4\" property_name=\"slugThicknessTsl\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"2\" property_name=\"slugDiameterDs\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"4.5\" property_name=\"slugFootExtendLengthLsf\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"4.5\" property_name=\"slugFootExtendWidthWsf\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"0.1\" property_name=\"slugOffsetGs\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"0.09\" property_name=\"slugFootClearanceGsf\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "dropInSlug",
+        "property": "slugFootClearanceGsf",
+        "label": "Slug Foot Clearance gsf",
+        "baseline": 0.1,
+        "value": 0.09
+      },
+      "comparison_baseline": "br_v2_dropinslug_slugfootclearancegsf/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c058_slugfootclearancegsf_0_11",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"topCover\" new_value=\"encapsulant\" property_name=\"topCover\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"true\" property_name=\"includeSlug\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"4\" property_name=\"slugLengthLsl\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"4\" property_name=\"slugWidthWsl\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"0.4\" property_name=\"slugThicknessTsl\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"2\" property_name=\"slugDiameterDs\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"4.5\" property_name=\"slugFootExtendLengthLsf\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"4.5\" property_name=\"slugFootExtendWidthWsf\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"0.1\" property_name=\"slugOffsetGs\" />",
+        "<modify_component name=\"dropInSlug\" new_value=\"0.11\" property_name=\"slugFootClearanceGsf\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "dropInSlug",
+        "property": "slugFootClearanceGsf",
+        "label": "Slug Foot Clearance gsf",
+        "baseline": 0.1,
+        "value": 0.11
+      },
+      "comparison_baseline": "br_v2_dropinslug_slugfootclearancegsf/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c059_lidlengthlc_5_4",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"topCover\" new_value=\"lid\" property_name=\"topCover\" />",
+        "<modify_component name=\"topCover\" new_value=\"5.4\" property_name=\"lidLengthLc\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "topCover",
+        "property": "lidLengthLc",
+        "label": "Lid Length Lc",
+        "baseline": 6,
+        "value": 5.4
+      },
+      "comparison_baseline": "br_v2_topcover_lidlengthlc/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c060_lidlengthlc_6_6",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"topCover\" new_value=\"lid\" property_name=\"topCover\" />",
+        "<modify_component name=\"topCover\" new_value=\"6.6\" property_name=\"lidLengthLc\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "topCover",
+        "property": "lidLengthLc",
+        "label": "Lid Length Lc",
+        "baseline": 6,
+        "value": 6.6
+      },
+      "comparison_baseline": "br_v2_topcover_lidlengthlc/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c061_lidwidthwc_5_4",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"topCover\" new_value=\"lid\" property_name=\"topCover\" />",
+        "<modify_component name=\"topCover\" new_value=\"5.4\" property_name=\"lidWidthWc\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "topCover",
+        "property": "lidWidthWc",
+        "label": "Lid Width Wc",
+        "baseline": 6,
+        "value": 5.4
+      },
+      "comparison_baseline": "br_v2_topcover_lidwidthwc/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c062_lidwidthwc_6_6",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"topCover\" new_value=\"lid\" property_name=\"topCover\" />",
+        "<modify_component name=\"topCover\" new_value=\"6.6\" property_name=\"lidWidthWc\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "topCover",
+        "property": "lidWidthWc",
+        "label": "Lid Width Wc",
+        "baseline": 6,
+        "value": 6.6
+      },
+      "comparison_baseline": "br_v2_topcover_lidwidthwc/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c063_lidthicknesstc_0_9",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"topCover\" new_value=\"lid\" property_name=\"topCover\" />",
+        "<modify_component name=\"topCover\" new_value=\"0.9\" property_name=\"lidThicknessTc\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "topCover",
+        "property": "lidThicknessTc",
+        "label": "Lid Thickness Tc",
+        "baseline": 1,
+        "value": 0.9
+      },
+      "comparison_baseline": "br_v2_topcover_lidthicknesstc/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c064_lidthicknesstc_1_1",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"topCover\" new_value=\"lid\" property_name=\"topCover\" />",
+        "<modify_component name=\"topCover\" new_value=\"1.1\" property_name=\"lidThicknessTc\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "topCover",
+        "property": "lidThicknessTc",
+        "label": "Lid Thickness Tc",
+        "baseline": 1,
+        "value": 1.1
+      },
+      "comparison_baseline": "br_v2_topcover_lidthicknesstc/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c065_lidbasethicknesstcb_2_25",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"topCover\" new_value=\"lid\" property_name=\"topCover\" />",
+        "<modify_component name=\"topCover\" new_value=\"2.25\" property_name=\"lidBaseThicknessTcb\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "topCover",
+        "property": "lidBaseThicknessTcb",
+        "label": "Lid Base Thickness Tcb",
+        "baseline": 2.5,
+        "value": 2.25
+      },
+      "comparison_baseline": "br_v2_topcover_lidbasethicknesstcb/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c066_lidbasethicknesstcb_2_75",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"topCover\" new_value=\"lid\" property_name=\"topCover\" />",
+        "<modify_component name=\"topCover\" new_value=\"2.75\" property_name=\"lidBaseThicknessTcb\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "topCover",
+        "property": "lidBaseThicknessTcb",
+        "label": "Lid Base Thickness Tcb",
+        "baseline": 2.5,
+        "value": 2.75
+      },
+      "comparison_baseline": "br_v2_topcover_lidbasethicknesstcb/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c067_dieattachthicknesstda_0_045",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"topCover\" new_value=\"lid\" property_name=\"topCover\" />",
+        "<modify_component name=\"topCover\" new_value=\"0.045\" property_name=\"dieAttachThicknessTda\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "topCover",
+        "property": "dieAttachThicknessTda",
+        "label": "Die Attach Thickness tda",
+        "baseline": 0.05,
+        "value": 0.045
+      },
+      "comparison_baseline": "br_v2_topcover_dieattachthicknesstda/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c068_dieattachthicknesstda_0_055",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"topCover\" new_value=\"lid\" property_name=\"topCover\" />",
+        "<modify_component name=\"topCover\" new_value=\"0.055\" property_name=\"dieAttachThicknessTda\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "topCover",
+        "property": "dieAttachThicknessTda",
+        "label": "Die Attach Thickness tda",
+        "baseline": 0.05,
+        "value": 0.055
+      },
+      "comparison_baseline": "br_v2_topcover_dieattachthicknesstda/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c069_lidadhesivethickness_0_18",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"topCover\" new_value=\"lid\" property_name=\"topCover\" />",
+        "<modify_component name=\"topCover\" new_value=\"0.18\" property_name=\"lidAdhesiveThickness\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "topCover",
+        "property": "lidAdhesiveThickness",
+        "label": "Lid Adhesive Thickness",
+        "baseline": 0.2,
+        "value": 0.18
+      },
+      "comparison_baseline": "br_v2_topcover_lidadhesivethickness/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c070_lidadhesivethickness_0_22",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"topCover\" new_value=\"lid\" property_name=\"topCover\" />",
+        "<modify_component name=\"topCover\" new_value=\"0.22\" property_name=\"lidAdhesiveThickness\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "topCover",
+        "property": "lidAdhesiveThickness",
+        "label": "Lid Adhesive Thickness",
+        "baseline": 0.2,
+        "value": 0.22
+      },
+      "comparison_baseline": "br_v2_topcover_lidadhesivethickness/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c071_stiffenerlengthls_5_4",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"topCover\" new_value=\"lid\" property_name=\"topCover\" />",
+        "<modify_component name=\"topCover\" new_value=\"yes\" property_name=\"stiffener\" />",
+        "<modify_component name=\"topCover\" new_value=\"6\" property_name=\"stiffenerWidthWs\" />",
+        "<modify_component name=\"topCover\" new_value=\"3\" property_name=\"stiffenerCavityLengthLsc\" />",
+        "<modify_component name=\"topCover\" new_value=\"3\" property_name=\"stiffenerCavityWidthWsc\" />",
+        "<modify_component name=\"topCover\" new_value=\"0.1\" property_name=\"stiffenerAdhesiveThickness\" />",
+        "<modify_component name=\"topCover\" new_value=\"5.4\" property_name=\"stiffenerLengthLs\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "topCover",
+        "property": "stiffenerLengthLs",
+        "label": "Stiffener Length Ls",
+        "baseline": 6,
+        "value": 5.4
+      },
+      "comparison_baseline": "br_v2_topcover_stiffenerlengthls/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c072_stiffenerlengthls_6_6",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"topCover\" new_value=\"lid\" property_name=\"topCover\" />",
+        "<modify_component name=\"topCover\" new_value=\"yes\" property_name=\"stiffener\" />",
+        "<modify_component name=\"topCover\" new_value=\"6\" property_name=\"stiffenerWidthWs\" />",
+        "<modify_component name=\"topCover\" new_value=\"3\" property_name=\"stiffenerCavityLengthLsc\" />",
+        "<modify_component name=\"topCover\" new_value=\"3\" property_name=\"stiffenerCavityWidthWsc\" />",
+        "<modify_component name=\"topCover\" new_value=\"0.1\" property_name=\"stiffenerAdhesiveThickness\" />",
+        "<modify_component name=\"topCover\" new_value=\"6.6\" property_name=\"stiffenerLengthLs\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "topCover",
+        "property": "stiffenerLengthLs",
+        "label": "Stiffener Length Ls",
+        "baseline": 6,
+        "value": 6.6
+      },
+      "comparison_baseline": "br_v2_topcover_stiffenerlengthls/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c073_stiffenerwidthws_5_4",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"topCover\" new_value=\"lid\" property_name=\"topCover\" />",
+        "<modify_component name=\"topCover\" new_value=\"yes\" property_name=\"stiffener\" />",
+        "<modify_component name=\"topCover\" new_value=\"6\" property_name=\"stiffenerLengthLs\" />",
+        "<modify_component name=\"topCover\" new_value=\"3\" property_name=\"stiffenerCavityLengthLsc\" />",
+        "<modify_component name=\"topCover\" new_value=\"3\" property_name=\"stiffenerCavityWidthWsc\" />",
+        "<modify_component name=\"topCover\" new_value=\"0.1\" property_name=\"stiffenerAdhesiveThickness\" />",
+        "<modify_component name=\"topCover\" new_value=\"5.4\" property_name=\"stiffenerWidthWs\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "topCover",
+        "property": "stiffenerWidthWs",
+        "label": "Stiffener Width Ws",
+        "baseline": 6,
+        "value": 5.4
+      },
+      "comparison_baseline": "br_v2_topcover_stiffenerwidthws/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c074_stiffenerwidthws_6_6",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"topCover\" new_value=\"lid\" property_name=\"topCover\" />",
+        "<modify_component name=\"topCover\" new_value=\"yes\" property_name=\"stiffener\" />",
+        "<modify_component name=\"topCover\" new_value=\"6\" property_name=\"stiffenerLengthLs\" />",
+        "<modify_component name=\"topCover\" new_value=\"3\" property_name=\"stiffenerCavityLengthLsc\" />",
+        "<modify_component name=\"topCover\" new_value=\"3\" property_name=\"stiffenerCavityWidthWsc\" />",
+        "<modify_component name=\"topCover\" new_value=\"0.1\" property_name=\"stiffenerAdhesiveThickness\" />",
+        "<modify_component name=\"topCover\" new_value=\"6.6\" property_name=\"stiffenerWidthWs\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "topCover",
+        "property": "stiffenerWidthWs",
+        "label": "Stiffener Width Ws",
+        "baseline": 6,
+        "value": 6.6
+      },
+      "comparison_baseline": "br_v2_topcover_stiffenerwidthws/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c075_stiffenercavitylengthlsc_2_7",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"topCover\" new_value=\"lid\" property_name=\"topCover\" />",
+        "<modify_component name=\"topCover\" new_value=\"yes\" property_name=\"stiffener\" />",
+        "<modify_component name=\"topCover\" new_value=\"6\" property_name=\"stiffenerLengthLs\" />",
+        "<modify_component name=\"topCover\" new_value=\"6\" property_name=\"stiffenerWidthWs\" />",
+        "<modify_component name=\"topCover\" new_value=\"3\" property_name=\"stiffenerCavityWidthWsc\" />",
+        "<modify_component name=\"topCover\" new_value=\"0.1\" property_name=\"stiffenerAdhesiveThickness\" />",
+        "<modify_component name=\"topCover\" new_value=\"2.7\" property_name=\"stiffenerCavityLengthLsc\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "topCover",
+        "property": "stiffenerCavityLengthLsc",
+        "label": "Stiffener Cavity Length Lsc",
+        "baseline": 3,
+        "value": 2.7
+      },
+      "comparison_baseline": "br_v2_topcover_stiffenercavitylengthlsc/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c076_stiffenercavitylengthlsc_3_3",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"topCover\" new_value=\"lid\" property_name=\"topCover\" />",
+        "<modify_component name=\"topCover\" new_value=\"yes\" property_name=\"stiffener\" />",
+        "<modify_component name=\"topCover\" new_value=\"6\" property_name=\"stiffenerLengthLs\" />",
+        "<modify_component name=\"topCover\" new_value=\"6\" property_name=\"stiffenerWidthWs\" />",
+        "<modify_component name=\"topCover\" new_value=\"3\" property_name=\"stiffenerCavityWidthWsc\" />",
+        "<modify_component name=\"topCover\" new_value=\"0.1\" property_name=\"stiffenerAdhesiveThickness\" />",
+        "<modify_component name=\"topCover\" new_value=\"3.3\" property_name=\"stiffenerCavityLengthLsc\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "topCover",
+        "property": "stiffenerCavityLengthLsc",
+        "label": "Stiffener Cavity Length Lsc",
+        "baseline": 3,
+        "value": 3.3
+      },
+      "comparison_baseline": "br_v2_topcover_stiffenercavitylengthlsc/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c077_stiffenercavitywidthwsc_2_7",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"topCover\" new_value=\"lid\" property_name=\"topCover\" />",
+        "<modify_component name=\"topCover\" new_value=\"yes\" property_name=\"stiffener\" />",
+        "<modify_component name=\"topCover\" new_value=\"6\" property_name=\"stiffenerLengthLs\" />",
+        "<modify_component name=\"topCover\" new_value=\"6\" property_name=\"stiffenerWidthWs\" />",
+        "<modify_component name=\"topCover\" new_value=\"3\" property_name=\"stiffenerCavityLengthLsc\" />",
+        "<modify_component name=\"topCover\" new_value=\"0.1\" property_name=\"stiffenerAdhesiveThickness\" />",
+        "<modify_component name=\"topCover\" new_value=\"2.7\" property_name=\"stiffenerCavityWidthWsc\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "topCover",
+        "property": "stiffenerCavityWidthWsc",
+        "label": "Stiffener Cavity Width Wsc",
+        "baseline": 3,
+        "value": 2.7
+      },
+      "comparison_baseline": "br_v2_topcover_stiffenercavitywidthwsc/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c078_stiffenercavitywidthwsc_3_3",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"topCover\" new_value=\"lid\" property_name=\"topCover\" />",
+        "<modify_component name=\"topCover\" new_value=\"yes\" property_name=\"stiffener\" />",
+        "<modify_component name=\"topCover\" new_value=\"6\" property_name=\"stiffenerLengthLs\" />",
+        "<modify_component name=\"topCover\" new_value=\"6\" property_name=\"stiffenerWidthWs\" />",
+        "<modify_component name=\"topCover\" new_value=\"3\" property_name=\"stiffenerCavityLengthLsc\" />",
+        "<modify_component name=\"topCover\" new_value=\"0.1\" property_name=\"stiffenerAdhesiveThickness\" />",
+        "<modify_component name=\"topCover\" new_value=\"3.3\" property_name=\"stiffenerCavityWidthWsc\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "topCover",
+        "property": "stiffenerCavityWidthWsc",
+        "label": "Stiffener Cavity Width Wsc",
+        "baseline": 3,
+        "value": 3.3
+      },
+      "comparison_baseline": "br_v2_topcover_stiffenercavitywidthwsc/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c079_stiffeneradhesivethickness_0_09",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"topCover\" new_value=\"lid\" property_name=\"topCover\" />",
+        "<modify_component name=\"topCover\" new_value=\"yes\" property_name=\"stiffener\" />",
+        "<modify_component name=\"topCover\" new_value=\"6\" property_name=\"stiffenerLengthLs\" />",
+        "<modify_component name=\"topCover\" new_value=\"6\" property_name=\"stiffenerWidthWs\" />",
+        "<modify_component name=\"topCover\" new_value=\"3\" property_name=\"stiffenerCavityLengthLsc\" />",
+        "<modify_component name=\"topCover\" new_value=\"3\" property_name=\"stiffenerCavityWidthWsc\" />",
+        "<modify_component name=\"topCover\" new_value=\"0.09\" property_name=\"stiffenerAdhesiveThickness\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "topCover",
+        "property": "stiffenerAdhesiveThickness",
+        "label": "Stiffener Adhesive Thickness",
+        "baseline": 0.1,
+        "value": 0.09
+      },
+      "comparison_baseline": "br_v2_topcover_stiffeneradhesivethickness/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c080_stiffeneradhesivethickness_0_11",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"topCover\" new_value=\"lid\" property_name=\"topCover\" />",
+        "<modify_component name=\"topCover\" new_value=\"yes\" property_name=\"stiffener\" />",
+        "<modify_component name=\"topCover\" new_value=\"6\" property_name=\"stiffenerLengthLs\" />",
+        "<modify_component name=\"topCover\" new_value=\"6\" property_name=\"stiffenerWidthWs\" />",
+        "<modify_component name=\"topCover\" new_value=\"3\" property_name=\"stiffenerCavityLengthLsc\" />",
+        "<modify_component name=\"topCover\" new_value=\"3\" property_name=\"stiffenerCavityWidthWsc\" />",
+        "<modify_component name=\"topCover\" new_value=\"0.11\" property_name=\"stiffenerAdhesiveThickness\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "topCover",
+        "property": "stiffenerAdhesiveThickness",
+        "label": "Stiffener Adhesive Thickness",
+        "baseline": 0.1,
+        "value": 0.11
+      },
+      "comparison_baseline": "br_v2_topcover_stiffeneradhesivethickness/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c081_platelengthlc_5_4",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"topCover\" new_value=\"plate\" property_name=\"topCover\" />",
+        "<modify_component name=\"topCover\" new_value=\"5.4\" property_name=\"plateLengthLc\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "topCover",
+        "property": "plateLengthLc",
+        "label": "Plate Length Lc",
+        "baseline": 6,
+        "value": 5.4
+      },
+      "comparison_baseline": "br_v2_topcover_platelengthlc/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c082_platelengthlc_6_6",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"topCover\" new_value=\"plate\" property_name=\"topCover\" />",
+        "<modify_component name=\"topCover\" new_value=\"6.6\" property_name=\"plateLengthLc\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "topCover",
+        "property": "plateLengthLc",
+        "label": "Plate Length Lc",
+        "baseline": 6,
+        "value": 6.6
+      },
+      "comparison_baseline": "br_v2_topcover_platelengthlc/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c083_platewidthwc_5_4",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"topCover\" new_value=\"plate\" property_name=\"topCover\" />",
+        "<modify_component name=\"topCover\" new_value=\"5.4\" property_name=\"plateWidthWc\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "topCover",
+        "property": "plateWidthWc",
+        "label": "Plate Width Wc",
+        "baseline": 6,
+        "value": 5.4
+      },
+      "comparison_baseline": "br_v2_topcover_platewidthwc/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c084_platewidthwc_6_6",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"topCover\" new_value=\"plate\" property_name=\"topCover\" />",
+        "<modify_component name=\"topCover\" new_value=\"6.6\" property_name=\"plateWidthWc\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "topCover",
+        "property": "plateWidthWc",
+        "label": "Plate Width Wc",
+        "baseline": 6,
+        "value": 6.6
+      },
+      "comparison_baseline": "br_v2_topcover_platewidthwc/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c085_platethicknesstc_0_9",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"topCover\" new_value=\"plate\" property_name=\"topCover\" />",
+        "<modify_component name=\"topCover\" new_value=\"0.9\" property_name=\"plateThicknessTc\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "topCover",
+        "property": "plateThicknessTc",
+        "label": "Plate Thickness Tc",
+        "baseline": 1,
+        "value": 0.9
+      },
+      "comparison_baseline": "br_v2_topcover_platethicknesstc/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c086_platethicknesstc_1_1",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"topCover\" new_value=\"plate\" property_name=\"topCover\" />",
+        "<modify_component name=\"topCover\" new_value=\"1.1\" property_name=\"plateThicknessTc\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "topCover",
+        "property": "plateThicknessTc",
+        "label": "Plate Thickness Tc",
+        "baseline": 1,
+        "value": 1.1
+      },
+      "comparison_baseline": "br_v2_topcover_platethicknesstc/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c087_lengthle_3_6",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"topCover\" new_value=\"encapsulant\" property_name=\"topCover\" />",
+        "<modify_component name=\"topCover\" new_value=\"3.6\" property_name=\"lengthLe\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "topCover",
+        "property": "lengthLe",
+        "label": "Encapsulant Length Le",
+        "baseline": 4,
+        "value": 3.6
+      },
+      "comparison_baseline": "br_v2_topcover_lengthle/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c088_lengthle_4_4",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"topCover\" new_value=\"encapsulant\" property_name=\"topCover\" />",
+        "<modify_component name=\"topCover\" new_value=\"4.4\" property_name=\"lengthLe\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "topCover",
+        "property": "lengthLe",
+        "label": "Encapsulant Length Le",
+        "baseline": 4,
+        "value": 4.4
+      },
+      "comparison_baseline": "br_v2_topcover_lengthle/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c089_widthwe_3_6",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"topCover\" new_value=\"encapsulant\" property_name=\"topCover\" />",
+        "<modify_component name=\"topCover\" new_value=\"3.6\" property_name=\"widthWe\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "topCover",
+        "property": "widthWe",
+        "label": "Encapsulant Width We",
+        "baseline": 4,
+        "value": 3.6
+      },
+      "comparison_baseline": "br_v2_topcover_widthwe/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c090_widthwe_4_4",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"topCover\" new_value=\"encapsulant\" property_name=\"topCover\" />",
+        "<modify_component name=\"topCover\" new_value=\"4.4\" property_name=\"widthWe\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "topCover",
+        "property": "widthWe",
+        "label": "Encapsulant Width We",
+        "baseline": 4,
+        "value": 4.4
+      },
+      "comparison_baseline": "br_v2_topcover_widthwe/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c091_thicknesste_1_08",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"topCover\" new_value=\"encapsulant\" property_name=\"topCover\" />",
+        "<modify_component name=\"topCover\" new_value=\"1.08\" property_name=\"thicknessTe\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "topCover",
+        "property": "thicknessTe",
+        "label": "Encapsulant Thickness Te",
+        "baseline": 1.2,
+        "value": 1.08
+      },
+      "comparison_baseline": "br_v2_topcover_thicknesste/model.xml",
+      "expected_outcome": "semantic_change"
+    },
+    {
+      "id": "par_v2_c092_thicknesste_1_32",
+      "commands": [
+        "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+        "<modify_component name=\"topCover\" new_value=\"encapsulant\" property_name=\"topCover\" />",
+        "<modify_component name=\"topCover\" new_value=\"1.32\" property_name=\"thicknessTe\" />"
+      ],
+      "kind": "numeric_parameter",
+      "target": {
+        "component": "topCover",
+        "property": "thicknessTe",
+        "label": "Encapsulant Thickness Te",
+        "baseline": 1.2,
+        "value": 1.32
+      },
+      "comparison_baseline": "br_v2_topcover_thicknesste/model.xml",
+      "expected_outcome": "semantic_change"
+    }
+  ]
+}
