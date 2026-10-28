@@ -1,4 +1,7 @@
 using System.Reflection;
+using System.Windows.Automation;
+using System.Windows.Automation.Peers;
+using System.Windows.Automation.Provider;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
@@ -110,12 +113,36 @@ static class WorkspaceChecks
             Require(row.Header is TreeRow, "tree row lost structured header");
         }
         var root = (TreeViewItem)tree.Items[0];
-        bool expanded = root.IsExpanded;
+        var group = root is ModelRootItem ? (TreeViewItem)root.Items[0] : root;
+        bool expanded = group.IsExpanded;
+        group.IsExpanded = false;
+        tree.UpdateLayout();
+        Require(group.ActualHeight == 28, "collapsed group still has excess spacing");
+        group.IsExpanded = expanded;
+        tree.UpdateLayout();
+    }
+
+    public static void CheckModelRoot(MainWindow window)
+    {
+        var tree = Find<TreeView>(window, "ModelTree");
+        var root = (TreeViewItem)tree.Items[0];
         root.IsExpanded = false;
         tree.UpdateLayout();
-        Require(root.ActualHeight == 28, "collapsed group still has excess spacing");
-        root.IsExpanded = expanded;
+        Require(root.IsExpanded, "model root collapsed");
+        Require(!Descendants(root).OfType<ToggleButton>().Any(button =>
+            ReferenceEquals(button.TemplatedParent, root)), "root still has an expander");
+        var peer = FrameworkElementAutomationPeer.CreatePeerForElement(root)!;
+        var expansion = (IExpandCollapseProvider)peer.GetPattern(PatternInterface.ExpandCollapse);
+        expansion.Collapse();
+        Require(expansion.ExpandCollapseState == ExpandCollapseState.Expanded, "automation collapsed model root");
+        var flags = BindingFlags.NonPublic | BindingFlags.Instance;
+        var expand = typeof(MainWindow).GetMethod("ExpandTree", flags)!;
+        expand.Invoke(window, [false]);
+        Require(root.IsExpanded && root.Items.Cast<TreeViewItem>().All(group => !group.IsExpanded),
+            "collapse all must preserve root and collapse subgroups");
+        expand.Invoke(window, [true]);
         tree.UpdateLayout();
+        Require(root.IsExpanded && root.Items.Cast<TreeViewItem>().All(group => group.IsExpanded), "expand all failed");
     }
 
     static IEnumerable<DependencyObject> Descendants(DependencyObject parent)

@@ -48,6 +48,22 @@
       </Setter.Value>
     </Setter>
   </Style>
+  <Style x:Key="ExplorerModelRootItem" TargetType="local:ModelRootItem" BasedOn="{StaticResource ExplorerTreeItem}">
+    <Setter Property="Focusable" Value="False"/>
+    <Setter Property="Template">
+      <Setter.Value>
+        <ControlTemplate TargetType="local:ModelRootItem">
+          <Grid>
+            <Grid.RowDefinitions><RowDefinition Height="28"/><RowDefinition Height="Auto"/></Grid.RowDefinitions>
+            <Border x:Name="RowBackground" Padding="23,0,3,0" BorderBrush="#F1F4F7" BorderThickness="0,0,0,1">
+              <ContentPresenter x:Name="PART_Header" ContentSource="Header" HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+            </Border>
+            <ItemsPresenter Grid.Row="1" Margin="20,0,0,0"/>
+          </Grid>
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+  </Style>
   <Style x:Key="ExplorerTree" TargetType="TreeView">
     <Setter Property="ItemContainerStyle" Value="{StaticResource ExplorerTreeItem}"/>
     <Setter Property="HorizontalContentAlignment" Value="Stretch"/>

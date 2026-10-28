@@ -111,12 +111,10 @@ public partial class MainWindow
 
     TreeViewItem TreeItem(Node node)
     {
-        var item = new TreeViewItem
-        {
-            Header = node.Name,
-            Tag = node,
-            Style = (Style)FindResource("ExplorerTreeItem")
-        };
+        TreeViewItem item = node.Id == "package" ? new ModelRootItem() : new TreeViewItem();
+        item.Header = node.Name;
+        item.Tag = node;
+        item.Style = (Style)FindResource(node.Id == "package" ? "ExplorerModelRootItem" : "ExplorerTreeItem");
         item.ContextMenuOpening += (_, e) =>
         {
             var targets = node.Block != null && workspace.Selected.Contains(node.Id) ? workspace.Model!.Blocks.Where(b => workspace.Selected.Contains(b.Id)).ToList() : node.Blocks;

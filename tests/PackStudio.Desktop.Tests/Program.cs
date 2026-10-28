@@ -53,6 +53,7 @@ public static class Program
                     var viewport = (HelixViewport3D)window.FindName("Viewport");
                     if (viewport.Children.Count != vm.Model.Blocks.Count + 1)
                         throw new Exception("preview block count");
+                    WorkspaceChecks.CheckModelRoot(window);
                     vm.ChangeVisibility(vm.Model.Blocks.Select(b => b.Id), false);
                     if (viewport.Children.Count != 1)
                         throw new Exception("hidden blocks remain in preview");
