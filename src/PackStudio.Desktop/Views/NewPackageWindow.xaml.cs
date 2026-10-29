@@ -77,9 +77,7 @@ public partial class NewPackageWindow : Window
         FootprintBox.ItemsSource = PresetsForVariant();
         FootprintBox.SelectedValue = template.DefaultPreset;
         bool bare = id == "bare_die";
-        OutlineLabel.Visibility = OutlineBox.Visibility = bare ? Visibility.Collapsed : Visibility.Visible;
         FootprintLabel.Visibility = FootprintBox.Visibility = bare ? Visibility.Collapsed : Visibility.Visible;
-        DieTypeLabel.Visibility = DieTypeBox.Visibility = id is "chip_array" or "pbga_wb" or "pqfp" or "sop" ? Visibility.Visible : Visibility.Collapsed;
         syncing = false;
         ApplyPreset();
     }

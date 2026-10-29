@@ -73,17 +73,13 @@
         <StackPanel Margin="0,8,0,0">
           <Grid>
             <Grid.ColumnDefinitions><ColumnDefinition Width="130"/><ColumnDefinition Width="*"/></Grid.ColumnDefinitions>
-            <Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/></Grid.RowDefinitions>
+            <Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/></Grid.RowDefinitions>
             <TextBlock Text="设计名称" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,12,10"/>
             <TextBox x:Name="DesignNameBox" Grid.Column="1" MaxLength="160" Margin="0,0,0,10"/>
-            <TextBlock x:Name="OutlineLabel" Grid.Row="1" Text="Outline Type" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,12,10"/>
-            <ComboBox x:Name="OutlineBox" Grid.Row="1" Grid.Column="1" IsEnabled="False" SelectedIndex="0" Margin="0,0,0,10"><ComboBoxItem Content="Standard Outline"/></ComboBox>
-            <TextBlock x:Name="VariantLabel" Grid.Row="2" Text="封装子类型" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,12,10"/>
-            <ComboBox x:Name="VariantBox" Grid.Row="2" Grid.Column="1" SelectionChanged="Variant_Changed" Margin="0,0,0,10"/>
-            <TextBlock x:Name="FootprintLabel" Grid.Row="3" Text="JEDEC Footprint" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,12,10"/>
-            <ComboBox x:Name="FootprintBox" Grid.Row="3" Grid.Column="1" DisplayMemberPath="Id" SelectedValuePath="Id" IsTextSearchEnabled="True" SelectionChanged="Footprint_Changed" Margin="0,0,0,10"/>
-            <TextBlock x:Name="DieTypeLabel" Grid.Row="4" Text="Die Type" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,12,10"/>
-            <ComboBox x:Name="DieTypeBox" Grid.Row="4" Grid.Column="1" IsEnabled="False" SelectedIndex="0" Margin="0,0,0,10"><ComboBoxItem Content="Actual Die"/></ComboBox>
+            <TextBlock x:Name="VariantLabel" Grid.Row="1" Text="封装子类型" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,12,10"/>
+            <ComboBox x:Name="VariantBox" Grid.Row="1" Grid.Column="1" SelectionChanged="Variant_Changed" Margin="0,0,0,10"/>
+            <TextBlock x:Name="FootprintLabel" Grid.Row="2" Text="JEDEC Footprint" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,12,10"/>
+            <ComboBox x:Name="FootprintBox" Grid.Row="2" Grid.Column="1" DisplayMemberPath="Id" SelectedValuePath="Id" IsTextSearchEnabled="True" SelectionChanged="Footprint_Changed" Margin="0,0,0,10"/>
           </Grid>
           <StackPanel x:Name="CreationOptions"/>
           <TextBlock x:Name="CreationError" Foreground="#B42318" TextWrapping="Wrap" Margin="130,12,0,0"/>
