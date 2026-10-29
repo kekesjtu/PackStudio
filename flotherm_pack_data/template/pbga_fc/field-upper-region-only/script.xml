@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='utf-8'?>
+<flopack_xml_log_file version="1.0">
+    <new_package package_type="pbga_fc">
+        <new_value new_value="pbga_fc" property_name="designName" />
+        <new_value new_value="standardOutline" property_name="outlineType" />
+        <new_value new_value="PBGAFC_49_6X6mm" property_name="jedecFootprint" />
+        <new_value new_value="bareDie" property_name="topCover" />
+    </new_package>
+    <modify_component name="upperBuiltUpRegion" new_value="0.1" property_name="thicknessA2b1" />
+    <modify_component name="upperBuiltUpRegion" new_value="BT" property_name="dielectricMaterial" />
+    <modify_component name="upperBuiltUpRegion" new_value="yes" property_name="filledVias" />
+    <save_des filename="model.des" />
+    <export_floxml filename="model.xml" />
+    <quit />
+</flopack_xml_log_file>

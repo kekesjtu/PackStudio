@@ -1,0 +1,310 @@
+{
+  "run_status": "success",
+  "errors": [],
+  "checks": [
+    {
+      "stem": "check-01",
+      "group": "die",
+      "property": "dieLengthLd",
+      "value": 5.1,
+      "key": "Ld",
+      "expected": "5.1",
+      "delta": {
+        "Ld": "5.1"
+      },
+      "actual": "5.1",
+      "passed": true
+    },
+    {
+      "stem": "check-02",
+      "group": "die",
+      "property": "dieWidthWd",
+      "value": 4.7,
+      "key": "Wd",
+      "expected": "4.7",
+      "delta": {
+        "Wd": "4.7"
+      },
+      "actual": "4.7",
+      "passed": true
+    },
+    {
+      "stem": "check-03",
+      "group": "die",
+      "property": "dieThicknessTd",
+      "value": 0.25,
+      "key": "td",
+      "expected": "0.25",
+      "delta": {
+        "td": "0.25"
+      },
+      "actual": "0.25",
+      "passed": true
+    },
+    {
+      "stem": "check-04",
+      "group": "die",
+      "property": "packagePower",
+      "value": 2.3,
+      "key": "P",
+      "expected": "2.3",
+      "delta": {
+        "P": "2.3"
+      },
+      "actual": "2.3",
+      "passed": true
+    },
+    {
+      "stem": "check-05",
+      "group": "die",
+      "property": "flippedDie",
+      "value": true,
+      "key": "flip",
+      "expected": "CHECKED",
+      "delta": {
+        "flip": "CHECKED"
+      },
+      "actual": "CHECKED",
+      "passed": true
+    },
+    {
+      "stem": "check-06",
+      "group": "bumpedDie",
+      "property": "bumpedDie",
+      "value": true,
+      "key": "bumped",
+      "expected": "CHECKED",
+      "delta": {
+        "bumped": "CHECKED"
+      },
+      "actual": "CHECKED",
+      "passed": true
+    },
+    {
+      "stem": "check-07",
+      "group": "bumpedDie",
+      "property": "numberOfSolderBalls",
+      "value": 121,
+      "key": "nballs",
+      "expected": "121",
+      "delta": {
+        "nballs": "121"
+      },
+      "actual": "121",
+      "passed": true
+    },
+    {
+      "stem": "check-08",
+      "group": "bumpedDie",
+      "property": "ballDiameterb",
+      "value": 0.13,
+      "key": "b",
+      "expected": "0.13",
+      "delta": {
+        "b": "0.13"
+      },
+      "actual": "0.13",
+      "passed": true
+    },
+    {
+      "stem": "check-09",
+      "group": "bumpedDie",
+      "property": "ballHeight",
+      "value": 0.11,
+      "key": "tsd",
+      "expected": "0.11",
+      "delta": {
+        "tsd": "0.11"
+      },
+      "actual": "0.11",
+      "passed": true
+    },
+    {
+      "stem": "check-10",
+      "group": "modelingOptions",
+      "property": "localizeGrid",
+      "value": false,
+      "key": "localgrid",
+      "expected": "UNCHECKED",
+      "delta": {
+        "localgrid": "UNCHECKED"
+      },
+      "actual": "UNCHECKED",
+      "passed": true
+    },
+    {
+      "stem": "check-11",
+      "group": "modelingOptions",
+      "property": "gridDensity",
+      "value": "medium",
+      "key": "radio_lgc",
+      "expected": "2",
+      "delta": {
+        "radio_lgc": "2"
+      },
+      "actual": "2",
+      "passed": true
+    },
+    {
+      "stem": "check-12",
+      "group": "die",
+      "property": "dieMaterial",
+      "value": "GaAs",
+      "key": "radio_die",
+      "expected": "2",
+      "delta": {
+        "radio_die": "2"
+      },
+      "actual": "2",
+      "passed": true
+    },
+    {
+      "stem": "check-13",
+      "group": "topCover",
+      "property": "stiffener",
+      "value": "yes",
+      "key": "radio_stiffener",
+      "expected": "1",
+      "delta": {
+        "radio_stiffener": "1"
+      },
+      "actual": "1",
+      "passed": true
+    },
+    {
+      "stem": "check-14",
+      "group": "dropInSlug",
+      "property": "includeSlug",
+      "value": true,
+      "key": "slug",
+      "expected": "CHECKED",
+      "delta": {
+        "slug": "CHECKED"
+      },
+      "actual": "CHECKED",
+      "passed": true
+    },
+    {
+      "stem": "check-15",
+      "group": "dropInSlug",
+      "property": "adhesivePresentUnderSlugFoot",
+      "value": true,
+      "key": "slug_adh",
+      "expected": "CHECKED",
+      "delta": {
+        "slug_adh": "CHECKED"
+      },
+      "actual": "CHECKED",
+      "passed": true
+    },
+    {
+      "stem": "check-16",
+      "group": "topCover",
+      "property": "stiffener",
+      "value": "yes",
+      "key": "radio_stiffener",
+      "expected": "1",
+      "delta": {
+        "radio_stiffener": "1"
+      },
+      "actual": "1",
+      "passed": true
+    },
+    {
+      "stem": "check-17",
+      "group": "dropInSlug",
+      "property": "includeSlug",
+      "value": true,
+      "key": "slug",
+      "expected": "CHECKED",
+      "delta": {
+        "slug": "CHECKED"
+      },
+      "actual": "CHECKED",
+      "passed": true
+    },
+    {
+      "stem": "check-18",
+      "group": "dropInSlug",
+      "property": "adhesivePresentUnderSlugFoot",
+      "value": true,
+      "key": "slug_adh",
+      "expected": "CHECKED",
+      "delta": {
+        "slug_adh": "CHECKED"
+      },
+      "actual": "CHECKED",
+      "passed": true
+    },
+    {
+      "stem": "check-19",
+      "group": "modelingOptions",
+      "property": "modelCoreViasAs",
+      "value": "orthotropicCuboid",
+      "key": "radio_Via_modeling",
+      "expected": "4",
+      "delta": {
+        "radio_Via_modeling": "4"
+      },
+      "actual": "4",
+      "passed": true
+    },
+    {
+      "stem": "check-20",
+      "group": "metalLayers",
+      "property": "substrateLayer",
+      "value": "4-Layer",
+      "key": "num_metal_layers",
+      "expected": "2",
+      "delta": {
+        "num_metal_layers": "2"
+      },
+      "actual": "2",
+      "passed": true
+    },
+    {
+      "stem": "check-21",
+      "group": "modelingOptions",
+      "property": "bondWireModeling",
+      "value": "ignore",
+      "key": "radio_BW_modeling",
+      "expected": "2",
+      "delta": {
+        "radio_BW_modeling": "2"
+      },
+      "actual": "2",
+      "passed": true
+    },
+    {
+      "stem": "check-22",
+      "group": "thermalLand",
+      "property": "includeLand",
+      "value": true,
+      "key": "isLand",
+      "expected": "CHECKED",
+      "delta": {
+        "isLand": "CHECKED"
+      },
+      "actual": "CHECKED",
+      "passed": true
+    },
+    {
+      "stem": "check-23",
+      "group": "thermalLand",
+      "property": "landThickness",
+      "value": 0.08,
+      "key": "ts",
+      "expected": "0.08",
+      "delta": {
+        "ts": "0.08"
+      },
+      "actual": "0.08",
+      "passed": true
+    }
+  ],
+  "fc_table_delta": {
+    "coverage1": "30",
+    "tz1": "0.018",
+    "z1": "0.1"
+  }
+}

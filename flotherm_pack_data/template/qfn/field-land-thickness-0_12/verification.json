@@ -1,0 +1,17 @@
+{
+  "template": "qfn",
+  "point": "field-land-thickness-0_12",
+  "status": "passed",
+  "script_xsd": "passed",
+  "floxml_xsd": "passed",
+  "provenance": "passed",
+  "des_parameter_count": 44,
+  "des_assertions": {
+    "ts": "0.12",
+    "isLand": "CHECKED"
+  },
+  "des_changes": {
+    "ts": "0.12"
+  },
+  "validation_scope": "native export, XSD, DES readback and output fingerprints"
+}

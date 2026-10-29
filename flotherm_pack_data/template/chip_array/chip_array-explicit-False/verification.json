@@ -1,18 +1,13 @@
 {
   "template": "chip_array",
   "point": "chip_array-explicit-False",
-  "status": "passed",
+  "status": "public_model_mismatch",
   "script_xsd": "passed",
   "floxml_xsd": "passed",
   "provenance": "passed",
   "des_parameter_count": 55,
   "public_model": {
-    "geometry": "passed",
-    "materials": "passed",
-    "auxiliary": "passed",
-    "power": "passed",
-    "blocks": 63,
-    "decision_policy": "chip_array",
-    "material_exceptions": []
+    "status": "failed",
+    "error": "chip_array: material mismatch at bw_h_right: (30.881013751892507, 0.68, 30.881013751892507, 3607.598944816067, 471.67405109241815), [('bond-wire-h-right-part-1', (20.008648801211205, 0.68, 20.008648801211205, 2964.063324682283, 562.3757440979361))]"
   }
 }

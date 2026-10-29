@@ -1,0 +1,32 @@
+{
+  "schema": "packstudio.native-inspection-index/v1",
+  "records": [
+    {
+      "file": "pbga_fc_activation.json",
+      "sha256": "3eb3c579fef0f8215aafc6a76d8e170d64c1cce592e3026d3e40aaadfc4727da",
+      "reproduce": "uv run --locked python -m tools.pack_reference.activation_audit --root flotherm_pack_data --work tmp/YYYY-MM-DD-activation-audit --output tmp/YYYY-MM-DD-activation-audit/report.json",
+      "evidence_points": [
+        "template/pbga_fc/field-activation-default",
+        "template/pbga_fc/field-core-defined",
+        "template/pbga_fc/field-core-zero-count",
+        "template/pbga_fc/field-upper-region-only",
+        "template/pbga_fc/field-upper-zero-count",
+        "template/pbga_fc/field-upper-defined",
+        "template/pbga_fc/field-lower-region-only",
+        "template/pbga_fc/field-lower-zero-count",
+        "template/pbga_fc/field-lower-defined"
+      ]
+    },
+    {
+      "file": "bare_die_ui_record.xml",
+      "sha256": "7e9f209a5eb4b6f7eed9dfdf33d03eb729e254241f32a4234d03d0fa1c28b814",
+      "method": "PACK Macro > Record FloSCRIPT; actual UI edits of Bare Die; recording stopped normally",
+      "scope": "Nine modify_component commands. This recording alone does not establish DES field names."
+    },
+    {
+      "file": "scalar_replay/manifest.json",
+      "sha256": "30265c5f1d2673b2589c0caac3017d54ccbb76137d227b4f28036e0251c70e37",
+      "method": "PACK FloSCRIPT run; per-edit before/after DES primary artifacts; 23 scalar assertions rechecked against archived bytes"
+    }
+  ]
+}
