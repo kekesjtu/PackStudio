@@ -183,6 +183,6 @@ uv run --locked python -m tools.floscript run --prepared $packPrepared
 通用工具的回归检查：
 
 ```powershell
-uv run --locked pytest tests/backend/test_floscript.py
+uv run --locked pytest tests/research/test_floscript.py
 uv run --locked ruff check .
 ```

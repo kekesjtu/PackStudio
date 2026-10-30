@@ -2,29 +2,20 @@
 *.log
 logs/
 
-# Python
+# .NET
+**/bin/
+**/obj/
+.vs/
+
+# Python research tools
 __pycache__/
 *.py[cod]
-*.egg-info/
-.coverage
 .pytest_cache/
 .ruff_cache/
-htmlcov/
 .venv/
 
-# Node.js and frontend builds
-node_modules/
-dist/
-coverage/
-
 # Desktop packaging artifacts
-build/
 release/
-
-# Local environment files
-.env
-.env.*
-!.env.example
 
 # Editors and operating systems
 .idea/
@@ -41,8 +32,3 @@ temp/
 # Local-only archives and assets
 flotherm_pack_data_archives/
 figures/
-
-# .NET
-**/bin/
-**/obj/
-.vs/

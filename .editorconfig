@@ -14,10 +14,6 @@ indent_size = 4
 [*.md]
 trim_trailing_whitespace = false
 
-# Windows PowerShell 5 requires a BOM to read Chinese script messages as UTF-8.
-[tools/*webview2.ps1]
-charset = utf-8-bom
-
 [*.cs]
 indent_size = 4
 

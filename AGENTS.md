@@ -20,7 +20,7 @@ PackStudio AI 协作开发指南。本文档为 AI Agent 提供项目结构、�
 | `flotherm_pack_data/`  | 原生参考数据     | 纳入版本控制的 Flotherm PACK 扫参输入、原生导出、截图与验证结果；完整归档仅本地保存 |
 | `output_format/`       | 输出文件格式规范 | 输出格式的示例文件，作为接口契约                                                               |
 | `src/`                 | 源代码           | 所有生产代码，按功能模块分子目录                                                               |
-| `tests/`               | 测试代码         | 与 `src/` 对应；前端 `*.test.ts(x)`，Python `test_*.py`                                        |
+| `tests/`               | 测试代码         | C# 核心与桌面回归；`tests/research/` 存放 Python 研究工具测试                                  |
 | `tmp/`                 | 临时文件         | 用后即清,保持整洁                                                                              |
 
 ## 3. 开发规范
@@ -76,7 +76,7 @@ PackStudio AI 协作开发指南。本文档为 AI Agent 提供项目结构、�
 - YYYY-MM-DD：任务目录的创建日期
 - task-slug：简短、明确的英文任务标识
 
-### 3.5 python 开发环境
+### 3.5 Python 研究工具环境
 
-使用 uv 管理 Python 解释器、依赖与仓库本地 `.venv`。
+Python 仅用于独立研究工具，使用 uv 管理解释器、依赖与仓库本地 `.venv`。
 `.python-version` 固定解释器版本，`pyproject.toml` 声明依赖，`uv.lock` 纳入版本控制。
