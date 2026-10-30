@@ -1,0 +1,134 @@
+{
+  "version": 1,
+  "dependencies": {
+    "net10.0-windows7.0": {
+      "CommunityToolkit.Mvvm": {
+        "type": "Direct",
+        "requested": "[8.3.2, )",
+        "resolved": "8.3.2",
+        "contentHash": "m8EolE1A0Updj68WTsZSGI6VWb6mUqHPh7QFo0kt7+JPhYMNXRS1ch8TS/oITAdcxTLrwMOp3ku1KjeG1/Zdpg=="
+      },
+      "Dirkster.AvalonDock": {
+        "type": "Direct",
+        "requested": "[5.0.0, )",
+        "resolved": "5.0.0",
+        "contentHash": "vVnKmsOp4kby8fZ6gPQHEqwuKmGx3gC1Bgt2zQ7wOdLay0pFBjtOxQ6mdCzTfGvZ2YWzG4PGwMOX94ifHh+NJA==",
+        "dependencies": {
+          "Dirkster.AvalonDock.Core": "5.0.0"
+        }
+      },
+      "Fluent.Ribbon": {
+        "type": "Direct",
+        "requested": "[9.0.4, )",
+        "resolved": "9.0.4",
+        "contentHash": "nMg58+lfqa5hmU6Wgv6f8JfHv/5rr2XD3slnl3cyjhBOFnWUu7pJnzLKNwmKQBJWpSCXcG+7ikhf5l5/7shlhA==",
+        "dependencies": {
+          "ControlzEx": "[5.0.1, 6.0.0)"
+        }
+      },
+      "HelixToolkit.Wpf": {
+        "type": "Direct",
+        "requested": "[3.1.2, )",
+        "resolved": "3.1.2",
+        "contentHash": "l6YwepSX/dPhehxC19lcvwQyEzKTV9Jt5MG5QrzDzxUh30+YsypIhVB8KKbudFR9/M17ujJgmP9KhWIiTxpMXg==",
+        "dependencies": {
+          "CommunityToolkit.Common": "8.3.2",
+          "CommunityToolkit.Diagnostics": "8.3.2",
+          "CommunityToolkit.Mvvm": "8.3.2",
+          "HelixToolkit": "3.1.2",
+          "HelixToolkit.Geometry": "3.1.2"
+        }
+      },
+      "NLog": {
+        "type": "Direct",
+        "requested": "[4.5.10, )",
+        "resolved": "4.5.10",
+        "contentHash": "/e0m7QaOAvltPu9Ul3nSpTWaDP7vASj4xbOpdCnEj1NnDa0k4s6MwvtleXeXURf3O0wQ2UdbZHJaHMpjJ4Doyw=="
+      },
+      "CommunityToolkit.Common": {
+        "type": "Transitive",
+        "resolved": "8.3.2",
+        "contentHash": "DFk1MUDzCUZHWFGl33HQkD1XtHHKmgfnjJ6sD2JICDc6et4DaCxf6GBPCzAZ7jcgyy/BdUDk0DUztu1K+61Q6w=="
+      },
+      "CommunityToolkit.Diagnostics": {
+        "type": "Transitive",
+        "resolved": "8.3.2",
+        "contentHash": "YyMsBE9lT0pJg2bEDzlfEWdlk6xHExW6jr1dxC7+YUqqVmOGL5nZROpxbXQRTe5TrfIs7BvkVsGULv/hq6tGIA=="
+      },
+      "ControlzEx": {
+        "type": "Transitive",
+        "resolved": "5.0.1",
+        "contentHash": "DVJJmmnKXcVh3Bs2gKpAdPCT8HrkYTagSbFg0P9xHjp8dox9bKeaoVj9VGhPRzP9+LHs5MUXxN07/oGqeXNNcg==",
+        "dependencies": {
+          "Microsoft.Xaml.Behaviors.Wpf": "1.1.31"
+        }
+      },
+      "Dirkster.AvalonDock.Core": {
+        "type": "Transitive",
+        "resolved": "5.0.0",
+        "contentHash": "PlIMOCpzU89vawS3/6IeeQnfaHz0Jy4exi3w8pQlhmmERT6Cgt5XxA9TjX+PU8jWcBgvpPX6g0EZrSRuuFE9gw=="
+      },
+      "HelixToolkit": {
+        "type": "Transitive",
+        "resolved": "3.1.2",
+        "contentHash": "SicJqlyFmG7ub5o7cxUbYK3wb0EJCe7v+MIuQS4f9nKyc3EZ0VK92ptCHzVI1AJOPGWIod7pfZoA3F99Nu1M/g==",
+        "dependencies": {
+          "CommunityToolkit.Common": "8.3.2",
+          "CommunityToolkit.Diagnostics": "8.3.2",
+          "CommunityToolkit.Mvvm": "8.3.2",
+          "Microsoft.Extensions.Logging.Abstractions": "8.0.2"
+        }
+      },
+      "HelixToolkit.Geometry": {
+        "type": "Transitive",
+        "resolved": "3.1.2",
+        "contentHash": "NHDQfiMuwlGqLEEzXj4Z4qi9s81x2wc0J7c9dfDWwjqTBKzBFKYeBNV+KSQ+i6L+fytWBBp6dL9G1Pg8B+yzBQ==",
+        "dependencies": {
+          "CommunityToolkit.Common": "8.3.2",
+          "CommunityToolkit.Diagnostics": "8.3.2",
+          "CommunityToolkit.Mvvm": "8.3.2",
+          "HelixToolkit": "3.1.2",
+          "HelixToolkit.Maths": "3.1.2",
+          "Microsoft.Extensions.Logging.Abstractions": "8.0.2"
+        }
+      },
+      "HelixToolkit.Maths": {
+        "type": "Transitive",
+        "resolved": "3.1.2",
+        "contentHash": "sKVK+nSjR3dTFEQ1T3P0xDxbdDI/oJCQAe0v7NCqSDAd3mddUwGSyE6+3T9oFBCQY6AYPCCTQpkzVqVVxnnN9Q==",
+        "dependencies": {
+          "HelixToolkit": "3.1.2"
+        }
+      },
+      "Microsoft.Extensions.DependencyInjection.Abstractions": {
+        "type": "Transitive",
+        "resolved": "8.0.2",
+        "contentHash": "3iE7UF7MQkCv1cxzCahz+Y/guQbTqieyxyaWKhrRO91itI9cOKO76OHeQDahqG4MmW5umr3CcCvGmK92lWNlbg=="
+      },
+      "Microsoft.Extensions.Logging.Abstractions": {
+        "type": "Transitive",
+        "resolved": "8.0.2",
+        "contentHash": "nroMDjS7hNBPtkZqVBbSiQaQjWRDxITI8Y7XnDs97rqG3EbzVTNLZQf7bIeUJcaHOV8bca47s1Uxq94+2oGdxA==",
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.2"
+        }
+      },
+      "Microsoft.Xaml.Behaviors.Wpf": {
+        "type": "Transitive",
+        "resolved": "1.1.31",
+        "contentHash": "LZpuf82ACZWldmfMuv3CTUMDh3o0xo0uHUaybR5HgqVLDBJJ9RZLykplQ/bTJd0/VDt3EhD4iDgUgbdIUAM+Kg=="
+      },
+      "Newtonsoft.Json": {
+        "type": "Transitive",
+        "resolved": "13.0.3",
+        "contentHash": "HrC5BXdl00IP9zeV+0Z848QWPAoCr9P3bDEZguI+gkLcBKAOxix/tLEAAHC+UvDNPv4a2d18lOReHMOagPa+zQ=="
+      },
+      "packstudio.core": {
+        "type": "Project",
+        "dependencies": {
+          "Newtonsoft.Json": "[13.0.3, )"
+        }
+      }
+    }
+  }
+}

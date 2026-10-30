@@ -6,6 +6,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 
 from tools.pack_sweep.cases.die_and_fc import cases as die_cases
+from tools.pack_sweep.cases.field_correspondence import cases as field_cases
 from tools.pack_sweep.cases.wirebond import cases as wirebond_cases
 
 
@@ -58,7 +59,17 @@ def fidelity_points():
 
 
 def initial_points():
-    result = legacy_points() + fidelity_points()
+    native_fields = [
+        Point(
+            row["template"],
+            row["id"],
+            row["commands"],
+            origin="field_probe",
+            metadata=row["metadata"],
+        )
+        for row in field_cases()
+    ]
+    result = legacy_points() + fidelity_points() + native_fields
     if len({p.key for p in result}) != len(result):
         raise ValueError("duplicate sweep point")
     return result

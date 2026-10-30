@@ -1,0 +1,1458 @@
+{
+  "schema_version": "packstudio.model/v1",
+  "template_id": "pbga_wb",
+  "name": "Wirebond PBGA",
+  "length_unit": "mm",
+  "coordinate_system": {
+    "origin": "package bottom-plane center (FloTHERM PACK)",
+    "x_axis": "package length",
+    "y_axis": "package width",
+    "z_axis": "upward through package thickness"
+  },
+  "materials": [
+    {
+      "id": "ablestik-8510aa",
+      "name": "Ablestik 8510AA",
+      "category": "Attachment Materials",
+      "conductivity": {
+        "x": 2.0,
+        "y": 2.0,
+        "z": 2.0
+      },
+      "density": 1.0,
+      "specific_heat": 1.0,
+      "color": "#C89042",
+      "source": "PACK built-in material; constant_isotropic",
+      "conductivity_coefficient": null,
+      "conductivity_reference_temperature_c": null
+    },
+    {
+      "id": "bt",
+      "name": "BT",
+      "category": "Substrate Dielectrics",
+      "conductivity": {
+        "x": 0.2,
+        "y": 0.2,
+        "z": 0.2
+      },
+      "density": 1900.0,
+      "specific_heat": 921.0,
+      "color": "#2E7D62",
+      "source": "PACK built-in material; constant_isotropic",
+      "conductivity_coefficient": null,
+      "conductivity_reference_temperature_c": null
+    },
+    {
+      "id": "epoxy-mold",
+      "name": "Epoxy Overmold (Typical)",
+      "category": "Resins",
+      "conductivity": {
+        "x": 0.68,
+        "y": 0.68,
+        "z": 0.68
+      },
+      "density": 1820.0,
+      "specific_heat": 882.0,
+      "color": "#343B46",
+      "source": "PACK built-in material; constant_isotropic",
+      "conductivity_coefficient": null,
+      "conductivity_reference_temperature_c": null
+    },
+    {
+      "id": "silicon",
+      "name": "Silicon (Pure)",
+      "category": "Semiconductors",
+      "conductivity": {
+        "x": 117.5,
+        "y": 117.5,
+        "z": 117.5
+      },
+      "density": 2330.0,
+      "specific_heat": 700.0,
+      "color": "#667085",
+      "source": "PACK built-in material; temperature-dependent conductivity; native reference temperature 100.0 C",
+      "conductivity_coefficient": -0.42,
+      "conductivity_reference_temperature_c": 100.0
+    },
+    {
+      "id": "solder-ball-equivalent",
+      "name": "Solder ball orthotropic equivalent",
+      "category": "Alloys (Solders)",
+      "conductivity": {
+        "x": 0.0261,
+        "y": 0.0261,
+        "z": 15.059189455465816
+      },
+      "density": 2482.9937736890483,
+      "specific_heat": 150.28240332374642,
+      "color": "#AEB7C4",
+      "source": "PACK derived BGA; element=solder-sn63; matrix=static-air; volume_fraction=0.2954970909536288",
+      "conductivity_coefficient": null,
+      "conductivity_reference_temperature_c": null
+    },
+    {
+      "id": "solder-mask",
+      "name": "Solder Mask Material",
+      "category": "Others",
+      "conductivity": {
+        "x": 0.25,
+        "y": 0.25,
+        "z": 0.25
+      },
+      "density": 1.0,
+      "specific_heat": 1.0,
+      "color": "#216C4A",
+      "source": "PACK built-in material; constant_isotropic",
+      "conductivity_coefficient": null,
+      "conductivity_reference_temperature_c": null
+    },
+    {
+      "id": "wirebond-bondwire-x",
+      "name": "bondwire_1",
+      "category": "Others",
+      "conductivity": {
+        "x": 47.45533009893111,
+        "y": 0.68,
+        "z": 47.45533009893111
+      },
+      "density": 4588.633245731125,
+      "specific_heat": 382.3576684058403,
+      "color": "#D9A928",
+      "source": "PACK derived mixture; metal=gold; matrix=epoxy-mold; volume_fraction=0.1583886296184854",
+      "conductivity_coefficient": null,
+      "conductivity_reference_temperature_c": null
+    },
+    {
+      "id": "wirebond-bondwire-y",
+      "name": "bondwire_2",
+      "category": "Others",
+      "conductivity": {
+        "x": 0.68,
+        "y": 47.45533009893111,
+        "z": 47.45533009893111
+      },
+      "density": 4588.633245731125,
+      "specific_heat": 382.3576684058403,
+      "color": "#D9A928",
+      "source": "PACK derived mixture; metal=gold; matrix=epoxy-mold; volume_fraction=0.1583886296184854",
+      "conductivity_coefficient": null,
+      "conductivity_reference_temperature_c": null
+    },
+    {
+      "id": "wirebond-die-flag",
+      "name": "wirebond-die-flag",
+      "category": "Metals",
+      "conductivity": {
+        "x": 231.08,
+        "y": 231.08,
+        "z": 231.08
+      },
+      "density": 6118.0,
+      "specific_heat": 451.58385093167703,
+      "color": "#C46A32",
+      "source": "PACK derived mixture; metal=copper; matrix=bt; volume_fraction=0.6",
+      "conductivity_coefficient": null,
+      "conductivity_reference_temperature_c": null
+    },
+    {
+      "id": "wirebond-trace-bottom",
+      "name": "wirebond-trace-bottom",
+      "category": "Metals",
+      "conductivity": {
+        "x": 38.68,
+        "y": 38.68,
+        "z": 38.68
+      },
+      "density": 2603.0,
+      "specific_heat": 737.1167883211679,
+      "color": "#C46A32",
+      "source": "PACK derived mixture; metal=copper; matrix=bt; volume_fraction=0.1",
+      "conductivity_coefficient": null,
+      "conductivity_reference_temperature_c": null
+    },
+    {
+      "id": "wirebond-trace-top",
+      "name": "wirebond-trace-top",
+      "category": "Metals",
+      "conductivity": {
+        "x": 115.64,
+        "y": 115.64,
+        "z": 115.64
+      },
+      "density": 4009.0,
+      "specific_heat": 562.8199052132701,
+      "color": "#C46A32",
+      "source": "PACK derived mixture; metal=copper; matrix=bt; volume_fraction=0.3",
+      "conductivity_coefficient": null,
+      "conductivity_reference_temperature_c": null
+    },
+    {
+      "id": "wirebond-via",
+      "name": "wirebond-via",
+      "category": "Metals",
+      "conductivity": {
+        "x": 138.59999999999997,
+        "y": 138.59999999999997,
+        "z": 138.59999999999997
+      },
+      "density": 3214.799999999999,
+      "specific_heat": 385.0,
+      "color": "#C46A32",
+      "source": "PACK hollow via; metal=copper; shell_fraction=0.3599999999999999",
+      "conductivity_coefficient": null,
+      "conductivity_reference_temperature_c": null
+    }
+  ],
+  "blocks": [
+    {
+      "id": "encapsulant-part-1",
+      "name": "Encapsulant",
+      "structure_type": "encapsulant",
+      "origin": {
+        "x": -6.5,
+        "y": -6.5,
+        "z": 0.96
+      },
+      "size": {
+        "x": 13.0,
+        "y": 13.0,
+        "z": 0.8
+      },
+      "material_id": "epoxy-mold",
+      "parent_group_id": "group-encapsulant",
+      "metadata": {
+        "boolean_source_id": "encapsulant",
+        "boolean_source_name": "Encapsulant"
+      }
+    },
+    {
+      "id": "die-part-1",
+      "name": "Silicon die",
+      "structure_type": "die",
+      "origin": {
+        "x": -2.25,
+        "y": -2.25,
+        "z": 1.035
+      },
+      "size": {
+        "x": 4.5,
+        "y": 4.5,
+        "z": 0.3
+      },
+      "material_id": "silicon",
+      "parent_group_id": "group-die",
+      "metadata": {
+        "boolean_source_id": "die",
+        "boolean_source_name": "Silicon die"
+      }
+    },
+    {
+      "id": "dielectric-part-1",
+      "name": "BT dielectric",
+      "structure_type": "substrate",
+      "origin": {
+        "x": -7.5,
+        "y": -7.5,
+        "z": 0.6
+      },
+      "size": {
+        "x": 15.0,
+        "y": 15.0,
+        "z": 0.36
+      },
+      "material_id": "bt",
+      "parent_group_id": "group-substrate",
+      "metadata": {
+        "boolean_source_id": "dielectric",
+        "boolean_source_name": "BT dielectric"
+      }
+    },
+    {
+      "id": "top-trace-left-part-1",
+      "name": "Top traces left",
+      "structure_type": "trace",
+      "origin": {
+        "x": -7.5,
+        "y": -7.5,
+        "z": 0.942
+      },
+      "size": {
+        "x": 3.2800000000000002,
+        "y": 15.0,
+        "z": 0.018000000000000002
+      },
+      "material_id": "wirebond-trace-top",
+      "parent_group_id": "group-traces",
+      "metadata": {
+        "boolean_source_id": "top-trace-left",
+        "boolean_source_name": "Top traces left"
+      }
+    },
+    {
+      "id": "top-trace-right-part-1",
+      "name": "Top traces right",
+      "structure_type": "trace",
+      "origin": {
+        "x": 4.22,
+        "y": -7.5,
+        "z": 0.942
+      },
+      "size": {
+        "x": 3.2800000000000002,
+        "y": 15.0,
+        "z": 0.018000000000000002
+      },
+      "material_id": "wirebond-trace-top",
+      "parent_group_id": "group-traces",
+      "metadata": {
+        "boolean_source_id": "top-trace-right",
+        "boolean_source_name": "Top traces right"
+      }
+    },
+    {
+      "id": "top-trace-lower-part-1",
+      "name": "Top traces lower",
+      "structure_type": "trace",
+      "origin": {
+        "x": -4.22,
+        "y": -7.5,
+        "z": 0.942
+      },
+      "size": {
+        "x": 8.44,
+        "y": 3.2800000000000002,
+        "z": 0.018000000000000002
+      },
+      "material_id": "wirebond-trace-top",
+      "parent_group_id": "group-traces",
+      "metadata": {
+        "boolean_source_id": "top-trace-lower",
+        "boolean_source_name": "Top traces lower"
+      }
+    },
+    {
+      "id": "top-trace-upper-part-1",
+      "name": "Top traces upper",
+      "structure_type": "trace",
+      "origin": {
+        "x": -4.22,
+        "y": 4.22,
+        "z": 0.942
+      },
+      "size": {
+        "x": 8.44,
+        "y": 3.2800000000000002,
+        "z": 0.018000000000000002
+      },
+      "material_id": "wirebond-trace-top",
+      "parent_group_id": "group-traces",
+      "metadata": {
+        "boolean_source_id": "top-trace-upper",
+        "boolean_source_name": "Top traces upper"
+      }
+    },
+    {
+      "id": "bottom-trace-part-1",
+      "name": "Bottom trace",
+      "structure_type": "trace",
+      "origin": {
+        "x": -7.5,
+        "y": -7.5,
+        "z": 0.6
+      },
+      "size": {
+        "x": 15.0,
+        "y": 15.0,
+        "z": 0.018000000000000002
+      },
+      "material_id": "wirebond-trace-bottom",
+      "parent_group_id": "group-traces",
+      "metadata": {
+        "boolean_source_id": "bottom-trace",
+        "boolean_source_name": "Bottom trace"
+      }
+    },
+    {
+      "id": "die-flag-part-1",
+      "name": "Die flag",
+      "structure_type": "lead_frame",
+      "origin": {
+        "x": -3.25,
+        "y": -3.25,
+        "z": 0.942
+      },
+      "size": {
+        "x": 6.5,
+        "y": 6.5,
+        "z": 0.018000000000000002
+      },
+      "material_id": "wirebond-die-flag",
+      "parent_group_id": "group-die-flag",
+      "metadata": {
+        "boolean_source_id": "die-flag",
+        "boolean_source_name": "Die flag"
+      }
+    },
+    {
+      "id": "solder-mask-center-part-1",
+      "name": "Solder mask center",
+      "structure_type": "solder_mask",
+      "origin": {
+        "x": -3.25,
+        "y": -3.25,
+        "z": 0.96
+      },
+      "size": {
+        "x": 6.5,
+        "y": 6.5,
+        "z": 0.05
+      },
+      "material_id": "solder-mask",
+      "parent_group_id": "group-solder-mask",
+      "metadata": {
+        "boolean_source_id": "solder-mask-center",
+        "boolean_source_name": "Solder mask center"
+      }
+    },
+    {
+      "id": "solder-mask-outer-left-part-1",
+      "name": "Solder mask left",
+      "structure_type": "solder_mask",
+      "origin": {
+        "x": -7.5,
+        "y": -7.5,
+        "z": 0.96
+      },
+      "size": {
+        "x": 3.2,
+        "y": 15.0,
+        "z": 0.05
+      },
+      "material_id": "solder-mask",
+      "parent_group_id": "group-solder-mask",
+      "metadata": {
+        "boolean_source_id": "solder-mask-outer-left",
+        "boolean_source_name": "Solder mask left"
+      }
+    },
+    {
+      "id": "solder-mask-outer-right-part-1",
+      "name": "Solder mask right",
+      "structure_type": "solder_mask",
+      "origin": {
+        "x": 4.3,
+        "y": -7.5,
+        "z": 0.96
+      },
+      "size": {
+        "x": 3.2,
+        "y": 15.0,
+        "z": 0.05
+      },
+      "material_id": "solder-mask",
+      "parent_group_id": "group-solder-mask",
+      "metadata": {
+        "boolean_source_id": "solder-mask-outer-right",
+        "boolean_source_name": "Solder mask right"
+      }
+    },
+    {
+      "id": "solder-mask-outer-lower-part-1",
+      "name": "Solder mask lower",
+      "structure_type": "solder_mask",
+      "origin": {
+        "x": -4.3,
+        "y": -7.5,
+        "z": 0.96
+      },
+      "size": {
+        "x": 8.6,
+        "y": 3.2,
+        "z": 0.05
+      },
+      "material_id": "solder-mask",
+      "parent_group_id": "group-solder-mask",
+      "metadata": {
+        "boolean_source_id": "solder-mask-outer-lower",
+        "boolean_source_name": "Solder mask lower"
+      }
+    },
+    {
+      "id": "solder-mask-outer-upper-part-1",
+      "name": "Solder mask upper",
+      "structure_type": "solder_mask",
+      "origin": {
+        "x": -4.3,
+        "y": 4.3,
+        "z": 0.96
+      },
+      "size": {
+        "x": 8.6,
+        "y": 3.2,
+        "z": 0.05
+      },
+      "material_id": "solder-mask",
+      "parent_group_id": "group-solder-mask",
+      "metadata": {
+        "boolean_source_id": "solder-mask-outer-upper",
+        "boolean_source_name": "Solder mask upper"
+      }
+    },
+    {
+      "id": "die-attach-part-1",
+      "name": "Die attach",
+      "structure_type": "die_attach",
+      "origin": {
+        "x": -2.25,
+        "y": -2.25,
+        "z": 1.01
+      },
+      "size": {
+        "x": 4.5,
+        "y": 4.5,
+        "z": 0.025
+      },
+      "material_id": "ablestik-8510aa",
+      "parent_group_id": "group-die-attach",
+      "metadata": {
+        "boolean_source_id": "die-attach",
+        "boolean_source_name": "Die attach"
+      }
+    },
+    {
+      "id": "bond-wire-h-right-part-1",
+      "name": "Bond wires horizontal right",
+      "structure_type": "bond_wire",
+      "origin": {
+        "x": 2.25,
+        "y": -2.25,
+        "z": 1.305
+      },
+      "size": {
+        "x": 2.0,
+        "y": 4.5,
+        "z": 0.03
+      },
+      "material_id": "wirebond-bondwire-x",
+      "parent_group_id": "group-bond-wires",
+      "metadata": {
+        "boolean_source_id": "bond-wire-h-right",
+        "boolean_source_name": "Bond wires horizontal right"
+      }
+    },
+    {
+      "id": "bond-wire-h-left-part-1",
+      "name": "Bond wires horizontal left",
+      "structure_type": "bond_wire",
+      "origin": {
+        "x": -4.25,
+        "y": -2.25,
+        "z": 1.305
+      },
+      "size": {
+        "x": 2.0,
+        "y": 4.5,
+        "z": 0.03
+      },
+      "material_id": "wirebond-bondwire-x",
+      "parent_group_id": "group-bond-wires",
+      "metadata": {
+        "boolean_source_id": "bond-wire-h-left",
+        "boolean_source_name": "Bond wires horizontal left"
+      }
+    },
+    {
+      "id": "bond-wire-h-upper-part-1",
+      "name": "Bond wires horizontal upper",
+      "structure_type": "bond_wire",
+      "origin": {
+        "x": -2.25,
+        "y": 2.25,
+        "z": 1.305
+      },
+      "size": {
+        "x": 4.5,
+        "y": 2.0,
+        "z": 0.03
+      },
+      "material_id": "wirebond-bondwire-y",
+      "parent_group_id": "group-bond-wires",
+      "metadata": {
+        "boolean_source_id": "bond-wire-h-upper",
+        "boolean_source_name": "Bond wires horizontal upper"
+      }
+    },
+    {
+      "id": "bond-wire-h-lower-part-1",
+      "name": "Bond wires horizontal lower",
+      "structure_type": "bond_wire",
+      "origin": {
+        "x": -2.25,
+        "y": -4.25,
+        "z": 1.305
+      },
+      "size": {
+        "x": 4.5,
+        "y": 2.0,
+        "z": 0.03
+      },
+      "material_id": "wirebond-bondwire-y",
+      "parent_group_id": "group-bond-wires",
+      "metadata": {
+        "boolean_source_id": "bond-wire-h-lower",
+        "boolean_source_name": "Bond wires horizontal lower"
+      }
+    },
+    {
+      "id": "bond-wire-v-right-part-1",
+      "name": "Bond wires vertical right",
+      "structure_type": "bond_wire",
+      "origin": {
+        "x": 4.22,
+        "y": -2.25,
+        "z": 0.96
+      },
+      "size": {
+        "x": 0.03,
+        "y": 4.5,
+        "z": 0.345
+      },
+      "material_id": "wirebond-bondwire-x",
+      "parent_group_id": "group-bond-wires",
+      "metadata": {
+        "boolean_source_id": "bond-wire-v-right",
+        "boolean_source_name": "Bond wires vertical right"
+      }
+    },
+    {
+      "id": "bond-wire-v-left-part-1",
+      "name": "Bond wires vertical left",
+      "structure_type": "bond_wire",
+      "origin": {
+        "x": -4.25,
+        "y": -2.25,
+        "z": 0.96
+      },
+      "size": {
+        "x": 0.03,
+        "y": 4.5,
+        "z": 0.345
+      },
+      "material_id": "wirebond-bondwire-x",
+      "parent_group_id": "group-bond-wires",
+      "metadata": {
+        "boolean_source_id": "bond-wire-v-left",
+        "boolean_source_name": "Bond wires vertical left"
+      }
+    },
+    {
+      "id": "bond-wire-v-upper-part-1",
+      "name": "Bond wires vertical upper",
+      "structure_type": "bond_wire",
+      "origin": {
+        "x": -2.25,
+        "y": 4.22,
+        "z": 0.96
+      },
+      "size": {
+        "x": 4.5,
+        "y": 0.03,
+        "z": 0.345
+      },
+      "material_id": "wirebond-bondwire-y",
+      "parent_group_id": "group-bond-wires",
+      "metadata": {
+        "boolean_source_id": "bond-wire-v-upper",
+        "boolean_source_name": "Bond wires vertical upper"
+      }
+    },
+    {
+      "id": "bond-wire-v-lower-part-1",
+      "name": "Bond wires vertical lower",
+      "structure_type": "bond_wire",
+      "origin": {
+        "x": -2.25,
+        "y": -4.25,
+        "z": 0.96
+      },
+      "size": {
+        "x": 4.5,
+        "y": 0.03,
+        "z": 0.345
+      },
+      "material_id": "wirebond-bondwire-y",
+      "parent_group_id": "group-bond-wires",
+      "metadata": {
+        "boolean_source_id": "bond-wire-v-lower",
+        "boolean_source_name": "Bond wires vertical lower"
+      }
+    },
+    {
+      "id": "thermal-via-r1-c1-part-1",
+      "name": "Thermal via 1,1",
+      "structure_type": "via",
+      "origin": {
+        "x": -2.6507783656815946,
+        "y": 2.4292216343184054,
+        "z": 0.618
+      },
+      "size": {
+        "x": 0.22155673136318949,
+        "y": 0.22155673136318949,
+        "z": 0.32399999999999995
+      },
+      "material_id": "wirebond-via",
+      "parent_group_id": "group-vias",
+      "metadata": {
+        "boolean_source_id": "thermal-via-r1-c1",
+        "boolean_source_name": "Thermal via 1,1"
+      }
+    },
+    {
+      "id": "thermal-via-r1-c2-part-1",
+      "name": "Thermal via 1,2",
+      "structure_type": "via",
+      "origin": {
+        "x": -1.3807783656815948,
+        "y": 2.4292216343184054,
+        "z": 0.618
+      },
+      "size": {
+        "x": 0.22155673136318949,
+        "y": 0.22155673136318949,
+        "z": 0.32399999999999995
+      },
+      "material_id": "wirebond-via",
+      "parent_group_id": "group-vias",
+      "metadata": {
+        "boolean_source_id": "thermal-via-r1-c2",
+        "boolean_source_name": "Thermal via 1,2"
+      }
+    },
+    {
+      "id": "thermal-via-r1-c3-part-1",
+      "name": "Thermal via 1,3",
+      "structure_type": "via",
+      "origin": {
+        "x": -0.11077836568159474,
+        "y": 2.4292216343184054,
+        "z": 0.618
+      },
+      "size": {
+        "x": 0.22155673136318949,
+        "y": 0.22155673136318949,
+        "z": 0.32399999999999995
+      },
+      "material_id": "wirebond-via",
+      "parent_group_id": "group-vias",
+      "metadata": {
+        "boolean_source_id": "thermal-via-r1-c3",
+        "boolean_source_name": "Thermal via 1,3"
+      }
+    },
+    {
+      "id": "thermal-via-r1-c4-part-1",
+      "name": "Thermal via 1,4",
+      "structure_type": "via",
+      "origin": {
+        "x": 1.1592216343184052,
+        "y": 2.4292216343184054,
+        "z": 0.618
+      },
+      "size": {
+        "x": 0.22155673136318949,
+        "y": 0.22155673136318949,
+        "z": 0.32399999999999995
+      },
+      "material_id": "wirebond-via",
+      "parent_group_id": "group-vias",
+      "metadata": {
+        "boolean_source_id": "thermal-via-r1-c4",
+        "boolean_source_name": "Thermal via 1,4"
+      }
+    },
+    {
+      "id": "thermal-via-r1-c5-part-1",
+      "name": "Thermal via 1,5",
+      "structure_type": "via",
+      "origin": {
+        "x": 2.4292216343184054,
+        "y": 2.4292216343184054,
+        "z": 0.618
+      },
+      "size": {
+        "x": 0.22155673136318949,
+        "y": 0.22155673136318949,
+        "z": 0.32399999999999995
+      },
+      "material_id": "wirebond-via",
+      "parent_group_id": "group-vias",
+      "metadata": {
+        "boolean_source_id": "thermal-via-r1-c5",
+        "boolean_source_name": "Thermal via 1,5"
+      }
+    },
+    {
+      "id": "thermal-via-r2-c1-part-1",
+      "name": "Thermal via 2,1",
+      "structure_type": "via",
+      "origin": {
+        "x": -2.6507783656815946,
+        "y": 1.1592216343184052,
+        "z": 0.618
+      },
+      "size": {
+        "x": 0.22155673136318949,
+        "y": 0.22155673136318949,
+        "z": 0.32399999999999995
+      },
+      "material_id": "wirebond-via",
+      "parent_group_id": "group-vias",
+      "metadata": {
+        "boolean_source_id": "thermal-via-r2-c1",
+        "boolean_source_name": "Thermal via 2,1"
+      }
+    },
+    {
+      "id": "thermal-via-r2-c2-part-1",
+      "name": "Thermal via 2,2",
+      "structure_type": "via",
+      "origin": {
+        "x": -1.3807783656815948,
+        "y": 1.1592216343184052,
+        "z": 0.618
+      },
+      "size": {
+        "x": 0.22155673136318949,
+        "y": 0.22155673136318949,
+        "z": 0.32399999999999995
+      },
+      "material_id": "wirebond-via",
+      "parent_group_id": "group-vias",
+      "metadata": {
+        "boolean_source_id": "thermal-via-r2-c2",
+        "boolean_source_name": "Thermal via 2,2"
+      }
+    },
+    {
+      "id": "thermal-via-r2-c3-part-1",
+      "name": "Thermal via 2,3",
+      "structure_type": "via",
+      "origin": {
+        "x": -0.11077836568159474,
+        "y": 1.1592216343184052,
+        "z": 0.618
+      },
+      "size": {
+        "x": 0.22155673136318949,
+        "y": 0.22155673136318949,
+        "z": 0.32399999999999995
+      },
+      "material_id": "wirebond-via",
+      "parent_group_id": "group-vias",
+      "metadata": {
+        "boolean_source_id": "thermal-via-r2-c3",
+        "boolean_source_name": "Thermal via 2,3"
+      }
+    },
+    {
+      "id": "thermal-via-r2-c4-part-1",
+      "name": "Thermal via 2,4",
+      "structure_type": "via",
+      "origin": {
+        "x": 1.1592216343184052,
+        "y": 1.1592216343184052,
+        "z": 0.618
+      },
+      "size": {
+        "x": 0.22155673136318949,
+        "y": 0.22155673136318949,
+        "z": 0.32399999999999995
+      },
+      "material_id": "wirebond-via",
+      "parent_group_id": "group-vias",
+      "metadata": {
+        "boolean_source_id": "thermal-via-r2-c4",
+        "boolean_source_name": "Thermal via 2,4"
+      }
+    },
+    {
+      "id": "thermal-via-r2-c5-part-1",
+      "name": "Thermal via 2,5",
+      "structure_type": "via",
+      "origin": {
+        "x": 2.4292216343184054,
+        "y": 1.1592216343184052,
+        "z": 0.618
+      },
+      "size": {
+        "x": 0.22155673136318949,
+        "y": 0.22155673136318949,
+        "z": 0.32399999999999995
+      },
+      "material_id": "wirebond-via",
+      "parent_group_id": "group-vias",
+      "metadata": {
+        "boolean_source_id": "thermal-via-r2-c5",
+        "boolean_source_name": "Thermal via 2,5"
+      }
+    },
+    {
+      "id": "thermal-via-r3-c1-part-1",
+      "name": "Thermal via 3,1",
+      "structure_type": "via",
+      "origin": {
+        "x": -2.6507783656815946,
+        "y": -0.11077836568159474,
+        "z": 0.618
+      },
+      "size": {
+        "x": 0.22155673136318949,
+        "y": 0.22155673136318949,
+        "z": 0.32399999999999995
+      },
+      "material_id": "wirebond-via",
+      "parent_group_id": "group-vias",
+      "metadata": {
+        "boolean_source_id": "thermal-via-r3-c1",
+        "boolean_source_name": "Thermal via 3,1"
+      }
+    },
+    {
+      "id": "thermal-via-r3-c2-part-1",
+      "name": "Thermal via 3,2",
+      "structure_type": "via",
+      "origin": {
+        "x": -1.3807783656815948,
+        "y": -0.11077836568159474,
+        "z": 0.618
+      },
+      "size": {
+        "x": 0.22155673136318949,
+        "y": 0.22155673136318949,
+        "z": 0.32399999999999995
+      },
+      "material_id": "wirebond-via",
+      "parent_group_id": "group-vias",
+      "metadata": {
+        "boolean_source_id": "thermal-via-r3-c2",
+        "boolean_source_name": "Thermal via 3,2"
+      }
+    },
+    {
+      "id": "thermal-via-r3-c3-part-1",
+      "name": "Thermal via 3,3",
+      "structure_type": "via",
+      "origin": {
+        "x": -0.11077836568159474,
+        "y": -0.11077836568159474,
+        "z": 0.618
+      },
+      "size": {
+        "x": 0.22155673136318949,
+        "y": 0.22155673136318949,
+        "z": 0.32399999999999995
+      },
+      "material_id": "wirebond-via",
+      "parent_group_id": "group-vias",
+      "metadata": {
+        "boolean_source_id": "thermal-via-r3-c3",
+        "boolean_source_name": "Thermal via 3,3"
+      }
+    },
+    {
+      "id": "thermal-via-r3-c4-part-1",
+      "name": "Thermal via 3,4",
+      "structure_type": "via",
+      "origin": {
+        "x": 1.1592216343184052,
+        "y": -0.11077836568159474,
+        "z": 0.618
+      },
+      "size": {
+        "x": 0.22155673136318949,
+        "y": 0.22155673136318949,
+        "z": 0.32399999999999995
+      },
+      "material_id": "wirebond-via",
+      "parent_group_id": "group-vias",
+      "metadata": {
+        "boolean_source_id": "thermal-via-r3-c4",
+        "boolean_source_name": "Thermal via 3,4"
+      }
+    },
+    {
+      "id": "thermal-via-r3-c5-part-1",
+      "name": "Thermal via 3,5",
+      "structure_type": "via",
+      "origin": {
+        "x": 2.4292216343184054,
+        "y": -0.11077836568159474,
+        "z": 0.618
+      },
+      "size": {
+        "x": 0.22155673136318949,
+        "y": 0.22155673136318949,
+        "z": 0.32399999999999995
+      },
+      "material_id": "wirebond-via",
+      "parent_group_id": "group-vias",
+      "metadata": {
+        "boolean_source_id": "thermal-via-r3-c5",
+        "boolean_source_name": "Thermal via 3,5"
+      }
+    },
+    {
+      "id": "thermal-via-r4-c1-part-1",
+      "name": "Thermal via 4,1",
+      "structure_type": "via",
+      "origin": {
+        "x": -2.6507783656815946,
+        "y": -1.3807783656815948,
+        "z": 0.618
+      },
+      "size": {
+        "x": 0.22155673136318949,
+        "y": 0.22155673136318949,
+        "z": 0.32399999999999995
+      },
+      "material_id": "wirebond-via",
+      "parent_group_id": "group-vias",
+      "metadata": {
+        "boolean_source_id": "thermal-via-r4-c1",
+        "boolean_source_name": "Thermal via 4,1"
+      }
+    },
+    {
+      "id": "thermal-via-r4-c2-part-1",
+      "name": "Thermal via 4,2",
+      "structure_type": "via",
+      "origin": {
+        "x": -1.3807783656815948,
+        "y": -1.3807783656815948,
+        "z": 0.618
+      },
+      "size": {
+        "x": 0.22155673136318949,
+        "y": 0.22155673136318949,
+        "z": 0.32399999999999995
+      },
+      "material_id": "wirebond-via",
+      "parent_group_id": "group-vias",
+      "metadata": {
+        "boolean_source_id": "thermal-via-r4-c2",
+        "boolean_source_name": "Thermal via 4,2"
+      }
+    },
+    {
+      "id": "thermal-via-r4-c3-part-1",
+      "name": "Thermal via 4,3",
+      "structure_type": "via",
+      "origin": {
+        "x": -0.11077836568159474,
+        "y": -1.3807783656815948,
+        "z": 0.618
+      },
+      "size": {
+        "x": 0.22155673136318949,
+        "y": 0.22155673136318949,
+        "z": 0.32399999999999995
+      },
+      "material_id": "wirebond-via",
+      "parent_group_id": "group-vias",
+      "metadata": {
+        "boolean_source_id": "thermal-via-r4-c3",
+        "boolean_source_name": "Thermal via 4,3"
+      }
+    },
+    {
+      "id": "thermal-via-r4-c4-part-1",
+      "name": "Thermal via 4,4",
+      "structure_type": "via",
+      "origin": {
+        "x": 1.1592216343184052,
+        "y": -1.3807783656815948,
+        "z": 0.618
+      },
+      "size": {
+        "x": 0.22155673136318949,
+        "y": 0.22155673136318949,
+        "z": 0.32399999999999995
+      },
+      "material_id": "wirebond-via",
+      "parent_group_id": "group-vias",
+      "metadata": {
+        "boolean_source_id": "thermal-via-r4-c4",
+        "boolean_source_name": "Thermal via 4,4"
+      }
+    },
+    {
+      "id": "thermal-via-r4-c5-part-1",
+      "name": "Thermal via 4,5",
+      "structure_type": "via",
+      "origin": {
+        "x": 2.4292216343184054,
+        "y": -1.3807783656815948,
+        "z": 0.618
+      },
+      "size": {
+        "x": 0.22155673136318949,
+        "y": 0.22155673136318949,
+        "z": 0.32399999999999995
+      },
+      "material_id": "wirebond-via",
+      "parent_group_id": "group-vias",
+      "metadata": {
+        "boolean_source_id": "thermal-via-r4-c5",
+        "boolean_source_name": "Thermal via 4,5"
+      }
+    },
+    {
+      "id": "thermal-via-r5-c1-part-1",
+      "name": "Thermal via 5,1",
+      "structure_type": "via",
+      "origin": {
+        "x": -2.6507783656815946,
+        "y": -2.6507783656815946,
+        "z": 0.618
+      },
+      "size": {
+        "x": 0.22155673136318949,
+        "y": 0.22155673136318949,
+        "z": 0.32399999999999995
+      },
+      "material_id": "wirebond-via",
+      "parent_group_id": "group-vias",
+      "metadata": {
+        "boolean_source_id": "thermal-via-r5-c1",
+        "boolean_source_name": "Thermal via 5,1"
+      }
+    },
+    {
+      "id": "thermal-via-r5-c2-part-1",
+      "name": "Thermal via 5,2",
+      "structure_type": "via",
+      "origin": {
+        "x": -1.3807783656815948,
+        "y": -2.6507783656815946,
+        "z": 0.618
+      },
+      "size": {
+        "x": 0.22155673136318949,
+        "y": 0.22155673136318949,
+        "z": 0.32399999999999995
+      },
+      "material_id": "wirebond-via",
+      "parent_group_id": "group-vias",
+      "metadata": {
+        "boolean_source_id": "thermal-via-r5-c2",
+        "boolean_source_name": "Thermal via 5,2"
+      }
+    },
+    {
+      "id": "thermal-via-r5-c3-part-1",
+      "name": "Thermal via 5,3",
+      "structure_type": "via",
+      "origin": {
+        "x": -0.11077836568159474,
+        "y": -2.6507783656815946,
+        "z": 0.618
+      },
+      "size": {
+        "x": 0.22155673136318949,
+        "y": 0.22155673136318949,
+        "z": 0.32399999999999995
+      },
+      "material_id": "wirebond-via",
+      "parent_group_id": "group-vias",
+      "metadata": {
+        "boolean_source_id": "thermal-via-r5-c3",
+        "boolean_source_name": "Thermal via 5,3"
+      }
+    },
+    {
+      "id": "thermal-via-r5-c4-part-1",
+      "name": "Thermal via 5,4",
+      "structure_type": "via",
+      "origin": {
+        "x": 1.1592216343184052,
+        "y": -2.6507783656815946,
+        "z": 0.618
+      },
+      "size": {
+        "x": 0.22155673136318949,
+        "y": 0.22155673136318949,
+        "z": 0.32399999999999995
+      },
+      "material_id": "wirebond-via",
+      "parent_group_id": "group-vias",
+      "metadata": {
+        "boolean_source_id": "thermal-via-r5-c4",
+        "boolean_source_name": "Thermal via 5,4"
+      }
+    },
+    {
+      "id": "thermal-via-r5-c5-part-1",
+      "name": "Thermal via 5,5",
+      "structure_type": "via",
+      "origin": {
+        "x": 2.4292216343184054,
+        "y": -2.6507783656815946,
+        "z": 0.618
+      },
+      "size": {
+        "x": 0.22155673136318949,
+        "y": 0.22155673136318949,
+        "z": 0.32399999999999995
+      },
+      "material_id": "wirebond-via",
+      "parent_group_id": "group-vias",
+      "metadata": {
+        "boolean_source_id": "thermal-via-r5-c5",
+        "boolean_source_name": "Thermal via 5,5"
+      }
+    },
+    {
+      "id": "solder-ball-part-1",
+      "name": "solder-ball",
+      "structure_type": "solder_ball",
+      "origin": {
+        "x": -6.725,
+        "y": -6.725,
+        "z": 0.0
+      },
+      "size": {
+        "x": 13.45,
+        "y": 13.45,
+        "z": 0.6
+      },
+      "material_id": "solder-ball-equivalent",
+      "parent_group_id": "group-solder-ball",
+      "metadata": {
+        "fill_fraction": 0.2954970909536288,
+        "tensor": "orthotropic",
+        "boolean_source_id": "solder-ball",
+        "boolean_source_name": "solder-ball"
+      }
+    }
+  ],
+  "groups": [
+    {
+      "id": "package",
+      "name": "Wirebond PBGA",
+      "parent_id": null,
+      "block_ids": []
+    },
+    {
+      "id": "group-encapsulant",
+      "name": "Encapsulant",
+      "parent_id": "package",
+      "block_ids": [
+        "encapsulant-part-1"
+      ]
+    },
+    {
+      "id": "group-die",
+      "name": "Die",
+      "parent_id": "package",
+      "block_ids": [
+        "die-part-1"
+      ]
+    },
+    {
+      "id": "group-substrate",
+      "name": "Dielectric & traces",
+      "parent_id": "package",
+      "block_ids": [
+        "dielectric-part-1"
+      ]
+    },
+    {
+      "id": "group-traces",
+      "name": "Bottom trace",
+      "parent_id": "package",
+      "block_ids": [
+        "top-trace-left-part-1",
+        "top-trace-right-part-1",
+        "top-trace-lower-part-1",
+        "top-trace-upper-part-1",
+        "bottom-trace-part-1"
+      ]
+    },
+    {
+      "id": "group-die-flag",
+      "name": "Die flag",
+      "parent_id": "package",
+      "block_ids": [
+        "die-flag-part-1"
+      ]
+    },
+    {
+      "id": "group-solder-mask",
+      "name": "Solder mask",
+      "parent_id": "package",
+      "block_ids": [
+        "solder-mask-center-part-1",
+        "solder-mask-outer-left-part-1",
+        "solder-mask-outer-right-part-1",
+        "solder-mask-outer-lower-part-1",
+        "solder-mask-outer-upper-part-1"
+      ]
+    },
+    {
+      "id": "group-die-attach",
+      "name": "Die attach",
+      "parent_id": "package",
+      "block_ids": [
+        "die-attach-part-1"
+      ]
+    },
+    {
+      "id": "group-bond-wires",
+      "name": "Bond wires",
+      "parent_id": "package",
+      "block_ids": [
+        "bond-wire-h-right-part-1",
+        "bond-wire-h-left-part-1",
+        "bond-wire-h-upper-part-1",
+        "bond-wire-h-lower-part-1",
+        "bond-wire-v-right-part-1",
+        "bond-wire-v-left-part-1",
+        "bond-wire-v-upper-part-1",
+        "bond-wire-v-lower-part-1"
+      ]
+    },
+    {
+      "id": "group-vias",
+      "name": "Thermal vias",
+      "parent_id": "package",
+      "block_ids": [
+        "thermal-via-r1-c1-part-1",
+        "thermal-via-r1-c2-part-1",
+        "thermal-via-r1-c3-part-1",
+        "thermal-via-r1-c4-part-1",
+        "thermal-via-r1-c5-part-1",
+        "thermal-via-r2-c1-part-1",
+        "thermal-via-r2-c2-part-1",
+        "thermal-via-r2-c3-part-1",
+        "thermal-via-r2-c4-part-1",
+        "thermal-via-r2-c5-part-1",
+        "thermal-via-r3-c1-part-1",
+        "thermal-via-r3-c2-part-1",
+        "thermal-via-r3-c3-part-1",
+        "thermal-via-r3-c4-part-1",
+        "thermal-via-r3-c5-part-1",
+        "thermal-via-r4-c1-part-1",
+        "thermal-via-r4-c2-part-1",
+        "thermal-via-r4-c3-part-1",
+        "thermal-via-r4-c4-part-1",
+        "thermal-via-r4-c5-part-1",
+        "thermal-via-r5-c1-part-1",
+        "thermal-via-r5-c2-part-1",
+        "thermal-via-r5-c3-part-1",
+        "thermal-via-r5-c4-part-1",
+        "thermal-via-r5-c5-part-1"
+      ]
+    },
+    {
+      "id": "group-solder-ball",
+      "name": "Solder balls",
+      "parent_id": "package",
+      "block_ids": [
+        "solder-ball-part-1"
+      ]
+    }
+  ],
+  "heat_sources": [
+    {
+      "id": "die-source-1",
+      "name": "Die heat source 1",
+      "block_id": "die-part-1",
+      "power_w": 0.0
+    }
+  ],
+  "boundaries": [],
+  "metadata": {
+    "implementation": "packstudio-native",
+    "template_version": "2.2",
+    "reference_basis": "versioned JSON defaults with reviewed FloTHERM PACK 2504 mappings",
+    "default_parameter_schema": "packstudio.default-parameters/v1",
+    "reference_geometry_status": "supported-parameters-with-family-equivalent-geometry",
+    "runtime_reference_data_required": false,
+    "outline_type": "standard_outline",
+    "die_type": "actual_type",
+    "footprint_size": "PBGA_121_15X15mm",
+    "solver_results_included": false,
+    "solder_ball_count": 121,
+    "solder_ball_representation": "equivalent",
+    "solder_ball_footprint_x_mm": 13.45,
+    "solder_ball_footprint_y_mm": 13.45,
+    "backside_spreader_enabled": false,
+    "reference_baseline": "FloTHERM PACK 2504 PBGA_121_15X15mm",
+    "preset_source_path": "flocentral/flopack/pbga_wb/PBGA_121_15X15mm.des",
+    "preset_source_sha256": "508b38ecb275c7495f7390d0f95b1d5418986fe52b6becb9f9c67a8d571aa8ac",
+    "preset_geometry_status": "native-defaults-adapted",
+    "preset_notes": "PACK 未启用的参数：slug.clearance, slug.diameter, slug.foot_length, slug.foot_width, slug.length, slug.offset, slug.thickness, slug.width, spreader.hole_length, spreader.hole_width, spreader.length, spreader.thickness, spreader.width；原生未给定数值，保持空白，不计入当前模型。",
+    "summary.part_number": "",
+    "summary.vendor": "",
+    "summary.notes": "",
+    "native_grid_enabled": true,
+    "native_grid_density": "fine",
+    "native_grid_length_mm": 15.0,
+    "native_grid_width_mm": 15.0,
+    "native_grid_height_mm": 1.76
+  },
+  "warnings": [
+    "模型包含 46 对重叠块：dielectric-part-1/top-trace-left-part-1, dielectric-part-1/bottom-trace-part-1, solder-mask-outer-left-part-1/encapsulant-part-1, encapsulant-part-1/solder-mask-outer-lower-part-1, encapsulant-part-1/solder-mask-outer-upper-part-1"
+  ],
+  "auxiliary_geometry": [
+    {
+      "kind": "monitor_point",
+      "name": "DieJunction_Temp",
+      "origin": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 1.3335
+      },
+      "size": null
+    },
+    {
+      "kind": "monitor_point",
+      "name": "CaseTemp",
+      "origin": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 1.7424
+      },
+      "size": null
+    },
+    {
+      "kind": "region",
+      "name": "z_bottom",
+      "origin": {
+        "x": -6.725,
+        "y": -6.725,
+        "z": 0.0
+      },
+      "size": {
+        "x": 13.45,
+        "y": 13.45,
+        "z": 1.0
+      }
+    },
+    {
+      "kind": "region",
+      "name": "z_top",
+      "origin": {
+        "x": -6.5,
+        "y": -6.5,
+        "z": 1.76
+      },
+      "size": {
+        "x": 13.0,
+        "y": 13.0,
+        "z": 1.0
+      }
+    }
+  ]
+}

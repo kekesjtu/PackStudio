@@ -1,7 +1,7 @@
 {
-  "status": "passed_with_native_schema_errors",
+  "status": "public_model_mismatch",
   "native_schema_errors": 7,
-  "point_count": 1163,
+  "point_count": 1182,
   "points": [
     {
       "template": "bare_die",
@@ -14205,19 +14205,14 @@
     {
       "template": "chip_array",
       "point": "chip_array-explicit-False",
-      "status": "passed",
+      "status": "public_model_mismatch",
       "script_xsd": "passed",
       "floxml_xsd": "passed",
       "provenance": "passed",
       "des_parameter_count": 55,
       "public_model": {
-        "geometry": "passed",
-        "materials": "passed",
-        "auxiliary": "passed",
-        "power": "passed",
-        "blocks": 63,
-        "decision_policy": "chip_array",
-        "material_exceptions": []
+        "status": "failed",
+        "error": "chip_array: material mismatch at bw_h_right: (30.881013751892507, 0.68, 30.881013751892507, 3607.598944816067, 471.67405109241815), [('bond-wire-h-right-part-1', (20.008648801211205, 0.68, 20.008648801211205, 2964.063324682283, 562.3757440979361))]"
       }
     },
     {
@@ -14651,7 +14646,288 @@
         "decision_policy": "pbga_wb",
         "material_exceptions": []
       }
+    },
+    {
+      "template": "bare_die",
+      "point": "field-die-material-gaas",
+      "status": "passed",
+      "script_xsd": "passed",
+      "floxml_xsd": "passed",
+      "provenance": "passed",
+      "des_parameter_count": 18,
+      "des_assertions": {
+        "radio_die": "2"
+      },
+      "validation_scope": "native export, XSD, DES readback and output fingerprints"
+    },
+    {
+      "template": "chip_array",
+      "point": "field-component-layer-1",
+      "status": "passed",
+      "script_xsd": "passed",
+      "floxml_xsd": "passed",
+      "provenance": "passed",
+      "des_parameter_count": 53,
+      "des_assertions": {
+        "num_metal_layers": "1"
+      },
+      "des_changes": {},
+      "validation_scope": "native export, XSD, DES readback and output fingerprints"
+    },
+    {
+      "template": "chip_array",
+      "point": "field-component-layer-2",
+      "status": "passed",
+      "script_xsd": "passed",
+      "floxml_xsd": "passed",
+      "provenance": "passed",
+      "des_parameter_count": 53,
+      "des_assertions": {
+        "num_metal_layers": "2"
+      },
+      "des_changes": {
+        "num_metal_layers": "2"
+      },
+      "validation_scope": "native export, XSD, DES readback and output fingerprints"
+    },
+    {
+      "template": "qfn",
+      "point": "field-land-thickness-0_05",
+      "status": "passed",
+      "script_xsd": "passed",
+      "floxml_xsd": "passed",
+      "provenance": "passed",
+      "des_parameter_count": 44,
+      "des_assertions": {
+        "ts": "0.05",
+        "isLand": "CHECKED"
+      },
+      "des_changes": {},
+      "validation_scope": "native export, XSD, DES readback and output fingerprints"
+    },
+    {
+      "template": "qfn",
+      "point": "field-land-thickness-0_08",
+      "status": "passed",
+      "script_xsd": "passed",
+      "floxml_xsd": "passed",
+      "provenance": "passed",
+      "des_parameter_count": 44,
+      "des_assertions": {
+        "ts": "0.08",
+        "isLand": "CHECKED"
+      },
+      "des_changes": {
+        "ts": "0.08"
+      },
+      "validation_scope": "native export, XSD, DES readback and output fingerprints"
+    },
+    {
+      "template": "qfn",
+      "point": "field-land-thickness-0_12",
+      "status": "passed",
+      "script_xsd": "passed",
+      "floxml_xsd": "passed",
+      "provenance": "passed",
+      "des_parameter_count": 44,
+      "des_assertions": {
+        "ts": "0.12",
+        "isLand": "CHECKED"
+      },
+      "des_changes": {
+        "ts": "0.12"
+      },
+      "validation_scope": "native export, XSD, DES readback and output fingerprints"
+    },
+    {
+      "template": "pbga_fc",
+      "point": "field-core-metal-baseline",
+      "status": "passed",
+      "script_xsd": "passed",
+      "floxml_xsd": "passed",
+      "provenance": "passed",
+      "des_parameter_count": 75,
+      "des_assertions": {
+        "z1": "0.1",
+        "tz1": "0.018",
+        "coverage1": "30",
+        "z2": "0.4",
+        "tz2": "0.025",
+        "coverage2": "65"
+      },
+      "des_changes": {},
+      "validation_scope": "native export, XSD, DES readback and output fingerprints"
+    },
+    {
+      "template": "pbga_fc",
+      "point": "field-core-metal-depth",
+      "status": "passed",
+      "script_xsd": "passed",
+      "floxml_xsd": "passed",
+      "provenance": "passed",
+      "des_parameter_count": 75,
+      "des_assertions": {
+        "z1": "0.2",
+        "tz1": "0.018",
+        "coverage1": "30",
+        "z2": "0.4",
+        "tz2": "0.025",
+        "coverage2": "65"
+      },
+      "des_changes": {
+        "z1": "0.2"
+      },
+      "validation_scope": "native export, XSD, DES readback and output fingerprints"
+    },
+    {
+      "template": "pbga_fc",
+      "point": "field-core-metal-thickness",
+      "status": "passed",
+      "script_xsd": "passed",
+      "floxml_xsd": "passed",
+      "provenance": "passed",
+      "des_parameter_count": 75,
+      "des_assertions": {
+        "z1": "0.1",
+        "tz1": "0.02",
+        "coverage1": "30",
+        "z2": "0.4",
+        "tz2": "0.025",
+        "coverage2": "65"
+      },
+      "des_changes": {
+        "tz1": "0.02"
+      },
+      "validation_scope": "native export, XSD, DES readback and output fingerprints"
+    },
+    {
+      "template": "pbga_fc",
+      "point": "field-core-metal-coverage",
+      "status": "passed",
+      "script_xsd": "passed",
+      "floxml_xsd": "passed",
+      "provenance": "passed",
+      "des_parameter_count": 75,
+      "des_assertions": {
+        "z1": "0.1",
+        "tz1": "0.018",
+        "coverage1": "40",
+        "z2": "0.4",
+        "tz2": "0.025",
+        "coverage2": "65"
+      },
+      "des_changes": {
+        "coverage1": "40"
+      },
+      "validation_scope": "native export, XSD, DES readback and output fingerprints"
+    },
+    {
+      "template": "pbga_fc",
+      "point": "field-activation-default",
+      "status": "passed",
+      "script_xsd": "passed",
+      "floxml_xsd": "passed",
+      "provenance": "passed",
+      "des_parameter_count": 69,
+      "des_assertions": {},
+      "validation_scope": "native export, XSD, DES readback and output fingerprints"
+    },
+    {
+      "template": "pbga_fc",
+      "point": "field-core-defined",
+      "status": "passed",
+      "script_xsd": "passed",
+      "floxml_xsd": "passed",
+      "provenance": "passed",
+      "des_parameter_count": 74,
+      "des_assertions": {},
+      "validation_scope": "native export, XSD, DES readback and output fingerprints"
+    },
+    {
+      "template": "pbga_fc",
+      "point": "field-core-zero-count",
+      "status": "passed",
+      "script_xsd": "passed",
+      "floxml_xsd": "passed",
+      "provenance": "passed",
+      "des_parameter_count": 74,
+      "des_assertions": {},
+      "validation_scope": "native export, XSD, DES readback and output fingerprints"
+    },
+    {
+      "template": "pbga_fc",
+      "point": "field-upper-region-only",
+      "status": "passed",
+      "script_xsd": "passed",
+      "floxml_xsd": "passed",
+      "provenance": "passed",
+      "des_parameter_count": 70,
+      "des_assertions": {},
+      "validation_scope": "native export, XSD, DES readback and output fingerprints"
+    },
+    {
+      "template": "pbga_fc",
+      "point": "field-upper-zero-count",
+      "status": "passed",
+      "script_xsd": "passed",
+      "floxml_xsd": "passed",
+      "provenance": "passed",
+      "des_parameter_count": 72,
+      "des_assertions": {},
+      "validation_scope": "native export, XSD, DES readback and output fingerprints"
+    },
+    {
+      "template": "pbga_fc",
+      "point": "field-upper-defined",
+      "status": "passed",
+      "script_xsd": "passed",
+      "floxml_xsd": "passed",
+      "provenance": "passed",
+      "des_parameter_count": 72,
+      "des_assertions": {},
+      "validation_scope": "native export, XSD, DES readback and output fingerprints"
+    },
+    {
+      "template": "pbga_fc",
+      "point": "field-lower-region-only",
+      "status": "passed",
+      "script_xsd": "passed",
+      "floxml_xsd": "passed",
+      "provenance": "passed",
+      "des_parameter_count": 70,
+      "des_assertions": {},
+      "validation_scope": "native export, XSD, DES readback and output fingerprints"
+    },
+    {
+      "template": "pbga_fc",
+      "point": "field-lower-zero-count",
+      "status": "passed",
+      "script_xsd": "passed",
+      "floxml_xsd": "passed",
+      "provenance": "passed",
+      "des_parameter_count": 72,
+      "des_assertions": {},
+      "validation_scope": "native export, XSD, DES readback and output fingerprints"
+    },
+    {
+      "template": "pbga_fc",
+      "point": "field-lower-defined",
+      "status": "passed",
+      "script_xsd": "passed",
+      "floxml_xsd": "passed",
+      "provenance": "passed",
+      "des_parameter_count": 72,
+      "des_assertions": {},
+      "validation_scope": "native export, XSD, DES readback and output fingerprints"
     }
   ],
-  "screenshot_count": 263
+  "screenshot_count": 263,
+  "native_inspection_count": 3,
+  "native_evidence_status": "passed_with_native_schema_errors",
+  "public_model_recheck": {
+    "status": "failed",
+    "point": "template/chip_array/chip_array-explicit-False",
+    "error": "chip_array: material mismatch at bw_h_right: (30.881013751892507, 0.68, 30.881013751892507, 3607.598944816067, 471.67405109241815), [('bond-wire-h-right-part-1', (20.008648801211205, 0.68, 20.008648801211205, 2964.063324682283, 562.3757440979361))]",
+    "scope": "Full reference-tree validation stopped at this existing public-model comparison; all 19 field_probe points were separately validated."
+  }
 }

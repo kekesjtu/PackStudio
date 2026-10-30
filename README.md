@@ -1,86 +1,68 @@
 # PackStudio
 
-参考 Flotherm PACK 的界面与建模逻辑，通过参数向导生成 IC 封装热分析模型，
-并输出 FloXML，交给下游软件完成网格划分和数值求解。
+参考 Flotherm PACK 的界面与建模逻辑，通过参数向导生成八类 IC 封装热分析模型，输出 FloXML 给下游网格与求解软件。
 
-## 功能
-
-- 八类封装：Chip Array、Bare Die、Flip Chip CBGA、Flip Chip PBGA、PQFP、QFN、SOP、Wirebond PBGA。
-- 按组件组织参数向导，提供 Bare Die 基线设置、七类原生外形预设及几何、材料和功率输入。
-- 三维矩形块预览、父子模型树、组件检查和递归显示/隐藏。
-- 材料库浏览与当前方案物性编辑。
-- FloXML 文件下载；Windows 独立窗口提供原生保存对话框。
-
-功能范围以 [需求说明](docs/requirements.md) 为准。
+采用本机 PTA 的 C# / .NET 10、WPF、CommunityToolkit.Mvvm、HelixToolkit.Wpf、Fluent.Ribbon 和 AvalonDock 技术栈。界面与建模核心在同一进程运行。
 
 ## 快速开始
 
-需要 uv、Node.js 22.12+ 与 npm。在仓库根目录运行：
+Windows 安装 .NET 10 SDK 后，在仓库根目录运行：
 
 ```powershell
 .\start.ps1
 ```
 
-脚本安装锁定依赖、准备前端并启动本地服务，随后打开浏览器。
-按 `Ctrl+C` 结束服务。前端热更新使用 `.\start.ps1 -Dev`。
-首次运行需要下载依赖和由 uv 管理的 Python。
-
-Windows 独立窗口需要 .NET 10 SDK 与 WebView2 Runtime：
+构建与验证：
 
 ```powershell
-npm run desktop
+dotnet restore PackStudio.slnx --locked-mode
+dotnet build PackStudio.slnx -c Release --no-restore
+dotnet run --project tests/PackStudio.Tests -c Release --no-build -- .
+dotnet run --project tests/PackStudio.Desktop.Tests -c Release --no-build
+```
+
+生成可分发的独立桌面程序：
+
+```powershell
+dotnet publish src/PackStudio.Desktop -c Release -r win-x64 --self-contained -o release/PackStudio
 ```
 
 ## 项目结构
 
-| 路径 | 内容 |
+| 路径 | 职责 |
 | --- | --- |
-| `src/frontend/` | React / TypeScript 参数向导与三维界面 |
-| `src/packstudio/` | Python API、领域模型、封装生成器和 FloXML 导出器 |
-| `src/webview2/` | WPF / WebView2 独立窗口 |
-| `runtime_data/` | 运行时模板、原生预设与材料库 |
-| `output_format/floxml/` | FloXML 契约、XSD 和示例 |
-| `tests/` | 后端、前端、启动和桌面验证 |
-| `tools/` | 开发、打包、通用原生导出与回归辅助工具 |
-| `docs/` | 产品需求与设计决策 |
-| `flotherm_pack_data/` | 纳入版本控制的原生扫参、导出、截图与验证结果 |
-| `tmp/` | 临时产物与日志 |
-
-## 测试与构建
-
-```powershell
-uv run --locked pytest
-uv run --locked ruff check .
-npm run lint
-npm test
-npm run build
-```
+| `src/PackStudio.Desktop/` | WPF 参数向导、三维预览、模型树与材料编辑 |
+| `src/PackStudio.Core/` | C# 领域模型、原生预设、八类封装生成与 FloXML 输出 |
+| `src/PackStudio.Cli/` | 研究工具使用的 C# 命令行入口 |
+| `runtime_data/` | JSON 模板、342 个原生预设与材料库 |
+| `output_format/floxml/` | FloXML XSD 与示例 |
+| `tests/PackStudio.Tests/` | 几何、材料、功率、参数分支与输出契约回归 |
+| `tests/research/` | 原生研究工具测试 |
+| `tools/` | 独立 Python 研究与参考数据维护工具 |
+| `flotherm_pack_data/` | 原生扫参、导出、截图和验证结果 |
 
 ## 文档
 
-[需求说明](docs/requirements.md) · [开发与验证操作](tools/README.md) ·
-[运行数据](runtime_data/README.md) · [FloXML 契约](output_format/floxml/README.md) ·
-[FloSCRIPT 本机操作](FLOSCRIPT.md) · [PACK 扫参与参考库重建](tools/pack_sweep/README.md)
+[产品需求](docs/requirements.md) · [原生桌面架构](docs/decisions/PTA技术栈与原生桌面架构.md) · [开发与研究工具](tools/README.md) · [运行数据](runtime_data/README.md) · [FloXML 契约](output_format/floxml/README.md) · [FloSCRIPT](FLOSCRIPT.md) · [PACK 扫参](tools/pack_sweep/README.md)
 
 | 决策 | 范围 |
 | --- | --- |
-| [封装外形与芯片类型](docs/decisions/封装外形与芯片类型范围.md) | Standard Outline 与 Actual Die |
-| [BGA 与 Bumps 表达](docs/decisions/BGA与Bumps建模表达.md) | BGA 的离散、等效表达与 Bumps 的 Isotropic Cuboid 约定 |
-| [均匀芯片热源](docs/decisions/仅支持均匀芯片热源.md) | 芯片总功率按体积均匀分配 |
-| [重叠块与警告](docs/decisions/重叠块与警告.md) | 建模、三维渲染与导出允许重叠块，并返回 warning |
-| [QFP Tie Bars 建模选项](docs/decisions/QFP连接筋建模选项.md) | QFP 连接筋的建模选项范围 |
-| [QFP 连接筋板输出范围](docs/decisions/QFP连接筋板输出范围.md) | QFP 的 tiebar_plt 几何与输出范围 |
-| [原生bug：FC PBGA 通孔等效基体导热率](docs/decisions/原生bug-FC-PBGA通孔等效基体导热率.md) | 各向同性基板使用同值三向导热率参与 Core Vias 等效 |
-| [原生bug：Wirebond PBGA 通孔纵向位置](docs/decisions/原生bug-Wirebond-PBGA通孔纵向位置.md) | 通孔上下端面贴合两外层铜的内表面 |
-| [原生bug：Wirebond PBGA 内层铜纵向位置](docs/decisions/原生bug-Wirebond-PBGA内层铜纵向位置.md) | 内层铜按 Depth 与自身厚度定位，与对应断开区对齐 |
-| [原生bug：SOP 芯片与胶层堆叠](docs/decisions/原生bug-SOP芯片与胶层堆叠.md) | 承载台、芯片胶与芯片连续堆叠，键合线端点联动 |
-| [原生bug：SOP 键合线线长参数](docs/decisions/原生bug-SOP键合线线长参数.md) | 精简可编辑线长输入，显示只读名义路径长度 |
-| [数值输入框交互](docs/decisions/数值输入框交互.md) | 整数框常显箭头，小数框右侧单位与同排范围提示 |
-| [模型树排序与显隐](docs/decisions/模型树排序与显隐.md) | 同级节点按 Z 高度排序、右键递归显隐与层级缩进 |
-| [材料物性可信度提示](docs/decisions/材料物性可信度提示.md) | 密度或比热占位值的界面提示 |
-| [材料组与默认材料](docs/decisions/材料组与默认材料.md) | 分组联动选材、非空默认材料与缺省材料配置 |
-| [前后端架构](docs/decisions/采用-Web-前后端分离架构.md) | React 界面与本地 Python 服务 |
-| [运行参数与参考数据](docs/decisions/JSON运行参数与参考数据解耦.md) | JSON 运行库、来源记录与独立分发 |
-| [预设参数来源与空值](docs/decisions/预设参数来源与空值规则.md) | 预设取值、空白显示与必填校验 |
-| [桌面宿主](docs/decisions/WebView2独立宿主.md) | WPF / WebView2 独立窗口 |
-| [FloXML 输出](docs/decisions/仅保留FloXML输出.md) | FloXML 输出契约与验证入口 |
+| [封装与芯片类型](docs/decisions/封装外形与芯片类型范围.md) | 外形与芯片范围 |
+| [BGA 与 Bumps](docs/decisions/BGA与Bumps建模表达.md) | 焊球与凸点表达 |
+| [均匀热源](docs/decisions/仅支持均匀芯片热源.md) | 功率分配 |
+| [重叠块](docs/decisions/重叠块与警告.md) | 重叠与警告 |
+| [QFP 连接筋](docs/decisions/QFP连接筋建模选项.md) | 建模选项 |
+| [QFP 连接筋板](docs/decisions/QFP连接筋板输出范围.md) | 输出范围 |
+| [FC PBGA 通孔](docs/decisions/原生bug-FC-PBGA通孔等效基体导热率.md) | 基体导热率 |
+| [WB PBGA 通孔](docs/decisions/原生bug-Wirebond-PBGA通孔纵向位置.md) | 纵向定位 |
+| [WB PBGA 内层铜](docs/decisions/原生bug-Wirebond-PBGA内层铜纵向位置.md) | 铜层与断开区 |
+| [SOP 堆叠](docs/decisions/原生bug-SOP芯片与胶层堆叠.md) | 芯片胶层定位 |
+| [SOP 键合线](docs/decisions/原生bug-SOP键合线线长参数.md) | 名义路径长度 |
+| [新建封装与导航](docs/decisions/新建封装与向导导航.md) | 创建流程与左侧布局 |
+| [数值输入](docs/decisions/数值输入框交互.md) | 单位、箭头与范围 |
+| [模型树](docs/decisions/模型树排序与显隐.md) | 层次、排序、选择与显隐 |
+| [材料可信度](docs/decisions/材料物性可信度提示.md) | 占位值提示 |
+| [材料分组](docs/decisions/材料组与默认材料.md) | 分组选材与默认值 |
+| [运行库](docs/decisions/JSON运行参数与参考数据解耦.md) | 分发与来源 |
+| [预设与空值](docs/decisions/预设参数来源与空值规则.md) | 原生数据与校验 |
+| [FloXML](docs/decisions/仅保留FloXML输出.md) | 输出契约 |

@@ -1,0 +1,24 @@
+{
+  "template": "qfn",
+  "id": "field-land-thickness-0_12",
+  "origin": "field_probe",
+  "commands": [
+    "<new_package package_type=\"QFN\"><new_value new_value=\"qfn\" property_name=\"designName\" /><new_value new_value=\"standardOutline\" property_name=\"outlineType\" /><new_value new_value=\"QFN_12X12_100\" property_name=\"jedecFootprint\" /></new_package>",
+    "<modify_component name=\"thermalLand\" new_value=\"true\" property_name=\"includeLand\" />",
+    "<modify_component name=\"thermalLand\" new_value=\"Copper (Pure)\" property_name=\"material\" />",
+    "<modify_component name=\"thermalLand\" new_value=\"0.12\" property_name=\"landThickness\" />"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "field_correspondence",
+    "validation_scope": "native property assignment, DES readback and FloXML; no public-model claim",
+    "expected_des": {
+      "ts": "0.12",
+      "isLand": "CHECKED"
+    },
+    "comparison_baseline": "field-land-thickness-0_05/model.des",
+    "expected_des_changes": {
+      "ts": "0.12"
+    }
+  }
+}

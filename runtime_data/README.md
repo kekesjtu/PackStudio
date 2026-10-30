@@ -50,19 +50,15 @@ Wirebond PBGA 的层表包含逐层 Disconnect to Via 开关。
 
 ```powershell
 uv run --locked python -m tools.pack_reference "E:/Program Files/Siemens/SimcenterFlotherm/2504"
-uv run --locked python -m tools.validate_catalog_presets
+dotnet run --project tests/PackStudio.Tests -c Release -- .
 ```
 
-预设审计实际生成模型，检查材料和几何引用、BGA 数量以及 FloXML XSD，默认输出校验汇总。
-需要保存机器报告时显式传入 `--report tmp/YYYY-MM-DD-catalog-audit/report.json`。
-原生模型的几何和物性通过参考库中的逐项对照验证。
+预设审计实际生成 342 个预设模型，检查材料、几何、功率和 FloXML XSD，并对默认模型及复杂参数分支执行数值回归。
 
-离线回归直接检查本目录中的 342 个预设、416 个分支、材料引用和索引哈希。
-原始 DES 字段与来源哈希的独立比对可设置 `PACK_NATIVE_INSTALLATION` 后运行：
+原生材料和预设记录可通过独立研究测试核验：
 
 ```powershell
-$env:PACK_NATIVE_INSTALLATION = 'E:\Program Files\Siemens\SimcenterFlotherm\2504'
-uv run --locked pytest tests/backend/test_preset_catalog.py::test_source_provenance_matches_installed_des_files
+uv run --locked pytest tests/research
 ```
 
-该检查直接读取安装目录中的原始 DES，比对原生字段与来源哈希。
+本机原生调用测试通过 `PACK_NATIVE_INSTALLATION` 指定经过审核的 PACK 安装；未指定时跳过。

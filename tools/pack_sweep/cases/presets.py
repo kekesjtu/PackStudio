@@ -1,6 +1,6 @@
 """Native standard-outline initialization for every retained wirebond footprint."""
 
-from packstudio.preset_catalog import PresetCatalog
+from tools.data_library.preset_catalog import PresetCatalog
 
 
 def append_presets(add):
