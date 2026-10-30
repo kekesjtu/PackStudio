@@ -32,7 +32,7 @@ PackStudio AI 协作开发指南。本文档为 AI Agent 提供项目结构、�
 
 ### 3.2 Git 规范
 
-- **分支策略**：无明确要求时，只使用单分支 `main` 来开发
+- **分支策略**：`main` 保存 C# 技术栈的稳定版本；`dev/csharp` 用于 C# 框架开发，`dev/web` 用于 Web 框架开发。C# 开发 worktree 保留在 `PackStudio-PTA`，对应 `dev/csharp` 分支
 - **敏捷开发**：一次完整的变更一次提交
 - **提交信息**：使用中文，格式 `类型: 简述`（如 `feat: 添加XXX`）
 
