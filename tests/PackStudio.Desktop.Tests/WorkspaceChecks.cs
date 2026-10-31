@@ -9,6 +9,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using HelixToolkit.Wpf;
 using PackStudio.Desktop;
+using PackStudio.Core;
 
 namespace PackStudio.Desktop.Tests;
 
@@ -78,6 +79,7 @@ static class WorkspaceChecks
 
         CheckTree(Find<TreeView>(window, "ModelTree"));
         CheckMaterials(workspace);
+        CheckFieldLayout(window, workspace);
         NewPackageChecks.Capture(window, "workspace-interactions.png");
         Console.WriteLine("PASS gestures, pan selection, live splitters, warning overlay and tree rows");
     }
@@ -92,6 +94,14 @@ static class WorkspaceChecks
             foreach (TreeViewItem category in tree.Items) category.IsExpanded = true;
             window.UpdateLayout();
             CheckTree(tree);
+            foreach (TreeViewItem category in tree.Items)
+                foreach (TreeViewItem item in category.Items)
+                {
+                    var material = (Material)item.Tag;
+                    var row = (TreeRow)item.Header;
+                    bool marked = row.Children.OfType<TextBlock>().Any(t => t.Text == "物性待核实");
+                    Require(marked == (material.Density == 1 || material.SpecificHeat == 1), "material quality label mismatch");
+                }
             var first = (TreeViewItem)((TreeViewItem)tree.Items[0]).Items[0];
             first.IsSelected = true;
             Require(tree.SelectedItem == first, "material selection broken");
@@ -99,6 +109,42 @@ static class WorkspaceChecks
             NewPackageChecks.Capture(window, "material-tree-spacing.png");
         }
         finally { window.Close(); }
+    }
+
+    static void CheckFieldLayout(MainWindow window, Workspace workspace)
+    {
+        var steps = Find<ListBox>(window, "StepList");
+        steps.SelectedValue = "die";
+        window.UpdateLayout();
+        var fields = Find<StackPanel>(window, "FieldsPanel");
+        var rows = fields.Children.OfType<Grid>().ToList();
+        var materialRow = rows.First(row => row.Children.OfType<ComboBox>().Any());
+        var numberRow = rows.First(row => row.Children.OfType<StackPanel>().Any(panel => panel.Children.OfType<Grid>().Any()));
+        var material = materialRow.Children.OfType<ComboBox>().Single();
+        var numeric = numberRow.Children.OfType<StackPanel>().Single().Children.OfType<Grid>().First();
+        Require(Math.Abs(material.ActualWidth - numeric.ActualWidth) < 0.5, "numeric and material widths differ");
+        Require(numberRow.Children.OfType<TextBlock>().Any(t => Grid.GetColumn(t) == 2 && t.Text.Length > 0), "numeric range is not on the right");
+        var materialChoice = rows.SelectMany(row => row.Children.OfType<ComboBox>()).First(box => box.ItemTemplate != null);
+        var selected = materialChoice.SelectedItem!;
+        var original = (Material)selected.GetType().GetProperty("Material")!.GetValue(selected)!;
+        var overrideMaterial = original with { Density = 1, SpecificHeat = 100 };
+        workspace.Document.CustomMaterials.Add(overrideMaterial);
+        try
+        {
+            steps.SelectedValue = "summary";
+            steps.SelectedValue = "die";
+            var refreshed = fields.Children.OfType<Grid>().SelectMany(row => row.Children.OfType<ComboBox>()).First(box => box.ItemTemplate != null).SelectedItem!;
+            Require((bool)refreshed.GetType().GetProperty("NeedsReview")!.GetValue(refreshed)!, "custom material quality not reflected in selection");
+        }
+        finally { workspace.Document.CustomMaterials.Remove(overrideMaterial); }
+        foreach (var combo in rows.SelectMany(row => row.Children.OfType<ComboBox>()).Where(box => box.ItemTemplate != null))
+            foreach (var item in combo.Items)
+            {
+                var materialProperty = item.GetType().GetProperty("Material");
+                if (materialProperty?.GetValue(item) is not Material value) continue;
+                bool marked = (bool)item.GetType().GetProperty("NeedsReview")!.GetValue(item)!;
+                Require(marked == (value.Density == 1 || value.SpecificHeat == 1), "material choice quality mismatch");
+            }
     }
 
     static void CheckTree(TreeView tree)

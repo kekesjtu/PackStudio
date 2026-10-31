@@ -64,10 +64,10 @@ public partial class MainWindow
             {
                 host.RowDefinitions.Add(new() { Height = GridLength.Auto });
                 host.RowDefinitions.Add(new() { Height = GridLength.Auto });
-                Grid.SetColumnSpan(host.Children[0], 2);
+                Grid.SetColumnSpan(host.Children[0], 3);
                 ((TextBlock)host.Children[0]).HorizontalAlignment = HorizontalAlignment.Left;
                 Grid.SetColumn(editors, 0);
-                Grid.SetColumnSpan(editors, 2);
+                Grid.SetColumnSpan(editors, 3);
                 Grid.SetRow(editors, 1);
                 editors.Margin = new(0, 6, 0, 0);
             }
@@ -135,11 +135,12 @@ public partial class MainWindow
                     FontSize = 10,
                     Foreground = Brushes.SlateGray,
                     VerticalAlignment = VerticalAlignment.Center,
-                    Margin = new(0, 3, 0, 0),
+                    Margin = new(6, 0, 0, 0),
                     TextWrapping = TextWrapping.Wrap
                 };
                 editors.Children.Add(row);
-                if (range.Text.Length > 0) editors.Children.Add(range);
+                Grid.SetColumn(range, 2);
+                host.Children.Add(range);
             }
             else
             {

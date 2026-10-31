@@ -19,20 +19,21 @@ public partial class MainWindow
         if (id.Length > 0 && allowed.All(m => m.Id != id) && workspace.Catalog.Materials.Items.TryGetValue(id, out var current))
             allowed.Add(current);
         allowed = allowed.GroupBy(m => m.Name).Select(g => g.FirstOrDefault(m => m.Id == id) ?? g.OrderBy(m => m.Id.Length).ThenBy(m => m.Id).First()).ToList();
+        allowed = allowed.Select(m => workspace.Document.CustomMaterials.FirstOrDefault(c => c.Id == m.Id) ?? m).ToList();
         var groups = new ComboBox
         {
             ItemsSource = allowed.Select(m => m.Category).Distinct().Order().ToList(),
         };
         var box = new ComboBox
         {
-            DisplayMemberPath = "Name",
+            ItemTemplate = MaterialPresentation.Template(),
             SelectedValuePath = "Id"
         };
         bool initialized = false;
         void Filter(bool select)
         {
             var candidates = allowed.Where(m => m.Category == groups.SelectedItem?.ToString()).OrderBy(m => m.Name).ToList();
-            box.ItemsSource = candidates;
+            box.ItemsSource = candidates.Select(m => new MaterialPresentation.Option(m)).ToList();
             box.SelectedValue = select ? candidates.FirstOrDefault()?.Id : id;
         }
 
@@ -143,11 +144,10 @@ public partial class MainWindow
 
     void ConfigNumber(JObject data, string key, string label)
     {
-        FieldsPanel.Children.Add(new TextBlock { Text = label, Margin = new(0, 8, 0, 4) });
-        FieldsPanel.Children.Add(Numeric(data[key], true, "", v =>
+        FieldsPanel.Children.Add(FieldRow(label, Numeric(data[key], true, "", v =>
         {
             data[key] = v;
             workspace.Dirty();
-        }));
+        })));
     }
 }

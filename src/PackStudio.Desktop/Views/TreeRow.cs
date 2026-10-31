@@ -12,7 +12,7 @@ public sealed class TreeRow : Grid
     public static bool GetIsHighlighted(DependencyObject element) => (bool)element.GetValue(IsHighlightedProperty);
     public static void SetIsHighlighted(DependencyObject element, bool value) => element.SetValue(IsHighlightedProperty, value);
 
-    public TreeRow(string title, bool group, string count = "", Color? swatch = null, bool hidden = false, bool modelGroup = false)
+    public TreeRow(string title, bool group, string count = "", Color? swatch = null, bool hidden = false, bool modelGroup = false, bool warning = false)
     {
         VerticalAlignment = VerticalAlignment.Center;
         Opacity = hidden ? 0.45 : 1;
@@ -42,7 +42,7 @@ public sealed class TreeRow : Grid
             FontWeight = group ? FontWeights.SemiBold : FontWeights.Normal, VerticalAlignment = VerticalAlignment.Center };
         SetColumn(label, 1);
         Children.Add(label);
-        var total = new TextBlock { Text = count, FontSize = 10, Foreground = Brushes.SlateGray,
+        var total = new TextBlock { Text = warning ? "物性待核实" : count, FontSize = 10, Foreground = warning ? Brushes.DarkGoldenrod : Brushes.SlateGray,
             VerticalAlignment = VerticalAlignment.Center, Margin = new(8, 0, 3, 0) };
         SetColumn(total, 2);
         Children.Add(total);

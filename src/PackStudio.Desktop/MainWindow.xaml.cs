@@ -140,6 +140,7 @@ public partial class MainWindow : Window
         if (dialog.ShowDialog() == true)
         {
             workspace.Dirty();
+            RefreshFields();
             await workspace.GenerateAsync();
         }
     }

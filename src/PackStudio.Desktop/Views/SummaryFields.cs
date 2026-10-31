@@ -6,17 +6,23 @@ using PackStudio.Core;
 namespace PackStudio.Desktop;
 public partial class MainWindow
 {
-    static Grid FieldRow(string label, FrameworkElement editor)
+    static Grid FieldRow(string label, FrameworkElement editor, FrameworkElement? suffix = null)
     {
         var row = new Grid
         {
             Margin = new(0, 0, 0, 7)
         };
-        row.ColumnDefinitions.Add(new() { Width = new GridLength(135) });
+        row.ColumnDefinitions.Add(new() { Width = new GridLength(105) });
         row.ColumnDefinitions.Add(new());
+        row.ColumnDefinitions.Add(new() { Width = new GridLength(72) });
         row.Children.Add(new TextBlock { Text = label, TextWrapping = TextWrapping.Wrap, VerticalAlignment = VerticalAlignment.Center, HorizontalAlignment = HorizontalAlignment.Right, Margin = new(0, 0, 10, 0) });
         Grid.SetColumn(editor, 1);
         row.Children.Add(editor);
+        if (suffix != null)
+        {
+            Grid.SetColumn(suffix, 2);
+            row.Children.Add(suffix);
+        }
         return row;
     }
 

@@ -102,7 +102,7 @@ public sealed class MaterialWindow : Window
                 foreach (var material in group.OrderBy(m => m.Name))
                 {
                     var item = new TreeViewItem { Header = new TreeRow(material.Name, false,
-                        swatch: (Color)ColorConverter.ConvertFromString(material.Color)), Tag = material,
+                        swatch: (Color)ColorConverter.ConvertFromString(material.Color), warning: MaterialPresentation.NeedsReview(material)), Tag = material,
                         Style = (Style)FindResource("ExplorerTreeItem") };
                     System.Windows.Automation.AutomationProperties.SetName(item, material.Name);
                     category.Items.Add(item);
