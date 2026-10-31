@@ -19,10 +19,14 @@ internal static class MaterialPresentation
     internal static DataTemplate Template()
     {
         var panel = new FrameworkElementFactory(typeof(DockPanel));
+        panel.SetValue(FrameworkElement.HorizontalAlignmentProperty, HorizontalAlignment.Stretch);
+        panel.SetValue(FrameworkElement.VerticalAlignmentProperty, VerticalAlignment.Center);
         var badge = new FrameworkElementFactory(typeof(TextBlock));
         badge.SetValue(TextBlock.TextProperty, "物性待核实");
         badge.SetValue(TextBlock.ForegroundProperty, Brushes.DarkGoldenrod);
         badge.SetValue(TextBlock.FontSizeProperty, 10.0);
+        badge.SetValue(FrameworkElement.VerticalAlignmentProperty, VerticalAlignment.Center);
+        badge.SetValue(FrameworkElement.HorizontalAlignmentProperty, HorizontalAlignment.Right);
         badge.SetValue(TextBlock.MarginProperty, new Thickness(6, 0, 0, 0));
         badge.SetValue(DockPanel.DockProperty, Dock.Right);
         badge.SetBinding(UIElement.VisibilityProperty, new Binding(nameof(Option.NeedsReview)) { Converter = new BooleanToVisibilityConverter() });
@@ -30,6 +34,7 @@ internal static class MaterialPresentation
         var name = new FrameworkElementFactory(typeof(TextBlock));
         name.SetBinding(TextBlock.TextProperty, new Binding(nameof(Option.Name)));
         name.SetValue(TextBlock.TextTrimmingProperty, TextTrimming.CharacterEllipsis);
+        name.SetValue(FrameworkElement.VerticalAlignmentProperty, VerticalAlignment.Center);
         name.SetBinding(FrameworkElement.ToolTipProperty, new Binding(nameof(Option.Name)));
         panel.AppendChild(name);
         return new DataTemplate { VisualTree = panel };

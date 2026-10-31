@@ -19,7 +19,7 @@ public partial class NewPackageWindow
             };
             row.ColumnDefinitions.Add(new() { Width = new GridLength(130) });
             row.ColumnDefinitions.Add(new());
-            row.Children.Add(new TextBlock { Text = field["label"].Text(), TextWrapping = TextWrapping.Wrap, VerticalAlignment = VerticalAlignment.Center, HorizontalAlignment = HorizontalAlignment.Right, Margin = new(0, 0, 12, 0) });
+            row.Children.Add(new TextBlock { Text = field["label"].Text(), TextWrapping = TextWrapping.NoWrap, TextTrimming = TextTrimming.CharacterEllipsis, ToolTip = field["label"].Text(), VerticalAlignment = VerticalAlignment.Center, HorizontalAlignment = HorizontalAlignment.Right, Margin = new(0, 0, 12, 0) });
             FrameworkElement editor;
             if (control == "checkbox")
             {

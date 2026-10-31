@@ -67,6 +67,19 @@ public static class Program
                             throw new Exception(family.Id + " empty wizard step " + i);
                     }
 
+                    if (family.Id == "bare_die")
+                    {
+                        steps.SelectedValue = "bumped_die";
+                        var check = fields.Children.OfType<Grid>().SelectMany(row => row.Children.OfType<StackPanel>()).SelectMany(panel => panel.Children.OfType<CheckBox>()).First();
+                        if (check.Content?.ToString() != "包含凸点与底填充" || Grid.GetColumnSpan((StackPanel)check.Parent) != 3)
+                            throw new Exception("checkbox label is not displayed on one row");
+                    }
+                    if (family.Id == "pbga_wb")
+                    {
+                        steps.SelectedValue = "die";
+                        bool hasLw = fields.Children.OfType<Grid>().SelectMany(row => row.Children.OfType<DockPanel>()).SelectMany(panel => panel.Children.OfType<TextBlock>()).Any(text => text.Text.Trim() == "Lw");
+                        if (!hasLw) throw new Exception("DES symbol Lw is missing");
+                    }
                     await vm.GenerateAsync();
                     if (!vm.IsCurrent || vm.Model == null)
                         throw new Exception(family.Id + ": " + vm.Status);

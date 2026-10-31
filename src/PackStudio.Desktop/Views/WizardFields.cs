@@ -60,7 +60,9 @@ public partial class MainWindow
             string key = f["key"].Text(), control = f["control"].Text();
             bool isTable = control is "metal_layers" or "layer_table" || key.EndsWith(".layers", StringComparison.Ordinal) && control != "select" && values[key]?.Type == JTokenType.String && values[key]!.ToString().TrimStart().StartsWith('[');
             var editors = new StackPanel();
-            var host = FieldRow(f["label"].Text(), editors);
+            string label = f["label"].Text();
+            string symbol = control is "number" or "integer" or "integer_spinbox" ? DesFieldLabels.Symbol(workspace.Document.TemplateId, key, label) : "";
+            var host = FieldRow(label, editors, symbol: symbol);
             host.IsEnabled = JsonData.Matches(f["enabled_when"] as JObject, values);
             if (isTable)
             {
@@ -84,10 +86,14 @@ public partial class MainWindow
 
             if (control == "checkbox")
             {
+                host.Children.RemoveAt(0);
+                Grid.SetColumn(editors, 0);
+                Grid.SetColumnSpan(editors, 3);
                 var box = new CheckBox
                 {
                     IsChecked = values[key].Flag(),
-                    Content = "启用"
+                    Content = label,
+                    ToolTip = label
                 };
                 box.Checked += (_, _) => Set(true, true);
                 box.Unchecked += (_, _) => Set(false, true);
@@ -138,7 +144,9 @@ public partial class MainWindow
                     Foreground = Brushes.SlateGray,
                     VerticalAlignment = VerticalAlignment.Center,
                     Margin = new(6, 0, 0, 0),
-                    TextWrapping = TextWrapping.Wrap
+                    TextWrapping = TextWrapping.NoWrap,
+                    TextTrimming = TextTrimming.CharacterEllipsis,
+                    ToolTip = hi == "" ? $"≥ {lo}" : $"{lo} – {hi}"
                 };
                 editors.Children.Add(row);
                 Grid.SetColumn(range, 2);

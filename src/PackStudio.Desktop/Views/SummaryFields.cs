@@ -6,7 +6,7 @@ using PackStudio.Core;
 namespace PackStudio.Desktop;
 public partial class MainWindow
 {
-    static Grid FieldRow(string label, FrameworkElement editor, FrameworkElement? suffix = null)
+    static Grid FieldRow(string label, FrameworkElement editor, FrameworkElement? suffix = null, string symbol = "")
     {
         var row = new Grid
         {
@@ -15,7 +15,22 @@ public partial class MainWindow
         row.ColumnDefinitions.Add(new() { Width = new GridLength(105) });
         row.ColumnDefinitions.Add(new());
         row.ColumnDefinitions.Add(new() { Width = new GridLength(72) });
-        row.Children.Add(new TextBlock { Text = label, TextWrapping = TextWrapping.Wrap, VerticalAlignment = VerticalAlignment.Center, HorizontalAlignment = HorizontalAlignment.Right, Margin = new(0, 0, 10, 0) });
+        string display = symbol.Length > 0 && label.EndsWith(" " + symbol, StringComparison.Ordinal) ? label[..^(symbol.Length + 1)] : label;
+        var text = new TextBlock { Text = display, ToolTip = symbol.Length > 0 ? label + " (" + symbol + ")" : label, TextTrimming = TextTrimming.CharacterEllipsis, TextWrapping = TextWrapping.NoWrap, VerticalAlignment = VerticalAlignment.Center, HorizontalAlignment = HorizontalAlignment.Right };
+        if (symbol.Length == 0)
+        {
+            text.Margin = new(0, 0, 10, 0);
+            row.Children.Add(text);
+        }
+        else
+        {
+            var labelPanel = new DockPanel { Margin = new(0, 0, 10, 0), LastChildFill = true };
+            var symbolText = new TextBlock { Text = " " + symbol, VerticalAlignment = VerticalAlignment.Center, ToolTip = symbol };
+            DockPanel.SetDock(symbolText, Dock.Right);
+            labelPanel.Children.Add(symbolText);
+            labelPanel.Children.Add(text);
+            row.Children.Add(labelPanel);
+        }
         Grid.SetColumn(editor, 1);
         row.Children.Add(editor);
         if (suffix != null)

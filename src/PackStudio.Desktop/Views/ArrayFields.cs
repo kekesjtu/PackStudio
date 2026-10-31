@@ -27,6 +27,9 @@ public partial class MainWindow
         var box = new ComboBox
         {
             ItemTemplate = MaterialPresentation.Template(),
+            HorizontalContentAlignment = HorizontalAlignment.Stretch,
+            VerticalContentAlignment = VerticalAlignment.Center,
+            ItemContainerStyle = new Style(typeof(ComboBoxItem)) { Setters = { new Setter(Control.HorizontalContentAlignmentProperty, HorizontalAlignment.Stretch) } },
             SelectedValuePath = "Id"
         };
         bool initialized = false;
@@ -141,10 +144,16 @@ public partial class MainWindow
 
     void ConfigNumber(JObject data, string key, string label)
     {
+        string symbol = key switch
+        {
+            "populated_rows" => "MEp", "populated_columns" => "MDp",
+            "center_solder_rows" => "MEc", "center_solder_columns" => "MDc",
+            _ => ""
+        };
         FieldsPanel.Children.Add(FieldRow(label, Numeric(data[key], true, "", v =>
         {
             data[key] = v;
             workspace.Dirty();
-        })));
+        }), symbol: symbol));
     }
 }
