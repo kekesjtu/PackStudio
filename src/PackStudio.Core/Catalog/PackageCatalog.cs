@@ -90,6 +90,26 @@ public sealed class PackageCatalog
             }
         }
 
+        if (t.Info.Id is "chip_array" or "pbga_wb" && values["substrate.layers"].Text() == "4-Layer" && source["trace.solid_thickness"] != null)
+        {
+            var thickness = source["trace.solid_thickness"];
+            if (thickness?.Type is not (JTokenType.Integer or JTokenType.Float) || !double.IsFinite(thickness.Number()) || thickness.Number() < 0.001)
+                throw new ArgumentException("内层金属厚度必须至少为 0.001 mm。");
+            var rows = JArray.Parse(values["metal.layers"].Text());
+            if (rows.Count != 4) throw new ArgumentException("四层基板需要四个金属层。");
+            double solid = thickness.Number(), height = values["substrate.thickness"].Number();
+            double top = values["trace.top_thickness"].Number(), bottom = values["trace.bottom_thickness"].Number();
+            double gap = (height - top - bottom - 2 * solid) / 3;
+            if (gap < 0) throw new ArgumentException("金属层厚度超过基板厚度。");
+            rows[0]!["thickness"] = top;
+            rows[1]!["depth"] = top + gap;
+            rows[2]!["depth"] = top + 2 * gap;
+            rows[1]!["thickness"] = rows[2]!["thickness"] = solid;
+            rows[3]!["depth"] = height - bottom;
+            rows[3]!["thickness"] = bottom;
+            values["metal.layers"] = rows.ToString(Newtonsoft.Json.Formatting.None);
+        }
+
         if (t.Info.Id is "sop" or "pqfp" && values["package.exposed_pad"].Flag())
         {
             values["flag.downset"] = values["leads.height"]!.DeepClone();

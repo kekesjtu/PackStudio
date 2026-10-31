@@ -51,7 +51,7 @@ public partial class MainWindow
         }
 
         var values = workspace.Document.Values;
-        foreach (var f in workspace.Template.Fields.Where(f => f["step"].Text() == step && f["control"].Text() != "footprint"))
+        foreach (var f in workspace.Template.Fields.Where(f => f["step"].Text() == step && f["control"].Text() != "footprint").OrderBy(f => step == "modeling" && f["key"].Text().Contains(".grid.") ? 1 : 0))
         {
             if (!JsonData.Matches(f["visible_when"] as JObject, values))
                 continue;
@@ -126,22 +126,20 @@ public partial class MainWindow
             {
                 var row = new Grid();
                 row.ColumnDefinitions.Add(new() { Width = new GridLength(1, GridUnitType.Star) });
-                row.ColumnDefinitions.Add(new() { Width = new GridLength(76) });
-                var input = Numeric(values[key], control.StartsWith("integer"), f["unit"].Text(), n => Set(n));
+                var input = Numeric(values[key], control.StartsWith("integer"), f["unit"].Text(), n => Set(n), f["minimum"]?.Type is JTokenType.Integer or JTokenType.Float ? f["minimum"]!.Number() : 0, f["maximum"]?.Type is JTokenType.Integer or JTokenType.Float ? f["maximum"]!.Number() : null);
                 row.Children.Add(input);
-                string lo = f["minimum"]?.Type != JTokenType.Null ? f["minimum"].Text() : "", hi = f["maximum"]?.Type != JTokenType.Null ? f["maximum"].Text() : "";
+                string lo = f["minimum"]?.Type != JTokenType.Null ? f["minimum"].Text() : "0", hi = f["maximum"]?.Type != JTokenType.Null ? f["maximum"].Text() : "";
                 var range = new TextBlock
                 {
-                    Text = lo == "" && hi == "" ? "" : $"{lo} – {hi}",
+                    Text = hi == "" ? $"≥ {lo}" : $"{lo} – {hi}",
                     FontSize = 10,
                     Foreground = Brushes.SlateGray,
                     VerticalAlignment = VerticalAlignment.Center,
-                    Margin = new(8, 0, 0, 0),
+                    Margin = new(0, 3, 0, 0),
                     TextWrapping = TextWrapping.Wrap
                 };
-                Grid.SetColumn(range, 1);
-                row.Children.Add(range);
                 editors.Children.Add(row);
+                if (range.Text.Length > 0) editors.Children.Add(range);
             }
             else
             {

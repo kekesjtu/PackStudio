@@ -35,16 +35,11 @@ public partial class MainWindow
         if (document.PresetId.Length > 0)
         {
             ReadOnly("JEDEC Footprint", document.PresetId);
-            ReadOnly("Outline Type", "Standard Outline");
-            ReadOnly("Die Type", "Actual Die");
         }
 
         if (document.Values["substrate.layers"] != null)
             ReadOnly("基板层数", document.Values["substrate.layers"].Text());
-        FieldsPanel.Children.Add(FieldRow("芯片功率", Numeric(document.Values["die.power"], false, "W", value =>
-        {
-            document.Values["die.power"] = value;
-            workspace.Dirty();
-        })));
+        ReadOnly("芯片功率", document.Values["die.power"].Text() + " W");
+
     }
 }

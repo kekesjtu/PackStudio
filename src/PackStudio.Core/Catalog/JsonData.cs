@@ -71,7 +71,7 @@ public sealed class Template(TemplateInfo info, JObject data, IReadOnlyList<Pres
                 if (v.Type is not (JTokenType.Integer or JTokenType.Float))
                     throw new ArgumentException($"{f["label"]} 必须是数字。");
                 double n = v.Value<double>();
-                if (!double.IsFinite(n) || control.StartsWith("integer") && n != Math.Truncate(n) || f["minimum"]?.Type != JTokenType.Null && f["minimum"] != null && n < f["minimum"].Number() || f["maximum"]?.Type != JTokenType.Null && f["maximum"] != null && n > f["maximum"].Number())
+                if (!double.IsFinite(n) || control.StartsWith("integer") && n != Math.Truncate(n) || n < (f["minimum"]?.Type is JTokenType.Integer or JTokenType.Float ? f["minimum"]!.Number() : 0) || f["maximum"]?.Type != JTokenType.Null && f["maximum"] != null && n > f["maximum"].Number())
                     throw new ArgumentException($"{f["label"]} 超出允许范围。");
             }
 

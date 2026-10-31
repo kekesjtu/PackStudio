@@ -9,7 +9,7 @@ using PackStudio.Core;
 namespace PackStudio.Desktop;
 public partial class MainWindow
 {
-    internal static FrameworkElement Numeric(JToken? value, bool integer, string unit, Action<JToken> changed)
+    internal static FrameworkElement Numeric(JToken? value, bool integer, string unit, Action<JToken> changed, double minimum = 0, double? maximum = null)
     {
         var border = new Border
         {
@@ -53,7 +53,7 @@ public partial class MainWindow
                 button.Click += (_, _) =>
                 {
                     if (double.TryParse(text.Text, NumberStyles.Float, CultureInfo.InvariantCulture, out double n))
-                        text.Text = (Math.Truncate(n) + direction).ToString(CultureInfo.InvariantCulture);
+                        text.Text = Math.Clamp(Math.Truncate(n) + direction, minimum, maximum ?? long.MaxValue).ToString(CultureInfo.InvariantCulture);
                 };
                 arrows.Children.Add(button);
             }
@@ -80,7 +80,7 @@ public partial class MainWindow
                 text.Foreground = Brushes.Black;
                 changed(JValue.CreateNull());
             }
-            else if (double.TryParse(text.Text, NumberStyles.Float, CultureInfo.InvariantCulture, out double n) && double.IsFinite(n) && (!integer || n == Math.Truncate(n)))
+            else if (double.TryParse(text.Text, NumberStyles.Float, CultureInfo.InvariantCulture, out double n) && double.IsFinite(n) && n >= minimum && (!maximum.HasValue || n <= maximum.Value) && (!integer || n == Math.Truncate(n) && n >= long.MinValue && n < 9223372036854775808d))
             {
                 text.Foreground = Brushes.Black;
                 changed(integer ? new JValue(checked((long)n)) : new JValue(n));
@@ -94,7 +94,7 @@ public partial class MainWindow
         return border;
     }
 
-    DataGrid Table(JArray rows, (string Key, string Label, Type Type)[] columns, Action<JArray> changed)
+    FrameworkElement Table(JArray rows, (string Key, string Label, Type Type)[] columns, Action<JArray> changed)
     {
         var table = new DataTable();
         foreach (var col in columns)
@@ -111,7 +111,7 @@ public partial class MainWindow
         {
             ItemsSource = table.DefaultView,
             AutoGenerateColumns = false,
-            CanUserAddRows = true,
+            CanUserAddRows = false,
             CanUserDeleteRows = true,
             MinHeight = 115,
             MaxHeight = 280,
@@ -122,17 +122,19 @@ public partial class MainWindow
         {
             var binding = new System.Windows.Data.Binding(col.Key)
             {
-                UpdateSourceTrigger = System.Windows.Data.UpdateSourceTrigger.LostFocus
+                UpdateSourceTrigger = col.Type == typeof(bool) ? System.Windows.Data.UpdateSourceTrigger.PropertyChanged : System.Windows.Data.UpdateSourceTrigger.LostFocus
             };
-            DataGridColumn column = col.Type == typeof(bool) ? new DataGridCheckBoxColumn
+            DataGridColumn column;
+            if (col.Type == typeof(bool))
             {
-                Binding = binding
+                var checkbox = new FrameworkElementFactory(typeof(CheckBox));
+                checkbox.SetValue(CheckBox.HorizontalAlignmentProperty, HorizontalAlignment.Center);
+                checkbox.SetValue(CheckBox.VerticalAlignmentProperty, VerticalAlignment.Center);
+                checkbox.SetBinding(CheckBox.IsCheckedProperty, binding);
+                var template = new DataTemplate { VisualTree = checkbox };
+                column = new DataGridTemplateColumn { CellTemplate = template };
             }
-
-            : new DataGridTextColumn
-            {
-                Binding = binding
-            };
+            else column = new DataGridTextColumn { Binding = binding };
             column.Header = col.Label;
             column.Width = new DataGridLength(1, DataGridLengthUnitType.Star);
             grid.Columns.Add(column);
@@ -156,6 +158,25 @@ public partial class MainWindow
 
         grid.CellEditEnding += (_, _) => Dispatcher.BeginInvoke(Update);
         table.RowDeleted += (_, _) => Update();
-        return grid;
+        table.ColumnChanged += (_, e) =>
+        {
+            if (e.Column?.DataType == typeof(bool)) Dispatcher.BeginInvoke(Update);
+        };
+        var panel = new StackPanel();
+        panel.Children.Add(grid);
+        var add = new Button { Content = "+ 添加一行", HorizontalAlignment = HorizontalAlignment.Left, Margin = new(0, 6, 0, 0), Padding = new(10, 3, 10, 3) };
+        add.Click += (_, _) =>
+        {
+            grid.CommitEdit(DataGridEditingUnit.Row, true);
+            var row = table.NewRow();
+            foreach (var col in columns)
+                row[col.Key] = col.Type == typeof(bool) ? false : col.Type == typeof(string) ? "" : 0;
+            table.Rows.Add(row);
+            Update();
+            grid.SelectedItem = table.DefaultView[table.Rows.Count - 1];
+            grid.ScrollIntoView(grid.SelectedItem);
+        };
+        panel.Children.Add(add);
+        return panel;
     }
 }

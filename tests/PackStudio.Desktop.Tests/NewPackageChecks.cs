@@ -60,6 +60,10 @@ static class NewPackageChecks
                 var options = Control<StackPanel>(dialog, "CreationOptions");
                 var layerChoice = options.Children.OfType<Grid>().SelectMany(g => g.Children.OfType<ComboBox>()).Single(c => c.Tag?.ToString() == "substrate.layers");
                 layerChoice.SelectedValue = new JValue("4-Layer");
+                await Task.Delay(30);
+                var solid = options.Children.OfType<Grid>().SelectMany(g => g.Children.OfType<Border>()).Single(c => c.Tag?.ToString() == "trace.solid_thickness");
+                var solidText = ((DockPanel)solid.Child).Children.OfType<TextBox>().Single();
+                solidText.Text = "0.05";
             }
 
             var values = dialog.Draft.Values.DeepClone();
@@ -75,6 +79,12 @@ static class NewPackageChecks
                 throw new Exception("preset values were not applied");
             if (family == "chip_array" && result.Values["substrate.layers"].Text() != "4-Layer")
                 throw new Exception("substrate initialization was discarded");
+            if (family == "chip_array")
+            {
+                var layers = JArray.Parse(result.Values["metal.layers"].Text());
+                if (Math.Abs(layers[1]!["thickness"].Number() - 0.05) > 1e-10 || Math.Abs(layers[2]!["thickness"].Number() - 0.05) > 1e-10)
+                    throw new Exception("solid plane thickness was not applied to both inner layers");
+            }
             if (family == "qfn")
                 Capture(dialog, "new-package-customize.png");
             return result;
