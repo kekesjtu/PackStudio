@@ -10,7 +10,7 @@
 <StatusBar x:Name="OperationStatusBar" DockPanel.Dock="Bottom" Background="#E8EDF2"><StatusBarItem><TextBlock Text="{Binding Status}" TextTrimming="CharacterEllipsis"/></StatusBarItem></StatusBar>
 <Grid x:Name="WorkspaceGrid">
   <Grid.ColumnDefinitions>
-    <ColumnDefinition Width="425" MinWidth="350"/><ColumnDefinition Width="6"/>
+    <ColumnDefinition Width="540" MinWidth="350"/><ColumnDefinition Width="6"/>
     <ColumnDefinition Width="*" MinWidth="300"/><ColumnDefinition Width="6"/>
     <ColumnDefinition Width="300" MinWidth="240"/>
   </Grid.ColumnDefinitions>

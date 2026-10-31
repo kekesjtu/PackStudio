@@ -40,6 +40,25 @@ public static class Program
                         throw new Exception("creation settings remain in navigation");
                     if (window.FindName("StepBox") != null || window.FindName("FamilyBox") != null || window.FindName("PresetBox") != null)
                         throw new Exception("sidebar still has creation/navigation dropdowns");
+                    var keys = steps.Items.Cast<WizardStep>().Select(step => step.Key).ToList();
+                    if (keys.Contains("solder_balls"))
+                    {
+                        int index = keys.IndexOf("solder_balls");
+                        if (keys[index + 1] != "central_solder_balls" || keys[index + 2] != "solder_removal")
+                            throw new Exception("BGA columns are not grouped in order");
+                        steps.SelectedValue = "central_solder_balls";
+                        var center = fields.Children.OfType<CheckBox>().Single(c => c.Content?.ToString() == "包含中央焊球");
+                        bool initial = center.IsChecked == true;
+                        center.IsChecked = !initial;
+                        steps.SelectedValue = "solder_removal";
+                        if (fields.Children.OfType<CheckBox>().Any(c => c.Content?.ToString() == "包含中央焊球") ||
+                            !fields.Children.OfType<CheckBox>().Any(c => c.Content?.ToString() == "主阵列中心去球"))
+                            throw new Exception("solder removal controls are misplaced");
+                        steps.SelectedValue = "central_solder_balls";
+                        center = fields.Children.OfType<CheckBox>().Single(c => c.Content?.ToString() == "包含中央焊球");
+                        if (center.IsChecked != !initial) throw new Exception("BGA settings lost on navigation");
+                        center.IsChecked = initial;
+                    }
                     for (int i = 0; i < steps.Items.Count; i++)
                     {
                         steps.SelectedIndex = i;

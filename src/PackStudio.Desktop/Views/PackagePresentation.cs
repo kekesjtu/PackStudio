@@ -21,9 +21,14 @@ public static class PackagePresentation
     public static IEnumerable<string> StepKeys(Template template)
     {
         var available = template.Fields.Select(f => f["step"].Text()).Concat(template.MaterialSelections.Select(s => s["step"].Text())).Where(key => key != "package_setup").Distinct().ToList();
+        if (available.Contains("solder_balls"))
+        {
+            available.Add("central_solder_balls");
+            available.Add("solder_removal");
+        }
         return new[]
         {
             "summary"
-        }.Concat(StepOrder[template.Info.Id].Where(available.Contains)).Concat(available.Where(key => !StepOrder[template.Info.Id].Contains(key)));
+        }.Concat(StepOrder[template.Info.Id].Where(available.Contains).SelectMany(key => key == "solder_balls" ? new[] { key, "central_solder_balls", "solder_removal" } : new[] { key })).Concat(available.Where(key => !StepOrder[template.Info.Id].Contains(key) && key is not ("central_solder_balls" or "solder_removal")));
     }
 }

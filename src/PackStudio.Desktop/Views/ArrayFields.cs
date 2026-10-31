@@ -54,9 +54,31 @@ public partial class MainWindow
         FieldsPanel.Children.Add(FieldRow(selection["label"].Text(), box));
     }
 
-    void AddBga()
+    void AddBga(string step)
     {
         var b = workspace.Document.Bga;
+        if (step == "central_solder_balls")
+        {
+            ConfigCheck(b, "center_solder_enabled", "包含中央焊球");
+            ConfigCheck(b, "center_staggered", "中央焊球交错");
+            ConfigNumber(b, "center_solder_rows", "中央焊球行数");
+            ConfigNumber(b, "center_solder_columns", "中央焊球列数");
+            return;
+        }
+        if (step == "solder_removal")
+        {
+            ConfigCheck(b, "solder_removal_enabled", "主阵列中心去球");
+            ConfigNumber(b, "populated_rows", "外围满布行数");
+            ConfigNumber(b, "populated_columns", "外围满布列数");
+            FieldsPanel.Children.Add(new TextBlock { Text = "显式去球单元（从 0 开始）", Margin = new(0, 10, 0, 5) });
+            FieldsPanel.Children.Add(Table(b["omitted_cells"] as JArray ?? [], [("row", "行", typeof(int)), ("column", "列", typeof(int))], a =>
+            {
+                b["omitted_cells"] = a;
+                workspace.Dirty();
+            }));
+            return;
+        }
+
         FieldsPanel.Children.Add(new TextBlock { Text = "焊球建模与阵列", FontWeight = FontWeights.SemiBold, Margin = new(0, 10, 0, 10) });
         string[] reps = workspace.Document.TemplateId == "chip_array" ? ["discrete"] : workspace.Document.TemplateId == "pbga_wb" ? ["discrete", "equivalent", "isotropic"] : ["discrete", "equivalent"];
         var representation = new ComboBox
@@ -72,33 +94,8 @@ public partial class MainWindow
             workspace.Dirty();
         };
         FieldsPanel.Children.Add(representation);
-        foreach (var(key, label)in new[]
-        {
-            ("staggered", "交错主阵列"),
-            ("solder_removal_enabled", "主阵列中心去球"),
-            ("center_solder_enabled", "包含中央焊球"),
-            ("center_staggered", "中央焊球交错"),
-            ("ball_map_enabled", "使用焊球坐标表")
-        }
-
-        )
-            ConfigCheck(b, key, label);
-        foreach (var(key, label)in new[]
-        {
-            ("populated_rows", "外围满布行数"),
-            ("populated_columns", "外围满布列数"),
-            ("center_solder_rows", "中央焊球行数"),
-            ("center_solder_columns", "中央焊球列数")
-        }
-
-        )
-            ConfigNumber(b, key, label);
-        FieldsPanel.Children.Add(new TextBlock { Text = "显式去球单元（从 0 开始）", Margin = new(0, 10, 0, 5) });
-        FieldsPanel.Children.Add(Table(b["omitted_cells"] as JArray ?? [], [("row", "行", typeof(int)), ("column", "列", typeof(int))], a =>
-        {
-            b["omitted_cells"] = a;
-            workspace.Dirty();
-        }));
+        ConfigCheck(b, "staggered", "交错主阵列");
+        ConfigCheck(b, "ball_map_enabled", "使用焊球坐标表");
         FieldsPanel.Children.Add(new TextBlock { Text = "焊球坐标表（mm）", Margin = new(0, 10, 0, 5) });
         FieldsPanel.Children.Add(Table(b["ball_map"] as JArray ?? [], [("id", "ID", typeof(string)), ("x", "X", typeof(double)), ("y", "Y", typeof(double))], a =>
         {

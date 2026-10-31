@@ -21,6 +21,8 @@ public partial class MainWindow
         ["encapsulant"] = "塑封",
         ["flip_chip_bumps"] = "倒装芯片凸点",
         ["solder_balls"] = "BGA 焊球",
+        ["central_solder_balls"] = "中央焊球",
+        ["solder_removal"] = "焊球去除",
         ["die_flag_solder_mask"] = "承载台与阻焊层",
         ["die_flag_tie_bars"] = "承载台与连接筋",
         ["thermal_vias"] = "热通孔",
@@ -177,8 +179,8 @@ public partial class MainWindow
             }
         }
 
-        if (step == "solder_balls")
-            AddBga();
+        if (step is "solder_balls" or "central_solder_balls" or "solder_removal")
+            AddBga(step);
         if (step == "thermal_vias" && workspace.Document.TemplateId != "chip_array")
             AddViaConfiguration();
         if (FieldsPanel.Children.Count == 0)
