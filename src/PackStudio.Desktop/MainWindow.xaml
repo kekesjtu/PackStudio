@@ -10,13 +10,13 @@
 <StatusBar x:Name="OperationStatusBar" DockPanel.Dock="Bottom" Background="#E8EDF2"><StatusBarItem><TextBlock Text="{Binding Status}" TextTrimming="CharacterEllipsis"/></StatusBarItem></StatusBar>
 <Grid x:Name="WorkspaceGrid">
   <Grid.ColumnDefinitions>
-    <ColumnDefinition Width="540" MinWidth="350"/><ColumnDefinition Width="6"/>
+    <ColumnDefinition Width="425" MinWidth="350"/><ColumnDefinition Width="6"/>
     <ColumnDefinition Width="*" MinWidth="300"/><ColumnDefinition Width="6"/>
     <ColumnDefinition Width="300" MinWidth="240"/>
   </Grid.ColumnDefinitions>
   <ad:DockingManager x:Name="DockManager" Grid.Column="0"><layout:LayoutRoot><layout:LayoutPanel><layout:LayoutAnchorablePane><layout:LayoutAnchorable Title="封装向导" CanClose="False" CanHide="False" CanFloat="False">
 <Grid Margin="5,0,5,5" Background="#F1F1F1">
-  <Grid.RowDefinitions><RowDefinition Height="70"/><RowDefinition Height="*" MinHeight="190"/><RowDefinition Height="6"/><RowDefinition Height="310" MinHeight="180"/></Grid.RowDefinitions>
+  <Grid.RowDefinitions><RowDefinition Height="70"/><RowDefinition Height="*" MinHeight="190"/><RowDefinition Height="6"/><RowDefinition Height="420" MinHeight="180"/></Grid.RowDefinitions>
   <Grid Margin="8,8,5,8">
     <Grid.ColumnDefinitions><ColumnDefinition Width="110"/><ColumnDefinition Width="*"/></Grid.ColumnDefinitions>
     <ContentControl x:Name="PackagePreview" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"/>
