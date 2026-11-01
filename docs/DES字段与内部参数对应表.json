@@ -9,12 +9,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "die",
-              "property_name": "dieLengthLd"
-            }
-          ]
+          "name": "die",
+          "property_name": "dieLengthLd"
         }
       },
       "die.width": {
@@ -25,12 +21,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "die",
-              "property_name": "dieWidthWd"
-            }
-          ]
+          "name": "die",
+          "property_name": "dieWidthWd"
         }
       },
       "die.thickness": {
@@ -41,12 +33,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "die",
-              "property_name": "dieThicknessTd"
-            }
-          ]
+          "name": "die",
+          "property_name": "dieThicknessTd"
         }
       },
       "die.power": {
@@ -57,12 +45,8 @@
           "unit": "W"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "die",
-              "property_name": "packagePower"
-            }
-          ]
+          "name": "die",
+          "property_name": "packagePower"
         }
       },
       "die.flipped": {
@@ -72,12 +56,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "die",
-              "property_name": "flippedDie"
-            }
-          ]
+          "name": "die",
+          "property_name": "flippedDie"
         }
       },
       "bumps.enabled": {
@@ -87,12 +67,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "bumpedDie",
-              "property_name": "bumpedDie"
-            }
-          ]
+          "name": "bumpedDie",
+          "property_name": "bumpedDie"
         }
       },
       "bumps.total": {
@@ -107,12 +83,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "bumpedDie",
-              "property_name": "numberOfSolderBalls"
-            }
-          ]
+          "name": "bumpedDie",
+          "property_name": "numberOfSolderBalls"
         }
       },
       "bumps.diameter": {
@@ -128,12 +100,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "bumpedDie",
-              "property_name": "ballDiameterb"
-            }
-          ]
+          "name": "bumpedDie",
+          "property_name": "ballDiameterb"
         }
       },
       "bumps.height": {
@@ -149,12 +117,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "bumpedDie",
-              "property_name": "ballHeight"
-            }
-          ]
+          "name": "bumpedDie",
+          "property_name": "ballHeight"
         }
       },
       "bumps.modeling": {
@@ -166,9 +130,7 @@
             }
           }
         },
-        "pack_script": {
-          "targets": []
-        }
+        "pack_script": {}
       },
       "grid.enabled": {
         "DES": {
@@ -177,12 +139,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "modelingOptions",
-              "property_name": "localizeGrid"
-            }
-          ]
+          "name": "modelingOptions",
+          "property_name": "localizeGrid"
         }
       },
       "grid.density": {
@@ -197,12 +155,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "modelingOptions",
-              "property_name": "gridDensity"
-            }
-          ]
+          "name": "modelingOptions",
+          "property_name": "gridDensity"
         }
       }
     },
@@ -214,12 +168,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "die",
-              "property_name": "dieMaterial"
-            }
-          ]
+          "name": "die",
+          "property_name": "dieMaterial"
         }
       },
       "group-bump-solder": {
@@ -232,12 +182,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "bumpedDie",
-              "property_name": "solderConductivity"
-            }
-          ]
+          "name": "bumpedDie",
+          "property_name": "solderConductivity"
         }
       },
       "group-underfill": {
@@ -250,12 +196,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "bumpedDie",
-              "property_name": "underfillConductivity"
-            }
-          ]
+          "name": "bumpedDie",
+          "property_name": "underfillConductivity"
         }
       }
     },
@@ -266,9 +208,7 @@
             "package"
           ]
         },
-        "pack_script": {
-          "targets": []
-        }
+        "pack_script": {}
       },
       "Name": {
         "DES": {
@@ -276,25 +216,19 @@
             "design"
           ]
         },
-        "pack_script": {
-          "targets": []
-        }
+        "pack_script": {}
       },
       "PresetId": {
         "DES": {
           "keys": []
         },
-        "pack_script": {
-          "targets": []
-        }
+        "pack_script": {}
       },
       "CustomMaterials": {
         "DES": {
           "keys": []
         },
-        "pack_script": {
-          "targets": []
-        }
+        "pack_script": {}
       }
     }
   },
@@ -305,12 +239,8 @@
           "keys": []
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": null,
-              "property_name": "jedecFootprint"
-            }
-          ]
+          "name": null,
+          "property_name": "jedecFootprint"
         }
       },
       "substrate.length": {
@@ -321,12 +251,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "packageSubstrate",
-              "property_name": "substrateLengthD"
-            }
-          ]
+          "name": "packageSubstrate",
+          "property_name": "substrateLengthD"
         }
       },
       "substrate.width": {
@@ -337,12 +263,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "packageSubstrate",
-              "property_name": "substrateWidthE"
-            }
-          ]
+          "name": "packageSubstrate",
+          "property_name": "substrateWidthE"
         }
       },
       "substrate.thickness": {
@@ -353,12 +275,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "packageSubstrate",
-              "property_name": "substrateThicknessA2"
-            }
-          ]
+          "name": "packageSubstrate",
+          "property_name": "substrateThicknessA2"
         }
       },
       "die.length": {
@@ -369,12 +287,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "die",
-              "property_name": "dieLengthLd"
-            }
-          ]
+          "name": "die",
+          "property_name": "dieLengthLd"
         }
       },
       "die.width": {
@@ -385,12 +299,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "die",
-              "property_name": "dieWidthWd"
-            }
-          ]
+          "name": "die",
+          "property_name": "dieWidthWd"
         }
       },
       "die.thickness": {
@@ -401,12 +311,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "die",
-              "property_name": "dieThicknessTd"
-            }
-          ]
+          "name": "die",
+          "property_name": "dieThicknessTd"
         }
       },
       "die.power": {
@@ -417,12 +323,8 @@
           "unit": "W"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "die",
-              "property_name": "packagePower"
-            }
-          ]
+          "name": "die",
+          "property_name": "packagePower"
         }
       },
       "bumps.total": {
@@ -437,12 +339,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "flipChipBumps",
-              "property_name": "totalNumberOfBumpsMNC4"
-            }
-          ]
+          "name": "flipChipBumps",
+          "property_name": "totalNumberOfBumpsMNC4"
         }
       },
       "bumps.diameter": {
@@ -453,12 +351,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "flipChipBumps",
-              "property_name": "bumpDiameterBC4"
-            }
-          ]
+          "name": "flipChipBumps",
+          "property_name": "bumpDiameterBC4"
         }
       },
       "bumps.height": {
@@ -469,12 +363,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "flipChipBumps",
-              "property_name": "bumpHeightTC4"
-            }
-          ]
+          "name": "flipChipBumps",
+          "property_name": "bumpHeightTC4"
         }
       },
       "bumps.modeling": {
@@ -482,12 +372,8 @@
           "keys": []
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "modelingOptions",
-              "property_name": "modelFlipChipBumpsAs"
-            }
-          ]
+          "name": "modelingOptions",
+          "property_name": "modelFlipChipBumpsAs"
         }
       },
       "bga.columns": {
@@ -497,12 +383,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "solderBalls",
-              "property_name": "numberOfSolderBallsInXMD"
-            }
-          ]
+          "name": "solderBalls",
+          "property_name": "numberOfSolderBallsInXMD"
         }
       },
       "bga.rows": {
@@ -512,12 +394,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "solderBalls",
-              "property_name": "numberOfSolderBallsInYME"
-            }
-          ]
+          "name": "solderBalls",
+          "property_name": "numberOfSolderBallsInYME"
         }
       },
       "bga.pitch": {
@@ -528,12 +406,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "solderBalls",
-              "property_name": "ballPitchE"
-            }
-          ]
+          "name": "solderBalls",
+          "property_name": "ballPitchE"
         }
       },
       "bga.diameter": {
@@ -544,12 +418,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "solderBalls",
-              "property_name": "ballDiameterB"
-            }
-          ]
+          "name": "solderBalls",
+          "property_name": "ballDiameterB"
         }
       },
       "bga.height": {
@@ -560,12 +430,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "solderBalls",
-              "property_name": "substrateStandoffA1"
-            }
-          ]
+          "name": "solderBalls",
+          "property_name": "substrateStandoffA1"
         }
       },
       "cover.type": {
@@ -575,12 +441,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": null,
-              "property_name": "topCover"
-            }
-          ]
+          "name": null,
+          "property_name": "topCover"
         }
       },
       "cover.length": {
@@ -596,13 +458,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "topCover",
-              "property_name": "lengthLe",
-              "branch": "encapsulant"
-            }
-          ]
+          "name": "topCover",
+          "property_name": "lengthLe"
         }
       },
       "cover.width": {
@@ -618,13 +475,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "topCover",
-              "property_name": "widthWe",
-              "branch": "encapsulant"
-            }
-          ]
+          "name": "topCover",
+          "property_name": "widthWe"
         }
       },
       "cover.thickness": {
@@ -640,13 +492,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "topCover",
-              "property_name": "thicknessTe",
-              "branch": "encapsulant"
-            }
-          ]
+          "name": "topCover",
+          "property_name": "thicknessTe"
         }
       },
       "lid.length": {
@@ -662,13 +509,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "topCover",
-              "property_name": "lidLengthLc",
-              "branch": "lid"
-            }
-          ]
+          "name": "topCover",
+          "property_name": "lidLengthLc"
         }
       },
       "lid.width": {
@@ -684,13 +526,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "topCover",
-              "property_name": "lidWidthWc",
-              "branch": "lid"
-            }
-          ]
+          "name": "topCover",
+          "property_name": "lidWidthWc"
         }
       },
       "lid.thickness": {
@@ -706,13 +543,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "topCover",
-              "property_name": "lidThicknessTc",
-              "branch": "lid"
-            }
-          ]
+          "name": "topCover",
+          "property_name": "lidThicknessTc"
         }
       },
       "lid.base_thickness": {
@@ -728,13 +560,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "topCover",
-              "property_name": "lidBaseThicknessTcb",
-              "branch": "lid"
-            }
-          ]
+          "name": "topCover",
+          "property_name": "lidBaseThicknessTcb"
         }
       },
       "lid.die_attach": {
@@ -750,13 +577,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "topCover",
-              "property_name": "dieAttachThicknessTda",
-              "branch": "lid"
-            }
-          ]
+          "name": "topCover",
+          "property_name": "dieAttachThicknessTda"
         }
       },
       "lid.adhesive": {
@@ -772,13 +594,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "topCover",
-              "property_name": "lidAdhesiveThickness",
-              "branch": "lid"
-            }
-          ]
+          "name": "topCover",
+          "property_name": "lidAdhesiveThickness"
         }
       },
       "plate.length": {
@@ -794,13 +611,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "topCover",
-              "property_name": "plateLengthLc",
-              "branch": "plate"
-            }
-          ]
+          "name": "topCover",
+          "property_name": "plateLengthLc"
         }
       },
       "plate.width": {
@@ -816,13 +628,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "topCover",
-              "property_name": "plateWidthWc",
-              "branch": "plate"
-            }
-          ]
+          "name": "topCover",
+          "property_name": "plateWidthWc"
         }
       },
       "plate.thickness": {
@@ -838,13 +645,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "topCover",
-              "property_name": "plateThicknessTc",
-              "branch": "plate"
-            }
-          ]
+          "name": "topCover",
+          "property_name": "plateThicknessTc"
         }
       },
       "plate.die_attach": {
@@ -860,13 +662,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "topCover",
-              "property_name": "dieAttachThicknessTda",
-              "branch": "plate"
-            }
-          ]
+          "name": "topCover",
+          "property_name": "dieAttachThicknessTda"
         }
       },
       "grid.enabled": {
@@ -876,12 +673,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "modelingOptions",
-              "property_name": "localizeGrid"
-            }
-          ]
+          "name": "modelingOptions",
+          "property_name": "localizeGrid"
         }
       },
       "grid.density": {
@@ -896,12 +689,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "modelingOptions",
-              "property_name": "gridDensity"
-            }
-          ]
+          "name": "modelingOptions",
+          "property_name": "gridDensity"
         }
       },
       "bumps.array_type": {
@@ -911,12 +700,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "flipChipBumps",
-              "property_name": "arrayType"
-            }
-          ]
+          "name": "flipChipBumps",
+          "property_name": "arrayType"
         }
       },
       "bumps.columns": {
@@ -931,12 +716,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "flipChipBumps",
-              "property_name": "numberOfBumpsInXMDC4"
-            }
-          ]
+          "name": "flipChipBumps",
+          "property_name": "numberOfBumpsInXMDC4"
         }
       },
       "bumps.rows": {
@@ -951,12 +732,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "flipChipBumps",
-              "property_name": "numberOfBumpsInYMEC4"
-            }
-          ]
+          "name": "flipChipBumps",
+          "property_name": "numberOfBumpsInYMEC4"
         }
       },
       "bumps.underfill": {
@@ -966,12 +743,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "flipChipBumps",
-              "property_name": "underfill"
-            }
-          ]
+          "name": "flipChipBumps",
+          "property_name": "underfill"
         }
       },
       "cover.flush": {
@@ -986,13 +759,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "topCover",
-              "property_name": "enableDieFlush",
-              "branch": "encapsulant"
-            }
-          ]
+          "name": "topCover",
+          "property_name": "enableDieFlush"
         }
       },
       "stiffener.enabled": {
@@ -1007,13 +775,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "topCover",
-              "property_name": "stiffener",
-              "branch": "lid"
-            }
-          ]
+          "name": "topCover",
+          "property_name": "stiffener"
         }
       },
       "stiffener.length": {
@@ -1030,13 +793,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "topCover",
-              "property_name": "stiffenerLengthLs",
-              "branch": "lid"
-            }
-          ]
+          "name": "topCover",
+          "property_name": "stiffenerLengthLs"
         }
       },
       "stiffener.width": {
@@ -1053,13 +811,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "topCover",
-              "property_name": "stiffenerWidthWs",
-              "branch": "lid"
-            }
-          ]
+          "name": "topCover",
+          "property_name": "stiffenerWidthWs"
         }
       },
       "stiffener.cavity_length": {
@@ -1076,13 +829,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "topCover",
-              "property_name": "stiffenerCavityLengthLsc",
-              "branch": "lid"
-            }
-          ]
+          "name": "topCover",
+          "property_name": "stiffenerCavityLengthLsc"
         }
       },
       "stiffener.cavity_width": {
@@ -1099,13 +847,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "topCover",
-              "property_name": "stiffenerCavityWidthWsc",
-              "branch": "lid"
-            }
-          ]
+          "name": "topCover",
+          "property_name": "stiffenerCavityWidthWsc"
         }
       },
       "stiffener.adhesive": {
@@ -1122,13 +865,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "topCover",
-              "property_name": "stiffenerAdhesiveThickness",
-              "branch": "lid"
-            }
-          ]
+          "name": "topCover",
+          "property_name": "stiffenerAdhesiveThickness"
         }
       },
       "slug.enabled": {
@@ -1143,12 +881,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "dropInSlug",
-              "property_name": "includeSlug"
-            }
-          ]
+          "name": "dropInSlug",
+          "property_name": "includeSlug"
         }
       },
       "slug.length": {
@@ -1165,12 +899,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "dropInSlug",
-              "property_name": "slugLengthLsl"
-            }
-          ]
+          "name": "dropInSlug",
+          "property_name": "slugLengthLsl"
         }
       },
       "slug.width": {
@@ -1187,12 +917,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "dropInSlug",
-              "property_name": "slugWidthWsl"
-            }
-          ]
+          "name": "dropInSlug",
+          "property_name": "slugWidthWsl"
         }
       },
       "slug.thickness": {
@@ -1209,12 +935,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "dropInSlug",
-              "property_name": "slugThicknessTsl"
-            }
-          ]
+          "name": "dropInSlug",
+          "property_name": "slugThicknessTsl"
         }
       },
       "slug.diameter": {
@@ -1231,12 +953,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "dropInSlug",
-              "property_name": "slugDiameterDs"
-            }
-          ]
+          "name": "dropInSlug",
+          "property_name": "slugDiameterDs"
         }
       },
       "slug.foot_length": {
@@ -1253,12 +971,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "dropInSlug",
-              "property_name": "slugFootExtendLengthLsf"
-            }
-          ]
+          "name": "dropInSlug",
+          "property_name": "slugFootExtendLengthLsf"
         }
       },
       "slug.foot_width": {
@@ -1275,12 +989,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "dropInSlug",
-              "property_name": "slugFootExtendWidthWsf"
-            }
-          ]
+          "name": "dropInSlug",
+          "property_name": "slugFootExtendWidthWsf"
         }
       },
       "slug.offset": {
@@ -1297,12 +1007,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "dropInSlug",
-              "property_name": "slugOffsetGs"
-            }
-          ]
+          "name": "dropInSlug",
+          "property_name": "slugOffsetGs"
         }
       },
       "slug.clearance": {
@@ -1319,12 +1025,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "dropInSlug",
-              "property_name": "slugFootClearanceGsf"
-            }
-          ]
+          "name": "dropInSlug",
+          "property_name": "slugFootClearanceGsf"
         }
       },
       "slug.adhesive_enabled": {
@@ -1340,12 +1042,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "dropInSlug",
-              "property_name": "adhesivePresentUnderSlugFoot"
-            }
-          ]
+          "name": "dropInSlug",
+          "property_name": "adhesivePresentUnderSlugFoot"
         }
       }
     },
@@ -1357,21 +1055,15 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "packageSubstrate",
-              "property_name": "dielectricMaterial"
-            }
-          ]
+          "name": "packageSubstrate",
+          "property_name": "dielectricMaterial"
         }
       },
       "group-die": {
         "DES": {
           "keys": []
         },
-        "pack_script": {
-          "targets": []
-        }
+        "pack_script": {}
       },
       "group-encapsulant": {
         "DES": {
@@ -1383,13 +1075,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "topCover",
-              "property_name": "encapsulantMaterial",
-              "branch": "encapsulant"
-            }
-          ]
+          "name": "topCover",
+          "property_name": "encapsulantMaterial"
         }
       },
       "group-lid": {
@@ -1402,13 +1089,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "topCover",
-              "property_name": "lidMaterial",
-              "branch": "lid"
-            }
-          ]
+          "name": "topCover",
+          "property_name": "lidMaterial"
         }
       },
       "group-lid-adhesive": {
@@ -1421,13 +1103,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "topCover",
-              "property_name": "lidAdhesiveMaterial",
-              "branch": "lid"
-            }
-          ]
+          "name": "topCover",
+          "property_name": "lidAdhesiveMaterial"
         }
       },
       "group-lid-die-attach": {
@@ -1440,13 +1117,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "topCover",
-              "property_name": "dieAttachMaterial",
-              "branch": "lid"
-            }
-          ]
+          "name": "topCover",
+          "property_name": "dieAttachMaterial"
         }
       },
       "group-plate": {
@@ -1459,13 +1131,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "topCover",
-              "property_name": "plateMaterial",
-              "branch": "plate"
-            }
-          ]
+          "name": "topCover",
+          "property_name": "plateMaterial"
         }
       },
       "group-plate-die-attach": {
@@ -1478,13 +1145,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "topCover",
-              "property_name": "dieAttachMaterial",
-              "branch": "plate"
-            }
-          ]
+          "name": "topCover",
+          "property_name": "dieAttachMaterial"
         }
       },
       "group-bump-solder": {
@@ -1494,12 +1156,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "flipChipBumps",
-              "property_name": "c4SolderMaterial"
-            }
-          ]
+          "name": "flipChipBumps",
+          "property_name": "c4SolderMaterial"
         }
       },
       "group-underfill": {
@@ -1512,12 +1170,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "flipChipBumps",
-              "property_name": "underfillMaterial"
-            }
-          ]
+          "name": "flipChipBumps",
+          "property_name": "underfillMaterial"
         }
       },
       "group-bga-solder": {
@@ -1527,12 +1181,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "solderBalls",
-              "property_name": "solderMaterial"
-            }
-          ]
+          "name": "solderBalls",
+          "property_name": "solderMaterial"
         }
       },
       "group-stiffener": {
@@ -1546,13 +1196,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "topCover",
-              "property_name": "stiffenerMaterial",
-              "branch": "lid"
-            }
-          ]
+          "name": "topCover",
+          "property_name": "stiffenerMaterial"
         }
       },
       "group-stiffener-adhesive": {
@@ -1566,13 +1211,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "topCover",
-              "property_name": "stiffenerAdhesiveMaterial",
-              "branch": "lid"
-            }
-          ]
+          "name": "topCover",
+          "property_name": "stiffenerAdhesiveMaterial"
         }
       },
       "group-slug": {
@@ -1586,12 +1226,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "dropInSlug",
-              "property_name": "slugMaterial"
-            }
-          ]
+          "name": "dropInSlug",
+          "property_name": "slugMaterial"
         }
       },
       "group-slug-adhesive": {
@@ -1606,12 +1242,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "dropInSlug",
-              "property_name": "slugAdhesiveMaterial"
-            }
-          ]
+          "name": "dropInSlug",
+          "property_name": "slugAdhesiveMaterial"
         }
       }
     },
@@ -1623,12 +1255,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "modelingOptions",
-              "property_name": "modelSolderBallArrayAs"
-            }
-          ]
+          "name": "modelingOptions",
+          "property_name": "modelSolderBallArrayAs"
         }
       },
       "solder_removal_enabled": {
@@ -1638,12 +1266,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "solderBallDepopulation",
-              "property_name": "depopulatedCenter"
-            }
-          ]
+          "name": "solderBallDepopulation",
+          "property_name": "depopulatedCenter"
         }
       },
       "populated_columns": {
@@ -1653,12 +1277,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "solderBallDepopulation",
-              "property_name": "numberFullyPopulatedRowsMDp"
-            }
-          ]
+          "name": "solderBallDepopulation",
+          "property_name": "numberFullyPopulatedRowsMDp"
         }
       },
       "populated_rows": {
@@ -1668,12 +1288,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "solderBallDepopulation",
-              "property_name": "numberFullyPopulatedRowsMEp"
-            }
-          ]
+          "name": "solderBallDepopulation",
+          "property_name": "numberFullyPopulatedRowsMEp"
         }
       },
       "center_solder_enabled": {
@@ -1683,12 +1299,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "centralBalls",
-              "property_name": "centralBalls"
-            }
-          ]
+          "name": "centralBalls",
+          "property_name": "centralBalls"
         }
       },
       "center_solder_columns": {
@@ -1698,12 +1310,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "centralBalls",
-              "property_name": "numberCentralRowsMDp"
-            }
-          ]
+          "name": "centralBalls",
+          "property_name": "numberCentralRowsMDp"
         }
       },
       "center_solder_rows": {
@@ -1713,12 +1321,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "centralBalls",
-              "property_name": "numberCentralRowsMEp"
-            }
-          ]
+          "name": "centralBalls",
+          "property_name": "numberCentralRowsMEp"
         }
       },
       "staggered": {
@@ -1728,12 +1332,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "solderBalls",
-              "property_name": "staggeredMatrix"
-            }
-          ]
+          "name": "solderBalls",
+          "property_name": "staggeredMatrix"
         }
       },
       "center_staggered": {
@@ -1743,12 +1343,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "centralBalls",
-              "property_name": "staggeredMatrix"
-            }
-          ]
+          "name": "centralBalls",
+          "property_name": "staggeredMatrix"
         }
       },
       "omitted_cells": {
@@ -1758,29 +1354,21 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "solderBallDepopulation",
-              "property_name": "depopulationDialog"
-            }
-          ]
+          "name": "solderBallDepopulation",
+          "property_name": "depopulationDialog"
         }
       },
       "removal_rows": {
         "DES": {
           "keys": []
         },
-        "pack_script": {
-          "targets": []
-        }
+        "pack_script": {}
       },
       "removal_columns": {
         "DES": {
           "keys": []
         },
-        "pack_script": {
-          "targets": []
-        }
+        "pack_script": {}
       },
       "ball_map_enabled": {
         "DES": {
@@ -1789,12 +1377,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "solderBalls",
-              "property_name": "solderBallMap"
-            }
-          ]
+          "name": "solderBalls",
+          "property_name": "solderBallMap"
         }
       },
       "ball_map": {
@@ -1804,21 +1388,15 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "solderBalls",
-              "property_name": "solderBallMapDialog"
-            }
-          ]
+          "name": "solderBalls",
+          "property_name": "solderBallMapDialog"
         }
       },
       "via_configuration": {
         "DES": {
           "keys": []
         },
-        "pack_script": {
-          "targets": []
-        }
+        "pack_script": {}
       }
     },
     "ProjectDocument": {
@@ -1828,9 +1406,7 @@
             "package"
           ]
         },
-        "pack_script": {
-          "targets": []
-        }
+        "pack_script": {}
       },
       "Name": {
         "DES": {
@@ -1838,25 +1414,19 @@
             "design"
           ]
         },
-        "pack_script": {
-          "targets": []
-        }
+        "pack_script": {}
       },
       "PresetId": {
         "DES": {
           "keys": []
         },
-        "pack_script": {
-          "targets": []
-        }
+        "pack_script": {}
       },
       "CustomMaterials": {
         "DES": {
           "keys": []
         },
-        "pack_script": {
-          "targets": []
-        }
+        "pack_script": {}
       }
     }
   },
@@ -1867,12 +1437,8 @@
           "keys": []
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": null,
-              "property_name": "jedecFootprint"
-            }
-          ]
+          "name": null,
+          "property_name": "jedecFootprint"
         }
       },
       "package.length": {
@@ -1883,12 +1449,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "overallPackage",
-              "property_name": "lengthD"
-            }
-          ]
+          "name": "overallPackage",
+          "property_name": "lengthD"
         }
       },
       "package.width": {
@@ -1899,12 +1461,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "overallPackage",
-              "property_name": "widthE"
-            }
-          ]
+          "name": "overallPackage",
+          "property_name": "widthE"
         }
       },
       "substrate.thickness": {
@@ -1915,12 +1473,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "overallPackage",
-              "property_name": "substrateThicknessA2"
-            }
-          ]
+          "name": "overallPackage",
+          "property_name": "substrateThicknessA2"
         }
       },
       "trace.top_thickness": {
@@ -1942,12 +1496,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": null,
-              "property_name": "topSignalLayerThickness"
-            }
-          ]
+          "name": null,
+          "property_name": "topSignalLayerThickness"
         }
       },
       "trace.bottom_thickness": {
@@ -1969,12 +1519,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": null,
-              "property_name": "bottomSignalLayerThickness"
-            }
-          ]
+          "name": null,
+          "property_name": "bottomSignalLayerThickness"
         }
       },
       "die.length": {
@@ -1985,12 +1531,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "die",
-              "property_name": "dieLengthLd"
-            }
-          ]
+          "name": "die",
+          "property_name": "dieLengthLd"
         }
       },
       "die.width": {
@@ -2001,12 +1543,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "die",
-              "property_name": "dieWidthWd"
-            }
-          ]
+          "name": "die",
+          "property_name": "dieWidthWd"
         }
       },
       "die.thickness": {
@@ -2017,12 +1555,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "die",
-              "property_name": "dieThicknessTd"
-            }
-          ]
+          "name": "die",
+          "property_name": "dieThicknessTd"
         }
       },
       "die.attach": {
@@ -2033,12 +1567,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "die",
-              "property_name": "dieAttachThicknessTda"
-            }
-          ]
+          "name": "die",
+          "property_name": "dieAttachThicknessTda"
         }
       },
       "die.power": {
@@ -2049,12 +1579,8 @@
           "unit": "W"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "die",
-              "property_name": "packagePower"
-            }
-          ]
+          "name": "die",
+          "property_name": "packagePower"
         }
       },
       "encapsulant.thickness": {
@@ -2065,12 +1591,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "encapsulant",
-              "property_name": "thicknessTe"
-            }
-          ]
+          "name": "encapsulant",
+          "property_name": "thicknessTe"
         }
       },
       "solder_mask.thickness": {
@@ -2081,12 +1603,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "encapsulant",
-              "property_name": "solderMaskThicknessTsm"
-            }
-          ]
+          "name": "encapsulant",
+          "property_name": "solderMaskThicknessTsm"
         }
       },
       "bond_wire.extent_length": {
@@ -2097,12 +1615,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "bondWires",
-              "property_name": "extentOfBondWirePadsLw"
-            }
-          ]
+          "name": "bondWires",
+          "property_name": "extentOfBondWirePadsLw"
         }
       },
       "bond_wire.extent_width": {
@@ -2113,12 +1627,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "bondWires",
-              "property_name": "extentOfBondWirePadsWw"
-            }
-          ]
+          "name": "bondWires",
+          "property_name": "extentOfBondWirePadsWw"
         }
       },
       "bond_wire.diameter": {
@@ -2129,21 +1639,15 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "bondWires",
-              "property_name": "bondWireDiameterDw"
-            }
-          ]
+          "name": "bondWires",
+          "property_name": "bondWireDiameterDw"
         }
       },
       "vias.enabled": {
         "DES": {
           "keys": []
         },
-        "pack_script": {
-          "targets": []
-        }
+        "pack_script": {}
       },
       "vias.diameter": {
         "DES": {
@@ -2158,12 +1662,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "vias",
-              "property_name": "viaDiameterDv"
-            }
-          ]
+          "name": "vias",
+          "property_name": "viaDiameterDv"
         }
       },
       "vias.plating": {
@@ -2180,12 +1680,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "vias",
-              "property_name": "platingThicknessTpl"
-            }
-          ]
+          "name": "vias",
+          "property_name": "platingThicknessTpl"
         }
       },
       "vias.offset_x": {
@@ -2201,12 +1697,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "modelingOptions",
-              "property_name": "viaOffsetInX"
-            }
-          ]
+          "name": "modelingOptions",
+          "property_name": "viaOffsetInX"
         }
       },
       "vias.offset_y": {
@@ -2222,12 +1714,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "modelingOptions",
-              "property_name": "viaOffsetInY"
-            }
-          ]
+          "name": "modelingOptions",
+          "property_name": "viaOffsetInY"
         }
       },
       "bga.columns": {
@@ -2237,12 +1725,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "solderBalls",
-              "property_name": "numberOfSolderBallsInXMD"
-            }
-          ]
+          "name": "solderBalls",
+          "property_name": "numberOfSolderBallsInXMD"
         }
       },
       "bga.rows": {
@@ -2252,12 +1736,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "solderBalls",
-              "property_name": "numberOfSolderBallsInYME"
-            }
-          ]
+          "name": "solderBalls",
+          "property_name": "numberOfSolderBallsInYME"
         }
       },
       "bga.pitch": {
@@ -2268,12 +1748,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "solderBalls",
-              "property_name": "ballPitchE"
-            }
-          ]
+          "name": "solderBalls",
+          "property_name": "ballPitchE"
         }
       },
       "bga.diameter": {
@@ -2284,12 +1760,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "solderBalls",
-              "property_name": "ballDiameterB"
-            }
-          ]
+          "name": "solderBalls",
+          "property_name": "ballDiameterB"
         }
       },
       "bga.height": {
@@ -2300,12 +1772,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "solderBalls",
-              "property_name": "substrateStandoffA1"
-            }
-          ]
+          "name": "solderBalls",
+          "property_name": "substrateStandoffA1"
         }
       },
       "grid.enabled": {
@@ -2315,12 +1783,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "modelingOptions",
-              "property_name": "localizeGrid"
-            }
-          ]
+          "name": "modelingOptions",
+          "property_name": "localizeGrid"
         }
       },
       "grid.density": {
@@ -2335,12 +1799,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "modelingOptions",
-              "property_name": "gridDensity"
-            }
-          ]
+          "name": "modelingOptions",
+          "property_name": "gridDensity"
         }
       },
       "substrate.layers": {
@@ -2350,13 +1810,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "metalLayers",
-              "property_name": "substrateLayer",
-              "branch": "substrateLayer / wizard"
-            }
-          ]
+          "name": "metalLayers",
+          "property_name": "substrateLayer"
         }
       },
       "bond_wire.auto_count": {
@@ -2366,12 +1821,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "bondWires",
-              "property_name": "numberBondWiresEqualsSolderBalls"
-            }
-          ]
+          "name": "bondWires",
+          "property_name": "numberBondWiresEqualsSolderBalls"
         }
       },
       "bond_wire.total": {
@@ -2386,12 +1837,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "bondWires",
-              "property_name": "numberOfBondWiresNw"
-            }
-          ]
+          "name": "bondWires",
+          "property_name": "numberOfBondWiresNw"
         }
       },
       "bond_wire.include": {
@@ -2401,12 +1848,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "modelingOptions",
-              "property_name": "bondWireModeling"
-            }
-          ]
+          "name": "modelingOptions",
+          "property_name": "bondWireModeling"
         }
       },
       "vias.filled": {
@@ -2421,12 +1864,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "vias",
-              "property_name": "filledVias"
-            }
-          ]
+          "name": "vias",
+          "property_name": "filledVias"
         }
       },
       "vias.modeling": {
@@ -2441,12 +1880,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "modelingOptions",
-              "property_name": "viaModeling"
-            }
-          ]
+          "name": "modelingOptions",
+          "property_name": "viaModeling"
         }
       },
       "metal.layers": {
@@ -2492,22 +1927,14 @@
           "unit": "mm / %"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "metalLayers",
-              "property_name": "twoLayerMetalLayersTable",
-              "conditions": {
-                "substrate.layers": "2-Layer"
-              }
-            },
-            {
-              "name": "metalLayers",
-              "property_name": "fourLayerMetalLayersTable",
-              "conditions": {
-                "substrate.layers": "4-Layer"
-              }
-            }
-          ]
+          "2-Layer": {
+            "name": "metalLayers",
+            "property_name": "twoLayerMetalLayersTable"
+          },
+          "4-Layer": {
+            "name": "metalLayers",
+            "property_name": "fourLayerMetalLayersTable"
+          }
         }
       },
       "metal.hole_length": {
@@ -2518,12 +1945,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "metalLayers",
-              "property_name": "lengthLml"
-            }
-          ]
+          "name": "metalLayers",
+          "property_name": "lengthLml"
         }
       },
       "metal.hole_width": {
@@ -2534,12 +1957,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "metalLayers",
-              "property_name": "widthWml"
-            }
-          ]
+          "name": "metalLayers",
+          "property_name": "widthWml"
         }
       }
     },
@@ -2551,21 +1970,15 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "overallPackage",
-              "property_name": "dielectricMaterial"
-            }
-          ]
+          "name": "overallPackage",
+          "property_name": "dielectricMaterial"
         }
       },
       "group-die": {
         "DES": {
           "keys": []
         },
-        "pack_script": {
-          "targets": []
-        }
+        "pack_script": {}
       },
       "group-die-attach": {
         "DES": {
@@ -2574,12 +1987,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "die",
-              "property_name": "dieAttachMaterial"
-            }
-          ]
+          "name": "die",
+          "property_name": "dieAttachMaterial"
         }
       },
       "group-encapsulant": {
@@ -2589,12 +1998,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "encapsulant",
-              "property_name": "encapsulantMaterial"
-            }
-          ]
+          "name": "encapsulant",
+          "property_name": "encapsulantMaterial"
         }
       },
       "group-bond-wires": {
@@ -2604,12 +2009,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "bondWires",
-              "property_name": "bondWireMaterial"
-            }
-          ]
+          "name": "bondWires",
+          "property_name": "bondWireMaterial"
         }
       },
       "group-solder-mask": {
@@ -2619,12 +2020,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "encapsulant",
-              "property_name": "solderMaskMaterial"
-            }
-          ]
+          "name": "encapsulant",
+          "property_name": "solderMaskMaterial"
         }
       },
       "group-bga-solder": {
@@ -2634,12 +2031,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "solderBalls",
-              "property_name": "solderMaterial"
-            }
-          ]
+          "name": "solderBalls",
+          "property_name": "solderMaterial"
         }
       },
       "group-metal": {
@@ -2649,12 +2042,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "metalLayers",
-              "property_name": "materialOfMetal"
-            }
-          ]
+          "name": "metalLayers",
+          "property_name": "materialOfMetal"
         }
       },
       "group-trace-hole": {
@@ -2664,12 +2053,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "metalLayers",
-              "property_name": "conductivity"
-            }
-          ]
+          "name": "metalLayers",
+          "property_name": "conductivity"
         }
       }
     },
@@ -2678,9 +2063,7 @@
         "DES": {
           "keys": []
         },
-        "pack_script": {
-          "targets": []
-        }
+        "pack_script": {}
       },
       "solder_removal_enabled": {
         "DES": {
@@ -2689,12 +2072,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "solderBallDepopulation",
-              "property_name": "depopulatedCenter"
-            }
-          ]
+          "name": "solderBallDepopulation",
+          "property_name": "depopulatedCenter"
         }
       },
       "populated_columns": {
@@ -2704,12 +2083,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "solderBallDepopulation",
-              "property_name": "numberFullyPopulatedRowsMDp"
-            }
-          ]
+          "name": "solderBallDepopulation",
+          "property_name": "numberFullyPopulatedRowsMDp"
         }
       },
       "populated_rows": {
@@ -2719,12 +2094,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "solderBallDepopulation",
-              "property_name": "numberFullyPopulatedRowsMEp"
-            }
-          ]
+          "name": "solderBallDepopulation",
+          "property_name": "numberFullyPopulatedRowsMEp"
         }
       },
       "center_solder_enabled": {
@@ -2734,12 +2105,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "centralBalls",
-              "property_name": "centralBalls"
-            }
-          ]
+          "name": "centralBalls",
+          "property_name": "centralBalls"
         }
       },
       "center_solder_columns": {
@@ -2749,12 +2116,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "centralBalls",
-              "property_name": "numberCentralRowsMDp"
-            }
-          ]
+          "name": "centralBalls",
+          "property_name": "numberCentralRowsMDp"
         }
       },
       "center_solder_rows": {
@@ -2764,12 +2127,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "centralBalls",
-              "property_name": "numberCentralRowsMEp"
-            }
-          ]
+          "name": "centralBalls",
+          "property_name": "numberCentralRowsMEp"
         }
       },
       "staggered": {
@@ -2779,12 +2138,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "solderBalls",
-              "property_name": "staggeredMatrix"
-            }
-          ]
+          "name": "solderBalls",
+          "property_name": "staggeredMatrix"
         }
       },
       "center_staggered": {
@@ -2794,12 +2149,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "centralBalls",
-              "property_name": "staggeredMatrix"
-            }
-          ]
+          "name": "centralBalls",
+          "property_name": "staggeredMatrix"
         }
       },
       "omitted_cells": {
@@ -2809,29 +2160,21 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "solderBallDepopulation",
-              "property_name": "depopulationDialog"
-            }
-          ]
+          "name": "solderBallDepopulation",
+          "property_name": "depopulationDialog"
         }
       },
       "removal_rows": {
         "DES": {
           "keys": []
         },
-        "pack_script": {
-          "targets": []
-        }
+        "pack_script": {}
       },
       "removal_columns": {
         "DES": {
           "keys": []
         },
-        "pack_script": {
-          "targets": []
-        }
+        "pack_script": {}
       },
       "ball_map_enabled": {
         "DES": {
@@ -2840,12 +2183,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "solderBalls",
-              "property_name": "solderBallMap"
-            }
-          ]
+          "name": "solderBalls",
+          "property_name": "solderBallMap"
         }
       },
       "ball_map": {
@@ -2855,21 +2194,15 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "solderBalls",
-              "property_name": "solderBallMapDialog"
-            }
-          ]
+          "name": "solderBalls",
+          "property_name": "solderBallMapDialog"
         }
       },
       "via_configuration": {
         "DES": {
           "keys": []
         },
-        "pack_script": {
-          "targets": []
-        }
+        "pack_script": {}
       }
     },
     "ProjectDocument": {
@@ -2879,9 +2212,7 @@
             "package"
           ]
         },
-        "pack_script": {
-          "targets": []
-        }
+        "pack_script": {}
       },
       "Name": {
         "DES": {
@@ -2889,25 +2220,19 @@
             "design"
           ]
         },
-        "pack_script": {
-          "targets": []
-        }
+        "pack_script": {}
       },
       "PresetId": {
         "DES": {
           "keys": []
         },
-        "pack_script": {
-          "targets": []
-        }
+        "pack_script": {}
       },
       "CustomMaterials": {
         "DES": {
           "keys": []
         },
-        "pack_script": {
-          "targets": []
-        }
+        "pack_script": {}
       }
     }
   },
@@ -2918,12 +2243,8 @@
           "keys": []
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": null,
-              "property_name": "jedecFootprint"
-            }
-          ]
+          "name": null,
+          "property_name": "jedecFootprint"
         }
       },
       "substrate.length": {
@@ -2934,12 +2255,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "packageSubstrate",
-              "property_name": "substrateLengthD"
-            }
-          ]
+          "name": "packageSubstrate",
+          "property_name": "substrateLengthD"
         }
       },
       "substrate.width": {
@@ -2950,12 +2267,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "packageSubstrate",
-              "property_name": "substrateWidthE"
-            }
-          ]
+          "name": "packageSubstrate",
+          "property_name": "substrateWidthE"
         }
       },
       "substrate.thickness": {
@@ -2966,12 +2279,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "packageSubstrate",
-              "property_name": "substrateThicknessA2"
-            }
-          ]
+          "name": "packageSubstrate",
+          "property_name": "substrateThicknessA2"
         }
       },
       "die.length": {
@@ -2982,12 +2291,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "die",
-              "property_name": "dieLengthLd"
-            }
-          ]
+          "name": "die",
+          "property_name": "dieLengthLd"
         }
       },
       "die.width": {
@@ -2998,12 +2303,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "die",
-              "property_name": "dieWidthWd"
-            }
-          ]
+          "name": "die",
+          "property_name": "dieWidthWd"
         }
       },
       "die.thickness": {
@@ -3014,12 +2315,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "die",
-              "property_name": "dieThicknessTd"
-            }
-          ]
+          "name": "die",
+          "property_name": "dieThicknessTd"
         }
       },
       "die.power": {
@@ -3030,12 +2327,8 @@
           "unit": "W"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "die",
-              "property_name": "packagePower"
-            }
-          ]
+          "name": "die",
+          "property_name": "packagePower"
         }
       },
       "bumps.total": {
@@ -3050,12 +2343,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "flipChipBumps",
-              "property_name": "totalNumberOfBumpsMNC4"
-            }
-          ]
+          "name": "flipChipBumps",
+          "property_name": "totalNumberOfBumpsMNC4"
         }
       },
       "bumps.diameter": {
@@ -3066,12 +2355,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "flipChipBumps",
-              "property_name": "bumpDiameterBC4"
-            }
-          ]
+          "name": "flipChipBumps",
+          "property_name": "bumpDiameterBC4"
         }
       },
       "bumps.height": {
@@ -3082,12 +2367,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "flipChipBumps",
-              "property_name": "bumpHeightTC4"
-            }
-          ]
+          "name": "flipChipBumps",
+          "property_name": "bumpHeightTC4"
         }
       },
       "bumps.modeling": {
@@ -3095,12 +2376,8 @@
           "keys": []
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "modelingOptions",
-              "property_name": "modelFlipChipBumpsAs"
-            }
-          ]
+          "name": "modelingOptions",
+          "property_name": "modelFlipChipBumpsAs"
         }
       },
       "bga.columns": {
@@ -3110,12 +2387,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "solderBalls",
-              "property_name": "numberOfSolderBallsInXMD"
-            }
-          ]
+          "name": "solderBalls",
+          "property_name": "numberOfSolderBallsInXMD"
         }
       },
       "bga.rows": {
@@ -3125,12 +2398,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "solderBalls",
-              "property_name": "numberOfSolderBallsInYME"
-            }
-          ]
+          "name": "solderBalls",
+          "property_name": "numberOfSolderBallsInYME"
         }
       },
       "bga.pitch": {
@@ -3141,12 +2410,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "solderBalls",
-              "property_name": "ballPitchE"
-            }
-          ]
+          "name": "solderBalls",
+          "property_name": "ballPitchE"
         }
       },
       "bga.diameter": {
@@ -3157,12 +2422,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "solderBalls",
-              "property_name": "ballDiameterB"
-            }
-          ]
+          "name": "solderBalls",
+          "property_name": "ballDiameterB"
         }
       },
       "bga.height": {
@@ -3173,12 +2434,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "solderBalls",
-              "property_name": "substrateStandoffA1"
-            }
-          ]
+          "name": "solderBalls",
+          "property_name": "substrateStandoffA1"
         }
       },
       "cover.type": {
@@ -3188,12 +2445,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": null,
-              "property_name": "topCover"
-            }
-          ]
+          "name": null,
+          "property_name": "topCover"
         }
       },
       "cover.length": {
@@ -3209,13 +2462,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "topCover",
-              "property_name": "lengthLe",
-              "branch": "encapsulant"
-            }
-          ]
+          "name": "topCover",
+          "property_name": "lengthLe"
         }
       },
       "cover.width": {
@@ -3231,13 +2479,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "topCover",
-              "property_name": "widthWe",
-              "branch": "encapsulant"
-            }
-          ]
+          "name": "topCover",
+          "property_name": "widthWe"
         }
       },
       "cover.thickness": {
@@ -3253,13 +2496,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "topCover",
-              "property_name": "thicknessTe",
-              "branch": "encapsulant"
-            }
-          ]
+          "name": "topCover",
+          "property_name": "thicknessTe"
         }
       },
       "lid.length": {
@@ -3275,13 +2513,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "topCover",
-              "property_name": "lidLengthLc",
-              "branch": "lid"
-            }
-          ]
+          "name": "topCover",
+          "property_name": "lidLengthLc"
         }
       },
       "lid.width": {
@@ -3297,13 +2530,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "topCover",
-              "property_name": "lidWidthWc",
-              "branch": "lid"
-            }
-          ]
+          "name": "topCover",
+          "property_name": "lidWidthWc"
         }
       },
       "lid.thickness": {
@@ -3319,13 +2547,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "topCover",
-              "property_name": "lidThicknessTc",
-              "branch": "lid"
-            }
-          ]
+          "name": "topCover",
+          "property_name": "lidThicknessTc"
         }
       },
       "lid.base_thickness": {
@@ -3341,13 +2564,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "topCover",
-              "property_name": "lidBaseThicknessTcb",
-              "branch": "lid"
-            }
-          ]
+          "name": "topCover",
+          "property_name": "lidBaseThicknessTcb"
         }
       },
       "lid.die_attach": {
@@ -3363,13 +2581,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "topCover",
-              "property_name": "dieAttachThicknessTda",
-              "branch": "lid"
-            }
-          ]
+          "name": "topCover",
+          "property_name": "dieAttachThicknessTda"
         }
       },
       "lid.adhesive": {
@@ -3385,13 +2598,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "topCover",
-              "property_name": "lidAdhesiveThickness",
-              "branch": "lid"
-            }
-          ]
+          "name": "topCover",
+          "property_name": "lidAdhesiveThickness"
         }
       },
       "plate.length": {
@@ -3407,13 +2615,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "topCover",
-              "property_name": "plateLengthLc",
-              "branch": "plate"
-            }
-          ]
+          "name": "topCover",
+          "property_name": "plateLengthLc"
         }
       },
       "plate.width": {
@@ -3429,13 +2632,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "topCover",
-              "property_name": "plateWidthWc",
-              "branch": "plate"
-            }
-          ]
+          "name": "topCover",
+          "property_name": "plateWidthWc"
         }
       },
       "plate.thickness": {
@@ -3451,13 +2649,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "topCover",
-              "property_name": "plateThicknessTc",
-              "branch": "plate"
-            }
-          ]
+          "name": "topCover",
+          "property_name": "plateThicknessTc"
         }
       },
       "plate.die_attach": {
@@ -3473,13 +2666,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "topCover",
-              "property_name": "dieAttachThicknessTda",
-              "branch": "plate"
-            }
-          ]
+          "name": "topCover",
+          "property_name": "dieAttachThicknessTda"
         }
       },
       "grid.enabled": {
@@ -3489,12 +2677,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "modelingOptions",
-              "property_name": "localizeGrid"
-            }
-          ]
+          "name": "modelingOptions",
+          "property_name": "localizeGrid"
         }
       },
       "grid.density": {
@@ -3509,12 +2693,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "modelingOptions",
-              "property_name": "gridDensity"
-            }
-          ]
+          "name": "modelingOptions",
+          "property_name": "gridDensity"
         }
       },
       "bumps.array_type": {
@@ -3524,12 +2704,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "flipChipBumps",
-              "property_name": "arrayType"
-            }
-          ]
+          "name": "flipChipBumps",
+          "property_name": "arrayType"
         }
       },
       "bumps.columns": {
@@ -3544,12 +2720,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "flipChipBumps",
-              "property_name": "numberOfBumpsInXMDC4"
-            }
-          ]
+          "name": "flipChipBumps",
+          "property_name": "numberOfBumpsInXMDC4"
         }
       },
       "bumps.rows": {
@@ -3564,12 +2736,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "flipChipBumps",
-              "property_name": "numberOfBumpsInYMEC4"
-            }
-          ]
+          "name": "flipChipBumps",
+          "property_name": "numberOfBumpsInYMEC4"
         }
       },
       "bumps.underfill": {
@@ -3579,12 +2747,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "flipChipBumps",
-              "property_name": "underfill"
-            }
-          ]
+          "name": "flipChipBumps",
+          "property_name": "underfill"
         }
       },
       "cover.flush": {
@@ -3599,13 +2763,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "topCover",
-              "property_name": "enableDieFlush",
-              "branch": "encapsulant"
-            }
-          ]
+          "name": "topCover",
+          "property_name": "enableDieFlush"
         }
       },
       "stiffener.enabled": {
@@ -3620,13 +2779,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "topCover",
-              "property_name": "stiffener",
-              "branch": "lid"
-            }
-          ]
+          "name": "topCover",
+          "property_name": "stiffener"
         }
       },
       "stiffener.length": {
@@ -3643,13 +2797,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "topCover",
-              "property_name": "stiffenerLengthLs",
-              "branch": "lid"
-            }
-          ]
+          "name": "topCover",
+          "property_name": "stiffenerLengthLs"
         }
       },
       "stiffener.width": {
@@ -3666,13 +2815,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "topCover",
-              "property_name": "stiffenerWidthWs",
-              "branch": "lid"
-            }
-          ]
+          "name": "topCover",
+          "property_name": "stiffenerWidthWs"
         }
       },
       "stiffener.cavity_length": {
@@ -3689,13 +2833,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "topCover",
-              "property_name": "stiffenerCavityLengthLsc",
-              "branch": "lid"
-            }
-          ]
+          "name": "topCover",
+          "property_name": "stiffenerCavityLengthLsc"
         }
       },
       "stiffener.cavity_width": {
@@ -3712,13 +2851,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "topCover",
-              "property_name": "stiffenerCavityWidthWsc",
-              "branch": "lid"
-            }
-          ]
+          "name": "topCover",
+          "property_name": "stiffenerCavityWidthWsc"
         }
       },
       "stiffener.adhesive": {
@@ -3735,13 +2869,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "topCover",
-              "property_name": "stiffenerAdhesiveThickness",
-              "branch": "lid"
-            }
-          ]
+          "name": "topCover",
+          "property_name": "stiffenerAdhesiveThickness"
         }
       },
       "slug.enabled": {
@@ -3756,12 +2885,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "dropInSlug",
-              "property_name": "includeSlug"
-            }
-          ]
+          "name": "dropInSlug",
+          "property_name": "includeSlug"
         }
       },
       "slug.length": {
@@ -3778,12 +2903,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "dropInSlug",
-              "property_name": "slugLengthLsl"
-            }
-          ]
+          "name": "dropInSlug",
+          "property_name": "slugLengthLsl"
         }
       },
       "slug.width": {
@@ -3800,12 +2921,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "dropInSlug",
-              "property_name": "slugWidthWsl"
-            }
-          ]
+          "name": "dropInSlug",
+          "property_name": "slugWidthWsl"
         }
       },
       "slug.thickness": {
@@ -3822,12 +2939,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "dropInSlug",
-              "property_name": "slugThicknessTsl"
-            }
-          ]
+          "name": "dropInSlug",
+          "property_name": "slugThicknessTsl"
         }
       },
       "slug.diameter": {
@@ -3844,12 +2957,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "dropInSlug",
-              "property_name": "slugDiameterDs"
-            }
-          ]
+          "name": "dropInSlug",
+          "property_name": "slugDiameterDs"
         }
       },
       "slug.foot_length": {
@@ -3866,12 +2975,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "dropInSlug",
-              "property_name": "slugFootExtendLengthLsf"
-            }
-          ]
+          "name": "dropInSlug",
+          "property_name": "slugFootExtendLengthLsf"
         }
       },
       "slug.foot_width": {
@@ -3888,12 +2993,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "dropInSlug",
-              "property_name": "slugFootExtendWidthWsf"
-            }
-          ]
+          "name": "dropInSlug",
+          "property_name": "slugFootExtendWidthWsf"
         }
       },
       "slug.offset": {
@@ -3910,12 +3011,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "dropInSlug",
-              "property_name": "slugOffsetGs"
-            }
-          ]
+          "name": "dropInSlug",
+          "property_name": "slugOffsetGs"
         }
       },
       "slug.clearance": {
@@ -3932,12 +3029,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "dropInSlug",
-              "property_name": "slugFootClearanceGsf"
-            }
-          ]
+          "name": "dropInSlug",
+          "property_name": "slugFootClearanceGsf"
         }
       },
       "slug.adhesive_enabled": {
@@ -3953,21 +3046,15 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "dropInSlug",
-              "property_name": "adhesivePresentUnderSlugFoot"
-            }
-          ]
+          "name": "dropInSlug",
+          "property_name": "adhesivePresentUnderSlugFoot"
         }
       },
       "vias.enabled": {
         "DES": {
           "keys": []
         },
-        "pack_script": {
-          "targets": []
-        }
+        "pack_script": {}
       },
       "vias.columns": {
         "DES": {
@@ -3981,12 +3068,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "coreVias",
-              "property_name": "numberOfThermalViasInXNVx"
-            }
-          ]
+          "name": "coreVias",
+          "property_name": "numberOfThermalViasInXNVx"
         }
       },
       "vias.rows": {
@@ -4001,12 +3084,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "coreVias",
-              "property_name": "numberOfThermalViasInYNVy"
-            }
-          ]
+          "name": "coreVias",
+          "property_name": "numberOfThermalViasInYNVy"
         }
       },
       "vias.pitch": {
@@ -4022,12 +3101,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "coreVias",
-              "property_name": "viaPitchEv"
-            }
-          ]
+          "name": "coreVias",
+          "property_name": "viaPitchEv"
         }
       },
       "vias.diameter": {
@@ -4043,12 +3118,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "coreVias",
-              "property_name": "viaDiameterDv"
-            }
-          ]
+          "name": "coreVias",
+          "property_name": "viaDiameterDv"
         }
       },
       "vias.plating": {
@@ -4064,12 +3135,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "coreVias",
-              "property_name": "platingThicknessTpl"
-            }
-          ]
+          "name": "coreVias",
+          "property_name": "platingThicknessTpl"
         }
       },
       "vias.modeling": {
@@ -4084,12 +3151,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "modelingOptions",
-              "property_name": "modelCoreViasAs"
-            }
-          ]
+          "name": "modelingOptions",
+          "property_name": "modelCoreViasAs"
         }
       },
       "metal.layers": {
@@ -4102,21 +3165,15 @@
           "unit": "mm / %"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "metalLayers",
-              "property_name": "metalLayersTable"
-            }
-          ]
+          "name": "metalLayers",
+          "property_name": "metalLayersTable"
         }
       },
       "upper.enabled": {
         "DES": {
           "keys": []
         },
-        "pack_script": {
-          "targets": []
-        }
+        "pack_script": {}
       },
       "upper.thickness": {
         "DES": {
@@ -4131,12 +3188,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "upperBuiltUpRegion",
-              "property_name": "thicknessA2b1"
-            }
-          ]
+          "name": "upperBuiltUpRegion",
+          "property_name": "thicknessA2b1"
         }
       },
       "upper.count": {
@@ -4151,12 +3204,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "upperBuiltUpRegion",
-              "property_name": "totalNumberOfMicroViasNb1"
-            }
-          ]
+          "name": "upperBuiltUpRegion",
+          "property_name": "totalNumberOfMicroViasNb1"
         }
       },
       "upper.diameter": {
@@ -4172,12 +3221,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "upperBuiltUpRegion",
-              "property_name": "viaDiameterDvb1"
-            }
-          ]
+          "name": "upperBuiltUpRegion",
+          "property_name": "viaDiameterDvb1"
         }
       },
       "upper.plating": {
@@ -4193,12 +3238,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "upperBuiltUpRegion",
-              "property_name": "platingThicknessTpl"
-            }
-          ]
+          "name": "upperBuiltUpRegion",
+          "property_name": "platingThicknessTpl"
         }
       },
       "upper.filled": {
@@ -4213,12 +3254,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "upperBuiltUpRegion",
-              "property_name": "filledVias"
-            }
-          ]
+          "name": "upperBuiltUpRegion",
+          "property_name": "filledVias"
         }
       },
       "upper.layers": {
@@ -4236,21 +3273,15 @@
           "unit": "mm / %"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "upperBuiltUpRegion",
-              "property_name": "metalLayersTable"
-            }
-          ]
+          "name": "upperBuiltUpRegion",
+          "property_name": "metalLayersTable"
         }
       },
       "lower.enabled": {
         "DES": {
           "keys": []
         },
-        "pack_script": {
-          "targets": []
-        }
+        "pack_script": {}
       },
       "lower.thickness": {
         "DES": {
@@ -4265,12 +3296,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "lowerBuiltUpRegion",
-              "property_name": "thicknessA2b2"
-            }
-          ]
+          "name": "lowerBuiltUpRegion",
+          "property_name": "thicknessA2b2"
         }
       },
       "lower.count": {
@@ -4285,12 +3312,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "lowerBuiltUpRegion",
-              "property_name": "totalNumberOfMicroViasNb2"
-            }
-          ]
+          "name": "lowerBuiltUpRegion",
+          "property_name": "totalNumberOfMicroViasNb2"
         }
       },
       "lower.diameter": {
@@ -4306,12 +3329,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "lowerBuiltUpRegion",
-              "property_name": "viaDiameterDvb2"
-            }
-          ]
+          "name": "lowerBuiltUpRegion",
+          "property_name": "viaDiameterDvb2"
         }
       },
       "lower.plating": {
@@ -4327,12 +3346,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "lowerBuiltUpRegion",
-              "property_name": "platingThicknessTpl"
-            }
-          ]
+          "name": "lowerBuiltUpRegion",
+          "property_name": "platingThicknessTpl"
         }
       },
       "lower.filled": {
@@ -4347,12 +3362,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "lowerBuiltUpRegion",
-              "property_name": "filledVias"
-            }
-          ]
+          "name": "lowerBuiltUpRegion",
+          "property_name": "filledVias"
         }
       },
       "lower.layers": {
@@ -4370,12 +3381,8 @@
           "unit": "mm / %"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "lowerBuiltUpRegion",
-              "property_name": "metalLayersTable"
-            }
-          ]
+          "name": "lowerBuiltUpRegion",
+          "property_name": "metalLayersTable"
         }
       }
     },
@@ -4387,21 +3394,15 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "packageSubstrate",
-              "property_name": "dielectricMaterial"
-            }
-          ]
+          "name": "packageSubstrate",
+          "property_name": "dielectricMaterial"
         }
       },
       "group-die": {
         "DES": {
           "keys": []
         },
-        "pack_script": {
-          "targets": []
-        }
+        "pack_script": {}
       },
       "group-encapsulant": {
         "DES": {
@@ -4413,13 +3414,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "topCover",
-              "property_name": "encapsulantMaterial",
-              "branch": "encapsulant"
-            }
-          ]
+          "name": "topCover",
+          "property_name": "encapsulantMaterial"
         }
       },
       "group-lid": {
@@ -4432,13 +3428,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "topCover",
-              "property_name": "lidMaterial",
-              "branch": "lid"
-            }
-          ]
+          "name": "topCover",
+          "property_name": "lidMaterial"
         }
       },
       "group-lid-adhesive": {
@@ -4451,13 +3442,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "topCover",
-              "property_name": "lidAdhesiveMaterial",
-              "branch": "lid"
-            }
-          ]
+          "name": "topCover",
+          "property_name": "lidAdhesiveMaterial"
         }
       },
       "group-lid-die-attach": {
@@ -4470,13 +3456,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "topCover",
-              "property_name": "dieAttachMaterial",
-              "branch": "lid"
-            }
-          ]
+          "name": "topCover",
+          "property_name": "dieAttachMaterial"
         }
       },
       "group-plate": {
@@ -4489,13 +3470,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "topCover",
-              "property_name": "plateMaterial",
-              "branch": "plate"
-            }
-          ]
+          "name": "topCover",
+          "property_name": "plateMaterial"
         }
       },
       "group-plate-die-attach": {
@@ -4508,13 +3484,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "topCover",
-              "property_name": "dieAttachMaterial",
-              "branch": "plate"
-            }
-          ]
+          "name": "topCover",
+          "property_name": "dieAttachMaterial"
         }
       },
       "group-bump-solder": {
@@ -4524,12 +3495,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "flipChipBumps",
-              "property_name": "c4SolderMaterial"
-            }
-          ]
+          "name": "flipChipBumps",
+          "property_name": "c4SolderMaterial"
         }
       },
       "group-underfill": {
@@ -4542,12 +3509,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "flipChipBumps",
-              "property_name": "underfillMaterial"
-            }
-          ]
+          "name": "flipChipBumps",
+          "property_name": "underfillMaterial"
         }
       },
       "group-bga-solder": {
@@ -4557,12 +3520,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "solderBalls",
-              "property_name": "solderMaterial"
-            }
-          ]
+          "name": "solderBalls",
+          "property_name": "solderMaterial"
         }
       },
       "group-stiffener": {
@@ -4576,13 +3535,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "topCover",
-              "property_name": "stiffenerMaterial",
-              "branch": "lid"
-            }
-          ]
+          "name": "topCover",
+          "property_name": "stiffenerMaterial"
         }
       },
       "group-stiffener-adhesive": {
@@ -4596,13 +3550,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "topCover",
-              "property_name": "stiffenerAdhesiveMaterial",
-              "branch": "lid"
-            }
-          ]
+          "name": "topCover",
+          "property_name": "stiffenerAdhesiveMaterial"
         }
       },
       "group-slug": {
@@ -4616,12 +3565,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "dropInSlug",
-              "property_name": "slugMaterial"
-            }
-          ]
+          "name": "dropInSlug",
+          "property_name": "slugMaterial"
         }
       },
       "group-slug-adhesive": {
@@ -4636,12 +3581,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "dropInSlug",
-              "property_name": "slugAdhesiveMaterial"
-            }
-          ]
+          "name": "dropInSlug",
+          "property_name": "slugAdhesiveMaterial"
         }
       },
       "group-metal": {
@@ -4651,12 +3592,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "metalLayers",
-              "property_name": "materialOfMetal"
-            }
-          ]
+          "name": "metalLayers",
+          "property_name": "materialOfMetal"
         }
       },
       "group-upper": {
@@ -4669,12 +3606,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "upperBuiltUpRegion",
-              "property_name": "dielectricMaterial"
-            }
-          ]
+          "name": "upperBuiltUpRegion",
+          "property_name": "dielectricMaterial"
         }
       },
       "group-lower": {
@@ -4687,12 +3620,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "lowerBuiltUpRegion",
-              "property_name": "dielectricMaterial"
-            }
-          ]
+          "name": "lowerBuiltUpRegion",
+          "property_name": "dielectricMaterial"
         }
       }
     },
@@ -4704,12 +3633,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "modelingOptions",
-              "property_name": "modelSolderBallArrayAs"
-            }
-          ]
+          "name": "modelingOptions",
+          "property_name": "modelSolderBallArrayAs"
         }
       },
       "solder_removal_enabled": {
@@ -4719,12 +3644,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "solderBallDepopulation",
-              "property_name": "depopulatedCenter"
-            }
-          ]
+          "name": "solderBallDepopulation",
+          "property_name": "depopulatedCenter"
         }
       },
       "populated_columns": {
@@ -4734,12 +3655,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "solderBallDepopulation",
-              "property_name": "numberFullyPopulatedRowsMDp"
-            }
-          ]
+          "name": "solderBallDepopulation",
+          "property_name": "numberFullyPopulatedRowsMDp"
         }
       },
       "populated_rows": {
@@ -4749,12 +3666,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "solderBallDepopulation",
-              "property_name": "numberFullyPopulatedRowsMEp"
-            }
-          ]
+          "name": "solderBallDepopulation",
+          "property_name": "numberFullyPopulatedRowsMEp"
         }
       },
       "center_solder_enabled": {
@@ -4764,12 +3677,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "centralBalls",
-              "property_name": "centralBalls"
-            }
-          ]
+          "name": "centralBalls",
+          "property_name": "centralBalls"
         }
       },
       "center_solder_columns": {
@@ -4779,12 +3688,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "centralBalls",
-              "property_name": "numberCentralRowsMDp"
-            }
-          ]
+          "name": "centralBalls",
+          "property_name": "numberCentralRowsMDp"
         }
       },
       "center_solder_rows": {
@@ -4794,12 +3699,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "centralBalls",
-              "property_name": "numberCentralRowsMEp"
-            }
-          ]
+          "name": "centralBalls",
+          "property_name": "numberCentralRowsMEp"
         }
       },
       "staggered": {
@@ -4809,12 +3710,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "solderBalls",
-              "property_name": "staggeredMatrix"
-            }
-          ]
+          "name": "solderBalls",
+          "property_name": "staggeredMatrix"
         }
       },
       "center_staggered": {
@@ -4824,12 +3721,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "centralBalls",
-              "property_name": "staggeredMatrix"
-            }
-          ]
+          "name": "centralBalls",
+          "property_name": "staggeredMatrix"
         }
       },
       "omitted_cells": {
@@ -4839,29 +3732,21 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "solderBallDepopulation",
-              "property_name": "depopulationDialog"
-            }
-          ]
+          "name": "solderBallDepopulation",
+          "property_name": "depopulationDialog"
         }
       },
       "removal_rows": {
         "DES": {
           "keys": []
         },
-        "pack_script": {
-          "targets": []
-        }
+        "pack_script": {}
       },
       "removal_columns": {
         "DES": {
           "keys": []
         },
-        "pack_script": {
-          "targets": []
-        }
+        "pack_script": {}
       },
       "ball_map_enabled": {
         "DES": {
@@ -4870,12 +3755,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "solderBalls",
-              "property_name": "solderBallMap"
-            }
-          ]
+          "name": "solderBalls",
+          "property_name": "solderBallMap"
         }
       },
       "ball_map": {
@@ -4885,21 +3766,15 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "solderBalls",
-              "property_name": "solderBallMapDialog"
-            }
-          ]
+          "name": "solderBalls",
+          "property_name": "solderBallMapDialog"
         }
       },
       "via_configuration": {
         "DES": {
           "keys": []
         },
-        "pack_script": {
-          "targets": []
-        }
+        "pack_script": {}
       }
     },
     "ProjectDocument": {
@@ -4909,9 +3784,7 @@
             "package"
           ]
         },
-        "pack_script": {
-          "targets": []
-        }
+        "pack_script": {}
       },
       "Name": {
         "DES": {
@@ -4919,25 +3792,19 @@
             "design"
           ]
         },
-        "pack_script": {
-          "targets": []
-        }
+        "pack_script": {}
       },
       "PresetId": {
         "DES": {
           "keys": []
         },
-        "pack_script": {
-          "targets": []
-        }
+        "pack_script": {}
       },
       "CustomMaterials": {
         "DES": {
           "keys": []
         },
-        "pack_script": {
-          "targets": []
-        }
+        "pack_script": {}
       }
     }
   },
@@ -4948,12 +3815,8 @@
           "keys": []
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": null,
-              "property_name": "jedecFootprint"
-            }
-          ]
+          "name": null,
+          "property_name": "jedecFootprint"
         }
       },
       "package.length": {
@@ -4964,12 +3827,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "packageSubstrate",
-              "property_name": "substrateLengthD"
-            }
-          ]
+          "name": "packageSubstrate",
+          "property_name": "substrateLengthD"
         }
       },
       "package.width": {
@@ -4980,12 +3839,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "packageSubstrate",
-              "property_name": "substrateWidthE"
-            }
-          ]
+          "name": "packageSubstrate",
+          "property_name": "substrateWidthE"
         }
       },
       "substrate.thickness": {
@@ -4996,12 +3851,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "packageSubstrate",
-              "property_name": "substrateThicknessA2"
-            }
-          ]
+          "name": "packageSubstrate",
+          "property_name": "substrateThicknessA2"
         }
       },
       "trace.top_thickness": {
@@ -5012,12 +3863,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": null,
-              "property_name": "topSignalLayerThickness"
-            }
-          ]
+          "name": null,
+          "property_name": "topSignalLayerThickness"
         }
       },
       "trace.bottom_thickness": {
@@ -5028,12 +3875,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": null,
-              "property_name": "bottomSignalLayerThickness"
-            }
-          ]
+          "name": null,
+          "property_name": "bottomSignalLayerThickness"
         }
       },
       "encapsulant.length": {
@@ -5044,12 +3887,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "encapsulant",
-              "property_name": "lengthLe"
-            }
-          ]
+          "name": "encapsulant",
+          "property_name": "lengthLe"
         }
       },
       "encapsulant.width": {
@@ -5060,12 +3899,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "encapsulant",
-              "property_name": "widthWe"
-            }
-          ]
+          "name": "encapsulant",
+          "property_name": "widthWe"
         }
       },
       "encapsulant.thickness": {
@@ -5076,12 +3911,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "encapsulant",
-              "property_name": "thicknessTe"
-            }
-          ]
+          "name": "encapsulant",
+          "property_name": "thicknessTe"
         }
       },
       "flag.length": {
@@ -5092,12 +3923,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "dieFlagAndSolderMask",
-              "property_name": "dieFlagLf"
-            }
-          ]
+          "name": "dieFlagAndSolderMask",
+          "property_name": "dieFlagLf"
         }
       },
       "flag.width": {
@@ -5108,12 +3935,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "dieFlagAndSolderMask",
-              "property_name": "dieFlagWf"
-            }
-          ]
+          "name": "dieFlagAndSolderMask",
+          "property_name": "dieFlagWf"
         }
       },
       "solder_mask.thickness": {
@@ -5124,12 +3947,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "dieFlagAndSolderMask",
-              "property_name": "solderMaskThickness"
-            }
-          ]
+          "name": "dieFlagAndSolderMask",
+          "property_name": "solderMaskThickness"
         }
       },
       "die.length": {
@@ -5140,12 +3959,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "die",
-              "property_name": "dieLengthLd"
-            }
-          ]
+          "name": "die",
+          "property_name": "dieLengthLd"
         }
       },
       "die.width": {
@@ -5156,12 +3971,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "die",
-              "property_name": "dieWidthWd"
-            }
-          ]
+          "name": "die",
+          "property_name": "dieWidthWd"
         }
       },
       "die.thickness": {
@@ -5172,12 +3983,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "die",
-              "property_name": "dieThicknessTd"
-            }
-          ]
+          "name": "die",
+          "property_name": "dieThicknessTd"
         }
       },
       "die.attach": {
@@ -5188,12 +3995,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "die",
-              "property_name": "dieAttachThicknessTda"
-            }
-          ]
+          "name": "die",
+          "property_name": "dieAttachThicknessTda"
         }
       },
       "die.power": {
@@ -5204,12 +4007,8 @@
           "unit": "W"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "die",
-              "property_name": "packagePower"
-            }
-          ]
+          "name": "die",
+          "property_name": "packagePower"
         }
       },
       "bond_wire.total": {
@@ -5219,12 +4018,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "die",
-              "property_name": "numberOfBondWiresNw"
-            }
-          ]
+          "name": "die",
+          "property_name": "numberOfBondWiresNw"
         }
       },
       "bond_wire.extent_length": {
@@ -5235,12 +4030,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "die",
-              "property_name": "bondWireExtentLengthLw"
-            }
-          ]
+          "name": "die",
+          "property_name": "bondWireExtentLengthLw"
         }
       },
       "bond_wire.extent_width": {
@@ -5251,12 +4042,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "die",
-              "property_name": "bondWireExtentWidthWw"
-            }
-          ]
+          "name": "die",
+          "property_name": "bondWireExtentWidthWw"
         }
       },
       "bond_wire.diameter": {
@@ -5267,21 +4054,15 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "die",
-              "property_name": "bondWireDiameterDw"
-            }
-          ]
+          "name": "die",
+          "property_name": "bondWireDiameterDw"
         }
       },
       "vias.enabled": {
         "DES": {
           "keys": []
         },
-        "pack_script": {
-          "targets": []
-        }
+        "pack_script": {}
       },
       "vias.columns": {
         "DES": {
@@ -5295,12 +4076,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "thermalVias",
-              "property_name": "numberOfThermalViasInXNVx"
-            }
-          ]
+          "name": "thermalVias",
+          "property_name": "numberOfThermalViasInXNVx"
         }
       },
       "vias.rows": {
@@ -5315,12 +4092,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "thermalVias",
-              "property_name": "numberOfThermalViasInYNVy"
-            }
-          ]
+          "name": "thermalVias",
+          "property_name": "numberOfThermalViasInYNVy"
         }
       },
       "vias.pitch": {
@@ -5336,12 +4109,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "thermalVias",
-              "property_name": "viaPitchEv"
-            }
-          ]
+          "name": "thermalVias",
+          "property_name": "viaPitchEv"
         }
       },
       "vias.diameter": {
@@ -5357,12 +4126,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "thermalVias",
-              "property_name": "viaDiameterDv"
-            }
-          ]
+          "name": "thermalVias",
+          "property_name": "viaDiameterDv"
         }
       },
       "vias.plating": {
@@ -5378,12 +4143,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "thermalVias",
-              "property_name": "platingThicknessTpl"
-            }
-          ]
+          "name": "thermalVias",
+          "property_name": "platingThicknessTpl"
         }
       },
       "bga.columns": {
@@ -5393,12 +4154,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "solderBalls",
-              "property_name": "numberOfSolderBallsInXMD"
-            }
-          ]
+          "name": "solderBalls",
+          "property_name": "numberOfSolderBallsInXMD"
         }
       },
       "bga.rows": {
@@ -5408,12 +4165,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "solderBalls",
-              "property_name": "numberOfSolderBallsInYME"
-            }
-          ]
+          "name": "solderBalls",
+          "property_name": "numberOfSolderBallsInYME"
         }
       },
       "bga.pitch": {
@@ -5424,12 +4177,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "solderBalls",
-              "property_name": "ballPitchE"
-            }
-          ]
+          "name": "solderBalls",
+          "property_name": "ballPitchE"
         }
       },
       "bga.diameter": {
@@ -5440,12 +4189,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "solderBalls",
-              "property_name": "ballDiameterB"
-            }
-          ]
+          "name": "solderBalls",
+          "property_name": "ballDiameterB"
         }
       },
       "bga.height": {
@@ -5456,12 +4201,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "solderBalls",
-              "property_name": "substrateStandoffA1"
-            }
-          ]
+          "name": "solderBalls",
+          "property_name": "substrateStandoffA1"
         }
       },
       "spreader.enabled": {
@@ -5471,12 +4212,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "backsideSpreader",
-              "property_name": "includeBacksideSpreader"
-            }
-          ]
+          "name": "backsideSpreader",
+          "property_name": "includeBacksideSpreader"
         }
       },
       "spreader.length": {
@@ -5492,12 +4229,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "backsideSpreader",
-              "property_name": "spreaderLengthLspr"
-            }
-          ]
+          "name": "backsideSpreader",
+          "property_name": "spreaderLengthLspr"
         }
       },
       "spreader.width": {
@@ -5513,12 +4246,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "backsideSpreader",
-              "property_name": "spreaderWidthWspr"
-            }
-          ]
+          "name": "backsideSpreader",
+          "property_name": "spreaderWidthWspr"
         }
       },
       "spreader.thickness": {
@@ -5534,12 +4263,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "backsideSpreader",
-              "property_name": "spreaderThicknessTspr"
-            }
-          ]
+          "name": "backsideSpreader",
+          "property_name": "spreaderThicknessTspr"
         }
       },
       "spreader.hole_length": {
@@ -5555,12 +4280,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "backsideSpreader",
-              "property_name": "bottomTraceHoleLengthLbt"
-            }
-          ]
+          "name": "backsideSpreader",
+          "property_name": "bottomTraceHoleLengthLbt"
         }
       },
       "spreader.hole_width": {
@@ -5576,12 +4297,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "backsideSpreader",
-              "property_name": "bottomTraceHoleWidthWbt"
-            }
-          ]
+          "name": "backsideSpreader",
+          "property_name": "bottomTraceHoleWidthWbt"
         }
       },
       "grid.enabled": {
@@ -5591,12 +4308,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "modelingOptions",
-              "property_name": "localizeGrid"
-            }
-          ]
+          "name": "modelingOptions",
+          "property_name": "localizeGrid"
         }
       },
       "grid.density": {
@@ -5611,12 +4324,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "modelingOptions",
-              "property_name": "gridDensity"
-            }
-          ]
+          "name": "modelingOptions",
+          "property_name": "gridDensity"
         }
       },
       "bond_wire.modeling": {
@@ -5626,12 +4335,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "modelingOptions",
-              "property_name": "modelBondWiresAs"
-            }
-          ]
+          "name": "modelingOptions",
+          "property_name": "modelBondWiresAs"
         }
       },
       "substrate.layers": {
@@ -5639,12 +4344,8 @@
           "keys": []
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": null,
-              "property_name": "substrateLayer"
-            }
-          ]
+          "name": null,
+          "property_name": "substrateLayer"
         }
       },
       "flag.coverage": {
@@ -5655,12 +4356,8 @@
           "unit": "%"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "dieFlagAndSolderMask",
-              "property_name": "coveragePercentageCf"
-            }
-          ]
+          "name": "dieFlagAndSolderMask",
+          "property_name": "coveragePercentageCf"
         }
       },
       "metal.layers": {
@@ -5684,12 +4381,8 @@
           "unit": "mm / %"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "metalLayers",
-              "property_name": "metalLayersTable"
-            }
-          ]
+          "name": "metalLayers",
+          "property_name": "metalLayersTable"
         }
       },
       "vias.modeling": {
@@ -5704,12 +4397,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "modelingOptions",
-              "property_name": "modelThermalViasAs"
-            }
-          ]
+          "name": "modelingOptions",
+          "property_name": "modelThermalViasAs"
         }
       },
       "slug.enabled": {
@@ -5719,12 +4408,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "dropInSlug",
-              "property_name": "includeSlug"
-            }
-          ]
+          "name": "dropInSlug",
+          "property_name": "includeSlug"
         }
       },
       "slug.length": {
@@ -5740,12 +4425,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "dropInSlug",
-              "property_name": "slugLengthLsl"
-            }
-          ]
+          "name": "dropInSlug",
+          "property_name": "slugLengthLsl"
         }
       },
       "slug.width": {
@@ -5761,12 +4442,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "dropInSlug",
-              "property_name": "slugWidthWsl"
-            }
-          ]
+          "name": "dropInSlug",
+          "property_name": "slugWidthWsl"
         }
       },
       "slug.thickness": {
@@ -5782,12 +4459,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "dropInSlug",
-              "property_name": "slugThicknessTsl"
-            }
-          ]
+          "name": "dropInSlug",
+          "property_name": "slugThicknessTsl"
         }
       },
       "slug.diameter": {
@@ -5803,12 +4476,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "dropInSlug",
-              "property_name": "slugDiameterDs"
-            }
-          ]
+          "name": "dropInSlug",
+          "property_name": "slugDiameterDs"
         }
       },
       "slug.foot_length": {
@@ -5824,12 +4493,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "dropInSlug",
-              "property_name": "slugFootExtendLengthLsf"
-            }
-          ]
+          "name": "dropInSlug",
+          "property_name": "slugFootExtendLengthLsf"
         }
       },
       "slug.foot_width": {
@@ -5845,12 +4510,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "dropInSlug",
-              "property_name": "slugFootExtendWidthWsf"
-            }
-          ]
+          "name": "dropInSlug",
+          "property_name": "slugFootExtendWidthWsf"
         }
       },
       "slug.offset": {
@@ -5866,12 +4527,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "dropInSlug",
-              "property_name": "slugOffsetGs"
-            }
-          ]
+          "name": "dropInSlug",
+          "property_name": "slugOffsetGs"
         }
       },
       "slug.clearance": {
@@ -5887,12 +4544,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "dropInSlug",
-              "property_name": "slugFootClearanceGsf"
-            }
-          ]
+          "name": "dropInSlug",
+          "property_name": "slugFootClearanceGsf"
         }
       },
       "slug.adhesive_enabled": {
@@ -5907,12 +4560,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "dropInSlug",
-              "property_name": "adhesivePresentUnderSlugFoot"
-            }
-          ]
+          "name": "dropInSlug",
+          "property_name": "adhesivePresentUnderSlugFoot"
         }
       }
     },
@@ -5924,21 +4573,15 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "packageSubstrate",
-              "property_name": "dielectricMaterial"
-            }
-          ]
+          "name": "packageSubstrate",
+          "property_name": "dielectricMaterial"
         }
       },
       "group-die": {
         "DES": {
           "keys": []
         },
-        "pack_script": {
-          "targets": []
-        }
+        "pack_script": {}
       },
       "group-die-attach": {
         "DES": {
@@ -5947,12 +4590,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "die",
-              "property_name": "dieAttachMaterial"
-            }
-          ]
+          "name": "die",
+          "property_name": "dieAttachMaterial"
         }
       },
       "group-encapsulant": {
@@ -5962,12 +4601,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "encapsulant",
-              "property_name": "encapsulantMaterial"
-            }
-          ]
+          "name": "encapsulant",
+          "property_name": "encapsulantMaterial"
         }
       },
       "group-bond-wires": {
@@ -5977,12 +4612,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "die",
-              "property_name": "bondWireMaterial"
-            }
-          ]
+          "name": "die",
+          "property_name": "bondWireMaterial"
         }
       },
       "group-solder-mask": {
@@ -5992,12 +4623,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "dieFlagAndSolderMask",
-              "property_name": "solderMaskMaterial"
-            }
-          ]
+          "name": "dieFlagAndSolderMask",
+          "property_name": "solderMaskMaterial"
         }
       },
       "group-bga-solder": {
@@ -6007,12 +4634,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "solderBalls",
-              "property_name": "solderMaterial"
-            }
-          ]
+          "name": "solderBalls",
+          "property_name": "solderMaterial"
         }
       },
       "group-backside-spreader": {
@@ -6025,12 +4648,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "backsideSpreader",
-              "property_name": "spreaderMaterial"
-            }
-          ]
+          "name": "backsideSpreader",
+          "property_name": "spreaderMaterial"
         }
       },
       "group-traces": {
@@ -6040,12 +4659,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "metalLayers",
-              "property_name": "materialOfMetal"
-            }
-          ]
+          "name": "metalLayers",
+          "property_name": "materialOfMetal"
         }
       },
       "group-slug": {
@@ -6058,12 +4673,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "dropInSlug",
-              "property_name": "slugMaterial"
-            }
-          ]
+          "name": "dropInSlug",
+          "property_name": "slugMaterial"
         }
       },
       "group-slug-adhesive": {
@@ -6077,12 +4688,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "dropInSlug",
-              "property_name": "slugAdhesiveMaterial"
-            }
-          ]
+          "name": "dropInSlug",
+          "property_name": "slugAdhesiveMaterial"
         }
       }
     },
@@ -6094,12 +4701,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "modelingOptions",
-              "property_name": "modelSolderBallArrayAs"
-            }
-          ]
+          "name": "modelingOptions",
+          "property_name": "modelSolderBallArrayAs"
         }
       },
       "solder_removal_enabled": {
@@ -6109,12 +4712,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "solderBallDepopulation",
-              "property_name": "depopulatedCenter"
-            }
-          ]
+          "name": "solderBallDepopulation",
+          "property_name": "depopulatedCenter"
         }
       },
       "populated_columns": {
@@ -6124,12 +4723,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "solderBallDepopulation",
-              "property_name": "numberFullyPopulatedRowsMDp"
-            }
-          ]
+          "name": "solderBallDepopulation",
+          "property_name": "numberFullyPopulatedRowsMDp"
         }
       },
       "populated_rows": {
@@ -6139,12 +4734,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "solderBallDepopulation",
-              "property_name": "numberFullyPopulatedRowsMEp"
-            }
-          ]
+          "name": "solderBallDepopulation",
+          "property_name": "numberFullyPopulatedRowsMEp"
         }
       },
       "center_solder_enabled": {
@@ -6154,12 +4745,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "centralBalls",
-              "property_name": "centralBalls"
-            }
-          ]
+          "name": "centralBalls",
+          "property_name": "centralBalls"
         }
       },
       "center_solder_columns": {
@@ -6169,12 +4756,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "centralBalls",
-              "property_name": "numberCentralRowsMDp"
-            }
-          ]
+          "name": "centralBalls",
+          "property_name": "numberCentralRowsMDp"
         }
       },
       "center_solder_rows": {
@@ -6184,12 +4767,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "centralBalls",
-              "property_name": "numberCentralRowsMEp"
-            }
-          ]
+          "name": "centralBalls",
+          "property_name": "numberCentralRowsMEp"
         }
       },
       "staggered": {
@@ -6199,12 +4778,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "solderBalls",
-              "property_name": "staggeredMatrix"
-            }
-          ]
+          "name": "solderBalls",
+          "property_name": "staggeredMatrix"
         }
       },
       "center_staggered": {
@@ -6214,12 +4789,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "centralBalls",
-              "property_name": "staggeredMatrix"
-            }
-          ]
+          "name": "centralBalls",
+          "property_name": "staggeredMatrix"
         }
       },
       "omitted_cells": {
@@ -6229,29 +4800,21 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "solderBallDepopulation",
-              "property_name": "depopulationDialog"
-            }
-          ]
+          "name": "solderBallDepopulation",
+          "property_name": "depopulationDialog"
         }
       },
       "removal_rows": {
         "DES": {
           "keys": []
         },
-        "pack_script": {
-          "targets": []
-        }
+        "pack_script": {}
       },
       "removal_columns": {
         "DES": {
           "keys": []
         },
-        "pack_script": {
-          "targets": []
-        }
+        "pack_script": {}
       },
       "ball_map_enabled": {
         "DES": {
@@ -6260,12 +4823,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "solderBalls",
-              "property_name": "solderBallMap"
-            }
-          ]
+          "name": "solderBalls",
+          "property_name": "solderBallMap"
         }
       },
       "ball_map": {
@@ -6275,21 +4834,15 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "solderBalls",
-              "property_name": "solderBallMapDialog"
-            }
-          ]
+          "name": "solderBalls",
+          "property_name": "solderBallMapDialog"
         }
       },
       "via_configuration": {
         "DES": {
           "keys": []
         },
-        "pack_script": {
-          "targets": []
-        }
+        "pack_script": {}
       }
     },
     "ProjectDocument": {
@@ -6299,9 +4852,7 @@
             "package"
           ]
         },
-        "pack_script": {
-          "targets": []
-        }
+        "pack_script": {}
       },
       "Name": {
         "DES": {
@@ -6309,25 +4860,19 @@
             "design"
           ]
         },
-        "pack_script": {
-          "targets": []
-        }
+        "pack_script": {}
       },
       "PresetId": {
         "DES": {
           "keys": []
         },
-        "pack_script": {
-          "targets": []
-        }
+        "pack_script": {}
       },
       "CustomMaterials": {
         "DES": {
           "keys": []
         },
-        "pack_script": {
-          "targets": []
-        }
+        "pack_script": {}
       }
     }
   },
@@ -6338,12 +4883,8 @@
           "keys": []
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": null,
-              "property_name": "pqfpPackageType"
-            }
-          ]
+          "name": null,
+          "property_name": "pqfpPackageType"
         }
       },
       "footprint.size": {
@@ -6351,13 +4892,8 @@
           "keys": []
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": null,
-              "property_name": "tqfpJedecFootprint",
-              "branch": "lqfpJedecFootprint / wizard"
-            }
-          ]
+          "name": null,
+          "property_name": "tqfpJedecFootprint"
         }
       },
       "package.length": {
@@ -6368,12 +4904,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "overallPackage",
-              "property_name": "lengthD"
-            }
-          ]
+          "name": "overallPackage",
+          "property_name": "lengthD"
         }
       },
       "package.width": {
@@ -6384,12 +4916,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "overallPackage",
-              "property_name": "widthE"
-            }
-          ]
+          "name": "overallPackage",
+          "property_name": "widthE"
         }
       },
       "package.standoff": {
@@ -6400,12 +4928,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "overallPackage",
-              "property_name": "standoffA1"
-            }
-          ]
+          "name": "overallPackage",
+          "property_name": "standoffA1"
         }
       },
       "body.length": {
@@ -6416,12 +4940,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "encapsulant",
-              "property_name": "lengthD1"
-            }
-          ]
+          "name": "encapsulant",
+          "property_name": "lengthD1"
         }
       },
       "body.width": {
@@ -6432,12 +4952,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "encapsulant",
-              "property_name": "widthE1"
-            }
-          ]
+          "name": "encapsulant",
+          "property_name": "widthE1"
         }
       },
       "body.thickness": {
@@ -6448,12 +4964,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "encapsulant",
-              "property_name": "thicknessA2"
-            }
-          ]
+          "name": "encapsulant",
+          "property_name": "thicknessA2"
         }
       },
       "die.length": {
@@ -6464,12 +4976,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "die",
-              "property_name": "dieLengthLd"
-            }
-          ]
+          "name": "die",
+          "property_name": "dieLengthLd"
         }
       },
       "die.width": {
@@ -6480,12 +4988,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "die",
-              "property_name": "dieWidthWd"
-            }
-          ]
+          "name": "die",
+          "property_name": "dieWidthWd"
         }
       },
       "die.thickness": {
@@ -6496,12 +5000,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "die",
-              "property_name": "dieThicknessTd"
-            }
-          ]
+          "name": "die",
+          "property_name": "dieThicknessTd"
         }
       },
       "die.attach": {
@@ -6512,12 +5012,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "die",
-              "property_name": "dieAttachThicknessTda"
-            }
-          ]
+          "name": "die",
+          "property_name": "dieAttachThicknessTda"
         }
       },
       "die.power": {
@@ -6528,12 +5024,8 @@
           "unit": "W"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "die",
-              "property_name": "packagePower"
-            }
-          ]
+          "name": "die",
+          "property_name": "packagePower"
         }
       },
       "flag.length": {
@@ -6544,12 +5036,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "dieFlagAndTieBars",
-              "property_name": "dieFlagLf"
-            }
-          ]
+          "name": "dieFlagAndTieBars",
+          "property_name": "dieFlagLf"
         }
       },
       "flag.width": {
@@ -6560,12 +5048,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "dieFlagAndTieBars",
-              "property_name": "dieFlagWf"
-            }
-          ]
+          "name": "dieFlagAndTieBars",
+          "property_name": "dieFlagWf"
         }
       },
       "flag.coverage": {
@@ -6576,12 +5060,8 @@
           "unit": "%"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "dieFlagAndTieBars",
-              "property_name": "metalCoverageForDieFlagCf"
-            }
-          ]
+          "name": "dieFlagAndTieBars",
+          "property_name": "metalCoverageForDieFlagCf"
         }
       },
       "flag.downset": {
@@ -6592,12 +5072,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "dieFlagAndTieBars",
-              "property_name": "dieFlagDownsetDdf"
-            }
-          ]
+          "name": "dieFlagAndTieBars",
+          "property_name": "dieFlagDownsetDdf"
         }
       },
       "tie_bar.width": {
@@ -6608,12 +5084,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "dieFlagAndTieBars",
-              "property_name": "tieBarWidthWtb"
-            }
-          ]
+          "name": "dieFlagAndTieBars",
+          "property_name": "tieBarWidthWtb"
         }
       },
       "leads.count_x": {
@@ -6623,12 +5095,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "leadFrame",
-              "property_name": "numberOfLeadsOnTopBottomMD"
-            }
-          ]
+          "name": "leadFrame",
+          "property_name": "numberOfLeadsOnTopBottomMD"
         }
       },
       "leads.count_y": {
@@ -6638,12 +5106,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "leadFrame",
-              "property_name": "numberOfLeadsOnLeftRightME"
-            }
-          ]
+          "name": "leadFrame",
+          "property_name": "numberOfLeadsOnLeftRightME"
         }
       },
       "leads.pitch": {
@@ -6654,12 +5118,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "leadFrame",
-              "property_name": "pitchE"
-            }
-          ]
+          "name": "leadFrame",
+          "property_name": "pitchE"
         }
       },
       "leads.width": {
@@ -6670,12 +5130,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "leadFrame",
-              "property_name": "leadWidthB"
-            }
-          ]
+          "name": "leadFrame",
+          "property_name": "leadWidthB"
         }
       },
       "leads.thickness": {
@@ -6686,12 +5142,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "leadFrame",
-              "property_name": "leadThicknessTl"
-            }
-          ]
+          "name": "leadFrame",
+          "property_name": "leadThicknessTl"
         }
       },
       "leads.height": {
@@ -6702,12 +5154,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "leadFrame",
-              "property_name": "leadframeHeightHl"
-            }
-          ]
+          "name": "leadFrame",
+          "property_name": "leadframeHeightHl"
         }
       },
       "leads.foot_length": {
@@ -6718,12 +5166,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "leadFrame",
-              "property_name": "leadfootLengthWl"
-            }
-          ]
+          "name": "leadFrame",
+          "property_name": "leadfootLengthWl"
         }
       },
       "leads.gap_x": {
@@ -6734,12 +5178,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "leadFrame",
-              "property_name": "leadframeFlagGapG1"
-            }
-          ]
+          "name": "leadFrame",
+          "property_name": "leadframeFlagGapG1"
         }
       },
       "leads.gap_y": {
@@ -6750,12 +5190,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "leadFrame",
-              "property_name": "leadframeFlagGapG2"
-            }
-          ]
+          "name": "leadFrame",
+          "property_name": "leadframeFlagGapG2"
         }
       },
       "bond_wire.length_x": {
@@ -6766,12 +5202,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "bondWires",
-              "property_name": "bondWireLengthOnLeftRightLbwx"
-            }
-          ]
+          "name": "bondWires",
+          "property_name": "bondWireLengthOnLeftRightLbwx"
         }
       },
       "bond_wire.length_y": {
@@ -6782,12 +5214,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "bondWires",
-              "property_name": "bondWireLengthOnTopBottomLbwy"
-            }
-          ]
+          "name": "bondWires",
+          "property_name": "bondWireLengthOnTopBottomLbwy"
         }
       },
       "bond_wire.count": {
@@ -6797,12 +5225,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "bondWires",
-              "property_name": "numberOfBondWiresN"
-            }
-          ]
+          "name": "bondWires",
+          "property_name": "numberOfBondWiresN"
         }
       },
       "bond_wire.diameter": {
@@ -6813,12 +5237,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "bondWires",
-              "property_name": "bondWireDiameterDbw"
-            }
-          ]
+          "name": "bondWires",
+          "property_name": "bondWireDiameterDbw"
         }
       },
       "thermal_land.enabled": {
@@ -6828,12 +5248,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "thermalLandAndSolder",
-              "property_name": "includeThermalLandAndSolder"
-            }
-          ]
+          "name": "thermalLandAndSolder",
+          "property_name": "includeThermalLandAndSolder"
         }
       },
       "thermal_land.thickness": {
@@ -6849,12 +5265,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "thermalLandAndSolder",
-              "property_name": "landThickness"
-            }
-          ]
+          "name": "thermalLandAndSolder",
+          "property_name": "landThickness"
         }
       },
       "grid.enabled": {
@@ -6864,12 +5276,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "modelingOptions",
-              "property_name": "localizeGrid"
-            }
-          ]
+          "name": "modelingOptions",
+          "property_name": "localizeGrid"
         }
       },
       "grid.density": {
@@ -6884,12 +5292,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "modelingOptions",
-              "property_name": "gridDensity"
-            }
-          ]
+          "name": "modelingOptions",
+          "property_name": "gridDensity"
         }
       },
       "bond_wire.modeling": {
@@ -6899,12 +5303,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "modelingOptions",
-              "property_name": "modelBondWiresAs"
-            }
-          ]
+          "name": "modelingOptions",
+          "property_name": "modelBondWiresAs"
         }
       },
       "package.exposed_pad": {
@@ -6912,12 +5312,8 @@
           "keys": []
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": null,
-              "property_name": "exposedPad"
-            }
-          ]
+          "name": null,
+          "property_name": "exposedPad"
         }
       },
       "leads.custom_coverage": {
@@ -6927,12 +5323,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "leadFrame",
-              "property_name": "userDefinedLeadframeCoverage"
-            }
-          ]
+          "name": "leadFrame",
+          "property_name": "userDefinedLeadframeCoverage"
         }
       },
       "leads.coverage": {
@@ -6948,12 +5340,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "leadFrame",
-              "property_name": "leadframeCoveragePercentage"
-            }
-          ]
+          "name": "leadFrame",
+          "property_name": "leadframeCoveragePercentage"
         }
       },
       "leads.modeling": {
@@ -6963,12 +5351,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "modelingOptions",
-              "property_name": "modelLeadFrameAs"
-            }
-          ]
+          "name": "modelingOptions",
+          "property_name": "modelLeadFrameAs"
         }
       }
     },
@@ -6980,21 +5364,15 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "encapsulant",
-              "property_name": "encapsulantMaterial"
-            }
-          ]
+          "name": "encapsulant",
+          "property_name": "encapsulantMaterial"
         }
       },
       "group-die": {
         "DES": {
           "keys": []
         },
-        "pack_script": {
-          "targets": []
-        }
+        "pack_script": {}
       },
       "group-die-attach": {
         "DES": {
@@ -7003,12 +5381,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "die",
-              "property_name": "dieAttachMaterial"
-            }
-          ]
+          "name": "die",
+          "property_name": "dieAttachMaterial"
         }
       },
       "group-lead-frame": {
@@ -7018,12 +5392,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "leadFrame",
-              "property_name": "leadframeMaterial"
-            }
-          ]
+          "name": "leadFrame",
+          "property_name": "leadframeMaterial"
         }
       },
       "group-bond-wires": {
@@ -7033,12 +5403,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "bondWires",
-              "property_name": "material"
-            }
-          ]
+          "name": "bondWires",
+          "property_name": "material"
         }
       },
       "group-thermal-land": {
@@ -7051,12 +5417,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "thermalLandAndSolder",
-              "property_name": "landMaterial"
-            }
-          ]
+          "name": "thermalLandAndSolder",
+          "property_name": "landMaterial"
         }
       },
       "group-thermal-solder": {
@@ -7069,12 +5431,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "thermalLandAndSolder",
-              "property_name": "solderMaterial"
-            }
-          ]
+          "name": "thermalLandAndSolder",
+          "property_name": "solderMaterial"
         }
       }
     },
@@ -7085,9 +5443,7 @@
             "package"
           ]
         },
-        "pack_script": {
-          "targets": []
-        }
+        "pack_script": {}
       },
       "Name": {
         "DES": {
@@ -7095,25 +5451,19 @@
             "design"
           ]
         },
-        "pack_script": {
-          "targets": []
-        }
+        "pack_script": {}
       },
       "PresetId": {
         "DES": {
           "keys": []
         },
-        "pack_script": {
-          "targets": []
-        }
+        "pack_script": {}
       },
       "CustomMaterials": {
         "DES": {
           "keys": []
         },
-        "pack_script": {
-          "targets": []
-        }
+        "pack_script": {}
       }
     }
   },
@@ -7124,12 +5474,8 @@
           "keys": []
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": null,
-              "property_name": "jedecFootprint"
-            }
-          ]
+          "name": null,
+          "property_name": "jedecFootprint"
         }
       },
       "package.length": {
@@ -7140,12 +5486,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "overallPackage",
-              "property_name": "lengthD"
-            }
-          ]
+          "name": "overallPackage",
+          "property_name": "lengthD"
         }
       },
       "package.width": {
@@ -7156,12 +5498,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "overallPackage",
-              "property_name": "widthE"
-            }
-          ]
+          "name": "overallPackage",
+          "property_name": "widthE"
         }
       },
       "package.standoff": {
@@ -7172,12 +5510,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "overallPackage",
-              "property_name": "standoffA1"
-            }
-          ]
+          "name": "overallPackage",
+          "property_name": "standoffA1"
         }
       },
       "encapsulant.thickness": {
@@ -7188,12 +5522,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "overallPackage",
-              "property_name": "encapsulantThicknessA2"
-            }
-          ]
+          "name": "overallPackage",
+          "property_name": "encapsulantThicknessA2"
         }
       },
       "die.length": {
@@ -7204,12 +5534,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "die",
-              "property_name": "dieLengthLd"
-            }
-          ]
+          "name": "die",
+          "property_name": "dieLengthLd"
         }
       },
       "die.width": {
@@ -7220,12 +5546,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "die",
-              "property_name": "dieWidthWd"
-            }
-          ]
+          "name": "die",
+          "property_name": "dieWidthWd"
         }
       },
       "die.thickness": {
@@ -7236,12 +5558,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "die",
-              "property_name": "dieThicknessTd"
-            }
-          ]
+          "name": "die",
+          "property_name": "dieThicknessTd"
         }
       },
       "die.attach": {
@@ -7252,12 +5570,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "die",
-              "property_name": "dieAttachThicknessTda"
-            }
-          ]
+          "name": "die",
+          "property_name": "dieAttachThicknessTda"
         }
       },
       "die.power": {
@@ -7268,12 +5582,8 @@
           "unit": "W"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "die",
-              "property_name": "packagePower"
-            }
-          ]
+          "name": "die",
+          "property_name": "packagePower"
         }
       },
       "pad.length": {
@@ -7284,12 +5594,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "dap",
-              "property_name": "dapLengthLp"
-            }
-          ]
+          "name": "dap",
+          "property_name": "dapLengthLp"
         }
       },
       "pad.width": {
@@ -7300,12 +5606,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "dap",
-              "property_name": "dapWidthWp"
-            }
-          ]
+          "name": "dap",
+          "property_name": "dapWidthWp"
         }
       },
       "pad.exposed_length": {
@@ -7316,12 +5618,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "dap",
-              "property_name": "exposedPADLength"
-            }
-          ]
+          "name": "dap",
+          "property_name": "exposedPADLength"
         }
       },
       "pad.exposed_width": {
@@ -7332,12 +5630,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "dap",
-              "property_name": "exposedPADWidth"
-            }
-          ]
+          "name": "dap",
+          "property_name": "exposedPADWidth"
         }
       },
       "leads.count_x": {
@@ -7347,12 +5641,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "leadAndSolderInterconnect",
-              "property_name": "numberOfLeadsOnTopBottomMD"
-            }
-          ]
+          "name": "leadAndSolderInterconnect",
+          "property_name": "numberOfLeadsOnTopBottomMD"
         }
       },
       "leads.count_y": {
@@ -7362,12 +5652,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "leadAndSolderInterconnect",
-              "property_name": "numberOfLeadsOnLeftRightME"
-            }
-          ]
+          "name": "leadAndSolderInterconnect",
+          "property_name": "numberOfLeadsOnLeftRightME"
         }
       },
       "leads.pitch_x": {
@@ -7378,12 +5664,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "leadAndSolderInterconnect",
-              "property_name": "pitchInXDirectionEx"
-            }
-          ]
+          "name": "leadAndSolderInterconnect",
+          "property_name": "pitchInXDirectionEx"
         }
       },
       "leads.pitch_y": {
@@ -7394,12 +5676,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "leadAndSolderInterconnect",
-              "property_name": "pitchInYDirectionEy"
-            }
-          ]
+          "name": "leadAndSolderInterconnect",
+          "property_name": "pitchInYDirectionEy"
         }
       },
       "leads.width": {
@@ -7410,12 +5688,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "leadAndSolderInterconnect",
-              "property_name": "leadWidthB"
-            }
-          ]
+          "name": "leadAndSolderInterconnect",
+          "property_name": "leadWidthB"
         }
       },
       "leads.length": {
@@ -7426,12 +5700,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "leadAndSolderInterconnect",
-              "property_name": "exposedLeadLengthL"
-            }
-          ]
+          "name": "leadAndSolderInterconnect",
+          "property_name": "exposedLeadLengthL"
         }
       },
       "leads.exposed_thickness": {
@@ -7442,12 +5712,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "leadAndSolderInterconnect",
-              "property_name": "exposedLeadThickness"
-            }
-          ]
+          "name": "leadAndSolderInterconnect",
+          "property_name": "exposedLeadThickness"
         }
       },
       "leads.thickness": {
@@ -7458,12 +5724,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "leadAndSolderInterconnect",
-              "property_name": "leadThicknessA3"
-            }
-          ]
+          "name": "leadAndSolderInterconnect",
+          "property_name": "leadThicknessA3"
         }
       },
       "leads.etch": {
@@ -7474,12 +5736,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "leadAndSolderInterconnect",
-              "property_name": "leadEtch"
-            }
-          ]
+          "name": "leadAndSolderInterconnect",
+          "property_name": "leadEtch"
         }
       },
       "bond_wire.length_x": {
@@ -7490,12 +5748,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "bondWires",
-              "property_name": "bondWireLengthOnLeftRightLbwx"
-            }
-          ]
+          "name": "bondWires",
+          "property_name": "bondWireLengthOnLeftRightLbwx"
         }
       },
       "bond_wire.length_y": {
@@ -7506,12 +5760,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "bondWires",
-              "property_name": "bondWireLengthOnTopBottomLbwy"
-            }
-          ]
+          "name": "bondWires",
+          "property_name": "bondWireLengthOnTopBottomLbwy"
         }
       },
       "bond_wire.diameter": {
@@ -7522,12 +5772,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "bondWires",
-              "property_name": "bondWireDiameterDbw"
-            }
-          ]
+          "name": "bondWires",
+          "property_name": "bondWireDiameterDbw"
         }
       },
       "thermal_land.enabled": {
@@ -7537,12 +5783,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "thermalLand",
-              "property_name": "includeLand"
-            }
-          ]
+          "name": "thermalLand",
+          "property_name": "includeLand"
         }
       },
       "thermal_land.thickness": {
@@ -7558,12 +5800,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "thermalLand",
-              "property_name": "landThickness"
-            }
-          ]
+          "name": "thermalLand",
+          "property_name": "landThickness"
         }
       },
       "vias.enabled": {
@@ -7573,12 +5811,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "vias",
-              "property_name": "modelViasAs"
-            }
-          ]
+          "name": "vias",
+          "property_name": "modelViasAs"
         }
       },
       "vias.length": {
@@ -7594,12 +5828,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "vias",
-              "property_name": "viasLengthLv"
-            }
-          ]
+          "name": "vias",
+          "property_name": "viasLengthLv"
         }
       },
       "vias.diameter": {
@@ -7615,12 +5845,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "vias",
-              "property_name": "viasDiameterDv"
-            }
-          ]
+          "name": "vias",
+          "property_name": "viasDiameterDv"
         }
       },
       "vias.plating": {
@@ -7636,12 +5862,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "vias",
-              "property_name": "platingThicknessTpl"
-            }
-          ]
+          "name": "vias",
+          "property_name": "platingThicknessTpl"
         }
       },
       "vias.pitch": {
@@ -7657,12 +5879,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "vias",
-              "property_name": "viasPitchEv"
-            }
-          ]
+          "name": "vias",
+          "property_name": "viasPitchEv"
         }
       },
       "vias.columns": {
@@ -7677,12 +5895,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "vias",
-              "property_name": "numberOfViasInXVD"
-            }
-          ]
+          "name": "vias",
+          "property_name": "numberOfViasInXVD"
         }
       },
       "vias.rows": {
@@ -7697,12 +5911,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "vias",
-              "property_name": "numberOfViasInYVE"
-            }
-          ]
+          "name": "vias",
+          "property_name": "numberOfViasInYVE"
         }
       },
       "grid.enabled": {
@@ -7712,12 +5922,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "modelingOptions",
-              "property_name": "localizeGrid"
-            }
-          ]
+          "name": "modelingOptions",
+          "property_name": "localizeGrid"
         }
       },
       "grid.density": {
@@ -7732,12 +5938,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "modelingOptions",
-              "property_name": "gridDensity"
-            }
-          ]
+          "name": "modelingOptions",
+          "property_name": "gridDensity"
         }
       },
       "leads.modeling": {
@@ -7747,12 +5949,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "modelingOptions",
-              "property_name": "modelLeadAndSolderInterconnectAs"
-            }
-          ]
+          "name": "modelingOptions",
+          "property_name": "modelLeadAndSolderInterconnectAs"
         }
       },
       "bond_wire.steps": {
@@ -7762,12 +5960,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "modelingOptions",
-              "property_name": "numberOfDiscreteBondwireSteps"
-            }
-          ]
+          "name": "modelingOptions",
+          "property_name": "numberOfDiscreteBondwireSteps"
         }
       },
       "vias.modeling": {
@@ -7782,12 +5976,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "vias",
-              "property_name": "modelViasAs"
-            }
-          ]
+          "name": "vias",
+          "property_name": "modelViasAs"
         }
       }
     },
@@ -7799,21 +5989,15 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "overallPackage",
-              "property_name": "encapsulantMaterial"
-            }
-          ]
+          "name": "overallPackage",
+          "property_name": "encapsulantMaterial"
         }
       },
       "group-die": {
         "DES": {
           "keys": []
         },
-        "pack_script": {
-          "targets": []
-        }
+        "pack_script": {}
       },
       "group-die-attach": {
         "DES": {
@@ -7822,12 +6006,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "die",
-              "property_name": "dieAttachMaterial"
-            }
-          ]
+          "name": "die",
+          "property_name": "dieAttachMaterial"
         }
       },
       "group-exposed-pad": {
@@ -7837,12 +6017,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "dap",
-              "property_name": "material"
-            }
-          ]
+          "name": "dap",
+          "property_name": "material"
         }
       },
       "group-lead-frame": {
@@ -7852,12 +6028,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "leadAndSolderInterconnect",
-              "property_name": "leadframeMaterial"
-            }
-          ]
+          "name": "leadAndSolderInterconnect",
+          "property_name": "leadframeMaterial"
         }
       },
       "group-bond-wires": {
@@ -7867,12 +6039,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "bondWires",
-              "property_name": "material"
-            }
-          ]
+          "name": "bondWires",
+          "property_name": "material"
         }
       },
       "group-solder": {
@@ -7882,12 +6050,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "leadAndSolderInterconnect",
-              "property_name": "solderMaterial"
-            }
-          ]
+          "name": "leadAndSolderInterconnect",
+          "property_name": "solderMaterial"
         }
       },
       "group-thermal-land": {
@@ -7900,12 +6064,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "thermalLand",
-              "property_name": "material"
-            }
-          ]
+          "name": "thermalLand",
+          "property_name": "material"
         }
       }
     },
@@ -7916,9 +6076,7 @@
             "package"
           ]
         },
-        "pack_script": {
-          "targets": []
-        }
+        "pack_script": {}
       },
       "Name": {
         "DES": {
@@ -7926,25 +6084,19 @@
             "design"
           ]
         },
-        "pack_script": {
-          "targets": []
-        }
+        "pack_script": {}
       },
       "PresetId": {
         "DES": {
           "keys": []
         },
-        "pack_script": {
-          "targets": []
-        }
+        "pack_script": {}
       },
       "CustomMaterials": {
         "DES": {
           "keys": []
         },
-        "pack_script": {
-          "targets": []
-        }
+        "pack_script": {}
       }
     }
   },
@@ -7955,12 +6107,8 @@
           "keys": []
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": null,
-              "property_name": "sopPackageType"
-            }
-          ]
+          "name": null,
+          "property_name": "sopPackageType"
         }
       },
       "footprint.size": {
@@ -7968,13 +6116,8 @@
           "keys": []
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": null,
-              "property_name": "tssopJedecFootprint",
-              "branch": "sopJedecFootprint / wizard"
-            }
-          ]
+          "name": null,
+          "property_name": "tssopJedecFootprint"
         }
       },
       "package.length": {
@@ -7985,12 +6128,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "overallPackage",
-              "property_name": "lengthD"
-            }
-          ]
+          "name": "overallPackage",
+          "property_name": "lengthD"
         }
       },
       "package.width": {
@@ -8001,12 +6140,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "overallPackage",
-              "property_name": "widthE"
-            }
-          ]
+          "name": "overallPackage",
+          "property_name": "widthE"
         }
       },
       "package.standoff": {
@@ -8017,12 +6152,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "overallPackage",
-              "property_name": "standoffA1"
-            }
-          ]
+          "name": "overallPackage",
+          "property_name": "standoffA1"
         }
       },
       "body.length": {
@@ -8033,12 +6164,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "encapsulant",
-              "property_name": "lengthD1"
-            }
-          ]
+          "name": "encapsulant",
+          "property_name": "lengthD1"
         }
       },
       "body.width": {
@@ -8049,12 +6176,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "encapsulant",
-              "property_name": "widthE1"
-            }
-          ]
+          "name": "encapsulant",
+          "property_name": "widthE1"
         }
       },
       "body.thickness": {
@@ -8065,12 +6188,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "encapsulant",
-              "property_name": "thicknessA2"
-            }
-          ]
+          "name": "encapsulant",
+          "property_name": "thicknessA2"
         }
       },
       "die.length": {
@@ -8081,12 +6200,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "die",
-              "property_name": "dieLengthLd"
-            }
-          ]
+          "name": "die",
+          "property_name": "dieLengthLd"
         }
       },
       "die.width": {
@@ -8097,12 +6212,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "die",
-              "property_name": "dieWidthWd"
-            }
-          ]
+          "name": "die",
+          "property_name": "dieWidthWd"
         }
       },
       "die.thickness": {
@@ -8113,12 +6224,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "die",
-              "property_name": "dieThicknessTd"
-            }
-          ]
+          "name": "die",
+          "property_name": "dieThicknessTd"
         }
       },
       "die.attach": {
@@ -8129,12 +6236,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "die",
-              "property_name": "dieAttachThicknessTda"
-            }
-          ]
+          "name": "die",
+          "property_name": "dieAttachThicknessTda"
         }
       },
       "die.power": {
@@ -8145,12 +6248,8 @@
           "unit": "W"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "die",
-              "property_name": "packagePower"
-            }
-          ]
+          "name": "die",
+          "property_name": "packagePower"
         }
       },
       "flag.length": {
@@ -8161,12 +6260,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "dieFlagAndTieBars",
-              "property_name": "dieFlagLf"
-            }
-          ]
+          "name": "dieFlagAndTieBars",
+          "property_name": "dieFlagLf"
         }
       },
       "flag.width": {
@@ -8177,12 +6272,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "dieFlagAndTieBars",
-              "property_name": "dieFlagWf"
-            }
-          ]
+          "name": "dieFlagAndTieBars",
+          "property_name": "dieFlagWf"
         }
       },
       "flag.thickness": {
@@ -8193,12 +6284,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "dieFlagAndTieBars",
-              "property_name": "dieFlagThicknessTf"
-            }
-          ]
+          "name": "dieFlagAndTieBars",
+          "property_name": "dieFlagThicknessTf"
         }
       },
       "flag.coverage": {
@@ -8209,12 +6296,8 @@
           "unit": "%"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "dieFlagAndTieBars",
-              "property_name": "metalCoverageForDieFlagCf"
-            }
-          ]
+          "name": "dieFlagAndTieBars",
+          "property_name": "metalCoverageForDieFlagCf"
         }
       },
       "flag.downset": {
@@ -8225,12 +6308,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "dieFlagAndTieBars",
-              "property_name": "dieFlagDownsetDdf"
-            }
-          ]
+          "name": "dieFlagAndTieBars",
+          "property_name": "dieFlagDownsetDdf"
         }
       },
       "tie_bar.width": {
@@ -8241,12 +6320,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "dieFlagAndTieBars",
-              "property_name": "tieBarWidthWtb"
-            }
-          ]
+          "name": "dieFlagAndTieBars",
+          "property_name": "tieBarWidthWtb"
         }
       },
       "leads.total": {
@@ -8256,12 +6331,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "leadFrame",
-              "property_name": "totalNumberOfLeadsMT"
-            }
-          ]
+          "name": "leadFrame",
+          "property_name": "totalNumberOfLeadsMT"
         }
       },
       "leads.gap": {
@@ -8272,12 +6343,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "leadFrame",
-              "property_name": "leadframeFlagGapG1"
-            }
-          ]
+          "name": "leadFrame",
+          "property_name": "leadframeFlagGapG1"
         }
       },
       "leads.pitch": {
@@ -8288,12 +6355,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "leadFrame",
-              "property_name": "pitchE"
-            }
-          ]
+          "name": "leadFrame",
+          "property_name": "pitchE"
         }
       },
       "leads.width": {
@@ -8304,12 +6367,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "leadFrame",
-              "property_name": "leadWidthB"
-            }
-          ]
+          "name": "leadFrame",
+          "property_name": "leadWidthB"
         }
       },
       "leads.thickness": {
@@ -8320,12 +6379,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "leadFrame",
-              "property_name": "leadThicknessTl"
-            }
-          ]
+          "name": "leadFrame",
+          "property_name": "leadThicknessTl"
         }
       },
       "leads.height": {
@@ -8336,12 +6391,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "leadFrame",
-              "property_name": "leadframeHeightHl"
-            }
-          ]
+          "name": "leadFrame",
+          "property_name": "leadframeHeightHl"
         }
       },
       "leads.foot_length": {
@@ -8352,12 +6403,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "leadFrame",
-              "property_name": "leadfootLengthLft"
-            }
-          ]
+          "name": "leadFrame",
+          "property_name": "leadfootLengthLft"
         }
       },
       "bond_wire.count": {
@@ -8367,12 +6414,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "bondWires",
-              "property_name": "numberOfBondWiresN"
-            }
-          ]
+          "name": "bondWires",
+          "property_name": "numberOfBondWiresN"
         }
       },
       "bond_wire.diameter": {
@@ -8383,12 +6426,8 @@
           "unit": "mm"
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "bondWires",
-              "property_name": "bondWireDiameterDbw"
-            }
-          ]
+          "name": "bondWires",
+          "property_name": "bondWireDiameterDbw"
         }
       },
       "thermal_land.enabled": {
@@ -8398,12 +6437,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "thermalLandAndSolder",
-              "property_name": "includeThermalLandAndSolder"
-            }
-          ]
+          "name": "thermalLandAndSolder",
+          "property_name": "includeThermalLandAndSolder"
         }
       },
       "thermal_land.thickness": {
@@ -8419,12 +6454,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "thermalLandAndSolder",
-              "property_name": "landThickness"
-            }
-          ]
+          "name": "thermalLandAndSolder",
+          "property_name": "landThickness"
         }
       },
       "grid.enabled": {
@@ -8434,12 +6465,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "modelingOptions",
-              "property_name": "localizeGrid"
-            }
-          ]
+          "name": "modelingOptions",
+          "property_name": "localizeGrid"
         }
       },
       "grid.density": {
@@ -8454,12 +6481,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "modelingOptions",
-              "property_name": "gridDensity"
-            }
-          ]
+          "name": "modelingOptions",
+          "property_name": "gridDensity"
         }
       },
       "bond_wire.modeling": {
@@ -8469,12 +6492,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "modelingOptions",
-              "property_name": "modelBondWiresAs"
-            }
-          ]
+          "name": "modelingOptions",
+          "property_name": "modelBondWiresAs"
         }
       },
       "package.exposed_pad": {
@@ -8482,12 +6501,8 @@
           "keys": []
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": null,
-              "property_name": "exposedPad"
-            }
-          ]
+          "name": null,
+          "property_name": "exposedPad"
         }
       },
       "leads.custom_coverage": {
@@ -8497,12 +6512,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "leadFrame",
-              "property_name": "userDefinedLeadframeCoverage"
-            }
-          ]
+          "name": "leadFrame",
+          "property_name": "userDefinedLeadframeCoverage"
         }
       },
       "leads.coverage": {
@@ -8518,12 +6529,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "leadFrame",
-              "property_name": "leadframeCoveragePercentage"
-            }
-          ]
+          "name": "leadFrame",
+          "property_name": "leadframeCoveragePercentage"
         }
       }
     },
@@ -8535,21 +6542,15 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "encapsulant",
-              "property_name": "encapsulantMaterial"
-            }
-          ]
+          "name": "encapsulant",
+          "property_name": "encapsulantMaterial"
         }
       },
       "group-die": {
         "DES": {
           "keys": []
         },
-        "pack_script": {
-          "targets": []
-        }
+        "pack_script": {}
       },
       "group-die-attach": {
         "DES": {
@@ -8558,12 +6559,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "die",
-              "property_name": "dieAttachMaterial"
-            }
-          ]
+          "name": "die",
+          "property_name": "dieAttachMaterial"
         }
       },
       "group-lead-frame": {
@@ -8573,12 +6570,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "leadFrame",
-              "property_name": "leadframeMaterial"
-            }
-          ]
+          "name": "leadFrame",
+          "property_name": "leadframeMaterial"
         }
       },
       "group-bond-wires": {
@@ -8588,12 +6581,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "bondWires",
-              "property_name": "material"
-            }
-          ]
+          "name": "bondWires",
+          "property_name": "material"
         }
       },
       "group-thermal-land": {
@@ -8606,12 +6595,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "thermalLandAndSolder",
-              "property_name": "landMaterial"
-            }
-          ]
+          "name": "thermalLandAndSolder",
+          "property_name": "landMaterial"
         }
       },
       "group-thermal-solder": {
@@ -8624,12 +6609,8 @@
           }
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "thermalLandAndSolder",
-              "property_name": "solderMaterial"
-            }
-          ]
+          "name": "thermalLandAndSolder",
+          "property_name": "solderMaterial"
         }
       },
       "group-die-flag": {
@@ -8639,12 +6620,8 @@
           ]
         },
         "pack_script": {
-          "targets": [
-            {
-              "name": "dieFlagAndTieBars",
-              "property_name": "dieFlagMaterial"
-            }
-          ]
+          "name": "dieFlagAndTieBars",
+          "property_name": "dieFlagMaterial"
         }
       }
     },
@@ -8655,9 +6632,7 @@
             "package"
           ]
         },
-        "pack_script": {
-          "targets": []
-        }
+        "pack_script": {}
       },
       "Name": {
         "DES": {
@@ -8665,25 +6640,19 @@
             "design"
           ]
         },
-        "pack_script": {
-          "targets": []
-        }
+        "pack_script": {}
       },
       "PresetId": {
         "DES": {
           "keys": []
         },
-        "pack_script": {
-          "targets": []
-        }
+        "pack_script": {}
       },
       "CustomMaterials": {
         "DES": {
           "keys": []
         },
-        "pack_script": {
-          "targets": []
-        }
+        "pack_script": {}
       }
     }
   }
