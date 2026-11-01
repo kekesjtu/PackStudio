@@ -208,5 +208,15 @@ Test("unknown preset rejected", () =>
     {
     }
 });
+Test("embedded heat slug availability", () =>
+{
+    foreach (var family in new[] { "cbga_fc", "pbga_fc" })
+    {
+        var field = catalog.Load(family).Fields.Single(f => f["key"].Text() == "slug.enabled");
+        Assert(!((JObject)field["visible_when"]!).HasValues, family + " hides the slug checkbox instead of disabling it");
+        Assert(field["enabled_when"]?["cover.type"].Text() == "encapsulant", family + " slug checkbox is not gated by the top cover");
+        Assert(field["help_text"].Text().Length > 0, family + " slug checkbox lacks an availability hint");
+    }
+});
 Console.WriteLine($"{passed} passed, {failed} failed");
 return failed == 0 ? 0 : 1;
