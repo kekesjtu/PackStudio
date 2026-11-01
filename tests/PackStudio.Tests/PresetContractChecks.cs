@@ -6,7 +6,7 @@ static class PresetContractChecks
     public static void Run(PackageCatalog catalog, string root)
     {
         int presets = 0, branches = 0;
-        var mapping = (JArray)JsonData.Read(Path.Combine(root, "docs/DES字段与内部参数对应表.json"))["entries"]!;
+        var mapping = JsonData.Read(Path.Combine(root, "docs/DES字段与内部参数对应表.json"));
         foreach (var info in PackageCatalog.Families)
         {
             var template = catalog.Load(info.Id);
@@ -14,8 +14,9 @@ static class PresetContractChecks
             var groups = template.MaterialSelections.Select(s => s["group_id"].Text()).ToHashSet();
             foreach (var field in fields.Values)
             {
-                var documented = mapping.Single(e => e["family"].Text() == info.Id && e["storage"].Text() == "Values" && e["key"].Text() == field["key"].Text());
-                Require(JToken.DeepEquals(documented["des_symbol"], field["des_symbol"]), "document/template symbol mismatch");
+                var documented = mapping[info.Id]?["Values[\"" + field["key"].Text() + "\"]"];
+                Require(documented is JObject, "internal field missing from correspondence");
+                Require(JToken.DeepEquals(documented?["DES"]?["symbol"], field["des_symbol"]), "document/template symbol mismatch");
                 if (field["control"].Text() == "table" && field["default"] is { Type: not JTokenType.Null } tableDefault)
                     Require(tableDefault is JArray, info.Id + ": " + field["key"].Text() + " table baseline must be an array");
             }
