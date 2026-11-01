@@ -21,7 +21,7 @@
     {
       "key": "substrate.length",
       "step": "package_substrate",
-      "label": "基板长度 D",
+      "label": "基板长度",
       "control": "number",
       "unit": "mm",
       "minimum": 2,
@@ -35,7 +35,7 @@
     {
       "key": "substrate.width",
       "step": "package_substrate",
-      "label": "基板宽度 E",
+      "label": "基板宽度",
       "control": "number",
       "unit": "mm",
       "minimum": 2,
@@ -49,7 +49,7 @@
     {
       "key": "substrate.thickness",
       "step": "package_substrate",
-      "label": "基板厚度 A2",
+      "label": "基板厚度",
       "control": "number",
       "unit": "mm",
       "minimum": 0.1,
@@ -182,7 +182,7 @@
     {
       "key": "bga.columns",
       "step": "solder_balls",
-      "label": "X 方向焊球数 MD",
+      "label": "X 方向焊球数",
       "control": "integer_spinbox",
       "unit": null,
       "minimum": 1,
@@ -196,7 +196,7 @@
     {
       "key": "bga.rows",
       "step": "solder_balls",
-      "label": "Y 方向焊球数 ME",
+      "label": "Y 方向焊球数",
       "control": "integer_spinbox",
       "unit": null,
       "minimum": 1,
@@ -210,7 +210,7 @@
     {
       "key": "bga.pitch",
       "step": "solder_balls",
-      "label": "焊球间距 e",
+      "label": "焊球间距",
       "control": "number",
       "unit": "mm",
       "minimum": 0.2,
@@ -224,7 +224,7 @@
     {
       "key": "bga.diameter",
       "step": "solder_balls",
-      "label": "焊球直径 b",
+      "label": "焊球直径",
       "control": "number",
       "unit": "mm",
       "minimum": 0.05,
@@ -238,7 +238,7 @@
     {
       "key": "bga.height",
       "step": "solder_balls",
-      "label": "基板离板高度 A1",
+      "label": "基板离板高度",
       "control": "number",
       "unit": "mm",
       "minimum": 0.05,
@@ -537,7 +537,7 @@
     },
     {
       "key": "bumps.columns",
-      "label": "X 向凸点数 MDC4",
+      "label": "X 向凸点数",
       "default": null,
       "step": "flip_chip_bumps",
       "control": "integer",
@@ -554,7 +554,7 @@
     },
     {
       "key": "bumps.rows",
-      "label": "Y 向凸点数 MEC4",
+      "label": "Y 向凸点数",
       "default": null,
       "step": "flip_chip_bumps",
       "control": "integer",
@@ -620,7 +620,7 @@
     },
     {
       "key": "stiffener.length",
-      "label": "外框长度 Ls",
+      "label": "外框长度",
       "default": null,
       "step": "top_cover",
       "control": "number",
@@ -638,7 +638,7 @@
     },
     {
       "key": "stiffener.width",
-      "label": "外框宽度 Ws",
+      "label": "外框宽度",
       "default": null,
       "step": "top_cover",
       "control": "number",
@@ -656,7 +656,7 @@
     },
     {
       "key": "stiffener.cavity_length",
-      "label": "内腔长度 Lsc",
+      "label": "内腔长度",
       "default": null,
       "step": "top_cover",
       "control": "number",
@@ -674,7 +674,7 @@
     },
     {
       "key": "stiffener.cavity_width",
-      "label": "内腔宽度 Wsc",
+      "label": "内腔宽度",
       "default": null,
       "step": "top_cover",
       "control": "number",
@@ -727,7 +727,7 @@
     },
     {
       "key": "slug.length",
-      "label": "散热块长度 Lsl",
+      "label": "散热块长度",
       "default": null,
       "step": "slug",
       "control": "number",
@@ -745,7 +745,7 @@
     },
     {
       "key": "slug.width",
-      "label": "散热块宽度 Wsl",
+      "label": "散热块宽度",
       "default": null,
       "step": "slug",
       "control": "number",
@@ -763,7 +763,7 @@
     },
     {
       "key": "slug.thickness",
-      "label": "散热块厚度 tsl",
+      "label": "散热块厚度",
       "default": null,
       "step": "slug",
       "control": "number",
@@ -781,7 +781,7 @@
     },
     {
       "key": "slug.diameter",
-      "label": "散热块直径 ds",
+      "label": "散热块直径",
       "default": null,
       "step": "slug",
       "control": "number",
@@ -799,7 +799,7 @@
     },
     {
       "key": "slug.foot_length",
-      "label": "支脚延伸长度 Lsf",
+      "label": "支脚延伸长度",
       "default": null,
       "step": "slug",
       "control": "number",
@@ -817,7 +817,7 @@
     },
     {
       "key": "slug.foot_width",
-      "label": "支脚延伸宽度 Wsf",
+      "label": "支脚延伸宽度",
       "default": null,
       "step": "slug",
       "control": "number",
@@ -835,7 +835,7 @@
     },
     {
       "key": "slug.offset",
-      "label": "散热块偏移 Gs",
+      "label": "散热块偏移",
       "default": null,
       "step": "slug",
       "control": "number",
@@ -853,7 +853,7 @@
     },
     {
       "key": "slug.clearance",
-      "label": "支脚净空 gsf",
+      "label": "支脚净空",
       "default": null,
       "step": "slug",
       "control": "number",
@@ -904,7 +904,7 @@
     },
     {
       "key": "vias.columns",
-      "label": "X 向孔数 NVx",
+      "label": "X 向孔数",
       "default": null,
       "step": "thermal_vias",
       "control": "integer",
@@ -921,7 +921,7 @@
     },
     {
       "key": "vias.rows",
-      "label": "Y 向孔数 NVy",
+      "label": "Y 向孔数",
       "default": null,
       "step": "thermal_vias",
       "control": "integer",
@@ -938,7 +938,7 @@
     },
     {
       "key": "vias.pitch",
-      "label": "孔间距 ev",
+      "label": "孔间距",
       "default": null,
       "step": "thermal_vias",
       "control": "number",
@@ -955,7 +955,7 @@
     },
     {
       "key": "vias.diameter",
-      "label": "孔外径 dv",
+      "label": "孔外径",
       "default": null,
       "step": "thermal_vias",
       "control": "number",
@@ -972,7 +972,7 @@
     },
     {
       "key": "vias.plating",
-      "label": "镀层厚度 tpl",
+      "label": "镀层厚度",
       "default": null,
       "step": "thermal_vias",
       "control": "number",

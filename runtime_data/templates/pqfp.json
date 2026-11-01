@@ -43,7 +43,7 @@
     {
       "key": "package.length",
       "step": "overall_package",
-      "label": "引脚外包络长度 D",
+      "label": "引脚外包络长度",
       "control": "number",
       "unit": "mm",
       "minimum": 3,
@@ -57,7 +57,7 @@
     {
       "key": "package.width",
       "step": "overall_package",
-      "label": "引脚外包络宽度 E",
+      "label": "引脚外包络宽度",
       "control": "number",
       "unit": "mm",
       "minimum": 3,
@@ -71,7 +71,7 @@
     {
       "key": "package.standoff",
       "step": "overall_package",
-      "label": "离板高度 A1",
+      "label": "离板高度",
       "control": "number",
       "unit": "mm",
       "minimum": 0,
@@ -197,7 +197,7 @@
     {
       "key": "flag.length",
       "step": "die_flag_tie_bars",
-      "label": "芯片承载台长度 Lf",
+      "label": "芯片承载台长度",
       "control": "number",
       "unit": "mm",
       "minimum": 0.5,
@@ -211,7 +211,7 @@
     {
       "key": "flag.width",
       "step": "die_flag_tie_bars",
-      "label": "芯片承载台宽度 Wf",
+      "label": "芯片承载台宽度",
       "control": "number",
       "unit": "mm",
       "minimum": 0.5,

@@ -21,7 +21,7 @@
     {
       "key": "package.length",
       "step": "overall_package",
-      "label": "封装长度 D",
+      "label": "封装长度",
       "control": "number",
       "unit": "mm",
       "minimum": 2,
@@ -35,7 +35,7 @@
     {
       "key": "package.width",
       "step": "overall_package",
-      "label": "封装宽度 E",
+      "label": "封装宽度",
       "control": "number",
       "unit": "mm",
       "minimum": 2,
@@ -49,7 +49,7 @@
     {
       "key": "substrate.thickness",
       "step": "overall_package",
-      "label": "基板厚度 A2",
+      "label": "基板厚度",
       "control": "number",
       "unit": "mm",
       "minimum": 0.1,
@@ -310,7 +310,7 @@
     {
       "key": "bga.columns",
       "step": "solder_balls",
-      "label": "X 方向焊球数 MD",
+      "label": "X 方向焊球数",
       "control": "integer_spinbox",
       "unit": null,
       "minimum": 1,
@@ -324,7 +324,7 @@
     {
       "key": "bga.rows",
       "step": "solder_balls",
-      "label": "Y 方向焊球数 ME",
+      "label": "Y 方向焊球数",
       "control": "integer_spinbox",
       "unit": null,
       "minimum": 1,
@@ -338,7 +338,7 @@
     {
       "key": "bga.pitch",
       "step": "solder_balls",
-      "label": "焊球间距 e",
+      "label": "焊球间距",
       "control": "number",
       "unit": "mm",
       "minimum": 0.2,
@@ -352,7 +352,7 @@
     {
       "key": "bga.diameter",
       "step": "solder_balls",
-      "label": "焊球直径 b",
+      "label": "焊球直径",
       "control": "number",
       "unit": "mm",
       "minimum": 0.05,
@@ -366,7 +366,7 @@
     {
       "key": "bga.height",
       "step": "solder_balls",
-      "label": "基板离板高度 A1",
+      "label": "基板离板高度",
       "control": "number",
       "unit": "mm",
       "minimum": 0.05,
@@ -448,7 +448,7 @@
     },
     {
       "key": "bond_wire.total",
-      "label": "键合线总数 Nw",
+      "label": "键合线总数",
       "default": null,
       "step": "bond_wires",
       "control": "integer",
@@ -532,7 +532,7 @@
     },
     {
       "key": "metal.hole_length",
-      "label": "顶层中央区域长度 Lml",
+      "label": "顶层中央区域长度",
       "default": null,
       "step": "metal_layers",
       "control": "number",
@@ -547,7 +547,7 @@
     },
     {
       "key": "metal.hole_width",
-      "label": "顶层中央区域宽度 Wml",
+      "label": "顶层中央区域宽度",
       "default": null,
       "step": "metal_layers",
       "control": "number",

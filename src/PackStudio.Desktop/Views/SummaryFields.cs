@@ -15,8 +15,8 @@ public partial class MainWindow
         row.ColumnDefinitions.Add(new() { Width = new GridLength(0) });
         row.ColumnDefinitions.Add(new());
         row.ColumnDefinitions.Add(new() { Width = new GridLength(72) });
-        string display = symbol.Length > 0 && label.EndsWith(" " + symbol, StringComparison.Ordinal) ? label[..^(symbol.Length + 1)] : label;
-        var text = new TextBlock { Text = display, ToolTip = symbol.Length > 0 ? label + " (" + symbol + ")" : label, TextTrimming = TextTrimming.CharacterEllipsis, TextWrapping = TextWrapping.NoWrap, VerticalAlignment = VerticalAlignment.Center, HorizontalAlignment = HorizontalAlignment.Left };
+        // 标签只写中文名，DES 符号统一由右侧符号列显示。
+        var text = new TextBlock { Text = label, ToolTip = symbol.Length > 0 ? label + " (" + symbol + ")" : label, TextTrimming = TextTrimming.CharacterEllipsis, TextWrapping = TextWrapping.NoWrap, VerticalAlignment = VerticalAlignment.Center, HorizontalAlignment = HorizontalAlignment.Left };
         if (symbol.Length == 0)
         {
             text.Margin = new(0, 0, 10, 0);

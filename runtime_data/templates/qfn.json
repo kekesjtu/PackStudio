@@ -21,7 +21,7 @@
     {
       "key": "package.length",
       "step": "overall_package",
-      "label": "封装长度 D",
+      "label": "封装长度",
       "control": "number",
       "unit": "mm",
       "minimum": 2,
@@ -35,7 +35,7 @@
     {
       "key": "package.width",
       "step": "overall_package",
-      "label": "封装宽度 E",
+      "label": "封装宽度",
       "control": "number",
       "unit": "mm",
       "minimum": 2,
@@ -49,7 +49,7 @@
     {
       "key": "package.standoff",
       "step": "overall_package",
-      "label": "离板高度 A1",
+      "label": "离板高度",
       "control": "number",
       "unit": "mm",
       "minimum": 0.01,
@@ -63,7 +63,7 @@
     {
       "key": "encapsulant.thickness",
       "step": "overall_package",
-      "label": "塑封厚度 A2",
+      "label": "塑封厚度",
       "control": "number",
       "unit": "mm",
       "minimum": 0.2,
@@ -147,7 +147,7 @@
     {
       "key": "pad.length",
       "step": "dap",
-      "label": "DAP 长度 Lp",
+      "label": "DAP 长度",
       "control": "number",
       "unit": "mm",
       "minimum": 0.5,
@@ -161,7 +161,7 @@
     {
       "key": "pad.width",
       "step": "dap",
-      "label": "DAP 宽度 Wp",
+      "label": "DAP 宽度",
       "control": "number",
       "unit": "mm",
       "minimum": 0.5,
@@ -203,7 +203,7 @@
     {
       "key": "leads.count_x",
       "step": "lead_solder_interconnect",
-      "label": "上下侧引脚数 MD",
+      "label": "上下侧引脚数",
       "control": "integer_spinbox",
       "unit": null,
       "minimum": 0,
@@ -217,7 +217,7 @@
     {
       "key": "leads.count_y",
       "step": "lead_solder_interconnect",
-      "label": "左右侧引脚数 ME",
+      "label": "左右侧引脚数",
       "control": "integer_spinbox",
       "unit": null,
       "minimum": 0,
@@ -231,7 +231,7 @@
     {
       "key": "leads.pitch_x",
       "step": "lead_solder_interconnect",
-      "label": "X 向引脚间距 ex",
+      "label": "X 向引脚间距",
       "control": "number",
       "unit": "mm",
       "minimum": 0.1,
@@ -245,7 +245,7 @@
     {
       "key": "leads.pitch_y",
       "step": "lead_solder_interconnect",
-      "label": "Y 向引脚间距 ey",
+      "label": "Y 向引脚间距",
       "control": "number",
       "unit": "mm",
       "minimum": 0.1,
@@ -259,7 +259,7 @@
     {
       "key": "leads.width",
       "step": "lead_solder_interconnect",
-      "label": "引脚宽度 b",
+      "label": "引脚宽度",
       "control": "number",
       "unit": "mm",
       "minimum": 0.03,
@@ -273,7 +273,7 @@
     {
       "key": "leads.length",
       "step": "lead_solder_interconnect",
-      "label": "外露引脚长度 L",
+      "label": "外露引脚长度",
       "control": "number",
       "unit": "mm",
       "minimum": 0.05,
@@ -301,7 +301,7 @@
     {
       "key": "leads.thickness",
       "step": "lead_solder_interconnect",
-      "label": "引脚总厚度 A3",
+      "label": "引脚总厚度",
       "control": "number",
       "unit": "mm",
       "minimum": 0.03,
@@ -415,7 +415,7 @@
     {
       "key": "vias.length",
       "step": "thermal_vias",
-      "label": "通孔长度 Lv",
+      "label": "通孔长度",
       "control": "number",
       "unit": "mm",
       "minimum": 0.001,
@@ -431,7 +431,7 @@
     {
       "key": "vias.diameter",
       "step": "thermal_vias",
-      "label": "通孔直径 Dv",
+      "label": "通孔直径",
       "control": "number",
       "unit": "mm",
       "minimum": 0.001,
@@ -447,7 +447,7 @@
     {
       "key": "vias.plating",
       "step": "thermal_vias",
-      "label": "通孔镀层厚度 tpl",
+      "label": "通孔镀层厚度",
       "control": "number",
       "unit": "mm",
       "minimum": 0.001,
@@ -463,7 +463,7 @@
     {
       "key": "vias.pitch",
       "step": "thermal_vias",
-      "label": "通孔间距 ev",
+      "label": "通孔间距",
       "control": "number",
       "unit": "mm",
       "minimum": 0.001,
@@ -479,7 +479,7 @@
     {
       "key": "vias.columns",
       "step": "thermal_vias",
-      "label": "通孔 X 方向数量 VD",
+      "label": "通孔 X 方向数量",
       "control": "integer_spinbox",
       "unit": null,
       "minimum": 1,
@@ -495,7 +495,7 @@
     {
       "key": "vias.rows",
       "step": "thermal_vias",
-      "label": "通孔 Y 方向数量 VE",
+      "label": "通孔 Y 方向数量",
       "control": "integer_spinbox",
       "unit": null,
       "minimum": 1,

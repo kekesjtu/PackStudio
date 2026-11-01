@@ -21,7 +21,7 @@
     {
       "key": "package.length",
       "step": "package_substrate",
-      "label": "基板长度 D",
+      "label": "基板长度",
       "control": "number",
       "unit": "mm",
       "minimum": 5,
@@ -35,7 +35,7 @@
     {
       "key": "package.width",
       "step": "package_substrate",
-      "label": "基板宽度 E",
+      "label": "基板宽度",
       "control": "number",
       "unit": "mm",
       "minimum": 5,
@@ -49,7 +49,7 @@
     {
       "key": "substrate.thickness",
       "step": "package_substrate",
-      "label": "基板厚度 A2",
+      "label": "基板厚度",
       "control": "number",
       "unit": "mm",
       "minimum": 0.1,
@@ -133,7 +133,7 @@
     {
       "key": "flag.length",
       "step": "die_flag_solder_mask",
-      "label": "芯片承载台长度 Lf",
+      "label": "芯片承载台长度",
       "control": "number",
       "unit": "mm",
       "minimum": 0.5,
@@ -147,7 +147,7 @@
     {
       "key": "flag.width",
       "step": "die_flag_solder_mask",
-      "label": "芯片承载台宽度 Wf",
+      "label": "芯片承载台宽度",
       "control": "number",
       "unit": "mm",
       "minimum": 0.5,
@@ -395,7 +395,7 @@
     {
       "key": "bga.columns",
       "step": "solder_balls",
-      "label": "X 方向焊球数 MD",
+      "label": "X 方向焊球数",
       "control": "integer_spinbox",
       "unit": null,
       "minimum": 1,
@@ -409,7 +409,7 @@
     {
       "key": "bga.rows",
       "step": "solder_balls",
-      "label": "Y 方向焊球数 ME",
+      "label": "Y 方向焊球数",
       "control": "integer_spinbox",
       "unit": null,
       "minimum": 1,
@@ -423,7 +423,7 @@
     {
       "key": "bga.pitch",
       "step": "solder_balls",
-      "label": "焊球间距 e",
+      "label": "焊球间距",
       "control": "number",
       "unit": "mm",
       "minimum": 0.2,
@@ -437,7 +437,7 @@
     {
       "key": "bga.diameter",
       "step": "solder_balls",
-      "label": "焊球直径 b",
+      "label": "焊球直径",
       "control": "number",
       "unit": "mm",
       "minimum": 0.05,
@@ -451,7 +451,7 @@
     {
       "key": "bga.height",
       "step": "solder_balls",
-      "label": "基板离板高度 A1",
+      "label": "基板离板高度",
       "control": "number",
       "unit": "mm",
       "minimum": 0.05,
@@ -479,7 +479,7 @@
     {
       "key": "spreader.length",
       "step": "backside_spreader",
-      "label": "扩散片长度 Lspr",
+      "label": "扩散片长度",
       "control": "number",
       "unit": "mm",
       "minimum": 0.001,
@@ -495,7 +495,7 @@
     {
       "key": "spreader.width",
       "step": "backside_spreader",
-      "label": "扩散片宽度 Wspr",
+      "label": "扩散片宽度",
       "control": "number",
       "unit": "mm",
       "minimum": 0.001,
@@ -511,7 +511,7 @@
     {
       "key": "spreader.thickness",
       "step": "backside_spreader",
-      "label": "扩散片厚度 tspr",
+      "label": "扩散片厚度",
       "control": "number",
       "unit": "mm",
       "minimum": 0.001,
@@ -527,7 +527,7 @@
     {
       "key": "spreader.hole_length",
       "step": "backside_spreader",
-      "label": "底层走线开口长度 Lbt",
+      "label": "底层走线开口长度",
       "control": "number",
       "unit": "mm",
       "minimum": 0.001,
@@ -543,7 +543,7 @@
     {
       "key": "spreader.hole_width",
       "step": "backside_spreader",
-      "label": "底层走线开口宽度 Wbt",
+      "label": "底层走线开口宽度",
       "control": "number",
       "unit": "mm",
       "minimum": 0.001,
@@ -630,7 +630,7 @@
     },
     {
       "key": "flag.coverage",
-      "label": "承载台金属覆盖率 Cf",
+      "label": "承载台金属覆盖率",
       "control": "number",
       "default": null,
       "step": "die_flag_solder_mask",
@@ -696,7 +696,7 @@
     },
     {
       "key": "slug.length",
-      "label": "散热块长度 Lsl",
+      "label": "散热块长度",
       "default": null,
       "step": "slug",
       "control": "number",
@@ -713,7 +713,7 @@
     },
     {
       "key": "slug.width",
-      "label": "散热块宽度 Wsl",
+      "label": "散热块宽度",
       "default": null,
       "step": "slug",
       "control": "number",
@@ -730,7 +730,7 @@
     },
     {
       "key": "slug.thickness",
-      "label": "散热块厚度 tsl",
+      "label": "散热块厚度",
       "default": null,
       "step": "slug",
       "control": "number",
@@ -747,7 +747,7 @@
     },
     {
       "key": "slug.diameter",
-      "label": "散热块直径 ds",
+      "label": "散热块直径",
       "default": null,
       "step": "slug",
       "control": "number",
@@ -764,7 +764,7 @@
     },
     {
       "key": "slug.foot_length",
-      "label": "支脚延伸长度 Lsf",
+      "label": "支脚延伸长度",
       "default": null,
       "step": "slug",
       "control": "number",
@@ -781,7 +781,7 @@
     },
     {
       "key": "slug.foot_width",
-      "label": "支脚延伸宽度 Wsf",
+      "label": "支脚延伸宽度",
       "default": null,
       "step": "slug",
       "control": "number",
@@ -798,7 +798,7 @@
     },
     {
       "key": "slug.offset",
-      "label": "散热块偏移 Gs",
+      "label": "散热块偏移",
       "default": null,
       "step": "slug",
       "control": "number",
@@ -815,7 +815,7 @@
     },
     {
       "key": "slug.clearance",
-      "label": "支脚净空 gsf",
+      "label": "支脚净空",
       "default": null,
       "step": "slug",
       "control": "number",
