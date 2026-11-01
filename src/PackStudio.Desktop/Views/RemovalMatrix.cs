@@ -46,10 +46,16 @@ public static class RemovalMatrix
         var preview = new HashSet<(int Row, int Column)>();
         var anchor = (Row: 0, Column: 0);
         bool adding = true, dragging = false;
-        var caption = new TextBlock { Foreground = Brushes.DimGray, TextWrapping = TextWrapping.Wrap, Margin = new(0, 0, 0, 5) };
+        var caption = new TextBlock { Foreground = Brushes.DimGray, VerticalAlignment = VerticalAlignment.Center, TextWrapping = TextWrapping.Wrap };
+        var reset = new Button { Content = "重置为空", Padding = new Thickness(8, 3, 8, 3), Margin = new Thickness(8, 0, 0, 6), HorizontalAlignment = HorizontalAlignment.Right };
 
-        void Report() => caption.Text = $"已去除 {taken.Count} 格（共 {rows} × {columns} 格），拖动可框选整块。" +
-            (outside > 0 ? $"另有 {outside} 个单元超出当前阵列，需删除。" : "");
+        // 分散点选、框选与重置都走同一套写回路径。
+        void Report()
+        {
+            caption.Text = $"已去除 {taken.Count} / {rows * columns} 格" +
+                (outside > 0 ? $"（{outside} 个单元超出当前阵列，需删除）" : "");
+            reset.IsEnabled = taken.Count > 0;
+        }
         void Repaint()
         {
             for (int row = 0; row < rows; row++)
@@ -73,8 +79,9 @@ public static class RemovalMatrix
             dragging = false;
             if (preview.Count == 0)
                 return;
+            var merged = Merge(taken, preview, adding);
             taken.Clear();
-            taken.UnionWith(Merge(taken, preview, adding));
+            taken.UnionWith(merged);
             preview.Clear();
             Repaint();
             Report();
@@ -145,6 +152,22 @@ public static class RemovalMatrix
             if (dragging)
                 Commit();
         };
+        reset.Click += (_, _) =>
+        {
+            if (taken.Count == 0)
+                return;
+            taken.Clear();
+            preview.Clear();
+            Repaint();
+            Report();
+            apply(ToJson(taken));
+        };
+
+        var head = new DockPanel { LastChildFill = true, Margin = new(0, 0, 0, 5) };
+        DockPanel.SetDock(reset, Dock.Right);
+        head.Children.Add(reset);
+        head.Children.Add(caption);
+
         Report();
         Repaint();
         return new StackPanel
@@ -152,13 +175,14 @@ public static class RemovalMatrix
             Margin = new(0, 2, 0, 0),
             Children =
             {
-                caption,
+                head,
                 new ScrollViewer
                 {
                     Content = new Border { BorderBrush = Line, BorderThickness = new(1), HorizontalAlignment = HorizontalAlignment.Left, Child = grid },
                     HorizontalScrollBarVisibility = ScrollBarVisibility.Auto,
                     VerticalScrollBarVisibility = ScrollBarVisibility.Auto,
-                    MaxHeight = 240
+                    MaxHeight = 240,
+                    ToolTip = "单击切换单个格子，按住左键拖动可框选整块。"
                 }
             }
         };

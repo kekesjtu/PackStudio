@@ -33,15 +33,26 @@ static class RemovalMatrixChecks
         var cells = matrix.Children.OfType<Border>().Where(cell => cell.Tag != null).ToList();
         if (cells.Count != rows * columns)
             throw new Exception($"去球矩阵格子数 {cells.Count} 与 {rows}×{columns} 不一致");
-        var cell = cells[0];
-        cell.RaiseEvent(Mouse(MouseButtonEvent.LeftDown, UIElement.MouseLeftButtonDownEvent));
-        cell.RaiseEvent(Mouse(MouseButtonEvent.LeftUp, UIElement.MouseLeftButtonUpEvent));
+        Click(cells[0]);
         if ((bga["omitted_cells"] as JArray ?? []).Count != 1)
             throw new Exception("单击矩阵格子未写入去球单元");
+        Click(cells[cells.Count - 1]);
+        if ((bga["omitted_cells"] as JArray ?? []).Count != 2)
+            throw new Exception("分散点选未保留已去除格子");
+        Click(cells[0]);
+        if ((bga["omitted_cells"] as JArray ?? []).Count != 1)
+            throw new Exception("再次单击矩阵格子未恢复焊球");
+        var reset = Descendants<Button>(fields).SingleOrDefault(button => button.Content?.ToString() == "重置为空")
+            ?? throw new Exception("去球矩阵缺少重置按钮");
+        reset.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
+        if ((bga["omitted_cells"] as JArray ?? []).Count != 0)
+            throw new Exception("重置按钮未清空去球单元");
+    }
+
+    static void Click(Border cell)
+    {
         cell.RaiseEvent(Mouse(MouseButtonEvent.LeftDown, UIElement.MouseLeftButtonDownEvent));
         cell.RaiseEvent(Mouse(MouseButtonEvent.LeftUp, UIElement.MouseLeftButtonUpEvent));
-        if ((bga["omitted_cells"] as JArray ?? []).Count != 0)
-            throw new Exception("再次单击矩阵格子未恢复焊球");
     }
 
     static IEnumerable<T> Descendants<T>(DependencyObject root)
