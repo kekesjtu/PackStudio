@@ -4,675 +4,675 @@
 
 ### Values
 
-| PackStudio 内部字段 | DES 键 | DES 条件 | 单位 | pack_script command | name | property_name |
-| --- | --- | --- | --- | --- | --- | --- |
-| `Values["die.length"]` | `Ld` | — | mm | `modify_component` | `die` | `dieLengthLd` |
-| `Values["die.width"]` | `Wd` | — | mm | `modify_component` | `die` | `dieWidthWd` |
-| `Values["die.thickness"]` | `td` | — | mm | `modify_component` | `die` | `dieThicknessTd` |
-| `Values["die.power"]` | `P` | — | W | `modify_component` | `die` | `packagePower` |
-| `Values["die.flipped"]` | `flip` | — | — | `modify_component` | `die` | `flippedDie` |
-| `Values["bumps.enabled"]` | `bumped` | — | — | `modify_component` | `bumpedDie` | `bumpedDie` |
-| `Values["bumps.total"]` | `nballs` | `{"visible_when":{"bumps.enabled":true}}` | — | `modify_component` | `bumpedDie` | `numberOfSolderBalls` |
-| `Values["bumps.diameter"]` | `b` | `{"visible_when":{"bumps.enabled":true}}` | mm | `modify_component` | `bumpedDie` | `ballDiameterb` |
-| `Values["bumps.height"]` | `tsd` | `{"visible_when":{"bumps.enabled":true}}` | mm | `modify_component` | `bumpedDie` | `ballHeight` |
-| `Values["bumps.modeling"]` | — | `{"visible_when":{"bumps.enabled":true}}` | — | — | — | — |
-| `Values["grid.enabled"]` | `localgrid` | — | — | `modify_component` | `modelingOptions` | `localizeGrid` |
-| `Values["grid.density"]` | `radio_lgc` | `{"visible_when":{"grid.enabled":true}}` | — | `modify_component` | `modelingOptions` | `gridDensity` |
+| PackStudio 内部字段 | des | pack script 的字段 |
+| --- | --- | --- |
+| `die.length` | `Ld`<br>`unit=mm` | `name="die"`; `property_name="dieLengthLd"` |
+| `die.width` | `Wd`<br>`unit=mm` | `name="die"`; `property_name="dieWidthWd"` |
+| `die.thickness` | `td`<br>`unit=mm` | `name="die"`; `property_name="dieThicknessTd"` |
+| `die.power` | `P`<br>`unit=W` | `name="die"`; `property_name="packagePower"` |
+| `die.flipped` | `flip` | `name="die"`; `property_name="flippedDie"` |
+| `bumps.enabled` | `bumped` | `name="bumpedDie"`; `property_name="bumpedDie"` |
+| `bumps.total` | `nballs`<br>`conditions={"visible_when":{"bumps.enabled":true}}` | `name="bumpedDie"`; `property_name="numberOfSolderBalls"` |
+| `bumps.diameter` | `b`<br>`unit=mm`<br>`conditions={"visible_when":{"bumps.enabled":true}}` | `name="bumpedDie"`; `property_name="ballDiameterb"` |
+| `bumps.height` | `tsd`<br>`unit=mm`<br>`conditions={"visible_when":{"bumps.enabled":true}}` | `name="bumpedDie"`; `property_name="ballHeight"` |
+| `bumps.modeling` | `conditions={"visible_when":{"bumps.enabled":true}}` | — |
+| `grid.enabled` | `localgrid` | `name="modelingOptions"`; `property_name="localizeGrid"` |
+| `grid.density` | `radio_lgc`<br>`conditions={"visible_when":{"grid.enabled":true}}` | `name="modelingOptions"`; `property_name="gridDensity"` |
 
 ### Assignments
 
-| PackStudio 内部字段 | DES 键 | DES 条件 | 单位 | pack_script command | name | property_name |
-| --- | --- | --- | --- | --- | --- | --- |
-| `Assignments["group-die"]` | `radio_die` | — | — | `modify_component` | `die` | `dieMaterial` |
-| `Assignments["group-bump-solder"]` | `k_solder` | `{"bumps.enabled":true}` | — | `modify_component` | `bumpedDie` | `solderConductivity` |
-| `Assignments["group-underfill"]` | `k_fill` | `{"bumps.enabled":true}` | — | `modify_component` | `bumpedDie` | `underfillConductivity` |
+| PackStudio 内部字段 | des | pack script 的字段 |
+| --- | --- | --- |
+| `group-die` | `radio_die` | `name="die"`; `property_name="dieMaterial"` |
+| `group-bump-solder` | `k_solder`<br>`conditions={"bumps.enabled":true}` | `name="bumpedDie"`; `property_name="solderConductivity"` |
+| `group-underfill` | `k_fill`<br>`conditions={"bumps.enabled":true}` | `name="bumpedDie"`; `property_name="underfillConductivity"` |
 
 ### ProjectDocument
 
-| PackStudio 内部字段 | DES 键 | DES 条件 | 单位 | pack_script command | name | property_name |
-| --- | --- | --- | --- | --- | --- | --- |
-| `ProjectDocument.TemplateId` | `package` | — | — | — | — | — |
-| `ProjectDocument.Name` | `design` | — | — | — | — | — |
-| `ProjectDocument.PresetId` | — | — | — | — | — | — |
-| `ProjectDocument.CustomMaterials` | — | — | — | — | — | — |
+| PackStudio 内部字段 | des | pack script 的字段 |
+| --- | --- | --- |
+| `TemplateId` | `package` | — |
+| `Name` | `design` | — |
+| `PresetId` | — | — |
+| `CustomMaterials` | — | — |
 
 ## cbga_fc
 
 ### Values
 
-| PackStudio 内部字段 | DES 键 | DES 条件 | 单位 | pack_script command | name | property_name |
-| --- | --- | --- | --- | --- | --- | --- |
-| `Values["footprint.size"]` | — | — | — | `new_package/new_value` | — | `jedecFootprint` |
-| `Values["substrate.length"]` | `D` | — | mm | `modify_component` | `packageSubstrate` | `substrateLengthD` |
-| `Values["substrate.width"]` | `E` | — | mm | `modify_component` | `packageSubstrate` | `substrateWidthE` |
-| `Values["substrate.thickness"]` | `A2` | — | mm | `modify_component` | `packageSubstrate` | `substrateThicknessA2` |
-| `Values["die.length"]` | `Ld` | — | mm | `modify_component` | `die` | `dieLengthLd` |
-| `Values["die.width"]` | `Wd` | — | mm | `modify_component` | `die` | `dieWidthWd` |
-| `Values["die.thickness"]` | `td` | — | mm | `modify_component` | `die` | `dieThicknessTd` |
-| `Values["die.power"]` | `P` | — | W | `modify_component` | `die` | `packagePower` |
-| `Values["bumps.total"]` | `MNC4` | `{"visible_when":{"bumps.array_type":"non_regular"}}` | — | `modify_component` | `flipChipBumps` | `totalNumberOfBumpsMNC4` |
-| `Values["bumps.diameter"]` | `bC4` | — | mm | `modify_component` | `flipChipBumps` | `bumpDiameterBC4` |
-| `Values["bumps.height"]` | `tC4` | — | mm | `modify_component` | `flipChipBumps` | `bumpHeightTC4` |
-| `Values["bumps.modeling"]` | — | — | — | `modify_component` | `modelingOptions` | `modelFlipChipBumpsAs` |
-| `Values["bga.columns"]` | `MD` | — | — | `modify_component` | `solderBalls` | `numberOfSolderBallsInXMD` |
-| `Values["bga.rows"]` | `ME` | — | — | `modify_component` | `solderBalls` | `numberOfSolderBallsInYME` |
-| `Values["bga.pitch"]` | `e` | — | mm | `modify_component` | `solderBalls` | `ballPitchE` |
-| `Values["bga.diameter"]` | `b` | — | mm | `modify_component` | `solderBalls` | `ballDiameterB` |
-| `Values["bga.height"]` | `A1` | — | mm | `modify_component` | `solderBalls` | `substrateStandoffA1` |
-| `Values["cover.type"]` | `radio_EnCaPl` | — | — | `new_package/new_value` | — | `topCover` |
-| `Values["cover.length"]` | `Le` | `{"visible_when":{"cover.type":"encapsulant"}}` | mm | `modify_component` | `topCover` | `lengthLe`; branch=`encapsulant` |
-| `Values["cover.width"]` | `We` | `{"visible_when":{"cover.type":"encapsulant"}}` | mm | `modify_component` | `topCover` | `widthWe`; branch=`encapsulant` |
-| `Values["cover.thickness"]` | `te` | `{"visible_when":{"cover.type":"encapsulant"}}` | mm | `modify_component` | `topCover` | `thicknessTe`; branch=`encapsulant` |
-| `Values["lid.length"]` | `Lc` | `{"visible_when":{"cover.type":"lid"}}` | mm | `modify_component` | `topCover` | `lidLengthLc`; branch=`lid` |
-| `Values["lid.width"]` | `Wc` | `{"visible_when":{"cover.type":"lid"}}` | mm | `modify_component` | `topCover` | `lidWidthWc`; branch=`lid` |
-| `Values["lid.thickness"]` | `tc` | `{"visible_when":{"cover.type":"lid"}}` | mm | `modify_component` | `topCover` | `lidThicknessTc`; branch=`lid` |
-| `Values["lid.base_thickness"]` | `tcb` | `{"visible_when":{"cover.type":"lid"}}` | mm | `modify_component` | `topCover` | `lidBaseThicknessTcb`; branch=`lid` |
-| `Values["lid.die_attach"]` | `tda` | `{"visible_when":{"cover.type":"lid"}}` | mm | `modify_component` | `topCover` | `dieAttachThicknessTda`; branch=`lid` |
-| `Values["lid.adhesive"]` | `tcadh` | `{"visible_when":{"cover.type":"lid"}}` | mm | `modify_component` | `topCover` | `lidAdhesiveThickness`; branch=`lid` |
-| `Values["plate.length"]` | `Lc` | `{"visible_when":{"cover.type":"plate"}}` | mm | `modify_component` | `topCover` | `plateLengthLc`; branch=`plate` |
-| `Values["plate.width"]` | `Wc` | `{"visible_when":{"cover.type":"plate"}}` | mm | `modify_component` | `topCover` | `plateWidthWc`; branch=`plate` |
-| `Values["plate.thickness"]` | `tc` | `{"visible_when":{"cover.type":"plate"}}` | mm | `modify_component` | `topCover` | `plateThicknessTc`; branch=`plate` |
-| `Values["plate.die_attach"]` | `tda` | `{"visible_when":{"cover.type":"plate"}}` | mm | `modify_component` | `topCover` | `dieAttachThicknessTda`; branch=`plate` |
-| `Values["grid.enabled"]` | `localgrid` | — | — | `modify_component` | `modelingOptions` | `localizeGrid` |
-| `Values["grid.density"]` | `radio_lgc` | `{"visible_when":{"grid.enabled":true}}` | — | `modify_component` | `modelingOptions` | `gridDensity` |
-| `Values["bumps.array_type"]` | `radio_bump_type` | — | — | `modify_component` | `flipChipBumps` | `arrayType` |
-| `Values["bumps.columns"]` | `MDC4` | `{"visible_when":{"bumps.array_type":"regular"}}` | — | `modify_component` | `flipChipBumps` | `numberOfBumpsInXMDC4` |
-| `Values["bumps.rows"]` | `MEC4` | `{"visible_when":{"bumps.array_type":"regular"}}` | — | `modify_component` | `flipChipBumps` | `numberOfBumpsInYMEC4` |
-| `Values["bumps.underfill"]` | `c4_underfill` | — | — | `modify_component` | `flipChipBumps` | `underfill` |
-| `Values["cover.flush"]` | `check_thickness` | `{"visible_when":{"cover.type":"encapsulant"}}` | — | `modify_component` | `topCover` | `enableDieFlush`; branch=`encapsulant` |
-| `Values["stiffener.enabled"]` | `radio_stiffener` | `{"visible_when":{"cover.type":"lid"}}` | — | `modify_component` | `topCover` | `stiffener`; branch=`lid` |
-| `Values["stiffener.length"]` | `Ls` | `{"visible_when":{"cover.type":"lid","stiffener.enabled":true}}` | mm | `modify_component` | `topCover` | `stiffenerLengthLs`; branch=`lid` |
-| `Values["stiffener.width"]` | `Ws` | `{"visible_when":{"cover.type":"lid","stiffener.enabled":true}}` | mm | `modify_component` | `topCover` | `stiffenerWidthWs`; branch=`lid` |
-| `Values["stiffener.cavity_length"]` | `Lsc` | `{"visible_when":{"cover.type":"lid","stiffener.enabled":true}}` | mm | `modify_component` | `topCover` | `stiffenerCavityLengthLsc`; branch=`lid` |
-| `Values["stiffener.cavity_width"]` | `Wsc` | `{"visible_when":{"cover.type":"lid","stiffener.enabled":true}}` | mm | `modify_component` | `topCover` | `stiffenerCavityWidthWsc`; branch=`lid` |
-| `Values["stiffener.adhesive"]` | `tsadh` | `{"visible_when":{"cover.type":"lid","stiffener.enabled":true}}` | mm | `modify_component` | `topCover` | `stiffenerAdhesiveThickness`; branch=`lid` |
-| `Values["slug.enabled"]` | `slug` | `{"enabled_when":{"cover.type":"encapsulant"}}` | — | `modify_component` | `dropInSlug` | `includeSlug` |
-| `Values["slug.length"]` | `L_sl` | `{"visible_when":{"cover.type":"encapsulant","slug.enabled":true}}` | mm | `modify_component` | `dropInSlug` | `slugLengthLsl` |
-| `Values["slug.width"]` | `W_sl` | `{"visible_when":{"cover.type":"encapsulant","slug.enabled":true}}` | mm | `modify_component` | `dropInSlug` | `slugWidthWsl` |
-| `Values["slug.thickness"]` | `t_sl` | `{"visible_when":{"cover.type":"encapsulant","slug.enabled":true}}` | mm | `modify_component` | `dropInSlug` | `slugThicknessTsl` |
-| `Values["slug.diameter"]` | `dsl` | `{"visible_when":{"cover.type":"encapsulant","slug.enabled":true}}` | mm | `modify_component` | `dropInSlug` | `slugDiameterDs` |
-| `Values["slug.foot_length"]` | `L_slf` | `{"visible_when":{"cover.type":"encapsulant","slug.enabled":true}}` | mm | `modify_component` | `dropInSlug` | `slugFootExtendLengthLsf` |
-| `Values["slug.foot_width"]` | `W_slf` | `{"visible_when":{"cover.type":"encapsulant","slug.enabled":true}}` | mm | `modify_component` | `dropInSlug` | `slugFootExtendWidthWsf` |
-| `Values["slug.offset"]` | `gsl` | `{"visible_when":{"cover.type":"encapsulant","slug.enabled":true}}` | mm | `modify_component` | `dropInSlug` | `slugOffsetGs` |
-| `Values["slug.clearance"]` | `g_slf` | `{"visible_when":{"cover.type":"encapsulant","slug.enabled":true}}` | mm | `modify_component` | `dropInSlug` | `slugFootClearanceGsf` |
-| `Values["slug.adhesive_enabled"]` | `slug_adh` | `{"visible_when":{"cover.type":"encapsulant","slug.enabled":true}}` | — | `modify_component` | `dropInSlug` | `adhesivePresentUnderSlugFoot` |
+| PackStudio 内部字段 | des | pack script 的字段 |
+| --- | --- | --- |
+| `footprint.size` | — | `name=null`; `property_name="jedecFootprint"` |
+| `substrate.length` | `D`<br>`unit=mm` | `name="packageSubstrate"`; `property_name="substrateLengthD"` |
+| `substrate.width` | `E`<br>`unit=mm` | `name="packageSubstrate"`; `property_name="substrateWidthE"` |
+| `substrate.thickness` | `A2`<br>`unit=mm` | `name="packageSubstrate"`; `property_name="substrateThicknessA2"` |
+| `die.length` | `Ld`<br>`unit=mm` | `name="die"`; `property_name="dieLengthLd"` |
+| `die.width` | `Wd`<br>`unit=mm` | `name="die"`; `property_name="dieWidthWd"` |
+| `die.thickness` | `td`<br>`unit=mm` | `name="die"`; `property_name="dieThicknessTd"` |
+| `die.power` | `P`<br>`unit=W` | `name="die"`; `property_name="packagePower"` |
+| `bumps.total` | `MNC4`<br>`conditions={"visible_when":{"bumps.array_type":"non_regular"}}` | `name="flipChipBumps"`; `property_name="totalNumberOfBumpsMNC4"` |
+| `bumps.diameter` | `bC4`<br>`unit=mm` | `name="flipChipBumps"`; `property_name="bumpDiameterBC4"` |
+| `bumps.height` | `tC4`<br>`unit=mm` | `name="flipChipBumps"`; `property_name="bumpHeightTC4"` |
+| `bumps.modeling` | — | `name="modelingOptions"`; `property_name="modelFlipChipBumpsAs"` |
+| `bga.columns` | `MD` | `name="solderBalls"`; `property_name="numberOfSolderBallsInXMD"` |
+| `bga.rows` | `ME` | `name="solderBalls"`; `property_name="numberOfSolderBallsInYME"` |
+| `bga.pitch` | `e`<br>`unit=mm` | `name="solderBalls"`; `property_name="ballPitchE"` |
+| `bga.diameter` | `b`<br>`unit=mm` | `name="solderBalls"`; `property_name="ballDiameterB"` |
+| `bga.height` | `A1`<br>`unit=mm` | `name="solderBalls"`; `property_name="substrateStandoffA1"` |
+| `cover.type` | `radio_EnCaPl` | `name=null`; `property_name="topCover"` |
+| `cover.length` | `Le`<br>`unit=mm`<br>`conditions={"visible_when":{"cover.type":"encapsulant"}}` | `name="topCover"`; `property_name="lengthLe"`; `branch="encapsulant"` |
+| `cover.width` | `We`<br>`unit=mm`<br>`conditions={"visible_when":{"cover.type":"encapsulant"}}` | `name="topCover"`; `property_name="widthWe"`; `branch="encapsulant"` |
+| `cover.thickness` | `te`<br>`unit=mm`<br>`conditions={"visible_when":{"cover.type":"encapsulant"}}` | `name="topCover"`; `property_name="thicknessTe"`; `branch="encapsulant"` |
+| `lid.length` | `Lc`<br>`unit=mm`<br>`conditions={"visible_when":{"cover.type":"lid"}}` | `name="topCover"`; `property_name="lidLengthLc"`; `branch="lid"` |
+| `lid.width` | `Wc`<br>`unit=mm`<br>`conditions={"visible_when":{"cover.type":"lid"}}` | `name="topCover"`; `property_name="lidWidthWc"`; `branch="lid"` |
+| `lid.thickness` | `tc`<br>`unit=mm`<br>`conditions={"visible_when":{"cover.type":"lid"}}` | `name="topCover"`; `property_name="lidThicknessTc"`; `branch="lid"` |
+| `lid.base_thickness` | `tcb`<br>`unit=mm`<br>`conditions={"visible_when":{"cover.type":"lid"}}` | `name="topCover"`; `property_name="lidBaseThicknessTcb"`; `branch="lid"` |
+| `lid.die_attach` | `tda`<br>`unit=mm`<br>`conditions={"visible_when":{"cover.type":"lid"}}` | `name="topCover"`; `property_name="dieAttachThicknessTda"`; `branch="lid"` |
+| `lid.adhesive` | `tcadh`<br>`unit=mm`<br>`conditions={"visible_when":{"cover.type":"lid"}}` | `name="topCover"`; `property_name="lidAdhesiveThickness"`; `branch="lid"` |
+| `plate.length` | `Lc`<br>`unit=mm`<br>`conditions={"visible_when":{"cover.type":"plate"}}` | `name="topCover"`; `property_name="plateLengthLc"`; `branch="plate"` |
+| `plate.width` | `Wc`<br>`unit=mm`<br>`conditions={"visible_when":{"cover.type":"plate"}}` | `name="topCover"`; `property_name="plateWidthWc"`; `branch="plate"` |
+| `plate.thickness` | `tc`<br>`unit=mm`<br>`conditions={"visible_when":{"cover.type":"plate"}}` | `name="topCover"`; `property_name="plateThicknessTc"`; `branch="plate"` |
+| `plate.die_attach` | `tda`<br>`unit=mm`<br>`conditions={"visible_when":{"cover.type":"plate"}}` | `name="topCover"`; `property_name="dieAttachThicknessTda"`; `branch="plate"` |
+| `grid.enabled` | `localgrid` | `name="modelingOptions"`; `property_name="localizeGrid"` |
+| `grid.density` | `radio_lgc`<br>`conditions={"visible_when":{"grid.enabled":true}}` | `name="modelingOptions"`; `property_name="gridDensity"` |
+| `bumps.array_type` | `radio_bump_type` | `name="flipChipBumps"`; `property_name="arrayType"` |
+| `bumps.columns` | `MDC4`<br>`conditions={"visible_when":{"bumps.array_type":"regular"}}` | `name="flipChipBumps"`; `property_name="numberOfBumpsInXMDC4"` |
+| `bumps.rows` | `MEC4`<br>`conditions={"visible_when":{"bumps.array_type":"regular"}}` | `name="flipChipBumps"`; `property_name="numberOfBumpsInYMEC4"` |
+| `bumps.underfill` | `c4_underfill` | `name="flipChipBumps"`; `property_name="underfill"` |
+| `cover.flush` | `check_thickness`<br>`conditions={"visible_when":{"cover.type":"encapsulant"}}` | `name="topCover"`; `property_name="enableDieFlush"`; `branch="encapsulant"` |
+| `stiffener.enabled` | `radio_stiffener`<br>`conditions={"visible_when":{"cover.type":"lid"}}` | `name="topCover"`; `property_name="stiffener"`; `branch="lid"` |
+| `stiffener.length` | `Ls`<br>`unit=mm`<br>`conditions={"visible_when":{"cover.type":"lid","stiffener.enabled":true}}` | `name="topCover"`; `property_name="stiffenerLengthLs"`; `branch="lid"` |
+| `stiffener.width` | `Ws`<br>`unit=mm`<br>`conditions={"visible_when":{"cover.type":"lid","stiffener.enabled":true}}` | `name="topCover"`; `property_name="stiffenerWidthWs"`; `branch="lid"` |
+| `stiffener.cavity_length` | `Lsc`<br>`unit=mm`<br>`conditions={"visible_when":{"cover.type":"lid","stiffener.enabled":true}}` | `name="topCover"`; `property_name="stiffenerCavityLengthLsc"`; `branch="lid"` |
+| `stiffener.cavity_width` | `Wsc`<br>`unit=mm`<br>`conditions={"visible_when":{"cover.type":"lid","stiffener.enabled":true}}` | `name="topCover"`; `property_name="stiffenerCavityWidthWsc"`; `branch="lid"` |
+| `stiffener.adhesive` | `tsadh`<br>`unit=mm`<br>`conditions={"visible_when":{"cover.type":"lid","stiffener.enabled":true}}` | `name="topCover"`; `property_name="stiffenerAdhesiveThickness"`; `branch="lid"` |
+| `slug.enabled` | `slug`<br>`conditions={"enabled_when":{"cover.type":"encapsulant"}}` | `name="dropInSlug"`; `property_name="includeSlug"` |
+| `slug.length` | `L_sl`<br>`unit=mm`<br>`conditions={"visible_when":{"cover.type":"encapsulant","slug.enabled":true}}` | `name="dropInSlug"`; `property_name="slugLengthLsl"` |
+| `slug.width` | `W_sl`<br>`unit=mm`<br>`conditions={"visible_when":{"cover.type":"encapsulant","slug.enabled":true}}` | `name="dropInSlug"`; `property_name="slugWidthWsl"` |
+| `slug.thickness` | `t_sl`<br>`unit=mm`<br>`conditions={"visible_when":{"cover.type":"encapsulant","slug.enabled":true}}` | `name="dropInSlug"`; `property_name="slugThicknessTsl"` |
+| `slug.diameter` | `dsl`<br>`unit=mm`<br>`conditions={"visible_when":{"cover.type":"encapsulant","slug.enabled":true}}` | `name="dropInSlug"`; `property_name="slugDiameterDs"` |
+| `slug.foot_length` | `L_slf`<br>`unit=mm`<br>`conditions={"visible_when":{"cover.type":"encapsulant","slug.enabled":true}}` | `name="dropInSlug"`; `property_name="slugFootExtendLengthLsf"` |
+| `slug.foot_width` | `W_slf`<br>`unit=mm`<br>`conditions={"visible_when":{"cover.type":"encapsulant","slug.enabled":true}}` | `name="dropInSlug"`; `property_name="slugFootExtendWidthWsf"` |
+| `slug.offset` | `gsl`<br>`unit=mm`<br>`conditions={"visible_when":{"cover.type":"encapsulant","slug.enabled":true}}` | `name="dropInSlug"`; `property_name="slugOffsetGs"` |
+| `slug.clearance` | `g_slf`<br>`unit=mm`<br>`conditions={"visible_when":{"cover.type":"encapsulant","slug.enabled":true}}` | `name="dropInSlug"`; `property_name="slugFootClearanceGsf"` |
+| `slug.adhesive_enabled` | `slug_adh`<br>`conditions={"visible_when":{"cover.type":"encapsulant","slug.enabled":true}}` | `name="dropInSlug"`; `property_name="adhesivePresentUnderSlugFoot"` |
 
 ### Assignments
 
-| PackStudio 内部字段 | DES 键 | DES 条件 | 单位 | pack_script command | name | property_name |
-| --- | --- | --- | --- | --- | --- | --- |
-| `Assignments["group-substrate"]` | `k_substr` | — | — | `modify_component` | `packageSubstrate` | `dielectricMaterial` |
-| `Assignments["group-die"]` | — | — | — | — | — | — |
-| `Assignments["group-encapsulant"]` | `k_encap` | `{"cover.type":"encapsulant"}` | — | `modify_component` | `topCover` | `encapsulantMaterial`; branch=`encapsulant` |
-| `Assignments["group-lid"]` | `k_cap` | `{"cover.type":"lid"}` | — | `modify_component` | `topCover` | `lidMaterial`; branch=`lid` |
-| `Assignments["group-lid-adhesive"]` | `k_cadh` | `{"cover.type":"lid"}` | — | `modify_component` | `topCover` | `lidAdhesiveMaterial`; branch=`lid` |
-| `Assignments["group-lid-die-attach"]` | `kda` | `{"cover.type":"lid"}` | — | `modify_component` | `topCover` | `dieAttachMaterial`; branch=`lid` |
-| `Assignments["group-plate"]` | `k_cap` | `{"cover.type":"plate"}` | — | `modify_component` | `topCover` | `plateMaterial`; branch=`plate` |
-| `Assignments["group-plate-die-attach"]` | `kda` | `{"cover.type":"plate"}` | — | `modify_component` | `topCover` | `dieAttachMaterial`; branch=`plate` |
-| `Assignments["group-bump-solder"]` | `k_C4` | — | — | `modify_component` | `flipChipBumps` | `c4SolderMaterial` |
-| `Assignments["group-underfill"]` | `k_underfill` | `{"bumps.underfill":true}` | — | `modify_component` | `flipChipBumps` | `underfillMaterial` |
-| `Assignments["group-bga-solder"]` | `k_solder` | — | — | `modify_component` | `solderBalls` | `solderMaterial` |
-| `Assignments["group-stiffener"]` | `k_stiff` | `{"cover.type":"lid","stiffener.enabled":true}` | — | `modify_component` | `topCover` | `stiffenerMaterial`; branch=`lid` |
-| `Assignments["group-stiffener-adhesive"]` | `k_sadh` | `{"cover.type":"lid","stiffener.enabled":true}` | — | `modify_component` | `topCover` | `stiffenerAdhesiveMaterial`; branch=`lid` |
-| `Assignments["group-slug"]` | `k_sl` | `{"cover.type":"encapsulant","slug.enabled":true}` | — | `modify_component` | `dropInSlug` | `slugMaterial` |
-| `Assignments["group-slug-adhesive"]` | `k_slad` | `{"cover.type":"encapsulant","slug.enabled":true,"slug.adhesive_enabled":true}` | — | `modify_component` | `dropInSlug` | `slugAdhesiveMaterial` |
+| PackStudio 内部字段 | des | pack script 的字段 |
+| --- | --- | --- |
+| `group-substrate` | `k_substr` | `name="packageSubstrate"`; `property_name="dielectricMaterial"` |
+| `group-die` | — | — |
+| `group-encapsulant` | `k_encap`<br>`conditions={"cover.type":"encapsulant"}` | `name="topCover"`; `property_name="encapsulantMaterial"`; `branch="encapsulant"` |
+| `group-lid` | `k_cap`<br>`conditions={"cover.type":"lid"}` | `name="topCover"`; `property_name="lidMaterial"`; `branch="lid"` |
+| `group-lid-adhesive` | `k_cadh`<br>`conditions={"cover.type":"lid"}` | `name="topCover"`; `property_name="lidAdhesiveMaterial"`; `branch="lid"` |
+| `group-lid-die-attach` | `kda`<br>`conditions={"cover.type":"lid"}` | `name="topCover"`; `property_name="dieAttachMaterial"`; `branch="lid"` |
+| `group-plate` | `k_cap`<br>`conditions={"cover.type":"plate"}` | `name="topCover"`; `property_name="plateMaterial"`; `branch="plate"` |
+| `group-plate-die-attach` | `kda`<br>`conditions={"cover.type":"plate"}` | `name="topCover"`; `property_name="dieAttachMaterial"`; `branch="plate"` |
+| `group-bump-solder` | `k_C4` | `name="flipChipBumps"`; `property_name="c4SolderMaterial"` |
+| `group-underfill` | `k_underfill`<br>`conditions={"bumps.underfill":true}` | `name="flipChipBumps"`; `property_name="underfillMaterial"` |
+| `group-bga-solder` | `k_solder` | `name="solderBalls"`; `property_name="solderMaterial"` |
+| `group-stiffener` | `k_stiff`<br>`conditions={"cover.type":"lid","stiffener.enabled":true}` | `name="topCover"`; `property_name="stiffenerMaterial"`; `branch="lid"` |
+| `group-stiffener-adhesive` | `k_sadh`<br>`conditions={"cover.type":"lid","stiffener.enabled":true}` | `name="topCover"`; `property_name="stiffenerAdhesiveMaterial"`; `branch="lid"` |
+| `group-slug` | `k_sl`<br>`conditions={"cover.type":"encapsulant","slug.enabled":true}` | `name="dropInSlug"`; `property_name="slugMaterial"` |
+| `group-slug-adhesive` | `k_slad`<br>`conditions={"cover.type":"encapsulant","slug.enabled":true,"slug.adhesive_enabled":true}` | `name="dropInSlug"`; `property_name="slugAdhesiveMaterial"` |
 
 ### Bga
 
-| PackStudio 内部字段 | DES 键 | DES 条件 | 单位 | pack_script command | name | property_name |
-| --- | --- | --- | --- | --- | --- | --- |
-| `Bga["representation"]` | `radio_BGA_modeling` | — | — | `modify_component` | `modelingOptions` | `modelSolderBallArrayAs` |
-| `Bga["solder_removal_enabled"]` | `depop_center` | — | — | `modify_component` | `solderBallDepopulation` | `depopulatedCenter` |
-| `Bga["populated_columns"]` | `MDp` | — | — | `modify_component` | `solderBallDepopulation` | `numberFullyPopulatedRowsMDp` |
-| `Bga["populated_rows"]` | `MEp` | — | — | `modify_component` | `solderBallDepopulation` | `numberFullyPopulatedRowsMEp` |
-| `Bga["center_solder_enabled"]` | `central_balls` | — | — | `modify_component` | `centralBalls` | `centralBalls` |
-| `Bga["center_solder_columns"]` | `MDc` | — | — | `modify_component` | `centralBalls` | `numberCentralRowsMDp` |
-| `Bga["center_solder_rows"]` | `MEc` | — | — | `modify_component` | `centralBalls` | `numberCentralRowsMEp` |
-| `Bga["staggered"]` | `staggered_matrix` | — | — | `modify_component` | `solderBalls` | `staggeredMatrix` |
-| `Bga["center_staggered"]` | `central_staggered_matrix` | — | — | `modify_component` | `centralBalls` | `staggeredMatrix` |
-| `Bga["omitted_cells"]` | `balls` | — | — | `modify_component` | `solderBallDepopulation` | `depopulationDialog` |
-| `Bga["removal_rows"]` | — | — | — | — | — | — |
-| `Bga["removal_columns"]` | — | — | — | — | — | — |
-| `Bga["ball_map_enabled"]` | `csvBGA` | — | — | `modify_component` | `solderBalls` | `solderBallMap` |
-| `Bga["ball_map"]` | `csvBGA` | — | — | `modify_component` | `solderBalls` | `solderBallMapDialog` |
-| `Bga["via_configuration"]` | — | — | — | — | — | — |
+| PackStudio 内部字段 | des | pack script 的字段 |
+| --- | --- | --- |
+| `representation` | `radio_BGA_modeling` | `name="modelingOptions"`; `property_name="modelSolderBallArrayAs"` |
+| `solder_removal_enabled` | `depop_center` | `name="solderBallDepopulation"`; `property_name="depopulatedCenter"` |
+| `populated_columns` | `MDp` | `name="solderBallDepopulation"`; `property_name="numberFullyPopulatedRowsMDp"` |
+| `populated_rows` | `MEp` | `name="solderBallDepopulation"`; `property_name="numberFullyPopulatedRowsMEp"` |
+| `center_solder_enabled` | `central_balls` | `name="centralBalls"`; `property_name="centralBalls"` |
+| `center_solder_columns` | `MDc` | `name="centralBalls"`; `property_name="numberCentralRowsMDp"` |
+| `center_solder_rows` | `MEc` | `name="centralBalls"`; `property_name="numberCentralRowsMEp"` |
+| `staggered` | `staggered_matrix` | `name="solderBalls"`; `property_name="staggeredMatrix"` |
+| `center_staggered` | `central_staggered_matrix` | `name="centralBalls"`; `property_name="staggeredMatrix"` |
+| `omitted_cells` | `balls` | `name="solderBallDepopulation"`; `property_name="depopulationDialog"` |
+| `removal_rows` | — | — |
+| `removal_columns` | — | — |
+| `ball_map_enabled` | `csvBGA` | `name="solderBalls"`; `property_name="solderBallMap"` |
+| `ball_map` | `csvBGA` | `name="solderBalls"`; `property_name="solderBallMapDialog"` |
+| `via_configuration` | — | — |
 
 ### ProjectDocument
 
-| PackStudio 内部字段 | DES 键 | DES 条件 | 单位 | pack_script command | name | property_name |
-| --- | --- | --- | --- | --- | --- | --- |
-| `ProjectDocument.TemplateId` | `package` | — | — | — | — | — |
-| `ProjectDocument.Name` | `design` | — | — | — | — | — |
-| `ProjectDocument.PresetId` | — | — | — | — | — | — |
-| `ProjectDocument.CustomMaterials` | — | — | — | — | — | — |
+| PackStudio 内部字段 | des | pack script 的字段 |
+| --- | --- | --- |
+| `TemplateId` | `package` | — |
+| `Name` | `design` | — |
+| `PresetId` | — | — |
+| `CustomMaterials` | — | — |
 
 ## chip_array
 
 ### Values
 
-| PackStudio 内部字段 | DES 键 | DES 条件 | 单位 | pack_script command | name | property_name |
-| --- | --- | --- | --- | --- | --- | --- |
-| `Values["footprint.size"]` | — | — | — | `new_package/new_value` | — | `jedecFootprint` |
-| `Values["package.length"]` | `D` | — | mm | `modify_component` | `overallPackage` | `lengthD` |
-| `Values["package.width"]` | `E` | — | mm | `modify_component` | `overallPackage` | `widthE` |
-| `Values["substrate.thickness"]` | `A2` | — | mm | `modify_component` | `overallPackage` | `substrateThicknessA2` |
-| `Values["trace.top_thickness"]` | `tza1（2 层）/ tz1（4 层）`, `tza1`, `tz1` | `substrate.layers=2-Layer`: `tza1`<br>`substrate.layers=4-Layer`: `tz1` | mm | `new_package/new_value` | — | `topSignalLayerThickness` |
-| `Values["trace.bottom_thickness"]` | `tza2（2 层）/ tz4（4 层）`, `tza2`, `tz4` | `substrate.layers=2-Layer`: `tza2`<br>`substrate.layers=4-Layer`: `tz4` | mm | `new_package/new_value` | — | `bottomSignalLayerThickness` |
-| `Values["die.length"]` | `Ld` | — | mm | `modify_component` | `die` | `dieLengthLd` |
-| `Values["die.width"]` | `Wd` | — | mm | `modify_component` | `die` | `dieWidthWd` |
-| `Values["die.thickness"]` | `td` | — | mm | `modify_component` | `die` | `dieThicknessTd` |
-| `Values["die.attach"]` | `tda` | — | mm | `modify_component` | `die` | `dieAttachThicknessTda` |
-| `Values["die.power"]` | `P` | — | W | `modify_component` | `die` | `packagePower` |
-| `Values["encapsulant.thickness"]` | `te` | — | mm | `modify_component` | `encapsulant` | `thicknessTe` |
-| `Values["solder_mask.thickness"]` | `tsm` | — | mm | `modify_component` | `encapsulant` | `solderMaskThicknessTsm` |
-| `Values["bond_wire.extent_length"]` | `Lw` | — | mm | `modify_component` | `bondWires` | `extentOfBondWirePadsLw` |
-| `Values["bond_wire.extent_width"]` | `Ww` | — | mm | `modify_component` | `bondWires` | `extentOfBondWirePadsWw` |
-| `Values["bond_wire.diameter"]` | `dw` | — | mm | `modify_component` | `bondWires` | `bondWireDiameterDw` |
-| `Values["vias.enabled"]` | — | — | — | — | — | — |
-| `Values["vias.diameter"]` | `dv` | `{"visible_when":{"vias.enabled":true}}` | mm | `modify_component` | `vias` | `viaDiameterDv` |
-| `Values["vias.plating"]` | `tpl` | `{"visible_when":{"vias.enabled":true,"vias.filled":false}}` | mm | `modify_component` | `vias` | `platingThicknessTpl` |
-| `Values["vias.offset_x"]` | `vxoff` | `{"visible_when":{"vias.enabled":true}}` | mm | `modify_component` | `modelingOptions` | `viaOffsetInX` |
-| `Values["vias.offset_y"]` | `vyoff` | `{"visible_when":{"vias.enabled":true}}` | mm | `modify_component` | `modelingOptions` | `viaOffsetInY` |
-| `Values["bga.columns"]` | `MD` | — | — | `modify_component` | `solderBalls` | `numberOfSolderBallsInXMD` |
-| `Values["bga.rows"]` | `ME` | — | — | `modify_component` | `solderBalls` | `numberOfSolderBallsInYME` |
-| `Values["bga.pitch"]` | `e` | — | mm | `modify_component` | `solderBalls` | `ballPitchE` |
-| `Values["bga.diameter"]` | `b` | — | mm | `modify_component` | `solderBalls` | `ballDiameterB` |
-| `Values["bga.height"]` | `A1` | — | mm | `modify_component` | `solderBalls` | `substrateStandoffA1` |
-| `Values["grid.enabled"]` | `localgrid` | — | — | `modify_component` | `modelingOptions` | `localizeGrid` |
-| `Values["grid.density"]` | `radio_lgc` | `{"visible_when":{"grid.enabled":true}}` | — | `modify_component` | `modelingOptions` | `gridDensity` |
-| `Values["substrate.layers"]` | `num_metal_layers` | — | — | `modify_component` | `metalLayers` | `substrateLayer`; branch=`substrateLayer / wizard` |
-| `Values["bond_wire.auto_count"]` | `radio_default_bwNumber` | — | — | `modify_component` | `bondWires` | `numberBondWiresEqualsSolderBalls` |
-| `Values["bond_wire.total"]` | `Nw` | `{"visible_when":{"bond_wire.auto_count":false}}` | — | `modify_component` | `bondWires` | `numberOfBondWiresNw` |
-| `Values["bond_wire.include"]` | `radio_BW_modeling` | — | — | `modify_component` | `modelingOptions` | `bondWireModeling` |
-| `Values["vias.filled"]` | `radio_filled_vias` | `{"visible_when":{"vias.enabled":true}}` | — | `modify_component` | `vias` | `filledVias` |
-| `Values["vias.modeling"]` | `radio_Via_modeling` | `{"visible_when":{"vias.enabled":true}}` | — | `modify_component` | `modelingOptions` | `viaModeling` |
-| `Values["metal.layers"]` | `substrate.layers=2-Layer`: `tza1`, `tza2`, `coveragea1`, `coveragea2`<br>`substrate.layers=4-Layer`: `tz1`, `tz2`, `tz3`, `tz4`, `coverage1`, `coverage2`, `coverage3`, `coverage4`, `z2`, `z3` | — | mm / % | `modify_component_table_row`<br>`modify_component_table_row` | `metalLayers`<br>`metalLayers` | `twoLayerMetalLayersTable`; `{"substrate.layers":"2-Layer"}`<br>`fourLayerMetalLayersTable`; `{"substrate.layers":"4-Layer"}` |
-| `Values["metal.hole_length"]` | `Lml` | — | mm | `modify_component` | `metalLayers` | `lengthLml` |
-| `Values["metal.hole_width"]` | `Wml` | — | mm | `modify_component` | `metalLayers` | `widthWml` |
+| PackStudio 内部字段 | des | pack script 的字段 |
+| --- | --- | --- |
+| `footprint.size` | — | `name=null`; `property_name="jedecFootprint"` |
+| `package.length` | `D`<br>`unit=mm` | `name="overallPackage"`; `property_name="lengthD"` |
+| `package.width` | `E`<br>`unit=mm` | `name="overallPackage"`; `property_name="widthE"` |
+| `substrate.thickness` | `A2`<br>`unit=mm` | `name="overallPackage"`; `property_name="substrateThicknessA2"` |
+| `trace.top_thickness` | `substrate.layers=2-Layer`: `tza1`<br>`substrate.layers=4-Layer`: `tz1`<br>`unit=mm` | `name=null`; `property_name="topSignalLayerThickness"` |
+| `trace.bottom_thickness` | `substrate.layers=2-Layer`: `tza2`<br>`substrate.layers=4-Layer`: `tz4`<br>`unit=mm` | `name=null`; `property_name="bottomSignalLayerThickness"` |
+| `die.length` | `Ld`<br>`unit=mm` | `name="die"`; `property_name="dieLengthLd"` |
+| `die.width` | `Wd`<br>`unit=mm` | `name="die"`; `property_name="dieWidthWd"` |
+| `die.thickness` | `td`<br>`unit=mm` | `name="die"`; `property_name="dieThicknessTd"` |
+| `die.attach` | `tda`<br>`unit=mm` | `name="die"`; `property_name="dieAttachThicknessTda"` |
+| `die.power` | `P`<br>`unit=W` | `name="die"`; `property_name="packagePower"` |
+| `encapsulant.thickness` | `te`<br>`unit=mm` | `name="encapsulant"`; `property_name="thicknessTe"` |
+| `solder_mask.thickness` | `tsm`<br>`unit=mm` | `name="encapsulant"`; `property_name="solderMaskThicknessTsm"` |
+| `bond_wire.extent_length` | `Lw`<br>`unit=mm` | `name="bondWires"`; `property_name="extentOfBondWirePadsLw"` |
+| `bond_wire.extent_width` | `Ww`<br>`unit=mm` | `name="bondWires"`; `property_name="extentOfBondWirePadsWw"` |
+| `bond_wire.diameter` | `dw`<br>`unit=mm` | `name="bondWires"`; `property_name="bondWireDiameterDw"` |
+| `vias.enabled` | — | — |
+| `vias.diameter` | `dv`<br>`unit=mm`<br>`conditions={"visible_when":{"vias.enabled":true}}` | `name="vias"`; `property_name="viaDiameterDv"` |
+| `vias.plating` | `tpl`<br>`unit=mm`<br>`conditions={"visible_when":{"vias.enabled":true,"vias.filled":false}}` | `name="vias"`; `property_name="platingThicknessTpl"` |
+| `vias.offset_x` | `vxoff`<br>`unit=mm`<br>`conditions={"visible_when":{"vias.enabled":true}}` | `name="modelingOptions"`; `property_name="viaOffsetInX"` |
+| `vias.offset_y` | `vyoff`<br>`unit=mm`<br>`conditions={"visible_when":{"vias.enabled":true}}` | `name="modelingOptions"`; `property_name="viaOffsetInY"` |
+| `bga.columns` | `MD` | `name="solderBalls"`; `property_name="numberOfSolderBallsInXMD"` |
+| `bga.rows` | `ME` | `name="solderBalls"`; `property_name="numberOfSolderBallsInYME"` |
+| `bga.pitch` | `e`<br>`unit=mm` | `name="solderBalls"`; `property_name="ballPitchE"` |
+| `bga.diameter` | `b`<br>`unit=mm` | `name="solderBalls"`; `property_name="ballDiameterB"` |
+| `bga.height` | `A1`<br>`unit=mm` | `name="solderBalls"`; `property_name="substrateStandoffA1"` |
+| `grid.enabled` | `localgrid` | `name="modelingOptions"`; `property_name="localizeGrid"` |
+| `grid.density` | `radio_lgc`<br>`conditions={"visible_when":{"grid.enabled":true}}` | `name="modelingOptions"`; `property_name="gridDensity"` |
+| `substrate.layers` | `num_metal_layers` | `name="metalLayers"`; `property_name="substrateLayer"`; `branch="substrateLayer / wizard"` |
+| `bond_wire.auto_count` | `radio_default_bwNumber` | `name="bondWires"`; `property_name="numberBondWiresEqualsSolderBalls"` |
+| `bond_wire.total` | `Nw`<br>`conditions={"visible_when":{"bond_wire.auto_count":false}}` | `name="bondWires"`; `property_name="numberOfBondWiresNw"` |
+| `bond_wire.include` | `radio_BW_modeling` | `name="modelingOptions"`; `property_name="bondWireModeling"` |
+| `vias.filled` | `radio_filled_vias`<br>`conditions={"visible_when":{"vias.enabled":true}}` | `name="vias"`; `property_name="filledVias"` |
+| `vias.modeling` | `radio_Via_modeling`<br>`conditions={"visible_when":{"vias.enabled":true}}` | `name="modelingOptions"`; `property_name="viaModeling"` |
+| `metal.layers` | `substrate.layers=2-Layer`: `tza1`, `tza2`, `coveragea1`, `coveragea2`<br>`substrate.layers=4-Layer`: `tz1`, `tz2`, `tz3`, `tz4`, `coverage1`, `coverage2`, `coverage3`, `coverage4`, `z2`, `z3`<br>`unit=mm / %` | `name="metalLayers"`; `property_name="twoLayerMetalLayersTable"`; `conditions={"substrate.layers":"2-Layer"}`<br>`name="metalLayers"`; `property_name="fourLayerMetalLayersTable"`; `conditions={"substrate.layers":"4-Layer"}` |
+| `metal.hole_length` | `Lml`<br>`unit=mm` | `name="metalLayers"`; `property_name="lengthLml"` |
+| `metal.hole_width` | `Wml`<br>`unit=mm` | `name="metalLayers"`; `property_name="widthWml"` |
 
 ### Assignments
 
-| PackStudio 内部字段 | DES 键 | DES 条件 | 单位 | pack_script command | name | property_name |
-| --- | --- | --- | --- | --- | --- | --- |
-| `Assignments["group-substrate"]` | `k_substr` | — | — | `modify_component` | `overallPackage` | `dielectricMaterial` |
-| `Assignments["group-die"]` | — | — | — | — | — | — |
-| `Assignments["group-die-attach"]` | `k_da` | — | — | `modify_component` | `die` | `dieAttachMaterial` |
-| `Assignments["group-encapsulant"]` | `k_encap` | — | — | `modify_component` | `encapsulant` | `encapsulantMaterial` |
-| `Assignments["group-bond-wires"]` | `k_wire` | — | — | `modify_component` | `bondWires` | `bondWireMaterial` |
-| `Assignments["group-solder-mask"]` | `k_mask` | — | — | `modify_component` | `encapsulant` | `solderMaskMaterial` |
-| `Assignments["group-bga-solder"]` | `k_solder` | — | — | `modify_component` | `solderBalls` | `solderMaterial` |
-| `Assignments["group-metal"]` | `k_metal` | — | — | `modify_component` | `metalLayers` | `materialOfMetal` |
-| `Assignments["group-trace-hole"]` | `k_ml` | — | — | `modify_component` | `metalLayers` | `conductivity` |
+| PackStudio 内部字段 | des | pack script 的字段 |
+| --- | --- | --- |
+| `group-substrate` | `k_substr` | `name="overallPackage"`; `property_name="dielectricMaterial"` |
+| `group-die` | — | — |
+| `group-die-attach` | `k_da` | `name="die"`; `property_name="dieAttachMaterial"` |
+| `group-encapsulant` | `k_encap` | `name="encapsulant"`; `property_name="encapsulantMaterial"` |
+| `group-bond-wires` | `k_wire` | `name="bondWires"`; `property_name="bondWireMaterial"` |
+| `group-solder-mask` | `k_mask` | `name="encapsulant"`; `property_name="solderMaskMaterial"` |
+| `group-bga-solder` | `k_solder` | `name="solderBalls"`; `property_name="solderMaterial"` |
+| `group-metal` | `k_metal` | `name="metalLayers"`; `property_name="materialOfMetal"` |
+| `group-trace-hole` | `k_ml` | `name="metalLayers"`; `property_name="conductivity"` |
 
 ### Bga
 
-| PackStudio 内部字段 | DES 键 | DES 条件 | 单位 | pack_script command | name | property_name |
-| --- | --- | --- | --- | --- | --- | --- |
-| `Bga["representation"]` | — | — | — | — | — | — |
-| `Bga["solder_removal_enabled"]` | `depop_center` | — | — | `modify_component` | `solderBallDepopulation` | `depopulatedCenter` |
-| `Bga["populated_columns"]` | `MDp` | — | — | `modify_component` | `solderBallDepopulation` | `numberFullyPopulatedRowsMDp` |
-| `Bga["populated_rows"]` | `MEp` | — | — | `modify_component` | `solderBallDepopulation` | `numberFullyPopulatedRowsMEp` |
-| `Bga["center_solder_enabled"]` | `central_balls` | — | — | `modify_component` | `centralBalls` | `centralBalls` |
-| `Bga["center_solder_columns"]` | `MDc` | — | — | `modify_component` | `centralBalls` | `numberCentralRowsMDp` |
-| `Bga["center_solder_rows"]` | `MEc` | — | — | `modify_component` | `centralBalls` | `numberCentralRowsMEp` |
-| `Bga["staggered"]` | `staggered_matrix` | — | — | `modify_component` | `solderBalls` | `staggeredMatrix` |
-| `Bga["center_staggered"]` | `central_staggered_matrix` | — | — | `modify_component` | `centralBalls` | `staggeredMatrix` |
-| `Bga["omitted_cells"]` | `balls` | — | — | `modify_component` | `solderBallDepopulation` | `depopulationDialog` |
-| `Bga["removal_rows"]` | — | — | — | — | — | — |
-| `Bga["removal_columns"]` | — | — | — | — | — | — |
-| `Bga["ball_map_enabled"]` | `csvBGA` | — | — | `modify_component` | `solderBalls` | `solderBallMap` |
-| `Bga["ball_map"]` | `csvBGA` | — | — | `modify_component` | `solderBalls` | `solderBallMapDialog` |
-| `Bga["via_configuration"]` | — | — | — | — | — | — |
+| PackStudio 内部字段 | des | pack script 的字段 |
+| --- | --- | --- |
+| `representation` | — | — |
+| `solder_removal_enabled` | `depop_center` | `name="solderBallDepopulation"`; `property_name="depopulatedCenter"` |
+| `populated_columns` | `MDp` | `name="solderBallDepopulation"`; `property_name="numberFullyPopulatedRowsMDp"` |
+| `populated_rows` | `MEp` | `name="solderBallDepopulation"`; `property_name="numberFullyPopulatedRowsMEp"` |
+| `center_solder_enabled` | `central_balls` | `name="centralBalls"`; `property_name="centralBalls"` |
+| `center_solder_columns` | `MDc` | `name="centralBalls"`; `property_name="numberCentralRowsMDp"` |
+| `center_solder_rows` | `MEc` | `name="centralBalls"`; `property_name="numberCentralRowsMEp"` |
+| `staggered` | `staggered_matrix` | `name="solderBalls"`; `property_name="staggeredMatrix"` |
+| `center_staggered` | `central_staggered_matrix` | `name="centralBalls"`; `property_name="staggeredMatrix"` |
+| `omitted_cells` | `balls` | `name="solderBallDepopulation"`; `property_name="depopulationDialog"` |
+| `removal_rows` | — | — |
+| `removal_columns` | — | — |
+| `ball_map_enabled` | `csvBGA` | `name="solderBalls"`; `property_name="solderBallMap"` |
+| `ball_map` | `csvBGA` | `name="solderBalls"`; `property_name="solderBallMapDialog"` |
+| `via_configuration` | — | — |
 
 ### ProjectDocument
 
-| PackStudio 内部字段 | DES 键 | DES 条件 | 单位 | pack_script command | name | property_name |
-| --- | --- | --- | --- | --- | --- | --- |
-| `ProjectDocument.TemplateId` | `package` | — | — | — | — | — |
-| `ProjectDocument.Name` | `design` | — | — | — | — | — |
-| `ProjectDocument.PresetId` | — | — | — | — | — | — |
-| `ProjectDocument.CustomMaterials` | — | — | — | — | — | — |
+| PackStudio 内部字段 | des | pack script 的字段 |
+| --- | --- | --- |
+| `TemplateId` | `package` | — |
+| `Name` | `design` | — |
+| `PresetId` | — | — |
+| `CustomMaterials` | — | — |
 
 ## pbga_fc
 
 ### Values
 
-| PackStudio 内部字段 | DES 键 | DES 条件 | 单位 | pack_script command | name | property_name |
-| --- | --- | --- | --- | --- | --- | --- |
-| `Values["footprint.size"]` | — | — | — | `new_package/new_value` | — | `jedecFootprint` |
-| `Values["substrate.length"]` | `D` | — | mm | `modify_component` | `packageSubstrate` | `substrateLengthD` |
-| `Values["substrate.width"]` | `E` | — | mm | `modify_component` | `packageSubstrate` | `substrateWidthE` |
-| `Values["substrate.thickness"]` | `A2` | — | mm | `modify_component` | `packageSubstrate` | `substrateThicknessA2` |
-| `Values["die.length"]` | `Ld` | — | mm | `modify_component` | `die` | `dieLengthLd` |
-| `Values["die.width"]` | `Wd` | — | mm | `modify_component` | `die` | `dieWidthWd` |
-| `Values["die.thickness"]` | `td` | — | mm | `modify_component` | `die` | `dieThicknessTd` |
-| `Values["die.power"]` | `P` | — | W | `modify_component` | `die` | `packagePower` |
-| `Values["bumps.total"]` | `MNC4` | `{"visible_when":{"bumps.array_type":"non_regular"}}` | — | `modify_component` | `flipChipBumps` | `totalNumberOfBumpsMNC4` |
-| `Values["bumps.diameter"]` | `bC4` | — | mm | `modify_component` | `flipChipBumps` | `bumpDiameterBC4` |
-| `Values["bumps.height"]` | `tC4` | — | mm | `modify_component` | `flipChipBumps` | `bumpHeightTC4` |
-| `Values["bumps.modeling"]` | — | — | — | `modify_component` | `modelingOptions` | `modelFlipChipBumpsAs` |
-| `Values["bga.columns"]` | `MD` | — | — | `modify_component` | `solderBalls` | `numberOfSolderBallsInXMD` |
-| `Values["bga.rows"]` | `ME` | — | — | `modify_component` | `solderBalls` | `numberOfSolderBallsInYME` |
-| `Values["bga.pitch"]` | `e` | — | mm | `modify_component` | `solderBalls` | `ballPitchE` |
-| `Values["bga.diameter"]` | `b` | — | mm | `modify_component` | `solderBalls` | `ballDiameterB` |
-| `Values["bga.height"]` | `A1` | — | mm | `modify_component` | `solderBalls` | `substrateStandoffA1` |
-| `Values["cover.type"]` | `radio_EnCaPl` | — | — | `new_package/new_value` | — | `topCover` |
-| `Values["cover.length"]` | `Le` | `{"visible_when":{"cover.type":"encapsulant"}}` | mm | `modify_component` | `topCover` | `lengthLe`; branch=`encapsulant` |
-| `Values["cover.width"]` | `We` | `{"visible_when":{"cover.type":"encapsulant"}}` | mm | `modify_component` | `topCover` | `widthWe`; branch=`encapsulant` |
-| `Values["cover.thickness"]` | `te` | `{"visible_when":{"cover.type":"encapsulant"}}` | mm | `modify_component` | `topCover` | `thicknessTe`; branch=`encapsulant` |
-| `Values["lid.length"]` | `Lc` | `{"visible_when":{"cover.type":"lid"}}` | mm | `modify_component` | `topCover` | `lidLengthLc`; branch=`lid` |
-| `Values["lid.width"]` | `Wc` | `{"visible_when":{"cover.type":"lid"}}` | mm | `modify_component` | `topCover` | `lidWidthWc`; branch=`lid` |
-| `Values["lid.thickness"]` | `tc` | `{"visible_when":{"cover.type":"lid"}}` | mm | `modify_component` | `topCover` | `lidThicknessTc`; branch=`lid` |
-| `Values["lid.base_thickness"]` | `tcb` | `{"visible_when":{"cover.type":"lid"}}` | mm | `modify_component` | `topCover` | `lidBaseThicknessTcb`; branch=`lid` |
-| `Values["lid.die_attach"]` | `tda` | `{"visible_when":{"cover.type":"lid"}}` | mm | `modify_component` | `topCover` | `dieAttachThicknessTda`; branch=`lid` |
-| `Values["lid.adhesive"]` | `tcadh` | `{"visible_when":{"cover.type":"lid"}}` | mm | `modify_component` | `topCover` | `lidAdhesiveThickness`; branch=`lid` |
-| `Values["plate.length"]` | `Lc` | `{"visible_when":{"cover.type":"plate"}}` | mm | `modify_component` | `topCover` | `plateLengthLc`; branch=`plate` |
-| `Values["plate.width"]` | `Wc` | `{"visible_when":{"cover.type":"plate"}}` | mm | `modify_component` | `topCover` | `plateWidthWc`; branch=`plate` |
-| `Values["plate.thickness"]` | `tc` | `{"visible_when":{"cover.type":"plate"}}` | mm | `modify_component` | `topCover` | `plateThicknessTc`; branch=`plate` |
-| `Values["plate.die_attach"]` | `tda` | `{"visible_when":{"cover.type":"plate"}}` | mm | `modify_component` | `topCover` | `dieAttachThicknessTda`; branch=`plate` |
-| `Values["grid.enabled"]` | `localgrid` | — | — | `modify_component` | `modelingOptions` | `localizeGrid` |
-| `Values["grid.density"]` | `radio_lgc` | `{"visible_when":{"grid.enabled":true}}` | — | `modify_component` | `modelingOptions` | `gridDensity` |
-| `Values["bumps.array_type"]` | `radio_bump_type` | — | — | `modify_component` | `flipChipBumps` | `arrayType` |
-| `Values["bumps.columns"]` | `MDC4` | `{"visible_when":{"bumps.array_type":"regular"}}` | — | `modify_component` | `flipChipBumps` | `numberOfBumpsInXMDC4` |
-| `Values["bumps.rows"]` | `MEC4` | `{"visible_when":{"bumps.array_type":"regular"}}` | — | `modify_component` | `flipChipBumps` | `numberOfBumpsInYMEC4` |
-| `Values["bumps.underfill"]` | `c4_underfill` | — | — | `modify_component` | `flipChipBumps` | `underfill` |
-| `Values["cover.flush"]` | `check_thickness` | `{"visible_when":{"cover.type":"encapsulant"}}` | — | `modify_component` | `topCover` | `enableDieFlush`; branch=`encapsulant` |
-| `Values["stiffener.enabled"]` | `radio_stiffener` | `{"visible_when":{"cover.type":"lid"}}` | — | `modify_component` | `topCover` | `stiffener`; branch=`lid` |
-| `Values["stiffener.length"]` | `Ls` | `{"visible_when":{"cover.type":"lid","stiffener.enabled":true}}` | mm | `modify_component` | `topCover` | `stiffenerLengthLs`; branch=`lid` |
-| `Values["stiffener.width"]` | `Ws` | `{"visible_when":{"cover.type":"lid","stiffener.enabled":true}}` | mm | `modify_component` | `topCover` | `stiffenerWidthWs`; branch=`lid` |
-| `Values["stiffener.cavity_length"]` | `Lsc` | `{"visible_when":{"cover.type":"lid","stiffener.enabled":true}}` | mm | `modify_component` | `topCover` | `stiffenerCavityLengthLsc`; branch=`lid` |
-| `Values["stiffener.cavity_width"]` | `Wsc` | `{"visible_when":{"cover.type":"lid","stiffener.enabled":true}}` | mm | `modify_component` | `topCover` | `stiffenerCavityWidthWsc`; branch=`lid` |
-| `Values["stiffener.adhesive"]` | `tsadh` | `{"visible_when":{"cover.type":"lid","stiffener.enabled":true}}` | mm | `modify_component` | `topCover` | `stiffenerAdhesiveThickness`; branch=`lid` |
-| `Values["slug.enabled"]` | `slug` | `{"enabled_when":{"cover.type":"encapsulant"}}` | — | `modify_component` | `dropInSlug` | `includeSlug` |
-| `Values["slug.length"]` | `L_sl` | `{"visible_when":{"cover.type":"encapsulant","slug.enabled":true}}` | mm | `modify_component` | `dropInSlug` | `slugLengthLsl` |
-| `Values["slug.width"]` | `W_sl` | `{"visible_when":{"cover.type":"encapsulant","slug.enabled":true}}` | mm | `modify_component` | `dropInSlug` | `slugWidthWsl` |
-| `Values["slug.thickness"]` | `t_sl` | `{"visible_when":{"cover.type":"encapsulant","slug.enabled":true}}` | mm | `modify_component` | `dropInSlug` | `slugThicknessTsl` |
-| `Values["slug.diameter"]` | `dsl` | `{"visible_when":{"cover.type":"encapsulant","slug.enabled":true}}` | mm | `modify_component` | `dropInSlug` | `slugDiameterDs` |
-| `Values["slug.foot_length"]` | `L_slf` | `{"visible_when":{"cover.type":"encapsulant","slug.enabled":true}}` | mm | `modify_component` | `dropInSlug` | `slugFootExtendLengthLsf` |
-| `Values["slug.foot_width"]` | `W_slf` | `{"visible_when":{"cover.type":"encapsulant","slug.enabled":true}}` | mm | `modify_component` | `dropInSlug` | `slugFootExtendWidthWsf` |
-| `Values["slug.offset"]` | `gsl` | `{"visible_when":{"cover.type":"encapsulant","slug.enabled":true}}` | mm | `modify_component` | `dropInSlug` | `slugOffsetGs` |
-| `Values["slug.clearance"]` | `g_slf` | `{"visible_when":{"cover.type":"encapsulant","slug.enabled":true}}` | mm | `modify_component` | `dropInSlug` | `slugFootClearanceGsf` |
-| `Values["slug.adhesive_enabled"]` | `slug_adh` | `{"visible_when":{"cover.type":"encapsulant","slug.enabled":true}}` | — | `modify_component` | `dropInSlug` | `adhesivePresentUnderSlugFoot` |
-| `Values["vias.enabled"]` | — | — | — | — | — | — |
-| `Values["vias.columns"]` | `NVx` | `{"visible_when":{"vias.enabled":true}}` | — | `modify_component` | `coreVias` | `numberOfThermalViasInXNVx` |
-| `Values["vias.rows"]` | `NVy` | `{"visible_when":{"vias.enabled":true}}` | — | `modify_component` | `coreVias` | `numberOfThermalViasInYNVy` |
-| `Values["vias.pitch"]` | `ev` | `{"visible_when":{"vias.enabled":true}}` | mm | `modify_component` | `coreVias` | `viaPitchEv` |
-| `Values["vias.diameter"]` | `dv` | `{"visible_when":{"vias.enabled":true}}` | mm | `modify_component` | `coreVias` | `viaDiameterDv` |
-| `Values["vias.plating"]` | `tpl` | `{"visible_when":{"vias.enabled":true}}` | mm | `modify_component` | `coreVias` | `platingThicknessTpl` |
-| `Values["vias.modeling"]` | `radio_Via_modeling` | `{"visible_when":{"vias.enabled":true}}` | — | `modify_component` | `modelingOptions` | `modelCoreViasAs` |
-| `Values["metal.layers"]` | `z{i}`, `tz{i}`, `coverage{i}` | — | mm / % | `modify_component_table_row` | `metalLayers` | `metalLayersTable` |
-| `Values["upper.enabled"]` | — | — | — | — | — | — |
-| `Values["upper.thickness"]` | `A2b1` | `{"visible_when":{"upper.enabled":true}}` | mm | `modify_component` | `upperBuiltUpRegion` | `thicknessA2b1` |
-| `Values["upper.count"]` | `Nb1` | `{"visible_when":{"upper.enabled":true}}` | — | `modify_component` | `upperBuiltUpRegion` | `totalNumberOfMicroViasNb1` |
-| `Values["upper.diameter"]` | `dv_b1` | `{"visible_when":{"upper.enabled":true}}` | mm | `modify_component` | `upperBuiltUpRegion` | `viaDiameterDvb1` |
-| `Values["upper.plating"]` | `tpl_b1` | `{"visible_when":{"upper.enabled":true}}` | mm | `modify_component` | `upperBuiltUpRegion` | `platingThicknessTpl` |
-| `Values["upper.filled"]` | `radio_up_filled_vias` | `{"visible_when":{"upper.enabled":true}}` | — | `modify_component` | `upperBuiltUpRegion` | `filledVias` |
-| `Values["upper.layers"]` | `zb1_{i}`, `tzb1_{i}`, `coverb1_{i}` | `{"visible_when":{"upper.enabled":true}}` | mm / % | `modify_component_table_row` | `upperBuiltUpRegion` | `metalLayersTable` |
-| `Values["lower.enabled"]` | — | — | — | — | — | — |
-| `Values["lower.thickness"]` | `A2b2` | `{"visible_when":{"lower.enabled":true}}` | mm | `modify_component` | `lowerBuiltUpRegion` | `thicknessA2b2` |
-| `Values["lower.count"]` | `Nb2` | `{"visible_when":{"lower.enabled":true}}` | — | `modify_component` | `lowerBuiltUpRegion` | `totalNumberOfMicroViasNb2` |
-| `Values["lower.diameter"]` | `dv_b2` | `{"visible_when":{"lower.enabled":true}}` | mm | `modify_component` | `lowerBuiltUpRegion` | `viaDiameterDvb2` |
-| `Values["lower.plating"]` | `tpl_b2` | `{"visible_when":{"lower.enabled":true}}` | mm | `modify_component` | `lowerBuiltUpRegion` | `platingThicknessTpl` |
-| `Values["lower.filled"]` | `radio_low_filled_vias` | `{"visible_when":{"lower.enabled":true}}` | — | `modify_component` | `lowerBuiltUpRegion` | `filledVias` |
-| `Values["lower.layers"]` | `zb2_{i}`, `tzb2_{i}`, `coverb2_{i}` | `{"visible_when":{"lower.enabled":true}}` | mm / % | `modify_component_table_row` | `lowerBuiltUpRegion` | `metalLayersTable` |
+| PackStudio 内部字段 | des | pack script 的字段 |
+| --- | --- | --- |
+| `footprint.size` | — | `name=null`; `property_name="jedecFootprint"` |
+| `substrate.length` | `D`<br>`unit=mm` | `name="packageSubstrate"`; `property_name="substrateLengthD"` |
+| `substrate.width` | `E`<br>`unit=mm` | `name="packageSubstrate"`; `property_name="substrateWidthE"` |
+| `substrate.thickness` | `A2`<br>`unit=mm` | `name="packageSubstrate"`; `property_name="substrateThicknessA2"` |
+| `die.length` | `Ld`<br>`unit=mm` | `name="die"`; `property_name="dieLengthLd"` |
+| `die.width` | `Wd`<br>`unit=mm` | `name="die"`; `property_name="dieWidthWd"` |
+| `die.thickness` | `td`<br>`unit=mm` | `name="die"`; `property_name="dieThicknessTd"` |
+| `die.power` | `P`<br>`unit=W` | `name="die"`; `property_name="packagePower"` |
+| `bumps.total` | `MNC4`<br>`conditions={"visible_when":{"bumps.array_type":"non_regular"}}` | `name="flipChipBumps"`; `property_name="totalNumberOfBumpsMNC4"` |
+| `bumps.diameter` | `bC4`<br>`unit=mm` | `name="flipChipBumps"`; `property_name="bumpDiameterBC4"` |
+| `bumps.height` | `tC4`<br>`unit=mm` | `name="flipChipBumps"`; `property_name="bumpHeightTC4"` |
+| `bumps.modeling` | — | `name="modelingOptions"`; `property_name="modelFlipChipBumpsAs"` |
+| `bga.columns` | `MD` | `name="solderBalls"`; `property_name="numberOfSolderBallsInXMD"` |
+| `bga.rows` | `ME` | `name="solderBalls"`; `property_name="numberOfSolderBallsInYME"` |
+| `bga.pitch` | `e`<br>`unit=mm` | `name="solderBalls"`; `property_name="ballPitchE"` |
+| `bga.diameter` | `b`<br>`unit=mm` | `name="solderBalls"`; `property_name="ballDiameterB"` |
+| `bga.height` | `A1`<br>`unit=mm` | `name="solderBalls"`; `property_name="substrateStandoffA1"` |
+| `cover.type` | `radio_EnCaPl` | `name=null`; `property_name="topCover"` |
+| `cover.length` | `Le`<br>`unit=mm`<br>`conditions={"visible_when":{"cover.type":"encapsulant"}}` | `name="topCover"`; `property_name="lengthLe"`; `branch="encapsulant"` |
+| `cover.width` | `We`<br>`unit=mm`<br>`conditions={"visible_when":{"cover.type":"encapsulant"}}` | `name="topCover"`; `property_name="widthWe"`; `branch="encapsulant"` |
+| `cover.thickness` | `te`<br>`unit=mm`<br>`conditions={"visible_when":{"cover.type":"encapsulant"}}` | `name="topCover"`; `property_name="thicknessTe"`; `branch="encapsulant"` |
+| `lid.length` | `Lc`<br>`unit=mm`<br>`conditions={"visible_when":{"cover.type":"lid"}}` | `name="topCover"`; `property_name="lidLengthLc"`; `branch="lid"` |
+| `lid.width` | `Wc`<br>`unit=mm`<br>`conditions={"visible_when":{"cover.type":"lid"}}` | `name="topCover"`; `property_name="lidWidthWc"`; `branch="lid"` |
+| `lid.thickness` | `tc`<br>`unit=mm`<br>`conditions={"visible_when":{"cover.type":"lid"}}` | `name="topCover"`; `property_name="lidThicknessTc"`; `branch="lid"` |
+| `lid.base_thickness` | `tcb`<br>`unit=mm`<br>`conditions={"visible_when":{"cover.type":"lid"}}` | `name="topCover"`; `property_name="lidBaseThicknessTcb"`; `branch="lid"` |
+| `lid.die_attach` | `tda`<br>`unit=mm`<br>`conditions={"visible_when":{"cover.type":"lid"}}` | `name="topCover"`; `property_name="dieAttachThicknessTda"`; `branch="lid"` |
+| `lid.adhesive` | `tcadh`<br>`unit=mm`<br>`conditions={"visible_when":{"cover.type":"lid"}}` | `name="topCover"`; `property_name="lidAdhesiveThickness"`; `branch="lid"` |
+| `plate.length` | `Lc`<br>`unit=mm`<br>`conditions={"visible_when":{"cover.type":"plate"}}` | `name="topCover"`; `property_name="plateLengthLc"`; `branch="plate"` |
+| `plate.width` | `Wc`<br>`unit=mm`<br>`conditions={"visible_when":{"cover.type":"plate"}}` | `name="topCover"`; `property_name="plateWidthWc"`; `branch="plate"` |
+| `plate.thickness` | `tc`<br>`unit=mm`<br>`conditions={"visible_when":{"cover.type":"plate"}}` | `name="topCover"`; `property_name="plateThicknessTc"`; `branch="plate"` |
+| `plate.die_attach` | `tda`<br>`unit=mm`<br>`conditions={"visible_when":{"cover.type":"plate"}}` | `name="topCover"`; `property_name="dieAttachThicknessTda"`; `branch="plate"` |
+| `grid.enabled` | `localgrid` | `name="modelingOptions"`; `property_name="localizeGrid"` |
+| `grid.density` | `radio_lgc`<br>`conditions={"visible_when":{"grid.enabled":true}}` | `name="modelingOptions"`; `property_name="gridDensity"` |
+| `bumps.array_type` | `radio_bump_type` | `name="flipChipBumps"`; `property_name="arrayType"` |
+| `bumps.columns` | `MDC4`<br>`conditions={"visible_when":{"bumps.array_type":"regular"}}` | `name="flipChipBumps"`; `property_name="numberOfBumpsInXMDC4"` |
+| `bumps.rows` | `MEC4`<br>`conditions={"visible_when":{"bumps.array_type":"regular"}}` | `name="flipChipBumps"`; `property_name="numberOfBumpsInYMEC4"` |
+| `bumps.underfill` | `c4_underfill` | `name="flipChipBumps"`; `property_name="underfill"` |
+| `cover.flush` | `check_thickness`<br>`conditions={"visible_when":{"cover.type":"encapsulant"}}` | `name="topCover"`; `property_name="enableDieFlush"`; `branch="encapsulant"` |
+| `stiffener.enabled` | `radio_stiffener`<br>`conditions={"visible_when":{"cover.type":"lid"}}` | `name="topCover"`; `property_name="stiffener"`; `branch="lid"` |
+| `stiffener.length` | `Ls`<br>`unit=mm`<br>`conditions={"visible_when":{"cover.type":"lid","stiffener.enabled":true}}` | `name="topCover"`; `property_name="stiffenerLengthLs"`; `branch="lid"` |
+| `stiffener.width` | `Ws`<br>`unit=mm`<br>`conditions={"visible_when":{"cover.type":"lid","stiffener.enabled":true}}` | `name="topCover"`; `property_name="stiffenerWidthWs"`; `branch="lid"` |
+| `stiffener.cavity_length` | `Lsc`<br>`unit=mm`<br>`conditions={"visible_when":{"cover.type":"lid","stiffener.enabled":true}}` | `name="topCover"`; `property_name="stiffenerCavityLengthLsc"`; `branch="lid"` |
+| `stiffener.cavity_width` | `Wsc`<br>`unit=mm`<br>`conditions={"visible_when":{"cover.type":"lid","stiffener.enabled":true}}` | `name="topCover"`; `property_name="stiffenerCavityWidthWsc"`; `branch="lid"` |
+| `stiffener.adhesive` | `tsadh`<br>`unit=mm`<br>`conditions={"visible_when":{"cover.type":"lid","stiffener.enabled":true}}` | `name="topCover"`; `property_name="stiffenerAdhesiveThickness"`; `branch="lid"` |
+| `slug.enabled` | `slug`<br>`conditions={"enabled_when":{"cover.type":"encapsulant"}}` | `name="dropInSlug"`; `property_name="includeSlug"` |
+| `slug.length` | `L_sl`<br>`unit=mm`<br>`conditions={"visible_when":{"cover.type":"encapsulant","slug.enabled":true}}` | `name="dropInSlug"`; `property_name="slugLengthLsl"` |
+| `slug.width` | `W_sl`<br>`unit=mm`<br>`conditions={"visible_when":{"cover.type":"encapsulant","slug.enabled":true}}` | `name="dropInSlug"`; `property_name="slugWidthWsl"` |
+| `slug.thickness` | `t_sl`<br>`unit=mm`<br>`conditions={"visible_when":{"cover.type":"encapsulant","slug.enabled":true}}` | `name="dropInSlug"`; `property_name="slugThicknessTsl"` |
+| `slug.diameter` | `dsl`<br>`unit=mm`<br>`conditions={"visible_when":{"cover.type":"encapsulant","slug.enabled":true}}` | `name="dropInSlug"`; `property_name="slugDiameterDs"` |
+| `slug.foot_length` | `L_slf`<br>`unit=mm`<br>`conditions={"visible_when":{"cover.type":"encapsulant","slug.enabled":true}}` | `name="dropInSlug"`; `property_name="slugFootExtendLengthLsf"` |
+| `slug.foot_width` | `W_slf`<br>`unit=mm`<br>`conditions={"visible_when":{"cover.type":"encapsulant","slug.enabled":true}}` | `name="dropInSlug"`; `property_name="slugFootExtendWidthWsf"` |
+| `slug.offset` | `gsl`<br>`unit=mm`<br>`conditions={"visible_when":{"cover.type":"encapsulant","slug.enabled":true}}` | `name="dropInSlug"`; `property_name="slugOffsetGs"` |
+| `slug.clearance` | `g_slf`<br>`unit=mm`<br>`conditions={"visible_when":{"cover.type":"encapsulant","slug.enabled":true}}` | `name="dropInSlug"`; `property_name="slugFootClearanceGsf"` |
+| `slug.adhesive_enabled` | `slug_adh`<br>`conditions={"visible_when":{"cover.type":"encapsulant","slug.enabled":true}}` | `name="dropInSlug"`; `property_name="adhesivePresentUnderSlugFoot"` |
+| `vias.enabled` | — | — |
+| `vias.columns` | `NVx`<br>`conditions={"visible_when":{"vias.enabled":true}}` | `name="coreVias"`; `property_name="numberOfThermalViasInXNVx"` |
+| `vias.rows` | `NVy`<br>`conditions={"visible_when":{"vias.enabled":true}}` | `name="coreVias"`; `property_name="numberOfThermalViasInYNVy"` |
+| `vias.pitch` | `ev`<br>`unit=mm`<br>`conditions={"visible_when":{"vias.enabled":true}}` | `name="coreVias"`; `property_name="viaPitchEv"` |
+| `vias.diameter` | `dv`<br>`unit=mm`<br>`conditions={"visible_when":{"vias.enabled":true}}` | `name="coreVias"`; `property_name="viaDiameterDv"` |
+| `vias.plating` | `tpl`<br>`unit=mm`<br>`conditions={"visible_when":{"vias.enabled":true}}` | `name="coreVias"`; `property_name="platingThicknessTpl"` |
+| `vias.modeling` | `radio_Via_modeling`<br>`conditions={"visible_when":{"vias.enabled":true}}` | `name="modelingOptions"`; `property_name="modelCoreViasAs"` |
+| `metal.layers` | `z{i}`, `tz{i}`, `coverage{i}`<br>`unit=mm / %` | `name="metalLayers"`; `property_name="metalLayersTable"` |
+| `upper.enabled` | — | — |
+| `upper.thickness` | `A2b1`<br>`unit=mm`<br>`conditions={"visible_when":{"upper.enabled":true}}` | `name="upperBuiltUpRegion"`; `property_name="thicknessA2b1"` |
+| `upper.count` | `Nb1`<br>`conditions={"visible_when":{"upper.enabled":true}}` | `name="upperBuiltUpRegion"`; `property_name="totalNumberOfMicroViasNb1"` |
+| `upper.diameter` | `dv_b1`<br>`unit=mm`<br>`conditions={"visible_when":{"upper.enabled":true}}` | `name="upperBuiltUpRegion"`; `property_name="viaDiameterDvb1"` |
+| `upper.plating` | `tpl_b1`<br>`unit=mm`<br>`conditions={"visible_when":{"upper.enabled":true}}` | `name="upperBuiltUpRegion"`; `property_name="platingThicknessTpl"` |
+| `upper.filled` | `radio_up_filled_vias`<br>`conditions={"visible_when":{"upper.enabled":true}}` | `name="upperBuiltUpRegion"`; `property_name="filledVias"` |
+| `upper.layers` | `zb1_{i}`, `tzb1_{i}`, `coverb1_{i}`<br>`unit=mm / %`<br>`conditions={"visible_when":{"upper.enabled":true}}` | `name="upperBuiltUpRegion"`; `property_name="metalLayersTable"` |
+| `lower.enabled` | — | — |
+| `lower.thickness` | `A2b2`<br>`unit=mm`<br>`conditions={"visible_when":{"lower.enabled":true}}` | `name="lowerBuiltUpRegion"`; `property_name="thicknessA2b2"` |
+| `lower.count` | `Nb2`<br>`conditions={"visible_when":{"lower.enabled":true}}` | `name="lowerBuiltUpRegion"`; `property_name="totalNumberOfMicroViasNb2"` |
+| `lower.diameter` | `dv_b2`<br>`unit=mm`<br>`conditions={"visible_when":{"lower.enabled":true}}` | `name="lowerBuiltUpRegion"`; `property_name="viaDiameterDvb2"` |
+| `lower.plating` | `tpl_b2`<br>`unit=mm`<br>`conditions={"visible_when":{"lower.enabled":true}}` | `name="lowerBuiltUpRegion"`; `property_name="platingThicknessTpl"` |
+| `lower.filled` | `radio_low_filled_vias`<br>`conditions={"visible_when":{"lower.enabled":true}}` | `name="lowerBuiltUpRegion"`; `property_name="filledVias"` |
+| `lower.layers` | `zb2_{i}`, `tzb2_{i}`, `coverb2_{i}`<br>`unit=mm / %`<br>`conditions={"visible_when":{"lower.enabled":true}}` | `name="lowerBuiltUpRegion"`; `property_name="metalLayersTable"` |
 
 ### Assignments
 
-| PackStudio 内部字段 | DES 键 | DES 条件 | 单位 | pack_script command | name | property_name |
-| --- | --- | --- | --- | --- | --- | --- |
-| `Assignments["group-substrate"]` | `k_substr` | — | — | `modify_component` | `packageSubstrate` | `dielectricMaterial` |
-| `Assignments["group-die"]` | — | — | — | — | — | — |
-| `Assignments["group-encapsulant"]` | `k_encap` | `{"cover.type":"encapsulant"}` | — | `modify_component` | `topCover` | `encapsulantMaterial`; branch=`encapsulant` |
-| `Assignments["group-lid"]` | `k_cap` | `{"cover.type":"lid"}` | — | `modify_component` | `topCover` | `lidMaterial`; branch=`lid` |
-| `Assignments["group-lid-adhesive"]` | `k_cadh` | `{"cover.type":"lid"}` | — | `modify_component` | `topCover` | `lidAdhesiveMaterial`; branch=`lid` |
-| `Assignments["group-lid-die-attach"]` | `kda` | `{"cover.type":"lid"}` | — | `modify_component` | `topCover` | `dieAttachMaterial`; branch=`lid` |
-| `Assignments["group-plate"]` | `k_cap` | `{"cover.type":"plate"}` | — | `modify_component` | `topCover` | `plateMaterial`; branch=`plate` |
-| `Assignments["group-plate-die-attach"]` | `kda` | `{"cover.type":"plate"}` | — | `modify_component` | `topCover` | `dieAttachMaterial`; branch=`plate` |
-| `Assignments["group-bump-solder"]` | `k_C4` | — | — | `modify_component` | `flipChipBumps` | `c4SolderMaterial` |
-| `Assignments["group-underfill"]` | `k_underfill` | `{"bumps.underfill":true}` | — | `modify_component` | `flipChipBumps` | `underfillMaterial` |
-| `Assignments["group-bga-solder"]` | `k_solder` | — | — | `modify_component` | `solderBalls` | `solderMaterial` |
-| `Assignments["group-stiffener"]` | `k_stiff` | `{"cover.type":"lid","stiffener.enabled":true}` | — | `modify_component` | `topCover` | `stiffenerMaterial`; branch=`lid` |
-| `Assignments["group-stiffener-adhesive"]` | `k_sadh` | `{"cover.type":"lid","stiffener.enabled":true}` | — | `modify_component` | `topCover` | `stiffenerAdhesiveMaterial`; branch=`lid` |
-| `Assignments["group-slug"]` | `k_sl` | `{"cover.type":"encapsulant","slug.enabled":true}` | — | `modify_component` | `dropInSlug` | `slugMaterial` |
-| `Assignments["group-slug-adhesive"]` | `k_slad` | `{"cover.type":"encapsulant","slug.enabled":true,"slug.adhesive_enabled":true}` | — | `modify_component` | `dropInSlug` | `slugAdhesiveMaterial` |
-| `Assignments["group-metal"]` | `k_metal` | — | — | `modify_component` | `metalLayers` | `materialOfMetal` |
-| `Assignments["group-upper"]` | `kb1` | `{"upper.enabled":true}` | — | `modify_component` | `upperBuiltUpRegion` | `dielectricMaterial` |
-| `Assignments["group-lower"]` | `kb2` | `{"lower.enabled":true}` | — | `modify_component` | `lowerBuiltUpRegion` | `dielectricMaterial` |
+| PackStudio 内部字段 | des | pack script 的字段 |
+| --- | --- | --- |
+| `group-substrate` | `k_substr` | `name="packageSubstrate"`; `property_name="dielectricMaterial"` |
+| `group-die` | — | — |
+| `group-encapsulant` | `k_encap`<br>`conditions={"cover.type":"encapsulant"}` | `name="topCover"`; `property_name="encapsulantMaterial"`; `branch="encapsulant"` |
+| `group-lid` | `k_cap`<br>`conditions={"cover.type":"lid"}` | `name="topCover"`; `property_name="lidMaterial"`; `branch="lid"` |
+| `group-lid-adhesive` | `k_cadh`<br>`conditions={"cover.type":"lid"}` | `name="topCover"`; `property_name="lidAdhesiveMaterial"`; `branch="lid"` |
+| `group-lid-die-attach` | `kda`<br>`conditions={"cover.type":"lid"}` | `name="topCover"`; `property_name="dieAttachMaterial"`; `branch="lid"` |
+| `group-plate` | `k_cap`<br>`conditions={"cover.type":"plate"}` | `name="topCover"`; `property_name="plateMaterial"`; `branch="plate"` |
+| `group-plate-die-attach` | `kda`<br>`conditions={"cover.type":"plate"}` | `name="topCover"`; `property_name="dieAttachMaterial"`; `branch="plate"` |
+| `group-bump-solder` | `k_C4` | `name="flipChipBumps"`; `property_name="c4SolderMaterial"` |
+| `group-underfill` | `k_underfill`<br>`conditions={"bumps.underfill":true}` | `name="flipChipBumps"`; `property_name="underfillMaterial"` |
+| `group-bga-solder` | `k_solder` | `name="solderBalls"`; `property_name="solderMaterial"` |
+| `group-stiffener` | `k_stiff`<br>`conditions={"cover.type":"lid","stiffener.enabled":true}` | `name="topCover"`; `property_name="stiffenerMaterial"`; `branch="lid"` |
+| `group-stiffener-adhesive` | `k_sadh`<br>`conditions={"cover.type":"lid","stiffener.enabled":true}` | `name="topCover"`; `property_name="stiffenerAdhesiveMaterial"`; `branch="lid"` |
+| `group-slug` | `k_sl`<br>`conditions={"cover.type":"encapsulant","slug.enabled":true}` | `name="dropInSlug"`; `property_name="slugMaterial"` |
+| `group-slug-adhesive` | `k_slad`<br>`conditions={"cover.type":"encapsulant","slug.enabled":true,"slug.adhesive_enabled":true}` | `name="dropInSlug"`; `property_name="slugAdhesiveMaterial"` |
+| `group-metal` | `k_metal` | `name="metalLayers"`; `property_name="materialOfMetal"` |
+| `group-upper` | `kb1`<br>`conditions={"upper.enabled":true}` | `name="upperBuiltUpRegion"`; `property_name="dielectricMaterial"` |
+| `group-lower` | `kb2`<br>`conditions={"lower.enabled":true}` | `name="lowerBuiltUpRegion"`; `property_name="dielectricMaterial"` |
 
 ### Bga
 
-| PackStudio 内部字段 | DES 键 | DES 条件 | 单位 | pack_script command | name | property_name |
-| --- | --- | --- | --- | --- | --- | --- |
-| `Bga["representation"]` | `radio_BGA_modeling` | — | — | `modify_component` | `modelingOptions` | `modelSolderBallArrayAs` |
-| `Bga["solder_removal_enabled"]` | `depop_center` | — | — | `modify_component` | `solderBallDepopulation` | `depopulatedCenter` |
-| `Bga["populated_columns"]` | `MDp` | — | — | `modify_component` | `solderBallDepopulation` | `numberFullyPopulatedRowsMDp` |
-| `Bga["populated_rows"]` | `MEp` | — | — | `modify_component` | `solderBallDepopulation` | `numberFullyPopulatedRowsMEp` |
-| `Bga["center_solder_enabled"]` | `central_balls` | — | — | `modify_component` | `centralBalls` | `centralBalls` |
-| `Bga["center_solder_columns"]` | `MDc` | — | — | `modify_component` | `centralBalls` | `numberCentralRowsMDp` |
-| `Bga["center_solder_rows"]` | `MEc` | — | — | `modify_component` | `centralBalls` | `numberCentralRowsMEp` |
-| `Bga["staggered"]` | `staggered_matrix` | — | — | `modify_component` | `solderBalls` | `staggeredMatrix` |
-| `Bga["center_staggered"]` | `central_staggered_matrix` | — | — | `modify_component` | `centralBalls` | `staggeredMatrix` |
-| `Bga["omitted_cells"]` | `balls` | — | — | `modify_component` | `solderBallDepopulation` | `depopulationDialog` |
-| `Bga["removal_rows"]` | — | — | — | — | — | — |
-| `Bga["removal_columns"]` | — | — | — | — | — | — |
-| `Bga["ball_map_enabled"]` | `csvBGA` | — | — | `modify_component` | `solderBalls` | `solderBallMap` |
-| `Bga["ball_map"]` | `csvBGA` | — | — | `modify_component` | `solderBalls` | `solderBallMapDialog` |
-| `Bga["via_configuration"]` | — | — | — | — | — | — |
+| PackStudio 内部字段 | des | pack script 的字段 |
+| --- | --- | --- |
+| `representation` | `radio_BGA_modeling` | `name="modelingOptions"`; `property_name="modelSolderBallArrayAs"` |
+| `solder_removal_enabled` | `depop_center` | `name="solderBallDepopulation"`; `property_name="depopulatedCenter"` |
+| `populated_columns` | `MDp` | `name="solderBallDepopulation"`; `property_name="numberFullyPopulatedRowsMDp"` |
+| `populated_rows` | `MEp` | `name="solderBallDepopulation"`; `property_name="numberFullyPopulatedRowsMEp"` |
+| `center_solder_enabled` | `central_balls` | `name="centralBalls"`; `property_name="centralBalls"` |
+| `center_solder_columns` | `MDc` | `name="centralBalls"`; `property_name="numberCentralRowsMDp"` |
+| `center_solder_rows` | `MEc` | `name="centralBalls"`; `property_name="numberCentralRowsMEp"` |
+| `staggered` | `staggered_matrix` | `name="solderBalls"`; `property_name="staggeredMatrix"` |
+| `center_staggered` | `central_staggered_matrix` | `name="centralBalls"`; `property_name="staggeredMatrix"` |
+| `omitted_cells` | `balls` | `name="solderBallDepopulation"`; `property_name="depopulationDialog"` |
+| `removal_rows` | — | — |
+| `removal_columns` | — | — |
+| `ball_map_enabled` | `csvBGA` | `name="solderBalls"`; `property_name="solderBallMap"` |
+| `ball_map` | `csvBGA` | `name="solderBalls"`; `property_name="solderBallMapDialog"` |
+| `via_configuration` | — | — |
 
 ### ProjectDocument
 
-| PackStudio 内部字段 | DES 键 | DES 条件 | 单位 | pack_script command | name | property_name |
-| --- | --- | --- | --- | --- | --- | --- |
-| `ProjectDocument.TemplateId` | `package` | — | — | — | — | — |
-| `ProjectDocument.Name` | `design` | — | — | — | — | — |
-| `ProjectDocument.PresetId` | — | — | — | — | — | — |
-| `ProjectDocument.CustomMaterials` | — | — | — | — | — | — |
+| PackStudio 内部字段 | des | pack script 的字段 |
+| --- | --- | --- |
+| `TemplateId` | `package` | — |
+| `Name` | `design` | — |
+| `PresetId` | — | — |
+| `CustomMaterials` | — | — |
 
 ## pbga_wb
 
 ### Values
 
-| PackStudio 内部字段 | DES 键 | DES 条件 | 单位 | pack_script command | name | property_name |
-| --- | --- | --- | --- | --- | --- | --- |
-| `Values["footprint.size"]` | — | — | — | `new_package/new_value` | — | `jedecFootprint` |
-| `Values["package.length"]` | `D` | — | mm | `modify_component` | `packageSubstrate` | `substrateLengthD` |
-| `Values["package.width"]` | `E` | — | mm | `modify_component` | `packageSubstrate` | `substrateWidthE` |
-| `Values["substrate.thickness"]` | `A2` | — | mm | `modify_component` | `packageSubstrate` | `substrateThicknessA2` |
-| `Values["trace.top_thickness"]` | `tz1` | — | mm | `new_package/new_value` | — | `topSignalLayerThickness` |
-| `Values["trace.bottom_thickness"]` | `tz6` | — | mm | `new_package/new_value` | — | `bottomSignalLayerThickness` |
-| `Values["encapsulant.length"]` | `Le` | — | mm | `modify_component` | `encapsulant` | `lengthLe` |
-| `Values["encapsulant.width"]` | `We` | — | mm | `modify_component` | `encapsulant` | `widthWe` |
-| `Values["encapsulant.thickness"]` | `te` | — | mm | `modify_component` | `encapsulant` | `thicknessTe` |
-| `Values["flag.length"]` | `Lf` | — | mm | `modify_component` | `dieFlagAndSolderMask` | `dieFlagLf` |
-| `Values["flag.width"]` | `Wf` | — | mm | `modify_component` | `dieFlagAndSolderMask` | `dieFlagWf` |
-| `Values["solder_mask.thickness"]` | `tsm` | — | mm | `modify_component` | `dieFlagAndSolderMask` | `solderMaskThickness` |
-| `Values["die.length"]` | `Ld` | — | mm | `modify_component` | `die` | `dieLengthLd` |
-| `Values["die.width"]` | `Wd` | — | mm | `modify_component` | `die` | `dieWidthWd` |
-| `Values["die.thickness"]` | `td` | — | mm | `modify_component` | `die` | `dieThicknessTd` |
-| `Values["die.attach"]` | `tda` | — | mm | `modify_component` | `die` | `dieAttachThicknessTda` |
-| `Values["die.power"]` | `P` | — | W | `modify_component` | `die` | `packagePower` |
-| `Values["bond_wire.total"]` | `Nw` | — | — | `modify_component` | `die` | `numberOfBondWiresNw` |
-| `Values["bond_wire.extent_length"]` | `Lw` | — | mm | `modify_component` | `die` | `bondWireExtentLengthLw` |
-| `Values["bond_wire.extent_width"]` | `Ww` | — | mm | `modify_component` | `die` | `bondWireExtentWidthWw` |
-| `Values["bond_wire.diameter"]` | `dw` | — | mm | `modify_component` | `die` | `bondWireDiameterDw` |
-| `Values["vias.enabled"]` | — | — | — | — | — | — |
-| `Values["vias.columns"]` | `NVx` | `{"visible_when":{"vias.enabled":true}}` | — | `modify_component` | `thermalVias` | `numberOfThermalViasInXNVx` |
-| `Values["vias.rows"]` | `NVy` | `{"visible_when":{"vias.enabled":true}}` | — | `modify_component` | `thermalVias` | `numberOfThermalViasInYNVy` |
-| `Values["vias.pitch"]` | `ev` | `{"visible_when":{"vias.enabled":true}}` | mm | `modify_component` | `thermalVias` | `viaPitchEv` |
-| `Values["vias.diameter"]` | `dv` | `{"visible_when":{"vias.enabled":true}}` | mm | `modify_component` | `thermalVias` | `viaDiameterDv` |
-| `Values["vias.plating"]` | `tpl` | `{"visible_when":{"vias.enabled":true}}` | mm | `modify_component` | `thermalVias` | `platingThicknessTpl` |
-| `Values["bga.columns"]` | `MD` | — | — | `modify_component` | `solderBalls` | `numberOfSolderBallsInXMD` |
-| `Values["bga.rows"]` | `ME` | — | — | `modify_component` | `solderBalls` | `numberOfSolderBallsInYME` |
-| `Values["bga.pitch"]` | `e` | — | mm | `modify_component` | `solderBalls` | `ballPitchE` |
-| `Values["bga.diameter"]` | `b` | — | mm | `modify_component` | `solderBalls` | `ballDiameterB` |
-| `Values["bga.height"]` | `A1` | — | mm | `modify_component` | `solderBalls` | `substrateStandoffA1` |
-| `Values["spreader.enabled"]` | `backside_spreader` | — | — | `modify_component` | `backsideSpreader` | `includeBacksideSpreader` |
-| `Values["spreader.length"]` | `L_spr` | `{"visible_when":{"spreader.enabled":true}}` | mm | `modify_component` | `backsideSpreader` | `spreaderLengthLspr` |
-| `Values["spreader.width"]` | `W_spr` | `{"visible_when":{"spreader.enabled":true}}` | mm | `modify_component` | `backsideSpreader` | `spreaderWidthWspr` |
-| `Values["spreader.thickness"]` | `t_spr` | `{"visible_when":{"spreader.enabled":true}}` | mm | `modify_component` | `backsideSpreader` | `spreaderThicknessTspr` |
-| `Values["spreader.hole_length"]` | `Lbt` | `{"visible_when":{"spreader.enabled":true}}` | mm | `modify_component` | `backsideSpreader` | `bottomTraceHoleLengthLbt` |
-| `Values["spreader.hole_width"]` | `Wbt` | `{"visible_when":{"spreader.enabled":true}}` | mm | `modify_component` | `backsideSpreader` | `bottomTraceHoleWidthWbt` |
-| `Values["grid.enabled"]` | `localgrid` | — | — | `modify_component` | `modelingOptions` | `localizeGrid` |
-| `Values["grid.density"]` | `radio_lgc` | `{"visible_when":{"grid.enabled":true}}` | — | `modify_component` | `modelingOptions` | `gridDensity` |
-| `Values["bond_wire.modeling"]` | `radio_Bond_Wires_modeling` | — | — | `modify_component` | `modelingOptions` | `modelBondWiresAs` |
-| `Values["substrate.layers"]` | — | — | — | `new_package/new_value` | — | `substrateLayer` |
-| `Values["flag.coverage"]` | `cf` | — | % | `modify_component` | `dieFlagAndSolderMask` | `coveragePercentageCf` |
-| `Values["metal.layers"]` | `tz1`, `tz2`, `tz3`, `tz6`, `coverage1`, `coverage2`, `coverage3`, `coverage6`, `z2`, `z3`, `via_con1`, `via_con2`, `via_con3`, `via_con6` | — | mm / % | `modify_component_table_row` | `metalLayers` | `metalLayersTable` |
-| `Values["vias.modeling"]` | `radio_Via_modeling` | `{"visible_when":{"vias.enabled":true}}` | — | `modify_component` | `modelingOptions` | `modelThermalViasAs` |
-| `Values["slug.enabled"]` | `slug` | — | — | `modify_component` | `dropInSlug` | `includeSlug` |
-| `Values["slug.length"]` | `L_sl` | `{"visible_when":{"slug.enabled":true}}` | mm | `modify_component` | `dropInSlug` | `slugLengthLsl` |
-| `Values["slug.width"]` | `W_sl` | `{"visible_when":{"slug.enabled":true}}` | mm | `modify_component` | `dropInSlug` | `slugWidthWsl` |
-| `Values["slug.thickness"]` | `t_sl` | `{"visible_when":{"slug.enabled":true}}` | mm | `modify_component` | `dropInSlug` | `slugThicknessTsl` |
-| `Values["slug.diameter"]` | `dsl` | `{"visible_when":{"slug.enabled":true}}` | mm | `modify_component` | `dropInSlug` | `slugDiameterDs` |
-| `Values["slug.foot_length"]` | `L_slf` | `{"visible_when":{"slug.enabled":true}}` | mm | `modify_component` | `dropInSlug` | `slugFootExtendLengthLsf` |
-| `Values["slug.foot_width"]` | `W_slf` | `{"visible_when":{"slug.enabled":true}}` | mm | `modify_component` | `dropInSlug` | `slugFootExtendWidthWsf` |
-| `Values["slug.offset"]` | `gsl` | `{"visible_when":{"slug.enabled":true}}` | mm | `modify_component` | `dropInSlug` | `slugOffsetGs` |
-| `Values["slug.clearance"]` | `g_slf` | `{"visible_when":{"slug.enabled":true}}` | mm | `modify_component` | `dropInSlug` | `slugFootClearanceGsf` |
-| `Values["slug.adhesive_enabled"]` | `slug_adh` | `{"visible_when":{"slug.enabled":true}}` | — | `modify_component` | `dropInSlug` | `adhesivePresentUnderSlugFoot` |
+| PackStudio 内部字段 | des | pack script 的字段 |
+| --- | --- | --- |
+| `footprint.size` | — | `name=null`; `property_name="jedecFootprint"` |
+| `package.length` | `D`<br>`unit=mm` | `name="packageSubstrate"`; `property_name="substrateLengthD"` |
+| `package.width` | `E`<br>`unit=mm` | `name="packageSubstrate"`; `property_name="substrateWidthE"` |
+| `substrate.thickness` | `A2`<br>`unit=mm` | `name="packageSubstrate"`; `property_name="substrateThicknessA2"` |
+| `trace.top_thickness` | `tz1`<br>`unit=mm` | `name=null`; `property_name="topSignalLayerThickness"` |
+| `trace.bottom_thickness` | `tz6`<br>`unit=mm` | `name=null`; `property_name="bottomSignalLayerThickness"` |
+| `encapsulant.length` | `Le`<br>`unit=mm` | `name="encapsulant"`; `property_name="lengthLe"` |
+| `encapsulant.width` | `We`<br>`unit=mm` | `name="encapsulant"`; `property_name="widthWe"` |
+| `encapsulant.thickness` | `te`<br>`unit=mm` | `name="encapsulant"`; `property_name="thicknessTe"` |
+| `flag.length` | `Lf`<br>`unit=mm` | `name="dieFlagAndSolderMask"`; `property_name="dieFlagLf"` |
+| `flag.width` | `Wf`<br>`unit=mm` | `name="dieFlagAndSolderMask"`; `property_name="dieFlagWf"` |
+| `solder_mask.thickness` | `tsm`<br>`unit=mm` | `name="dieFlagAndSolderMask"`; `property_name="solderMaskThickness"` |
+| `die.length` | `Ld`<br>`unit=mm` | `name="die"`; `property_name="dieLengthLd"` |
+| `die.width` | `Wd`<br>`unit=mm` | `name="die"`; `property_name="dieWidthWd"` |
+| `die.thickness` | `td`<br>`unit=mm` | `name="die"`; `property_name="dieThicknessTd"` |
+| `die.attach` | `tda`<br>`unit=mm` | `name="die"`; `property_name="dieAttachThicknessTda"` |
+| `die.power` | `P`<br>`unit=W` | `name="die"`; `property_name="packagePower"` |
+| `bond_wire.total` | `Nw` | `name="die"`; `property_name="numberOfBondWiresNw"` |
+| `bond_wire.extent_length` | `Lw`<br>`unit=mm` | `name="die"`; `property_name="bondWireExtentLengthLw"` |
+| `bond_wire.extent_width` | `Ww`<br>`unit=mm` | `name="die"`; `property_name="bondWireExtentWidthWw"` |
+| `bond_wire.diameter` | `dw`<br>`unit=mm` | `name="die"`; `property_name="bondWireDiameterDw"` |
+| `vias.enabled` | — | — |
+| `vias.columns` | `NVx`<br>`conditions={"visible_when":{"vias.enabled":true}}` | `name="thermalVias"`; `property_name="numberOfThermalViasInXNVx"` |
+| `vias.rows` | `NVy`<br>`conditions={"visible_when":{"vias.enabled":true}}` | `name="thermalVias"`; `property_name="numberOfThermalViasInYNVy"` |
+| `vias.pitch` | `ev`<br>`unit=mm`<br>`conditions={"visible_when":{"vias.enabled":true}}` | `name="thermalVias"`; `property_name="viaPitchEv"` |
+| `vias.diameter` | `dv`<br>`unit=mm`<br>`conditions={"visible_when":{"vias.enabled":true}}` | `name="thermalVias"`; `property_name="viaDiameterDv"` |
+| `vias.plating` | `tpl`<br>`unit=mm`<br>`conditions={"visible_when":{"vias.enabled":true}}` | `name="thermalVias"`; `property_name="platingThicknessTpl"` |
+| `bga.columns` | `MD` | `name="solderBalls"`; `property_name="numberOfSolderBallsInXMD"` |
+| `bga.rows` | `ME` | `name="solderBalls"`; `property_name="numberOfSolderBallsInYME"` |
+| `bga.pitch` | `e`<br>`unit=mm` | `name="solderBalls"`; `property_name="ballPitchE"` |
+| `bga.diameter` | `b`<br>`unit=mm` | `name="solderBalls"`; `property_name="ballDiameterB"` |
+| `bga.height` | `A1`<br>`unit=mm` | `name="solderBalls"`; `property_name="substrateStandoffA1"` |
+| `spreader.enabled` | `backside_spreader` | `name="backsideSpreader"`; `property_name="includeBacksideSpreader"` |
+| `spreader.length` | `L_spr`<br>`unit=mm`<br>`conditions={"visible_when":{"spreader.enabled":true}}` | `name="backsideSpreader"`; `property_name="spreaderLengthLspr"` |
+| `spreader.width` | `W_spr`<br>`unit=mm`<br>`conditions={"visible_when":{"spreader.enabled":true}}` | `name="backsideSpreader"`; `property_name="spreaderWidthWspr"` |
+| `spreader.thickness` | `t_spr`<br>`unit=mm`<br>`conditions={"visible_when":{"spreader.enabled":true}}` | `name="backsideSpreader"`; `property_name="spreaderThicknessTspr"` |
+| `spreader.hole_length` | `Lbt`<br>`unit=mm`<br>`conditions={"visible_when":{"spreader.enabled":true}}` | `name="backsideSpreader"`; `property_name="bottomTraceHoleLengthLbt"` |
+| `spreader.hole_width` | `Wbt`<br>`unit=mm`<br>`conditions={"visible_when":{"spreader.enabled":true}}` | `name="backsideSpreader"`; `property_name="bottomTraceHoleWidthWbt"` |
+| `grid.enabled` | `localgrid` | `name="modelingOptions"`; `property_name="localizeGrid"` |
+| `grid.density` | `radio_lgc`<br>`conditions={"visible_when":{"grid.enabled":true}}` | `name="modelingOptions"`; `property_name="gridDensity"` |
+| `bond_wire.modeling` | `radio_Bond_Wires_modeling` | `name="modelingOptions"`; `property_name="modelBondWiresAs"` |
+| `substrate.layers` | — | `name=null`; `property_name="substrateLayer"` |
+| `flag.coverage` | `cf`<br>`unit=%` | `name="dieFlagAndSolderMask"`; `property_name="coveragePercentageCf"` |
+| `metal.layers` | `tz1`, `tz2`, `tz3`, `tz6`, `coverage1`, `coverage2`, `coverage3`, `coverage6`, `z2`, `z3`, `via_con1`, `via_con2`, `via_con3`, `via_con6`<br>`unit=mm / %` | `name="metalLayers"`; `property_name="metalLayersTable"` |
+| `vias.modeling` | `radio_Via_modeling`<br>`conditions={"visible_when":{"vias.enabled":true}}` | `name="modelingOptions"`; `property_name="modelThermalViasAs"` |
+| `slug.enabled` | `slug` | `name="dropInSlug"`; `property_name="includeSlug"` |
+| `slug.length` | `L_sl`<br>`unit=mm`<br>`conditions={"visible_when":{"slug.enabled":true}}` | `name="dropInSlug"`; `property_name="slugLengthLsl"` |
+| `slug.width` | `W_sl`<br>`unit=mm`<br>`conditions={"visible_when":{"slug.enabled":true}}` | `name="dropInSlug"`; `property_name="slugWidthWsl"` |
+| `slug.thickness` | `t_sl`<br>`unit=mm`<br>`conditions={"visible_when":{"slug.enabled":true}}` | `name="dropInSlug"`; `property_name="slugThicknessTsl"` |
+| `slug.diameter` | `dsl`<br>`unit=mm`<br>`conditions={"visible_when":{"slug.enabled":true}}` | `name="dropInSlug"`; `property_name="slugDiameterDs"` |
+| `slug.foot_length` | `L_slf`<br>`unit=mm`<br>`conditions={"visible_when":{"slug.enabled":true}}` | `name="dropInSlug"`; `property_name="slugFootExtendLengthLsf"` |
+| `slug.foot_width` | `W_slf`<br>`unit=mm`<br>`conditions={"visible_when":{"slug.enabled":true}}` | `name="dropInSlug"`; `property_name="slugFootExtendWidthWsf"` |
+| `slug.offset` | `gsl`<br>`unit=mm`<br>`conditions={"visible_when":{"slug.enabled":true}}` | `name="dropInSlug"`; `property_name="slugOffsetGs"` |
+| `slug.clearance` | `g_slf`<br>`unit=mm`<br>`conditions={"visible_when":{"slug.enabled":true}}` | `name="dropInSlug"`; `property_name="slugFootClearanceGsf"` |
+| `slug.adhesive_enabled` | `slug_adh`<br>`conditions={"visible_when":{"slug.enabled":true}}` | `name="dropInSlug"`; `property_name="adhesivePresentUnderSlugFoot"` |
 
 ### Assignments
 
-| PackStudio 内部字段 | DES 键 | DES 条件 | 单位 | pack_script command | name | property_name |
-| --- | --- | --- | --- | --- | --- | --- |
-| `Assignments["group-substrate"]` | `k_substr` | — | — | `modify_component` | `packageSubstrate` | `dielectricMaterial` |
-| `Assignments["group-die"]` | — | — | — | — | — | — |
-| `Assignments["group-die-attach"]` | `k_da` | — | — | `modify_component` | `die` | `dieAttachMaterial` |
-| `Assignments["group-encapsulant"]` | `k_encap` | — | — | `modify_component` | `encapsulant` | `encapsulantMaterial` |
-| `Assignments["group-bond-wires"]` | `k_wire` | — | — | `modify_component` | `die` | `bondWireMaterial` |
-| `Assignments["group-solder-mask"]` | `ksm` | — | — | `modify_component` | `dieFlagAndSolderMask` | `solderMaskMaterial` |
-| `Assignments["group-bga-solder"]` | `k_solder` | — | — | `modify_component` | `solderBalls` | `solderMaterial` |
-| `Assignments["group-backside-spreader"]` | `k_spr` | `{"spreader.enabled":true}` | — | `modify_component` | `backsideSpreader` | `spreaderMaterial` |
-| `Assignments["group-traces"]` | `k_metal` | — | — | `modify_component` | `metalLayers` | `materialOfMetal` |
-| `Assignments["group-slug"]` | `k_sl` | `{"slug.enabled":true}` | — | `modify_component` | `dropInSlug` | `slugMaterial` |
-| `Assignments["group-slug-adhesive"]` | `k_slad` | `{"slug.enabled":true,"slug.adhesive_enabled":true}` | — | `modify_component` | `dropInSlug` | `slugAdhesiveMaterial` |
+| PackStudio 内部字段 | des | pack script 的字段 |
+| --- | --- | --- |
+| `group-substrate` | `k_substr` | `name="packageSubstrate"`; `property_name="dielectricMaterial"` |
+| `group-die` | — | — |
+| `group-die-attach` | `k_da` | `name="die"`; `property_name="dieAttachMaterial"` |
+| `group-encapsulant` | `k_encap` | `name="encapsulant"`; `property_name="encapsulantMaterial"` |
+| `group-bond-wires` | `k_wire` | `name="die"`; `property_name="bondWireMaterial"` |
+| `group-solder-mask` | `ksm` | `name="dieFlagAndSolderMask"`; `property_name="solderMaskMaterial"` |
+| `group-bga-solder` | `k_solder` | `name="solderBalls"`; `property_name="solderMaterial"` |
+| `group-backside-spreader` | `k_spr`<br>`conditions={"spreader.enabled":true}` | `name="backsideSpreader"`; `property_name="spreaderMaterial"` |
+| `group-traces` | `k_metal` | `name="metalLayers"`; `property_name="materialOfMetal"` |
+| `group-slug` | `k_sl`<br>`conditions={"slug.enabled":true}` | `name="dropInSlug"`; `property_name="slugMaterial"` |
+| `group-slug-adhesive` | `k_slad`<br>`conditions={"slug.enabled":true,"slug.adhesive_enabled":true}` | `name="dropInSlug"`; `property_name="slugAdhesiveMaterial"` |
 
 ### Bga
 
-| PackStudio 内部字段 | DES 键 | DES 条件 | 单位 | pack_script command | name | property_name |
-| --- | --- | --- | --- | --- | --- | --- |
-| `Bga["representation"]` | `radio_BGA_modeling` | — | — | `modify_component` | `modelingOptions` | `modelSolderBallArrayAs` |
-| `Bga["solder_removal_enabled"]` | `depop_center` | — | — | `modify_component` | `solderBallDepopulation` | `depopulatedCenter` |
-| `Bga["populated_columns"]` | `MDp` | — | — | `modify_component` | `solderBallDepopulation` | `numberFullyPopulatedRowsMDp` |
-| `Bga["populated_rows"]` | `MEp` | — | — | `modify_component` | `solderBallDepopulation` | `numberFullyPopulatedRowsMEp` |
-| `Bga["center_solder_enabled"]` | `central_balls` | — | — | `modify_component` | `centralBalls` | `centralBalls` |
-| `Bga["center_solder_columns"]` | `MDc` | — | — | `modify_component` | `centralBalls` | `numberCentralRowsMDp` |
-| `Bga["center_solder_rows"]` | `MEc` | — | — | `modify_component` | `centralBalls` | `numberCentralRowsMEp` |
-| `Bga["staggered"]` | `staggered_matrix` | — | — | `modify_component` | `solderBalls` | `staggeredMatrix` |
-| `Bga["center_staggered"]` | `central_staggered_matrix` | — | — | `modify_component` | `centralBalls` | `staggeredMatrix` |
-| `Bga["omitted_cells"]` | `balls` | — | — | `modify_component` | `solderBallDepopulation` | `depopulationDialog` |
-| `Bga["removal_rows"]` | — | — | — | — | — | — |
-| `Bga["removal_columns"]` | — | — | — | — | — | — |
-| `Bga["ball_map_enabled"]` | `csvBGA` | — | — | `modify_component` | `solderBalls` | `solderBallMap` |
-| `Bga["ball_map"]` | `csvBGA` | — | — | `modify_component` | `solderBalls` | `solderBallMapDialog` |
-| `Bga["via_configuration"]` | — | — | — | — | — | — |
+| PackStudio 内部字段 | des | pack script 的字段 |
+| --- | --- | --- |
+| `representation` | `radio_BGA_modeling` | `name="modelingOptions"`; `property_name="modelSolderBallArrayAs"` |
+| `solder_removal_enabled` | `depop_center` | `name="solderBallDepopulation"`; `property_name="depopulatedCenter"` |
+| `populated_columns` | `MDp` | `name="solderBallDepopulation"`; `property_name="numberFullyPopulatedRowsMDp"` |
+| `populated_rows` | `MEp` | `name="solderBallDepopulation"`; `property_name="numberFullyPopulatedRowsMEp"` |
+| `center_solder_enabled` | `central_balls` | `name="centralBalls"`; `property_name="centralBalls"` |
+| `center_solder_columns` | `MDc` | `name="centralBalls"`; `property_name="numberCentralRowsMDp"` |
+| `center_solder_rows` | `MEc` | `name="centralBalls"`; `property_name="numberCentralRowsMEp"` |
+| `staggered` | `staggered_matrix` | `name="solderBalls"`; `property_name="staggeredMatrix"` |
+| `center_staggered` | `central_staggered_matrix` | `name="centralBalls"`; `property_name="staggeredMatrix"` |
+| `omitted_cells` | `balls` | `name="solderBallDepopulation"`; `property_name="depopulationDialog"` |
+| `removal_rows` | — | — |
+| `removal_columns` | — | — |
+| `ball_map_enabled` | `csvBGA` | `name="solderBalls"`; `property_name="solderBallMap"` |
+| `ball_map` | `csvBGA` | `name="solderBalls"`; `property_name="solderBallMapDialog"` |
+| `via_configuration` | — | — |
 
 ### ProjectDocument
 
-| PackStudio 内部字段 | DES 键 | DES 条件 | 单位 | pack_script command | name | property_name |
-| --- | --- | --- | --- | --- | --- | --- |
-| `ProjectDocument.TemplateId` | `package` | — | — | — | — | — |
-| `ProjectDocument.Name` | `design` | — | — | — | — | — |
-| `ProjectDocument.PresetId` | — | — | — | — | — | — |
-| `ProjectDocument.CustomMaterials` | — | — | — | — | — | — |
+| PackStudio 内部字段 | des | pack script 的字段 |
+| --- | --- | --- |
+| `TemplateId` | `package` | — |
+| `Name` | `design` | — |
+| `PresetId` | — | — |
+| `CustomMaterials` | — | — |
 
 ## pqfp
 
 ### Values
 
-| PackStudio 内部字段 | DES 键 | DES 条件 | 单位 | pack_script command | name | property_name |
-| --- | --- | --- | --- | --- | --- | --- |
-| `Values["package.type"]` | — | — | — | `new_package/new_value` | — | `pqfpPackageType` |
-| `Values["footprint.size"]` | — | — | — | `new_package/new_value` | — | `tqfpJedecFootprint`; branch=`lqfpJedecFootprint / wizard` |
-| `Values["package.length"]` | `D` | — | mm | `modify_component` | `overallPackage` | `lengthD` |
-| `Values["package.width"]` | `E` | — | mm | `modify_component` | `overallPackage` | `widthE` |
-| `Values["package.standoff"]` | `A1` | — | mm | `modify_component` | `overallPackage` | `standoffA1` |
-| `Values["body.length"]` | `D1` | — | mm | `modify_component` | `encapsulant` | `lengthD1` |
-| `Values["body.width"]` | `E1` | — | mm | `modify_component` | `encapsulant` | `widthE1` |
-| `Values["body.thickness"]` | `A2` | — | mm | `modify_component` | `encapsulant` | `thicknessA2` |
-| `Values["die.length"]` | `Ld` | — | mm | `modify_component` | `die` | `dieLengthLd` |
-| `Values["die.width"]` | `Wd` | — | mm | `modify_component` | `die` | `dieWidthWd` |
-| `Values["die.thickness"]` | `td` | — | mm | `modify_component` | `die` | `dieThicknessTd` |
-| `Values["die.attach"]` | `tda` | — | mm | `modify_component` | `die` | `dieAttachThicknessTda` |
-| `Values["die.power"]` | `P` | — | W | `modify_component` | `die` | `packagePower` |
-| `Values["flag.length"]` | `Lf` | — | mm | `modify_component` | `dieFlagAndTieBars` | `dieFlagLf` |
-| `Values["flag.width"]` | `Wf` | — | mm | `modify_component` | `dieFlagAndTieBars` | `dieFlagWf` |
-| `Values["flag.coverage"]` | `cf` | — | % | `modify_component` | `dieFlagAndTieBars` | `metalCoverageForDieFlagCf` |
-| `Values["flag.downset"]` | `ddf` | — | mm | `modify_component` | `dieFlagAndTieBars` | `dieFlagDownsetDdf` |
-| `Values["tie_bar.width"]` | `wtb` | — | mm | `modify_component` | `dieFlagAndTieBars` | `tieBarWidthWtb` |
-| `Values["leads.count_x"]` | `MD` | — | — | `modify_component` | `leadFrame` | `numberOfLeadsOnTopBottomMD` |
-| `Values["leads.count_y"]` | `ME` | — | — | `modify_component` | `leadFrame` | `numberOfLeadsOnLeftRightME` |
-| `Values["leads.pitch"]` | `e` | — | mm | `modify_component` | `leadFrame` | `pitchE` |
-| `Values["leads.width"]` | `b` | — | mm | `modify_component` | `leadFrame` | `leadWidthB` |
-| `Values["leads.thickness"]` | `tl` | — | mm | `modify_component` | `leadFrame` | `leadThicknessTl` |
-| `Values["leads.height"]` | `hl` | — | mm | `modify_component` | `leadFrame` | `leadframeHeightHl` |
-| `Values["leads.foot_length"]` | `wl` | — | mm | `modify_component` | `leadFrame` | `leadfootLengthWl` |
-| `Values["leads.gap_x"]` | `g1` | — | mm | `modify_component` | `leadFrame` | `leadframeFlagGapG1` |
-| `Values["leads.gap_y"]` | `g2` | — | mm | `modify_component` | `leadFrame` | `leadframeFlagGapG2` |
-| `Values["bond_wire.length_x"]` | `lbwx` | — | mm | `modify_component` | `bondWires` | `bondWireLengthOnLeftRightLbwx` |
-| `Values["bond_wire.length_y"]` | `lbwy` | — | mm | `modify_component` | `bondWires` | `bondWireLengthOnTopBottomLbwy` |
-| `Values["bond_wire.count"]` | `N` | — | — | `modify_component` | `bondWires` | `numberOfBondWiresN` |
-| `Values["bond_wire.diameter"]` | `dbw` | — | mm | `modify_component` | `bondWires` | `bondWireDiameterDbw` |
-| `Values["thermal_land.enabled"]` | `landsolder` | — | — | `modify_component` | `thermalLandAndSolder` | `includeThermalLandAndSolder` |
-| `Values["thermal_land.thickness"]` | `ts` | `{"visible_when":{"thermal_land.enabled":true}}` | mm | `modify_component` | `thermalLandAndSolder` | `landThickness` |
-| `Values["grid.enabled"]` | `localgrid` | — | — | `modify_component` | `modelingOptions` | `localizeGrid` |
-| `Values["grid.density"]` | `radio_lgc` | `{"visible_when":{"grid.enabled":true}}` | — | `modify_component` | `modelingOptions` | `gridDensity` |
-| `Values["bond_wire.modeling"]` | `radio_BondWire_modeling` | — | — | `modify_component` | `modelingOptions` | `modelBondWiresAs` |
-| `Values["package.exposed_pad"]` | — | — | — | `new_package/new_value` | — | `exposedPad` |
-| `Values["leads.custom_coverage"]` | `radio_defined_coverage` | — | — | `modify_component` | `leadFrame` | `userDefinedLeadframeCoverage` |
-| `Values["leads.coverage"]` | `cl` | `{"visible_when":{"leads.custom_coverage":true}}` | % | `modify_component` | `leadFrame` | `leadframeCoveragePercentage` |
-| `Values["leads.modeling"]` | `radio_LeadFram_modeling` | — | — | `modify_component` | `modelingOptions` | `modelLeadFrameAs` |
+| PackStudio 内部字段 | des | pack script 的字段 |
+| --- | --- | --- |
+| `package.type` | — | `name=null`; `property_name="pqfpPackageType"` |
+| `footprint.size` | — | `name=null`; `property_name="tqfpJedecFootprint"`; `branch="lqfpJedecFootprint / wizard"` |
+| `package.length` | `D`<br>`unit=mm` | `name="overallPackage"`; `property_name="lengthD"` |
+| `package.width` | `E`<br>`unit=mm` | `name="overallPackage"`; `property_name="widthE"` |
+| `package.standoff` | `A1`<br>`unit=mm` | `name="overallPackage"`; `property_name="standoffA1"` |
+| `body.length` | `D1`<br>`unit=mm` | `name="encapsulant"`; `property_name="lengthD1"` |
+| `body.width` | `E1`<br>`unit=mm` | `name="encapsulant"`; `property_name="widthE1"` |
+| `body.thickness` | `A2`<br>`unit=mm` | `name="encapsulant"`; `property_name="thicknessA2"` |
+| `die.length` | `Ld`<br>`unit=mm` | `name="die"`; `property_name="dieLengthLd"` |
+| `die.width` | `Wd`<br>`unit=mm` | `name="die"`; `property_name="dieWidthWd"` |
+| `die.thickness` | `td`<br>`unit=mm` | `name="die"`; `property_name="dieThicknessTd"` |
+| `die.attach` | `tda`<br>`unit=mm` | `name="die"`; `property_name="dieAttachThicknessTda"` |
+| `die.power` | `P`<br>`unit=W` | `name="die"`; `property_name="packagePower"` |
+| `flag.length` | `Lf`<br>`unit=mm` | `name="dieFlagAndTieBars"`; `property_name="dieFlagLf"` |
+| `flag.width` | `Wf`<br>`unit=mm` | `name="dieFlagAndTieBars"`; `property_name="dieFlagWf"` |
+| `flag.coverage` | `cf`<br>`unit=%` | `name="dieFlagAndTieBars"`; `property_name="metalCoverageForDieFlagCf"` |
+| `flag.downset` | `ddf`<br>`unit=mm` | `name="dieFlagAndTieBars"`; `property_name="dieFlagDownsetDdf"` |
+| `tie_bar.width` | `wtb`<br>`unit=mm` | `name="dieFlagAndTieBars"`; `property_name="tieBarWidthWtb"` |
+| `leads.count_x` | `MD` | `name="leadFrame"`; `property_name="numberOfLeadsOnTopBottomMD"` |
+| `leads.count_y` | `ME` | `name="leadFrame"`; `property_name="numberOfLeadsOnLeftRightME"` |
+| `leads.pitch` | `e`<br>`unit=mm` | `name="leadFrame"`; `property_name="pitchE"` |
+| `leads.width` | `b`<br>`unit=mm` | `name="leadFrame"`; `property_name="leadWidthB"` |
+| `leads.thickness` | `tl`<br>`unit=mm` | `name="leadFrame"`; `property_name="leadThicknessTl"` |
+| `leads.height` | `hl`<br>`unit=mm` | `name="leadFrame"`; `property_name="leadframeHeightHl"` |
+| `leads.foot_length` | `wl`<br>`unit=mm` | `name="leadFrame"`; `property_name="leadfootLengthWl"` |
+| `leads.gap_x` | `g1`<br>`unit=mm` | `name="leadFrame"`; `property_name="leadframeFlagGapG1"` |
+| `leads.gap_y` | `g2`<br>`unit=mm` | `name="leadFrame"`; `property_name="leadframeFlagGapG2"` |
+| `bond_wire.length_x` | `lbwx`<br>`unit=mm` | `name="bondWires"`; `property_name="bondWireLengthOnLeftRightLbwx"` |
+| `bond_wire.length_y` | `lbwy`<br>`unit=mm` | `name="bondWires"`; `property_name="bondWireLengthOnTopBottomLbwy"` |
+| `bond_wire.count` | `N` | `name="bondWires"`; `property_name="numberOfBondWiresN"` |
+| `bond_wire.diameter` | `dbw`<br>`unit=mm` | `name="bondWires"`; `property_name="bondWireDiameterDbw"` |
+| `thermal_land.enabled` | `landsolder` | `name="thermalLandAndSolder"`; `property_name="includeThermalLandAndSolder"` |
+| `thermal_land.thickness` | `ts`<br>`unit=mm`<br>`conditions={"visible_when":{"thermal_land.enabled":true}}` | `name="thermalLandAndSolder"`; `property_name="landThickness"` |
+| `grid.enabled` | `localgrid` | `name="modelingOptions"`; `property_name="localizeGrid"` |
+| `grid.density` | `radio_lgc`<br>`conditions={"visible_when":{"grid.enabled":true}}` | `name="modelingOptions"`; `property_name="gridDensity"` |
+| `bond_wire.modeling` | `radio_BondWire_modeling` | `name="modelingOptions"`; `property_name="modelBondWiresAs"` |
+| `package.exposed_pad` | — | `name=null`; `property_name="exposedPad"` |
+| `leads.custom_coverage` | `radio_defined_coverage` | `name="leadFrame"`; `property_name="userDefinedLeadframeCoverage"` |
+| `leads.coverage` | `cl`<br>`unit=%`<br>`conditions={"visible_when":{"leads.custom_coverage":true}}` | `name="leadFrame"`; `property_name="leadframeCoveragePercentage"` |
+| `leads.modeling` | `radio_LeadFram_modeling` | `name="modelingOptions"`; `property_name="modelLeadFrameAs"` |
 
 ### Assignments
 
-| PackStudio 内部字段 | DES 键 | DES 条件 | 单位 | pack_script command | name | property_name |
-| --- | --- | --- | --- | --- | --- | --- |
-| `Assignments["group-encapsulant"]` | `k_encap` | — | — | `modify_component` | `encapsulant` | `encapsulantMaterial` |
-| `Assignments["group-die"]` | — | — | — | — | — | — |
-| `Assignments["group-die-attach"]` | `k_da` | — | — | `modify_component` | `die` | `dieAttachMaterial` |
-| `Assignments["group-lead-frame"]` | `k_metal` | — | — | `modify_component` | `leadFrame` | `leadframeMaterial` |
-| `Assignments["group-bond-wires"]` | `k_bw` | — | — | `modify_component` | `bondWires` | `material` |
-| `Assignments["group-thermal-land"]` | `k_land` | `{"thermal_land.enabled":true}` | — | `modify_component` | `thermalLandAndSolder` | `landMaterial` |
-| `Assignments["group-thermal-solder"]` | `k_sd` | `{"thermal_land.enabled":true}` | — | `modify_component` | `thermalLandAndSolder` | `solderMaterial` |
+| PackStudio 内部字段 | des | pack script 的字段 |
+| --- | --- | --- |
+| `group-encapsulant` | `k_encap` | `name="encapsulant"`; `property_name="encapsulantMaterial"` |
+| `group-die` | — | — |
+| `group-die-attach` | `k_da` | `name="die"`; `property_name="dieAttachMaterial"` |
+| `group-lead-frame` | `k_metal` | `name="leadFrame"`; `property_name="leadframeMaterial"` |
+| `group-bond-wires` | `k_bw` | `name="bondWires"`; `property_name="material"` |
+| `group-thermal-land` | `k_land`<br>`conditions={"thermal_land.enabled":true}` | `name="thermalLandAndSolder"`; `property_name="landMaterial"` |
+| `group-thermal-solder` | `k_sd`<br>`conditions={"thermal_land.enabled":true}` | `name="thermalLandAndSolder"`; `property_name="solderMaterial"` |
 
 ### ProjectDocument
 
-| PackStudio 内部字段 | DES 键 | DES 条件 | 单位 | pack_script command | name | property_name |
-| --- | --- | --- | --- | --- | --- | --- |
-| `ProjectDocument.TemplateId` | `package` | — | — | — | — | — |
-| `ProjectDocument.Name` | `design` | — | — | — | — | — |
-| `ProjectDocument.PresetId` | — | — | — | — | — | — |
-| `ProjectDocument.CustomMaterials` | — | — | — | — | — | — |
+| PackStudio 内部字段 | des | pack script 的字段 |
+| --- | --- | --- |
+| `TemplateId` | `package` | — |
+| `Name` | `design` | — |
+| `PresetId` | — | — |
+| `CustomMaterials` | — | — |
 
 ## qfn
 
 ### Values
 
-| PackStudio 内部字段 | DES 键 | DES 条件 | 单位 | pack_script command | name | property_name |
-| --- | --- | --- | --- | --- | --- | --- |
-| `Values["footprint.size"]` | — | — | — | `new_package/new_value` | — | `jedecFootprint` |
-| `Values["package.length"]` | `D` | — | mm | `modify_component` | `overallPackage` | `lengthD` |
-| `Values["package.width"]` | `E` | — | mm | `modify_component` | `overallPackage` | `widthE` |
-| `Values["package.standoff"]` | `A1` | — | mm | `modify_component` | `overallPackage` | `standoffA1` |
-| `Values["encapsulant.thickness"]` | `A2` | — | mm | `modify_component` | `overallPackage` | `encapsulantThicknessA2` |
-| `Values["die.length"]` | `Ld` | — | mm | `modify_component` | `die` | `dieLengthLd` |
-| `Values["die.width"]` | `Wd` | — | mm | `modify_component` | `die` | `dieWidthWd` |
-| `Values["die.thickness"]` | `td` | — | mm | `modify_component` | `die` | `dieThicknessTd` |
-| `Values["die.attach"]` | `tda` | — | mm | `modify_component` | `die` | `dieAttachThicknessTda` |
-| `Values["die.power"]` | `P` | — | W | `modify_component` | `die` | `packagePower` |
-| `Values["pad.length"]` | `Lp` | — | mm | `modify_component` | `dap` | `dapLengthLp` |
-| `Values["pad.width"]` | `Wp` | — | mm | `modify_component` | `dap` | `dapWidthWp` |
-| `Values["pad.exposed_length"]` | `Lep` | — | mm | `modify_component` | `dap` | `exposedPADLength` |
-| `Values["pad.exposed_width"]` | `Wep` | — | mm | `modify_component` | `dap` | `exposedPADWidth` |
-| `Values["leads.count_x"]` | `MD` | — | — | `modify_component` | `leadAndSolderInterconnect` | `numberOfLeadsOnTopBottomMD` |
-| `Values["leads.count_y"]` | `ME` | — | — | `modify_component` | `leadAndSolderInterconnect` | `numberOfLeadsOnLeftRightME` |
-| `Values["leads.pitch_x"]` | `ex` | — | mm | `modify_component` | `leadAndSolderInterconnect` | `pitchInXDirectionEx` |
-| `Values["leads.pitch_y"]` | `ey` | — | mm | `modify_component` | `leadAndSolderInterconnect` | `pitchInYDirectionEy` |
-| `Values["leads.width"]` | `wf` | — | mm | `modify_component` | `leadAndSolderInterconnect` | `leadWidthB` |
-| `Values["leads.length"]` | `lf` | — | mm | `modify_component` | `leadAndSolderInterconnect` | `exposedLeadLengthL` |
-| `Values["leads.exposed_thickness"]` | `hf` | — | mm | `modify_component` | `leadAndSolderInterconnect` | `exposedLeadThickness` |
-| `Values["leads.thickness"]` | `tf` | — | mm | `modify_component` | `leadAndSolderInterconnect` | `leadThicknessA3` |
-| `Values["leads.etch"]` | `ldent` | — | mm | `modify_component` | `leadAndSolderInterconnect` | `leadEtch` |
-| `Values["bond_wire.length_x"]` | `lbwx` | — | mm | `modify_component` | `bondWires` | `bondWireLengthOnLeftRightLbwx` |
-| `Values["bond_wire.length_y"]` | `lbwy` | — | mm | `modify_component` | `bondWires` | `bondWireLengthOnTopBottomLbwy` |
-| `Values["bond_wire.diameter"]` | `dbw` | — | mm | `modify_component` | `bondWires` | `bondWireDiameterDbw` |
-| `Values["thermal_land.enabled"]` | `isLand` | — | — | `modify_component` | `thermalLand` | `includeLand` |
-| `Values["thermal_land.thickness"]` | `ts` | `{"visible_when":{"thermal_land.enabled":true}}` | mm | `modify_component` | `thermalLand` | `landThickness` |
-| `Values["vias.enabled"]` | `radio_via_modeling` | — | — | `modify_component` | `vias` | `modelViasAs` |
-| `Values["vias.length"]` | `lv` | `{"visible_when":{"vias.enabled":true}}` | mm | `modify_component` | `vias` | `viasLengthLv` |
-| `Values["vias.diameter"]` | `dv` | `{"visible_when":{"vias.enabled":true}}` | mm | `modify_component` | `vias` | `viasDiameterDv` |
-| `Values["vias.plating"]` | `tpl` | `{"visible_when":{"vias.enabled":true}}` | mm | `modify_component` | `vias` | `platingThicknessTpl` |
-| `Values["vias.pitch"]` | `ev` | `{"visible_when":{"vias.enabled":true}}` | mm | `modify_component` | `vias` | `viasPitchEv` |
-| `Values["vias.columns"]` | `VD` | `{"visible_when":{"vias.enabled":true}}` | — | `modify_component` | `vias` | `numberOfViasInXVD` |
-| `Values["vias.rows"]` | `VE` | `{"visible_when":{"vias.enabled":true}}` | — | `modify_component` | `vias` | `numberOfViasInYVE` |
-| `Values["grid.enabled"]` | `localgrid` | — | — | `modify_component` | `modelingOptions` | `localizeGrid` |
-| `Values["grid.density"]` | `radio_lgc` | `{"visible_when":{"grid.enabled":true}}` | — | `modify_component` | `modelingOptions` | `gridDensity` |
-| `Values["leads.modeling"]` | `radio_LeadFram_modeling` | — | — | `modify_component` | `modelingOptions` | `modelLeadAndSolderInterconnectAs` |
-| `Values["bond_wire.steps"]` | `nsteps` | — | — | `modify_component` | `modelingOptions` | `numberOfDiscreteBondwireSteps` |
-| `Values["vias.modeling"]` | `radio_via_modeling` | `{"visible_when":{"vias.enabled":true}}` | — | `modify_component` | `vias` | `modelViasAs` |
+| PackStudio 内部字段 | des | pack script 的字段 |
+| --- | --- | --- |
+| `footprint.size` | — | `name=null`; `property_name="jedecFootprint"` |
+| `package.length` | `D`<br>`unit=mm` | `name="overallPackage"`; `property_name="lengthD"` |
+| `package.width` | `E`<br>`unit=mm` | `name="overallPackage"`; `property_name="widthE"` |
+| `package.standoff` | `A1`<br>`unit=mm` | `name="overallPackage"`; `property_name="standoffA1"` |
+| `encapsulant.thickness` | `A2`<br>`unit=mm` | `name="overallPackage"`; `property_name="encapsulantThicknessA2"` |
+| `die.length` | `Ld`<br>`unit=mm` | `name="die"`; `property_name="dieLengthLd"` |
+| `die.width` | `Wd`<br>`unit=mm` | `name="die"`; `property_name="dieWidthWd"` |
+| `die.thickness` | `td`<br>`unit=mm` | `name="die"`; `property_name="dieThicknessTd"` |
+| `die.attach` | `tda`<br>`unit=mm` | `name="die"`; `property_name="dieAttachThicknessTda"` |
+| `die.power` | `P`<br>`unit=W` | `name="die"`; `property_name="packagePower"` |
+| `pad.length` | `Lp`<br>`unit=mm` | `name="dap"`; `property_name="dapLengthLp"` |
+| `pad.width` | `Wp`<br>`unit=mm` | `name="dap"`; `property_name="dapWidthWp"` |
+| `pad.exposed_length` | `Lep`<br>`unit=mm` | `name="dap"`; `property_name="exposedPADLength"` |
+| `pad.exposed_width` | `Wep`<br>`unit=mm` | `name="dap"`; `property_name="exposedPADWidth"` |
+| `leads.count_x` | `MD` | `name="leadAndSolderInterconnect"`; `property_name="numberOfLeadsOnTopBottomMD"` |
+| `leads.count_y` | `ME` | `name="leadAndSolderInterconnect"`; `property_name="numberOfLeadsOnLeftRightME"` |
+| `leads.pitch_x` | `ex`<br>`unit=mm` | `name="leadAndSolderInterconnect"`; `property_name="pitchInXDirectionEx"` |
+| `leads.pitch_y` | `ey`<br>`unit=mm` | `name="leadAndSolderInterconnect"`; `property_name="pitchInYDirectionEy"` |
+| `leads.width` | `wf`<br>`unit=mm` | `name="leadAndSolderInterconnect"`; `property_name="leadWidthB"` |
+| `leads.length` | `lf`<br>`unit=mm` | `name="leadAndSolderInterconnect"`; `property_name="exposedLeadLengthL"` |
+| `leads.exposed_thickness` | `hf`<br>`unit=mm` | `name="leadAndSolderInterconnect"`; `property_name="exposedLeadThickness"` |
+| `leads.thickness` | `tf`<br>`unit=mm` | `name="leadAndSolderInterconnect"`; `property_name="leadThicknessA3"` |
+| `leads.etch` | `ldent`<br>`unit=mm` | `name="leadAndSolderInterconnect"`; `property_name="leadEtch"` |
+| `bond_wire.length_x` | `lbwx`<br>`unit=mm` | `name="bondWires"`; `property_name="bondWireLengthOnLeftRightLbwx"` |
+| `bond_wire.length_y` | `lbwy`<br>`unit=mm` | `name="bondWires"`; `property_name="bondWireLengthOnTopBottomLbwy"` |
+| `bond_wire.diameter` | `dbw`<br>`unit=mm` | `name="bondWires"`; `property_name="bondWireDiameterDbw"` |
+| `thermal_land.enabled` | `isLand` | `name="thermalLand"`; `property_name="includeLand"` |
+| `thermal_land.thickness` | `ts`<br>`unit=mm`<br>`conditions={"visible_when":{"thermal_land.enabled":true}}` | `name="thermalLand"`; `property_name="landThickness"` |
+| `vias.enabled` | `radio_via_modeling` | `name="vias"`; `property_name="modelViasAs"` |
+| `vias.length` | `lv`<br>`unit=mm`<br>`conditions={"visible_when":{"vias.enabled":true}}` | `name="vias"`; `property_name="viasLengthLv"` |
+| `vias.diameter` | `dv`<br>`unit=mm`<br>`conditions={"visible_when":{"vias.enabled":true}}` | `name="vias"`; `property_name="viasDiameterDv"` |
+| `vias.plating` | `tpl`<br>`unit=mm`<br>`conditions={"visible_when":{"vias.enabled":true}}` | `name="vias"`; `property_name="platingThicknessTpl"` |
+| `vias.pitch` | `ev`<br>`unit=mm`<br>`conditions={"visible_when":{"vias.enabled":true}}` | `name="vias"`; `property_name="viasPitchEv"` |
+| `vias.columns` | `VD`<br>`conditions={"visible_when":{"vias.enabled":true}}` | `name="vias"`; `property_name="numberOfViasInXVD"` |
+| `vias.rows` | `VE`<br>`conditions={"visible_when":{"vias.enabled":true}}` | `name="vias"`; `property_name="numberOfViasInYVE"` |
+| `grid.enabled` | `localgrid` | `name="modelingOptions"`; `property_name="localizeGrid"` |
+| `grid.density` | `radio_lgc`<br>`conditions={"visible_when":{"grid.enabled":true}}` | `name="modelingOptions"`; `property_name="gridDensity"` |
+| `leads.modeling` | `radio_LeadFram_modeling` | `name="modelingOptions"`; `property_name="modelLeadAndSolderInterconnectAs"` |
+| `bond_wire.steps` | `nsteps` | `name="modelingOptions"`; `property_name="numberOfDiscreteBondwireSteps"` |
+| `vias.modeling` | `radio_via_modeling`<br>`conditions={"visible_when":{"vias.enabled":true}}` | `name="vias"`; `property_name="modelViasAs"` |
 
 ### Assignments
 
-| PackStudio 内部字段 | DES 键 | DES 条件 | 单位 | pack_script command | name | property_name |
-| --- | --- | --- | --- | --- | --- | --- |
-| `Assignments["group-encapsulant"]` | `k_encap` | — | — | `modify_component` | `overallPackage` | `encapsulantMaterial` |
-| `Assignments["group-die"]` | — | — | — | — | — | — |
-| `Assignments["group-die-attach"]` | `k_da` | — | — | `modify_component` | `die` | `dieAttachMaterial` |
-| `Assignments["group-exposed-pad"]` | `k_dap` | — | — | `modify_component` | `dap` | `material` |
-| `Assignments["group-lead-frame"]` | `k_lead` | — | — | `modify_component` | `leadAndSolderInterconnect` | `leadframeMaterial` |
-| `Assignments["group-bond-wires"]` | `k_bw` | — | — | `modify_component` | `bondWires` | `material` |
-| `Assignments["group-solder"]` | `k_solder` | — | — | `modify_component` | `leadAndSolderInterconnect` | `solderMaterial` |
-| `Assignments["group-thermal-land"]` | `k_land` | `{"thermal_land.enabled":true}` | — | `modify_component` | `thermalLand` | `material` |
+| PackStudio 内部字段 | des | pack script 的字段 |
+| --- | --- | --- |
+| `group-encapsulant` | `k_encap` | `name="overallPackage"`; `property_name="encapsulantMaterial"` |
+| `group-die` | — | — |
+| `group-die-attach` | `k_da` | `name="die"`; `property_name="dieAttachMaterial"` |
+| `group-exposed-pad` | `k_dap` | `name="dap"`; `property_name="material"` |
+| `group-lead-frame` | `k_lead` | `name="leadAndSolderInterconnect"`; `property_name="leadframeMaterial"` |
+| `group-bond-wires` | `k_bw` | `name="bondWires"`; `property_name="material"` |
+| `group-solder` | `k_solder` | `name="leadAndSolderInterconnect"`; `property_name="solderMaterial"` |
+| `group-thermal-land` | `k_land`<br>`conditions={"thermal_land.enabled":true}` | `name="thermalLand"`; `property_name="material"` |
 
 ### ProjectDocument
 
-| PackStudio 内部字段 | DES 键 | DES 条件 | 单位 | pack_script command | name | property_name |
-| --- | --- | --- | --- | --- | --- | --- |
-| `ProjectDocument.TemplateId` | `package` | — | — | — | — | — |
-| `ProjectDocument.Name` | `design` | — | — | — | — | — |
-| `ProjectDocument.PresetId` | — | — | — | — | — | — |
-| `ProjectDocument.CustomMaterials` | — | — | — | — | — | — |
+| PackStudio 内部字段 | des | pack script 的字段 |
+| --- | --- | --- |
+| `TemplateId` | `package` | — |
+| `Name` | `design` | — |
+| `PresetId` | — | — |
+| `CustomMaterials` | — | — |
 
 ## sop
 
 ### Values
 
-| PackStudio 内部字段 | DES 键 | DES 条件 | 单位 | pack_script command | name | property_name |
-| --- | --- | --- | --- | --- | --- | --- |
-| `Values["package.type"]` | — | — | — | `new_package/new_value` | — | `sopPackageType` |
-| `Values["footprint.size"]` | — | — | — | `new_package/new_value` | — | `tssopJedecFootprint`; branch=`sopJedecFootprint / wizard` |
-| `Values["package.length"]` | `D` | — | mm | `modify_component` | `overallPackage` | `lengthD` |
-| `Values["package.width"]` | `E` | — | mm | `modify_component` | `overallPackage` | `widthE` |
-| `Values["package.standoff"]` | `A1` | — | mm | `modify_component` | `overallPackage` | `standoffA1` |
-| `Values["body.length"]` | `D1` | — | mm | `modify_component` | `encapsulant` | `lengthD1` |
-| `Values["body.width"]` | `E1` | — | mm | `modify_component` | `encapsulant` | `widthE1` |
-| `Values["body.thickness"]` | `A2` | — | mm | `modify_component` | `encapsulant` | `thicknessA2` |
-| `Values["die.length"]` | `Ld` | — | mm | `modify_component` | `die` | `dieLengthLd` |
-| `Values["die.width"]` | `Wd` | — | mm | `modify_component` | `die` | `dieWidthWd` |
-| `Values["die.thickness"]` | `td` | — | mm | `modify_component` | `die` | `dieThicknessTd` |
-| `Values["die.attach"]` | `tda` | — | mm | `modify_component` | `die` | `dieAttachThicknessTda` |
-| `Values["die.power"]` | `P` | — | W | `modify_component` | `die` | `packagePower` |
-| `Values["flag.length"]` | `Lf` | — | mm | `modify_component` | `dieFlagAndTieBars` | `dieFlagLf` |
-| `Values["flag.width"]` | `Wf` | — | mm | `modify_component` | `dieFlagAndTieBars` | `dieFlagWf` |
-| `Values["flag.thickness"]` | `tf` | — | mm | `modify_component` | `dieFlagAndTieBars` | `dieFlagThicknessTf` |
-| `Values["flag.coverage"]` | `cf` | — | % | `modify_component` | `dieFlagAndTieBars` | `metalCoverageForDieFlagCf` |
-| `Values["flag.downset"]` | `ddf` | — | mm | `modify_component` | `dieFlagAndTieBars` | `dieFlagDownsetDdf` |
-| `Values["tie_bar.width"]` | `wtb` | — | mm | `modify_component` | `dieFlagAndTieBars` | `tieBarWidthWtb` |
-| `Values["leads.total"]` | `MT` | — | — | `modify_component` | `leadFrame` | `totalNumberOfLeadsMT` |
-| `Values["leads.gap"]` | `g1` | — | mm | `modify_component` | `leadFrame` | `leadframeFlagGapG1` |
-| `Values["leads.pitch"]` | `e` | — | mm | `modify_component` | `leadFrame` | `pitchE` |
-| `Values["leads.width"]` | `b` | — | mm | `modify_component` | `leadFrame` | `leadWidthB` |
-| `Values["leads.thickness"]` | `tl` | — | mm | `modify_component` | `leadFrame` | `leadThicknessTl` |
-| `Values["leads.height"]` | `hl` | — | mm | `modify_component` | `leadFrame` | `leadframeHeightHl` |
-| `Values["leads.foot_length"]` | `Lft` | — | mm | `modify_component` | `leadFrame` | `leadfootLengthLft` |
-| `Values["bond_wire.count"]` | `N` | — | — | `modify_component` | `bondWires` | `numberOfBondWiresN` |
-| `Values["bond_wire.diameter"]` | `dbw` | — | mm | `modify_component` | `bondWires` | `bondWireDiameterDbw` |
-| `Values["thermal_land.enabled"]` | `landsolder` | — | — | `modify_component` | `thermalLandAndSolder` | `includeThermalLandAndSolder` |
-| `Values["thermal_land.thickness"]` | `ts` | `{"visible_when":{"thermal_land.enabled":true}}` | mm | `modify_component` | `thermalLandAndSolder` | `landThickness` |
-| `Values["grid.enabled"]` | `localgrid` | — | — | `modify_component` | `modelingOptions` | `localizeGrid` |
-| `Values["grid.density"]` | `radio_lgc` | `{"visible_when":{"grid.enabled":true}}` | — | `modify_component` | `modelingOptions` | `gridDensity` |
-| `Values["bond_wire.modeling"]` | `radio_BondWire_modeling` | — | — | `modify_component` | `modelingOptions` | `modelBondWiresAs` |
-| `Values["package.exposed_pad"]` | — | — | — | `new_package/new_value` | — | `exposedPad` |
-| `Values["leads.custom_coverage"]` | `radio_defined_coverage` | — | — | `modify_component` | `leadFrame` | `userDefinedLeadframeCoverage` |
-| `Values["leads.coverage"]` | `cl` | `{"visible_when":{"leads.custom_coverage":true}}` | % | `modify_component` | `leadFrame` | `leadframeCoveragePercentage` |
+| PackStudio 内部字段 | des | pack script 的字段 |
+| --- | --- | --- |
+| `package.type` | — | `name=null`; `property_name="sopPackageType"` |
+| `footprint.size` | — | `name=null`; `property_name="tssopJedecFootprint"`; `branch="sopJedecFootprint / wizard"` |
+| `package.length` | `D`<br>`unit=mm` | `name="overallPackage"`; `property_name="lengthD"` |
+| `package.width` | `E`<br>`unit=mm` | `name="overallPackage"`; `property_name="widthE"` |
+| `package.standoff` | `A1`<br>`unit=mm` | `name="overallPackage"`; `property_name="standoffA1"` |
+| `body.length` | `D1`<br>`unit=mm` | `name="encapsulant"`; `property_name="lengthD1"` |
+| `body.width` | `E1`<br>`unit=mm` | `name="encapsulant"`; `property_name="widthE1"` |
+| `body.thickness` | `A2`<br>`unit=mm` | `name="encapsulant"`; `property_name="thicknessA2"` |
+| `die.length` | `Ld`<br>`unit=mm` | `name="die"`; `property_name="dieLengthLd"` |
+| `die.width` | `Wd`<br>`unit=mm` | `name="die"`; `property_name="dieWidthWd"` |
+| `die.thickness` | `td`<br>`unit=mm` | `name="die"`; `property_name="dieThicknessTd"` |
+| `die.attach` | `tda`<br>`unit=mm` | `name="die"`; `property_name="dieAttachThicknessTda"` |
+| `die.power` | `P`<br>`unit=W` | `name="die"`; `property_name="packagePower"` |
+| `flag.length` | `Lf`<br>`unit=mm` | `name="dieFlagAndTieBars"`; `property_name="dieFlagLf"` |
+| `flag.width` | `Wf`<br>`unit=mm` | `name="dieFlagAndTieBars"`; `property_name="dieFlagWf"` |
+| `flag.thickness` | `tf`<br>`unit=mm` | `name="dieFlagAndTieBars"`; `property_name="dieFlagThicknessTf"` |
+| `flag.coverage` | `cf`<br>`unit=%` | `name="dieFlagAndTieBars"`; `property_name="metalCoverageForDieFlagCf"` |
+| `flag.downset` | `ddf`<br>`unit=mm` | `name="dieFlagAndTieBars"`; `property_name="dieFlagDownsetDdf"` |
+| `tie_bar.width` | `wtb`<br>`unit=mm` | `name="dieFlagAndTieBars"`; `property_name="tieBarWidthWtb"` |
+| `leads.total` | `MT` | `name="leadFrame"`; `property_name="totalNumberOfLeadsMT"` |
+| `leads.gap` | `g1`<br>`unit=mm` | `name="leadFrame"`; `property_name="leadframeFlagGapG1"` |
+| `leads.pitch` | `e`<br>`unit=mm` | `name="leadFrame"`; `property_name="pitchE"` |
+| `leads.width` | `b`<br>`unit=mm` | `name="leadFrame"`; `property_name="leadWidthB"` |
+| `leads.thickness` | `tl`<br>`unit=mm` | `name="leadFrame"`; `property_name="leadThicknessTl"` |
+| `leads.height` | `hl`<br>`unit=mm` | `name="leadFrame"`; `property_name="leadframeHeightHl"` |
+| `leads.foot_length` | `Lft`<br>`unit=mm` | `name="leadFrame"`; `property_name="leadfootLengthLft"` |
+| `bond_wire.count` | `N` | `name="bondWires"`; `property_name="numberOfBondWiresN"` |
+| `bond_wire.diameter` | `dbw`<br>`unit=mm` | `name="bondWires"`; `property_name="bondWireDiameterDbw"` |
+| `thermal_land.enabled` | `landsolder` | `name="thermalLandAndSolder"`; `property_name="includeThermalLandAndSolder"` |
+| `thermal_land.thickness` | `ts`<br>`unit=mm`<br>`conditions={"visible_when":{"thermal_land.enabled":true}}` | `name="thermalLandAndSolder"`; `property_name="landThickness"` |
+| `grid.enabled` | `localgrid` | `name="modelingOptions"`; `property_name="localizeGrid"` |
+| `grid.density` | `radio_lgc`<br>`conditions={"visible_when":{"grid.enabled":true}}` | `name="modelingOptions"`; `property_name="gridDensity"` |
+| `bond_wire.modeling` | `radio_BondWire_modeling` | `name="modelingOptions"`; `property_name="modelBondWiresAs"` |
+| `package.exposed_pad` | — | `name=null`; `property_name="exposedPad"` |
+| `leads.custom_coverage` | `radio_defined_coverage` | `name="leadFrame"`; `property_name="userDefinedLeadframeCoverage"` |
+| `leads.coverage` | `cl`<br>`unit=%`<br>`conditions={"visible_when":{"leads.custom_coverage":true}}` | `name="leadFrame"`; `property_name="leadframeCoveragePercentage"` |
 
 ### Assignments
 
-| PackStudio 内部字段 | DES 键 | DES 条件 | 单位 | pack_script command | name | property_name |
-| --- | --- | --- | --- | --- | --- | --- |
-| `Assignments["group-encapsulant"]` | `k_encap` | — | — | `modify_component` | `encapsulant` | `encapsulantMaterial` |
-| `Assignments["group-die"]` | — | — | — | — | — | — |
-| `Assignments["group-die-attach"]` | `k_da` | — | — | `modify_component` | `die` | `dieAttachMaterial` |
-| `Assignments["group-lead-frame"]` | `k_metal` | — | — | `modify_component` | `leadFrame` | `leadframeMaterial` |
-| `Assignments["group-bond-wires"]` | `k_bw` | — | — | `modify_component` | `bondWires` | `material` |
-| `Assignments["group-thermal-land"]` | `k_land` | `{"thermal_land.enabled":true}` | — | `modify_component` | `thermalLandAndSolder` | `landMaterial` |
-| `Assignments["group-thermal-solder"]` | `k_sd` | `{"thermal_land.enabled":true}` | — | `modify_component` | `thermalLandAndSolder` | `solderMaterial` |
-| `Assignments["group-die-flag"]` | `kdf` | — | — | `modify_component` | `dieFlagAndTieBars` | `dieFlagMaterial` |
+| PackStudio 内部字段 | des | pack script 的字段 |
+| --- | --- | --- |
+| `group-encapsulant` | `k_encap` | `name="encapsulant"`; `property_name="encapsulantMaterial"` |
+| `group-die` | — | — |
+| `group-die-attach` | `k_da` | `name="die"`; `property_name="dieAttachMaterial"` |
+| `group-lead-frame` | `k_metal` | `name="leadFrame"`; `property_name="leadframeMaterial"` |
+| `group-bond-wires` | `k_bw` | `name="bondWires"`; `property_name="material"` |
+| `group-thermal-land` | `k_land`<br>`conditions={"thermal_land.enabled":true}` | `name="thermalLandAndSolder"`; `property_name="landMaterial"` |
+| `group-thermal-solder` | `k_sd`<br>`conditions={"thermal_land.enabled":true}` | `name="thermalLandAndSolder"`; `property_name="solderMaterial"` |
+| `group-die-flag` | `kdf` | `name="dieFlagAndTieBars"`; `property_name="dieFlagMaterial"` |
 
 ### ProjectDocument
 
-| PackStudio 内部字段 | DES 键 | DES 条件 | 单位 | pack_script command | name | property_name |
-| --- | --- | --- | --- | --- | --- | --- |
-| `ProjectDocument.TemplateId` | `package` | — | — | — | — | — |
-| `ProjectDocument.Name` | `design` | — | — | — | — | — |
-| `ProjectDocument.PresetId` | — | — | — | — | — | — |
-| `ProjectDocument.CustomMaterials` | — | — | — | — | — | — |
+| PackStudio 内部字段 | des | pack script 的字段 |
+| --- | --- | --- |
+| `TemplateId` | `package` | — |
+| `Name` | `design` | — |
+| `PresetId` | — | — |
+| `CustomMaterials` | — | — |
