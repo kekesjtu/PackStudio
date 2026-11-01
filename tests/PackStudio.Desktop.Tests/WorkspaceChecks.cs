@@ -24,10 +24,10 @@ static class WorkspaceChecks
     public static void Run(MainWindow window, Workspace workspace)
     {
         var viewport = Find<HelixViewport3D>(window, "Viewport");
-        Require(viewport.PanGesture.MouseAction == MouseAction.LeftClick && viewport.PanGesture.Modifiers == ModifierKeys.None,
-            "left drag must pan without modifiers");
-        Require(viewport.RotateGesture.MouseAction == MouseAction.RightClick && viewport.RotateGesture.Modifiers == ModifierKeys.None,
-            "right drag must rotate without modifiers");
+        Require(viewport.RotateGesture.MouseAction == MouseAction.LeftClick && viewport.RotateGesture.Modifiers == ModifierKeys.None,
+            "left drag must rotate without modifiers");
+        Require(viewport.PanGesture.MouseAction == MouseAction.RightClick && viewport.PanGesture.Modifiers == ModifierKeys.None,
+            "right drag must pan without modifiers");
         Require(viewport.IsZoomEnabled && viewport.ShowCoordinateSystem && !viewport.ShowViewCube &&
             viewport.CoordinateSystemHorizontalPosition == HorizontalAlignment.Right &&
             viewport.CoordinateSystemVerticalPosition == VerticalAlignment.Bottom, "viewport controls and orientation");
@@ -74,14 +74,14 @@ static class WorkspaceChecks
         typeof(MainWindow).GetField("pointerDragged", flags)!.SetValue(window, false);
         typeof(MainWindow).GetMethod("Viewport_PointerUp", flags)!.Invoke(window,
             [viewport, new MouseButtonEventArgs(Mouse.PrimaryDevice, Environment.TickCount, MouseButton.Left)]);
-        Require(workspace.Selected.SetEquals([selectedId]), "pan release changed model selection");
+        Require(workspace.Selected.SetEquals([selectedId]), "rotate release changed model selection");
         workspace.Selected.Clear();
 
         CheckTree(Find<TreeView>(window, "ModelTree"));
         CheckMaterials(workspace);
         CheckFieldLayout(window, workspace);
         NewPackageChecks.Capture(window, "workspace-interactions.png");
-        Console.WriteLine("PASS gestures, pan selection, live splitters, warning overlay and tree rows");
+        Console.WriteLine("PASS gestures, rotate selection, live splitters, warning overlay and tree rows");
     }
 
     static void CheckMaterials(Workspace workspace)
