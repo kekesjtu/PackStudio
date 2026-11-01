@@ -12,7 +12,7 @@ public partial class MainWindow
         {
             Margin = new(0, 0, 0, 7)
         };
-        row.ColumnDefinitions.Add(new() { Width = new GridLength(105) });
+        row.ColumnDefinitions.Add(new() { Width = new GridLength(195) });
         row.ColumnDefinitions.Add(new());
         row.ColumnDefinitions.Add(new() { Width = new GridLength(72) });
         string display = symbol.Length > 0 && label.EndsWith(" " + symbol, StringComparison.Ordinal) ? label[..^(symbol.Length + 1)] : label;

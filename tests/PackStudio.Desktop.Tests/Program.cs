@@ -65,6 +65,17 @@ public static class Program
                         window.UpdateLayout();
                         if (fields.Children.Count == 0)
                             throw new Exception(family.Id + " empty wizard step " + i);
+                        foreach (var row in fields.Children.OfType<Grid>())
+                        {
+                            FrameworkElement? label = row.Children.OfType<DockPanel>().FirstOrDefault() ?? (FrameworkElement?)row.Children.OfType<TextBlock>().FirstOrDefault();
+                            if (label is not TextBlock && label is not DockPanel) continue;
+                            var text = label is TextBlock block ? block : ((DockPanel)label).Children.OfType<TextBlock>().LastOrDefault();
+                            if (text == null || string.IsNullOrEmpty(text.Text)) continue;
+                            var measured = new TextBlock { Text = text.Text, FontFamily = text.FontFamily, FontSize = text.FontSize, FontWeight = text.FontWeight };
+                            measured.Measure(new Size(double.PositiveInfinity, double.PositiveInfinity));
+                            if (text.ActualWidth + 1 < measured.DesiredSize.Width)
+                                throw new Exception($"{family.Id} label is truncated: {text.Text} ({text.ActualWidth:F1} < {measured.DesiredSize.Width:F1})");
+                        }
                     }
 
                     if (family.Id == "bare_die")
