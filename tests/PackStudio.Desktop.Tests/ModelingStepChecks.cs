@@ -26,16 +26,16 @@ static class ModelingStepChecks
         var bumpModeling = template.Fields.FirstOrDefault(f => f["key"].Text() == "bumps.modeling");
         if (bumpModeling != null && JsonData.Matches(bumpModeling["visible_when"] as JObject, workspace.Document.Values))
         {
-            bool declared = Descendants<ComboBox>(fields).Any(combo => ComboLabel(combo) == "各向同性等效层" && combo.Items.Count == 1);
+            bool declared = Descendants<ComboBox>(fields).Any(combo => ComboLabel(combo) == "Isotropic Cuboid" && combo.Items.Count == 1);
             if (!declared)
-                throw new Exception(family + ": 建模栏目缺少固定为各向同性等效层的凸点建模下拉");
+                throw new Exception(family + ": 建模栏目缺少固定为 Isotropic Cuboid 的凸点建模下拉");
         }
 
         if (!template.Fields.Any(f => f["step"].Text() == "solder_balls"))
             return;
         if (!modeling.Contains("焊球建模方式"))
             throw new Exception(family + ": 焊球建模方式不在建模栏目");
-        if (!Descendants<ComboBox>(fields).Any(combo => ComboLabel(combo) is "离散矩形块" or "各向异性等效层" or "各向同性等效层"))
+        if (!Descendants<ComboBox>(fields).Any(combo => ComboLabel(combo) is "Discrete Cuboids" or "Orthotropic Cuboid" or "Isotropic Cuboid"))
             throw new Exception(family + ": 焊球建模方式缺少英文选项");
         if (Labels(fields, steps, "solder_balls", window).Contains("焊球建模方式"))
             throw new Exception(family + ": 焊球建模方式仍留在焊球栏目");

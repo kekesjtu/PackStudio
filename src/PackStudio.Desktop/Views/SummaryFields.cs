@@ -73,21 +73,14 @@ public partial class MainWindow
         name.TextChanged += Name_Changed;
         FieldsPanel.Children.Add(FieldRow("设计名称", name));
         void ReadOnly(string label, string value) => FieldsPanel.Children.Add(FieldRow(label, new TextBlock { Text = value, TextWrapping = TextWrapping.Wrap, Margin = new(5, 5, 0, 5) }));
-        string Choice(string key)
-        {
-            string text = document.Values[key].Text();
-            var field = workspace.Template.Fields.FirstOrDefault(f => f["key"].Text() == key);
-            return field?["option_labels"]?[text].Text(text) ?? text;
-        }
-
         ReadOnly("封装类型", workspace.Template.Info.Name);
         if (document.PresetId.Length > 0)
         {
-            ReadOnly("JEDEC 占位尺寸", document.PresetId);
+            ReadOnly("JEDEC Footprint", document.PresetId);
         }
 
         if (document.Values["substrate.layers"] != null)
-            ReadOnly("基板层数", Choice("substrate.layers"));
+            ReadOnly("基板层数", document.Values["substrate.layers"].Text());
         ReadOnly("芯片功率", document.Values["die.power"].Text() + " W");
 
     }

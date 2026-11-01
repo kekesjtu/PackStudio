@@ -24,22 +24,6 @@ static class DesLabelChecks
 
         if (missing.Count > 0)
             throw new Exception("DES 符号缺失：" + string.Join("、", missing));
-
-        var unlabeled = new List<string>();
-        foreach (var family in PackageCatalog.Families)
-        {
-            var template = JsonData.Read(Path.Combine(root, "templates", family.Id + ".json"));
-            foreach (var field in ((JArray)template["fields"]!).OfType<JObject>().Where(f => f["options"]!.HasValues && f["key"].Text() != "package.type"))
-                foreach (var option in (JArray)field["options"]!)
-                {
-                    string? text = field["option_labels"]?[option.ToString()].Text("");
-                    if (text == null || text.Length == 0 || text.Any(char.IsAsciiLetter))
-                        unlabeled.Add(family.Id + "." + field["key"].Text() + "=" + option);
-                }
-        }
-
-        if (unlabeled.Count > 0)
-            throw new Exception("下拉选项缺少中文名：" + string.Join("、", unlabeled));
-        Console.WriteLine("PASS DES symbols cover every numeric wizard field and every choice has a Chinese name");
+        Console.WriteLine("PASS DES symbols cover every numeric wizard field");
     }
 }

@@ -6,7 +6,7 @@
     {
       "key": "package.type",
       "step": "package_setup",
-      "label": "封装类型",
+      "label": "Package Type",
       "control": "combobox",
       "unit": null,
       "minimum": null,
@@ -30,7 +30,7 @@
     {
       "key": "footprint.size",
       "step": "package_setup",
-      "label": "封装占位尺寸（JEDEC）",
+      "label": "Footprint 尺寸（JEDEC）",
       "control": "footprint",
       "default": "SOP_8_3_81x4_93",
       "unit": null,
@@ -465,11 +465,7 @@
         "medium",
         "fine"
       ],
-      "option_labels": {
-        "coarse": "粗",
-        "medium": "中",
-        "fine": "细"
-      },
+      "option_labels": {},
       "presets": [],
       "visible_when": {
         "grid.enabled": true
@@ -489,10 +485,7 @@
         "isotropicCuboid",
         "orthotropicCuboid"
       ],
-      "option_labels": {
-        "isotropicCuboid": "各向同性等效层",
-        "orthotropicCuboid": "各向异性等效层"
-      },
+      "option_labels": {},
       "presets": [],
       "visible_when": {},
       "enabled_when": {}
