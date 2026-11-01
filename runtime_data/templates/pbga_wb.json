@@ -6,7 +6,7 @@
     {
       "key": "footprint.size",
       "step": "package_setup",
-      "label": "Footprint 尺寸（JEDEC）",
+      "label": "封装占位尺寸（JEDEC）",
       "control": "footprint",
       "default": "PBGA_121_15X15mm",
       "unit": null,
@@ -585,7 +585,11 @@
         "medium",
         "fine"
       ],
-      "option_labels": {},
+      "option_labels": {
+        "coarse": "粗",
+        "medium": "中",
+        "fine": "细"
+      },
       "presets": [],
       "visible_when": {
         "grid.enabled": true
@@ -605,7 +609,10 @@
         "isotropicCuboid",
         "orthotropicCuboid"
       ],
-      "option_labels": {},
+      "option_labels": {
+        "isotropicCuboid": "各向同性等效层",
+        "orthotropicCuboid": "各向异性等效层"
+      },
       "presets": [],
       "visible_when": {},
       "enabled_when": {}
@@ -623,7 +630,10 @@
         "2-Layer",
         "4-Layer"
       ],
-      "option_labels": {},
+      "option_labels": {
+        "2-Layer": "2 层",
+        "4-Layer": "4 层"
+      },
       "presets": [],
       "visible_when": {},
       "enabled_when": {}
@@ -672,7 +682,11 @@
         "isotropicCuboid",
         "orthotropicCuboid"
       ],
-      "option_labels": {},
+      "option_labels": {
+        "discreteCuboids": "离散矩形块",
+        "isotropicCuboid": "各向同性等效层",
+        "orthotropicCuboid": "各向异性等效层"
+      },
       "presets": [],
       "visible_when": {
         "vias.enabled": true

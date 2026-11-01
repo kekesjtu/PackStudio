@@ -6,7 +6,7 @@
     {
       "key": "footprint.size",
       "step": "package_setup",
-      "label": "Footprint 尺寸（JEDEC）",
+      "label": "封装占位尺寸（JEDEC）",
       "control": "footprint",
       "default": "PBGAFC_49_6X6mm",
       "unit": null,
@@ -172,7 +172,7 @@
         "isotropicCuboid"
       ],
       "option_labels": {
-        "isotropicCuboid": "Isotropic Cuboid"
+        "isotropicCuboid": "各向同性等效层"
       },
       "presets": [],
       "visible_when": {},
@@ -510,7 +510,11 @@
         "medium",
         "fine"
       ],
-      "option_labels": {},
+      "option_labels": {
+        "coarse": "粗",
+        "medium": "中",
+        "fine": "细"
+      },
       "presets": [],
       "visible_when": {
         "grid.enabled": true
@@ -530,7 +534,10 @@
         "non_regular",
         "regular"
       ],
-      "option_labels": {},
+      "option_labels": {
+        "non_regular": "非规则阵列",
+        "regular": "规则阵列"
+      },
       "presets": [],
       "visible_when": {},
       "enabled_when": {}
@@ -1000,7 +1007,10 @@
         "discrete",
         "equivalent"
       ],
-      "option_labels": {},
+      "option_labels": {
+        "discrete": "离散矩形块",
+        "equivalent": "各向异性等效层"
+      },
       "presets": [],
       "visible_when": {
         "vias.enabled": true

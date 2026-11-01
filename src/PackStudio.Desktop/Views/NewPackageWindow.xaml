@@ -77,8 +77,8 @@
             <TextBlock Text="设计名称" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,12,10"/>
             <TextBox x:Name="DesignNameBox" Grid.Column="1" MaxLength="160" Margin="0,0,0,10"/>
             <TextBlock x:Name="VariantLabel" Grid.Row="1" Text="封装子类型" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,12,10"/>
-            <ComboBox x:Name="VariantBox" Grid.Row="1" Grid.Column="1" SelectionChanged="Variant_Changed" Margin="0,0,0,10"/>
-            <TextBlock x:Name="FootprintLabel" Grid.Row="2" Text="JEDEC Footprint" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,12,10"/>
+            <ComboBox x:Name="VariantBox" Grid.Row="1" Grid.Column="1" DisplayMemberPath="Label" SelectedValuePath="Value" SelectionChanged="Variant_Changed" Margin="0,0,0,10"/>
+            <TextBlock x:Name="FootprintLabel" Grid.Row="2" Text="JEDEC 占位尺寸" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,12,10"/>
             <ComboBox x:Name="FootprintBox" Grid.Row="2" Grid.Column="1" DisplayMemberPath="Id" SelectedValuePath="Id" IsTextSearchEnabled="True" SelectionChanged="Footprint_Changed" Margin="0,0,0,10"/>
           </Grid>
           <StackPanel x:Name="CreationOptions"/>

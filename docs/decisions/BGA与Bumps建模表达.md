@@ -2,13 +2,13 @@
 
 ## 决策
 
-- BGA 焊球建模下拉框对应 PACK 的 `Model Solder Ball Array As`，选项文本采用 PACK 名称：`Discrete Cuboids`、`Orthotropic Cuboid`、`Isotropic Cuboid`。
-- Chip Array 提供 `Discrete Cuboids`；Flip Chip CBGA/PBGA 提供 `Orthotropic Cuboid` 与 `Discrete Cuboids`。
-- Wirebond PBGA 提供 `Isotropic Cuboid`、`Discrete Cuboids` 与 `Orthotropic Cuboid`。
-- Bumps 采用有厚度的 Isotropic Cuboid 等效层。
-- 凸点建模使用下拉框只展示 `Isotropic Cuboid`，对应 PACK 的 `Model Flip Chip Bumps As`（Bare Die 为 `Solder Bump Modeling`）；该选项仅声明表达方式，不参与几何生成。
+- BGA 焊球建模下拉框对应 PACK 的 `Model Solder Ball Array As`，选项显示离散矩形块、各向异性等效层、各向同性等效层。
+- Chip Array 提供离散矩形块；Flip Chip CBGA/PBGA 提供各向异性等效层与离散矩形块。
+- Wirebond PBGA 提供各向同性等效层、各向异性等效层与离散矩形块。
+- Bumps 采用有厚度的各向同性等效层。
+- 凸点建模下拉框只展示各向同性等效层，对应 PACK 的 `Model Flip Chip Bumps As`（Bare Die 为 `Solder Bump Modeling`）；该选项仅声明表达方式，不参与几何生成。
 - 建模与局部网格栏目按几何建模控件、局部网格开关和网格密度的顺序排列；凸点、焊球、通孔、键合线、引线框的建模方式控件集中在建模与局部网格栏目，局部网格开关与网格密度始终排在末尾。
-- 建模方式下拉框的行标签沿用同栏目「…建模方式」中文写法，选项文本使用 PACK 英文枚举。
+- 建模方式下拉框的行标签与选项文本都用中文，PACK 英文枚举只作为内部取值保留；DES 字段已在标签列标注符号，界面不再重复英文名称。
 
 ## 等效物性与几何规则
 

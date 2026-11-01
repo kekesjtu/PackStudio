@@ -156,7 +156,7 @@
         "isotropicCuboid"
       ],
       "option_labels": {
-        "isotropicCuboid": "Isotropic Cuboid"
+        "isotropicCuboid": "各向同性等效层"
       },
       "presets": [],
       "visible_when": {
@@ -191,7 +191,12 @@
         "coarse",
         "medium",
         "fine"
-      ]
+      ],
+      "option_labels": {
+        "coarse": "粗",
+        "medium": "中",
+        "fine": "细"
+      }
     }
   ],
   "material_selections": [

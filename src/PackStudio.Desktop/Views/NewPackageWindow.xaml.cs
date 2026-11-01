@@ -69,11 +69,13 @@ public partial class NewPackageWindow : Window
         string id = template.Info.Id;
         syncing = true;
         DesignNameBox.Text = template.Info.Name;
-        var variants = template.Presets.Select(p => p.Values["package.type"].Text()).Distinct().Where(v => v.Length > 0).ToList();
+        var typeField = template.Fields.FirstOrDefault(f => f["key"].Text() == "package.type");
+        var variants = template.Presets.Select(p => p.Values["package.type"].Text()).Distinct().Where(v => v.Length > 0)
+            .Select(v => new { Value = v, Label = typeField?["option_labels"]?[v].Text(v) ?? v }).ToList();
         VariantLabel.Visibility = VariantBox.Visibility = variants.Count > 0 ? Visibility.Visible : Visibility.Collapsed;
         VariantBox.ItemsSource = variants;
         var selected = template.Presets.FirstOrDefault(p => p.Id == template.DefaultPreset);
-        VariantBox.SelectedItem = selected?.Values["package.type"].Text();
+        VariantBox.SelectedValue = selected?.Values["package.type"].Text();
         FootprintBox.ItemsSource = PresetsForVariant();
         FootprintBox.SelectedValue = template.DefaultPreset;
         bool bare = id == "bare_die";
@@ -82,7 +84,7 @@ public partial class NewPackageWindow : Window
         ApplyPreset();
     }
 
-    List<Preset> PresetsForVariant() => template.Presets.Where(p => VariantBox.SelectedItem is not string variant || p.Values["package.type"].Text() == variant).ToList();
+    List<Preset> PresetsForVariant() => template.Presets.Where(p => VariantBox.SelectedValue is not string variant || p.Values["package.type"].Text() == variant).ToList();
     void Variant_Changed(object sender, SelectionChangedEventArgs e)
     {
         if (syncing)
