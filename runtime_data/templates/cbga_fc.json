@@ -161,6 +161,25 @@
       "enabled_when": {}
     },
     {
+      "key": "bumps.modeling",
+      "step": "modeling",
+      "label": "凸点建模方式",
+      "control": "combobox",
+      "unit": null,
+      "minimum": null,
+      "maximum": null,
+      "options": [
+        "isotropicCuboid"
+      ],
+      "option_labels": {
+        "isotropicCuboid": "Isotropic Cuboid"
+      },
+      "presets": [],
+      "visible_when": {},
+      "enabled_when": {},
+      "default": "isotropicCuboid"
+    },
+    {
       "key": "bga.columns",
       "step": "solder_balls",
       "label": "X 方向焊球数 MD",

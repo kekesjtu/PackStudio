@@ -1,5 +1,7 @@
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
+using Newtonsoft.Json.Linq;
 using PackStudio.Core;
 using PackStudio.Desktop;
 
@@ -21,13 +23,25 @@ static class ModelingStepChecks
         if (modeling.Skip(grid).Any(text => text is not ("局部网格" or "网格密度")))
             throw new Exception(family + ": 局部网格未排在建模栏目末尾");
 
+        var bumpModeling = template.Fields.FirstOrDefault(f => f["key"].Text() == "bumps.modeling");
+        if (bumpModeling != null && JsonData.Matches(bumpModeling["visible_when"] as JObject, workspace.Document.Values))
+        {
+            bool declared = Descendants<ComboBox>(fields).Any(combo => ComboLabel(combo) == "Isotropic Cuboid" && combo.Items.Count == 1);
+            if (!declared)
+                throw new Exception(family + ": 建模栏目缺少固定为 Isotropic Cuboid 的凸点建模下拉");
+        }
+
         if (!template.Fields.Any(f => f["step"].Text() == "solder_balls"))
             return;
         if (!modeling.Contains("焊球建模方式"))
             throw new Exception(family + ": 焊球建模方式不在建模栏目");
+        if (!Descendants<ComboBox>(fields).Any(combo => ComboLabel(combo) is "Discrete Cuboids" or "Orthotropic Cuboid" or "Isotropic Cuboid"))
+            throw new Exception(family + ": 焊球建模方式缺少英文选项");
         if (Labels(fields, steps, "solder_balls", window).Contains("焊球建模方式"))
             throw new Exception(family + ": 焊球建模方式仍留在焊球栏目");
     }
+
+    static string? ComboLabel(ComboBox combo) => combo.SelectedItem?.GetType().GetProperty("Label")?.GetValue(combo.SelectedItem)?.ToString();
 
     static List<string> Labels(StackPanel fields, ListBox steps, string step, MainWindow window)
     {
@@ -52,5 +66,18 @@ static class ModelingStepChecks
         if (first is DockPanel panel)
             return string.Join(" ", panel.Children.OfType<TextBlock>().Select(t => t.Text.Trim()).Where(t => t.Length > 0));
         return null;
+    }
+
+    static IEnumerable<T> Descendants<T>(DependencyObject root)
+        where T : DependencyObject
+    {
+        for (int i = 0; i < VisualTreeHelper.GetChildrenCount(root); i++)
+        {
+            var child = VisualTreeHelper.GetChild(root, i);
+            if (child is T match)
+                yield return match;
+            foreach (var nested in Descendants<T>(child))
+                yield return nested;
+        }
     }
 }

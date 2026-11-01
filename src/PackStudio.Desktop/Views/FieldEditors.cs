@@ -24,14 +24,20 @@ public partial class MainWindow
         {
             Text = value?.Type == JTokenType.Null ? "" : value?.ToString() ?? "",
             BorderThickness = new(0),
+            // 上下内边距比默认少 1px，抵掉外框 1px 边框，使输入框总高度与其他字段控件一致。
+            Padding = new(6, 3, 6, 3),
             MinWidth = 60
         };
         if (integer)
         {
-            var arrows = new StackPanel
+            var arrows = new Grid
             {
                 Width = 22
             };
+            arrows.RowDefinitions.Add(new() { Height = new GridLength(1, GridUnitType.Star) });
+            arrows.RowDefinitions.Add(new() { Height = new GridLength(1, GridUnitType.Star) });
+            // 箭头列跟随输入框高度，避免按钮自身高度把整个输入框撑高。
+            arrows.SetBinding(FrameworkElement.HeightProperty, new System.Windows.Data.Binding(nameof(FrameworkElement.ActualHeight)) { Source = text });
             DockPanel.SetDock(arrows, Dock.Right);
             dock.Children.Add(arrows);
             foreach (int direction in new[]
@@ -44,10 +50,16 @@ public partial class MainWindow
             {
                 var button = new Button
                 {
-                    Content = direction == 1 ? "▴" : "▾",
+                    Content = new System.Windows.Shapes.Path
+                    {
+                        Data = Geometry.Parse(direction == 1 ? "M0,3 L5,3 L2.5,0 Z" : "M0,0 L5,0 L2.5,3 Z"),
+                        Fill = Brushes.SlateGray,
+                        HorizontalAlignment = HorizontalAlignment.Center,
+                        VerticalAlignment = VerticalAlignment.Center
+                    },
                     Padding = new(0),
                     Margin = new(0),
-                    Height = 16,
+                    MinHeight = 0,
                     Focusable = false
                 };
                 button.Click += (_, _) =>
@@ -55,6 +67,7 @@ public partial class MainWindow
                     if (double.TryParse(text.Text, NumberStyles.Float, CultureInfo.InvariantCulture, out double n))
                         text.Text = Math.Clamp(Math.Truncate(n) + direction, minimum, maximum ?? long.MaxValue).ToString(CultureInfo.InvariantCulture);
                 };
+                Grid.SetRow(button, arrows.Children.Count);
                 arrows.Children.Add(button);
             }
         }

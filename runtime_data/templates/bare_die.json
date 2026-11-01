@@ -145,6 +145,27 @@
       "default": 0.1
     },
     {
+      "key": "bumps.modeling",
+      "step": "modeling",
+      "label": "凸点建模方式",
+      "control": "combobox",
+      "unit": null,
+      "minimum": null,
+      "maximum": null,
+      "options": [
+        "isotropicCuboid"
+      ],
+      "option_labels": {
+        "isotropicCuboid": "Isotropic Cuboid"
+      },
+      "presets": [],
+      "visible_when": {
+        "bumps.enabled": true
+      },
+      "enabled_when": {},
+      "default": "isotropicCuboid"
+    },
+    {
       "key": "grid.enabled",
       "label": "局部网格",
       "default": true,

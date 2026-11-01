@@ -1,0 +1,45 @@
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Media;
+using PackStudio.Core;
+using PackStudio.Desktop;
+
+namespace PackStudio.Desktop.Tests;
+static class FieldLayoutChecks
+{
+    // 数值输入框（含整数上下调节按钮）与下拉框高度一致，避免同列控件参差不齐。
+    public static void Run(MainWindow window, ListBox steps, StackPanel fields, Workspace workspace)
+    {
+        string family = workspace.Document.TemplateId;
+        bool compared = false;
+        foreach (var step in steps.Items.Cast<WizardStep>())
+        {
+            steps.SelectedValue = step.Key;
+            window.UpdateLayout();
+            var numbers = Descendants<Border>(fields).Where(b => b.BorderThickness.Top > 0 && b.Child is DockPanel).Select(b => b.ActualHeight).ToList();
+            var combos = Descendants<ComboBox>(fields).Select(c => c.ActualHeight).ToList();
+            if (numbers.Count == 0 || combos.Count == 0)
+                continue;
+            double expected = combos[0];
+            if (numbers.Any(height => Math.Abs(height - expected) > 0.6))
+                throw new Exception($"{family}/{step.Key}: 数值输入框高度 {string.Join("、", numbers.Select(h => h.ToString("F1")))} 与下拉框 {expected:F1} 不一致");
+            compared = true;
+        }
+
+        if (!compared)
+            throw new Exception(family + ": 未找到同时包含数值输入框与下拉框的栏目");
+    }
+
+    static IEnumerable<T> Descendants<T>(DependencyObject root)
+        where T : DependencyObject
+    {
+        for (int i = 0; i < VisualTreeHelper.GetChildrenCount(root); i++)
+        {
+            var child = VisualTreeHelper.GetChild(root, i);
+            if (child is T match)
+                yield return match;
+            foreach (var nested in Descendants<T>(child))
+                yield return nested;
+        }
+    }
+}

@@ -537,7 +537,7 @@
 | DES 字段 | 家族 | 处理 / 边界 |
 | --- | --- | --- |
 | `mDieheat`（及非均匀热源附件） | 全部 | 内部仅支持均匀芯片功率 die.power；无同名热源分区开关。 |
-| `radio_bump_modeling`、`radio_C4_modeling` | Bare Die / FC | 内部无独立 bump 表达选项，使用等效块；不把 1/2/4 直接写进 bumps.array_type。 |
+| `radio_bump_modeling`、`radio_C4_modeling` | Bare Die / FC | 凸点固定为有厚度的各向同性等效块；向导的 `bumps.modeling` 只声明 `isotropicCuboid`，不从原生枚举导入，也不把 1/2/4 写进 bumps.array_type。 |
 | `radio_TieBar_modeling` | PQFP | 内部无同名字段；连接筋范围见项目决策文档。 |
 | `Lbw` | SOP | 原生键合线名义路径长度；内部无独立可编辑键，模型按几何位置确定路径。 |
 | `radio_mold`、`p_adhessive`、`k_adhessive`、`k_mold` | FC | 样本包含但无明确内部参数绑定；不凭键名推断分支或材料组。 |

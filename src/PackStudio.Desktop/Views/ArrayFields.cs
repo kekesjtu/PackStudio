@@ -101,7 +101,7 @@ public partial class MainWindow
         string[] reps = workspace.Document.TemplateId == "chip_array" ? ["discrete"] : workspace.Document.TemplateId == "pbga_wb" ? ["discrete", "equivalent", "isotropic"] : ["discrete", "equivalent"];
         var box = new ComboBox
         {
-            ItemsSource = reps.Select(r => new { Id = r, Label = r == "discrete" ? "离散矩形块" : r == "equivalent" ? "各向异性等效层" : "各向同性等效层" }),
+            ItemsSource = reps.Select(r => new { Id = r, Label = r == "discrete" ? "Discrete Cuboids" : r == "equivalent" ? "Orthotropic Cuboid" : "Isotropic Cuboid" }),
             DisplayMemberPath = "Label",
             SelectedValuePath = "Id",
             SelectedValue = b["representation"].Text()
