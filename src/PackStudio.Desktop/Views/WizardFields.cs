@@ -49,6 +49,7 @@ public partial class MainWindow
         if (step == "summary")
         {
             AddSummary();
+            AlignFieldRows();
             return;
         }
 
@@ -182,8 +183,7 @@ public partial class MainWindow
             )
             {
                 double length = (Number("flag." + dimension) - Number("die." + dimension)) / 2 + Number("leads.gap") + Math.Abs(height);
-                FieldsPanel.Children.Add(new TextBlock { Text = label + " (mm)", Margin = new(0, 8, 0, 4) });
-                FieldsPanel.Children.Add(new TextBox { Text = double.IsFinite(length) ? length.ToString("G9", System.Globalization.CultureInfo.InvariantCulture) : "", IsReadOnly = true, Background = Brushes.WhiteSmoke });
+                FieldsPanel.Children.Add(FieldRow(label + " (mm)", new TextBox { Text = double.IsFinite(length) ? length.ToString("G9", System.Globalization.CultureInfo.InvariantCulture) : "", IsReadOnly = true, Background = Brushes.WhiteSmoke }));
             }
         }
 
@@ -193,5 +193,6 @@ public partial class MainWindow
             AddViaConfiguration();
         if (FieldsPanel.Children.Count == 0)
             FieldsPanel.Children.Add(new TextBlock { Text = "当前封装配置未启用此组件。可在整体封装或基板步骤中调整组件选项。", TextWrapping = TextWrapping.Wrap, Foreground = Brushes.SlateGray, Margin = new(0, 8, 0, 14) });
+        AlignFieldRows();
     }
 }
