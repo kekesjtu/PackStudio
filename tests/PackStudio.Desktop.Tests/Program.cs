@@ -82,6 +82,7 @@ public static class Program
                     ModelingStepChecks.Run(window, steps, fields, vm);
                     FieldLayoutChecks.Run(window, steps, fields, vm);
                     RemovalMatrixChecks.Run(window, steps, fields, vm);
+                    await TableEditorChecks.Run(window, steps, fields, vm);
                     if (family.Id == "bare_die")
                     {
                         steps.SelectedValue = "bumped_die";
@@ -119,6 +120,8 @@ public static class Program
                     materials.Close();
                     Console.WriteLine("PASS desktop " + family.Id);
                 }
+
+                TableEditorChecks.Verify();
 
                 await NewPackageChecks.FinishCreatesProject(window, vm);
                 WorkspaceChecks.Run(window, vm);

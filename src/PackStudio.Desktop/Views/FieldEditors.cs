@@ -177,7 +177,9 @@ public partial class MainWindow
         };
         var panel = new StackPanel();
         panel.Children.Add(grid);
-        var add = new Button { Content = "+ 添加一行", HorizontalAlignment = HorizontalAlignment.Left, Margin = new(0, 6, 0, 0), Padding = new(10, 3, 10, 3) };
+        var buttons = new StackPanel { Orientation = Orientation.Horizontal, Margin = new(0, 6, 0, 0) };
+        var add = new Button { Content = "+ 添加一行", Padding = new(10, 3, 10, 3), Margin = new(0) };
+        var remove = new Button { Content = "删除选中行", Padding = new(10, 3, 10, 3), Margin = new(8, 0, 0, 0), IsEnabled = false };
         add.Click += (_, _) =>
         {
             grid.CommitEdit(DataGridEditingUnit.Row, true);
@@ -189,7 +191,17 @@ public partial class MainWindow
             grid.SelectedItem = table.DefaultView[table.Rows.Count - 1];
             grid.ScrollIntoView(grid.SelectedItem);
         };
-        panel.Children.Add(add);
+        remove.Click += (_, _) =>
+        {
+            grid.CommitEdit(DataGridEditingUnit.Row, true);
+            foreach (var selected in grid.SelectedItems.Cast<DataRowView>().ToList())
+                table.Rows.Remove(selected.Row);
+            Update();
+        };
+        grid.SelectionChanged += (_, _) => remove.IsEnabled = grid.SelectedItems.Count > 0;
+        buttons.Children.Add(add);
+        buttons.Children.Add(remove);
+        panel.Children.Add(buttons);
         return panel;
     }
 }
