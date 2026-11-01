@@ -17,13 +17,6 @@ public static class JsonData
         return JObject.Parse(System.Text.Encoding.UTF8.GetString(bytes));
     }
 
-    public static JToken? At(JToken? token, IEnumerable<string> path)
-    {
-        foreach (var part in path)
-            token = token?[part];
-        return token;
-    }
-
     public static double Number(this JToken? token, double fallback = 0) => token == null || token.Type == JTokenType.Null ? fallback : token.Value<double>();
     public static string Text(this JToken? token, string fallback = "") => token == null || token.Type == JTokenType.Null ? fallback : token.Value<string>() ?? fallback;
     public static bool Flag(this JToken? token) => token?.Type == JTokenType.Boolean && token.Value<bool>();
@@ -31,7 +24,7 @@ public static class JsonData
 }
 
 public sealed record TemplateInfo(string Id, string Name);
-public sealed record Preset(string Id, JObject Values, JObject Materials, JObject Bga, JObject Record);
+public sealed record Preset(string Id, JObject Values, JObject Materials, JObject Bga, JObject Branches);
 public sealed class Template(TemplateInfo info, JObject data, IReadOnlyList<Preset> presets)
 {
     public TemplateInfo Info { get; } = info;

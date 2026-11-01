@@ -81,7 +81,7 @@ static class NewPackageChecks
                 throw new Exception("substrate initialization was discarded");
             if (family == "chip_array")
             {
-                var layers = JArray.Parse(result.Values["metal.layers"].Text());
+                var layers = (JArray)result.Values["metal.layers"]!;
                 if (Math.Abs(layers[1]!["thickness"].Number() - 0.05) > 1e-10 || Math.Abs(layers[2]!["thickness"].Number() - 0.05) > 1e-10)
                     throw new Exception("solid plane thickness was not applied to both inner layers");
             }

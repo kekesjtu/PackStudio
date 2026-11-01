@@ -70,10 +70,10 @@ public partial class MainWindow
             if (!JsonData.Matches(f["visible_when"] as JObject, values))
                 return;
             string key = f["key"].Text(), control = f["control"].Text();
-            bool isTable = control is "metal_layers" or "layer_table" || key.EndsWith(".layers", StringComparison.Ordinal) && control != "select" && values[key]?.Type == JTokenType.String && values[key]!.ToString().TrimStart().StartsWith('[');
+            bool isTable = control is "table" or "metal_layers" or "layer_table";
             var editors = new StackPanel();
             string label = f["label"].Text();
-            string symbol = control is "number" or "integer" or "integer_spinbox" ? DesFieldLabels.Symbol(workspace.Document.TemplateId, key, values["substrate.layers"].Text()) : "";
+            string symbol = control is "number" or "integer" or "integer_spinbox" ? DesFieldLabels.Symbol(f, values["substrate.layers"].Text()) : "";
             var host = FieldRow(label, editors, symbol: symbol);
             host.IsEnabled = JsonData.Matches(f["enabled_when"] as JObject, values);
             if (isTable)
@@ -133,17 +133,8 @@ public partial class MainWindow
             }
             else if (isTable)
             {
-                JArray rows;
-                try
-                {
-                    rows = JArray.Parse(values[key].Text("[]"));
-                }
-                catch
-                {
-                    rows = [];
-                }
-
-                editors.Children.Add(Table(rows, new[] { ("depth", "深度 mm", typeof(double)), ("thickness", "厚度 mm", typeof(double)), ("coverage", "覆盖率 %", typeof(double)), ("disconnect", "断开通孔", typeof(bool)) }, a => Set(a.ToString(Newtonsoft.Json.Formatting.None))));
+                var rows = values[key] is JArray table ? (JArray)table.DeepClone() : [];
+                editors.Children.Add(Table(rows, new[] { ("depth", "深度 mm", typeof(double)), ("thickness", "厚度 mm", typeof(double)), ("coverage", "覆盖率 %", typeof(double)), ("disconnect", "断开通孔", typeof(bool)) }, a => Set(a)));
             }
             else if (control is "number" or "integer" or "integer_spinbox")
             {

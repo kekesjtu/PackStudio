@@ -1,6 +1,5 @@
 """Independent PACK inputs paired with public PackStudio requests."""
 
-import json
 from xml.etree import ElementTree as ET
 
 from tools.pack_sweep.inputs import case_adder
@@ -273,7 +272,7 @@ def cases():
                     region + ".diameter": 0.1,
                     region + ".filled": filled == "yes",
                     region + ".plating": 0.025,
-                    region + ".layers": json.dumps(table),
+                    region + ".layers": table,
                 },
                 assignments={"group-" + region: "bt"},
             )

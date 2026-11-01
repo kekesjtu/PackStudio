@@ -9,7 +9,7 @@ from tools.pack_reference.catalog_properties import metal_rows, property_record,
 from tools.pack_reference.native import VERIFIED_BINARIES
 from tools.pack_reference.native_details import EXTRA_BINARIES
 
-PRESET_SCHEMA = "packstudio.preset/v1"
+PRESET_SCHEMA = "packstudio.native-preset/v1"
 MATERIAL_SCHEMA = "packstudio.material/v1"
 CATEGORIES = {
     "Resins": "resins",
@@ -200,7 +200,7 @@ def write_presets(
                 "sha256": source["source_sha256"],
                 "des_fields": source["raw_fields"],
                 "comment": (
-                    "原文本完整无损保留用于追溯；运行参数读取 branches，不能把源空字符串当默认值。"
+                    "原文本完整无损保留用于研究追溯；branches 是原生研究快照，不是正式运行预设。"
                 ),
                 "binary_sha256": VERIFIED_BINARIES | EXTRA_BINARIES,
             },
@@ -223,7 +223,7 @@ def write_presets(
     write_json(
         directory / "presets/index.json",
         {
-            "schema_version": "packstudio.preset-index/v1",
+            "schema_version": "packstudio.native-preset-index/v1",
             "preset_count": len(index),
             "comment": "每个预设独立文件；材料从 materials/index.json 按名称解析。",
             "presets": index,

@@ -16,7 +16,8 @@
       "option_labels": {},
       "presets": [],
       "visible_when": {},
-      "enabled_when": {}
+      "enabled_when": {},
+      "des_symbol": null
     },
     {
       "key": "package.length",
@@ -30,7 +31,8 @@
       "option_labels": {},
       "presets": [],
       "visible_when": {},
-      "enabled_when": {}
+      "enabled_when": {},
+      "des_symbol": "D"
     },
     {
       "key": "package.width",
@@ -44,7 +46,8 @@
       "option_labels": {},
       "presets": [],
       "visible_when": {},
-      "enabled_when": {}
+      "enabled_when": {},
+      "des_symbol": "E"
     },
     {
       "key": "substrate.thickness",
@@ -58,7 +61,8 @@
       "option_labels": {},
       "presets": [],
       "visible_when": {},
-      "enabled_when": {}
+      "enabled_when": {},
+      "des_symbol": "A2"
     },
     {
       "key": "trace.top_thickness",
@@ -72,7 +76,11 @@
       "option_labels": {},
       "presets": [],
       "visible_when": {},
-      "enabled_when": {}
+      "enabled_when": {},
+      "des_symbol": {
+        "2-Layer": "tza1",
+        "4-Layer": "tz1"
+      }
     },
     {
       "key": "trace.bottom_thickness",
@@ -86,7 +94,11 @@
       "option_labels": {},
       "presets": [],
       "visible_when": {},
-      "enabled_when": {}
+      "enabled_when": {},
+      "des_symbol": {
+        "2-Layer": "tza2",
+        "4-Layer": "tz4"
+      }
     },
     {
       "key": "die.length",
@@ -100,7 +112,8 @@
       "option_labels": {},
       "presets": [],
       "visible_when": {},
-      "enabled_when": {}
+      "enabled_when": {},
+      "des_symbol": "Ld"
     },
     {
       "key": "die.width",
@@ -114,7 +127,8 @@
       "option_labels": {},
       "presets": [],
       "visible_when": {},
-      "enabled_when": {}
+      "enabled_when": {},
+      "des_symbol": "Wd"
     },
     {
       "key": "die.thickness",
@@ -128,7 +142,8 @@
       "option_labels": {},
       "presets": [],
       "visible_when": {},
-      "enabled_when": {}
+      "enabled_when": {},
+      "des_symbol": "td"
     },
     {
       "key": "die.attach",
@@ -142,7 +157,8 @@
       "option_labels": {},
       "presets": [],
       "visible_when": {},
-      "enabled_when": {}
+      "enabled_when": {},
+      "des_symbol": "tda"
     },
     {
       "key": "die.power",
@@ -156,7 +172,8 @@
       "option_labels": {},
       "presets": [],
       "visible_when": {},
-      "enabled_when": {}
+      "enabled_when": {},
+      "des_symbol": "P"
     },
     {
       "key": "encapsulant.thickness",
@@ -170,7 +187,8 @@
       "option_labels": {},
       "presets": [],
       "visible_when": {},
-      "enabled_when": {}
+      "enabled_when": {},
+      "des_symbol": "te"
     },
     {
       "key": "solder_mask.thickness",
@@ -184,7 +202,8 @@
       "option_labels": {},
       "presets": [],
       "visible_when": {},
-      "enabled_when": {}
+      "enabled_when": {},
+      "des_symbol": "tsm"
     },
     {
       "key": "bond_wire.extent_length",
@@ -198,7 +217,8 @@
       "option_labels": {},
       "presets": [],
       "visible_when": {},
-      "enabled_when": {}
+      "enabled_when": {},
+      "des_symbol": "Lw"
     },
     {
       "key": "bond_wire.extent_width",
@@ -212,7 +232,8 @@
       "option_labels": {},
       "presets": [],
       "visible_when": {},
-      "enabled_when": {}
+      "enabled_when": {},
+      "des_symbol": "Ww"
     },
     {
       "key": "bond_wire.diameter",
@@ -226,7 +247,8 @@
       "option_labels": {},
       "presets": [],
       "visible_when": {},
-      "enabled_when": {}
+      "enabled_when": {},
+      "des_symbol": "dw"
     },
     {
       "key": "vias.enabled",
@@ -240,7 +262,8 @@
       "option_labels": {},
       "presets": [],
       "visible_when": {},
-      "enabled_when": {}
+      "enabled_when": {},
+      "des_symbol": null
     },
     {
       "key": "vias.diameter",
@@ -256,7 +279,8 @@
       "visible_when": {
         "vias.enabled": true
       },
-      "enabled_when": {}
+      "enabled_when": {},
+      "des_symbol": "dv"
     },
     {
       "key": "vias.plating",
@@ -273,7 +297,8 @@
         "vias.enabled": true,
         "vias.filled": false
       },
-      "enabled_when": {}
+      "enabled_when": {},
+      "des_symbol": "tpl"
     },
     {
       "key": "vias.offset_x",
@@ -289,7 +314,8 @@
       "visible_when": {
         "vias.enabled": true
       },
-      "enabled_when": {}
+      "enabled_when": {},
+      "des_symbol": "vxoff"
     },
     {
       "key": "vias.offset_y",
@@ -305,7 +331,8 @@
       "visible_when": {
         "vias.enabled": true
       },
-      "enabled_when": {}
+      "enabled_when": {},
+      "des_symbol": "vyoff"
     },
     {
       "key": "bga.columns",
@@ -319,7 +346,8 @@
       "option_labels": {},
       "presets": [],
       "visible_when": {},
-      "enabled_when": {}
+      "enabled_when": {},
+      "des_symbol": "MD"
     },
     {
       "key": "bga.rows",
@@ -333,7 +361,8 @@
       "option_labels": {},
       "presets": [],
       "visible_when": {},
-      "enabled_when": {}
+      "enabled_when": {},
+      "des_symbol": "ME"
     },
     {
       "key": "bga.pitch",
@@ -347,7 +376,8 @@
       "option_labels": {},
       "presets": [],
       "visible_when": {},
-      "enabled_when": {}
+      "enabled_when": {},
+      "des_symbol": "e"
     },
     {
       "key": "bga.diameter",
@@ -361,7 +391,8 @@
       "option_labels": {},
       "presets": [],
       "visible_when": {},
-      "enabled_when": {}
+      "enabled_when": {},
+      "des_symbol": "b"
     },
     {
       "key": "bga.height",
@@ -375,7 +406,8 @@
       "option_labels": {},
       "presets": [],
       "visible_when": {},
-      "enabled_when": {}
+      "enabled_when": {},
+      "des_symbol": "A1"
     },
     {
       "key": "grid.enabled",
@@ -390,7 +422,8 @@
       "option_labels": {},
       "presets": [],
       "visible_when": {},
-      "enabled_when": {}
+      "enabled_when": {},
+      "des_symbol": null
     },
     {
       "key": "grid.density",
@@ -411,7 +444,8 @@
       "visible_when": {
         "grid.enabled": true
       },
-      "enabled_when": {}
+      "enabled_when": {},
+      "des_symbol": null
     },
     {
       "key": "substrate.layers",
@@ -429,7 +463,8 @@
       "option_labels": {},
       "presets": [],
       "visible_when": {},
-      "enabled_when": {}
+      "enabled_when": {},
+      "des_symbol": null
     },
     {
       "key": "bond_wire.auto_count",
@@ -444,7 +479,8 @@
       "option_labels": {},
       "presets": [],
       "visible_when": {},
-      "enabled_when": {}
+      "enabled_when": {},
+      "des_symbol": null
     },
     {
       "key": "bond_wire.total",
@@ -461,7 +497,8 @@
       "visible_when": {
         "bond_wire.auto_count": false
       },
-      "enabled_when": {}
+      "enabled_when": {},
+      "des_symbol": "Nw"
     },
     {
       "key": "bond_wire.include",
@@ -476,7 +513,8 @@
       "option_labels": {},
       "presets": [],
       "visible_when": {},
-      "enabled_when": {}
+      "enabled_when": {},
+      "des_symbol": null
     },
     {
       "key": "vias.filled",
@@ -493,7 +531,8 @@
       "visible_when": {
         "vias.enabled": true
       },
-      "enabled_when": {}
+      "enabled_when": {},
+      "des_symbol": null
     },
     {
       "key": "vias.modeling",
@@ -513,12 +552,13 @@
       "visible_when": {
         "vias.enabled": true
       },
-      "enabled_when": {}
+      "enabled_when": {},
+      "des_symbol": null
     },
     {
       "key": "metal.layers",
       "label": "金属层表（Depth / Thickness / Coverage）",
-      "default": "[]",
+      "default": [],
       "step": "metal_layers",
       "control": "table",
       "unit": null,
@@ -528,7 +568,8 @@
       "option_labels": {},
       "presets": [],
       "visible_when": {},
-      "enabled_when": {}
+      "enabled_when": {},
+      "des_symbol": null
     },
     {
       "key": "metal.hole_length",
@@ -543,7 +584,8 @@
       "option_labels": {},
       "presets": [],
       "visible_when": {},
-      "enabled_when": {}
+      "enabled_when": {},
+      "des_symbol": "Lml"
     },
     {
       "key": "metal.hole_width",
@@ -558,7 +600,8 @@
       "option_labels": {},
       "presets": [],
       "visible_when": {},
-      "enabled_when": {}
+      "enabled_when": {},
+      "des_symbol": "Wml"
     }
   ],
   "material_selections": [

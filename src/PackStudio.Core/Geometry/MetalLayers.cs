@@ -5,15 +5,9 @@ public static class MetalLayers
 {
     public static JArray Parse(BuildContext c, string key)
     {
-        JArray rows;
-        try
-        {
-            rows = JArray.Parse(c.T(key));
-        }
-        catch (Newtonsoft.Json.JsonException)
-        {
+        if (c.Values[key] is not JArray source)
             throw new ArgumentException("金属层表必须为 JSON 数组。");
-        }
+        var rows = (JArray)source.DeepClone();
 
         if (rows.Count > 10)
             throw new ArgumentException("金属层表最多 10 行。");

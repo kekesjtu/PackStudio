@@ -23,6 +23,7 @@ public static class RequestDocument
 
         if (input["die_power_w"]?.Type is JTokenType.Integer or JTokenType.Float)
             values["die.power"] = input["die_power_w"]!.DeepClone();
+        ProjectDocument.NormalizeTables(values);
         var bga = (JObject)(selected?.Bga.DeepClone() ?? new JObject());
         bga["representation"] = template.Data["default_bga_representation"]?.DeepClone() ?? "discrete";
         if (input["bga"] is JObject configured)

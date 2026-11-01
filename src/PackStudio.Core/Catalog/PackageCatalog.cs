@@ -6,7 +6,7 @@ public sealed class PackageCatalog
 {
     public static readonly TemplateInfo[] Families = [new("chip_array", "Chip Array"), new("bare_die", "Bare Die"), new("cbga_fc", "Flip Chip CBGA"), new("pbga_fc", "Flip Chip PBGA"), new("pqfp", "PQFP"), new("qfn", "QFN"), new("sop", "SOP"), new("pbga_wb", "Wirebond PBGA")];
     readonly string root;
-    readonly JObject bindings, index;
+    readonly JObject index;
     readonly ConcurrentDictionary<string, Template> cache = new();
     public MaterialLibrary Materials { get; }
 
@@ -14,8 +14,10 @@ public sealed class PackageCatalog
     {
         this.root = Path.GetFullPath(root);
         Materials = new(root);
-        bindings = (JObject)JsonData.Read(Path.Combine(root, "pack_bindings.json"))["families"]!;
-        index = (JObject)JsonData.Read(Path.Combine(root, "presets", "index.json"))["presets"]!;
+        var data = JsonData.Read(Path.Combine(root, "presets", "index.json"));
+        if (data["schema_version"].Text() != "packstudio.preset-index/v2")
+            throw new InvalidDataException("预设索引版本不受支持。");
+        index = (JObject)data["presets"]!;
     }
 
     public Template Load(string id)
@@ -26,51 +28,19 @@ public sealed class PackageCatalog
         var data = JsonData.Read(Path.Combine(root, "templates", id + ".json"));
         var fields = (JArray)data["fields"]!;
         var presets = new List<Preset>();
-        if (bindings[id] is JObject binding)
+        foreach (var p in index.Properties().Where(p => p.Value["family"].Text() == id))
         {
-            var keys = fields.Select(f => f["key"].Text()).ToHashSet();
-            foreach (var p in index.Properties().Where(p => p.Value["family"].Text() == binding["family"].Text()))
-            {
-                var record = JsonData.CatalogEntry(Path.Combine(root, "presets"), p.Value);
-                var branch = record["branches"]![record["default_branch"]!.ToString()]!;
-                var values = AdaptValues(branch, binding, keys, id == "pbga_wb");
-                var assignments = new JObject();
-                foreach (var m in ((JObject)binding["materials"]!).Properties())
-                {
-                    var native = JsonData.At(branch, m.Value.Values<string>()!);
-                    if (native?["value"]?.Type == JTokenType.String)
-                        assignments[m.Name] = Materials.IdForName(native["value"]!.ToString());
-                }
-
-                presets.Add(new(p.Name, values, assignments, BallPattern(branch, values), record));
-            }
+            var record = JsonData.CatalogEntry(Path.Combine(root, "presets"), p.Value);
+            if (record["schema_version"].Text() != "packstudio.preset/v2" || record["id"].Text() != p.Name || record["family"].Text() != id)
+                throw new InvalidDataException($"预设标识或版本无效：{p.Name}");
+            var branches = (JObject)record["branches"]!;
+            var branch = branches[record["default_branch"].Text()]!;
+            presets.Add(new(p.Name, (JObject)branch["values"]!, (JObject)branch["assignments"]!, (JObject)branch["bga"]!, branches));
         }
-
         var footprint = fields.FirstOrDefault(f => f["control"].Text() == "footprint");
         if (footprint != null)
             footprint["options"] = new JArray(presets.Select(p => p.Id));
         return cache[id] = new(info, data, presets);
-    }
-
-    public JObject AdaptValues(JToken branch, JObject binding, HashSet<string> keys, bool disconnect)
-    {
-        var values = new JObject();
-        foreach (var p in ((JObject)binding["parameters"]!).Properties().Where(p => keys.Contains(p.Name)))
-        {
-            var native = JsonData.At(branch, p.Value.Values<string>()!);
-            if (native?.Type == JTokenType.Boolean)
-                values[p.Name] = native.DeepClone();
-            else if (native is JArray rows)
-                values[p.Name] = NativeValue(p.Name, rows, disconnect);
-            else if (native?["value"] != null)
-                values[p.Name] = NativeValue(p.Name, native["value"]!, disconnect);
-            else if (native?["status"].Text() == "not_applicable")
-                values[p.Name] = null;
-            else
-                throw new InvalidDataException($"原生预设缺少 {p.Name}");
-        }
-
-        return values;
     }
 
     public JObject Initialize(Template t, JObject source, string presetId)
@@ -79,12 +49,10 @@ public sealed class PackageCatalog
         if (t.Info.Id is "chip_array" or "pbga_wb" && values["substrate.layers"].Text() == "4-Layer")
         {
             var preset = t.Presets.Single(p => p.Id == presetId);
-            var branch = preset.Record["branches"]?["four_layer"];
-            if (branch != null)
+            if (preset.Branches["four_layer"]?["values"] is JObject branchValues)
             {
-                var adapted = AdaptValues(branch, (JObject)bindings[t.Info.Id]!, t.Fields.Select(f => f["key"].Text()).ToHashSet(), t.Info.Id == "pbga_wb");
                 var baseline = t.Defaults(presetId);
-                foreach (var p in adapted.Properties())
+                foreach (var p in branchValues.Properties())
                     if (JToken.DeepEquals(source[p.Name], baseline[p.Name]))
                         values[p.Name] = p.Value.DeepClone();
             }
@@ -95,7 +63,9 @@ public sealed class PackageCatalog
             var thickness = source["trace.solid_thickness"];
             if (thickness?.Type is not (JTokenType.Integer or JTokenType.Float) || !double.IsFinite(thickness.Number()) || thickness.Number() < 0.001)
                 throw new ArgumentException("内层金属厚度必须至少为 0.001 mm。");
-            var rows = JArray.Parse(values["metal.layers"].Text());
+            if (values["metal.layers"] is not JArray table)
+                throw new ArgumentException("金属层表必须为 JSON 数组。");
+            var rows = (JArray)table.DeepClone();
             if (rows.Count != 4) throw new ArgumentException("四层基板需要四个金属层。");
             double solid = thickness.Number(), height = values["substrate.thickness"].Number();
             double top = values["trace.top_thickness"].Number(), bottom = values["trace.bottom_thickness"].Number();
@@ -107,7 +77,7 @@ public sealed class PackageCatalog
             rows[1]!["thickness"] = rows[2]!["thickness"] = solid;
             rows[3]!["depth"] = height - bottom;
             rows[3]!["thickness"] = bottom;
-            values["metal.layers"] = rows.ToString(Newtonsoft.Json.Formatting.None);
+            values["metal.layers"] = rows;
         }
 
         if (t.Info.Id is "sop" or "pqfp" && values["package.exposed_pad"].Flag())
@@ -118,52 +88,5 @@ public sealed class PackageCatalog
         }
 
         return values;
-    }
-
-    static JToken NativeValue(string key, JToken v, bool disconnect)
-    {
-        if (v is JArray rows)
-            return new JArray(rows.Where(r => r["status"].Text() == "specified").Select(r => new JObject { ["depth"] = r["depth_m"].Number() * 1000, ["thickness"] = r["thickness_m"].Number() * 1000, ["coverage"] = r["coverage_percent"]?.DeepClone(), ["disconnect"] = disconnect && r["disconnect_to_vias"]?.Flag() == true })).ToString(Newtonsoft.Json.Formatting.None);
-        if (key is "vias.filled" or "bond_wire.auto_count" or "upper.filled" or "lower.filled" or "leads.custom_coverage")
-            return v.Text() == "yes";
-        if (key == "vias.enabled" && v.Type == JTokenType.String)
-            return v.Text() != "ignored";
-        if (key == "vias.modeling" && v.Text() == "ignored")
-            return "discrete";
-        if (key == "bumps.array_type")
-            return v.Text() == "regularArray" ? "regular" : "non_regular";
-        if (key == "cover.type" && v.Text() == "bareDie")
-            return "bare_die";
-        return v.DeepClone();
-    }
-
-    static JObject BallPattern(JToken branch, JObject values)
-    {
-        var result = new JObject();
-        if (values["bga.rows"] == null)
-            return result;
-        var groups = branch["groups"]!;
-        var depop = groups["solderBallDepopulation"]!["properties"]!;
-        var center = groups["centralBalls"]!["properties"]!;
-        bool enabled = depop["depopulatedCenter"]?["value"].Flag() == true;
-        result["solder_removal_enabled"] = enabled;
-        result["center_solder_enabled"] = center["centralBalls"]?["value"].Flag() == true;
-        result["populated_rows"] = depop["numberFullyPopulatedRowsMEp"]?["value"]?.DeepClone();
-        result["populated_columns"] = depop["numberFullyPopulatedRowsMDp"]?["value"]?.DeepClone();
-        result["center_solder_rows"] = center["numberCentralRowsMEp"]?["value"]?.DeepClone();
-        result["center_solder_columns"] = center["numberCentralRowsMDp"]?["value"]?.DeepClone();
-        result["staggered"] = groups["solderBalls"]?["properties"]?["staggeredMatrix"]?["value"]?.DeepClone();
-        result["center_staggered"] = center["staggeredMatrix"]?["value"]?.DeepClone();
-        if (enabled && depop["depopulationDialog"]?["value"]?["native_cell_list"] is JArray cells && cells.Count > 0)
-        {
-            int rows = (int)values["bga.rows"]!, cols = (int)values["bga.columns"]!;
-            var present = cells.Select(c => (c["row"]!.Value<int>(), c["column"]!.Value<int>())).ToHashSet();
-            result["omitted_cells"] = new JArray(
-                from r in Enumerable.Range(0, rows)from c in Enumerable.Range(0, cols)
-                where !present.Contains((r, c))select new JObject { ["row"] = r, ["column"] = c });
-            result["center_solder_enabled"] = false;
-        }
-
-        return result;
     }
 }

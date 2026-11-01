@@ -34,7 +34,7 @@ dotnet publish src/PackStudio.Desktop -c Release -r win-x64 --self-contained -o 
 | `src/PackStudio.Desktop/` | WPF 参数向导、三维预览、模型树与材料编辑 |
 | `src/PackStudio.Core/` | C# 领域模型、原生预设、八类封装生成与 FloXML 输出 |
 | `src/PackStudio.Cli/` | 研究工具使用的 C# 命令行入口 |
-| `runtime_data/` | JSON 模板、342 个原生预设与材料库 |
+| `runtime_data/` | JSON 模板、342 个内部格式预设与材料库 |
 | `output_format/floxml/` | FloXML XSD 与示例 |
 | `tests/PackStudio.Tests/` | 几何、材料、功率、参数分支与输出契约回归 |
 | `tests/research/` | 原生研究工具测试 |
@@ -66,4 +66,5 @@ dotnet publish src/PackStudio.Desktop -c Release -r win-x64 --self-contained -o 
 | [材料分组](docs/decisions/材料组与默认材料.md) | 分组选材与默认值 |
 | [运行库](docs/decisions/JSON运行参数与参考数据解耦.md) | 分发与来源 |
 | [预设与空值](docs/decisions/预设参数来源与空值规则.md) | 原生数据与校验 |
+| [内部字段—DES—PACK](docs/DES字段与内部参数对应表.md) · [JSON](docs/DES字段与内部参数对应表.json) | 八类封装参数、材料、布局与脚本属性核对 |
 | [FloXML](docs/decisions/仅保留FloXML输出.md) | 输出契约 |

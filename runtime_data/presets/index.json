@@ -1,12 +1,12 @@
 {
-  "schema_version": "packstudio.preset-index/v1",
+  "schema_version": "packstudio.preset-index/v2",
   "preset_count": 342,
-  "comment": "每个预设独立文件；材料从 materials/index.json 按名称解析。",
+  "comment": "内部字段、规范化值、材料 ID 与 Bga；分支取自原生向导初始化结果。",
   "presets": {
     "ChipArray_100_10X10mm_0_8": {
       "family": "chip_array",
       "file": "chip_array/ChipArray_100_10X10mm_0_8.json",
-      "sha256": "d501200d1808053e05bd4161c46cecd40f677bd209e918786d20f6ee620e8486",
+      "sha256": "7d6e9ca8301ea67da4bbed3a62dbbfe43904fef82db143afd25cc58403c272ec",
       "branches": [
         "default",
         "four_layer"
@@ -15,7 +15,7 @@
     "ChipArray_100_11X11mm_1": {
       "family": "chip_array",
       "file": "chip_array/ChipArray_100_11X11mm_1.json",
-      "sha256": "389fc46ea5d7b6bff81b20ee44154ceb204f3e8c4ab8231270002c8b602cd423",
+      "sha256": "f601f80c2e551386b6f786990987b9d04fab3f204d95478ed240e21badc7df4b",
       "branches": [
         "default",
         "four_layer"
@@ -24,7 +24,7 @@
     "ChipArray_108_8X8mm_0_5": {
       "family": "chip_array",
       "file": "chip_array/ChipArray_108_8X8mm_0_5.json",
-      "sha256": "13376acda7e380feb976ad55a66af9422c48b560859bd87484962a216f5ee16f",
+      "sha256": "3ca79a73c83b9d17f294967c663742cf4e68f33ae2023bd8d26a39602b469770",
       "branches": [
         "default",
         "four_layer"
@@ -33,7 +33,7 @@
     "ChipArray_121_12X12mm_1": {
       "family": "chip_array",
       "file": "chip_array/ChipArray_121_12X12mm_1.json",
-      "sha256": "2a4f1f353504335907bd931ee1e0f6ef83012f5f786f164d685855f596ff29f6",
+      "sha256": "59095a3b9014aa4b9e78534502c713729172d3d61663d2e8286b0fbd408fdeca",
       "branches": [
         "default",
         "four_layer"
@@ -42,7 +42,7 @@
     "ChipArray_128_11X11mm_0_8": {
       "family": "chip_array",
       "file": "chip_array/ChipArray_128_11X11mm_0_8.json",
-      "sha256": "ff104023282a36184e4bb2f5432498e27792e48ee65c0f0930b3e59a871f2d53",
+      "sha256": "756fa64469ae0682262716272c72c62d2d9ebe2d0ad7552aaec240f97724fd40",
       "branches": [
         "default",
         "four_layer"
@@ -51,7 +51,7 @@
     "ChipArray_144_10X10mm_0_8": {
       "family": "chip_array",
       "file": "chip_array/ChipArray_144_10X10mm_0_8.json",
-      "sha256": "1eecb761fed7bf4d23a9037e29b4d13b5dd70ccac881e210ade3e75553166592",
+      "sha256": "430d782fe25a88c3a3d1c059bcbee102ea760b12d5ccdbb54e0215a705041ad0",
       "branches": [
         "default",
         "four_layer"
@@ -60,7 +60,7 @@
     "ChipArray_144_13X13mm_1": {
       "family": "chip_array",
       "file": "chip_array/ChipArray_144_13X13mm_1.json",
-      "sha256": "aebaad232daa644565c8c84229e0e8cfa998ee2c17686d68396a494e5f5e8b87",
+      "sha256": "6374af8632681cf50511982c98297ef779320a071a37f44cd3ada7fcb5ff9fa3",
       "branches": [
         "default",
         "four_layer"
@@ -69,7 +69,7 @@
     "ChipArray_160_12X12mm_0_8": {
       "family": "chip_array",
       "file": "chip_array/ChipArray_160_12X12mm_0_8.json",
-      "sha256": "a01022286c794b1a398c74d58157fc21b50212d65679170a02f64e94640a637a",
+      "sha256": "c5115551123410db9a9c0cc87645159b2fc13918f1bfdcf82b7eeacd887a30c0",
       "branches": [
         "default",
         "four_layer"
@@ -78,7 +78,7 @@
     "ChipArray_169_11X11mm_0_8": {
       "family": "chip_array",
       "file": "chip_array/ChipArray_169_11X11mm_0_8.json",
-      "sha256": "c221c39ac8f671af25fbb92a081c8ad8b3b2bee9e5124cd06644a903c56346e7",
+      "sha256": "0a76d152f9fc332b5e486aeea87d681d5a8ed25df2e655118331778aea34859e",
       "branches": [
         "default",
         "four_layer"
@@ -87,7 +87,7 @@
     "ChipArray_169_14X14mm_1": {
       "family": "chip_array",
       "file": "chip_array/ChipArray_169_14X14mm_1.json",
-      "sha256": "646e2acbbec50e2335d12d6d586963f28787f5e3304dd4b2aebf227c43c26deb",
+      "sha256": "b98c3fea97f0e8993c2ee38a00f4183f31637f5ef48e6af7efe8653a579e6701",
       "branches": [
         "default",
         "four_layer"
@@ -96,7 +96,7 @@
     "ChipArray_176_13X13mm_0_8": {
       "family": "chip_array",
       "file": "chip_array/ChipArray_176_13X13mm_0_8.json",
-      "sha256": "190eac7c9274b0fe5744006396df81d19c81e022c4bffb64badca4a72e767165",
+      "sha256": "6bda1e1135b434c223669bbf7e9c268046b00f26e4298e60a92f18220cf031aa",
       "branches": [
         "default",
         "four_layer"
@@ -105,7 +105,7 @@
     "ChipArray_192_14X14mm_0_8": {
       "family": "chip_array",
       "file": "chip_array/ChipArray_192_14X14mm_0_8.json",
-      "sha256": "8da2e40b75a02776e646dd737a736c1d8bc4d43c9745121d1b8ba0a0e243e9f6",
+      "sha256": "d9e38bd37f81a51305a670f5ea28f46e2a897a5196847cf22a923a01e154ae5c",
       "branches": [
         "default",
         "four_layer"
@@ -114,7 +114,7 @@
     "ChipArray_196_15X15mm_1": {
       "family": "chip_array",
       "file": "chip_array/ChipArray_196_15X15mm_1.json",
-      "sha256": "506fb0327bcfbdfda33b98c60fda20234c3c85590f697612db05fc5974729e62",
+      "sha256": "8afb78ef02d66c80fad5f434772925a4044fb729f31a6c59badb4347571f1ca5",
       "branches": [
         "default",
         "four_layer"
@@ -123,7 +123,7 @@
     "ChipArray_208_15X15mm_0_8": {
       "family": "chip_array",
       "file": "chip_array/ChipArray_208_15X15mm_0_8.json",
-      "sha256": "c0efca496a0c57ec552b042e33329e559ff19b43fb3cc6b93ef01c01b720d32c",
+      "sha256": "6e0e173079c4ead75c5eeb6e43e59bc2961079e29f77cd91c046dfbb34b582d3",
       "branches": [
         "default",
         "four_layer"
@@ -132,7 +132,7 @@
     "ChipArray_209_22X14mm_1": {
       "family": "chip_array",
       "file": "chip_array/ChipArray_209_22X14mm_1.json",
-      "sha256": "68127c07b9a35dd6aa3178d4d0243c2fa806c47622a0b05918ffe34fcf7993d1",
+      "sha256": "7ffc11fdaece7ac0c3e676741152865c1193a4eef2d267ab0df0032556a3932a",
       "branches": [
         "default",
         "four_layer"
@@ -141,7 +141,7 @@
     "ChipArray_24_4X4mm_0_8": {
       "family": "chip_array",
       "file": "chip_array/ChipArray_24_4X4mm_0_8.json",
-      "sha256": "b86649f17ac6ca5cd392bc3b96d9ea62975ac3dc252cc35161acc15cea494205",
+      "sha256": "05ba4ab933e654defd58885ce0d768dd64d95cf4b7d4123bda1a8b42b0c9bd47",
       "branches": [
         "default",
         "four_layer"
@@ -150,7 +150,7 @@
     "ChipArray_256_17X17mm_0_8": {
       "family": "chip_array",
       "file": "chip_array/ChipArray_256_17X17mm_0_8.json",
-      "sha256": "c1831bc6e3a75c59198093eeb0262f11a28c3574c5fef1e8278e9b31ea475e56",
+      "sha256": "92c44099d4e33cdc59717f9a6b7aa744dad5cf635c84fe4542011bb1b0133b34",
       "branches": [
         "default",
         "four_layer"
@@ -159,7 +159,7 @@
     "ChipArray_256_17X17mm_1": {
       "family": "chip_array",
       "file": "chip_array/ChipArray_256_17X17mm_1.json",
-      "sha256": "fc5d376a02df7205831285146bdaf336b1a4b0b3ee4ef677a1a572573d94bf76",
+      "sha256": "a97c989a63b8661c65b51d37b5f4bd39463600c38e2cd4ff517ecfc6ccee4760",
       "branches": [
         "default",
         "four_layer"
@@ -168,7 +168,7 @@
     "ChipArray_288_19X19mm_0_8": {
       "family": "chip_array",
       "file": "chip_array/ChipArray_288_19X19mm_0_8.json",
-      "sha256": "b4aa6c32a252396fc65976c4f0f8faeb5445f915ab5cc375f19a319b54483069",
+      "sha256": "c05cb7e22453a2cfe5e642d503b1083ea7d09edcfbd711ea81e6454a6040bd2a",
       "branches": [
         "default",
         "four_layer"
@@ -177,7 +177,7 @@
     "ChipArray_324_19X19mm_1": {
       "family": "chip_array",
       "file": "chip_array/ChipArray_324_19X19mm_1.json",
-      "sha256": "44ff7a6c18e0ad0133953c760c1cee6f3548b491272e3e88672473bf63a4fa8d",
+      "sha256": "a8b2ca3358d339a86a14b459a2312a0e40763ac66bfe2380d103399f466f24a6",
       "branches": [
         "default",
         "four_layer"
@@ -186,7 +186,7 @@
     "ChipArray_32_5X8mm_0_75": {
       "family": "chip_array",
       "file": "chip_array/ChipArray_32_5X8mm_0_75.json",
-      "sha256": "c92f8e165b9fd6c05f4c243987c85ad680991a4e4d85a66ccf5e72b5d97e4496",
+      "sha256": "7d8bbf9a24c187f9d518c4940451f864c34d218ec03207a603932ac6fb526c4d",
       "branches": [
         "default",
         "four_layer"
@@ -195,7 +195,7 @@
     "ChipArray_36_6X6mm_0_8": {
       "family": "chip_array",
       "file": "chip_array/ChipArray_36_6X6mm_0_8.json",
-      "sha256": "6d8c0796b0ddd4897ed232a39e57a0c9237805606f4134710fc6da129ebd6f1d",
+      "sha256": "1366785b8419d9fab3b46421319abc16129dcf4b2d4ae12d29a0de951c8e1c25",
       "branches": [
         "default",
         "four_layer"
@@ -204,7 +204,7 @@
     "ChipArray_40_5X5mm_0_5": {
       "family": "chip_array",
       "file": "chip_array/ChipArray_40_5X5mm_0_5.json",
-      "sha256": "48cb5ed1ae4094829543a2e088bd64d99733d5ab779d2272691b54348ed88fed",
+      "sha256": "9aaa9e2cc1f853e1ddbf4d75f8233824dd1bc7556fe8fd1aa16f1eecbea7aea6",
       "branches": [
         "default",
         "four_layer"
@@ -213,7 +213,7 @@
     "ChipArray_40_6X8mm_0_75": {
       "family": "chip_array",
       "file": "chip_array/ChipArray_40_6X8mm_0_75.json",
-      "sha256": "3366e7cd6ce254ce81081e4148cc02ddaf6347da09d5c2d2a86fd5bb7f5a77b0",
+      "sha256": "4fed9d97c21f5e4762c689dffe96e937ba2c2b8f272fbd4b38d50dd063899a40",
       "branches": [
         "default",
         "four_layer"
@@ -222,7 +222,7 @@
     "ChipArray_40_6X9mm_0_75": {
       "family": "chip_array",
       "file": "chip_array/ChipArray_40_6X9mm_0_75.json",
-      "sha256": "63c691650646e1d35f16bb6bba9f544c5b376dc128b68a619c5e038203f5c293",
+      "sha256": "0d9991fd3cffa63823e354664243b20b8d9dc46f3aaccded29954252b3f4ce8a",
       "branches": [
         "default",
         "four_layer"
@@ -231,7 +231,7 @@
     "ChipArray_48_6X6mm_0_5": {
       "family": "chip_array",
       "file": "chip_array/ChipArray_48_6X6mm_0_5.json",
-      "sha256": "8311c6b0828c00d195f5f975cc44de6516b86e04814c00d1b38977691236cfad",
+      "sha256": "7fde2d716e62326d6090dd2fcad9df53e8c4c25125f352b22f5cfbe8775ea131",
       "branches": [
         "default",
         "four_layer"
@@ -240,7 +240,7 @@
     "ChipArray_48_7X12mm_0_8": {
       "family": "chip_array",
       "file": "chip_array/ChipArray_48_7X12mm_0_8.json",
-      "sha256": "285be282104c81edc66a7cc4638d5ceb02cec7a07b13d4f46f20f8fbaa9ef706",
+      "sha256": "ab943f7fb7f0cce90a190c3e2e5c35c6c0758c3ec174ed0ada82e14e98032461",
       "branches": [
         "default",
         "four_layer"
@@ -249,7 +249,7 @@
     "ChipArray_48_7X7mm_0_8": {
       "family": "chip_array",
       "file": "chip_array/ChipArray_48_7X7mm_0_8.json",
-      "sha256": "819244baee74a9de935c1ce98a1fe7b5b734246dccbd4b2b0e9b08c4464af417",
+      "sha256": "74becd899c8261b6e5b851c94d9bcbffca40061f566a10cbfd921484467467ba",
       "branches": [
         "default",
         "four_layer"
@@ -258,7 +258,7 @@
     "ChipArray_48_7X9mm_0_75": {
       "family": "chip_array",
       "file": "chip_array/ChipArray_48_7X9mm_0_75.json",
-      "sha256": "063961a68e7cefc7ee5a34d00e5baa8a0bb1e8eb58e358dc8d0053cfa54ec608",
+      "sha256": "0aeabba9571513930d6a85bd4168ec3b843b4016496572fbe4f3300fb9604b76",
       "branches": [
         "default",
         "four_layer"
@@ -267,7 +267,7 @@
     "ChipArray_48_8X11mm_0_75": {
       "family": "chip_array",
       "file": "chip_array/ChipArray_48_8X11mm_0_75.json",
-      "sha256": "d8098871a97b52495621f4a952f7061206cc07c13e294c7d6165ed32c2834c63",
+      "sha256": "504b87d5430aeb6832f0b698b4dbfcc471f07494a90eae0cfc3e6586f6fdb50c",
       "branches": [
         "default",
         "four_layer"
@@ -276,7 +276,7 @@
     "ChipArray_48_8X13mm_0_75": {
       "family": "chip_array",
       "file": "chip_array/ChipArray_48_8X13mm_0_75.json",
-      "sha256": "105cc7eae8922689979d4e5b58f06b85578ef3744e0b7e2cc794bf928203c513",
+      "sha256": "67f2a78abd12dc8d8a1b4fd4a671aaf80eb4e23e697ca33255ccf9748c2b457d",
       "branches": [
         "default",
         "four_layer"
@@ -285,7 +285,7 @@
     "ChipArray_49_7X7mm_0_8": {
       "family": "chip_array",
       "file": "chip_array/ChipArray_49_7X7mm_0_8.json",
-      "sha256": "3284f1a0f82425d5b69dd9274af48321340eebd45b5b7566141cfa2d2471a197",
+      "sha256": "a9db6b26361822abcf1a6df3a66caef6db34f16435ec57177f29ef5499ab4ad6",
       "branches": [
         "default",
         "four_layer"
@@ -294,7 +294,7 @@
     "ChipArray_56_6X6mm_0_5": {
       "family": "chip_array",
       "file": "chip_array/ChipArray_56_6X6mm_0_5.json",
-      "sha256": "79760c4406e7b2354f91c693463e54e9bed58bec59ad580f150ad98d5446d88c",
+      "sha256": "6f7c3dcba0b2870bb9d6e42b436f048e110ee34135a62f76caf3e0559fe7bdbc",
       "branches": [
         "default",
         "four_layer"
@@ -303,7 +303,7 @@
     "ChipArray_64_8X8mm_0_8": {
       "family": "chip_array",
       "file": "chip_array/ChipArray_64_8X8mm_0_8.json",
-      "sha256": "ae3232675abc5a27b42ed4c1b4945829bc140629f2d224b38c02fd70d17b3be0",
+      "sha256": "12d1502476dfe1d14eea8a12cbd4ac0c1e3d2fc2502d5c541e4211832f979b5d",
       "branches": [
         "default",
         "four_layer"
@@ -312,7 +312,7 @@
     "ChipArray_64_9X9mm_1": {
       "family": "chip_array",
       "file": "chip_array/ChipArray_64_9X9mm_1.json",
-      "sha256": "7094a402e4b41a176c8daebbc51488229cf381c9fc6e3112c4c6760e702178a3",
+      "sha256": "716078413c7a74b767f808f2c7486b2d862b00d56a9b1f4f64684024c4597637",
       "branches": [
         "default",
         "four_layer"
@@ -321,7 +321,7 @@
     "ChipArray_80_9X9mm_0_8": {
       "family": "chip_array",
       "file": "chip_array/ChipArray_80_9X9mm_0_8.json",
-      "sha256": "3f2fbd5f04018bd99ccb485a6c29604763fac4370ba2182c604a4986f0571cc2",
+      "sha256": "c2f3d928afea8dcd499cfd8e3ebe4beca24d6efbca8659d3133b6b1dbf36b344",
       "branches": [
         "default",
         "four_layer"
@@ -330,7 +330,7 @@
     "ChipArray_81_10X10mm_1": {
       "family": "chip_array",
       "file": "chip_array/ChipArray_81_10X10mm_1.json",
-      "sha256": "60bcebed1896eb71aab428257f8485bad4fcab28fa68e231b0ba76dffbd48cec",
+      "sha256": "1665b2d75d529ba69bfce9df0568221eff9a39f220a389db0aa100af66d0047a",
       "branches": [
         "default",
         "four_layer"
@@ -339,7 +339,7 @@
     "ChipArray_84_7X7mm_0_5": {
       "family": "chip_array",
       "file": "chip_array/ChipArray_84_7X7mm_0_5.json",
-      "sha256": "602326b03bc24e18b79ab2f17b86bf7a58279b448ae53fea7532c82b0d5b276a",
+      "sha256": "735bf8460cb87dac8a220c7bc28cabbf109710223dac854719919ec0eb960ea0",
       "branches": [
         "default",
         "four_layer"
@@ -348,7 +348,7 @@
     "CBGAFC_100_9X9mm": {
       "family": "cbga_fc",
       "file": "cbga_fc/CBGAFC_100_9X9mm.json",
-      "sha256": "11b420d0b427df636d9bd52295b436796c0934ce19cfe4b2a52e529e2d276a2f",
+      "sha256": "0a13c35aee4c0c420358d84bae31a507bbcaf13526cc8a641815d5eb4d8b4411",
       "branches": [
         "default"
       ]
@@ -356,7 +356,7 @@
     "CBGAFC_1032_375X375mm": {
       "family": "cbga_fc",
       "file": "cbga_fc/CBGAFC_1032_375X375mm.json",
-      "sha256": "c8d9e1d8bdf19e6df23cc5db8a26ef517d1cbb831927ad3ff1adc779665e3e79",
+      "sha256": "56528f007124e7f9b800cce26e51e3aeff700a5d218fe4176b00b8628262e89a",
       "branches": [
         "default"
       ]
@@ -364,7 +364,7 @@
     "CBGAFC_1089_425X425mm": {
       "family": "cbga_fc",
       "file": "cbga_fc/CBGAFC_1089_425X425mm.json",
-      "sha256": "08556fedda3f68dab65231f14c953d3aeeb895c1026fa1950f11b5c6d306e851",
+      "sha256": "5a599feeafe9bf5a7179f44c03989d504590117894958b3ae86171a4081074a5",
       "branches": [
         "default"
       ]
@@ -372,7 +372,7 @@
     "CBGAFC_1152_35X35mm": {
       "family": "cbga_fc",
       "file": "cbga_fc/CBGAFC_1152_35X35mm.json",
-      "sha256": "d8fc81afc81f2c5cf735e36d4046734bdcabbe065412bd2afe30c791a6b92c93",
+      "sha256": "2c302251d8c2800c048f510b0c526dd479d452d096338deafdb6455630d9e054",
       "branches": [
         "default"
       ]
@@ -380,7 +380,7 @@
     "CBGAFC_1157_40X40mm": {
       "family": "cbga_fc",
       "file": "cbga_fc/CBGAFC_1157_40X40mm.json",
-      "sha256": "0263e785f48515cb388d9ac513ba3227a35566c00343294270a179bb367370e5",
+      "sha256": "943ef9050984fa7d84a5aaa289b2d9111a5cc7fc15e0fe758adeae81b26676af",
       "branches": [
         "default"
       ]
@@ -388,7 +388,7 @@
     "CBGAFC_119_14X22mm": {
       "family": "cbga_fc",
       "file": "cbga_fc/CBGAFC_119_14X22mm.json",
-      "sha256": "3fb9c991da18d9f6502b2ebcc9451fb061bc4bc2f6c3e061d316ab804ac77628",
+      "sha256": "72fde6ada25993f760135e5f512f4ff828d11f7803eab95e7926bfce74bb6176",
       "branches": [
         "default"
       ]
@@ -396,7 +396,7 @@
     "CBGAFC_1225_45X45mm": {
       "family": "cbga_fc",
       "file": "cbga_fc/CBGAFC_1225_45X45mm.json",
-      "sha256": "2bd9081668935e4c4a25f1b1dd7656249c7c31cb2ee2d2d2ed054a2f07785310",
+      "sha256": "bd293fa256c4b58c5fd8aff87b568764525e5dd932f43113dc080043d74e178a",
       "branches": [
         "default"
       ]
@@ -404,7 +404,7 @@
     "CBGAFC_1292_375X375mm": {
       "family": "cbga_fc",
       "file": "cbga_fc/CBGAFC_1292_375X375mm.json",
-      "sha256": "7d01d794f30a10568d9cd690256d7e5858c01c1e89c9164180c340f072785f88",
+      "sha256": "18b6f2993756a119e2e28ed278d46c1cb799605e90add4924c0cf2efcac4758c",
       "branches": [
         "default"
       ]
@@ -412,7 +412,7 @@
     "CBGAFC_1296_375X375mm": {
       "family": "cbga_fc",
       "file": "cbga_fc/CBGAFC_1296_375X375mm.json",
-      "sha256": "35385c6edc62e33b59ebc165158e5d7bfacc312b444da01a741abb593a22c09d",
+      "sha256": "bd971ede1f8ab44a5720ccf202cdca1c3ae50d0d14d184ae7c46b79282a67654",
       "branches": [
         "default"
       ]
@@ -420,7 +420,7 @@
     "CBGAFC_1357_425X425mm": {
       "family": "cbga_fc",
       "file": "cbga_fc/CBGAFC_1357_425X425mm.json",
-      "sha256": "c610f2e44453167c6ccd5bf705059117e24b4b318269a8d9ae9640386637628d",
+      "sha256": "09fa8fd67c52c0cc0836ef22aaccf0519eb92235ebcbf088850a8d43c13d9857",
       "branches": [
         "default"
       ]
@@ -428,7 +428,7 @@
     "CBGAFC_1369_475X475mm": {
       "family": "cbga_fc",
       "file": "cbga_fc/CBGAFC_1369_475X475mm.json",
-      "sha256": "f7d5c440355385ecf714060aaee48b673a95c687778c7d33ebf34f83f3e14192",
+      "sha256": "86652e8ddc8f637cfa56a7a4359a290960ec464b1973f1f3c3a40862b4859e06",
       "branches": [
         "default"
       ]
@@ -436,7 +436,7 @@
     "CBGAFC_1413_40X40mm": {
       "family": "cbga_fc",
       "file": "cbga_fc/CBGAFC_1413_40X40mm.json",
-      "sha256": "deeaa0c9e7192cd447edc9f9a8a71765e385e519f021a563f9a03b8713e65775",
+      "sha256": "7f0e554374642b0311f1146ae1b9a2c026076263f572295d6ee43531be7a2981",
       "branches": [
         "default"
       ]
@@ -444,7 +444,7 @@
     "CBGAFC_144_10X10mm": {
       "family": "cbga_fc",
       "file": "cbga_fc/CBGAFC_144_10X10mm.json",
-      "sha256": "c6ecd18a7977f31b4ff6e969d0f1598ec6c340ba8b4b725d4acb5d83a8435b76",
+      "sha256": "fcd659820da2509bf300d27e63396688806fea399248fb5d9c11560a397f647b",
       "branches": [
         "default"
       ]
@@ -452,7 +452,7 @@
     "CBGAFC_144_13X13mm": {
       "family": "cbga_fc",
       "file": "cbga_fc/CBGAFC_144_13X13mm.json",
-      "sha256": "fb92c33cb50e46536d8e01fb9e929f45ae0b71045c41f73074794a00e40b97fe",
+      "sha256": "a5e93793c30b8863b6417ddce7aca34bacd92abcc0ec736727573b6e3b8036be",
       "branches": [
         "default"
       ]
@@ -460,7 +460,7 @@
     "CBGAFC_1500_45X45mm": {
       "family": "cbga_fc",
       "file": "cbga_fc/CBGAFC_1500_45X45mm.json",
-      "sha256": "84bdbe774c19ba351e35c12583ba2fbb9ec5d5885aa90697062d99ad4db842a6",
+      "sha256": "703d6659e238bd9a6b2f758be0ec7ae817317c008d97ec0e49210c6f36bc8057",
       "branches": [
         "default"
       ]
@@ -468,7 +468,7 @@
     "CBGAFC_1517_40X40mm": {
       "family": "cbga_fc",
       "file": "cbga_fc/CBGAFC_1517_40X40mm.json",
-      "sha256": "96d9e00560044d61ea9f9b7640ef679f5c284588bc26058aa7c4f2d7b0f5ab04",
+      "sha256": "bd0ce3b9f8c8061c6cc831bb41b6f39f102a244d15d9db7eb0ec38d6a0fda3ef",
       "branches": [
         "default"
       ]
@@ -476,7 +476,7 @@
     "CBGAFC_153_14X22mm": {
       "family": "cbga_fc",
       "file": "cbga_fc/CBGAFC_153_14X22mm.json",
-      "sha256": "659730cc815a70138a313b4057e27f268055e9bbee59764a36e30f24353d2511",
+      "sha256": "862e19569888b121f20c1ebfac585adc0ebcedff8410ec378810c7dfc4528ca6",
       "branches": [
         "default"
       ]
@@ -484,7 +484,7 @@
     "CBGAFC_1557_425X425mm": {
       "family": "cbga_fc",
       "file": "cbga_fc/CBGAFC_1557_425X425mm.json",
-      "sha256": "e0f440f52bd19071e7b73e0cb6d9f2ee1d240433f2ca5310d7c3e35a60e66baa",
+      "sha256": "c29cd5d86c7474640d20194cc514bd37a185bd3ebe2fd0b1500563f318f01f79",
       "branches": [
         "default"
       ]
@@ -492,7 +492,7 @@
     "CBGAFC_1600_425X425mm": {
       "family": "cbga_fc",
       "file": "cbga_fc/CBGAFC_1600_425X425mm.json",
-      "sha256": "c4fa44b5c3e90e2206dc52c7b59e5de3e8091a352a905c1bdadc8bdc59b5c608",
+      "sha256": "30611ac1a3401b614a5499c7924492f4077e00f40d2bfc86dd0deb9feed13c42",
       "branches": [
         "default"
       ]
@@ -500,7 +500,7 @@
     "CBGAFC_1677_425X425mm": {
       "family": "cbga_fc",
       "file": "cbga_fc/CBGAFC_1677_425X425mm.json",
-      "sha256": "bfaa3f0f3a01eaff54e97304c0c92418a2e1917c1866c388c9bd2e9eb378069f",
+      "sha256": "5a01fb3f542232aafef930ef8e6425fe9efe3eee6290e76270fbd39e246a69ab",
       "branches": [
         "default"
       ]
@@ -508,7 +508,7 @@
     "CBGAFC_1681_425X425mm": {
       "family": "cbga_fc",
       "file": "cbga_fc/CBGAFC_1681_425X425mm.json",
-      "sha256": "395506041b1209128aae17fb3a6af1dfab026b84cb0a27d05d56408b1b9abc0f",
+      "sha256": "28979d1c923d1f2ed8a0dd3630cd677942aeda89302080c25167a9db284a3835",
       "branches": [
         "default"
       ]
@@ -516,7 +516,7 @@
     "CBGAFC_169_11X11mm": {
       "family": "cbga_fc",
       "file": "cbga_fc/CBGAFC_169_11X11mm.json",
-      "sha256": "a498f0b01d47c475ee496db22111a2b20895d3cccbcb1647581f78c6ab1ed00d",
+      "sha256": "30e6b70cfc04fe511de10678dcaa57b6e3bee78faba36786b6aa09b1747ec87f",
       "branches": [
         "default"
       ]
@@ -524,7 +524,7 @@
     "CBGAFC_169_14X14mm": {
       "family": "cbga_fc",
       "file": "cbga_fc/CBGAFC_169_14X14mm.json",
-      "sha256": "bf5b6648af01058eb5d54bdf2029e01ab5d3ce4075fbd41d8887d7c10864d8c1",
+      "sha256": "f09819848841072bdb54242cc70807299798c09da8fa4c4fe86e492ad0a495c8",
       "branches": [
         "default"
       ]
@@ -532,7 +532,7 @@
     "CBGAFC_1728_45X45mm": {
       "family": "cbga_fc",
       "file": "cbga_fc/CBGAFC_1728_45X45mm.json",
-      "sha256": "b88e3dec77c46088618e8c4a300d6165911a4dcd97df47b529eed35283ae7b87",
+      "sha256": "4ae15546ec86671376b63d7861861ca6be3ff4176642ec694903b67a38a8dca5",
       "branches": [
         "default"
       ]
@@ -540,7 +540,7 @@
     "CBGAFC_1849_45X45mm": {
       "family": "cbga_fc",
       "file": "cbga_fc/CBGAFC_1849_45X45mm.json",
-      "sha256": "0a864a475de125e15cd6f06eb2a65104293deb3f1e1a4a4cef83738b17e80db0",
+      "sha256": "75c86bd61bc38761f8fcfcfba7fc71ddbffc562254d17cad76522431c49b6463",
       "branches": [
         "default"
       ]
@@ -548,7 +548,7 @@
     "CBGAFC_192_21X21mm": {
       "family": "cbga_fc",
       "file": "cbga_fc/CBGAFC_192_21X21mm.json",
-      "sha256": "270d0caaeea9b17a0815eee01352aa1920f2ecb867fe21f284b63b880e2b1ef4",
+      "sha256": "9d84ad24d7c7a35989c154e71ba8e62ab7de87636cdd7eb2de3bd1725db4c862",
       "branches": [
         "default"
       ]
@@ -556,7 +556,7 @@
     "CBGAFC_1932_45X45mm": {
       "family": "cbga_fc",
       "file": "cbga_fc/CBGAFC_1932_45X45mm.json",
-      "sha256": "b276a6e6d7fd80185d615b89268b292f9231fce128bebca2e32fbeee9b20bd84",
+      "sha256": "9d94825d5c5fe6836329ea7fbb24475645a25ddeb23d2aa4afd146a76b722967",
       "branches": [
         "default"
       ]
@@ -564,7 +564,7 @@
     "CBGAFC_196_12X12mm": {
       "family": "cbga_fc",
       "file": "cbga_fc/CBGAFC_196_12X12mm.json",
-      "sha256": "e4c1f819be0874dc3b4361846f8cda954a6ac30d6ad7c31520b0fac35dba3e83",
+      "sha256": "460a74662ff9aae1303101a7d0267675ce0f19f44217160fc2eb9a44113ea3c8",
       "branches": [
         "default"
       ]
@@ -572,7 +572,7 @@
     "CBGAFC_196_15X15mm": {
       "family": "cbga_fc",
       "file": "cbga_fc/CBGAFC_196_15X15mm.json",
-      "sha256": "4331c8ffbc0570e5e524bd42e387680bfc60a9f56a4f225dc877201a40d06932",
+      "sha256": "f9565dd31240fe9ddf8355540021359620fb44fa7bb6a89dff97dff6d2290d15",
       "branches": [
         "default"
       ]
@@ -580,7 +580,7 @@
     "CBGAFC_2116_475X475mm": {
       "family": "cbga_fc",
       "file": "cbga_fc/CBGAFC_2116_475X475mm.json",
-      "sha256": "f430532999bdc1f16f99fc75a2f7842f090620f3aeaa5c5946175ca7136e87d4",
+      "sha256": "04e88e07c44d5ec649030ccfb6d54cab95088e396eac8762174dae0d4179d511",
       "branches": [
         "default"
       ]
@@ -588,7 +588,7 @@
     "CBGAFC_288_29X29mm": {
       "family": "cbga_fc",
       "file": "cbga_fc/CBGAFC_288_29X29mm.json",
-      "sha256": "bb7d3d864178871cfda213a957e854cb63f2bf46604f33ec3b5f2495b462ca9a",
+      "sha256": "78e67863da3f77b70b53da1d1eaa9b6a3581845f04f8cb7986ae5da1187a75b9",
       "branches": [
         "default"
       ]
@@ -596,7 +596,7 @@
     "CBGAFC_361_25X25mm": {
       "family": "cbga_fc",
       "file": "cbga_fc/CBGAFC_361_25X25mm.json",
-      "sha256": "ada0ba6ee07a43daa41705cb3d650a4b76ca4fe25de1838b1561c89e6f51ec13",
+      "sha256": "274226f489542fda0bf8f5544a53397703fb8906a43ca7afcfd33012331b7e75",
       "branches": [
         "default"
       ]
@@ -604,7 +604,7 @@
     "CBGAFC_416_23X23mm": {
       "family": "cbga_fc",
       "file": "cbga_fc/CBGAFC_416_23X23mm.json",
-      "sha256": "286dba85ba6b9a4690ee3840b4920a7868be0a57d0b7af77b627585cae70aa18",
+      "sha256": "4a4af080df89ebdf119e95641122282ade5d16e22f7b3aafd58b74bec8e7303f",
       "branches": [
         "default"
       ]
@@ -612,7 +612,7 @@
     "CBGAFC_450_35X35mm": {
       "family": "cbga_fc",
       "file": "cbga_fc/CBGAFC_450_35X35mm.json",
-      "sha256": "395658a6f5eb4212f466d36711eca33dfd2e42be911df5daadb23b79e989122b",
+      "sha256": "6d16dfd26c60fe79dbfa2703730238c90b6a2918bab5c5f191ff444e1277fbc3",
       "branches": [
         "default"
       ]
@@ -620,7 +620,7 @@
     "CBGAFC_480_23X23mm": {
       "family": "cbga_fc",
       "file": "cbga_fc/CBGAFC_480_23X23mm.json",
-      "sha256": "f3a7ee0aceceab5bbb24d458683923ee77025d9d9101b1a2731e8784f6cacbee",
+      "sha256": "9c4fa2a95b8fcfc356d2ff73e77e9507f573f3069f019a2131cf99bc94acd31a",
       "branches": [
         "default"
       ]
@@ -628,7 +628,7 @@
     "CBGAFC_49_6X6mm": {
       "family": "cbga_fc",
       "file": "cbga_fc/CBGAFC_49_6X6mm.json",
-      "sha256": "4b53f0bb2da5f6ebd9db892ac0d2108b47720fa46b8100019f03978e5de9c537",
+      "sha256": "8588878b4c1852690582ebcb9c7864c0bfe2d59f49ae4ce612d97db58fd03224",
       "branches": [
         "default"
       ]
@@ -636,7 +636,7 @@
     "CBGAFC_49_8X8mm": {
       "family": "cbga_fc",
       "file": "cbga_fc/CBGAFC_49_8X8mm.json",
-      "sha256": "fb4319b169cb673f880801572352a1eabb7054762e65d30815344f27e402d91a",
+      "sha256": "a4b9e3b8d39aad99d8a2b6ce9ef20283e91ac6a6ce9f07be2625655c374eb16f",
       "branches": [
         "default"
       ]
@@ -644,7 +644,7 @@
     "CBGAFC_564_27X27mm": {
       "family": "cbga_fc",
       "file": "cbga_fc/CBGAFC_564_27X27mm.json",
-      "sha256": "f11665bfbef28e8c8f59605cb7652a5c8ac8d30379f5bd87e8e1e2de4cf3b2b8",
+      "sha256": "aa25227f32e087c59aca1513e7afe94317ba6b3223cb6daa02a86d6918d0cab7",
       "branches": [
         "default"
       ]
@@ -652,7 +652,7 @@
     "CBGAFC_625_325X325mm": {
       "family": "cbga_fc",
       "file": "cbga_fc/CBGAFC_625_325X325mm.json",
-      "sha256": "7b54abb6ac993839ac262633507851faa2f9442457d5fb91ff3591298a5b7f87",
+      "sha256": "343e1281d35788303bb1e16fc7eb29b72c181ccdc2cf4b2f4d07d19c7f477869",
       "branches": [
         "default"
       ]
@@ -660,7 +660,7 @@
     "CBGAFC_64_7X7mm": {
       "family": "cbga_fc",
       "file": "cbga_fc/CBGAFC_64_7X7mm.json",
-      "sha256": "320d769d7b6df4507454dc03bccbfef17ae9121695c29ed1463bff5e4e68fe36",
+      "sha256": "e9017018301b484bc7d75435411ec7db8d025b6ae227b05890eaaa6c522ee00d",
       "branches": [
         "default"
       ]
@@ -668,7 +668,7 @@
     "CBGAFC_64_8X8mm": {
       "family": "cbga_fc",
       "file": "cbga_fc/CBGAFC_64_8X8mm.json",
-      "sha256": "8c102f2ca438bfea568b1c111c213e8a7f9d18729cab153fb28f2dbdd37b0bc8",
+      "sha256": "153320423ef1850454c1772036db4d70cff0f42db5a9f368939d9abc803b1fdb",
       "branches": [
         "default"
       ]
@@ -676,7 +676,7 @@
     "CBGAFC_64_9X9mm": {
       "family": "cbga_fc",
       "file": "cbga_fc/CBGAFC_64_9X9mm.json",
-      "sha256": "5943931937df368ab4eba6078c3e9bfa19dae987850b76d895b7f6ebcb628b33",
+      "sha256": "f5027e2f51543dd2901507059bfbae48440c39e8f42fe3851dd38f5bf27f9b15",
       "branches": [
         "default"
       ]
@@ -684,7 +684,7 @@
     "CBGAFC_672_27X27mm": {
       "family": "cbga_fc",
       "file": "cbga_fc/CBGAFC_672_27X27mm.json",
-      "sha256": "b7d35a5b95667c7b68f0d49bcea159ef04806a7c04320a750bd381b736996bfc",
+      "sha256": "1863a7535ba08592a5d1ba81948d98db1c22840cc6aecfa41826b438cde5e1fc",
       "branches": [
         "default"
       ]
@@ -692,7 +692,7 @@
     "CBGAFC_788_31X31mm": {
       "family": "cbga_fc",
       "file": "cbga_fc/CBGAFC_788_31X31mm.json",
-      "sha256": "e30556606e7990fac69a7df0c761c16592cf4db9a660f2d1dc6bf901ed12e37c",
+      "sha256": "0b4c0f3019f78760d4a7e0b86c5c21fd8abaf8baa1b5370e33a09c1633770b27",
       "branches": [
         "default"
       ]
@@ -700,7 +700,7 @@
     "CBGAFC_81_10X10mm": {
       "family": "cbga_fc",
       "file": "cbga_fc/CBGAFC_81_10X10mm.json",
-      "sha256": "7a613e130e2ae8f179ae7af34b445ccc8387bc437e0bae64cdb851e63addcd20",
+      "sha256": "46df0ffe6a4d9ad9d9aa0de56976595b5be13fa0c44bca44d6543282312a1b91",
       "branches": [
         "default"
       ]
@@ -708,7 +708,7 @@
     "CBGAFC_81_8X8mm": {
       "family": "cbga_fc",
       "file": "cbga_fc/CBGAFC_81_8X8mm.json",
-      "sha256": "fe16f335a31e2d14b3ce7264ae3a9dae9b712d904882f303776c44aab77cc180",
+      "sha256": "775dc3d3ebb735829626ce287f42612f7569e90301b94a17edcaa600676fea68",
       "branches": [
         "default"
       ]
@@ -716,7 +716,7 @@
     "CBGAFC_896_31X31mm": {
       "family": "cbga_fc",
       "file": "cbga_fc/CBGAFC_896_31X31mm.json",
-      "sha256": "eb9f737d6d9ae8aa0ad6bba49235365ee8ef816444239ccf95311e49f4dac4fc",
+      "sha256": "abffa8d6baee35d3ae91794968cea57736790a24f48f6252c8f50f1fbd5575f8",
       "branches": [
         "default"
       ]
@@ -724,7 +724,7 @@
     "CBGAFC_900_40X40mm": {
       "family": "cbga_fc",
       "file": "cbga_fc/CBGAFC_900_40X40mm.json",
-      "sha256": "f0fcd33e1d6fb98bdaa8bc952b87ad9ed38c31596191c8db4750b36341713ac5",
+      "sha256": "a620b6fed692f291f0dc9ccfa8992327ac8b5dd9481a15167071c91a200ba4e1",
       "branches": [
         "default"
       ]
@@ -732,7 +732,7 @@
     "CBGAFC_960_35X35mm": {
       "family": "cbga_fc",
       "file": "cbga_fc/CBGAFC_960_35X35mm.json",
-      "sha256": "e895d1e64c54bb65a725254cf616c2baa278aa4c174262d506dc6ea96a67a278",
+      "sha256": "a4e35fbec782280d4db5e1e49d88427b1e01ee91060a93a2ca9b1f0a0c8a436d",
       "branches": [
         "default"
       ]
@@ -740,7 +740,7 @@
     "PBGAFC_100_9X9mm": {
       "family": "pbga_fc",
       "file": "pbga_fc/PBGAFC_100_9X9mm.json",
-      "sha256": "4b9f9ff86fc2a0b0327fb0f3a9f06d59e2da64c55b9fa463b2770983f1ad5a74",
+      "sha256": "96f3a5088711ff1ea5701b2c327267ef89969a7ae79a69c4106d053ff3b7aaff",
       "branches": [
         "default"
       ]
@@ -748,7 +748,7 @@
     "PBGAFC_1032_375X375mm": {
       "family": "pbga_fc",
       "file": "pbga_fc/PBGAFC_1032_375X375mm.json",
-      "sha256": "52e2a95b5a9851c310b8813ea4357651a99e3cf80413b6d9633d61f6a74faa9c",
+      "sha256": "7b728e988c596cb2975617499e8cd1d3ac526bc2674ea0589d814e001c229358",
       "branches": [
         "default"
       ]
@@ -756,7 +756,7 @@
     "PBGAFC_1089_425X425mm": {
       "family": "pbga_fc",
       "file": "pbga_fc/PBGAFC_1089_425X425mm.json",
-      "sha256": "d5035feedb10e7712e66a4000d98bfbc5ffa149dc12ca75e46294c998db7a76d",
+      "sha256": "7e916036404763d04780157892eb9373f525e9e690dad9347af87fa814ee3659",
       "branches": [
         "default"
       ]
@@ -764,7 +764,7 @@
     "PBGAFC_1152_35X35mm": {
       "family": "pbga_fc",
       "file": "pbga_fc/PBGAFC_1152_35X35mm.json",
-      "sha256": "e5f15d6fec567464fd74c4736da5606c64a11c26341e8d1257c838f34462004e",
+      "sha256": "08863c132ef972beee7a45809ef64812ffe47532ed276c20331a0bcdc417e369",
       "branches": [
         "default"
       ]
@@ -772,7 +772,7 @@
     "PBGAFC_1157_40X40mm": {
       "family": "pbga_fc",
       "file": "pbga_fc/PBGAFC_1157_40X40mm.json",
-      "sha256": "067db197e18877ea4854eba7b70f6a49551eac36c827605dcdffedfde69a7490",
+      "sha256": "ff08589632e5f5cd8631fe8d6d54629387fe20e0bae607ee4a0d120cc46f0224",
       "branches": [
         "default"
       ]
@@ -780,7 +780,7 @@
     "PBGAFC_119_14X22mm": {
       "family": "pbga_fc",
       "file": "pbga_fc/PBGAFC_119_14X22mm.json",
-      "sha256": "632f43e266dbc3834416cae820ad60a750ecfb636a437f784175b9cd2b64ce31",
+      "sha256": "1226d7815994e0c0d9ef85405ea3ec3a70c07800ce359a6dab78dc5754f3e616",
       "branches": [
         "default"
       ]
@@ -788,7 +788,7 @@
     "PBGAFC_1225_45X45mm": {
       "family": "pbga_fc",
       "file": "pbga_fc/PBGAFC_1225_45X45mm.json",
-      "sha256": "9c42c9562af2d82bd9289ab4d77532c7ababa752c6304c6e3da48562716dd672",
+      "sha256": "4dcf828b5893d06b3a569b3509297f305151f1a92148e252f675778d908bc72e",
       "branches": [
         "default"
       ]
@@ -796,7 +796,7 @@
     "PBGAFC_1292_375X375mm": {
       "family": "pbga_fc",
       "file": "pbga_fc/PBGAFC_1292_375X375mm.json",
-      "sha256": "d465602ef5b40c30b284f88abcec44b40cbe45cccc0a1d3e128f7e229e884f0b",
+      "sha256": "9e8d997fba21629a99f394dadf34d80dbac3e4faf9f3918408f9e0aa3fd14c81",
       "branches": [
         "default"
       ]
@@ -804,7 +804,7 @@
     "PBGAFC_1357_425X425mm": {
       "family": "pbga_fc",
       "file": "pbga_fc/PBGAFC_1357_425X425mm.json",
-      "sha256": "34dcf4f0f95299ba0b535a8b711f84dbcfbfea0692d6827924d82a6d8d7b4c8f",
+      "sha256": "774f9e7f50bf73fa55fb55ad75708458a742209f9b9fc0f368b7b48d340c67f3",
       "branches": [
         "default"
       ]
@@ -812,7 +812,7 @@
     "PBGAFC_1369_475X475mm": {
       "family": "pbga_fc",
       "file": "pbga_fc/PBGAFC_1369_475X475mm.json",
-      "sha256": "31a3c534dc21956818cf9bde432b78a4a47d097ca8f03aa6389a283ab5ed3878",
+      "sha256": "08ce61442507abc363ec308a336b877b9979e3e2844c6f08ad0021224e6f533c",
       "branches": [
         "default"
       ]
@@ -820,7 +820,7 @@
     "PBGAFC_1413_40X40mm": {
       "family": "pbga_fc",
       "file": "pbga_fc/PBGAFC_1413_40X40mm.json",
-      "sha256": "df26a69e7f1b72269dd228aaff9127333c8d27e235db31299d0103dcd7e5c72d",
+      "sha256": "af1c25d1bae6ddc2e9a7ce456631d0fcdb3efc2b28c00cd01e1fe6709874036f",
       "branches": [
         "default"
       ]
@@ -828,7 +828,7 @@
     "PBGAFC_144_10X10mm": {
       "family": "pbga_fc",
       "file": "pbga_fc/PBGAFC_144_10X10mm.json",
-      "sha256": "190cb62c4ea0a77d7be6aaf11fcaa6e0ea345748ad5503a7392f12df7af73969",
+      "sha256": "49e55f46d33ac0565262dab1308addebeecfb9ef4e93e20d1bdf4308c2f0c059",
       "branches": [
         "default"
       ]
@@ -836,7 +836,7 @@
     "PBGAFC_144_13X13mm": {
       "family": "pbga_fc",
       "file": "pbga_fc/PBGAFC_144_13X13mm.json",
-      "sha256": "023e018eff44b7eafc4cf8a2da2f6929e9ca1a200ff0eb38cef5abd98ae5febb",
+      "sha256": "bc189acdb888eabf68c471f60c42278329e028c63c798895e8cb38b857388ea8",
       "branches": [
         "default"
       ]
@@ -844,7 +844,7 @@
     "PBGAFC_1500_45X45mm": {
       "family": "pbga_fc",
       "file": "pbga_fc/PBGAFC_1500_45X45mm.json",
-      "sha256": "614386ca99f5d27590bd1e947a531f9fc147955ceda3d7e90191915ecc09c4ed",
+      "sha256": "c716e6df70c8fdefa173712b623e5db927c88e647716e361b93f89494a5ae62a",
       "branches": [
         "default"
       ]
@@ -852,7 +852,7 @@
     "PBGAFC_1517_40X40mm": {
       "family": "pbga_fc",
       "file": "pbga_fc/PBGAFC_1517_40X40mm.json",
-      "sha256": "7712d863ca8760ccd95e2c6da71951db935fb0c8aa2fa462cb062e5e4b9468ff",
+      "sha256": "9667c02c5e084f63937f14fc1f9d681eb1cab27bec00a9c239a4d9ae7a0d03dd",
       "branches": [
         "default"
       ]
@@ -860,7 +860,7 @@
     "PBGAFC_153_14X22mm": {
       "family": "pbga_fc",
       "file": "pbga_fc/PBGAFC_153_14X22mm.json",
-      "sha256": "f22448fc23e6f268d6f89aad6255de0766ec5be659ab5245136920c969751e5e",
+      "sha256": "a1b23ffa9ff46d8af7d21b104892543dd7677469741801491472d0aa91946c0c",
       "branches": [
         "default"
       ]
@@ -868,7 +868,7 @@
     "PBGAFC_1557_425X425mm": {
       "family": "pbga_fc",
       "file": "pbga_fc/PBGAFC_1557_425X425mm.json",
-      "sha256": "e718349ed19621fd27290bf159af1f2d4985c19840734218835a675b1952e7c3",
+      "sha256": "ec96bbdf689a5c9377242d02fde8095bb5d74d7725a13dff5287359a240c2b6d",
       "branches": [
         "default"
       ]
@@ -876,7 +876,7 @@
     "PBGAFC_1677_425X425mm": {
       "family": "pbga_fc",
       "file": "pbga_fc/PBGAFC_1677_425X425mm.json",
-      "sha256": "afe6aecd86647c8999a7660cf2f0be2453b5c6c930669207db549f1a01222ada",
+      "sha256": "4cca73ea73e906f5ed2846c198c3163f63f0005e9fefb8f43e1950048c87946c",
       "branches": [
         "default"
       ]
@@ -884,7 +884,7 @@
     "PBGAFC_1681_425X425mm": {
       "family": "pbga_fc",
       "file": "pbga_fc/PBGAFC_1681_425X425mm.json",
-      "sha256": "a30fe2c8f37091c3cc48d269c0675f5d465b037840cc30c9fc0a7c5982d16b90",
+      "sha256": "85ffb38f8d38ef7b3e990bc74d338fa23b6c8d1ce10bfab210ca96cad8a3976b",
       "branches": [
         "default"
       ]
@@ -892,7 +892,7 @@
     "PBGAFC_169_11X11mm": {
       "family": "pbga_fc",
       "file": "pbga_fc/PBGAFC_169_11X11mm.json",
-      "sha256": "2423d1ebccc433596967bfeb21653999700f1b9ecca5f8dc323a8769e32d3e14",
+      "sha256": "7ee3c2c8642c193743572f1a5ba93fb475ce80086e5b608bd38bde30745ebcc2",
       "branches": [
         "default"
       ]
@@ -900,7 +900,7 @@
     "PBGAFC_169_14X14mm": {
       "family": "pbga_fc",
       "file": "pbga_fc/PBGAFC_169_14X14mm.json",
-      "sha256": "6bfac5708d8865df43939b00c23e757f7c134bdbae782d10f77750953b243f70",
+      "sha256": "f68175c583deadd1405f41406a30fff0359d55faf09860f943a8ffbcbe6c4bd5",
       "branches": [
         "default"
       ]
@@ -908,7 +908,7 @@
     "PBGAFC_1728_45X45mm": {
       "family": "pbga_fc",
       "file": "pbga_fc/PBGAFC_1728_45X45mm.json",
-      "sha256": "bb2442fd4f8a03c32d0bf9c8639405032d5009131d95dfcc1287324a22b95e3e",
+      "sha256": "039765f04fa6646d58291017f74ccc6d09cd9c0fa06b8a3265021ccb7d52bd22",
       "branches": [
         "default"
       ]
@@ -916,7 +916,7 @@
     "PBGAFC_1849_45X45mm": {
       "family": "pbga_fc",
       "file": "pbga_fc/PBGAFC_1849_45X45mm.json",
-      "sha256": "677bc90802527ff58125af9a2945533d6d5ca42879409524eef7de417fa3fd83",
+      "sha256": "1a210cde9855597c34956ff50c57b38f205a8b01068136fb2e2050cf8ef312bb",
       "branches": [
         "default"
       ]
@@ -924,7 +924,7 @@
     "PBGAFC_192_21X21mm": {
       "family": "pbga_fc",
       "file": "pbga_fc/PBGAFC_192_21X21mm.json",
-      "sha256": "fcf46dddabadc46f2320c230204f06ee7e15d0374de8bae074758ab91fe1444f",
+      "sha256": "21d4a4ed791ee34c61e917519f5f7a6db992aaa6f1e14c1949273a382d223234",
       "branches": [
         "default"
       ]
@@ -932,7 +932,7 @@
     "PBGAFC_1932_45X45mm": {
       "family": "pbga_fc",
       "file": "pbga_fc/PBGAFC_1932_45X45mm.json",
-      "sha256": "3652a60fb6f463c36f43bfb8a5d89c356f6fb92db85d734cc975923ab2644589",
+      "sha256": "c1e06c90c6263f19d75685e6dc2cd77eaf3421afaf4f88f93b4de6fc88172cb5",
       "branches": [
         "default"
       ]
@@ -940,7 +940,7 @@
     "PBGAFC_196_12X12mm": {
       "family": "pbga_fc",
       "file": "pbga_fc/PBGAFC_196_12X12mm.json",
-      "sha256": "1db0342960b4bc4e549cfb050f5016c6b42d062069aa4ab0f05c717f1a41fb34",
+      "sha256": "7f1ef72a637e562399615438557b7fc934a7d5cadd80e75dcef06e4106ef3a2a",
       "branches": [
         "default"
       ]
@@ -948,7 +948,7 @@
     "PBGAFC_196_15X15mm": {
       "family": "pbga_fc",
       "file": "pbga_fc/PBGAFC_196_15X15mm.json",
-      "sha256": "f4127bd41a7bc3979c6f3b72d6235b3ddd3fe0768edc586d70681181796ec305",
+      "sha256": "83e94103249bbf7e367ba50cbfae299e69cbfd02d16033257f00af88438038cc",
       "branches": [
         "default"
       ]
@@ -956,7 +956,7 @@
     "PBGAFC_2116_475X475mm": {
       "family": "pbga_fc",
       "file": "pbga_fc/PBGAFC_2116_475X475mm.json",
-      "sha256": "9379506d2306f518af167d5bd22cf76f962e1c4f18cb178f0e1692ea7a242a17",
+      "sha256": "0c9ff0afc515d2e2a9e2c53895871d311a4d83b1d68a461b52ac28f42ad8eae4",
       "branches": [
         "default"
       ]
@@ -964,7 +964,7 @@
     "PBGAFC_288_29X29mm": {
       "family": "pbga_fc",
       "file": "pbga_fc/PBGAFC_288_29X29mm.json",
-      "sha256": "901fe48db3b02f6fe51e1c1bae71322db250b2006c6de99970ef94b3d14c635f",
+      "sha256": "f2b8ce3d91db44df0177ab0523b187f1799a71b6f94737b488dd76bf20ad596b",
       "branches": [
         "default"
       ]
@@ -972,7 +972,7 @@
     "PBGAFC_416_23X23mm": {
       "family": "pbga_fc",
       "file": "pbga_fc/PBGAFC_416_23X23mm.json",
-      "sha256": "f305e0dfba811f559ee74cd25f50511657517ebe0cf320913671825282fa3a3d",
+      "sha256": "1c16bde26af05d2a06f750a9e73ff5225f68301926c5a76fe1522b88d88161dc",
       "branches": [
         "default"
       ]
@@ -980,7 +980,7 @@
     "PBGAFC_480_23X23mm": {
       "family": "pbga_fc",
       "file": "pbga_fc/PBGAFC_480_23X23mm.json",
-      "sha256": "b3f905a042928f973db8e06ca370a5a66ccfca5852198977aaebf23846b36132",
+      "sha256": "7fafaf23d05084ef832ee9259eb8e43f748d7571167fc7fa2806628c4816376b",
       "branches": [
         "default"
       ]
@@ -988,7 +988,7 @@
     "PBGAFC_49_6X6mm": {
       "family": "pbga_fc",
       "file": "pbga_fc/PBGAFC_49_6X6mm.json",
-      "sha256": "e5b542e611432e1a78be9a1c6039b2309c93f82c20525c9b21a73e2432800c07",
+      "sha256": "92465573816ce966ff2608cfbe5bbc0bbe7604f347eaa4a52f04c8f7632c1cf7",
       "branches": [
         "default"
       ]
@@ -996,7 +996,7 @@
     "PBGAFC_49_8X8mm": {
       "family": "pbga_fc",
       "file": "pbga_fc/PBGAFC_49_8X8mm.json",
-      "sha256": "8cb57dfccdefd05628bc01d6d10c0acffe3545fdcd06e0c7b709669de51e11eb",
+      "sha256": "9bf363eaad0054253d51754790459b7f1158e279de0ba490765d2be24eb72078",
       "branches": [
         "default"
       ]
@@ -1004,7 +1004,7 @@
     "PBGAFC_564_27X27mm": {
       "family": "pbga_fc",
       "file": "pbga_fc/PBGAFC_564_27X27mm.json",
-      "sha256": "9bf1b9669e74e0355198de49956fdefad0c2a1a225550c7b629f57825a3f77bc",
+      "sha256": "5d37d4c9b52368e9c322a717f78740733fc0d62a0fa141d03cf682020d53b5df",
       "branches": [
         "default"
       ]
@@ -1012,7 +1012,7 @@
     "PBGAFC_569_16X16mm": {
       "family": "pbga_fc",
       "file": "pbga_fc/PBGAFC_569_16X16mm.json",
-      "sha256": "0f58b3d78146fc5b0d9e02deb43e0e5b18fecb0a9b60478e543435587b6f89ea",
+      "sha256": "90ca2de4a8851837e576b886487f8b818ad6ebe65a9d8c29e88829387b548381",
       "branches": [
         "default"
       ]
@@ -1020,7 +1020,7 @@
     "PBGAFC_625_325X325mm": {
       "family": "pbga_fc",
       "file": "pbga_fc/PBGAFC_625_325X325mm.json",
-      "sha256": "3b160dc3ca898cc78226cea4472c76acfc1030bbe839078c64c3d3e7a39e8c71",
+      "sha256": "2da3df977119a23d4cc9032228620d6284b7077a64bdfba6aaf874bd4c7bce94",
       "branches": [
         "default"
       ]
@@ -1028,7 +1028,7 @@
     "PBGAFC_64_7X7mm": {
       "family": "pbga_fc",
       "file": "pbga_fc/PBGAFC_64_7X7mm.json",
-      "sha256": "0bfa1da9185575e811a1ad770cf616254b88936fe3fb12b1cef1b52c2e3e950e",
+      "sha256": "1752888a91ec8bc6a715e796bbb840e9f89d87c848fa6b7668edc17d6d28bb24",
       "branches": [
         "default"
       ]
@@ -1036,7 +1036,7 @@
     "PBGAFC_64_8X8mm": {
       "family": "pbga_fc",
       "file": "pbga_fc/PBGAFC_64_8X8mm.json",
-      "sha256": "829fa3c95039ceedf94adf33025d182a1003c8d6a7610b40c7c16314e202cd50",
+      "sha256": "68f0fbc0c3017f11821cae92727c29fcd539f80218cfac701b8d4b77b59b88ae",
       "branches": [
         "default"
       ]
@@ -1044,7 +1044,7 @@
     "PBGAFC_64_9X9mm": {
       "family": "pbga_fc",
       "file": "pbga_fc/PBGAFC_64_9X9mm.json",
-      "sha256": "23118d0cfaf909c307c7e01dff4bc810dd9b0cfab6755f6ec6dc080611b44104",
+      "sha256": "77b3dfd28ac0119b8d15abb530c75b7f0f320a1532aca53890a9ac7ccecaf8c1",
       "branches": [
         "default"
       ]
@@ -1052,7 +1052,7 @@
     "PBGAFC_672_27X27mm": {
       "family": "pbga_fc",
       "file": "pbga_fc/PBGAFC_672_27X27mm.json",
-      "sha256": "0abff8f3c494a907d556254ede5880c0ba4072466adb3f219ef4ed7620ded8bd",
+      "sha256": "234ef92af306eac7e1958a83ba2454313e7d94b5da72f567485cf454f0a616e3",
       "branches": [
         "default"
       ]
@@ -1060,7 +1060,7 @@
     "PBGAFC_788_31X31mm": {
       "family": "pbga_fc",
       "file": "pbga_fc/PBGAFC_788_31X31mm.json",
-      "sha256": "2894c1dfa1f09dab0ff86702b99525418c542a43fb656881279343630b7ab21b",
+      "sha256": "aa748baae0cf18317deb9e929fe2ae9e297edba66db9a00114380e6da5d4d443",
       "branches": [
         "default"
       ]
@@ -1068,7 +1068,7 @@
     "PBGAFC_81_10X10mm": {
       "family": "pbga_fc",
       "file": "pbga_fc/PBGAFC_81_10X10mm.json",
-      "sha256": "67e873bb2a0897ab1b7f0dd1544cac7d8f3ad0a8f905a34103665e0af3f51604",
+      "sha256": "491b3bc076f611c639d76e40d5b7adefb69291cab041cf1c32ce657f89f00586",
       "branches": [
         "default"
       ]
@@ -1076,7 +1076,7 @@
     "PBGAFC_81_8X8mm": {
       "family": "pbga_fc",
       "file": "pbga_fc/PBGAFC_81_8X8mm.json",
-      "sha256": "58a2d2e6a44b4f42d188676e33926546a4c05a7cd3481f215384701d3fa79a79",
+      "sha256": "ea31bfe2d2b74dc8198e92f5531a3ec94fcac203d904b202efdab58abccf4b25",
       "branches": [
         "default"
       ]
@@ -1084,7 +1084,7 @@
     "PBGAFC_896_31X31mm": {
       "family": "pbga_fc",
       "file": "pbga_fc/PBGAFC_896_31X31mm.json",
-      "sha256": "51c537ea4a3d1309ab72f4cd62422d1aeec8e532d6aa09a3db320cf5d0d663bf",
+      "sha256": "053e4f925ccb0c8f1d27531b53984c5e8430951554a59eb5adcc085841966553",
       "branches": [
         "default"
       ]
@@ -1092,7 +1092,7 @@
     "PBGAFC_960_35X35mm": {
       "family": "pbga_fc",
       "file": "pbga_fc/PBGAFC_960_35X35mm.json",
-      "sha256": "b8c712d8af230a81a0f8e82c28974979175271059d2b4c2cfc0de205b1d217e0",
+      "sha256": "eb6bd9f407fa1051400e01054c09b7309e95368de4ac98c809b3829670d0d58a",
       "branches": [
         "default"
       ]
@@ -1100,7 +1100,7 @@
     "LQFP_100_14X14mm": {
       "family": "pqfp",
       "file": "pqfp/LQFP_100_14X14mm.json",
-      "sha256": "dc5fb4d5cae234370e8336979bffdbc7db4805a9f5cf6973b864a330b44b8555",
+      "sha256": "e75534ce0021dbf95336fe289d5a6e0e3fc1e4d26d4e7b49fe761b6a01822328",
       "branches": [
         "default"
       ]
@@ -1108,7 +1108,7 @@
     "LQFP_100_14X20mm": {
       "family": "pqfp",
       "file": "pqfp/LQFP_100_14X20mm.json",
-      "sha256": "df40c02b310f6d617e057e0083b6f83c9f992ad6894ae893470a2f406696ec3b",
+      "sha256": "ba830db34f2dfe802a1d4fb224acb7d1c5f04b6096734f12c2bfe64d07b783e4",
       "branches": [
         "default"
       ]
@@ -1116,7 +1116,7 @@
     "LQFP_120_14X14mm": {
       "family": "pqfp",
       "file": "pqfp/LQFP_120_14X14mm.json",
-      "sha256": "af751d6e7e31457656a0c0e2089c0fbd1c8fc37ae8055a8cb2d0ed5b2c9a34f3",
+      "sha256": "5c16005106ec364f960a68c1e7083d9358031e5f67eed740cdb62cd66ca29607",
       "branches": [
         "default"
       ]
@@ -1124,7 +1124,7 @@
     "LQFP_128_14X14mm": {
       "family": "pqfp",
       "file": "pqfp/LQFP_128_14X14mm.json",
-      "sha256": "84329b49f366888daa553ea52a792f82cbe19e0f879c036dc6d9c4e32f8bb20f",
+      "sha256": "7a747c44da7b0376f7558d437ff15cd12c64f3884d3649c97abbef28e9e9afaa",
       "branches": [
         "default"
       ]
@@ -1132,7 +1132,7 @@
     "LQFP_128_14X20mm": {
       "family": "pqfp",
       "file": "pqfp/LQFP_128_14X20mm.json",
-      "sha256": "38452ebb549eb82567ff4ced73c15ac5804d9fe8afd2d35b00b884ddb672526c",
+      "sha256": "bf5d8bace264139ea805d52e63e418c5dbce07143b43245b83fb601ee75ad806",
       "branches": [
         "default"
       ]
@@ -1140,7 +1140,7 @@
     "LQFP_128_20X20mm": {
       "family": "pqfp",
       "file": "pqfp/LQFP_128_20X20mm.json",
-      "sha256": "3dd3ff1a6c89aa6249d414bb4b5f37c92be9965f142160f38d2074db7dc8a725",
+      "sha256": "dde800d1e216c861ddd4ca925b2b91a681e666ad1a8b03b530674784d7c02bc3",
       "branches": [
         "default"
       ]
@@ -1148,7 +1148,7 @@
     "LQFP_144_20X20mm": {
       "family": "pqfp",
       "file": "pqfp/LQFP_144_20X20mm.json",
-      "sha256": "5dc1d1803e17ab28949fe1149d5845a05768538df2da9eb3b902fd47ab4cc849",
+      "sha256": "a4eb12ac15a78ee40c9bc6ba00b582c5a60ecd4b687ef6b3f22a03afdcd23d5f",
       "branches": [
         "default"
       ]
@@ -1156,7 +1156,7 @@
     "LQFP_160_24X24mm": {
       "family": "pqfp",
       "file": "pqfp/LQFP_160_24X24mm.json",
-      "sha256": "f1260b2f5845185920bde7d5aabd0a14f120b928d9fda7ba1fd1753180004a7f",
+      "sha256": "2866cde919a8e8beb3d1d3704a7cbbf7936e1f5947bf62834f508472a787de57",
       "branches": [
         "default"
       ]
@@ -1164,7 +1164,7 @@
     "LQFP_176_24X24mm": {
       "family": "pqfp",
       "file": "pqfp/LQFP_176_24X24mm.json",
-      "sha256": "9e37cc28ee6ad3f5d9a3a41d00248ad4bf69a4dcf1685629e70d60a0da6edd42",
+      "sha256": "caa7bedc35883033b7692e4c2cd3aec4dc087cd6b2b7fbda647bacbf18d246d1",
       "branches": [
         "default"
       ]
@@ -1172,7 +1172,7 @@
     "LQFP_184_20X20mm": {
       "family": "pqfp",
       "file": "pqfp/LQFP_184_20X20mm.json",
-      "sha256": "1facc4458f75a223d87f2ac377b04f8c8b7dfa100d775c461e11a4f124aad160",
+      "sha256": "99278d06e3ccdc81e43592be41a96d87d00b6a1569d0ab71a6d07c5cca08b116",
       "branches": [
         "default"
       ]
@@ -1180,7 +1180,7 @@
     "LQFP_208_28X28mm": {
       "family": "pqfp",
       "file": "pqfp/LQFP_208_28X28mm.json",
-      "sha256": "612c3daad0ad0e39633f442d99976d82176214feb1e6712f28ab6b1fb882eb0d",
+      "sha256": "38c62d5d104d4f2fd6ce322847c48dcd8546c5a20374ffa8cbe6d7f69ac21042",
       "branches": [
         "default"
       ]
@@ -1188,7 +1188,7 @@
     "LQFP_256_28X28mm": {
       "family": "pqfp",
       "file": "pqfp/LQFP_256_28X28mm.json",
-      "sha256": "b7761d033e32c89469c2cbd35c1280d6589e2db8a49d313a66b50c781f16f2ad",
+      "sha256": "42542421bfb28fb56e840e0d7427f300308dc65f909a725906b8eb1d6384fe2b",
       "branches": [
         "default"
       ]
@@ -1196,7 +1196,7 @@
     "LQFP_32_7X7mm": {
       "family": "pqfp",
       "file": "pqfp/LQFP_32_7X7mm.json",
-      "sha256": "075537a4dbbfc7f48643d5267117f6cf216c4a50e03d8627e47337219afee580",
+      "sha256": "4c4c80f0ca226ac8e587b46f05d5e5fbb341a4b3fd01a9ba8dcb81e9e57f87d0",
       "branches": [
         "default"
       ]
@@ -1204,7 +1204,7 @@
     "LQFP_44_10X10mm": {
       "family": "pqfp",
       "file": "pqfp/LQFP_44_10X10mm.json",
-      "sha256": "b779064872a6b198784efcd84ba9276626fe9c82314fa8d4c614dc3cf5cd6164",
+      "sha256": "307b390eddc45d4a5c50bf1b001c5c7bf5ebb4972fb9255627d3aafead2e7d9e",
       "branches": [
         "default"
       ]
@@ -1212,7 +1212,7 @@
     "LQFP_44_14X14mm": {
       "family": "pqfp",
       "file": "pqfp/LQFP_44_14X14mm.json",
-      "sha256": "cf70c4629f1988dfa16125876bf4b57e968f4029996a39308deb8a7d5fdc220e",
+      "sha256": "8c4d924865e12f41e5a4431bdb5a9d9083c57e2017e7e7fe19d5fb49573e5a13",
       "branches": [
         "default"
       ]
@@ -1220,7 +1220,7 @@
     "LQFP_48_7X7mm": {
       "family": "pqfp",
       "file": "pqfp/LQFP_48_7X7mm.json",
-      "sha256": "7afd65fbf92203c636b91da1843d0132f666f1e5d627f1c468454bfbb1de763f",
+      "sha256": "a5ebedcbd0f013275055f2525a35c69e4da0163679a9ee4e54cd9a273fbb9a80",
       "branches": [
         "default"
       ]
@@ -1228,7 +1228,7 @@
     "LQFP_64_10X10mm": {
       "family": "pqfp",
       "file": "pqfp/LQFP_64_10X10mm.json",
-      "sha256": "1636574b1e59a2ade963077b5a6c105cbef2c098a4fb0aca551ad4aecaae60b5",
+      "sha256": "541dae517e0dbf861f69ada88a8add1feb8872ab485569729717fb8242551659",
       "branches": [
         "default"
       ]
@@ -1236,7 +1236,7 @@
     "LQFP_64_14X14mm": {
       "family": "pqfp",
       "file": "pqfp/LQFP_64_14X14mm.json",
-      "sha256": "884c113f58561c71ac36973cf2d31ed1c0da1ba2086a6e09c6d3649777a53a9a",
+      "sha256": "945016985aff0a061b2aaf76f524402995b2a9ea9bbfb2e53d7ad6ca32929fcf",
       "branches": [
         "default"
       ]
@@ -1244,7 +1244,7 @@
     "LQFP_68_10X10mm": {
       "family": "pqfp",
       "file": "pqfp/LQFP_68_10X10mm.json",
-      "sha256": "fb017e427449576e889af1858cce4c37dd7285c70bf02946269d75050d472331",
+      "sha256": "dea21eeadb1e676d80ba443b021414a0291f569cc13497fb448f82d53450a124",
       "branches": [
         "default"
       ]
@@ -1252,7 +1252,7 @@
     "LQFP_80_12X12mm": {
       "family": "pqfp",
       "file": "pqfp/LQFP_80_12X12mm.json",
-      "sha256": "5655f4a49ddc66b13549551d0e5adb3c46990f852541dfe0af2df548cf6e95b3",
+      "sha256": "04e5ebb32d7d789725234038b04731f792a2e6d3002cc55d44ed1ab6e6981701",
       "branches": [
         "default"
       ]
@@ -1260,7 +1260,7 @@
     "LQFP_80_14X14mm": {
       "family": "pqfp",
       "file": "pqfp/LQFP_80_14X14mm.json",
-      "sha256": "b26de0ff51c6fd5df849460b27cfdf04c83e327d1b9f2d7a72a273d7d69020f6",
+      "sha256": "ad4f3f9d0b6bfc5fa6d990e69b8ebdcb74d7ebb289a72634d76ed49fadbd1905",
       "branches": [
         "default"
       ]
@@ -1268,7 +1268,7 @@
     "MQFP_100_14X14mm": {
       "family": "pqfp",
       "file": "pqfp/MQFP_100_14X14mm.json",
-      "sha256": "fa02f57e16fc2707bd9098115af68f13eb51710431fc7d3e63f632d0afbd5a3e",
+      "sha256": "fdc498b1ca046865d9a0f9fbf00239d0f8c78465453bbdd1d204553954c5c3c9",
       "branches": [
         "default"
       ]
@@ -1276,7 +1276,7 @@
     "MQFP_100_14X20mm": {
       "family": "pqfp",
       "file": "pqfp/MQFP_100_14X20mm.json",
-      "sha256": "8e6ddb899ffe55ac5e0e05107dd8fe3508feab5cfa7104f7332f32b7cfa56e1f",
+      "sha256": "23283380791533f5229ebcbab98dbdc07047fb20f2abef2a890e366478c2ae0d",
       "branches": [
         "default"
       ]
@@ -1284,7 +1284,7 @@
     "MQFP_120_28X28mm": {
       "family": "pqfp",
       "file": "pqfp/MQFP_120_28X28mm.json",
-      "sha256": "3c007a9dcd94c21393e1e55e160cce0dfd4a0b52abf9913cf9dc5562df51cda9",
+      "sha256": "bc5accefdfc9befc0468f577d904043aac0577e100062866ff068d5d30f49a08",
       "branches": [
         "default"
       ]
@@ -1292,7 +1292,7 @@
     "MQFP_128_14X20mm": {
       "family": "pqfp",
       "file": "pqfp/MQFP_128_14X20mm.json",
-      "sha256": "79f8776db983f8ae576f5bf9f4a97858fa0d7957eeecd828a9775e9a7459e5df",
+      "sha256": "d696cf5980ac7c69b19802779f3342a3b7b7bc179733a3441acbddca73381043",
       "branches": [
         "default"
       ]
@@ -1300,7 +1300,7 @@
     "MQFP_128_28X28mm": {
       "family": "pqfp",
       "file": "pqfp/MQFP_128_28X28mm.json",
-      "sha256": "49809d66076afe074bf61447fbce6552228a7238e1d647f28b0239229b9bbedb",
+      "sha256": "02cd5418abc82c0ba4dc6f8becccf7c0e298738f927ffc9ba4a16756b4e3d0b4",
       "branches": [
         "default"
       ]
@@ -1308,7 +1308,7 @@
     "MQFP_144_28X28mm": {
       "family": "pqfp",
       "file": "pqfp/MQFP_144_28X28mm.json",
-      "sha256": "ab8fa121519efb65b639783a477605846843036d2da9b94ccbfaf6c0a67254af",
+      "sha256": "1afefb022e6cf31245f8c4f1855473339cf577eeb2da082c796bbe0572380f0d",
       "branches": [
         "default"
       ]
@@ -1316,7 +1316,7 @@
     "MQFP_160_24X24mm": {
       "family": "pqfp",
       "file": "pqfp/MQFP_160_24X24mm.json",
-      "sha256": "b32786a8d5280380e1dec758b9061f8fab29d25d99da98e94f1eee7c084914f5",
+      "sha256": "f76a54c5ad82b16ac2b6dcfe1fd4529b95dd895e00be5f59db75ba9adba26fac",
       "branches": [
         "default"
       ]
@@ -1324,7 +1324,7 @@
     "MQFP_160_28X28mm": {
       "family": "pqfp",
       "file": "pqfp/MQFP_160_28X28mm.json",
-      "sha256": "d0bbe59ffab39b1e22496d0213fb56c94a703d100a7a06c3d4b24f1a6a12dbc2",
+      "sha256": "e2712942f8efb3a644910ac4051ded2ece33327e198a11d069cd836f23626a07",
       "branches": [
         "default"
       ]
@@ -1332,7 +1332,7 @@
     "MQFP_176_24X24mm": {
       "family": "pqfp",
       "file": "pqfp/MQFP_176_24X24mm.json",
-      "sha256": "04ba767a34563840eb3d0ff70f49421ee4ae3b0b07c606281bd6bc999f337e28",
+      "sha256": "7a3c9d99732019de69c82392dc0bf586318dfe40ba9d7fe459284528c69aec79",
       "branches": [
         "default"
       ]
@@ -1340,7 +1340,7 @@
     "MQFP_184_32X32mm": {
       "family": "pqfp",
       "file": "pqfp/MQFP_184_32X32mm.json",
-      "sha256": "1ee96a7071004f6ae40de5b8820f116be7855330f88bb3ec1f293c697bea9aad",
+      "sha256": "d82dabb1e8d4083e736343ad59ca671c61baf08b1e7a5d932717db4095e70a76",
       "branches": [
         "default"
       ]
@@ -1348,7 +1348,7 @@
     "MQFP_208_28X28mm": {
       "family": "pqfp",
       "file": "pqfp/MQFP_208_28X28mm.json",
-      "sha256": "45f277fa97e1d05c9b1193c0c1ede361f7419c99648d0e82b3b14022b36d3aa5",
+      "sha256": "c3f27c6c42744984e48861954cc83d409d23a75dbaa9a076ff80fe91974d382d",
       "branches": [
         "default"
       ]
@@ -1356,7 +1356,7 @@
     "MQFP_240_32X32mm": {
       "family": "pqfp",
       "file": "pqfp/MQFP_240_32X32mm.json",
-      "sha256": "b00c9f70e04ffffd3d9a46c2befc7bf63f02c6809c8fc035961d0f89de85e5d1",
+      "sha256": "9ca4e0c884931e3d1bff267d99d55ea706d9d5f905748cc07f73f249461e3b3b",
       "branches": [
         "default"
       ]
@@ -1364,7 +1364,7 @@
     "MQFP_256_28X28mm": {
       "family": "pqfp",
       "file": "pqfp/MQFP_256_28X28mm.json",
-      "sha256": "e6bff18c2b305ab33214c2a5cbe54d671b061df9a5225c19ce1c52eace6c3abd",
+      "sha256": "9852b97890c19310682378b350ac7fa4572c2b36191282371e7535ad2043af04",
       "branches": [
         "default"
       ]
@@ -1372,7 +1372,7 @@
     "MQFP_296_32X32mm": {
       "family": "pqfp",
       "file": "pqfp/MQFP_296_32X32mm.json",
-      "sha256": "3fa75c20ffc009918c903a621e4d560429e85aedbba358b099f23169d7c59ae2",
+      "sha256": "9bf1ef39b468047f79407e0517599261a9c4b0d65d1f38896481d8d0ff24c390",
       "branches": [
         "default"
       ]
@@ -1380,7 +1380,7 @@
     "MQFP_304_40X40mm": {
       "family": "pqfp",
       "file": "pqfp/MQFP_304_40X40mm.json",
-      "sha256": "40e3f53ffd059af7d36a0df528befcfe8f628816e3956ef2f8d1262b963c7269",
+      "sha256": "244a2299ee36591fb30773b72f2f2df859219b4a5a5cfcea84974d29a53c37ad",
       "branches": [
         "default"
       ]
@@ -1388,7 +1388,7 @@
     "MQFP_44_10X10mm": {
       "family": "pqfp",
       "file": "pqfp/MQFP_44_10X10mm.json",
-      "sha256": "711952bc5f50bdb77b5d0893fef8a593024c0358d837d271e4e62ea7ffcce3ca",
+      "sha256": "f2d0e4f311fad69a584f0924eb1cce0d804332358c3b88eedd95c3fb5630e13d",
       "branches": [
         "default"
       ]
@@ -1396,7 +1396,7 @@
     "MQFP_44_14X14mm": {
       "family": "pqfp",
       "file": "pqfp/MQFP_44_14X14mm.json",
-      "sha256": "323999cbb79d272d01454cf77fd935bdfca9b5148b4fb3b9f1d38abee5661aaa",
+      "sha256": "61d10133ae26c62e855e79b366e167aba60a69d89d9e43ee92165ef4a8ff36cb",
       "branches": [
         "default"
       ]
@@ -1404,7 +1404,7 @@
     "MQFP_52_10X10mm": {
       "family": "pqfp",
       "file": "pqfp/MQFP_52_10X10mm.json",
-      "sha256": "b2c4357957535732c3839ab54c4c37f6593faac38c98b945ec66c1e1f443dc1b",
+      "sha256": "ae46d8766edc4f0a6abc580da2e3551c540d88ba934fafd97e3d9e085815f013",
       "branches": [
         "default"
       ]
@@ -1412,7 +1412,7 @@
     "MQFP_52_14X14mm": {
       "family": "pqfp",
       "file": "pqfp/MQFP_52_14X14mm.json",
-      "sha256": "6dc70e34c145bd88fdac0c87645159b2c9f4e812d02873786237e72b3a663e37",
+      "sha256": "541d3d9fea4a2724536ab96587cc8c47ad93abff8900d6c5abc912e9079cb02d",
       "branches": [
         "default"
       ]
@@ -1420,7 +1420,7 @@
     "MQFP_64_10X10mm": {
       "family": "pqfp",
       "file": "pqfp/MQFP_64_10X10mm.json",
-      "sha256": "3d2aa71133722847a087873eba1dac8f0607d6c07a040e8e68f25d70c06c01f6",
+      "sha256": "c2f5d10ec3be77f0f5b11db9feea773a3f99727b2e7db9268e4a578dab1a7d4e",
       "branches": [
         "default"
       ]
@@ -1428,7 +1428,7 @@
     "MQFP_64_14X14mm": {
       "family": "pqfp",
       "file": "pqfp/MQFP_64_14X14mm.json",
-      "sha256": "a15d263eceb6e952c30ec2b8ba3e5e53f922723e98dc9465e0856c58291960e6",
+      "sha256": "b44bb4986ea188da62c713a1b3a25455e24f43eb4a01f7a58d22d13eb71d9ccd",
       "branches": [
         "default"
       ]
@@ -1436,7 +1436,7 @@
     "MQFP_64_14X20mm": {
       "family": "pqfp",
       "file": "pqfp/MQFP_64_14X20mm.json",
-      "sha256": "4dd400bc7e75efc6aacd59aaca6fcaecfe708ce8c023cc54ce8dbfca9fc7bead",
+      "sha256": "ab180fcf483aa2b77743d69aacf777ba4ad1f00fe6501ce0ce0f7501eee0fe53",
       "branches": [
         "default"
       ]
@@ -1444,7 +1444,7 @@
     "MQFP_80_14X14mm": {
       "family": "pqfp",
       "file": "pqfp/MQFP_80_14X14mm.json",
-      "sha256": "2cbe539eca5ff101518f37b81067783254beb28e2008733bfee4010976e728b2",
+      "sha256": "6ef6c7c8da9be2ff316cb3867056bf629e23069677b1283ead6f28572c134426",
       "branches": [
         "default"
       ]
@@ -1452,7 +1452,7 @@
     "MQFP_80_14X20mm": {
       "family": "pqfp",
       "file": "pqfp/MQFP_80_14X20mm.json",
-      "sha256": "93921603f786acb3aeb86a505f703791e4d1947301719c013cf69771f7eddb42",
+      "sha256": "de0b103689d108b2b6e632286151fea13ac197ad9c8a97a899e2408cda440bf3",
       "branches": [
         "default"
       ]
@@ -1460,7 +1460,7 @@
     "TQFP_100_14X14mm": {
       "family": "pqfp",
       "file": "pqfp/TQFP_100_14X14mm.json",
-      "sha256": "7e973b80fbc260feba1df328f06df2bb5893a0d4d706869e87117c77a857b632",
+      "sha256": "ea757e14f26d875d4aac5d093164096808eabdebf1af8476381ec0e6b3fe8c80",
       "branches": [
         "default"
       ]
@@ -1468,7 +1468,7 @@
     "TQFP_100_14X20mm": {
       "family": "pqfp",
       "file": "pqfp/TQFP_100_14X20mm.json",
-      "sha256": "77a4455a0e96eeb110ecc87052068b99d1ade3c67868f55ea80e6b2f419f9145",
+      "sha256": "f9f8a96dfbc797a3c0aa6caeb8ffcc0f203f31e647bdd42b53ee6fbb72d6a146",
       "branches": [
         "default"
       ]
@@ -1476,7 +1476,7 @@
     "TQFP_120_14X14mm": {
       "family": "pqfp",
       "file": "pqfp/TQFP_120_14X14mm.json",
-      "sha256": "a654fefb7bcbb658a3778f7ef916201deb3a70673759ee51182f133fffded1a8",
+      "sha256": "a5247ff888feee0e4166d389586ad81e6250d75cf55978342c27f003566019d6",
       "branches": [
         "default"
       ]
@@ -1484,7 +1484,7 @@
     "TQFP_120_14X20mm": {
       "family": "pqfp",
       "file": "pqfp/TQFP_120_14X20mm.json",
-      "sha256": "f365dc6223d9f98791f7a866dd014162357fb9185d3c9f06ee25a4d35c858ace",
+      "sha256": "ae1647ee8d35ddff113c2c23a9d4968c7a2b2c20655f6284f5cfdec716e518db",
       "branches": [
         "default"
       ]
@@ -1492,7 +1492,7 @@
     "TQFP_128_14X14mm": {
       "family": "pqfp",
       "file": "pqfp/TQFP_128_14X14mm.json",
-      "sha256": "7328f3a756fa049ac2c0972c6a1c168cd55ae8ba9654396f317b801fe8c6dcdd",
+      "sha256": "f54d51c0d805f94f9d7511aeb8ac5723d2d39c6e05a22b9c42716356ace66ac6",
       "branches": [
         "default"
       ]
@@ -1500,7 +1500,7 @@
     "TQFP_144_20X20mm": {
       "family": "pqfp",
       "file": "pqfp/TQFP_144_20X20mm.json",
-      "sha256": "22aa37b61de954260562b1c416199668256b19747ea9fcd47757c79f5ba9bd0a",
+      "sha256": "6834eae7ff037e15e5b2d2528c809c4260f7c4135dc22f333d7c734be732ab69",
       "branches": [
         "default"
       ]
@@ -1508,7 +1508,7 @@
     "TQFP_176_20X20mm": {
       "family": "pqfp",
       "file": "pqfp/TQFP_176_20X20mm.json",
-      "sha256": "2f2b96275de57ec5fb1cbf4190f380430bd111136041aba87d37518d567ad28f",
+      "sha256": "fe5b610df1401e6e2f805ee4c9c7682d1364bdad2468a2b9857f29713c482d47",
       "branches": [
         "default"
       ]
@@ -1516,7 +1516,7 @@
     "TQFP_32_7X7mm": {
       "family": "pqfp",
       "file": "pqfp/TQFP_32_7X7mm.json",
-      "sha256": "a071ae806dc559f610166c4a564889efe5e70c2fe639cf7df4e87a47eff54a91",
+      "sha256": "0dfd7c03d47d3c1391c937bfc0466a995ccb15b8698f67e8c0b2dda2f0bc2518",
       "branches": [
         "default"
       ]
@@ -1524,7 +1524,7 @@
     "TQFP_44_10X10mm": {
       "family": "pqfp",
       "file": "pqfp/TQFP_44_10X10mm.json",
-      "sha256": "508aa42c049727bc198388f0863fc803b6358b4ae6d8ffd73a1740abd5d94bbf",
+      "sha256": "161bc7c57d4124ab927c054a7b012bfdea016d132395ec8738b24ba0d76f3ec5",
       "branches": [
         "default"
       ]
@@ -1532,7 +1532,7 @@
     "TQFP_44_14X14mm": {
       "family": "pqfp",
       "file": "pqfp/TQFP_44_14X14mm.json",
-      "sha256": "8ff3b7465c61e8d388776d8565ab5fe87469d9a60fdb7bb67f06dfbf5dda43b9",
+      "sha256": "26f9e50da2158321df9de95471d55a98ba76898fc428bbcf32fae75b2f572339",
       "branches": [
         "default"
       ]
@@ -1540,7 +1540,7 @@
     "TQFP_48_7X7mm": {
       "family": "pqfp",
       "file": "pqfp/TQFP_48_7X7mm.json",
-      "sha256": "cd8b5602de1bc0500ee7c9530c2af9e04c2b9077d97ffa9e69898dd7011f61f2",
+      "sha256": "6418449c303b1ac995e785e6e5916880a47cc45b604451d70d897c0f925fdd67",
       "branches": [
         "default"
       ]
@@ -1548,7 +1548,7 @@
     "TQFP_52_10X10mm": {
       "family": "pqfp",
       "file": "pqfp/TQFP_52_10X10mm.json",
-      "sha256": "117c5a1250747171327bea4386e5e88744fe217cfb394cb4e814881a31edd3bf",
+      "sha256": "b435696e4baef748d3a62e6ad3db7ddd3ec70d922dc6ce35de0ed93e9a024b8c",
       "branches": [
         "default"
       ]
@@ -1556,7 +1556,7 @@
     "TQFP_64_10X10mm": {
       "family": "pqfp",
       "file": "pqfp/TQFP_64_10X10mm.json",
-      "sha256": "4e6c16a331dbc77344d2a517c4f8cce2b07d9d133a1950fae4f2a27a5ef9bade",
+      "sha256": "bc00329dfd7d7a64dffb86275f12f6617bde3877b9ec0c39f5afc6394558afb4",
       "branches": [
         "default"
       ]
@@ -1564,7 +1564,7 @@
     "TQFP_64_14X14mm": {
       "family": "pqfp",
       "file": "pqfp/TQFP_64_14X14mm.json",
-      "sha256": "afe953a3a2ac5c7dd3be7cb36230b36b3c57c908f7075846ddc37acd2077a476",
+      "sha256": "dcf0216fc1098fdbcaf8bcf7a73905d803dec3cdde214a0ec502327fa3d0bf70",
       "branches": [
         "default"
       ]
@@ -1572,7 +1572,7 @@
     "TQFP_80_12X12mm": {
       "family": "pqfp",
       "file": "pqfp/TQFP_80_12X12mm.json",
-      "sha256": "ba66f494117f6571e066da8fdc99dc60481f461b18ba2769e0badb05e9fc3736",
+      "sha256": "df7dfdecedcb1e84677b3d6981101d3129ffa7b7b5c0c919743783b2fedc3679",
       "branches": [
         "default"
       ]
@@ -1580,911 +1580,911 @@
     "TQFP_80_14X14mm": {
       "family": "pqfp",
       "file": "pqfp/TQFP_80_14X14mm.json",
-      "sha256": "b445a3fc01a3f8ce582313816460190a7c73a95dfdcc32188daef4b09affe750",
+      "sha256": "25edd9e1103b0cf4040b1fb2780e90c7ad7dd8e1ee8b92c1dbbee5713c9d49e4",
       "branches": [
         "default"
       ]
     },
     "QFN_10X10_44": {
-      "family": "QFN",
+      "family": "qfn",
       "file": "QFN/QFN_10X10_44.json",
-      "sha256": "28c4672ae7b81762819551b3ecca30e80a4981fae20bc630ce97e9849885e319",
+      "sha256": "689743e78ff110b2038458402a22a3c66267e2ceaa254c0e1ac78e2162f0ea76",
       "branches": [
         "default"
       ]
     },
     "QFN_10X10_52": {
-      "family": "QFN",
+      "family": "qfn",
       "file": "QFN/QFN_10X10_52.json",
-      "sha256": "2217d8a8d754cdc5b7113406ff4a547598d74061b9cdc54db154bd9482d56142",
+      "sha256": "6673a5075d164f2719a09f41570b7a5b0e42f057d353d31c54f705c8f5bf053d",
       "branches": [
         "default"
       ]
     },
     "QFN_10X10_68": {
-      "family": "QFN",
+      "family": "qfn",
       "file": "QFN/QFN_10X10_68.json",
-      "sha256": "05db58db158c1eeb353440ae1d9b98e5fcfe923bdf925e7b271923488832c6c5",
+      "sha256": "b5c02567b89daf5a6e33361837d4107b529af8f074264e8ecfaf153eaa995725",
       "branches": [
         "default"
       ]
     },
     "QFN_10X10_72": {
-      "family": "QFN",
+      "family": "qfn",
       "file": "QFN/QFN_10X10_72.json",
-      "sha256": "4288396fc388ce880d1ecb74c9b1c06275887dffb349aafe8704fd6511ebd567",
+      "sha256": "f8a3e0b92fb278a4ea901abad9f98fe61eed558b0325d685701f8f090491f84b",
       "branches": [
         "default"
       ]
     },
     "QFN_12X12_100": {
-      "family": "QFN",
+      "family": "qfn",
       "file": "QFN/QFN_12X12_100.json",
-      "sha256": "ac5e85f9b274c8da5422f40f171a6f6bd6689e3626ac5551c201a941766f0b99",
+      "sha256": "1d563c7279d18bfc2419ecc5519da5bf689649810b73755aa9670eca056c2816",
       "branches": [
         "default"
       ]
     },
     "QFN_3X3_12": {
-      "family": "QFN",
+      "family": "qfn",
       "file": "QFN/QFN_3X3_12.json",
-      "sha256": "198e40de37e866204858722f15868231ac071661649041e26b3c81beecca3fb2",
+      "sha256": "ca32150a560582a7e0354c5579beba7fbc702753ccfdbafc0d2af341f4c0fa3a",
       "branches": [
         "default"
       ]
     },
     "QFN_3X3_16": {
-      "family": "QFN",
+      "family": "qfn",
       "file": "QFN/QFN_3X3_16.json",
-      "sha256": "4293992b65b01fdc8bbc8be9fee4c07872b752f7be5a8a52f181c3d8521b0347",
+      "sha256": "0a5d82cb4a21b954e2cee948d7a5cfe48e76a1af324af04d03bf05245b52885a",
       "branches": [
         "default"
       ]
     },
     "QFN_3X3_6": {
-      "family": "QFN",
+      "family": "qfn",
       "file": "QFN/QFN_3X3_6.json",
-      "sha256": "a32c904a41e9c0771a5a64627293b422c99f2d79337ca30180d144f6931a920b",
+      "sha256": "d53d89a0ef30ec231ae6a9d0165776ca0496697661fc373f1fd1dea9a958094d",
       "branches": [
         "default"
       ]
     },
     "QFN_3X3_8": {
-      "family": "QFN",
+      "family": "qfn",
       "file": "QFN/QFN_3X3_8.json",
-      "sha256": "9f3a1b6bac5caa033c046b091eb6c8737b168badbebdedf37e2fa5d2af63b119",
+      "sha256": "9fbaacb19213ad8fd16b96759ed57e3cbced98b2a302b6ccdf46dde0e601fe3b",
       "branches": [
         "default"
       ]
     },
     "QFN_4_5X3_5_20": {
-      "family": "QFN",
+      "family": "qfn",
       "file": "QFN/QFN_4_5X3_5_20.json",
-      "sha256": "b0c4337c571afc4df4a8bf9144b3d97f7113e5f07351b1aeb998bdee3938bb84",
+      "sha256": "0731c23f0a791cb91b4513d164b85eadbed041a6b325cbb29613c8e792bff97a",
       "branches": [
         "default"
       ]
     },
     "QFN_4X4_12": {
-      "family": "QFN",
+      "family": "qfn",
       "file": "QFN/QFN_4X4_12.json",
-      "sha256": "e42887703246903848321d1d885579544e24cdfa0fd4a7f7714eaa8dda028c8d",
+      "sha256": "82d3302a9dd1fba6d31b7888782d6e8bfc8eb3e54bab57788ade66ecb66fa68e",
       "branches": [
         "default"
       ]
     },
     "QFN_4X4_16_0_65": {
-      "family": "QFN",
+      "family": "qfn",
       "file": "QFN/QFN_4X4_16_0_65.json",
-      "sha256": "30b478f69b45e04515f1ec4b65144bdeee5a9aa318fe3888d3a41624bd8d2c8a",
+      "sha256": "a6aba8aa00b34e6650f91ff1950824e60ae121cc33b5c86e49ceb881e0e4de63",
       "branches": [
         "default"
       ]
     },
     "QFN_4X4_16_0_8": {
-      "family": "QFN",
+      "family": "qfn",
       "file": "QFN/QFN_4X4_16_0_8.json",
-      "sha256": "38156a193172eacc3533155b0c809d7d9109a46f42743ff29324f13799179c7a",
+      "sha256": "9c69fda3ef6bb1a64d8faf94603d32162b1f9a348e8254174f4dd87c9462cfbd",
       "branches": [
         "default"
       ]
     },
     "QFN_4X4_20": {
-      "family": "QFN",
+      "family": "qfn",
       "file": "QFN/QFN_4X4_20.json",
-      "sha256": "4939e5e7034f854d37da8a22376b444cff0e09dad82baa3a9718ad936449579e",
+      "sha256": "ce380228879a04f7fdb56456a912a9d7313050e40876794eee57805d7b34ba93",
       "branches": [
         "default"
       ]
     },
     "QFN_4X4_24": {
-      "family": "QFN",
+      "family": "qfn",
       "file": "QFN/QFN_4X4_24.json",
-      "sha256": "036e09b900fab6b57a6fd2f69d1423c883ad9aec0514d971c262e004c3cdb842",
+      "sha256": "182d278d5cf7d1116b432d3fef7d9192e257935ab32cee1bdb075f64f1fce63f",
       "branches": [
         "default"
       ]
     },
     "QFN_5_5X3_5_24": {
-      "family": "QFN",
+      "family": "qfn",
       "file": "QFN/QFN_5_5X3_5_24.json",
-      "sha256": "a8733853e86853e1c6c5d140e9ab5b5863fd5134002ccfd8e1506212657b9801",
+      "sha256": "029c1e60110ddb4d2c87a9548cca1305e7a682415f847bb4393ab7bca007577d",
       "branches": [
         "default"
       ]
     },
     "QFN_5X4_24": {
-      "family": "QFN",
+      "family": "qfn",
       "file": "QFN/QFN_5X4_24.json",
-      "sha256": "cd3c30e13c541fd753098f82d10fd6625c61a1f5c8cad5f82b0f2fe570875b31",
+      "sha256": "6f67d61665a9b08f282123d9f25e78d7ee261feed2f9de465d53ff786180c3f0",
       "branches": [
         "default"
       ]
     },
     "QFN_5X4_28": {
-      "family": "QFN",
+      "family": "qfn",
       "file": "QFN/QFN_5X4_28.json",
-      "sha256": "0803855408885221e276b818ac82b9dce35fb535ed74411669e6982b8ef93cee",
+      "sha256": "5da19889e7dc6c7ed22d404737d094b0a32839f2f9d61e3597bfa20e8a7a4805",
       "branches": [
         "default"
       ]
     },
     "QFN_5X5_16": {
-      "family": "QFN",
+      "family": "qfn",
       "file": "QFN/QFN_5X5_16.json",
-      "sha256": "874932888ac9d4aa882f71c1652202be2d2c4222418071c427470ac1e3127cb8",
+      "sha256": "3d9c22ac969316f4797c8a604424192ee15256c9defc6d7ee5541197829669c9",
       "branches": [
         "default"
       ]
     },
     "QFN_5X5_20": {
-      "family": "QFN",
+      "family": "qfn",
       "file": "QFN/QFN_5X5_20.json",
-      "sha256": "fca3a95620f4c56fc31e209f501d6ecf275272802b5ade89c938ff275dd85349",
+      "sha256": "88a8e89d3b0b8a6c1ae897459eb16bb1c470af160ff0caad067de0c449a06998",
       "branches": [
         "default"
       ]
     },
     "QFN_5X5_24": {
-      "family": "QFN",
+      "family": "qfn",
       "file": "QFN/QFN_5X5_24.json",
-      "sha256": "23cfede8c24bb3f35b5c51275a4fc42ff7da06701299e3fe2a523084bdef0faa",
+      "sha256": "2d4a49063b2764280eea9430a72d9249dc2d4c618108d8c126f417c78053298d",
       "branches": [
         "default"
       ]
     },
     "QFN_5X5_28": {
-      "family": "QFN",
+      "family": "qfn",
       "file": "QFN/QFN_5X5_28.json",
-      "sha256": "f0b068891df080fabbca34b429c63b9123889128f9bd3cd8208815547864ac2f",
+      "sha256": "9f93fa7e6ce125676b18a0bd5319b72a9c769c46259a2583a58f7c673cc47d07",
       "branches": [
         "default"
       ]
     },
     "QFN_5X5_32": {
-      "family": "QFN",
+      "family": "qfn",
       "file": "QFN/QFN_5X5_32.json",
-      "sha256": "c3da5e1c54ff28468a422a00087e714a95dcef07850793cef1ff018c413b1297",
+      "sha256": "8dad4914f24db12f00004f6620f791e6c425ced668c168e208f63086e892be4f",
       "branches": [
         "default"
       ]
     },
     "QFN_6X6_20": {
-      "family": "QFN",
+      "family": "qfn",
       "file": "QFN/QFN_6X6_20.json",
-      "sha256": "ee5ab2a938acb744b8e476a79b529b00638ca0313129d9f2eef6f11a9ea026f3",
+      "sha256": "ba1c373f3d4a7c0982de38cf95feeddba587cc5f860642636e9bef4843744853",
       "branches": [
         "default"
       ]
     },
     "QFN_6X6_24": {
-      "family": "QFN",
+      "family": "qfn",
       "file": "QFN/QFN_6X6_24.json",
-      "sha256": "00c94e75a2751e0c685745151921a2ae217a4838721c5a6a9ede48a960af1a3c",
+      "sha256": "1bff92b459c63e939f307bdbd6f21e5a17f9c6afc015012322b25bd461a7afa6",
       "branches": [
         "default"
       ]
     },
     "QFN_6X6_28": {
-      "family": "QFN",
+      "family": "qfn",
       "file": "QFN/QFN_6X6_28.json",
-      "sha256": "6286b58343351de64abc137e0f71c5c1ad5aa5abf7108a95424b0e64210a8698",
+      "sha256": "0672a4dec10de2f87c2fb5af6b20446f181d8b619b3231440c1574a7909acbce",
       "branches": [
         "default"
       ]
     },
     "QFN_6X6_32": {
-      "family": "QFN",
+      "family": "qfn",
       "file": "QFN/QFN_6X6_32.json",
-      "sha256": "84d535400b80488f523d1d67725570e14131de328e28b24fca63da768aac319a",
+      "sha256": "0580aa3bb717088bb3440b2c940540851c5faef4cd391714b60a26b992bbf35e",
       "branches": [
         "default"
       ]
     },
     "QFN_6X6_36": {
-      "family": "QFN",
+      "family": "qfn",
       "file": "QFN/QFN_6X6_36.json",
-      "sha256": "d1d54f566e6f09e3970951aba148c14e517f089a57a29d9506a08b721437e628",
+      "sha256": "33c39c9a70c2e41f55ffb301009bd765ec738ac013af2e8505ce2541ec11a7b2",
       "branches": [
         "default"
       ]
     },
     "QFN_6X6_40": {
-      "family": "QFN",
+      "family": "qfn",
       "file": "QFN/QFN_6X6_40.json",
-      "sha256": "ff9a9a2071ed2c38fce335b257b712da78fb1f6ba59c3a4af60cdf1d03f8c296",
+      "sha256": "705c1c5a5687d76aeb203aad3d0be13fa1b1a3efdcd5a7277dddd51bc650b7ad",
       "branches": [
         "default"
       ]
     },
     "QFN_7X5_38": {
-      "family": "QFN",
+      "family": "qfn",
       "file": "QFN/QFN_7X5_38.json",
-      "sha256": "215ce688c99f62e83a6c5126e04bb82a6fd1c0870a4d067324278bafb711109c",
+      "sha256": "58b8e473b17563f0185a5237ecb8b3d7b391b90d6dd9db893ca3f71ee9ab4fd4",
       "branches": [
         "default"
       ]
     },
     "QFN_7X7_28": {
-      "family": "QFN",
+      "family": "qfn",
       "file": "QFN/QFN_7X7_28.json",
-      "sha256": "b1a1384eb46e9daf983d8f59161d4c3cd28e09a83d458dbc6f47f12d40b2d5b8",
+      "sha256": "ce939e031325866054609b1340c335ace9ba307fe97da3e0153935a8a9d02214",
       "branches": [
         "default"
       ]
     },
     "QFN_7X7_32": {
-      "family": "QFN",
+      "family": "qfn",
       "file": "QFN/QFN_7X7_32.json",
-      "sha256": "19923d37db26fa48263c92989f238fec8f0588ee20b3020a03e20a0b4b8c9be7",
+      "sha256": "20b4bf7aec24b65ec8658abb1f8497130281f67be3320f446a847961aa019cac",
       "branches": [
         "default"
       ]
     },
     "QFN_7X7_36": {
-      "family": "QFN",
+      "family": "qfn",
       "file": "QFN/QFN_7X7_36.json",
-      "sha256": "d9446eae21992c57b8726bb17f26ef1b90424ca95f7ea8c0727ad3a78690dc01",
+      "sha256": "754789bd7d89508226f3d89669bb6017facbc563d632dffcc0f857014a06ce7f",
       "branches": [
         "default"
       ]
     },
     "QFN_7X7_40": {
-      "family": "QFN",
+      "family": "qfn",
       "file": "QFN/QFN_7X7_40.json",
-      "sha256": "75dd4d05f6c38cb6dcc05ff5951ffba2adcf0a8dfc4883f9d71a69e808db891a",
+      "sha256": "e3be1a70d3d61ae9ed3e13a8f9c6fded08afc7fc9e641e0bff655e03e4d02c1c",
       "branches": [
         "default"
       ]
     },
     "QFN_7X7_44": {
-      "family": "QFN",
+      "family": "qfn",
       "file": "QFN/QFN_7X7_44.json",
-      "sha256": "f681c65bd247e51a9309084339a7bbca99e7424b8eff10d95812f007a4391cf9",
+      "sha256": "15c503279ec92a27e9bba5b8466029da9a61dd92952c45e4a56d5986e155d53a",
       "branches": [
         "default"
       ]
     },
     "QFN_7X7_48": {
-      "family": "QFN",
+      "family": "qfn",
       "file": "QFN/QFN_7X7_48.json",
-      "sha256": "dd37b6ab5ecbcc6f8027ec85d6372dedd4c1d658d658bb6e5cf38f76a9829392",
+      "sha256": "941d850f557ff11dad327eb9f93f926c56dfcfb86477c686c9332a9497e7f0ce",
       "branches": [
         "default"
       ]
     },
     "QFN_8X8_32": {
-      "family": "QFN",
+      "family": "qfn",
       "file": "QFN/QFN_8X8_32.json",
-      "sha256": "5f0c14dbca01146812b7952f38c97515347babf18146ae9d4685c6601ad5920f",
+      "sha256": "6dbc55794c64a146ee77b3b7909213ff2da5f19c29d25521afa94f838eb29c7a",
       "branches": [
         "default"
       ]
     },
     "QFN_8X8_40": {
-      "family": "QFN",
+      "family": "qfn",
       "file": "QFN/QFN_8X8_40.json",
-      "sha256": "3be972c3f857730af79973f9629e28810d1904121e8b882793898aa06a157099",
+      "sha256": "0b0e467617e1e5aae3ae099c35c65163f6e2b236b96675123b723f6572922f6b",
       "branches": [
         "default"
       ]
     },
     "QFN_8X8_48": {
-      "family": "QFN",
+      "family": "qfn",
       "file": "QFN/QFN_8X8_48.json",
-      "sha256": "623c1f68c57bdc49cc77fd9ea474bafbd630cb4bd51af59afb4a0c77129f8e44",
+      "sha256": "771089c0733cae11ea93780df88ec862a68560e9e0ff925cbda2c19abb36fb3f",
       "branches": [
         "default"
       ]
     },
     "QFN_8X8_52": {
-      "family": "QFN",
+      "family": "qfn",
       "file": "QFN/QFN_8X8_52.json",
-      "sha256": "ed9bd230faf5926eda43680520f8b771e041f567d7111a61eeaee9d5859b8165",
+      "sha256": "81bf2dd703c118a2a0c503e818b0840f267ddf43280024fcbd4998d347af43e2",
       "branches": [
         "default"
       ]
     },
     "QFN_8X8_56": {
-      "family": "QFN",
+      "family": "qfn",
       "file": "QFN/QFN_8X8_56.json",
-      "sha256": "8c327b46f549dfad5f613253c5aafd9de4fbbd7d70f498705c3d252e555cb89b",
+      "sha256": "b2b0b1188a4e9b056ae44cc9e19711fd151ac03547ef8ecd511ebe9819bfa768",
       "branches": [
         "default"
       ]
     },
     "QFN_9X9_44": {
-      "family": "QFN",
+      "family": "qfn",
       "file": "QFN/QFN_9X9_44.json",
-      "sha256": "880a8df083fdba0535cc385c8fc131defd40bb56d69e2da9eaa600dcd941a90b",
+      "sha256": "2820cf6b7fb86b386f72fef62e49f851bd6fcb98d31f62cb43e3062bb663b1d9",
       "branches": [
         "default"
       ]
     },
     "QFN_9X9_48": {
-      "family": "QFN",
+      "family": "qfn",
       "file": "QFN/QFN_9X9_48.json",
-      "sha256": "7d2cea56bc25f8e3c4718480b5a478df7cdf0d215125baadd74ba6eb0edf486d",
+      "sha256": "3bc85e59372055d38e4d835b963973fea540ebaf6569276d251139e79d0a746e",
       "branches": [
         "default"
       ]
     },
     "QFN_9X9_56": {
-      "family": "QFN",
+      "family": "qfn",
       "file": "QFN/QFN_9X9_56.json",
-      "sha256": "7018f02aad355020dc6b0555251d221625292f064673e66654d1a2bb8a4baeee",
+      "sha256": "305327bf510f855f8038deddf055e1e36e16aadda76c3565d9235f4907e4a6cf",
       "branches": [
         "default"
       ]
     },
     "QFN_9X9_60": {
-      "family": "QFN",
+      "family": "qfn",
       "file": "QFN/QFN_9X9_60.json",
-      "sha256": "8743e39cc1a8db6b652a1748baff24b2ad902f82c61f963061fde959f14ded5d",
+      "sha256": "d087019d88e0d4e173d2ec1c5ecd701860744c22e08e86a97a02d7ed2451eb51",
       "branches": [
         "default"
       ]
     },
     "QFN_9X9_64": {
-      "family": "QFN",
+      "family": "qfn",
       "file": "QFN/QFN_9X9_64.json",
-      "sha256": "94a9ceeff407857f8b349b21082f7359b2d4da969d7302ed69d3e51c85b0f07c",
+      "sha256": "a630385c56aabcde569ff4e95c7c2fa792d198f12a0ccdd715a6b36d08eb3dae",
       "branches": [
         "default"
       ]
     },
     "SOP_14_3_81x8_69": {
-      "family": "tsop_conv",
+      "family": "sop",
       "file": "tsop_conv/SOP_14_3_81x8_69.json",
-      "sha256": "be8ef19d82f7b6830f898d612750b127834098d9fbc43ab60367d407ef0a4837",
+      "sha256": "2fdc9c43729e90de211958dae62698930b047668078519fd595e46577ccf5308",
       "branches": [
         "default"
       ]
     },
     "SOP_16_3_81x9_93": {
-      "family": "tsop_conv",
+      "family": "sop",
       "file": "tsop_conv/SOP_16_3_81x9_93.json",
-      "sha256": "a6f984862875ecb4b26f0976bc91c5e7232c255238e9bf8bf3185a297001d4e2",
+      "sha256": "44dfb0b047eccf0eedbae3c53c1767466914d64011913df3117d3592a1121c12",
       "branches": [
         "default"
       ]
     },
     "SOP_16_7_6x10_3": {
-      "family": "tsop_conv",
+      "family": "sop",
       "file": "tsop_conv/SOP_16_7_6x10_3.json",
-      "sha256": "f60e8c4d6c70862ff65ea9ee8b86f687b04738169940e6e479c11056c18ba6b3",
+      "sha256": "12caaecd0bb0ae4bff505cf3b7e41627dcf098d2a26cad69695fd9e755bd26cd",
       "branches": [
         "default"
       ]
     },
     "SOP_18_7_6x11_6": {
-      "family": "tsop_conv",
+      "family": "sop",
       "file": "tsop_conv/SOP_18_7_6x11_6.json",
-      "sha256": "6f1c0e8fbb5080255cce3155b4ae06e48423ab3e451520ebe2c7e55cc763f6ae",
+      "sha256": "58bfe80444fc39bb3e83dfafa9b8abb412b268080915620325e2ec6b743ddc9a",
       "branches": [
         "default"
       ]
     },
     "SOP_20_7_6x12_8": {
-      "family": "tsop_conv",
+      "family": "sop",
       "file": "tsop_conv/SOP_20_7_6x12_8.json",
-      "sha256": "90586246abf727a755634cd5e3fd9be2f022b231201d1d3d619415ed8354f1c1",
+      "sha256": "6c1554193b80337415bba9c1a20196071f60372597e1849d7adc3f1d5b8b39b1",
       "branches": [
         "default"
       ]
     },
     "SOP_24_7_6x15_4": {
-      "family": "tsop_conv",
+      "family": "sop",
       "file": "tsop_conv/SOP_24_7_6x15_4.json",
-      "sha256": "2f92dd49233e16b00179361e5f2bf08794d991c4ce5df8309c2116c787b60796",
+      "sha256": "298bc151f56b0fb8122e689340456cc17e17a846c3c56d4817fe84ec550df9a8",
       "branches": [
         "default"
       ]
     },
     "SOP_28_10_2x18_4": {
-      "family": "tsop_conv",
+      "family": "sop",
       "file": "tsop_conv/SOP_28_10_2x18_4.json",
-      "sha256": "f5b83d6e8eaee0a5374c0f6757ff254e1fad0e62d2910d9f99f969961cb67308",
+      "sha256": "68563c0031c70536953d48815df1726321cd34e8cd84cdcfcc044d55aadb25b3",
       "branches": [
         "default"
       ]
     },
     "SOP_28_7_6x17_9": {
-      "family": "tsop_conv",
+      "family": "sop",
       "file": "tsop_conv/SOP_28_7_6x17_9.json",
-      "sha256": "ae01fe60eccc1f084405eec0503567b5db2eef0ffe845df76fdd04b2a97294bd",
+      "sha256": "9ce48888d721a3d873f4568780b5afaf30aa17335017937db2c674ec4c63c924",
       "branches": [
         "default"
       ]
     },
     "SOP_28_8_9x18_1": {
-      "family": "tsop_conv",
+      "family": "sop",
       "file": "tsop_conv/SOP_28_8_9x18_1.json",
-      "sha256": "c4af2af36945f631383fc47cf9772e09808ec7bdfa2c9a93e980099200b8e7f5",
+      "sha256": "73b7fc00f388860d3c8225d67712a9658ead3ac60d8c5de00d0ebe2b155b052a",
       "branches": [
         "default"
       ]
     },
     "SOP_32_10_2x21_0": {
-      "family": "tsop_conv",
+      "family": "sop",
       "file": "tsop_conv/SOP_32_10_2x21_0.json",
-      "sha256": "86b57dd5d02e10eac1fcba2be04f07d8623bccebafeb5212c886a3eb590913c1",
+      "sha256": "99e3f10ce8b73166394b6538bfa5e8e8defb97ff06c2f55136b8beaade6b23a5",
       "branches": [
         "default"
       ]
     },
     "SOP_32_7_6x20_8": {
-      "family": "tsop_conv",
+      "family": "sop",
       "file": "tsop_conv/SOP_32_7_6x20_8.json",
-      "sha256": "74968790e8e5fa457c3471caa14428b4becd3add8f775a741977f6c2a29cafcf",
+      "sha256": "4e9308988f6a391754804c107ff60c00a1f57297ac38bcdd81889a1edd1834bb",
       "branches": [
         "default"
       ]
     },
     "SOP_32_8_9x20_8": {
-      "family": "tsop_conv",
+      "family": "sop",
       "file": "tsop_conv/SOP_32_8_9x20_8.json",
-      "sha256": "e02d72a6a402b7e7756f1b8b2525cb3a4091cded106efae690a030b2faffdeb7",
+      "sha256": "0c8aa989aed21ccaaab29c5a3b8e168b3ae4b24e0b4be37912132b5c32397b5c",
       "branches": [
         "default"
       ]
     },
     "SOP_40_10_2x26_1": {
-      "family": "tsop_conv",
+      "family": "sop",
       "file": "tsop_conv/SOP_40_10_2x26_1.json",
-      "sha256": "9a5ddca9a0ec80a2ed81bfa2fac80d26b073f05a941db34d7e5f331157d40017",
+      "sha256": "2e53071080415c0c9b94715e952a478c2935222658c8a5078753e7718f9019c6",
       "branches": [
         "default"
       ]
     },
     "SOP_44_13_3x28_2": {
-      "family": "tsop_conv",
+      "family": "sop",
       "file": "tsop_conv/SOP_44_13_3x28_2.json",
-      "sha256": "4a80f789cad5d07f2e5fb9c252775d7e8e25e933b934c658e7cd6b8375d69b90",
+      "sha256": "a3ce23ceb7ffba5f878fce3f1035aba210892a650c0f34754ab179b8ef3767fa",
       "branches": [
         "default"
       ]
     },
     "SOP_8_3_81x4_93": {
-      "family": "tsop_conv",
+      "family": "sop",
       "file": "tsop_conv/SOP_8_3_81x4_93.json",
-      "sha256": "6055a42ce0c2c06fcbda9f6d84eeeba9bd493069988912e9bee36454a8cb9646",
+      "sha256": "91f0c7ced3a3f50e4b629181ac6b500c8b6657568bf660baa0dfb5c3dbb42973",
       "branches": [
         "default"
       ]
     },
     "SSOP_16_3_9x4_9": {
-      "family": "tsop_conv",
+      "family": "sop",
       "file": "tsop_conv/SSOP_16_3_9x4_9.json",
-      "sha256": "078122a73daa5225e06c1fe2e09f1699a5c1573afd9c11d9f42c48fd83c72e48",
+      "sha256": "f4f091e8740beff7beed331516a790c2f09da08cb2d30b4394682908d27dafad",
       "branches": [
         "default"
       ]
     },
     "SSOP_16_5_3x6_2": {
-      "family": "tsop_conv",
+      "family": "sop",
       "file": "tsop_conv/SSOP_16_5_3x6_2.json",
-      "sha256": "f6f191c13798ef47253ae29188ff99713be55e7d24ea33d0179dea3a90eea71b",
+      "sha256": "3d48c25adc8a901289c05dd2eedfdc5daed4698565b555f738013aa6dbc60464",
       "branches": [
         "default"
       ]
     },
     "SSOP_20_3_9x8_6": {
-      "family": "tsop_conv",
+      "family": "sop",
       "file": "tsop_conv/SSOP_20_3_9x8_6.json",
-      "sha256": "d89576ea36c58de637dee6e09fbb930bad48a12374d86ae9302396331bc18efc",
+      "sha256": "dbed468430460333d1bade5db9f7cf45bd4b5076be5c3bb5389e50b9058c4a74",
       "branches": [
         "default"
       ]
     },
     "SSOP_20_5_3x7_2": {
-      "family": "tsop_conv",
+      "family": "sop",
       "file": "tsop_conv/SSOP_20_5_3x7_2.json",
-      "sha256": "b007a89ccee24b2ed5bdc4b51f21c2dbb1a61fba70a2190f266f1e1b21666c5d",
+      "sha256": "dcee82a843c78cf0c85de8e3291877ff88933bd248e4b336c6577d3b8901641f",
       "branches": [
         "default"
       ]
     },
     "SSOP_24_3_9x8_6": {
-      "family": "tsop_conv",
+      "family": "sop",
       "file": "tsop_conv/SSOP_24_3_9x8_6.json",
-      "sha256": "128371aacdaee4b0cf3da552764474e1b798a2bcaa9887331217922da5531e7b",
+      "sha256": "bd8ac1df624c24964608295ec6d66deefd08249eeef902a7fe654a05c72ab10a",
       "branches": [
         "default"
       ]
     },
     "SSOP_24_5_3x8_2": {
-      "family": "tsop_conv",
+      "family": "sop",
       "file": "tsop_conv/SSOP_24_5_3x8_2.json",
-      "sha256": "b7c4e931e0c4b2872a8d1b2c7ca122b21505c1e9bc07b55fd83ebe357615a9ca",
+      "sha256": "2dbeae76216ada0c22fb49d1320d7f49aecc0d8bcb4d60d97067b0b57ddaa28c",
       "branches": [
         "default"
       ]
     },
     "SSOP_28_3_9x9_9": {
-      "family": "tsop_conv",
+      "family": "sop",
       "file": "tsop_conv/SSOP_28_3_9x9_9.json",
-      "sha256": "2d227e1b25ae0ec255c9d64a923d2888bc64d53c5ee2905c6db6c7b06d623713",
+      "sha256": "eccc9a2ca7802b86d1ecb82afdca93ffe287f21bd578f7e378774a8cf455c79a",
       "branches": [
         "default"
       ]
     },
     "SSOP_28_5_3x10_2": {
-      "family": "tsop_conv",
+      "family": "sop",
       "file": "tsop_conv/SSOP_28_5_3x10_2.json",
-      "sha256": "665004e99b69a92dfe50326d61181d594389f0ebf4f9fac611eb21b19312ee55",
+      "sha256": "e8f4c617af4a7dc298a806679c6fc0ba95ccff09bc6974c5b83e5fb2903d8bf7",
       "branches": [
         "default"
       ]
     },
     "SSOP_36_7_5x15_4": {
-      "family": "tsop_conv",
+      "family": "sop",
       "file": "tsop_conv/SSOP_36_7_5x15_4.json",
-      "sha256": "cb722b0ce15a11074092caab21de5b5b9bd925ee0cc6ca2264cf1781ce2c4827",
+      "sha256": "731f734268f9a54767fb2da824617e0765fb5f44c1ee60090484f7f5dec26973",
       "branches": [
         "default"
       ]
     },
     "SSOP_48_7_5x15_8": {
-      "family": "tsop_conv",
+      "family": "sop",
       "file": "tsop_conv/SSOP_48_7_5x15_8.json",
-      "sha256": "803cac93a3f6da27f7bf7fefb689a17e30b6941d03121dbfa960a6d236132186",
+      "sha256": "248c02245f541c8a9466dbbd8a4bab9eebf58d86f77fd9ea88569355f20830b9",
       "branches": [
         "default"
       ]
     },
     "SSOP_56_7_5x15_8": {
-      "family": "tsop_conv",
+      "family": "sop",
       "file": "tsop_conv/SSOP_56_7_5x15_8.json",
-      "sha256": "fa969ecfaa50063898afbb6d0b697e6ad1bfa3e861858f7602de17e3402d776d",
+      "sha256": "7ce898b4f544db3057187ebf9469392c97de83b4df73b39ad1e162994cf89130",
       "branches": [
         "default"
       ]
     },
     "SSOP_56_7_5x18_3": {
-      "family": "tsop_conv",
+      "family": "sop",
       "file": "tsop_conv/SSOP_56_7_5x18_3.json",
-      "sha256": "c70e26daee8c28df6bb53e6bdd44dee71b392efdaee05a1c18449a22718c1132",
+      "sha256": "b676576d635cd46472a278a63068b8a1e7dc5fc68a776e08ab40fcaab74014c8",
       "branches": [
         "default"
       ]
     },
     "SSOP_64_10_2x25_9": {
-      "family": "tsop_conv",
+      "family": "sop",
       "file": "tsop_conv/SSOP_64_10_2x25_9.json",
-      "sha256": "24ff9ebafe3320648af94e9ac85ff88b4f685c06283c457484ff67c13a3b4578",
+      "sha256": "405ed64dc5416988d329aced8bb52efdebbd225cfab3ab9434ed536be9d7e12c",
       "branches": [
         "default"
       ]
     },
     "SSOP_8_5_3x3_0": {
-      "family": "tsop_conv",
+      "family": "sop",
       "file": "tsop_conv/SSOP_8_5_3x3_0.json",
-      "sha256": "1c0d21e0fb7757a840ad4d8c92b5ee70c7030394655c4aebab7da989df8e1c9e",
+      "sha256": "176c6038c51a9e45a3f6c1ae72c23318402233e31c6f85cfe1bcebea19081e64",
       "branches": [
         "default"
       ]
     },
     "TSOP_20_7_6x17_1": {
-      "family": "tsop_conv",
+      "family": "sop",
       "file": "tsop_conv/TSOP_20_7_6x17_1.json",
-      "sha256": "635252584571287a7d593bb056314436fd986f8a64fb94d2ae37c7a94bc45f8f",
+      "sha256": "5888904a9a25e7764db9c5e3d707bc134634f3f0bfe3125b589df589c0441cac",
       "branches": [
         "default"
       ]
     },
     "TSOP_24_7_6x17_1": {
-      "family": "tsop_conv",
+      "family": "sop",
       "file": "tsop_conv/TSOP_24_7_6x17_1.json",
-      "sha256": "988afeb1f776ae0e6e15daae6af599c64c3f7dd2885eec55807e7270570463e2",
+      "sha256": "29eea0c46f8a23c03bceac1ceca00cc666690181d88d037389108e34307fdb62",
       "branches": [
         "default"
       ]
     },
     "TSOP_26_7_6x17_1": {
-      "family": "tsop_conv",
+      "family": "sop",
       "file": "tsop_conv/TSOP_26_7_6x17_1.json",
-      "sha256": "6d5fee5323b026be162f7933f0cca64a6748fe179e2416312867b784fde1f530",
+      "sha256": "99e9371d22d939f593d210adb8429f9c2dbef46e73dd2212c1209ca1d542f7c2",
       "branches": [
         "default"
       ]
     },
     "TSOP_28_8x20": {
-      "family": "tsop_conv",
+      "family": "sop",
       "file": "tsop_conv/TSOP_28_8x20.json",
-      "sha256": "ff11652fff8b51e3e05dd3349bb19af963c38b975ab4be89826f838348e49cd2",
+      "sha256": "509724672100aa87f77cb936c75c0ec021399a9ceb4534c570cc5cda7b7d1b6a",
       "branches": [
         "default"
       ]
     },
     "TSOP_32_10_16x20_95": {
-      "family": "tsop_conv",
+      "family": "sop",
       "file": "tsop_conv/TSOP_32_10_16x20_95.json",
-      "sha256": "4277e30242af69345af345459d82e9f2b712f027e94016c44f9c11f631382842",
+      "sha256": "8dad591ade41a4cca0b981f1a90a67c20c49e60a9a4c03b173f97b9115f231b4",
       "branches": [
         "default"
       ]
     },
     "TSOP_32_8x14": {
-      "family": "tsop_conv",
+      "family": "sop",
       "file": "tsop_conv/TSOP_32_8x14.json",
-      "sha256": "70c35b00b678c295c882e72fdd5d9cabca93b0ae493ecfbe3af59d1805ee94d6",
+      "sha256": "f10f7de81e0e9e44880bafd93e59fe48a347eda32628c516ca39b747e2490312",
       "branches": [
         "default"
       ]
     },
     "TSOP_32_8x20": {
-      "family": "tsop_conv",
+      "family": "sop",
       "file": "tsop_conv/TSOP_32_8x20.json",
-      "sha256": "2cf2d8b834fcc9dee26fdc877566b773420bd94f70f737fa4bbdc73226ec60c1",
+      "sha256": "5dac833d658a17b4ae24ab15d9b652ff11e65cc782031ad90c821f0646bb2448",
       "branches": [
         "default"
       ]
     },
     "TSOP_40_10_2x18_4": {
-      "family": "tsop_conv",
+      "family": "sop",
       "file": "tsop_conv/TSOP_40_10_2x18_4.json",
-      "sha256": "2c5950de1e68400c0fe28d6629315a22d14279e03977ce8b880d64bc39663676",
+      "sha256": "07911444c182379555a199aa01db6934c1cc44a83331797756922f3878f6aa81",
       "branches": [
         "default"
       ]
     },
     "TSOP_40_10x14": {
-      "family": "tsop_conv",
+      "family": "sop",
       "file": "tsop_conv/TSOP_40_10x14.json",
-      "sha256": "6239e936152dbe4279697e424259b46a3ae0697125a3b5c7907e6cf1e74131b7",
+      "sha256": "50d6cf3d9d86281752215a099faac22162d5ea9f50d668231204a0c310d1fbbd",
       "branches": [
         "default"
       ]
     },
     "TSOP_40_10x20": {
-      "family": "tsop_conv",
+      "family": "sop",
       "file": "tsop_conv/TSOP_40_10x20.json",
-      "sha256": "143ff32b5030ae210d653de53618d6b6bacc1a5e67e0a8505d87bacf4794dbd1",
+      "sha256": "3682df95c818ef93794c88e069ba4582be80e39c538b03a9b3aea2bf9396e3cc",
       "branches": [
         "default"
       ]
     },
     "TSOP_44_10_2x18_4": {
-      "family": "tsop_conv",
+      "family": "sop",
       "file": "tsop_conv/TSOP_44_10_2x18_4.json",
-      "sha256": "2482238a12844e9303be2c1411b6dc6040e5ab956db9eec57bd066cac2d2ae2f",
+      "sha256": "10ac11c69c86b3eca94eac21dedaa412b0caa6dc09881f98810d86edf6d6d0bb",
       "branches": [
         "default"
       ]
     },
     "TSOP_44_10_2x21_0": {
-      "family": "tsop_conv",
+      "family": "sop",
       "file": "tsop_conv/TSOP_44_10_2x21_0.json",
-      "sha256": "769af724d12ba16ea0a46e0bd940f0d9708ceea20a5101ad124fb1fbf93882b0",
+      "sha256": "455a64a67e3279ac365e81280261b4d4bcbe8b1bedb67771e4001eb76be0dc8e",
       "branches": [
         "default"
       ]
     },
     "TSOP_48_12x20": {
-      "family": "tsop_conv",
+      "family": "sop",
       "file": "tsop_conv/TSOP_48_12x20.json",
-      "sha256": "16db4f2f1b9b6f6375d8d3bd688066adb8c26e607735926641a8cb0454de027e",
+      "sha256": "234afcfdf4d602084a199a04ad0026be834f61f5aa70facc551002028e6b0e22",
       "branches": [
         "default"
       ]
     },
     "TSOP_50_10_2x21_0": {
-      "family": "tsop_conv",
+      "family": "sop",
       "file": "tsop_conv/TSOP_50_10_2x21_0.json",
-      "sha256": "6b15ee7d607788dbd3dd46c3abacb8ff05b3a41e85b524c2b3eaad7d2c8859eb",
+      "sha256": "260ebb958cb09e00f4eff62015b6979433dc052a73016b7da11406a4824be0ec",
       "branches": [
         "default"
       ]
     },
     "TSOP_54_10_16x22_22": {
-      "family": "tsop_conv",
+      "family": "sop",
       "file": "tsop_conv/TSOP_54_10_16x22_22.json",
-      "sha256": "7d6ea879ef8bc402d582cca75ae50e05f476fbd81628409df968e72dc23aeb30",
+      "sha256": "b88756d0b15efef8b681d3bfb63a383748fdf193b5ea40228f86c2511a1ac23f",
       "branches": [
         "default"
       ]
     },
     "TSOP_56_14x20": {
-      "family": "tsop_conv",
+      "family": "sop",
       "file": "tsop_conv/TSOP_56_14x20.json",
-      "sha256": "d43234ee3a9aade8c794320b5fa15ad8835c399ba1446e1d57759d9f2cee7da8",
+      "sha256": "0076ac7e4f81dfa5b8bba86b9b765db9471dbd562fb6d4265c623ad03159cca4",
       "branches": [
         "default"
       ]
     },
     "TSOP_66_10_16x22_22": {
-      "family": "tsop_conv",
+      "family": "sop",
       "file": "tsop_conv/TSOP_66_10_16x22_22.json",
-      "sha256": "143cd214c17b87ab1d0f56aead2f622766e1e212ef8c9a2ff44cc0b89a0d739f",
+      "sha256": "d2ff632059b3c31ac4f4867d9b24e7e8b7e3a9973941293833fbc79f0a09fa2b",
       "branches": [
         "default"
       ]
     },
     "TSOP_86_10_16x22_22": {
-      "family": "tsop_conv",
+      "family": "sop",
       "file": "tsop_conv/TSOP_86_10_16x22_22.json",
-      "sha256": "71baac7881aec4d7e7d76655d4d929f1d5aba782867cae3d52014d50fbdd75d8",
+      "sha256": "06e7782aa960a87ec59b770c21febd573fb6639e957e9e5c889c9476d22958df",
       "branches": [
         "default"
       ]
     },
     "TSSOP_10_3x3": {
-      "family": "tsop_conv",
+      "family": "sop",
       "file": "tsop_conv/TSSOP_10_3x3.json",
-      "sha256": "ebf5d203899c89c1eea16ef0a7222b20f97a146c8582c7a9631a57f4f00d5856",
+      "sha256": "cae34eab3f244b0ba81b6c686a2dedea29f48fe2076d5b0121b27a53a59bbb5c",
       "branches": [
         "default"
       ]
     },
     "TSSOP_14_4_4x5": {
-      "family": "tsop_conv",
+      "family": "sop",
       "file": "tsop_conv/TSSOP_14_4_4x5.json",
-      "sha256": "66a1512c0cc17f3c5149569f6424df0a98b54fdde1a4baeef8bfecd145fc4454",
+      "sha256": "63e4bf633fea70e4856b989df8841da8eb051bd3df94e28e566532523be9d8e8",
       "branches": [
         "default"
       ]
     },
     "TSSOP_16_4_4x5": {
-      "family": "tsop_conv",
+      "family": "sop",
       "file": "tsop_conv/TSSOP_16_4_4x5.json",
-      "sha256": "bb58e2d0d9cea720fbd9be76304fd01b2cd35b99b3022cca452495171d0c9228",
+      "sha256": "7d775146fa8c2dd375ea824ccd6ba3a9646a61db48004c82a36c16c0de8d11a9",
       "branches": [
         "default"
       ]
     },
     "TSSOP_20_4_4x6_5": {
-      "family": "tsop_conv",
+      "family": "sop",
       "file": "tsop_conv/TSSOP_20_4_4x6_5.json",
-      "sha256": "1cf6664f17c86609767dd4434107993d6a63d9c62e985c107386e66a2e631cce",
+      "sha256": "6bbe7413297ed7ba0ca69b044f0a7e4bf4e5f65de92f1046724d30c00f1a504b",
       "branches": [
         "default"
       ]
     },
     "TSSOP_24_4_4x7_8": {
-      "family": "tsop_conv",
+      "family": "sop",
       "file": "tsop_conv/TSSOP_24_4_4x7_8.json",
-      "sha256": "032f3d08162fa4c30df56ba4e8261f7f9affff135fe441dc05b10811f7775076",
+      "sha256": "47890fb0c2b6d2b89448ee572c513ad0cb04b6e688ea31ea104e2f6713592e1d",
       "branches": [
         "default"
       ]
     },
     "TSSOP_28_4_4x9_7": {
-      "family": "tsop_conv",
+      "family": "sop",
       "file": "tsop_conv/TSSOP_28_4_4x9_7.json",
-      "sha256": "327fd68af0f7fcce8c000aaaad6e1cc96dd99748cb368a463d6b68b1d487fc30",
+      "sha256": "e6520ac7e264c36c20326abee33f6d67669517185226b9902c861a858d752388",
       "branches": [
         "default"
       ]
     },
     "TSSOP_28_6_1x9_7": {
-      "family": "tsop_conv",
+      "family": "sop",
       "file": "tsop_conv/TSSOP_28_6_1x9_7.json",
-      "sha256": "2be6d2794aa7a4bc89407faad911bd4240a05e5ddc5d80a924b9baa117402a46",
+      "sha256": "a3fb10699c7cd2c22bf0db6bab0bae6ee80eb47a4d2daa5bcdd3f24a87952ee0",
       "branches": [
         "default"
       ]
     },
     "TSSOP_30_4_4x7_8": {
-      "family": "tsop_conv",
+      "family": "sop",
       "file": "tsop_conv/TSSOP_30_4_4x7_8.json",
-      "sha256": "74fcbed27d10f53cd867aca60820b2d5e835d7048a19950e3ea46904fb81a3d3",
+      "sha256": "d317288a50903459f0dfa410d52264921025cde778a152a688852c35318712a6",
       "branches": [
         "default"
       ]
     },
     "TSSOP_32_6_1x11": {
-      "family": "tsop_conv",
+      "family": "sop",
       "file": "tsop_conv/TSSOP_32_6_1x11.json",
-      "sha256": "74fcb1072834a0291585a7f9b501b1f26d0f3bbba8a5273a949d60dd1ec84b87",
+      "sha256": "972b76902fc2629b1f017dc47c8fddfbab68f9b78cfa0b50b0f461b8f1e55280",
       "branches": [
         "default"
       ]
     },
     "TSSOP_38_4_4x9_7": {
-      "family": "tsop_conv",
+      "family": "sop",
       "file": "tsop_conv/TSSOP_38_4_4x9_7.json",
-      "sha256": "6bcac95abdf787460f31dbc4e4f1eaad7c6bbd4e0816ba19690b5128063e3309",
+      "sha256": "3ca1672987118f20dbe1bc2e3d52755f58cb5bf374061f10177c275baefb3e1b",
       "branches": [
         "default"
       ]
     },
     "TSSOP_38_6_1x12_5": {
-      "family": "tsop_conv",
+      "family": "sop",
       "file": "tsop_conv/TSSOP_38_6_1x12_5.json",
-      "sha256": "b5a148fea0e08243cddba85a65bdb086503d9f8fc90c83422f57e9a584a57265",
+      "sha256": "974bb496d7cd5b8b67827ac3f0065bf18be8b5be370aa83b9e32aa707e950474",
       "branches": [
         "default"
       ]
     },
     "TSSOP_44_4_4x11_3": {
-      "family": "tsop_conv",
+      "family": "sop",
       "file": "tsop_conv/TSSOP_44_4_4x11_3.json",
-      "sha256": "7428ac6185b2c317f1c904a0a0ae9e95159318a654472c92b1b9853723196390",
+      "sha256": "e565edaeee8298bff291f11783e6f60af0ac0b7cc0b12e51ff71914fb2275fdd",
       "branches": [
         "default"
       ]
     },
     "TSSOP_48_4_4x9_7": {
-      "family": "tsop_conv",
+      "family": "sop",
       "file": "tsop_conv/TSSOP_48_4_4x9_7.json",
-      "sha256": "437b4652175bab5e35cdb7897b37c1d7c22af704b58233ad2cfb5f07f8247a1d",
+      "sha256": "187946204cb391ea383279c9287db629559d74218785a800fe7920e4b756cce6",
       "branches": [
         "default"
       ]
     },
     "TSSOP_48_6_1x12_5": {
-      "family": "tsop_conv",
+      "family": "sop",
       "file": "tsop_conv/TSSOP_48_6_1x12_5.json",
-      "sha256": "5ec25d394f019226841b19b0b470e44efd1e2b684f34fac55d583eb563fec380",
+      "sha256": "41a63483980baf7b1789897c56ec0184226ac396f2103ab95f68ba0e6cf9a59e",
       "branches": [
         "default"
       ]
     },
     "TSSOP_56_4_4x11_3": {
-      "family": "tsop_conv",
+      "family": "sop",
       "file": "tsop_conv/TSSOP_56_4_4x11_3.json",
-      "sha256": "e22e410bb1e9984c753c94ae0a9453891f3334a9d014ac3866e24b441ea74694",
+      "sha256": "f9c583f165a4f097a142e4d56992b478be474b4b1d9f6e6fd8e70ab405d7ca1f",
       "branches": [
         "default"
       ]
     },
     "TSSOP_56_6_1x14": {
-      "family": "tsop_conv",
+      "family": "sop",
       "file": "tsop_conv/TSSOP_56_6_1x14.json",
-      "sha256": "eeeb63f10eb19913dfe5a086c431bcfa52e45f7b5a972e9145bf47a3389bef8e",
+      "sha256": "a9e596e778fcc7e3f655f2dbad64e6de1575a119c17a4e2679fe67ea563cac78",
       "branches": [
         "default"
       ]
     },
     "TSSOP_64_6_1x17": {
-      "family": "tsop_conv",
+      "family": "sop",
       "file": "tsop_conv/TSSOP_64_6_1x17.json",
-      "sha256": "f9c504ad15ad844f27c27b7c8c4f94bec22b587f8cbe77a5355397fe4fff700e",
+      "sha256": "027e9b46396d77f10130f4e8ae98aa49ed186a92eba9f72d97dc4e8f1040ef3a",
       "branches": [
         "default"
       ]
     },
     "TSSOP_80_6_1x17": {
-      "family": "tsop_conv",
+      "family": "sop",
       "file": "tsop_conv/TSSOP_80_6_1x17.json",
-      "sha256": "f79eb6b3eadd528fdb79461a480366c43ba11a1425fe209793bf53ed2e2b0e33",
+      "sha256": "b929e335b4085c66359adee0ce3fd055362b9f47bbdc6785db3371b4e0d3fd95",
       "branches": [
         "default"
       ]
     },
     "TSSOP_8_3x3": {
-      "family": "tsop_conv",
+      "family": "sop",
       "file": "tsop_conv/TSSOP_8_3x3.json",
-      "sha256": "33e022f95c7756480315ac3c831ab62987f532e3681cb2066b9590052d08da17",
+      "sha256": "e3714537bd7429c409b101a2b9c14d5c95def28efa075be4475019abb3d32a62",
       "branches": [
         "default"
       ]
     },
     "TSSOP_8_4_4x3": {
-      "family": "tsop_conv",
+      "family": "sop",
       "file": "tsop_conv/TSSOP_8_4_4x3.json",
-      "sha256": "0b9ab9b17313cc7acf474e95c8420aa578dcfa41a3791df96c2729ea44179256",
+      "sha256": "7032f95108aec553df0bfd17d0e9473bdebe79e2cc72905176963490ef8ef9fc",
       "branches": [
         "default"
       ]
@@ -2492,7 +2492,7 @@
     "PBGA_121_15X15mm": {
       "family": "pbga_wb",
       "file": "pbga_wb/PBGA_121_15X15mm.json",
-      "sha256": "70485f94f31594b53b80f04142c12fc783b37056e6c7e63fa1f424ee256cb637",
+      "sha256": "fd487d6f131c6dbba01e51f275c6510254705ac6826cecf5d46fb6bf890c2816",
       "branches": [
         "default",
         "four_layer"
@@ -2501,7 +2501,7 @@
     "PBGA_169_23X23mm": {
       "family": "pbga_wb",
       "file": "pbga_wb/PBGA_169_23X23mm.json",
-      "sha256": "dbd43b981bed899ad8789f4c8d6fbcc572b4b514e88f2ceccf21b606208f97c8",
+      "sha256": "0238987fc7a8d35e46ab8fdc470ad994c714ac73ca156e72b588887602c974b5",
       "branches": [
         "default",
         "four_layer"
@@ -2510,7 +2510,7 @@
     "PBGA_192_17X17mm": {
       "family": "pbga_wb",
       "file": "pbga_wb/PBGA_192_17X17mm.json",
-      "sha256": "ff2678d755bdd72d1381c28c471b4b3577ac6c8e57baa4290120ee894e30b697",
+      "sha256": "2d69be7e8239f8b06f93e9fb56c2147c2a655424b771c4d14b57a95e0a012227",
       "branches": [
         "default",
         "four_layer"
@@ -2519,7 +2519,7 @@
     "PBGA_196_15X15mm": {
       "family": "pbga_wb",
       "file": "pbga_wb/PBGA_196_15X15mm.json",
-      "sha256": "696fc10f1a5b7980663a9a4dbe74fd79e5d0775d341a6d51e98b3a07fadfb19d",
+      "sha256": "a3c47df31b0b70ae3aa019751af28c2b6be9abd6bbb2a00601db06427549c9e7",
       "branches": [
         "default",
         "four_layer"
@@ -2528,7 +2528,7 @@
     "PBGA_208_17X17mm": {
       "family": "pbga_wb",
       "file": "pbga_wb/PBGA_208_17X17mm.json",
-      "sha256": "9b58c878fe07b981ced1f2cb037dd7afcbd307776751cd6f3f3263117affa483",
+      "sha256": "6a309a2960457d4f5c6f48ca0c06b7b994a5fb30b76d76e86fad5e6f798121a5",
       "branches": [
         "default",
         "four_layer"
@@ -2537,7 +2537,7 @@
     "PBGA_208_23X23mm": {
       "family": "pbga_wb",
       "file": "pbga_wb/PBGA_208_23X23mm.json",
-      "sha256": "0eceb608c2c7b6a05e40b7fdeaa28aa45003422062c48fe9d3e252d041e93a62",
+      "sha256": "909c0bc33173077574145124b8227b4f4050ba7a1c4ef0ce60f9f4334d76c5f8",
       "branches": [
         "default",
         "four_layer"
@@ -2546,7 +2546,7 @@
     "PBGA_217_23X23mm": {
       "family": "pbga_wb",
       "file": "pbga_wb/PBGA_217_23X23mm.json",
-      "sha256": "2a3779cd7e3ff38243bb941dbc455e44392f07e730d2f2d3d19d50bff7b66cc0",
+      "sha256": "f6977cb1152129b17d7d91698ab067c42bca1ec617aa9838663244c756da379e",
       "branches": [
         "default",
         "four_layer"
@@ -2555,7 +2555,7 @@
     "PBGA_225_27X27mm": {
       "family": "pbga_wb",
       "file": "pbga_wb/PBGA_225_27X27mm.json",
-      "sha256": "d6f64f6b71f685a950d7dc4074cd7eaa23cfaf6ed0d56a91093b168461a07938",
+      "sha256": "0384d254b7598f3aba5bd87604bd47d3746bc334d16e11bc65e4f746162905af",
       "branches": [
         "default",
         "four_layer"
@@ -2564,7 +2564,7 @@
     "PBGA_256_17X17mm": {
       "family": "pbga_wb",
       "file": "pbga_wb/PBGA_256_17X17mm.json",
-      "sha256": "b97f19662ac917008c8c774e82f65f185ced575d60c0d10f6d3d918cf09d4175",
+      "sha256": "f1edf69784139ae36c98193968e222afc49e339bcd59cd671d8f96670945e30e",
       "branches": [
         "default",
         "four_layer"
@@ -2573,7 +2573,7 @@
     "PBGA_256_21X21mm": {
       "family": "pbga_wb",
       "file": "pbga_wb/PBGA_256_21X21mm.json",
-      "sha256": "b73a1f6f95c1d2342f6054a2beb17190608048f9da718ee44aaec1c8439eb1cc",
+      "sha256": "349d61aa88ae92a08dde9028e348fbdcdf824e94a013feb94f0da56016016b58",
       "branches": [
         "default",
         "four_layer"
@@ -2582,7 +2582,7 @@
     "PBGA_256_27X27mm": {
       "family": "pbga_wb",
       "file": "pbga_wb/PBGA_256_27X27mm.json",
-      "sha256": "7ce44e175cb49579e4cde916dbe3914730001c1e1b3bd0c24cce4a9a1c27200a",
+      "sha256": "a9ed116740da6dd7eb2e8eb54f04e961efd1147f110148304be68af6d8cba7a9",
       "branches": [
         "default",
         "four_layer"
@@ -2591,7 +2591,7 @@
     "PBGA_272_27X27mm": {
       "family": "pbga_wb",
       "file": "pbga_wb/PBGA_272_27X27mm.json",
-      "sha256": "a959fa9b353bd830a88ad88552a3513fbc89899f23fa6a606231e16b2161ce5b",
+      "sha256": "e74202bfb2ec426adcd449d0ff5be06450752540b59b1b3ce7d2925940622067",
       "branches": [
         "default",
         "four_layer"
@@ -2600,7 +2600,7 @@
     "PBGA_288_23X23mm": {
       "family": "pbga_wb",
       "file": "pbga_wb/PBGA_288_23X23mm.json",
-      "sha256": "0a3d7578157a04c17a503564a665f33ada9ec8c7dae6ddd82c131c7f1ab5d4d9",
+      "sha256": "041ade2a22286727c2057847b1573716b95023e8232d1ba7dc0e3cb92de2f512",
       "branches": [
         "default",
         "four_layer"
@@ -2609,7 +2609,7 @@
     "PBGA_300_27X27mm": {
       "family": "pbga_wb",
       "file": "pbga_wb/PBGA_300_27X27mm.json",
-      "sha256": "18c543540710e416eb1f9e034f76674cb24cbb88bbcc320021237e8b5531d0f7",
+      "sha256": "8db216b9e015a1f9df6c1161836a82c444e4fce43fc87bb63690fc378b65698f",
       "branches": [
         "default",
         "four_layer"
@@ -2618,7 +2618,7 @@
     "PBGA_304_31X31mm": {
       "family": "pbga_wb",
       "file": "pbga_wb/PBGA_304_31X31mm.json",
-      "sha256": "1e981c380293723c88e2edefbbdcc2043d4c4d9044880bdc465e359c3c189b90",
+      "sha256": "aab686fbad17f141ecb5614c90b6622aa420d4a332a564f9e63c4308542e5d3e",
       "branches": [
         "default",
         "four_layer"
@@ -2627,7 +2627,7 @@
     "PBGA_316_27X27mm": {
       "family": "pbga_wb",
       "file": "pbga_wb/PBGA_316_27X27mm.json",
-      "sha256": "6f5ceba776614abb72ea169844dccf36fad9ae686e5749ffea18b13f14524d0d",
+      "sha256": "052b65e6b678698eacbf125d2bf32098041b3edd0933f188d918bb0c1e38653b",
       "branches": [
         "default",
         "four_layer"
@@ -2636,7 +2636,7 @@
     "PBGA_324_23X23mm": {
       "family": "pbga_wb",
       "file": "pbga_wb/PBGA_324_23X23mm.json",
-      "sha256": "3bd756529f2a19b1f3098137e6bb593c93b2351fd085b94fb054b953265fd820",
+      "sha256": "c646e1aa973c9a37c391030fe124c20a0f3055275ddf4b663dd378c8dcd4335b",
       "branches": [
         "default",
         "four_layer"
@@ -2645,7 +2645,7 @@
     "PBGA_329_31X31mm": {
       "family": "pbga_wb",
       "file": "pbga_wb/PBGA_329_31X31mm.json",
-      "sha256": "e86de6e6ba6046f22bab8be529b142894762f6c82fcf9c3c7afffe0b78ec898e",
+      "sha256": "44e0c508e409ca797e34b1fd9a1f83dc2bec79ea8ce2eb8227ed6a7e93afec86",
       "branches": [
         "default",
         "four_layer"
@@ -2654,7 +2654,7 @@
     "PBGA_352_35X35mm": {
       "family": "pbga_wb",
       "file": "pbga_wb/PBGA_352_35X35mm.json",
-      "sha256": "8d59958d64e0046334a78b1629c177f0d5f46382a29c850c62a5c273e8c00677",
+      "sha256": "27b8ce58eaa5feee21b38d2d383e4b41bd37f5eed7fdcdfc68f6db76b22c786b",
       "branches": [
         "default",
         "four_layer"
@@ -2663,7 +2663,7 @@
     "PBGA_385_31X31mm": {
       "family": "pbga_wb",
       "file": "pbga_wb/PBGA_385_31X31mm.json",
-      "sha256": "73a240b676998022ea61f3e79d3aad62001261a04bafb7deb4379808d14c9293",
+      "sha256": "c769ad1e815747866d4e40b4ebfc748cf28fa66fc19ac150b9f581d100824c9d",
       "branches": [
         "default",
         "four_layer"
@@ -2672,7 +2672,7 @@
     "PBGA_388_35X35mm": {
       "family": "pbga_wb",
       "file": "pbga_wb/PBGA_388_35X35mm.json",
-      "sha256": "b687680a9c62deb764c79844c3b00d6149e4ee5259e62bb4df4f805c5a6bc255",
+      "sha256": "bdee05b506ffc19d9c5e2ae75f61ad6ded83fe231920b77f92512be90700e1a6",
       "branches": [
         "default",
         "four_layer"
@@ -2681,7 +2681,7 @@
     "PBGA_416_27X27mm": {
       "family": "pbga_wb",
       "file": "pbga_wb/PBGA_416_27X27mm.json",
-      "sha256": "58732eefa5db6341f7fa5a89694aa0b4e8818f41517886ed1747bb7be3d0fd40",
+      "sha256": "61e9dda0c6104ec986d7aa5008eb63a8b9009be88d65d213a6f1a429e3307b4b",
       "branches": [
         "default",
         "four_layer"
@@ -2690,7 +2690,7 @@
     "PBGA_420_35X35mm": {
       "family": "pbga_wb",
       "file": "pbga_wb/PBGA_420_35X35mm.json",
-      "sha256": "5b1b8890e24ea10d084875a93171f7e0ca408407add91c23bb88db554ff946d2",
+      "sha256": "5436f54c4eda2c1df65dfe5fe3a29ea5f5d2a64bd27508963d770e7295314512",
       "branches": [
         "default",
         "four_layer"
@@ -2699,7 +2699,7 @@
     "PBGA_433_31X31mm": {
       "family": "pbga_wb",
       "file": "pbga_wb/PBGA_433_31X31mm.json",
-      "sha256": "96fe0e33f3da32feddc566b332c1009832b08bce0173d82b33f0828c80236562",
+      "sha256": "cfc1cb5287f53478c5844a012b803ff1eb972dc229a42c5208a31f82f9731121",
       "branches": [
         "default",
         "four_layer"
@@ -2708,7 +2708,7 @@
     "PBGA_456_23X23mm": {
       "family": "pbga_wb",
       "file": "pbga_wb/PBGA_456_23X23mm.json",
-      "sha256": "4ef5c0805dd007434d57ffb1482dbb3971167afabb324eb2ef63ab77a5566283",
+      "sha256": "22061d2b9e0a3c6ee9b878812b6e668deaea3b5f00735310892c0b3d13650106",
       "branches": [
         "default",
         "four_layer"
@@ -2717,7 +2717,7 @@
     "PBGA_456_35X35mm": {
       "family": "pbga_wb",
       "file": "pbga_wb/PBGA_456_35X35mm.json",
-      "sha256": "a9fa6bc5006904d1fc83d929be96691232a5ce732b6f199ed1bcca2f0c10ef8d",
+      "sha256": "b72ed2126d5da1411b8c29a55dfb39517e562a54bff3355273f1f6548e67e211",
       "branches": [
         "default",
         "four_layer"
@@ -2726,7 +2726,7 @@
     "PBGA_516_31X31mm": {
       "family": "pbga_wb",
       "file": "pbga_wb/PBGA_516_31X31mm.json",
-      "sha256": "ae728107200ff99876d487c8c93b7003f56362768040cf5279ede7fa2fdef257",
+      "sha256": "88a786c11d95706fd2db7562ad75d2d7d340512c3158e8c862c299a92dbbc497",
       "branches": [
         "default",
         "four_layer"
@@ -2735,7 +2735,7 @@
     "PBGA_524_37_5X37_5mm": {
       "family": "pbga_wb",
       "file": "pbga_wb/PBGA_524_37_5X37_5mm.json",
-      "sha256": "5df9a6a3ef990412a7a3893fafeaddcda0073df8780c8e88f664e7ce7c83f517",
+      "sha256": "413b1cc7156108b21346bda1d0c53ab1a04d422cb2df5952cc447f8235e6fced",
       "branches": [
         "default",
         "four_layer"
@@ -2744,7 +2744,7 @@
     "PBGA_564_40X40mm": {
       "family": "pbga_wb",
       "file": "pbga_wb/PBGA_564_40X40mm.json",
-      "sha256": "871eda9400266a38755e082327921d2435f1db5fc2e3221809bbb042c3dfabbc",
+      "sha256": "3d611a01dd86be80975a6d18c319cb12286070d6dbdcbb427f8acbdd5ee116ca",
       "branches": [
         "default",
         "four_layer"
@@ -2753,7 +2753,7 @@
     "PBGA_576_40X40mm": {
       "family": "pbga_wb",
       "file": "pbga_wb/PBGA_576_40X40mm.json",
-      "sha256": "b9c24d8efb0af0bd19fd1bb90984751bd9bd2ea8b1e0ae8e363dea54fe3f1784",
+      "sha256": "f967f71e5e47b5ce3e35c25a06664cf0235be619028b9004808ba9034276bdd3",
       "branches": [
         "default",
         "four_layer"
@@ -2762,7 +2762,7 @@
     "PBGA_580_35X35mm": {
       "family": "pbga_wb",
       "file": "pbga_wb/PBGA_580_35X35mm.json",
-      "sha256": "bbe879b049a3255b461dc3a016f5388a7fdfff5ef417f5c166e23243e5413cca",
+      "sha256": "7d51d809c235220440970b7ab765a1d94c97f8a0ff1a76ad4729484e5c52905a",
       "branches": [
         "default",
         "four_layer"
@@ -2771,7 +2771,7 @@
     "PBGA_672_40X40mm": {
       "family": "pbga_wb",
       "file": "pbga_wb/PBGA_672_40X40mm.json",
-      "sha256": "e9646f0b75f40446e64eb4810871c22b44e44770f59ccf44762fcf7f4b8e2814",
+      "sha256": "89514bfd2fc2abe510ed3c0ff590bd97964bea7962196cf1b207984dedf63409",
       "branches": [
         "default",
         "four_layer"
@@ -2780,7 +2780,7 @@
     "PBGA_676_27X27mm": {
       "family": "pbga_wb",
       "file": "pbga_wb/PBGA_676_27X27mm.json",
-      "sha256": "093d2c8492526c4526c2c6567d55a8aad7c2ef4b657317582b899785771c35e7",
+      "sha256": "2ce3fcdb59f0b503f629158f1367d788798ba97da53b7566d434c786a7a06cf6",
       "branches": [
         "default",
         "four_layer"
@@ -2789,7 +2789,7 @@
     "PBGA_680_35X35mm": {
       "family": "pbga_wb",
       "file": "pbga_wb/PBGA_680_35X35mm.json",
-      "sha256": "93df8885840ad34492350a3d106244c99c2ebf6190a4196d3418831b963f982f",
+      "sha256": "06cc4459b498c719f1a3ed1faca97aac004d6dc1299539fb8ff341944bd26648",
       "branches": [
         "default",
         "four_layer"
@@ -2798,7 +2798,7 @@
     "PBGA_845_40X40mm": {
       "family": "pbga_wb",
       "file": "pbga_wb/PBGA_845_40X40mm.json",
-      "sha256": "a1848a079e40ae1492f24d4fd2efc9a1c09c1761eb61226fdbaec4f29d91be98",
+      "sha256": "526b546079e546023d6e30a41766a8a2091f1cae2efdae32129bd35084dee972",
       "branches": [
         "default",
         "four_layer"
@@ -2807,7 +2807,7 @@
     "PBGA_896_40X40mm": {
       "family": "pbga_wb",
       "file": "pbga_wb/PBGA_896_40X40mm.json",
-      "sha256": "4d06d0024166ded9ae593897905591a6619862f5bf443f066113542cb1d5b691",
+      "sha256": "23c7ac1f4b2a804ccd3cc43fb51d4491001b8f8af7071d005a96b7343550004f",
       "branches": [
         "default",
         "four_layer"

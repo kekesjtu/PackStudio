@@ -1,4 +1,4 @@
-"""Extract the standalone PACK preset/material catalog without exporting FloXML."""
+"""Extract research snapshots and materials to an explicit scratch directory."""
 
 import argparse
 from pathlib import Path
@@ -13,8 +13,11 @@ from tools.pack_reference.native_details import DetailedNativePack
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("installation", type=Path)
-    parser.add_argument("--output", type=Path, default=Path("runtime_data"))
+    parser.add_argument("--output", type=Path, required=True)
     arguments = parser.parse_args()
+    runtime = Path(__file__).resolve().parents[2] / "runtime_data"
+    if arguments.output.resolve().is_relative_to(runtime.resolve()):
+        parser.error("native research snapshots must be outside runtime_data")
     native = DetailedNativePack(arguments.installation)
     root = native.installation / "flocentral/flopack"
     source_records = {}

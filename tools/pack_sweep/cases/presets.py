@@ -7,16 +7,15 @@ def append_presets(add):
     catalog = PresetCatalog()
     for family, native in [
         ("pqfp", "pqfp"),
-        ("sop", "tsop_conv"),
-        ("qfn", "QFN"),
+        ("sop", "sop"),
+        ("qfn", "qfn"),
         ("pbga_wb", "pbga_wb"),
     ]:
         for index, identifier in enumerate(catalog.list_ids(native)):
             branch = catalog.read_branch(identifier)
             wizard = {"jedecFootprint": identifier}
-            for key in ("pqfpPackageType", "sopPackageType"):
-                if key in branch["wizard"]:
-                    wizard[key] = branch["wizard"][key]["value"]
+            if family in {"pqfp", "sop"}:
+                wizard[family + "PackageType"] = branch["values"]["package.type"]
             add(
                 f"preset-{family}-{index}",
                 family,

@@ -1,5 +1,6 @@
 """Reference-tool contracts independent of a licensed PACK process."""
 
+import json
 from pathlib import Path
 from xml.etree import ElementTree as ET
 from zipfile import ZipFile
@@ -23,6 +24,13 @@ def test_fidelity_factory_preserves_independent_capture_requests():
         if ET.fromstring(row["commands"][0]).tag != "load_des"
     }
     actual = {point.id: point.request for point in fidelity_points()}
+    # Archived v1 requests encode tables as strings; public requests use arrays.
+    for request in expected.values():
+        for key, value in request.get("overrides", {}).items():
+            if key.endswith((".metal.layers", ".upper.layers", ".lower.layers")) and isinstance(
+                value, str
+            ):
+                request["overrides"][key] = json.loads(value)
     assert actual == expected
     points = initial_points()
     assert len({point.key for point in points}) == len(points)

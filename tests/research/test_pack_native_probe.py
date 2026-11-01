@@ -17,10 +17,11 @@ def test_catalog_keeps_native_conditional_branches() -> None:
     for preset in ["PBGA_121_15X15mm", "ChipArray_24_4X4mm_0_8"]:
         record = catalog.read(preset)
         assert set(record["branches"]) == {"default", "four_layer"}
-        group = "packageSubstrate" if preset.startswith("PBGA") else "overallPackage"
         for branch, thickness in [("default", 0.36), ("four_layer", 0.56)]:
-            prop = record["branches"][branch]["groups"][group]["properties"]["substrateThicknessA2"]
-            assert prop["value"] == thickness
+            values = record["branches"][branch]["values"]
+            assert values["substrate.thickness"] == thickness
+            assert isinstance(values["metal.layers"], list)
+            assert len(values["metal.layers"]) == (4 if branch == "four_layer" else 2)
 
 
 @pytest.mark.skipif(os.name != "nt", reason="Windows native ABI")

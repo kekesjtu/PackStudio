@@ -34,7 +34,6 @@ public sealed class MaterialLibrary
         }
     }
 
-    public string IdForName(string name) => Items.Values.Where(m => m.Name == name).OrderBy(m => m.Id.Length).ThenBy(m => m.Id, StringComparer.Ordinal).First().Id;
     public static Material Parse(JToken v) => new(v["id"].Text(), v["name"].Text(), new(v["conductivity"]?["x"].Number() ?? 0, v["conductivity"]?["y"].Number() ?? 0, v["conductivity"]?["z"].Number() ?? 0), v["density"].Number(), v["specific_heat"].Number(), v["color"].Text("#AEB7BF"), v["category"].Text("Derived"), v["conductivity_coefficient"]?.Type == JTokenType.Float ? v["conductivity_coefficient"]!.Value<double>() : null, v["conductivity_reference_temperature_c"]?.Type is JTokenType.Float or JTokenType.Integer ? v["conductivity_reference_temperature_c"]!.Value<double>() : null, v["source"].Text());
     static Material ParseRecord(string id, JObject r, string color)
     {

@@ -218,5 +218,7 @@ Test("embedded heat slug availability", () =>
         Assert(field["help_text"].Text().Length > 0, family + " slug checkbox lacks an availability hint");
     }
 });
+Test("normalized preset and field correspondence contract", () => PresetContractChecks.Run(catalog, root));
+Test("legacy tables normalize only at input boundaries", () => PresetContractChecks.LegacyTables(catalog));
 Console.WriteLine($"{passed} passed, {failed} failed");
 return failed == 0 ? 0 : 1;

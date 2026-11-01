@@ -13,7 +13,6 @@ static partial class DesLabelChecks
     public static void Run()
     {
         string root = Path.GetFullPath("runtime_data");
-        var labels = JsonData.Read(Path.Combine(root, "des_field_labels.json"));
         var missing = new List<string>();
         var duplicated = new List<string>();
         foreach (var family in PackageCatalog.Families)
@@ -21,7 +20,7 @@ static partial class DesLabelChecks
             var template = JsonData.Read(Path.Combine(root, "templates", family.Id + ".json"));
             foreach (var field in ((JArray)template["fields"]!).OfType<JObject>().Where(f => f["control"].Text() is "number" or "integer" or "integer_spinbox"))
             {
-                var entry = labels[family.Id]?[field["key"].Text()];
+                var entry = field["des_symbol"];
                 bool covered = entry is JObject choices ? choices.Properties().All(p => p.Value.Text().Length > 0) : entry.Text().Length > 0;
                 if (!covered)
                     missing.Add(family.Id + "." + field["key"].Text());

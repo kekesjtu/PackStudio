@@ -16,7 +16,8 @@
       "option_labels": {},
       "presets": [],
       "visible_when": {},
-      "enabled_when": {}
+      "enabled_when": {},
+      "des_symbol": null
     },
     {
       "key": "substrate.length",
@@ -30,7 +31,8 @@
       "option_labels": {},
       "presets": [],
       "visible_when": {},
-      "enabled_when": {}
+      "enabled_when": {},
+      "des_symbol": "D"
     },
     {
       "key": "substrate.width",
@@ -44,7 +46,8 @@
       "option_labels": {},
       "presets": [],
       "visible_when": {},
-      "enabled_when": {}
+      "enabled_when": {},
+      "des_symbol": "E"
     },
     {
       "key": "substrate.thickness",
@@ -58,7 +61,8 @@
       "option_labels": {},
       "presets": [],
       "visible_when": {},
-      "enabled_when": {}
+      "enabled_when": {},
+      "des_symbol": "A2"
     },
     {
       "key": "die.length",
@@ -72,7 +76,8 @@
       "option_labels": {},
       "presets": [],
       "visible_when": {},
-      "enabled_when": {}
+      "enabled_when": {},
+      "des_symbol": "Ld"
     },
     {
       "key": "die.width",
@@ -86,7 +91,8 @@
       "option_labels": {},
       "presets": [],
       "visible_when": {},
-      "enabled_when": {}
+      "enabled_when": {},
+      "des_symbol": "Wd"
     },
     {
       "key": "die.thickness",
@@ -100,7 +106,8 @@
       "option_labels": {},
       "presets": [],
       "visible_when": {},
-      "enabled_when": {}
+      "enabled_when": {},
+      "des_symbol": "td"
     },
     {
       "key": "die.power",
@@ -114,7 +121,8 @@
       "option_labels": {},
       "presets": [],
       "visible_when": {},
-      "enabled_when": {}
+      "enabled_when": {},
+      "des_symbol": "P"
     },
     {
       "key": "bumps.total",
@@ -130,7 +138,8 @@
       "visible_when": {
         "bumps.array_type": "non_regular"
       },
-      "enabled_when": {}
+      "enabled_when": {},
+      "des_symbol": "MNC4"
     },
     {
       "key": "bumps.diameter",
@@ -144,7 +153,8 @@
       "option_labels": {},
       "presets": [],
       "visible_when": {},
-      "enabled_when": {}
+      "enabled_when": {},
+      "des_symbol": "bC4"
     },
     {
       "key": "bumps.height",
@@ -158,7 +168,8 @@
       "option_labels": {},
       "presets": [],
       "visible_when": {},
-      "enabled_when": {}
+      "enabled_when": {},
+      "des_symbol": "tC4"
     },
     {
       "key": "bumps.modeling",
@@ -177,7 +188,8 @@
       "presets": [],
       "visible_when": {},
       "enabled_when": {},
-      "default": "isotropicCuboid"
+      "default": "isotropicCuboid",
+      "des_symbol": null
     },
     {
       "key": "bga.columns",
@@ -191,7 +203,8 @@
       "option_labels": {},
       "presets": [],
       "visible_when": {},
-      "enabled_when": {}
+      "enabled_when": {},
+      "des_symbol": "MD"
     },
     {
       "key": "bga.rows",
@@ -205,7 +218,8 @@
       "option_labels": {},
       "presets": [],
       "visible_when": {},
-      "enabled_when": {}
+      "enabled_when": {},
+      "des_symbol": "ME"
     },
     {
       "key": "bga.pitch",
@@ -219,7 +233,8 @@
       "option_labels": {},
       "presets": [],
       "visible_when": {},
-      "enabled_when": {}
+      "enabled_when": {},
+      "des_symbol": "e"
     },
     {
       "key": "bga.diameter",
@@ -233,7 +248,8 @@
       "option_labels": {},
       "presets": [],
       "visible_when": {},
-      "enabled_when": {}
+      "enabled_when": {},
+      "des_symbol": "b"
     },
     {
       "key": "bga.height",
@@ -247,7 +263,8 @@
       "option_labels": {},
       "presets": [],
       "visible_when": {},
-      "enabled_when": {}
+      "enabled_when": {},
+      "des_symbol": "A1"
     },
     {
       "key": "cover.type",
@@ -271,7 +288,8 @@
       },
       "presets": [],
       "visible_when": {},
-      "enabled_when": {}
+      "enabled_when": {},
+      "des_symbol": null
     },
     {
       "key": "cover.length",
@@ -287,7 +305,8 @@
       "visible_when": {
         "cover.type": "encapsulant"
       },
-      "enabled_when": {}
+      "enabled_when": {},
+      "des_symbol": "Le"
     },
     {
       "key": "cover.width",
@@ -303,7 +322,8 @@
       "visible_when": {
         "cover.type": "encapsulant"
       },
-      "enabled_when": {}
+      "enabled_when": {},
+      "des_symbol": "We"
     },
     {
       "key": "cover.thickness",
@@ -319,7 +339,8 @@
       "visible_when": {
         "cover.type": "encapsulant"
       },
-      "enabled_when": {}
+      "enabled_when": {},
+      "des_symbol": "te"
     },
     {
       "key": "lid.length",
@@ -335,7 +356,8 @@
       "visible_when": {
         "cover.type": "lid"
       },
-      "enabled_when": {}
+      "enabled_when": {},
+      "des_symbol": "Lc"
     },
     {
       "key": "lid.width",
@@ -351,7 +373,8 @@
       "visible_when": {
         "cover.type": "lid"
       },
-      "enabled_when": {}
+      "enabled_when": {},
+      "des_symbol": "Wc"
     },
     {
       "key": "lid.thickness",
@@ -367,7 +390,8 @@
       "visible_when": {
         "cover.type": "lid"
       },
-      "enabled_when": {}
+      "enabled_when": {},
+      "des_symbol": "tc"
     },
     {
       "key": "lid.base_thickness",
@@ -383,7 +407,8 @@
       "visible_when": {
         "cover.type": "lid"
       },
-      "enabled_when": {}
+      "enabled_when": {},
+      "des_symbol": "tcb"
     },
     {
       "key": "lid.die_attach",
@@ -399,7 +424,8 @@
       "visible_when": {
         "cover.type": "lid"
       },
-      "enabled_when": {}
+      "enabled_when": {},
+      "des_symbol": "tda"
     },
     {
       "key": "lid.adhesive",
@@ -415,7 +441,8 @@
       "visible_when": {
         "cover.type": "lid"
       },
-      "enabled_when": {}
+      "enabled_when": {},
+      "des_symbol": "tcadh"
     },
     {
       "key": "plate.length",
@@ -431,7 +458,8 @@
       "visible_when": {
         "cover.type": "plate"
       },
-      "enabled_when": {}
+      "enabled_when": {},
+      "des_symbol": "Lc"
     },
     {
       "key": "plate.width",
@@ -447,7 +475,8 @@
       "visible_when": {
         "cover.type": "plate"
       },
-      "enabled_when": {}
+      "enabled_when": {},
+      "des_symbol": "Wc"
     },
     {
       "key": "plate.thickness",
@@ -463,7 +492,8 @@
       "visible_when": {
         "cover.type": "plate"
       },
-      "enabled_when": {}
+      "enabled_when": {},
+      "des_symbol": "tc"
     },
     {
       "key": "plate.die_attach",
@@ -479,7 +509,8 @@
       "visible_when": {
         "cover.type": "plate"
       },
-      "enabled_when": {}
+      "enabled_when": {},
+      "des_symbol": "tda"
     },
     {
       "key": "grid.enabled",
@@ -494,7 +525,8 @@
       "option_labels": {},
       "presets": [],
       "visible_when": {},
-      "enabled_when": {}
+      "enabled_when": {},
+      "des_symbol": null
     },
     {
       "key": "grid.density",
@@ -515,7 +547,8 @@
       "visible_when": {
         "grid.enabled": true
       },
-      "enabled_when": {}
+      "enabled_when": {},
+      "des_symbol": null
     },
     {
       "key": "bumps.array_type",
@@ -533,7 +566,8 @@
       "option_labels": {},
       "presets": [],
       "visible_when": {},
-      "enabled_when": {}
+      "enabled_when": {},
+      "des_symbol": null
     },
     {
       "key": "bumps.columns",
@@ -550,7 +584,8 @@
       "visible_when": {
         "bumps.array_type": "regular"
       },
-      "enabled_when": {}
+      "enabled_when": {},
+      "des_symbol": "MDC4"
     },
     {
       "key": "bumps.rows",
@@ -567,7 +602,8 @@
       "visible_when": {
         "bumps.array_type": "regular"
       },
-      "enabled_when": {}
+      "enabled_when": {},
+      "des_symbol": "MEC4"
     },
     {
       "key": "bumps.underfill",
@@ -582,7 +618,8 @@
       "option_labels": {},
       "presets": [],
       "visible_when": {},
-      "enabled_when": {}
+      "enabled_when": {},
+      "des_symbol": null
     },
     {
       "key": "cover.flush",
@@ -599,7 +636,8 @@
       "visible_when": {
         "cover.type": "encapsulant"
       },
-      "enabled_when": {}
+      "enabled_when": {},
+      "des_symbol": null
     },
     {
       "key": "stiffener.enabled",
@@ -616,7 +654,8 @@
       "visible_when": {
         "cover.type": "lid"
       },
-      "enabled_when": {}
+      "enabled_when": {},
+      "des_symbol": null
     },
     {
       "key": "stiffener.length",
@@ -634,7 +673,8 @@
         "cover.type": "lid",
         "stiffener.enabled": true
       },
-      "enabled_when": {}
+      "enabled_when": {},
+      "des_symbol": "Ls"
     },
     {
       "key": "stiffener.width",
@@ -652,7 +692,8 @@
         "cover.type": "lid",
         "stiffener.enabled": true
       },
-      "enabled_when": {}
+      "enabled_when": {},
+      "des_symbol": "Ws"
     },
     {
       "key": "stiffener.cavity_length",
@@ -670,7 +711,8 @@
         "cover.type": "lid",
         "stiffener.enabled": true
       },
-      "enabled_when": {}
+      "enabled_when": {},
+      "des_symbol": "Lsc"
     },
     {
       "key": "stiffener.cavity_width",
@@ -688,7 +730,8 @@
         "cover.type": "lid",
         "stiffener.enabled": true
       },
-      "enabled_when": {}
+      "enabled_when": {},
+      "des_symbol": "Wsc"
     },
     {
       "key": "stiffener.adhesive",
@@ -706,7 +749,8 @@
         "cover.type": "lid",
         "stiffener.enabled": true
       },
-      "enabled_when": {}
+      "enabled_when": {},
+      "des_symbol": "tsadh"
     },
     {
       "key": "slug.enabled",
@@ -724,7 +768,8 @@
       "enabled_when": {
         "cover.type": "encapsulant"
       },
-      "help_text": "顶部结构选择“塑封体（Encapsulant）”时可用。"
+      "help_text": "顶部结构选择“塑封体（Encapsulant）”时可用。",
+      "des_symbol": null
     },
     {
       "key": "slug.length",
@@ -742,7 +787,8 @@
         "cover.type": "encapsulant",
         "slug.enabled": true
       },
-      "enabled_when": {}
+      "enabled_when": {},
+      "des_symbol": "L_sl"
     },
     {
       "key": "slug.width",
@@ -760,7 +806,8 @@
         "cover.type": "encapsulant",
         "slug.enabled": true
       },
-      "enabled_when": {}
+      "enabled_when": {},
+      "des_symbol": "W_sl"
     },
     {
       "key": "slug.thickness",
@@ -778,7 +825,8 @@
         "cover.type": "encapsulant",
         "slug.enabled": true
       },
-      "enabled_when": {}
+      "enabled_when": {},
+      "des_symbol": "t_sl"
     },
     {
       "key": "slug.diameter",
@@ -796,7 +844,8 @@
         "cover.type": "encapsulant",
         "slug.enabled": true
       },
-      "enabled_when": {}
+      "enabled_when": {},
+      "des_symbol": "dsl"
     },
     {
       "key": "slug.foot_length",
@@ -814,7 +863,8 @@
         "cover.type": "encapsulant",
         "slug.enabled": true
       },
-      "enabled_when": {}
+      "enabled_when": {},
+      "des_symbol": "L_slf"
     },
     {
       "key": "slug.foot_width",
@@ -832,7 +882,8 @@
         "cover.type": "encapsulant",
         "slug.enabled": true
       },
-      "enabled_when": {}
+      "enabled_when": {},
+      "des_symbol": "W_slf"
     },
     {
       "key": "slug.offset",
@@ -850,7 +901,8 @@
         "cover.type": "encapsulant",
         "slug.enabled": true
       },
-      "enabled_when": {}
+      "enabled_when": {},
+      "des_symbol": "gsl"
     },
     {
       "key": "slug.clearance",
@@ -868,7 +920,8 @@
         "cover.type": "encapsulant",
         "slug.enabled": true
       },
-      "enabled_when": {}
+      "enabled_when": {},
+      "des_symbol": "g_slf"
     },
     {
       "key": "slug.adhesive_enabled",
@@ -886,7 +939,8 @@
         "cover.type": "encapsulant",
         "slug.enabled": true
       },
-      "enabled_when": {}
+      "enabled_when": {},
+      "des_symbol": null
     },
     {
       "key": "vias.enabled",
@@ -901,7 +955,8 @@
       "option_labels": {},
       "presets": [],
       "visible_when": {},
-      "enabled_when": {}
+      "enabled_when": {},
+      "des_symbol": null
     },
     {
       "key": "vias.columns",
@@ -918,7 +973,8 @@
       "visible_when": {
         "vias.enabled": true
       },
-      "enabled_when": {}
+      "enabled_when": {},
+      "des_symbol": "NVx"
     },
     {
       "key": "vias.rows",
@@ -935,7 +991,8 @@
       "visible_when": {
         "vias.enabled": true
       },
-      "enabled_when": {}
+      "enabled_when": {},
+      "des_symbol": "NVy"
     },
     {
       "key": "vias.pitch",
@@ -952,7 +1009,8 @@
       "visible_when": {
         "vias.enabled": true
       },
-      "enabled_when": {}
+      "enabled_when": {},
+      "des_symbol": "ev"
     },
     {
       "key": "vias.diameter",
@@ -969,7 +1027,8 @@
       "visible_when": {
         "vias.enabled": true
       },
-      "enabled_when": {}
+      "enabled_when": {},
+      "des_symbol": "dv"
     },
     {
       "key": "vias.plating",
@@ -986,7 +1045,8 @@
       "visible_when": {
         "vias.enabled": true
       },
-      "enabled_when": {}
+      "enabled_when": {},
+      "des_symbol": "tpl"
     },
     {
       "key": "vias.modeling",
@@ -1006,12 +1066,13 @@
       "visible_when": {
         "vias.enabled": true
       },
-      "enabled_when": {}
+      "enabled_when": {},
+      "des_symbol": null
     },
     {
       "key": "metal.layers",
       "label": "芯层金属层表（Depth / Thickness / Coverage）",
-      "default": "[]",
+      "default": [],
       "step": "metal_layers",
       "control": "table",
       "unit": null,
@@ -1021,7 +1082,8 @@
       "option_labels": {},
       "presets": [],
       "visible_when": {},
-      "enabled_when": {}
+      "enabled_when": {},
+      "des_symbol": null
     },
     {
       "key": "upper.enabled",
@@ -1036,7 +1098,8 @@
       "option_labels": {},
       "presets": [],
       "visible_when": {},
-      "enabled_when": {}
+      "enabled_when": {},
+      "des_symbol": null
     },
     {
       "key": "upper.thickness",
@@ -1053,7 +1116,8 @@
       "visible_when": {
         "upper.enabled": true
       },
-      "enabled_when": {}
+      "enabled_when": {},
+      "des_symbol": "A2b1"
     },
     {
       "key": "upper.count",
@@ -1070,7 +1134,8 @@
       "visible_when": {
         "upper.enabled": true
       },
-      "enabled_when": {}
+      "enabled_when": {},
+      "des_symbol": "Nb1"
     },
     {
       "key": "upper.diameter",
@@ -1087,7 +1152,8 @@
       "visible_when": {
         "upper.enabled": true
       },
-      "enabled_when": {}
+      "enabled_when": {},
+      "des_symbol": "dv_b1"
     },
     {
       "key": "upper.plating",
@@ -1104,7 +1170,8 @@
       "visible_when": {
         "upper.enabled": true
       },
-      "enabled_when": {}
+      "enabled_when": {},
+      "des_symbol": "tpl_b1"
     },
     {
       "key": "upper.filled",
@@ -1121,12 +1188,13 @@
       "visible_when": {
         "upper.enabled": true
       },
-      "enabled_when": {}
+      "enabled_when": {},
+      "des_symbol": null
     },
     {
       "key": "upper.layers",
       "label": "金属层表（全基板 Depth）",
-      "default": "[]",
+      "default": [],
       "step": "upper_built_up",
       "control": "table",
       "unit": null,
@@ -1138,7 +1206,8 @@
       "visible_when": {
         "upper.enabled": true
       },
-      "enabled_when": {}
+      "enabled_when": {},
+      "des_symbol": null
     },
     {
       "key": "lower.enabled",
@@ -1153,7 +1222,8 @@
       "option_labels": {},
       "presets": [],
       "visible_when": {},
-      "enabled_when": {}
+      "enabled_when": {},
+      "des_symbol": null
     },
     {
       "key": "lower.thickness",
@@ -1170,7 +1240,8 @@
       "visible_when": {
         "lower.enabled": true
       },
-      "enabled_when": {}
+      "enabled_when": {},
+      "des_symbol": "A2b2"
     },
     {
       "key": "lower.count",
@@ -1187,7 +1258,8 @@
       "visible_when": {
         "lower.enabled": true
       },
-      "enabled_when": {}
+      "enabled_when": {},
+      "des_symbol": "Nb2"
     },
     {
       "key": "lower.diameter",
@@ -1204,7 +1276,8 @@
       "visible_when": {
         "lower.enabled": true
       },
-      "enabled_when": {}
+      "enabled_when": {},
+      "des_symbol": "dv_b2"
     },
     {
       "key": "lower.plating",
@@ -1221,7 +1294,8 @@
       "visible_when": {
         "lower.enabled": true
       },
-      "enabled_when": {}
+      "enabled_when": {},
+      "des_symbol": "tpl_b2"
     },
     {
       "key": "lower.filled",
@@ -1238,12 +1312,13 @@
       "visible_when": {
         "lower.enabled": true
       },
-      "enabled_when": {}
+      "enabled_when": {},
+      "des_symbol": null
     },
     {
       "key": "lower.layers",
       "label": "金属层表（全基板 Depth）",
-      "default": "[]",
+      "default": [],
       "step": "lower_built_up",
       "control": "table",
       "unit": null,
@@ -1255,7 +1330,8 @@
       "visible_when": {
         "lower.enabled": true
       },
-      "enabled_when": {}
+      "enabled_when": {},
+      "des_symbol": null
     }
   ],
   "material_selections": [

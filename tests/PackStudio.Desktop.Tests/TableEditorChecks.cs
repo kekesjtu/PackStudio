@@ -54,7 +54,6 @@ static class TableEditorChecks
     static int Count(JToken token) => token switch
     {
         JArray array => array.Count,
-        JValue value when value.Type == JTokenType.String && value.ToString().TrimStart().StartsWith('[') => JArray.Parse(value.ToString()).Count,
         _ => 0
     };
 

@@ -1,4 +1,4 @@
-"""Optional live comparison of enriched native data against offline catalog files."""
+"""Optional live comparisons of native die parameters and material records."""
 
 import os
 from pathlib import Path
@@ -33,7 +33,7 @@ def native():
         ("QFN", "QFN_10X10_44", False),
     ],
 )
-def test_live_snapshot_matches_complete_record(native, family, preset, four_layer):
+def test_live_die_parameters_match_internal_preset(native, family, preset, four_layer):
     path = native.installation / f"flocentral/flopack/{family}/{preset}.des"
     record = {
         "family": family,
@@ -41,7 +41,14 @@ def test_live_snapshot_matches_complete_record(native, family, preset, four_laye
         "wizard": native.wizard,
     }
     branch = "four_layer" if four_layer else "default"
-    assert compiled_branch(record) == PresetCatalog().read_branch(preset, branch)
+    raw = compiled_branch(record)
+    internal = PresetCatalog().read_branch(preset, branch)
+    # Compare independently named physical quantities across the native/runtime boundary.
+    die = raw["groups"]["die"]["properties"]
+    for key, prop in [("die.length", "dieLengthLd"), ("die.width", "dieWidthWd"),
+                      ("die.thickness", "dieThicknessTd"), ("die.power", "packagePower")]:
+        assert internal["values"][key] == die[prop]["value"]
+    assert internal["assignments"]["group-die"] == "silicon"
 
 
 def test_live_materials_match_raw_values_and_environment_is_restored(native):
