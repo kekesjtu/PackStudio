@@ -12,7 +12,7 @@
 | `materials/index.json` | 材料名称、分类、路径和哈希 |
 | `materials/runtime.json` | 运行材料 ID、颜色与项目补充材料 |
 | `pack_bindings.json` | 运行字段和材料组件到原生数据的路径映射 |
-| `des_field_labels.json` | 原生 DES 字段符号映射，用于数值标签 |
+| `des_field_labels.json` | 原生 DES 字段符号映射，用于数值标签；值为 DES 键，或按 `substrate.layers` 选择的键对象 |
 | `templates/<模板 ID>.json` | 向导字段、范围、条件、建模选项、Bare Die 基线设置与审核物性 |
 
 八类模板 ID 为 `chip_array`、`bare_die`、`cbga_fc`、`pbga_fc`、`pqfp`、`qfn`、

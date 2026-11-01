@@ -62,7 +62,7 @@ public partial class MainWindow
             bool isTable = control is "metal_layers" or "layer_table" || key.EndsWith(".layers", StringComparison.Ordinal) && control != "select" && values[key]?.Type == JTokenType.String && values[key]!.ToString().TrimStart().StartsWith('[');
             var editors = new StackPanel();
             string label = f["label"].Text();
-            string symbol = control is "number" or "integer" or "integer_spinbox" ? DesFieldLabels.Symbol(workspace.Document.TemplateId, key, label) : "";
+            string symbol = control is "number" or "integer" or "integer_spinbox" ? DesFieldLabels.Symbol(workspace.Document.TemplateId, key, values["substrate.layers"].Text()) : "";
             var host = FieldRow(label, editors, symbol: symbol);
             host.IsEnabled = JsonData.Matches(f["enabled_when"] as JObject, values);
             if (isTable)

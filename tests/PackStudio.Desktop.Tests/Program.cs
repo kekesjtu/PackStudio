@@ -27,6 +27,7 @@ public static class Program
                 while (vm.IsBusy)
                     await Task.Delay(20);
                 await TemplateSelectionChecks.Run();
+                DesLabelChecks.Run();
                 NewPackageChecks.CancelPreservesProject(window, vm);
                 var steps = (ListBox)window.FindName("StepList");
                 var fields = (StackPanel)window.FindName("FieldsPanel");
