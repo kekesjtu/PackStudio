@@ -24,6 +24,7 @@ public partial class MainWindow : Window
     void RefreshDocument()
     {
         loading = true;
+        Expanders.Clear();
         var choice = PackagePresentation.Choices.Single(c => c.Id == workspace.Document.TemplateId);
         PackageTitle.Text = choice.Name;
         PackageSubtitle.Text = choice.Description;

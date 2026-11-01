@@ -73,12 +73,7 @@ public partial class MainWindow
             ConfigCheck(b, "solder_removal_enabled", "主阵列中心去球");
             ConfigNumber(b, "populated_rows", "外围满布行数");
             ConfigNumber(b, "populated_columns", "外围满布列数");
-            FieldsPanel.Children.Add(new TextBlock { Text = "显式去球单元", Margin = new(0, 10, 0, 5) });
-            FieldsPanel.Children.Add(RemovalMatrix.Build(b["omitted_cells"] as JArray ?? [], Count("bga.rows"), Count("bga.columns"), a =>
-            {
-                b["omitted_cells"] = a;
-                workspace.Dirty();
-            }));
+            AddRemovalCells("balls", "显式去球", b, "bga.rows", "bga.columns");
             return;
         }
 
@@ -116,20 +111,54 @@ public partial class MainWindow
 
     void AddViaConfiguration()
     {
-        var v = workspace.Document.Bga["via_configuration"] as JObject ?? new();
-        workspace.Document.Bga["via_configuration"] = v;
-        ConfigCheck(v, "removal_enabled", "启用通孔去除");
+        if (!workspace.Document.Values["vias.enabled"].Flag())
+            return;
+        if (workspace.Document.Bga["via_configuration"] is not JObject v)
+        {
+            v = new JObject();
+            workspace.Document.Bga["via_configuration"] = v;
+        }
+        ConfigCheck(v, "removal_enabled", "启用通孔去除", () =>
+        {
+            v["removal_rows"] ??= 0;
+            v["removal_columns"] ??= 0;
+            Dispatcher.BeginInvoke(RefreshFields);
+        });
+        if (!v["removal_enabled"].Flag())
+            return;
         ConfigNumber(v, "removal_rows", "中央去除行数");
         ConfigNumber(v, "removal_columns", "中央去除列数");
-        FieldsPanel.Children.Add(new TextBlock { Text = "去通孔单元", Margin = new(0, 10, 0, 5) });
-        FieldsPanel.Children.Add(RemovalMatrix.Build(v["omitted_cells"] as JArray ?? [], Count("vias.rows"), Count("vias.columns"), a =>
-        {
-            v["omitted_cells"] = a;
-            workspace.Dirty();
-        }));
+        AddRemovalCells("vias", "显式去孔", v, "vias.rows", "vias.columns");
     }
 
-    void ConfigCheck(JObject data, string key, string label)
+    void AddRemovalCells(string id, string label, JObject data, string rowsKey, string columnsKey)
+    {
+        bool expanded = Expanders.TryGetValue(id, out bool stored) ? stored : (data["omitted_cells"] as JArray)?.Count > 0;
+        var box = new CheckBox { Content = label, IsChecked = expanded, Margin = new(0, 10, 0, 5) };
+        box.Checked += (_, _) => Expand(id, true);
+        box.Unchecked += (_, _) => Expand(id, false);
+        FieldsPanel.Children.Add(box);
+        if (!expanded)
+            return;
+        var host = new ContentControl();
+        void Rebuild() => host.Content = RemovalMatrix.Build(data["omitted_cells"] as JArray ?? [], Count(rowsKey), Count(columnsKey), a =>
+        {
+            data["omitted_cells"] = a;
+            workspace.Dirty();
+        });
+        Rebuild();
+        Refreshers.Add((rowsKey, Rebuild));
+        Refreshers.Add((columnsKey, Rebuild));
+        FieldsPanel.Children.Add(host);
+    }
+
+    void Expand(string id, bool expanded)
+    {
+        Expanders[id] = expanded;
+        Dispatcher.BeginInvoke(RefreshFields);
+    }
+
+    void ConfigCheck(JObject data, string key, string label, Action? changed = null)
     {
         var box = new CheckBox
         {
@@ -137,16 +166,14 @@ public partial class MainWindow
             IsChecked = data[key].Flag(),
             Margin = new(0, 9, 0, 5)
         };
-        box.Checked += (_, _) =>
+        void Set(bool value)
         {
-            data[key] = true;
+            data[key] = value;
+            changed?.Invoke();
             workspace.Dirty();
-        };
-        box.Unchecked += (_, _) =>
-        {
-            data[key] = false;
-            workspace.Dirty();
-        };
+        }
+        box.Checked += (_, _) => Set(true);
+        box.Unchecked += (_, _) => Set(false);
         FieldsPanel.Children.Add(box);
     }
 

@@ -45,9 +45,13 @@ public partial class MainWindow
         string key = field["key"].Text();
         return key.StartsWith("grid.", StringComparison.Ordinal) || key.Contains(".grid.", StringComparison.Ordinal);
     }
+
+    readonly List<(string Key, Action Rebuild)> Refreshers = [];
+    readonly Dictionary<string, bool> Expanders = [];
     void RefreshFields()
     {
         FieldsPanel.Children.Clear();
+        Refreshers.Clear();
         if (StepList.SelectedValue is not string step)
             return;
         SectionTitle.Text = StepLabel(step);
@@ -90,6 +94,9 @@ public partial class MainWindow
                 workspace.Dirty();
                 if (refresh)
                     Dispatcher.BeginInvoke(RefreshFields);
+                else
+                    foreach (var rebuild in Refreshers.Where(r => r.Key == key).Select(r => r.Rebuild).ToList())
+                        rebuild();
             }
 
             if (control == "checkbox")

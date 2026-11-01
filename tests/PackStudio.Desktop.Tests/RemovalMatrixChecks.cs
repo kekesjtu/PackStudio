@@ -27,9 +27,10 @@ static class RemovalMatrixChecks
         steps.SelectedValue = "solder_removal";
         window.UpdateLayout();
         int rows = (int)workspace.Document.Values["bga.rows"].Number(), columns = (int)workspace.Document.Values["bga.columns"].Number();
-        var matrix = Descendants<ScrollViewer>(fields).Select(view => view.Content is Border frame ? frame.Child : view.Content).OfType<Grid>()
-            .FirstOrDefault(grid => grid.RowDefinitions.Count == rows + 1 && grid.ColumnDefinitions.Count == columns + 1)
-            ?? throw new Exception("去球单元缺少行列数对应的矩阵");
+        var balls = Box(fields, "显式去球") ?? throw new Exception("缺少显式去球勾选框");
+        balls.IsChecked = true;
+        Pump(window);
+        var matrix = Matrix(fields, rows, columns) ?? throw new Exception("去球单元缺少行列数对应的矩阵");
         var cells = matrix.Children.OfType<Border>().Where(cell => cell.Tag != null).ToList();
         if (cells.Count != rows * columns)
             throw new Exception($"去球矩阵格子数 {cells.Count} 与 {rows}×{columns} 不一致");
@@ -47,7 +48,74 @@ static class RemovalMatrixChecks
         reset.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
         if ((bga["omitted_cells"] as JArray ?? []).Count != 0)
             throw new Exception("重置按钮未清空去球单元");
+
+        if (steps.Items.Cast<WizardStep>().All(step => step.Key != "thermal_vias"))
+            return;
+        steps.SelectedValue = "thermal_vias";
+        window.UpdateLayout();
+        if (NumericBox(fields, "通孔 Y 方向数量") == null)
+            return;
+        var removal = RemovalBox(fields) ?? throw new Exception("热通孔缺少启用通孔去除选项");
+        if (removal.IsChecked == true || Reset(fields) != null)
+            throw new Exception("通孔去除默认未勾选且不展开参数");
+        removal.IsChecked = true;
+        Pump(window);
+        int viaColumns = (int)workspace.Document.Values["vias.columns"].Number();
+        int viaRows = (int)workspace.Document.Values["vias.rows"].Number();
+        if (Matrix(fields, viaRows, viaColumns) != null || Reset(fields) != null)
+            throw new Exception("去孔矩阵默认收起");
+        var holes = Box(fields, "显式去孔") ?? throw new Exception("缺少显式去孔勾选框");
+        holes.IsChecked = true;
+        Pump(window);
+        if (Matrix(fields, viaRows, viaColumns) == null || Reset(fields) == null)
+            throw new Exception("勾选去孔后未展开去通孔单元");
+        var rowCount = NumericBox(fields, "通孔 Y 方向数量") ?? throw new Exception("去通孔单元缺少通孔行数字段");
+        string original = rowCount.Text;
+        rowCount.Text = "3";
+        window.UpdateLayout();
+        var viaMatrix = Matrix(fields, 3, viaColumns);
+        if (viaMatrix == null || viaMatrix.Children.OfType<Border>().Count(cell => cell.Tag != null) != 3 * viaColumns)
+            throw new Exception("去孔矩阵未随阵列行列数重建");
+        Click(viaMatrix.Children.OfType<Border>().First(cell => cell.Tag != null));
+        if ((workspace.Document.Bga["via_configuration"]?["omitted_cells"] as JArray ?? []).Count != 1)
+            throw new Exception("去孔单元未写回文档");
+        Reset(fields)!.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
+        rowCount.Text = original;
+        window.UpdateLayout();
+        RemovalBox(fields)!.IsChecked = false;
+        Pump(window);
+        if (Reset(fields) != null)
+            throw new Exception("取消启用通孔去除后仍展示去通孔单元");
+
+        var enabled = Descendants<CheckBox>(fields).Single(box => box.Content?.ToString()?.Contains("热通孔") == true);
+        enabled.IsChecked = false;
+        Pump(window);
+        if (fields.Children.Count != 1 || Descendants<CheckBox>(fields).Count() != 1 || RemovalBox(fields) != null)
+            throw new Exception("未启用热通孔时仍有参数控件");
+        Descendants<CheckBox>(fields).Single().IsChecked = true;
+        Pump(window);
     }
+
+    static CheckBox? RemovalBox(StackPanel fields) => Box(fields, "启用通孔去除");
+
+    static CheckBox? Box(StackPanel fields, string label) => fields.Children.OfType<CheckBox>().SingleOrDefault(box => box.Content?.ToString() == label);
+
+    static Button? Reset(StackPanel fields) => Descendants<Button>(fields).FirstOrDefault(button => button.Content?.ToString() == "重置为空");
+
+    static void Pump(Window window)
+    {
+        window.Dispatcher.Invoke(() => { }, System.Windows.Threading.DispatcherPriority.Background);
+        window.UpdateLayout();
+    }
+
+    static Grid? Matrix(StackPanel fields, int rows, int columns) => Descendants<ScrollViewer>(fields)
+        .Select(view => view.Content is Border frame ? frame.Child : view.Content).OfType<Grid>()
+        .FirstOrDefault(grid => grid.RowDefinitions.Count == rows + 1 && grid.ColumnDefinitions.Count == columns + 1);
+
+    static TextBox? NumericBox(StackPanel fields, string label) => fields.Children.OfType<Grid>()
+        .Where(row => row.Children.OfType<DockPanel>().SelectMany(panel => panel.Children.OfType<TextBlock>()).Any(text => text.Text == label) ||
+            row.Children.OfType<TextBlock>().Any(text => text.Text == label))
+        .SelectMany(row => Descendants<TextBox>(row)).FirstOrDefault();
 
     static void Click(Border cell)
     {

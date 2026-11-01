@@ -49,7 +49,7 @@ dotnet publish src/PackStudio.Desktop -c Release -r win-x64 --self-contained -o 
 | --- | --- |
 | [封装与芯片类型](docs/decisions/封装外形与芯片类型范围.md) | 外形与芯片范围 |
 | [BGA 与 Bumps](docs/decisions/BGA与Bumps建模表达.md) | 焊球与凸点表达 |
-| [去球单元矩阵](docs/decisions/去球与去通孔单元矩阵选择.md) | 矩阵框选与写回 |
+| [去球与去孔矩阵](docs/decisions/去球与去孔矩阵选择.md) | 矩阵框选、展开层级与写回 |
 | [均匀热源](docs/decisions/仅支持均匀芯片热源.md) | 功率分配 |
 | [重叠块](docs/decisions/重叠块与警告.md) | 重叠与警告 |
 | [QFP 连接筋](docs/decisions/QFP连接筋建模选项.md) | 建模选项 |

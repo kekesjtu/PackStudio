@@ -7,7 +7,7 @@ using PackStudio.Core;
 
 namespace PackStudio.Desktop;
 
-// 去球、去通孔单元的矩阵选择：单击切换单个格子，按住左键拖动即框选一块矩形区域。
+// 去球、去孔的矩阵选择：单击切换单个格子，按住左键拖动即框选一块矩形区域。
 public static class RemovalMatrix
 {
     const double CellSize = 15;
