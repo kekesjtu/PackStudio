@@ -73,8 +73,8 @@ public partial class MainWindow
             ConfigCheck(b, "solder_removal_enabled", "主阵列中心去球");
             ConfigNumber(b, "populated_rows", "外围满布行数");
             ConfigNumber(b, "populated_columns", "外围满布列数");
-            FieldsPanel.Children.Add(new TextBlock { Text = "显式去球单元（从 0 开始）", Margin = new(0, 10, 0, 5) });
-            FieldsPanel.Children.Add(Table(b["omitted_cells"] as JArray ?? [], [("row", "行", typeof(int)), ("column", "列", typeof(int))], a =>
+            FieldsPanel.Children.Add(new TextBlock { Text = "显式去球单元", Margin = new(0, 10, 0, 5) });
+            FieldsPanel.Children.Add(RemovalMatrix.Build(b["omitted_cells"] as JArray ?? [], Count("bga.rows"), Count("bga.columns"), a =>
             {
                 b["omitted_cells"] = a;
                 workspace.Dirty();
@@ -121,7 +121,8 @@ public partial class MainWindow
         ConfigCheck(v, "removal_enabled", "启用通孔去除");
         ConfigNumber(v, "removal_rows", "中央去除行数");
         ConfigNumber(v, "removal_columns", "中央去除列数");
-        FieldsPanel.Children.Add(Table(v["omitted_cells"] as JArray ?? [], [("row", "去除行", typeof(int)), ("column", "去除列", typeof(int))], a =>
+        FieldsPanel.Children.Add(new TextBlock { Text = "去通孔单元", Margin = new(0, 10, 0, 5) });
+        FieldsPanel.Children.Add(RemovalMatrix.Build(v["omitted_cells"] as JArray ?? [], Count("vias.rows"), Count("vias.columns"), a =>
         {
             v["omitted_cells"] = a;
             workspace.Dirty();
@@ -163,4 +164,6 @@ public partial class MainWindow
             workspace.Dirty();
         }), symbol: symbol));
     }
+
+    int Count(string key) => (int)workspace.Document.Values[key].Number();
 }

@@ -81,6 +81,7 @@ public static class Program
 
                     ModelingStepChecks.Run(window, steps, fields, vm);
                     FieldLayoutChecks.Run(window, steps, fields, vm);
+                    RemovalMatrixChecks.Run(window, steps, fields, vm);
                     if (family.Id == "bare_die")
                     {
                         steps.SelectedValue = "bumped_die";
