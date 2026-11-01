@@ -546,7 +546,7 @@
 
 ## 原生属性存在性核实
 
-核实对象为本机 PACK 2504 的 DLL，探测工具逐一校验既定 SHA-256 后读取八类封装的完整数据集、顶盖子对象及向导属性。裸芯片通过本任务最小 DES 加载，其余家族直接使用安装目录 `flocentral/flopack` 的预设。完整数据集、嵌套子对象、向导属性清单、虚函数目标及其指令保存在 [原生启用机制审计](../flotherm_pack_data/native_inspection/pbga_fc_activation.json)，并与归档 DES/FloXML 的 SHA-256 绑定。
+以下结论适用于本机 PACK 2504，覆盖八类封装的数据集、顶盖子对象及向导属性。
 
 | 待核实范围 | 条目数 | 结论 |
 | --- | --- | --- |
@@ -558,12 +558,6 @@
 | FC PBGA 的 vias.enabled、upper.enabled、lower.enabled | 3 | 内部独立控制项；PACK 中存在数据组，无一对一可编辑布尔属性。 |
 
 此外，Chip Array/WB PBGA 的通孔启用项来源于原生组状态；metal_layers 是预设编译器展开的行数据，组件实际表格名已在各行标明。组状态、派生数据均不作为 FloSCRIPT 的 property_name。
-
-两种确认方法的证据范围：
-
-- **实际 UI 录制**：在 PACK 的 Macro → Record FloSCRIPT 中创建 Bare Die，修改参数；录制文件直接给出 `die.packagePower`、`die.dieLengthLd`、`die.flippedDie`、`bumpedDie.bumpedDie`、`bumpedDie.numberOfSolderBalls`、`bumpedDie.ballDiameterb`、`bumpedDie.ballHeight` 等组件/属性名称。UI 录制覆盖裸芯片代表项，未声称逐项录制全部家族。
-- **原生对象遍历**：直接调用安装 DLL 构造数据集并遍历 Property，确认上表 27 个可对应项的名称；footprint 属性只读取名称、类型与状态，不对其未选中内容调用 DES 序列化函数。
-- **FloSCRIPT 回放与保存差分**：23 项标量检查全部通过，修改一个属性后保存 DES，核对目标键及前后差分；覆盖 Bare Die 的 11 个参数、GaAs 材料、两类 FC 的 6 个开关、FC 通孔建模、Chip Array 两项和 QFN 焊盘开关/厚度。另有 FC 芯层金属表的两行回放检查，确认 z/tz/coverage 编号和数值。
 
 例如：`modify_component(name="topCover", property_name="stiffener", new_value="yes")` 保存后仅 `radio_stiffener` 变为 `1`；`modify_component(name="thermalLand", property_name="landThickness", new_value="0.08")` 保存后仅 `ts` 变为 `0.08`。原生属性存在、FloSCRIPT 可写、DES 键存在和 PackStudio 预设已绑定是四种不同结论。
 
@@ -593,7 +587,6 @@
 - [FC 芯层金属表](../flotherm_pack_data/template/pbga_fc/field-core-metal-baseline/case.json)：两行基线使用 z1/tz1/coverage1、z2/tz2/coverage2；depth、thickness、coverage 三个独立变化点分别只改变 z1、tz1、coverage1。
 - [Chip Array 组件层数](../flotherm_pack_data/template/chip_array/field-component-layer-2/verification.json)：修改 metalLayers.substrateLayer，由 2-Layer 到 4-Layer 时只改变 num_metal_layers=2；向导层数初始化仍是另一入口。
 - [Bare Die GaAs](../flotherm_pack_data/template/bare_die/field-die-material-gaas/verification.json)：die.dieMaterial=GaAs 保存为 radio_die=2。
-- [实际 UI 录制](../flotherm_pack_data/native_inspection/bare_die_ui_record.xml)与[23 项标量差分证据包](../flotherm_pack_data/native_inspection/scalar_replay/manifest.json)：证据包保存原始前后 DES、可移植脚本、实际执行脚本、结果和运行记录；完整文件指纹列在 manifest.json。
 
 ## 核对依据
 

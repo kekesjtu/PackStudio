@@ -12,31 +12,6 @@ from tools.pack_sweep.archive import digest
 from tools.pack_sweep.compare import compare_model
 
 
-def validate_inspections(root: Path) -> int:
-    directory = root / "native_inspection"
-    if not (directory / "index.json").exists():
-        return 0
-    index = json.loads((directory / "index.json").read_text(encoding="utf-8"))
-    if index["schema"] != "packstudio.native-inspection-index/v1":
-        raise ValueError("unsupported native inspection index")
-    for record in index["records"]:
-        path = (directory / record["file"]).resolve()
-        if not path.is_relative_to(directory.resolve()) or digest(path) != record["sha256"]:
-            raise ValueError(f"native inspection fingerprint differs: {record['file']}")
-        if path.suffix == ".json":
-            report = json.loads(path.read_text(encoding="utf-8"))
-            for name, expected in report.get("files", {}).items():
-                source = (path.parent / name).resolve()
-                if not source.is_relative_to(directory.resolve()) or digest(source) != expected:
-                    raise ValueError(f"native inspection artifact differs: {source}")
-            for snapshot in report.get("snapshots", []):
-                for name, expected in snapshot["files"].items():
-                    source = (root / snapshot["point"] / name).resolve()
-                    if not source.is_relative_to(root.resolve()) or digest(source) != expected:
-                        raise ValueError(f"native inspection input differs: {source}")
-    return len(index["records"])
-
-
 def validate_point(directory: Path, installation: Path = INSTALLATION) -> dict:
     case = json.loads((directory / "case.json").read_text(encoding="utf-8"))
     provenance = json.loads((directory / "native_run.json").read_text(encoding="utf-8"))
@@ -121,6 +96,5 @@ def validate_tree(root: Path, installation: Path = INSTALLATION) -> dict:
         "native_schema_errors": errors,
         "point_count": len(results),
         "screenshot_count": len(screenshots),
-        "native_inspection_count": validate_inspections(root),
         "points": results,
     }

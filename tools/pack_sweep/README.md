@@ -52,8 +52,6 @@ flotherm_pack_data/
 `script.xml` 使用点目录内的相对路径，可交给 `tools.floscript run` 再次执行。
 原生版本、二进制哈希、批次脚本哈希和点文件哈希保存在 `native_run.json`。
 `field-*` 点用于原生字段对应与结构激活机制核实，不声明 PackStudio 模型等价。
-`native_inspection/` 保存原生属性清单、虚表/指令审计、UI 录制和标量 DES 差分证据包；
-其文件及引用输入的指纹也纳入整库验证。
 通过统一命令验证整个参考库或指定扫参点：
 
 ```powershell
