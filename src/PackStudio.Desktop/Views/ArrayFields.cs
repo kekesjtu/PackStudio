@@ -82,21 +82,7 @@ public partial class MainWindow
             return;
         }
 
-        FieldsPanel.Children.Add(new TextBlock { Text = "焊球建模与阵列", FontWeight = FontWeights.SemiBold, Margin = new(0, 10, 0, 10) });
-        string[] reps = workspace.Document.TemplateId == "chip_array" ? ["discrete"] : workspace.Document.TemplateId == "pbga_wb" ? ["discrete", "equivalent", "isotropic"] : ["discrete", "equivalent"];
-        var representation = new ComboBox
-        {
-            ItemsSource = reps.Select(r => new { Id = r, Label = r == "discrete" ? "离散矩形块" : r == "equivalent" ? "各向异性等效层" : "各向同性等效层" }),
-            DisplayMemberPath = "Label",
-            SelectedValuePath = "Id",
-            SelectedValue = b["representation"].Text()
-        };
-        representation.SelectionChanged += (_, _) =>
-        {
-            b["representation"] = representation.SelectedValue?.ToString();
-            workspace.Dirty();
-        };
-        FieldsPanel.Children.Add(representation);
+        FieldsPanel.Children.Add(new TextBlock { Text = "焊球阵列", FontWeight = FontWeights.SemiBold, Margin = new(0, 10, 0, 10) });
         ConfigCheck(b, "staggered", "交错主阵列");
         ConfigCheck(b, "ball_map_enabled", "使用焊球坐标表");
         FieldsPanel.Children.Add(new TextBlock { Text = "焊球坐标表（mm）", Margin = new(0, 10, 0, 5) });
@@ -105,6 +91,27 @@ public partial class MainWindow
             b["ball_map"] = a;
             workspace.Dirty();
         }));
+    }
+
+    void AddBgaModeling()
+    {
+        if (workspace.Template.Fields.All(f => f["step"].Text() != "solder_balls"))
+            return;
+        var b = workspace.Document.Bga;
+        string[] reps = workspace.Document.TemplateId == "chip_array" ? ["discrete"] : workspace.Document.TemplateId == "pbga_wb" ? ["discrete", "equivalent", "isotropic"] : ["discrete", "equivalent"];
+        var box = new ComboBox
+        {
+            ItemsSource = reps.Select(r => new { Id = r, Label = r == "discrete" ? "离散矩形块" : r == "equivalent" ? "各向异性等效层" : "各向同性等效层" }),
+            DisplayMemberPath = "Label",
+            SelectedValuePath = "Id",
+            SelectedValue = b["representation"].Text()
+        };
+        box.SelectionChanged += (_, _) =>
+        {
+            b["representation"] = box.SelectedValue?.ToString();
+            workspace.Dirty();
+        };
+        FieldsPanel.Children.Add(FieldRow("焊球建模方式", box));
     }
 
     void AddViaConfiguration()

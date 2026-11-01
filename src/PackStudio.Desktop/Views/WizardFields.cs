@@ -40,6 +40,11 @@ public partial class MainWindow
         ["bond_wires"] = "键合线"
     };
     static string StepLabel(string key) => Labels.GetValueOrDefault(key, key);
+    static bool IsLocalGridField(JToken field)
+    {
+        string key = field["key"].Text();
+        return key.StartsWith("grid.", StringComparison.Ordinal) || key.Contains(".grid.", StringComparison.Ordinal);
+    }
     void RefreshFields()
     {
         FieldsPanel.Children.Clear();
@@ -54,10 +59,12 @@ public partial class MainWindow
         }
 
         var values = workspace.Document.Values;
-        foreach (var f in workspace.Template.Fields.Where(f => f["step"].Text() == step && f["control"].Text() != "footprint").OrderBy(f => step == "modeling" && f["key"].Text().Contains(".grid.") ? 1 : 0))
+        var fields = workspace.Template.Fields.Where(f => f["step"].Text() == step && f["control"].Text() != "footprint").ToList();
+
+        void AddField(JToken f)
         {
             if (!JsonData.Matches(f["visible_when"] as JObject, values))
-                continue;
+                return;
             string key = f["key"].Text(), control = f["control"].Text();
             bool isTable = control is "metal_layers" or "layer_table" || key.EndsWith(".layers", StringComparison.Ordinal) && control != "select" && values[key]?.Type == JTokenType.String && values[key]!.ToString().TrimStart().StartsWith('[');
             var editors = new StackPanel();
@@ -168,6 +175,9 @@ public partial class MainWindow
             FieldsPanel.Children.Add(host);
         }
 
+        foreach (var f in fields.Where(f => !IsLocalGridField(f)))
+            AddField(f);
+
         foreach (var s in workspace.Template.MaterialSelections.Where(s => s["step"].Text() == step && JsonData.Matches(s["visible_when"] as JObject, values)))
             AddMaterial(s);
         if (step == "bond_wires" && workspace.Document.TemplateId == "sop")
@@ -191,6 +201,10 @@ public partial class MainWindow
             AddBga(step);
         if (step == "thermal_vias" && workspace.Document.TemplateId != "chip_array")
             AddViaConfiguration();
+        if (step == "modeling")
+            AddBgaModeling();
+        foreach (var f in fields.Where(IsLocalGridField))
+            AddField(f);
         if (FieldsPanel.Children.Count == 0)
             FieldsPanel.Children.Add(new TextBlock { Text = "当前封装配置未启用此组件。可在整体封装或基板步骤中调整组件选项。", TextWrapping = TextWrapping.Wrap, Foreground = Brushes.SlateGray, Margin = new(0, 8, 0, 14) });
         AlignFieldRows();
