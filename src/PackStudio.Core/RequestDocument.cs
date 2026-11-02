@@ -5,6 +5,9 @@ public static class RequestDocument
 {
     public static ProjectDocument Parse(JObject input, PackageCatalog catalog)
     {
+        var unknown = input.Properties().FirstOrDefault(p => p.Name is not ("template_id" or "design_name" or "overrides" or "material_assignments" or "custom_materials"));
+        if (unknown != null)
+            throw new ArgumentException($"未知请求字段 {unknown.Name}");
         string id = input["template_id"].Text();
         var template = catalog.Load(id);
         string preset = input["overrides"]?[id + ".footprint.size"].Text(template.DefaultPreset) ?? template.DefaultPreset;
@@ -21,8 +24,6 @@ public static class RequestDocument
             values[p.Name[(id.Length + 1)..]] = p.Value.DeepClone();
         }
 
-        if (input["die_power_w"]?.Type is JTokenType.Integer or JTokenType.Float)
-            values["die.power"] = input["die_power_w"]!.DeepClone();
         document.Values = values;
         document.MaterialAssignments = input["material_assignments"]?.ToObject<Dictionary<string, string>>() ?? [];
         document.CustomMaterials = (input["custom_materials"] as JArray ?? []).Select(MaterialLibrary.Parse).ToList();

@@ -5,28 +5,29 @@
 
 ## 完整重建
 
-先归档整个参考目录，再执行重建。归档名和任务目录请使用本次任务的日期与名称：
+归档是独立的 ZIP 备份操作。重建使用任务专属目录：
 
 ```powershell
-uv run --locked python -m tools.pack_sweep archive --archive flotherm_pack_data_archives/2026-10-28-full.zip
-uv run --locked python -m tools.pack_sweep rebuild --snapshot flotherm_pack_data_archives/2026-10-28-full.zip --work tmp/2026-10-28-pack-sweep
+uv run --locked python -m tools.pack_sweep archive --archive flotherm_pack_data_archives/2026-11-02-full.zip
+uv run --locked python -m tools.pack_sweep rebuild --work tmp/2026-11-02-pack-sweep
 uv run --locked python -m tools.pack_sweep validate
 ```
 
-归档包括隐藏文件、临时资料和空目录，逐文件核对 SHA-256，旁边保存完整清单。
+归档包括普通文件和空目录，不生成哈希或指纹清单。
 重建在任务目录内调用 PACK，生成全新 XML 和 DES，通过验证后发布到输出目录。
-发布前再次检查原目录与归档一致，避免覆盖归档后的编辑。
+发布保留原目录至任务目录中的 `previous-data/`，失败时恢复原目录。
+截图从当前参考目录复制到新输出，采用 `template/<family>/screenshots/` 路径。
 `flotherm_pack_data/` 纳入版本控制；完整归档与任务临时目录仅本地保存。
-参考数据使用原始字节入库，Git 不转换其换行，以保持原生导出与文件指纹一致。
+参考数据使用原始字节入库，Git 不转换其换行。
 
-中断后使用相同命令与任务目录继续：已有点必须输入一致且通过重新验证；
+中断后使用相同命令与任务目录继续：已有点须标识一致且通过行为验证；
 失败批次的运行记录保留在任务目录。修改扫参定义后应使用新的任务目录。
 `--batch-size` 控制每次启动的点数，`--timeout` 控制单次原生进程超时秒数。
 
 仅导出指定模板到独立目录时，可重复传入 `--template`：
 
 ```powershell
-uv run --locked python -m tools.pack_sweep rebuild --template bare_die --template chip_array --output tmp/2026-10-28-selected-data --work tmp/2026-10-28-selected-run
+uv run --locked python -m tools.pack_sweep rebuild --template bare_die --template chip_array --output tmp/2026-11-02-selected-data --work tmp/2026-11-02-selected-run
 ```
 
 ## 目录与验证
@@ -71,9 +72,7 @@ uv run --locked python -m tools.pack_reference.activation_audit --root flotherm_
 验证包含输入脚本 XSD、FloXML XSD 和 DES 回读。
 带 `request` 的点还与 PackStudio 生成结果比对几何、材料、温度依赖材料律、
 功率、监测点和网格；差异政策仅来自 `docs/decisions/`。
-参考库保留产品范围外的原生扫参点。其原生 FloXML 若不符合 schema，报告明确记为
-`native_schema_error`，汇总为 `passed_with_native_schema_errors`，不视作 schema 通过。
-带产品请求的案例遇到此类错误直接中止重建。
+输入脚本与 FloXML 均须符合对应 XSD；任何批次失败均中止重建并保留运行记录。
 
 ## 维护入口
 

@@ -6,7 +6,7 @@ using PackStudio.Core;
 namespace PackStudio.Desktop;
 public partial class MainWindow
 {
-    static Grid FieldRow(string label, FrameworkElement editor, FrameworkElement? suffix = null, string symbol = "")
+    static Grid FieldRow(string label, FrameworkElement editor, string symbol = "")
     {
         var row = new Grid
         {
@@ -33,11 +33,6 @@ public partial class MainWindow
         }
         Grid.SetColumn(editor, 1);
         row.Children.Add(editor);
-        if (suffix != null)
-        {
-            Grid.SetColumn(suffix, 2);
-            row.Children.Add(suffix);
-        }
         return row;
     }
 

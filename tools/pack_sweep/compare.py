@@ -5,7 +5,7 @@ from xml.etree import ElementTree as ET
 
 from tools.dotnet_core import export_floxml
 from tools.pack_sweep.decisions import decision_geometry
-from tools.pack_sweep.geometry import fingerprint
+from tools.pack_sweep.geometry import geometry_index
 
 
 def close(actual, expected):
@@ -22,7 +22,7 @@ def compare_native(native, request):
     family = request["template_id"]
     native = decision_geometry(native, family)
     actual = ET.fromstring(export_floxml(request))
-    expected_shapes, actual_shapes = fingerprint(native), fingerprint(actual)
+    expected_shapes, actual_shapes = geometry_index(native), geometry_index(actual)
     if expected_shapes.keys() != actual_shapes.keys():
         raise ValueError(
             f"{family}: cuboid geometry differs; "

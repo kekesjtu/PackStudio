@@ -4,8 +4,6 @@ import json
 import shutil
 from xml.etree import ElementTree as ET
 
-from lxml import etree
-
 from tools.floscript.environment import INSTALLATION
 from tools.floscript.script import validate as validate_xml
 from tools.floscript.script import write_xml
@@ -67,29 +65,16 @@ def write_point(point, destination, runtime, token, run, installation=INSTALLATI
         native_case_id=token,
         files=names,
     )
-    schema_error = None
-    try:
-        validate_xml(destination / "model.xml", installation, floxml=True)
-    except etree.DocumentInvalid as error:
-        if point.origin != "legacy":
-            raise
-        schema_error = str(error)
-    provenance.update(
-        status="success",
-        batch_status=run["status"],
-        native_schema_error=schema_error,
-        checks={"script_schema": True, "outputs": True, "floxml_schema": schema_error is None},
-    )
+    validate_xml(destination / "model.xml", installation, floxml=True)
     dump(destination / "native_run.json", provenance)
 
 
-def write_indexes(root, points, snapshot):
+def write_indexes(root, points):
     families = sorted({p.template for p in points})
     dump(
         root / "index.json",
         {
             "schema": "packstudio.reference-tree/v1",
-            "snapshot": snapshot,
             "templates": families,
             "points": ["template/" + p.key for p in points],
         },
@@ -103,7 +88,7 @@ def write_indexes(root, points, snapshot):
                 "artifacts": {"model": p.id + "/model.xml", "script": p.id + "/script.xml"},
             }
             for p in members
-            if p.origin == "legacy" and "kind" in p.metadata
+            if "kind" in p.metadata
         ]
         dump(
             root / "template" / family / "index.json",

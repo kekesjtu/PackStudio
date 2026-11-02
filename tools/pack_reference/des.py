@@ -1,6 +1,5 @@
-"""Read original vendor DES text without depending on an obsolete transcription."""
+"""Read original vendor DES parameter text."""
 
-import hashlib
 from pathlib import Path
 
 
@@ -17,6 +16,5 @@ def source_record(path: Path, installation: Path) -> dict:
     return {
         "id": path.stem,
         "source_path": path.relative_to(installation).as_posix(),
-        "source_sha256": hashlib.sha256(raw).hexdigest(),
         "raw_fields": fields,
     }

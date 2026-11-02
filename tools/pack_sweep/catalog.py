@@ -32,7 +32,7 @@ class Point:
         return self.template + "/" + self.id
 
 
-def legacy_points():
+def specification_points():
     result = []
     for path in sorted(Path(__file__).with_name("specs").glob("*.json")):
         payload = json.loads(path.read_text(encoding="utf-8"))
@@ -44,7 +44,7 @@ def legacy_points():
                     payload["template_id"],
                     row["id"],
                     row["commands"],
-                    origin="legacy",
+                    origin="specification",
                     metadata={k: v for k, v in row.items() if k not in {"id", "commands"}},
                 )
             )
@@ -69,7 +69,7 @@ def initial_points():
         )
         for row in field_cases()
     ]
-    result = legacy_points() + fidelity_points() + native_fields
+    result = specification_points() + fidelity_points() + native_fields
     if len({p.key for p in result}) != len(result):
         raise ValueError("duplicate sweep point")
     return result

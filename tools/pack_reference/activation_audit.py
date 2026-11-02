@@ -1,12 +1,11 @@
 """Audit FC PBGA activation properties, virtual methods and archived geometry.
 
 Run with --root REFERENCE_TREE --work NEW_TEMP_DIRECTORY --output REPORT_JSON.
-The reference tree is read-only; the report records input and DLL fingerprints.
+The reference tree is read-only; the report records input paths and DLL versions.
 """
 
 import argparse
 import ctypes
-import hashlib
 import json
 from pathlib import Path
 from xml.etree import ElementTree as ET
@@ -22,10 +21,6 @@ SCENARIOS = ["activation-default", "core-defined", "core-zero-count"] + [
     for region in ("upper", "lower")
     for state in ("region-only", "zero-count", "defined")
 ]
-
-
-def digest(path):
-    return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
 class ActivationProbe(InteractionNativePack):
@@ -94,10 +89,7 @@ def audit(root, work, installation=INSTALLATION):
         snapshots.append(
             {
                 "point": relative,
-                "files": {
-                    name: digest(source / name)
-                    for name in ("model.des", "model.xml", "script.xml", "case.json")
-                },
+                "files": ["model.des", "model.xml", "script.xml", "case.json"],
                 "wizard_property_inventory": native.wizard_inventory,
                 "all_dataset_property_names": {
                     g["name"]: [p["name"] for p in g["properties"]] for g in snapshot["groups"]

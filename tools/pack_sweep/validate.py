@@ -3,8 +3,6 @@
 import json
 from pathlib import Path
 
-from lxml import etree
-
 from tools.floscript.des import read_des
 from tools.floscript.environment import INSTALLATION
 from tools.floscript.script import validate as validate_xml
@@ -18,15 +16,7 @@ def validate_point(directory: Path, installation: Path = INSTALLATION) -> dict:
     if provenance["status"] != "success" or not checks["script_schema"] or not checks["outputs"]:
         raise ValueError(f"native execution failed: {directory}")
     validate_xml(directory / "script.xml", installation)
-    schema_error = None
-    try:
-        validate_xml(directory / "model.xml", installation, floxml=True)
-    except etree.DocumentInvalid as error:
-        if case["origin"] != "legacy" or not provenance.get("native_schema_error"):
-            raise
-        schema_error = str(error)
-    if (schema_error is None) != checks["floxml_schema"]:
-        raise ValueError("schema result differs from captured native provenance")
+    validate_xml(directory / "model.xml", installation, floxml=True)
     parameters = read_des(directory / "model.des")
     if not parameters:
         raise ValueError(f"empty native DES: {directory}")
@@ -64,8 +54,6 @@ def validate_point(directory: Path, installation: Path = INSTALLATION) -> dict:
         result["public_model"] = compare_model(directory / "model.xml", case["request"])
     else:
         result["validation_scope"] = "native export, XSD and DES readback"
-    if schema_error:
-        result.update(status="native_schema_error", floxml_xsd="failed", error=schema_error)
     return result
 
 
@@ -86,10 +74,8 @@ def validate_tree(root: Path, installation: Path = INSTALLATION) -> dict:
         path = (root / record["path"]).resolve()
         if not path.is_relative_to(root.resolve()):
             raise ValueError(f"screenshot path escapes reference root: {record['path']}")
-    errors = sum(r["status"] == "native_schema_error" for r in results)
     return {
-        "status": "passed_with_native_schema_errors" if errors else "passed",
-        "native_schema_errors": errors,
+        "status": "passed",
         "point_count": len(results),
         "screenshot_count": len(screenshots),
         "points": results,

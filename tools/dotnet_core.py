@@ -4,6 +4,7 @@ import json
 import subprocess
 import tempfile
 from datetime import date
+from functools import cache
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -11,8 +12,12 @@ PROJECT = ROOT / "src/PackStudio.Cli/PackStudio.Cli.csproj"
 BINARY = ROOT / "src/PackStudio.Cli/bin/Release/net10.0/PackStudio.Cli.dll"
 
 
+@cache
 def _ensure_build():
-    sources = list((ROOT / "src").rglob("*.cs")) + list((ROOT / "src").rglob("*.csproj"))
+    directories = [ROOT / "src/PackStudio.Core", ROOT / "src/PackStudio.Cli"]
+    sources = [path for directory in directories for path in directory.rglob("*")
+               if path.suffix in {".cs", ".csproj"} and not {"bin", "obj"}.intersection(path.parts)]
+    sources += [ROOT / "Directory.Build.props", ROOT / "global.json"]
     if not BINARY.exists() or any(
         p.stat().st_mtime > BINARY.stat().st_mtime for p in sources if "obj" not in p.parts
     ):

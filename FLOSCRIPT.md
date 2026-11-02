@@ -102,7 +102,7 @@ if ($LASTEXITCODE -ne 0) { throw "执行失败，请检查 $packRun 中的日志
 | 文件或目录 | 用途 |
 | --- | --- |
 | `replay.xml` | 规范化后实际执行的脚本 |
-| `run_pack.ps1` | 运行启动器快照 |
+| `run_pack.ps1` | 本次运行的启动器副本 |
 | `runtime.json` | 安装来源和材料库准备方式 |
 | `config/` | 本机安装配置的文件副本 |
 | `central/flopack/` | 隔离的 PACK 数据和材料库副本 |

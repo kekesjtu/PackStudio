@@ -12,7 +12,12 @@ public sealed class ProjectDocument
     public Dictionary<string, string> MaterialAssignments { get; set; } = [];
     public List<Material> CustomMaterials { get; set; } = [];
 
-    public ProjectDocument Clone() => JsonConvert.DeserializeObject<ProjectDocument>(JsonConvert.SerializeObject(this))!;
+    public ProjectDocument Clone() => new()
+    {
+        SchemaVersion = SchemaVersion, TemplateId = TemplateId, PresetId = PresetId, Name = Name,
+        Values = (JObject)Values.DeepClone(),
+        MaterialAssignments = new(MaterialAssignments), CustomMaterials = [.. CustomMaterials]
+    };
     public static ProjectDocument Create(Template template, string? presetId = null, string? name = null)
     {
         string preset = presetId ?? template.DefaultPreset;
@@ -26,7 +31,8 @@ public sealed class ProjectDocument
         var data = JsonData.Read(path);
         if (data["SchemaVersion"].Text() != "packstudio.project/v2")
             throw new InvalidDataException("方案版本不受支持。");
-        var document = data.ToObject<ProjectDocument>() ?? throw new InvalidDataException("方案文件为空。");
+        var serializer = JsonSerializer.Create(new JsonSerializerSettings { MissingMemberHandling = MissingMemberHandling.Error });
+        var document = data.ToObject<ProjectDocument>(serializer) ?? throw new InvalidDataException("方案文件为空。");
         if (!PackageCatalog.Families.Any(f => f.Id == document.TemplateId))
             throw new InvalidDataException("未知封装类型。");
         return document;

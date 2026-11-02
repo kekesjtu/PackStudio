@@ -23,7 +23,7 @@ def workspace_path(path):
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     commands = parser.add_subparsers(dest="command", required=True)
-    archive = commands.add_parser("archive", help="archive and hash-check the entire data tree")
+    archive = commands.add_parser("archive", help="create a ZIP backup of the data tree")
     archive.add_argument("--source", type=Path, default=REPOSITORY / "flotherm_pack_data")
     archive.add_argument("--archive", type=Path, required=True)
     build = commands.add_parser("rebuild", help="replay native inputs and publish verified data")
@@ -33,7 +33,6 @@ def main(argv=None):
         type=Path,
         default=REPOSITORY / "tmp" / (datetime.now().strftime("%Y-%m-%d") + "-pack-sweep"),
     )
-    build.add_argument("--snapshot", type=Path)
     build.add_argument("--template", action="append", dest="templates")
     build.add_argument("--batch-size", type=int, default=64)
     build.add_argument("--timeout", type=int, default=180)
@@ -46,7 +45,6 @@ def main(argv=None):
     args = parser.parse_args(argv)
     if args.command == "archive":
         result = archive_tree(args.source, workspace_path(args.archive))
-        result = {k: v for k, v in result.items() if k != "files"}
     elif args.command == "rebuild":
         output, work = workspace_path(args.output), workspace_path(args.work)
         if output != REPOSITORY / "flotherm_pack_data" and not output.is_relative_to(
@@ -59,7 +57,6 @@ def main(argv=None):
             output,
             work,
             args.installation.resolve(),
-            args.snapshot.resolve() if args.snapshot else None,
             args.templates,
             args.batch_size,
             args.timeout,

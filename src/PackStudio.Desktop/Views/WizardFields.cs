@@ -70,7 +70,7 @@ public partial class MainWindow
             if (!JsonData.Matches(f["visible_when"] as JObject, values))
                 return;
             string key = f["key"].Text(), control = f["control"].Text();
-            bool isTable = control is "table" or "metal_layers" or "layer_table";
+            bool isTable = control == "table";
             var editors = new StackPanel();
             string label = f["label"].Text();
             string symbol = control is "number" or "integer" or "integer_spinbox" ? DesFieldLabels.Symbol(f, values["substrate.layers"].Text()) : "";

@@ -1,9 +1,9 @@
-"""Order-independent FloXML cuboid and physical-material fingerprints."""
+"""Index FloXML cuboids by geometry and physical material properties."""
 
 from collections import defaultdict
 
 
-def fingerprint(root):
+def geometry_index(root):
     materials = {}
     for item in root.findall("attributes/materials/*"):
         scalar = item.findtext("conductivity")

@@ -1,8 +1,6 @@
-"""Read versioned runtime data in source, wheel and frozen installations."""
+"""Read the repository's versioned runtime data for research tools."""
 
 import json
-import sys
-import sysconfig
 from copy import deepcopy
 from functools import cache
 from pathlib import Path
@@ -10,12 +8,7 @@ from typing import Any
 
 
 def library_directory() -> Path:
-    if getattr(sys, "frozen", False):
-        return Path(sys._MEIPASS) / "runtime_data"
-    source_directory = Path(__file__).resolve().parents[2] / "runtime_data"
-    if source_directory.is_dir():
-        return source_directory
-    return Path(sysconfig.get_path("data")) / "runtime_data"
+    return Path(__file__).resolve().parents[2] / "runtime_data"
 
 
 @cache

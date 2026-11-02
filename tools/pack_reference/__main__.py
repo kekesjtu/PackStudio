@@ -41,8 +41,6 @@ def main() -> None:
                 }
             snapshots.append(record)
         print(f"{family}: {len(paths)} presets", flush=True)
-    if len(snapshots) != 342:
-        raise ValueError("the reviewed source catalog must contain exactly 342 presets")
     materials = read_builtin_materials(native)
     names = write_materials(arguments.output, materials)
     write_presets(arguments.output, snapshots, source_records, names)

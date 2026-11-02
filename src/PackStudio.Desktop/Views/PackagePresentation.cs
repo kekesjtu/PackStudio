@@ -21,11 +21,6 @@ public static class PackagePresentation
     public static IEnumerable<string> StepKeys(Template template)
     {
         var available = template.Fields.Select(f => f["step"].Text()).Concat(template.MaterialSelections.Select(s => s["step"].Text())).Where(key => key != "package_setup").Distinct().ToList();
-        if (available.Contains("solder_balls"))
-        {
-            available.Add("central_solder_balls");
-            available.Add("solder_removal");
-        }
         return new[]
         {
             "summary"

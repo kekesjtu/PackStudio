@@ -25,14 +25,13 @@ CATEGORIES = {
 }
 
 
-def write_json(path: Path, payload: dict) -> str:
+def write_json(path: Path, payload: dict) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(
         json.dumps(payload, ensure_ascii=False, indent=2, allow_nan=False) + "\n",
         encoding="utf-8",
         newline="\n",
     )
-    return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
 def material_record(raw: dict) -> dict:
@@ -89,8 +88,8 @@ def write_materials(directory: Path, materials: list[dict]) -> set[str]:
         stem = re.sub(r"[^a-z0-9]+", "_", name.lower()).strip("_")
         stem += "_" + hashlib.sha256(name.encode()).hexdigest()[:8]
         relative = f"{CATEGORIES[raw['group']]}/{stem}.json"
-        digest = write_json(directory / "materials" / relative, material_record(raw))
-        index[name] = {"file": relative, "sha256": digest, "category": raw["group"]}
+        write_json(directory / "materials" / relative, material_record(raw))
+        index[name] = {"file": relative, "category": raw["group"]}
     write_json(
         directory / "materials/index.json",
         {
@@ -197,7 +196,6 @@ def write_presets(
             "material_references": references,
             "source": {
                 "path": source["source_path"],
-                "sha256": source["source_sha256"],
                 "des_fields": source["raw_fields"],
                 "comment": (
                     "原文本完整无损保留用于研究追溯；branches 是原生研究快照，不是正式运行预设。"
@@ -211,13 +209,12 @@ def write_presets(
             ),
         }
         relative = f"{family}/{stem}.json"
-        digest = write_json(directory / "presets" / relative, payload)
+        write_json(directory / "presets" / relative, payload)
         if stem in index:
             raise ValueError(f"duplicate preset id: {stem}")
         index[stem] = {
             "family": family,
             "file": relative,
-            "sha256": digest,
             "branches": list(branches),
         }
     write_json(

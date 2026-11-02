@@ -6,12 +6,12 @@ from pathlib import Path
 from xml.etree import ElementTree as ET
 
 from tools.floscript.runner import replay
-from tools.pack_sweep.artifacts import dump, point_payload, write_indexes, write_point
+from tools.pack_sweep.artifacts import dump, write_indexes, write_point
 from tools.pack_sweep.cases.attachments import cases as attachment_cases
 from tools.pack_sweep.cases.metal_depth import cases as metal_cases
 from tools.pack_sweep.catalog import Point, initial_points
 from tools.pack_sweep.publish import publish
-from tools.pack_sweep.screenshots import preserve_screenshots, snapshot_record
+from tools.pack_sweep.screenshots import preserve_screenshots
 from tools.pack_sweep.validate import validate_point, validate_tree
 
 
@@ -49,8 +49,8 @@ def reusable(point, directory, installation):
     if not directory.exists():
         return False
     existing = json.loads((directory / "case.json").read_text(encoding="utf-8"))
-    if existing != point_payload(point):
-        raise ValueError(f"staged input changed; use a new work directory: {point.key}")
+    if (existing["template"], existing["id"]) != (point.template, point.id):
+        raise ValueError(f"staged point identity differs: {point.key}")
     report = validate_point(directory, installation)
     dump(directory / "verification.json", report)
     return True
@@ -67,15 +67,7 @@ def execute_points(points, stage, work, installation, batch_size, timeout):
         cases = [{"id": f"p{i:06d}", "commands": p.commands} for i, p in enumerate(batch)]
         print(f"Native batch {number}: {len(batch)} points ({start}/{len(pending)})", flush=True)
         run = replay(installation, cases, runtime, timeout=timeout)
-        schema_only = (
-            run["exit_code"] == 0
-            and bool(run["errors"])
-            and all(
-                error.startswith("invalid export_floxml output ") and ": Element " in error
-                for error in run["errors"]
-            )
-        )
-        if run["status"] != "success" and not schema_only:
+        if run["status"] != "success":
             raise RuntimeError(f"native batch failed: {runtime}: {run['errors']}")
         for point, case in zip(batch, cases, strict=True):
             destination = stage / "template" / point.key
@@ -88,16 +80,15 @@ def execute_points(points, stage, work, installation, batch_size, timeout):
         print(f"Validated {start + len(batch)}/{len(pending)} pending points", flush=True)
 
 
-def rebuild(output, work, installation, snapshot, templates=None, batch_size=64, timeout=180):
+def rebuild(output, work, installation, templates=None, batch_size=64, timeout=180):
     if batch_size < 1:
         raise ValueError("batch size must be positive")
     output, work = output.resolve(), work.resolve()
     if output.is_relative_to(work) or work.is_relative_to(output):
         raise ValueError("output and work directories must be separate")
     work.mkdir(parents=True, exist_ok=True)
-    record = snapshot_record(snapshot) if snapshot else None
-    if output.exists() and record is None:
-        raise ValueError("an existing reference tree requires --snapshot before rebuilding")
+    if (work / "previous-data").exists():
+        raise FileExistsError("publication completed; use a new work directory")
     stage = work / "staging"
     if stage.is_symlink() or stage.is_junction():
         raise ValueError("staging directory cannot redirect to another directory")
@@ -113,7 +104,6 @@ def rebuild(output, work, installation, snapshot, templates=None, batch_size=64,
         "output": str(output),
         "installation": str(installation),
         "templates": sorted(families),
-        "snapshot_sha256": record["archive_sha256"] if record else None,
     }
     state = work / "rebuild.json"
     if state.exists() and json.loads(state.read_text(encoding="utf-8")) != configuration:
@@ -125,20 +115,16 @@ def rebuild(output, work, installation, snapshot, templates=None, batch_size=64,
         raise ValueError("duplicate dependent point")
     execute_points(extra, stage, work, installation, batch_size, timeout)
     points += extra
-    screenshots = preserve_screenshots(snapshot, stage, families) if snapshot else []
+    screenshots = preserve_screenshots(output, stage, families)
     dump(stage / "screenshots.json", screenshots)
-    write_indexes(
-        stage,
-        points,
-        {"archive": str(snapshot), "sha256": record["archive_sha256"]} if record else None,
-    )
+    write_indexes(stage, points)
     report = validate_tree(stage, installation)
     dump(stage / "verification.json", report)
-    publish(stage, output, work, record)
+    backup = publish(stage, output, work)
     return {
         "status": report["status"],
-        "native_schema_errors": report["native_schema_errors"],
         "point_count": len(points),
         "screenshots": len(screenshots),
         "output": str(output),
+        "backup": str(backup) if backup else None,
     }

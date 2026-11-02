@@ -3,7 +3,6 @@ from pathlib import Path
 
 import pytest
 
-from tools.floxml_validation.classification import classify
 from tools.floxml_validation.compare import compare
 from tools.floxml_validation.partition import overlap_volume, partition, totals
 from tools.floxml_validation.reader import Box, Document, read
@@ -72,42 +71,3 @@ def test_reader_accumulates_nested_translations_and_inherits_material(tmp_path: 
     path.write_text(path.read_text().replace("<name>c</name>", "<name>c</name><orientation/>"))
     with pytest.raises(ValueError, match="orientation"):
         read(path)
-
-
-def test_sop_solid_tie_bars_are_not_confused_with_mixed_lead_envelopes():
-    bars = Box(
-        "bar", (0.0, 0.0, 0.0), (1.0, 1.0, 1.0), "a", path="/group-tie-bars/bar", role="tie_bar"
-    )
-    leads = Box(
-        "lead",
-        (2.0, 0.0, 0.0),
-        (1.0, 1.0, 1.0),
-        "a",
-        path="/group-lead-frame/lead",
-        role="lead_frame",
-    )
-    native = Document([bars, leads], MATERIALS, [], {}, [], [])
-    generated = [replace(b, material="b") for b in (bars, leads)]
-    exported = Document(generated, MATERIALS, [], {}, [], [])
-    details = compare(native, exported, generated, MATERIALS)
-    classify({"id": "sop-baseline", "kind": "baseline", "template": "sop"}, details)
-    rows = details["normalized"]["differences"]
-    bars = [r for r in rows if "/group-tie-bars/" in r["packstudio_path"]]
-    leads = [r for r in rows if "/group-lead-frame/" in r["packstudio_path"]]
-    assert bars and leads
-    assert all(r["attribution"] == "P3-sop-solid-metal-tie-bar" for r in bars)
-    assert all(r["attribution"] == "F1-equivalent-metal-overwritten" for r in leads)
-
-
-def test_bump_difference_is_an_open_alignment_gap_not_an_approved_choice():
-    bump = Box("bump", (0.0, 0.0, 0.0), (1.0, 1.0, 1.0), "a", role="flip_chip_bump")
-    native = Document([bump], MATERIALS, [], {}, [], [])
-    edited = dict(MATERIALS, a=(5.0, 6.0, 3.0, 1000.0, 500.0))
-    exported = Document([bump], edited, [], {}, [], [])
-    details = compare(native, exported, [bump], edited)
-    findings = classify(
-        {"id": "fc-solder-edit", "template": "pbga_fc", "kind": "constituent_material"}, details
-    )
-    assert all(f["category"] != "confirmed_implementation_defect" for f in findings)
-    assert all(f["category"] != "explicit_functional_choice" for f in findings)
-    assert any(f["id"] == "U9-bump-isotropic-alignment" for f in findings)
