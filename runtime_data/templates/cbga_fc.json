@@ -941,6 +941,111 @@
       },
       "enabled_when": {},
       "des_symbol": null
+    },
+    {
+      "key": "bga.solder_removal_enabled",
+      "label": "主阵列中心去球",
+      "default": false,
+      "step": "solder_removal",
+      "control": "configuration"
+    },
+    {
+      "key": "bga.populated_rows",
+      "label": "外围满布行数",
+      "default": null,
+      "step": "solder_removal",
+      "control": "configuration"
+    },
+    {
+      "key": "bga.populated_columns",
+      "label": "外围满布列数",
+      "default": null,
+      "step": "solder_removal",
+      "control": "configuration"
+    },
+    {
+      "key": "bga.removal_rows",
+      "label": "中心去球行数",
+      "default": null,
+      "step": "solder_removal",
+      "control": "configuration"
+    },
+    {
+      "key": "bga.removal_columns",
+      "label": "中心去球列数",
+      "default": null,
+      "step": "solder_removal",
+      "control": "configuration"
+    },
+    {
+      "key": "bga.omitted_cells",
+      "label": "显式去球",
+      "default": [],
+      "step": "solder_removal",
+      "control": "configuration"
+    },
+    {
+      "key": "bga.center_solder_enabled",
+      "label": "包含中央焊球",
+      "default": false,
+      "step": "central_solder_balls",
+      "control": "configuration"
+    },
+    {
+      "key": "bga.center_solder_rows",
+      "label": "中央焊球行数",
+      "default": null,
+      "step": "central_solder_balls",
+      "control": "configuration"
+    },
+    {
+      "key": "bga.center_solder_columns",
+      "label": "中央焊球列数",
+      "default": null,
+      "step": "central_solder_balls",
+      "control": "configuration"
+    },
+    {
+      "key": "bga.center_staggered",
+      "label": "中央焊球交错",
+      "default": false,
+      "step": "central_solder_balls",
+      "control": "configuration"
+    },
+    {
+      "key": "bga.staggered",
+      "label": "交错主阵列",
+      "default": false,
+      "step": "solder_balls",
+      "control": "configuration"
+    },
+    {
+      "key": "bga.ball_map_enabled",
+      "label": "使用焊球坐标表",
+      "default": false,
+      "step": "solder_balls",
+      "control": "configuration"
+    },
+    {
+      "key": "bga.ball_map",
+      "label": "焊球坐标表",
+      "default": [],
+      "step": "solder_balls",
+      "control": "configuration"
+    },
+    {
+      "key": "bga.representation",
+      "label": "焊球建模方式",
+      "default": "equivalent",
+      "step": "modeling",
+      "control": "configuration"
+    },
+    {
+      "key": "bga.via_configuration",
+      "label": "通孔去除配置",
+      "default": null,
+      "step": "thermal_vias",
+      "control": "configuration"
     }
   ],
   "material_selections": [
@@ -1124,6 +1229,5 @@
       }
     }
   ],
-  "baseline_materials": [],
-  "default_bga_representation": "equivalent"
+  "baseline_materials": []
 }

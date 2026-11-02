@@ -1,5 +1,5 @@
 {
-  "schema_version": "packstudio.preset/v2",
+  "schema_version": "packstudio.preset/v3",
   "id": "PBGA_256_21X21mm",
   "family": "pbga_wb",
   "default_branch": "default",
@@ -72,9 +72,17 @@
         "slug.foot_width": null,
         "slug.offset": null,
         "slug.clearance": null,
-        "slug.adhesive_enabled": false
+        "slug.adhesive_enabled": false,
+        "bga.solder_removal_enabled": false,
+        "bga.center_solder_enabled": false,
+        "bga.populated_rows": null,
+        "bga.populated_columns": null,
+        "bga.center_solder_rows": null,
+        "bga.center_solder_columns": null,
+        "bga.staggered": false,
+        "bga.center_staggered": false
       },
-      "assignments": {
+      "material_assignments": {
         "group-substrate": "bt",
         "group-die": "silicon",
         "group-die-attach": "ablestik-8510aa",
@@ -83,16 +91,6 @@
         "group-solder-mask": "solder-mask",
         "group-bga-solder": "solder-sn63",
         "group-traces": "copper"
-      },
-      "bga": {
-        "solder_removal_enabled": false,
-        "center_solder_enabled": false,
-        "populated_rows": null,
-        "populated_columns": null,
-        "center_solder_rows": null,
-        "center_solder_columns": null,
-        "staggered": false,
-        "center_staggered": false
       }
     },
     "four_layer": {
@@ -175,9 +173,17 @@
         "slug.foot_width": null,
         "slug.offset": null,
         "slug.clearance": null,
-        "slug.adhesive_enabled": false
+        "slug.adhesive_enabled": false,
+        "bga.solder_removal_enabled": false,
+        "bga.center_solder_enabled": false,
+        "bga.populated_rows": null,
+        "bga.populated_columns": null,
+        "bga.center_solder_rows": null,
+        "bga.center_solder_columns": null,
+        "bga.staggered": false,
+        "bga.center_staggered": false
       },
-      "assignments": {
+      "material_assignments": {
         "group-substrate": "bt",
         "group-die": "silicon",
         "group-die-attach": "ablestik-8510aa",
@@ -186,22 +192,11 @@
         "group-solder-mask": "solder-mask",
         "group-bga-solder": "solder-sn63",
         "group-traces": "copper"
-      },
-      "bga": {
-        "solder_removal_enabled": false,
-        "center_solder_enabled": false,
-        "populated_rows": null,
-        "populated_columns": null,
-        "center_solder_rows": null,
-        "center_solder_columns": null,
-        "staggered": false,
-        "center_staggered": false
       }
     }
   },
   "source": {
     "family": "pbga_wb",
-    "path": "flocentral/flopack/pbga_wb/PBGA_256_21X21mm.des",
-    "sha256": "237a1040dbe0a201e67a46ad4a438f02ec8a1d546f43c39fb8ca6c6e8b911123"
+    "path": "flocentral/flopack/pbga_wb/PBGA_256_21X21mm.des"
   }
 }

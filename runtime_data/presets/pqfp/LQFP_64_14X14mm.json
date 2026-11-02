@@ -1,5 +1,5 @@
 {
-  "schema_version": "packstudio.preset/v2",
+  "schema_version": "packstudio.preset/v3",
   "id": "LQFP_64_14X14mm",
   "family": "pqfp",
   "default_branch": "default",
@@ -46,19 +46,17 @@
         "leads.coverage": 50.0,
         "leads.modeling": "orthotropicCuboid"
       },
-      "assignments": {
+      "material_assignments": {
         "group-encapsulant": "epoxy-mold",
         "group-die": "silicon",
         "group-die-attach": "die-attach",
         "group-lead-frame": "cu_eftec_64t_86630329",
         "group-bond-wires": "gold"
-      },
-      "bga": {}
+      }
     }
   },
   "source": {
     "family": "pqfp",
-    "path": "flocentral/flopack/pqfp/LQFP_64_14X14mm.des",
-    "sha256": "dfb16350182b5ea045713a58bcacd33174d5d338bb1aea7869db5be74cbee73c"
+    "path": "flocentral/flopack/pqfp/LQFP_64_14X14mm.des"
   }
 }

@@ -50,7 +50,7 @@ flotherm_pack_data/
 ```
 
 `script.xml` 使用点目录内的相对路径，可交给 `tools.floscript run` 再次执行。
-原生版本、二进制哈希、批次脚本哈希和点文件哈希保存在 `native_run.json`。
+原生版本、二进制哈希、运行状态和产物路径保存在 `native_run.json`。
 `field-*` 点用于原生字段对应与结构激活机制核实，不声明 PackStudio 模型等价。
 通过统一命令验证整个参考库或指定扫参点：
 
@@ -68,7 +68,7 @@ uv run --locked python -m tools.pack_reference.activation_audit --root flotherm_
 审计要求受哈希校验的本机 PACK DLL，读取已归档 DES，并核对原生组状态、虚表方法和 FloXML。
 它区分固定可用性、参数有效性和独立用户开关，不修改产品模型或原生安装。
 
-验证包含输入脚本 XSD、FloXML XSD、DES 回读和文件指纹。
+验证包含输入脚本 XSD、FloXML XSD 和 DES 回读。
 带 `request` 的点还与 PackStudio 生成结果比对几何、材料、温度依赖材料律、
 功率、监测点和网格；差异政策仅来自 `docs/decisions/`。
 参考库保留产品范围外的原生扫参点。其原生 FloXML 若不符合 schema，报告明确记为

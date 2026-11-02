@@ -1,5 +1,5 @@
 {
-  "schema_version": "packstudio.preset/v2",
+  "schema_version": "packstudio.preset/v3",
   "id": "SSOP_20_3_9x8_6",
   "family": "sop",
   "default_branch": "default",
@@ -42,20 +42,18 @@
         "leads.custom_coverage": false,
         "leads.coverage": 31.25
       },
-      "assignments": {
+      "material_assignments": {
         "group-encapsulant": "epoxy-mold",
         "group-die": "silicon",
         "group-die-attach": "die-attach",
         "group-lead-frame": "cu_cda_194_36a6868b",
         "group-bond-wires": "gold",
         "group-die-flag": "cu_cda_194_36a6868b"
-      },
-      "bga": {}
+      }
     }
   },
   "source": {
     "family": "tsop_conv",
-    "path": "flocentral/flopack/tsop_conv/SSOP_20_3_9x8_6.des",
-    "sha256": "fe23a457efdb9a31158064f4c0efa2d63bb9d176bc85d67e515d7a0e2840a79f"
+    "path": "flocentral/flopack/tsop_conv/SSOP_20_3_9x8_6.des"
   }
 }

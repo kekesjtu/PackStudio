@@ -63,7 +63,7 @@ public partial class MainWindow
         }
 
         var values = workspace.Document.Values;
-        var fields = workspace.Template.Fields.Where(f => f["step"].Text() == step && f["control"].Text() != "footprint").ToList();
+        var fields = workspace.Template.Fields.Where(f => f["step"].Text() == step && f["control"].Text() is not ("footprint" or "configuration")).ToList();
 
         void AddField(JToken f)
         {

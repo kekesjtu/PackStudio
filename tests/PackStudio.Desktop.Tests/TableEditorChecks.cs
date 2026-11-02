@@ -49,7 +49,7 @@ static class TableEditorChecks
 
     // 表格既可能写入向导字段（金属层、层表），也可能写入 BGA 配置（焊球坐标表）。
     static int StoredRows(Workspace workspace) =>
-        workspace.Document.Values.Properties().Sum(p => Count(p.Value)) + workspace.Document.Bga.Properties().Sum(p => Count(p.Value));
+        workspace.Document.Values.Properties().Sum(p => Count(p.Value));
 
     static int Count(JToken token) => token switch
     {

@@ -15,7 +15,7 @@ public sealed class PackageCatalog
         this.root = Path.GetFullPath(root);
         Materials = new(root);
         var data = JsonData.Read(Path.Combine(root, "presets", "index.json"));
-        if (data["schema_version"].Text() != "packstudio.preset-index/v2")
+        if (data["schema_version"].Text() != "packstudio.preset-index/v3")
             throw new InvalidDataException("预设索引版本不受支持。");
         index = (JObject)data["presets"]!;
     }
@@ -31,11 +31,11 @@ public sealed class PackageCatalog
         foreach (var p in index.Properties().Where(p => p.Value["family"].Text() == id))
         {
             var record = JsonData.CatalogEntry(Path.Combine(root, "presets"), p.Value);
-            if (record["schema_version"].Text() != "packstudio.preset/v2" || record["id"].Text() != p.Name || record["family"].Text() != id)
+            if (record["schema_version"].Text() != "packstudio.preset/v3" || record["id"].Text() != p.Name || record["family"].Text() != id)
                 throw new InvalidDataException($"预设标识或版本无效：{p.Name}");
             var branches = (JObject)record["branches"]!;
             var branch = branches[record["default_branch"].Text()]!;
-            presets.Add(new(p.Name, (JObject)branch["values"]!, (JObject)branch["assignments"]!, (JObject)branch["bga"]!, branches));
+            presets.Add(new(p.Name, (JObject)branch["values"]!, (JObject)branch["material_assignments"]!, branches));
         }
         var footprint = fields.FirstOrDefault(f => f["control"].Text() == "footprint");
         if (footprint != null)
@@ -52,7 +52,8 @@ public sealed class PackageCatalog
             if (preset.Branches["four_layer"]?["values"] is JObject branchValues)
             {
                 var baseline = t.Defaults(presetId);
-                foreach (var p in branchValues.Properties())
+                // 基板层栈初始化不改变焊球布局。
+                foreach (var p in branchValues.Properties().Where(p => !p.Name.StartsWith("bga.", StringComparison.Ordinal)))
                     if (JToken.DeepEquals(source[p.Name], baseline[p.Name]))
                         values[p.Name] = p.Value.DeepClone();
             }

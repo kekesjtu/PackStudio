@@ -112,7 +112,7 @@ if ($LASTEXITCODE -ne 0) { throw "执行失败，请检查 $packRun 中的日志
 | `launcher-stdout.txt`、`launcher-stderr.txt` | PowerShell 启动器输出 |
 | `LogFiles/` | PACK 原生日志 |
 | `process.json` | 原生进程状态 |
-| `run.json` | 汇总状态、检查结果和文件哈希 |
+| `run.json` | 汇总状态、检查结果和运行文件信息 |
 
 脚本声明的 DES、FloXML 文件也保存在运行目录内。
 
@@ -139,7 +139,7 @@ if ($LASTEXITCODE -ne 0) { throw "执行失败，请检查 $packRun 中的日志
 - 每个 FloXML 通过本机对应 XSD。
 
 `run.json` 保留原生退出码、耗时、文件版本、程序及相关 DLL 哈希、
-脚本和启动器哈希、输入 DES 哈希，以及各产物的路径、大小和哈希。
+启动器哈希、输入路径，以及各产物的路径和大小。
 `checks` 分别记录脚本结构、输出完整性和 FloXML 结构的检查结果。
 
 失败时先查看 `errors`，再检查启动器输出、PACK 输出和 `LogFiles/`。

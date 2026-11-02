@@ -19,7 +19,7 @@
 | `grid.enabled` | `localgrid` | `name="modelingOptions"`; `property_name="localizeGrid"` |
 | `grid.density` | `radio_lgc` | `name="modelingOptions"`; `property_name="gridDensity"` |
 
-### Assignments
+### MaterialAssignments
 
 | PackStudio 内部字段 | des | pack script 的字段 |
 | --- | --- | --- |
@@ -96,8 +96,23 @@
 | `slug.offset` | `gsl` (mm) | `name="dropInSlug"`; `property_name="slugOffsetGs"` |
 | `slug.clearance` | `g_slf` (mm) | `name="dropInSlug"`; `property_name="slugFootClearanceGsf"` |
 | `slug.adhesive_enabled` | `slug_adh` | `name="dropInSlug"`; `property_name="adhesivePresentUnderSlugFoot"` |
+| `bga.representation` | `radio_BGA_modeling` | `name="modelingOptions"`; `property_name="modelSolderBallArrayAs"` |
+| `bga.solder_removal_enabled` | `depop_center` | `name="solderBallDepopulation"`; `property_name="depopulatedCenter"` |
+| `bga.populated_columns` | `MDp` | `name="solderBallDepopulation"`; `property_name="numberFullyPopulatedRowsMDp"` |
+| `bga.populated_rows` | `MEp` | `name="solderBallDepopulation"`; `property_name="numberFullyPopulatedRowsMEp"` |
+| `bga.center_solder_enabled` | `central_balls` | `name="centralBalls"`; `property_name="centralBalls"` |
+| `bga.center_solder_columns` | `MDc` | `name="centralBalls"`; `property_name="numberCentralRowsMDp"` |
+| `bga.center_solder_rows` | `MEc` | `name="centralBalls"`; `property_name="numberCentralRowsMEp"` |
+| `bga.staggered` | `staggered_matrix` | `name="solderBalls"`; `property_name="staggeredMatrix"` |
+| `bga.center_staggered` | `central_staggered_matrix` | `name="centralBalls"`; `property_name="staggeredMatrix"` |
+| `bga.omitted_cells` | `balls` | `name="solderBallDepopulation"`; `property_name="depopulationDialog"` |
+| `bga.removal_rows` | — | — |
+| `bga.removal_columns` | — | — |
+| `bga.ball_map_enabled` | `csvBGA` | `name="solderBalls"`; `property_name="solderBallMap"` |
+| `bga.ball_map` | `csvBGA` | `name="solderBalls"`; `property_name="solderBallMapDialog"` |
+| `bga.via_configuration` | — | — |
 
-### Assignments
+### MaterialAssignments
 
 | PackStudio 内部字段 | des | pack script 的字段 |
 | --- | --- | --- |
@@ -116,26 +131,6 @@
 | `group-stiffener-adhesive` | `k_sadh` | `name="topCover"`; `property_name="stiffenerAdhesiveMaterial"` |
 | `group-slug` | `k_sl` | `name="dropInSlug"`; `property_name="slugMaterial"` |
 | `group-slug-adhesive` | `k_slad` | `name="dropInSlug"`; `property_name="slugAdhesiveMaterial"` |
-
-### Bga
-
-| PackStudio 内部字段 | des | pack script 的字段 |
-| --- | --- | --- |
-| `representation` | `radio_BGA_modeling` | `name="modelingOptions"`; `property_name="modelSolderBallArrayAs"` |
-| `solder_removal_enabled` | `depop_center` | `name="solderBallDepopulation"`; `property_name="depopulatedCenter"` |
-| `populated_columns` | `MDp` | `name="solderBallDepopulation"`; `property_name="numberFullyPopulatedRowsMDp"` |
-| `populated_rows` | `MEp` | `name="solderBallDepopulation"`; `property_name="numberFullyPopulatedRowsMEp"` |
-| `center_solder_enabled` | `central_balls` | `name="centralBalls"`; `property_name="centralBalls"` |
-| `center_solder_columns` | `MDc` | `name="centralBalls"`; `property_name="numberCentralRowsMDp"` |
-| `center_solder_rows` | `MEc` | `name="centralBalls"`; `property_name="numberCentralRowsMEp"` |
-| `staggered` | `staggered_matrix` | `name="solderBalls"`; `property_name="staggeredMatrix"` |
-| `center_staggered` | `central_staggered_matrix` | `name="centralBalls"`; `property_name="staggeredMatrix"` |
-| `omitted_cells` | `balls` | `name="solderBallDepopulation"`; `property_name="depopulationDialog"` |
-| `removal_rows` | — | — |
-| `removal_columns` | — | — |
-| `ball_map_enabled` | `csvBGA` | `name="solderBalls"`; `property_name="solderBallMap"` |
-| `ball_map` | `csvBGA` | `name="solderBalls"`; `property_name="solderBallMapDialog"` |
-| `via_configuration` | — | — |
 
 ### ProjectDocument
 
@@ -189,8 +184,23 @@
 | `metal.layers` | `tza1`, `tza2`, `coveragea1`, `coveragea2`, `tz1`, `tz2`, `tz3`, `tz4`, `coverage1`, `coverage2`, `coverage3`, `coverage4`, `z2`, `z3` (mm / %) | `2-Layer`: `name="metalLayers"`; `property_name="twoLayerMetalLayersTable"`<br>`4-Layer`: `name="metalLayers"`; `property_name="fourLayerMetalLayersTable"` |
 | `metal.hole_length` | `Lml` (mm) | `name="metalLayers"`; `property_name="lengthLml"` |
 | `metal.hole_width` | `Wml` (mm) | `name="metalLayers"`; `property_name="widthWml"` |
+| `bga.representation` | — | — |
+| `bga.solder_removal_enabled` | `depop_center` | `name="solderBallDepopulation"`; `property_name="depopulatedCenter"` |
+| `bga.populated_columns` | `MDp` | `name="solderBallDepopulation"`; `property_name="numberFullyPopulatedRowsMDp"` |
+| `bga.populated_rows` | `MEp` | `name="solderBallDepopulation"`; `property_name="numberFullyPopulatedRowsMEp"` |
+| `bga.center_solder_enabled` | `central_balls` | `name="centralBalls"`; `property_name="centralBalls"` |
+| `bga.center_solder_columns` | `MDc` | `name="centralBalls"`; `property_name="numberCentralRowsMDp"` |
+| `bga.center_solder_rows` | `MEc` | `name="centralBalls"`; `property_name="numberCentralRowsMEp"` |
+| `bga.staggered` | `staggered_matrix` | `name="solderBalls"`; `property_name="staggeredMatrix"` |
+| `bga.center_staggered` | `central_staggered_matrix` | `name="centralBalls"`; `property_name="staggeredMatrix"` |
+| `bga.omitted_cells` | `balls` | `name="solderBallDepopulation"`; `property_name="depopulationDialog"` |
+| `bga.removal_rows` | — | — |
+| `bga.removal_columns` | — | — |
+| `bga.ball_map_enabled` | `csvBGA` | `name="solderBalls"`; `property_name="solderBallMap"` |
+| `bga.ball_map` | `csvBGA` | `name="solderBalls"`; `property_name="solderBallMapDialog"` |
+| `bga.via_configuration` | — | — |
 
-### Assignments
+### MaterialAssignments
 
 | PackStudio 内部字段 | des | pack script 的字段 |
 | --- | --- | --- |
@@ -203,26 +213,6 @@
 | `group-bga-solder` | `k_solder` | `name="solderBalls"`; `property_name="solderMaterial"` |
 | `group-metal` | `k_metal` | `name="metalLayers"`; `property_name="materialOfMetal"` |
 | `group-trace-hole` | `k_ml` | `name="metalLayers"`; `property_name="conductivity"` |
-
-### Bga
-
-| PackStudio 内部字段 | des | pack script 的字段 |
-| --- | --- | --- |
-| `representation` | — | — |
-| `solder_removal_enabled` | `depop_center` | `name="solderBallDepopulation"`; `property_name="depopulatedCenter"` |
-| `populated_columns` | `MDp` | `name="solderBallDepopulation"`; `property_name="numberFullyPopulatedRowsMDp"` |
-| `populated_rows` | `MEp` | `name="solderBallDepopulation"`; `property_name="numberFullyPopulatedRowsMEp"` |
-| `center_solder_enabled` | `central_balls` | `name="centralBalls"`; `property_name="centralBalls"` |
-| `center_solder_columns` | `MDc` | `name="centralBalls"`; `property_name="numberCentralRowsMDp"` |
-| `center_solder_rows` | `MEc` | `name="centralBalls"`; `property_name="numberCentralRowsMEp"` |
-| `staggered` | `staggered_matrix` | `name="solderBalls"`; `property_name="staggeredMatrix"` |
-| `center_staggered` | `central_staggered_matrix` | `name="centralBalls"`; `property_name="staggeredMatrix"` |
-| `omitted_cells` | `balls` | `name="solderBallDepopulation"`; `property_name="depopulationDialog"` |
-| `removal_rows` | — | — |
-| `removal_columns` | — | — |
-| `ball_map_enabled` | `csvBGA` | `name="solderBalls"`; `property_name="solderBallMap"` |
-| `ball_map` | `csvBGA` | `name="solderBalls"`; `property_name="solderBallMapDialog"` |
-| `via_configuration` | — | — |
 
 ### ProjectDocument
 
@@ -315,8 +305,23 @@
 | `lower.plating` | `tpl_b2` (mm) | `name="lowerBuiltUpRegion"`; `property_name="platingThicknessTpl"` |
 | `lower.filled` | `radio_low_filled_vias` | `name="lowerBuiltUpRegion"`; `property_name="filledVias"` |
 | `lower.layers` | `zb2_{i}`, `tzb2_{i}`, `coverb2_{i}` (mm / %) | `name="lowerBuiltUpRegion"`; `property_name="metalLayersTable"` |
+| `bga.representation` | `radio_BGA_modeling` | `name="modelingOptions"`; `property_name="modelSolderBallArrayAs"` |
+| `bga.solder_removal_enabled` | `depop_center` | `name="solderBallDepopulation"`; `property_name="depopulatedCenter"` |
+| `bga.populated_columns` | `MDp` | `name="solderBallDepopulation"`; `property_name="numberFullyPopulatedRowsMDp"` |
+| `bga.populated_rows` | `MEp` | `name="solderBallDepopulation"`; `property_name="numberFullyPopulatedRowsMEp"` |
+| `bga.center_solder_enabled` | `central_balls` | `name="centralBalls"`; `property_name="centralBalls"` |
+| `bga.center_solder_columns` | `MDc` | `name="centralBalls"`; `property_name="numberCentralRowsMDp"` |
+| `bga.center_solder_rows` | `MEc` | `name="centralBalls"`; `property_name="numberCentralRowsMEp"` |
+| `bga.staggered` | `staggered_matrix` | `name="solderBalls"`; `property_name="staggeredMatrix"` |
+| `bga.center_staggered` | `central_staggered_matrix` | `name="centralBalls"`; `property_name="staggeredMatrix"` |
+| `bga.omitted_cells` | `balls` | `name="solderBallDepopulation"`; `property_name="depopulationDialog"` |
+| `bga.removal_rows` | — | — |
+| `bga.removal_columns` | — | — |
+| `bga.ball_map_enabled` | `csvBGA` | `name="solderBalls"`; `property_name="solderBallMap"` |
+| `bga.ball_map` | `csvBGA` | `name="solderBalls"`; `property_name="solderBallMapDialog"` |
+| `bga.via_configuration` | — | — |
 
-### Assignments
+### MaterialAssignments
 
 | PackStudio 内部字段 | des | pack script 的字段 |
 | --- | --- | --- |
@@ -338,26 +343,6 @@
 | `group-metal` | `k_metal` | `name="metalLayers"`; `property_name="materialOfMetal"` |
 | `group-upper` | `kb1` | `name="upperBuiltUpRegion"`; `property_name="dielectricMaterial"` |
 | `group-lower` | `kb2` | `name="lowerBuiltUpRegion"`; `property_name="dielectricMaterial"` |
-
-### Bga
-
-| PackStudio 内部字段 | des | pack script 的字段 |
-| --- | --- | --- |
-| `representation` | `radio_BGA_modeling` | `name="modelingOptions"`; `property_name="modelSolderBallArrayAs"` |
-| `solder_removal_enabled` | `depop_center` | `name="solderBallDepopulation"`; `property_name="depopulatedCenter"` |
-| `populated_columns` | `MDp` | `name="solderBallDepopulation"`; `property_name="numberFullyPopulatedRowsMDp"` |
-| `populated_rows` | `MEp` | `name="solderBallDepopulation"`; `property_name="numberFullyPopulatedRowsMEp"` |
-| `center_solder_enabled` | `central_balls` | `name="centralBalls"`; `property_name="centralBalls"` |
-| `center_solder_columns` | `MDc` | `name="centralBalls"`; `property_name="numberCentralRowsMDp"` |
-| `center_solder_rows` | `MEc` | `name="centralBalls"`; `property_name="numberCentralRowsMEp"` |
-| `staggered` | `staggered_matrix` | `name="solderBalls"`; `property_name="staggeredMatrix"` |
-| `center_staggered` | `central_staggered_matrix` | `name="centralBalls"`; `property_name="staggeredMatrix"` |
-| `omitted_cells` | `balls` | `name="solderBallDepopulation"`; `property_name="depopulationDialog"` |
-| `removal_rows` | — | — |
-| `removal_columns` | — | — |
-| `ball_map_enabled` | `csvBGA` | `name="solderBalls"`; `property_name="solderBallMap"` |
-| `ball_map` | `csvBGA` | `name="solderBalls"`; `property_name="solderBallMapDialog"` |
-| `via_configuration` | — | — |
 
 ### ProjectDocument
 
@@ -429,8 +414,23 @@
 | `slug.offset` | `gsl` (mm) | `name="dropInSlug"`; `property_name="slugOffsetGs"` |
 | `slug.clearance` | `g_slf` (mm) | `name="dropInSlug"`; `property_name="slugFootClearanceGsf"` |
 | `slug.adhesive_enabled` | `slug_adh` | `name="dropInSlug"`; `property_name="adhesivePresentUnderSlugFoot"` |
+| `bga.representation` | `radio_BGA_modeling` | `name="modelingOptions"`; `property_name="modelSolderBallArrayAs"` |
+| `bga.solder_removal_enabled` | `depop_center` | `name="solderBallDepopulation"`; `property_name="depopulatedCenter"` |
+| `bga.populated_columns` | `MDp` | `name="solderBallDepopulation"`; `property_name="numberFullyPopulatedRowsMDp"` |
+| `bga.populated_rows` | `MEp` | `name="solderBallDepopulation"`; `property_name="numberFullyPopulatedRowsMEp"` |
+| `bga.center_solder_enabled` | `central_balls` | `name="centralBalls"`; `property_name="centralBalls"` |
+| `bga.center_solder_columns` | `MDc` | `name="centralBalls"`; `property_name="numberCentralRowsMDp"` |
+| `bga.center_solder_rows` | `MEc` | `name="centralBalls"`; `property_name="numberCentralRowsMEp"` |
+| `bga.staggered` | `staggered_matrix` | `name="solderBalls"`; `property_name="staggeredMatrix"` |
+| `bga.center_staggered` | `central_staggered_matrix` | `name="centralBalls"`; `property_name="staggeredMatrix"` |
+| `bga.omitted_cells` | `balls` | `name="solderBallDepopulation"`; `property_name="depopulationDialog"` |
+| `bga.removal_rows` | — | — |
+| `bga.removal_columns` | — | — |
+| `bga.ball_map_enabled` | `csvBGA` | `name="solderBalls"`; `property_name="solderBallMap"` |
+| `bga.ball_map` | `csvBGA` | `name="solderBalls"`; `property_name="solderBallMapDialog"` |
+| `bga.via_configuration` | — | — |
 
-### Assignments
+### MaterialAssignments
 
 | PackStudio 内部字段 | des | pack script 的字段 |
 | --- | --- | --- |
@@ -445,26 +445,6 @@
 | `group-traces` | `k_metal` | `name="metalLayers"`; `property_name="materialOfMetal"` |
 | `group-slug` | `k_sl` | `name="dropInSlug"`; `property_name="slugMaterial"` |
 | `group-slug-adhesive` | `k_slad` | `name="dropInSlug"`; `property_name="slugAdhesiveMaterial"` |
-
-### Bga
-
-| PackStudio 内部字段 | des | pack script 的字段 |
-| --- | --- | --- |
-| `representation` | `radio_BGA_modeling` | `name="modelingOptions"`; `property_name="modelSolderBallArrayAs"` |
-| `solder_removal_enabled` | `depop_center` | `name="solderBallDepopulation"`; `property_name="depopulatedCenter"` |
-| `populated_columns` | `MDp` | `name="solderBallDepopulation"`; `property_name="numberFullyPopulatedRowsMDp"` |
-| `populated_rows` | `MEp` | `name="solderBallDepopulation"`; `property_name="numberFullyPopulatedRowsMEp"` |
-| `center_solder_enabled` | `central_balls` | `name="centralBalls"`; `property_name="centralBalls"` |
-| `center_solder_columns` | `MDc` | `name="centralBalls"`; `property_name="numberCentralRowsMDp"` |
-| `center_solder_rows` | `MEc` | `name="centralBalls"`; `property_name="numberCentralRowsMEp"` |
-| `staggered` | `staggered_matrix` | `name="solderBalls"`; `property_name="staggeredMatrix"` |
-| `center_staggered` | `central_staggered_matrix` | `name="centralBalls"`; `property_name="staggeredMatrix"` |
-| `omitted_cells` | `balls` | `name="solderBallDepopulation"`; `property_name="depopulationDialog"` |
-| `removal_rows` | — | — |
-| `removal_columns` | — | — |
-| `ball_map_enabled` | `csvBGA` | `name="solderBalls"`; `property_name="solderBallMap"` |
-| `ball_map` | `csvBGA` | `name="solderBalls"`; `property_name="solderBallMapDialog"` |
-| `via_configuration` | — | — |
 
 ### ProjectDocument
 
@@ -522,7 +502,7 @@
 | `leads.coverage` | `cl` (%) | `name="leadFrame"`; `property_name="leadframeCoveragePercentage"` |
 | `leads.modeling` | `radio_LeadFram_modeling` | `name="modelingOptions"`; `property_name="modelLeadFrameAs"` |
 
-### Assignments
+### MaterialAssignments
 
 | PackStudio 内部字段 | des | pack script 的字段 |
 | --- | --- | --- |
@@ -590,7 +570,7 @@
 | `bond_wire.steps` | `nsteps` | `name="modelingOptions"`; `property_name="numberOfDiscreteBondwireSteps"` |
 | `vias.modeling` | `radio_via_modeling` | `name="vias"`; `property_name="modelViasAs"` |
 
-### Assignments
+### MaterialAssignments
 
 | PackStudio 内部字段 | des | pack script 的字段 |
 | --- | --- | --- |
@@ -655,7 +635,7 @@
 | `leads.custom_coverage` | `radio_defined_coverage` | `name="leadFrame"`; `property_name="userDefinedLeadframeCoverage"` |
 | `leads.coverage` | `cl` (%) | `name="leadFrame"`; `property_name="leadframeCoveragePercentage"` |
 
-### Assignments
+### MaterialAssignments
 
 | PackStudio 内部字段 | des | pack script 的字段 |
 | --- | --- | --- |

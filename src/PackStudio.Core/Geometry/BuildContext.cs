@@ -6,12 +6,11 @@ public sealed class BuildContext
     public Template Template { get; }
     public JObject Values { get; }
     public JObject Baseline { get; }
-    public JObject Bga { get; }
     public PackageModel Model { get; }
 
     readonly Dictionary<string, string> assignments = [];
     readonly Dictionary<string, Material> customOverrides = [];
-    public BuildContext(PackageCatalog catalog, Template template, JObject values, string presetId, string name, JObject? bga = null, Dictionary<string, string>? materialAssignments = null, IEnumerable<Material>? custom = null)
+    public BuildContext(PackageCatalog catalog, Template template, JObject values, string presetId, string name, Dictionary<string, string>? materialAssignments = null, IEnumerable<Material>? custom = null)
     {
         Template = template;
         Values = catalog.Initialize(template, values, presetId);
@@ -33,13 +32,13 @@ public sealed class BuildContext
             assignments[s["group_id"].Text()] = s["default"].Text();
         var preset = template.Presets.FirstOrDefault(p => p.Id == presetId);
         if (preset != null)
-            foreach (var p in preset.Materials.Properties())
+            foreach (var p in preset.MaterialAssignments.Properties())
                 assignments[p.Name] = p.Value.Text();
         if (materialAssignments != null)
             foreach (var p in materialAssignments)
             {
                 var selection = template.MaterialSelections.SingleOrDefault(s => s["group_id"].Text() == p.Key) ?? throw new ArgumentException($"未知材料组 {p.Key}");
-                if (!((JArray)selection["options"]!).Any(o => o.Text() == "*" || o.Text() == p.Value) && !template.Presets.Any(pr => pr.Materials[p.Key].Text() == p.Value))
+                if (!((JArray)selection["options"]!).Any(o => o.Text() == "*" || o.Text() == p.Value) && !template.Presets.Any(pr => pr.MaterialAssignments[p.Key].Text() == p.Value))
                     throw new ArgumentException($"材料 {p.Value} 不适用于 {p.Key}");
                 assignments[p.Key] = p.Value;
             }
@@ -50,9 +49,6 @@ public sealed class BuildContext
             Model.Materials[m.Id] = m;
             customOverrides[m.Id] = m;
         }
-
-        Bga = (JObject)(bga ?? preset?.Bga ?? new JObject()).DeepClone();
-        Bga["representation"] ??= template.Data["default_bga_representation"]?.DeepClone() ?? "discrete";
     }
 
     public double N(string key) => Values[key]?.Type is JTokenType.Integer or JTokenType.Float ? Values[key]!.Value<double>() : throw new ArgumentException($"{key} 需要数值。");

@@ -10,7 +10,7 @@ using PackStudio.Desktop;
 namespace PackStudio.Desktop.Tests;
 static class NewPackageChecks
 {
-    static readonly string PreviewDirectory = Path.GetFullPath("tmp/2026-10-29-new-package");
+    static readonly string PreviewDirectory = Environment.GetEnvironmentVariable("PACKSTUDIO_TEST_DIRECTORY") ?? Path.GetFullPath("tmp/" + DateTime.Now.ToString("yyyy-MM-dd") + "-desktop-tests");
     static T Control<T>(FrameworkElement window, string name)
         where T : FrameworkElement => (T)window.FindName(name);
     static void Click(Button button) => button.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));

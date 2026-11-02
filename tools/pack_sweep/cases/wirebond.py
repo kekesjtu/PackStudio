@@ -53,7 +53,7 @@ def cases():
                 family + "-lead-copper",
                 family,
                 [("leadFrame", "leadframeMaterial", "Copper (Pure)")],
-                assignments={"group-lead-frame": "copper"},
+                material_assignments={"group-lead-frame": "copper"},
             )
             for coverage in (25, 75):
                 add(
@@ -67,7 +67,7 @@ def cases():
                 "sop-flag-copper",
                 family,
                 [("dieFlagAndTieBars", "dieFlagMaterial", "Copper (Pure)")],
-                assignments={"group-die-flag": "copper"},
+                material_assignments={"group-die-flag": "copper"},
             )
             for downset in (0.3, 0.414, 0.418, 0.422, 0.5):
                 add(
@@ -175,7 +175,7 @@ def cases():
                 "wb-metal-aluminum",
                 family,
                 [("metalLayers", "materialOfMetal", "Aluminum (Pure)")],
-                assignments={"group-traces": "aluminum"},
+                material_assignments={"group-traces": "aluminum"},
             )
             add(
                 "wb-flag-coverage",
@@ -235,7 +235,7 @@ def cases():
                         "slug.clearance": 0.2,
                         "slug.adhesive_enabled": adhesive,
                     },
-                    assignments={
+                    material_assignments={
                         "group-slug": "copper",
                         **({"group-slug-adhesive": "qmi-595"} if adhesive else {}),
                     },
@@ -261,7 +261,7 @@ def cases():
                     "spreader.hole_length": 3.5,
                     "spreader.hole_width": 3,
                 },
-                assignments={"group-backside-spreader": "copper"},
+                material_assignments={"group-backside-spreader": "copper"},
             )
             for layer in ("2-Layer", "4-Layer"):
                 add(

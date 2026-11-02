@@ -1,5 +1,5 @@
 {
-  "schema_version": "packstudio.preset/v2",
+  "schema_version": "packstudio.preset/v3",
   "id": "QFN_8X8_40",
   "family": "qfn",
   "default_branch": "default",
@@ -46,7 +46,7 @@
         "bond_wire.steps": 1,
         "vias.modeling": "discrete"
       },
-      "assignments": {
+      "material_assignments": {
         "group-encapsulant": "eme-7730lf",
         "group-die": "silicon",
         "group-die-attach": "dieattach-2600bt",
@@ -54,13 +54,11 @@
         "group-lead-frame": "leadframe-c194",
         "group-bond-wires": "gold",
         "group-solder": "solder-sn63"
-      },
-      "bga": {}
+      }
     }
   },
   "source": {
     "family": "QFN",
-    "path": "flocentral/flopack/QFN/QFN_8X8_40.des",
-    "sha256": "31022283cc4c5da444d0b771a0f4825af9aea7bd0e5e672011936c415e2d751d"
+    "path": "flocentral/flopack/QFN/QFN_8X8_40.des"
   }
 }

@@ -17,7 +17,8 @@ FOOTPRINTS = {
 
 def case_adder(result):
     def add(
-        identifier, family, changes=(), overrides=None, bga=None, assignments=None, wizard=None
+        identifier, family, changes=(), overrides=None, ball_layout=None,
+        material_assignments=None, wizard=None
     ):
         defaults = {"designName": family}
         if family != "bare_die":
@@ -51,10 +52,12 @@ def case_adder(result):
         request = {
             "template_id": family,
             "overrides": {family + "." + k: v for k, v in (overrides or {}).items()},
-            "material_assignments": assignments or {},
+            "material_assignments": material_assignments or {},
         }
-        if bga is not None:
-            request["bga"] = bga
+        if ball_layout is not None:
+            request["overrides"].update(
+                {family + ".bga." + key: value for key, value in ball_layout.items()}
+            )
         result.append({"id": identifier, "commands": commands, "request": request})
 
     return add

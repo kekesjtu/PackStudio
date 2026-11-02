@@ -10,11 +10,7 @@ public static class JsonData
         string path = Path.GetFullPath(Path.Combine(directory, entry["file"].Text()));
         if (!path.StartsWith(root, StringComparison.OrdinalIgnoreCase))
             throw new InvalidDataException("目录记录超出运行库。");
-        byte[] bytes = File.ReadAllBytes(path);
-        string hash = Convert.ToHexStringLower(System.Security.Cryptography.SHA256.HashData(bytes));
-        if (hash != entry["sha256"].Text())
-            throw new InvalidDataException($"运行数据哈希不匹配：{entry["file"]}");
-        return JObject.Parse(System.Text.Encoding.UTF8.GetString(bytes));
+        return Read(path);
     }
 
     public static double Number(this JToken? token, double fallback = 0) => token == null || token.Type == JTokenType.Null ? fallback : token.Value<double>();
@@ -24,7 +20,7 @@ public static class JsonData
 }
 
 public sealed record TemplateInfo(string Id, string Name);
-public sealed record Preset(string Id, JObject Values, JObject Materials, JObject Bga, JObject Branches);
+public sealed record Preset(string Id, JObject Values, JObject MaterialAssignments, JObject Branches);
 public sealed class Template(TemplateInfo info, JObject data, IReadOnlyList<Preset> presets)
 {
     public TemplateInfo Info { get; } = info;

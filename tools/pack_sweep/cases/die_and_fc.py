@@ -111,7 +111,7 @@ def cases():
                     "slug.clearance": 0.2,
                     "slug.adhesive_enabled": adhesive,
                 },
-                assignments={
+                material_assignments={
                     "group-slug": "copper",
                     **({"group-slug-adhesive": "qmi-595"} if adhesive else {}),
                 },
@@ -162,7 +162,7 @@ def cases():
                     ("centralBalls", "numberCentralRowsMEp", 3),
                     ("centralBalls", "staggeredMatrix", True),
                 ],
-                bga={
+                ball_layout={
                     "representation": representation,
                     "staggered": True,
                     "center_solder_enabled": True,
@@ -274,7 +274,7 @@ def cases():
                     region + ".plating": 0.025,
                     region + ".layers": table,
                 },
-                assignments={"group-" + region: "bt"},
+                material_assignments={"group-" + region: "bt"},
             )
             for row, values in enumerate(table):
                 for col, value in enumerate(values.values()):

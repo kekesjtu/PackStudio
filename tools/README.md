@@ -5,8 +5,8 @@
 ```powershell
 dotnet restore PackStudio.slnx --locked-mode
 dotnet build PackStudio.slnx -c Release --no-restore
-dotnet run --project tests/PackStudio.Tests -c Release --no-build -- .
-dotnet run --project tests/PackStudio.Desktop.Tests -c Release --no-build
+dotnet run --project tests/PackStudio.Tests -c Release --no-build -- . layout materials projects
+dotnet run --project tests/PackStudio.Desktop.Tests -c Release --no-build -- configuration
 .\start.ps1
 ```
 
@@ -17,7 +17,7 @@ dotnet run --project src/PackStudio.Cli -- catalog
 dotnet run --project src/PackStudio.Cli -- generate request.json model.floxml
 ```
 
-请求可使用保存的 `.packstudio.json` 方案，或包含 `template_id`、`overrides`、`bga`、`vias` 与 `material_assignments` 的扫参输入。输出通过 FloXML XSD 验证。
+请求可使用保存的 `.packstudio.json` 方案，或包含 `template_id`、`overrides` 与 `material_assignments` 的扫参输入；布局覆盖使用 `overrides["<family>.bga.<字段>"]`。输出通过 FloXML XSD 验证。
 
 ## 独立研究工具
 

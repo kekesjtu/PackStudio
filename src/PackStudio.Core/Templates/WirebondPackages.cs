@@ -58,13 +58,9 @@ public static class WirebondPackages
         if (approximate)
             single = MaterialLibrary.Mix(single.Id, single, matrix, diameter * diameter / (b * b));
         c.Derived(single);
-        int count = c.Model.Blocks.Count;
-        SolderBalls.Build(c);
-        var ballBlocks = c.Model.Blocks.Skip(count).Where(x => x.GroupId == "group-solder-ball").ToList();
-        c.Model.Blocks.RemoveRange(count, c.Model.Blocks.Count - count);
         double side = Math.Sqrt(Math.PI) * b / 2, dx = approximate ? 0 : c.N("vias.offset_x"), dy = approximate ? 0 : c.N("vias.offset_y");
-        foreach (var ball in ballBlocks)
-            c.Center(ball.Id.Replace("solder-ball", "thermal-via").Replace("-part-1", ""), "via", side, side, height - tt - bt, baseZ + bt, single.Id, "vias", derived: true, cx: ball.Origin.X + ball.Size.X / 2 + dx, cy: ball.Origin.Y + ball.Size.Y / 2 + dy);
+        foreach (var position in SolderBalls.MainPositions(c))
+            c.Center(position.Id.Replace("solder-ball", "thermal-via").Replace("solder-map", "thermal-via-map"), "via", side, side, height - tt - bt, baseZ + bt, single.Id, "vias", derived: true, cx: position.X + dx, cy: position.Y + dy);
     }
 
     static void WirebondDetails(BuildContext c, JArray rows, double l, double w, double baseZ, double height, double extentX, double extentY, double d)

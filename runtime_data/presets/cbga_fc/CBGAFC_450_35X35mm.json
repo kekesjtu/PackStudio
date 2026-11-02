@@ -1,5 +1,5 @@
 {
-  "schema_version": "packstudio.preset/v2",
+  "schema_version": "packstudio.preset/v3",
   "id": "CBGAFC_450_35X35mm",
   "family": "cbga_fc",
   "default_branch": "default",
@@ -54,9 +54,17 @@
         "slug.foot_length": null,
         "slug.foot_width": null,
         "slug.offset": null,
-        "slug.clearance": null
+        "slug.clearance": null,
+        "bga.solder_removal_enabled": true,
+        "bga.center_solder_enabled": false,
+        "bga.populated_rows": 10,
+        "bga.populated_columns": 10,
+        "bga.center_solder_rows": null,
+        "bga.center_solder_columns": null,
+        "bga.staggered": false,
+        "bga.center_staggered": false
       },
-      "assignments": {
+      "material_assignments": {
         "group-substrate": "alumina",
         "group-die": "silicon",
         "group-encapsulant": "epoxy-mold",
@@ -68,22 +76,11 @@
         "group-bga-solder": "solder-sn63",
         "group-bump-solder": "solder-pb90",
         "group-underfill": "underfill"
-      },
-      "bga": {
-        "solder_removal_enabled": true,
-        "center_solder_enabled": false,
-        "populated_rows": 10,
-        "populated_columns": 10,
-        "center_solder_rows": null,
-        "center_solder_columns": null,
-        "staggered": false,
-        "center_staggered": false
       }
     }
   },
   "source": {
     "family": "cbga_fc",
-    "path": "flocentral/flopack/cbga_fc/CBGAFC_450_35X35mm.des",
-    "sha256": "fbb9f18683b2d51a37130f6b3252784674e139a263b427b2c91ccab7d663833d"
+    "path": "flocentral/flopack/cbga_fc/CBGAFC_450_35X35mm.des"
   }
 }

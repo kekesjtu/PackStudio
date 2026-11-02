@@ -18,12 +18,13 @@ static class RemovalMatrixChecks
         if (RemovalMatrix.Merge([(1, 1)], [(1, 2), (2, 2)], true).Count != 3)
             throw new Exception("框选去除未并入选中格子");
         var ordered = RemovalMatrix.ToJson([(2, 1), (0, 3), (0, 1)]);
-        if (ordered.ToString(Newtonsoft.Json.Formatting.None) != """[{"row":0,"column":1},{"row":0,"column":3},{"row":2,"column":1}]""")
-            throw new Exception("去球单元写回顺序不稳定：" + ordered.ToString(Newtonsoft.Json.Formatting.None));
+        var coordinates = ordered.Select(cell => (cell["row"]!.Value<int>(), cell["column"]!.Value<int>()));
+        if (!coordinates.SequenceEqual(new[] { (0, 1), (0, 3), (2, 1) }))
+            throw new Exception("去球单元写回顺序不稳定");
 
         if (steps.Items.Cast<WizardStep>().All(step => step.Key != "solder_removal"))
             return;
-        var bga = workspace.Document.Bga;
+        var bga = workspace.Document.Values;
         steps.SelectedValue = "solder_removal";
         window.UpdateLayout();
         int rows = (int)workspace.Document.Values["bga.rows"].Number(), columns = (int)workspace.Document.Values["bga.columns"].Number();
@@ -35,18 +36,18 @@ static class RemovalMatrixChecks
         if (cells.Count != rows * columns)
             throw new Exception($"去球矩阵格子数 {cells.Count} 与 {rows}×{columns} 不一致");
         Click(cells[0]);
-        if ((bga["omitted_cells"] as JArray ?? []).Count != 1)
+        if ((bga["bga.omitted_cells"] as JArray ?? []).Count != 1)
             throw new Exception("单击矩阵格子未写入去球单元");
         Click(cells[cells.Count - 1]);
-        if ((bga["omitted_cells"] as JArray ?? []).Count != 2)
+        if ((bga["bga.omitted_cells"] as JArray ?? []).Count != 2)
             throw new Exception("分散点选未保留已去除格子");
         Click(cells[0]);
-        if ((bga["omitted_cells"] as JArray ?? []).Count != 1)
+        if ((bga["bga.omitted_cells"] as JArray ?? []).Count != 1)
             throw new Exception("再次单击矩阵格子未恢复焊球");
         var reset = Descendants<Button>(fields).SingleOrDefault(button => button.Content?.ToString() == "重置为空")
             ?? throw new Exception("去球矩阵缺少重置按钮");
         reset.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
-        if ((bga["omitted_cells"] as JArray ?? []).Count != 0)
+        if ((bga["bga.omitted_cells"] as JArray ?? []).Count != 0)
             throw new Exception("重置按钮未清空去球单元");
 
         if (steps.Items.Cast<WizardStep>().All(step => step.Key != "thermal_vias"))
@@ -77,7 +78,7 @@ static class RemovalMatrixChecks
         if (viaMatrix == null || viaMatrix.Children.OfType<Border>().Count(cell => cell.Tag != null) != 3 * viaColumns)
             throw new Exception("去孔矩阵未随阵列行列数重建");
         Click(viaMatrix.Children.OfType<Border>().First(cell => cell.Tag != null));
-        if ((workspace.Document.Bga["via_configuration"]?["omitted_cells"] as JArray ?? []).Count != 1)
+        if ((workspace.Document.Values["bga.via_configuration"]?["omitted_cells"] as JArray ?? []).Count != 1)
             throw new Exception("去孔单元未写回文档");
         Reset(fields)!.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
         rowCount.Text = original;

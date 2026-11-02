@@ -28,16 +28,7 @@ public sealed partial class Workspace : ObservableObject
     {
         Template = Catalog.Load(id);
         string preset = presetId ?? Template.DefaultPreset;
-        var selected = Template.Presets.FirstOrDefault(p => p.Id == preset);
-        Document = new()
-        {
-            TemplateId = id,
-            PresetId = preset,
-            Name = Template.Info.Name,
-            Values = Template.Defaults(preset),
-            Bga = (JObject)(selected?.Bga.DeepClone() ?? new JObject())
-        };
-        Document.Bga["representation"] = Template.Data["default_bga_representation"]?.DeepClone() ?? "discrete";
+        Document = ProjectDocument.Create(Template, preset);
         Dirty();
         DocumentChanged?.Invoke();
     }
@@ -68,7 +59,7 @@ public sealed partial class Workspace : ObservableObject
         Status = "正在生成模型…";
         try
         {
-            var model = await Task.Run(() => new ModelBuilder(Catalog).Generate(snapshot.TemplateId, snapshot.Values, snapshot.PresetId, snapshot.Name, snapshot.Bga, snapshot.Assignments, snapshot.CustomMaterials));
+            var model = await Task.Run(() => new ModelBuilder(Catalog).Generate(snapshot));
             if (revision != Revision)
             {
                 Status = "生成期间参数有修改，请重新生成。";

@@ -49,15 +49,15 @@ def cases(baselines: Path, inputs: Path, *, families=None):
                 family,
                 changes,
                 {
-                    "overrides": {family + ".bga.rows": 5, family + ".bga.columns": 5},
-                    "bga": {
-                        "representation": "discrete",
-                        "solder_removal_enabled": True,
-                        "depopulated_center": center,
-                        "populated_rows": 2,
-                        "populated_columns": 2,
-                        "staggered": True,
-                        "omitted_cells": [{"row": 0, "column": 0}],
+                    "overrides": {
+                        family + ".bga.rows": 5,
+                        family + ".bga.columns": 5,
+                        family + ".bga.representation": "discrete",
+                        family + ".bga.solder_removal_enabled": True,
+                        family + ".bga.populated_rows": 2,
+                        family + ".bga.populated_columns": 2,
+                        family + ".bga.staggered": True,
+                        family + ".bga.omitted_cells": [{"row": 0, "column": 0}],
                     },
                 },
             )
@@ -81,14 +81,14 @@ def cases(baselines: Path, inputs: Path, *, families=None):
                     radio_BGA_modeling="3",
                 ),
                 {
-                    "bga": {
-                        "representation": "discrete",
-                        "ball_map_enabled": True,
-                        "ball_map": points,
-                        "staggered": True,
-                        "center_solder_enabled": True,
-                        "center_solder_rows": 2,
-                        "center_solder_columns": 2,
+                    "overrides": {
+                        family + ".bga.representation": "discrete",
+                        family + ".bga.ball_map_enabled": True,
+                        family + ".bga.ball_map": points,
+                        family + ".bga.staggered": True,
+                        family + ".bga.center_solder_enabled": True,
+                        family + ".bga.center_solder_rows": 2,
+                        family + ".bga.center_solder_columns": 2,
                     }
                 },
                 "\n".join(f"{p['id']},{p['x']},{p['y']}" for p in points),
@@ -98,8 +98,12 @@ def cases(baselines: Path, inputs: Path, *, families=None):
             family,
             dict(MD="5", ME="4", staggered_matrix="CHECKED", radio_BGA_modeling="3"),
             {
-                "overrides": {family + ".bga.rows": 4, family + ".bga.columns": 5},
-                "bga": {"representation": "discrete", "staggered": True},
+                "overrides": {
+                    family + ".bga.rows": 4,
+                    family + ".bga.columns": 5,
+                    family + ".bga.representation": "discrete",
+                    family + ".bga.staggered": True,
+                },
             },
         )
     for mode in ("discrete", "equivalent"):
@@ -127,19 +131,19 @@ def cases(baselines: Path, inputs: Path, *, families=None):
                         "pbga_fc.vias.pitch": 0.5,
                         "pbga_fc.vias.plating": 0.025,
                         "pbga_fc.vias.modeling": mode,
+                        "pbga_fc.bga.via_configuration": {
+                            "removal_enabled": True,
+                            "removal_rows": 0,
+                            "removal_columns": 0,
+                            "omitted_cells": [
+                                {"row": r, "column": c}
+                                for r in range(4)
+                                for c in range(3)
+                                if (r, c) != (0, 0)
+                            ],
+                        },
                     },
                     "material_assignments": {"group-substrate": "bt"} if isotropic else {},
-                    "vias": {
-                        "removal_enabled": True,
-                        "removal_rows": 0,
-                        "removal_columns": 0,
-                        "omitted_cells": [
-                            {"row": r, "column": c}
-                            for r in range(4)
-                            for c in range(3)
-                            if (r, c) != (0, 0)
-                        ],
-                    },
                 },
                 via_map="0x0",
             )

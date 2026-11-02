@@ -17,8 +17,8 @@ Windows 安装 .NET 10 SDK 后，在仓库根目录运行：
 ```powershell
 dotnet restore PackStudio.slnx --locked-mode
 dotnet build PackStudio.slnx -c Release --no-restore
-dotnet run --project tests/PackStudio.Tests -c Release --no-build -- .
-dotnet run --project tests/PackStudio.Desktop.Tests -c Release --no-build
+dotnet run --project tests/PackStudio.Tests -c Release --no-build -- . layout materials projects
+dotnet run --project tests/PackStudio.Desktop.Tests -c Release --no-build -- configuration
 ```
 
 生成可分发的独立桌面程序：

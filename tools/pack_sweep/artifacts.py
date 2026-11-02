@@ -3,14 +3,12 @@
 import json
 import shutil
 from xml.etree import ElementTree as ET
-from zipfile import ZipFile
 
 from lxml import etree
 
 from tools.floscript.environment import INSTALLATION
 from tools.floscript.script import validate as validate_xml
 from tools.floscript.script import write_xml
-from tools.pack_sweep.archive import digest
 
 
 def dump(path, payload):
@@ -34,13 +32,6 @@ def point_payload(point):
         "request": point.request,
         "metadata": point.metadata,
     }
-    if point.input_des:
-        import hashlib
-
-        with ZipFile(point.input_des) as archive:
-            payload["input_members"] = {
-                n: hashlib.sha256(archive.read(n)).hexdigest() for n in archive.namelist()
-            }
     return payload
 
 
@@ -73,9 +64,8 @@ def write_point(point, destination, runtime, token, run, installation=INSTALLATI
         )
     }
     provenance.update(
-        batch_script_sha256=run["script_sha256"],
         native_case_id=token,
-        files={name: digest(destination / name) for name in names},
+        files=names,
     )
     schema_error = None
     try:

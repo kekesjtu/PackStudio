@@ -1,5 +1,5 @@
 {
-  "schema_version": "packstudio.preset/v2",
+  "schema_version": "packstudio.preset/v3",
   "id": "PBGAFC_144_13X13mm",
   "family": "pbga_fc",
   "default_branch": "default",
@@ -72,9 +72,17 @@
         "lower.diameter": null,
         "lower.plating": null,
         "lower.filled": true,
-        "lower.layers": []
+        "lower.layers": [],
+        "bga.solder_removal_enabled": false,
+        "bga.center_solder_enabled": false,
+        "bga.populated_rows": null,
+        "bga.populated_columns": null,
+        "bga.center_solder_rows": null,
+        "bga.center_solder_columns": null,
+        "bga.staggered": false,
+        "bga.center_staggered": false
       },
-      "assignments": {
+      "material_assignments": {
         "group-substrate": "pbga-substrate",
         "group-die": "silicon",
         "group-encapsulant": "epoxy-mold",
@@ -87,22 +95,11 @@
         "group-bump-solder": "solder-pb90",
         "group-underfill": "underfill",
         "group-metal": "copper"
-      },
-      "bga": {
-        "solder_removal_enabled": false,
-        "center_solder_enabled": false,
-        "populated_rows": null,
-        "populated_columns": null,
-        "center_solder_rows": null,
-        "center_solder_columns": null,
-        "staggered": false,
-        "center_staggered": false
       }
     }
   },
   "source": {
     "family": "pbga_fc",
-    "path": "flocentral/flopack/pbga_fc/PBGAFC_144_13X13mm.des",
-    "sha256": "d108552671481b8a20ada6960de626c0717e1f6a4bcf502590a78ea37fb26ece"
+    "path": "flocentral/flopack/pbga_fc/PBGAFC_144_13X13mm.des"
   }
 }

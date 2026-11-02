@@ -25,7 +25,7 @@ try
 
     if (args[0] != "generate" || args.Length < 3)
         throw new ArgumentException("generate 需要请求文件和输出文件路径。");
-    var model = new ModelBuilder(catalog).Generate(document.TemplateId, document.Values, document.PresetId, document.Name, document.Bga, document.Assignments, document.CustomMaterials);
+    var model = new ModelBuilder(catalog).Generate(document);
     FloXml.Save(model, args[2], Path.Combine(root, "output_format/floxml/xmlSchema.xsd"));
     Console.WriteLine(JsonConvert.SerializeObject(new { blocks = model.Blocks.Count, power_w = model.Sources.Sum(s => s.Power), warnings = model.Warnings }));
     return 0;

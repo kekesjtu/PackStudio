@@ -8,8 +8,9 @@ namespace PackStudio.Desktop.Tests;
 public static class Program
 {
     [STAThread]
-    public static int Main()
+    public static int Main(string[] args)
     {
+        bool configurationOnly = args.Contains("configuration", StringComparer.OrdinalIgnoreCase);
         var application = new Application();
         application.Resources.MergedDictionaries.Add(new ResourceDictionary { Source = new Uri("pack://application:,,,/PackStudio;component/DesktopResources.xaml") });
         var window = new MainWindow
@@ -102,8 +103,11 @@ public static class Program
                     var viewport = (HelixViewport3D)window.FindName("Viewport");
                     if (viewport.Children.Count != vm.Model.Blocks.Count + 1)
                         throw new Exception("preview block count");
-                    WorkspaceChecks.CheckModelRoot(window);
-                    ModelTreeChecks.Run(window, vm);
+                    if (!configurationOnly)
+                    {
+                        WorkspaceChecks.CheckModelRoot(window);
+                        ModelTreeChecks.Run(window, vm);
+                    }
                     vm.ChangeVisibility(vm.Model.Blocks.Select(b => b.Id), false);
                     if (viewport.Children.Count != 1)
                         throw new Exception("hidden blocks remain in preview");
@@ -124,8 +128,11 @@ public static class Program
                 TableEditorChecks.Verify();
 
                 await NewPackageChecks.FinishCreatesProject(window, vm);
-                WorkspaceChecks.Run(window, vm);
-                await ViewportScaleChecks.Run(window);
+                if (!configurationOnly)
+                {
+                    WorkspaceChecks.Run(window, vm);
+                    await ViewportScaleChecks.Run(window);
+                }
             }
             catch (Exception ex)
             {

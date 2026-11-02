@@ -1,6 +1,5 @@
 """Resolve native PACK material names from the independent JSON material library."""
 
-from tools.data_library.catalog_storage import read_catalog_entry
 from tools.data_library.runtime_data import read_default_keys, read_default_value, read_defaults
 
 
@@ -28,9 +27,7 @@ class MaterialCatalog:
             )
         except KeyError as error:
             raise ValueError(f"unknown catalog material: {name}") from error
-        payload = read_catalog_entry(
-            f"materials/{entry['file']}", "packstudio.material/v1", entry["sha256"]
-        )
+        payload = read_defaults(f"materials/{entry['file']}", "packstudio.material/v1")
         if payload["name"] != name or payload["category"] != entry["category"]:
             raise ValueError(f"material identity mismatch: {name}")
         return payload

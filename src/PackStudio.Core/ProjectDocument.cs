@@ -4,35 +4,34 @@ using Newtonsoft.Json.Linq;
 namespace PackStudio.Core;
 public sealed class ProjectDocument
 {
-    public string SchemaVersion { get; set; } = "packstudio.project/v1";
+    public string SchemaVersion { get; set; } = "packstudio.project/v2";
     public string TemplateId { get; set; } = "bare_die";
     public string PresetId { get; set; } = "";
     public string Name { get; set; } = "Bare Die";
     public JObject Values { get; set; } = new();
-    public JObject Bga { get; set; } = new();
-    public Dictionary<string, string> Assignments { get; set; } = [];
+    public Dictionary<string, string> MaterialAssignments { get; set; } = [];
     public List<Material> CustomMaterials { get; set; } = [];
 
     public ProjectDocument Clone() => JsonConvert.DeserializeObject<ProjectDocument>(JsonConvert.SerializeObject(this))!;
+    public static ProjectDocument Create(Template template, string? presetId = null, string? name = null)
+    {
+        string preset = presetId ?? template.DefaultPreset;
+        return new() { TemplateId = template.Info.Id, PresetId = preset, Name = name ?? template.Info.Name, Values = template.Defaults(preset) };
+    }
+
     public static ProjectDocument Load(string path)
     {
         if (new FileInfo(path).Length > 16 * 1024 * 1024)
             throw new InvalidDataException("方案文件超过 16 MB。");
-        var document = JsonConvert.DeserializeObject<ProjectDocument>(File.ReadAllText(path)) ?? throw new InvalidDataException("方案文件为空。");
-        if (document.SchemaVersion != "packstudio.project/v1")
+        var data = JsonData.Read(path);
+        if (data["SchemaVersion"].Text() == "packstudio.project/v1")
+            ProjectInput.Upgrade(data);
+        var document = data.ToObject<ProjectDocument>() ?? throw new InvalidDataException("方案文件为空。");
+        if (document.SchemaVersion != "packstudio.project/v2")
             throw new InvalidDataException("方案版本不受支持。");
         if (!PackageCatalog.Families.Any(f => f.Id == document.TemplateId))
             throw new InvalidDataException("未知封装类型。");
-        NormalizeTables(document.Values);
         return document;
-    }
-
-    // v1 方案与归档请求的字符串层表只在输入边界转换，内部及保存结果统一使用数组。
-    internal static void NormalizeTables(JObject values)
-    {
-        foreach (string key in new[] { "metal.layers", "upper.layers", "lower.layers" })
-            if (values[key]?.Type == JTokenType.String)
-                values[key] = JArray.Parse(values[key]!.Value<string>()!);
     }
 
     public void Save(string path)

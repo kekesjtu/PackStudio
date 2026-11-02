@@ -160,7 +160,37 @@
         }
       }
     },
-    "Assignments": {
+    "ProjectDocument": {
+      "TemplateId": {
+        "DES": {
+          "keys": [
+            "package"
+          ]
+        },
+        "pack_script": {}
+      },
+      "Name": {
+        "DES": {
+          "keys": [
+            "design"
+          ]
+        },
+        "pack_script": {}
+      },
+      "PresetId": {
+        "DES": {
+          "keys": []
+        },
+        "pack_script": {}
+      },
+      "CustomMaterials": {
+        "DES": {
+          "keys": []
+        },
+        "pack_script": {}
+      }
+    },
+    "MaterialAssignments": {
       "group-die": {
         "DES": {
           "keys": [
@@ -199,36 +229,6 @@
           "name": "bumpedDie",
           "property_name": "underfillConductivity"
         }
-      }
-    },
-    "ProjectDocument": {
-      "TemplateId": {
-        "DES": {
-          "keys": [
-            "package"
-          ]
-        },
-        "pack_script": {}
-      },
-      "Name": {
-        "DES": {
-          "keys": [
-            "design"
-          ]
-        },
-        "pack_script": {}
-      },
-      "PresetId": {
-        "DES": {
-          "keys": []
-        },
-        "pack_script": {}
-      },
-      "CustomMaterials": {
-        "DES": {
-          "keys": []
-        },
-        "pack_script": {}
       }
     }
   },
@@ -1045,9 +1045,189 @@
           "name": "dropInSlug",
           "property_name": "adhesivePresentUnderSlugFoot"
         }
+      },
+      "bga.representation": {
+        "DES": {
+          "keys": [
+            "radio_BGA_modeling"
+          ]
+        },
+        "pack_script": {
+          "name": "modelingOptions",
+          "property_name": "modelSolderBallArrayAs"
+        }
+      },
+      "bga.solder_removal_enabled": {
+        "DES": {
+          "keys": [
+            "depop_center"
+          ]
+        },
+        "pack_script": {
+          "name": "solderBallDepopulation",
+          "property_name": "depopulatedCenter"
+        }
+      },
+      "bga.populated_columns": {
+        "DES": {
+          "keys": [
+            "MDp"
+          ]
+        },
+        "pack_script": {
+          "name": "solderBallDepopulation",
+          "property_name": "numberFullyPopulatedRowsMDp"
+        }
+      },
+      "bga.populated_rows": {
+        "DES": {
+          "keys": [
+            "MEp"
+          ]
+        },
+        "pack_script": {
+          "name": "solderBallDepopulation",
+          "property_name": "numberFullyPopulatedRowsMEp"
+        }
+      },
+      "bga.center_solder_enabled": {
+        "DES": {
+          "keys": [
+            "central_balls"
+          ]
+        },
+        "pack_script": {
+          "name": "centralBalls",
+          "property_name": "centralBalls"
+        }
+      },
+      "bga.center_solder_columns": {
+        "DES": {
+          "keys": [
+            "MDc"
+          ]
+        },
+        "pack_script": {
+          "name": "centralBalls",
+          "property_name": "numberCentralRowsMDp"
+        }
+      },
+      "bga.center_solder_rows": {
+        "DES": {
+          "keys": [
+            "MEc"
+          ]
+        },
+        "pack_script": {
+          "name": "centralBalls",
+          "property_name": "numberCentralRowsMEp"
+        }
+      },
+      "bga.staggered": {
+        "DES": {
+          "keys": [
+            "staggered_matrix"
+          ]
+        },
+        "pack_script": {
+          "name": "solderBalls",
+          "property_name": "staggeredMatrix"
+        }
+      },
+      "bga.center_staggered": {
+        "DES": {
+          "keys": [
+            "central_staggered_matrix"
+          ]
+        },
+        "pack_script": {
+          "name": "centralBalls",
+          "property_name": "staggeredMatrix"
+        }
+      },
+      "bga.omitted_cells": {
+        "DES": {
+          "keys": [
+            "balls"
+          ]
+        },
+        "pack_script": {
+          "name": "solderBallDepopulation",
+          "property_name": "depopulationDialog"
+        }
+      },
+      "bga.removal_rows": {
+        "DES": {
+          "keys": []
+        },
+        "pack_script": {}
+      },
+      "bga.removal_columns": {
+        "DES": {
+          "keys": []
+        },
+        "pack_script": {}
+      },
+      "bga.ball_map_enabled": {
+        "DES": {
+          "keys": [
+            "csvBGA"
+          ]
+        },
+        "pack_script": {
+          "name": "solderBalls",
+          "property_name": "solderBallMap"
+        }
+      },
+      "bga.ball_map": {
+        "DES": {
+          "keys": [
+            "csvBGA"
+          ]
+        },
+        "pack_script": {
+          "name": "solderBalls",
+          "property_name": "solderBallMapDialog"
+        }
+      },
+      "bga.via_configuration": {
+        "DES": {
+          "keys": []
+        },
+        "pack_script": {}
       }
     },
-    "Assignments": {
+    "ProjectDocument": {
+      "TemplateId": {
+        "DES": {
+          "keys": [
+            "package"
+          ]
+        },
+        "pack_script": {}
+      },
+      "Name": {
+        "DES": {
+          "keys": [
+            "design"
+          ]
+        },
+        "pack_script": {}
+      },
+      "PresetId": {
+        "DES": {
+          "keys": []
+        },
+        "pack_script": {}
+      },
+      "CustomMaterials": {
+        "DES": {
+          "keys": []
+        },
+        "pack_script": {}
+      }
+    },
+    "MaterialAssignments": {
       "group-substrate": {
         "DES": {
           "keys": [
@@ -1245,188 +1425,6 @@
           "name": "dropInSlug",
           "property_name": "slugAdhesiveMaterial"
         }
-      }
-    },
-    "Bga": {
-      "representation": {
-        "DES": {
-          "keys": [
-            "radio_BGA_modeling"
-          ]
-        },
-        "pack_script": {
-          "name": "modelingOptions",
-          "property_name": "modelSolderBallArrayAs"
-        }
-      },
-      "solder_removal_enabled": {
-        "DES": {
-          "keys": [
-            "depop_center"
-          ]
-        },
-        "pack_script": {
-          "name": "solderBallDepopulation",
-          "property_name": "depopulatedCenter"
-        }
-      },
-      "populated_columns": {
-        "DES": {
-          "keys": [
-            "MDp"
-          ]
-        },
-        "pack_script": {
-          "name": "solderBallDepopulation",
-          "property_name": "numberFullyPopulatedRowsMDp"
-        }
-      },
-      "populated_rows": {
-        "DES": {
-          "keys": [
-            "MEp"
-          ]
-        },
-        "pack_script": {
-          "name": "solderBallDepopulation",
-          "property_name": "numberFullyPopulatedRowsMEp"
-        }
-      },
-      "center_solder_enabled": {
-        "DES": {
-          "keys": [
-            "central_balls"
-          ]
-        },
-        "pack_script": {
-          "name": "centralBalls",
-          "property_name": "centralBalls"
-        }
-      },
-      "center_solder_columns": {
-        "DES": {
-          "keys": [
-            "MDc"
-          ]
-        },
-        "pack_script": {
-          "name": "centralBalls",
-          "property_name": "numberCentralRowsMDp"
-        }
-      },
-      "center_solder_rows": {
-        "DES": {
-          "keys": [
-            "MEc"
-          ]
-        },
-        "pack_script": {
-          "name": "centralBalls",
-          "property_name": "numberCentralRowsMEp"
-        }
-      },
-      "staggered": {
-        "DES": {
-          "keys": [
-            "staggered_matrix"
-          ]
-        },
-        "pack_script": {
-          "name": "solderBalls",
-          "property_name": "staggeredMatrix"
-        }
-      },
-      "center_staggered": {
-        "DES": {
-          "keys": [
-            "central_staggered_matrix"
-          ]
-        },
-        "pack_script": {
-          "name": "centralBalls",
-          "property_name": "staggeredMatrix"
-        }
-      },
-      "omitted_cells": {
-        "DES": {
-          "keys": [
-            "balls"
-          ]
-        },
-        "pack_script": {
-          "name": "solderBallDepopulation",
-          "property_name": "depopulationDialog"
-        }
-      },
-      "removal_rows": {
-        "DES": {
-          "keys": []
-        },
-        "pack_script": {}
-      },
-      "removal_columns": {
-        "DES": {
-          "keys": []
-        },
-        "pack_script": {}
-      },
-      "ball_map_enabled": {
-        "DES": {
-          "keys": [
-            "csvBGA"
-          ]
-        },
-        "pack_script": {
-          "name": "solderBalls",
-          "property_name": "solderBallMap"
-        }
-      },
-      "ball_map": {
-        "DES": {
-          "keys": [
-            "csvBGA"
-          ]
-        },
-        "pack_script": {
-          "name": "solderBalls",
-          "property_name": "solderBallMapDialog"
-        }
-      },
-      "via_configuration": {
-        "DES": {
-          "keys": []
-        },
-        "pack_script": {}
-      }
-    },
-    "ProjectDocument": {
-      "TemplateId": {
-        "DES": {
-          "keys": [
-            "package"
-          ]
-        },
-        "pack_script": {}
-      },
-      "Name": {
-        "DES": {
-          "keys": [
-            "design"
-          ]
-        },
-        "pack_script": {}
-      },
-      "PresetId": {
-        "DES": {
-          "keys": []
-        },
-        "pack_script": {}
-      },
-      "CustomMaterials": {
-        "DES": {
-          "keys": []
-        },
-        "pack_script": {}
       }
     }
   },
@@ -1960,9 +1958,184 @@
           "name": "metalLayers",
           "property_name": "widthWml"
         }
+      },
+      "bga.representation": {
+        "DES": {
+          "keys": []
+        },
+        "pack_script": {}
+      },
+      "bga.solder_removal_enabled": {
+        "DES": {
+          "keys": [
+            "depop_center"
+          ]
+        },
+        "pack_script": {
+          "name": "solderBallDepopulation",
+          "property_name": "depopulatedCenter"
+        }
+      },
+      "bga.populated_columns": {
+        "DES": {
+          "keys": [
+            "MDp"
+          ]
+        },
+        "pack_script": {
+          "name": "solderBallDepopulation",
+          "property_name": "numberFullyPopulatedRowsMDp"
+        }
+      },
+      "bga.populated_rows": {
+        "DES": {
+          "keys": [
+            "MEp"
+          ]
+        },
+        "pack_script": {
+          "name": "solderBallDepopulation",
+          "property_name": "numberFullyPopulatedRowsMEp"
+        }
+      },
+      "bga.center_solder_enabled": {
+        "DES": {
+          "keys": [
+            "central_balls"
+          ]
+        },
+        "pack_script": {
+          "name": "centralBalls",
+          "property_name": "centralBalls"
+        }
+      },
+      "bga.center_solder_columns": {
+        "DES": {
+          "keys": [
+            "MDc"
+          ]
+        },
+        "pack_script": {
+          "name": "centralBalls",
+          "property_name": "numberCentralRowsMDp"
+        }
+      },
+      "bga.center_solder_rows": {
+        "DES": {
+          "keys": [
+            "MEc"
+          ]
+        },
+        "pack_script": {
+          "name": "centralBalls",
+          "property_name": "numberCentralRowsMEp"
+        }
+      },
+      "bga.staggered": {
+        "DES": {
+          "keys": [
+            "staggered_matrix"
+          ]
+        },
+        "pack_script": {
+          "name": "solderBalls",
+          "property_name": "staggeredMatrix"
+        }
+      },
+      "bga.center_staggered": {
+        "DES": {
+          "keys": [
+            "central_staggered_matrix"
+          ]
+        },
+        "pack_script": {
+          "name": "centralBalls",
+          "property_name": "staggeredMatrix"
+        }
+      },
+      "bga.omitted_cells": {
+        "DES": {
+          "keys": [
+            "balls"
+          ]
+        },
+        "pack_script": {
+          "name": "solderBallDepopulation",
+          "property_name": "depopulationDialog"
+        }
+      },
+      "bga.removal_rows": {
+        "DES": {
+          "keys": []
+        },
+        "pack_script": {}
+      },
+      "bga.removal_columns": {
+        "DES": {
+          "keys": []
+        },
+        "pack_script": {}
+      },
+      "bga.ball_map_enabled": {
+        "DES": {
+          "keys": [
+            "csvBGA"
+          ]
+        },
+        "pack_script": {
+          "name": "solderBalls",
+          "property_name": "solderBallMap"
+        }
+      },
+      "bga.ball_map": {
+        "DES": {
+          "keys": [
+            "csvBGA"
+          ]
+        },
+        "pack_script": {
+          "name": "solderBalls",
+          "property_name": "solderBallMapDialog"
+        }
+      },
+      "bga.via_configuration": {
+        "DES": {
+          "keys": []
+        },
+        "pack_script": {}
       }
     },
-    "Assignments": {
+    "ProjectDocument": {
+      "TemplateId": {
+        "DES": {
+          "keys": [
+            "package"
+          ]
+        },
+        "pack_script": {}
+      },
+      "Name": {
+        "DES": {
+          "keys": [
+            "design"
+          ]
+        },
+        "pack_script": {}
+      },
+      "PresetId": {
+        "DES": {
+          "keys": []
+        },
+        "pack_script": {}
+      },
+      "CustomMaterials": {
+        "DES": {
+          "keys": []
+        },
+        "pack_script": {}
+      }
+    },
+    "MaterialAssignments": {
       "group-substrate": {
         "DES": {
           "keys": [
@@ -2056,183 +2229,6 @@
           "name": "metalLayers",
           "property_name": "conductivity"
         }
-      }
-    },
-    "Bga": {
-      "representation": {
-        "DES": {
-          "keys": []
-        },
-        "pack_script": {}
-      },
-      "solder_removal_enabled": {
-        "DES": {
-          "keys": [
-            "depop_center"
-          ]
-        },
-        "pack_script": {
-          "name": "solderBallDepopulation",
-          "property_name": "depopulatedCenter"
-        }
-      },
-      "populated_columns": {
-        "DES": {
-          "keys": [
-            "MDp"
-          ]
-        },
-        "pack_script": {
-          "name": "solderBallDepopulation",
-          "property_name": "numberFullyPopulatedRowsMDp"
-        }
-      },
-      "populated_rows": {
-        "DES": {
-          "keys": [
-            "MEp"
-          ]
-        },
-        "pack_script": {
-          "name": "solderBallDepopulation",
-          "property_name": "numberFullyPopulatedRowsMEp"
-        }
-      },
-      "center_solder_enabled": {
-        "DES": {
-          "keys": [
-            "central_balls"
-          ]
-        },
-        "pack_script": {
-          "name": "centralBalls",
-          "property_name": "centralBalls"
-        }
-      },
-      "center_solder_columns": {
-        "DES": {
-          "keys": [
-            "MDc"
-          ]
-        },
-        "pack_script": {
-          "name": "centralBalls",
-          "property_name": "numberCentralRowsMDp"
-        }
-      },
-      "center_solder_rows": {
-        "DES": {
-          "keys": [
-            "MEc"
-          ]
-        },
-        "pack_script": {
-          "name": "centralBalls",
-          "property_name": "numberCentralRowsMEp"
-        }
-      },
-      "staggered": {
-        "DES": {
-          "keys": [
-            "staggered_matrix"
-          ]
-        },
-        "pack_script": {
-          "name": "solderBalls",
-          "property_name": "staggeredMatrix"
-        }
-      },
-      "center_staggered": {
-        "DES": {
-          "keys": [
-            "central_staggered_matrix"
-          ]
-        },
-        "pack_script": {
-          "name": "centralBalls",
-          "property_name": "staggeredMatrix"
-        }
-      },
-      "omitted_cells": {
-        "DES": {
-          "keys": [
-            "balls"
-          ]
-        },
-        "pack_script": {
-          "name": "solderBallDepopulation",
-          "property_name": "depopulationDialog"
-        }
-      },
-      "removal_rows": {
-        "DES": {
-          "keys": []
-        },
-        "pack_script": {}
-      },
-      "removal_columns": {
-        "DES": {
-          "keys": []
-        },
-        "pack_script": {}
-      },
-      "ball_map_enabled": {
-        "DES": {
-          "keys": [
-            "csvBGA"
-          ]
-        },
-        "pack_script": {
-          "name": "solderBalls",
-          "property_name": "solderBallMap"
-        }
-      },
-      "ball_map": {
-        "DES": {
-          "keys": [
-            "csvBGA"
-          ]
-        },
-        "pack_script": {
-          "name": "solderBalls",
-          "property_name": "solderBallMapDialog"
-        }
-      },
-      "via_configuration": {
-        "DES": {
-          "keys": []
-        },
-        "pack_script": {}
-      }
-    },
-    "ProjectDocument": {
-      "TemplateId": {
-        "DES": {
-          "keys": [
-            "package"
-          ]
-        },
-        "pack_script": {}
-      },
-      "Name": {
-        "DES": {
-          "keys": [
-            "design"
-          ]
-        },
-        "pack_script": {}
-      },
-      "PresetId": {
-        "DES": {
-          "keys": []
-        },
-        "pack_script": {}
-      },
-      "CustomMaterials": {
-        "DES": {
-          "keys": []
-        },
-        "pack_script": {}
       }
     }
   },
@@ -3384,9 +3380,189 @@
           "name": "lowerBuiltUpRegion",
           "property_name": "metalLayersTable"
         }
+      },
+      "bga.representation": {
+        "DES": {
+          "keys": [
+            "radio_BGA_modeling"
+          ]
+        },
+        "pack_script": {
+          "name": "modelingOptions",
+          "property_name": "modelSolderBallArrayAs"
+        }
+      },
+      "bga.solder_removal_enabled": {
+        "DES": {
+          "keys": [
+            "depop_center"
+          ]
+        },
+        "pack_script": {
+          "name": "solderBallDepopulation",
+          "property_name": "depopulatedCenter"
+        }
+      },
+      "bga.populated_columns": {
+        "DES": {
+          "keys": [
+            "MDp"
+          ]
+        },
+        "pack_script": {
+          "name": "solderBallDepopulation",
+          "property_name": "numberFullyPopulatedRowsMDp"
+        }
+      },
+      "bga.populated_rows": {
+        "DES": {
+          "keys": [
+            "MEp"
+          ]
+        },
+        "pack_script": {
+          "name": "solderBallDepopulation",
+          "property_name": "numberFullyPopulatedRowsMEp"
+        }
+      },
+      "bga.center_solder_enabled": {
+        "DES": {
+          "keys": [
+            "central_balls"
+          ]
+        },
+        "pack_script": {
+          "name": "centralBalls",
+          "property_name": "centralBalls"
+        }
+      },
+      "bga.center_solder_columns": {
+        "DES": {
+          "keys": [
+            "MDc"
+          ]
+        },
+        "pack_script": {
+          "name": "centralBalls",
+          "property_name": "numberCentralRowsMDp"
+        }
+      },
+      "bga.center_solder_rows": {
+        "DES": {
+          "keys": [
+            "MEc"
+          ]
+        },
+        "pack_script": {
+          "name": "centralBalls",
+          "property_name": "numberCentralRowsMEp"
+        }
+      },
+      "bga.staggered": {
+        "DES": {
+          "keys": [
+            "staggered_matrix"
+          ]
+        },
+        "pack_script": {
+          "name": "solderBalls",
+          "property_name": "staggeredMatrix"
+        }
+      },
+      "bga.center_staggered": {
+        "DES": {
+          "keys": [
+            "central_staggered_matrix"
+          ]
+        },
+        "pack_script": {
+          "name": "centralBalls",
+          "property_name": "staggeredMatrix"
+        }
+      },
+      "bga.omitted_cells": {
+        "DES": {
+          "keys": [
+            "balls"
+          ]
+        },
+        "pack_script": {
+          "name": "solderBallDepopulation",
+          "property_name": "depopulationDialog"
+        }
+      },
+      "bga.removal_rows": {
+        "DES": {
+          "keys": []
+        },
+        "pack_script": {}
+      },
+      "bga.removal_columns": {
+        "DES": {
+          "keys": []
+        },
+        "pack_script": {}
+      },
+      "bga.ball_map_enabled": {
+        "DES": {
+          "keys": [
+            "csvBGA"
+          ]
+        },
+        "pack_script": {
+          "name": "solderBalls",
+          "property_name": "solderBallMap"
+        }
+      },
+      "bga.ball_map": {
+        "DES": {
+          "keys": [
+            "csvBGA"
+          ]
+        },
+        "pack_script": {
+          "name": "solderBalls",
+          "property_name": "solderBallMapDialog"
+        }
+      },
+      "bga.via_configuration": {
+        "DES": {
+          "keys": []
+        },
+        "pack_script": {}
       }
     },
-    "Assignments": {
+    "ProjectDocument": {
+      "TemplateId": {
+        "DES": {
+          "keys": [
+            "package"
+          ]
+        },
+        "pack_script": {}
+      },
+      "Name": {
+        "DES": {
+          "keys": [
+            "design"
+          ]
+        },
+        "pack_script": {}
+      },
+      "PresetId": {
+        "DES": {
+          "keys": []
+        },
+        "pack_script": {}
+      },
+      "CustomMaterials": {
+        "DES": {
+          "keys": []
+        },
+        "pack_script": {}
+      }
+    },
+    "MaterialAssignments": {
       "group-substrate": {
         "DES": {
           "keys": [
@@ -3623,188 +3799,6 @@
           "name": "lowerBuiltUpRegion",
           "property_name": "dielectricMaterial"
         }
-      }
-    },
-    "Bga": {
-      "representation": {
-        "DES": {
-          "keys": [
-            "radio_BGA_modeling"
-          ]
-        },
-        "pack_script": {
-          "name": "modelingOptions",
-          "property_name": "modelSolderBallArrayAs"
-        }
-      },
-      "solder_removal_enabled": {
-        "DES": {
-          "keys": [
-            "depop_center"
-          ]
-        },
-        "pack_script": {
-          "name": "solderBallDepopulation",
-          "property_name": "depopulatedCenter"
-        }
-      },
-      "populated_columns": {
-        "DES": {
-          "keys": [
-            "MDp"
-          ]
-        },
-        "pack_script": {
-          "name": "solderBallDepopulation",
-          "property_name": "numberFullyPopulatedRowsMDp"
-        }
-      },
-      "populated_rows": {
-        "DES": {
-          "keys": [
-            "MEp"
-          ]
-        },
-        "pack_script": {
-          "name": "solderBallDepopulation",
-          "property_name": "numberFullyPopulatedRowsMEp"
-        }
-      },
-      "center_solder_enabled": {
-        "DES": {
-          "keys": [
-            "central_balls"
-          ]
-        },
-        "pack_script": {
-          "name": "centralBalls",
-          "property_name": "centralBalls"
-        }
-      },
-      "center_solder_columns": {
-        "DES": {
-          "keys": [
-            "MDc"
-          ]
-        },
-        "pack_script": {
-          "name": "centralBalls",
-          "property_name": "numberCentralRowsMDp"
-        }
-      },
-      "center_solder_rows": {
-        "DES": {
-          "keys": [
-            "MEc"
-          ]
-        },
-        "pack_script": {
-          "name": "centralBalls",
-          "property_name": "numberCentralRowsMEp"
-        }
-      },
-      "staggered": {
-        "DES": {
-          "keys": [
-            "staggered_matrix"
-          ]
-        },
-        "pack_script": {
-          "name": "solderBalls",
-          "property_name": "staggeredMatrix"
-        }
-      },
-      "center_staggered": {
-        "DES": {
-          "keys": [
-            "central_staggered_matrix"
-          ]
-        },
-        "pack_script": {
-          "name": "centralBalls",
-          "property_name": "staggeredMatrix"
-        }
-      },
-      "omitted_cells": {
-        "DES": {
-          "keys": [
-            "balls"
-          ]
-        },
-        "pack_script": {
-          "name": "solderBallDepopulation",
-          "property_name": "depopulationDialog"
-        }
-      },
-      "removal_rows": {
-        "DES": {
-          "keys": []
-        },
-        "pack_script": {}
-      },
-      "removal_columns": {
-        "DES": {
-          "keys": []
-        },
-        "pack_script": {}
-      },
-      "ball_map_enabled": {
-        "DES": {
-          "keys": [
-            "csvBGA"
-          ]
-        },
-        "pack_script": {
-          "name": "solderBalls",
-          "property_name": "solderBallMap"
-        }
-      },
-      "ball_map": {
-        "DES": {
-          "keys": [
-            "csvBGA"
-          ]
-        },
-        "pack_script": {
-          "name": "solderBalls",
-          "property_name": "solderBallMapDialog"
-        }
-      },
-      "via_configuration": {
-        "DES": {
-          "keys": []
-        },
-        "pack_script": {}
-      }
-    },
-    "ProjectDocument": {
-      "TemplateId": {
-        "DES": {
-          "keys": [
-            "package"
-          ]
-        },
-        "pack_script": {}
-      },
-      "Name": {
-        "DES": {
-          "keys": [
-            "design"
-          ]
-        },
-        "pack_script": {}
-      },
-      "PresetId": {
-        "DES": {
-          "keys": []
-        },
-        "pack_script": {}
-      },
-      "CustomMaterials": {
-        "DES": {
-          "keys": []
-        },
-        "pack_script": {}
       }
     }
   },
@@ -4563,9 +4557,189 @@
           "name": "dropInSlug",
           "property_name": "adhesivePresentUnderSlugFoot"
         }
+      },
+      "bga.representation": {
+        "DES": {
+          "keys": [
+            "radio_BGA_modeling"
+          ]
+        },
+        "pack_script": {
+          "name": "modelingOptions",
+          "property_name": "modelSolderBallArrayAs"
+        }
+      },
+      "bga.solder_removal_enabled": {
+        "DES": {
+          "keys": [
+            "depop_center"
+          ]
+        },
+        "pack_script": {
+          "name": "solderBallDepopulation",
+          "property_name": "depopulatedCenter"
+        }
+      },
+      "bga.populated_columns": {
+        "DES": {
+          "keys": [
+            "MDp"
+          ]
+        },
+        "pack_script": {
+          "name": "solderBallDepopulation",
+          "property_name": "numberFullyPopulatedRowsMDp"
+        }
+      },
+      "bga.populated_rows": {
+        "DES": {
+          "keys": [
+            "MEp"
+          ]
+        },
+        "pack_script": {
+          "name": "solderBallDepopulation",
+          "property_name": "numberFullyPopulatedRowsMEp"
+        }
+      },
+      "bga.center_solder_enabled": {
+        "DES": {
+          "keys": [
+            "central_balls"
+          ]
+        },
+        "pack_script": {
+          "name": "centralBalls",
+          "property_name": "centralBalls"
+        }
+      },
+      "bga.center_solder_columns": {
+        "DES": {
+          "keys": [
+            "MDc"
+          ]
+        },
+        "pack_script": {
+          "name": "centralBalls",
+          "property_name": "numberCentralRowsMDp"
+        }
+      },
+      "bga.center_solder_rows": {
+        "DES": {
+          "keys": [
+            "MEc"
+          ]
+        },
+        "pack_script": {
+          "name": "centralBalls",
+          "property_name": "numberCentralRowsMEp"
+        }
+      },
+      "bga.staggered": {
+        "DES": {
+          "keys": [
+            "staggered_matrix"
+          ]
+        },
+        "pack_script": {
+          "name": "solderBalls",
+          "property_name": "staggeredMatrix"
+        }
+      },
+      "bga.center_staggered": {
+        "DES": {
+          "keys": [
+            "central_staggered_matrix"
+          ]
+        },
+        "pack_script": {
+          "name": "centralBalls",
+          "property_name": "staggeredMatrix"
+        }
+      },
+      "bga.omitted_cells": {
+        "DES": {
+          "keys": [
+            "balls"
+          ]
+        },
+        "pack_script": {
+          "name": "solderBallDepopulation",
+          "property_name": "depopulationDialog"
+        }
+      },
+      "bga.removal_rows": {
+        "DES": {
+          "keys": []
+        },
+        "pack_script": {}
+      },
+      "bga.removal_columns": {
+        "DES": {
+          "keys": []
+        },
+        "pack_script": {}
+      },
+      "bga.ball_map_enabled": {
+        "DES": {
+          "keys": [
+            "csvBGA"
+          ]
+        },
+        "pack_script": {
+          "name": "solderBalls",
+          "property_name": "solderBallMap"
+        }
+      },
+      "bga.ball_map": {
+        "DES": {
+          "keys": [
+            "csvBGA"
+          ]
+        },
+        "pack_script": {
+          "name": "solderBalls",
+          "property_name": "solderBallMapDialog"
+        }
+      },
+      "bga.via_configuration": {
+        "DES": {
+          "keys": []
+        },
+        "pack_script": {}
       }
     },
-    "Assignments": {
+    "ProjectDocument": {
+      "TemplateId": {
+        "DES": {
+          "keys": [
+            "package"
+          ]
+        },
+        "pack_script": {}
+      },
+      "Name": {
+        "DES": {
+          "keys": [
+            "design"
+          ]
+        },
+        "pack_script": {}
+      },
+      "PresetId": {
+        "DES": {
+          "keys": []
+        },
+        "pack_script": {}
+      },
+      "CustomMaterials": {
+        "DES": {
+          "keys": []
+        },
+        "pack_script": {}
+      }
+    },
+    "MaterialAssignments": {
       "group-substrate": {
         "DES": {
           "keys": [
@@ -4691,188 +4865,6 @@
           "name": "dropInSlug",
           "property_name": "slugAdhesiveMaterial"
         }
-      }
-    },
-    "Bga": {
-      "representation": {
-        "DES": {
-          "keys": [
-            "radio_BGA_modeling"
-          ]
-        },
-        "pack_script": {
-          "name": "modelingOptions",
-          "property_name": "modelSolderBallArrayAs"
-        }
-      },
-      "solder_removal_enabled": {
-        "DES": {
-          "keys": [
-            "depop_center"
-          ]
-        },
-        "pack_script": {
-          "name": "solderBallDepopulation",
-          "property_name": "depopulatedCenter"
-        }
-      },
-      "populated_columns": {
-        "DES": {
-          "keys": [
-            "MDp"
-          ]
-        },
-        "pack_script": {
-          "name": "solderBallDepopulation",
-          "property_name": "numberFullyPopulatedRowsMDp"
-        }
-      },
-      "populated_rows": {
-        "DES": {
-          "keys": [
-            "MEp"
-          ]
-        },
-        "pack_script": {
-          "name": "solderBallDepopulation",
-          "property_name": "numberFullyPopulatedRowsMEp"
-        }
-      },
-      "center_solder_enabled": {
-        "DES": {
-          "keys": [
-            "central_balls"
-          ]
-        },
-        "pack_script": {
-          "name": "centralBalls",
-          "property_name": "centralBalls"
-        }
-      },
-      "center_solder_columns": {
-        "DES": {
-          "keys": [
-            "MDc"
-          ]
-        },
-        "pack_script": {
-          "name": "centralBalls",
-          "property_name": "numberCentralRowsMDp"
-        }
-      },
-      "center_solder_rows": {
-        "DES": {
-          "keys": [
-            "MEc"
-          ]
-        },
-        "pack_script": {
-          "name": "centralBalls",
-          "property_name": "numberCentralRowsMEp"
-        }
-      },
-      "staggered": {
-        "DES": {
-          "keys": [
-            "staggered_matrix"
-          ]
-        },
-        "pack_script": {
-          "name": "solderBalls",
-          "property_name": "staggeredMatrix"
-        }
-      },
-      "center_staggered": {
-        "DES": {
-          "keys": [
-            "central_staggered_matrix"
-          ]
-        },
-        "pack_script": {
-          "name": "centralBalls",
-          "property_name": "staggeredMatrix"
-        }
-      },
-      "omitted_cells": {
-        "DES": {
-          "keys": [
-            "balls"
-          ]
-        },
-        "pack_script": {
-          "name": "solderBallDepopulation",
-          "property_name": "depopulationDialog"
-        }
-      },
-      "removal_rows": {
-        "DES": {
-          "keys": []
-        },
-        "pack_script": {}
-      },
-      "removal_columns": {
-        "DES": {
-          "keys": []
-        },
-        "pack_script": {}
-      },
-      "ball_map_enabled": {
-        "DES": {
-          "keys": [
-            "csvBGA"
-          ]
-        },
-        "pack_script": {
-          "name": "solderBalls",
-          "property_name": "solderBallMap"
-        }
-      },
-      "ball_map": {
-        "DES": {
-          "keys": [
-            "csvBGA"
-          ]
-        },
-        "pack_script": {
-          "name": "solderBalls",
-          "property_name": "solderBallMapDialog"
-        }
-      },
-      "via_configuration": {
-        "DES": {
-          "keys": []
-        },
-        "pack_script": {}
-      }
-    },
-    "ProjectDocument": {
-      "TemplateId": {
-        "DES": {
-          "keys": [
-            "package"
-          ]
-        },
-        "pack_script": {}
-      },
-      "Name": {
-        "DES": {
-          "keys": [
-            "design"
-          ]
-        },
-        "pack_script": {}
-      },
-      "PresetId": {
-        "DES": {
-          "keys": []
-        },
-        "pack_script": {}
-      },
-      "CustomMaterials": {
-        "DES": {
-          "keys": []
-        },
-        "pack_script": {}
       }
     }
   },
@@ -5356,7 +5348,37 @@
         }
       }
     },
-    "Assignments": {
+    "ProjectDocument": {
+      "TemplateId": {
+        "DES": {
+          "keys": [
+            "package"
+          ]
+        },
+        "pack_script": {}
+      },
+      "Name": {
+        "DES": {
+          "keys": [
+            "design"
+          ]
+        },
+        "pack_script": {}
+      },
+      "PresetId": {
+        "DES": {
+          "keys": []
+        },
+        "pack_script": {}
+      },
+      "CustomMaterials": {
+        "DES": {
+          "keys": []
+        },
+        "pack_script": {}
+      }
+    },
+    "MaterialAssignments": {
       "group-encapsulant": {
         "DES": {
           "keys": [
@@ -5434,36 +5456,6 @@
           "name": "thermalLandAndSolder",
           "property_name": "solderMaterial"
         }
-      }
-    },
-    "ProjectDocument": {
-      "TemplateId": {
-        "DES": {
-          "keys": [
-            "package"
-          ]
-        },
-        "pack_script": {}
-      },
-      "Name": {
-        "DES": {
-          "keys": [
-            "design"
-          ]
-        },
-        "pack_script": {}
-      },
-      "PresetId": {
-        "DES": {
-          "keys": []
-        },
-        "pack_script": {}
-      },
-      "CustomMaterials": {
-        "DES": {
-          "keys": []
-        },
-        "pack_script": {}
       }
     }
   },
@@ -5981,7 +5973,37 @@
         }
       }
     },
-    "Assignments": {
+    "ProjectDocument": {
+      "TemplateId": {
+        "DES": {
+          "keys": [
+            "package"
+          ]
+        },
+        "pack_script": {}
+      },
+      "Name": {
+        "DES": {
+          "keys": [
+            "design"
+          ]
+        },
+        "pack_script": {}
+      },
+      "PresetId": {
+        "DES": {
+          "keys": []
+        },
+        "pack_script": {}
+      },
+      "CustomMaterials": {
+        "DES": {
+          "keys": []
+        },
+        "pack_script": {}
+      }
+    },
+    "MaterialAssignments": {
       "group-encapsulant": {
         "DES": {
           "keys": [
@@ -6067,36 +6089,6 @@
           "name": "thermalLand",
           "property_name": "material"
         }
-      }
-    },
-    "ProjectDocument": {
-      "TemplateId": {
-        "DES": {
-          "keys": [
-            "package"
-          ]
-        },
-        "pack_script": {}
-      },
-      "Name": {
-        "DES": {
-          "keys": [
-            "design"
-          ]
-        },
-        "pack_script": {}
-      },
-      "PresetId": {
-        "DES": {
-          "keys": []
-        },
-        "pack_script": {}
-      },
-      "CustomMaterials": {
-        "DES": {
-          "keys": []
-        },
-        "pack_script": {}
       }
     }
   },
@@ -6534,7 +6526,37 @@
         }
       }
     },
-    "Assignments": {
+    "ProjectDocument": {
+      "TemplateId": {
+        "DES": {
+          "keys": [
+            "package"
+          ]
+        },
+        "pack_script": {}
+      },
+      "Name": {
+        "DES": {
+          "keys": [
+            "design"
+          ]
+        },
+        "pack_script": {}
+      },
+      "PresetId": {
+        "DES": {
+          "keys": []
+        },
+        "pack_script": {}
+      },
+      "CustomMaterials": {
+        "DES": {
+          "keys": []
+        },
+        "pack_script": {}
+      }
+    },
+    "MaterialAssignments": {
       "group-encapsulant": {
         "DES": {
           "keys": [
@@ -6623,36 +6645,6 @@
           "name": "dieFlagAndTieBars",
           "property_name": "dieFlagMaterial"
         }
-      }
-    },
-    "ProjectDocument": {
-      "TemplateId": {
-        "DES": {
-          "keys": [
-            "package"
-          ]
-        },
-        "pack_script": {}
-      },
-      "Name": {
-        "DES": {
-          "keys": [
-            "design"
-          ]
-        },
-        "pack_script": {}
-      },
-      "PresetId": {
-        "DES": {
-          "keys": []
-        },
-        "pack_script": {}
-      },
-      "CustomMaterials": {
-        "DES": {
-          "keys": []
-        },
-        "pack_script": {}
       }
     }
   }

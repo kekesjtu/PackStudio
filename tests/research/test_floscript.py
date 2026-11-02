@@ -138,7 +138,7 @@ def test_success_records_validated_outputs_and_material_policy(tmp_path, install
     assert result["status"] == "success"
     assert all(result["checks"].values())
     assert len(result["outputs"]) == 2
-    assert result["exports"]["case"] == runner.fingerprint(directory / "case.xml")
+    assert Path(result["exports"]["case"]).is_file()
     assert not list((directory / "central/flopack/Library").iterdir())
     assert (directory / result["launcher_file"]).is_file()
     assert json.loads((directory / "run.json").read_text())["status"] == "success"

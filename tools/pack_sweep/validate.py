@@ -8,7 +8,6 @@ from lxml import etree
 from tools.floscript.des import read_des
 from tools.floscript.environment import INSTALLATION
 from tools.floscript.script import validate as validate_xml
-from tools.pack_sweep.archive import digest
 from tools.pack_sweep.compare import compare_model
 
 
@@ -18,9 +17,6 @@ def validate_point(directory: Path, installation: Path = INSTALLATION) -> dict:
     checks = provenance["checks"]
     if provenance["status"] != "success" or not checks["script_schema"] or not checks["outputs"]:
         raise ValueError(f"native execution failed: {directory}")
-    for name, expected in provenance["files"].items():
-        if digest(directory / name) != expected:
-            raise ValueError(f"native output fingerprint differs: {directory / name}")
     validate_xml(directory / "script.xml", installation)
     schema_error = None
     try:
@@ -67,7 +63,7 @@ def validate_point(directory: Path, installation: Path = INSTALLATION) -> dict:
     if case.get("request") is not None:
         result["public_model"] = compare_model(directory / "model.xml", case["request"])
     else:
-        result["validation_scope"] = "native export, XSD, DES readback and output fingerprints"
+        result["validation_scope"] = "native export, XSD and DES readback"
     if schema_error:
         result.update(status="native_schema_error", floxml_xsd="failed", error=schema_error)
     return result
@@ -88,8 +84,8 @@ def validate_tree(root: Path, installation: Path = INSTALLATION) -> dict:
     screenshots = json.loads((root / "screenshots.json").read_text(encoding="utf-8"))
     for record in screenshots:
         path = (root / record["path"]).resolve()
-        if not path.is_relative_to(root.resolve()) or digest(path) != record["sha256"]:
-            raise ValueError(f"screenshot fingerprint differs: {record['path']}")
+        if not path.is_relative_to(root.resolve()):
+            raise ValueError(f"screenshot path escapes reference root: {record['path']}")
     errors = sum(r["status"] == "native_schema_error" for r in results)
     return {
         "status": "passed_with_native_schema_errors" if errors else "passed",

@@ -636,6 +636,13 @@
       },
       "enabled_when": {},
       "des_symbol": null
+    },
+    {
+      "key": "bga.via_configuration",
+      "label": "通孔去除配置",
+      "default": null,
+      "step": "thermal_vias",
+      "control": "configuration"
     }
   ],
   "material_selections": [
@@ -749,6 +756,5 @@
       "color": "#D9A928",
       "source": "PackStudio built-in transcription of reviewed FloTHERM PACK data"
     }
-  ],
-  "default_bga_representation": "equivalent"
+  ]
 }

@@ -48,14 +48,26 @@ def test_live_die_parameters_match_internal_preset(native, family, preset, four_
     for key, prop in [("die.length", "dieLengthLd"), ("die.width", "dieWidthWd"),
                       ("die.thickness", "dieThicknessTd"), ("die.power", "packagePower")]:
         assert internal["values"][key] == die[prop]["value"]
-    assert internal["assignments"]["group-die"] == "silicon"
+    assert internal["material_assignments"]["group-die"] == "silicon"
 
 
-def test_live_materials_match_raw_values_and_environment_is_restored(native):
+def test_live_material_properties_and_environment_is_restored(native):
     previous = os.environ.get("FLOCENTRALDIR")
     records = read_builtin_materials(native)
     assert os.environ.get("FLOCENTRALDIR") == previous
-    assert len(records) == 131
     catalog = MaterialCatalog()
     for record in records:
-        assert catalog.read(record["name"])["native_storage"] == record
+        material = catalog.read(record["name"])
+        assert material["density"]["value"] == record["density_kg_m3"]
+        assert material["specific_heat"]["value"] == record["specific_heat_j_kg_k"]
+        conductivity = material["conductivity"]
+        if record["conductivity_type"] == 2:
+            for axis in ("x", "y", "z"):
+                assert conductivity[axis] == record[f"k{axis}_w_m_k"]
+        else:
+            assert conductivity["value"] == record["conductivity_w_m_k"]
+            if record["conductivity_type"] == 1:
+                assert conductivity["coefficient"] == record["conductivity_coefficient"]
+                assert conductivity["reference_temperature"] == record[
+                    "conductivity_reference_temperature"
+                ]

@@ -106,16 +106,7 @@ public partial class NewPackageWindow : Window
         string id = FootprintBox.SelectedValue as string ?? "";
         if (template.Presets.Count > 0 && id.Length == 0)
             return;
-        var preset = template.Presets.FirstOrDefault(p => p.Id == id);
-        Draft = new()
-        {
-            TemplateId = template.Info.Id,
-            PresetId = id,
-            Name = DesignNameBox.Text,
-            Values = template.Defaults(id),
-            Bga = (JObject)(preset?.Bga.DeepClone() ?? new JObject())
-        };
-        Draft.Bga["representation"] = template.Data["default_bga_representation"]?.DeepClone() ?? "discrete";
+        Draft = ProjectDocument.Create(template, id, DesignNameBox.Text);
         CreationError.Text = "";
         RefreshCreationOptions();
     }

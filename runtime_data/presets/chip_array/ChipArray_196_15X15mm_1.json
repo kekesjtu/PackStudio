@@ -1,5 +1,5 @@
 {
-  "schema_version": "packstudio.preset/v2",
+  "schema_version": "packstudio.preset/v3",
   "id": "ChipArray_196_15X15mm_1",
   "family": "chip_array",
   "default_branch": "default",
@@ -52,9 +52,17 @@
           }
         ],
         "metal.hole_length": null,
-        "metal.hole_width": null
+        "metal.hole_width": null,
+        "bga.solder_removal_enabled": false,
+        "bga.center_solder_enabled": false,
+        "bga.populated_rows": null,
+        "bga.populated_columns": null,
+        "bga.center_solder_rows": null,
+        "bga.center_solder_columns": null,
+        "bga.staggered": false,
+        "bga.center_staggered": false
       },
-      "assignments": {
+      "material_assignments": {
         "group-substrate": "bt",
         "group-die": "silicon",
         "group-die-attach": "qmi-595",
@@ -64,16 +72,6 @@
         "group-bga-solder": "solder-sn63",
         "group-metal": "copper",
         "group-trace-hole": "alloy_42_8021e087"
-      },
-      "bga": {
-        "solder_removal_enabled": false,
-        "center_solder_enabled": false,
-        "populated_rows": null,
-        "populated_columns": null,
-        "center_solder_rows": null,
-        "center_solder_columns": null,
-        "staggered": false,
-        "center_staggered": false
       }
     },
     "four_layer": {
@@ -136,9 +134,17 @@
           }
         ],
         "metal.hole_length": null,
-        "metal.hole_width": null
+        "metal.hole_width": null,
+        "bga.solder_removal_enabled": false,
+        "bga.center_solder_enabled": false,
+        "bga.populated_rows": null,
+        "bga.populated_columns": null,
+        "bga.center_solder_rows": null,
+        "bga.center_solder_columns": null,
+        "bga.staggered": false,
+        "bga.center_staggered": false
       },
-      "assignments": {
+      "material_assignments": {
         "group-substrate": "bt",
         "group-die": "silicon",
         "group-die-attach": "qmi-595",
@@ -148,22 +154,11 @@
         "group-bga-solder": "solder-sn63",
         "group-metal": "copper",
         "group-trace-hole": "alloy_42_8021e087"
-      },
-      "bga": {
-        "solder_removal_enabled": false,
-        "center_solder_enabled": false,
-        "populated_rows": null,
-        "populated_columns": null,
-        "center_solder_rows": null,
-        "center_solder_columns": null,
-        "staggered": false,
-        "center_staggered": false
       }
     }
   },
   "source": {
     "family": "chip_array",
-    "path": "flocentral/flopack/chip_array/ChipArray_196_15X15mm_1.des",
-    "sha256": "794a1ec6236952f727c50c8adad8afe852a72380394f2cd49f93eb5c06eb2879"
+    "path": "flocentral/flopack/chip_array/ChipArray_196_15X15mm_1.des"
   }
 }

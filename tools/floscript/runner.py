@@ -147,14 +147,13 @@ def execute(directory: Path, installation: Path = INSTALLATION, *, timeout: int 
         "powershell": str(paths(installation)["powershell"]),
         "launcher_file": "run_pack.ps1",
         "launcher_sha256": fingerprint(directory / "run_pack.ps1"),
-        "script_sha256": fingerprint(directory / "replay.xml"),
         "executable": str(paths(installation)["executable"]),
         "executable_sha256": fingerprint(paths(installation)["executable"]),
         "binary_sha256": {
             name: fingerprint(installation / "WinXP/bin" / name)
             for name in ("flopackrealise.dll", "flopackfloxmlhandling.dll", "flopackmaterials.dll")
         },
-        "inputs": {str(path): fingerprint(path) for path in inputs},
+        "inputs": [str(path) for path in inputs],
         "exports": {},
         "outputs": [],
         "timeout_seconds": timeout,
@@ -172,7 +171,7 @@ def execute(directory: Path, installation: Path = INSTALLATION, *, timeout: int 
                 raise ValueError("missing or empty output")
             if kind == "export_floxml":
                 validate(path, installation, floxml=True)
-                result["exports"][path.stem] = fingerprint(path)
+                result["exports"][path.stem] = str(path)
             else:
                 read_des(path)
             result["outputs"].append(
@@ -180,7 +179,6 @@ def execute(directory: Path, installation: Path = INSTALLATION, *, timeout: int 
                     "kind": kind,
                     "path": str(path),
                     "bytes": path.stat().st_size,
-                    "sha256": fingerprint(path),
                 }
             )
         except (OSError, ValueError, BadZipFile, etree.Error) as exc:
