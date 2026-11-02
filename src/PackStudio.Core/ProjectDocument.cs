@@ -24,11 +24,9 @@ public sealed class ProjectDocument
         if (new FileInfo(path).Length > 16 * 1024 * 1024)
             throw new InvalidDataException("方案文件超过 16 MB。");
         var data = JsonData.Read(path);
-        if (data["SchemaVersion"].Text() == "packstudio.project/v1")
-            ProjectInput.Upgrade(data);
-        var document = data.ToObject<ProjectDocument>() ?? throw new InvalidDataException("方案文件为空。");
-        if (document.SchemaVersion != "packstudio.project/v2")
+        if (data["SchemaVersion"].Text() != "packstudio.project/v2")
             throw new InvalidDataException("方案版本不受支持。");
+        var document = data.ToObject<ProjectDocument>() ?? throw new InvalidDataException("方案文件为空。");
         if (!PackageCatalog.Families.Any(f => f.Id == document.TemplateId))
             throw new InvalidDataException("未知封装类型。");
         return document;

@@ -14,9 +14,6 @@ public static class RequestDocument
         if (overrides[id + ".substrate.layers"] != null)
             values["substrate.layers"] = overrides[id + ".substrate.layers"]!.DeepClone();
         values = catalog.Initialize(template, values, preset);
-        ProjectInput.MergeLayout(values, input["bga"] as JObject);
-        if (input["vias"] is JObject vias)
-            values["bga.via_configuration"] = vias.DeepClone();
         foreach (var p in overrides.Properties())
         {
             if (!p.Name.StartsWith(id + ".", StringComparison.Ordinal) || values.Property(p.Name[(id.Length + 1)..]) == null)
@@ -26,7 +23,6 @@ public static class RequestDocument
 
         if (input["die_power_w"]?.Type is JTokenType.Integer or JTokenType.Float)
             values["die.power"] = input["die_power_w"]!.DeepClone();
-        ProjectInput.NormalizeTables(values);
         document.Values = values;
         document.MaterialAssignments = input["material_assignments"]?.ToObject<Dictionary<string, string>>() ?? [];
         document.CustomMaterials = (input["custom_materials"] as JArray ?? []).Select(MaterialLibrary.Parse).ToList();

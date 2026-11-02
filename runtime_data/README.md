@@ -43,7 +43,7 @@ null、0、false 与缺少字段不互相替代。启用结构缺少必需参数
 
 金属层使用真实 JSON 数组，行包含 `depth`、`thickness`、`coverage`、`disconnect`，单位分别为 mm、mm、%、布尔值。
 depth 从全基板顶面计量；空槽不生成行。模板基线、预设、方案保存、表格编辑和生成器统一使用数组。
-方案采用 `packstudio.project/v2`，由 `Values`、`MaterialAssignments`、`CustomMaterials` 和方案标识组成。v1 方案及归档请求在输入边界转换，生成器与界面只使用统一结构。
+方案仅支持 `packstudio.project/v2`，由 `Values`、`MaterialAssignments`、`CustomMaterials` 和方案标识组成。布局字段使用 `Values` 中的 `bga.*`，层表直接使用 JSON 数组。
 外层铜厚联动及四层内铜初始化由建模/创建规则处理，用户表格深度按其输入参与生成。
 
 材料温度依赖参数保留在材料定义及 FloXML 中；组分混合使用参考值。
