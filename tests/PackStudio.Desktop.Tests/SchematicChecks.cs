@@ -34,22 +34,27 @@ static class SchematicChecks
                 window.UpdateLayout();
                 if (item.Key == "modeling")
                 {
+                    steps.SelectedValue = "die";
+                    diagramTab.IsSelected = true;
+                    steps.SelectedValue = item.Key;
                     Require(!schematic.HasDiagram && !diagramTab.IsEnabled && modelTab.IsSelected,
                         "建模与局部网格栏目不应提供示意图");
                     modelingCount++;
                     continue;
                 }
-                Require(diagramTab.IsSelected && !modelTab.IsSelected, "栏目没有自动切换示意图：" + item.Key);
+                Require(modelTab.IsSelected && !diagramTab.IsSelected, "切换栏目时离开了三维模型：" + item.Key);
                 Require(schematic.TemplateId == family.Id && schematic.StepKey == item.Key && schematic.DiagramKey.Length > 0,
                     "示意图没有跟随封装与栏目：" + family.Id + "/" + item.Key);
-                Require(schematic.IsVisible, "示意图不可见");
-                modelTab.IsSelected = true;
-                Require(modelTab.IsSelected && !diagramTab.IsSelected, "无法手动切回三维模型");
                 var row = (ListBoxItem)steps.ItemContainerGenerator.ContainerFromItem(item);
                 row.RaiseEvent(new MouseButtonEventArgs(Mouse.PrimaryDevice, Environment.TickCount, MouseButton.Left)
                     { RoutedEvent = UIElement.PreviewMouseUpEvent });
-                Require(diagramTab.IsSelected, "再次点击当前栏目没有打开示意图");
+                Require(modelTab.IsSelected && !diagramTab.IsSelected, "再次点击当前栏目时离开了三维模型");
                 diagramTab.IsSelected = true;
+                steps.SelectedValue = item.Key == "summary" ? "die" : "summary";
+                steps.SelectedValue = item.Key;
+                window.UpdateLayout();
+                Require(diagramTab.IsSelected && schematic.IsVisible && schematic.StepKey == item.Key,
+                    "示意图页内切换栏目未保持视图或更新内容：" + item.Key);
                 if (previews.Add(family.Id + "-" + schematic.DiagramKey))
                     Preview(workspace, item.Key, item.Label, family.Id + "-" + schematic.DiagramKey);
                 count++;
@@ -70,6 +75,7 @@ static class SchematicChecks
             Preview(workspace, "top_cover", "顶部结构", "cbga_fc-cover-" + type);
         }
         steps.SelectedValue = "die";
+        diagramTab.IsSelected = true;
         NewPackageChecks.Capture(window, "schematic-workspace.png");
         Console.WriteLine($"PASS {count} wizard schematics, {modelingCount} modeling sections without diagrams, shared diagrams and model tab switching");
     }
