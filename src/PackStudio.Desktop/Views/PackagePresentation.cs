@@ -20,7 +20,9 @@ public static class PackagePresentation
     public static bool IsCreationOption(string key) => key is "substrate.layers" or "trace.top_thickness" or "trace.bottom_thickness" or "cover.type" or "package.exposed_pad";
     public static IEnumerable<string> StepKeys(Template template)
     {
-        var available = template.Fields.Select(f => f["step"].Text()).Concat(template.MaterialSelections.Select(s => s["step"].Text())).Where(key => key != "package_setup").Distinct().ToList();
+        var available = template.Fields.Where(f => f["control"].Text() != "configuration")
+            .Select(f => f["step"].Text()).Concat(template.MaterialSelections.Select(s => s["step"].Text()))
+            .Where(key => key != "package_setup").Distinct().ToList();
         return new[]
         {
             "summary"

@@ -24,6 +24,10 @@ static class SchematicChecks
         foreach (var family in PackageCatalog.Families)
         {
             workspace.Select(family.Id);
+            bool hasVias = steps.Items.Cast<WizardStep>().Any(s => s.Key == "thermal_vias");
+            Require(hasVias == (family.Id is "chip_array" or "pbga_fc" or "pbga_wb" or "qfn"),
+                "热通孔栏目与封装支持的参数不符：" + family.Id);
+            Require(steps.Items.Cast<WizardStep>().Last().Key == "modeling", "建模栏目后出现了多余栏目：" + family.Id);
             foreach (var item in steps.Items.Cast<WizardStep>())
             {
                 // Ensure SelectionChanged fires even for the initially selected summary.
