@@ -20,7 +20,7 @@ internal sealed partial class SchematicDrawing
             if (Flip)
             {
                 Rect(Attach, 280, 198, 140, 27);
-                for (int i = 0; i < 4; i++) Ellipse(Solder, Centered(i, 4, 34), 211.5, 13.5, 13.5);
+                for (int i = 0; i < 4; i++) Ellipse(Bump, Centered(i, 4, 34), 211.5, 13.5, 13.5);
             }
             else
             {
@@ -96,7 +96,7 @@ internal sealed partial class SchematicDrawing
     {
         Rect(Die, 205, 182, 290, 44);
         Rect(Attach, 205, 226, 290, 48);
-        for (int i = 0; i < 5; i++) Ellipse(Solder, Centered(i, 5, 56), 250, 24, 24);
+        for (int i = 0; i < 5; i++) Ellipse(Bump, Centered(i, 5, 56), 250, 24, 24);
         if (!Bare) Rect(Board, 160, 274, 380, 25);
         Callout("芯片", 310, 133, 350, 195);
         Callout("底部填充材料", 510, 132, 490, 232);
@@ -104,7 +104,7 @@ internal sealed partial class SchematicDrawing
         DimH(214, 262, 250, 318, Dimension("凸点直径", "bumps.diameter"));
         Rect(Die, 220, 420, 260, 140);
         for (int row = 0; row < 4; row++)
-            for (int col = 0; col < 8; col++) Ellipse(Solder, Centered(col, 8, 32), Centered(row, 4, 34, 490), 8, 8);
+            for (int col = 0; col < 8; col++) Ellipse(Bump, Centered(col, 8, 32), Centered(row, 4, 34, 490), 8, 8);
         DimH(220, 480, 560, 592, Dimension("芯片长度", "die.length"));
         DimV(420, 560, 480, 535, Dimension("芯片宽度\n", "die.width"));
         Axes(140, 553);
@@ -123,18 +123,30 @@ internal sealed partial class SchematicDrawing
             DimV(219, 254, 550, 595, Dimension("引脚高度\n", "leads.height"));
             DimH(550, 580, 254, 292, Dimension("引脚足长", "leads.foot_length"));
         }
-        Plan();
+        Plan(frameDetail: true);
         if (!Qfn)
             for (int i = 0; i < 6; i++)
             {
                 double outer = Centered(i, 6, 26, 470), inner = Centered(i, 6, 17, 470);
-                Line(230, outer, 265, inner, Metal, 3);
-                Line(470, outer, 435, inner, Metal, 3);
+                Line(230, outer, 245, inner, Metal, 3);
+                Line(470, outer, 455, inner, Metal, 3);
+                if (!Sop)
+                {
+                    double pinX = Centered(i, 6, 48), fingerX = Centered(i, 6, 24);
+                    Line(pinX, 390, fingerX, 400, Metal, 3);
+                    Line(pinX, 550, fingerX, 540, Metal, 3);
+                }
             }
         DimV(400, 426, 520, 558, Dimension("节距\n", Qfn ? "leads.pitch_y" : "leads.pitch"));
         DimV(452, 462, 520, 594, Dimension("线宽\n", "leads.width"));
-        DimH(Qfn ? 200 : 230, Qfn ? 230 : 265, 435, 365,
-            Qfn ? Dimension("外露长度", "leads.length") : Dimension("框架间隙", "leads.gap", "g1"));
+        if (Qfn)
+            DimH(200, 230, 435, 365, Dimension("外露长度", "leads.length"));
+        else
+        {
+            Line(245, 470, 265, 470);
+            Arrow(245, 470, 1, 0, length: 4); Arrow(265, 470, -1, 0, length: 4);
+            Callout(Dimension("框架间隙", "leads.gap", "g1"), 170, 448, 255, 470, right: true);
+        }
         DimH(200, 500, 550, 586, Dimension("封装长度", "package.length"));
         Axes(115, 552);
         Legend((Mold, "塑封"), (Metal, "引脚 / 框架"), (Die, "芯片"));

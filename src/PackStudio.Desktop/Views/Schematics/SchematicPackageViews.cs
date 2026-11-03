@@ -14,7 +14,7 @@ internal sealed partial class SchematicDrawing
             if (Enabled("bumps.enabled"))
             {
                 Rect(Attach, 240, y + 14, 220, 23);
-                for (int i = 0; i < 8; i++) Ellipse(Solder, Centered(i, 8, 27), y + 25.5, 11.5, 11.5);
+                for (int i = 0; i < 8; i++) Ellipse(Bump, Centered(i, 8, 27), y + 25.5, 11.5, 11.5);
             }
             return;
         }
@@ -30,9 +30,9 @@ internal sealed partial class SchematicDrawing
             for (int i = 0; i < 11; i++) Ellipse(Solder, Centered(i, 11, 36.8), y + 41, 11, 11);
             if (Flip)
             {
-                Rect(Die, 285, y - 48, 130, 23);
-                if (Enabled("bumps.underfill")) Rect(Attach, 285, y - 25, 130, 25);
-                for (int i = 0; i < 4; i++) Ellipse(Solder, Centered(i, 4, 32), y - 12.5, 12.5, 12.5);
+                Rect(Die, 285, FlipDieTop(y), 130, 23);
+                if (Enabled("bumps.underfill")) Rect(Attach, 285, y - 2 * FlipBumpRadius, 130, 2 * FlipBumpRadius);
+                for (int i = 0; i < 6; i++) Ellipse(Bump, Centered(i, 6, 20), y - FlipBumpRadius, FlipBumpRadius, FlipBumpRadius);
             }
             else
             {
@@ -68,7 +68,7 @@ internal sealed partial class SchematicDrawing
         }
     }
 
-    void Plan()
+    void Plan(bool frameDetail = false)
     {
         Rect(Bare ? Die : Bga ? Board : Mold, 200, 390, 300, 160);
         if (Bare) return;
@@ -82,8 +82,9 @@ internal sealed partial class SchematicDrawing
                 if (!Sop)
                 {
                     double x = Centered(i, 6, 48) - 5;
-                    Rect(Metal, x, Qfn ? 390 : 370, 10, Qfn ? 25 : 45);
-                    Rect(Metal, x, 525, 10, Qfn ? 25 : 45);
+                    double height = Qfn ? 25 : frameDetail ? 20 : 45;
+                    Rect(Metal, x, Qfn ? 390 : 370, 10, height);
+                    Rect(Metal, x, frameDetail && !Qfn ? 550 : 525, 10, height);
                 }
             }
         }
@@ -113,9 +114,9 @@ internal sealed partial class SchematicDrawing
         }
         else
         {
-            Callout("芯片", 305, 127, 330, Flip ? 192 : 207);
+            Callout("芯片", 305, 127, 330, Flip ? FlipDieTop(230) + 10 : 207);
             if (Flip)
-                Callout("倒装凸点", 485, 147, 405, 218);
+                Callout("倒装凸点", 485, 147, 400, 230 - FlipBumpRadius);
             else
             {
                 Callout("键合线", 490, 127, 444, 187);
@@ -123,7 +124,7 @@ internal sealed partial class SchematicDrawing
             }
             if (step == "die")
             {
-                double y = Flip ? 182 : Bga ? 197 : 195;
+                double y = Flip ? FlipDieTop(230) : Bga ? 197 : 195;
                 DimV(y, y + 23, 415, Flip ? 555 : 525,
                     Dimension(Flip ? "芯片厚度\n" : "芯片厚度", "die.thickness"));
                 if (!Flip) DimV(y + 23, y + 28, 415, 610, Dimension("粘接层\n", "die.attach"));
@@ -163,11 +164,17 @@ internal sealed partial class SchematicDrawing
         }
         Axes(70, 554);
         if (Bare)
-            Legend((Die, "芯片"), (Accent, "有源面"), (Solder, "凸点"));
+            Legend((Die, "芯片"), (Accent, "有源面"), (Bump, "凸点"));
         else
-            Legend((Die, "芯片"), (Bga ? Board : Mold,
-                Bga ? family == "cbga_fc" ? "陶瓷基板" : "基板" : "塑封"), (Metal, "金属 / 承载台"),
-                (Solder, "焊球 / 焊料"), (Attach, "粘接 / 填充层"));
+        {
+            var entries = new List<(Brush Color, string Label)>
+            {
+                (Die, "芯片"), (Bga ? Board : Mold, Bga ? family == "cbga_fc" ? "陶瓷基板" : "基板" : "塑封"),
+                (Metal, "金属 / 承载台"), (Solder, "焊球 / 焊料"), (Attach, "粘接 / 填充层")
+            };
+            if (Flip) entries.Add((Bump, "倒装凸点"));
+            Legend([.. entries]);
+        }
     }
 
     void Wires()

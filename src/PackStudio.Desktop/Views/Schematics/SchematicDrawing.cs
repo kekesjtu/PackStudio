@@ -8,9 +8,11 @@ namespace PackStudio.Desktop;
 internal sealed partial class SchematicDrawing(Template template, ProjectDocument document, string step)
 {
     internal const double Width = 700, Height = 580;
+    const double FlipBumpRadius = 7.5;
     static readonly Brush Ink = Brushes.Black, Muted = Brush("#555555");
     static readonly Brush Die = Brush("#FF1744"), Substrate = Brush("#00C83F"), Metal = Brush("#FFA000");
-    static readonly Brush Mold = Brush("#3996FF"), Solder = Brush("#653FFF"), Attach = Brush("#FFE000");
+    static readonly Brush Mold = Brush("#3996FF"), Solder = Brush("#653FFF"), Attach = Brush("#7A2400");
+    static readonly Brush Bump = Brush("#E600C7"), Ceramic = Brush("#00A043");
     static readonly Brush Cover = Brush("#00B8D9"), Accent = Brush("#0057D9");
     readonly string family = document.TemplateId;
     DrawingContext dc = null!;
@@ -20,7 +22,8 @@ internal sealed partial class SchematicDrawing(Template template, ProjectDocumen
     bool Qfn => family == "qfn";
     bool Sop => family == "sop";
     bool FlagStep => step is "die_flag_solder_mask" or "die_flag_tie_bars" or "dap";
-    Brush Board => family == "cbga_fc" ? Cover : Substrate;
+    Brush Board => family == "cbga_fc" ? Ceramic : Substrate;
+    static double FlipDieTop(double substrateTop) => substrateTop - 2 * FlipBumpRadius - 23;
     static double Centered(int index, int count, double pitch, double center = 350) =>
         center + (index - (count - 1) / 2.0) * pitch;
     bool Enabled(string key) => document.Values[key].Flag();
@@ -76,13 +79,15 @@ internal sealed partial class SchematicDrawing(Template template, ProjectDocumen
     void Text(string text, double x, double y, double size = 13, Brush? color = null,
         TextAlignment align = TextAlignment.Left, bool bold = false)
     {
-        var formatted = new FormattedText(text, CultureInfo.GetCultureInfo("zh-CN"), FlowDirection.LeftToRight,
-            new Typeface(new FontFamily("Microsoft YaHei UI"), FontStyles.Normal,
-                bold ? FontWeights.SemiBold : FontWeights.Normal, FontStretches.Normal), size, color ?? Ink, 1);
+        var formatted = FormatText(text, size, color ?? Ink, bold);
         dc.DrawText(formatted, new(x - (align == TextAlignment.Center ? formatted.Width / 2 :
             align == TextAlignment.Right ? formatted.Width : 0), y));
     }
-    void Arrow(double x, double y, double dx, double dy, Brush? color = null)
+    static FormattedText FormatText(string text, double size, Brush color, bool bold = false) =>
+        new(text, CultureInfo.GetCultureInfo("zh-CN"), FlowDirection.LeftToRight,
+            new Typeface(new FontFamily("Microsoft YaHei UI"), FontStyles.Normal,
+                bold ? FontWeights.SemiBold : FontWeights.Normal, FontStretches.Normal), size, color, 1);
+    void Arrow(double x, double y, double dx, double dy, Brush? color = null, double length = 7)
     {
         double n = Math.Sqrt(dx * dx + dy * dy);
         dx /= n; dy /= n;
@@ -90,8 +95,9 @@ internal sealed partial class SchematicDrawing(Template template, ProjectDocumen
         using (var c = geometry.Open())
         {
             c.BeginFigure(new(x, y), true, true);
-            c.LineTo(new(x + dx * 7 - dy * 3, y + dy * 7 + dx * 3), true, false);
-            c.LineTo(new(x + dx * 7 + dy * 3, y + dy * 7 - dx * 3), true, false);
+            double halfWidth = length * 3 / 7;
+            c.LineTo(new(x + dx * length - dy * halfWidth, y + dy * length + dx * halfWidth), true, false);
+            c.LineTo(new(x + dx * length + dy * halfWidth, y + dy * length - dx * halfWidth), true, false);
         }
         dc.DrawGeometry(color ?? Ink, null, geometry);
     }
@@ -130,11 +136,19 @@ internal sealed partial class SchematicDrawing(Template template, ProjectDocumen
     }
     void Legend(params (Brush Color, string Label)[] entries)
     {
-        for (int i = 0; i < entries.Length; i++)
+        const double swatchWidth = 14, labelGap = 8, itemGap = 32;
+        for (int start = 0; start < entries.Length; start += 3)
         {
-            double x = 80 + i % 3 * 190, y = 620 + i / 3 * 22;
-            Rect(entries[i].Color, x, y + 3, 14, 10, false);
-            Text(entries[i].Label, x + 22, y, 12, Muted);
+            var row = entries.Skip(start).Take(3).ToArray();
+            var labels = row.Select(e => FormatText(e.Label, 12, Muted)).ToArray();
+            double total = labels.Sum(label => swatchWidth + labelGap + label.Width) + itemGap * (row.Length - 1);
+            double x = (Width - total) / 2, y = 620 + start / 3 * 22;
+            for (int i = 0; i < row.Length; i++)
+            {
+                Rect(row[i].Color, x, y + (labels[i].Height - 10) / 2, swatchWidth, 10, false);
+                dc.DrawText(labels[i], new(x + swatchWidth + labelGap, y));
+                x += swatchWidth + labelGap + labels[i].Width + itemGap;
+            }
         }
     }
     void Wire(double x1, double y1, double x2, double y2, double rise = 50)

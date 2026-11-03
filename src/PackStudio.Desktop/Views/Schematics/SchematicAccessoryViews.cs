@@ -9,30 +9,32 @@ internal sealed partial class SchematicDrawing
         string type = Value("cover.type");
         bool lid = type == "lid", plate = type == "plate", mold = type == "encapsulant";
         string name = lid ? "盖帽 / Lid" : plate ? "盖板 / Plate" : mold ? "塑封体 / Encapsulant" : "裸露芯片 / Bare Die";
+        double capBottom = FlipDieTop(260) - 12, capTop = capBottom - 25;
         if (mold) Rect(Mold, 195, 160, 310, 100);
         Section(260);
         if (lid || plate)
         {
-            Rect(Attach, 285, 200, 130, 12);
-            Rect(Cover, 195, 175, 310, 25);
+            Rect(Attach, 285, capBottom, 130, 12);
+            Rect(Cover, 195, capTop, 310, 25);
             if (lid)
             {
                 bool stiff = Enabled("stiffener.enabled");
                 double left = stiff ? 230 : 195, width = stiff ? 24 : 22;
                 foreach (double x in new[] { left, 700 - left - width })
                 {
-                    if (stiff) Rect(Attach, x, 200, width, 6);
-                    Rect(stiff ? Metal : Cover, x, stiff ? 206 : 200, width, stiff ? 48 : 54);
+                    double wallTop = capBottom + (stiff ? 6 : 0);
+                    if (stiff) Rect(Attach, x, capBottom, width, 6);
+                    Rect(stiff ? Metal : Cover, x, wallTop, width, 254 - wallTop);
                     Rect(Attach, x, 254, width, 6);
                 }
                 if (stiff) Callout("加强框", 85, 215, 242, 240);
             }
         }
-        Callout(name, 330, 123, 350, mold ? 165 : lid || plate ? 182 : 218);
+        Callout(name, 330, 123, 350, mold ? 165 : lid || plate ? capTop + 10 : FlipDieTop(260) + 10);
         if (lid || plate || mold)
         {
             string prefix = mold ? "cover" : lid ? "lid" : "plate";
-            double top = mold ? 160 : 175, bottom = mold ? 260 : 200;
+            double top = mold ? 160 : capTop, bottom = mold ? 260 : capBottom;
             DimV(top, bottom, 505, 570, Dimension("顶部厚度\n", prefix + ".thickness"));
             Rect(Board, 190, 420, 320, 140);
             Rect(mold ? Mold : Cover, 215, 432, 270, 116);
@@ -48,7 +50,7 @@ internal sealed partial class SchematicDrawing
         if (lid || plate || mold)
             Legend((mold ? Mold : Cover, mold ? "塑封体" : "盖帽 / 盖板"), (Attach, "界面粘接层"), (Board, "基板"));
         else
-            Legend((Die, "芯片"), (Solder, "凸点"), (Board, "基板"));
+            Legend((Die, "芯片"), (Bump, "凸点"), (Board, "基板"));
     }
 
     void Slug()
@@ -70,7 +72,7 @@ internal sealed partial class SchematicDrawing
         DimV(264, 270, 490, 565, Dimension("支脚间隙\n", "slug.clearance"));
         Rect(Mold, 200, 425, 300, 140);
         Rect(Metal, 215, 445, 270, 100);
-        Rect(Cover, 240, 430, 220, 130);
+        Rect(Metal, 240, 430, 220, 130);
         Ellipse(Metal, 350, 495, 42, 42);
         DimH(240, 460, 560, 592, Dimension("散热块长度", "slug.length"));
         DimV(430, 560, 460, 545, Dimension("宽度\n", "slug.width"));
