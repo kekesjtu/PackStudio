@@ -20,7 +20,6 @@ static class SchematicChecks
         var diagramTab = (LayoutDocument)window.FindName("SchematicDocument");
         Require(ReferenceEquals(modelTab.Parent, diagramTab.Parent), "示意图与三维模型必须是同级标签页");
         int count = 0, modelingCount = 0;
-        var previews = new HashSet<string>();
         foreach (var family in PackageCatalog.Families)
         {
             workspace.Select(family.Id);
@@ -38,11 +37,13 @@ static class SchematicChecks
                 window.UpdateLayout();
                 if (item.Key == "modeling")
                 {
+                    Require(!schematic.HasDiagram && diagramTab.IsEnabled && modelTab.IsSelected,
+                        "选择建模与局部网格时未保留三维模型标签页");
                     steps.SelectedValue = "die";
                     diagramTab.IsSelected = true;
                     steps.SelectedValue = item.Key;
-                    Require(!schematic.HasDiagram && !diagramTab.IsEnabled && modelTab.IsSelected,
-                        "建模与局部网格栏目不应提供示意图");
+                    Require(!schematic.HasDiagram && diagramTab.IsEnabled && diagramTab.IsSelected,
+                        "选择建模与局部网格时应保留空白示意图标签页");
                     modelingCount++;
                     continue;
                 }
@@ -59,8 +60,7 @@ static class SchematicChecks
                 window.UpdateLayout();
                 Require(diagramTab.IsSelected && schematic.IsVisible && schematic.StepKey == item.Key,
                     "示意图页内切换栏目未保持视图或更新内容：" + item.Key);
-                if (previews.Add(family.Id + "-" + schematic.DiagramKey))
-                    Preview(workspace, item.Key, item.Label, family.Id + "-" + schematic.DiagramKey);
+                Preview(workspace, item.Key, item.Label, family.Id + "-" + item.Key);
                 count++;
             }
             if (steps.Items.Cast<WizardStep>().Any(s => s.Key == "metal_layers"))
@@ -78,6 +78,19 @@ static class SchematicChecks
             workspace.Document.Values["cover.type"] = type;
             Preview(workspace, "top_cover", "顶部结构", "cbga_fc-cover-" + type);
         }
+        workspace.Document.Values["cover.type"] = "lid";
+        workspace.Document.Values["stiffener.enabled"] = true;
+        Preview(workspace, "top_cover", "顶部结构", "cbga_fc-cover-stiffener");
+        foreach (string family in new[] { "cbga_fc", "pbga_wb" })
+        {
+            workspace.Select(family);
+            workspace.Document.Values["slug.adhesive_enabled"] = true;
+            Preview(workspace, "slug", "嵌入式散热块", family + "-slug-adhesive");
+        }
+        workspace.Select("bare_die");
+        workspace.Document.Values["bumps.enabled"] = true;
+        Preview(workspace, "die", "芯片", "bare_die-die-bumped");
+        workspace.Select("cbga_fc");
         steps.SelectedValue = "die";
         diagramTab.IsSelected = true;
         NewPackageChecks.Capture(window, "schematic-workspace.png");

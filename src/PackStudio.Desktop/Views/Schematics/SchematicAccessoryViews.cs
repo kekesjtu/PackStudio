@@ -1,4 +1,3 @@
-using System.Windows;
 using System.Windows.Media;
 
 namespace PackStudio.Desktop;
@@ -18,13 +17,15 @@ internal sealed partial class SchematicDrawing
             Rect(Cover, 195, 175, 310, 25);
             if (lid)
             {
-                Rect(Cover, 195, 200, 22, 54); Rect(Cover, 483, 200, 22, 54);
-                Rect(Attach, 195, 254, 22, 6); Rect(Attach, 483, 254, 22, 6);
-            }
-            if (Enabled("stiffener.enabled"))
-            {
-                Rect(Metal, 230, 220, 24, 40); Rect(Metal, 446, 220, 24, 40);
-                Callout("加强框", 130, 318, 242, 240);
+                bool stiff = Enabled("stiffener.enabled");
+                double left = stiff ? 230 : 195, width = stiff ? 24 : 22;
+                foreach (double x in new[] { left, 700 - left - width })
+                {
+                    if (stiff) Rect(Attach, x, 200, width, 6);
+                    Rect(stiff ? Metal : Cover, x, stiff ? 206 : 200, width, stiff ? 48 : 54);
+                    Rect(Attach, x, 254, width, 6);
+                }
+                if (stiff) Callout("加强框", 85, 215, 242, 240);
             }
         }
         Callout(name, 330, 123, 350, mold ? 165 : lid || plate ? 182 : 218);
@@ -33,7 +34,7 @@ internal sealed partial class SchematicDrawing
             string prefix = mold ? "cover" : lid ? "lid" : "plate";
             double top = mold ? 160 : 175, bottom = mold ? 260 : 200;
             DimV(top, bottom, 505, 570, Dimension("顶部厚度\n", prefix + ".thickness"));
-            Rect(family == "cbga_fc" ? Cover : Substrate, 190, 420, 320, 140);
+            Rect(Board, 190, 420, 320, 140);
             Rect(mold ? Mold : Cover, 215, 432, 270, 116);
             if (lid) Outline(237, 446, 226, 88);
             DimH(215, 485, 548, 589, Dimension("顶部长度", prefix + ".length"));
@@ -43,46 +44,50 @@ internal sealed partial class SchematicDrawing
         else
         {
             Plan();
-            Text("当前顶部结构为裸露芯片。", 350, 585, 13, Muted, TextAlignment.Center);
         }
-        Legend((Cover, "盖帽 / 盖板"), (Attach, "界面粘接层"), (Substrate, "基板"));
+        if (lid || plate || mold)
+            Legend((mold ? Mold : Cover, mold ? "塑封体" : "盖帽 / 盖板"), (Attach, "界面粘接层"), (Board, "基板"));
+        else
+            Legend((Die, "芯片"), (Solder, "凸点"), (Board, "基板"));
     }
 
     void Slug()
     {
-        Rect(Mold, 190, 174, 320, 100);
-        Section(274);
-        Rect(Metal, 235, 160, 230, 28);
-        Rect(Metal, 235, 188, 25, 80); Rect(Metal, 440, 188, 25, 80);
-        Rect(Attach, 285, 188, 130, Flip ? 38 : 53);
-        Rect(Die, 285, Flip ? 226 : 241, 130, 23);
-        Callout("散热块", 320, 119, 350, 170);
-        Callout("支脚", 520, 131, 452, 233);
-        Callout("芯片接触界面", 100, 153, 305, 207);
-        DimV(160, 188, 465, 565, Dimension("厚度\n", "slug.thickness"));
-        DimH(415, 440, 245, 342, Dimension("芯片至支脚间隙", "slug.clearance"));
+        Rect(Mold, 190, 145, 320, 125);
+        Section(270, drawMold: false, wireEnd: 265);
+        Rect(Metal, 300, 145, 100, 28);
+        Rect(Metal, 235, 165, 65, 28); Rect(Metal, 400, 165, 65, 28);
+        Rect(Metal, 235, 193, 20, 59); Rect(Metal, 445, 193, 20, 59);
+        Rect(Metal, 210, 252, 45, 12); Rect(Metal, 445, 252, 45, 12);
+        if (Enabled("slug.adhesive_enabled"))
+        {
+            Rect(Attach, 210, 264, 45, 6); Rect(Attach, 445, 264, 45, 6);
+        }
+        Callout("散热块", 145, 123, 245, 178);
+        Callout("支脚", 520, 131, 465, 258);
+        DimH(300, 400, 145, 119, Dimension("顶部直径", "slug.diameter"));
+        DimV(165, 193, 465, 565, Dimension("厚度\n", "slug.thickness"));
+        DimV(264, 270, 490, 565, Dimension("支脚间隙\n", "slug.clearance"));
         Rect(Mold, 200, 425, 300, 140);
-        Rect(Metal, 230, 439, 240, 110);
-        Outline(280, 457, 140, 73);
-        Rect(Attach, 232, 441, 24, 106); Rect(Attach, 444, 441, 24, 106);
-        DimH(230, 470, 549, 592, Dimension("散热块长度", "slug.length"));
-        DimV(439, 549, 470, 545, Dimension("宽度\n", "slug.width"));
-        Text(Enabled("slug.enabled") ? "实色：散热块及支脚；虚线：芯片投影。" : "可选组件示意：当前未启用嵌入式散热块。", 350, 632, 12, Muted, TextAlignment.Center);
+        Rect(Metal, 215, 445, 270, 100);
+        Rect(Cover, 240, 430, 220, 130);
+        Ellipse(Metal, 350, 495, 42, 42);
+        DimH(240, 460, 560, 592, Dimension("散热块长度", "slug.length"));
+        DimV(430, 560, 460, 545, Dimension("宽度\n", "slug.width"));
     }
 
     void Spreader()
     {
         Section(240);
-        Rect(Metal, 195, 270, 310, 9);
-        Callout("背面扩散片", 350, 329, 350, 274);
-        DimV(270, 279, 505, 560, Dimension("厚度\n", "spreader.thickness"));
+        Rect(Metal, 195, 261, 310, 9);
+        Callout("背面扩散片", 110, 310, 205, 266);
+        DimV(261, 270, 505, 560, Dimension("厚度\n", "spreader.thickness"));
         Rect(Metal, 210, 443, 280, 120);
         Rect(Brushes.White, 295, 475, 110, 56);
         DimH(295, 405, 475, 420, Dimension("孔长", "spreader.hole_length"));
         DimV(475, 531, 405, 536, Dimension("孔宽\n", "spreader.hole_width"));
         DimH(210, 490, 563, 595, Dimension("扩散片长度", "spreader.length"));
         DimV(443, 563, 210, 162, Dimension("宽度\n", "spreader.width"), true);
-        Text(Enabled("spreader.enabled") ? "背面金属层通过平面扩散增强导热。" : "可选组件示意：当前未启用背面扩散片。", 350, 635, 12, Muted, TextAlignment.Center);
     }
 
 }

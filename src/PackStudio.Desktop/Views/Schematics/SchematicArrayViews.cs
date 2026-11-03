@@ -1,4 +1,3 @@
-using System.Windows;
 using System.Windows.Media;
 
 namespace PackStudio.Desktop;
@@ -8,7 +7,6 @@ internal sealed partial class SchematicDrawing
     void SubstrateDetail()
     {
         Rect(Substrate, 160, 225, 380, 125);
-        for (int i = 0; i < 5; i++) Rect(Metal, 160, 228 + i * 29, 380, 4, false);
         if (Qfn)
         {
             Rect(Metal, 260, 205, 180, 10);
@@ -22,7 +20,7 @@ internal sealed partial class SchematicDrawing
             if (Flip)
             {
                 Rect(Attach, 280, 198, 140, 27);
-                for (int i = 0; i < 6; i++) Ellipse(Solder, 292 + i * 23, 212, 8, 10);
+                for (int i = 0; i < 4; i++) Ellipse(Solder, Centered(i, 4, 34), 211.5, 13.5, 13.5);
             }
             else
             {
@@ -35,15 +33,16 @@ internal sealed partial class SchematicDrawing
         }
         if (family == "pbga_fc")
         {
-            Rect(Brush("#438662"), 160, 225, 380, 21);
-            Rect(Brush("#438662"), 160, 329, 380, 21);
-            Text("上部增层", 52, 221, 12); Line(120, 234, 160, 234, Muted);
-            Text("核心层", 65, 276, 12); Line(120, 287, 160, 287, Muted);
-            Text("下部增层", 52, 332, 12); Line(120, 342, 160, 342, Muted);
+            Rect(Brush("#00802C"), 160, 225, 380, 21);
+            Rect(Brush("#00802C"), 160, 329, 380, 21);
+            Text("上部增层", 52, 221, 12); Line(120, 234, 160, 234);
+            Text("核心层", 65, 276, 12); Line(120, 287, 160, 287);
+            Text("下部增层", 52, 332, 12); Line(120, 342, 160, 342);
         }
+        for (int i = 0; i < 5; i++) Rect(Metal, 160, 227.5 + i * 29, 380, 4, false);
         for (int i = 0; i < 4; i++)
         {
-            double x = 273 + i * 48;
+            double x = Centered(i, 4, 48) - 6.5;
             Rect(Metal, x, 225, 13, 125);
             Rect(Brushes.White, x + 4, 225, 5, 125, false);
         }
@@ -58,62 +57,57 @@ internal sealed partial class SchematicDrawing
         DimH(202, 248, 511, 428, Dimension("孔径", "vias.diameter", "dv"));
         Callout(Dimension("镀层厚度", "vias.plating", "tpl"), 110, 578, 194, 509);
         Rect(Substrate, 445, 455, 55, 112);
-        for (int i = 0; i < 4; i++) Rect(Metal, 445, 459 + i * 31, 55, 5, false);
-        DimV(455, 521, 500, 537, "层深 zn");
-        Callout("层厚 tzn", 571, 557, 487, 554);
-        Text("层表：深度、厚度与铜覆盖率", 350, 624, 12, Muted, TextAlignment.Center);
+        const double layerPitch = 107.0 / 3;
+        for (int i = 0; i < 4; i++) Rect(Metal, 445, 455 + i * layerPitch, 55, 5, false);
+        DimV(455, 455 + 2 * layerPitch, 500, 537, "层深 zn");
+        Callout("层厚 tzn", 571, 557, 487, 564.5);
     }
 
     void BallArray()
     {
-        Rect(family == "cbga_fc" ? Cover : Substrate, 170, 171, 360, 24);
-        for (int i = 0; i < 10; i++) Ellipse(Solder, 188 + i * 36, 214, 13, 15);
-        DimV(195, 229, 530, 571, Dimension("离板高度\n", "bga.height"));
-        DimH(175, 201, 214, 259, Dimension("球径", "bga.diameter"));
-        DimH(224, 260, 214, 145, Dimension("球间距", "bga.pitch"));
-        Rect(Brush("#F2F7F5"), 205, 350, 290, 225);
+        Rect(Board, 170, 171, 360, 24);
+        for (int i = 0; i < 10; i++) Ellipse(Solder, Centered(i, 10, 36), 210, 15, 15);
+        DimV(195, 225, 530, 571, Dimension("离板高度\n", "bga.height"));
+        DimH(173, 203, 210, 259, Dimension("球径", "bga.diameter"));
+        Rect(Board, 205, 350, 290, 225);
         bool central = step == "central_solder_balls";
         bool removal = step == "solder_removal";
         for (int row = 0; row < 7; row++)
             for (int col = 0; col < 9; col++)
             {
                 bool middle = row is >= 2 and <= 4 && col is >= 3 and <= 5;
-                double x = 225 + col * 31, y = 369 + row * 31;
+                double x = Centered(col, 9, 31), y = Centered(row, 7, 31, 462.5);
                 bool omitted = middle && removal;
                 Ellipse(omitted ? Brushes.White : middle && central ? Metal : Solder, x, y, 8, 8);
                 if (omitted) { Line(x - 5, y - 5, x + 5, y + 5, Muted); Line(x + 5, y - 5, x - 5, y + 5, Muted); }
             }
         if (central || removal)
         {
-            Outline(306, 414, 93, 93);
-            Callout(central ? "独立中央焊球阵列" : "中心去球 / 自定义去球", 430, 317, 393, 419);
+            Outline(303.5, 416, 93, 93);
+            Callout(central ? "中央焊球" : "去球区域", 430, 300, 396.5, 416);
         }
-        DimH(225, 473, 575, 599, Dimension("X 方向列数", "bga.columns"));
-        DimV(369, 555, 495, 535, Dimension("Y 方向行数\n", "bga.rows"));
-        DimH(225, 256, 369, 331, Dimension("间距", "bga.pitch"));
+        DimH(226, 474, 575, 599, Dimension("X 方向列数", "bga.columns"));
+        DimV(369.5, 555.5, 495, 535, Dimension("Y 方向行数\n", "bga.rows"));
+        DimH(226, 257, 369.5, 331, Dimension("间距", "bga.pitch"));
         Axes(125, 560);
-        Text(central ? "中央阵列可单独启用，并设置行列数与交错排列。" : removal ?
-            "虚线区域表示去球范围；也可逐格选择省略的焊球。" : "规则阵列示意；行列数、交错排列与球图由左侧参数设置。", 350, 634, 12, Muted, TextAlignment.Center);
     }
 
     void Bumps()
     {
         Rect(Die, 205, 182, 290, 44);
         Rect(Attach, 205, 226, 290, 48);
-        for (int i = 0; i < 8; i++) Ellipse(Solder, 223 + i * 36, 250, 12, 20);
-        if (!Bare) Rect(Substrate, 160, 274, 380, 25);
+        for (int i = 0; i < 5; i++) Ellipse(Solder, Centered(i, 5, 56), 250, 24, 24);
+        if (!Bare) Rect(Board, 160, 274, 380, 25);
         Callout("芯片", 310, 133, 350, 195);
         Callout("底部填充材料", 510, 132, 490, 232);
         DimV(226, 274, 495, 555, Dimension("凸点高度\n", "bumps.height"));
-        DimH(211, 235, 250, 318, Dimension("凸点直径", "bumps.diameter"));
+        DimH(214, 262, 250, 318, Dimension("凸点直径", "bumps.diameter"));
         Rect(Die, 220, 420, 260, 140);
         for (int row = 0; row < 4; row++)
-            for (int col = 0; col < 8; col++) Ellipse(Solder, 238 + col * 32, 438 + row * 34, 8, 8);
+            for (int col = 0; col < 8; col++) Ellipse(Solder, Centered(col, 8, 32), Centered(row, 4, 34, 490), 8, 8);
         DimH(220, 480, 560, 592, Dimension("芯片长度", "die.length"));
         DimV(420, 560, 480, 535, Dimension("芯片宽度\n", "die.width"));
         Axes(140, 553);
-        Text(Bare ? "凸点数量与直径用于等效建模；可选凸点与底填充。" :
-            "规则阵列指定行列数；非规则阵列以凸点总数进行等效。", 350, 632, 12, Muted, TextAlignment.Center);
     }
 
     void Leads()
@@ -133,8 +127,9 @@ internal sealed partial class SchematicDrawing
         if (!Qfn)
             for (int i = 0; i < 6; i++)
             {
-                Line(230, 405 + i * 26, 265, 425 + i * 17, Metal, 3);
-                Line(470, 405 + i * 26, 435, 425 + i * 17, Metal, 3);
+                double outer = Centered(i, 6, 26, 470), inner = Centered(i, 6, 17, 470);
+                Line(230, outer, 265, inner, Metal, 3);
+                Line(470, outer, 435, inner, Metal, 3);
             }
         DimV(400, 426, 520, 558, Dimension("节距\n", Qfn ? "leads.pitch_y" : "leads.pitch"));
         DimV(452, 462, 520, 594, Dimension("线宽\n", "leads.width"));
