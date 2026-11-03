@@ -55,6 +55,7 @@ dotnet publish src/PackStudio.Desktop -c Release -r win-x64 --self-contained -o 
 | [QFP 连接筋](docs/decisions/QFP连接筋建模选项.md) | 建模选项 |
 | [QFP 连接筋板](docs/decisions/QFP连接筋板输出范围.md) | 输出范围 |
 | [FC PBGA 通孔](docs/decisions/原生bug-FC-PBGA通孔等效基体导热率.md) | 基体导热率 |
+| [FC Slug 支脚与胶层](docs/decisions/原生bug-FC-Slug支脚与胶层纵向位置.md) | 基板接触与纵向定位 |
 | [WB PBGA 通孔](docs/decisions/原生bug-Wirebond-PBGA通孔纵向位置.md) | 纵向定位 |
 | [WB PBGA 内层铜](docs/decisions/原生bug-Wirebond-PBGA内层铜纵向位置.md) | 铜层与断开区 |
 | [SOP 堆叠](docs/decisions/原生bug-SOP芯片与胶层堆叠.md) | 芯片胶层定位 |

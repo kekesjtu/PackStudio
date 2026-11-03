@@ -39,7 +39,8 @@ public static class Covers
             return;
         double l = c.N("slug.length"), w = c.N("slug.width"), h = c.N("slug.thickness"), side = Math.Sqrt(Math.PI) * c.N("slug.diameter") / 2, clearance = c.N("slug.clearance");
         double encap = !wirebond && c.B("cover.flush") ? c.N("bumps.height") + c.N("die.thickness") : c.N(wirebond ? "encapsulant.thickness" : "cover.thickness");
-        double top = substrateTop + encap, hz = top - h - c.N("slug.offset"), fz = substrateTop + c.N(wirebond ? "solder_mask.thickness" : "bumps.height") + clearance;
+        double supportTop = substrateTop + (wirebond ? c.N("solder_mask.thickness") : 0);
+        double top = substrateTop + encap, hz = top - h - c.N("slug.offset"), fz = supportTop + clearance;
         c.Center("slug-top", "heat_slug", side, side, h, top - h, "aluminum", "slug");
         c.Ring("slug-h", "heat_slug", l, w, side, side, hz, h, "aluminum", "slug");
         c.Ring("slug-v", "heat_slug", l, w, l - 2 * h, w - 2 * h, fz, hz - fz, "aluminum", "slug");
