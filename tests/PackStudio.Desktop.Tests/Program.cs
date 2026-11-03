@@ -27,6 +27,11 @@ public static class Program
                 var vm = (Workspace)window.DataContext;
                 while (vm.IsBusy)
                     await Task.Delay(20);
+                if (args.Contains("schematics", StringComparer.OrdinalIgnoreCase))
+                {
+                    SchematicChecks.Run(window, vm);
+                    return;
+                }
                 await TemplateSelectionChecks.Run();
                 DesLabelChecks.Run();
                 NewPackageChecks.CancelPreservesProject(window, vm);

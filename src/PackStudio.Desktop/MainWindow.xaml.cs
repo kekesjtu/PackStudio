@@ -42,7 +42,25 @@ public partial class MainWindow : Window
     void Step_Changed(object sender, SelectionChangedEventArgs e)
     {
         if (!loading)
+        {
             RefreshFields();
+            SelectStepView();
+        }
+    }
+
+    void Step_Clicked(object sender, MouseButtonEventArgs e)
+    {
+        if (!loading && e.ChangedButton == MouseButton.Left && e.OriginalSource is DependencyObject source &&
+            ItemsControl.ContainerFromElement(StepList, source) is ListBoxItem)
+            SelectStepView();
+    }
+
+    void SelectStepView()
+    {
+        if (Schematic.HasDiagram)
+            SchematicDocument.IsSelected = true;
+        else
+            ModelDocument.IsSelected = true;
     }
 
     void Name_Changed(object sender, TextChangedEventArgs e)

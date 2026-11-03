@@ -55,6 +55,10 @@ public partial class MainWindow
         if (StepList.SelectedValue is not string step)
             return;
         SectionTitle.Text = StepLabel(step);
+        Schematic.Update(workspace.Template, workspace.Document, step, StepLabel(step));
+        SchematicDocument.IsEnabled = Schematic.HasDiagram;
+        if (!Schematic.HasDiagram)
+            ModelDocument.IsSelected = true;
         if (step == "summary")
         {
             AddSummary();
