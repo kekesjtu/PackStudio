@@ -1,110 +1,9 @@
-using System.Windows.Media;
-
 namespace PackStudio.Desktop;
 
 internal sealed partial class SchematicDrawing
 {
-    void Section(double y, bool drawMold = true, double wireEnd = 226)
-    {
-        if (Bare)
-        {
-            Rect(Die, 240, y - 20, 220, 34);
-            double activeY = y + (Enabled("die.flipped") || Enabled("bumps.enabled") ? 14 : -20);
-            Line(240, activeY, 460, activeY, Accent, 3);
-            if (Enabled("bumps.enabled"))
-            {
-                Rect(Attach, 240, y + 14, 220, 23);
-                for (int i = 0; i < 8; i++) Ellipse(Bump, Centered(i, 8, 27), y + 25.5, 11.5, 11.5);
-            }
-            return;
-        }
-        if (Bga)
-        {
-            if (!Flip && drawMold) Rect(Mold, 195, y - 67, 310, 67);
-            Rect(Board, 150, y, 400, 30);
-            if (family != "cbga_fc")
-            {
-                Rect(Metal, 150, y + 2, 400, 3, false);
-                Rect(Metal, 150, y + 24, 400, 3, false);
-            }
-            for (int i = 0; i < 11; i++) Ellipse(Solder, Centered(i, 11, 36.8), y + 41, 11, 11);
-            if (Flip)
-            {
-                Rect(Die, 285, FlipDieTop(y), 130, 23);
-                if (Enabled("bumps.underfill")) Rect(Attach, 285, y - 2 * FlipBumpRadius, 130, 2 * FlipBumpRadius);
-                for (int i = 0; i < 6; i++) Ellipse(Bump, Centered(i, 6, 20), y - FlipBumpRadius, FlipBumpRadius, FlipBumpRadius);
-            }
-            else
-            {
-                Rect(Metal, 265, y - 5, 170, 5);
-                Rect(Attach, 285, y - 10, 130, 5);
-                Rect(Die, 285, y - 33, 130, 23);
-                Wire(291, y - 33, wireEnd, y, 44); Wire(409, y - 33, 700 - wireEnd, y, 44);
-            }
-        }
-        else
-        {
-            if (drawMold) Rect(Mold, 185, y - 66, 330, 80);
-            Rect(Metal, 265, y - 7, 170, 12);
-            Rect(Attach, 285, y - 12, 130, 5);
-            Rect(Die, 285, y - 35, 130, 23);
-            foreach (bool left in new[] { true, false })
-            {
-                double x = left ? 185 : 455;
-                Rect(Metal, x, y - 7, 60, 12);
-                Wire(left ? 291 : 409, y - 35, left ? 230 : 470, y - 7, 38);
-                if (Qfn)
-                    Rect(Solder, x, y + 5, 60, 9);
-                else
-                {
-                    double edge = left ? 150 : 550;
-                    Line(left ? 200 : 500, y - 1, edge, y - 1, Metal, 7);
-                    Line(edge, y - 1, edge, y + 34, Metal, 7);
-                    Line(edge, y + 34, left ? 120 : 580, y + 34, Metal, 7);
-                }
-            }
-            if (step is "thermal_land" or "thermal_land_solder" || Enabled("thermal_land.enabled"))
-                Rect(Solder, 265, y + 5, 170, 9);
-        }
-    }
-
-    void Plan(bool frameDetail = false)
-    {
-        Rect(Bare ? Die : Bga ? Board : Mold, 200, 390, 300, 160);
-        if (Bare) return;
-        if (!Bga)
-        {
-            for (int i = 0; i < 6; i++)
-            {
-                double y = Centered(i, 6, 26, 470) - 5;
-                Rect(Metal, Qfn ? 200 : 180, y, Qfn ? 30 : 50, 10);
-                Rect(Metal, 470, y, Qfn ? 30 : 50, 10);
-                if (!Sop)
-                {
-                    double x = Centered(i, 6, 48) - 5;
-                    double height = Qfn ? 25 : frameDetail ? 20 : 45;
-                    Rect(Metal, x, Qfn ? 390 : 370, 10, height);
-                    Rect(Metal, x, frameDetail && !Qfn ? 550 : 525, 10, height);
-                }
-            }
-        }
-        else if (!Flip)
-            Rect(Mold, 225, 405, 250, 130);
-        if (!Flip)
-        {
-            Rect(Metal, 265, 420, 170, 100);
-            if (FlagStep && !Qfn && !Bga)
-                foreach (var (x, y) in new[] { (200d, 390d), (500d, 390d), (200d, 550d), (500d, 550d) })
-                    Line(x, y, x < 350 ? 265 : 435, y < 470 ? 420 : 520, Metal, 8);
-        }
-        Rect(Die, 285, 435, 130, 70);
-        if (step == "die") Outline(281, 431, 138, 78);
-        if (FlagStep) Outline(261, 416, 178, 108);
-    }
-
     void Package()
     {
-        Section(230);
         if (Bare)
         {
             DimH(240, 460, 210, 180, Dimension("芯片长度", "die.length"));
@@ -114,88 +13,119 @@ internal sealed partial class SchematicDrawing
         }
         else
         {
-            Callout("芯片", 305, 127, 330, Flip ? FlipDieTop(230) + 10 : 207);
+            Callout("芯片", 305, 127, 330, Flip ? FlipDieTop(SectionY) + 10 : 207);
             if (Flip)
-                Callout("倒装凸点", 485, 147, 400, 230 - FlipBumpRadius);
+                Callout("倒装凸点", 80, 160, 400, SectionY - FlipBumpRadius);
             else
             {
                 Callout("键合线", 490, 127, 444, 187);
                 Callout("塑封", 150, 127, 205, 177);
             }
-            if (step == "die")
-            {
-                double y = Flip ? FlipDieTop(230) : Bga ? 197 : 195;
-                DimV(y, y + 23, 415, Flip ? 555 : 525,
-                    Dimension(Flip ? "芯片厚度\n" : "芯片厚度", "die.thickness"));
-                if (!Flip) DimV(y + 23, y + 28, 415, 610, Dimension("粘接层\n", "die.attach"));
-            }
-            else if (step is "encapsulant" or "overall_package")
-            {
-                if (Bga && step == "overall_package")
-                    DimV(230, 260, 550, 580, Dimension("基板厚度\n", "substrate.thickness"));
-                else
-                    DimV(Bga ? 163 : 164, Bga ? 230 : 244, Bga ? 505 : 515, 580,
-                        Dimension("塑封厚度\n", Bga || Qfn ? "encapsulant.thickness" : "body.thickness"));
-            }
-            else if (FlagStep)
-                Callout(Qfn ? "芯片承载焊盘 / DAP" : "承载台 / Die Flag", 350, 290, 350, 228);
-            else if (step is "thermal_land" or "thermal_land_solder")
-                Callout(Dimension("散热焊料厚度", "thermal_land.thickness"), 350, 290, 350, 240);
-            else if (Bga)
-                DimV(230, 260, 550, 590, Dimension("基板厚度\n", "substrate.thickness"));
-            else
-                Callout("引线框", 130, 295, 200, 229);
         }
-        Plan();
-        string length = Bare ? "die.length" : Bga ? Flip ? "substrate.length" : "package.length" : "package.length";
-        string width = length.Replace("length", "width");
+        switch (step)
+        {
+            case "die" when !Bare:
+                double y = Flip ? FlipDieTop(SectionY) : Bga ? 197 : 195;
+                if (family == "chip_array")
+                {
+                    DimV(y, y + 23, 415, 580, Dimension("芯片厚度\n", "die.thickness"));
+                    DimV(y + 23, SectionY, 285, 115, Dimension("粘接层\n", "die.attach"), true);
+                }
+                else
+                {
+                    DimV(y, y + 23, 415, Flip ? 555 : 525,
+                        Dimension(Flip ? "芯片厚度\n" : "芯片厚度", "die.thickness"));
+                    if (!Flip) DimV(y + 23, y + 28, 415, 610, Dimension("粘接层\n", "die.attach"));
+                }
+                Outline(281, 431, 138, 78);
+                break;
+            case "encapsulant":
+                DimV(Bga ? 163 : 164, Bga ? 230 : 244, Bga ? 505 : 515, 580,
+                    Dimension("塑封厚度\n", Bga || Qfn ? "encapsulant.thickness" : "body.thickness"));
+                break;
+            case "overall_package" when !Bga:
+                DimV(164, 244, 515, 580, Dimension("塑封厚度\n", Qfn ? "encapsulant.thickness" : "body.thickness"));
+                break;
+            case "die_flag_solder_mask" or "die_flag_tie_bars" or "dap":
+                Outline(261, 416, 178, 108);
+                Callout(Qfn ? "芯片承载焊盘 / DAP" : "承载台 / Die Flag", 350, 290, 350, 228);
+                break;
+            case "thermal_land" or "thermal_land_solder":
+                if (Enabled("thermal_land.enabled"))
+                    Callout(Dimension("散热焊料厚度", "thermal_land.thickness"), 350, 290, 350, 240);
+                break;
+            case "bond_wires": Wires(); break;
+            case "leadframe" or "lead_solder_interconnect": Leads(); break;
+            case "flip_chip_bumps" or "bumped_die": Bumps(); break;
+            case "top_cover": TopCover(); break;
+            case "slug": Slug(); break;
+            case "backside_spreader": Spreader(); break;
+            default:
+                if (Bga) DimV(230, 260, 550, 590, Dimension("基板厚度\n", "substrate.thickness"));
+                break;
+        }
+        PackagePlanDimensions();
+    }
+
+    void PackagePlanDimensions()
+    {
+        string length = Bare ? "die.length" : Flip ? "substrate.length" : "package.length";
         double left = !Bga && !Bare && !Qfn ? 180 : 200;
         double top = !Bga && !Bare && !Qfn && !Sop ? 370 : 390;
-        double bottom = 940 - top;
-        DimH(left, 700 - left, bottom, 579, Dimension(Bare ? "芯片长度" : "封装长度", length));
-        DimV(top, bottom, left, 155, Dimension(Bare ? "宽度\n" : "封装宽度\n", width), true);
-        if (!Bare)
-        {
-            string key = FlagStep ? Qfn ? "pad.length" : "flag.length" : step == "encapsulant" ? Bga ? "encapsulant.length" : "body.length" : "die.length";
-            double x1 = FlagStep ? 265 : step == "encapsulant" ? Bga ? 225 : 200 : 285, x2 = 700 - x1;
-            DimH(x1, x2, 420, 368, Dimension(FlagStep ? "承载台长度" : step == "encapsulant" ? "塑封长度" : "芯片长度", key));
-            DimV(FlagStep ? 420 : 435, FlagStep ? 520 : 505, FlagStep ? 435 : 415, 548,
-                Dimension(FlagStep ? "承载台宽度\n" : "芯片宽度\n", FlagStep ? Qfn ? "pad.width" : "flag.width" : "die.width"));
-        }
-        Axes(70, 554);
-        if (Bare)
-            Legend((Die, "芯片"), (Accent, "有源面"), (Bump, "凸点"));
-        else
-        {
-            var entries = new List<(Brush Color, string Label)>
-            {
-                (Die, "芯片"), (Bga ? Board : Mold, Bga ? family == "cbga_fc" ? "陶瓷基板" : "基板" : "塑封"),
-                (Metal, "金属 / 承载台"), (Solder, "焊球 / 焊料"), (Attach, "粘接 / 填充层")
-            };
-            if (Flip) entries.Add((Bump, "倒装凸点"));
-            Legend([.. entries]);
-        }
+        DimH(left, 700 - left, 940 - top, 579, Dimension(Bare ? "芯片长度" : "封装长度", length));
+        if (step is not ("leadframe" or "lead_solder_interconnect"))
+            DimV(top, 940 - top, left, 155, Dimension(Bare ? "宽度\n" : "封装宽度\n", length.Replace("length", "width")), true);
+        if (Bare || step is "bond_wires" or "leadframe" or "lead_solder_interconnect" or "top_cover" or "slug" or "backside_spreader") return;
+        string key = FlagStep ? Qfn ? "pad.length" : "flag.length" : step == "encapsulant" ? family == "chip_array" ? "package.length" : Bga ? "encapsulant.length" : "body.length" : "die.length";
+        double x1 = FlagStep ? 265 : step == "encapsulant" ? Bga && family != "chip_array" ? 225 : 200 : 285;
+        DimH(x1, 700 - x1, 420, 368, Dimension(FlagStep ? "承载台长度" : step == "encapsulant" ? "塑封长度" : "芯片长度", key));
+        DimV(FlagStep ? 420 : 435, FlagStep ? 520 : 505, FlagStep ? 435 : 415, 548,
+            Dimension(FlagStep ? "承载台宽度\n" : "芯片宽度\n", FlagStep ? Qfn ? "pad.width" : "flag.width" : "die.width"));
     }
 
     void Wires()
     {
-        Section(260);
-        Callout("键合线", 470, 136, 447, 221);
-        DimH(291, 474, 260, 335, Dimension("名义路径 / 跨度", Bga ? "bond_wire.extent_length" : "bond_wire.length_x"));
-        Callout(Dimension("线径", "bond_wire.diameter"), 170, 139, 253, 215);
-        Rect(Mold, 205, 430, 290, 120);
-        Rect(Metal, 270, 445, 160, 90);
-        Rect(Die, 290, 455, 120, 70);
-        for (int i = 0; i < 7; i++)
+        DimH(Bga ? 226 : 409, Bga ? 474 : 470, 230, 310,
+            Dimension(Bga ? "线阵列跨度" : "名义路径长度", Bga ? "bond_wire.extent_length" : "bond_wire.length_x"));
+        Callout(Dimension("线径", "bond_wire.diameter"), 80, 155, 253, 185);
+        double left = Bga ? 235 : 245, right = 700 - left;
+        Outline(left - 4, 396, right - left + 8, 148);
+        DimH(left, right, 400, 365, Sop ? "名义路径 X" : Dimension("线阵列长度", "bond_wire.extent_length", "lbwx"));
+        DimV(400, 540, right, 565, Sop ? "名义路径 Y" : Dimension("线阵列宽度\n", "bond_wire.extent_width", "lbwy"));
+    }
+
+    void Leads()
+    {
+        if (Qfn)
         {
-            double x = Centered(i, 7, 17), end = Centered(i, 7, 43);
-            Line(x, 455, end, 430, Ink, 1.4);
-            Line(x, 525, end, 550, Ink, 1.4);
+            DimV(223, 235, 515, 562, Dimension("引脚厚度\n", "leads.thickness"));
+            DimH(455, 515, 235, 291, Dimension("外露长度", "leads.length"));
+            DimH(200, 230, 435, 365, Dimension("外露长度", "leads.length"));
         }
-        Outline(212, 422, 276, 136);
-        DimH(212, 488, 430, 406, Sop ? "名义路径 X" : Dimension("线阵列长度", "bond_wire.extent_length", "lbwx"));
-        DimV(422, 558, 488, 540, Sop ? "名义路径 Y" : Dimension("线阵列宽度\n", "bond_wire.extent_width", "lbwy"));
-        Axes(105, 550);
-        Legend((Die, "芯片"), (Metal, "键合线 / 焊盘"), (Mold, "塑封"));
+        else
+        {
+            DimV(229, 264, 550, 595, Dimension("引脚高度\n", "leads.height"));
+            DimH(550, 580, 264, 302, Dimension("引脚足长", "leads.foot_length"));
+            Line(245, 470, 265, 470);
+            Arrow(245, 470, 1, 0, length: 4); Arrow(265, 470, -1, 0, length: 4);
+            Callout(Dimension("框架间隙", "leads.gap", "g1"), 170, 448, 255, 470, right: true);
+        }
+        DimV(400, 426, 520, 558, Dimension("节距\n", Qfn ? "leads.pitch_y" : "leads.pitch"));
+        DimV(452, 462, 520, 594, Dimension("线宽\n", "leads.width"));
+    }
+
+    void Bumps()
+    {
+        if (Bare)
+        {
+            if (!Enabled("bumps.enabled")) return;
+            DimV(244, 267, 460, 530, Dimension("凸点高度\n", "bumps.height"));
+            DimH(244, 267, 255.5, 305, Dimension("凸点直径", "bumps.diameter"));
+        }
+        else
+        {
+            DimV(215, 230, 415, 555, Dimension("凸点高度\n", "bumps.height"));
+            DimH(292.5, 307.5, 222.5, 305, Dimension("凸点直径", "bumps.diameter"));
+        }
     }
 }

@@ -73,7 +73,7 @@ public partial class MainWindow
             string key = f["key"].Text(), control = f["control"].Text();
             bool isTable = control == "table";
             var editors = new StackPanel();
-            string label = f["label"].Text();
+            string label = DesFieldLabels.Name(f, workspace.Document.TemplateId);
             string symbol = control is "number" or "integer" or "integer_spinbox" ? DesFieldLabels.Symbol(f, values["substrate.layers"].Text()) : "";
             var host = FieldRow(label, editors, symbol: symbol);
             host.IsEnabled = JsonData.Matches(f["enabled_when"] as JObject, values);
@@ -135,7 +135,7 @@ public partial class MainWindow
             else if (isTable)
             {
                 var rows = values[key] is JArray table ? (JArray)table.DeepClone() : [];
-                editors.Children.Add(Table(rows, new[] { ("depth", "深度 mm", typeof(double)), ("thickness", "厚度 mm", typeof(double)), ("coverage", "覆盖率 %", typeof(double)), ("disconnect", "断开通孔", typeof(bool)) }, a => Set(a)));
+                editors.Children.Add(Table(rows, new[] { ("depth", "层深 zn (mm)", typeof(double)), ("thickness", "层厚 tzn (mm)", typeof(double)), ("coverage", "覆盖率 %", typeof(double)), ("disconnect", "断开通孔", typeof(bool)) }, a => Set(a)));
             }
             else if (control is "number" or "integer" or "integer_spinbox")
             {
@@ -185,8 +185,8 @@ public partial class MainWindow
             double height = Number("die.thickness") + Number("die.attach") + Number("flag.thickness") - Number("leads.thickness") - Number("flag.downset");
             foreach (var(dimension, label)in new[]
             {
-                ("length", "左右名义路径长度"),
-                ("width", "上下名义路径长度")
+                ("length", "名义路径 X"),
+                ("width", "名义路径 Y")
             }
 
             )

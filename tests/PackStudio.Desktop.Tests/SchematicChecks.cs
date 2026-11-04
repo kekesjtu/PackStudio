@@ -1,4 +1,5 @@
 using System.IO;
+using System.Reflection;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -27,6 +28,7 @@ static class SchematicChecks
             Require(hasVias == (family.Id is "chip_array" or "pbga_fc" or "pbga_wb" or "qfn"),
                 "热通孔栏目与封装支持的参数不符：" + family.Id);
             Require(steps.Items.Cast<WizardStep>().Last().Key == "modeling", "建模栏目后出现了多余栏目：" + family.Id);
+            object? sharedScene = null;
             foreach (var item in steps.Items.Cast<WizardStep>())
             {
                 // Ensure SelectionChanged fires even for the initially selected summary.
@@ -60,6 +62,21 @@ static class SchematicChecks
                 window.UpdateLayout();
                 Require(diagramTab.IsSelected && schematic.IsVisible && schematic.StepKey == item.Key,
                     "示意图页内切换栏目未保持视图或更新内容：" + item.Key);
+                if (family.Id == "chip_array" && item.Key is "thermal_vias" or "bond_wires")
+                {
+                    var labels = EditorLabels((StackPanel)window.FindName("FieldsPanel")).ToList();
+                    string[] expected = item.Key == "thermal_vias" ? ["X 偏移 vxoff", "Y 偏移 vyoff", "孔径 dv"] :
+                        ["线阵列长度 Lw", "线阵列宽度 Ww", "线径 dw"];
+                    Require(expected.All(labels.Contains), "编辑区字段名称或符号与示意图不一致：" + item.Key);
+                    NewPackageChecks.Capture(window, "chip_array-" + item.Key + "-editor.png");
+                }
+                if (schematic.DiagramKey == "package")
+                {
+                    var scene = typeof(PackageSchematic).GetField("packageScene", BindingFlags.Instance | BindingFlags.NonPublic)!.GetValue(schematic);
+                    Require(scene != null && (sharedScene == null || ReferenceEquals(sharedScene, scene)),
+                        "同一构图在栏目切换时重建了基础图形：" + family.Id + "/" + item.Key);
+                    sharedScene = scene;
+                }
                 Preview(workspace, item.Key, item.Label, family.Id + "-" + item.Key);
                 count++;
             }
@@ -68,7 +85,17 @@ static class SchematicChecks
                 steps.SelectedValue = "thermal_vias";
                 string route = schematic.DiagramKey;
                 steps.SelectedValue = "metal_layers";
-                Require(schematic.DiagramKey == route, "通孔与金属层应共用基板细节图");
+                Require(family.Id == "chip_array" ? schematic.DiagramKey != route : schematic.DiagramKey == route,
+                    "通孔与金属层的图形路由不符合封装结构");
+            }
+            if (family.Id == "bare_die")
+            {
+                var sceneField = typeof(PackageSchematic).GetField("packageScene", BindingFlags.Instance | BindingFlags.NonPublic)!;
+                steps.SelectedValue = "die";
+                var originalScene = sceneField.GetValue(schematic);
+                workspace.Document.Values["bumps.enabled"] = true;
+                steps.SelectedValue = "summary";
+                Require(!ReferenceEquals(originalScene, sceneField.GetValue(schematic)), "启用组件后基础图形未更新");
             }
         }
         workspace.Select("cbga_fc");
@@ -119,4 +146,9 @@ static class SchematicChecks
     {
         if (!condition) throw new Exception(message);
     }
+
+    static IEnumerable<string> EditorLabels(StackPanel fields) => fields.Children.OfType<Grid>()
+        .Where(row => row.Children.Count > 0 && row.Children[0] is DockPanel)
+        .Select(row => string.Join(" ", ((DockPanel)row.Children[0]).Children.OfType<TextBlock>()
+            .Reverse().Select(label => label.Text.Trim())));
 }

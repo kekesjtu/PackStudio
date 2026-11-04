@@ -8,11 +8,13 @@ namespace PackStudio.Desktop;
 internal sealed partial class SchematicDrawing(Template template, ProjectDocument document, string step)
 {
     internal const double Width = 700, Height = 580;
+    const double SectionY = 230;
     const double FlipBumpRadius = 7.5;
     static readonly Brush Ink = Brushes.Black, Muted = Brush("#555555");
     static readonly Brush Die = Brush("#FF1744"), Substrate = Brush("#00C83F"), Metal = Brush("#FFA000");
     static readonly Brush Mold = Brush("#3996FF"), Solder = Brush("#653FFF"), Attach = Brush("#7A2400");
     static readonly Brush Bump = Brush("#E600C7"), Ceramic = Brush("#00A043");
+    static readonly Brush WireColor = Brush("#D600C7");
     static readonly Brush Cover = Brush("#00B8D9"), Accent = Brush("#0057D9");
     readonly string family = document.TemplateId;
     DrawingContext dc = null!;
@@ -22,6 +24,7 @@ internal sealed partial class SchematicDrawing(Template template, ProjectDocumen
     bool Qfn => family == "qfn";
     bool Sop => family == "sop";
     bool FlagStep => step is "die_flag_solder_mask" or "die_flag_tie_bars" or "dap";
+    int LayerCount => Math.Clamp((document.Values["metal.layers"] as Newtonsoft.Json.Linq.JArray)?.Count ?? 2, 2, 6);
     Brush Board => family == "cbga_fc" ? Ceramic : Substrate;
     static double FlipDieTop(double substrateTop) => substrateTop - 2 * FlipBumpRadius - 23;
     static double Centered(int index, int count, double pitch, double center = 350) =>
@@ -39,7 +42,21 @@ internal sealed partial class SchematicDrawing(Template template, ProjectDocumen
         return name + (symbol.Length == 0 ? "" : "  " + symbol);
     }
 
-    internal DrawingGroup Create(string diagram)
+    internal DrawingGroup CreatePackageScene()
+    {
+        var scene = new DrawingGroup();
+        using (dc = scene.Open())
+        {
+            PackageSection();
+            Plan();
+            Axes(70, 554);
+            PackageLegend();
+        }
+        scene.Freeze();
+        return scene;
+    }
+
+    internal DrawingGroup Create(string diagram, DrawingGroup? scene = null)
     {
         var group = new DrawingGroup();
         using (dc = group.Open())
@@ -48,15 +65,11 @@ internal sealed partial class SchematicDrawing(Template template, ProjectDocumen
             dc.PushTransform(new TranslateTransform(0, -95));
             switch (diagram)
             {
-                case "package": Package(); break;
+                case "package": dc.DrawDrawing(scene!); Package(); break;
                 case "substrate": SubstrateDetail(); break;
                 case "balls": BallArray(); break;
-                case "bumps": Bumps(); break;
-                case "leads": Leads(); break;
-                case "wires": Wires(); break;
-                case "cover": TopCover(); break;
-                case "slug": Slug(); break;
-                case "spreader": Spreader(); break;
+                case "chip_vias": ChipArrayVias(); break;
+                case "chip_metal": ChipArrayMetal(); break;
             }
             dc.Pop();
         }
@@ -159,6 +172,6 @@ internal sealed partial class SchematicDrawing(Template template, ProjectDocumen
             c.BeginFigure(new(x1, y1), false, false);
             c.BezierTo(new(x1, y1 - rise), new(x2, y2 - rise), new(x2, y2), true, false);
         }
-        dc.DrawGeometry(null, new Pen(Metal, 2.5), path);
+        dc.DrawGeometry(null, new Pen(WireColor, 2.5), path);
     }
 }
