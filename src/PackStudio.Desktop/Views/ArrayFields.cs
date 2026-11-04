@@ -128,12 +128,7 @@ public partial class MainWindow
 
     void ConfigNumber(JObject data, string key, string label)
     {
-        string symbol = key switch
-        {
-            "bga.populated_rows" => "MEp", "bga.populated_columns" => "MDp",
-            "bga.center_solder_rows" => "MEc", "bga.center_solder_columns" => "MDc",
-            _ => ""
-        };
+        string symbol = DesFieldLabels.ConfigurationSymbol(key);
         FieldsPanel.Children.Add(FieldRow(label, Numeric(data[key], true, "", v =>
         {
             data[key] = v;

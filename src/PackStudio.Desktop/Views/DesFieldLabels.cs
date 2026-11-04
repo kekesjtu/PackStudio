@@ -45,6 +45,14 @@ internal static class DesFieldLabels
     internal static string Symbol(JToken field, string substrateLayers)
     {
         JToken? entry = field["des_symbol"];
-        return entry is JObject choices ? choices[substrateLayers].Text() : entry.Text();
+        string symbol = entry is JObject choices ? choices[substrateLayers].Text() : entry.Text();
+        return symbol.Length > 0 ? symbol : ConfigurationSymbol(field["key"].Text());
     }
+
+    internal static string ConfigurationSymbol(string key) => key switch
+    {
+        "bga.populated_rows" => "MEp", "bga.populated_columns" => "MDp",
+        "bga.center_solder_rows" => "MEc", "bga.center_solder_columns" => "MDc",
+        _ => ""
+    };
 }
