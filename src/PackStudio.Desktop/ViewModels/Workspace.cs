@@ -23,7 +23,7 @@ public sealed partial class Workspace : ObservableObject
 
     public event Action? ModelChanged;
     public event Action? DocumentChanged;
-    public Workspace() => Select("bare_die", "");
+    public Workspace() => Select("cbga_fc", null);
     public void Select(string id, string? presetId = null)
     {
         Template = Catalog.Load(id);
