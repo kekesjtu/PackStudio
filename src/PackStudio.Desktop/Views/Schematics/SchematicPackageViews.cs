@@ -58,7 +58,6 @@ internal sealed partial class SchematicDrawing
             case "leadframe" or "lead_solder_interconnect": Leads(); break;
             case "flip_chip_bumps" or "bumped_die": Bumps(); break;
             case "top_cover": TopCover(); break;
-            case "slug": Slug(); break;
             case "backside_spreader": Spreader(); break;
             default:
                 if (Bga) DimV(230, 260, 550, 590, Dimension("基板厚度\n", "substrate.thickness"));

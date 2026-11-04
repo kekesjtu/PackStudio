@@ -21,7 +21,9 @@ internal sealed partial class SchematicDrawing
             for (int row = 0; row < 2; row++)
                 for (int col = 0; col < 2; col++)
                     Ellipse(Metal, Centered(col, 2, 31), Centered(row, 2, 31, 470), 8, 8);
-            Callout("中央焊球", 170, 430, 334.5, 454.5, right: true);
+            Text("中央焊球", 545, 400);
+            Line(545, 422, 520, 422); Line(520, 422, 520, 454.5); Line(520, 454.5, 365.5, 454.5);
+            dc.DrawEllipse(Ink, null, new(365.5, 454.5), 2, 2);
             DimH(334.5, 365.5, 454.5, 340, Dimension("中央焊球列数", "bga.center_solder_columns"));
             DimV(454.5, 485.5, 365.5, 550, Dimension("中央焊球行数\n", "bga.center_solder_rows"));
         }

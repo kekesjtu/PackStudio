@@ -67,7 +67,7 @@
     {
       "key": "trace.top_thickness",
       "step": "metal_layers",
-      "label": "顶部金属层厚度",
+      "label": "顶层铜厚度",
       "control": "number",
       "unit": "mm",
       "minimum": 0.001,
@@ -85,7 +85,7 @@
     {
       "key": "trace.bottom_thickness",
       "step": "metal_layers",
-      "label": "底部金属层厚度",
+      "label": "底层铜厚度",
       "control": "number",
       "unit": "mm",
       "minimum": 0.001,
@@ -148,7 +148,7 @@
     {
       "key": "die.attach",
       "step": "die",
-      "label": "粘接层厚度",
+      "label": "粘接层",
       "control": "number",
       "unit": "mm",
       "minimum": 0.005,
@@ -208,7 +208,7 @@
     {
       "key": "bond_wire.extent_length",
       "step": "bond_wires",
-      "label": "键合焊盘长度范围",
+      "label": "线阵列长度",
       "control": "number",
       "unit": "mm",
       "minimum": 0.3,
@@ -223,7 +223,7 @@
     {
       "key": "bond_wire.extent_width",
       "step": "bond_wires",
-      "label": "键合焊盘宽度范围",
+      "label": "线阵列宽度",
       "control": "number",
       "unit": "mm",
       "minimum": 0.3,
@@ -238,7 +238,7 @@
     {
       "key": "bond_wire.diameter",
       "step": "bond_wires",
-      "label": "键合线等效宽度",
+      "label": "线径",
       "control": "number",
       "unit": "mm",
       "minimum": 0.01,
@@ -268,7 +268,7 @@
     {
       "key": "vias.diameter",
       "step": "thermal_vias",
-      "label": "通孔直径",
+      "label": "孔径",
       "control": "number",
       "unit": "mm",
       "minimum": 0.02,
@@ -285,7 +285,7 @@
     {
       "key": "vias.plating",
       "step": "thermal_vias",
-      "label": "通孔镀层厚度",
+      "label": "镀层厚度",
       "control": "number",
       "unit": "mm",
       "minimum": 0.001,
@@ -303,7 +303,7 @@
     {
       "key": "vias.offset_x",
       "step": "thermal_vias",
-      "label": "通孔 X 偏移",
+      "label": "X 偏移",
       "control": "number",
       "unit": "mm",
       "minimum": -3,
@@ -320,7 +320,7 @@
     {
       "key": "vias.offset_y",
       "step": "thermal_vias",
-      "label": "通孔 Y 偏移",
+      "label": "Y 偏移",
       "control": "number",
       "unit": "mm",
       "minimum": -3,
@@ -337,7 +337,7 @@
     {
       "key": "bga.columns",
       "step": "solder_balls",
-      "label": "X 方向焊球数",
+      "label": "X 方向列数",
       "control": "integer_spinbox",
       "unit": null,
       "minimum": 1,
@@ -352,7 +352,7 @@
     {
       "key": "bga.rows",
       "step": "solder_balls",
-      "label": "Y 方向焊球数",
+      "label": "Y 方向行数",
       "control": "integer_spinbox",
       "unit": null,
       "minimum": 1,
@@ -367,7 +367,7 @@
     {
       "key": "bga.pitch",
       "step": "solder_balls",
-      "label": "焊球间距",
+      "label": "间距",
       "control": "number",
       "unit": "mm",
       "minimum": 0.2,
@@ -382,7 +382,7 @@
     {
       "key": "bga.diameter",
       "step": "solder_balls",
-      "label": "焊球直径",
+      "label": "球径",
       "control": "number",
       "unit": "mm",
       "minimum": 0.05,
@@ -397,7 +397,7 @@
     {
       "key": "bga.height",
       "step": "solder_balls",
-      "label": "基板离板高度",
+      "label": "离板高度",
       "control": "number",
       "unit": "mm",
       "minimum": 0.05,
@@ -573,7 +573,7 @@
     },
     {
       "key": "metal.hole_length",
-      "label": "顶层中央区域长度",
+      "label": "顶层开孔长度",
       "default": null,
       "step": "metal_layers",
       "control": "number",
@@ -589,7 +589,7 @@
     },
     {
       "key": "metal.hole_width",
-      "label": "顶层中央区域宽度",
+      "label": "孔宽",
       "default": null,
       "step": "metal_layers",
       "control": "number",
@@ -615,14 +615,16 @@
       "label": "外围满布行数",
       "default": null,
       "step": "solder_removal",
-      "control": "configuration"
+      "control": "configuration",
+      "des_symbol": "MEp"
     },
     {
       "key": "bga.populated_columns",
       "label": "外围满布列数",
       "default": null,
       "step": "solder_removal",
-      "control": "configuration"
+      "control": "configuration",
+      "des_symbol": "MDp"
     },
     {
       "key": "bga.removal_rows",
@@ -657,14 +659,16 @@
       "label": "中央焊球行数",
       "default": null,
       "step": "central_solder_balls",
-      "control": "configuration"
+      "control": "configuration",
+      "des_symbol": "MEc"
     },
     {
       "key": "bga.center_solder_columns",
       "label": "中央焊球列数",
       "default": null,
       "step": "central_solder_balls",
-      "control": "configuration"
+      "control": "configuration",
+      "des_symbol": "MDc"
     },
     {
       "key": "bga.center_staggered",

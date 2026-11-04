@@ -55,7 +55,8 @@ public partial class MainWindow
             b["bga.representation"] = box.SelectedValue?.ToString();
             workspace.Dirty();
         };
-        FieldsPanel.Children.Add(FieldRow("焊球建模方式", box));
+        var field = workspace.Template.Fields.FirstOrDefault(f => f["key"].Text() == "bga.representation");
+        FieldsPanel.Children.Add(FieldRow(field?["label"].Text("焊球建模方式") ?? "焊球建模方式", box));
     }
 
     void AddViaConfiguration()
@@ -109,9 +110,10 @@ public partial class MainWindow
 
     void ConfigCheck(JObject data, string key, string label, Action? changed = null)
     {
+        var field = workspace.Template.Fields.FirstOrDefault(f => f["key"].Text() == key);
         var box = new CheckBox
         {
-            Content = label,
+            Content = field?["label"].Text(label) ?? label,
             IsChecked = data[key].Flag(),
             Margin = new(0, 9, 0, 5)
         };
@@ -128,7 +130,9 @@ public partial class MainWindow
 
     void ConfigNumber(JObject data, string key, string label)
     {
-        string symbol = DesFieldLabels.ConfigurationSymbol(key);
+        var field = workspace.Template.Fields.FirstOrDefault(f => f["key"].Text() == key);
+        string symbol = field == null ? "" : DesFieldLabels.Symbol(field, workspace.Document.Values["substrate.layers"].Text());
+        label = field?["label"].Text(label) ?? label;
         FieldsPanel.Children.Add(FieldRow(label, Numeric(data[key], true, "", v =>
         {
             data[key] = v;

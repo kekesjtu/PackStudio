@@ -15,6 +15,7 @@ static class SchematicChecks
 {
     public static void Run(MainWindow window, Workspace workspace)
     {
+        DesLabelChecks.Run();
         var steps = (ListBox)window.FindName("StepList");
         var schematic = (PackageSchematic)window.FindName("Schematic");
         var modelTab = (LayoutDocument)window.FindName("ModelDocument");
@@ -69,6 +70,13 @@ static class SchematicChecks
                         ["线阵列长度 Lw", "线阵列宽度 Ww", "线径 dw"];
                     Require(expected.All(labels.Contains), "编辑区字段名称或符号与示意图不一致：" + item.Key);
                     NewPackageChecks.Capture(window, "chip_array-" + item.Key + "-editor.png");
+                }
+                if (item.Key is "central_solder_balls" or "solder_removal")
+                {
+                    var labels = EditorLabels((StackPanel)window.FindName("FieldsPanel")).ToList();
+                    string[] expected = item.Key == "central_solder_balls" ? ["中央焊球行数 MEc", "中央焊球列数 MDc"] :
+                        ["外围满布行数 MEp", "外围满布列数 MDp"];
+                    Require(expected.All(labels.Contains), "模板配置字段的名称或符号未正确显示：" + family.Id + "/" + item.Key);
                 }
                 if (schematic.DiagramKey == "package")
                 {

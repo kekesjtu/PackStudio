@@ -13,16 +13,6 @@ internal sealed partial class SchematicDrawing
         DimV(405, 535, 475, 548, Dimension("顶部宽度\n", prefix + ".width"));
     }
 
-    void Slug()
-    {
-        if (!SlugVisible) return;
-        DimH(300, 400, SectionY - 125, SectionY - 145, Dimension("顶部直径", "slug.diameter"));
-        DimV(SectionY - 105, SectionY - 77, 465, 565, Dimension("厚度\n", "slug.thickness"));
-        DimV(SectionY - 6, SectionY, 490, 565, Dimension("支脚间隙\n", "slug.clearance"));
-        DimH(235, 465, 410, 365, Dimension("散热块长度", "slug.length"));
-        DimV(410, 530, 465, 545, Dimension("宽度\n", "slug.width"));
-    }
-
     void Spreader()
     {
         if (!Enabled("spreader.enabled")) return;

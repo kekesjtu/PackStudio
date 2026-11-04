@@ -73,7 +73,7 @@ public partial class MainWindow
             string key = f["key"].Text(), control = f["control"].Text();
             bool isTable = control == "table";
             var editors = new StackPanel();
-            string label = DesFieldLabels.Name(f, workspace.Document.TemplateId);
+            string label = f["label"].Text();
             string symbol = control is "number" or "integer" or "integer_spinbox" ? DesFieldLabels.Symbol(f, values["substrate.layers"].Text()) : "";
             var host = FieldRow(label, editors, symbol: symbol);
             host.IsEnabled = JsonData.Matches(f["enabled_when"] as JObject, values);

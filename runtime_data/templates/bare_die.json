@@ -22,7 +22,7 @@
     {
       "key": "die.width",
       "step": "die",
-      "label": "芯片宽度",
+      "label": "宽度",
       "control": "number",
       "unit": "mm",
       "minimum": 0.2,
@@ -38,7 +38,7 @@
     {
       "key": "die.thickness",
       "step": "die",
-      "label": "芯片厚度",
+      "label": "厚度",
       "control": "number",
       "unit": "mm",
       "minimum": 0.03,
@@ -138,7 +138,7 @@
     {
       "key": "bumps.height",
       "step": "bumped_die",
-      "label": "凸点层厚度",
+      "label": "凸点高度",
       "control": "number",
       "unit": "mm",
       "minimum": 0.01,

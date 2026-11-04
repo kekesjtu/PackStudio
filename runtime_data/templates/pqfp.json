@@ -45,7 +45,7 @@
     {
       "key": "package.length",
       "step": "overall_package",
-      "label": "引脚外包络长度",
+      "label": "封装长度",
       "control": "number",
       "unit": "mm",
       "minimum": 3,
@@ -60,7 +60,7 @@
     {
       "key": "package.width",
       "step": "overall_package",
-      "label": "引脚外包络宽度",
+      "label": "封装宽度",
       "control": "number",
       "unit": "mm",
       "minimum": 3,
@@ -180,7 +180,7 @@
     {
       "key": "die.attach",
       "step": "die",
-      "label": "粘接层厚度",
+      "label": "粘接层",
       "control": "number",
       "unit": "mm",
       "minimum": 0.005,
@@ -210,7 +210,7 @@
     {
       "key": "flag.length",
       "step": "die_flag_tie_bars",
-      "label": "芯片承载台长度",
+      "label": "承载台长度",
       "control": "number",
       "unit": "mm",
       "minimum": 0.5,
@@ -225,7 +225,7 @@
     {
       "key": "flag.width",
       "step": "die_flag_tie_bars",
-      "label": "芯片承载台宽度",
+      "label": "承载台宽度",
       "control": "number",
       "unit": "mm",
       "minimum": 0.5,
@@ -315,7 +315,7 @@
     {
       "key": "leads.pitch",
       "step": "leadframe",
-      "label": "引脚间距",
+      "label": "节距",
       "control": "number",
       "unit": "mm",
       "minimum": 0.1,
@@ -330,7 +330,7 @@
     {
       "key": "leads.width",
       "step": "leadframe",
-      "label": "引脚宽度",
+      "label": "线宽",
       "control": "number",
       "unit": "mm",
       "minimum": 0.03,
@@ -360,7 +360,7 @@
     {
       "key": "leads.height",
       "step": "leadframe",
-      "label": "引线框高度",
+      "label": "引脚高度",
       "control": "number",
       "unit": "mm",
       "minimum": 0.05,
@@ -375,7 +375,7 @@
     {
       "key": "leads.foot_length",
       "step": "leadframe",
-      "label": "引脚脚长",
+      "label": "引脚足长",
       "control": "number",
       "unit": "mm",
       "minimum": 0.05,
@@ -390,7 +390,7 @@
     {
       "key": "leads.gap_x",
       "step": "leadframe",
-      "label": "左右引脚间隙",
+      "label": "框架间隙",
       "control": "number",
       "unit": "mm",
       "minimum": 0.01,
@@ -405,7 +405,7 @@
     {
       "key": "leads.gap_y",
       "step": "leadframe",
-      "label": "上下引脚间隙",
+      "label": "Y 方向框架间隙",
       "control": "number",
       "unit": "mm",
       "minimum": 0.01,
@@ -420,7 +420,7 @@
     {
       "key": "bond_wire.length_x",
       "step": "bond_wires",
-      "label": "左右键合区域长度",
+      "label": "线阵列长度",
       "control": "number",
       "unit": "mm",
       "minimum": 0.1,
@@ -435,7 +435,7 @@
     {
       "key": "bond_wire.length_y",
       "step": "bond_wires",
-      "label": "上下键合区域长度",
+      "label": "线阵列宽度",
       "control": "number",
       "unit": "mm",
       "minimum": 0.1,
@@ -465,7 +465,7 @@
     {
       "key": "bond_wire.diameter",
       "step": "bond_wires",
-      "label": "键合线等效宽度",
+      "label": "线径",
       "control": "number",
       "unit": "mm",
       "minimum": 0.01,
@@ -495,7 +495,7 @@
     {
       "key": "thermal_land.thickness",
       "step": "thermal_land_solder",
-      "label": "散热焊盘厚度",
+      "label": "散热焊料厚度",
       "control": "number",
       "unit": "mm",
       "minimum": 0.001,

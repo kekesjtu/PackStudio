@@ -44,11 +44,12 @@ public sealed class PackageSchematic : FrameworkElement
         "metal_layers" when template == "chip_array" => "chip_metal",
         "thermal_vias" or "metal_layers" or "upper_built_up" or "lower_built_up" => "substrate",
         "solder_balls" or "central_solder_balls" or "solder_removal" => "balls",
+        "slug" => "slug",
         "modeling" => "",
         "summary" or "overall_package" or "package_substrate" or "die" or "encapsulant" or
             "die_flag_solder_mask" or "die_flag_tie_bars" or "dap" or "thermal_land" or "thermal_land_solder" or
             "flip_chip_bumps" or "bumped_die" or "leadframe" or "lead_solder_interconnect" or "bond_wires" or
-            "top_cover" or "slug" or "backside_spreader" => "package",
+            "top_cover" or "backside_spreader" => "package",
         _ => throw new ArgumentOutOfRangeException(nameof(step), step, "栏目没有对应的示意图。")
     };
 

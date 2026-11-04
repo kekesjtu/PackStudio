@@ -70,6 +70,7 @@ internal sealed partial class SchematicDrawing(Template template, ProjectDocumen
                 case "balls": BallArray(); break;
                 case "chip_vias": ChipArrayVias(); break;
                 case "chip_metal": ChipArrayMetal(); break;
+                case "slug": SlugDiagram(); break;
             }
             dc.Pop();
         }
