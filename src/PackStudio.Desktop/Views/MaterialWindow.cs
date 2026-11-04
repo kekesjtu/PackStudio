@@ -30,6 +30,8 @@ public sealed class MaterialWindow : Window
         MinWidth = 720;
         FontFamily = new FontFamily("Microsoft YaHei UI");
         FontSize = 12;
+        WindowStyle = WindowStyle.ToolWindow;
+        ShowInTaskbar = false;
         WindowStartupLocation = WindowStartupLocation.CenterOwner;
         var root = new Grid
         {
