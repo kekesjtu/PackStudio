@@ -27,7 +27,7 @@ class MaterialCatalog:
             )
         except KeyError as error:
             raise ValueError(f"unknown catalog material: {name}") from error
-        payload = read_defaults(f"materials/{entry['file']}", "packstudio.material/v1")
-        if payload["name"] != name or payload["category"] != entry["category"]:
+        payload = read_defaults(f"materials/{entry['file']}", None)
+        if payload["name"] != name or payload["group"] != entry["category"]:
             raise ValueError(f"material identity mismatch: {name}")
         return payload

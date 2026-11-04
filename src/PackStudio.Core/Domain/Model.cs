@@ -10,8 +10,10 @@ public record Material(string Id, string Name, Vector Conductivity, double Densi
 {
     public void Validate()
     {
-        if (Conductivity.Components.Any(x => !double.IsFinite(x) || x <= 0) || !double.IsFinite(Density) || Density <= 0 || !double.IsFinite(SpecificHeat) || SpecificHeat <= 0)
-            throw new ArgumentException($"材料 {Name} 的导热率、密度和比热必须为有限正数。");
+        if (Conductivity.Components.Any(x => !double.IsFinite(x) || x < 0) || !double.IsFinite(Density) || Density < 0 || !double.IsFinite(SpecificHeat) || SpecificHeat < 0)
+            throw new ArgumentException($"材料 {Name} 的导热率、密度和比热必须为有限非负数。");
+        if (ConductivityCoefficient is double coefficient && !double.IsFinite(coefficient) || ReferenceTemperature is double temperature && !double.IsFinite(temperature))
+            throw new ArgumentException($"材料 {Name} 的温度系数和参考温度必须为有限数值。");
     }
 }
 

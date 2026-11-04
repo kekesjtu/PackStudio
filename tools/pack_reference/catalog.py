@@ -10,7 +10,6 @@ from tools.pack_reference.native import VERIFIED_BINARIES
 from tools.pack_reference.native_details import EXTRA_BINARIES
 
 PRESET_SCHEMA = "packstudio.native-preset/v1"
-MATERIAL_SCHEMA = "packstudio.material/v1"
 CATEGORIES = {
     "Resins": "resins",
     "Alloys (Leadframe)": "leadframe_alloys",
@@ -35,47 +34,26 @@ def write_json(path: Path, payload: dict) -> None:
 
 
 def material_record(raw: dict) -> dict:
-    kind = raw["conductivity_type"]
-    if kind == 2:
-        conductivity = {
-            "model": "orthotropic",
-            "unit": "W/(m*K)",
-            "x": raw["kx_w_m_k"],
-            "y": raw["ky_w_m_k"],
-            "z": raw["kz_w_m_k"],
-            "comment": "原生正交导热张量；此类型不使用标量导热率及温度系数存储。",
-        }
-    elif kind in {0, 1}:
-        conductivity = {
-            "model": "constant_isotropic" if kind == 0 else "temperature_dependent",
-            "unit": "W/(m*K)",
-            "value": raw["conductivity_w_m_k"],
-            "comment": "原生各向同性材料；kx/ky/kz 存储中的0不是三个方向的物理导热率。",
-        }
-        if kind == 1:
-            conductivity.update(
-                coefficient=raw["conductivity_coefficient"],
-                reference_temperature=raw["conductivity_reference_temperature"],
-                comment="原生温度相关各向同性材料；完整保留基准值、系数、参考温度，不简化为常数。",
-            )
-    else:
+    if raw["conductivity_type"] not in {0, 1, 2}:
+        kind = raw["conductivity_type"]
         raise ValueError(f"unreviewed material conductivity type: {kind}")
     return {
-        "schema_version": MATERIAL_SCHEMA,
         "name": raw["name"],
-        "category": raw["group"],
-        "density": {"value": raw["density_kg_m3"], "unit": "kg/m^3"},
-        "specific_heat": {"value": raw["specific_heat_j_kg_k"], "unit": "J/(kg*K)"},
+        "group": raw["group"],
+        "density_kg_m3": raw["density_kg_m3"],
+        "specific_heat_j_kg_k": raw["specific_heat_j_kg_k"],
         "emissivity": raw["emissivity"],
-        "conductivity": conductivity,
-        "native_storage": raw,
+        "conductivity_w_m_k": raw["conductivity_w_m_k"],
+        "conductivity_coefficient": raw["conductivity_coefficient"],
+        "conductivity_reference_temperature": raw["conductivity_reference_temperature"],
+        "kx_w_m_k": raw["kx_w_m_k"],
+        "ky_w_m_k": raw["ky_w_m_k"],
+        "kz_w_m_k": raw["kz_w_m_k"],
+        "conduct_type": raw["conductivity_type"],
         "source": {
             "method": "MaterialLibrary::populateBuiltInMaterials; native getters",
             "binary_sha256": EXTRA_BINARIES,
         },
-        "comment": (
-            "PACK 2504 内建材料；未读取用户材料文件。native_storage 中非当前类型字段只是原生存储。"
-        ),
     }
 
 
@@ -95,7 +73,6 @@ def write_materials(directory: Path, materials: list[dict]) -> set[str]:
         {
             "schema_version": "packstudio.material-index/v1",
             "material_count": len(index),
-            "comment": "预设通过完整材料名称引用；名称是唯一键，目录与文件名仅用于分类存储。",
             "materials": index,
         },
     )

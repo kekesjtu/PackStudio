@@ -1,3 +1,4 @@
+using Newtonsoft.Json.Linq;
 using PackStudio.Core;
 using static TestSuite;
 
@@ -21,6 +22,58 @@ static class MaterialChecks
             Near(tests.Builder.Generate(document).Materials[original.Id].Conductivity.X, 42, "derived override");
         });
         tests.Case("materials", "invalid material rejected", () => Reject(() => new Material("x", "x", new(1, 1, 1), -1, 2).Validate()));
+        tests.Case("materials", "zero properties and signed temperature parameters are allowed", () =>
+        {
+            new Material("zero", "zero", new(0, 0, 0), 0, 0, ConductivityCoefficient: -0.42, ReferenceTemperature: -20).Validate();
+            Reject(() => new Material("invalid", "invalid", new(double.NaN, 1, 1), 1, 1).Validate());
+            Reject(() => new Material("invalid", "invalid", new(1, 1, 1), 1, 1, ConductivityCoefficient: double.PositiveInfinity).Validate());
+        });
+        tests.Case("materials", "flat records select active conductivity fields by type", () =>
+        {
+            string directory = Path.Combine(tests.Root, "tmp", DateTime.Now.ToString("yyyy-MM-dd") + "-core-tests", "material-records-" + Guid.NewGuid().ToString("N"));
+            string materials = Path.Combine(directory, "materials");
+            Directory.CreateDirectory(materials);
+            try
+            {
+                var index = new JObject();
+                foreach (int type in new[] { 0, 1, 2 })
+                {
+                    string id = "material-" + type;
+                    var record = new JObject
+                    {
+                        ["name"] = id, ["group"] = "Test", ["density_kg_m3"] = 10,
+                        ["specific_heat_j_kg_k"] = 20, ["conductivity_w_m_k"] = 78.4,
+                        ["conductivity_coefficient"] = -0.42, ["conductivity_reference_temperature"] = -20,
+                        ["kx_w_m_k"] = 1, ["ky_w_m_k"] = 2, ["kz_w_m_k"] = 3, ["conduct_type"] = type
+                    };
+                    File.WriteAllText(Path.Combine(materials, id + ".json"), record.ToString());
+                    index[id] = new JObject { ["file"] = id + ".json" };
+                }
+                File.WriteAllText(Path.Combine(materials, "index.json"), new JObject { ["materials"] = index }.ToString());
+                File.WriteAllText(Path.Combine(materials, "runtime.json"), new JObject { ["aliases"] = new JObject(), ["project_materials"] = new JArray() }.ToString());
+                var library = new MaterialLibrary(directory);
+                var constant = library.Items["material-0"];
+                var temperature = library.Items["material-1"];
+                var orthotropic = library.Items["material-2"];
+                Assert(constant.Conductivity == new Vector(78.4, 78.4, 78.4) && constant.ConductivityCoefficient == null, "inactive fields changed constant material");
+                Assert(temperature.Conductivity == constant.Conductivity && temperature.ConductivityCoefficient == -0.42 && temperature.ReferenceTemperature == -20, "temperature model not preserved");
+                Assert(orthotropic.Conductivity == new Vector(1, 2, 3) && orthotropic.ConductivityCoefficient == null, "orthotropic material used inactive scalar fields");
+                Assert(orthotropic.Category == "Test", "material group not mapped");
+                var model = new PackageModel("bare_die", "test", new ModelMetadata(new PackageGeometry(new(1, 1), new(1, 1), new(1, 1), new(1, 1), 1, false)), new Dictionary<string, ModelGroup>());
+                foreach (var material in library.Items.Values)
+                {
+                    model.Materials[material.Id] = material;
+                    model.Blocks.Add(new(material.Id, material.Name, "die", new(model.Blocks.Count * 2, 0, 0), new(1, 1, 1), material.Id, "group-die", "Die"));
+                }
+                var exported = FloXml.Export(model);
+                Assert(exported.Descendants("isotropic_material_att").Single().Element("name")!.Value == constant.Id, "constant material exported as temperature dependent");
+                var temperatureXml = exported.Descendants("temperature_dependant_material_att").Single();
+                Near(double.Parse(temperatureXml.Element("coeff")!.Value, System.Globalization.CultureInfo.InvariantCulture), -0.42, "signed temperature coefficient");
+                Near(double.Parse(temperatureXml.Element("tref")!.Value, System.Globalization.CultureInfo.InvariantCulture), 253.15, "reference temperature conversion");
+                Assert(exported.Descendants("orthotropic_material_att").Single().Element("name")!.Value == orthotropic.Id, "orthotropic material export lost");
+            }
+            finally { Directory.Delete(directory, true); }
+        });
         tests.Case("materials", "generation does not reread preset material assignments", () =>
         {
             var template = tests.Catalog.Load("pbga_wb");

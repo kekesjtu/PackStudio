@@ -12,7 +12,7 @@ def library_directory() -> Path:
 
 
 @cache
-def _read(relative: str, schema_version: str) -> dict[str, Any]:
+def _read(relative: str, schema_version: str | None) -> dict[str, Any]:
     directory = library_directory().resolve()
     path = (directory / relative).resolve()
     if not path.is_relative_to(directory):
@@ -21,12 +21,14 @@ def _read(relative: str, schema_version: str) -> dict[str, Any]:
         payload = json.loads(path.read_text(encoding="utf-8"))
     except (OSError, ValueError) as error:
         raise ValueError(f"cannot read runtime data file {path}: {error}") from error
-    if not isinstance(payload, dict) or payload.get("schema_version") != schema_version:
+    if not isinstance(payload, dict) or (
+        schema_version is not None and payload.get("schema_version") != schema_version
+    ):
         raise ValueError(f"unsupported runtime data schema in {path}")
     return payload
 
 
-def read_defaults(relative: str, schema_version: str) -> dict[str, Any]:
+def read_defaults(relative: str, schema_version: str | None) -> dict[str, Any]:
     # Requests must not share mutable lists or dictionaries through the file cache.
     return deepcopy(_read(relative, schema_version))
 

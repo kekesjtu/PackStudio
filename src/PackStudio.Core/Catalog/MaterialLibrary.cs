@@ -37,10 +37,17 @@ public sealed class MaterialLibrary
     public static Material Parse(JToken v) => new(v["id"].Text(), v["name"].Text(), new(v["conductivity"]?["x"].Number() ?? 0, v["conductivity"]?["y"].Number() ?? 0, v["conductivity"]?["z"].Number() ?? 0), v["density"].Number(), v["specific_heat"].Number(), v["color"].Text("#AEB7BF"), v["category"].Text("Derived"), v["conductivity_coefficient"]?.Type == JTokenType.Float ? v["conductivity_coefficient"]!.Value<double>() : null, v["conductivity_reference_temperature_c"]?.Type is JTokenType.Float or JTokenType.Integer ? v["conductivity_reference_temperature_c"]!.Value<double>() : null, v["source"].Text());
     static Material ParseRecord(string id, JObject r, string color)
     {
-        var c = r["conductivity"]!;
-        bool orth = c["model"].Text() == "orthotropic";
-        var tensor = orth ? new Vector(c["x"].Number(), c["y"].Number(), c["z"].Number()) : new Vector(c["value"].Number(), c["value"].Number(), c["value"].Number());
-        return new(id, r["name"].Text(), tensor, r["density"]?["value"].Number() ?? 0, r["specific_heat"]?["value"].Number() ?? 0, color, r["category"].Text(), c["coefficient"]?.Value<double>(), c["reference_temperature"]?.Value<double>(), "PACK built-in material");
+        int type = r["conduct_type"]!.Value<int>();
+        double k = r["conductivity_w_m_k"].Number();
+        var tensor = type switch
+        {
+            0 or 1 => new Vector(k, k, k),
+            2 => new Vector(r["kx_w_m_k"].Number(), r["ky_w_m_k"].Number(), r["kz_w_m_k"].Number()),
+            _ => throw new InvalidDataException($"材料 {r["name"]} 的导热类型 {type} 不受支持。")
+        };
+        return new(id, r["name"].Text(), tensor, r["density_kg_m3"].Number(), r["specific_heat_j_kg_k"].Number(), color, r["group"].Text(),
+            type == 1 ? r["conductivity_coefficient"]!.Value<double>() : null,
+            type == 1 ? r["conductivity_reference_temperature"]!.Value<double>() : null, "PACK built-in material");
     }
 
     public static Material Mix(string id, Material metal, Material matrix, double fraction, string parallel = "xyz", bool includeMatrix = true, bool allowOverfilled = false)

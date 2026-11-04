@@ -58,16 +58,16 @@ def test_live_material_properties_and_environment_is_restored(native):
     catalog = MaterialCatalog()
     for record in records:
         material = catalog.read(record["name"])
-        assert material["density"]["value"] == record["density_kg_m3"]
-        assert material["specific_heat"]["value"] == record["specific_heat_j_kg_k"]
-        conductivity = material["conductivity"]
+        assert material["density_kg_m3"] == record["density_kg_m3"]
+        assert material["specific_heat_j_kg_k"] == record["specific_heat_j_kg_k"]
+        assert material["conduct_type"] == record["conductivity_type"]
         if record["conductivity_type"] == 2:
             for axis in ("x", "y", "z"):
-                assert conductivity[axis] == record[f"k{axis}_w_m_k"]
+                assert material[f"k{axis}_w_m_k"] == record[f"k{axis}_w_m_k"]
         else:
-            assert conductivity["value"] == record["conductivity_w_m_k"]
+            assert material["conductivity_w_m_k"] == record["conductivity_w_m_k"]
             if record["conductivity_type"] == 1:
-                assert conductivity["coefficient"] == record["conductivity_coefficient"]
-                assert conductivity["reference_temperature"] == record[
+                assert material["conductivity_coefficient"] == record["conductivity_coefficient"]
+                assert material["conductivity_reference_temperature"] == record[
                     "conductivity_reference_temperature"
                 ]

@@ -1,36 +1,16 @@
 {
-  "schema_version": "packstudio.material/v1",
   "name": "Brass (Naval)",
-  "category": "Alloys (Other)",
-  "density": {
-    "value": 8400.0,
-    "unit": "kg/m^3"
-  },
-  "specific_heat": {
-    "value": 370.0,
-    "unit": "J/(kg*K)"
-  },
+  "group": "Alloys (Other)",
+  "density_kg_m3": 8400.0,
+  "specific_heat_j_kg_k": 370.0,
   "emissivity": 0.028,
-  "conductivity": {
-    "model": "constant_isotropic",
-    "unit": "W/(m*K)",
-    "value": 110.0,
-    "comment": "原生各向同性材料；kx/ky/kz 存储中的0不是三个方向的物理导热率。"
-  },
-  "native_storage": {
-    "name": "Brass (Naval)",
-    "group": "Alloys (Other)",
-    "density_kg_m3": 8400.0,
-    "specific_heat_j_kg_k": 370.0,
-    "emissivity": 0.028,
-    "conductivity_w_m_k": 110.0,
-    "conductivity_coefficient": 0.0,
-    "conductivity_reference_temperature": 0.0,
-    "kx_w_m_k": 0.0,
-    "ky_w_m_k": 0.0,
-    "kz_w_m_k": 0.0,
-    "conductivity_type": 0
-  },
+  "conductivity_w_m_k": 110.0,
+  "conductivity_coefficient": 0.0,
+  "conductivity_reference_temperature": 0.0,
+  "kx_w_m_k": 0.0,
+  "ky_w_m_k": 0.0,
+  "kz_w_m_k": 0.0,
+  "conduct_type": 0,
   "source": {
     "method": "MaterialLibrary::populateBuiltInMaterials; native getters",
     "binary_sha256": {
@@ -38,6 +18,5 @@
       "flopackmaterials.dll": "4fdd99632751f4e7c63a2bdc93e290a3bc9ca018bbe8b7921aa7025cedb3cda3",
       "flopackrealise.dll": "838ed6c2e7d40cc749b8b145f55d78e9e95495fef974d593a7641fc0aa528edd"
     }
-  },
-  "comment": "PACK 2504 内建材料；未读取用户材料文件。native_storage 中非当前类型字段只是原生存储。"
+  }
 }
