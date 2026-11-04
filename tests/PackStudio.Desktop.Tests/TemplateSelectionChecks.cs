@@ -26,21 +26,21 @@ static class TemplateSelectionChecks
             var watch = Stopwatch.StartNew();
             for (int i = 0; i < 80; i++)
             {
-                string id = PackageCatalog.Families[i % 8].Id;
+                string id = catalog.Families[i % catalog.Families.Count].Id;
                 list.SelectedValue = id;
-                Require(list.SelectedItem is PackageChoice choice && choice.Id == id, "template selection lagged behind input");
+                Require(list.SelectedItem is TemplateInfo choice && choice.Id == id, "template selection lagged behind input");
                 Require(ReferenceEquals(draft, dialog.Draft), "template picking rebuilt the draft before Next");
             }
             Console.WriteLine($"PASS 80 rapid template selections in {watch.Elapsed.TotalMilliseconds:F1} ms");
             Require(((StackPanel)dialog.FindName("CreationOptions")).Children.Count == 0, "hidden options built during template picking");
             list.SelectedValue = "qfn";
             await NewPackageChecks.OpenCustomize(dialog);
-            Require(dialog.Draft.TemplateId == "qfn", "Next did not load the final selection");
+            Require(dialog.Draft!.Template.Info.Id == "qfn", "Next did not load the final selection");
             ((Button)dialog.FindName("BackButton")).RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
             list.SelectedValue = "sop";
             list.SelectedValue = "pqfp";
             await NewPackageChecks.OpenCustomize(dialog);
-            Require(dialog.Draft.TemplateId == "pqfp", "changing template after Back loaded stale data");
+            Require(dialog.Draft!.Template.Info.Id == "pqfp", "changing template after Back loaded stale data");
         }
         finally { dialog.Close(); }
 

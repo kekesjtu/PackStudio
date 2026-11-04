@@ -480,7 +480,8 @@
       "presets": [],
       "visible_when": {},
       "enabled_when": {},
-      "des_symbol": null
+      "des_symbol": null,
+      "placement": "footer"
     },
     {
       "key": "grid.density",
@@ -502,7 +503,8 @@
         "grid.enabled": true
       },
       "enabled_when": {},
-      "des_symbol": null
+      "des_symbol": null,
+      "placement": "footer"
     },
     {
       "key": "bond_wire.modeling",
@@ -580,7 +582,19 @@
       "control": "derived",
       "step": "bond_wires",
       "unit": "mm",
-      "calculation": "sop_wire_path_x"
+      "calculation": "sop_wire_path_x",
+      "depends_on": [
+        "die.length",
+        "flag.length",
+        "leads.gap",
+        "die.thickness",
+        "die.attach",
+        "flag.thickness",
+        "leads.thickness",
+        "flag.downset",
+        "package.standoff",
+        "leads.height"
+      ]
     },
     {
       "key": "derived.wire_path_y",
@@ -588,7 +602,19 @@
       "control": "derived",
       "step": "bond_wires",
       "unit": "mm",
-      "calculation": "sop_wire_path_y"
+      "calculation": "sop_wire_path_y",
+      "depends_on": [
+        "die.width",
+        "flag.width",
+        "leads.gap",
+        "die.thickness",
+        "die.attach",
+        "flag.thickness",
+        "leads.thickness",
+        "flag.downset",
+        "package.standoff",
+        "leads.height"
+      ]
     }
   ],
   "material_selections": [
@@ -804,5 +830,8 @@
       "label": "建模与局部网格",
       "diagram": ""
     }
+  ],
+  "schematic_dependencies": [
+    "thermal_land.enabled"
   ]
 }

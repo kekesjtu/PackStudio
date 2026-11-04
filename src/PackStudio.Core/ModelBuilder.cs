@@ -35,8 +35,6 @@ public sealed class ModelBuilder(PackageCatalog catalog)
                 throw new ArgumentException("未知封装类型。");
         }
 
-        c.Model.Metadata = c.Model.Metadata with { Geometry = PackageGeometry.Evaluate(c), GridEnabled = c.B("grid.enabled"), GridDensity = c.T("grid.density") };
-        AuxiliaryGeometry.Build(c);
         return c.Complete();
     }
 

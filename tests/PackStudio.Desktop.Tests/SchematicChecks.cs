@@ -22,7 +22,7 @@ static class SchematicChecks
         var diagramTab = (LayoutDocument)window.FindName("SchematicDocument");
         Require(ReferenceEquals(modelTab.Parent, diagramTab.Parent), "示意图与三维模型必须是同级标签页");
         int count = 0, modelingCount = 0;
-        foreach (var family in PackageCatalog.Families)
+        foreach (var family in workspace.Catalog.Families)
         {
             workspace.Select(family.Id);
             bool hasVias = steps.Items.Cast<WizardStep>().Any(s => s.Key == "thermal_vias");

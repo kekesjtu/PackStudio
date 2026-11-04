@@ -13,18 +13,19 @@ public partial class NewPackageWindow : Window
     bool customizing;
     bool closed;
     string? preparedFamily;
-    public ProjectDocument Draft { get; private set; } = new();
+    public CreationDraft? Draft { get; private set; }
+    ParameterForm creationForm = null!;
     public ProjectDocument? CreatedDocument { get; private set; }
 
-    public NewPackageWindow(PackageCatalog catalog, string initialFamily = "bare_die")
+    public NewPackageWindow(PackageCatalog catalog, string? initialFamily = null)
     {
         this.catalog = catalog;
         InitializeComponent();
         Closed += (_, _) => closed = true;
-        var choices = new ListCollectionView(PackagePresentation.Choices.ToList());
-        choices.GroupDescriptions.Add(new PropertyGroupDescription(nameof(PackageChoice.Group)));
+        var choices = new ListCollectionView(catalog.Families.ToList());
+        choices.GroupDescriptions.Add(new PropertyGroupDescription(nameof(TemplateInfo.Group)));
         TemplateList.ItemsSource = choices;
-        TemplateList.SelectedValue = initialFamily;
+        TemplateList.SelectedValue = initialFamily ?? catalog.DefaultFamily.Id;
     }
 
     async Task<bool> PrepareTemplateAsync()
@@ -66,7 +67,6 @@ public partial class NewPackageWindow : Window
     void InitializeTemplate(Template loaded)
     {
         template = loaded;
-        string id = template.Info.Id;
         syncing = true;
         DesignNameBox.Text = template.Info.Name;
         var variants = template.Presets.Select(p => p.Values["package.type"].Text()).Distinct().Where(v => v.Length > 0).ToList();
@@ -76,8 +76,7 @@ public partial class NewPackageWindow : Window
         VariantBox.SelectedItem = selected?.Values["package.type"].Text();
         FootprintBox.ItemsSource = PresetsForVariant();
         FootprintBox.SelectedValue = template.DefaultPreset;
-        bool bare = id == "bare_die";
-        FootprintLabel.Visibility = FootprintBox.Visibility = bare ? Visibility.Collapsed : Visibility.Visible;
+        FootprintLabel.Visibility = FootprintBox.Visibility = template.HasFootprint ? Visibility.Visible : Visibility.Collapsed;
         syncing = false;
         ApplyPreset();
     }
@@ -106,10 +105,15 @@ public partial class NewPackageWindow : Window
         string id = FootprintBox.SelectedValue as string ?? "";
         if (template.Presets.Count > 0 && id.Length == 0)
             return;
-        creationOptions.RemoveAll();
-        Draft = ProjectDocument.Create(template, id, DesignNameBox.Text);
+        var draft = new CreationDraft(template, id);
+        Draft = draft;
+        creationForm = new(draft);
+        creationForm.Changed += () => CreationError.Text = draft.Error ?? "";
         CreationError.Text = "";
-        RefreshCreationOptions();
+        CreationOptions.Children.Clear();
+        Grid.SetIsSharedSizeScope(CreationOptions, true);
+        foreach (var field in creationForm.Fields.Where(f => f.Definition["creation_option"].Flag()))
+            CreationOptions.Children.Add(FieldView.Create(field));
     }
 
     async void Next_Click(object sender, RoutedEventArgs e)
@@ -143,10 +147,10 @@ public partial class NewPackageWindow : Window
     public bool TryCreate()
     {
         CreatedDocument = null;
-        if (preparedFamily == null) return false;
+        if (preparedFamily == null || Draft == null) return false;
         try
         {
-            CreatedDocument = Draft.CompleteCreation(template, DesignNameBox.Text);
+            CreatedDocument = Draft.Complete(DesignNameBox.Text);
             return true;
         }
         catch (ArgumentException ex)

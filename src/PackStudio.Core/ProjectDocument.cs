@@ -4,10 +4,10 @@ using Newtonsoft.Json.Linq;
 namespace PackStudio.Core;
 public sealed class ProjectDocument
 {
-    public string SchemaVersion { get; set; } = "packstudio.project/v2";
-    public string TemplateId { get; set; } = "bare_die";
+    public string SchemaVersion { get; set; } = "packstudio.project/v3";
+    public string TemplateId { get; set; } = "";
     public string PresetId { get; set; } = "";
-    public string Name { get; set; } = "Bare Die";
+    public string Name { get; set; } = "";
     public JObject Values { get; set; } = new();
     public Dictionary<string, string> MaterialAssignments { get; set; } = [];
     public List<Material> CustomMaterials { get; set; } = [];
@@ -20,21 +20,9 @@ public sealed class ProjectDocument
     };
     public static ProjectDocument Create(Template template, string? presetId = null, string? name = null, JObject? options = null)
     {
-        string preset = presetId ?? template.DefaultPreset;
-        return new() { TemplateId = template.Info.Id, PresetId = preset, Name = name ?? template.Info.Name, Values = ParameterRules.Prepare(template, template.Defaults(preset, options), options) };
-    }
-
-    public ProjectDocument CompleteCreation(Template template, string name)
-    {
-        var result = Clone();
-        result.Name = name.Trim();
-        ValidateName(result.Name);
-        result.Values = ParameterRules.Prepare(template, result.Values);
-        foreach (var field in template.CreationFields.Where(f => JsonData.Matches(f["visible_when"] as JObject, result.Values) &&
-            f["control"].Text() is "number" or "integer" or "integer_spinbox"))
-            if (result.Values[field["key"].Text()]?.Type is null or JTokenType.Null)
-                throw new ArgumentException($"请填写{field["label"]}。");
-        return result;
+        var draft = new CreationDraft(template, presetId ?? template.DefaultPreset);
+        foreach (var p in options?.Properties() ?? []) draft.Set(p.Name, p.Value);
+        return draft.Complete(name ?? template.Info.Name);
     }
 
     internal static void ValidateName(string name)
@@ -43,16 +31,14 @@ public sealed class ProjectDocument
             throw new ArgumentException("方案名称需要 1–160 个字符。");
     }
 
-    public static ProjectDocument Load(string path)
+    public static ProjectDocument Load(string path, PackageCatalog catalog)
     {
         if (new FileInfo(path).Length > 16 * 1024 * 1024)
             throw new InvalidDataException("方案文件超过 16 MB。");
-        var data = JsonData.Read(path);
-        if (data["SchemaVersion"].Text() != "packstudio.project/v2")
-            throw new InvalidDataException("方案版本不受支持。");
+        var data = ProjectMigration.Read(JsonData.Read(path), catalog);
         var serializer = JsonSerializer.Create(new JsonSerializerSettings { MissingMemberHandling = MissingMemberHandling.Error });
         var document = data.ToObject<ProjectDocument>(serializer) ?? throw new InvalidDataException("方案文件为空。");
-        if (!PackageCatalog.Families.Any(f => f.Id == document.TemplateId))
+        if (!catalog.Families.Any(f => f.Id == document.TemplateId))
             throw new InvalidDataException("未知封装类型。");
         return document;
     }

@@ -2,7 +2,7 @@ namespace PackStudio.Desktop;
 
 internal sealed partial class SchematicDrawing
 {
-    bool SlugVisible => Enabled("slug.enabled") && (family == "pbga_wb" || Flip && Value("cover.type") == "encapsulant");
+    bool SlugVisible => Enabled("slug.enabled") && (Wirebond || Flip && Value("cover.type") == "encapsulant");
     double CapBottom => FlipDieTop(SectionY) - 12;
     double CapTop => CapBottom - 25;
 
@@ -45,7 +45,7 @@ internal sealed partial class SchematicDrawing
             Rect(Metal, 235, 410, 230, 120);
             Ellipse(Metal, 350, 470, 45, 45);
         }
-        if (family == "pbga_wb" && Enabled("spreader.enabled")) Rect(Metal, 240, 415, 220, 110);
+        if (Wirebond && Enabled("spreader.enabled")) Rect(Metal, 240, 415, 220, 110);
         if (!Bga && Enabled("thermal_land.enabled")) Rect(Solder, 255, 410, 190, 120);
     }
 }

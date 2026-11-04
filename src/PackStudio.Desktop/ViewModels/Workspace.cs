@@ -26,7 +26,7 @@ public sealed partial class Workspace : ObservableObject
 
     public event Action? ModelChanged;
     public event Action? DocumentChanged;
-    public Workspace() => Select("cbga_fc", null);
+    public Workspace() => Select(Catalog.DefaultFamily.Id, null);
     public void Select(string id, string? presetId = null)
     {
         Template = Catalog.Load(id);
@@ -40,7 +40,7 @@ public sealed partial class Workspace : ObservableObject
     {
         Template = Catalog.Load(document.TemplateId);
         Document = document;
-        Document.Values = Template.Restore(document.PresetId, document.Values);
+        Template.Validate(document.Values);
         Dirty();
         DocumentChanged?.Invoke();
     }

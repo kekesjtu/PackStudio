@@ -527,7 +527,8 @@
       "presets": [],
       "visible_when": {},
       "enabled_when": {},
-      "des_symbol": null
+      "des_symbol": null,
+      "placement": "footer"
     },
     {
       "key": "grid.density",
@@ -549,7 +550,8 @@
         "grid.enabled": true
       },
       "enabled_when": {},
-      "des_symbol": null
+      "des_symbol": null,
+      "placement": "footer"
     },
     {
       "key": "bumps.array_type",
@@ -1079,59 +1081,8 @@
       ],
       "option_labels": {
         "discrete": "Discrete Cuboids",
-        "equivalent": "Orthotropic Cuboid",
-        "isotropic": "Isotropic Cuboid"
+        "equivalent": "Orthotropic Cuboid"
       }
-    },
-    {
-      "key": "bga.via_configuration",
-      "label": "通孔去除配置",
-      "default": {
-        "removal_enabled": false,
-        "removal_rows": 0,
-        "removal_columns": 0,
-        "omitted_cells": []
-      },
-      "step": "thermal_vias",
-      "control": "hidden",
-      "visible_when": {
-        "vias.enabled": true
-      },
-      "fields": [
-        {
-          "key": "removal_enabled",
-          "label": "启用通孔去除",
-          "control": "checkbox"
-        },
-        {
-          "key": "removal_rows",
-          "label": "中央去除行数",
-          "control": "integer",
-          "minimum": 0,
-          "visible_when": {
-            "removal_enabled": true
-          }
-        },
-        {
-          "key": "removal_columns",
-          "label": "中央去除列数",
-          "control": "integer",
-          "minimum": 0,
-          "visible_when": {
-            "removal_enabled": true
-          }
-        },
-        {
-          "key": "omitted_cells",
-          "label": "显式去孔",
-          "control": "removal_matrix",
-          "rows_key": "vias.rows",
-          "columns_key": "vias.columns",
-          "visible_when": {
-            "removal_enabled": true
-          }
-        }
-      ]
     }
   ],
   "material_selections": [
@@ -1368,5 +1319,12 @@
       "label": "建模与局部网格",
       "diagram": ""
     }
+  ],
+  "schematic_dependencies": [
+    "bumps.underfill",
+    "cover.type",
+    "stiffener.enabled",
+    "slug.enabled",
+    "slug.adhesive_enabled"
   ]
 }

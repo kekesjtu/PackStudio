@@ -5,15 +5,15 @@ public sealed class BuildContext
 {
     public Template Template { get; }
     public JObject Values { get; }
-    public PackageModel Model { get; }
+    public ModelAssembly Model { get; }
 
-    readonly IReadOnlyDictionary<string, string> catalogGroupNames;
+    readonly IReadOnlyDictionary<string, ModelGroup> catalogGroups;
     readonly Dictionary<string, string> assignments;
     readonly Dictionary<string, Material> customOverrides = [];
     public BuildContext(PackageCatalog catalog, Template template, JObject values, string presetId, string name, Dictionary<string, string>? materialAssignments = null, IEnumerable<Material>? custom = null)
     {
         Template = template;
-        catalogGroupNames = catalog.GroupNames;
+        catalogGroups = catalog.Groups;
         Values = (JObject)values.DeepClone();
         template.Validate(Values);
         Model = new(template.Info.Id, name);
@@ -50,14 +50,14 @@ public sealed class BuildContext
     public Material M(string id) => Model.Materials.TryGetValue(id, out var m) ? m : throw new ArgumentException($"未知材料 {id}");
     public Material Component(string group, string fallback) => M(assignments.GetValueOrDefault(group, fallback));
     public void Derived(Material m) => Model.Materials[m.Id] = customOverrides.GetValueOrDefault(m.Id, m);
-    public void Add(string id, string type, double x, double y, double z, double sx, double sy, double sz, string material, string group, string? label = null, bool derived = false)
+    public void Add(string id, string type, double x, double y, double z, double sx, double sy, double sz, string material, string group, string? label = null, bool derived = false, bool exposedSurface = false)
     {
         string g = group.StartsWith("group-") ? group : "group-" + group;
         string assigned = derived ? material : assignments.GetValueOrDefault(g, material);
-        Model.Blocks.Add(new(id + "-part-1", label ?? id, type, new(x, y, z), new(sx, sy, sz), assigned, g, catalogGroupNames.TryGetValue(g, out var groupName) ? groupName : throw new InvalidDataException($"缺少模型分组名称 {g}。")));
+        Model.Blocks.Add(new(id + "-part-1", label ?? id, type, new(x, y, z), new(sx, sy, sz), assigned, g, catalogGroups.TryGetValue(g, out var groupInfo) ? groupInfo.Name : throw new InvalidDataException($"缺少模型分组名称 {g}。"), exposedSurface));
     }
 
-    public void Center(string id, string type, double sx, double sy, double sz, double z, string material, string group, string? label = null, bool derived = false, double cx = 0, double cy = 0) => Add(id, type, cx - sx / 2, cy - sy / 2, z, sx, sy, sz, material, group, label, derived);
+    public void Center(string id, string type, double sx, double sy, double sz, double z, string material, string group, string? label = null, bool derived = false, double cx = 0, double cy = 0, bool exposedSurface = false) => Add(id, type, cx - sx / 2, cy - sy / 2, z, sx, sy, sz, material, group, label, derived, exposedSurface);
     public void Ring(string id, string type, double lx, double ly, double ix, double iy, double z, double h, string mat, string group, bool derived = false)
     {
         if (ix >= lx || iy >= ly || ix < 0 || iy < 0)
@@ -80,7 +80,17 @@ public sealed class BuildContext
         var used = Model.Blocks.Select(b => b.MaterialId).ToHashSet();
         foreach (var id in Model.Materials.Keys.Where(k => !used.Contains(k)).ToList())
             Model.Materials.Remove(id);
-        Model.Validate();
-        return Model;
+        var metadata = new ModelMetadata(PackageGeometry.Evaluate(this))
+        {
+            GridEnabled = B("grid.enabled"), GridDensity = T("grid.density"), SurfaceRadiation = Template.Info.SurfaceRadiation,
+            SolderBallCount = Model.SolderBallCount, SolderBallRepresentation = Model.SolderBallRepresentation, FlipChipBumpCount = Model.FlipChipBumpCount
+        };
+        var model = new PackageModel(Model.TemplateId, Model.Name, metadata, catalogGroups);
+        model.Blocks.AddRange(Model.Blocks);
+        foreach (var material in Model.Materials) model.Materials.Add(material.Key, material.Value);
+        model.Sources.AddRange(Model.Sources);
+        AuxiliaryGeometry.Build(model);
+        model.Validate();
+        return model;
     }
 }

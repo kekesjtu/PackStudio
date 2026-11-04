@@ -34,12 +34,9 @@ public static class ParameterRules
         return values;
     }
 
-    public static double SopWireHeight(JObject values) => Number(values, "die.thickness") + Number(values, "die.attach")
-        + Number(values, "flag.thickness") - Number(values, "leads.thickness") - Number(values, "flag.downset");
-
     public static double SopWirePath(JObject values, string dimension) =>
         (Number(values, "flag." + dimension) - Number(values, "die." + dimension)) / 2
-        + Number(values, "leads.gap") + Math.Abs(SopWireHeight(values));
+        + Number(values, "leads.gap") + Math.Abs(LeadframeStack.Evaluate(values, true).WireHeight);
 
     public static double Derived(string calculation, JObject values) => calculation switch
     {

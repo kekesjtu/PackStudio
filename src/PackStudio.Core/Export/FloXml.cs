@@ -45,7 +45,7 @@ public static class FloXml
         attributes.Add(sources);
         foreach (var s in model.Sources)
             sources.Add(new XElement("source_att", E("name", "power-" + s.BlockId), E("type", "total"), Number("power", s.Power)));
-        bool surface = model.TemplateId is "chip_array" or "cbga_fc" or "pbga_fc";
+        bool surface = model.Metadata.SurfaceRadiation;
         if (surface)
         {
             attributes.Add(new XElement("surfaces", new XElement("surface_att", E("name", model.Name), Number("emissivity", 0.8))));
@@ -67,7 +67,7 @@ public static class FloXml
             foreach (var b in group)
             {
                 var item = new XElement("cuboid", E("name", b.Id), Vec("size", b.Size, 0.001), Vec("position", b.Origin, 0.001), E("material", b.MaterialId));
-                if (surface && (b.Id.StartsWith("encapsulant-", StringComparison.Ordinal) || b.Id is "substrate-part-1" or "lid-part-1" or "thermal-plate-part-1"))
+                if (surface && b.ExposedSurface)
                     item.Add(E("all_surface", model.Name), E("all_radiation", model.TemplateId));
                 item.Add(E("notes", JsonConvert.SerializeObject(new { name = b.Name, structure_type = b.StructureType })));
                 members.Add(item);

@@ -26,7 +26,7 @@ internal sealed partial class SchematicDrawing
         {
             case "die" when !Bare:
                 double y = Flip ? FlipDieTop(SectionY) : Bga ? 197 : 195;
-                if (family == "chip_array")
+                if (ChipArray)
                 {
                     DimV(y, y + 23, 415, 580, Dimension("芯片厚度\n", "die.thickness"));
                     DimV(y + 23, SectionY, 285, 115, Dimension("粘接层\n", "die.attach"), true);
@@ -75,8 +75,8 @@ internal sealed partial class SchematicDrawing
         if (step is not ("leadframe" or "lead_solder_interconnect"))
             DimV(top, 940 - top, left, 155, Dimension(Bare ? "宽度\n" : "封装宽度\n", length.Replace("length", "width")), true);
         if (Bare || step is "bond_wires" or "leadframe" or "lead_solder_interconnect" or "top_cover" or "slug" or "backside_spreader") return;
-        string key = FlagStep ? Qfn ? "pad.length" : "flag.length" : step == "encapsulant" ? family == "chip_array" ? "package.length" : Bga ? "encapsulant.length" : "body.length" : "die.length";
-        double x1 = FlagStep ? 265 : step == "encapsulant" ? Bga && family != "chip_array" ? 225 : 200 : 285;
+        string key = FlagStep ? Qfn ? "pad.length" : "flag.length" : step == "encapsulant" ? ChipArray ? "package.length" : Bga ? "encapsulant.length" : "body.length" : "die.length";
+        double x1 = FlagStep ? 265 : step == "encapsulant" ? Bga && !ChipArray ? 225 : 200 : 285;
         DimH(x1, 700 - x1, 420, 368, Dimension(FlagStep ? "承载台长度" : step == "encapsulant" ? "塑封长度" : "芯片长度", key));
         DimV(FlagStep ? 420 : 435, FlagStep ? 520 : 505, FlagStep ? 435 : 415, 548,
             Dimension(FlagStep ? "承载台宽度\n" : "芯片宽度\n", FlagStep ? Qfn ? "pad.width" : "flag.width" : "die.width"));

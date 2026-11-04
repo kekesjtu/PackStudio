@@ -35,7 +35,7 @@ static class ProjectChecks
                 document.Values["bga.center_solder_rows"] = JValue.CreateNull();
                 document.CustomMaterials.Add(new Material("custom", "自定义材料", new(1, 2, 3), 1000, 500));
                 document.Save(path);
-                var loaded = ProjectDocument.Load(path);
+                var loaded = ProjectDocument.Load(path, tests.Catalog);
                 Assert(loaded.Name == document.Name && loaded.MaterialAssignments["group-substrate"] == "copper", "current project roundtrip");
                 Assert(!loaded.Values["bga.center_solder_enabled"].Flag() && loaded.Values["bga.center_solder_rows"]!.Type == JTokenType.Null, "layout false/null roundtrip");
                 Near(loaded.CustomMaterials.Single().Conductivity.Y, 2, "custom material roundtrip");
@@ -43,7 +43,7 @@ static class ProjectChecks
                 input["extra"] = true;
                 File.WriteAllText(path, input.ToString());
                 bool rejected = false;
-                try { ProjectDocument.Load(path); }
+                try { ProjectDocument.Load(path, tests.Catalog); }
                 catch (JsonSerializationException) { rejected = true; }
                 Assert(rejected, "unknown project field was silently ignored");
             }

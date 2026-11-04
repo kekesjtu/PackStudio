@@ -610,7 +610,8 @@
       "presets": [],
       "visible_when": {},
       "enabled_when": {},
-      "des_symbol": null
+      "des_symbol": null,
+      "placement": "footer"
     },
     {
       "key": "grid.density",
@@ -632,7 +633,8 @@
         "grid.enabled": true
       },
       "enabled_when": {},
-      "des_symbol": null
+      "des_symbol": null,
+      "placement": "footer"
     },
     {
       "key": "bond_wire.modeling",
@@ -1069,7 +1071,7 @@
       }
     },
     {
-      "key": "bga.via_configuration",
+      "key": "vias.configuration",
       "label": "通孔去除配置",
       "default": {
         "removal_enabled": false,
@@ -1473,5 +1475,13 @@
       "label": "建模与局部网格",
       "diagram": ""
     }
+  ],
+  "schematic_dependencies": [
+    "slug.enabled",
+    "slug.adhesive_enabled",
+    "spreader.enabled",
+    "vias.enabled",
+    "substrate.layers",
+    "metal.layers"
   ]
 }

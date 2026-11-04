@@ -58,18 +58,17 @@ static class NewPackageChecks
             if (family == "chip_array")
             {
                 var options = Control<StackPanel>(dialog, "CreationOptions");
-                var layerChoice = options.Children.OfType<Grid>().SelectMany(g => g.Children.OfType<ComboBox>()).Single(c => c.Tag?.ToString() == "substrate.layers");
+                var layerChoice = Descendants<ComboBox>(options).Single(c => c.DataContext is ParameterField { Key: "substrate.layers" });
                 layerChoice.SelectedValue = new JValue("4-Layer");
                 await Task.Delay(30);
-                var solid = options.Children.OfType<Grid>().SelectMany(g => g.Children.OfType<Border>()).Single(c => c.Tag?.ToString() == "trace.solid_thickness");
-                var solidText = ((DockPanel)solid.Child).Children.OfType<TextBox>().Single();
-                solidText.Text = "0.05";
+                var solid = Descendants<NumericEditor>(options).Single(c => c.DataContext is ParameterField { Key: "trace.solid_thickness" });
+                solid.Text = "0.05";
             }
 
-            var values = dialog.Draft.Values.DeepClone();
+            var values = dialog.Draft!.Values.DeepClone();
             Click(Control<Button>(dialog, "BackButton"));
             await OpenCustomize(dialog);
-            if (!JToken.DeepEquals(values, dialog.Draft.Values) || name.Text != "测试方案 " + family)
+            if (!JToken.DeepEquals(values, dialog.Draft!.Values) || name.Text != "测试方案 " + family)
                 throw new Exception("back/next discarded draft inputs");
             if (!dialog.TryCreate() || dialog.CreatedDocument is not ProjectDocument result)
                 throw new Exception(family + " could not finish: " + Control<TextBlock>(dialog, "CreationError").Text);
@@ -160,4 +159,16 @@ static class NewPackageChecks
         using var output = File.Create(Path.Combine(PreviewDirectory, name));
         encoder.Save(output);
     }
+    static IEnumerable<T> Descendants<T>(DependencyObject root) where T : DependencyObject
+    {
+        if (root is UIElement { Visibility: not Visibility.Visible }) yield break;
+        for (int i = 0; i < VisualTreeHelper.GetChildrenCount(root); i++)
+        {
+            var child = VisualTreeHelper.GetChild(root, i);
+            if (child is UIElement { Visibility: not Visibility.Visible }) continue;
+            if (child is T match) yield return match;
+            foreach (var nested in Descendants<T>(child)) yield return nested;
+        }
+    }
+
 }

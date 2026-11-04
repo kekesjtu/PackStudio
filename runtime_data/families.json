@@ -1,0 +1,147 @@
+[
+  {
+    "id": "cbga_fc",
+    "name": "Flip Chip CBGA",
+    "group": "球栅阵列封装",
+    "description": "陶瓷基板倒装芯片封装",
+    "icon": "flip_bga",
+    "schematic": {
+      "bga": true,
+      "flip": true,
+      "bare": false,
+      "qfn": false,
+      "sop": false,
+      "chip_array": false,
+      "wirebond": false,
+      "ceramic": true
+    },
+    "surface_radiation": true,
+    "default": true
+  },
+  {
+    "id": "pbga_fc",
+    "name": "Flip Chip PBGA",
+    "group": "球栅阵列封装",
+    "description": "塑料基板倒装芯片封装",
+    "icon": "flip_bga",
+    "schematic": {
+      "bga": true,
+      "flip": true,
+      "bare": false,
+      "qfn": false,
+      "sop": false,
+      "chip_array": false,
+      "wirebond": false,
+      "ceramic": false
+    },
+    "surface_radiation": true
+  },
+  {
+    "id": "pbga_wb",
+    "name": "Wirebond PBGA",
+    "group": "球栅阵列封装",
+    "description": "键合线塑料球栅阵列封装",
+    "icon": "wire_bga",
+    "schematic": {
+      "bga": true,
+      "flip": false,
+      "bare": false,
+      "qfn": false,
+      "sop": false,
+      "chip_array": false,
+      "wirebond": true,
+      "ceramic": false
+    },
+    "surface_radiation": false
+  },
+  {
+    "id": "chip_array",
+    "name": "Chip Array",
+    "group": "芯片级封装",
+    "description": "Fine Pitch BGA（FBGA）、FSBGA",
+    "icon": "wire_bga",
+    "schematic": {
+      "bga": true,
+      "flip": false,
+      "bare": false,
+      "qfn": false,
+      "sop": false,
+      "chip_array": true,
+      "wirebond": false,
+      "ceramic": false
+    },
+    "surface_radiation": true
+  },
+  {
+    "id": "qfn",
+    "name": "QFN",
+    "group": "芯片级封装",
+    "description": "Quad Flat No-Lead（QFN）",
+    "icon": "qfn",
+    "schematic": {
+      "bga": false,
+      "flip": false,
+      "bare": false,
+      "qfn": true,
+      "sop": false,
+      "chip_array": false,
+      "wirebond": false,
+      "ceramic": false
+    },
+    "surface_radiation": false
+  },
+  {
+    "id": "pqfp",
+    "name": "PQFP",
+    "group": "周边引脚封装",
+    "description": "PQFP、LQFP、MQFP、TQFP",
+    "icon": "leadframe",
+    "schematic": {
+      "bga": false,
+      "flip": false,
+      "bare": false,
+      "qfn": false,
+      "sop": false,
+      "chip_array": false,
+      "wirebond": false,
+      "ceramic": false
+    },
+    "surface_radiation": false
+  },
+  {
+    "id": "sop",
+    "name": "SOP",
+    "group": "周边引脚封装",
+    "description": "SOIC、SOP、TSOP、TSSOP",
+    "icon": "leadframe",
+    "schematic": {
+      "bga": false,
+      "flip": false,
+      "bare": false,
+      "qfn": false,
+      "sop": true,
+      "chip_array": false,
+      "wirebond": false,
+      "ceramic": false
+    },
+    "surface_radiation": false
+  },
+  {
+    "id": "bare_die",
+    "name": "Bare Die",
+    "group": "其他器件",
+    "description": "裸芯片与凸点芯片",
+    "icon": "bare",
+    "schematic": {
+      "bga": false,
+      "flip": false,
+      "bare": true,
+      "qfn": false,
+      "sop": false,
+      "chip_array": false,
+      "wirebond": false,
+      "ceramic": false
+    },
+    "surface_radiation": false
+  }
+]

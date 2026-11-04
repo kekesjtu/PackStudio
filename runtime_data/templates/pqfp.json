@@ -523,7 +523,8 @@
       "presets": [],
       "visible_when": {},
       "enabled_when": {},
-      "des_symbol": null
+      "des_symbol": null,
+      "placement": "footer"
     },
     {
       "key": "grid.density",
@@ -545,7 +546,8 @@
         "grid.enabled": true
       },
       "enabled_when": {},
-      "des_symbol": null
+      "des_symbol": null,
+      "placement": "footer"
     },
     {
       "key": "bond_wire.modeling",
@@ -879,5 +881,8 @@
       "label": "建模与局部网格",
       "diagram": ""
     }
+  ],
+  "schematic_dependencies": [
+    "thermal_land.enabled"
   ]
 }

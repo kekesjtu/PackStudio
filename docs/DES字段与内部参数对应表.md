@@ -110,7 +110,7 @@
 | `bga.removal_columns` | — | — |
 | `bga.ball_map_enabled` | `csvBGA` | `name="solderBalls"`; `property_name="solderBallMap"` |
 | `bga.ball_map` | `csvBGA` | `name="solderBalls"`; `property_name="solderBallMapDialog"` |
-| `bga.via_configuration` | — | — |
+| `vias.configuration` | — | — |
 
 ### MaterialAssignments
 
@@ -198,7 +198,7 @@
 | `bga.removal_columns` | — | — |
 | `bga.ball_map_enabled` | `csvBGA` | `name="solderBalls"`; `property_name="solderBallMap"` |
 | `bga.ball_map` | `csvBGA` | `name="solderBalls"`; `property_name="solderBallMapDialog"` |
-| `bga.via_configuration` | — | — |
+| `vias.configuration` | — | — |
 
 ### MaterialAssignments
 
@@ -319,7 +319,7 @@
 | `bga.removal_columns` | — | — |
 | `bga.ball_map_enabled` | `csvBGA` | `name="solderBalls"`; `property_name="solderBallMap"` |
 | `bga.ball_map` | `csvBGA` | `name="solderBalls"`; `property_name="solderBallMapDialog"` |
-| `bga.via_configuration` | — | — |
+| `vias.configuration` | — | — |
 
 ### MaterialAssignments
 
@@ -428,7 +428,7 @@
 | `bga.removal_columns` | — | — |
 | `bga.ball_map_enabled` | `csvBGA` | `name="solderBalls"`; `property_name="solderBallMap"` |
 | `bga.ball_map` | `csvBGA` | `name="solderBalls"`; `property_name="solderBallMapDialog"` |
-| `bga.via_configuration` | — | — |
+| `vias.configuration` | — | — |
 
 ### MaterialAssignments
 

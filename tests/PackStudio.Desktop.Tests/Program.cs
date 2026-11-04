@@ -37,7 +37,7 @@ public static class Program
                 NewPackageChecks.CancelPreservesProject(window, vm);
                 var steps = (ListBox)window.FindName("StepList");
                 var fields = (StackPanel)window.FindName("FieldsPanel");
-                foreach (var family in PackageCatalog.Families)
+                foreach (var family in vm.Catalog.Families)
                 {
                     var created = await NewPackageChecks.CreateDraft(vm.Catalog, family.Id);
                     vm.Load(created);
@@ -72,7 +72,7 @@ public static class Program
                         window.UpdateLayout();
                         if (fields.Children.Count == 0)
                             throw new Exception(family.Id + " empty wizard step " + i);
-                        foreach (var row in fields.Children.OfType<Grid>())
+                        foreach (var row in fields.Children.OfType<Grid>().Where(r => r.Visibility == Visibility.Visible))
                         {
                             FrameworkElement? label = row.Children.OfType<DockPanel>().FirstOrDefault() ?? (FrameworkElement?)row.Children.OfType<TextBlock>().FirstOrDefault();
                             if (label is not TextBlock && label is not DockPanel) continue;

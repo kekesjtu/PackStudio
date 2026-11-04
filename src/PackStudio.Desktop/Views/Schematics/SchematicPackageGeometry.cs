@@ -20,9 +20,9 @@ internal sealed partial class SchematicDrawing
         }
         if (Bga)
         {
-            if (!Flip && drawMold) Rect(Mold, family == "chip_array" ? 150 : 195, y - 67, family == "chip_array" ? 400 : 310, 67);
+            if (!Flip && drawMold) Rect(Mold, ChipArray ? 150 : 195, y - 67, ChipArray ? 400 : 310, 67);
             Rect(Board, 150, y, 400, 30);
-            if (family != "cbga_fc")
+            if (!CeramicBoard)
             {
                 for (int layer = 0; layer < LayerCount; layer++)
                     Rect(Metal, 150, y + 2 + layer * 22.0 / (LayerCount - 1), 400, 3, false);
@@ -30,7 +30,7 @@ internal sealed partial class SchematicDrawing
             if (Enabled("vias.enabled"))
                 for (int i = 0; i < 4; i++)
                 {
-                    double x = family == "chip_array" ? Centered(2 + i * 2, 11, 36.8) + 18 : Centered(i, 4, 32);
+                    double x = ChipArray ? Centered(2 + i * 2, 11, 36.8) + 18 : Centered(i, 4, 32);
                     Rect(Metal, x - 3, y + 5, 6, 19);
                     if (!Enabled("vias.filled")) Rect(Brushes.White, x - 1, y + 5, 2, 19, false);
                 }
@@ -45,8 +45,8 @@ internal sealed partial class SchematicDrawing
             }
             else
             {
-                if (family != "chip_array") Rect(Metal, 265, y - 5, 170, 5);
-                Rect(Attach, 285, y - 10, 130, family == "chip_array" ? 10 : 5);
+                if (!ChipArray) Rect(Metal, 265, y - 5, 170, 5);
+                Rect(Attach, 285, y - 10, 130, ChipArray ? 10 : 5);
                 Rect(Die, 285, y - 33, 130, 23);
                 Wire(291, y - 33, wireEnd, y, 44); Wire(409, y - 33, 700 - wireEnd, y, 44);
             }
@@ -98,12 +98,12 @@ internal sealed partial class SchematicDrawing
             }
         }
         else if (!Flip)
-            Rect(Mold, family == "chip_array" ? 200 : 225, family == "chip_array" ? 390 : 405,
-                family == "chip_array" ? 300 : 250, family == "chip_array" ? 160 : 130);
+            Rect(Mold, ChipArray ? 200 : 225, ChipArray ? 390 : 405,
+                ChipArray ? 300 : 250, ChipArray ? 160 : 130);
         PlanAccessories();
         if (!Flip)
         {
-            if (family == "chip_array") Rect(Attach, 280, 430, 140, 80);
+            if (ChipArray) Rect(Attach, 280, 430, 140, 80);
             else Rect(Metal, 265, 420, 170, 100);
             if (!Qfn && !Bga)
                 foreach (var (x, y) in new[] { (200d, 390d), (500d, 390d), (200d, 550d), (500d, 550d) })
@@ -148,7 +148,7 @@ internal sealed partial class SchematicDrawing
         Section(SectionY, drawMold: !slug, wireEnd: slug ? 265 : 226, removeCentralBalls: removeCentralBalls);
         CoverSection();
         if (slug) SlugSection();
-        if (family == "pbga_wb" && Enabled("spreader.enabled")) Rect(Metal, 195, SectionY + 21, 310, 9);
+        if (Wirebond && Enabled("spreader.enabled")) Rect(Metal, 195, SectionY + 21, 310, 9);
     }
 
     void PackageLegend()
@@ -160,8 +160,8 @@ internal sealed partial class SchematicDrawing
         }
         var entries = new List<(Brush Color, string Label)>
         {
-            (Die, "芯片"), (Bga ? Board : Mold, Bga ? family == "cbga_fc" ? "陶瓷基板" : "基板" : "塑封"),
-            (family == "chip_array" ? Mold : Metal, family == "chip_array" ? "塑封" : "金属 / 承载台"),
+            (Die, "芯片"), (Bga ? Board : Mold, Bga ? CeramicBoard ? "陶瓷基板" : "基板" : "塑封"),
+            (ChipArray ? Mold : Metal, ChipArray ? "塑封" : "金属 / 承载台"),
             (Solder, "焊球 / 焊料"), (Attach, "粘接 / 填充层")
         };
         if (Flip) entries.Add((Bump, "倒装凸点"));

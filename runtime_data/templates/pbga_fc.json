@@ -527,7 +527,8 @@
       "presets": [],
       "visible_when": {},
       "enabled_when": {},
-      "des_symbol": null
+      "des_symbol": null,
+      "placement": "footer"
     },
     {
       "key": "grid.density",
@@ -549,7 +550,8 @@
         "grid.enabled": true
       },
       "enabled_when": {},
-      "des_symbol": null
+      "des_symbol": null,
+      "placement": "footer"
     },
     {
       "key": "bumps.array_type",
@@ -1536,12 +1538,11 @@
       ],
       "option_labels": {
         "discrete": "Discrete Cuboids",
-        "equivalent": "Orthotropic Cuboid",
-        "isotropic": "Isotropic Cuboid"
+        "equivalent": "Orthotropic Cuboid"
       }
     },
     {
-      "key": "bga.via_configuration",
+      "key": "vias.configuration",
       "label": "通孔去除配置",
       "default": {
         "removal_enabled": false,
@@ -1882,5 +1883,14 @@
       "label": "建模与局部网格",
       "diagram": ""
     }
+  ],
+  "schematic_dependencies": [
+    "bumps.underfill",
+    "cover.type",
+    "stiffener.enabled",
+    "slug.enabled",
+    "slug.adhesive_enabled",
+    "vias.enabled",
+    "metal.layers"
   ]
 }

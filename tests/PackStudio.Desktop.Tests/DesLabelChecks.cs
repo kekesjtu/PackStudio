@@ -15,13 +15,13 @@ static partial class DesLabelChecks
         string root = Path.GetFullPath("runtime_data");
         var missing = new List<string>();
         var duplicated = new List<string>();
-        foreach (var family in PackageCatalog.Families)
+        foreach (var family in new PackageCatalog(root).Families)
         {
             var template = JsonData.Read(Path.Combine(root, "templates", family.Id + ".json"));
             foreach (var field in ((JArray)template["fields"]!).OfType<JObject>().Where(f => !f["creation_option"].Flag() && f["control"].Text() is "number" or "integer" or "integer_spinbox"))
             {
                 var entry = field["des_symbol"];
-                bool covered = entry is JObject choices ? choices.Properties().All(p => p.Value.Text().Length > 0) : entry.Text().Length > 0;
+                bool covered = entry is JObject choices ? ((JObject)choices["cases"]!).Properties().All(p => p.Value.Text().Length > 0) : entry.Text().Length > 0;
                 if (!covered)
                     missing.Add(family.Id + "." + field["key"].Text());
                 if (TrailingSymbol().IsMatch(field["label"].Text()))

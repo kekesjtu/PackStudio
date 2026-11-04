@@ -2,9 +2,8 @@ namespace PackStudio.Core;
 public sealed record Auxiliary(string Kind, string Name, Vector Origin, Vector? Size = null);
 public static class AuxiliaryGeometry
 {
-    public static void Build(BuildContext c)
+    public static void Build(PackageModel model)
     {
-        var model = c.Model;
         var geometry = model.Geometry;
         var die = model.Blocks.First(b => b.StructureType == "die");
         model.Auxiliary.Add(new("monitor_point", "DieJunction_Temp", new(0, 0, die.Origin.Z + die.Size.Z * (geometry.FlippedDie ? 0.005 : 0.995))));

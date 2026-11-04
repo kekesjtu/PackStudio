@@ -4,18 +4,20 @@ using System.Collections.Concurrent;
 namespace PackStudio.Core;
 public sealed class PackageCatalog
 {
-    public static readonly TemplateInfo[] Families = [new("chip_array", "Chip Array"), new("bare_die", "Bare Die"), new("cbga_fc", "Flip Chip CBGA"), new("pbga_fc", "Flip Chip PBGA"), new("pqfp", "PQFP"), new("qfn", "QFN"), new("sop", "SOP"), new("pbga_wb", "Wirebond PBGA")];
+    public IReadOnlyList<TemplateInfo> Families { get; }
+    public TemplateInfo DefaultFamily => Families.Single(f => f.IsDefault);
     readonly string root;
     readonly JObject index;
     readonly ConcurrentDictionary<string, Template> cache = new();
     public MaterialLibrary Materials { get; }
-    public IReadOnlyDictionary<string, string> GroupNames { get; }
+    public IReadOnlyDictionary<string, ModelGroup> Groups { get; }
 
     public PackageCatalog(string root)
     {
         this.root = Path.GetFullPath(root);
         Materials = new(root);
-        GroupNames = JsonData.Read(Path.Combine(root, "model_groups.json")).ToObject<Dictionary<string, string>>()!;
+        Groups = JsonData.Read(Path.Combine(root, "model_groups.json")).ToObject<Dictionary<string, ModelGroup>>()!;
+        Families = JArray.Parse(File.ReadAllText(Path.Combine(root, "families.json"))).ToObject<List<TemplateInfo>>()!;
         var data = JsonData.Read(Path.Combine(root, "presets", "index.json"));
         if (data["schema_version"].Text() != "packstudio.preset-index/v3")
             throw new InvalidDataException("预设索引版本不受支持。");

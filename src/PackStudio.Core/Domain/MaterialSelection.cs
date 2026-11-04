@@ -23,14 +23,30 @@ public static class MaterialSelection
         return result;
     }
 
-    public static MaterialChoices Choices(PackageCatalog catalog, Template template, ProjectDocument document, JToken selection)
+    public static IReadOnlyList<Material> Available(PackageCatalog catalog, Template template, ProjectDocument document, PackageModel? model = null)
     {
-        string group = selection["group_id"].Text();
+        var materials = catalog.Materials.Items.Values.ToDictionary(m => m.Id);
+        var modeled = model?.TemplateId == document.TemplateId ? model.Materials : [];
+        foreach (var m in modeled.Values) materials[m.Id] = m;
+        foreach (var m in document.CustomMaterials) materials[m.Id] = m;
+        var custom = document.CustomMaterials.Select(m => m.Id).ToHashSet();
+        var assigned = Resolve(template, document.PresetId, document.MaterialAssignments).Values.ToHashSet();
+        return materials.Values.GroupBy(m => m.Name).Select(g => g
+            .OrderByDescending(m => assigned.Contains(m.Id))
+            .ThenByDescending(m => custom.Contains(m.Id))
+            .ThenByDescending(m => modeled.ContainsKey(m.Id))
+            .ThenBy(m => m.Id.Length).ThenBy(m => m.Id, StringComparer.Ordinal).First()).ToList();
+    }
+
+    public static MaterialChoices Choices(PackageCatalog catalog, Template template, ProjectDocument document, JToken selection, PackageModel? model = null)
+    {
+        string id = Resolve(template, document.PresetId, document.MaterialAssignments)[selection["group_id"].Text()];
         var options = (JArray)selection["options"]!;
-        string id = Resolve(template, document.PresetId, document.MaterialAssignments)[group];
-        var allowed = catalog.Materials.Items.Values.Where(m => options.Any(o => o.Text() == "*" || o.Text() == m.Id)).ToList();
-        if (id.Length > 0 && allowed.All(m => m.Id != id) && catalog.Materials.Items.TryGetValue(id, out var current)) allowed.Add(current);
-        allowed = allowed.GroupBy(m => m.Name).Select(g => g.FirstOrDefault(m => m.Id == id) ?? g.OrderBy(m => m.Id.Length).ThenBy(m => m.Id).First()).ToList();
-        return new(id, allowed.Select(m => document.CustomMaterials.FirstOrDefault(c => c.Id == m.Id) ?? m).ToList());
+        var representatives = Available(catalog, template, document, model);
+        var allowedNames = catalog.Materials.Items.Values.Where(m => options.Any(o => o.Text() == "*" || o.Text() == m.Id) || m.Id == id).Select(m => m.Name).ToHashSet();
+        var selected = document.CustomMaterials.FirstOrDefault(m => m.Id == id)
+            ?? model?.Materials.GetValueOrDefault(id) ?? catalog.Materials.Items.GetValueOrDefault(id);
+        var allowed = representatives.Where(m => allowedNames.Contains(m.Name)).ToList();
+        return new(allowed.FirstOrDefault(m => m.Name == selected?.Name)?.Id ?? id, allowed);
     }
 }

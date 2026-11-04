@@ -4,8 +4,8 @@ using System.Windows.Media;
 namespace PackStudio.Desktop;
 public sealed class PackageIcon : FrameworkElement
 {
-    public static readonly DependencyProperty TemplateIdProperty = DependencyProperty.Register(nameof(TemplateId), typeof(string), typeof(PackageIcon), new FrameworkPropertyMetadata("bare_die", FrameworkPropertyMetadataOptions.AffectsRender));
-    public string TemplateId { get => (string)GetValue(TemplateIdProperty); set => SetValue(TemplateIdProperty, value); }
+    public static readonly DependencyProperty ProfileProperty = DependencyProperty.Register(nameof(Profile), typeof(string), typeof(PackageIcon), new FrameworkPropertyMetadata("bare", FrameworkPropertyMetadataOptions.AffectsRender));
+    public string Profile { get => (string)GetValue(ProfileProperty); set => SetValue(ProfileProperty, value); }
 
     protected override void OnRender(DrawingContext dc)
     {
@@ -15,12 +15,12 @@ public sealed class PackageIcon : FrameworkElement
         dc.PushTransform(new ScaleTransform(scale, scale));
         var edge = new Pen(Brushes.DimGray, 0.8);
         void Rect(Brush fill, double x, double y, double w, double h) => dc.DrawRectangle(fill, edge, new(x, y, w, h));
-        if (TemplateId == "bare_die")
+        if (Profile == "bare")
             Rect(Brushes.Crimson, 26, 22, 68, 10);
         else
         {
-            bool bga = TemplateId is "chip_array" or "cbga_fc" or "pbga_fc" or "pbga_wb";
-            bool flip = TemplateId is "cbga_fc" or "pbga_fc";
+            bool bga = Profile is "wire_bga" or "flip_bga";
+            bool flip = Profile == "flip_bga";
             if (bga)
             {
                 Rect(Brushes.SeaGreen, 8, 31, 104, 6);
@@ -48,7 +48,7 @@ public sealed class PackageIcon : FrameworkElement
                 {
                     double x = sign < 0 ? 7 : 98;
                     Rect(Brushes.DarkGoldenrod, x, 29, 15, 4);
-                    if (TemplateId != "qfn")
+                    if (Profile != "qfn")
                     {
                         Rect(Brushes.DarkGoldenrod, sign < 0 ? 7 : 110, 33, 3, 8);
                         Rect(Brushes.DarkGoldenrod, sign < 0 ? 1 : 110, 40, 9, 3);

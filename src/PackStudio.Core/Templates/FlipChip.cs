@@ -10,7 +10,7 @@ public static class FlipChip
         var m = MaterialLibrary.Mix("flip-chip-bumps-equivalent", solder, matrix, f);
         c.Derived(m with { Conductivity = new(m.Conductivity.Z, m.Conductivity.Z, m.Conductivity.Z) });
         c.Center("flip-chip-bumps-equivalent", "flip_chip_bump", lx, ly, c.N("bumps.height"), z, m.Id, "flip-chip-bumps", derived: true);
-        c.Model.Metadata.FlipChipBumpCount = count;
+        c.Model.FlipChipBumpCount = count;
     }
 
     public static void BareDie(BuildContext c)
@@ -27,7 +27,7 @@ public static class FlipChip
         double dl = c.N("die.length"), dw = c.N("die.width"), dz = top + c.N("bumps.height");
         if (dl > l || dw > w)
             throw new ArgumentException("芯片必须位于基板内。");
-        c.Center("substrate", "substrate", l, w, h, baseZ, c.Template.Info.Id == "cbga_fc" ? "alumina" : "pbga-substrate", "substrate");
+        c.Center("substrate", "substrate", l, w, h, baseZ, c.Template.Info.Id == "cbga_fc" ? "alumina" : "pbga-substrate", "substrate", exposedSurface: true);
         Bumps(c, dl, dw, top);
         c.Center("die", "die", dl, dw, c.N("die.thickness"), dz, "silicon", "die");
         Covers.Build(c, dl, dw, top, dz + c.N("die.thickness"));

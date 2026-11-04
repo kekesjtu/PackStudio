@@ -32,15 +32,15 @@ public partial class MainWindow : Window
         materialWindow?.Close();
         loading = true;
         parameters.Reset();
-        var choice = PackagePresentation.Choices.Single(c => c.Id == workspace.Document.TemplateId);
+        var choice = workspace.Template.Info;
         PackageTitle.Text = choice.Name;
         PackageSubtitle.Text = choice.Description;
         PackagePreview.Content = new PackageIcon
         {
-            TemplateId = choice.Id
+            Profile = choice.Icon
         };
         Title = workspace.Document.Name + " — PackStudio";
-        StepList.ItemsSource = PackagePresentation.StepKeys(workspace.Template).Select(key => new WizardStep(key, workspace.Template.Steps.Single(s => s["key"].Text() == key)["label"].Text())).ToList();
+        StepList.ItemsSource = workspace.Template.Steps.Select(s => new WizardStep(s["key"].Text(), s["label"].Text())).ToList();
         StepList.SelectedIndex = 0;
         loading = false;
         RefreshFields();
@@ -89,7 +89,7 @@ public partial class MainWindow : Window
             return;
         try
         {
-            var doc = ProjectDocument.Load(dialog.FileName);
+            var doc = ProjectDocument.Load(dialog.FileName, workspace.Catalog);
             workspace.Load(doc);
             projectPath = dialog.FileName;
             await workspace.GenerateAsync();

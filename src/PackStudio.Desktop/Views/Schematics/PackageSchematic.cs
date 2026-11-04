@@ -12,9 +12,6 @@ public sealed class PackageSchematic : FrameworkElement
     DrawingGroup? packageScene;
     JArray? sceneValues;
     string sceneTemplate = "";
-    static readonly string[] SceneKeys = ["die.flipped", "bumps.enabled", "bumps.underfill", "cover.type",
-        "stiffener.enabled", "slug.enabled", "slug.adhesive_enabled", "spreader.enabled", "thermal_land.enabled",
-        "vias.enabled", "vias.filled", "substrate.layers", "metal.layers"];
     public string TemplateId { get; private set; } = "";
     public string StepKey { get; private set; } = "";
     public string DiagramKey { get; private set; } = "";
@@ -27,7 +24,7 @@ public sealed class PackageSchematic : FrameworkElement
         DiagramKey = template.Steps.Single(s => s["key"].Text() == step)["diagram"].Text();
         ToolTip = HasDiagram ? $"{template.Info.Name} · {label}" : null;
         var renderer = new SchematicDrawing(template, document, step);
-        var configuration = new JArray(SceneKeys.Select(key => document.Values[key]?.DeepClone() ?? JValue.CreateNull()));
+        var configuration = new JArray(((JArray)template.Data["schematic_dependencies"]!).Select(key => document.Values[key.Text()]?.DeepClone() ?? JValue.CreateNull()));
         if (DiagramKey == "package" && (packageScene == null || sceneTemplate != TemplateId || !JToken.DeepEquals(sceneValues, configuration)))
         {
             packageScene = renderer.CreatePackageScene();

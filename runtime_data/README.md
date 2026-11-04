@@ -6,8 +6,9 @@
 
 | 路径 | 内容 |
 | --- | --- |
+| `families.json` | 家族显示名、分组、描述、默认选择、图标与示意图样式 |
 | `templates/<family>.json` | 字段、初始化声明、创建选项、栏目/示意图配置、单位/校验、建模选项、材料选择及 DES 符号 |
-| `model_groups.json` | 领域模型、模型树与导出共用的分组显示名称 |
+| `model_groups.json` | 领域模型、模型树与导出共用的分组显示名称及父子关系 |
 | `presets/<来源目录>/<预设名>.json` | 342 个内部格式预设，包含默认分支及必要的四层分支，共 416 个分支 |
 | `presets/index.json` | 内部家族 ID、预设文件路径、分支列表 |
 | `materials/<分类>/<文件>.json` | PACK 内置材料记录 |
@@ -18,7 +19,7 @@
 QFN、tsop_conv 等来源目录名用于追溯；预设正文及索引中的 family 使用内部 ID。
 Bare Die 没有原生预设，使用模板基线。
 
-字段的 `des_symbol` 是 DES 键字符串、按 `substrate.layers` 选择的符号对象，或无直接符号时的 null。
+字段的 `des_symbol` 是 DES 键字符串、包含 `selector` 与 `cases` 的选择映射，或无直接符号时的 null。
 它负责界面符号显示，不承担原生属性寻址或数据转换。没有 DES 键的内部字段仍保留完整定义。
 
 ## 预设契约与覆盖
@@ -27,7 +28,7 @@ Bare Die 没有原生预设，使用模板基线。
 每个预设具有 id、family、default_branch、branches 和必要的 source 路径/家族。
 分支对象仅包含：
 
-- `values`：以 PackStudio 内部字段名为键的规范化参数；焊球及阵列配置统一使用 `bga.*`，通孔去除位于 `bga.via_configuration`。
+- `values`：以 PackStudio 内部字段名为键的规范化参数；焊球及阵列配置统一使用 `bga.*`，通孔去除位于 `vias.configuration`。
 - `material_assignments`：内部材料组 ID 到内部材料 ID 的选择；缺失表示不覆盖模板默认。
 
 值以已核实的原生向导初始化及计算结果为依据。单位、枚举、材料 ID、派生层深度与保留球位补集在提取阶段处理。
@@ -44,7 +45,7 @@ null、0、false 与缺少字段不互相替代。启用结构缺少必需参数
 
 金属层使用真实 JSON 数组，行包含 `depth`、`thickness`、`coverage`、`disconnect`，单位分别为 mm、mm、%、布尔值。
 depth 从全基板顶面计量；空槽不生成行。模板基线、预设、方案保存、表格编辑和生成器统一使用数组。
-方案仅支持 `packstudio.project/v2`，由 `Values`、`MaterialAssignments`、`CustomMaterials` 和方案标识组成。布局字段使用 `Values` 中的 `bga.*`，层表直接使用 JSON 数组。
+方案采用 `packstudio.project/v3`，v2 文件在读取边界进行显式迁移；内存中的方案及保存输出统一使用 v3。方案由 `Values`、`MaterialAssignments`、`CustomMaterials` 和方案标识组成。布局字段使用 `Values` 中的 `bga.*`，层表直接使用 JSON 数组。
 方案与生成请求中的未知顶层字段会返回错误；功率通过 `Values["die.power"]` 或请求的 `overrides["<family>.die.power"]` 设置。
 创建时由 Core 根据厚度参数计算层栈；显式提供的层表具有优先级。保存方案的层表按输入参与生成。
 

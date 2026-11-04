@@ -33,9 +33,11 @@ static class FieldLayoutChecks
     static IEnumerable<T> Descendants<T>(DependencyObject root)
         where T : DependencyObject
     {
+        if (root is UIElement { Visibility: not Visibility.Visible }) yield break;
         for (int i = 0; i < VisualTreeHelper.GetChildrenCount(root); i++)
         {
             var child = VisualTreeHelper.GetChild(root, i);
+            if (child is UIElement { Visibility: not Visibility.Visible }) continue;
             if (child is T match)
                 yield return match;
             foreach (var nested in Descendants<T>(child))

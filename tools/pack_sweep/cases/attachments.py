@@ -131,7 +131,7 @@ def cases(baselines: Path, inputs: Path, *, families=None):
                         "pbga_fc.vias.pitch": 0.5,
                         "pbga_fc.vias.plating": 0.025,
                         "pbga_fc.vias.modeling": mode,
-                        "pbga_fc.bga.via_configuration": {
+                        "pbga_fc.vias.configuration": {
                             "removal_enabled": True,
                             "removal_rows": 0,
                             "removal_columns": 0,

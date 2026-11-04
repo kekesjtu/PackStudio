@@ -15,7 +15,7 @@ public sealed partial class ModelPresenter
             bool package = group.Id == "package";
             string heading = package ? $"封装概览\n{model.Name}" : $"组件分组\n{group.Name}";
             string detail = package
-                ? $"封装类型：{PackagePresentation.Choices.Single(c => c.Id == model.TemplateId).Name}\n组件分组：{blocks.Select(b => b.GroupId).Distinct().Count()}\n材料种类：{materialIds.Count}"
+                ? $"封装类型：{workspace.Catalog.Families.Single(c => c.Id == model.TemplateId).Name}\n组件分组：{blocks.Select(b => b.GroupId).Distinct().Count()}\n材料种类：{materialIds.Count}"
                 : $"所属封装：{model.Name}\n材料：{string.Join("、", materialIds.Select(id => model.Materials[id].Name))}";
             Inspector.Text = $"{heading}\n\n{detail}\n矩形块数：{blocks.Count}\n可见块数：{blocks.Count(b => !workspace.Hidden.Contains(b.Id))}\n" +
                 $"包围尺寸：{Bounds(blocks)} mm\n总功率：{model.Sources.Where(s => ids.Contains(s.BlockId)).Sum(s => s.Power):G6} W";

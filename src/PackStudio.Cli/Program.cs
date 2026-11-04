@@ -10,13 +10,13 @@ try
         throw new ArgumentException("用法：catalog | values request.json | generate request.json output.floxml");
     if (args[0] == "catalog")
     {
-        Console.WriteLine(JsonConvert.SerializeObject(PackageCatalog.Families.Select(f => new { id = f.Id, name = f.Name, presets = catalog.Load(f.Id).Presets.Select(p => p.Id) })));
+        Console.WriteLine(JsonConvert.SerializeObject(catalog.Families.Select(f => new { id = f.Id, name = f.Name, presets = catalog.Load(f.Id).Presets.Select(p => p.Id) })));
         return 0;
     }
 
     var input = JsonData.Read(args[1]);
     ProjectDocument document;
-    document = input["template_id"] != null ? RequestDocument.Parse(input, catalog) : ProjectDocument.Load(args[1]);
+    document = input["template_id"] != null ? RequestDocument.Parse(input, catalog) : ProjectDocument.Load(args[1], catalog);
     if (args[0] == "values")
     {
         Console.WriteLine(document.Values.ToString(Formatting.None));

@@ -5,7 +5,7 @@ static class CatalogChecks
 {
     public static void Run(TestSuite tests)
     {
-        foreach (var info in PackageCatalog.Families)
+        foreach (var info in tests.Catalog.Families)
         {
             tests.Case("catalog", info.Id, () =>
             {

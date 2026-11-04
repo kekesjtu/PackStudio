@@ -1,106 +1,88 @@
-using System.IO;
-using System.Globalization;
-using CommunityToolkit.Mvvm.ComponentModel;
 using Newtonsoft.Json.Linq;
 using PackStudio.Core;
 
 namespace PackStudio.Desktop;
 
-public sealed class ParameterForm : ObservableObject
+public sealed class ParameterForm
 {
-    readonly Workspace workspace;
+    readonly Func<JObject> values;
+    readonly Func<string, JToken, IReadOnlySet<string>> update;
+    readonly Dictionary<string, HashSet<(ParameterField Field, string Property)>> dependencies = [];
     public IReadOnlyList<ParameterField> Fields { get; }
+    public IReadOnlyList<ParameterField> Materials { get; }
+    public JObject Values => values();
     public event Action? Changed;
 
-    public ParameterForm(Workspace workspace)
+    public ParameterForm(Workspace workspace) : this(workspace.Template, () => workspace.Document.Values, (path, value) =>
     {
-        this.workspace = workspace;
-        Fields = Expand(workspace.Template.Fields, workspace.Document.Values, null).ToList();
+        var keys = path.Split('/');
+        var target = workspace.Document.Values;
+        foreach (string key in keys[..^1]) target = (JObject)target[key]!;
+        if (JToken.DeepEquals(target[keys[^1]], value)) return new HashSet<string>();
+        target[keys[^1]] = value.DeepClone();
+        workspace.Dirty();
+        return new HashSet<string> { path };
+    }) { }
+
+    public ParameterForm(CreationDraft draft) : this(draft.Template, () => draft.Values, draft.Set) { }
+
+    ParameterForm(Template template, Func<JObject> values, Func<string, JToken, IReadOnlySet<string>> update)
+    {
+        this.values = values;
+        this.update = update;
+        Fields = Expand(template.Fields, null).ToList();
+        Materials = template.MaterialSelections.Select(s =>
+        {
+            var definition = (JObject)s.DeepClone();
+            definition["key"] = "$material:" + s["group_id"].Text();
+            definition["control"] = "material";
+            return new ParameterField(this, definition, null);
+        }).ToList();
+        foreach (var field in Fields.Concat(Materials))
+        {
+            Watch(field, nameof(ParameterField.Value), [field.Path]);
+            Watch(field, nameof(ParameterField.Visible), field.RuleDependencies("visible_when"));
+            Watch(field, nameof(ParameterField.Enabled), field.RuleDependencies("enabled_when"));
+            Watch(field, nameof(ParameterField.Symbol), TemplateSymbols.Dependencies(field.Definition));
+            Watch(field, nameof(ParameterField.DerivedValue), (field.Definition["depends_on"] as JArray ?? []).Select(k => k.Text()));
+            Watch(field, nameof(ParameterField.MatrixRows), [field.Definition["rows_key"].Text()]);
+            Watch(field, nameof(ParameterField.MatrixColumns), [field.Definition["columns_key"].Text()]);
+        }
     }
 
-    IEnumerable<ParameterField> Expand(JArray definitions, JObject values, ParameterField? parent)
+    IEnumerable<ParameterField> Expand(JArray definitions, ParameterField? parent)
     {
         foreach (var definition in definitions)
         {
-            var field = new ParameterField(this, definition, values, parent);
+            var field = new ParameterField(this, definition, parent);
             if (field.Control == "object")
-            {
-                if (field.Value is not JObject nested)
-                    throw new InvalidDataException($"{field.Key} 缺少模板初始化的对象值。");
-                foreach (var child in Expand((JArray)definition["fields"]!, nested, field)) yield return child;
-            }
+                foreach (var child in Expand((JArray)definition["fields"]!, field)) yield return child;
             else yield return field;
         }
     }
 
-    public JObject Values => workspace.Document.Values;
-    public void NotifyViewChanged() => Changed?.Invoke();
+    void Watch(ParameterField field, string property, IEnumerable<string> keys)
+    {
+        foreach (string key in keys.Where(k => k.Length > 0).Distinct())
+        {
+            if (!dependencies.TryGetValue(key, out var targets)) dependencies[key] = targets = [];
+            targets.Add((field, property));
+        }
+    }
+
+    internal JToken? Get(string path)
+    {
+        JToken? token = Values;
+        foreach (string key in path.Split('/')) token = token?[key];
+        return token;
+    }
+
     public void Set(ParameterField field, JToken value)
     {
-        if (JToken.DeepEquals(field.Value, value)) return;
-        field.Store(value);
-        workspace.Dirty();
-        foreach (var item in Fields) item.Refresh(item == field);
+        var changed = update(field.Path, value);
+        if (changed.Count == 0) return;
+        var affected = changed.Where(dependencies.ContainsKey).SelectMany(key => dependencies[key]).Distinct().ToList();
+        foreach (var (target, property) in affected) target.Notify(property);
         Changed?.Invoke();
-    }
-}
-
-public sealed class ParameterField(ParameterForm form, JToken definition, JObject values, ParameterField? parent) : ObservableObject
-{
-    bool? expanded;
-    public JToken Definition { get; } = definition;
-    public string Key => Definition["key"].Text();
-    public string Label => Definition["label"].Text();
-    public string Control => Definition["control"].Text();
-    public string Step => parent?.Step ?? Definition["step"].Text();
-    public JToken? Value => values[Key];
-    public bool Visible => (parent?.Visible ?? true) && JsonData.Matches(Definition["visible_when"] as JObject, values);
-    public bool Enabled => (parent?.Enabled ?? true) && JsonData.Matches(Definition["enabled_when"] as JObject, values);
-    public bool Expanded
-    {
-        get => expanded ?? (Value is JArray { Count: > 0 });
-        set { expanded = value; OnPropertyChanged(); form.NotifyViewChanged(); }
-    }
-    public int MatrixRows => Count(Definition["rows_key"].Text());
-    public int MatrixColumns => Count(Definition["columns_key"].Text());
-    int Count(string key) => form.Values[key]?.Type is JTokenType.Integer or JTokenType.Float &&
-        double.IsFinite(form.Values[key]!.Number()) && form.Values[key]!.Number() is >= 0 and <= 1000
-        ? (int)form.Values[key]!.Number() : 0;
-    public bool BooleanValue { get => Value.Flag(); set => form.Set(this, new JValue(value)); }
-    public JToken? ChoiceValue { get => Value; set { if (value != null) form.Set(this, value); } }
-    public string TextValue
-    {
-        get => Value?.Type is null or JTokenType.Null ? "" : Value.ToString();
-        set
-        {
-            if (string.IsNullOrWhiteSpace(value)) form.Set(this, JValue.CreateNull());
-            else if (Control is "number" or "integer" or "integer_spinbox" && double.TryParse(value, NumberStyles.Float, CultureInfo.InvariantCulture, out double n) && double.IsFinite(n))
-                form.Set(this, Control.StartsWith("integer") && n == Math.Truncate(n) && n >= long.MinValue && n < 9223372036854775808d ? new JValue((long)n) : new JValue(n));
-            else form.Set(this, new JValue(value));
-        }
-    }
-    public string DerivedValue
-    {
-        get
-        {
-            if (Control != "derived") return "";
-            double n = ParameterRules.Derived(Definition["calculation"].Text(), form.Values);
-            return double.IsFinite(n) ? n.ToString("G9", CultureInfo.InvariantCulture) : "";
-        }
-    }
-    internal void Store(JToken value) => values[Key] = value.DeepClone();
-    public void Set(JToken value) => form.Set(this, value);
-    internal void Refresh(bool editing)
-    {
-        OnPropertyChanged(nameof(Visible));
-        OnPropertyChanged(nameof(Enabled));
-        OnPropertyChanged(nameof(DerivedValue));
-        OnPropertyChanged(nameof(MatrixRows));
-        OnPropertyChanged(nameof(MatrixColumns));
-        if (editing) return;
-        OnPropertyChanged(nameof(Value));
-        OnPropertyChanged(nameof(TextValue));
-        OnPropertyChanged(nameof(BooleanValue));
-        OnPropertyChanged(nameof(ChoiceValue));
     }
 }

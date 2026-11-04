@@ -8,4 +8,5 @@ LayoutChecks.Run(tests);
 SlugChecks.Run(tests);
 MaterialChecks.Run(tests);
 ProjectChecks.Run(tests);
+BoundaryChecks.Run(tests);
 return tests.Finish();

@@ -14,6 +14,7 @@ public sealed class RemovalMatrixEditor : ContentControl
     public int Columns { get => (int)GetValue(ColumnsProperty); set => SetValue(ColumnsProperty, value); }
     public JArray? Cells { get => (JArray?)GetValue(CellsProperty); set => SetValue(CellsProperty, value); }
     readonly ParameterField field;
+    int builtRows = -1, builtColumns = -1;
     public RemovalMatrixEditor(ParameterField field)
     {
         this.field = field;
@@ -29,6 +30,12 @@ public sealed class RemovalMatrixEditor : ContentControl
     }
     void Rebuild()
     {
-        if (IsVisible) Content = RemovalMatrix.Build(Cells ?? [], Rows, Columns, field.Set);
+        if (!IsVisible) return;
+        if (Content is RemovalMatrixView view && Rows == builtRows && Columns == builtColumns) view.UpdateCells(Cells ?? []);
+        else
+        {
+            Content = RemovalMatrix.Build(Cells ?? [], Rows, Columns, field.Set);
+            builtRows = Rows; builtColumns = Columns;
+        }
     }
 }

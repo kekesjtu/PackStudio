@@ -16,16 +16,19 @@ internal sealed partial class SchematicDrawing(Template template, ProjectDocumen
     static readonly Brush Bump = Brush("#E600C7"), Ceramic = Brush("#00A043");
     static readonly Brush WireColor = Brush("#D600C7");
     static readonly Brush Cover = Brush("#00B8D9"), Accent = Brush("#0057D9");
-    readonly string family = document.TemplateId;
     DrawingContext dc = null!;
-    bool Bga => family is "cbga_fc" or "pbga_fc" or "pbga_wb" or "chip_array";
-    bool Flip => family is "cbga_fc" or "pbga_fc";
-    bool Bare => family == "bare_die";
-    bool Qfn => family == "qfn";
-    bool Sop => family == "sop";
+    SchematicProfile Profile => template.Info.Schematic;
+    bool Bga => Profile.Bga;
+    bool Flip => Profile.Flip;
+    bool Bare => Profile.Bare;
+    bool Qfn => Profile.Qfn;
+    bool Sop => Profile.Sop;
+    bool ChipArray => Profile.ChipArray;
+    bool Wirebond => Profile.Wirebond;
+    bool CeramicBoard => Profile.Ceramic;
     bool FlagStep => step is "die_flag_solder_mask" or "die_flag_tie_bars" or "dap";
     int LayerCount => Math.Clamp((document.Values["metal.layers"] as Newtonsoft.Json.Linq.JArray)?.Count ?? 2, 2, 6);
-    Brush Board => family == "cbga_fc" ? Ceramic : Substrate;
+    Brush Board => CeramicBoard ? Ceramic : Substrate;
     static double FlipDieTop(double substrateTop) => substrateTop - 2 * FlipBumpRadius - 23;
     static double Centered(int index, int count, double pitch, double center = 350) =>
         center + (index - (count - 1) / 2.0) * pitch;
@@ -34,7 +37,7 @@ internal sealed partial class SchematicDrawing(Template template, ProjectDocumen
     string Symbol(string key, string fallback = "")
     {
         var field = template.Fields.FirstOrDefault(f => f["key"].Text() == key);
-        return field == null ? fallback : DesFieldLabels.Symbol(field, Value("substrate.layers"));
+        return field == null ? fallback : TemplateSymbols.Resolve(field, document.Values);
     }
     string Dimension(string name, string key, string fallback = "")
     {

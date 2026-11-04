@@ -49,7 +49,7 @@ static class ModelingStepChecks
             return [];
         steps.SelectedValue = step;
         window.UpdateLayout();
-        return fields.Children.OfType<object>().Select(Label).Where(text => text != null).Select(text => text!).ToList();
+        return fields.Children.OfType<FrameworkElement>().Where(c => c.Visibility == Visibility.Visible).Select(Label).Where(text => text != null).Select(text => text!).ToList();
     }
 
     static string? Label(object child)
@@ -71,9 +71,11 @@ static class ModelingStepChecks
     static IEnumerable<T> Descendants<T>(DependencyObject root)
         where T : DependencyObject
     {
+        if (root is UIElement { Visibility: not Visibility.Visible }) yield break;
         for (int i = 0; i < VisualTreeHelper.GetChildrenCount(root); i++)
         {
             var child = VisualTreeHelper.GetChild(root, i);
+            if (child is UIElement { Visibility: not Visibility.Visible }) continue;
             if (child is T match)
                 yield return match;
             foreach (var nested in Descendants<T>(child))

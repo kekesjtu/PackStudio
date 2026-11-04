@@ -84,12 +84,7 @@ public sealed class MaterialWindow : Window
         };
         apply.Click += Apply;
         editor.Children.Add(apply);
-        var available = workspace.Catalog.Materials.Items.Values.ToDictionary(m => m.Id);
-        foreach (var m in workspace.Model?.Materials.Values.AsEnumerable() ?? [])
-            available[m.Id] = m;
-        foreach (var m in workspace.Document.CustomMaterials)
-            available[m.Id] = m;
-        materials = available.Values.GroupBy(m => m.Name).Select(g => g.FirstOrDefault(m => workspace.Document.CustomMaterials.Any(c => c.Id == m.Id)) ?? g.FirstOrDefault(m => workspace.Model?.Materials.ContainsKey(m.Id) == true) ?? g.OrderBy(m => m.Id.Length).First()).ToList();
+        materials = MaterialSelection.Available(workspace.Catalog, workspace.Template, workspace.Document, workspace.Model).ToList();
         void Filter()
         {
             var expanded = list.Items.Cast<TreeViewItem>().Where(i => i.IsExpanded).Select(i => i.Tag?.ToString()).ToHashSet();

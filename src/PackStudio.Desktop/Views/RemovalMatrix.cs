@@ -25,14 +25,17 @@ public static class RemovalMatrix
             return new TextBlock { Text = "先填写阵列行列数。", Foreground = Brushes.SlateGray, TextWrapping = TextWrapping.Wrap };
         var taken = new HashSet<(int Row, int Column)>();
         int outside = 0;
-        foreach (var cell in cells.OfType<JObject>())
+        void ReadCells(JArray source)
         {
-            int row = (int)cell["row"].Number(), column = (int)cell["column"].Number();
-            if (row >= 0 && row < rows && column >= 0 && column < columns)
-                taken.Add((row, column));
-            else
-                outside++;
+            taken.Clear(); outside = 0;
+            foreach (var cell in source.OfType<JObject>())
+            {
+                int row = (int)cell["row"].Number(), column = (int)cell["column"].Number();
+                if (row >= 0 && row < rows && column >= 0 && column < columns) taken.Add((row, column));
+                else outside++;
+            }
         }
+        ReadCells(cells);
 
         var grid = new Grid { HorizontalAlignment = HorizontalAlignment.Left, Background = Brushes.Transparent };
         grid.ColumnDefinitions.Add(new() { Width = GridLength.Auto });
@@ -170,7 +173,7 @@ public static class RemovalMatrix
 
         Report();
         Repaint();
-        return new StackPanel
+        return new RemovalMatrixView(source => { ReadCells(source); Repaint(); Report(); })
         {
             Margin = new(0, 2, 0, 0),
             Children =

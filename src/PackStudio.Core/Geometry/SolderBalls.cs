@@ -127,7 +127,7 @@ public static class SolderBalls
                 Region("center-solder-ball", Required(b, "bga.center_solder_rows"), Required(b, "bga.center_solder_columns"), b["bga.center_staggered"].Flag(), true);
         }
 
-        c.Model.Metadata.SolderBallCount = count;
-        c.Model.Metadata.SolderBallRepresentation = representation;
+        c.Model.SolderBallCount = count;
+        c.Model.SolderBallRepresentation = representation;
     }
 }

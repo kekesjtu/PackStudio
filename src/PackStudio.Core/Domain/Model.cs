@@ -15,13 +15,13 @@ public record Material(string Id, string Name, Vector Conductivity, double Densi
     }
 }
 
-public record Block(string Id, string Name, string StructureType, Vector Origin, Vector Size, string MaterialId, string GroupId, string GroupName)
+public record Block(string Id, string Name, string StructureType, Vector Origin, Vector Size, string MaterialId, string GroupId, string GroupName, bool ExposedSurface = false)
 {
     public Vector Maximum => Origin + Size;
 }
 
 public record HeatSource(string BlockId, double Power);
-public sealed class PackageModel(string templateId, string name)
+public sealed class PackageModel(string templateId, string name, ModelMetadata metadata, IReadOnlyDictionary<string, ModelGroup> groups)
 {
     public string TemplateId { get; } = templateId;
     public string Name { get; } = name;
@@ -30,7 +30,8 @@ public sealed class PackageModel(string templateId, string name)
     public List<HeatSource> Sources { get; } = [];
     public List<Auxiliary> Auxiliary { get; } = [];
     public List<string> Warnings { get; } = [];
-    public ModelMetadata Metadata { get; set; } = new();
+    public ModelMetadata Metadata { get; } = metadata;
+    public IReadOnlyDictionary<string, ModelGroup> Groups { get; } = groups;
     public PackageGeometry Geometry => Metadata.Geometry;
 
     public void Validate()

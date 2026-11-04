@@ -78,7 +78,7 @@ static class RemovalMatrixChecks
         if (viaMatrix == null || viaMatrix.Children.OfType<Border>().Count(cell => cell.Tag != null) != 3 * viaColumns)
             throw new Exception("去孔矩阵未随阵列行列数重建");
         Click(viaMatrix.Children.OfType<Border>().First(cell => cell.Tag != null));
-        if ((workspace.Document.Values["bga.via_configuration"]?["omitted_cells"] as JArray ?? []).Count != 1)
+        if ((workspace.Document.Values["vias.configuration"]?["omitted_cells"] as JArray ?? []).Count != 1)
             throw new Exception("去孔单元未写回文档");
         Reset(fields)!.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
         rowCount.Text = original;
@@ -91,7 +91,7 @@ static class RemovalMatrixChecks
         var enabled = Descendants<CheckBox>(fields).Single(box => box.Content?.ToString()?.Contains("热通孔") == true);
         enabled.IsChecked = false;
         Pump(window);
-        if (fields.Children.Count != 1 || Descendants<CheckBox>(fields).Count() != 1 || RemovalBox(fields) != null)
+        if (Descendants<CheckBox>(fields).Count() != 1 || RemovalBox(fields) != null)
             throw new Exception("未启用热通孔时仍有参数控件");
         Descendants<CheckBox>(fields).Single().IsChecked = true;
         Pump(window);
@@ -99,7 +99,7 @@ static class RemovalMatrixChecks
 
     static CheckBox? RemovalBox(StackPanel fields) => Box(fields, "启用通孔去除");
 
-    static CheckBox? Box(StackPanel fields, string label) => fields.Children.OfType<CheckBox>().SingleOrDefault(box => box.Content?.ToString() == label);
+    static CheckBox? Box(StackPanel fields, string label) => Descendants<CheckBox>(fields).SingleOrDefault(box => box.Content?.ToString() == label);
 
     static Button? Reset(StackPanel fields) => Descendants<Button>(fields).FirstOrDefault(button => button.Content?.ToString() == "重置为空");
 
@@ -127,9 +127,11 @@ static class RemovalMatrixChecks
     static IEnumerable<T> Descendants<T>(DependencyObject root)
         where T : DependencyObject
     {
+        if (root is UIElement { Visibility: not Visibility.Visible }) yield break;
         for (int i = 0; i < System.Windows.Media.VisualTreeHelper.GetChildrenCount(root); i++)
         {
             var child = System.Windows.Media.VisualTreeHelper.GetChild(root, i);
+            if (child is UIElement { Visibility: not Visibility.Visible }) continue;
             if (child is T match)
                 yield return match;
             foreach (var nested in Descendants<T>(child))

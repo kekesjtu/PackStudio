@@ -5,7 +5,7 @@ public static class Vias
 {
     public static HashSet<(int row, int col)> Omissions(BuildContext c, int rows, int cols)
     {
-        var config = c.Values["bga.via_configuration"] as JObject ?? new();
+        var config = c.Values["vias.configuration"] as JObject ?? new();
         var cells = new HashSet<(int, int)>();
         if (!config["removal_enabled"].Flag())
             return cells;

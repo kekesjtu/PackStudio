@@ -185,7 +185,8 @@
       "visible_when": {},
       "enabled_when": {},
       "options": [],
-      "des_symbol": null
+      "des_symbol": null,
+      "placement": "footer"
     },
     {
       "key": "grid.density",
@@ -203,7 +204,8 @@
         "medium",
         "fine"
       ],
-      "des_symbol": null
+      "des_symbol": null,
+      "placement": "footer"
     }
   ],
   "material_selections": [
@@ -266,5 +268,9 @@
       "label": "建模与局部网格",
       "diagram": ""
     }
+  ],
+  "schematic_dependencies": [
+    "die.flipped",
+    "bumps.enabled"
   ]
 }

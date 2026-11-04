@@ -2,14 +2,16 @@ using System.Windows;
 using System.Windows.Controls;
 using Newtonsoft.Json.Linq;
 using PackStudio.Core;
+using static PackStudio.Desktop.FieldLayout;
 
 namespace PackStudio.Desktop;
 public sealed partial class ParameterPanel
 {
-    void AddMaterial(JToken selection)
+    void AddMaterial(ParameterField state)
     {
+        var selection = state.Definition;
         string group = selection["group_id"].Text();
-        var choices = MaterialSelection.Choices(workspace.Catalog, workspace.Template, workspace.Document, selection);
+        var choices = MaterialSelection.Choices(workspace.Catalog, workspace.Template, workspace.Document, selection, workspace.Model);
         string id = choices.SelectedId;
         var allowed = choices.Items;
         var groups = new ComboBox
@@ -42,8 +44,10 @@ public sealed partial class ParameterPanel
                 workspace.Dirty();
             }
         };
-        FieldsPanel.Children.Add(new Separator { Margin = new(0, 4, 0, 8) });
-        FieldsPanel.Children.Add(FieldRow("材料组", groups));
-        FieldsPanel.Children.Add(FieldRow(selection["label"].Text(), box));
+        foreach (var view in new FrameworkElement[] { new Separator { Margin = new(0, 4, 0, 8) }, FieldRow("材料组", groups), FieldRow(selection["label"].Text(), box) })
+        {
+            FieldView.VisibilityBinding(view, state);
+            FieldsPanel.Children.Add(view);
+        }
     }
 }

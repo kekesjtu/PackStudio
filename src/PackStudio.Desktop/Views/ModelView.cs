@@ -40,26 +40,19 @@ public sealed partial class ModelPresenter
             root.IsExpanded = true;
             ModelTree.Items.Add(root);
             var groups = model.Blocks.GroupBy(b => b.GroupId).OrderByDescending(g => (g.Min(b => b.Origin.Z) + g.Max(b => b.Maximum.Z)) / 2).ToList();
-            TreeViewItem? solder = null;
-            foreach (var group in groups.Where(g => g.Key != "group-center-solder-ball"))
+            var items = groups.ToDictionary(g => g.Key, group =>
             {
                 var item = TreeItem(new(group.Key, group.First().GroupName, group.ToList()));
                 item.IsExpanded = true;
                 foreach (var block in group.OrderByDescending(b => b.Origin.Z + b.Size.Z / 2))
                     item.Items.Add(TreeItem(new(block.Id, block.Name, [block], block)));
-                root.Items.Add(item);
-                if (group.Key == "group-solder-ball")
-                    solder = item;
-            }
-
-            var center = groups.FirstOrDefault(g => g.Key == "group-center-solder-ball");
-            if (center != null)
+                return item;
+            });
+            foreach (var group in groups)
             {
-                var item = TreeItem(new(center.Key, center.First().GroupName, center.ToList()));
-                item.IsExpanded = true;
-                foreach (var block in center.OrderByDescending(b => b.Origin.Z + b.Size.Z / 2))
-                    item.Items.Add(TreeItem(new(block.Id, block.Name, [block], block)));
-                (solder ?? root).Items.Add(item);
+                string? parent = model.Groups[group.Key].Parent;
+                var container = parent != null && items.TryGetValue(parent, out var parentItem) ? parentItem : root;
+                container.Items.Add(items[group.Key]);
             }
         }
 

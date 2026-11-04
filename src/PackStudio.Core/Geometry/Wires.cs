@@ -61,7 +61,7 @@ public static class Wires
             if (template == "pqfp")
             {
                 double transverse = axis == "x" ? dw : dl, die = axis == "x" ? dl : dw, flag = c.N(axis == "x" ? "flag.length" : "flag.width");
-                double vertical = Math.Abs(c.N("die.thickness") + c.N("die.attach") - c.N("flag.downset"));
+                double vertical = Math.Abs(LeadframeStack.Evaluate(c.Values, false).WireHeight);
                 double span = (flag - die) / 2 + c.N("leads.gap_" + axis) + vertical;
                 fraction = (int)(count * transverse / (2 * (dl + dw))) * Math.PI * d * d / 4 * c.N("bond_wire.length_" + axis) / (span * transverse * d);
             }

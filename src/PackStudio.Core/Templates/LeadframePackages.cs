@@ -8,7 +8,8 @@ public static class LeadframePackages
         double bl = c.N("body.length"), bw = c.N("body.width"), pl = c.N("package.length", bl), pw = c.N("package.width"), s = c.N("package.standoff"), h = c.N("leads.thickness");
         double fl = c.N("flag.length"), fw = c.N("flag.width"), fh = sop ? c.N("flag.thickness") : h;
         double dl = c.N("die.length"), dw = c.N("die.width"), dh = c.N("die.thickness"), attach = c.N("die.attach");
-        double z = s + c.N("leads.height"), fz = z - c.N("flag.downset"), az = fz + fh, dz = az + attach, top = dz + dh;
+        var stack = LeadframeStack.Evaluate(c.Values, sop);
+        double z = stack.LeadBottom, fz = stack.FlagBottom, az = stack.AttachBottom, dz = stack.DieBottom, top = stack.DieTop;
         if (bl > pl || bw > pw || Math.Max(fl, dl) > bl || Math.Max(fw, dw) > bw || top > s + c.N("body.thickness"))
             throw new ArgumentException("芯片、承载台和塑封尺寸不兼容。");
         if (sop && c.I("leads.total") % 2 != 0)
@@ -18,9 +19,9 @@ public static class LeadframePackages
         c.Center("die-attach", "die_attach", dl, dw, attach, az, "dieattach-84-1lmis", "die-attach");
         c.Center("die-flag", "lead_frame", fl, fw, fh, fz, prefix + "-die-flag", "die-flag", derived: true);
         double gx = c.N(sop ? "leads.gap" : "leads.gap_x"), gy = c.N(sop ? "leads.gap" : "leads.gap_y");
-        double endX = fl / 2 + gx, endY = fw / 2 + gy, leadTop = z + h, d = c.N("bond_wire.diameter");
-        bool above = sop ? top > leadTop : top >= leadTop;
-        Wires.FourSides(c, dl, dw, endX, endY, above ? endX : dl / 2 - d, above ? endY : dw / 2 - d, Math.Max(top, leadTop) - d, Math.Min(top, leadTop), sop ? Math.Abs(ParameterRules.SopWireHeight(c.Values)) : Math.Abs(top - leadTop), prefix + "-bondwire-x", prefix + "-bondwire-y", d / 4);
+        double endX = fl / 2 + gx, endY = fw / 2 + gy, leadTop = stack.LeadTop, d = c.N("bond_wire.diameter");
+        bool above = sop ? stack.WireHeight > 0 : stack.WireHeight >= 0;
+        Wires.FourSides(c, dl, dw, endX, endY, above ? endX : dl / 2 - d, above ? endY : dw / 2 - d, Math.Max(top, leadTop) - d, Math.Min(top, leadTop), Math.Abs(stack.WireHeight), prefix + "-bondwire-x", prefix + "-bondwire-y", d / 4);
         double pitch = c.N("leads.pitch"), lw = c.N("leads.width"), foot = c.N("leads.foot_length");
         void Lead(string id, double x, double y, double zz, double sx, double sy, double sz, string mat) => c.Add(id, "lead_frame", x, y, zz, sx, sy, sz, mat, "lead-frame", derived: true);
         if (sop)
