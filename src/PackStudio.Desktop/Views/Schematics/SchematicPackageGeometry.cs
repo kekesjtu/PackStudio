@@ -4,7 +4,7 @@ namespace PackStudio.Desktop;
 
 internal sealed partial class SchematicDrawing
 {
-    void Section(double y, bool drawMold = true, double wireEnd = 226)
+    void Section(double y, bool drawMold = true, double wireEnd = 226, bool removeCentralBalls = false)
     {
         if (Bare)
         {
@@ -34,7 +34,9 @@ internal sealed partial class SchematicDrawing
                     Rect(Metal, x - 3, y + 5, 6, 19);
                     if (!Enabled("vias.filled")) Rect(Brushes.White, x - 1, y + 5, 2, 19, false);
                 }
-            for (int i = 0; i < 11; i++) Ellipse(Solder, Centered(i, 11, 36.8), y + 41, 11, 11);
+            for (int i = 0; i < 11; i++)
+                if (!removeCentralBalls || i is < 4 or > 6)
+                    Ellipse(Solder, Centered(i, 11, 36.8), y + 41, 11, 11);
             if (Flip)
             {
                 Rect(Die, 285, FlipDieTop(y), 130, 23);
@@ -138,12 +140,12 @@ internal sealed partial class SchematicDrawing
                     Ellipse(Bump, Centered(col, 6, 20), Centered(row, 3, 20, 470), 3.5, 3.5);
     }
 
-    void PackageSection()
+    void PackageSection(bool removeCentralBalls = false)
     {
         bool slug = SlugVisible;
         if (slug) Rect(Mold, 190, SectionY - 125, 320, 125);
         else if (Flip && Value("cover.type") == "encapsulant") Rect(Mold, 195, SectionY - 100, 310, 100);
-        Section(SectionY, drawMold: !slug, wireEnd: slug ? 265 : 226);
+        Section(SectionY, drawMold: !slug, wireEnd: slug ? 265 : 226, removeCentralBalls: removeCentralBalls);
         CoverSection();
         if (slug) SlugSection();
         if (family == "pbga_wb" && Enabled("spreader.enabled")) Rect(Metal, 195, SectionY + 21, 310, 9);

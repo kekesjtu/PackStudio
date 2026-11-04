@@ -6,22 +6,28 @@ internal sealed partial class SchematicDrawing
 {
     void BallArray()
     {
-        PackageSection();
+        bool removed = step == "solder_removal", central = step == "central_solder_balls";
+        PackageSection(removeCentralBalls: removed);
         Rect(Board, 200, 390, 300, 160);
-        bool removed = Enabled("bga.solder_removal_enabled"), central = Enabled("bga.center_solder_enabled");
         for (int row = 0; row < 5; row++)
             for (int col = 0; col < 9; col++)
             {
                 bool middle = row is >= 1 and <= 3 && col is >= 3 and <= 5;
                 double x = Centered(col, 9, 31), y = Centered(row, 5, 31, 470);
-                if (removed && middle && !central)
-                    dc.DrawEllipse(null, new Pen(Muted, 1) { DashStyle = DashStyles.Dash }, new(x, y), 8, 8);
-                else Ellipse(middle && central ? Metal : Solder, x, y, 8, 8);
+                if (!removed || !middle) Ellipse(Solder, x, y, 8, 8);
             }
-        if (step is "central_solder_balls" or "solder_removal")
+        if (central)
         {
+            for (int row = 0; row < 2; row++)
+                for (int col = 0; col < 2; col++)
+                    Ellipse(Metal, Centered(col, 2, 31), Centered(row, 2, 31, 470), 8, 8);
+            Callout("中央焊球 2×2", 170, 430, 334.5, 454.5, right: true);
+        }
+        if (removed)
+        {
+            Outline(294, 260, 112, 24);
             Outline(303.5, 423.5, 93, 93);
-            Callout(step == "central_solder_balls" ? "中央焊球" : "去球区域", 430, 310, 396.5, 423.5);
+            Callout("去球区域", 430, 310, 396.5, 423.5);
         }
         DimV(260, 282, 550, 580, Dimension("离板高度\n", "bga.height"));
         DimH(155, 177, 271, 310, Dimension("球径", "bga.diameter"));
