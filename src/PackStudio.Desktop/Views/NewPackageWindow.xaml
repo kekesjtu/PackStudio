@@ -4,6 +4,7 @@
         xmlns:local="clr-namespace:PackStudio.Desktop"
         Title="Create New Package — 新建封装" Width="620" Height="820"
         MinWidth="560" MinHeight="700" WindowStartupLocation="CenterOwner"
+        WindowStyle="ToolWindow" ShowInTaskbar="False"
         Background="White" FontFamily="Microsoft YaHei UI" FontSize="13">
   <DockPanel>
     <Border DockPanel.Dock="Bottom" Background="#F1F1F1" BorderBrush="#CECECE" BorderThickness="0,1,0,0" Padding="12,9">
