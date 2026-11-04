@@ -4,7 +4,7 @@ using System.Windows.Media;
 using PackStudio.Core;
 
 namespace PackStudio.Desktop;
-public partial class MainWindow
+public sealed partial class ParameterPanel
 {
     static Grid FieldRow(string label, FrameworkElement editor, string symbol = "")
     {
@@ -65,7 +65,7 @@ public partial class MainWindow
             Text = document.Name,
             MaxLength = 160
         };
-        name.TextChanged += Name_Changed;
+        name.TextChanged += (_, _) => { workspace.Rename(name.Text); };
         FieldsPanel.Children.Add(FieldRow("设计名称", name));
         void ReadOnly(string label, string value) => FieldsPanel.Children.Add(FieldRow(label, new TextBlock { Text = value, TextWrapping = TextWrapping.Wrap, Margin = new(5, 5, 0, 5) }));
         ReadOnly("封装类型", workspace.Template.Info.Name);

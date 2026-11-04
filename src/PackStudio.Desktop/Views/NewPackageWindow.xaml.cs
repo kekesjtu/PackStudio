@@ -106,6 +106,7 @@ public partial class NewPackageWindow : Window
         string id = FootprintBox.SelectedValue as string ?? "";
         if (template.Presets.Count > 0 && id.Length == 0)
             return;
+        creationOptions.RemoveAll();
         Draft = ProjectDocument.Create(template, id, DesignNameBox.Text);
         CreationError.Text = "";
         RefreshCreationOptions();
@@ -143,24 +144,9 @@ public partial class NewPackageWindow : Window
     {
         CreatedDocument = null;
         if (preparedFamily == null) return false;
-        string name = DesignNameBox.Text.Trim();
-        if (name.Length == 0 || name.Length > 160)
-        {
-            CreationError.Text = "请输入 1–160 个字符的设计名称。";
-            DesignNameBox.Focus();
-            return false;
-        }
-
         try
         {
-            var result = Draft.Clone();
-            result.Name = name;
-            result.Values = catalog.Initialize(template, result.Values, result.PresetId);
-            template.Validate(result.Values);
-            foreach (var field in CreationFields().Where(f => f["control"].Text()is "number" or "integer" or "integer_spinbox"))
-                if (result.Values[field["key"].Text()]?.Type is null or JTokenType.Null)
-                    throw new ArgumentException($"请填写{field["label"]}。");
-            CreatedDocument = result;
+            CreatedDocument = Draft.CompleteCreation(template, DesignNameBox.Text);
             return true;
         }
         catch (ArgumentException ex)

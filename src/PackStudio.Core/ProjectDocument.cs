@@ -18,10 +18,29 @@ public sealed class ProjectDocument
         Values = (JObject)Values.DeepClone(),
         MaterialAssignments = new(MaterialAssignments), CustomMaterials = [.. CustomMaterials]
     };
-    public static ProjectDocument Create(Template template, string? presetId = null, string? name = null)
+    public static ProjectDocument Create(Template template, string? presetId = null, string? name = null, JObject? options = null)
     {
         string preset = presetId ?? template.DefaultPreset;
-        return new() { TemplateId = template.Info.Id, PresetId = preset, Name = name ?? template.Info.Name, Values = template.Defaults(preset) };
+        return new() { TemplateId = template.Info.Id, PresetId = preset, Name = name ?? template.Info.Name, Values = ParameterRules.Prepare(template, template.Defaults(preset, options), options) };
+    }
+
+    public ProjectDocument CompleteCreation(Template template, string name)
+    {
+        var result = Clone();
+        result.Name = name.Trim();
+        ValidateName(result.Name);
+        result.Values = ParameterRules.Prepare(template, result.Values);
+        foreach (var field in template.CreationFields.Where(f => JsonData.Matches(f["visible_when"] as JObject, result.Values) &&
+            f["control"].Text() is "number" or "integer" or "integer_spinbox"))
+            if (result.Values[field["key"].Text()]?.Type is null or JTokenType.Null)
+                throw new ArgumentException($"请填写{field["label"]}。");
+        return result;
+    }
+
+    internal static void ValidateName(string name)
+    {
+        if (string.IsNullOrWhiteSpace(name) || name.Length > 160)
+            throw new ArgumentException("方案名称需要 1–160 个字符。");
     }
 
     public static ProjectDocument Load(string path)

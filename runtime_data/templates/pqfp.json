@@ -580,7 +580,8 @@
       "presets": [],
       "visible_when": {},
       "enabled_when": {},
-      "des_symbol": null
+      "des_symbol": null,
+      "creation_option": true
     },
     {
       "key": "leads.custom_coverage",
@@ -816,6 +817,67 @@
       "specific_heat": 385.0,
       "color": "#B96331",
       "source": "PackStudio built-in transcription of reviewed FloTHERM PACK data"
+    }
+  ],
+  "initialization": [
+    {
+      "when": {
+        "package.exposed_pad": true
+      },
+      "copy": {
+        "flag.downset": "leads.height"
+      },
+      "set": {
+        "thermal_land.enabled": true,
+        "thermal_land.thickness": 0.07
+      }
+    }
+  ],
+  "steps": [
+    {
+      "key": "summary",
+      "label": "概要",
+      "diagram": "package"
+    },
+    {
+      "key": "overall_package",
+      "label": "整体封装",
+      "diagram": "package"
+    },
+    {
+      "key": "encapsulant",
+      "label": "塑封",
+      "diagram": "package"
+    },
+    {
+      "key": "die",
+      "label": "芯片",
+      "diagram": "package"
+    },
+    {
+      "key": "die_flag_tie_bars",
+      "label": "承载台与连接筋",
+      "diagram": "package"
+    },
+    {
+      "key": "leadframe",
+      "label": "引线框",
+      "diagram": "package"
+    },
+    {
+      "key": "bond_wires",
+      "label": "键合线",
+      "diagram": "package"
+    },
+    {
+      "key": "thermal_land_solder",
+      "label": "散热焊盘与焊料",
+      "diagram": "package"
+    },
+    {
+      "key": "modeling",
+      "label": "建模与局部网格",
+      "diagram": ""
     }
   ]
 }

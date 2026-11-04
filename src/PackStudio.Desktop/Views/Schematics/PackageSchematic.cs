@@ -24,7 +24,7 @@ public sealed class PackageSchematic : FrameworkElement
     {
         TemplateId = document.TemplateId;
         StepKey = step;
-        DiagramKey = Route(document.TemplateId, step);
+        DiagramKey = template.Steps.Single(s => s["key"].Text() == step)["diagram"].Text();
         ToolTip = HasDiagram ? $"{template.Info.Name} · {label}" : null;
         var renderer = new SchematicDrawing(template, document, step);
         var configuration = new JArray(SceneKeys.Select(key => document.Values[key]?.DeepClone() ?? JValue.CreateNull()));
@@ -37,21 +37,6 @@ public sealed class PackageSchematic : FrameworkElement
         drawing = HasDiagram ? renderer.Create(DiagramKey, packageScene) : null;
         InvalidateVisual();
     }
-
-    static string Route(string template, string step) => step switch
-    {
-        "thermal_vias" when template == "chip_array" => "chip_vias",
-        "metal_layers" when template == "chip_array" => "chip_metal",
-        "thermal_vias" or "metal_layers" or "upper_built_up" or "lower_built_up" => "substrate",
-        "solder_balls" or "central_solder_balls" or "solder_removal" => "balls",
-        "slug" => "slug",
-        "modeling" => "",
-        "summary" or "overall_package" or "package_substrate" or "die" or "encapsulant" or
-            "die_flag_solder_mask" or "die_flag_tie_bars" or "dap" or "thermal_land" or "thermal_land_solder" or
-            "flip_chip_bumps" or "bumped_die" or "leadframe" or "lead_solder_interconnect" or "bond_wires" or
-            "top_cover" or "backside_spreader" => "package",
-        _ => throw new ArgumentOutOfRangeException(nameof(step), step, "栏目没有对应的示意图。")
-    };
 
     protected override void OnRender(DrawingContext dc)
     {

@@ -78,14 +78,14 @@ static class ModelTreeChecks
 
         if (leaves.Count > 1)
         {
-            var select = typeof(MainWindow).GetMethod("SelectTreeNode", BindingFlags.NonPublic | BindingFlags.Instance)!;
+            var presenter = (ModelPresenter)typeof(MainWindow).GetField("models", BindingFlags.NonPublic | BindingFlags.Instance)!.GetValue(window)!;
             Click(leaf);
-            select.Invoke(window, [leaves[1].Tag, ModifierKeys.Control]);
+            presenter.SelectTreeNode((ModelNode)leaves[1].Tag, ModifierKeys.Control);
             Require(workspace.Selected.SetEquals(leaves.Select(Id)), "Ctrl no longer adds a leaf");
-            select.Invoke(window, [leaf.Tag, ModifierKeys.Control]);
+            presenter.SelectTreeNode((ModelNode)leaf.Tag, ModifierKeys.Control);
             Require(workspace.Selected.SetEquals([Id(leaves[1])]) && !TreeRow.GetIsHighlighted(leaf), "Ctrl no longer removes a leaf");
             Click(leaf);
-            select.Invoke(window, [leaves[1].Tag, ModifierKeys.Shift]);
+            presenter.SelectTreeNode((ModelNode)leaves[1].Tag, ModifierKeys.Shift);
             Require(workspace.Selected.SetEquals(leaves.Select(Id)), "Shift no longer selects the visible range");
             Click(root);
             Require(workspace.Selected.Count == 0 && inspector.Text.StartsWith("封装概览"), "root retained multi selection");

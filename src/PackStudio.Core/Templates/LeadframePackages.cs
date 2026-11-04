@@ -20,7 +20,7 @@ public static class LeadframePackages
         double gx = c.N(sop ? "leads.gap" : "leads.gap_x"), gy = c.N(sop ? "leads.gap" : "leads.gap_y");
         double endX = fl / 2 + gx, endY = fw / 2 + gy, leadTop = z + h, d = c.N("bond_wire.diameter");
         bool above = sop ? top > leadTop : top >= leadTop;
-        Wires.FourSides(c, dl, dw, endX, endY, above ? endX : dl / 2 - d, above ? endY : dw / 2 - d, Math.Max(top, leadTop) - d, Math.Min(top, leadTop), Math.Abs(top - leadTop), prefix + "-bondwire-x", prefix + "-bondwire-y", d / 4);
+        Wires.FourSides(c, dl, dw, endX, endY, above ? endX : dl / 2 - d, above ? endY : dw / 2 - d, Math.Max(top, leadTop) - d, Math.Min(top, leadTop), sop ? Math.Abs(ParameterRules.SopWireHeight(c.Values)) : Math.Abs(top - leadTop), prefix + "-bondwire-x", prefix + "-bondwire-y", d / 4);
         double pitch = c.N("leads.pitch"), lw = c.N("leads.width"), foot = c.N("leads.foot_length");
         void Lead(string id, double x, double y, double zz, double sx, double sy, double sz, string mat) => c.Add(id, "lead_frame", x, y, zz, sx, sy, sz, mat, "lead-frame", derived: true);
         if (sop)

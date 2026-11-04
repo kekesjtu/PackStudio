@@ -289,7 +289,8 @@
       "presets": [],
       "visible_when": {},
       "enabled_when": {},
-      "des_symbol": null
+      "des_symbol": null,
+      "creation_option": true
     },
     {
       "key": "cover.length",
@@ -1083,7 +1084,29 @@
       "presets": [],
       "visible_when": {},
       "enabled_when": {},
-      "des_symbol": null
+      "des_symbol": null,
+      "columns": [
+        {
+          "key": "depth",
+          "label": "层深 zn (mm)",
+          "type": "number"
+        },
+        {
+          "key": "thickness",
+          "label": "层厚 tzn (mm)",
+          "type": "number"
+        },
+        {
+          "key": "coverage",
+          "label": "覆盖率 %",
+          "type": "number"
+        },
+        {
+          "key": "disconnect",
+          "label": "断开通孔",
+          "type": "checkbox"
+        }
+      ]
     },
     {
       "key": "upper.enabled",
@@ -1207,7 +1230,29 @@
         "upper.enabled": true
       },
       "enabled_when": {},
-      "des_symbol": null
+      "des_symbol": null,
+      "columns": [
+        {
+          "key": "depth",
+          "label": "层深 zn (mm)",
+          "type": "number"
+        },
+        {
+          "key": "thickness",
+          "label": "层厚 tzn (mm)",
+          "type": "number"
+        },
+        {
+          "key": "coverage",
+          "label": "覆盖率 %",
+          "type": "number"
+        },
+        {
+          "key": "disconnect",
+          "label": "断开通孔",
+          "type": "checkbox"
+        }
+      ]
     },
     {
       "key": "lower.enabled",
@@ -1331,116 +1376,220 @@
         "lower.enabled": true
       },
       "enabled_when": {},
-      "des_symbol": null
+      "des_symbol": null,
+      "columns": [
+        {
+          "key": "depth",
+          "label": "层深 zn (mm)",
+          "type": "number"
+        },
+        {
+          "key": "thickness",
+          "label": "层厚 tzn (mm)",
+          "type": "number"
+        },
+        {
+          "key": "coverage",
+          "label": "覆盖率 %",
+          "type": "number"
+        },
+        {
+          "key": "disconnect",
+          "label": "断开通孔",
+          "type": "checkbox"
+        }
+      ]
     },
     {
       "key": "bga.solder_removal_enabled",
       "label": "主阵列中心去球",
       "default": false,
       "step": "solder_removal",
-      "control": "configuration"
+      "control": "checkbox",
+      "standalone": true
     },
     {
       "key": "bga.populated_rows",
       "label": "外围满布行数",
       "default": null,
       "step": "solder_removal",
-      "control": "configuration",
-      "des_symbol": "MEp"
+      "control": "integer",
+      "des_symbol": "MEp",
+      "minimum": 0
     },
     {
       "key": "bga.populated_columns",
       "label": "外围满布列数",
       "default": null,
       "step": "solder_removal",
-      "control": "configuration",
-      "des_symbol": "MDp"
+      "control": "integer",
+      "des_symbol": "MDp",
+      "minimum": 0
     },
     {
       "key": "bga.removal_rows",
       "label": "中心去球行数",
       "default": null,
       "step": "solder_removal",
-      "control": "configuration"
+      "control": "hidden"
     },
     {
       "key": "bga.removal_columns",
       "label": "中心去球列数",
       "default": null,
       "step": "solder_removal",
-      "control": "configuration"
+      "control": "hidden"
     },
     {
       "key": "bga.omitted_cells",
       "label": "显式去球",
       "default": [],
       "step": "solder_removal",
-      "control": "configuration"
+      "control": "removal_matrix",
+      "rows_key": "bga.rows",
+      "columns_key": "bga.columns"
     },
     {
       "key": "bga.center_solder_enabled",
       "label": "包含中央焊球",
       "default": false,
       "step": "central_solder_balls",
-      "control": "configuration"
+      "control": "checkbox",
+      "standalone": true
     },
     {
       "key": "bga.center_solder_rows",
       "label": "中央焊球行数",
       "default": null,
       "step": "central_solder_balls",
-      "control": "configuration",
-      "des_symbol": "MEc"
+      "control": "integer",
+      "des_symbol": "MEc",
+      "minimum": 0
     },
     {
       "key": "bga.center_solder_columns",
       "label": "中央焊球列数",
       "default": null,
       "step": "central_solder_balls",
-      "control": "configuration",
-      "des_symbol": "MDc"
+      "control": "integer",
+      "des_symbol": "MDc",
+      "minimum": 0
     },
     {
       "key": "bga.center_staggered",
       "label": "中央焊球交错",
       "default": false,
       "step": "central_solder_balls",
-      "control": "configuration"
+      "control": "checkbox",
+      "standalone": true
     },
     {
       "key": "bga.staggered",
       "label": "交错主阵列",
       "default": false,
       "step": "solder_balls",
-      "control": "configuration"
+      "control": "checkbox",
+      "standalone": true
     },
     {
       "key": "bga.ball_map_enabled",
       "label": "使用焊球坐标表",
       "default": false,
       "step": "solder_balls",
-      "control": "configuration"
+      "control": "checkbox",
+      "standalone": true
     },
     {
       "key": "bga.ball_map",
       "label": "焊球坐标表",
       "default": [],
       "step": "solder_balls",
-      "control": "configuration"
+      "control": "table",
+      "unit": "mm",
+      "columns": [
+        {
+          "key": "id",
+          "label": "ID",
+          "type": "text"
+        },
+        {
+          "key": "x",
+          "label": "X",
+          "type": "number"
+        },
+        {
+          "key": "y",
+          "label": "Y",
+          "type": "number"
+        }
+      ]
     },
     {
       "key": "bga.representation",
       "label": "焊球建模方式",
       "default": "equivalent",
       "step": "modeling",
-      "control": "configuration"
+      "control": "combobox",
+      "options": [
+        "discrete",
+        "equivalent"
+      ],
+      "option_labels": {
+        "discrete": "Discrete Cuboids",
+        "equivalent": "Orthotropic Cuboid",
+        "isotropic": "Isotropic Cuboid"
+      }
     },
     {
       "key": "bga.via_configuration",
       "label": "通孔去除配置",
-      "default": null,
+      "default": {
+        "removal_enabled": false,
+        "removal_rows": 0,
+        "removal_columns": 0,
+        "omitted_cells": []
+      },
       "step": "thermal_vias",
-      "control": "configuration"
+      "control": "object",
+      "visible_when": {
+        "vias.enabled": true
+      },
+      "fields": [
+        {
+          "key": "removal_enabled",
+          "label": "启用通孔去除",
+          "control": "checkbox",
+          "standalone": true
+        },
+        {
+          "key": "removal_rows",
+          "label": "中央去除行数",
+          "control": "integer",
+          "minimum": 0,
+          "visible_when": {
+            "removal_enabled": true
+          }
+        },
+        {
+          "key": "removal_columns",
+          "label": "中央去除列数",
+          "control": "integer",
+          "minimum": 0,
+          "visible_when": {
+            "removal_enabled": true
+          }
+        },
+        {
+          "key": "omitted_cells",
+          "label": "显式去孔",
+          "control": "removal_matrix",
+          "rows_key": "vias.rows",
+          "columns_key": "vias.columns",
+          "visible_when": {
+            "removal_enabled": true
+          }
+        }
+      ]
     }
   ],
   "material_selections": [
@@ -1660,5 +1809,78 @@
       }
     }
   ],
-  "baseline_materials": []
+  "baseline_materials": [],
+  "initialization": [],
+  "steps": [
+    {
+      "key": "summary",
+      "label": "概要",
+      "diagram": "package"
+    },
+    {
+      "key": "package_substrate",
+      "label": "封装基板",
+      "diagram": "package"
+    },
+    {
+      "key": "die",
+      "label": "芯片",
+      "diagram": "package"
+    },
+    {
+      "key": "flip_chip_bumps",
+      "label": "倒装芯片凸点",
+      "diagram": "package"
+    },
+    {
+      "key": "thermal_vias",
+      "label": "热通孔",
+      "diagram": "substrate"
+    },
+    {
+      "key": "metal_layers",
+      "label": "金属层",
+      "diagram": "substrate"
+    },
+    {
+      "key": "upper_built_up",
+      "label": "上部增层区域",
+      "diagram": "substrate"
+    },
+    {
+      "key": "lower_built_up",
+      "label": "下部增层区域",
+      "diagram": "substrate"
+    },
+    {
+      "key": "solder_balls",
+      "label": "BGA 焊球",
+      "diagram": "balls"
+    },
+    {
+      "key": "central_solder_balls",
+      "label": "中央焊球",
+      "diagram": "balls"
+    },
+    {
+      "key": "solder_removal",
+      "label": "焊球去除",
+      "diagram": "balls"
+    },
+    {
+      "key": "top_cover",
+      "label": "顶部结构",
+      "diagram": "package"
+    },
+    {
+      "key": "slug",
+      "label": "嵌入式散热块",
+      "diagram": "slug"
+    },
+    {
+      "key": "modeling",
+      "label": "建模与局部网格",
+      "diagram": ""
+    }
+  ]
 }

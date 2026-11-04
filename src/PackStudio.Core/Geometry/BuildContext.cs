@@ -5,19 +5,16 @@ public sealed class BuildContext
 {
     public Template Template { get; }
     public JObject Values { get; }
-    public JObject Baseline { get; }
     public PackageModel Model { get; }
 
-    readonly Dictionary<string, string> assignments = [];
+    readonly IReadOnlyDictionary<string, string> catalogGroupNames;
+    readonly Dictionary<string, string> assignments;
     readonly Dictionary<string, Material> customOverrides = [];
     public BuildContext(PackageCatalog catalog, Template template, JObject values, string presetId, string name, Dictionary<string, string>? materialAssignments = null, IEnumerable<Material>? custom = null)
     {
         Template = template;
-        Values = catalog.Initialize(template, values, presetId);
-        var baseline = template.Defaults(presetId);
-        if (Values["substrate.layers"] != null)
-            baseline["substrate.layers"] = Values["substrate.layers"]!.DeepClone();
-        Baseline = catalog.Initialize(template, baseline, presetId);
+        catalogGroupNames = catalog.GroupNames;
+        Values = (JObject)values.DeepClone();
         template.Validate(Values);
         Model = new(template.Info.Id, name);
         foreach (var m in catalog.Materials.Items.Values)
@@ -28,20 +25,7 @@ public sealed class BuildContext
             Model.Materials[item.Id] = item;
         }
 
-        foreach (var s in template.MaterialSelections)
-            assignments[s["group_id"].Text()] = s["default"].Text();
-        var preset = template.Presets.FirstOrDefault(p => p.Id == presetId);
-        if (preset != null)
-            foreach (var p in preset.MaterialAssignments.Properties())
-                assignments[p.Name] = p.Value.Text();
-        if (materialAssignments != null)
-            foreach (var p in materialAssignments)
-            {
-                var selection = template.MaterialSelections.SingleOrDefault(s => s["group_id"].Text() == p.Key) ?? throw new ArgumentException($"未知材料组 {p.Key}");
-                if (!((JArray)selection["options"]!).Any(o => o.Text() == "*" || o.Text() == p.Value) && !template.Presets.Any(pr => pr.MaterialAssignments[p.Key].Text() == p.Value))
-                    throw new ArgumentException($"材料 {p.Value} 不适用于 {p.Key}");
-                assignments[p.Key] = p.Value;
-            }
+        assignments = MaterialSelection.Resolve(template, presetId, materialAssignments);
 
         foreach (var m in custom ?? [])
         {
@@ -70,7 +54,7 @@ public sealed class BuildContext
     {
         string g = group.StartsWith("group-") ? group : "group-" + group;
         string assigned = derived ? material : assignments.GetValueOrDefault(g, material);
-        Model.Blocks.Add(new(id + "-part-1", label ?? id, type, new(x, y, z), new(sx, sy, sz), assigned, g, g[6..].Replace('-', ' ')));
+        Model.Blocks.Add(new(id + "-part-1", label ?? id, type, new(x, y, z), new(sx, sy, sz), assigned, g, catalogGroupNames.TryGetValue(g, out var groupName) ? groupName : throw new InvalidDataException($"缺少模型分组名称 {g}。")));
     }
 
     public void Center(string id, string type, double sx, double sy, double sz, double z, string material, string group, string? label = null, bool derived = false, double cx = 0, double cy = 0) => Add(id, type, cx - sx / 2, cy - sy / 2, z, sx, sy, sz, material, group, label, derived);
@@ -96,9 +80,6 @@ public sealed class BuildContext
         var used = Model.Blocks.Select(b => b.MaterialId).ToHashSet();
         foreach (var id in Model.Materials.Keys.Where(k => !used.Contains(k)).ToList())
             Model.Materials.Remove(id);
-        Model.Metadata["implementation"] = "PackStudio C# / .NET 10";
-        Model.Metadata["outline_type"] = "standard_outline";
-        Model.Metadata["die_type"] = "actual_type";
         Model.Validate();
         return Model;
     }

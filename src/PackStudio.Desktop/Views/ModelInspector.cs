@@ -2,12 +2,12 @@ using PackStudio.Core;
 
 namespace PackStudio.Desktop;
 
-public partial class MainWindow
+public sealed partial class ModelPresenter
 {
     void UpdateInspector()
     {
         if (workspace.Model is not PackageModel model) return;
-        if (inspectedGroup is Node group)
+        if (workspace.InspectedGroup is ModelNode group)
         {
             var blocks = group.Blocks;
             var ids = blocks.Select(b => b.Id).ToHashSet();

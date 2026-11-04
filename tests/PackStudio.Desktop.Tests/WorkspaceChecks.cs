@@ -69,10 +69,11 @@ static class WorkspaceChecks
         string selectedId = workspace.Model!.Blocks[0].Id;
         workspace.Selected.Add(selectedId);
         var flags = BindingFlags.NonPublic | BindingFlags.Instance;
+        var presenter = (ModelPresenter)typeof(MainWindow).GetField("models", flags)!.GetValue(window)!;
         var current = Mouse.GetPosition(viewport.Viewport);
-        typeof(MainWindow).GetField("pointerOrigin", flags)!.SetValue(window, new Point(current.X - 100, current.Y));
-        typeof(MainWindow).GetField("pointerDragged", flags)!.SetValue(window, false);
-        typeof(MainWindow).GetMethod("Viewport_PointerUp", flags)!.Invoke(window,
+        typeof(ModelPresenter).GetField("pointerOrigin", flags)!.SetValue(presenter, new Point(current.X - 100, current.Y));
+        typeof(ModelPresenter).GetField("pointerDragged", flags)!.SetValue(presenter, false);
+        typeof(ModelPresenter).GetMethod("Viewport_PointerUp", flags)!.Invoke(presenter,
             [viewport, new MouseButtonEventArgs(Mouse.PrimaryDevice, Environment.TickCount, MouseButton.Left)]);
         Require(workspace.Selected.SetEquals([selectedId]), "rotate release changed model selection");
         workspace.Selected.Clear();
@@ -119,9 +120,9 @@ static class WorkspaceChecks
         var fields = Find<StackPanel>(window, "FieldsPanel");
         var rows = fields.Children.OfType<Grid>().ToList();
         var materialRow = rows.First(row => row.Children.OfType<ComboBox>().Any());
-        var numberRow = rows.First(row => row.Children.OfType<StackPanel>().Any(panel => panel.Children.OfType<Grid>().Any()));
+        var numberRow = rows.First(row => row.Children.OfType<StackPanel>().Any(panel => panel.Children.OfType<Border>().Any()));
         var material = materialRow.Children.OfType<ComboBox>().Single();
-        var numeric = numberRow.Children.OfType<StackPanel>().Single().Children.OfType<Grid>().First();
+        var numeric = numberRow.Children.OfType<StackPanel>().Single().Children.OfType<Border>().First();
         Require(Math.Abs(material.ActualWidth - numeric.ActualWidth) < 0.5, "numeric and material widths differ");
         Require(numberRow.Children.OfType<TextBlock>().Any(t => Grid.GetColumn(t) == 2 && t.Text.Length > 0), "numeric range is not on the right");
         var materialChoice = rows.SelectMany(row => row.Children.OfType<ComboBox>()).First(box => box.ItemTemplate != null);
@@ -182,11 +183,12 @@ static class WorkspaceChecks
         expansion.Collapse();
         Require(expansion.ExpandCollapseState == ExpandCollapseState.Expanded, "automation collapsed model root");
         var flags = BindingFlags.NonPublic | BindingFlags.Instance;
-        var expand = typeof(MainWindow).GetMethod("ExpandTree", flags)!;
-        expand.Invoke(window, [false]);
+        var presenter = (ModelPresenter)typeof(MainWindow).GetField("models", flags)!.GetValue(window)!;
+        var expand = typeof(ModelPresenter).GetMethod("ExpandTree")!;
+        expand.Invoke(presenter, [false]);
         Require(root.IsExpanded && root.Items.Cast<TreeViewItem>().All(group => !group.IsExpanded),
             "collapse all must preserve root and collapse subgroups");
-        expand.Invoke(window, [true]);
+        expand.Invoke(presenter, [true]);
         tree.UpdateLayout();
         Require(root.IsExpanded && root.Items.Cast<TreeViewItem>().All(group => group.IsExpanded), "expand all failed");
     }

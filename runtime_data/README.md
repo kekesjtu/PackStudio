@@ -6,7 +6,8 @@
 
 | 路径 | 内容 |
 | --- | --- |
-| `templates/<family>.json` | 内部字段、界面配置、单位/校验、建模选项、材料选择及 DES 符号 |
+| `templates/<family>.json` | 字段、初始化声明、创建选项、栏目/示意图配置、单位/校验、建模选项、材料选择及 DES 符号 |
+| `model_groups.json` | 领域模型、模型树与导出共用的分组显示名称 |
 | `presets/<来源目录>/<预设名>.json` | 342 个内部格式预设，包含默认分支及必要的四层分支，共 416 个分支 |
 | `presets/index.json` | 内部家族 ID、预设文件路径、分支列表 |
 | `materials/<分类>/<文件>.json` | PACK 内置材料记录 |
@@ -34,7 +35,7 @@ Bare Die 没有原生预设，使用模板基线。
 原生组件及 FloSCRIPT 属性的人工核对入口为 [字段对照表](../docs/DES字段与内部参数对应表.md)及其 [JSON](../docs/DES字段与内部参数对应表.json)。
 
 模板基线提供内部建模设置；所选预设覆盖对应参数，方案输入具有优先级。
-Chip Array 与 Wirebond PBGA 的四层分支只初始化仍等于默认预设值的参数，保留用户编辑。
+Chip Array 与 Wirebond PBGA 的四层分支按模板声明选择初始化字段；显式覆盖值在分支初始化之后合成，包括 null、0、false 与恰好等于默认值的输入。保存的完整参数不再触发初始化回填。
 基板层栈初始化不改变 `bga.*` 布局配置。材料选择由模板默认、所选预设及方案 `MaterialAssignments` 依次覆盖；材料显式等效物性具有最终优先级。
 
 未指定和没有数值的不适用项保存 null，界面显示空白；原生保留的数值不因分支禁用而清空。
@@ -45,7 +46,7 @@ null、0、false 与缺少字段不互相替代。启用结构缺少必需参数
 depth 从全基板顶面计量；空槽不生成行。模板基线、预设、方案保存、表格编辑和生成器统一使用数组。
 方案仅支持 `packstudio.project/v2`，由 `Values`、`MaterialAssignments`、`CustomMaterials` 和方案标识组成。布局字段使用 `Values` 中的 `bga.*`，层表直接使用 JSON 数组。
 方案与生成请求中的未知顶层字段会返回错误；功率通过 `Values["die.power"]` 或请求的 `overrides["<family>.die.power"]` 设置。
-外层铜厚联动及四层内铜初始化由建模/创建规则处理，用户表格深度按其输入参与生成。
+创建时由 Core 根据厚度参数计算层栈；显式提供的层表具有优先级。保存方案的层表按输入参与生成。
 
 材料温度依赖参数保留在材料定义及 FloXML 中；组分混合使用参考值。
 Bumps 使用有厚度的各向同性等效算法，见 [BGA 与 Bumps](../docs/decisions/BGA与Bumps建模表达.md)。

@@ -18,7 +18,7 @@ static partial class DesLabelChecks
         foreach (var family in PackageCatalog.Families)
         {
             var template = JsonData.Read(Path.Combine(root, "templates", family.Id + ".json"));
-            foreach (var field in ((JArray)template["fields"]!).OfType<JObject>().Where(f => f["control"].Text() is "number" or "integer" or "integer_spinbox"))
+            foreach (var field in ((JArray)template["fields"]!).OfType<JObject>().Where(f => !f["creation_option"].Flag() && f["control"].Text() is "number" or "integer" or "integer_spinbox"))
             {
                 var entry = field["des_symbol"];
                 bool covered = entry is JObject choices ? choices.Properties().All(p => p.Value.Text().Length > 0) : entry.Text().Length > 0;

@@ -10,7 +10,7 @@ public static class FlipChip
         var m = MaterialLibrary.Mix("flip-chip-bumps-equivalent", solder, matrix, f);
         c.Derived(m with { Conductivity = new(m.Conductivity.Z, m.Conductivity.Z, m.Conductivity.Z) });
         c.Center("flip-chip-bumps-equivalent", "flip_chip_bump", lx, ly, c.N("bumps.height"), z, m.Id, "flip-chip-bumps", derived: true);
-        c.Model.Metadata["flip_chip_bump_count"] = count;
+        c.Model.Metadata.FlipChipBumpCount = count;
     }
 
     public static void BareDie(BuildContext c)

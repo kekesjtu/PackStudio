@@ -7,7 +7,7 @@ using Newtonsoft.Json.Linq;
 using PackStudio.Core;
 
 namespace PackStudio.Desktop;
-public partial class MainWindow
+public sealed partial class ParameterPanel
 {
     internal static FrameworkElement Numeric(JToken? value, bool integer, string unit, Action<JToken> changed, double minimum = 0, double? maximum = null)
     {
@@ -169,11 +169,11 @@ public partial class MainWindow
             changed(array);
         }
 
-        grid.CellEditEnding += (_, _) => Dispatcher.BeginInvoke(Update);
+        grid.CellEditEnding += (_, _) => FieldsPanel.Dispatcher.BeginInvoke(Update);
         table.RowDeleted += (_, _) => Update();
         table.ColumnChanged += (_, e) =>
         {
-            if (e.Column?.DataType == typeof(bool)) Dispatcher.BeginInvoke(Update);
+            if (e.Column?.DataType == typeof(bool)) FieldsPanel.Dispatcher.BeginInvoke(Update);
         };
         var panel = new StackPanel();
         panel.Children.Add(grid);

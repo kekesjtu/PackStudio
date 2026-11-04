@@ -3,7 +3,7 @@ using System.Windows.Input;
 
 namespace PackStudio.Desktop;
 
-public partial class MainWindow
+public sealed partial class ModelPresenter
 {
     Point? pointerOrigin;
     bool pointerDragged;

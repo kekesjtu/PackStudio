@@ -243,5 +243,28 @@
       }
     }
   ],
-  "baseline_materials": []
+  "baseline_materials": [],
+  "initialization": [],
+  "steps": [
+    {
+      "key": "summary",
+      "label": "概要",
+      "diagram": "package"
+    },
+    {
+      "key": "die",
+      "label": "芯片",
+      "diagram": "package"
+    },
+    {
+      "key": "bumped_die",
+      "label": "凸点芯片",
+      "diagram": "package"
+    },
+    {
+      "key": "modeling",
+      "label": "建模与局部网格",
+      "diagram": ""
+    }
+  ]
 }

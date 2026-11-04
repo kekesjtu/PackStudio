@@ -21,6 +21,9 @@ public sealed partial class Workspace : ObservableObject
     public HashSet<string> Hidden { get; } = [];
     public HashSet<string> Selected { get; } = [];
 
+    public string DesignName => Document.Name;
+    public void Rename(string value) { Document.Name = value; OnPropertyChanged(nameof(DesignName)); Dirty(); }
+
     public event Action? ModelChanged;
     public event Action? DocumentChanged;
     public Workspace() => Select("cbga_fc", null);
@@ -37,6 +40,7 @@ public sealed partial class Workspace : ObservableObject
     {
         Template = Catalog.Load(document.TemplateId);
         Document = document;
+        Document.Values = Template.Restore(document.PresetId, document.Values);
         Dirty();
         DocumentChanged?.Invoke();
     }
@@ -70,6 +74,8 @@ public sealed partial class Workspace : ObservableObject
             IsCurrent = true;
             Hidden.Clear();
             Selected.Clear();
+            InspectedGroup = null;
+            RangeAnchor = null;
             Status = $"{model.Name} · {model.Blocks.Count} 个矩形块 · {model.Materials.Count} 种材料 · {model.Sources.Sum(s => s.Power):G6} W";
             ModelChanged?.Invoke();
         }

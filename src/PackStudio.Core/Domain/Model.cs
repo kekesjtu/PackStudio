@@ -30,12 +30,12 @@ public sealed class PackageModel(string templateId, string name)
     public List<HeatSource> Sources { get; } = [];
     public List<Auxiliary> Auxiliary { get; } = [];
     public List<string> Warnings { get; } = [];
-    public Dictionary<string, object> Metadata { get; } = [];
+    public ModelMetadata Metadata { get; set; } = new();
+    public PackageGeometry Geometry => Metadata.Geometry;
 
     public void Validate()
     {
-        if (string.IsNullOrWhiteSpace(Name) || Name.Length > 160)
-            throw new ArgumentException("方案名称需要 1–160 个字符。");
+        ProjectDocument.ValidateName(Name);
         if (Blocks.Count == 0 || Blocks.Select(b => b.Id).Distinct().Count() != Blocks.Count)
             throw new ArgumentException("模型为空或包含重复几何 ID。");
         foreach (var block in Blocks)

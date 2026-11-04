@@ -640,9 +640,52 @@
     {
       "key": "bga.via_configuration",
       "label": "通孔去除配置",
-      "default": null,
+      "default": {
+        "removal_enabled": false,
+        "removal_rows": 0,
+        "removal_columns": 0,
+        "omitted_cells": []
+      },
       "step": "thermal_vias",
-      "control": "configuration"
+      "control": "object",
+      "visible_when": {
+        "vias.enabled": true
+      },
+      "fields": [
+        {
+          "key": "removal_enabled",
+          "label": "启用通孔去除",
+          "control": "checkbox"
+        },
+        {
+          "key": "removal_rows",
+          "label": "中央去除行数",
+          "control": "integer",
+          "minimum": 0,
+          "visible_when": {
+            "removal_enabled": true
+          }
+        },
+        {
+          "key": "removal_columns",
+          "label": "中央去除列数",
+          "control": "integer",
+          "minimum": 0,
+          "visible_when": {
+            "removal_enabled": true
+          }
+        },
+        {
+          "key": "omitted_cells",
+          "label": "显式去孔",
+          "control": "removal_matrix",
+          "rows_key": "vias.rows",
+          "columns_key": "vias.columns",
+          "visible_when": {
+            "removal_enabled": true
+          }
+        }
+      ]
     }
   ],
   "material_selections": [
@@ -755,6 +798,54 @@
       "specific_heat": 50.8380029316774,
       "color": "#D9A928",
       "source": "PackStudio built-in transcription of reviewed FloTHERM PACK data"
+    }
+  ],
+  "initialization": [],
+  "steps": [
+    {
+      "key": "summary",
+      "label": "概要",
+      "diagram": "package"
+    },
+    {
+      "key": "overall_package",
+      "label": "整体封装",
+      "diagram": "package"
+    },
+    {
+      "key": "die",
+      "label": "芯片",
+      "diagram": "package"
+    },
+    {
+      "key": "lead_solder_interconnect",
+      "label": "引脚与焊料互连",
+      "diagram": "package"
+    },
+    {
+      "key": "dap",
+      "label": "芯片承载焊盘",
+      "diagram": "package"
+    },
+    {
+      "key": "bond_wires",
+      "label": "键合线",
+      "diagram": "package"
+    },
+    {
+      "key": "thermal_land",
+      "label": "散热焊盘",
+      "diagram": "package"
+    },
+    {
+      "key": "thermal_vias",
+      "label": "热通孔",
+      "diagram": "substrate"
+    },
+    {
+      "key": "modeling",
+      "label": "建模与局部网格",
+      "diagram": ""
     }
   ]
 }

@@ -35,23 +35,9 @@ public sealed class ModelBuilder(PackageCatalog catalog)
                 throw new ArgumentException("未知封装类型。");
         }
 
-        Metadata(c);
+        c.Model.Metadata = c.Model.Metadata with { Geometry = PackageGeometry.Evaluate(c), GridEnabled = c.B("grid.enabled"), GridDensity = c.T("grid.density") };
         AuxiliaryGeometry.Build(c);
         return c.Complete();
     }
 
-    static void Metadata(BuildContext c)
-    {
-        string id = c.Template.Info.Id;
-        string prefix = id == "bare_die" ? "die" : id == "sop" ? "body" : id is "cbga_fc" or "pbga_fc" ? "substrate" : "package";
-        double l = c.N(prefix + ".length"), w = c.N(id == "sop" ? "package.width" : prefix + ".width");
-        if (id is "pqfp" or "sop" or "qfn" or "pbga_wb")
-            l = w = Math.Max(l, w);
-        c.Model.Metadata["native_grid_enabled"] = c.B("grid.enabled");
-        c.Model.Metadata["native_grid_density"] = c.T("grid.density");
-        c.Model.Metadata["native_grid_length_mm"] = l;
-        c.Model.Metadata["native_grid_width_mm"] = w;
-        c.Model.Metadata["native_grid_height_mm"] = id == "bare_die" ? c.N("die.thickness") : c.Model.Blocks.Max(b => b.Maximum.Z);
-        c.Model.Metadata["flipped_die"] = id is "cbga_fc" or "pbga_fc" || id == "bare_die" && (c.B("die.flipped") || c.B("bumps.enabled"));
-    }
 }

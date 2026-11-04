@@ -7,16 +7,22 @@ namespace PackStudio.Desktop;
 public partial class MainWindow : Window
 {
     readonly Workspace workspace = new();
+    readonly ParameterPanel parameters;
+    readonly ModelPresenter models;
     bool loading;
     string? projectPath;
     MaterialWindow? materialWindow;
     public MainWindow()
     {
         InitializeComponent();
+        models = new(workspace, ModelTree, Viewport, Inspector, WarningsText);
+        parameters = new(workspace, FieldsPanel);
+        parameters.Changed += UpdateSchematic;
+        workspace.PropertyChanged += (_, e) => { if (e.PropertyName == nameof(Workspace.DesignName)) Title = workspace.DesignName + " — PackStudio"; };
         InitializeViewportScale();
         DataContext = workspace;
         workspace.DocumentChanged += RefreshDocument;
-        workspace.ModelChanged += RefreshModel;
+        workspace.ModelChanged += models.RefreshModel;
         RefreshDocument();
         Loaded += async (_, _) => await workspace.GenerateAsync();
     }
@@ -25,7 +31,7 @@ public partial class MainWindow : Window
     {
         materialWindow?.Close();
         loading = true;
-        Expanders.Clear();
+        parameters.Reset();
         var choice = PackagePresentation.Choices.Single(c => c.Id == workspace.Document.TemplateId);
         PackageTitle.Text = choice.Name;
         PackageSubtitle.Text = choice.Description;
@@ -34,7 +40,7 @@ public partial class MainWindow : Window
             TemplateId = choice.Id
         };
         Title = workspace.Document.Name + " — PackStudio";
-        StepList.ItemsSource = PackagePresentation.StepKeys(workspace.Template).Select(key => new WizardStep(key, StepLabel(key))).ToList();
+        StepList.ItemsSource = PackagePresentation.StepKeys(workspace.Template).Select(key => new WizardStep(key, workspace.Template.Steps.Single(s => s["key"].Text() == key)["label"].Text())).ToList();
         StepList.SelectedIndex = 0;
         loading = false;
         RefreshFields();
@@ -46,14 +52,18 @@ public partial class MainWindow : Window
             RefreshFields();
     }
 
-    void Name_Changed(object sender, TextChangedEventArgs e)
+    void RefreshFields()
     {
-        if (!loading)
-        {
-            workspace.Document.Name = ((TextBox)sender).Text;
-            Title = workspace.Document.Name + " — PackStudio";
-            workspace.Dirty();
-        }
+        if (StepList.SelectedValue is not string step) return;
+        SectionTitle.Text = workspace.Template.Steps.Single(s => s["key"].Text() == step)["label"].Text();
+        parameters.Show(step);
+        UpdateSchematic();
+    }
+
+    void UpdateSchematic()
+    {
+        if (StepList.SelectedValue is string step)
+            Schematic.Update(workspace.Template, workspace.Document, step, SectionTitle.Text);
     }
 
     async void New_Click(object sender, RoutedEventArgs e)
@@ -163,8 +173,6 @@ public partial class MainWindow : Window
     }
 
     void Fit_Click(object sender, RoutedEventArgs e) => Viewport.ZoomExtents();
-    void ShowAll_Click(object sender, RoutedEventArgs e) => workspace.ChangeVisibility(workspace.Model?.Blocks.Select(b => b.Id) ?? [], true);
-    void HideAll_Click(object sender, RoutedEventArgs e) => workspace.ChangeVisibility(workspace.Model?.Blocks.Select(b => b.Id) ?? [], false);
-    void Expand_Click(object sender, RoutedEventArgs e) => ExpandTree(true);
-    void Collapse_Click(object sender, RoutedEventArgs e) => ExpandTree(false);
+    void Expand_Click(object sender, RoutedEventArgs e) => models.ExpandTree(true);
+    void Collapse_Click(object sender, RoutedEventArgs e) => models.ExpandTree(false);
 }

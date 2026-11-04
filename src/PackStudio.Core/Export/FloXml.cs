@@ -49,7 +49,7 @@ public static class FloXml
         if (surface)
         {
             attributes.Add(new XElement("surfaces", new XElement("surface_att", E("name", model.Name), Number("emissivity", 0.8))));
-            attributes.Add(new XElement("radiations", new XElement("radiation_att", E("name", model.TemplateId), E("surface", "subdivided_radiating"), Number("subdivided_surface_tolerance", Convert.ToDouble(model.Metadata["native_grid_length_mm"]) * 0.0001))));
+            attributes.Add(new XElement("radiations", new XElement("radiation_att", E("name", model.TemplateId), E("surface", "subdivided_radiating"), Number("subdivided_surface_tolerance", model.Geometry.Grid.Length * 0.0001))));
         }
 
         var root = new XElement("xml_case", E("name", model.Name), attributes);
@@ -100,15 +100,15 @@ public static class FloXml
 
         )
             root.Add(E(axis + "_grid_constraint", axis == "z" ? "keypoint_z" : "keypoint"));
-        root.Add(E("localized_grid", ((bool)model.Metadata["native_grid_enabled"]).ToString().ToLowerInvariant()));
+        root.Add(E("localized_grid", model.Metadata.GridEnabled.ToString().ToLowerInvariant()));
         root.Add(E("notes", JsonConvert.SerializeObject(new { exporter = "PackStudio", profile = "FloXML / FloTHERM 2504", units = "m, W, kg/m3, J/(kg*K), W/(m*K)", metadata = model.Metadata, warnings = model.Warnings })));
         return new(new XDeclaration("1.0", "utf-8", null), root);
     }
 
     static void Grid(XElement attributes, PackageModel model)
     {
-        double l = Math.Min(Convert.ToDouble(model.Metadata["native_grid_length_mm"]), Convert.ToDouble(model.Metadata["native_grid_width_mm"])) * 0.001, h = Convert.ToDouble(model.Metadata["native_grid_height_mm"]) * 0.001;
-        string density = (string)model.Metadata["native_grid_density"];
+        double l = Math.Min(model.Geometry.Grid.Length, model.Geometry.Grid.Width) * 0.001, h = model.Geometry.Height * 0.001;
+        string density = model.Metadata.GridDensity;
         bool coarse = density == "coarse", fine = density == "fine";
         var constraints = new XElement("grid_constraints");
         attributes.Add(constraints);

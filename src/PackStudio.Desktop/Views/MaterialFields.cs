@@ -4,19 +4,14 @@ using Newtonsoft.Json.Linq;
 using PackStudio.Core;
 
 namespace PackStudio.Desktop;
-public partial class MainWindow
+public sealed partial class ParameterPanel
 {
     void AddMaterial(JToken selection)
     {
         string group = selection["group_id"].Text();
-        var options = (JArray)selection["options"]!;
-        var allowed = workspace.Catalog.Materials.Items.Values.Where(m => options.Any(o => o.Text() == "*" || o.Text() == m.Id)).ToList();
-        var preset = workspace.Template.Presets.FirstOrDefault(p => p.Id == workspace.Document.PresetId);
-        string id = workspace.Document.MaterialAssignments.GetValueOrDefault(group, preset?.MaterialAssignments[group].Text(selection["default"].Text()) ?? selection["default"].Text());
-        if (id.Length > 0 && allowed.All(m => m.Id != id) && workspace.Catalog.Materials.Items.TryGetValue(id, out var current))
-            allowed.Add(current);
-        allowed = allowed.GroupBy(m => m.Name).Select(g => g.FirstOrDefault(m => m.Id == id) ?? g.OrderBy(m => m.Id.Length).ThenBy(m => m.Id).First()).ToList();
-        allowed = allowed.Select(m => workspace.Document.CustomMaterials.FirstOrDefault(c => c.Id == m.Id) ?? m).ToList();
+        var choices = MaterialSelection.Choices(workspace.Catalog, workspace.Template, workspace.Document, selection);
+        string id = choices.SelectedId;
+        var allowed = choices.Items;
         var groups = new ComboBox
         {
             ItemsSource = allowed.Select(m => m.Category).Distinct().Order().ToList(),

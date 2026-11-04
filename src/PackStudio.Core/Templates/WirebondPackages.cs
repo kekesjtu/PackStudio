@@ -10,10 +10,6 @@ public static class WirebondPackages
         var rows = MetalLayers.Parse(c, "metal.layers");
         if (rows.Count < 2 || rows.Count > (chip ? 10 : 6))
             throw new ArgumentException("金属层表需要 2–6 层。");
-        if (chip && JToken.DeepEquals(c.Values["metal.layers"], c.Baseline["metal.layers"]) || !chip && !JToken.DeepEquals(c.Values["trace.top_thickness"], c.Baseline["trace.top_thickness"]))
-            rows[0]!["thickness"] = c.N("trace.top_thickness");
-        if (chip && JToken.DeepEquals(c.Values["metal.layers"], c.Baseline["metal.layers"]) || !chip && !JToken.DeepEquals(c.Values["trace.bottom_thickness"], c.Baseline["trace.bottom_thickness"]))
-            rows[rows.Count - 1]!["thickness"] = c.N("trace.bottom_thickness");
         double topTrace = rows[0]!["thickness"].Number(), bottomTrace = rows[rows.Count - 1]!["thickness"].Number();
         rows[0]!["depth"] = 0;
         rows[rows.Count - 1]!["depth"] = height - bottomTrace;
