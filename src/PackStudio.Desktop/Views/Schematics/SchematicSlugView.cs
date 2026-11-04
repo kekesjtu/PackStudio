@@ -8,9 +8,10 @@ internal sealed partial class SchematicDrawing
     {
         Rect(Mold, 190, SectionY - 125, 320, 125);
         Section(SectionY, drawMold: false, wireEnd: 265);
-        SlugSection();
+        SlugSection(includeAdhesive: true);
         Callout("散热块 / Slug", 55, 160, 245, 180);
         Callout("支脚", 530, 190, 480, 218);
+        Callout("支脚粘接层", 55, 205, 225, 227);
         Line(235, 105, 145, 105); Line(235, 125, 145, 125); Line(150, 105, 150, 125);
         Arrow(150, 105, 0, 1, length: 4); Arrow(150, 125, 0, -1, length: 4);
         Text(Dimension("顶部台阶高度\n", "slug.offset"), 140, 98, align: TextAlignment.Right);
@@ -29,6 +30,6 @@ internal sealed partial class SchematicDrawing
         DimH(235, 465, 530, 579, Dimension("散热块长度", "slug.length"));
         DimV(410, 530, 465, 550, Dimension("宽度\n", "slug.width"));
         Axes(70, 554);
-        Legend((Mold, "塑封"), (Metal, "散热块 / Slug"), (Board, "基板"));
+        Legend((Mold, "塑封"), (Metal, "散热块 / Slug"), (Board, "基板"), (Attach, "支脚粘接层"));
     }
 }

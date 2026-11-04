@@ -23,14 +23,14 @@ internal sealed partial class SchematicDrawing
         }
     }
 
-    void SlugSection()
+    void SlugSection(bool includeAdhesive = false)
     {
         double y = SectionY;
         Rect(Metal, 300, y - 125, 100, 28);
         Rect(Metal, 235, y - 105, 65, 28); Rect(Metal, 400, y - 105, 65, 28);
         Rect(Metal, 235, y - 77, 20, 59); Rect(Metal, 445, y - 77, 20, 59);
         Rect(Metal, 210, y - 18, 45, 12); Rect(Metal, 445, y - 18, 45, 12);
-        if (Enabled("slug.adhesive_enabled"))
+        if (includeAdhesive || Enabled("slug.adhesive_enabled"))
         {
             Rect(Attach, 210, y - 6, 45, 6); Rect(Attach, 445, y - 6, 45, 6);
         }
