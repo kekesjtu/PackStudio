@@ -14,7 +14,7 @@ public static class FieldValues
         return new JValue(text);
     }
 
-    public static string? Error(JToken field, JToken? value)
+    public static string? Error(JToken field, JToken? value, JArray? options = null)
     {
         if (value?.Type is null or JTokenType.Null) return null;
         string control = field["control"].Text(), label = field["label"].Text();
@@ -27,7 +27,8 @@ public static class FieldValues
                 field["maximum"]?.Type is JTokenType.Integer or JTokenType.Float && n > field["maximum"]!.Number()) return $"{label} 超出允许范围。";
         }
         if (control == "checkbox" && value.Type != JTokenType.Boolean) return $"{label} 必须是布尔值。";
-        if (field["options"] is JArray { Count: > 0 } options && !options.Any(o => JToken.DeepEquals(o, value))) return $"{label} 选项无效。";
+        options ??= field["options"] as JArray;
+        if (options is { Count: > 0 } && !options.Any(o => JToken.DeepEquals(o, value))) return $"{label} 选项无效。";
         return null;
     }
 }

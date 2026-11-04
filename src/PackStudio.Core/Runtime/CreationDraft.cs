@@ -10,38 +10,44 @@ public sealed class CreationDraft
     public JObject Values { get; private set; }
     public string? Error { get; private set; }
 
-    public CreationDraft(Template template, string presetId)
+    public CreationDraft(Template template, string presetId, JObject? overrides = null)
     {
         Template = template;
         PresetId = presetId;
-        Values = Evaluate(false);
+        foreach (var property in overrides?.Properties() ?? []) Overrides[property.Name] = property.Value.DeepClone();
+        Values = Resolve(template, presetId, Overrides, false, out string? error);
+        Error = error;
     }
 
     public IReadOnlySet<string> Set(string key, JToken value)
     {
         Overrides[key] = value.DeepClone();
         var previous = Values;
-        Values = Evaluate(false);
+        Values = Resolve(Template, PresetId, Overrides, false, out string? error);
+        Error = error;
         return Values.Properties().Where(p => !JToken.DeepEquals(previous[p.Name], p.Value)).Select(p => p.Name).ToHashSet();
     }
 
-    public ProjectDocument Complete(string name)
+    public ProjectDocument Complete(string name) => Create(Template, PresetId, name, Overrides);
+
+    internal static ProjectDocument Create(Template template, string presetId, string name, JObject? overrides)
     {
         name = name.Trim();
         ProjectDocument.ValidateName(name);
-        return new() { TemplateId = Template.Info.Id, PresetId = PresetId, Name = name, Values = Evaluate(true) };
+        return new() { TemplateId = template.Info.Id, PresetId = presetId, Name = name,
+            Values = Resolve(template, presetId, overrides ?? new(), true, out _) };
     }
 
-    JObject Evaluate(bool strict)
+    static JObject Resolve(Template template, string presetId, JObject overrides, bool strict, out string? error)
     {
-        var values = Template.Defaults(PresetId, Overrides);
+        var values = template.Defaults(presetId, overrides);
         try
         {
-            values = ParameterRules.Prepare(Template, values, Overrides);
-            if (strict) Template.ValidateCreation(values);
-            Error = null;
+            values = ParameterRules.Prepare(template, values, overrides);
+            if (strict) template.ValidateCreation(values);
+            error = null;
         }
-        catch (ArgumentException ex) when (!strict) { Error = ex.Message; }
+        catch (ArgumentException ex) when (!strict) { error = ex.Message; }
         return values;
     }
 }

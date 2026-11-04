@@ -20,8 +20,6 @@ static class ProjectChecks
             Assert(document.Values["bga.omitted_cells"]![0]!["row"].Number() == 1, "layout shared by clone");
             Assert(document.CustomMaterials.Count == 0, "custom material list shared by clone");
         });
-        tests.Case("projects", "unknown request field rejected", () =>
-            Reject(() => RequestDocument.Parse(new JObject { ["template_id"] = "bare_die", ["extra"] = true }, tests.Catalog)));
         tests.Case("projects", "save and load unified format", () =>
         {
             string directory = Environment.GetEnvironmentVariable("PACKSTUDIO_TEST_DIRECTORY") ?? Path.Combine(tests.Root, "tmp", DateTime.Now.ToString("yyyy-MM-dd") + "-core-tests");

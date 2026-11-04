@@ -7,9 +7,11 @@ public sealed class ParameterForm
 {
     readonly Func<JObject> values;
     readonly Func<string, JToken, IReadOnlySet<string>> update;
+    readonly bool forCreation;
     readonly Dictionary<string, HashSet<(ParameterField Field, string Property)>> dependencies = [];
     public IReadOnlyList<ParameterField> Fields { get; }
     public IReadOnlyList<ParameterField> Materials { get; }
+    public Template Template { get; }
     public JObject Values => values();
     public event Action? Changed;
 
@@ -24,10 +26,12 @@ public sealed class ParameterForm
         return new HashSet<string> { path };
     }) { }
 
-    public ParameterForm(CreationDraft draft) : this(draft.Template, () => draft.Values, draft.Set) { }
+    public ParameterForm(CreationDraft draft) : this(draft.Template, () => draft.Values, draft.Set, forCreation: true) { }
 
-    ParameterForm(Template template, Func<JObject> values, Func<string, JToken, IReadOnlySet<string>> update)
+    ParameterForm(Template template, Func<JObject> values, Func<string, JToken, IReadOnlySet<string>> update, bool forCreation = false)
     {
+        Template = template;
+        this.forCreation = forCreation;
         this.values = values;
         this.update = update;
         Fields = Expand(template.Fields, null).ToList();
@@ -54,6 +58,7 @@ public sealed class ParameterForm
     {
         foreach (var definition in definitions)
         {
+            if (!forCreation && definition["creation_only"].Flag()) continue;
             var field = new ParameterField(this, definition, parent);
             if (field.Control == "object")
                 foreach (var child in Expand((JArray)definition["fields"]!, field)) yield return child;

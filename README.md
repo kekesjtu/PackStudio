@@ -15,8 +15,7 @@ Windows 安装 .NET 10 SDK 后，在仓库根目录运行：
 构建与验证：
 
 ```powershell
-dotnet restore PackStudio.slnx --locked-mode
-dotnet build PackStudio.slnx -c Release --no-restore
+.\build.ps1
 dotnet run --project tests/PackStudio.Tests -c Release --no-build -- . layout materials projects
 dotnet run --project tests/PackStudio.Desktop.Tests -c Release --no-build -- configuration
 ```

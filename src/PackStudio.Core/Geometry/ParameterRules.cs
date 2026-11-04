@@ -7,7 +7,7 @@ public static class ParameterRules
     public static JObject Prepare(Template template, JObject source, JObject? overrides = null)
     {
         var values = (JObject)source.DeepClone();
-        template.Validate(values);
+        template.Validate(values, forCreation: true);
         string tableKey = template.Data["surface_layers"]?["table"].Text() ?? "";
         if (tableKey.Length > 0 && overrides?.Property(tableKey) != null) return values;
         if (template.Data["surface_layers"] is JObject surfaces && values[surfaces["table"].Text()] is JArray { Count: >= 2 } surfaceRows)

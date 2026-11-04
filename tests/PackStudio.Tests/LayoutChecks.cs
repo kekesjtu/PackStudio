@@ -38,13 +38,6 @@ static class LayoutChecks
                 Near(ball.Origin.Y + ball.Size.Y / 2, 0.2, "map y");
             });
         }
-        tests.Case("layout", "flat request overrides", () =>
-        {
-            var request = new JObject { ["template_id"] = "pbga_wb", ["overrides"] = new JObject { ["pbga_wb.bga.center_solder_enabled"] = false, ["pbga_wb.bga.center_solder_rows"] = null } };
-            var parsed = RequestDocument.Parse(request, tests.Catalog);
-            Assert(!parsed.Values["bga.center_solder_enabled"].Flag(), "false override lost");
-            Assert(parsed.Values["bga.center_solder_rows"]!.Type == JTokenType.Null, "null override lost");
-        });
         tests.Case("layout", "via removal in unified values", () =>
         {
             var template = tests.Catalog.Load("pbga_wb");

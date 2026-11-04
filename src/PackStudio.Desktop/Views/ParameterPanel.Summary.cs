@@ -1,6 +1,7 @@
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Media;
+using System.Windows.Data;
+using Newtonsoft.Json.Linq;
 using PackStudio.Core;
 using static PackStudio.Desktop.FieldLayout;
 
@@ -9,24 +10,27 @@ public sealed partial class ParameterPanel
 {
     void AddSummary()
     {
-        var document = workspace.Document;
-        var name = new TextBox
+        var definitions = (JArray)workspace.Template.Steps.Single(s => s["key"].Text() == "summary")["fields"]!;
+        foreach (var definition in definitions)
         {
-            Text = document.Name,
-            MaxLength = 160
-        };
-        name.TextChanged += (_, _) => { workspace.Rename(name.Text); };
-        FieldsPanel.Children.Add(FieldRow("设计名称", name));
-        void ReadOnly(string label, string value) => FieldsPanel.Children.Add(FieldRow(label, new TextBlock { Text = value, TextWrapping = TextWrapping.Wrap, Margin = new(5, 5, 0, 5) }));
-        ReadOnly("封装类型", workspace.Template.Info.Name);
-        if (document.PresetId.Length > 0)
-        {
-            ReadOnly("JEDEC Footprint", document.PresetId);
+            var field = new SummaryField(workspace, form, definition);
+            FrameworkElement editor;
+            if (field.Editable)
+            {
+                var text = new TextBox { MaxLength = field.MaximumLength };
+                text.SetBinding(TextBox.TextProperty, new Binding(nameof(SummaryField.Text)) { Source = field, Mode = BindingMode.TwoWay, UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged });
+                editor = text;
+            }
+            else
+            {
+                var text = new TextBlock { TextWrapping = TextWrapping.Wrap, Margin = new(5, 5, 0, 5) };
+                text.SetBinding(TextBlock.TextProperty, new Binding(nameof(SummaryField.Text)) { Source = field });
+                editor = text;
+            }
+            var row = FieldRow(field.Label, editor, new Binding(nameof(SummaryField.Symbol)) { Source = field });
+            row.DataContext = field;
+            row.SetBinding(UIElement.VisibilityProperty, new Binding(nameof(SummaryField.Visible)) { Source = field, Converter = new BooleanToVisibilityConverter() });
+            FieldsPanel.Children.Add(row);
         }
-
-        if (document.Values["substrate.layers"] != null)
-            ReadOnly("基板层数", document.Values["substrate.layers"].Text());
-        ReadOnly("芯片功率", document.Values["die.power"].Text() + " W");
-
     }
 }

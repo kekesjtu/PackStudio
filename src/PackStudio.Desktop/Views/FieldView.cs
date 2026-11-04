@@ -30,7 +30,7 @@ public static partial class FieldView
         else
         {
             var editors = new StackPanel();
-            var host = FieldRow(field.Label, editors, field);
+            var host = FieldRow(field.Label, editors, new Binding(nameof(ParameterField.Symbol)) { Source = field });
             view = host;
             if (control == "checkbox")
             {
@@ -43,7 +43,7 @@ public static partial class FieldView
                     editors.Children.Add(box);
                 }
             }
-            else if (f["options"] is JArray { Count: > 0 } options)
+            else if (field.Options is { Count: > 0 } options)
             {
                 var box = new ComboBox { ItemsSource = options.Select(o => new { Value = o.DeepClone(), Label = f["option_labels"]?[o.ToString()].Text(o.ToString()) ?? o.ToString() }).ToList(), DisplayMemberPath = "Label", SelectedValuePath = "Value" };
                 Bind(box, ComboBox.SelectedValueProperty, field, nameof(ParameterField.ChoiceValue));

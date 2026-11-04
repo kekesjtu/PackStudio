@@ -1,6 +1,7 @@
 using Newtonsoft.Json.Linq;
+using PackStudio.Core;
 
-namespace PackStudio.Core;
+namespace PackStudio.Cli;
 public static class RequestDocument
 {
     public static ProjectDocument Parse(JObject input, PackageCatalog catalog)

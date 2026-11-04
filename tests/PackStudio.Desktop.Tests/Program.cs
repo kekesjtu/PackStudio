@@ -87,6 +87,7 @@ public static class Program
 
                     ModelingStepChecks.Run(window, steps, fields, vm);
                     ParameterFormChecks.Run(window, vm, steps, fields);
+                    SemanticFieldChecks.Run(window, vm, steps, fields);
                     FieldLayoutChecks.Run(window, steps, fields, vm);
                     RemovalMatrixChecks.Run(window, steps, fields, vm);
                     await TableEditorChecks.Run(window, steps, fields, vm);

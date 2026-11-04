@@ -9,4 +9,5 @@ SlugChecks.Run(tests);
 MaterialChecks.Run(tests);
 ProjectChecks.Run(tests);
 BoundaryChecks.Run(tests);
+SemanticChecks.Run(tests);
 return tests.Finish();

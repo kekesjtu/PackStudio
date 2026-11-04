@@ -20,9 +20,7 @@ public sealed class ProjectDocument
     };
     public static ProjectDocument Create(Template template, string? presetId = null, string? name = null, JObject? options = null)
     {
-        var draft = new CreationDraft(template, presetId ?? template.DefaultPreset);
-        foreach (var p in options?.Properties() ?? []) draft.Set(p.Name, p.Value);
-        return draft.Complete(name ?? template.Info.Name);
+        return CreationDraft.Create(template, presetId ?? template.DefaultPreset, name ?? template.Info.Name, options);
     }
 
     internal static void ValidateName(string name)

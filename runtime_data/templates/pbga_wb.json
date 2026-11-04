@@ -17,7 +17,8 @@
       "presets": [],
       "visible_when": {},
       "enabled_when": {},
-      "des_symbol": null
+      "des_symbol": null,
+      "options_source": "presets"
     },
     {
       "key": "package.length",
@@ -78,7 +79,8 @@
       "visible_when": {},
       "enabled_when": {},
       "des_symbol": "tz1",
-      "creation_option": true
+      "creation_option": true,
+      "creation_only": true
     },
     {
       "key": "trace.bottom_thickness",
@@ -94,7 +96,8 @@
       "visible_when": {},
       "enabled_when": {},
       "des_symbol": "tz6",
-      "creation_option": true
+      "creation_option": true,
+      "creation_only": true
     },
     {
       "key": "encapsulant.length",
@@ -1132,7 +1135,8 @@
       "step": "package_setup",
       "visible_when": {
         "substrate.layers": "4-Layer"
-      }
+      },
+      "creation_only": true
     }
   ],
   "material_selections": [
@@ -1413,7 +1417,36 @@
     {
       "key": "summary",
       "label": "概要",
-      "diagram": "package"
+      "diagram": "package",
+      "fields": [
+        {
+          "source": "document.name",
+          "label": "设计名称",
+          "editable": true,
+          "maximum_length": 160
+        },
+        {
+          "source": "template.name",
+          "label": "封装类型"
+        },
+        {
+          "source": "document.preset_id",
+          "label": "JEDEC Footprint",
+          "hide_when_empty": true
+        },
+        {
+          "source": "parameter",
+          "parameter": "substrate.layers",
+          "label": "基板层数",
+          "hide_when_empty": true
+        },
+        {
+          "source": "parameter",
+          "parameter": "die.power",
+          "label": "芯片功率",
+          "format": "{0} W"
+        }
+      ]
     },
     {
       "key": "package_substrate",

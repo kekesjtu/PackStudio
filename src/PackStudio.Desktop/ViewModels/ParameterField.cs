@@ -28,7 +28,8 @@ public sealed class ParameterField : ObservableObject
     public bool Visible => (parent?.Visible ?? true) && JsonData.Matches(Definition["visible_when"] as JObject, Scope);
     public bool Enabled => (parent?.Enabled ?? true) && JsonData.Matches(Definition["enabled_when"] as JObject, Scope);
     public string Symbol => TemplateSymbols.Resolve(Definition, form.Values);
-    public string? Error => FieldValues.Error(Definition, Value);
+    public JArray Options => form.Template.OptionsFor(Definition);
+    public string? Error => FieldValues.Error(Definition, Value, Options);
     public bool HasError => Error != null;
     public bool Expanded { get => expanded; set => SetProperty(ref expanded, value); }
     public int MatrixRows => Count(Definition["rows_key"].Text());

@@ -22,6 +22,10 @@ Bare Die 没有原生预设，使用模板基线。
 字段的 `des_symbol` 是 DES 键字符串、包含 `selector` 与 `cases` 的选择映射，或无直接符号时的 null。
 它负责界面符号显示，不承担原生属性寻址或数据转换。没有 DES 键的内部字段仍保留完整定义。
 
+`creation_option` 声明创建窗口展示的选项；`creation_only` 声明仅参与创建初始化与创建校验的输入，不作为主向导或保存方案生成的有效输入。创建后的金属厚度以层表为准。`options_source: "presets"` 从预设目录查询候选，不改写模板 JSON 的 options。
+
+概要栏目通过 steps 中的 fields 声明文档/模板/参数来源、标签、格式、空值显隐与可编辑性。对象字段是结构容器，必须声明默认对象和子字段，运行值即使未启用也须保留对象结构；子字段的值校验按条件执行。
+
 ## 预设契约与覆盖
 
 预设版本为 `packstudio.preset/v3`，索引版本为 `packstudio.preset-index/v3`。

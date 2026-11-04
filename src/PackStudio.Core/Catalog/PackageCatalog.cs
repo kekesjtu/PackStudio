@@ -30,7 +30,6 @@ public sealed class PackageCatalog
             return cached;
         var info = Families.Single(f => f.Id == id);
         var data = JsonData.Read(Path.Combine(root, "templates", id + ".json"));
-        var fields = (JArray)data["fields"]!;
         var presets = new List<Preset>();
         foreach (var p in index.Properties().Where(p => p.Value["family"].Text() == id))
         {
@@ -41,9 +40,6 @@ public sealed class PackageCatalog
             var branch = branches[record["default_branch"].Text()]!;
             presets.Add(new(p.Name, (JObject)branch["values"]!, (JObject)branch["material_assignments"]!, branches));
         }
-        var footprint = fields.FirstOrDefault(f => f["control"].Text() == "footprint");
-        if (footprint != null)
-            footprint["options"] = new JArray(presets.Select(p => p.Id));
         return cache[id] = new(info, data, presets);
     }
 
