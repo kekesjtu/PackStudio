@@ -1,0 +1,92 @@
+{
+  "schema_version": "packstudio.validation/v1",
+  "template_id": "bare_die",
+  "fields": [
+    {
+      "key": "die.length",
+      "minimum": 0.2,
+      "maximum": 50
+    },
+    {
+      "key": "die.width",
+      "minimum": 0.2,
+      "maximum": 50
+    },
+    {
+      "key": "die.thickness",
+      "minimum": 0.03,
+      "maximum": 2
+    },
+    {
+      "key": "die.power",
+      "minimum": 0,
+      "maximum": 1000
+    },
+    {
+      "key": "die.flipped"
+    },
+    {
+      "key": "bumps.enabled"
+    },
+    {
+      "key": "bumps.total",
+      "minimum": 1,
+      "maximum": 10000,
+      "active_when": {
+        "all": [
+          {
+            "bumps.enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "key": "bumps.diameter",
+      "minimum": 0.01,
+      "maximum": 0.5,
+      "active_when": {
+        "all": [
+          {
+            "bumps.enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "key": "bumps.height",
+      "minimum": 0.01,
+      "maximum": 0.5,
+      "active_when": {
+        "all": [
+          {
+            "bumps.enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "key": "bumps.modeling",
+      "active_when": {
+        "all": [
+          {
+            "bumps.enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "key": "grid.enabled"
+    },
+    {
+      "key": "grid.density",
+      "active_when": {
+        "all": [
+          {
+            "grid.enabled": true
+          }
+        ]
+      }
+    }
+  ],
+  "checks": []
+}

@@ -1,0 +1,575 @@
+{
+  "schema_version": "packstudio.definition/v1",
+  "template_id": "cbga_fc",
+  "fields": [
+    {
+      "key": "footprint.size",
+      "default": "CBGAFC_49_6X6mm",
+      "unit": null,
+      "options": [],
+      "options_source": "presets",
+      "creation_only": true,
+      "type": "footprint"
+    },
+    {
+      "key": "substrate.length",
+      "unit": "mm",
+      "options": [],
+      "type": "number"
+    },
+    {
+      "key": "substrate.width",
+      "unit": "mm",
+      "options": [],
+      "type": "number"
+    },
+    {
+      "key": "substrate.thickness",
+      "unit": "mm",
+      "options": [],
+      "type": "number"
+    },
+    {
+      "key": "die.length",
+      "unit": "mm",
+      "options": [],
+      "type": "number"
+    },
+    {
+      "key": "die.width",
+      "unit": "mm",
+      "options": [],
+      "type": "number"
+    },
+    {
+      "key": "die.thickness",
+      "unit": "mm",
+      "options": [],
+      "type": "number"
+    },
+    {
+      "key": "die.power",
+      "unit": "W",
+      "options": [],
+      "type": "number"
+    },
+    {
+      "key": "bumps.total",
+      "unit": null,
+      "options": [],
+      "type": "integer_spinbox"
+    },
+    {
+      "key": "bumps.diameter",
+      "unit": "mm",
+      "options": [],
+      "type": "number"
+    },
+    {
+      "key": "bumps.height",
+      "unit": "mm",
+      "options": [],
+      "type": "number"
+    },
+    {
+      "key": "bumps.modeling",
+      "unit": null,
+      "options": [
+        "isotropicCuboid"
+      ],
+      "default": "isotropicCuboid",
+      "type": "combobox"
+    },
+    {
+      "key": "bga.columns",
+      "unit": null,
+      "options": [],
+      "type": "integer_spinbox"
+    },
+    {
+      "key": "bga.rows",
+      "unit": null,
+      "options": [],
+      "type": "integer_spinbox"
+    },
+    {
+      "key": "bga.pitch",
+      "unit": "mm",
+      "options": [],
+      "type": "number"
+    },
+    {
+      "key": "bga.diameter",
+      "unit": "mm",
+      "options": [],
+      "type": "number"
+    },
+    {
+      "key": "bga.height",
+      "unit": "mm",
+      "options": [],
+      "type": "number"
+    },
+    {
+      "key": "cover.type",
+      "unit": null,
+      "options": [
+        "bare_die",
+        "lid",
+        "plate",
+        "encapsulant"
+      ],
+      "creation_option": true,
+      "type": "select"
+    },
+    {
+      "key": "cover.length",
+      "unit": "mm",
+      "options": [],
+      "type": "number"
+    },
+    {
+      "key": "cover.width",
+      "unit": "mm",
+      "options": [],
+      "type": "number"
+    },
+    {
+      "key": "cover.thickness",
+      "unit": "mm",
+      "options": [],
+      "type": "number"
+    },
+    {
+      "key": "lid.length",
+      "unit": "mm",
+      "options": [],
+      "type": "number"
+    },
+    {
+      "key": "lid.width",
+      "unit": "mm",
+      "options": [],
+      "type": "number"
+    },
+    {
+      "key": "lid.thickness",
+      "unit": "mm",
+      "options": [],
+      "type": "number"
+    },
+    {
+      "key": "lid.base_thickness",
+      "unit": "mm",
+      "options": [],
+      "type": "number"
+    },
+    {
+      "key": "lid.die_attach",
+      "unit": "mm",
+      "options": [],
+      "type": "number"
+    },
+    {
+      "key": "lid.adhesive",
+      "unit": "mm",
+      "options": [],
+      "type": "number"
+    },
+    {
+      "key": "plate.length",
+      "unit": "mm",
+      "options": [],
+      "type": "number"
+    },
+    {
+      "key": "plate.width",
+      "unit": "mm",
+      "options": [],
+      "type": "number"
+    },
+    {
+      "key": "plate.thickness",
+      "unit": "mm",
+      "options": [],
+      "type": "number"
+    },
+    {
+      "key": "plate.die_attach",
+      "unit": "mm",
+      "options": [],
+      "type": "number"
+    },
+    {
+      "key": "grid.enabled",
+      "default": true,
+      "unit": null,
+      "options": [],
+      "type": "checkbox"
+    },
+    {
+      "key": "grid.density",
+      "default": "fine",
+      "unit": null,
+      "options": [
+        "coarse",
+        "medium",
+        "fine"
+      ],
+      "type": "select"
+    },
+    {
+      "key": "bumps.array_type",
+      "default": "non_regular",
+      "unit": null,
+      "options": [
+        "non_regular",
+        "regular"
+      ],
+      "type": "select"
+    },
+    {
+      "key": "bumps.columns",
+      "default": null,
+      "unit": null,
+      "options": [],
+      "type": "integer"
+    },
+    {
+      "key": "bumps.rows",
+      "default": null,
+      "unit": null,
+      "options": [],
+      "type": "integer"
+    },
+    {
+      "key": "bumps.underfill",
+      "default": true,
+      "unit": null,
+      "options": [],
+      "type": "checkbox"
+    },
+    {
+      "key": "cover.flush",
+      "default": false,
+      "unit": null,
+      "options": [],
+      "type": "checkbox"
+    },
+    {
+      "key": "stiffener.enabled",
+      "default": false,
+      "unit": null,
+      "options": [],
+      "type": "checkbox"
+    },
+    {
+      "key": "stiffener.length",
+      "default": null,
+      "unit": "mm",
+      "options": [],
+      "type": "number"
+    },
+    {
+      "key": "stiffener.width",
+      "default": null,
+      "unit": "mm",
+      "options": [],
+      "type": "number"
+    },
+    {
+      "key": "stiffener.cavity_length",
+      "default": null,
+      "unit": "mm",
+      "options": [],
+      "type": "number"
+    },
+    {
+      "key": "stiffener.cavity_width",
+      "default": null,
+      "unit": "mm",
+      "options": [],
+      "type": "number"
+    },
+    {
+      "key": "stiffener.adhesive",
+      "default": null,
+      "unit": "mm",
+      "options": [],
+      "type": "number"
+    },
+    {
+      "key": "slug.enabled",
+      "default": false,
+      "unit": null,
+      "options": [],
+      "type": "checkbox"
+    },
+    {
+      "key": "slug.length",
+      "default": null,
+      "unit": "mm",
+      "options": [],
+      "type": "number"
+    },
+    {
+      "key": "slug.width",
+      "default": null,
+      "unit": "mm",
+      "options": [],
+      "type": "number"
+    },
+    {
+      "key": "slug.thickness",
+      "default": null,
+      "unit": "mm",
+      "options": [],
+      "type": "number"
+    },
+    {
+      "key": "slug.diameter",
+      "default": null,
+      "unit": "mm",
+      "options": [],
+      "type": "number"
+    },
+    {
+      "key": "slug.foot_length",
+      "default": null,
+      "unit": "mm",
+      "options": [],
+      "type": "number"
+    },
+    {
+      "key": "slug.foot_width",
+      "default": null,
+      "unit": "mm",
+      "options": [],
+      "type": "number"
+    },
+    {
+      "key": "slug.offset",
+      "default": null,
+      "unit": "mm",
+      "options": [],
+      "type": "number"
+    },
+    {
+      "key": "slug.clearance",
+      "default": null,
+      "unit": "mm",
+      "options": [],
+      "type": "number"
+    },
+    {
+      "key": "slug.adhesive_enabled",
+      "default": false,
+      "unit": null,
+      "options": [],
+      "type": "checkbox"
+    },
+    {
+      "key": "bga.solder_removal_enabled",
+      "default": false,
+      "type": "checkbox"
+    },
+    {
+      "key": "bga.populated_rows",
+      "default": null,
+      "type": "integer"
+    },
+    {
+      "key": "bga.populated_columns",
+      "default": null,
+      "type": "integer"
+    },
+    {
+      "key": "bga.removal_rows",
+      "default": null,
+      "type": "integer"
+    },
+    {
+      "key": "bga.removal_columns",
+      "default": null,
+      "type": "integer"
+    },
+    {
+      "key": "bga.omitted_cells",
+      "default": [],
+      "rows_key": "bga.rows",
+      "columns_key": "bga.columns",
+      "type": "removal_matrix"
+    },
+    {
+      "key": "bga.center_solder_enabled",
+      "default": false,
+      "type": "checkbox"
+    },
+    {
+      "key": "bga.center_solder_rows",
+      "default": null,
+      "type": "integer"
+    },
+    {
+      "key": "bga.center_solder_columns",
+      "default": null,
+      "type": "integer"
+    },
+    {
+      "key": "bga.center_staggered",
+      "default": false,
+      "type": "checkbox"
+    },
+    {
+      "key": "bga.staggered",
+      "default": false,
+      "type": "checkbox"
+    },
+    {
+      "key": "bga.ball_map_enabled",
+      "default": false,
+      "type": "checkbox"
+    },
+    {
+      "key": "bga.ball_map",
+      "default": [],
+      "unit": "mm",
+      "type": "table",
+      "columns": [
+        {
+          "key": "id",
+          "type": "text"
+        },
+        {
+          "key": "x",
+          "type": "number"
+        },
+        {
+          "key": "y",
+          "type": "number"
+        }
+      ]
+    },
+    {
+      "key": "bga.representation",
+      "default": "equivalent",
+      "options": [
+        "discrete",
+        "equivalent"
+      ],
+      "type": "combobox"
+    }
+  ],
+  "origin": "Reviewed PackStudio model specification; mapped source values explicitly referenced",
+  "baseline_materials": [],
+  "initialization": [],
+  "material_selections": [
+    {
+      "group_id": "group-substrate",
+      "default": "alumina",
+      "options": [
+        "*"
+      ]
+    },
+    {
+      "group_id": "group-die",
+      "default": "silicon",
+      "options": [
+        "silicon"
+      ]
+    },
+    {
+      "group_id": "group-encapsulant",
+      "default": "epoxy-mold",
+      "options": [
+        "*"
+      ]
+    },
+    {
+      "group_id": "group-lid",
+      "default": "aluminum",
+      "options": [
+        "*"
+      ]
+    },
+    {
+      "group_id": "group-lid-adhesive",
+      "default": "stiffener-adhesive",
+      "options": [
+        "*"
+      ]
+    },
+    {
+      "group_id": "group-lid-die-attach",
+      "default": "flip-cap-grease",
+      "options": [
+        "*"
+      ]
+    },
+    {
+      "group_id": "group-plate",
+      "default": "aluminum",
+      "options": [
+        "*"
+      ]
+    },
+    {
+      "group_id": "group-plate-die-attach",
+      "default": "flip-cap-grease",
+      "options": [
+        "*"
+      ]
+    },
+    {
+      "group_id": "group-bump-solder",
+      "default": "solder-pb90",
+      "options": [
+        "*"
+      ]
+    },
+    {
+      "group_id": "group-underfill",
+      "default": "underfill",
+      "options": [
+        "*"
+      ]
+    },
+    {
+      "group_id": "group-bga-solder",
+      "default": "solder-sn63",
+      "options": [
+        "*"
+      ]
+    },
+    {
+      "group_id": "group-stiffener",
+      "default": "steel_stainless_302_cr18_ni8_38fdf21b",
+      "options": [
+        "*"
+      ]
+    },
+    {
+      "group_id": "group-stiffener-adhesive",
+      "default": "stiffener-adhesive",
+      "options": [
+        "*"
+      ]
+    },
+    {
+      "group_id": "group-slug",
+      "default": "copper",
+      "options": [
+        "",
+        "*"
+      ]
+    },
+    {
+      "group_id": "group-slug-adhesive",
+      "default": "stiffener-adhesive",
+      "options": [
+        "",
+        "*"
+      ]
+    }
+  ]
+}

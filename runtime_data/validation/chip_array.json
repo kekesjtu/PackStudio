@@ -1,0 +1,360 @@
+{
+  "schema_version": "packstudio.validation/v1",
+  "template_id": "chip_array",
+  "fields": [
+    {
+      "key": "footprint.size"
+    },
+    {
+      "key": "package.length",
+      "minimum": 2,
+      "maximum": 30
+    },
+    {
+      "key": "package.width",
+      "minimum": 2,
+      "maximum": 30
+    },
+    {
+      "key": "substrate.thickness",
+      "minimum": 0.1,
+      "maximum": 3
+    },
+    {
+      "key": "trace.top_thickness",
+      "minimum": 0.001,
+      "maximum": 0.2
+    },
+    {
+      "key": "trace.bottom_thickness",
+      "minimum": 0.001,
+      "maximum": 0.2
+    },
+    {
+      "key": "die.length",
+      "minimum": 0.2,
+      "maximum": 20
+    },
+    {
+      "key": "die.width",
+      "minimum": 0.2,
+      "maximum": 20
+    },
+    {
+      "key": "die.thickness",
+      "minimum": 0.03,
+      "maximum": 1.5
+    },
+    {
+      "key": "die.attach",
+      "minimum": 0.005,
+      "maximum": 0.3
+    },
+    {
+      "key": "die.power",
+      "minimum": 0,
+      "maximum": 1000
+    },
+    {
+      "key": "encapsulant.thickness",
+      "minimum": 0.1,
+      "maximum": 5
+    },
+    {
+      "key": "solder_mask.thickness",
+      "minimum": 0.005,
+      "maximum": 0.3
+    },
+    {
+      "key": "bond_wire.extent_length",
+      "minimum": 0.3,
+      "maximum": 20
+    },
+    {
+      "key": "bond_wire.extent_width",
+      "minimum": 0.3,
+      "maximum": 20
+    },
+    {
+      "key": "bond_wire.diameter",
+      "minimum": 0.01,
+      "maximum": 0.2
+    },
+    {
+      "key": "vias.enabled"
+    },
+    {
+      "key": "vias.diameter",
+      "minimum": 0.02,
+      "maximum": 1,
+      "active_when": {
+        "all": [
+          {
+            "vias.enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "key": "vias.plating",
+      "minimum": 0.001,
+      "maximum": 0.2,
+      "active_when": {
+        "all": [
+          {
+            "vias.enabled": true,
+            "vias.filled": false
+          }
+        ]
+      },
+      "required": false
+    },
+    {
+      "key": "vias.offset_x",
+      "minimum": -3,
+      "maximum": 3,
+      "active_when": {
+        "all": [
+          {
+            "vias.enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "key": "vias.offset_y",
+      "minimum": -3,
+      "maximum": 3,
+      "active_when": {
+        "all": [
+          {
+            "vias.enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "key": "bga.columns",
+      "minimum": 1,
+      "maximum": 50
+    },
+    {
+      "key": "bga.rows",
+      "minimum": 1,
+      "maximum": 50
+    },
+    {
+      "key": "bga.pitch",
+      "minimum": 0.2,
+      "maximum": 2
+    },
+    {
+      "key": "bga.diameter",
+      "minimum": 0.05,
+      "maximum": 1.5
+    },
+    {
+      "key": "bga.height",
+      "minimum": 0.05,
+      "maximum": 1.5
+    },
+    {
+      "key": "grid.enabled"
+    },
+    {
+      "key": "grid.density",
+      "active_when": {
+        "all": [
+          {
+            "grid.enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "key": "substrate.layers"
+    },
+    {
+      "key": "bond_wire.auto_count"
+    },
+    {
+      "key": "bond_wire.total",
+      "active_when": {
+        "all": [
+          {
+            "bond_wire.auto_count": false
+          }
+        ]
+      }
+    },
+    {
+      "key": "bond_wire.include"
+    },
+    {
+      "key": "vias.filled",
+      "active_when": {
+        "all": [
+          {
+            "vias.enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "key": "vias.modeling",
+      "active_when": {
+        "all": [
+          {
+            "vias.enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "key": "metal.layers",
+      "columns": [
+        {
+          "key": "depth"
+        },
+        {
+          "key": "thickness"
+        },
+        {
+          "key": "coverage"
+        },
+        {
+          "key": "disconnect"
+        }
+      ]
+    },
+    {
+      "key": "metal.hole_length",
+      "required": false
+    },
+    {
+      "key": "metal.hole_width",
+      "required": false
+    },
+    {
+      "key": "bga.solder_removal_enabled"
+    },
+    {
+      "key": "bga.populated_rows",
+      "minimum": 0,
+      "required": false,
+      "active_when": {
+        "all": [
+          {
+            "bga.solder_removal_enabled": true,
+            "bga.ball_map_enabled": false
+          }
+        ]
+      }
+    },
+    {
+      "key": "bga.populated_columns",
+      "minimum": 0,
+      "required": false,
+      "active_when": {
+        "all": [
+          {
+            "bga.solder_removal_enabled": true,
+            "bga.ball_map_enabled": false
+          }
+        ]
+      }
+    },
+    {
+      "key": "bga.removal_rows",
+      "required": false,
+      "active_when": {
+        "all": [
+          {
+            "bga.solder_removal_enabled": true,
+            "bga.ball_map_enabled": false
+          }
+        ]
+      }
+    },
+    {
+      "key": "bga.removal_columns",
+      "required": false,
+      "active_when": {
+        "all": [
+          {
+            "bga.solder_removal_enabled": true,
+            "bga.ball_map_enabled": false
+          }
+        ]
+      }
+    },
+    {
+      "key": "bga.omitted_cells"
+    },
+    {
+      "key": "bga.center_solder_enabled"
+    },
+    {
+      "key": "bga.center_solder_rows",
+      "minimum": 0,
+      "active_when": {
+        "all": [
+          {
+            "bga.center_solder_enabled": true,
+            "bga.ball_map_enabled": false
+          }
+        ]
+      }
+    },
+    {
+      "key": "bga.center_solder_columns",
+      "minimum": 0,
+      "active_when": {
+        "all": [
+          {
+            "bga.center_solder_enabled": true,
+            "bga.ball_map_enabled": false
+          }
+        ]
+      }
+    },
+    {
+      "key": "bga.center_staggered"
+    },
+    {
+      "key": "bga.staggered"
+    },
+    {
+      "key": "bga.ball_map_enabled"
+    },
+    {
+      "key": "bga.ball_map",
+      "columns": [
+        {
+          "key": "id"
+        },
+        {
+          "key": "x"
+        },
+        {
+          "key": "y"
+        }
+      ]
+    },
+    {
+      "key": "bga.representation"
+    },
+    {
+      "key": "trace.solid_thickness",
+      "minimum": 0.001,
+      "active_when": {
+        "all": [
+          {
+            "substrate.layers": "4-Layer"
+          }
+        ]
+      }
+    }
+  ],
+  "checks": []
+}

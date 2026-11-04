@@ -8,25 +8,35 @@ static class MaterialChecks
     {
         tests.Case("materials", "user material assignment wins", () =>
         {
-            var document = ProjectDocument.Create(tests.Catalog.Load("cbga_fc"));
+            var document = tests.Create(tests.Catalog.Load("cbga_fc"));
             document.MaterialAssignments["group-substrate"] = "copper";
-            var model = tests.Builder.Generate(document);
+            var model = tests.Generate(document);
             Assert(model.Blocks.Single(b => b.StructureType == "substrate").MaterialId == "copper", "material assignment not applied");
         });
         tests.Case("materials", "derived material override wins", () =>
         {
-            var document = ProjectDocument.Create(tests.Catalog.Load("bare_die"));
+            var document = tests.Create(tests.Catalog.Load("bare_die"));
             document.Values["bumps.enabled"] = true;
-            var original = tests.Builder.Generate(document).Materials["flip-chip-bumps-equivalent"];
+            var original = tests.Generate(document).Materials["flip-chip-bumps-equivalent"];
             document.CustomMaterials.Add(original with { Conductivity = new(42, 43, 44) });
-            Near(tests.Builder.Generate(document).Materials[original.Id].Conductivity.X, 42, "derived override");
+            Near(tests.Generate(document).Materials[original.Id].Conductivity.X, 42, "derived override");
         });
-        tests.Case("materials", "invalid material rejected", () => Reject(() => new Material("x", "x", new(1, 1, 1), -1, 2).Validate()));
+        tests.Case("materials", "invalid material rejected before generation", () =>
+        {
+            var document = tests.Create(tests.Catalog.Load("bare_die"));
+            document.CustomMaterials.Add(new("x", "x", new(1, 1, 1), -1, 2));
+            var result = tests.GenerateResult(document);
+            Assert(result.Model == null && result.Issues.Any(i => i.Code == "input.material"), "invalid user material entered modeling");
+        });
         tests.Case("materials", "zero properties and signed temperature parameters are allowed", () =>
         {
-            new Material("zero", "zero", new(0, 0, 0), 0, 0, ConductivityCoefficient: -0.42, ReferenceTemperature: -20).Validate();
-            Reject(() => new Material("invalid", "invalid", new(double.NaN, 1, 1), 1, 1).Validate());
-            Reject(() => new Material("invalid", "invalid", new(1, 1, 1), 1, 1, ConductivityCoefficient: double.PositiveInfinity).Validate());
+            var document = tests.Create(tests.Catalog.Load("bare_die"));
+            document.CustomMaterials.Add(new("zero", "zero", new(0, 0, 0), 0, 0, ConductivityCoefficient: -0.42, ReferenceTemperature: -20, ConductType: 1));
+            tests.Generate(document);
+            document.CustomMaterials.Add(new("invalid", "invalid", new(double.NaN, 1, 1), 1, 1));
+            Reject(() => tests.Generate(document));
+            document.CustomMaterials[^1] = new("invalid", "invalid", new(1, 1, 1), 1, 1, ConductivityCoefficient: double.PositiveInfinity, ConductType: 1);
+            Reject(() => tests.Generate(document));
         });
         tests.Case("materials", "flat records select active conductivity fields by type", () =>
         {
@@ -51,21 +61,18 @@ static class MaterialChecks
                 }
                 File.WriteAllText(Path.Combine(materials, "index.json"), new JObject { ["materials"] = index }.ToString());
                 File.WriteAllText(Path.Combine(materials, "runtime.json"), new JObject { ["aliases"] = new JObject(), ["project_materials"] = new JArray() }.ToString());
-                var library = new MaterialLibrary(directory);
+                var library = new MaterialCatalogReader().Read(directory);
                 var constant = library.Items["material-0"];
                 var temperature = library.Items["material-1"];
                 var orthotropic = library.Items["material-2"];
-                Assert(constant.Conductivity == new Vector(78.4, 78.4, 78.4) && constant.ConductivityCoefficient == null, "inactive fields changed constant material");
+                Assert(constant.Conductivity == new Vector(78.4, 78.4, 78.4) && constant.ConductType == 0 && constant.ConductivityCoefficient == -0.42, "constant material lost stored inactive fields");
                 Assert(temperature.Conductivity == constant.Conductivity && temperature.ConductivityCoefficient == -0.42 && temperature.ReferenceTemperature == -20, "temperature model not preserved");
-                Assert(orthotropic.Conductivity == new Vector(1, 2, 3) && orthotropic.ConductivityCoefficient == null, "orthotropic material used inactive scalar fields");
+                Assert(orthotropic.Conductivity == new Vector(1, 2, 3) && orthotropic.ConductType == 2 && orthotropic.StoredScalarConductivity == 78.4, "orthotropic material lost its inactive scalar");
                 Assert(orthotropic.Category == "Test", "material group not mapped");
-                var model = new PackageModel("bare_die", "test", new ModelMetadata(new PackageGeometry(new(1, 1), new(1, 1), new(1, 1), new(1, 1), 1, false)), new Dictionary<string, ModelGroup>());
-                foreach (var material in library.Items.Values)
-                {
-                    model.Materials[material.Id] = material;
-                    model.Blocks.Add(new(material.Id, material.Name, "die", new(model.Blocks.Count * 2, 0, 0), new(1, 1, 1), material.Id, "group-die", "Die"));
-                }
-                var exported = FloXml.Export(model);
+                var blocks = library.Items.Values.Select((material, index) => new Block(material.Id, material.Name, "die", new(index * 2, 0, 0), new(1, 1, 1), material.Id, "group-die", "Die"));
+                var model = new PackageModel("bare_die", "test", new ModelMetadata(new PackageGeometry(new(1, 1), new(1, 1), new(1, 1), new(1, 1), 1, false)), tests.Catalog.Groups,
+                    blocks, library.Items, [], []);
+                var exported = tests.Export(model);
                 Assert(exported.Descendants("isotropic_material_att").Single().Element("name")!.Value == constant.Id, "constant material exported as temperature dependent");
                 var temperatureXml = exported.Descendants("temperature_dependant_material_att").Single();
                 Near(double.Parse(temperatureXml.Element("coeff")!.Value, System.Globalization.CultureInfo.InvariantCulture), -0.42, "signed temperature coefficient");
@@ -78,25 +85,25 @@ static class MaterialChecks
         {
             var template = tests.Catalog.Load("pbga_wb");
             var preset = template.Presets.Single(p => p.Name == template.DefaultPreset);
-            var document = ProjectDocument.Create(template);
+            var document = tests.Create(template);
             string original = preset.MaterialAssignments["group-encapsulant"];
             try
             {
                 preset.MaterialAssignments["group-encapsulant"] = "copper";
-                var model = tests.Builder.Generate(document);
+                var model = tests.Generate(document);
                 Assert(model.Blocks.Single(b => b.StructureType == "encapsulant").MaterialId == original, "preset changes altered existing document materials");
             }
             finally { preset.MaterialAssignments["group-encapsulant"] = original; }
         });
         tests.Case("materials", "FC via matrix retains isotropic conductivity", () =>
         {
-            var document = ProjectDocument.Create(tests.Catalog.Load("pbga_fc"));
+            var document = tests.Create(tests.Catalog.Load("pbga_fc"));
             var values = document.Values;
             values["vias.enabled"] = true;
             values["vias.modeling"] = "equivalent";
             values["vias.rows"] = 4; values["vias.columns"] = 3;
             values["vias.pitch"] = 0.5; values["vias.diameter"] = 0.2; values["vias.plating"] = 0.025;
-            var matrix = tests.Builder.Generate(document).Materials["fc-core-via"];
+            var matrix = tests.Generate(document).Materials["fc-core-via"];
             Assert(matrix.Conductivity.X > 0 && matrix.Conductivity.Y > 0, "matrix conductivity lost");
         });
     }

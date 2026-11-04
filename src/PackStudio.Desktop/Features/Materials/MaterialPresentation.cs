@@ -1,0 +1,49 @@
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Media;
+using PackStudio.Core;
+
+namespace PackStudio.Desktop;
+
+internal static class MaterialPresentation
+{
+    internal static Color Swatch(Material material)
+    {
+        if (string.IsNullOrWhiteSpace(material.Color)) return Colors.LightSlateGray;
+        try { return (Color)ColorConverter.ConvertFromString(material.Color); }
+        catch (FormatException) { return Colors.LightSlateGray; }
+        catch (NotSupportedException) { return Colors.LightSlateGray; }
+    }
+    internal static bool NeedsReview(Material material) => material.Density == 1 || material.SpecificHeat == 1;
+    internal sealed record Option(Material Material)
+    {
+        public string Id => Material.Id;
+        public string Name => Material.Name;
+        public bool NeedsReview => MaterialPresentation.NeedsReview(Material);
+    }
+
+    internal static DataTemplate Template()
+    {
+        var panel = new FrameworkElementFactory(typeof(DockPanel));
+        panel.SetValue(FrameworkElement.HorizontalAlignmentProperty, HorizontalAlignment.Stretch);
+        panel.SetValue(FrameworkElement.VerticalAlignmentProperty, VerticalAlignment.Center);
+        var badge = new FrameworkElementFactory(typeof(TextBlock));
+        badge.SetValue(TextBlock.TextProperty, "物性待核实");
+        badge.SetValue(TextBlock.ForegroundProperty, Brushes.DarkGoldenrod);
+        badge.SetValue(TextBlock.FontSizeProperty, 10.0);
+        badge.SetValue(FrameworkElement.VerticalAlignmentProperty, VerticalAlignment.Center);
+        badge.SetValue(FrameworkElement.HorizontalAlignmentProperty, HorizontalAlignment.Right);
+        badge.SetValue(TextBlock.MarginProperty, new Thickness(6, 0, 0, 0));
+        badge.SetValue(DockPanel.DockProperty, Dock.Right);
+        badge.SetBinding(UIElement.VisibilityProperty, new Binding(nameof(Option.NeedsReview)) { Converter = new BooleanToVisibilityConverter() });
+        panel.AppendChild(badge);
+        var name = new FrameworkElementFactory(typeof(TextBlock));
+        name.SetBinding(TextBlock.TextProperty, new Binding(nameof(Option.Name)));
+        name.SetValue(TextBlock.TextTrimmingProperty, TextTrimming.CharacterEllipsis);
+        name.SetValue(FrameworkElement.VerticalAlignmentProperty, VerticalAlignment.Center);
+        name.SetBinding(FrameworkElement.ToolTipProperty, new Binding(nameof(Option.Name)));
+        panel.AppendChild(name);
+        return new DataTemplate { VisualTree = panel };
+    }
+}

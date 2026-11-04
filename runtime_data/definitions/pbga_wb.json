@@ -1,0 +1,706 @@
+{
+  "schema_version": "packstudio.definition/v1",
+  "template_id": "pbga_wb",
+  "fields": [
+    {
+      "key": "footprint.size",
+      "default": "PBGA_121_15X15mm",
+      "unit": null,
+      "options": [],
+      "options_source": "presets",
+      "creation_only": true,
+      "type": "footprint"
+    },
+    {
+      "key": "package.length",
+      "unit": "mm",
+      "options": [],
+      "type": "number"
+    },
+    {
+      "key": "package.width",
+      "unit": "mm",
+      "options": [],
+      "type": "number"
+    },
+    {
+      "key": "substrate.thickness",
+      "unit": "mm",
+      "options": [],
+      "type": "number"
+    },
+    {
+      "key": "trace.top_thickness",
+      "unit": "mm",
+      "options": [],
+      "creation_option": true,
+      "creation_only": true,
+      "type": "number"
+    },
+    {
+      "key": "trace.bottom_thickness",
+      "unit": "mm",
+      "options": [],
+      "creation_option": true,
+      "creation_only": true,
+      "type": "number"
+    },
+    {
+      "key": "encapsulant.length",
+      "unit": "mm",
+      "options": [],
+      "type": "number"
+    },
+    {
+      "key": "encapsulant.width",
+      "unit": "mm",
+      "options": [],
+      "type": "number"
+    },
+    {
+      "key": "encapsulant.thickness",
+      "unit": "mm",
+      "options": [],
+      "type": "number"
+    },
+    {
+      "key": "flag.length",
+      "unit": "mm",
+      "options": [],
+      "type": "number"
+    },
+    {
+      "key": "flag.width",
+      "unit": "mm",
+      "options": [],
+      "type": "number"
+    },
+    {
+      "key": "solder_mask.thickness",
+      "unit": "mm",
+      "options": [],
+      "type": "number"
+    },
+    {
+      "key": "die.length",
+      "unit": "mm",
+      "options": [],
+      "type": "number"
+    },
+    {
+      "key": "die.width",
+      "unit": "mm",
+      "options": [],
+      "type": "number"
+    },
+    {
+      "key": "die.thickness",
+      "unit": "mm",
+      "options": [],
+      "type": "number"
+    },
+    {
+      "key": "die.attach",
+      "unit": "mm",
+      "options": [],
+      "type": "number"
+    },
+    {
+      "key": "die.power",
+      "unit": "W",
+      "options": [],
+      "type": "number"
+    },
+    {
+      "key": "bond_wire.total",
+      "unit": null,
+      "options": [],
+      "type": "integer_spinbox"
+    },
+    {
+      "key": "bond_wire.extent_length",
+      "unit": "mm",
+      "options": [],
+      "type": "number"
+    },
+    {
+      "key": "bond_wire.extent_width",
+      "unit": "mm",
+      "options": [],
+      "type": "number"
+    },
+    {
+      "key": "bond_wire.diameter",
+      "unit": "mm",
+      "options": [],
+      "type": "number"
+    },
+    {
+      "key": "vias.enabled",
+      "unit": null,
+      "options": [],
+      "type": "checkbox"
+    },
+    {
+      "key": "vias.columns",
+      "unit": null,
+      "options": [],
+      "type": "integer_spinbox"
+    },
+    {
+      "key": "vias.rows",
+      "unit": null,
+      "options": [],
+      "type": "integer_spinbox"
+    },
+    {
+      "key": "vias.pitch",
+      "unit": "mm",
+      "options": [],
+      "type": "number"
+    },
+    {
+      "key": "vias.diameter",
+      "unit": "mm",
+      "options": [],
+      "type": "number"
+    },
+    {
+      "key": "vias.plating",
+      "unit": "mm",
+      "options": [],
+      "type": "number"
+    },
+    {
+      "key": "bga.columns",
+      "unit": null,
+      "options": [],
+      "type": "integer_spinbox"
+    },
+    {
+      "key": "bga.rows",
+      "unit": null,
+      "options": [],
+      "type": "integer_spinbox"
+    },
+    {
+      "key": "bga.pitch",
+      "unit": "mm",
+      "options": [],
+      "type": "number"
+    },
+    {
+      "key": "bga.diameter",
+      "unit": "mm",
+      "options": [],
+      "type": "number"
+    },
+    {
+      "key": "bga.height",
+      "unit": "mm",
+      "options": [],
+      "type": "number"
+    },
+    {
+      "key": "spreader.enabled",
+      "unit": null,
+      "options": [],
+      "type": "checkbox"
+    },
+    {
+      "key": "spreader.length",
+      "unit": "mm",
+      "options": [],
+      "type": "number"
+    },
+    {
+      "key": "spreader.width",
+      "unit": "mm",
+      "options": [],
+      "type": "number"
+    },
+    {
+      "key": "spreader.thickness",
+      "unit": "mm",
+      "options": [],
+      "type": "number"
+    },
+    {
+      "key": "spreader.hole_length",
+      "unit": "mm",
+      "options": [],
+      "type": "number"
+    },
+    {
+      "key": "spreader.hole_width",
+      "unit": "mm",
+      "options": [],
+      "type": "number"
+    },
+    {
+      "key": "grid.enabled",
+      "default": true,
+      "unit": null,
+      "options": [],
+      "type": "checkbox"
+    },
+    {
+      "key": "grid.density",
+      "default": "fine",
+      "unit": null,
+      "options": [
+        "coarse",
+        "medium",
+        "fine"
+      ],
+      "type": "combobox"
+    },
+    {
+      "key": "bond_wire.modeling",
+      "default": "orthotropicCuboid",
+      "unit": null,
+      "options": [
+        "isotropicCuboid",
+        "orthotropicCuboid"
+      ],
+      "type": "combobox"
+    },
+    {
+      "key": "substrate.layers",
+      "default": "2-Layer",
+      "unit": null,
+      "options": [
+        "2-Layer",
+        "4-Layer"
+      ],
+      "creation_option": true,
+      "type": "combobox"
+    },
+    {
+      "key": "flag.coverage",
+      "default": null,
+      "unit": "%",
+      "options": [],
+      "type": "number"
+    },
+    {
+      "key": "metal.layers",
+      "default": null,
+      "unit": null,
+      "options": [],
+      "type": "table",
+      "columns": [
+        {
+          "key": "depth",
+          "type": "number"
+        },
+        {
+          "key": "thickness",
+          "type": "number"
+        },
+        {
+          "key": "coverage",
+          "type": "number"
+        },
+        {
+          "key": "disconnect",
+          "type": "checkbox"
+        }
+      ]
+    },
+    {
+      "key": "vias.modeling",
+      "default": "discreteCuboids",
+      "unit": null,
+      "options": [
+        "discreteCuboids",
+        "isotropicCuboid",
+        "orthotropicCuboid"
+      ],
+      "type": "combobox"
+    },
+    {
+      "key": "slug.enabled",
+      "default": false,
+      "unit": null,
+      "options": [],
+      "type": "checkbox"
+    },
+    {
+      "key": "slug.length",
+      "default": null,
+      "unit": "mm",
+      "options": [],
+      "type": "number"
+    },
+    {
+      "key": "slug.width",
+      "default": null,
+      "unit": "mm",
+      "options": [],
+      "type": "number"
+    },
+    {
+      "key": "slug.thickness",
+      "default": null,
+      "unit": "mm",
+      "options": [],
+      "type": "number"
+    },
+    {
+      "key": "slug.diameter",
+      "default": null,
+      "unit": "mm",
+      "options": [],
+      "type": "number"
+    },
+    {
+      "key": "slug.foot_length",
+      "default": null,
+      "unit": "mm",
+      "options": [],
+      "type": "number"
+    },
+    {
+      "key": "slug.foot_width",
+      "default": null,
+      "unit": "mm",
+      "options": [],
+      "type": "number"
+    },
+    {
+      "key": "slug.offset",
+      "default": null,
+      "unit": "mm",
+      "options": [],
+      "type": "number"
+    },
+    {
+      "key": "slug.clearance",
+      "default": null,
+      "unit": "mm",
+      "options": [],
+      "type": "number"
+    },
+    {
+      "key": "slug.adhesive_enabled",
+      "default": false,
+      "unit": null,
+      "options": [],
+      "type": "checkbox"
+    },
+    {
+      "key": "bga.solder_removal_enabled",
+      "default": false,
+      "type": "checkbox"
+    },
+    {
+      "key": "bga.populated_rows",
+      "default": null,
+      "type": "integer"
+    },
+    {
+      "key": "bga.populated_columns",
+      "default": null,
+      "type": "integer"
+    },
+    {
+      "key": "bga.removal_rows",
+      "default": null,
+      "type": "integer"
+    },
+    {
+      "key": "bga.removal_columns",
+      "default": null,
+      "type": "integer"
+    },
+    {
+      "key": "bga.omitted_cells",
+      "default": [],
+      "rows_key": "bga.rows",
+      "columns_key": "bga.columns",
+      "type": "removal_matrix"
+    },
+    {
+      "key": "bga.center_solder_enabled",
+      "default": false,
+      "type": "checkbox"
+    },
+    {
+      "key": "bga.center_solder_rows",
+      "default": null,
+      "type": "integer"
+    },
+    {
+      "key": "bga.center_solder_columns",
+      "default": null,
+      "type": "integer"
+    },
+    {
+      "key": "bga.center_staggered",
+      "default": false,
+      "type": "checkbox"
+    },
+    {
+      "key": "bga.staggered",
+      "default": false,
+      "type": "checkbox"
+    },
+    {
+      "key": "bga.ball_map_enabled",
+      "default": false,
+      "type": "checkbox"
+    },
+    {
+      "key": "bga.ball_map",
+      "default": [],
+      "unit": "mm",
+      "type": "table",
+      "columns": [
+        {
+          "key": "id",
+          "type": "text"
+        },
+        {
+          "key": "x",
+          "type": "number"
+        },
+        {
+          "key": "y",
+          "type": "number"
+        }
+      ]
+    },
+    {
+      "key": "bga.representation",
+      "default": "equivalent",
+      "options": [
+        "discrete",
+        "equivalent",
+        "isotropic"
+      ],
+      "type": "combobox"
+    },
+    {
+      "key": "vias.configuration",
+      "default": {
+        "removal_enabled": false,
+        "removal_rows": 0,
+        "removal_columns": 0,
+        "omitted_cells": []
+      },
+      "type": "object",
+      "fields": [
+        {
+          "key": "removal_enabled",
+          "type": "checkbox"
+        },
+        {
+          "key": "removal_rows",
+          "type": "integer"
+        },
+        {
+          "key": "removal_columns",
+          "type": "integer"
+        },
+        {
+          "key": "omitted_cells",
+          "rows_key": "vias.rows",
+          "columns_key": "vias.columns",
+          "type": "removal_matrix"
+        }
+      ]
+    },
+    {
+      "key": "trace.solid_thickness",
+      "default": 0.036,
+      "unit": "mm",
+      "creation_option": true,
+      "creation_only": true,
+      "type": "number"
+    }
+  ],
+  "origin": "Reviewed PackStudio model specification; mapped source values explicitly referenced; spreader editing values: PBGA_192_17X17mm native backsideSpreader; inactive branches retain editing values only",
+  "baseline_materials": [
+    {
+      "id": "wirebond-trace-top",
+      "name": "Trace0",
+      "conductivity": {
+        "x": 115.64,
+        "y": 115.64,
+        "z": 115.64
+      },
+      "density": 4009.0,
+      "specific_heat": 562.8199052132702,
+      "color": "#C46A32",
+      "source": "PackStudio built-in transcription of reviewed FloTHERM PACK data",
+      "conduct_type": 0
+    },
+    {
+      "id": "wirebond-trace-bottom",
+      "name": "Trace5",
+      "conductivity": {
+        "x": 38.68,
+        "y": 38.68,
+        "z": 38.68
+      },
+      "density": 2603.0,
+      "specific_heat": 737.1167883211679,
+      "color": "#B96331",
+      "source": "PackStudio built-in transcription of reviewed FloTHERM PACK data",
+      "conduct_type": 0
+    },
+    {
+      "id": "wirebond-die-flag",
+      "name": "die_flag",
+      "conductivity": {
+        "x": 231.08,
+        "y": 231.08,
+        "z": 231.08
+      },
+      "density": 6118.0,
+      "specific_heat": 451.583850931677,
+      "color": "#B96331",
+      "source": "PackStudio built-in transcription of reviewed FloTHERM PACK data",
+      "conduct_type": 0
+    },
+    {
+      "id": "wirebond-via",
+      "name": "Via",
+      "conductivity": {
+        "x": 138.6,
+        "y": 138.6,
+        "z": 138.6
+      },
+      "density": 3214.8,
+      "specific_heat": 385.0,
+      "color": "#C46A32",
+      "source": "PackStudio built-in transcription of reviewed FloTHERM PACK data",
+      "conduct_type": 0
+    },
+    {
+      "id": "wirebond-bondwire-x",
+      "name": "bondwire_1",
+      "conductivity": {
+        "x": 47.4553300989311,
+        "y": 0.68,
+        "z": 47.4553300989311
+      },
+      "density": 4588.633245731125,
+      "specific_heat": 382.3576684058402,
+      "color": "#D9A928",
+      "source": "PackStudio built-in transcription of reviewed FloTHERM PACK data",
+      "conduct_type": 2
+    },
+    {
+      "id": "wirebond-bondwire-y",
+      "name": "bondwire_2",
+      "conductivity": {
+        "x": 0.68,
+        "y": 47.4553300989311,
+        "z": 47.4553300989311
+      },
+      "density": 4588.633245731125,
+      "specific_heat": 382.3576684058402,
+      "color": "#D9A928",
+      "source": "PackStudio built-in transcription of reviewed FloTHERM PACK data",
+      "conduct_type": 2
+    }
+  ],
+  "initialization": [],
+  "layer_stack": {
+    "when": {
+      "substrate.layers": "4-Layer"
+    },
+    "table": "metal.layers",
+    "height": "substrate.thickness",
+    "inner_thickness": "trace.solid_thickness",
+    "top_thickness": "trace.top_thickness",
+    "bottom_thickness": "trace.bottom_thickness"
+  },
+  "surface_layers": {
+    "table": "metal.layers",
+    "height": "substrate.thickness",
+    "top_thickness": "trace.top_thickness",
+    "bottom_thickness": "trace.bottom_thickness"
+  },
+  "material_selections": [
+    {
+      "group_id": "group-substrate",
+      "default": "bt",
+      "options": [
+        "*"
+      ]
+    },
+    {
+      "group_id": "group-die",
+      "default": "silicon",
+      "options": [
+        "silicon"
+      ]
+    },
+    {
+      "group_id": "group-die-attach",
+      "default": "ablestik-8510aa",
+      "options": [
+        "*"
+      ]
+    },
+    {
+      "group_id": "group-encapsulant",
+      "default": "epoxy-mold",
+      "options": [
+        "*"
+      ]
+    },
+    {
+      "group_id": "group-bond-wires",
+      "default": "gold",
+      "options": [
+        "*"
+      ]
+    },
+    {
+      "group_id": "group-solder-mask",
+      "default": "solder-mask",
+      "options": [
+        "*"
+      ]
+    },
+    {
+      "group_id": "group-bga-solder",
+      "default": "solder-sn63",
+      "options": [
+        "*"
+      ]
+    },
+    {
+      "group_id": "group-backside-spreader",
+      "default": "copper",
+      "options": [
+        "*"
+      ]
+    },
+    {
+      "group_id": "group-traces",
+      "default": "copper",
+      "options": [
+        "*"
+      ]
+    },
+    {
+      "group_id": "group-slug",
+      "default": "copper",
+      "options": [
+        "*"
+      ]
+    },
+    {
+      "group_id": "group-slug-adhesive",
+      "default": "stiffener-adhesive",
+      "options": [
+        "*"
+      ]
+    }
+  ]
+}

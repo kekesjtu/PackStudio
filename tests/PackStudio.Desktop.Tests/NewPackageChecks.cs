@@ -27,7 +27,7 @@ static class NewPackageChecks
         }
     }
 
-    public static async Task<ProjectDocument> CreateDraft(PackageCatalog catalog, string family)
+    public static async Task<ProjectDocument> CreateDraft(RuntimeDataCatalog catalog, string family)
     {
         var dialog = new NewPackageWindow(catalog, family)
         {
@@ -45,8 +45,8 @@ static class NewPackageChecks
                 throw new Exception("customization page did not open");
             var name = Control<TextBox>(dialog, "DesignNameBox");
             name.Text = " ";
-            if (dialog.TryCreate() || dialog.CreatedDocument != null)
-                throw new Exception("blank design name accepted");
+            if (!dialog.TryCreate() || dialog.CreatedDocument?.Name != " ")
+                throw new Exception("creation rejected or changed submitted name");
             name.Text = "测试方案 " + family;
             var variants = Control<ComboBox>(dialog, "VariantBox");
             if (variants.Items.Count > 1)
@@ -127,8 +127,10 @@ static class NewPackageChecks
         Control<Fluent.Button>(window, "NewPackageButton").RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
         while (workspace.IsBusy)
             await Task.Delay(20);
-        if (workspace.Document.TemplateId != "qfn" || workspace.Document.Name != "QFN — 布局验证" || !workspace.IsCurrent)
-            throw new Exception("finishing New Package did not generate the chosen project");
+        if (workspace.Document.TemplateId != "qfn" || workspace.Document.Name != "QFN — 布局验证" || workspace.IsCurrent)
+            throw new Exception("finishing New Package did not retain the chosen project for editing");
+        await workspace.GenerateAsync();
+        if (!workspace.CanExport) throw new Exception("created project could not generate after editing");
         var steps = Control<ListBox>(window, "StepList");
         Control<HelixToolkit.Wpf.HelixViewport3D>(window, "Viewport").ZoomExtents(0);
         steps.SelectedValue = "overall_package";

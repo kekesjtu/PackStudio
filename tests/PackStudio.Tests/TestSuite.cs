@@ -1,11 +1,35 @@
 using PackStudio.Core;
+using Newtonsoft.Json.Linq;
+using System.Xml.Linq;
 
 sealed class TestSuite(string root, HashSet<string> suites)
 {
     public string Root { get; } = root;
-    public PackageCatalog Catalog { get; } = new(Path.Combine(root, "runtime_data"));
-    public ModelBuilder Builder => new(Catalog);
+    public RuntimeDataCatalog Catalog { get; } = new(Path.Combine(root, "runtime_data"));
     int passed, failed;
+
+    public ProjectDocument Create(PackageDefinition definition, string? presetId = null, string? name = null, JObject? options = null)
+    {
+        string preset = presetId ?? definition.DefaultPreset;
+        var selection = definition.DisplayDefaults(preset);
+        string layers = options?.Property("substrate.layers") is { } submitted ? submitted.Value.Text() : selection["substrate.layers"].Text();
+        var fourLayer = definition.Info.Id is "chip_array" or "pbga_wb" && layers == "4-Layer" ? Catalog.LoadFourLayer(definition.Info.Id) : null;
+        return PackageInitializer.Create(definition, preset, name, options, fourLayer);
+    }
+
+    public GenerationResult GenerateResult(ProjectDocument document) => ModelBuilder.Generate(document,
+        Catalog.Load(document.TemplateId), Catalog.Materials, Catalog.LoadValidation(document.TemplateId), Catalog.Groups);
+
+    public PackageModel Generate(ProjectDocument document)
+    {
+        var result = GenerateResult(document);
+        if (result.HasErrors || result.Model == null)
+            throw new ArgumentException(string.Join(" ", result.Issues.Select(i => i.Message)));
+        return result.Model;
+    }
+
+    public GenerationResult Result(PackageModel model) => new(model, ModelValidator.Validate(model, Catalog.LoadValidation(model.TemplateId)));
+    public XDocument Export(PackageModel model) => FloXmlExporter.Export(Result(model));
 
     public void Case(string suite, string name, Action run)
     {

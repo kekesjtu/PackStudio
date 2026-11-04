@@ -1,37 +1,23 @@
 {
-  "schema_version": "packstudio.template-defaults/v1",
+  "schema_version": "packstudio.ui-template/v1",
   "template_id": "pbga_wb",
-  "origin": "Reviewed PackStudio model specification; mapped source values explicitly referenced; spreader editing values: PBGA_192_17X17mm native backsideSpreader; inactive branches retain editing values only",
   "fields": [
     {
       "key": "footprint.size",
       "step": "package_setup",
       "label": "Footprint 尺寸（JEDEC）",
       "control": "footprint",
-      "default": "PBGA_121_15X15mm",
-      "unit": null,
-      "minimum": null,
-      "maximum": null,
-      "options": [],
       "option_labels": {},
-      "presets": [],
       "visible_when": {},
       "enabled_when": {},
-      "des_symbol": null,
-      "options_source": "presets",
-      "creation_only": true
+      "des_symbol": null
     },
     {
       "key": "package.length",
       "step": "package_substrate",
       "label": "封装长度",
       "control": "number",
-      "unit": "mm",
-      "minimum": 5,
-      "maximum": 60,
-      "options": [],
       "option_labels": {},
-      "presets": [],
       "visible_when": {},
       "enabled_when": {},
       "des_symbol": "D"
@@ -41,12 +27,7 @@
       "step": "package_substrate",
       "label": "封装宽度",
       "control": "number",
-      "unit": "mm",
-      "minimum": 5,
-      "maximum": 60,
-      "options": [],
       "option_labels": {},
-      "presets": [],
       "visible_when": {},
       "enabled_when": {},
       "des_symbol": "E"
@@ -56,12 +37,7 @@
       "step": "package_substrate",
       "label": "基板厚度",
       "control": "number",
-      "unit": "mm",
-      "minimum": 0.1,
-      "maximum": 3,
-      "options": [],
       "option_labels": {},
-      "presets": [],
       "visible_when": {},
       "enabled_when": {},
       "des_symbol": "A2"
@@ -71,46 +47,27 @@
       "step": "metal_layers",
       "label": "顶层铜厚度",
       "control": "number",
-      "unit": "mm",
-      "minimum": 0.001,
-      "maximum": 0.2,
-      "options": [],
       "option_labels": {},
-      "presets": [],
       "visible_when": {},
       "enabled_when": {},
-      "des_symbol": "tz1",
-      "creation_option": true,
-      "creation_only": true
+      "des_symbol": "tz1"
     },
     {
       "key": "trace.bottom_thickness",
       "step": "metal_layers",
       "label": "底层铜厚度",
       "control": "number",
-      "unit": "mm",
-      "minimum": 0.001,
-      "maximum": 0.2,
-      "options": [],
       "option_labels": {},
-      "presets": [],
       "visible_when": {},
       "enabled_when": {},
-      "des_symbol": "tz6",
-      "creation_option": true,
-      "creation_only": true
+      "des_symbol": "tz6"
     },
     {
       "key": "encapsulant.length",
       "step": "encapsulant",
       "label": "塑封长度",
       "control": "number",
-      "unit": "mm",
-      "minimum": 1,
-      "maximum": 55,
-      "options": [],
       "option_labels": {},
-      "presets": [],
       "visible_when": {},
       "enabled_when": {},
       "des_symbol": "Le"
@@ -120,12 +77,7 @@
       "step": "encapsulant",
       "label": "塑封宽度",
       "control": "number",
-      "unit": "mm",
-      "minimum": 1,
-      "maximum": 55,
-      "options": [],
       "option_labels": {},
-      "presets": [],
       "visible_when": {},
       "enabled_when": {},
       "des_symbol": "We"
@@ -135,12 +87,7 @@
       "step": "encapsulant",
       "label": "塑封厚度",
       "control": "number",
-      "unit": "mm",
-      "minimum": 0.1,
-      "maximum": 5,
-      "options": [],
       "option_labels": {},
-      "presets": [],
       "visible_when": {},
       "enabled_when": {},
       "des_symbol": "te"
@@ -150,12 +97,7 @@
       "step": "die_flag_solder_mask",
       "label": "承载台长度",
       "control": "number",
-      "unit": "mm",
-      "minimum": 0.5,
-      "maximum": 40,
-      "options": [],
       "option_labels": {},
-      "presets": [],
       "visible_when": {},
       "enabled_when": {},
       "des_symbol": "Lf"
@@ -165,12 +107,7 @@
       "step": "die_flag_solder_mask",
       "label": "承载台宽度",
       "control": "number",
-      "unit": "mm",
-      "minimum": 0.5,
-      "maximum": 40,
-      "options": [],
       "option_labels": {},
-      "presets": [],
       "visible_when": {},
       "enabled_when": {},
       "des_symbol": "Wf"
@@ -180,12 +117,7 @@
       "step": "die_flag_solder_mask",
       "label": "阻焊层厚度",
       "control": "number",
-      "unit": "mm",
-      "minimum": 0.005,
-      "maximum": 0.3,
-      "options": [],
       "option_labels": {},
-      "presets": [],
       "visible_when": {},
       "enabled_when": {},
       "des_symbol": "tsm"
@@ -195,12 +127,7 @@
       "step": "die",
       "label": "芯片长度",
       "control": "number",
-      "unit": "mm",
-      "minimum": 0.2,
-      "maximum": 40,
-      "options": [],
       "option_labels": {},
-      "presets": [],
       "visible_when": {},
       "enabled_when": {},
       "des_symbol": "Ld"
@@ -210,12 +137,7 @@
       "step": "die",
       "label": "芯片宽度",
       "control": "number",
-      "unit": "mm",
-      "minimum": 0.2,
-      "maximum": 40,
-      "options": [],
       "option_labels": {},
-      "presets": [],
       "visible_when": {},
       "enabled_when": {},
       "des_symbol": "Wd"
@@ -225,12 +147,7 @@
       "step": "die",
       "label": "芯片厚度",
       "control": "number",
-      "unit": "mm",
-      "minimum": 0.03,
-      "maximum": 2,
-      "options": [],
       "option_labels": {},
-      "presets": [],
       "visible_when": {},
       "enabled_when": {},
       "des_symbol": "td"
@@ -240,12 +157,7 @@
       "step": "die",
       "label": "粘接层",
       "control": "number",
-      "unit": "mm",
-      "minimum": 0.005,
-      "maximum": 0.3,
-      "options": [],
       "option_labels": {},
-      "presets": [],
       "visible_when": {},
       "enabled_when": {},
       "des_symbol": "tda"
@@ -255,12 +167,7 @@
       "step": "die",
       "label": "芯片功率",
       "control": "number",
-      "unit": "W",
-      "minimum": 0,
-      "maximum": 1000,
-      "options": [],
       "option_labels": {},
-      "presets": [],
       "visible_when": {},
       "enabled_when": {},
       "des_symbol": "P"
@@ -270,12 +177,7 @@
       "step": "die",
       "label": "键合线总数",
       "control": "integer_spinbox",
-      "unit": null,
-      "minimum": 0,
-      "maximum": 1000,
-      "options": [],
       "option_labels": {},
-      "presets": [],
       "visible_when": {},
       "enabled_when": {},
       "des_symbol": "Nw"
@@ -285,12 +187,7 @@
       "step": "die",
       "label": "线阵列长度",
       "control": "number",
-      "unit": "mm",
-      "minimum": 1,
-      "maximum": 50,
-      "options": [],
       "option_labels": {},
-      "presets": [],
       "visible_when": {},
       "enabled_when": {},
       "des_symbol": "Lw"
@@ -300,12 +197,7 @@
       "step": "die",
       "label": "线阵列宽度",
       "control": "number",
-      "unit": "mm",
-      "minimum": 1,
-      "maximum": 50,
-      "options": [],
       "option_labels": {},
-      "presets": [],
       "visible_when": {},
       "enabled_when": {},
       "des_symbol": "Ww"
@@ -315,12 +207,7 @@
       "step": "die",
       "label": "线径",
       "control": "number",
-      "unit": "mm",
-      "minimum": 0.01,
-      "maximum": 0.2,
-      "options": [],
       "option_labels": {},
-      "presets": [],
       "visible_when": {},
       "enabled_when": {},
       "des_symbol": "dw"
@@ -330,12 +217,7 @@
       "step": "thermal_vias",
       "label": "包含热通孔",
       "control": "checkbox",
-      "unit": null,
-      "minimum": null,
-      "maximum": null,
-      "options": [],
       "option_labels": {},
-      "presets": [],
       "visible_when": {},
       "enabled_when": {},
       "des_symbol": null
@@ -345,12 +227,7 @@
       "step": "thermal_vias",
       "label": "通孔 X 方向数量",
       "control": "integer_spinbox",
-      "unit": null,
-      "minimum": 1,
-      "maximum": 30,
-      "options": [],
       "option_labels": {},
-      "presets": [],
       "visible_when": {
         "vias.enabled": true
       },
@@ -362,12 +239,7 @@
       "step": "thermal_vias",
       "label": "通孔 Y 方向数量",
       "control": "integer_spinbox",
-      "unit": null,
-      "minimum": 1,
-      "maximum": 30,
-      "options": [],
       "option_labels": {},
-      "presets": [],
       "visible_when": {
         "vias.enabled": true
       },
@@ -379,12 +251,7 @@
       "step": "thermal_vias",
       "label": "通孔间距",
       "control": "number",
-      "unit": "mm",
-      "minimum": 0.1,
-      "maximum": 3,
-      "options": [],
       "option_labels": {},
-      "presets": [],
       "visible_when": {
         "vias.enabled": true
       },
@@ -396,12 +263,7 @@
       "step": "thermal_vias",
       "label": "孔径",
       "control": "number",
-      "unit": "mm",
-      "minimum": 0.02,
-      "maximum": 1,
-      "options": [],
       "option_labels": {},
-      "presets": [],
       "visible_when": {
         "vias.enabled": true
       },
@@ -413,12 +275,7 @@
       "step": "thermal_vias",
       "label": "镀层厚度",
       "control": "number",
-      "unit": "mm",
-      "minimum": 0.001,
-      "maximum": 0.2,
-      "options": [],
       "option_labels": {},
-      "presets": [],
       "visible_when": {
         "vias.enabled": true
       },
@@ -430,12 +287,7 @@
       "step": "solder_balls",
       "label": "X 方向列数",
       "control": "integer_spinbox",
-      "unit": null,
-      "minimum": 1,
-      "maximum": 50,
-      "options": [],
       "option_labels": {},
-      "presets": [],
       "visible_when": {},
       "enabled_when": {},
       "des_symbol": "MD"
@@ -445,12 +297,7 @@
       "step": "solder_balls",
       "label": "Y 方向行数",
       "control": "integer_spinbox",
-      "unit": null,
-      "minimum": 1,
-      "maximum": 50,
-      "options": [],
       "option_labels": {},
-      "presets": [],
       "visible_when": {},
       "enabled_when": {},
       "des_symbol": "ME"
@@ -460,12 +307,7 @@
       "step": "solder_balls",
       "label": "间距",
       "control": "number",
-      "unit": "mm",
-      "minimum": 0.2,
-      "maximum": 2,
-      "options": [],
       "option_labels": {},
-      "presets": [],
       "visible_when": {},
       "enabled_when": {},
       "des_symbol": "e"
@@ -475,12 +317,7 @@
       "step": "solder_balls",
       "label": "球径",
       "control": "number",
-      "unit": "mm",
-      "minimum": 0.05,
-      "maximum": 1.5,
-      "options": [],
       "option_labels": {},
-      "presets": [],
       "visible_when": {},
       "enabled_when": {},
       "des_symbol": "b"
@@ -490,12 +327,7 @@
       "step": "solder_balls",
       "label": "离板高度",
       "control": "number",
-      "unit": "mm",
-      "minimum": 0.05,
-      "maximum": 1.5,
-      "options": [],
       "option_labels": {},
-      "presets": [],
       "visible_when": {},
       "enabled_when": {},
       "des_symbol": "A1"
@@ -505,12 +337,7 @@
       "step": "backside_spreader",
       "label": "启用背面扩散片",
       "control": "checkbox",
-      "unit": null,
-      "minimum": null,
-      "maximum": null,
-      "options": [],
       "option_labels": {},
-      "presets": [],
       "visible_when": {},
       "enabled_when": {},
       "des_symbol": null
@@ -520,12 +347,7 @@
       "step": "backside_spreader",
       "label": "扩散片长度",
       "control": "number",
-      "unit": "mm",
-      "minimum": 0.001,
-      "maximum": 60,
-      "options": [],
       "option_labels": {},
-      "presets": [],
       "visible_when": {
         "spreader.enabled": true
       },
@@ -537,12 +359,7 @@
       "step": "backside_spreader",
       "label": "宽度",
       "control": "number",
-      "unit": "mm",
-      "minimum": 0.001,
-      "maximum": 60,
-      "options": [],
       "option_labels": {},
-      "presets": [],
       "visible_when": {
         "spreader.enabled": true
       },
@@ -554,12 +371,7 @@
       "step": "backside_spreader",
       "label": "厚度",
       "control": "number",
-      "unit": "mm",
-      "minimum": 0.001,
-      "maximum": 60,
-      "options": [],
       "option_labels": {},
-      "presets": [],
       "visible_when": {
         "spreader.enabled": true
       },
@@ -571,12 +383,7 @@
       "step": "backside_spreader",
       "label": "底层走线开口长度",
       "control": "number",
-      "unit": "mm",
-      "minimum": 0.001,
-      "maximum": 60,
-      "options": [],
       "option_labels": {},
-      "presets": [],
       "visible_when": {
         "spreader.enabled": true
       },
@@ -588,12 +395,7 @@
       "step": "backside_spreader",
       "label": "底层走线开口宽度",
       "control": "number",
-      "unit": "mm",
-      "minimum": 0.001,
-      "maximum": 60,
-      "options": [],
       "option_labels": {},
-      "presets": [],
       "visible_when": {
         "spreader.enabled": true
       },
@@ -604,14 +406,8 @@
       "key": "grid.enabled",
       "label": "局部网格",
       "control": "checkbox",
-      "default": true,
       "step": "modeling",
-      "unit": null,
-      "minimum": null,
-      "maximum": null,
-      "options": [],
       "option_labels": {},
-      "presets": [],
       "visible_when": {},
       "enabled_when": {},
       "des_symbol": null,
@@ -621,18 +417,8 @@
       "key": "grid.density",
       "label": "网格密度",
       "control": "combobox",
-      "default": "fine",
       "step": "modeling",
-      "unit": null,
-      "minimum": null,
-      "maximum": null,
-      "options": [
-        "coarse",
-        "medium",
-        "fine"
-      ],
       "option_labels": {},
-      "presets": [],
       "visible_when": {
         "grid.enabled": true
       },
@@ -644,17 +430,8 @@
       "key": "bond_wire.modeling",
       "label": "键合线建模方式",
       "control": "combobox",
-      "default": "orthotropicCuboid",
       "step": "modeling",
-      "unit": null,
-      "minimum": null,
-      "maximum": null,
-      "options": [
-        "isotropicCuboid",
-        "orthotropicCuboid"
-      ],
       "option_labels": {},
-      "presets": [],
       "visible_when": {},
       "enabled_when": {},
       "des_symbol": null
@@ -663,34 +440,18 @@
       "key": "substrate.layers",
       "label": "基板层数",
       "control": "combobox",
-      "default": "2-Layer",
       "step": "package_setup",
-      "unit": null,
-      "minimum": null,
-      "maximum": null,
-      "options": [
-        "2-Layer",
-        "4-Layer"
-      ],
       "option_labels": {},
-      "presets": [],
       "visible_when": {},
       "enabled_when": {},
-      "des_symbol": null,
-      "creation_option": true
+      "des_symbol": null
     },
     {
       "key": "flag.coverage",
       "label": "承载台金属覆盖率",
       "control": "number",
-      "default": null,
       "step": "die_flag_solder_mask",
-      "unit": "%",
-      "minimum": 1,
-      "maximum": 100,
-      "options": [],
       "option_labels": {},
-      "presets": [],
       "visible_when": {},
       "enabled_when": {},
       "des_symbol": "cf"
@@ -699,37 +460,27 @@
       "key": "metal.layers",
       "label": "金属层表",
       "control": "table",
-      "default": null,
       "step": "metal_layers",
-      "unit": null,
-      "minimum": null,
-      "maximum": null,
-      "options": [],
       "option_labels": {},
-      "presets": [],
       "visible_when": {},
       "enabled_when": {},
       "des_symbol": null,
       "columns": [
         {
           "key": "depth",
-          "label": "层深 zn (mm)",
-          "type": "number"
+          "label": "层深 zn (mm)"
         },
         {
           "key": "thickness",
-          "label": "层厚 tzn (mm)",
-          "type": "number"
+          "label": "层厚 tzn (mm)"
         },
         {
           "key": "coverage",
-          "label": "覆盖率 %",
-          "type": "number"
+          "label": "覆盖率 %"
         },
         {
           "key": "disconnect",
-          "label": "断开通孔",
-          "type": "checkbox"
+          "label": "断开通孔"
         }
       ]
     },
@@ -737,18 +488,8 @@
       "key": "vias.modeling",
       "label": "通孔建模方式",
       "control": "combobox",
-      "default": "discreteCuboids",
       "step": "modeling",
-      "unit": null,
-      "minimum": null,
-      "maximum": null,
-      "options": [
-        "discreteCuboids",
-        "isotropicCuboid",
-        "orthotropicCuboid"
-      ],
       "option_labels": {},
-      "presets": [],
       "visible_when": {
         "vias.enabled": true
       },
@@ -758,15 +499,9 @@
     {
       "key": "slug.enabled",
       "label": "包含嵌入式散热块",
-      "default": false,
       "step": "slug",
       "control": "checkbox",
-      "unit": null,
-      "minimum": null,
-      "maximum": null,
-      "options": [],
       "option_labels": {},
-      "presets": [],
       "visible_when": {},
       "enabled_when": {},
       "des_symbol": null
@@ -774,15 +509,9 @@
     {
       "key": "slug.length",
       "label": "散热块长度",
-      "default": null,
       "step": "slug",
       "control": "number",
-      "unit": "mm",
-      "minimum": null,
-      "maximum": null,
-      "options": [],
       "option_labels": {},
-      "presets": [],
       "visible_when": {
         "slug.enabled": true
       },
@@ -792,15 +521,9 @@
     {
       "key": "slug.width",
       "label": "宽度",
-      "default": null,
       "step": "slug",
       "control": "number",
-      "unit": "mm",
-      "minimum": null,
-      "maximum": null,
-      "options": [],
       "option_labels": {},
-      "presets": [],
       "visible_when": {
         "slug.enabled": true
       },
@@ -810,15 +533,9 @@
     {
       "key": "slug.thickness",
       "label": "厚度",
-      "default": null,
       "step": "slug",
       "control": "number",
-      "unit": "mm",
-      "minimum": null,
-      "maximum": null,
-      "options": [],
       "option_labels": {},
-      "presets": [],
       "visible_when": {
         "slug.enabled": true
       },
@@ -828,15 +545,9 @@
     {
       "key": "slug.diameter",
       "label": "顶部直径",
-      "default": null,
       "step": "slug",
       "control": "number",
-      "unit": "mm",
-      "minimum": null,
-      "maximum": null,
-      "options": [],
       "option_labels": {},
-      "presets": [],
       "visible_when": {
         "slug.enabled": true
       },
@@ -846,15 +557,9 @@
     {
       "key": "slug.foot_length",
       "label": "外轮廓长度",
-      "default": null,
       "step": "slug",
       "control": "number",
-      "unit": "mm",
-      "minimum": null,
-      "maximum": null,
-      "options": [],
       "option_labels": {},
-      "presets": [],
       "visible_when": {
         "slug.enabled": true
       },
@@ -864,15 +569,9 @@
     {
       "key": "slug.foot_width",
       "label": "外轮廓宽度",
-      "default": null,
       "step": "slug",
       "control": "number",
-      "unit": "mm",
-      "minimum": null,
-      "maximum": null,
-      "options": [],
       "option_labels": {},
-      "presets": [],
       "visible_when": {
         "slug.enabled": true
       },
@@ -882,15 +581,9 @@
     {
       "key": "slug.offset",
       "label": "顶部台阶高度",
-      "default": null,
       "step": "slug",
       "control": "number",
-      "unit": "mm",
-      "minimum": null,
-      "maximum": null,
-      "options": [],
       "option_labels": {},
-      "presets": [],
       "visible_when": {
         "slug.enabled": true
       },
@@ -900,15 +593,9 @@
     {
       "key": "slug.clearance",
       "label": "支脚间隙",
-      "default": null,
       "step": "slug",
       "control": "number",
-      "unit": "mm",
-      "minimum": null,
-      "maximum": null,
-      "options": [],
       "option_labels": {},
-      "presets": [],
       "visible_when": {
         "slug.enabled": true
       },
@@ -918,15 +605,9 @@
     {
       "key": "slug.adhesive_enabled",
       "label": "支脚下包含粘接层",
-      "default": false,
       "step": "slug",
       "control": "checkbox",
-      "unit": null,
-      "minimum": null,
-      "maximum": null,
-      "options": [],
       "option_labels": {},
-      "presets": [],
       "visible_when": {
         "slug.enabled": true
       },
@@ -936,7 +617,6 @@
     {
       "key": "bga.solder_removal_enabled",
       "label": "主阵列中心去球",
-      "default": false,
       "step": "solder_removal",
       "control": "checkbox",
       "standalone": true
@@ -944,48 +624,38 @@
     {
       "key": "bga.populated_rows",
       "label": "外围满布行数",
-      "default": null,
       "step": "solder_removal",
       "control": "integer",
-      "des_symbol": "MEp",
-      "minimum": 0
+      "des_symbol": "MEp"
     },
     {
       "key": "bga.populated_columns",
       "label": "外围满布列数",
-      "default": null,
       "step": "solder_removal",
       "control": "integer",
-      "des_symbol": "MDp",
-      "minimum": 0
+      "des_symbol": "MDp"
     },
     {
       "key": "bga.removal_rows",
       "label": "中心去球行数",
-      "default": null,
       "step": "solder_removal",
       "control": "hidden"
     },
     {
       "key": "bga.removal_columns",
       "label": "中心去球列数",
-      "default": null,
       "step": "solder_removal",
       "control": "hidden"
     },
     {
       "key": "bga.omitted_cells",
       "label": "显式去球",
-      "default": [],
       "step": "solder_removal",
-      "control": "removal_matrix",
-      "rows_key": "bga.rows",
-      "columns_key": "bga.columns"
+      "control": "removal_matrix"
     },
     {
       "key": "bga.center_solder_enabled",
       "label": "包含中央焊球",
-      "default": false,
       "step": "central_solder_balls",
       "control": "checkbox",
       "standalone": true
@@ -993,25 +663,20 @@
     {
       "key": "bga.center_solder_rows",
       "label": "中央焊球行数",
-      "default": null,
       "step": "central_solder_balls",
       "control": "integer",
-      "des_symbol": "MEc",
-      "minimum": 0
+      "des_symbol": "MEc"
     },
     {
       "key": "bga.center_solder_columns",
       "label": "中央焊球列数",
-      "default": null,
       "step": "central_solder_balls",
       "control": "integer",
-      "des_symbol": "MDc",
-      "minimum": 0
+      "des_symbol": "MDc"
     },
     {
       "key": "bga.center_staggered",
       "label": "中央焊球交错",
-      "default": false,
       "step": "central_solder_balls",
       "control": "checkbox",
       "standalone": true
@@ -1019,7 +684,6 @@
     {
       "key": "bga.staggered",
       "label": "交错主阵列",
-      "default": false,
       "step": "solder_balls",
       "control": "checkbox",
       "standalone": true
@@ -1027,7 +691,6 @@
     {
       "key": "bga.ball_map_enabled",
       "label": "使用焊球坐标表",
-      "default": false,
       "step": "solder_balls",
       "control": "checkbox",
       "standalone": true
@@ -1035,39 +698,28 @@
     {
       "key": "bga.ball_map",
       "label": "焊球坐标表",
-      "default": [],
       "step": "solder_balls",
       "control": "table",
-      "unit": "mm",
       "columns": [
         {
           "key": "id",
-          "label": "ID",
-          "type": "text"
+          "label": "ID"
         },
         {
           "key": "x",
-          "label": "X",
-          "type": "number"
+          "label": "X"
         },
         {
           "key": "y",
-          "label": "Y",
-          "type": "number"
+          "label": "Y"
         }
       ]
     },
     {
       "key": "bga.representation",
       "label": "焊球建模方式",
-      "default": "equivalent",
       "step": "modeling",
       "control": "combobox",
-      "options": [
-        "discrete",
-        "equivalent",
-        "isotropic"
-      ],
       "option_labels": {
         "discrete": "Discrete Cuboids",
         "equivalent": "Orthotropic Cuboid",
@@ -1077,12 +729,6 @@
     {
       "key": "vias.configuration",
       "label": "通孔去除配置",
-      "default": {
-        "removal_enabled": false,
-        "removal_rows": 0,
-        "removal_columns": 0,
-        "omitted_cells": []
-      },
       "step": "thermal_vias",
       "control": "object",
       "visible_when": {
@@ -1099,7 +745,6 @@
           "key": "removal_rows",
           "label": "中央去除行数",
           "control": "integer",
-          "minimum": 0,
           "visible_when": {
             "removal_enabled": true
           }
@@ -1108,7 +753,6 @@
           "key": "removal_columns",
           "label": "中央去除列数",
           "control": "integer",
-          "minimum": 0,
           "visible_when": {
             "removal_enabled": true
           }
@@ -1117,8 +761,6 @@
           "key": "omitted_cells",
           "label": "显式去孔",
           "control": "removal_matrix",
-          "rows_key": "vias.rows",
-          "columns_key": "vias.columns",
           "visible_when": {
             "removal_enabled": true
           }
@@ -1129,233 +771,87 @@
       "key": "trace.solid_thickness",
       "label": "内层金属厚度",
       "control": "number",
-      "default": 0.036,
-      "unit": "mm",
-      "minimum": 0.001,
-      "creation_option": true,
       "step": "package_setup",
       "visible_when": {
         "substrate.layers": "4-Layer"
-      },
-      "creation_only": true
+      }
     }
   ],
   "material_selections": [
     {
-      "group_id": "group-substrate",
       "step": "package_substrate",
       "label": "基板材料",
-      "default": "bt",
-      "options": [
-        "*"
-      ],
-      "visible_when": {}
+      "visible_when": {},
+      "group_id": "group-substrate"
     },
     {
-      "group_id": "group-die",
       "step": "die",
       "label": "芯片材料",
-      "default": "silicon",
-      "options": [
-        "silicon"
-      ],
-      "visible_when": {}
+      "visible_when": {},
+      "group_id": "group-die"
     },
     {
-      "group_id": "group-die-attach",
       "step": "die",
       "label": "芯片粘接材料",
-      "default": "ablestik-8510aa",
-      "options": [
-        "*"
-      ],
-      "visible_when": {}
+      "visible_when": {},
+      "group_id": "group-die-attach"
     },
     {
-      "group_id": "group-encapsulant",
       "step": "encapsulant",
       "label": "塑封材料",
-      "default": "epoxy-mold",
-      "options": [
-        "*"
-      ],
-      "visible_when": {}
+      "visible_when": {},
+      "group_id": "group-encapsulant"
     },
     {
-      "group_id": "group-bond-wires",
       "step": "die",
       "label": "键合线材料",
-      "default": "gold",
-      "options": [
-        "*"
-      ],
-      "visible_when": {}
+      "visible_when": {},
+      "group_id": "group-bond-wires"
     },
     {
-      "group_id": "group-solder-mask",
       "step": "die_flag_solder_mask",
       "label": "阻焊层材料",
-      "default": "solder-mask",
-      "options": [
-        "*"
-      ],
-      "visible_when": {}
+      "visible_when": {},
+      "group_id": "group-solder-mask"
     },
     {
-      "group_id": "group-bga-solder",
       "step": "solder_balls",
       "label": "BGA 焊球材料",
-      "default": "solder-sn63",
-      "options": [
-        "*"
-      ],
-      "visible_when": {}
+      "visible_when": {},
+      "group_id": "group-bga-solder"
     },
     {
-      "group_id": "group-backside-spreader",
       "step": "backside_spreader",
       "label": "扩散片材料",
-      "default": "copper",
-      "options": [
-        "*"
-      ],
       "visible_when": {
         "spreader.enabled": true
-      }
+      },
+      "group_id": "group-backside-spreader"
     },
     {
-      "group_id": "group-traces",
       "step": "metal_layers",
       "label": "金属层材料",
-      "default": "copper",
-      "options": [
-        "*"
-      ],
-      "visible_when": {}
+      "visible_when": {},
+      "group_id": "group-traces"
     },
     {
-      "group_id": "group-slug",
       "label": "散热块材料",
-      "default": "copper",
       "step": "slug",
-      "options": [
-        "*"
-      ],
       "visible_when": {
         "slug.enabled": true
-      }
+      },
+      "group_id": "group-slug"
     },
     {
-      "group_id": "group-slug-adhesive",
       "label": "支脚粘接材料",
-      "default": "stiffener-adhesive",
       "step": "slug",
-      "options": [
-        "*"
-      ],
       "visible_when": {
         "slug.enabled": true,
         "slug.adhesive_enabled": true
-      }
+      },
+      "group_id": "group-slug-adhesive"
     }
   ],
-  "baseline_materials": [
-    {
-      "id": "wirebond-trace-top",
-      "name": "Trace0",
-      "conductivity": {
-        "x": 115.64,
-        "y": 115.64,
-        "z": 115.64
-      },
-      "density": 4009.0,
-      "specific_heat": 562.8199052132702,
-      "color": "#C46A32",
-      "source": "PackStudio built-in transcription of reviewed FloTHERM PACK data"
-    },
-    {
-      "id": "wirebond-trace-bottom",
-      "name": "Trace5",
-      "conductivity": {
-        "x": 38.68,
-        "y": 38.68,
-        "z": 38.68
-      },
-      "density": 2603.0,
-      "specific_heat": 737.1167883211679,
-      "color": "#B96331",
-      "source": "PackStudio built-in transcription of reviewed FloTHERM PACK data"
-    },
-    {
-      "id": "wirebond-die-flag",
-      "name": "die_flag",
-      "conductivity": {
-        "x": 231.08,
-        "y": 231.08,
-        "z": 231.08
-      },
-      "density": 6118.0,
-      "specific_heat": 451.583850931677,
-      "color": "#B96331",
-      "source": "PackStudio built-in transcription of reviewed FloTHERM PACK data"
-    },
-    {
-      "id": "wirebond-via",
-      "name": "Via",
-      "conductivity": {
-        "x": 138.6,
-        "y": 138.6,
-        "z": 138.6
-      },
-      "density": 3214.8,
-      "specific_heat": 385.0,
-      "color": "#C46A32",
-      "source": "PackStudio built-in transcription of reviewed FloTHERM PACK data"
-    },
-    {
-      "id": "wirebond-bondwire-x",
-      "name": "bondwire_1",
-      "conductivity": {
-        "x": 47.4553300989311,
-        "y": 0.68,
-        "z": 47.4553300989311
-      },
-      "density": 4588.633245731125,
-      "specific_heat": 382.3576684058402,
-      "color": "#D9A928",
-      "source": "PackStudio built-in transcription of reviewed FloTHERM PACK data"
-    },
-    {
-      "id": "wirebond-bondwire-y",
-      "name": "bondwire_2",
-      "conductivity": {
-        "x": 0.68,
-        "y": 47.4553300989311,
-        "z": 47.4553300989311
-      },
-      "density": 4588.633245731125,
-      "specific_heat": 382.3576684058402,
-      "color": "#D9A928",
-      "source": "PackStudio built-in transcription of reviewed FloTHERM PACK data"
-    }
-  ],
-  "initialization": [],
-  "layer_stack": {
-    "when": {
-      "substrate.layers": "4-Layer"
-    },
-    "table": "metal.layers",
-    "height": "substrate.thickness",
-    "inner_thickness": "trace.solid_thickness",
-    "top_thickness": "trace.top_thickness",
-    "bottom_thickness": "trace.bottom_thickness"
-  },
-  "surface_layers": {
-    "table": "metal.layers",
-    "height": "substrate.thickness",
-    "top_thickness": "trace.top_thickness",
-    "bottom_thickness": "trace.bottom_thickness"
-  },
   "steps": [
     {
       "key": "summary",

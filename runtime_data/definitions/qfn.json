@@ -1,0 +1,384 @@
+{
+  "schema_version": "packstudio.definition/v1",
+  "template_id": "qfn",
+  "fields": [
+    {
+      "key": "footprint.size",
+      "default": "QFN_12X12_100",
+      "unit": null,
+      "options": [],
+      "options_source": "presets",
+      "creation_only": true,
+      "type": "footprint"
+    },
+    {
+      "key": "package.length",
+      "unit": "mm",
+      "options": [],
+      "type": "number"
+    },
+    {
+      "key": "package.width",
+      "unit": "mm",
+      "options": [],
+      "type": "number"
+    },
+    {
+      "key": "package.standoff",
+      "unit": "mm",
+      "options": [],
+      "type": "number"
+    },
+    {
+      "key": "encapsulant.thickness",
+      "unit": "mm",
+      "options": [],
+      "type": "number"
+    },
+    {
+      "key": "die.length",
+      "unit": "mm",
+      "options": [],
+      "type": "number"
+    },
+    {
+      "key": "die.width",
+      "unit": "mm",
+      "options": [],
+      "type": "number"
+    },
+    {
+      "key": "die.thickness",
+      "unit": "mm",
+      "options": [],
+      "type": "number"
+    },
+    {
+      "key": "die.attach",
+      "unit": "mm",
+      "options": [],
+      "type": "number"
+    },
+    {
+      "key": "die.power",
+      "unit": "W",
+      "options": [],
+      "type": "number"
+    },
+    {
+      "key": "pad.length",
+      "unit": "mm",
+      "options": [],
+      "type": "number"
+    },
+    {
+      "key": "pad.width",
+      "unit": "mm",
+      "options": [],
+      "type": "number"
+    },
+    {
+      "key": "pad.exposed_length",
+      "unit": "mm",
+      "options": [],
+      "type": "number"
+    },
+    {
+      "key": "pad.exposed_width",
+      "unit": "mm",
+      "options": [],
+      "type": "number"
+    },
+    {
+      "key": "leads.count_x",
+      "unit": null,
+      "options": [],
+      "type": "integer_spinbox"
+    },
+    {
+      "key": "leads.count_y",
+      "unit": null,
+      "options": [],
+      "type": "integer_spinbox"
+    },
+    {
+      "key": "leads.pitch_x",
+      "unit": "mm",
+      "options": [],
+      "type": "number"
+    },
+    {
+      "key": "leads.pitch_y",
+      "unit": "mm",
+      "options": [],
+      "type": "number"
+    },
+    {
+      "key": "leads.width",
+      "unit": "mm",
+      "options": [],
+      "type": "number"
+    },
+    {
+      "key": "leads.length",
+      "unit": "mm",
+      "options": [],
+      "type": "number"
+    },
+    {
+      "key": "leads.exposed_thickness",
+      "unit": "mm",
+      "options": [],
+      "type": "number"
+    },
+    {
+      "key": "leads.thickness",
+      "unit": "mm",
+      "options": [],
+      "type": "number"
+    },
+    {
+      "key": "leads.etch",
+      "unit": "mm",
+      "options": [],
+      "type": "number"
+    },
+    {
+      "key": "bond_wire.length_x",
+      "unit": "mm",
+      "options": [],
+      "type": "number"
+    },
+    {
+      "key": "bond_wire.length_y",
+      "unit": "mm",
+      "options": [],
+      "type": "number"
+    },
+    {
+      "key": "bond_wire.diameter",
+      "unit": "mm",
+      "options": [],
+      "type": "number"
+    },
+    {
+      "key": "thermal_land.enabled",
+      "unit": null,
+      "options": [],
+      "type": "checkbox"
+    },
+    {
+      "key": "thermal_land.thickness",
+      "unit": "mm",
+      "options": [],
+      "type": "number"
+    },
+    {
+      "key": "vias.enabled",
+      "unit": null,
+      "options": [],
+      "type": "checkbox"
+    },
+    {
+      "key": "vias.length",
+      "unit": "mm",
+      "options": [],
+      "type": "number"
+    },
+    {
+      "key": "vias.diameter",
+      "unit": "mm",
+      "options": [],
+      "type": "number"
+    },
+    {
+      "key": "vias.plating",
+      "unit": "mm",
+      "options": [],
+      "type": "number"
+    },
+    {
+      "key": "vias.pitch",
+      "unit": "mm",
+      "options": [],
+      "type": "number"
+    },
+    {
+      "key": "vias.columns",
+      "unit": null,
+      "options": [],
+      "type": "integer_spinbox"
+    },
+    {
+      "key": "vias.rows",
+      "unit": null,
+      "options": [],
+      "type": "integer_spinbox"
+    },
+    {
+      "key": "grid.enabled",
+      "default": true,
+      "unit": null,
+      "options": [],
+      "type": "checkbox"
+    },
+    {
+      "key": "grid.density",
+      "default": "fine",
+      "unit": null,
+      "options": [
+        "coarse",
+        "medium",
+        "fine"
+      ],
+      "type": "combobox"
+    },
+    {
+      "key": "leads.modeling",
+      "default": "discreteLeads",
+      "unit": null,
+      "options": [
+        "discreteLeads",
+        "orthotropicCuboid"
+      ],
+      "type": "combobox"
+    },
+    {
+      "key": "bond_wire.steps",
+      "default": 1,
+      "unit": null,
+      "options": [],
+      "type": "integer_spinbox"
+    },
+    {
+      "key": "vias.modeling",
+      "default": "discrete",
+      "unit": null,
+      "options": [
+        "discrete",
+        "lumped"
+      ],
+      "type": "combobox"
+    },
+    {
+      "key": "vias.configuration",
+      "default": {
+        "removal_enabled": false,
+        "removal_rows": 0,
+        "removal_columns": 0,
+        "omitted_cells": []
+      },
+      "type": "object",
+      "fields": [
+        {
+          "key": "removal_enabled",
+          "type": "checkbox"
+        },
+        {
+          "key": "removal_rows",
+          "type": "integer"
+        },
+        {
+          "key": "removal_columns",
+          "type": "integer"
+        },
+        {
+          "key": "omitted_cells",
+          "rows_key": "vias.rows",
+          "columns_key": "vias.columns",
+          "type": "removal_matrix"
+        }
+      ]
+    }
+  ],
+  "origin": "Reviewed PackStudio model specification; mapped source values explicitly referenced",
+  "baseline_materials": [
+    {
+      "id": "qfn-bondwire-x",
+      "name": "bondwire-x",
+      "conductivity": {
+        "x": 18.6187785190195,
+        "y": 0.88,
+        "z": 18.6187785190195
+      },
+      "density": 3049.250069781266,
+      "specific_heat": 50.8380029316774,
+      "color": "#D9A928",
+      "source": "PackStudio built-in transcription of reviewed FloTHERM PACK data",
+      "conduct_type": 2
+    },
+    {
+      "id": "qfn-bondwire-y",
+      "name": "bondwire-y",
+      "conductivity": {
+        "x": 0.88,
+        "y": 18.6187785190195,
+        "z": 18.6187785190195
+      },
+      "density": 3049.250069781266,
+      "specific_heat": 50.8380029316774,
+      "color": "#D9A928",
+      "source": "PackStudio built-in transcription of reviewed FloTHERM PACK data",
+      "conduct_type": 2
+    }
+  ],
+  "initialization": [],
+  "material_selections": [
+    {
+      "group_id": "group-encapsulant",
+      "default": "eme-7730lf",
+      "options": [
+        "*"
+      ]
+    },
+    {
+      "group_id": "group-die",
+      "default": "silicon",
+      "options": [
+        "silicon"
+      ]
+    },
+    {
+      "group_id": "group-die-attach",
+      "default": "dieattach-2600bt",
+      "options": [
+        "*"
+      ]
+    },
+    {
+      "group_id": "group-exposed-pad",
+      "default": "leadframe-c194",
+      "options": [
+        "*"
+      ]
+    },
+    {
+      "group_id": "group-lead-frame",
+      "default": "leadframe-c194",
+      "options": [
+        "*"
+      ]
+    },
+    {
+      "group_id": "group-bond-wires",
+      "default": "gold",
+      "options": [
+        "*"
+      ]
+    },
+    {
+      "group_id": "group-solder",
+      "default": "solder-sn63",
+      "options": [
+        "*"
+      ]
+    },
+    {
+      "group_id": "group-thermal-land",
+      "default": "copper",
+      "options": [
+        "*"
+      ]
+    }
+  ]
+}

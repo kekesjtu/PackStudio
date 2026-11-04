@@ -7,6 +7,7 @@ namespace PackStudio.Desktop.Tests;
 static class TableEditorChecks
 {
     static int covered;
+    static bool issueCovered;
 
     // 表格编辑器：没有选中行时删除按钮禁用，添加与删除都要写回数据。
     public static async Task Run(MainWindow window, ListBox steps, StackPanel fields, Workspace workspace)
@@ -36,6 +37,24 @@ static class TableEditorChecks
                 throw new Exception(step.Key + ": 删除选中行未写回数据");
             // 表格编辑结束会排队一次写回，等它落盘再继续，避免生成期间参数变动。
             await Task.Delay(50);
+            if (!issueCovered && grid.DataContext is ParameterField { Key: "metal.layers", Value: JArray original } field && original.Count > 0)
+            {
+                var invalid = (JArray)original.DeepClone();
+                invalid[0]!["thickness"] = -1;
+                field.Set(invalid);
+                await workspace.GenerateAsync();
+                var issue = workspace.Issues.FirstOrDefault(i => i.ParameterPaths.Contains("metal.layers[0].thickness"));
+                if (issue == null || !field.HasError || workspace.CanExport) throw new Exception("table cell did not receive a structured issue");
+                ((ListBox)window.FindName("IssuesList")).SelectedItem = issue;
+                window.UpdateLayout();
+                var located = Descendants<DataGrid>(fields).First();
+                if (located.SelectedIndex != 0 || located.CurrentColumn?.SortMemberPath != "thickness")
+                    throw new Exception("table issue did not locate its row and column");
+                field.Set(original);
+                await workspace.GenerateAsync();
+                if (!workspace.CanExport) throw new Exception("table correction did not restore export");
+                issueCovered = true;
+            }
             covered++;
             return;
         }
@@ -45,6 +64,7 @@ static class TableEditorChecks
     {
         if (covered == 0)
             throw new Exception("没有任何模板覆盖表格的添加与删除");
+        if (!issueCovered) throw new Exception("no metal layer cell issue was located");
     }
 
     // 表格既可能写入向导字段（金属层、层表），也可能写入 BGA 配置（焊球坐标表）。

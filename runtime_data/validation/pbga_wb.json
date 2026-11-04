@@ -1,0 +1,572 @@
+{
+  "schema_version": "packstudio.validation/v1",
+  "template_id": "pbga_wb",
+  "fields": [
+    {
+      "key": "footprint.size"
+    },
+    {
+      "key": "package.length",
+      "minimum": 5,
+      "maximum": 60
+    },
+    {
+      "key": "package.width",
+      "minimum": 5,
+      "maximum": 60
+    },
+    {
+      "key": "substrate.thickness",
+      "minimum": 0.1,
+      "maximum": 3
+    },
+    {
+      "key": "trace.top_thickness",
+      "minimum": 0.001,
+      "maximum": 0.2
+    },
+    {
+      "key": "trace.bottom_thickness",
+      "minimum": 0.001,
+      "maximum": 0.2
+    },
+    {
+      "key": "encapsulant.length",
+      "minimum": 1,
+      "maximum": 55
+    },
+    {
+      "key": "encapsulant.width",
+      "minimum": 1,
+      "maximum": 55
+    },
+    {
+      "key": "encapsulant.thickness",
+      "minimum": 0.1,
+      "maximum": 5
+    },
+    {
+      "key": "flag.length",
+      "minimum": 0.5,
+      "maximum": 40
+    },
+    {
+      "key": "flag.width",
+      "minimum": 0.5,
+      "maximum": 40
+    },
+    {
+      "key": "solder_mask.thickness",
+      "minimum": 0.005,
+      "maximum": 0.3
+    },
+    {
+      "key": "die.length",
+      "minimum": 0.2,
+      "maximum": 40
+    },
+    {
+      "key": "die.width",
+      "minimum": 0.2,
+      "maximum": 40
+    },
+    {
+      "key": "die.thickness",
+      "minimum": 0.03,
+      "maximum": 2
+    },
+    {
+      "key": "die.attach",
+      "minimum": 0.005,
+      "maximum": 0.3
+    },
+    {
+      "key": "die.power",
+      "minimum": 0,
+      "maximum": 1000
+    },
+    {
+      "key": "bond_wire.total",
+      "minimum": 0,
+      "maximum": 1000
+    },
+    {
+      "key": "bond_wire.extent_length",
+      "minimum": 1,
+      "maximum": 50
+    },
+    {
+      "key": "bond_wire.extent_width",
+      "minimum": 1,
+      "maximum": 50
+    },
+    {
+      "key": "bond_wire.diameter",
+      "minimum": 0.01,
+      "maximum": 0.2
+    },
+    {
+      "key": "vias.enabled"
+    },
+    {
+      "key": "vias.columns",
+      "minimum": 1,
+      "maximum": 30,
+      "active_when": {
+        "all": [
+          {
+            "vias.enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "key": "vias.rows",
+      "minimum": 1,
+      "maximum": 30,
+      "active_when": {
+        "all": [
+          {
+            "vias.enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "key": "vias.pitch",
+      "minimum": 0.1,
+      "maximum": 3,
+      "active_when": {
+        "all": [
+          {
+            "vias.enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "key": "vias.diameter",
+      "minimum": 0.02,
+      "maximum": 1,
+      "active_when": {
+        "all": [
+          {
+            "vias.enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "key": "vias.plating",
+      "minimum": 0.001,
+      "maximum": 0.2,
+      "active_when": {
+        "all": [
+          {
+            "vias.enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "key": "bga.columns",
+      "minimum": 1,
+      "maximum": 50
+    },
+    {
+      "key": "bga.rows",
+      "minimum": 1,
+      "maximum": 50
+    },
+    {
+      "key": "bga.pitch",
+      "minimum": 0.2,
+      "maximum": 2
+    },
+    {
+      "key": "bga.diameter",
+      "minimum": 0.05,
+      "maximum": 1.5
+    },
+    {
+      "key": "bga.height",
+      "minimum": 0.05,
+      "maximum": 1.5
+    },
+    {
+      "key": "spreader.enabled"
+    },
+    {
+      "key": "spreader.length",
+      "minimum": 0.001,
+      "maximum": 60,
+      "active_when": {
+        "all": [
+          {
+            "spreader.enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "key": "spreader.width",
+      "minimum": 0.001,
+      "maximum": 60,
+      "active_when": {
+        "all": [
+          {
+            "spreader.enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "key": "spreader.thickness",
+      "minimum": 0.001,
+      "maximum": 60,
+      "active_when": {
+        "all": [
+          {
+            "spreader.enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "key": "spreader.hole_length",
+      "minimum": 0.001,
+      "maximum": 60,
+      "active_when": {
+        "all": [
+          {
+            "spreader.enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "key": "spreader.hole_width",
+      "minimum": 0.001,
+      "maximum": 60,
+      "active_when": {
+        "all": [
+          {
+            "spreader.enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "key": "grid.enabled"
+    },
+    {
+      "key": "grid.density",
+      "active_when": {
+        "all": [
+          {
+            "grid.enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "key": "bond_wire.modeling"
+    },
+    {
+      "key": "substrate.layers"
+    },
+    {
+      "key": "flag.coverage",
+      "minimum": 1,
+      "maximum": 100
+    },
+    {
+      "key": "metal.layers",
+      "columns": [
+        {
+          "key": "depth"
+        },
+        {
+          "key": "thickness"
+        },
+        {
+          "key": "coverage"
+        },
+        {
+          "key": "disconnect"
+        }
+      ]
+    },
+    {
+      "key": "vias.modeling",
+      "active_when": {
+        "all": [
+          {
+            "vias.enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "key": "slug.enabled"
+    },
+    {
+      "key": "slug.length",
+      "active_when": {
+        "all": [
+          {
+            "slug.enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "key": "slug.width",
+      "active_when": {
+        "all": [
+          {
+            "slug.enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "key": "slug.thickness",
+      "active_when": {
+        "all": [
+          {
+            "slug.enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "key": "slug.diameter",
+      "active_when": {
+        "all": [
+          {
+            "slug.enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "key": "slug.foot_length",
+      "active_when": {
+        "all": [
+          {
+            "slug.enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "key": "slug.foot_width",
+      "active_when": {
+        "all": [
+          {
+            "slug.enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "key": "slug.offset",
+      "active_when": {
+        "all": [
+          {
+            "slug.enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "key": "slug.clearance",
+      "active_when": {
+        "all": [
+          {
+            "slug.enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "key": "slug.adhesive_enabled",
+      "active_when": {
+        "all": [
+          {
+            "slug.enabled": true
+          }
+        ]
+      }
+    },
+    {
+      "key": "bga.solder_removal_enabled"
+    },
+    {
+      "key": "bga.populated_rows",
+      "minimum": 0,
+      "required": false,
+      "active_when": {
+        "all": [
+          {
+            "bga.solder_removal_enabled": true,
+            "bga.ball_map_enabled": false
+          }
+        ]
+      }
+    },
+    {
+      "key": "bga.populated_columns",
+      "minimum": 0,
+      "required": false,
+      "active_when": {
+        "all": [
+          {
+            "bga.solder_removal_enabled": true,
+            "bga.ball_map_enabled": false
+          }
+        ]
+      }
+    },
+    {
+      "key": "bga.removal_rows",
+      "required": false,
+      "active_when": {
+        "all": [
+          {
+            "bga.solder_removal_enabled": true,
+            "bga.ball_map_enabled": false
+          }
+        ]
+      }
+    },
+    {
+      "key": "bga.removal_columns",
+      "required": false,
+      "active_when": {
+        "all": [
+          {
+            "bga.solder_removal_enabled": true,
+            "bga.ball_map_enabled": false
+          }
+        ]
+      }
+    },
+    {
+      "key": "bga.omitted_cells"
+    },
+    {
+      "key": "bga.center_solder_enabled"
+    },
+    {
+      "key": "bga.center_solder_rows",
+      "minimum": 0,
+      "active_when": {
+        "all": [
+          {
+            "bga.center_solder_enabled": true,
+            "bga.ball_map_enabled": false
+          }
+        ]
+      }
+    },
+    {
+      "key": "bga.center_solder_columns",
+      "minimum": 0,
+      "active_when": {
+        "all": [
+          {
+            "bga.center_solder_enabled": true,
+            "bga.ball_map_enabled": false
+          }
+        ]
+      }
+    },
+    {
+      "key": "bga.center_staggered"
+    },
+    {
+      "key": "bga.staggered"
+    },
+    {
+      "key": "bga.ball_map_enabled"
+    },
+    {
+      "key": "bga.ball_map",
+      "columns": [
+        {
+          "key": "id"
+        },
+        {
+          "key": "x"
+        },
+        {
+          "key": "y"
+        }
+      ]
+    },
+    {
+      "key": "bga.representation"
+    },
+    {
+      "key": "vias.configuration",
+      "active_when": {
+        "all": [
+          {
+            "vias.enabled": true
+          }
+        ]
+      },
+      "fields": [
+        {
+          "key": "removal_enabled"
+        },
+        {
+          "key": "removal_rows",
+          "minimum": 0,
+          "active_when": {
+            "all": [
+              {
+                "removal_enabled": true
+              }
+            ]
+          }
+        },
+        {
+          "key": "removal_columns",
+          "minimum": 0,
+          "active_when": {
+            "all": [
+              {
+                "removal_enabled": true
+              }
+            ]
+          }
+        },
+        {
+          "key": "omitted_cells",
+          "active_when": {
+            "all": [
+              {
+                "removal_enabled": true
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "key": "trace.solid_thickness",
+      "minimum": 0.001,
+      "active_when": {
+        "all": [
+          {
+            "substrate.layers": "4-Layer"
+          }
+        ]
+      }
+    }
+  ],
+  "checks": []
+}

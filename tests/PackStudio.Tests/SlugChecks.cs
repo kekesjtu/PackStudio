@@ -17,7 +17,7 @@ static class SlugChecks
                     foreach (double bumpHeight in new[] { 0.07, 0.2 })
                     {
                         document.Values["bumps.height"] = bumpHeight;
-                        var model = tests.Builder.Generate(document);
+                        var model = tests.Generate(document);
                         var substrate = Part(model, "substrate");
                         Near(substrate.Maximum.Z, 1.55, "substrate top");
                         double top = flush ? substrate.Maximum.Z + bumpHeight + 0.8 : 2.75;
@@ -32,13 +32,13 @@ static class SlugChecks
                 foreach (double clearance in new[] { 0.09, 0.18 })
                 {
                     document.Values["slug.clearance"] = clearance;
-                    CheckContact(tests.Builder.Generate(document), 1.55, clearance, 2.75, true);
+                    CheckContact(tests.Generate(document), 1.55, clearance, 2.75, true);
                 }
             });
 
             tests.Case("slug", family + " FloXML substrate-to-foot contact", () =>
             {
-                var xml = FloXml.Export(tests.Builder.Generate(Create(tests, family)));
+                var xml = tests.Export(tests.Generate(Create(tests, family)));
                 var blocks = xml.Descendants("cuboid").ToDictionary(b => (string)b.Element("name")!);
                 foreach (string side in new[] { "left", "right", "upper", "lower" })
                 {
@@ -63,7 +63,7 @@ static class SlugChecks
             foreach (double mask in new[] { 0.02, 0.06 })
             {
                 document.Values["solder_mask.thickness"] = mask;
-                var model = tests.Builder.Generate(document);
+                var model = tests.Generate(document);
                 double substrateTop = Part(model, "dielectric").Maximum.Z;
                 CheckContact(model, substrateTop + mask, 0.1, substrateTop + 1.2, true);
             }
@@ -72,7 +72,7 @@ static class SlugChecks
 
     static ProjectDocument Create(TestSuite tests, string family)
     {
-        var document = ProjectDocument.Create(tests.Catalog.Load(family));
+        var document = tests.Create(tests.Catalog.Load(family));
         var values = document.Values;
         values["slug.enabled"] = values["slug.adhesive_enabled"] = true;
         values["slug.length"] = values["slug.width"] = 4;

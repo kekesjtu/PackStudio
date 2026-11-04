@@ -21,6 +21,15 @@ static class RemovalMatrixChecks
         var coordinates = ordered.Select(cell => (cell["row"]!.Value<int>(), cell["column"]!.Value<int>()));
         if (!coordinates.SequenceEqual(new[] { (0, 1), (0, 3), (2, 1) }))
             throw new Exception("去球单元写回顺序不稳定");
+        var malformed = new JArray(new JObject { ["row"] = "invalid", ["column"] = 0 });
+        JArray? correction = null;
+        var malformedView = RemovalMatrix.Build(malformed, 2, 2, value => correction = value);
+        if (correction != null || malformed[0]!["row"]!.Value<string>() != "invalid")
+            throw new Exception("displaying invalid matrix coordinates modified their input");
+        var clearMalformed = Descendants<Button>(malformedView).Single(button => button.Content?.ToString() == "重置为空");
+        if (!clearMalformed.IsEnabled) throw new Exception("invalid matrix coordinates cannot be explicitly cleared");
+        clearMalformed.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
+        if (correction?.Count != 0) throw new Exception("explicit matrix reset did not clear invalid coordinates");
 
         if (steps.Items.Cast<WizardStep>().All(step => step.Key != "solder_removal"))
             return;

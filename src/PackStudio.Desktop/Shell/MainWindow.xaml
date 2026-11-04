@@ -1,0 +1,86 @@
+<Window x:Class="PackStudio.Desktop.MainWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:fluent="urn:fluent-ribbon" xmlns:ad="clr-namespace:AvalonDock;assembly=AvalonDock" xmlns:layout="clr-namespace:AvalonDock.Layout;assembly=AvalonDock" xmlns:helix="http://helix-toolkit.org/wpf" xmlns:local="clr-namespace:PackStudio.Desktop" Title="PackStudio — IC 封装参数化建模" Width="1500" Height="960" MinWidth="1080" MinHeight="720" Background="#F4F6F8" FontFamily="Microsoft YaHei UI" FontSize="13" WindowStartupLocation="CenterScreen">
+<DockPanel>
+<fluent:Ribbon DockPanel.Dock="Top" IsQuickAccessToolBarVisible="False" IsToolBarVisible="False">
+<fluent:RibbonTabItem Header="建模">
+<fluent:RibbonGroupBox Header="方案"><fluent:Button x:Name="NewPackageButton" Header="新建" Click="New_Click"><fluent:Button.LargeIcon><TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE710;" FontSize="24" Foreground="#395D87"/></fluent:Button.LargeIcon></fluent:Button><fluent:Button Header="打开" Click="Open_Click"><fluent:Button.LargeIcon><TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE8E5;" FontSize="24" Foreground="#395D87"/></fluent:Button.LargeIcon></fluent:Button><fluent:Button Header="保存方案" Click="Save_Click"><fluent:Button.LargeIcon><TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE74E;" FontSize="24" Foreground="#395D87"/></fluent:Button.LargeIcon></fluent:Button></fluent:RibbonGroupBox>
+<fluent:RibbonGroupBox Header="模型"><fluent:Button Header="生成模型" Command="{Binding GenerateCommand}"><fluent:Button.LargeIcon><TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE768;" FontSize="24" Foreground="#395D87"/></fluent:Button.LargeIcon></fluent:Button><fluent:Button x:Name="ExportButton" Header="导出 FloXML" Click="Export_Click" IsEnabled="{Binding CanExport}"><fluent:Button.LargeIcon><Viewbox Width="24" Height="24"><Canvas Width="24" Height="24"><Path Stroke="#395D87" StrokeThickness="1.6" StrokeLineJoin="Round"
+  Data="M2,1 L12,1 L17,6 L17,12 M12,1 L12,6 L17,6 M2,1 L2,21 L10,21 M10,16 L22,16 M17,11 L22,16 L17,21"/></Canvas></Viewbox></fluent:Button.LargeIcon></fluent:Button><fluent:Button Header="材料库" Click="Materials_Click"><fluent:Button.LargeIcon><TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE8F1;" FontSize="24" Foreground="#395D87"/></fluent:Button.LargeIcon></fluent:Button></fluent:RibbonGroupBox>
+<fluent:RibbonGroupBox Header="视图"><fluent:Button Header="适应窗口" Click="Fit_Click"><fluent:Button.LargeIcon><TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE9A6;" FontSize="24" Foreground="#395D87"/></fluent:Button.LargeIcon></fluent:Button><fluent:Button Header="显示全部" Command="{Binding ShowAllCommand}"><fluent:Button.LargeIcon><TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE890;" FontSize="24" Foreground="#395D87"/></fluent:Button.LargeIcon></fluent:Button><fluent:Button Header="隐藏全部" Command="{Binding HideAllCommand}"><fluent:Button.LargeIcon><TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xED1A;" FontSize="24" Foreground="#395D87"/></fluent:Button.LargeIcon></fluent:Button><fluent:Button Header="全部展开" Click="Expand_Click"><fluent:Button.LargeIcon><TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE8A3;" FontSize="24" Foreground="#395D87"/></fluent:Button.LargeIcon></fluent:Button><fluent:Button Header="全部折叠" Click="Collapse_Click"><fluent:Button.LargeIcon><TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE8A4;" FontSize="24" Foreground="#395D87"/></fluent:Button.LargeIcon></fluent:Button></fluent:RibbonGroupBox>
+</fluent:RibbonTabItem></fluent:Ribbon>
+<StatusBar x:Name="OperationStatusBar" DockPanel.Dock="Bottom" Background="#E8EDF2"><StatusBarItem><TextBlock Text="{Binding Status}" TextTrimming="CharacterEllipsis"/></StatusBarItem></StatusBar>
+<Grid x:Name="WorkspaceGrid">
+  <Grid.ColumnDefinitions>
+    <ColumnDefinition Width="425" MinWidth="350"/><ColumnDefinition Width="6"/>
+    <ColumnDefinition Width="*" MinWidth="300"/><ColumnDefinition Width="6"/>
+    <ColumnDefinition Width="300" MinWidth="240"/>
+  </Grid.ColumnDefinitions>
+  <ad:DockingManager x:Name="DockManager" Grid.Column="0"><layout:LayoutRoot><layout:LayoutPanel><layout:LayoutAnchorablePane><layout:LayoutAnchorable Title="封装向导" CanClose="False" CanHide="False" CanFloat="False">
+<Grid Margin="5,0,5,5" Background="#F1F1F1">
+  <Grid.RowDefinitions><RowDefinition Height="70"/><RowDefinition Height="*" MinHeight="190"/><RowDefinition Height="6"/><RowDefinition Height="420" MinHeight="180"/></Grid.RowDefinitions>
+  <Grid Margin="8,8,5,8">
+    <Grid.ColumnDefinitions><ColumnDefinition Width="110"/><ColumnDefinition Width="*"/></Grid.ColumnDefinitions>
+    <ContentControl x:Name="PackagePreview" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"/>
+    <StackPanel Grid.Column="1" VerticalAlignment="Center" Margin="10,0,0,0">
+      <TextBlock x:Name="PackageTitle" FontWeight="SemiBold" FontSize="14"/>
+      <TextBlock x:Name="PackageSubtitle" TextWrapping="Wrap" FontSize="11" Foreground="#526174" Margin="0,4,0,0"/>
+    </StackPanel>
+  </Grid>
+  <ListBox x:Name="StepList" Grid.Row="1" SelectedValuePath="Key" SelectionChanged="Step_Changed"
+           Background="White" BorderBrush="#B8B8B8" BorderThickness="1" Padding="0"
+           ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+    <ListBox.ItemContainerStyle>
+      <Style TargetType="ListBoxItem">
+        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+        <Setter Property="Padding" Value="4,3"/>
+        <Setter Property="Template">
+          <Setter.Value><ControlTemplate TargetType="ListBoxItem">
+            <Border x:Name="Selection" Background="Transparent" Padding="{TemplateBinding Padding}"><ContentPresenter/></Border>
+            <ControlTemplate.Triggers>
+              <Trigger Property="IsSelected" Value="True"><Setter TargetName="Selection" Property="Background" Value="#CEE7EB"/></Trigger>
+              <Trigger Property="IsMouseOver" Value="True"><Setter TargetName="Selection" Property="Background" Value="#E4F0F3"/></Trigger>
+            </ControlTemplate.Triggers>
+          </ControlTemplate></Setter.Value>
+        </Setter>
+      </Style>
+    </ListBox.ItemContainerStyle>
+    <ListBox.ItemTemplate><DataTemplate><DockPanel><TextBlock Text="◆" Foreground="#1659AB" Margin="0,0,8,0"/><TextBlock Text="{Binding Label}" VerticalAlignment="Center"/></DockPanel></DataTemplate></ListBox.ItemTemplate>
+  </ListBox>
+  <GridSplitter ShowsPreview="False" ResizeDirection="Rows" ResizeBehavior="PreviousAndNext" Grid.Row="2" Height="6" HorizontalAlignment="Stretch" Background="#E4E4E4"/>
+  <DockPanel Grid.Row="3" Margin="5,6,3,0">
+    <TextBlock x:Name="SectionTitle" DockPanel.Dock="Top" FontWeight="SemiBold" Margin="2,0,0,9"/>
+    <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled"><StackPanel x:Name="FieldsPanel" Margin="0,0,7,0"/></ScrollViewer>
+  </DockPanel>
+</Grid></layout:LayoutAnchorable></layout:LayoutAnchorablePane>
+  </layout:LayoutPanel></layout:LayoutRoot></ad:DockingManager>
+  <GridSplitter x:Name="LeftColumnSplitter" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                Background="#D7DFE6" ResizeDirection="Columns" ResizeBehavior="PreviousAndNext" ShowsPreview="False"/>
+  <ad:DockingManager Grid.Column="2"><layout:LayoutRoot><layout:LayoutPanel><layout:LayoutDocumentPane><layout:LayoutDocument x:Name="ModelDocument" Title="三维模型" CanClose="False" CanFloat="False"><Grid Background="#EDF1F5">
+<helix:HelixViewport3D x:Name="Viewport" SizeChanged="UpdateViewportScale" ShowCoordinateSystem="True" ShowViewCube="False" CoordinateSystemHorizontalPosition="Right" CoordinateSystemVerticalPosition="Bottom" ModelUpDirection="0,0,1" PanGesture="RightClick" PanGesture2="{x:Null}" RotateGesture="LeftClick" RotateGesture2="{x:Null}" ZoomExtentsWhenLoaded="True" Background="#EDF1F5"   ><helix:HelixViewport3D.Camera><PerspectiveCamera Position="20,-28,22" LookDirection="-20,28,-20" UpDirection="0,0,1" FieldOfView="40"/></helix:HelixViewport3D.Camera><helix:DefaultLights/></helix:HelixViewport3D>
+
+<Border x:Name="ViewportScaleOverlay" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="18" Padding="12,8" Background="#EEFFFFFF" CornerRadius="4" IsHitTestVisible="False" Visibility="Collapsed" Loaded="UpdateViewportScale">
+  <StackPanel>
+    <TextBlock x:Name="ScaleLabel" Text="— mm" FontSize="11" Foreground="#344255" HorizontalAlignment="Center" Margin="0,0,0,3"/>
+    <Canvas x:Name="ScaleBarLine" Width="120" Height="10">
+      <Line X1="0" Y1="5" X2="120" Y2="5" Stroke="#344255" StrokeThickness="1.5"/>
+      <Line X1="0" Y1="1" X2="0" Y2="9" Stroke="#344255" StrokeThickness="1.5"/>
+      <Line X1="120" Y1="1" X2="120" Y2="9" Stroke="#344255" StrokeThickness="1.5"/>
+    </Canvas>
+  </StackPanel>
+</Border><Border x:Name="WarningsPanel" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="12" Padding="10,8" MaxWidth="360"
+        Background="#FFFFF4D6" BorderBrush="#E3C37B" BorderThickness="1" CornerRadius="4">
+  <Border.Style><Style TargetType="Border"><Style.Triggers>
+    <DataTrigger Binding="{Binding Text, ElementName=WarningsText}" Value=""><Setter Property="Visibility" Value="Collapsed"/></DataTrigger>
+  </Style.Triggers></Style></Border.Style>
+  <StackPanel><TextBlock x:Name="WarningsText" TextWrapping="Wrap" Foreground="#845700" FontSize="11"/><ListBox x:Name="IssuesList" MaxHeight="220" Margin="0,6,0,0" BorderThickness="0" Background="Transparent" ScrollViewer.HorizontalScrollBarVisibility="Disabled"><ListBox.ItemTemplate><DataTemplate><TextBlock Text="{Binding Message}" TextWrapping="Wrap" ToolTip="{Binding Code}"/></DataTemplate></ListBox.ItemTemplate></ListBox></StackPanel>
+</Border>
+</Grid></layout:LayoutDocument>
+<layout:LayoutDocument x:Name="SchematicDocument" Title="示意图" CanClose="False" CanFloat="False">
+  <Grid Background="White"><local:PackageSchematic x:Name="Schematic" Margin="12"/></Grid>
+</layout:LayoutDocument></layout:LayoutDocumentPane>
+  </layout:LayoutPanel></layout:LayoutRoot></ad:DockingManager>
+  <GridSplitter x:Name="RightColumnSplitter" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                Background="#D7DFE6" ResizeDirection="Columns" ResizeBehavior="PreviousAndNext" ShowsPreview="False"/>
+  <ad:DockingManager Grid.Column="4"><layout:LayoutRoot><layout:LayoutPanel><layout:LayoutAnchorablePane><layout:LayoutAnchorable Title="模型树与属性" CanClose="False" CanHide="False" CanFloat="False"><Grid Margin="10"><Grid.RowDefinitions><RowDefinition Height="2*"/><RowDefinition Height="6"/><RowDefinition Height="*"/></Grid.RowDefinitions><TreeView x:Name="ModelTree" Style="{StaticResource ExplorerTree}"  /><GridSplitter ShowsPreview="False" ResizeDirection="Rows" ResizeBehavior="PreviousAndNext" Grid.Row="1" Height="6" HorizontalAlignment="Stretch"/><ScrollViewer Grid.Row="2"><TextBlock x:Name="Inspector" Margin="6,12" TextWrapping="Wrap" Foreground="#344255"/></ScrollViewer></Grid></layout:LayoutAnchorable></layout:LayoutAnchorablePane>
+  </layout:LayoutPanel></layout:LayoutRoot></ad:DockingManager>
+</Grid>
+</DockPanel></Window>

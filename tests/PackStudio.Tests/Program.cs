@@ -11,4 +11,5 @@ MaterialChecks.Run(tests);
 ProjectChecks.Run(tests);
 BoundaryChecks.Run(tests);
 SemanticChecks.Run(tests);
+GenerationChecks.Run(tests);
 return tests.Finish();

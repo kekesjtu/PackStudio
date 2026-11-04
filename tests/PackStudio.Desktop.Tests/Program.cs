@@ -106,7 +106,7 @@ public static class Program
                     }
                     await vm.GenerateAsync();
                     if (!vm.IsCurrent || vm.Model == null)
-                        throw new Exception(family.Id + ": " + vm.Status);
+                        throw new Exception(family.Id + ": " + vm.Status + Environment.NewLine + string.Join(Environment.NewLine, vm.Issues.Select(i => i.Code + ": " + i.Message)));
                     var viewport = (HelixViewport3D)window.FindName("Viewport");
                     if (viewport.Children.Count != vm.Model.Blocks.Count + 1)
                         throw new Exception("preview block count");
@@ -118,7 +118,7 @@ public static class Program
                     vm.ChangeVisibility(vm.Model.Blocks.Select(b => b.Id), false);
                     if (viewport.Children.Count != 1)
                         throw new Exception("hidden blocks remain in preview");
-                    if (FloXml.Export(vm.Model).Descendants("cuboid").Count() != vm.Model.Blocks.Count)
+                    if (FloXmlExporter.Export(vm.Result!).Descendants("cuboid").Count() != vm.Model.Blocks.Count)
                         throw new Exception("visibility changed export");
                     vm.ChangeVisibility(vm.Model.Blocks.Select(b => b.Id), true);
                     var materials = new MaterialWindow(vm)
@@ -135,6 +135,7 @@ public static class Program
                 TableEditorChecks.Verify();
 
                 await NewPackageChecks.FinishCreatesProject(window, vm);
+                await ParameterFormChecks.ValidationAsync(window, vm);
                 if (!configurationOnly)
                 {
                     WorkspaceChecks.Run(window, vm);

@@ -1,0 +1,121 @@
+{
+  "schema_version": "packstudio.definition/v1",
+  "template_id": "bare_die",
+  "fields": [
+    {
+      "key": "die.length",
+      "unit": "mm",
+      "options": [],
+      "default": 4.9,
+      "type": "number"
+    },
+    {
+      "key": "die.width",
+      "unit": "mm",
+      "options": [],
+      "default": 4.9,
+      "type": "number"
+    },
+    {
+      "key": "die.thickness",
+      "unit": "mm",
+      "options": [],
+      "default": 0.22,
+      "type": "number"
+    },
+    {
+      "key": "die.power",
+      "unit": "W",
+      "options": [],
+      "default": 2,
+      "type": "number"
+    },
+    {
+      "key": "die.flipped",
+      "unit": null,
+      "options": [],
+      "default": false,
+      "type": "checkbox"
+    },
+    {
+      "key": "bumps.enabled",
+      "unit": null,
+      "options": [],
+      "default": false,
+      "type": "checkbox"
+    },
+    {
+      "key": "bumps.total",
+      "unit": null,
+      "options": [],
+      "default": 100,
+      "type": "integer_spinbox"
+    },
+    {
+      "key": "bumps.diameter",
+      "unit": "mm",
+      "options": [],
+      "default": 0.12,
+      "type": "number"
+    },
+    {
+      "key": "bumps.height",
+      "unit": "mm",
+      "options": [],
+      "default": 0.1,
+      "type": "number"
+    },
+    {
+      "key": "bumps.modeling",
+      "unit": null,
+      "options": [
+        "isotropicCuboid"
+      ],
+      "default": "isotropicCuboid",
+      "type": "combobox"
+    },
+    {
+      "key": "grid.enabled",
+      "default": true,
+      "options": [],
+      "type": "checkbox"
+    },
+    {
+      "key": "grid.density",
+      "default": "fine",
+      "options": [
+        "coarse",
+        "medium",
+        "fine"
+      ],
+      "type": "select"
+    }
+  ],
+  "origin": "PackStudio Bare Die baseline settings",
+  "baseline_materials": [],
+  "initialization": [],
+  "material_selections": [
+    {
+      "group_id": "group-die",
+      "default": "silicon",
+      "options": [
+        "silicon",
+        "gallium_arsenide_a43e7270"
+      ]
+    },
+    {
+      "group_id": "group-bump-solder",
+      "default": "solder-pb90",
+      "options": [
+        "*"
+      ]
+    },
+    {
+      "group_id": "group-underfill",
+      "default": "underfill",
+      "options": [
+        "*"
+      ]
+    }
+  ]
+}

@@ -31,11 +31,12 @@ dotnet publish src/PackStudio.Desktop -c Release -r win-x64 --self-contained -o 
 | 路径 | 职责 |
 | --- | --- |
 | `src/PackStudio.Desktop/` | WPF 参数向导、三维预览、模型树与材料编辑 |
-| `src/PackStudio.Core/` | C# 领域模型、原生预设、八类封装生成与 FloXML 输出 |
+| `src/PackStudio.Core/` | 领域契约、创建初始化、八类封装生成、前后校验与 FloXML 输出 |
 | `src/PackStudio.Cli/` | 研究工具使用的 C# 命令行入口 |
-| `runtime_data/` | JSON 模板、342 个内部格式预设与材料库 |
+| `runtime_data/` | 参数定义、UI 模板、校验规则、342 个完整方案预设与材料库 |
 | `output_format/floxml/` | FloXML XSD 与示例 |
 | `tests/PackStudio.Tests/` | 几何、材料、功率、参数分支与输出契约回归 |
+| `tests/PackStudio.Desktop.Tests/` | 桌面创建、参数编辑、问题定位与模型展示回归 |
 | `tests/research/` | 原生研究工具测试 |
 | `tools/` | 独立 Python 研究与参考数据维护工具 |
 | `flotherm_pack_data/` | 原生扫参、导出、截图和验证结果 |

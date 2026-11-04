@@ -102,3 +102,44 @@ def test_batch_request_initializes_four_layer_geometry(cli):
         },
     })
     assert ET.fromstring(model).find("geometry") is not None
+
+
+def test_creation_preserves_invalid_input_until_generation(cli):
+    request = {
+        "template_id": "bare_die",
+        "overrides": {
+            "bare_die.die.length": None,
+            "bare_die.die.width": 0,
+            "bare_die.bumps.enabled": False,
+        },
+    }
+    values = cli.resolve_values(request)
+    assert values["die.length"] is None
+    assert values["die.width"] == 0
+    assert values["bumps.enabled"] is False
+    with pytest.raises(RuntimeError, match="input.required"):
+        cli.export_floxml(request)
+
+
+def test_material_request_migrates_legacy_type_and_respects_explicit_type(cli):
+    material = {
+        "id": "silicon", "name": "Custom silicon",
+        "conductivity": {"x": 12, "y": 12, "z": 12},
+        "density": 2000, "specific_heat": 700,
+    }
+    for conductivity_type, expected_tag in [
+        (None, "isotropic_material_att"),
+        (2, "orthotropic_material_att"),
+        (1, "temperature_dependant_material_att"),
+    ]:
+        submitted = dict(material)
+        if conductivity_type is not None:
+            submitted["conduct_type"] = conductivity_type
+        if conductivity_type == 1:
+            submitted.update(conductivity_coefficient=0, conductivity_reference_temperature_c=-20)
+        model = cli.export_floxml({"template_id": "bare_die", "custom_materials": [submitted]})
+        assert ET.fromstring(model).find(f"attributes/materials/{expected_tag}/name").text == "silicon"
+    with pytest.raises(RuntimeError, match="conduct_type"):
+        cli.export_floxml({"template_id": "bare_die", "custom_materials": [dict(material, conduct_type=0.5)]})
+    with pytest.raises(RuntimeError, match="material_assignments"):
+        cli.resolve_values({"template_id": "bare_die", "material_assignments": {"group-die": None}})

@@ -41,6 +41,37 @@ static class ParameterFormChecks
         power.TextValue = savedPower;
     }
 
+    public static async Task ValidationAsync(MainWindow window, Workspace workspace)
+    {
+        var form = new ParameterForm(workspace);
+        var length = form.Fields.Single(f => f.Key == "die.length");
+        string original = length.TextValue;
+        length.TextValue = "-1";
+        if (length.HasError || workspace.CanExport) throw new Exception("editing validated input or allowed stale export");
+        await workspace.GenerateAsync();
+        var issue = workspace.Issues.FirstOrDefault(i => i.Severity == IssueSeverity.Error && i.ParameterPaths.Contains("die.length"));
+        if (issue == null || workspace.Model != null || workspace.CanExport || !length.HasError)
+            throw new Exception("invalid input did not produce a structured blocking field issue");
+        var issues = (ListBox)window.FindName("IssuesList");
+        if (!issues.IsHitTestVisible) throw new Exception("issue list cannot receive clicks");
+        issues.SelectedItem = issue;
+        var steps = (ListBox)window.FindName("StepList");
+        if (steps.SelectedValue?.ToString() != length.Step || length.TextValue != "-1")
+            throw new Exception("issue navigation changed input or did not locate its parameter step");
+        length.TextValue = original;
+        await workspace.GenerateAsync();
+        if (!workspace.CanExport) throw new Exception("corrected input did not restore export");
+        var overlap = workspace.Issues.FirstOrDefault(i => i.EntityIds.Count == 2);
+        if (overlap != null)
+        {
+            issues.SelectedItem = overlap;
+            if (!workspace.Selected.SetEquals(overlap.EntityIds) || overlap.EntityIds.Any(workspace.Hidden.Contains))
+                throw new Exception("geometry issue did not highlight its affected pair");
+            workspace.ClearSelection();
+        }
+        Console.WriteLine("PASS validation stages, issue navigation, geometry selection and export gating");
+    }
+
     static IEnumerable<T> Descendants<T>(DependencyObject root) where T : DependencyObject
     {
         if (root is UIElement { Visibility: not Visibility.Visible }) yield break;

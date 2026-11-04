@@ -1,22 +1,15 @@
 {
-  "schema_version": "packstudio.template-defaults/v1",
+  "schema_version": "packstudio.ui-template/v1",
   "template_id": "bare_die",
-  "origin": "PackStudio Bare Die baseline settings",
   "fields": [
     {
       "key": "die.length",
       "step": "die",
       "label": "芯片长度",
       "control": "number",
-      "unit": "mm",
-      "minimum": 0.2,
-      "maximum": 50,
-      "options": [],
       "option_labels": {},
-      "presets": [],
       "visible_when": {},
       "enabled_when": {},
-      "default": 4.9,
       "des_symbol": "Ld"
     },
     {
@@ -24,15 +17,9 @@
       "step": "die",
       "label": "宽度",
       "control": "number",
-      "unit": "mm",
-      "minimum": 0.2,
-      "maximum": 50,
-      "options": [],
       "option_labels": {},
-      "presets": [],
       "visible_when": {},
       "enabled_when": {},
-      "default": 4.9,
       "des_symbol": "Wd"
     },
     {
@@ -40,15 +27,9 @@
       "step": "die",
       "label": "厚度",
       "control": "number",
-      "unit": "mm",
-      "minimum": 0.03,
-      "maximum": 2,
-      "options": [],
       "option_labels": {},
-      "presets": [],
       "visible_when": {},
       "enabled_when": {},
-      "default": 0.22,
       "des_symbol": "td"
     },
     {
@@ -56,15 +37,9 @@
       "step": "die",
       "label": "芯片功率",
       "control": "number",
-      "unit": "W",
-      "minimum": 0,
-      "maximum": 1000,
-      "options": [],
       "option_labels": {},
-      "presets": [],
       "visible_when": {},
       "enabled_when": {},
-      "default": 2,
       "des_symbol": "P"
     },
     {
@@ -72,15 +47,9 @@
       "step": "die",
       "label": "翻转芯片",
       "control": "checkbox",
-      "unit": null,
-      "minimum": null,
-      "maximum": null,
-      "options": [],
       "option_labels": {},
-      "presets": [],
       "visible_when": {},
       "enabled_when": {},
-      "default": false,
       "des_symbol": null
     },
     {
@@ -88,15 +57,9 @@
       "step": "bumped_die",
       "label": "包含凸点与底填充",
       "control": "checkbox",
-      "unit": null,
-      "minimum": null,
-      "maximum": null,
-      "options": [],
       "option_labels": {},
-      "presets": [],
       "visible_when": {},
       "enabled_when": {},
-      "default": false,
       "des_symbol": null
     },
     {
@@ -104,17 +67,11 @@
       "step": "bumped_die",
       "label": "凸点总数",
       "control": "integer_spinbox",
-      "unit": null,
-      "minimum": 1,
-      "maximum": 10000,
-      "options": [],
       "option_labels": {},
-      "presets": [],
       "visible_when": {
         "bumps.enabled": true
       },
       "enabled_when": {},
-      "default": 100,
       "des_symbol": "nballs"
     },
     {
@@ -122,17 +79,11 @@
       "step": "bumped_die",
       "label": "凸点直径",
       "control": "number",
-      "unit": "mm",
-      "minimum": 0.01,
-      "maximum": 0.5,
-      "options": [],
       "option_labels": {},
-      "presets": [],
       "visible_when": {
         "bumps.enabled": true
       },
       "enabled_when": {},
-      "default": 0.12,
       "des_symbol": "b"
     },
     {
@@ -140,17 +91,11 @@
       "step": "bumped_die",
       "label": "凸点高度",
       "control": "number",
-      "unit": "mm",
-      "minimum": 0.01,
-      "maximum": 0.5,
-      "options": [],
       "option_labels": {},
-      "presets": [],
       "visible_when": {
         "bumps.enabled": true
       },
       "enabled_when": {},
-      "default": 0.1,
       "des_symbol": "tsd"
     },
     {
@@ -158,95 +103,62 @@
       "step": "modeling",
       "label": "凸点建模方式",
       "control": "combobox",
-      "unit": null,
-      "minimum": null,
-      "maximum": null,
-      "options": [
-        "isotropicCuboid"
-      ],
       "option_labels": {
         "isotropicCuboid": "Isotropic Cuboid"
       },
-      "presets": [],
       "visible_when": {
         "bumps.enabled": true
       },
       "enabled_when": {},
-      "default": "isotropicCuboid",
       "des_symbol": null
     },
     {
       "key": "grid.enabled",
       "label": "局部网格",
-      "default": true,
       "control": "checkbox",
       "step": "modeling",
-      "presets": [],
       "visible_when": {},
       "enabled_when": {},
-      "options": [],
       "des_symbol": null,
       "placement": "footer"
     },
     {
       "key": "grid.density",
       "label": "网格密度",
-      "default": "fine",
       "control": "select",
       "step": "modeling",
-      "presets": [],
       "visible_when": {
         "grid.enabled": true
       },
       "enabled_when": {},
-      "options": [
-        "coarse",
-        "medium",
-        "fine"
-      ],
       "des_symbol": null,
       "placement": "footer"
     }
   ],
   "material_selections": [
     {
-      "group_id": "group-die",
       "step": "die",
       "label": "芯片材料",
-      "default": "silicon",
-      "options": [
-        "silicon",
-        "gallium_arsenide_a43e7270"
-      ],
-      "visible_when": {}
+      "visible_when": {},
+      "group_id": "group-die"
     },
     {
-      "group_id": "group-bump-solder",
       "step": "bumped_die",
       "label": "凸点焊料",
-      "default": "solder-pb90",
-      "options": [
-        "*"
-      ],
       "visible_when": {
         "bumps.enabled": true
-      }
+      },
+      "group_id": "group-bump-solder"
     },
     {
-      "group_id": "group-underfill",
       "step": "bumped_die",
       "label": "底部填充材料",
-      "default": "underfill",
-      "options": [
-        "*"
-      ],
       "visible_when": {
         "bumps.enabled": true
-      }
+      },
+      "group_id": "group-underfill"
     }
   ],
-  "baseline_materials": [],
-  "initialization": [],
   "steps": [
     {
       "key": "summary",

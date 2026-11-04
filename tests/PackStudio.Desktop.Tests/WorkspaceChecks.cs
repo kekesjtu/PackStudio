@@ -34,6 +34,7 @@ static class WorkspaceChecks
 
         var warning = Find<Border>(window, "WarningsPanel");
         var text = Find<TextBlock>(window, "WarningsText");
+        Require(Find<ListBox>(window, "IssuesList").IsHitTestVisible, "issue list cannot receive clicks");
         Require(warning.HorizontalAlignment == HorizontalAlignment.Right && warning.VerticalAlignment == VerticalAlignment.Top,
             "warnings must be at top right");
         string savedText = text.Text;
@@ -124,7 +125,6 @@ static class WorkspaceChecks
         var material = materialRow.Children.OfType<ComboBox>().Single();
         var numeric = numberRow.Children.OfType<StackPanel>().Single().Children.OfType<Border>().First();
         Require(Math.Abs(material.ActualWidth - numeric.ActualWidth) < 0.5, "numeric and material widths differ");
-        Require(numberRow.Children.OfType<TextBlock>().Any(t => Grid.GetColumn(t) == 2 && t.Text.Length > 0), "numeric range is not on the right");
         var materialChoice = rows.SelectMany(row => row.Children.OfType<ComboBox>()).First(box => box.ItemTemplate != null);
         var selected = materialChoice.SelectedItem!;
         var original = (Material)selected.GetType().GetProperty("Material")!.GetValue(selected)!;

@@ -1,0 +1,11 @@
+{
+  "schema_version": "packstudio.validation/v1",
+  "checks": [
+    { "id": "input.bga.pitch", "stage": "input", "check": "solder_ball_pitch", "severity": "error", "message": "焊球直径不能大于节距。" },
+    { "id": "input.via.dimensions", "stage": "input", "check": "via_dimensions", "severity": "error" },
+    { "id": "input.metal.layers", "stage": "input", "check": "metal_layers", "severity": "error", "message": "金属层必须位于基板内。" },
+    { "id": "input.sop.leads", "stage": "input", "check": "sop_lead_count", "severity": "error", "message": "SOP 引脚数量必须为偶数。" },
+    { "id": "input.bga.layout", "stage": "input", "check": "array_layout", "severity": "error", "message": "显式去球及 Ball Map 需要离散建模。" },
+    { "id": "model.overlap", "stage": "model", "check": "overlap", "severity": "warning", "message": "矩形块存在正体积重叠。" }
+  ]
+}

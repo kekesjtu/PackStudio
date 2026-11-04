@@ -16,7 +16,7 @@ static class TemplateSelectionChecks
 
     public static async Task Run()
     {
-        var catalog = new PackageCatalog(App.DataRoot);
+        var catalog = new RuntimeDataCatalog(App.DataRoot);
         var dialog = new NewPackageWindow(catalog) { Opacity = 0, ShowActivated = false, ShowInTaskbar = false };
         dialog.Show();
         try
@@ -45,7 +45,7 @@ static class TemplateSelectionChecks
         finally { dialog.Close(); }
 
         // A cold family load is still running when the dialog closes.
-        var canceled = new NewPackageWindow(new PackageCatalog(App.DataRoot), "pbga_wb")
+        var canceled = new NewPackageWindow(new RuntimeDataCatalog(App.DataRoot), "pbga_wb")
             { Opacity = 0, ShowActivated = false, ShowInTaskbar = false };
         canceled.Show();
         var initial = canceled.Draft;
