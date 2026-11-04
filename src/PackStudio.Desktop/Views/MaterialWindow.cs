@@ -20,7 +20,9 @@ public sealed class MaterialWindow : Window
         Margin = new(0, 0, 0, 14)
     };
     readonly Dictionary<string, TextBox> fields = [];
+    readonly List<Material> materials;
     Material? selected;
+    public event Action? MaterialApplied;
     public MaterialWindow(Workspace workspace)
     {
         this.workspace = workspace;
@@ -87,7 +89,7 @@ public sealed class MaterialWindow : Window
             available[m.Id] = m;
         foreach (var m in workspace.Document.CustomMaterials)
             available[m.Id] = m;
-        var materials = available.Values.GroupBy(m => m.Name).Select(g => g.FirstOrDefault(m => workspace.Document.CustomMaterials.Any(c => c.Id == m.Id)) ?? g.FirstOrDefault(m => workspace.Model?.Materials.ContainsKey(m.Id) == true) ?? g.OrderBy(m => m.Id.Length).First()).ToList();
+        materials = available.Values.GroupBy(m => m.Name).Select(g => g.FirstOrDefault(m => workspace.Document.CustomMaterials.Any(c => c.Id == m.Id)) ?? g.FirstOrDefault(m => workspace.Model?.Materials.ContainsKey(m.Id) == true) ?? g.OrderBy(m => m.Id.Length).First()).ToList();
         void Filter()
         {
             var expanded = list.Items.Cast<TreeViewItem>().Where(i => i.IsExpanded).Select(i => i.Tag?.ToString()).ToHashSet();
@@ -178,7 +180,15 @@ public sealed class MaterialWindow : Window
             material.Validate();
             workspace.Document.CustomMaterials.RemoveAll(m => m.Id == material.Id);
             workspace.Document.CustomMaterials.Add(material);
-            DialogResult = true;
+            materials[materials.FindIndex(m => m.Id == material.Id)] = material;
+            selected = material;
+            if (list.SelectedItem is TreeViewItem item)
+            {
+                item.Tag = material;
+                item.Header = new TreeRow(material.Name, false,
+                    swatch: (Color)ColorConverter.ConvertFromString(material.Color), warning: MaterialPresentation.NeedsReview(material));
+            }
+            MaterialApplied?.Invoke();
         }
         catch (Exception ex)
         {

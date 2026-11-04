@@ -9,6 +9,7 @@ public partial class MainWindow : Window
     readonly Workspace workspace = new();
     bool loading;
     string? projectPath;
+    MaterialWindow? materialWindow;
     public MainWindow()
     {
         InitializeComponent();
@@ -22,6 +23,7 @@ public partial class MainWindow : Window
 
     void RefreshDocument()
     {
+        materialWindow?.Close();
         loading = true;
         Expanders.Clear();
         var choice = PackagePresentation.Choices.Single(c => c.Id == workspace.Document.TemplateId);
@@ -131,18 +133,26 @@ public partial class MainWindow : Window
         }
     }
 
-    async void Materials_Click(object sender, RoutedEventArgs e)
+    void Materials_Click(object sender, RoutedEventArgs e)
     {
+        if (materialWindow != null)
+        {
+            materialWindow.Activate();
+            return;
+        }
         var dialog = new MaterialWindow(workspace)
         {
             Owner = this
         };
-        if (dialog.ShowDialog() == true)
+        materialWindow = dialog;
+        dialog.Closed += (_, _) => materialWindow = null;
+        dialog.MaterialApplied += async () =>
         {
             workspace.Dirty();
             RefreshFields();
             await workspace.GenerateAsync();
-        }
+        };
+        dialog.Show();
     }
 
     static string SafeName(string value) => string.Concat(value.Select(c => System.IO.Path.GetInvalidFileNameChars().Contains(c) ? '_' : c));
