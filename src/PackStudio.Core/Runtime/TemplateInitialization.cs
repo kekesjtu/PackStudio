@@ -10,18 +10,11 @@ public static class TemplateInitialization
         var values = template.PresetDefaults(presetId);
         var selection = (JObject)values.DeepClone();
         Overlay(selection, overrides);
-        var preset = template.Presets.FirstOrDefault(p => p.Id == presetId);
+        if (template.Info.Id is "chip_array" or "pbga_wb" && overrides?["substrate.layers"].Text() == "4-Layer")
+            template.InitializeFourLayer(values, presetId);
         foreach (var rule in template.Data["initialization"] as JArray ?? [])
         {
             if (!JsonData.Matches(rule["when"] as JObject, selection)) continue;
-            if (rule["branch"] is JValue branch)
-            {
-                var source = preset?.Branches[branch.Text()]?["values"] as JObject
-                    ?? throw new InvalidDataException($"预设 {presetId} 缺少分支 {branch}。");
-                foreach (var key in (JArray)rule["fields"]!)
-                    values[key.Text()] = source[key.Text()]?.DeepClone()
-                        ?? throw new InvalidDataException($"分支 {branch} 缺少参数 {key}。");
-            }
             Overlay(values, rule["set"] as JObject);
             if (rule["copy"] is JObject copies)
                 foreach (var copy in copies.Properties())

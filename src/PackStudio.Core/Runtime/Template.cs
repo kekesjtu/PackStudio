@@ -1,15 +1,16 @@
 using Newtonsoft.Json.Linq;
 
 namespace PackStudio.Core;
-public sealed record Preset(string Id, JObject Values, JObject MaterialAssignments, JObject Branches);
 public sealed class Template
 {
     public TemplateInfo Info { get; }
     public JObject Data { get; }
-    public IReadOnlyList<Preset> Presets { get; }
-    public Template(TemplateInfo info, JObject data, IReadOnlyList<Preset> presets)
+    public IReadOnlyList<ProjectDocument> Presets { get; }
+    readonly Lazy<FourLayerConfiguration>? fourLayer;
+    public Template(TemplateInfo info, JObject data, IReadOnlyList<ProjectDocument> presets, Func<FourLayerConfiguration>? loadFourLayer = null)
     {
         Info = info; Data = data; Presets = presets;
+        fourLayer = loadFourLayer == null ? null : new(loadFourLayer);
         ValidateDefinitions(Fields);
     }
     public JArray Fields => (JArray)Data["fields"]!;
@@ -21,7 +22,7 @@ public sealed class Template
     public JObject Defaults(string presetId, JObject? overrides = null) => TemplateInitialization.Create(this, presetId, overrides);
     public JArray OptionsFor(JToken field) => field["options_source"].Text() switch
     {
-        "presets" => new JArray(Presets.Select(p => p.Id)),
+        "presets" => new JArray(Presets.Select(p => p.Name)),
         "" => field["options"] as JArray ?? [],
         var source => throw new InvalidDataException($"未知选项来源 {source}。")
     };
@@ -29,7 +30,7 @@ public sealed class Template
     internal JObject PresetDefaults(string presetId)
     {
         var values = new JObject(Fields.Select(f => new JProperty(f["key"]!.ToString(), f["default"]?.DeepClone() ?? JValue.CreateNull())));
-        var preset = Presets.FirstOrDefault(p => p.Id == presetId);
+        var preset = Presets.FirstOrDefault(p => p.Name == presetId);
         if (Presets.Count > 0 && preset == null)
             throw new ArgumentException($"未知外形预设 {presetId}");
         var footprint = Fields.FirstOrDefault(f => f["control"].Text() == "footprint");
@@ -40,6 +41,9 @@ public sealed class Template
                 values[p.Name] = p.Value.DeepClone();
         return values;
     }
+
+    internal void InitializeFourLayer(JObject values, string presetName) =>
+        (fourLayer?.Value ?? throw new InvalidDataException($"缺少 {Info.Id} 四层配置。")).Apply(values, presetName);
 
     public void Validate(JObject values, bool forCreation = false)
     {

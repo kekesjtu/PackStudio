@@ -6,17 +6,20 @@ public sealed record MaterialChoices(string SelectedId, IReadOnlyList<Material> 
 
 public static class MaterialSelection
 {
-    public static Dictionary<string, string> Resolve(Template template, string presetId, IReadOnlyDictionary<string, string>? overrides = null)
+    public static Dictionary<string, string> Defaults(Template template) =>
+        template.MaterialSelections.ToDictionary(s => s["group_id"].Text(), s => s["default"].Text());
+
+    public static Dictionary<string, string> Resolve(Template template, IReadOnlyDictionary<string, string> assignments)
     {
-        var result = template.MaterialSelections.ToDictionary(s => s["group_id"].Text(), s => s["default"].Text());
-        var preset = template.Presets.FirstOrDefault(p => p.Id == presetId);
-        foreach (var property in preset?.MaterialAssignments.Properties() ?? []) result[property.Name] = property.Value.Text();
-        foreach (var pair in overrides ?? new Dictionary<string, string>())
+        var result = new Dictionary<string, string>(assignments);
+        foreach (var selection in template.MaterialSelections)
+            if (!result.ContainsKey(selection["group_id"].Text()))
+                throw new ArgumentException($"缺少材料组 {selection["group_id"]} 的选择。");
+        foreach (var pair in assignments)
         {
             var selection = template.MaterialSelections.SingleOrDefault(s => s["group_id"].Text() == pair.Key)
                 ?? throw new ArgumentException($"未知材料组 {pair.Key}");
-            if (!((JArray)selection["options"]!).Any(o => o.Text() == "*" || o.Text() == pair.Value) &&
-                !template.Presets.Any(p => p.MaterialAssignments[pair.Key].Text() == pair.Value))
+            if (!((JArray)selection["options"]!).Any(o => o.Text() == "*" || o.Text() == pair.Value))
                 throw new ArgumentException($"材料 {pair.Value} 不适用于 {pair.Key}");
             result[pair.Key] = pair.Value;
         }
@@ -30,7 +33,7 @@ public static class MaterialSelection
         foreach (var m in modeled.Values) materials[m.Id] = m;
         foreach (var m in document.CustomMaterials) materials[m.Id] = m;
         var custom = document.CustomMaterials.Select(m => m.Id).ToHashSet();
-        var assigned = Resolve(template, document.PresetId, document.MaterialAssignments).Values.ToHashSet();
+        var assigned = Resolve(template, document.MaterialAssignments).Values.ToHashSet();
         return materials.Values.GroupBy(m => m.Name).Select(g => g
             .OrderByDescending(m => assigned.Contains(m.Id))
             .ThenByDescending(m => custom.Contains(m.Id))
@@ -40,7 +43,7 @@ public static class MaterialSelection
 
     public static MaterialChoices Choices(PackageCatalog catalog, Template template, ProjectDocument document, JToken selection, PackageModel? model = null)
     {
-        string id = Resolve(template, document.PresetId, document.MaterialAssignments)[selection["group_id"].Text()];
+        string id = Resolve(template, document.MaterialAssignments)[selection["group_id"].Text()];
         var options = (JArray)selection["options"]!;
         var representatives = Available(catalog, template, document, model);
         var allowedNames = catalog.Materials.Items.Values.Where(m => options.Any(o => o.Text() == "*" || o.Text() == m.Id) || m.Id == id).Select(m => m.Name).ToHashSet();

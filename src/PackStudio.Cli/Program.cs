@@ -11,7 +11,7 @@ try
         throw new ArgumentException("用法：catalog | values request.json | generate request.json output.floxml");
     if (args[0] == "catalog")
     {
-        Console.WriteLine(JsonConvert.SerializeObject(catalog.Families.Select(f => new { id = f.Id, name = f.Name, presets = catalog.Load(f.Id).Presets.Select(p => p.Id) })));
+        Console.WriteLine(JsonConvert.SerializeObject(catalog.Families.Select(f => new { id = f.Id, name = f.Name, presets = catalog.Load(f.Id).Presets.Select(p => p.Name) })));
         return 0;
     }
 

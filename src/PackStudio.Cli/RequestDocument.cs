@@ -22,8 +22,9 @@ public static class RequestDocument
             parameters[key] = p.Value.DeepClone();
         }
         var document = ProjectDocument.Create(template, preset, input["design_name"].Text(template.Info.Name), parameters);
-        document.MaterialAssignments = input["material_assignments"]?.ToObject<Dictionary<string, string>>() ?? [];
-        document.CustomMaterials = (input["custom_materials"] as JArray ?? []).Select(MaterialLibrary.Parse).ToList();
+        foreach (var pair in input["material_assignments"]?.ToObject<Dictionary<string, string>>() ?? [])
+            document.MaterialAssignments[pair.Key] = pair.Value;
+        document.CustomMaterials.AddRange((input["custom_materials"] as JArray ?? []).Select(MaterialLibrary.Parse));
         return document;
     }
 }

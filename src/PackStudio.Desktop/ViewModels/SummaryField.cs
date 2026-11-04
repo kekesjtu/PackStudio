@@ -16,7 +16,7 @@ public sealed class SummaryField : ObservableObject
     public SummaryField(Workspace workspace, ParameterForm form, JToken definition)
     {
         this.workspace = workspace; this.definition = definition;
-        if (Source is not ("document.name" or "document.preset_id" or "template.name" or "parameter"))
+        if (Source is not ("document.name" or "template.name" or "parameter"))
             throw new InvalidDataException($"未知概要来源 {Source}。");
         if (Editable && Source != "document.name") throw new InvalidDataException($"概要来源 {Source} 不支持编辑。");
         parameter = form.Fields.SingleOrDefault(f => f.Path == definition["parameter"].Text());
@@ -31,7 +31,6 @@ public sealed class SummaryField : ObservableObject
     string RawText => Source switch
     {
         "document.name" => workspace.DesignName,
-        "document.preset_id" => workspace.Document.PresetId,
         "template.name" => workspace.Template.Info.Name,
         "parameter" => parameter?.Value.Text() ?? "",
         _ => throw new InvalidDataException($"未知概要来源 {Source}。")

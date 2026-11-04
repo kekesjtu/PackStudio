@@ -64,14 +64,18 @@ static class BoundaryChecks
                 document.Values["metal.layers"]![0]!["thickness"] = 0.03;
                 var data = JObject.FromObject(document);
                 data["SchemaVersion"] = "packstudio.project/v2";
+                data["PresetId"] = template.DefaultPreset;
+                data["MaterialAssignments"] = new JObject { ["group-encapsulant"] = "copper" };
                 var values = (JObject)data["Values"]!;
+                values["footprint.size"] = template.DefaultPreset;
                 values["bga.via_configuration"] = new JObject { ["removal_enabled"] = true, ["removal_rows"] = 1, ["removal_columns"] = 1 };
                 values.Property("vias.configuration")!.Remove();
                 File.WriteAllText(path, data.ToString());
                 var migrated = ProjectDocument.Load(path, tests.Catalog);
-                Assert(migrated.SchemaVersion == "packstudio.project/v3" && migrated.Values["bga.via_configuration"] == null, "legacy format leaked into current document");
+                Assert(migrated.SchemaVersion == ProjectDocument.CurrentVersion && migrated.Values["bga.via_configuration"] == null, "legacy format leaked into current document");
                 Assert(migrated.Values["vias.configuration"]!["removal_enabled"].Flag(), "legacy via configuration lost");
                 Near(migrated.Values["metal.layers"]![0]!["thickness"].Number(), 0.03, "migration reinitialized saved geometry");
+                Assert(migrated.MaterialAssignments.Count == template.MaterialSelections.Count && migrated.MaterialAssignments["group-encapsulant"] == "copper", "legacy material choices not materialized");
             }
             finally { if (File.Exists(path)) File.Delete(path); }
         });

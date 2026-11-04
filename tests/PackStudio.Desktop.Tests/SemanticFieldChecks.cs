@@ -13,7 +13,7 @@ static class SemanticFieldChecks
         if (form.Fields.Any(f => f.Definition["creation_only"].Flag())) throw new Exception("creation-only fields remain in modeling form");
         if (workspace.Template.CreationFields.Any(f => f["creation_only"].Flag()))
         {
-            var draft = new CreationDraft(workspace.Template, workspace.Document.PresetId);
+            var draft = new CreationDraft(workspace.Template, workspace.Template.DefaultPreset);
             var creation = new ParameterForm(draft);
             var top = creation.Fields.Single(f => f.Key == "trace.top_thickness");
             top.TextValue = "0.025";

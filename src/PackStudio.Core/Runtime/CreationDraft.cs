@@ -34,8 +34,12 @@ public sealed class CreationDraft
     {
         name = name.Trim();
         ProjectDocument.ValidateName(name);
-        return new() { TemplateId = template.Info.Id, PresetId = presetId, Name = name,
-            Values = Resolve(template, presetId, overrides ?? new(), true, out _) };
+        var preset = template.Presets.FirstOrDefault(p => p.Name == presetId);
+        var values = Resolve(template, presetId, overrides ?? new(), true, out _);
+        values.Remove("footprint.size");
+        return new() { TemplateId = template.Info.Id, Name = name, Values = values,
+            MaterialAssignments = preset == null ? MaterialSelection.Defaults(template) : new(preset.MaterialAssignments),
+            CustomMaterials = preset == null ? [] : [.. preset.CustomMaterials] };
     }
 
     static JObject Resolve(Template template, string presetId, JObject overrides, bool strict, out string? error)

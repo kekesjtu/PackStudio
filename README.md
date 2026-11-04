@@ -66,5 +66,6 @@ dotnet publish src/PackStudio.Desktop -c Release -r win-x64 --self-contained -o 
 | [材料分组](docs/decisions/材料组与默认材料.md) | 分组选材与默认值 |
 | [运行库](docs/decisions/JSON运行参数与参考数据解耦.md) | 分发与来源 |
 | [预设与空值](docs/decisions/预设参数来源与空值规则.md) | 原生数据与校验 |
+| [预设、方案与四层配置](docs/decisions/预设与方案统一契约及四层配置.md) | 完整方案契约、材料选择与按需四层初始化 |
 | [内部字段—DES—PACK](docs/DES字段与内部参数对应表.md) · [JSON](docs/DES字段与内部参数对应表.json) | 八类封装参数、材料、布局与脚本属性核对 |
 | [FloXML](docs/decisions/仅保留FloXML输出.md) | 输出契约 |

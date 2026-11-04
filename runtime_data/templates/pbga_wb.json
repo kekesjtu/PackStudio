@@ -18,7 +18,8 @@
       "visible_when": {},
       "enabled_when": {},
       "des_symbol": null,
-      "options_source": "presets"
+      "options_source": "presets",
+      "creation_only": true
     },
     {
       "key": "package.length",
@@ -1338,65 +1339,7 @@
       "source": "PackStudio built-in transcription of reviewed FloTHERM PACK data"
     }
   ],
-  "initialization": [
-    {
-      "when": {
-        "substrate.layers": "4-Layer"
-      },
-      "branch": "four_layer",
-      "fields": [
-        "trace.top_thickness",
-        "trace.bottom_thickness",
-        "package.length",
-        "package.width",
-        "substrate.thickness",
-        "encapsulant.length",
-        "encapsulant.width",
-        "encapsulant.thickness",
-        "flag.length",
-        "flag.width",
-        "solder_mask.thickness",
-        "die.length",
-        "die.width",
-        "die.thickness",
-        "die.attach",
-        "bond_wire.total",
-        "bond_wire.extent_length",
-        "bond_wire.extent_width",
-        "bond_wire.diameter",
-        "vias.columns",
-        "vias.rows",
-        "vias.pitch",
-        "vias.diameter",
-        "vias.plating",
-        "die.power",
-        "vias.enabled",
-        "spreader.enabled",
-        "spreader.length",
-        "spreader.width",
-        "spreader.thickness",
-        "spreader.hole_length",
-        "spreader.hole_width",
-        "grid.enabled",
-        "grid.density",
-        "bond_wire.modeling",
-        "substrate.layers",
-        "metal.layers",
-        "flag.coverage",
-        "vias.modeling",
-        "slug.enabled",
-        "slug.length",
-        "slug.width",
-        "slug.thickness",
-        "slug.diameter",
-        "slug.foot_length",
-        "slug.foot_width",
-        "slug.offset",
-        "slug.clearance",
-        "slug.adhesive_enabled"
-      ]
-    }
-  ],
+  "initialization": [],
   "layer_stack": {
     "when": {
       "substrate.layers": "4-Layer"
@@ -1428,11 +1371,6 @@
         {
           "source": "template.name",
           "label": "封装类型"
-        },
-        {
-          "source": "document.preset_id",
-          "label": "JEDEC Footprint",
-          "hide_when_empty": true
         },
         {
           "source": "parameter",

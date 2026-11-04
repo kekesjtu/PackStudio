@@ -72,10 +72,10 @@ static class NewPackageChecks
                 throw new Exception("back/next discarded draft inputs");
             if (!dialog.TryCreate() || dialog.CreatedDocument is not ProjectDocument result)
                 throw new Exception(family + " could not finish: " + Control<TextBlock>(dialog, "CreationError").Text);
-            if (result.TemplateId != family || result.PresetId != expectedPreset || result.Name != name.Text)
+            if (result.TemplateId != family || dialog.Draft.PresetId != expectedPreset || result.Name != name.Text)
                 throw new Exception("created project differs from selection");
-            if (expectedPreset.Length > 0 && result.Values["footprint.size"].Text() != expectedPreset)
-                throw new Exception("preset values were not applied");
+            if (result.Values.Property("footprint.size") != null)
+                throw new Exception("creation preset leaked into project values");
             if (family == "chip_array" && result.Values["substrate.layers"].Text() != "4-Layer")
                 throw new Exception("substrate initialization was discarded");
             if (family == "chip_array")

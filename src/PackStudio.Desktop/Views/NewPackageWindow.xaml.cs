@@ -72,7 +72,7 @@ public partial class NewPackageWindow : Window
         var variants = template.Presets.Select(p => p.Values["package.type"].Text()).Distinct().Where(v => v.Length > 0).ToList();
         VariantLabel.Visibility = VariantBox.Visibility = variants.Count > 0 ? Visibility.Visible : Visibility.Collapsed;
         VariantBox.ItemsSource = variants;
-        var selected = template.Presets.FirstOrDefault(p => p.Id == template.DefaultPreset);
+        var selected = template.Presets.FirstOrDefault(p => p.Name == template.DefaultPreset);
         VariantBox.SelectedItem = selected?.Values["package.type"].Text();
         FootprintBox.ItemsSource = PresetsForVariant();
         FootprintBox.SelectedValue = template.DefaultPreset;
@@ -81,7 +81,7 @@ public partial class NewPackageWindow : Window
         ApplyPreset();
     }
 
-    List<Preset> PresetsForVariant() => template.Presets.Where(p => VariantBox.SelectedItem is not string variant || p.Values["package.type"].Text() == variant).ToList();
+    List<ProjectDocument> PresetsForVariant() => template.Presets.Where(p => VariantBox.SelectedItem is not string variant || p.Values["package.type"].Text() == variant).ToList();
     void Variant_Changed(object sender, SelectionChangedEventArgs e)
     {
         if (syncing)
@@ -89,7 +89,7 @@ public partial class NewPackageWindow : Window
         syncing = true;
         var presets = PresetsForVariant();
         FootprintBox.ItemsSource = presets;
-        FootprintBox.SelectedValue = presets.FirstOrDefault()?.Id;
+        FootprintBox.SelectedValue = presets.FirstOrDefault()?.Name;
         syncing = false;
         ApplyPreset();
     }

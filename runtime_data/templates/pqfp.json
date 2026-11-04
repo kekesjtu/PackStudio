@@ -41,7 +41,8 @@
       "visible_when": {},
       "enabled_when": {},
       "des_symbol": null,
-      "options_source": "presets"
+      "options_source": "presets",
+      "creation_only": true
     },
     {
       "key": "package.length",
@@ -851,11 +852,6 @@
         {
           "source": "template.name",
           "label": "封装类型"
-        },
-        {
-          "source": "document.preset_id",
-          "label": "JEDEC Footprint",
-          "hide_when_empty": true
         },
         {
           "source": "parameter",

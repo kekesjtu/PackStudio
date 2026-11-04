@@ -19,8 +19,8 @@ static class CatalogChecks
                 Near(model.Sources.Sum(s => s.Power), document.Values["die.power"].Number(), "power conservation");
                 FloXml.Validate(FloXml.Export(model), Path.Combine(tests.Root, "output_format/floxml/xmlSchema.xsd"));
                 foreach (var preset in template.Presets)
-                    foreach (var assignment in preset.MaterialAssignments.Properties())
-                        Assert(tests.Catalog.Materials.Items.ContainsKey(assignment.Value.Text()), "unresolved material ID");
+                    foreach (var assignment in preset.MaterialAssignments)
+                        Assert(tests.Catalog.Materials.Items.ContainsKey(assignment.Value), "unresolved material ID");
             });
         }
         tests.Case("catalog", "unknown preset", () => Reject(() => tests.Catalog.Load("qfn").Defaults("missing")));

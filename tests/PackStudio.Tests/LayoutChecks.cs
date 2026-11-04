@@ -43,7 +43,7 @@ static class LayoutChecks
             var template = tests.Catalog.Load("pbga_wb");
             var values = template.Defaults(template.DefaultPreset);
             values["vias.configuration"] = new JObject { ["removal_enabled"] = true, ["removal_rows"] = 2, ["removal_columns"] = 2 };
-            var context = new BuildContext(tests.Catalog, template, values, template.DefaultPreset, "vias");
+            var context = new BuildContext(tests.Catalog, template, values, "vias", MaterialSelection.Defaults(template));
             Assert(Vias.Omissions(context, 5, 5).Count == 4, "central via removal");
         });
     }

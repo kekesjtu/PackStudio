@@ -10,7 +10,7 @@ public sealed class BuildContext
     readonly IReadOnlyDictionary<string, ModelGroup> catalogGroups;
     readonly Dictionary<string, string> assignments;
     readonly Dictionary<string, Material> customOverrides = [];
-    public BuildContext(PackageCatalog catalog, Template template, JObject values, string presetId, string name, Dictionary<string, string>? materialAssignments = null, IEnumerable<Material>? custom = null)
+    public BuildContext(PackageCatalog catalog, Template template, JObject values, string name, Dictionary<string, string> materialAssignments, IEnumerable<Material>? custom = null)
     {
         Template = template;
         catalogGroups = catalog.Groups;
@@ -25,7 +25,7 @@ public sealed class BuildContext
             Model.Materials[item.Id] = item;
         }
 
-        assignments = MaterialSelection.Resolve(template, presetId, materialAssignments);
+        assignments = MaterialSelection.Resolve(template, materialAssignments);
 
         foreach (var m in custom ?? [])
         {

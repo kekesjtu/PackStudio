@@ -21,6 +21,20 @@ static class MaterialChecks
             Near(tests.Builder.Generate(document).Materials[original.Id].Conductivity.X, 42, "derived override");
         });
         tests.Case("materials", "invalid material rejected", () => Reject(() => new Material("x", "x", new(1, 1, 1), -1, 2).Validate()));
+        tests.Case("materials", "generation does not reread preset material assignments", () =>
+        {
+            var template = tests.Catalog.Load("pbga_wb");
+            var preset = template.Presets.Single(p => p.Name == template.DefaultPreset);
+            var document = ProjectDocument.Create(template);
+            string original = preset.MaterialAssignments["group-encapsulant"];
+            try
+            {
+                preset.MaterialAssignments["group-encapsulant"] = "copper";
+                var model = tests.Builder.Generate(document);
+                Assert(model.Blocks.Single(b => b.StructureType == "encapsulant").MaterialId == original, "preset changes altered existing document materials");
+            }
+            finally { preset.MaterialAssignments["group-encapsulant"] = original; }
+        });
         tests.Case("materials", "FC via matrix retains isotropic conductivity", () =>
         {
             var document = ProjectDocument.Create(tests.Catalog.Load("pbga_fc"));

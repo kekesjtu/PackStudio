@@ -1,0 +1,154 @@
+{
+  "schema_version": "packstudio.four-layer/v1",
+  "family": "pbga_wb",
+  "values": {
+    "substrate.layers": "4-Layer",
+    "metal.layers": [
+      {
+        "depth": 0.0,
+        "thickness": 0.018000000000000002,
+        "coverage": 30.0,
+        "disconnect": false
+      },
+      {
+        "depth": 0.16866666666666666,
+        "thickness": 0.036000000000000004,
+        "coverage": 90.0,
+        "disconnect": false
+      },
+      {
+        "depth": 0.3193333333333333,
+        "thickness": 0.036000000000000004,
+        "coverage": 90.0,
+        "disconnect": true
+      },
+      {
+        "depth": 0.542,
+        "thickness": 0.018000000000000002,
+        "coverage": 10.0,
+        "disconnect": false
+      }
+    ],
+    "substrate.thickness": 0.56,
+    "vias.columns": 3,
+    "vias.rows": 3
+  },
+  "preset_values": {
+    "PBGA_192_17X17mm": {
+      "spreader.length": 7.4,
+      "spreader.width": 7.4
+    },
+    "PBGA_208_17X17mm": {
+      "spreader.length": 7.4,
+      "spreader.width": 7.4
+    },
+    "PBGA_208_23X23mm": {
+      "spreader.length": 11.22,
+      "spreader.width": 11.22
+    },
+    "PBGA_217_23X23mm": {
+      "spreader.length": 11.22,
+      "spreader.width": 11.22
+    },
+    "PBGA_256_27X27mm": {
+      "spreader.length": 15.03,
+      "spreader.width": 15.03
+    },
+    "PBGA_272_27X27mm": {
+      "spreader.length": 15.03,
+      "spreader.width": 15.03
+    },
+    "PBGA_288_23X23mm": {
+      "spreader.length": 13.4,
+      "spreader.width": 13.4
+    },
+    "PBGA_300_27X27mm": {
+      "spreader.length": 12.49,
+      "spreader.width": 12.49
+    },
+    "PBGA_304_31X31mm": {
+      "spreader.length": 18.84,
+      "spreader.width": 18.84
+    },
+    "PBGA_316_27X27mm": {
+      "spreader.length": 12.49,
+      "spreader.width": 12.49
+    },
+    "PBGA_324_23X23mm": {
+      "spreader.length": 13.4,
+      "spreader.width": 13.4
+    },
+    "PBGA_329_31X31mm": {
+      "spreader.length": 18.84,
+      "spreader.width": 18.84
+    },
+    "PBGA_352_35X35mm": {
+      "spreader.length": 22.65,
+      "spreader.width": 22.65
+    },
+    "PBGA_385_31X31mm": {
+      "spreader.length": 16.3,
+      "spreader.width": 16.3
+    },
+    "PBGA_388_35X35mm": {
+      "spreader.length": 22.65,
+      "spreader.width": 22.65
+    },
+    "PBGA_416_27X27mm": {
+      "spreader.length": 17.4,
+      "spreader.width": 17.4
+    },
+    "PBGA_420_35X35mm": {
+      "spreader.length": 20.11,
+      "spreader.width": 20.11
+    },
+    "PBGA_433_31X31mm": {
+      "spreader.length": 13.76,
+      "spreader.width": 13.76
+    },
+    "PBGA_456_23X23mm": {
+      "spreader.length": 7.4,
+      "spreader.width": 7.4
+    },
+    "PBGA_456_35X35mm": {
+      "spreader.length": 20.11,
+      "spreader.width": 20.11
+    },
+    "PBGA_516_31X31mm": {
+      "spreader.length": 21.4,
+      "spreader.width": 21.4
+    },
+    "PBGA_524_37_5X37_5mm": {
+      "spreader.length": 22.65,
+      "spreader.width": 22.65
+    },
+    "PBGA_564_40X40mm": {
+      "spreader.length": 25.19,
+      "spreader.width": 25.19
+    },
+    "PBGA_576_40X40mm": {
+      "spreader.length": 29.0,
+      "spreader.width": 29.0
+    },
+    "PBGA_580_35X35mm": {
+      "spreader.length": 25.4,
+      "spreader.width": 25.4
+    },
+    "PBGA_672_40X40mm": {
+      "spreader.length": 21.38,
+      "spreader.width": 21.38
+    },
+    "PBGA_680_35X35mm": {
+      "spreader.length": 23.4,
+      "spreader.width": 23.4
+    },
+    "PBGA_845_40X40mm": {
+      "spreader.length": 25.4,
+      "spreader.width": 25.4
+    },
+    "PBGA_896_40X40mm": {
+      "spreader.length": 24.4,
+      "spreader.width": 24.4
+    }
+  }
+}

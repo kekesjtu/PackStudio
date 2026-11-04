@@ -19,7 +19,7 @@ public sealed class PackageCatalog
         Groups = JsonData.Read(Path.Combine(root, "model_groups.json")).ToObject<Dictionary<string, ModelGroup>>()!;
         Families = JArray.Parse(File.ReadAllText(Path.Combine(root, "families.json"))).ToObject<List<TemplateInfo>>()!;
         var data = JsonData.Read(Path.Combine(root, "presets", "index.json"));
-        if (data["schema_version"].Text() != "packstudio.preset-index/v3")
+        if (data["schema_version"].Text() != "packstudio.preset-index/v4")
             throw new InvalidDataException("预设索引版本不受支持。");
         index = (JObject)data["presets"]!;
     }
@@ -30,17 +30,19 @@ public sealed class PackageCatalog
             return cached;
         var info = Families.Single(f => f.Id == id);
         var data = JsonData.Read(Path.Combine(root, "templates", id + ".json"));
-        var presets = new List<Preset>();
+        var presets = new List<ProjectDocument>();
         foreach (var p in index.Properties().Where(p => p.Value["family"].Text() == id))
         {
-            var record = JsonData.CatalogEntry(Path.Combine(root, "presets"), p.Value);
-            if (record["schema_version"].Text() != "packstudio.preset/v3" || record["id"].Text() != p.Name || record["family"].Text() != id)
+            var document = ProjectDocument.ReadCurrent(JsonData.CatalogEntry(Path.Combine(root, "presets"), p.Value));
+            if (document.Name != p.Name || document.TemplateId != id)
                 throw new InvalidDataException($"预设标识或版本无效：{p.Name}");
-            var branches = (JObject)record["branches"]!;
-            var branch = branches[record["default_branch"].Text()]!;
-            presets.Add(new(p.Name, (JObject)branch["values"]!, (JObject)branch["material_assignments"]!, branches));
+            presets.Add(document);
         }
-        return cache[id] = new(info, data, presets);
+        Func<FourLayerConfiguration>? loadFourLayer = id is "chip_array" or "pbga_wb"
+            ? () => FourLayerConfiguration.Load(Path.Combine(root, "presets", id, "four_layer.json"), id) : null;
+        var template = new Template(info, data, presets, loadFourLayer);
+        foreach (var preset in presets) MaterialSelection.Resolve(template, preset.MaterialAssignments);
+        return cache[id] = template;
     }
 
 }

@@ -1,0 +1,35 @@
+{
+  "schema_version": "packstudio.four-layer/v1",
+  "family": "chip_array",
+  "values": {
+    "substrate.layers": "4-Layer",
+    "metal.layers": [
+      {
+        "depth": 0.0,
+        "thickness": 0.018000000000000002,
+        "coverage": 20.0,
+        "disconnect": false
+      },
+      {
+        "depth": 0.16866666666666666,
+        "thickness": 0.036000000000000004,
+        "coverage": 90.0,
+        "disconnect": false
+      },
+      {
+        "depth": 0.3193333333333333,
+        "thickness": 0.036000000000000004,
+        "coverage": 90.0,
+        "disconnect": false
+      },
+      {
+        "depth": 0.542,
+        "thickness": 0.018000000000000002,
+        "coverage": 10.0,
+        "disconnect": false
+      }
+    ],
+    "substrate.thickness": 0.56
+  },
+  "preset_values": {}
+}

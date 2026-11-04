@@ -1,5 +1,6 @@
 """Explicit CLI invocation, diagnostics, and research request protocol."""
 
+import json
 import os
 import subprocess
 from pathlib import Path
@@ -82,7 +83,13 @@ def test_footprint_override_selects_preset(cli):
     values = cli.resolve_values({
         "template_id": "chip_array", "overrides": {"chip_array.footprint.size": preset},
     })
-    assert values["footprint.size"] == preset
+    index_path = cli.ROOT / "runtime_data/presets/index.json"
+    index = json.loads(index_path.read_text(encoding="utf-8"))
+    preset_path = cli.ROOT / "runtime_data/presets" / index["presets"][preset]["file"]
+    document = json.loads(preset_path.read_text(encoding="utf-8"))
+    assert "footprint.size" not in values
+    assert values["die.length"] == document["Values"]["die.length"]
+    assert values["package.length"] == document["Values"]["package.length"]
 
 
 def test_batch_request_initializes_four_layer_geometry(cli):

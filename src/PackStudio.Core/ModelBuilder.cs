@@ -3,14 +3,12 @@ using Newtonsoft.Json.Linq;
 namespace PackStudio.Core;
 public sealed class ModelBuilder(PackageCatalog catalog)
 {
-    public PackageModel Generate(ProjectDocument document) => Generate(document.TemplateId, document.Values, document.PresetId, document.Name, document.MaterialAssignments, document.CustomMaterials);
+    public PackageModel Generate(ProjectDocument document) => Generate(document.TemplateId, document.Values, document.Name, document.MaterialAssignments, document.CustomMaterials);
 
-    public PackageModel Generate(string templateId, JObject values, string presetId = "", string? name = null, Dictionary<string, string>? materialAssignments = null, IEnumerable<Material>? custom = null)
+    public PackageModel Generate(string templateId, JObject values, string? name = null, Dictionary<string, string>? materialAssignments = null, IEnumerable<Material>? custom = null)
     {
         var template = catalog.Load(templateId);
-        if (presetId.Length == 0 && template.Presets.Count > 0)
-            presetId = values["footprint.size"].Text(template.DefaultPreset);
-        var c = new BuildContext(catalog, template, values, presetId, name ?? template.Info.Name, materialAssignments, custom);
+        var c = new BuildContext(catalog, template, values, name ?? template.Info.Name, materialAssignments ?? MaterialSelection.Defaults(template), custom);
         switch (templateId)
         {
             case "bare_die":
