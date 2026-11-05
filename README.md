@@ -59,7 +59,7 @@ dotnet publish src/PackStudio.Desktop -c Release -r win-x64 --self-contained -o 
 | [WB PBGA 通孔](docs/decisions/原生bug-Wirebond-PBGA通孔纵向位置.md) | 纵向定位 |
 | [WB PBGA 内层铜](docs/decisions/原生bug-Wirebond-PBGA内层铜纵向位置.md) | 铜层与断开区 |
 | [SOP 堆叠](docs/decisions/原生bug-SOP芯片与胶层堆叠.md) | 芯片胶层定位 |
-| [SOP 键合线](docs/decisions/原生bug-SOP键合线线长参数.md) | 名义路径长度 |
+| [SOP 键合线](docs/decisions/原生bug-SOP键合线线长参数.md) | 线长参数边界 |
 | [新建封装与导航](docs/decisions/新建封装与向导导航.md) | 创建流程与左侧布局 |
 | [数值输入](docs/decisions/数值输入框交互.md) | 单位、箭头与范围 |
 | [模型树](docs/decisions/模型树排序与显隐.md) | 层次、排序、选择与显隐 |

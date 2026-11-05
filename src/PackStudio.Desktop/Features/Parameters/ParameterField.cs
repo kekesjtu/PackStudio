@@ -1,4 +1,3 @@
-using System.Globalization;
 using CommunityToolkit.Mvvm.ComponentModel;
 using Newtonsoft.Json.Linq;
 using PackStudio.Core;
@@ -48,14 +47,6 @@ public sealed class ParameterField : ObservableObject
     {
         get => text;
         set { SetProperty(ref text, value); Set(FieldValues.Parse(Definition, value)); }
-    }
-    public string DerivedValue
-    {
-        get
-        {
-            double n = ParameterCalculations.Derived(Definition["calculation"].Text(), form.Values);
-            return double.IsFinite(n) ? n.ToString("G9", CultureInfo.InvariantCulture) : "";
-        }
     }
     public void Set(JToken value) => form.Set(this, value);
     internal IEnumerable<string> RuleDependencies(string rule) =>

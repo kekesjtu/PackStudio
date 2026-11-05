@@ -66,8 +66,8 @@ public static partial class FieldView
             }
             else
             {
-                var text = new TextBox { IsReadOnly = control == "derived" };
-                Bind(text, TextBox.TextProperty, field, control == "derived" ? nameof(ParameterField.DerivedValue) : nameof(ParameterField.TextValue), control == "derived" ? BindingMode.OneWay : BindingMode.TwoWay);
+                var text = new TextBox();
+                Bind(text, TextBox.TextProperty, field, nameof(ParameterField.TextValue), BindingMode.TwoWay);
                 editors.Children.Add(text);
             }
             if (f["help_text"].Text() is string help && help.Length > 0) editors.Children.Add(new TextBlock { Text = help, TextWrapping = TextWrapping.Wrap, Foreground = Brushes.SlateGray, FontSize = 11 });

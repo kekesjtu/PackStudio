@@ -84,13 +84,17 @@ internal sealed partial class SchematicDrawing
 
     void Wires()
     {
-        DimH(Bga ? 226 : 409, Bga ? 474 : 470, 230, 310,
-            Dimension(Bga ? "线阵列跨度" : "名义路径长度", Bga ? "bond_wire.extent_length" : "bond_wire.length_x"));
+        if (!Sop)
+            DimH(Bga ? 226 : 409, Bga ? 474 : 470, 230, 310,
+                Dimension(Bga ? "线阵列跨度" : "键合线长度", Bga ? "bond_wire.extent_length" : "bond_wire.length_x"));
         Callout(Dimension("线径", "bond_wire.diameter"), 80, 155, 253, 185);
         double left = Bga ? 235 : 245, right = 700 - left;
         Outline(left - 4, 396, right - left + 8, 148);
-        DimH(left, right, 400, 365, Sop ? "名义路径 X" : Dimension("线阵列长度", "bond_wire.extent_length", "lbwx"));
-        DimV(400, 540, right, 565, Sop ? "名义路径 Y" : Dimension("线阵列宽度\n", "bond_wire.extent_width", "lbwy"));
+        if (!Sop)
+        {
+            DimH(left, right, 400, 365, Dimension("线阵列长度", "bond_wire.extent_length", "lbwx"));
+            DimV(400, 540, right, 565, Dimension("线阵列宽度\n", "bond_wire.extent_width", "lbwy"));
+        }
     }
 
     void Leads()

@@ -50,7 +50,7 @@ public sealed class RuntimeDataCatalog
             var document = ProjectStore.ReadCurrent(JsonData.CatalogEntry(Path.Combine(root, "presets"), entry.Value));
             if (document.Name != entry.Name || document.TemplateId != id)
                 throw new InvalidDataException($"预设标识无效：{entry.Name}");
-            foreach (var field in fields.Where(f => !f["creation_only"].Flag() && f["type"].Text() is not ("footprint" or "derived")))
+            foreach (var field in fields.Where(f => !f["creation_only"].Flag() && f["type"].Text() != "footprint"))
                 if (document.Values.Property(field["key"].Text()) == null)
                     throw new InvalidDataException($"预设 {entry.Name} 缺少参数 {field["key"]}。");
             presets.Add(document);

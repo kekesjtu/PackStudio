@@ -239,42 +239,6 @@
       "unit": "%",
       "options": [],
       "type": "number"
-    },
-    {
-      "key": "derived.wire_path_x",
-      "unit": "mm",
-      "calculation": "sop_wire_path_x",
-      "depends_on": [
-        "die.length",
-        "flag.length",
-        "leads.gap",
-        "die.thickness",
-        "die.attach",
-        "flag.thickness",
-        "leads.thickness",
-        "flag.downset",
-        "package.standoff",
-        "leads.height"
-      ],
-      "type": "derived"
-    },
-    {
-      "key": "derived.wire_path_y",
-      "unit": "mm",
-      "calculation": "sop_wire_path_y",
-      "depends_on": [
-        "die.width",
-        "flag.width",
-        "leads.gap",
-        "die.thickness",
-        "die.attach",
-        "flag.thickness",
-        "leads.thickness",
-        "flag.downset",
-        "package.standoff",
-        "leads.height"
-      ],
-      "type": "derived"
     }
   ],
   "origin": "Reviewed PackStudio model specification; mapped source values explicitly referenced",

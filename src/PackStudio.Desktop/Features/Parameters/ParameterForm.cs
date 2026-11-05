@@ -76,7 +76,6 @@ public sealed class ParameterForm
             Watch(field, nameof(ParameterField.Visible), field.RuleDependencies("visible_when"));
             Watch(field, nameof(ParameterField.Enabled), field.RuleDependencies("enabled_when"));
             Watch(field, nameof(ParameterField.Symbol), TemplateSymbols.Dependencies(field.Definition));
-            Watch(field, nameof(ParameterField.DerivedValue), (field.Definition["depends_on"] as JArray ?? []).Select(k => k.Text()));
             Watch(field, nameof(ParameterField.MatrixRows), [field.Definition["rows_key"].Text()]);
             Watch(field, nameof(ParameterField.MatrixColumns), [field.Definition["columns_key"].Text()]);
         }

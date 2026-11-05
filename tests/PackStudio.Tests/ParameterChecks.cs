@@ -105,15 +105,6 @@ static class ParameterChecks
                 Near(document.Values["thermal_land.thickness"].Number(), -0.12, "generation reapplied exposed pad initialization");
             });
         }
-        tests.Case("parameters", "SOP derived display agrees with modeled wire path", () =>
-        {
-            var document = tests.Create(tests.Catalog.Load("sop"));
-            var model = tests.Generate(document);
-            var horizontal = model.Blocks.Single(b => b.Id == "bond-wire-h-right-part-1");
-            var lead = model.Blocks.Single(b => b.Id == "sop-inner-right-part-1");
-            var die = model.Blocks.Single(b => b.StructureType == "die");
-            Near(ParameterCalculations.Derived("sop_wire_path_x", document.Values), horizontal.Size.X + Math.Abs(die.Maximum.Z - lead.Maximum.Z), "display path differs from geometry");
-        });
         tests.Case("parameters", "power edit and invalid geometry", () =>
         {
             var document = tests.Create(tests.Catalog.Load("bare_die"));
