@@ -7,8 +7,7 @@
 | 路径 | 内容 |
 | --- | --- |
 | `families.json` | 家族显示名、分组、描述、默认选择、图标与示意图样式 |
-| `definitions/<family>.json` | 参数键、类型、单位、枚举、创建属性、Bare Die 基线及材料槽位 |
-| `templates/<family>.json` | 标签、控件、栏目、示意图、DES 符号、格式与显示条件 |
+| `definitions/<family>.json` | `keys` 统一定义参数、选项、材料选择与展示信息；`steps` 定义向导栏目和示意图 |
 | `validation/common.json`、`validation/<family>.json` | 字段及业务检查声明、数值范围、生效条件、严重度和消息；共用声明通过 families 限定适用家族 |
 | `model_groups.json` | 领域模型、模型树与导出共用的分组显示名称及父子关系 |
 | `presets/<来源目录>/<预设名>.json` | 342 个可直接导入的完整方案预设 |
@@ -25,6 +24,14 @@ Bare Die 没有原生预设，使用参数定义中的基线。
 
 参数定义中的材料内容仅为槽位、候选及默认材料 ID。固定物性来自 `materials/`，等效物性由生成器按当前参数计算，用户物性覆盖保存在方案的 `CustomMaterials`；参数定义不存储等效材料数值。
 
+封装定义采用 `packstudio.definition/v2`，文件头的 `schema_version`、`template_id` 标识版本和家族，正文为 `keys` 与 `steps`：
+
+- `keys` 中每个条目以 `key` 标识参数；`type` 同时用于数据解析、校验和控件选择。包含 `step` 的参数进入对应向导栏目；内部参数只保存必要定义，不声明栏目，不设置隐藏控件。
+- `options` 为包含 `value` 和可选 `label` 的选项记录。方案保存和校验使用 `value`，下拉框显示 `label`，省略名称时直接显示值。`options_source: "presets"` 按预设生成同样结构的候选。
+- `type: "material"` 的条目定义材料槽位，`key` 即组件材料组 ID。其 `default` 和选项中的 `value` 均为材料 ID，`*` 表示已有材料候选。方案仍通过独立的 `MaterialAssignments` 保存选择。
+- 对象的子参数放在嵌套 `keys` 中，表格列放在 `columns` 中。`schematic: true` 标记影响示意图结构的参数，用于场景更新。
+- `steps` 保存栏目顺序、名称、示意图类型及概要显示配置。参数标签、单位、符号和显隐条件均随对应 `key` 存放。
+
 `validation/` 统一提供校验声明、严重度及消息模板。`InputValidator` 执行字段和跨字段检查，`ModelValidator` 执行模型检查；复杂公式保留在相应校验算法中。字段可通过 `severity` 和 `messages` 设置诊断，`exclusive_minimum` 表达严格下限，`min_rows`、`max_rows` 表达表格行数限制。计算前提保护仅返回规则编号，由统一生成入口使用相同规则目录生成诊断。
 
 字段的 `des_symbol` 是 DES 键字符串、包含 `selector` 与 `cases` 的选择映射，或无直接符号时的 null。
@@ -32,7 +39,7 @@ Bare Die 没有原生预设，使用参数定义中的基线。
 
 `creation_option` 声明创建窗口展示的选项；`creation_only` 声明仅参与创建初始化的输入，不作为保存方案生成时的有效输入。创建后的金属厚度以层表为准。`options_source: "presets"` 从预设目录查询候选，不改写参数定义中的 options。创建时保留用户输入，生成前统一执行业务校验。
 
-概要栏目通过 steps 中的 fields 声明文档/模板/参数来源、标签、格式、空值显隐与可编辑性。对象字段的参数定义声明默认对象和子字段；方案原始值按提交保留，生成前根据业务分支检查对象与子字段。
+概要栏目通过 steps 中的 fields 声明文档/封装/参数来源、标签、格式、空值显隐与可编辑性。对象字段的参数定义声明默认对象和子参数 keys；方案原始值按提交保留，生成前根据业务分支检查对象与子字段。
 
 ## 完整方案与四层配置
 

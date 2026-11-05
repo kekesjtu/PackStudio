@@ -33,7 +33,7 @@ static class SemanticFieldChecks
         if (workspace.DesignName != name.Text) throw new Exception("summary name binding did not update document");
         name.Text = original;
 
-        var definitions = workspace.Template.Ui.Steps.Single(s => s["key"].Text() == "summary")["fields"]!;
+        var definitions = workspace.Template.Steps.Single(s => s["key"].Text() == "summary")["fields"]!;
         var powerDefinition = definitions.Single(f => f["parameter"].Text() == "die.power");
         var powerSummary = new SummaryField(workspace, form, powerDefinition);
         var power = form.Fields.Single(f => f.Key == "die.power");

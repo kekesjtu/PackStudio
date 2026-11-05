@@ -9,8 +9,8 @@ public sealed partial class ParameterPanel
 {
     void AddMaterial(ParameterField state)
     {
-        var selection = state.Definition;
-        string group = selection["group_id"].Text();
+        string group = state.Key["$material:".Length..];
+        var selection = workspace.Template.MaterialSelections.Single(s => s["key"].Text() == group);
         var choices = MaterialSelection.Choices(workspace.Catalog.Materials, workspace.Template, workspace.Document, selection, workspace.Model);
         string id = choices.SelectedId;
         var allowed = choices.Items;

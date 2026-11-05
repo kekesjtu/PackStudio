@@ -62,14 +62,14 @@ public static partial class InputValidator
             else if (type == "object")
             {
                 if (value is not JObject nested) Error("input.type.object");
-                else ValidateFields(field["fields"] as JArray ?? [], definition?["fields"] as JArray ?? [], nested, path + ".", templateId, rules, issues);
+                else ValidateFields(field["fields"] as JArray ?? [], definition?["keys"] as JArray ?? [], nested, path + ".", templateId, rules, issues);
             }
             else if (type is "table" or "removal_matrix")
             {
                 if (value is not JArray rows) Error("input.type.array");
                 else ValidateRows(field, definition, rows, path, rules, issues);
             }
-            if (definition?["options"] is JArray { Count: > 0 } options && !options.Any(o => JToken.DeepEquals(o, value)))
+            if (definition != null && PackageDefinition.OptionValues(definition) is { Count: > 0 } options && !options.Any(o => JToken.DeepEquals(o, value)))
                 Error("input.option");
         }
     }
@@ -104,14 +104,14 @@ public static partial class InputValidator
             issues.Add(rules.Create("input.material.duplicate", ValidationStage.Input, ["CustomMaterials." + duplicate.Key], detail: duplicate.Key));
         foreach (var selection in definition.MaterialSelections)
         {
-            string group = selection["group_id"].Text(), path = "MaterialAssignments." + group;
+            string group = selection["key"].Text(), path = "MaterialAssignments." + group;
             if (!document.MaterialAssignments.TryGetValue(group, out var id))
                 issues.Add(rules.Create("input.material.missing", ValidationStage.Input, [path], detail: group));
-            else if (id.Length == 0 ? !((JArray)selection["options"]!).Any(o => o.Text() == "") :
-                !materials.ContainsKey(id) || !((JArray)selection["options"]!).Any(o => o.Text() == "*" || o.Text() == id))
+            else if (id.Length == 0 ? !(PackageDefinition.OptionValues(selection)).Any(o => o.Text() == "") :
+                !materials.ContainsKey(id) || !(PackageDefinition.OptionValues(selection)).Any(o => o.Text() == "*" || o.Text() == id))
                 issues.Add(rules.Create("input.material.reference", ValidationStage.Input, [path], detail: id));
         }
-        foreach (string group in document.MaterialAssignments.Keys.Except(definition.MaterialSelections.Select(s => s["group_id"].Text())))
+        foreach (string group in document.MaterialAssignments.Keys.Except(definition.MaterialSelections.Select(s => s["key"].Text())))
             issues.Add(rules.Create("input.material.group", ValidationStage.Input, ["MaterialAssignments." + group], detail: group));
     }
 

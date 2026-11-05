@@ -14,7 +14,7 @@ public static partial class FieldView
     public static FrameworkElement Create(ParameterField field)
     {
         var f = field.Definition;
-        string control = field.Control;
+        string control = field.Type;
         FrameworkElement view;
         if (control == "removal_matrix")
         {
@@ -45,7 +45,7 @@ public static partial class FieldView
             }
             else if (field.Options is { Count: > 0 } options)
             {
-                var box = new ComboBox { ItemsSource = options.Select(o => new { Value = o.DeepClone(), Label = f["option_labels"]?[o.ToString()].Text(o.ToString()) ?? o.ToString() }).ToList(), DisplayMemberPath = "Label", SelectedValuePath = "Value" };
+                var box = new ComboBox { ItemsSource = options.Select(o => new { Value = o["value"]!.DeepClone(), Label = o["label"].Text(o["value"]!.ToString()) }).ToList(), DisplayMemberPath = "Label", SelectedValuePath = "Value" };
                 Bind(box, ComboBox.SelectedValueProperty, field, nameof(ParameterField.ChoiceValue));
                 editors.Children.Add(box);
             }

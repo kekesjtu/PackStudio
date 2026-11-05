@@ -105,7 +105,7 @@ static class ProjectChecks
                 Near(loaded.Values["metal.layers"]![0]!["thickness"].Number(), 0.025, "import recomputed layer stack");
                 var result = tests.GenerateResult(loaded);
                 Assert(result.Model == null && result.Issues.Count(i => i.Severity == IssueSeverity.Error) >= 3, "incomplete import bypassed generation checks");
-                var choice = tests.Catalog.Load("pbga_wb").Ui.MaterialSelections.Single(s => s["group_id"].Text() == "group-encapsulant");
+                var choice = tests.Catalog.Load("pbga_wb").MaterialSelections.Single(s => s["key"].Text() == "group-encapsulant");
                 Assert(MaterialSelection.Choices(tests.Catalog.Materials, tests.Catalog.Load("pbga_wb"), loaded, choice).Items.Count > 0, "incomplete selection cannot be edited");
             }
             finally { File.Delete(path); }

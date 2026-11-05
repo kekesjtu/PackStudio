@@ -28,7 +28,7 @@ public sealed partial class ParameterPanel
     {
         FieldsPanel.Children.Clear();
         if (step == "summary") { AddSummary(); return; }
-        var fields = form.Fields.Where(f => f.Step == step && f.Control is not ("footprint" or "hidden")).ToList();
+        var fields = form.Fields.Where(f => f.Step == step && f.Type != "footprint").ToList();
         var materials = form.Materials.Where(f => f.Step == step).ToList();
         bool Footer(ParameterField f) => f.Definition["placement"].Text() == "footer";
         foreach (var field in fields.Where(f => !Footer(f))) FieldsPanel.Children.Add(FieldView.Create(field));

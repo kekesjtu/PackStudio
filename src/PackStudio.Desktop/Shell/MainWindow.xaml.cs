@@ -53,7 +53,7 @@ public partial class MainWindow : Window
             Profile = choice.Icon
         };
         Title = workspace.Document.Name + " — PackStudio";
-        StepList.ItemsSource = workspace.Template.Ui.Steps.Select(s => new WizardStep(s["key"].Text(), s["label"].Text())).ToList();
+        StepList.ItemsSource = workspace.Template.Steps.Select(s => new WizardStep(s["key"].Text(), s["label"].Text())).ToList();
         StepList.SelectedIndex = 0;
         loading = false;
         RefreshFields();
@@ -68,7 +68,7 @@ public partial class MainWindow : Window
     void RefreshFields()
     {
         if (StepList.SelectedValue is not string step) return;
-        SectionTitle.Text = workspace.Template.Ui.Steps.Single(s => s["key"].Text() == step)["label"].Text();
+        SectionTitle.Text = workspace.Template.Steps.Single(s => s["key"].Text() == step)["label"].Text();
         parameters.Show(step);
         UpdateSchematic();
     }

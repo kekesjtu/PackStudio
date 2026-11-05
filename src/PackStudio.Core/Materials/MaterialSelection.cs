@@ -7,7 +7,7 @@ public sealed record MaterialChoices(string SelectedId, IReadOnlyList<Material> 
 public static class MaterialSelection
 {
     public static Dictionary<string, string> Defaults(PackageDefinition template) =>
-        template.MaterialSelections.ToDictionary(s => s["group_id"].Text(), s => s["default"].Text());
+        template.MaterialSelections.ToDictionary(s => s["key"].Text(), s => s["default"].Text());
 
     public static IReadOnlyList<Material> Available(MaterialCatalog catalog, PackageDefinition template, ProjectDocument document, PackageModel? model = null)
     {
@@ -26,8 +26,8 @@ public static class MaterialSelection
 
     public static MaterialChoices Choices(MaterialCatalog catalog, PackageDefinition template, ProjectDocument document, JToken selection, PackageModel? model = null)
     {
-        string id = document.MaterialAssignments.GetValueOrDefault(selection["group_id"].Text(), "");
-        var options = (JArray)selection["options"]!;
+        string id = document.MaterialAssignments.GetValueOrDefault(selection["key"].Text(), "");
+        var options = PackageDefinition.OptionValues(selection);
         var representatives = Available(catalog, template, document, model);
         var candidates = catalog.Items.Values.Concat(document.CustomMaterials)
             .Concat(model?.Materials.Values ?? []);

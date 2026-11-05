@@ -21,10 +21,10 @@ public sealed class PackageSchematic : FrameworkElement
     {
         TemplateId = document.TemplateId;
         StepKey = step;
-        DiagramKey = template.Ui.Steps.Single(s => s["key"].Text() == step)["diagram"].Text();
+        DiagramKey = template.Steps.Single(s => s["key"].Text() == step)["diagram"].Text();
         ToolTip = HasDiagram ? $"{template.Info.Name} · {label}" : null;
         var renderer = new SchematicDrawing(template, document, step);
-        var configuration = new JArray(((JArray)template.Ui.Data["schematic_dependencies"]!).Select(key => document.Values[key.Text()]?.DeepClone() ?? JValue.CreateNull()));
+        var configuration = new JArray(template.Fields.Where(f => f["schematic"].Flag()).Select(f => document.Values[f["key"].Text()]?.DeepClone() ?? JValue.CreateNull()));
         if (DiagramKey == "package" && (packageScene == null || sceneTemplate != TemplateId || !JToken.DeepEquals(sceneValues, configuration)))
         {
             packageScene = renderer.CreatePackageScene();

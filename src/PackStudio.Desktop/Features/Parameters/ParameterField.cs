@@ -26,7 +26,7 @@ public sealed class ParameterField : ObservableObject
             issue.StartsWith(dotted + ".") || dotted.StartsWith(issue + ".");
     }
     public string Label => Definition["label"].Text();
-    public string Control => Definition["control"].Text();
+    public string Type => Definition["type"].Text();
     public string Step => parent?.Step ?? Definition["step"].Text();
     public JToken? Value => form.Get(Path);
     JObject Scope => parent?.Value as JObject ?? form.Values;

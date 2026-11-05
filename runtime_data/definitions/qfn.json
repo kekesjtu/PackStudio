@@ -1,264 +1,385 @@
 {
-  "schema_version": "packstudio.definition/v1",
+  "schema_version": "packstudio.definition/v2",
   "template_id": "qfn",
-  "fields": [
+  "keys": [
     {
       "key": "footprint.size",
       "default": "QFN_12X12_100",
       "unit": null,
-      "options": [],
       "options_source": "presets",
       "creation_only": true,
-      "type": "footprint"
+      "type": "footprint",
+      "step": "package_setup",
+      "label": "Footprint 尺寸（JEDEC）"
     },
     {
       "key": "package.length",
       "unit": "mm",
-      "options": [],
-      "type": "number"
+      "type": "number",
+      "step": "overall_package",
+      "label": "封装长度",
+      "des_symbol": "D"
     },
     {
       "key": "package.width",
       "unit": "mm",
-      "options": [],
-      "type": "number"
+      "type": "number",
+      "step": "overall_package",
+      "label": "封装宽度",
+      "des_symbol": "E"
     },
     {
       "key": "package.standoff",
       "unit": "mm",
-      "options": [],
-      "type": "number"
+      "type": "number",
+      "step": "overall_package",
+      "label": "离板高度",
+      "des_symbol": "A1"
     },
     {
       "key": "encapsulant.thickness",
       "unit": "mm",
-      "options": [],
-      "type": "number"
+      "type": "number",
+      "step": "overall_package",
+      "label": "塑封厚度",
+      "des_symbol": "A2"
     },
     {
       "key": "die.length",
       "unit": "mm",
-      "options": [],
-      "type": "number"
+      "type": "number",
+      "step": "die",
+      "label": "芯片长度",
+      "des_symbol": "Ld"
     },
     {
       "key": "die.width",
       "unit": "mm",
-      "options": [],
-      "type": "number"
+      "type": "number",
+      "step": "die",
+      "label": "芯片宽度",
+      "des_symbol": "Wd"
     },
     {
       "key": "die.thickness",
       "unit": "mm",
-      "options": [],
-      "type": "number"
+      "type": "number",
+      "step": "die",
+      "label": "芯片厚度",
+      "des_symbol": "td"
     },
     {
       "key": "die.attach",
       "unit": "mm",
-      "options": [],
-      "type": "number"
+      "type": "number",
+      "step": "die",
+      "label": "粘接层",
+      "des_symbol": "tda"
     },
     {
       "key": "die.power",
       "unit": "W",
-      "options": [],
-      "type": "number"
+      "type": "number",
+      "step": "die",
+      "label": "芯片功率",
+      "des_symbol": "P"
     },
     {
       "key": "pad.length",
       "unit": "mm",
-      "options": [],
-      "type": "number"
+      "type": "number",
+      "step": "dap",
+      "label": "承载台长度",
+      "des_symbol": "Lp"
     },
     {
       "key": "pad.width",
       "unit": "mm",
-      "options": [],
-      "type": "number"
+      "type": "number",
+      "step": "dap",
+      "label": "承载台宽度",
+      "des_symbol": "Wp"
     },
     {
       "key": "pad.exposed_length",
       "unit": "mm",
-      "options": [],
-      "type": "number"
+      "type": "number",
+      "step": "dap",
+      "label": "底部裸露长度",
+      "des_symbol": "Lep"
     },
     {
       "key": "pad.exposed_width",
       "unit": "mm",
-      "options": [],
-      "type": "number"
+      "type": "number",
+      "step": "dap",
+      "label": "底部裸露宽度",
+      "des_symbol": "Wep"
     },
     {
       "key": "leads.count_x",
       "unit": null,
-      "options": [],
-      "type": "integer_spinbox"
+      "type": "integer_spinbox",
+      "step": "lead_solder_interconnect",
+      "label": "上下侧引脚数",
+      "des_symbol": "MD"
     },
     {
       "key": "leads.count_y",
       "unit": null,
-      "options": [],
-      "type": "integer_spinbox"
+      "type": "integer_spinbox",
+      "step": "lead_solder_interconnect",
+      "label": "左右侧引脚数",
+      "des_symbol": "ME"
     },
     {
       "key": "leads.pitch_x",
       "unit": "mm",
-      "options": [],
-      "type": "number"
+      "type": "number",
+      "step": "lead_solder_interconnect",
+      "label": "X 方向节距",
+      "des_symbol": "ex"
     },
     {
       "key": "leads.pitch_y",
       "unit": "mm",
-      "options": [],
-      "type": "number"
+      "type": "number",
+      "step": "lead_solder_interconnect",
+      "label": "Y 方向节距",
+      "des_symbol": "ey"
     },
     {
       "key": "leads.width",
       "unit": "mm",
-      "options": [],
-      "type": "number"
+      "type": "number",
+      "step": "lead_solder_interconnect",
+      "label": "线宽",
+      "des_symbol": "wf"
     },
     {
       "key": "leads.length",
       "unit": "mm",
-      "options": [],
-      "type": "number"
+      "type": "number",
+      "step": "lead_solder_interconnect",
+      "label": "外露长度",
+      "des_symbol": "lf"
     },
     {
       "key": "leads.exposed_thickness",
       "unit": "mm",
-      "options": [],
-      "type": "number"
+      "type": "number",
+      "step": "lead_solder_interconnect",
+      "label": "外露引脚厚度",
+      "des_symbol": "hf"
     },
     {
       "key": "leads.thickness",
       "unit": "mm",
-      "options": [],
-      "type": "number"
+      "type": "number",
+      "step": "lead_solder_interconnect",
+      "label": "引脚厚度",
+      "des_symbol": "tf"
     },
     {
       "key": "leads.etch",
       "unit": "mm",
-      "options": [],
-      "type": "number"
+      "type": "number",
+      "step": "lead_solder_interconnect",
+      "label": "引脚蚀刻量",
+      "des_symbol": "ldent"
     },
     {
       "key": "bond_wire.length_x",
       "unit": "mm",
-      "options": [],
-      "type": "number"
+      "type": "number",
+      "step": "bond_wires",
+      "label": "线阵列长度",
+      "des_symbol": "lbwx"
     },
     {
       "key": "bond_wire.length_y",
       "unit": "mm",
-      "options": [],
-      "type": "number"
+      "type": "number",
+      "step": "bond_wires",
+      "label": "线阵列宽度",
+      "des_symbol": "lbwy"
     },
     {
       "key": "bond_wire.diameter",
       "unit": "mm",
-      "options": [],
-      "type": "number"
+      "type": "number",
+      "step": "bond_wires",
+      "label": "线径",
+      "des_symbol": "dbw"
     },
     {
       "key": "thermal_land.enabled",
       "unit": null,
-      "options": [],
-      "type": "checkbox"
+      "type": "checkbox",
+      "step": "thermal_land",
+      "label": "包含散热焊盘",
+      "schematic": true
     },
     {
       "key": "thermal_land.thickness",
       "unit": "mm",
-      "options": [],
-      "type": "number"
+      "type": "number",
+      "step": "thermal_land",
+      "label": "散热焊料厚度",
+      "visible_when": {
+        "thermal_land.enabled": true
+      },
+      "des_symbol": "ts"
     },
     {
       "key": "vias.enabled",
       "unit": null,
-      "options": [],
-      "type": "checkbox"
+      "type": "checkbox",
+      "step": "thermal_vias",
+      "label": "启用热通孔",
+      "schematic": true
     },
     {
       "key": "vias.length",
       "unit": "mm",
-      "options": [],
-      "type": "number"
+      "type": "number",
+      "step": "thermal_vias",
+      "label": "通孔长度",
+      "visible_when": {
+        "vias.enabled": true
+      },
+      "des_symbol": "lv"
     },
     {
       "key": "vias.diameter",
       "unit": "mm",
-      "options": [],
-      "type": "number"
+      "type": "number",
+      "step": "thermal_vias",
+      "label": "孔径",
+      "visible_when": {
+        "vias.enabled": true
+      },
+      "des_symbol": "dv"
     },
     {
       "key": "vias.plating",
       "unit": "mm",
-      "options": [],
-      "type": "number"
+      "type": "number",
+      "step": "thermal_vias",
+      "label": "镀层厚度",
+      "visible_when": {
+        "vias.enabled": true
+      },
+      "des_symbol": "tpl"
     },
     {
       "key": "vias.pitch",
       "unit": "mm",
-      "options": [],
-      "type": "number"
+      "type": "number",
+      "step": "thermal_vias",
+      "label": "通孔间距",
+      "visible_when": {
+        "vias.enabled": true
+      },
+      "des_symbol": "ev"
     },
     {
       "key": "vias.columns",
       "unit": null,
-      "options": [],
-      "type": "integer_spinbox"
+      "type": "integer_spinbox",
+      "step": "thermal_vias",
+      "label": "通孔 X 方向数量",
+      "visible_when": {
+        "vias.enabled": true
+      },
+      "des_symbol": "VD"
     },
     {
       "key": "vias.rows",
       "unit": null,
-      "options": [],
-      "type": "integer_spinbox"
+      "type": "integer_spinbox",
+      "step": "thermal_vias",
+      "label": "通孔 Y 方向数量",
+      "visible_when": {
+        "vias.enabled": true
+      },
+      "des_symbol": "VE"
     },
     {
       "key": "grid.enabled",
       "default": true,
       "unit": null,
-      "options": [],
-      "type": "checkbox"
+      "type": "checkbox",
+      "label": "局部网格",
+      "step": "modeling",
+      "placement": "footer"
     },
     {
       "key": "grid.density",
       "default": "fine",
       "unit": null,
       "options": [
-        "coarse",
-        "medium",
-        "fine"
+        {
+          "value": "coarse"
+        },
+        {
+          "value": "medium"
+        },
+        {
+          "value": "fine"
+        }
       ],
-      "type": "combobox"
+      "type": "combobox",
+      "label": "网格密度",
+      "step": "modeling",
+      "visible_when": {
+        "grid.enabled": true
+      },
+      "placement": "footer"
     },
     {
       "key": "leads.modeling",
       "default": "discreteLeads",
       "unit": null,
       "options": [
-        "discreteLeads",
-        "orthotropicCuboid"
+        {
+          "value": "discreteLeads"
+        },
+        {
+          "value": "orthotropicCuboid"
+        }
       ],
-      "type": "combobox"
+      "type": "combobox",
+      "label": "引脚与焊料互连建模方式",
+      "step": "modeling"
     },
     {
       "key": "bond_wire.steps",
       "default": 1,
       "unit": null,
-      "options": [],
-      "type": "integer_spinbox"
+      "type": "integer_spinbox",
+      "label": "键合线离散分段数量",
+      "step": "modeling",
+      "des_symbol": "nsteps"
     },
     {
       "key": "vias.modeling",
       "default": "discrete",
       "unit": null,
       "options": [
-        "discrete",
-        "lumped"
+        {
+          "value": "discrete"
+        },
+        {
+          "value": "lumped"
+        }
       ],
-      "type": "combobox"
+      "type": "combobox",
+      "label": "通孔建模方式",
+      "step": "modeling",
+      "visible_when": {
+        "vias.enabled": true
+      }
     },
     {
       "key": "vias.configuration",
@@ -269,85 +390,215 @@
         "omitted_cells": []
       },
       "type": "object",
-      "fields": [
+      "label": "通孔去除配置",
+      "step": "thermal_vias",
+      "visible_when": {
+        "vias.enabled": true
+      },
+      "keys": [
         {
           "key": "removal_enabled",
-          "type": "checkbox"
+          "type": "checkbox",
+          "label": "启用通孔去除",
+          "standalone": true
         },
         {
           "key": "removal_rows",
-          "type": "integer"
+          "type": "integer",
+          "label": "中央去除行数",
+          "visible_when": {
+            "removal_enabled": true
+          }
         },
         {
           "key": "removal_columns",
-          "type": "integer"
+          "type": "integer",
+          "label": "中央去除列数",
+          "visible_when": {
+            "removal_enabled": true
+          }
         },
         {
           "key": "omitted_cells",
           "rows_key": "vias.rows",
           "columns_key": "vias.columns",
-          "type": "removal_matrix"
+          "type": "removal_matrix",
+          "label": "显式去孔",
+          "visible_when": {
+            "removal_enabled": true
+          }
         }
       ]
-    }
-  ],
-  "origin": "Reviewed PackStudio model specification; mapped source values explicitly referenced",
-  "material_selections": [
+    },
     {
-      "group_id": "group-encapsulant",
       "default": "eme-7730lf",
       "options": [
-        "*"
-      ]
+        {
+          "value": "*"
+        }
+      ],
+      "step": "overall_package",
+      "label": "塑封材料",
+      "key": "group-encapsulant",
+      "type": "material"
     },
     {
-      "group_id": "group-die",
       "default": "silicon",
       "options": [
-        "silicon"
-      ]
+        {
+          "value": "silicon"
+        }
+      ],
+      "step": "die",
+      "label": "芯片材料",
+      "key": "group-die",
+      "type": "material"
     },
     {
-      "group_id": "group-die-attach",
       "default": "dieattach-2600bt",
       "options": [
-        "*"
-      ]
+        {
+          "value": "*"
+        }
+      ],
+      "step": "die",
+      "label": "芯片粘接材料",
+      "key": "group-die-attach",
+      "type": "material"
     },
     {
-      "group_id": "group-exposed-pad",
       "default": "leadframe-c194",
       "options": [
-        "*"
-      ]
+        {
+          "value": "*"
+        }
+      ],
+      "step": "dap",
+      "label": "DAP 材料",
+      "key": "group-exposed-pad",
+      "type": "material"
     },
     {
-      "group_id": "group-lead-frame",
       "default": "leadframe-c194",
       "options": [
-        "*"
-      ]
+        {
+          "value": "*"
+        }
+      ],
+      "step": "lead_solder_interconnect",
+      "label": "引线框材料",
+      "key": "group-lead-frame",
+      "type": "material"
     },
     {
-      "group_id": "group-bond-wires",
       "default": "gold",
       "options": [
-        "*"
-      ]
+        {
+          "value": "*"
+        }
+      ],
+      "step": "bond_wires",
+      "label": "键合线材料",
+      "key": "group-bond-wires",
+      "type": "material"
     },
     {
-      "group_id": "group-solder",
       "default": "solder-sn63",
       "options": [
-        "*"
+        {
+          "value": "*"
+        }
+      ],
+      "step": "lead_solder_interconnect",
+      "label": "焊料材料",
+      "key": "group-solder",
+      "type": "material"
+    },
+    {
+      "default": "copper",
+      "options": [
+        {
+          "value": "*"
+        }
+      ],
+      "step": "thermal_land",
+      "label": "散热焊盘材料",
+      "visible_when": {
+        "thermal_land.enabled": true
+      },
+      "key": "group-thermal-land",
+      "type": "material"
+    }
+  ],
+  "steps": [
+    {
+      "key": "summary",
+      "label": "概要",
+      "diagram": "package",
+      "fields": [
+        {
+          "source": "document.name",
+          "label": "设计名称",
+          "editable": true,
+          "maximum_length": 160
+        },
+        {
+          "source": "template.name",
+          "label": "封装类型"
+        },
+        {
+          "source": "parameter",
+          "parameter": "substrate.layers",
+          "label": "基板层数",
+          "hide_when_empty": true
+        },
+        {
+          "source": "parameter",
+          "parameter": "die.power",
+          "label": "芯片功率",
+          "format": "{0} W"
+        }
       ]
     },
     {
-      "group_id": "group-thermal-land",
-      "default": "copper",
-      "options": [
-        "*"
-      ]
+      "key": "overall_package",
+      "label": "整体封装",
+      "diagram": "package"
+    },
+    {
+      "key": "die",
+      "label": "芯片",
+      "diagram": "package"
+    },
+    {
+      "key": "lead_solder_interconnect",
+      "label": "引脚与焊料互连",
+      "diagram": "package"
+    },
+    {
+      "key": "dap",
+      "label": "芯片承载焊盘",
+      "diagram": "package"
+    },
+    {
+      "key": "bond_wires",
+      "label": "键合线",
+      "diagram": "package"
+    },
+    {
+      "key": "thermal_land",
+      "label": "散热焊盘",
+      "diagram": "package"
+    },
+    {
+      "key": "thermal_vias",
+      "label": "热通孔",
+      "diagram": "substrate"
+    },
+    {
+      "key": "modeling",
+      "label": "建模与局部网格",
+      "diagram": ""
     }
   ]
 }

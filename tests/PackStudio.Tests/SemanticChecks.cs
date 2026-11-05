@@ -36,12 +36,25 @@ static class SemanticChecks
         tests.Case("catalog", "preset options are derived without changing field definitions", () =>
         {
             var source = tests.Catalog.Load("chip_array");
-            var definition = new JObject { ["key"] = "preset", ["label"] = "Preset", ["control"] = "combobox", ["options_source"] = "presets", ["options"] = new JArray() };
+            var definition = new JObject { ["key"] = "preset", ["label"] = "Preset", ["type"] = "combobox", ["options_source"] = "presets", ["options"] = new JArray() };
             var field = definition;
             var options = source.OptionsFor(field);
-            Assert(options.Count == source.Presets.Count && options.Any(o => o.Text() == source.DefaultPreset), "preset options missing");
-            Assert(!options.Any(o => o.Text() == "missing"), "unknown preset appeared in choices");
+            Assert(options.Count == source.Presets.Count && options.Any(o => o["value"].Text() == source.DefaultPreset), "preset options missing");
+            Assert(!options.Any(o => o["value"].Text() == "missing"), "unknown preset appeared in choices");
             Assert(((JArray)field["options"]!).Count == 0, "derived options written into definition");
+        });
+        tests.Case("parameters", "option labels are presentation and only values are accepted", () =>
+        {
+            var original = tests.Catalog.Load("bare_die");
+            var data = (JObject)original.Data.DeepClone();
+            var density = data["keys"]!.Single(f => f["key"].Text() == "grid.density");
+            density["options"]!.Single(o => o["value"].Text() == "fine")["label"] = "Fine display";
+            var definition = new PackageDefinition(original.Info, data, original.Presets);
+            var document = tests.Create(definition);
+            var rules = tests.Catalog.LoadValidation("bare_die");
+            Assert(!InputValidator.Validate(document, definition, tests.Catalog.Materials, rules).Any(i => i.ParameterPaths.Contains("grid.density")), "stored enum value was not accepted");
+            document.Values["grid.density"] = "Fine display";
+            Assert(InputValidator.Validate(document, definition, tests.Catalog.Materials, rules).Any(i => i.Code == "input.option" && i.ParameterPaths.Contains("grid.density")), "display label was accepted as a stored value");
         });
         tests.Case("parameters", "batch creation retains overrides regardless of their order", () =>
         {

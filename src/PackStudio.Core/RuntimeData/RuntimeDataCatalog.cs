@@ -36,26 +36,27 @@ public sealed class RuntimeDataCatalog
     {
         var info = Families.SingleOrDefault(f => f.Id == id) ?? throw new InvalidDataException($"未知封装类型 {id}。");
         var data = JsonData.Read(Path.Combine(root, "definitions", id + ".json"));
-        var ui = JsonData.Read(Path.Combine(root, "templates", id + ".json"));
-        CheckDocument(data, "packstudio.definition/v1", id);
-        CheckDocument(ui, "packstudio.ui-template/v1", id);
-        if (data["fields"] is not JArray fields || data["material_selections"] is not JArray ||
-            ui["fields"] is not JArray ||
-            ui["steps"] is not JArray || ui["material_selections"] is not JArray)
-            throw new InvalidDataException($"{id} 参数定义或 UI 模板结构无效。");
-        CheckFields(fields);
+        CheckDocument(data, "packstudio.definition/v2", id);
+        if (data["keys"] is not JArray keys || data["steps"] is not JArray steps)
+            throw new InvalidDataException($"{id} 参数定义缺少 keys 或 steps。");
+        CheckFields(keys);
+        if (steps.Select(s => s["key"].Text()).Distinct().Count() != steps.Count)
+            throw new InvalidDataException($"{id} 包含重复步骤。");
+        foreach (var key in keys.Where(k => k["step"] != null))
+            if (!steps.Any(s => s["key"].Text() == key["step"].Text()) && !key["creation_option"].Flag() && key["type"].Text() != "footprint")
+                throw new InvalidDataException($"字段 {key["key"]} 引用未知步骤 {key["step"]}。");
         var presets = new List<ProjectDocument>();
         foreach (var entry in index.Properties().Where(p => p.Value["family"].Text() == id))
         {
             var document = ProjectStore.ReadCurrent(JsonData.CatalogEntry(Path.Combine(root, "presets"), entry.Value));
             if (document.Name != entry.Name || document.TemplateId != id)
                 throw new InvalidDataException($"预设标识无效：{entry.Name}");
-            foreach (var field in fields.Where(f => !f["creation_only"].Flag() && f["type"].Text() != "footprint"))
+            foreach (var field in keys.Where(f => !f["creation_only"].Flag() && f["type"].Text() is not ("footprint" or "material")))
                 if (document.Values.Property(field["key"].Text()) == null)
                     throw new InvalidDataException($"预设 {entry.Name} 缺少参数 {field["key"]}。");
             presets.Add(document);
         }
-        var definition = new PackageDefinition(info, data, presets, new UiTemplate(ui, data));
+        var definition = new PackageDefinition(info, data, presets);
         var materialRules = new ValidationRules(commonRules);
         foreach (var preset in presets)
         {
@@ -119,10 +120,15 @@ public sealed class RuntimeDataCatalog
                 throw new InvalidDataException("参数定义缺少键或数据类型。");
             if (field["type"].Text() == "object")
             {
-                if (field["fields"] is not JArray children || field["default"] is not JObject)
+                if (field["keys"] is not JArray children || field["default"] is not JObject)
                     throw new InvalidDataException($"对象参数 {field["key"]} 缺少子字段或基线。");
                 CheckFields(children);
             }
+            if (field["columns"] is JArray columns) CheckFields(columns);
+            foreach (var option in field["options"] as JArray ?? [])
+                if (option is not JObject record || record["value"] is not JValue ||
+                    record["label"] is { Type: not JTokenType.String })
+                    throw new InvalidDataException($"参数 {field["key"]} 的选项必须包含 value 和可选的 label。");
         }
     }
 }

@@ -23,7 +23,7 @@ static class ModelingStepChecks
         if (modeling.Skip(grid).Any(text => text is not ("局部网格" or "网格密度")))
             throw new Exception(family + ": 局部网格未排在建模栏目末尾");
 
-        var bumpModeling = template.Ui.Fields.FirstOrDefault(f => f["key"].Text() == "bumps.modeling");
+        var bumpModeling = template.DisplayFields.FirstOrDefault(f => f["key"].Text() == "bumps.modeling");
         if (bumpModeling != null && JsonData.Matches(bumpModeling["visible_when"] as JObject, workspace.Document.Values))
         {
             bool declared = Descendants<ComboBox>(fields).Any(combo => ComboLabel(combo) == "Isotropic Cuboid" && combo.Items.Count == 1);
@@ -31,7 +31,7 @@ static class ModelingStepChecks
                 throw new Exception(family + ": 建模栏目缺少固定为 Isotropic Cuboid 的凸点建模下拉");
         }
 
-        if (!template.Ui.Fields.Any(f => f["step"].Text() == "solder_balls"))
+        if (!template.DisplayFields.Any(f => f["step"].Text() == "solder_balls"))
             return;
         if (!modeling.Contains("焊球建模方式"))
             throw new Exception(family + ": 焊球建模方式不在建模栏目");

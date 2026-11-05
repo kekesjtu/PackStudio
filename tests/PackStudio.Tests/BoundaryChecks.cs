@@ -33,7 +33,7 @@ static class BoundaryChecks
             var custom = tests.Catalog.Materials.Items["copper"] with { Density = 1234 };
             document.CustomMaterials.Add(custom with { Id = "custom-copper", Density = 2345 });
             document.CustomMaterials.Add(custom);
-            var selection = template.MaterialSelections.Single(s => s["group_id"].Text() == "group-substrate");
+            var selection = template.MaterialSelections.Single(s => s["key"].Text() == "group-substrate");
             var dropdown = MaterialSelection.Choices(tests.Catalog.Materials, template, document, selection, model);
             var library = MaterialSelection.Available(tests.Catalog.Materials, template, document, model);
             Assert(dropdown.SelectedId == custom.Id, "assigned material representative did not win");

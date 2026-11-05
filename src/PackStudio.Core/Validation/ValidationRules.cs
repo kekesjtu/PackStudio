@@ -54,7 +54,7 @@ public sealed class ValidationRules
                 throw new InvalidDataException($"字段 {key} 的规则严重度无效。");
             foreach (string children in new[] { "fields", "columns" })
                 if (field[children] is JArray nested)
-                    CheckFields(nested, definition[children] as JArray ?? []);
+                    CheckFields(nested, definition[children == "fields" ? "keys" : children] as JArray ?? []);
         }
     }
 

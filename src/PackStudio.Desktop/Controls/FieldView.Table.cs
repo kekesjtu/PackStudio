@@ -71,7 +71,7 @@ public static partial class FieldView
                 {
                     object value = row[col.Key];
                     o[col.Key] = value is DBNull ? JValue.CreateNull() : col.Type == typeof(double) && value is string text
-                        ? FieldValues.Parse(new JObject { ["control"] = "number" }, text) : JToken.FromObject(value);
+                        ? FieldValues.Parse(new JObject { ["type"] = "number" }, text) : JToken.FromObject(value);
                 }
                 array.Add(o);
             }

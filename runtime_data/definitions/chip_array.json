@@ -1,290 +1,427 @@
 {
-  "schema_version": "packstudio.definition/v1",
+  "schema_version": "packstudio.definition/v2",
   "template_id": "chip_array",
-  "fields": [
+  "keys": [
     {
       "key": "footprint.size",
       "default": "ChipArray_24_4X4mm_0_8",
       "unit": null,
-      "options": [],
       "options_source": "presets",
       "creation_only": true,
-      "type": "footprint"
+      "type": "footprint",
+      "step": "package_setup",
+      "label": "Footprint 尺寸（JEDEC）"
     },
     {
       "key": "package.length",
       "unit": "mm",
-      "options": [],
-      "type": "number"
+      "type": "number",
+      "step": "overall_package",
+      "label": "封装长度",
+      "des_symbol": "D"
     },
     {
       "key": "package.width",
       "unit": "mm",
-      "options": [],
-      "type": "number"
+      "type": "number",
+      "step": "overall_package",
+      "label": "封装宽度",
+      "des_symbol": "E"
     },
     {
       "key": "substrate.thickness",
       "unit": "mm",
-      "options": [],
-      "type": "number"
+      "type": "number",
+      "step": "overall_package",
+      "label": "基板厚度",
+      "des_symbol": "A2"
     },
     {
       "key": "trace.top_thickness",
       "unit": "mm",
-      "options": [],
       "creation_option": true,
       "creation_only": true,
-      "type": "number"
+      "type": "number",
+      "step": "metal_layers",
+      "label": "顶层铜厚度",
+      "des_symbol": {
+        "selector": "substrate.layers",
+        "cases": {
+          "2-Layer": "tza1",
+          "4-Layer": "tz1"
+        }
+      }
     },
     {
       "key": "trace.bottom_thickness",
       "unit": "mm",
-      "options": [],
       "creation_option": true,
       "creation_only": true,
-      "type": "number"
+      "type": "number",
+      "step": "metal_layers",
+      "label": "底层铜厚度",
+      "des_symbol": {
+        "selector": "substrate.layers",
+        "cases": {
+          "2-Layer": "tza2",
+          "4-Layer": "tz4"
+        }
+      }
     },
     {
       "key": "die.length",
       "unit": "mm",
-      "options": [],
-      "type": "number"
+      "type": "number",
+      "step": "die",
+      "label": "芯片长度",
+      "des_symbol": "Ld"
     },
     {
       "key": "die.width",
       "unit": "mm",
-      "options": [],
-      "type": "number"
+      "type": "number",
+      "step": "die",
+      "label": "芯片宽度",
+      "des_symbol": "Wd"
     },
     {
       "key": "die.thickness",
       "unit": "mm",
-      "options": [],
-      "type": "number"
+      "type": "number",
+      "step": "die",
+      "label": "芯片厚度",
+      "des_symbol": "td"
     },
     {
       "key": "die.attach",
       "unit": "mm",
-      "options": [],
-      "type": "number"
+      "type": "number",
+      "step": "die",
+      "label": "粘接层",
+      "des_symbol": "tda"
     },
     {
       "key": "die.power",
       "unit": "W",
-      "options": [],
-      "type": "number"
+      "type": "number",
+      "step": "die",
+      "label": "芯片功率",
+      "des_symbol": "P"
     },
     {
       "key": "encapsulant.thickness",
       "unit": "mm",
-      "options": [],
-      "type": "number"
+      "type": "number",
+      "step": "encapsulant",
+      "label": "塑封厚度",
+      "des_symbol": "te"
     },
     {
       "key": "solder_mask.thickness",
       "unit": "mm",
-      "options": [],
-      "type": "number"
+      "type": "number",
+      "step": "encapsulant",
+      "label": "阻焊层厚度",
+      "des_symbol": "tsm"
     },
     {
       "key": "bond_wire.extent_length",
       "unit": "mm",
-      "options": [],
-      "type": "number"
+      "type": "number",
+      "step": "bond_wires",
+      "label": "线阵列长度",
+      "des_symbol": "Lw"
     },
     {
       "key": "bond_wire.extent_width",
       "unit": "mm",
-      "options": [],
-      "type": "number"
+      "type": "number",
+      "step": "bond_wires",
+      "label": "线阵列宽度",
+      "des_symbol": "Ww"
     },
     {
       "key": "bond_wire.diameter",
       "unit": "mm",
-      "options": [],
-      "type": "number"
+      "type": "number",
+      "step": "bond_wires",
+      "label": "线径",
+      "des_symbol": "dw"
     },
     {
       "key": "vias.enabled",
       "unit": null,
-      "options": [],
-      "type": "checkbox"
+      "type": "checkbox",
+      "step": "thermal_vias",
+      "label": "包含热通孔",
+      "schematic": true
     },
     {
       "key": "vias.diameter",
       "unit": "mm",
-      "options": [],
-      "type": "number"
+      "type": "number",
+      "step": "thermal_vias",
+      "label": "孔径",
+      "visible_when": {
+        "vias.enabled": true
+      },
+      "des_symbol": "dv"
     },
     {
       "key": "vias.plating",
       "unit": "mm",
-      "options": [],
-      "type": "number"
+      "type": "number",
+      "step": "thermal_vias",
+      "label": "镀层厚度",
+      "visible_when": {
+        "vias.enabled": true,
+        "vias.filled": false
+      },
+      "des_symbol": "tpl"
     },
     {
       "key": "vias.offset_x",
       "unit": "mm",
-      "options": [],
-      "type": "number"
+      "type": "number",
+      "step": "thermal_vias",
+      "label": "X 偏移",
+      "visible_when": {
+        "vias.enabled": true
+      },
+      "des_symbol": "vxoff"
     },
     {
       "key": "vias.offset_y",
       "unit": "mm",
-      "options": [],
-      "type": "number"
+      "type": "number",
+      "step": "thermal_vias",
+      "label": "Y 偏移",
+      "visible_when": {
+        "vias.enabled": true
+      },
+      "des_symbol": "vyoff"
     },
     {
       "key": "bga.columns",
       "unit": null,
-      "options": [],
-      "type": "integer_spinbox"
+      "type": "integer_spinbox",
+      "step": "solder_balls",
+      "label": "X 方向列数",
+      "des_symbol": "MD"
     },
     {
       "key": "bga.rows",
       "unit": null,
-      "options": [],
-      "type": "integer_spinbox"
+      "type": "integer_spinbox",
+      "step": "solder_balls",
+      "label": "Y 方向行数",
+      "des_symbol": "ME"
     },
     {
       "key": "bga.pitch",
       "unit": "mm",
-      "options": [],
-      "type": "number"
+      "type": "number",
+      "step": "solder_balls",
+      "label": "间距",
+      "des_symbol": "e"
     },
     {
       "key": "bga.diameter",
       "unit": "mm",
-      "options": [],
-      "type": "number"
+      "type": "number",
+      "step": "solder_balls",
+      "label": "球径",
+      "des_symbol": "b"
     },
     {
       "key": "bga.height",
       "unit": "mm",
-      "options": [],
-      "type": "number"
+      "type": "number",
+      "step": "solder_balls",
+      "label": "离板高度",
+      "des_symbol": "A1"
     },
     {
       "key": "grid.enabled",
       "default": true,
       "unit": null,
-      "options": [],
-      "type": "checkbox"
+      "type": "checkbox",
+      "label": "局部网格",
+      "step": "modeling",
+      "placement": "footer"
     },
     {
       "key": "grid.density",
       "default": "fine",
       "unit": null,
       "options": [
-        "coarse",
-        "medium",
-        "fine"
+        {
+          "value": "coarse"
+        },
+        {
+          "value": "medium"
+        },
+        {
+          "value": "fine"
+        }
       ],
-      "type": "select"
+      "type": "select",
+      "label": "网格密度",
+      "step": "modeling",
+      "visible_when": {
+        "grid.enabled": true
+      },
+      "placement": "footer"
     },
     {
       "key": "substrate.layers",
       "default": "2-Layer",
       "unit": null,
       "options": [
-        "2-Layer",
-        "4-Layer"
+        {
+          "value": "2-Layer"
+        },
+        {
+          "value": "4-Layer"
+        }
       ],
       "creation_option": true,
-      "type": "select"
+      "type": "select",
+      "label": "基板层数",
+      "step": "package_setup",
+      "schematic": true
     },
     {
       "key": "bond_wire.auto_count",
       "default": true,
       "unit": null,
-      "options": [],
-      "type": "checkbox"
+      "type": "checkbox",
+      "label": "键合线数量等于焊球",
+      "step": "bond_wires"
     },
     {
       "key": "bond_wire.total",
       "default": null,
       "unit": null,
-      "options": [],
-      "type": "integer"
+      "type": "integer",
+      "label": "键合线总数",
+      "step": "bond_wires",
+      "visible_when": {
+        "bond_wire.auto_count": false
+      },
+      "des_symbol": "Nw"
     },
     {
       "key": "bond_wire.include",
       "default": true,
       "unit": null,
-      "options": [],
-      "type": "checkbox"
+      "type": "checkbox",
+      "label": "包含键合线",
+      "step": "modeling"
     },
     {
       "key": "vias.filled",
       "default": false,
       "unit": null,
-      "options": [],
-      "type": "checkbox"
+      "type": "checkbox",
+      "label": "填充通孔",
+      "step": "thermal_vias",
+      "visible_when": {
+        "vias.enabled": true
+      },
+      "schematic": true
     },
     {
       "key": "vias.modeling",
       "default": "accurate",
       "unit": null,
       "options": [
-        "accurate",
-        "approximate"
+        {
+          "value": "accurate"
+        },
+        {
+          "value": "approximate"
+        }
       ],
-      "type": "select"
+      "type": "select",
+      "label": "通孔建模",
+      "step": "modeling",
+      "visible_when": {
+        "vias.enabled": true
+      }
     },
     {
       "key": "metal.layers",
       "default": [],
       "unit": null,
-      "options": [],
       "type": "table",
       "columns": [
         {
           "key": "depth",
-          "type": "number"
+          "type": "number",
+          "label": "层深 zn (mm)"
         },
         {
           "key": "thickness",
-          "type": "number"
+          "type": "number",
+          "label": "层厚 tzn (mm)"
         },
         {
           "key": "coverage",
-          "type": "number"
+          "type": "number",
+          "label": "覆盖率 %"
         },
         {
           "key": "disconnect",
-          "type": "checkbox"
+          "type": "checkbox",
+          "label": "断开通孔"
         }
-      ]
+      ],
+      "label": "金属层表（Depth / Thickness / Coverage）",
+      "step": "metal_layers",
+      "schematic": true
     },
     {
       "key": "metal.hole_length",
       "default": null,
       "unit": "mm",
-      "options": [],
-      "type": "number"
+      "type": "number",
+      "label": "顶层开孔长度",
+      "step": "metal_layers",
+      "des_symbol": "Lml"
     },
     {
       "key": "metal.hole_width",
       "default": null,
       "unit": "mm",
-      "options": [],
-      "type": "number"
+      "type": "number",
+      "label": "孔宽",
+      "step": "metal_layers",
+      "des_symbol": "Wml"
     },
     {
       "key": "bga.solder_removal_enabled",
       "default": false,
-      "type": "checkbox"
+      "type": "checkbox",
+      "label": "主阵列中心去球",
+      "step": "solder_removal",
+      "standalone": true
     },
     {
       "key": "bga.populated_rows",
       "default": null,
-      "type": "integer"
+      "type": "integer",
+      "label": "外围满布行数",
+      "step": "solder_removal",
+      "des_symbol": "MEp"
     },
     {
       "key": "bga.populated_columns",
       "default": null,
-      "type": "integer"
+      "type": "integer",
+      "label": "外围满布列数",
+      "step": "solder_removal",
+      "des_symbol": "MDp"
     },
     {
       "key": "bga.removal_rows",
@@ -301,37 +438,57 @@
       "default": [],
       "rows_key": "bga.rows",
       "columns_key": "bga.columns",
-      "type": "removal_matrix"
+      "type": "removal_matrix",
+      "label": "显式去球",
+      "step": "solder_removal"
     },
     {
       "key": "bga.center_solder_enabled",
       "default": false,
-      "type": "checkbox"
+      "type": "checkbox",
+      "label": "包含中央焊球",
+      "step": "central_solder_balls",
+      "standalone": true
     },
     {
       "key": "bga.center_solder_rows",
       "default": null,
-      "type": "integer"
+      "type": "integer",
+      "label": "中央焊球行数",
+      "step": "central_solder_balls",
+      "des_symbol": "MEc"
     },
     {
       "key": "bga.center_solder_columns",
       "default": null,
-      "type": "integer"
+      "type": "integer",
+      "label": "中央焊球列数",
+      "step": "central_solder_balls",
+      "des_symbol": "MDc"
     },
     {
       "key": "bga.center_staggered",
       "default": false,
-      "type": "checkbox"
+      "type": "checkbox",
+      "label": "中央焊球交错",
+      "step": "central_solder_balls",
+      "standalone": true
     },
     {
       "key": "bga.staggered",
       "default": false,
-      "type": "checkbox"
+      "type": "checkbox",
+      "label": "交错主阵列",
+      "step": "solder_balls",
+      "standalone": true
     },
     {
       "key": "bga.ball_map_enabled",
       "default": false,
-      "type": "checkbox"
+      "type": "checkbox",
+      "label": "使用焊球坐标表",
+      "step": "solder_balls",
+      "standalone": true
     },
     {
       "key": "bga.ball_map",
@@ -341,25 +498,35 @@
       "columns": [
         {
           "key": "id",
-          "type": "text"
+          "type": "text",
+          "label": "ID"
         },
         {
           "key": "x",
-          "type": "number"
+          "type": "number",
+          "label": "X"
         },
         {
           "key": "y",
-          "type": "number"
+          "type": "number",
+          "label": "Y"
         }
-      ]
+      ],
+      "label": "焊球坐标表",
+      "step": "solder_balls"
     },
     {
       "key": "bga.representation",
       "default": "discrete",
       "options": [
-        "discrete"
+        {
+          "value": "discrete",
+          "label": "Discrete Cuboids"
+        }
       ],
-      "type": "combobox"
+      "type": "combobox",
+      "label": "焊球建模方式",
+      "step": "modeling"
     },
     {
       "key": "trace.solid_thickness",
@@ -367,73 +534,201 @@
       "unit": "mm",
       "creation_option": true,
       "creation_only": true,
-      "type": "number"
-    }
-  ],
-  "origin": "Reviewed PackStudio model specification; mapped source values explicitly referenced",
-  "material_selections": [
+      "type": "number",
+      "label": "内层金属厚度",
+      "step": "package_setup",
+      "visible_when": {
+        "substrate.layers": "4-Layer"
+      }
+    },
     {
-      "group_id": "group-substrate",
       "default": "bt",
       "options": [
-        "*"
-      ]
+        {
+          "value": "*"
+        }
+      ],
+      "step": "overall_package",
+      "label": "基板材料",
+      "key": "group-substrate",
+      "type": "material"
     },
     {
-      "group_id": "group-die",
       "default": "silicon",
       "options": [
-        "silicon"
-      ]
+        {
+          "value": "silicon"
+        }
+      ],
+      "step": "die",
+      "label": "芯片材料",
+      "key": "group-die",
+      "type": "material"
     },
     {
-      "group_id": "group-die-attach",
       "default": "qmi-595",
       "options": [
-        "*"
-      ]
+        {
+          "value": "*"
+        }
+      ],
+      "step": "die",
+      "label": "芯片粘接材料",
+      "key": "group-die-attach",
+      "type": "material"
     },
     {
-      "group_id": "group-encapsulant",
       "default": "epoxy-mold",
       "options": [
-        "*"
-      ]
+        {
+          "value": "*"
+        }
+      ],
+      "step": "encapsulant",
+      "label": "塑封材料",
+      "key": "group-encapsulant",
+      "type": "material"
     },
     {
-      "group_id": "group-bond-wires",
       "default": "gold",
       "options": [
-        "*"
-      ]
+        {
+          "value": "*"
+        }
+      ],
+      "step": "bond_wires",
+      "label": "键合线材料",
+      "key": "group-bond-wires",
+      "type": "material"
     },
     {
-      "group_id": "group-solder-mask",
       "default": "solder-mask",
       "options": [
-        "*"
-      ]
+        {
+          "value": "*"
+        }
+      ],
+      "step": "encapsulant",
+      "label": "阻焊层材料",
+      "key": "group-solder-mask",
+      "type": "material"
     },
     {
-      "group_id": "group-bga-solder",
       "default": "solder-sn63",
       "options": [
-        "*"
-      ]
+        {
+          "value": "*"
+        }
+      ],
+      "step": "solder_balls",
+      "label": "BGA 焊球材料",
+      "key": "group-bga-solder",
+      "type": "material"
     },
     {
-      "group_id": "group-metal",
       "default": "copper",
       "options": [
-        "*"
+        {
+          "value": "*"
+        }
+      ],
+      "label": "金属材料",
+      "step": "metal_layers",
+      "key": "group-metal",
+      "type": "material"
+    },
+    {
+      "default": "alloy_42_8021e087",
+      "options": [
+        {
+          "value": "*"
+        }
+      ],
+      "label": "顶层中央区域材料",
+      "step": "metal_layers",
+      "key": "group-trace-hole",
+      "type": "material"
+    }
+  ],
+  "steps": [
+    {
+      "key": "summary",
+      "label": "概要",
+      "diagram": "package",
+      "fields": [
+        {
+          "source": "document.name",
+          "label": "设计名称",
+          "editable": true,
+          "maximum_length": 160
+        },
+        {
+          "source": "template.name",
+          "label": "封装类型"
+        },
+        {
+          "source": "parameter",
+          "parameter": "substrate.layers",
+          "label": "基板层数",
+          "hide_when_empty": true
+        },
+        {
+          "source": "parameter",
+          "parameter": "die.power",
+          "label": "芯片功率",
+          "format": "{0} W"
+        }
       ]
     },
     {
-      "group_id": "group-trace-hole",
-      "default": "alloy_42_8021e087",
-      "options": [
-        "*"
-      ]
+      "key": "overall_package",
+      "label": "整体封装",
+      "diagram": "package"
+    },
+    {
+      "key": "die",
+      "label": "芯片",
+      "diagram": "package"
+    },
+    {
+      "key": "encapsulant",
+      "label": "塑封",
+      "diagram": "package"
+    },
+    {
+      "key": "bond_wires",
+      "label": "键合线",
+      "diagram": "package"
+    },
+    {
+      "key": "thermal_vias",
+      "label": "热通孔",
+      "diagram": "chip_vias"
+    },
+    {
+      "key": "metal_layers",
+      "label": "金属层",
+      "diagram": "chip_metal"
+    },
+    {
+      "key": "solder_balls",
+      "label": "BGA 焊球",
+      "diagram": "balls"
+    },
+    {
+      "key": "central_solder_balls",
+      "label": "中央焊球",
+      "diagram": "balls"
+    },
+    {
+      "key": "solder_removal",
+      "label": "焊球去除",
+      "diagram": "balls"
+    },
+    {
+      "key": "modeling",
+      "label": "建模与局部网格",
+      "diagram": ""
     }
   ]
 }

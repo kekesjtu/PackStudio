@@ -62,12 +62,12 @@ public sealed class ParameterForm
         this.forCreation = forCreation;
         this.values = values;
         this.update = update;
-        Fields = Expand(forCreation ? new JArray(template.CreationFields) : template.Ui.Fields, null).ToList();
-        Materials = template.Ui.MaterialSelections.Select(s =>
+        Fields = Expand(forCreation ? new JArray(template.CreationFields) : template.DisplayFields, null).ToList();
+        Materials = template.MaterialSelections.Select(s =>
         {
             var definition = (JObject)s.DeepClone();
-            definition["key"] = "$material:" + s["group_id"].Text();
-            definition["control"] = "material";
+            definition["key"] = "$material:" + s["key"].Text();
+            definition["type"] = "material";
             return new ParameterField(this, definition, null);
         }).ToList();
         foreach (var field in Fields.Concat(Materials))
@@ -87,8 +87,8 @@ public sealed class ParameterForm
         {
             if (!forCreation && definition["creation_only"].Flag()) continue;
             var field = new ParameterField(this, definition, parent);
-            if (field.Control == "object")
-                foreach (var child in Expand((JArray)definition["fields"]!, field)) yield return child;
+            if (field.Type == "object")
+                foreach (var child in Expand((JArray)definition["keys"]!, field)) yield return child;
             else yield return field;
         }
     }

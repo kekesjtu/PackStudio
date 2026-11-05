@@ -37,7 +37,7 @@ internal sealed partial class SchematicDrawing(PackageDefinition template, Proje
     string Value(string key) => document.Values[key] is JValue value ? value.Text() : "";
     string Symbol(string key, string fallback = "")
     {
-        var field = template.Ui.Fields.FirstOrDefault(f => f["key"].Text() == key);
+        var field = template.DisplayFields.FirstOrDefault(f => f["key"].Text() == key);
         return field == null ? fallback : TemplateSymbols.Resolve(field, document.Values);
     }
     string Dimension(string name, string key, string fallback = "")

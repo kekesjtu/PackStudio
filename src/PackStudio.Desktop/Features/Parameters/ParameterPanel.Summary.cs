@@ -10,7 +10,7 @@ public sealed partial class ParameterPanel
 {
     void AddSummary()
     {
-        var definitions = (JArray)workspace.Template.Ui.Steps.Single(s => s["key"].Text() == "summary")["fields"]!;
+        var definitions = (JArray)workspace.Template.Steps.Single(s => s["key"].Text() == "summary")["fields"]!;
         foreach (var definition in definitions)
         {
             var field = new SummaryField(workspace, form, definition);

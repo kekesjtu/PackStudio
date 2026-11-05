@@ -1,598 +1,965 @@
 {
-  "schema_version": "packstudio.definition/v1",
+  "schema_version": "packstudio.definition/v2",
   "template_id": "pbga_fc",
-  "fields": [
+  "keys": [
     {
       "key": "footprint.size",
       "default": "PBGAFC_49_6X6mm",
       "unit": null,
-      "options": [],
       "options_source": "presets",
       "creation_only": true,
-      "type": "footprint"
+      "type": "footprint",
+      "step": "package_setup",
+      "label": "Footprint 尺寸（JEDEC）"
     },
     {
       "key": "substrate.length",
       "unit": "mm",
-      "options": [],
-      "type": "number"
+      "type": "number",
+      "step": "package_substrate",
+      "label": "封装长度",
+      "des_symbol": "D"
     },
     {
       "key": "substrate.width",
       "unit": "mm",
-      "options": [],
-      "type": "number"
+      "type": "number",
+      "step": "package_substrate",
+      "label": "封装宽度",
+      "des_symbol": "E"
     },
     {
       "key": "substrate.thickness",
       "unit": "mm",
-      "options": [],
-      "type": "number"
+      "type": "number",
+      "step": "package_substrate",
+      "label": "基板厚度",
+      "des_symbol": "A2"
     },
     {
       "key": "die.length",
       "unit": "mm",
-      "options": [],
-      "type": "number"
+      "type": "number",
+      "step": "die",
+      "label": "芯片长度",
+      "des_symbol": "Ld"
     },
     {
       "key": "die.width",
       "unit": "mm",
-      "options": [],
-      "type": "number"
+      "type": "number",
+      "step": "die",
+      "label": "芯片宽度",
+      "des_symbol": "Wd"
     },
     {
       "key": "die.thickness",
       "unit": "mm",
-      "options": [],
-      "type": "number"
+      "type": "number",
+      "step": "die",
+      "label": "芯片厚度",
+      "des_symbol": "td"
     },
     {
       "key": "die.power",
       "unit": "W",
-      "options": [],
-      "type": "number"
+      "type": "number",
+      "step": "die",
+      "label": "芯片功率",
+      "des_symbol": "P"
     },
     {
       "key": "bumps.total",
       "unit": null,
-      "options": [],
-      "type": "integer_spinbox"
+      "type": "integer_spinbox",
+      "step": "flip_chip_bumps",
+      "label": "凸点总数",
+      "visible_when": {
+        "bumps.array_type": "non_regular"
+      },
+      "des_symbol": "MNC4"
     },
     {
       "key": "bumps.diameter",
       "unit": "mm",
-      "options": [],
-      "type": "number"
+      "type": "number",
+      "step": "flip_chip_bumps",
+      "label": "凸点直径",
+      "des_symbol": "bC4"
     },
     {
       "key": "bumps.height",
       "unit": "mm",
-      "options": [],
-      "type": "number"
+      "type": "number",
+      "step": "flip_chip_bumps",
+      "label": "凸点高度",
+      "des_symbol": "tC4"
     },
     {
       "key": "bumps.modeling",
       "unit": null,
       "options": [
-        "isotropicCuboid"
+        {
+          "value": "isotropicCuboid",
+          "label": "Isotropic Cuboid"
+        }
       ],
       "default": "isotropicCuboid",
-      "type": "combobox"
+      "type": "combobox",
+      "step": "modeling",
+      "label": "凸点建模方式"
     },
     {
       "key": "bga.columns",
       "unit": null,
-      "options": [],
-      "type": "integer_spinbox"
+      "type": "integer_spinbox",
+      "step": "solder_balls",
+      "label": "X 方向列数",
+      "des_symbol": "MD"
     },
     {
       "key": "bga.rows",
       "unit": null,
-      "options": [],
-      "type": "integer_spinbox"
+      "type": "integer_spinbox",
+      "step": "solder_balls",
+      "label": "Y 方向行数",
+      "des_symbol": "ME"
     },
     {
       "key": "bga.pitch",
       "unit": "mm",
-      "options": [],
-      "type": "number"
+      "type": "number",
+      "step": "solder_balls",
+      "label": "间距",
+      "des_symbol": "e"
     },
     {
       "key": "bga.diameter",
       "unit": "mm",
-      "options": [],
-      "type": "number"
+      "type": "number",
+      "step": "solder_balls",
+      "label": "球径",
+      "des_symbol": "b"
     },
     {
       "key": "bga.height",
       "unit": "mm",
-      "options": [],
-      "type": "number"
+      "type": "number",
+      "step": "solder_balls",
+      "label": "离板高度",
+      "des_symbol": "A1"
     },
     {
       "key": "cover.type",
       "unit": null,
       "options": [
-        "bare_die",
-        "lid",
-        "plate",
-        "encapsulant"
+        {
+          "value": "bare_die",
+          "label": "裸露芯片"
+        },
+        {
+          "value": "lid",
+          "label": "顶盖"
+        },
+        {
+          "value": "plate",
+          "label": "均热板"
+        },
+        {
+          "value": "encapsulant",
+          "label": "塑封体"
+        }
       ],
       "creation_option": true,
-      "type": "select"
+      "type": "select",
+      "step": "top_cover",
+      "label": "顶部结构",
+      "schematic": true
     },
     {
       "key": "cover.length",
       "unit": "mm",
-      "options": [],
-      "type": "number"
+      "type": "number",
+      "step": "top_cover",
+      "label": "顶部长度",
+      "visible_when": {
+        "cover.type": "encapsulant"
+      },
+      "des_symbol": "Le"
     },
     {
       "key": "cover.width",
       "unit": "mm",
-      "options": [],
-      "type": "number"
+      "type": "number",
+      "step": "top_cover",
+      "label": "顶部宽度",
+      "visible_when": {
+        "cover.type": "encapsulant"
+      },
+      "des_symbol": "We"
     },
     {
       "key": "cover.thickness",
       "unit": "mm",
-      "options": [],
-      "type": "number"
+      "type": "number",
+      "step": "top_cover",
+      "label": "顶部厚度",
+      "visible_when": {
+        "cover.type": "encapsulant"
+      },
+      "des_symbol": "te"
     },
     {
       "key": "lid.length",
       "unit": "mm",
-      "options": [],
-      "type": "number"
+      "type": "number",
+      "step": "top_cover",
+      "label": "顶部长度",
+      "visible_when": {
+        "cover.type": "lid"
+      },
+      "des_symbol": "Lc"
     },
     {
       "key": "lid.width",
       "unit": "mm",
-      "options": [],
-      "type": "number"
+      "type": "number",
+      "step": "top_cover",
+      "label": "顶部宽度",
+      "visible_when": {
+        "cover.type": "lid"
+      },
+      "des_symbol": "Wc"
     },
     {
       "key": "lid.thickness",
       "unit": "mm",
-      "options": [],
-      "type": "number"
+      "type": "number",
+      "step": "top_cover",
+      "label": "顶部厚度",
+      "visible_when": {
+        "cover.type": "lid"
+      },
+      "des_symbol": "tc"
     },
     {
       "key": "lid.base_thickness",
       "unit": "mm",
-      "options": [],
-      "type": "number"
+      "type": "number",
+      "step": "top_cover",
+      "label": "顶盖侧壁宽度",
+      "visible_when": {
+        "cover.type": "lid"
+      },
+      "des_symbol": "tcb"
     },
     {
       "key": "lid.die_attach",
       "unit": "mm",
-      "options": [],
-      "type": "number"
+      "type": "number",
+      "step": "top_cover",
+      "label": "顶盖芯片连接层厚度",
+      "visible_when": {
+        "cover.type": "lid"
+      },
+      "des_symbol": "tda"
     },
     {
       "key": "lid.adhesive",
       "unit": "mm",
-      "options": [],
-      "type": "number"
+      "type": "number",
+      "step": "top_cover",
+      "label": "顶盖侧壁粘接厚度",
+      "visible_when": {
+        "cover.type": "lid"
+      },
+      "des_symbol": "tcadh"
     },
     {
       "key": "plate.length",
       "unit": "mm",
-      "options": [],
-      "type": "number"
+      "type": "number",
+      "step": "top_cover",
+      "label": "顶部长度",
+      "visible_when": {
+        "cover.type": "plate"
+      },
+      "des_symbol": "Lc"
     },
     {
       "key": "plate.width",
       "unit": "mm",
-      "options": [],
-      "type": "number"
+      "type": "number",
+      "step": "top_cover",
+      "label": "顶部宽度",
+      "visible_when": {
+        "cover.type": "plate"
+      },
+      "des_symbol": "Wc"
     },
     {
       "key": "plate.thickness",
       "unit": "mm",
-      "options": [],
-      "type": "number"
+      "type": "number",
+      "step": "top_cover",
+      "label": "顶部厚度",
+      "visible_when": {
+        "cover.type": "plate"
+      },
+      "des_symbol": "tc"
     },
     {
       "key": "plate.die_attach",
       "unit": "mm",
-      "options": [],
-      "type": "number"
+      "type": "number",
+      "step": "top_cover",
+      "label": "热板芯片连接层厚度",
+      "visible_when": {
+        "cover.type": "plate"
+      },
+      "des_symbol": "tda"
     },
     {
       "key": "grid.enabled",
       "default": true,
       "unit": null,
-      "options": [],
-      "type": "checkbox"
+      "type": "checkbox",
+      "label": "局部网格",
+      "step": "modeling",
+      "placement": "footer"
     },
     {
       "key": "grid.density",
       "default": "fine",
       "unit": null,
       "options": [
-        "coarse",
-        "medium",
-        "fine"
+        {
+          "value": "coarse"
+        },
+        {
+          "value": "medium"
+        },
+        {
+          "value": "fine"
+        }
       ],
-      "type": "select"
+      "type": "select",
+      "label": "网格密度",
+      "step": "modeling",
+      "visible_when": {
+        "grid.enabled": true
+      },
+      "placement": "footer"
     },
     {
       "key": "bumps.array_type",
       "default": "non_regular",
       "unit": null,
       "options": [
-        "non_regular",
-        "regular"
+        {
+          "value": "non_regular"
+        },
+        {
+          "value": "regular"
+        }
       ],
-      "type": "select"
+      "type": "select",
+      "label": "凸点阵列类型",
+      "step": "flip_chip_bumps"
     },
     {
       "key": "bumps.columns",
       "default": null,
       "unit": null,
-      "options": [],
-      "type": "integer"
+      "type": "integer",
+      "label": "X 向凸点数",
+      "step": "flip_chip_bumps",
+      "visible_when": {
+        "bumps.array_type": "regular"
+      },
+      "des_symbol": "MDC4"
     },
     {
       "key": "bumps.rows",
       "default": null,
       "unit": null,
-      "options": [],
-      "type": "integer"
+      "type": "integer",
+      "label": "Y 向凸点数",
+      "step": "flip_chip_bumps",
+      "visible_when": {
+        "bumps.array_type": "regular"
+      },
+      "des_symbol": "MEC4"
     },
     {
       "key": "bumps.underfill",
       "default": true,
       "unit": null,
-      "options": [],
-      "type": "checkbox"
+      "type": "checkbox",
+      "label": "包含底填充",
+      "step": "flip_chip_bumps",
+      "schematic": true
     },
     {
       "key": "cover.flush",
       "default": false,
       "unit": null,
-      "options": [],
-      "type": "checkbox"
+      "type": "checkbox",
+      "label": "芯片顶面齐平",
+      "step": "top_cover",
+      "visible_when": {
+        "cover.type": "encapsulant"
+      }
     },
     {
       "key": "stiffener.enabled",
       "default": false,
       "unit": null,
-      "options": [],
-      "type": "checkbox"
+      "type": "checkbox",
+      "label": "加强环",
+      "step": "top_cover",
+      "visible_when": {
+        "cover.type": "lid"
+      },
+      "schematic": true
     },
     {
       "key": "stiffener.length",
       "default": null,
       "unit": "mm",
-      "options": [],
-      "type": "number"
+      "type": "number",
+      "label": "外框长度",
+      "step": "top_cover",
+      "visible_when": {
+        "cover.type": "lid",
+        "stiffener.enabled": true
+      },
+      "des_symbol": "Ls"
     },
     {
       "key": "stiffener.width",
       "default": null,
       "unit": "mm",
-      "options": [],
-      "type": "number"
+      "type": "number",
+      "label": "外框宽度",
+      "step": "top_cover",
+      "visible_when": {
+        "cover.type": "lid",
+        "stiffener.enabled": true
+      },
+      "des_symbol": "Ws"
     },
     {
       "key": "stiffener.cavity_length",
       "default": null,
       "unit": "mm",
-      "options": [],
-      "type": "number"
+      "type": "number",
+      "label": "内腔长度",
+      "step": "top_cover",
+      "visible_when": {
+        "cover.type": "lid",
+        "stiffener.enabled": true
+      },
+      "des_symbol": "Lsc"
     },
     {
       "key": "stiffener.cavity_width",
       "default": null,
       "unit": "mm",
-      "options": [],
-      "type": "number"
+      "type": "number",
+      "label": "内腔宽度",
+      "step": "top_cover",
+      "visible_when": {
+        "cover.type": "lid",
+        "stiffener.enabled": true
+      },
+      "des_symbol": "Wsc"
     },
     {
       "key": "stiffener.adhesive",
       "default": null,
       "unit": "mm",
-      "options": [],
-      "type": "number"
+      "type": "number",
+      "label": "加强环粘接厚度",
+      "step": "top_cover",
+      "visible_when": {
+        "cover.type": "lid",
+        "stiffener.enabled": true
+      },
+      "des_symbol": "tsadh"
     },
     {
       "key": "slug.enabled",
       "default": false,
       "unit": null,
-      "options": [],
-      "type": "checkbox"
+      "type": "checkbox",
+      "label": "包含嵌入式散热块",
+      "step": "slug",
+      "enabled_when": {
+        "cover.type": "encapsulant"
+      },
+      "help_text": "顶部结构选择“塑封体（Encapsulant）”时可用。",
+      "schematic": true
     },
     {
       "key": "slug.length",
       "default": null,
       "unit": "mm",
-      "options": [],
-      "type": "number"
+      "type": "number",
+      "label": "散热块长度",
+      "step": "slug",
+      "visible_when": {
+        "cover.type": "encapsulant",
+        "slug.enabled": true
+      },
+      "des_symbol": "L_sl"
     },
     {
       "key": "slug.width",
       "default": null,
       "unit": "mm",
-      "options": [],
-      "type": "number"
+      "type": "number",
+      "label": "宽度",
+      "step": "slug",
+      "visible_when": {
+        "cover.type": "encapsulant",
+        "slug.enabled": true
+      },
+      "des_symbol": "W_sl"
     },
     {
       "key": "slug.thickness",
       "default": null,
       "unit": "mm",
-      "options": [],
-      "type": "number"
+      "type": "number",
+      "label": "厚度",
+      "step": "slug",
+      "visible_when": {
+        "cover.type": "encapsulant",
+        "slug.enabled": true
+      },
+      "des_symbol": "t_sl"
     },
     {
       "key": "slug.diameter",
       "default": null,
       "unit": "mm",
-      "options": [],
-      "type": "number"
+      "type": "number",
+      "label": "顶部直径",
+      "step": "slug",
+      "visible_when": {
+        "cover.type": "encapsulant",
+        "slug.enabled": true
+      },
+      "des_symbol": "dsl"
     },
     {
       "key": "slug.foot_length",
       "default": null,
       "unit": "mm",
-      "options": [],
-      "type": "number"
+      "type": "number",
+      "label": "外轮廓长度",
+      "step": "slug",
+      "visible_when": {
+        "cover.type": "encapsulant",
+        "slug.enabled": true
+      },
+      "des_symbol": "L_slf"
     },
     {
       "key": "slug.foot_width",
       "default": null,
       "unit": "mm",
-      "options": [],
-      "type": "number"
+      "type": "number",
+      "label": "外轮廓宽度",
+      "step": "slug",
+      "visible_when": {
+        "cover.type": "encapsulant",
+        "slug.enabled": true
+      },
+      "des_symbol": "W_slf"
     },
     {
       "key": "slug.offset",
       "default": null,
       "unit": "mm",
-      "options": [],
-      "type": "number"
+      "type": "number",
+      "label": "顶部台阶高度",
+      "step": "slug",
+      "visible_when": {
+        "cover.type": "encapsulant",
+        "slug.enabled": true
+      },
+      "des_symbol": "gsl"
     },
     {
       "key": "slug.clearance",
       "default": null,
       "unit": "mm",
-      "options": [],
-      "type": "number"
+      "type": "number",
+      "label": "支脚间隙",
+      "step": "slug",
+      "visible_when": {
+        "cover.type": "encapsulant",
+        "slug.enabled": true
+      },
+      "des_symbol": "g_slf"
     },
     {
       "key": "slug.adhesive_enabled",
       "default": false,
       "unit": null,
-      "options": [],
-      "type": "checkbox"
+      "type": "checkbox",
+      "label": "支脚下包含粘接层",
+      "step": "slug",
+      "visible_when": {
+        "cover.type": "encapsulant",
+        "slug.enabled": true
+      },
+      "schematic": true
     },
     {
       "key": "vias.enabled",
       "default": false,
       "unit": null,
-      "options": [],
-      "type": "checkbox"
+      "type": "checkbox",
+      "label": "芯层通孔",
+      "step": "thermal_vias",
+      "schematic": true
     },
     {
       "key": "vias.columns",
       "default": null,
       "unit": null,
-      "options": [],
-      "type": "integer"
+      "type": "integer",
+      "label": "X 向孔数",
+      "step": "thermal_vias",
+      "visible_when": {
+        "vias.enabled": true
+      },
+      "des_symbol": "NVx"
     },
     {
       "key": "vias.rows",
       "default": null,
       "unit": null,
-      "options": [],
-      "type": "integer"
+      "type": "integer",
+      "label": "Y 向孔数",
+      "step": "thermal_vias",
+      "visible_when": {
+        "vias.enabled": true
+      },
+      "des_symbol": "NVy"
     },
     {
       "key": "vias.pitch",
       "default": null,
       "unit": "mm",
-      "options": [],
-      "type": "number"
+      "type": "number",
+      "label": "孔间距",
+      "step": "thermal_vias",
+      "visible_when": {
+        "vias.enabled": true
+      },
+      "des_symbol": "ev"
     },
     {
       "key": "vias.diameter",
       "default": null,
       "unit": "mm",
-      "options": [],
-      "type": "number"
+      "type": "number",
+      "label": "孔径",
+      "step": "thermal_vias",
+      "visible_when": {
+        "vias.enabled": true
+      },
+      "des_symbol": "dv"
     },
     {
       "key": "vias.plating",
       "default": null,
       "unit": "mm",
-      "options": [],
-      "type": "number"
+      "type": "number",
+      "label": "镀层厚度",
+      "step": "thermal_vias",
+      "visible_when": {
+        "vias.enabled": true
+      },
+      "des_symbol": "tpl"
     },
     {
       "key": "vias.modeling",
       "default": "discrete",
       "unit": null,
       "options": [
-        "discrete",
-        "equivalent"
+        {
+          "value": "discrete"
+        },
+        {
+          "value": "equivalent"
+        }
       ],
-      "type": "select"
+      "type": "select",
+      "label": "芯层通孔建模",
+      "step": "modeling",
+      "visible_when": {
+        "vias.enabled": true
+      }
     },
     {
       "key": "metal.layers",
       "default": [],
       "unit": null,
-      "options": [],
       "type": "table",
       "columns": [
         {
           "key": "depth",
-          "type": "number"
+          "type": "number",
+          "label": "层深 zn (mm)"
         },
         {
           "key": "thickness",
-          "type": "number"
+          "type": "number",
+          "label": "层厚 tzn (mm)"
         },
         {
           "key": "coverage",
-          "type": "number"
+          "type": "number",
+          "label": "覆盖率 %"
         },
         {
           "key": "disconnect",
-          "type": "checkbox"
+          "type": "checkbox",
+          "label": "断开通孔"
         }
-      ]
+      ],
+      "label": "芯层金属层表（Depth / Thickness / Coverage）",
+      "step": "metal_layers",
+      "schematic": true
     },
     {
       "key": "upper.enabled",
       "default": false,
       "unit": null,
-      "options": [],
-      "type": "checkbox"
+      "type": "checkbox",
+      "label": "启用增层区域",
+      "step": "upper_built_up"
     },
     {
       "key": "upper.thickness",
       "default": null,
       "unit": "mm",
-      "options": [],
-      "type": "number"
+      "type": "number",
+      "label": "增层厚度",
+      "step": "upper_built_up",
+      "visible_when": {
+        "upper.enabled": true
+      },
+      "des_symbol": "A2b1"
     },
     {
       "key": "upper.count",
       "default": null,
       "unit": null,
-      "options": [],
-      "type": "integer"
+      "type": "integer",
+      "label": "微通孔总数",
+      "step": "upper_built_up",
+      "visible_when": {
+        "upper.enabled": true
+      },
+      "des_symbol": "Nb1"
     },
     {
       "key": "upper.diameter",
       "default": null,
       "unit": "mm",
-      "options": [],
-      "type": "number"
+      "type": "number",
+      "label": "微通孔外径",
+      "step": "upper_built_up",
+      "visible_when": {
+        "upper.enabled": true
+      },
+      "des_symbol": "dv_b1"
     },
     {
       "key": "upper.plating",
       "default": null,
       "unit": "mm",
-      "options": [],
-      "type": "number"
+      "type": "number",
+      "label": "微通孔镀层厚度",
+      "step": "upper_built_up",
+      "visible_when": {
+        "upper.enabled": true
+      },
+      "des_symbol": "tpl_b1"
     },
     {
       "key": "upper.filled",
       "default": true,
       "unit": null,
-      "options": [],
-      "type": "checkbox"
+      "type": "checkbox",
+      "label": "填充微通孔",
+      "step": "upper_built_up",
+      "visible_when": {
+        "upper.enabled": true
+      }
     },
     {
       "key": "upper.layers",
       "default": [],
       "unit": null,
-      "options": [],
       "type": "table",
       "columns": [
         {
           "key": "depth",
-          "type": "number"
+          "type": "number",
+          "label": "层深 zn (mm)"
         },
         {
           "key": "thickness",
-          "type": "number"
+          "type": "number",
+          "label": "层厚 tzn (mm)"
         },
         {
           "key": "coverage",
-          "type": "number"
+          "type": "number",
+          "label": "覆盖率 %"
         },
         {
           "key": "disconnect",
-          "type": "checkbox"
+          "type": "checkbox",
+          "label": "断开通孔"
         }
-      ]
+      ],
+      "label": "金属层表（全基板 Depth）",
+      "step": "upper_built_up",
+      "visible_when": {
+        "upper.enabled": true
+      }
     },
     {
       "key": "lower.enabled",
       "default": false,
       "unit": null,
-      "options": [],
-      "type": "checkbox"
+      "type": "checkbox",
+      "label": "启用增层区域",
+      "step": "lower_built_up"
     },
     {
       "key": "lower.thickness",
       "default": null,
       "unit": "mm",
-      "options": [],
-      "type": "number"
+      "type": "number",
+      "label": "增层厚度",
+      "step": "lower_built_up",
+      "visible_when": {
+        "lower.enabled": true
+      },
+      "des_symbol": "A2b2"
     },
     {
       "key": "lower.count",
       "default": null,
       "unit": null,
-      "options": [],
-      "type": "integer"
+      "type": "integer",
+      "label": "微通孔总数",
+      "step": "lower_built_up",
+      "visible_when": {
+        "lower.enabled": true
+      },
+      "des_symbol": "Nb2"
     },
     {
       "key": "lower.diameter",
       "default": null,
       "unit": "mm",
-      "options": [],
-      "type": "number"
+      "type": "number",
+      "label": "微通孔外径",
+      "step": "lower_built_up",
+      "visible_when": {
+        "lower.enabled": true
+      },
+      "des_symbol": "dv_b2"
     },
     {
       "key": "lower.plating",
       "default": null,
       "unit": "mm",
-      "options": [],
-      "type": "number"
+      "type": "number",
+      "label": "微通孔镀层厚度",
+      "step": "lower_built_up",
+      "visible_when": {
+        "lower.enabled": true
+      },
+      "des_symbol": "tpl_b2"
     },
     {
       "key": "lower.filled",
       "default": true,
       "unit": null,
-      "options": [],
-      "type": "checkbox"
+      "type": "checkbox",
+      "label": "填充微通孔",
+      "step": "lower_built_up",
+      "visible_when": {
+        "lower.enabled": true
+      }
     },
     {
       "key": "lower.layers",
       "default": [],
       "unit": null,
-      "options": [],
       "type": "table",
       "columns": [
         {
           "key": "depth",
-          "type": "number"
+          "type": "number",
+          "label": "层深 zn (mm)"
         },
         {
           "key": "thickness",
-          "type": "number"
+          "type": "number",
+          "label": "层厚 tzn (mm)"
         },
         {
           "key": "coverage",
-          "type": "number"
+          "type": "number",
+          "label": "覆盖率 %"
         },
         {
           "key": "disconnect",
-          "type": "checkbox"
+          "type": "checkbox",
+          "label": "断开通孔"
         }
-      ]
+      ],
+      "label": "金属层表（全基板 Depth）",
+      "step": "lower_built_up",
+      "visible_when": {
+        "lower.enabled": true
+      }
     },
     {
       "key": "bga.solder_removal_enabled",
       "default": false,
-      "type": "checkbox"
+      "type": "checkbox",
+      "label": "主阵列中心去球",
+      "step": "solder_removal",
+      "standalone": true
     },
     {
       "key": "bga.populated_rows",
       "default": null,
-      "type": "integer"
+      "type": "integer",
+      "label": "外围满布行数",
+      "step": "solder_removal",
+      "des_symbol": "MEp"
     },
     {
       "key": "bga.populated_columns",
       "default": null,
-      "type": "integer"
+      "type": "integer",
+      "label": "外围满布列数",
+      "step": "solder_removal",
+      "des_symbol": "MDp"
     },
     {
       "key": "bga.removal_rows",
@@ -609,37 +976,57 @@
       "default": [],
       "rows_key": "bga.rows",
       "columns_key": "bga.columns",
-      "type": "removal_matrix"
+      "type": "removal_matrix",
+      "label": "显式去球",
+      "step": "solder_removal"
     },
     {
       "key": "bga.center_solder_enabled",
       "default": false,
-      "type": "checkbox"
+      "type": "checkbox",
+      "label": "包含中央焊球",
+      "step": "central_solder_balls",
+      "standalone": true
     },
     {
       "key": "bga.center_solder_rows",
       "default": null,
-      "type": "integer"
+      "type": "integer",
+      "label": "中央焊球行数",
+      "step": "central_solder_balls",
+      "des_symbol": "MEc"
     },
     {
       "key": "bga.center_solder_columns",
       "default": null,
-      "type": "integer"
+      "type": "integer",
+      "label": "中央焊球列数",
+      "step": "central_solder_balls",
+      "des_symbol": "MDc"
     },
     {
       "key": "bga.center_staggered",
       "default": false,
-      "type": "checkbox"
+      "type": "checkbox",
+      "label": "中央焊球交错",
+      "step": "central_solder_balls",
+      "standalone": true
     },
     {
       "key": "bga.staggered",
       "default": false,
-      "type": "checkbox"
+      "type": "checkbox",
+      "label": "交错主阵列",
+      "step": "solder_balls",
+      "standalone": true
     },
     {
       "key": "bga.ball_map_enabled",
       "default": false,
-      "type": "checkbox"
+      "type": "checkbox",
+      "label": "使用焊球坐标表",
+      "step": "solder_balls",
+      "standalone": true
     },
     {
       "key": "bga.ball_map",
@@ -649,26 +1036,39 @@
       "columns": [
         {
           "key": "id",
-          "type": "text"
+          "type": "text",
+          "label": "ID"
         },
         {
           "key": "x",
-          "type": "number"
+          "type": "number",
+          "label": "X"
         },
         {
           "key": "y",
-          "type": "number"
+          "type": "number",
+          "label": "Y"
         }
-      ]
+      ],
+      "label": "焊球坐标表",
+      "step": "solder_balls"
     },
     {
       "key": "bga.representation",
       "default": "equivalent",
       "options": [
-        "discrete",
-        "equivalent"
+        {
+          "value": "discrete",
+          "label": "Discrete Cuboids"
+        },
+        {
+          "value": "equivalent",
+          "label": "Orthotropic Cuboid"
+        }
       ],
-      "type": "combobox"
+      "type": "combobox",
+      "label": "焊球建模方式",
+      "step": "modeling"
     },
     {
       "key": "vias.configuration",
@@ -679,159 +1079,413 @@
         "omitted_cells": []
       },
       "type": "object",
-      "fields": [
+      "label": "通孔去除配置",
+      "step": "thermal_vias",
+      "visible_when": {
+        "vias.enabled": true
+      },
+      "keys": [
         {
           "key": "removal_enabled",
-          "type": "checkbox"
+          "type": "checkbox",
+          "label": "启用通孔去除",
+          "standalone": true
         },
         {
           "key": "removal_rows",
-          "type": "integer"
+          "type": "integer",
+          "label": "中央去除行数",
+          "visible_when": {
+            "removal_enabled": true
+          }
         },
         {
           "key": "removal_columns",
-          "type": "integer"
+          "type": "integer",
+          "label": "中央去除列数",
+          "visible_when": {
+            "removal_enabled": true
+          }
         },
         {
           "key": "omitted_cells",
           "rows_key": "vias.rows",
           "columns_key": "vias.columns",
-          "type": "removal_matrix"
+          "type": "removal_matrix",
+          "label": "显式去孔",
+          "visible_when": {
+            "removal_enabled": true
+          }
         }
       ]
-    }
-  ],
-  "origin": "Reviewed PackStudio model specification; mapped source values explicitly referenced",
-  "material_selections": [
+    },
     {
-      "group_id": "group-substrate",
       "default": "pbga-substrate",
       "options": [
-        "*"
-      ]
+        {
+          "value": "*"
+        }
+      ],
+      "step": "package_substrate",
+      "label": "有机基板材料",
+      "key": "group-substrate",
+      "type": "material"
     },
     {
-      "group_id": "group-die",
       "default": "silicon",
       "options": [
-        "silicon"
-      ]
+        {
+          "value": "silicon"
+        }
+      ],
+      "step": "die",
+      "label": "芯片材料",
+      "key": "group-die",
+      "type": "material"
     },
     {
-      "group_id": "group-encapsulant",
       "default": "epoxy-mold",
       "options": [
-        "*"
-      ]
+        {
+          "value": "*"
+        }
+      ],
+      "step": "top_cover",
+      "label": "塑封材料",
+      "visible_when": {
+        "cover.type": "encapsulant"
+      },
+      "key": "group-encapsulant",
+      "type": "material"
     },
     {
-      "group_id": "group-lid",
       "default": "aluminum",
       "options": [
-        "*"
-      ]
+        {
+          "value": "*"
+        }
+      ],
+      "step": "top_cover",
+      "label": "顶盖材料",
+      "visible_when": {
+        "cover.type": "lid"
+      },
+      "key": "group-lid",
+      "type": "material"
     },
     {
-      "group_id": "group-lid-adhesive",
       "default": "stiffener-adhesive",
       "options": [
-        "*"
-      ]
+        {
+          "value": "*"
+        }
+      ],
+      "step": "top_cover",
+      "label": "顶盖侧壁粘接材料",
+      "visible_when": {
+        "cover.type": "lid"
+      },
+      "key": "group-lid-adhesive",
+      "type": "material"
     },
     {
-      "group_id": "group-lid-die-attach",
       "default": "flip-cap-grease",
       "options": [
-        "*"
-      ]
+        {
+          "value": "*"
+        }
+      ],
+      "step": "top_cover",
+      "label": "顶盖芯片连接材料",
+      "visible_when": {
+        "cover.type": "lid"
+      },
+      "key": "group-lid-die-attach",
+      "type": "material"
     },
     {
-      "group_id": "group-plate",
       "default": "aluminum",
       "options": [
-        "*"
-      ]
+        {
+          "value": "*"
+        }
+      ],
+      "step": "top_cover",
+      "label": "热板材料",
+      "visible_when": {
+        "cover.type": "plate"
+      },
+      "key": "group-plate",
+      "type": "material"
     },
     {
-      "group_id": "group-plate-die-attach",
       "default": "flip-cap-grease",
       "options": [
-        "*"
-      ]
+        {
+          "value": "*"
+        }
+      ],
+      "step": "top_cover",
+      "label": "热板芯片连接材料",
+      "visible_when": {
+        "cover.type": "plate"
+      },
+      "key": "group-plate-die-attach",
+      "type": "material"
     },
     {
-      "group_id": "group-bump-solder",
       "default": "solder-pb90",
       "options": [
-        "*"
-      ]
+        {
+          "value": "*"
+        }
+      ],
+      "step": "flip_chip_bumps",
+      "label": "凸点焊料",
+      "key": "group-bump-solder",
+      "type": "material"
     },
     {
-      "group_id": "group-underfill",
       "default": "underfill",
       "options": [
-        "*"
-      ]
+        {
+          "value": "*"
+        }
+      ],
+      "step": "flip_chip_bumps",
+      "label": "底部填充材料",
+      "visible_when": {
+        "bumps.underfill": true
+      },
+      "key": "group-underfill",
+      "type": "material"
     },
     {
-      "group_id": "group-bga-solder",
       "default": "solder-sn63",
       "options": [
-        "*"
-      ]
+        {
+          "value": "*"
+        }
+      ],
+      "step": "solder_balls",
+      "label": "BGA 焊球材料",
+      "key": "group-bga-solder",
+      "type": "material"
     },
     {
-      "group_id": "group-stiffener",
       "default": "steel_stainless_302_cr18_ni8_38fdf21b",
       "options": [
-        "*"
-      ]
+        {
+          "value": "*"
+        }
+      ],
+      "label": "加强环材料",
+      "step": "top_cover",
+      "visible_when": {
+        "cover.type": "lid",
+        "stiffener.enabled": true
+      },
+      "key": "group-stiffener",
+      "type": "material"
     },
     {
-      "group_id": "group-stiffener-adhesive",
       "default": "stiffener-adhesive",
       "options": [
-        "*"
-      ]
+        {
+          "value": "*"
+        }
+      ],
+      "label": "加强环粘接材料",
+      "step": "top_cover",
+      "visible_when": {
+        "cover.type": "lid",
+        "stiffener.enabled": true
+      },
+      "key": "group-stiffener-adhesive",
+      "type": "material"
     },
     {
-      "group_id": "group-slug",
       "default": "copper",
       "options": [
-        "",
-        "*"
-      ]
+        {
+          "value": ""
+        },
+        {
+          "value": "*"
+        }
+      ],
+      "label": "散热块材料",
+      "step": "slug",
+      "visible_when": {
+        "cover.type": "encapsulant",
+        "slug.enabled": true
+      },
+      "key": "group-slug",
+      "type": "material"
     },
     {
-      "group_id": "group-slug-adhesive",
       "default": "stiffener-adhesive",
       "options": [
-        "",
-        "*"
-      ]
+        {
+          "value": ""
+        },
+        {
+          "value": "*"
+        }
+      ],
+      "label": "支脚粘接材料",
+      "step": "slug",
+      "visible_when": {
+        "cover.type": "encapsulant",
+        "slug.enabled": true,
+        "slug.adhesive_enabled": true
+      },
+      "key": "group-slug-adhesive",
+      "type": "material"
     },
     {
-      "group_id": "group-metal",
       "default": "copper",
       "options": [
-        "*"
+        {
+          "value": "*"
+        }
+      ],
+      "label": "金属材料",
+      "step": "metal_layers",
+      "key": "group-metal",
+      "type": "material"
+    },
+    {
+      "default": "bt",
+      "options": [
+        {
+          "value": ""
+        },
+        {
+          "value": "*"
+        }
+      ],
+      "label": "增层介质",
+      "step": "upper_built_up",
+      "visible_when": {
+        "upper.enabled": true
+      },
+      "key": "group-upper",
+      "type": "material"
+    },
+    {
+      "default": "bt",
+      "options": [
+        {
+          "value": ""
+        },
+        {
+          "value": "*"
+        }
+      ],
+      "label": "增层介质",
+      "step": "lower_built_up",
+      "visible_when": {
+        "lower.enabled": true
+      },
+      "key": "group-lower",
+      "type": "material"
+    }
+  ],
+  "steps": [
+    {
+      "key": "summary",
+      "label": "概要",
+      "diagram": "package",
+      "fields": [
+        {
+          "source": "document.name",
+          "label": "设计名称",
+          "editable": true,
+          "maximum_length": 160
+        },
+        {
+          "source": "template.name",
+          "label": "封装类型"
+        },
+        {
+          "source": "parameter",
+          "parameter": "substrate.layers",
+          "label": "基板层数",
+          "hide_when_empty": true
+        },
+        {
+          "source": "parameter",
+          "parameter": "die.power",
+          "label": "芯片功率",
+          "format": "{0} W"
+        }
       ]
     },
     {
-      "group_id": "group-upper",
-      "default": "bt",
-      "options": [
-        "",
-        "*"
-      ]
+      "key": "package_substrate",
+      "label": "封装基板",
+      "diagram": "package"
     },
     {
-      "group_id": "group-lower",
-      "default": "bt",
-      "options": [
-        "",
-        "*"
-      ]
+      "key": "die",
+      "label": "芯片",
+      "diagram": "package"
+    },
+    {
+      "key": "flip_chip_bumps",
+      "label": "倒装芯片凸点",
+      "diagram": "package"
+    },
+    {
+      "key": "thermal_vias",
+      "label": "热通孔",
+      "diagram": "substrate"
+    },
+    {
+      "key": "metal_layers",
+      "label": "金属层",
+      "diagram": "substrate"
+    },
+    {
+      "key": "upper_built_up",
+      "label": "上部增层区域",
+      "diagram": "substrate"
+    },
+    {
+      "key": "lower_built_up",
+      "label": "下部增层区域",
+      "diagram": "substrate"
+    },
+    {
+      "key": "solder_balls",
+      "label": "BGA 焊球",
+      "diagram": "balls"
+    },
+    {
+      "key": "central_solder_balls",
+      "label": "中央焊球",
+      "diagram": "balls"
+    },
+    {
+      "key": "solder_removal",
+      "label": "焊球去除",
+      "diagram": "balls"
+    },
+    {
+      "key": "top_cover",
+      "label": "顶部结构",
+      "diagram": "package"
+    },
+    {
+      "key": "slug",
+      "label": "嵌入式散热块",
+      "diagram": "slug"
+    },
+    {
+      "key": "modeling",
+      "label": "建模与局部网格",
+      "diagram": ""
     }
   ]
 }
