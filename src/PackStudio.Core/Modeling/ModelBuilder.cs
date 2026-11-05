@@ -5,10 +5,10 @@ namespace PackStudio.Core;
 public static class ModelBuilder
 {
     public static GenerationResult Generate(ProjectDocument document, PackageDefinition definition, MaterialCatalog materials,
-        ValidationRules rules, IReadOnlyDictionary<string, ModelGroup> groups)
+        IReadOnlyDictionary<string, ModelGroup> groups)
     {
         var snapshot = document.Clone();
-        var issues = InputValidator.Validate(snapshot, definition, materials, rules).ToList();
+        var issues = InputValidator.Validate(snapshot, definition, materials).ToList();
         if (issues.Any(i => i.Severity == IssueSeverity.Error)) return new(null, issues);
         PackageModel model;
         try
@@ -24,17 +24,16 @@ public static class ModelBuilder
                 "qfn" => QfnGenerator.Generate(context),
                 "pqfp" => PqfpGenerator.Generate(context),
                 "sop" => SopGenerator.Generate(context),
-                _ => throw new ArgumentException("generation.template") { Data = { ["detail"] = snapshot.TemplateId } }
+                _ => throw new ModelGenerationException("generation.template", $"未知封装类型 {snapshot.TemplateId}。")
             };
             model = context.Complete(geometry);
         }
-        catch (ArgumentException error)
+        catch (ModelGenerationException error)
         {
-            if (!rules.Contains(error.Message)) throw;
-            issues.Add(rules.Create(error.Message, ValidationStage.Generation, [], detail: error.Data["detail"]?.ToString() ?? ""));
+            issues.Add(ValidationIssue.Error(error.Code, ValidationStage.Generation, error.Message));
             return new(null, issues);
         }
-        issues.AddRange(ModelValidator.Validate(model, rules, snapshot.Values["die.power"]!.Value<double>()));
+        issues.AddRange(ModelValidator.Validate(model, snapshot.Values["die.power"]!.Value<double>()));
         return new(model, issues);
     }
 }

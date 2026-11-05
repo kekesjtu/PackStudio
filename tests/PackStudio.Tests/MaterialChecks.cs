@@ -16,7 +16,7 @@ static class MaterialChecks
             var document = tests.Create(template);
             var custom = tests.Catalog.Materials.Items["copper"] with { Id = "custom-test", Name = "Custom test material" };
             document.CustomMaterials.Add(custom);
-            bool Rejected() => InputValidator.Validate(document, template, tests.Catalog.Materials, tests.Catalog.LoadValidation("bare_die"))
+            bool Rejected() => InputValidator.Validate(document, template, tests.Catalog.Materials)
                 .Any(i => i.Code == "input.material.reference" && i.ParameterPaths.Contains("MaterialAssignments.group-bump-solder"));
             foreach (string id in new[] { "copper", custom.Id })
             {
@@ -40,7 +40,7 @@ static class MaterialChecks
             var document = tests.Create(template);
             var choices = MaterialSelection.Choices(tests.Catalog.Materials, template, document, slot);
             Assert(choices.Items.Any(m => m.Id == "solder-pb90") && !choices.Items.Any(m => m.Id == "copper"), "explicit options did not restrict choices");
-            bool Rejected() => InputValidator.Validate(document, template, tests.Catalog.Materials, tests.Catalog.LoadValidation("bare_die"))
+            bool Rejected() => InputValidator.Validate(document, template, tests.Catalog.Materials)
                 .Any(i => i.Code == "input.material.reference" && i.ParameterPaths.Contains("MaterialAssignments.group-bump-solder"));
             document.MaterialAssignments["group-bump-solder"] = "copper";
             Assert(Rejected(), "explicit material restrictions were ignored");
@@ -108,7 +108,7 @@ static class MaterialChecks
                 }
                 File.WriteAllText(Path.Combine(materials, "index.json"), new JObject { ["materials"] = index }.ToString());
                 File.WriteAllText(Path.Combine(materials, "runtime.json"), new JObject { ["aliases"] = new JObject(), ["project_materials"] = new JArray() }.ToString());
-                var library = new MaterialCatalogReader().Read(directory, tests.Catalog.LoadValidation("bare_die"));
+                var library = new MaterialCatalogReader().Read(directory);
                 var constant = library.Items["material-0"];
                 var temperature = library.Items["material-1"];
                 var orthotropic = library.Items["material-2"];

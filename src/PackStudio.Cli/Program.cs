@@ -27,7 +27,7 @@ try
 
     if (args[0] != "generate" || args.Length < 3)
         throw new ArgumentException("generate 需要请求文件和输出文件路径。");
-    var result = ModelBuilder.Generate(document, catalog.Load(document.TemplateId), catalog.Materials, catalog.LoadValidation(document.TemplateId), catalog.Groups);
+    var result = ModelBuilder.Generate(document, catalog.Load(document.TemplateId), catalog.Materials, catalog.Groups);
     Console.WriteLine(JsonConvert.SerializeObject(new { blocks = result.Model?.Blocks.Count ?? 0, power_w = result.Model?.Sources.Sum(s => s.Power), issues = result.Issues,
         warnings = result.Issues.Where(i => i.Severity == IssueSeverity.Warning).Select(i => i.Message), can_preview = result.CanPreview, can_export = result.CanExport },
         new Newtonsoft.Json.Converters.StringEnumConverter()));

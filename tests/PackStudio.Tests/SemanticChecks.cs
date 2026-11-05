@@ -51,10 +51,9 @@ static class SemanticChecks
             density["options"]!.Single(o => o["value"].Text() == "fine")["label"] = "Fine display";
             var definition = new PackageDefinition(original.Info, data, original.Presets);
             var document = tests.Create(definition);
-            var rules = tests.Catalog.LoadValidation("bare_die");
-            Assert(!InputValidator.Validate(document, definition, tests.Catalog.Materials, rules).Any(i => i.ParameterPaths.Contains("grid.density")), "stored enum value was not accepted");
+            Assert(!InputValidator.Validate(document, definition, tests.Catalog.Materials).Any(i => i.ParameterPaths.Contains("grid.density")), "stored enum value was not accepted");
             document.Values["grid.density"] = "Fine display";
-            Assert(InputValidator.Validate(document, definition, tests.Catalog.Materials, rules).Any(i => i.Code == "input.option" && i.ParameterPaths.Contains("grid.density")), "display label was accepted as a stored value");
+            Assert(InputValidator.Validate(document, definition, tests.Catalog.Materials).Any(i => i.Code == "input.option" && i.ParameterPaths.Contains("grid.density")), "display label was accepted as a stored value");
         });
         tests.Case("parameters", "batch creation retains overrides regardless of their order", () =>
         {

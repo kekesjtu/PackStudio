@@ -6,37 +6,34 @@ static class GenerationChecks
 {
     public static void Run(TestSuite tests)
     {
-        ValidationRules Rules(string family) => new(
-            JsonData.Read(Path.Combine(tests.Root, "runtime_data", "validation", "common.json")),
-            JsonData.Read(Path.Combine(tests.Root, "runtime_data", "validation", family + ".json")));
-
-        tests.Case("generation", "family relation severity and message come from declarations", () =>
+        tests.Case("generation", "family relations are blocking C# checks with field paths", () =>
         {
             var definition = tests.Catalog.Load("qfn");
             var document = tests.Create(definition);
             document.Values["die.length"] = document.Values["package.length"]!.Value<double>() + 0.01;
-            var rules = Rules("qfn");
-            var rule = rules.Checks.Single(r => r["id"].Text() == "input.package.fit");
-            rule["severity"] = "warning";
-            rule["message"] = "请检查 {path}";
-            var issues = InputValidator.Validate(document, definition, tests.Catalog.Materials, rules);
-            var fit = issues.Single(i => i.Code == "input.package.fit");
-            Assert(fit.Severity == IssueSeverity.Warning && fit.Message == "请检查 die.length", "family relation ignored configured severity or message");
-            rule.Remove();
-            Assert(!InputValidator.Validate(document, definition, tests.Catalog.Materials, rules).Any(i => i.Code == "input.package.fit"), "undeclared family relation still executed");
+            var result = tests.GenerateResult(document);
+            var fit = result.Issues.Single(i => i.Code == "input.package.fit");
+            Assert(result.Model == null && fit.Stage == ValidationStage.Input && fit.Severity == IssueSeverity.Error,
+                "invalid family relation entered modeling");
+            Assert(fit.ParameterPaths.Contains("die.length") && fit.ParameterPaths.Contains("package.length") && !string.IsNullOrWhiteSpace(fit.Message),
+                "family relation lost diagnostics");
         });
 
-        tests.Case("generation", "field diagnostics use configured severity and message", () =>
+        tests.Case("generation", "field bounds are read from the parameter definition", () =>
         {
-            var definition = tests.Catalog.Load("bare_die");
+            var original = tests.Catalog.Load("bare_die");
+            var data = (JObject)original.Data.DeepClone();
+            var field = data["keys"]!.Single(f => f["key"].Text() == "die.power");
+            field["maximum"] = 5;
+            var definition = new PackageDefinition(original.Info, data, original.Presets);
             var document = tests.Create(definition);
-            document.Values["die.power"] = -1;
-            var rules = Rules("bare_die");
-            var field = rules.Fields.Single(f => f["key"].Text() == "die.power");
-            field["severity"] = "warning";
-            field["messages"] = new JObject { ["input.range"] = "功率范围提示：{path}" };
-            var issue = InputValidator.Validate(document, definition, tests.Catalog.Materials, rules).Single(i => i.Code == "input.range");
-            Assert(issue.Severity == IssueSeverity.Warning && issue.Message == "功率范围提示：die.power", "field rule ignored configured diagnostics");
+            document.Values["die.power"] = 6;
+            var issue = InputValidator.Validate(document, definition, tests.Catalog.Materials).Single(i => i.Code == "input.range");
+            Assert(issue.Severity == IssueSeverity.Error && issue.ParameterPaths.SequenceEqual(new[] { "die.power" }),
+                "field bound ignored the definition");
+            document.Values["die.power"] = 5;
+            Assert(!InputValidator.Validate(document, definition, tests.Catalog.Materials).Any(i => i.Code == "input.range"),
+                "inclusive bound rejected its endpoint");
         });
 
         tests.Case("generation", "SOP odd lead count is reported once before modeling", () =>
@@ -45,17 +42,71 @@ static class GenerationChecks
             document.Values["leads.total"] = 21;
             var result = tests.GenerateResult(document);
             Assert(result.Model == null && result.Issues.Count(i => i.ParameterPaths.Contains("leads.total")) == 1, "lead count was validated more than once");
-            Assert(result.Issues.Single(i => i.ParameterPaths.Contains("leads.total")).Code == "input.sop.leads", "lead count bypassed the declared rule");
+            Assert(result.Issues.Single(i => i.ParameterPaths.Contains("leads.total")).Code == "input.sop.leads", "lead count bypassed the family check");
         });
 
-        tests.Case("generation", "model diagnostics use configured severity and message", () =>
+        tests.Case("generation", "known generation failures carry their own diagnostics", () =>
         {
-            var rules = Rules("bare_die");
-            var rule = rules.Checks.Single(r => r["id"].Text() == "model.source");
-            rule["severity"] = "warning";
-            rule["message"] = "检查热源 {entity}";
-            var issue = ModelValidator.Validate(Model(tests, sources: [new("a", -1)]), rules).Single(i => i.Code == "model.source");
-            Assert(issue.Severity == IssueSeverity.Warning && issue.Message == "检查热源 a", "model check ignored configured diagnostics");
+            var document = tests.Create(tests.Catalog.Load("pqfp"));
+            document.Values["flag.length"] = document.Values["body.length"]!.DeepClone();
+            var result = tests.GenerateResult(document);
+            var issue = result.Issues.Single(i => i.Code == "generation.tie_bar");
+            Assert(result.Model == null && issue.Stage == ValidationStage.Generation && issue.Severity == IssueSeverity.Error,
+                "known generation failure escaped structured diagnostics");
+            Assert(!string.IsNullOrWhiteSpace(issue.Message) && issue.Message != issue.Code, "generation diagnostic has no message");
+        });
+
+        foreach (string family in new[] { "pbga_fc", "pbga_wb", "chip_array" })
+            tests.Case("generation", family + " table bounds locate invalid layer thickness before modeling", () =>
+            {
+                var document = tests.Create(tests.Catalog.Load(family));
+                var layers = (JArray)document.Values["metal.layers"]!;
+                if (layers.Count == 0)
+                    layers.Add(new JObject { ["depth"] = 0, ["thickness"] = 0.018, ["coverage"] = 50, ["disconnect"] = false });
+                layers[0]!["thickness"] = 0;
+                var result = tests.GenerateResult(document);
+                Assert(result.Model == null && result.Issues.Any(i => i.Code == "input.range" &&
+                    i.Stage == ValidationStage.Input && i.ParameterPaths.Contains("metal.layers[0].thickness")),
+                    "strictly positive table constraint did not locate the invalid cell");
+            });
+
+        tests.Case("generation", "invalid model sources always block export", () =>
+        {
+            var model = Model(tests, sources: [new("a", -1)]);
+            var issue = ModelValidator.Validate(model).Single(i => i.Code == "model.source");
+            Assert(issue.Severity == IssueSeverity.Error && issue.Stage == ValidationStage.Model && issue.EntityIds.Contains("a"),
+                "invalid source lost its blocking diagnostic");
+            Assert(!tests.Result(model).CanExport, "invalid source was exportable");
+        });
+
+        tests.Case("generation", "model power must match the submitted power", () =>
+        {
+            var model = Model(tests, sources: [new("a", 2)]);
+            Assert(!ModelValidator.Validate(model, expectedPower: 2).Any(i => i.Code == "model.power"), "matching power was rejected");
+            Assert(ModelValidator.Validate(model, expectedPower: 4).Any(i => i.Code == "model.power" && i.Severity == IssueSeverity.Error),
+                "lost power was accepted");
+        });
+
+        foreach (string family in new[] { "cbga_fc", "pbga_fc", "pbga_wb", "chip_array" })
+            tests.Case("generation", family + " shares solder ball checks", () =>
+            {
+                var document = tests.Create(tests.Catalog.Load(family));
+                document.Values["bga.diameter"] = 0.6;
+                document.Values["bga.pitch"] = 0.5;
+                var result = tests.GenerateResult(document);
+                Assert(result.Model == null && result.Issues.Count(i => i.Code == "input.bga.pitch") == 1,
+                    "family did not call its shared solder ball check exactly once");
+            });
+
+        tests.Case("generation", "invalid fields suppress dependent relations but preserve independent errors", () =>
+        {
+            var document = tests.Create(tests.Catalog.Load("sop"));
+            document.Values["leads.total"] = "odd";
+            document.Values["die.power"] = -1;
+            var result = tests.GenerateResult(document);
+            Assert(result.Model == null && result.Issues.Any(i => i.ParameterPaths.Contains("leads.total")) &&
+                result.Issues.Any(i => i.ParameterPaths.Contains("die.power")), "independent field errors were lost");
+            Assert(!result.Issues.Any(i => i.Code == "input.sop.leads"), "invalid field produced a dependent relation error");
         });
 
         tests.Case("generation", "independent input errors retain paths without changing submitted values", () =>
@@ -66,7 +117,7 @@ static class GenerationChecks
             document.Values["die.power"] = -1;
             document.MaterialAssignments["group-die"] = "";
             var submitted = document.Values.DeepClone();
-            InputValidator.Validate(document, definition, tests.Catalog.Materials, tests.Catalog.LoadValidation(document.TemplateId));
+            InputValidator.Validate(document, definition, tests.Catalog.Materials);
             Assert(JToken.DeepEquals(submitted, document.Values), "input validator changed submitted values");
             var result = tests.GenerateResult(document);
             Assert(result.Model == null && !result.CanPreview && !result.CanExport, "invalid input published a model");

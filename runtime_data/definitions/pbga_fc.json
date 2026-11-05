@@ -17,7 +17,9 @@
       "type": "number",
       "step": "package_substrate",
       "label": "封装长度",
-      "des_symbol": "D"
+      "des_symbol": "D",
+      "minimum": 2,
+      "maximum": 50
     },
     {
       "key": "substrate.width",
@@ -25,7 +27,9 @@
       "type": "number",
       "step": "package_substrate",
       "label": "封装宽度",
-      "des_symbol": "E"
+      "des_symbol": "E",
+      "minimum": 2,
+      "maximum": 50
     },
     {
       "key": "substrate.thickness",
@@ -33,7 +37,9 @@
       "type": "number",
       "step": "package_substrate",
       "label": "基板厚度",
-      "des_symbol": "A2"
+      "des_symbol": "A2",
+      "minimum": 0.1,
+      "maximum": 5
     },
     {
       "key": "die.length",
@@ -41,7 +47,9 @@
       "type": "number",
       "step": "die",
       "label": "芯片长度",
-      "des_symbol": "Ld"
+      "des_symbol": "Ld",
+      "minimum": 0.2,
+      "maximum": 40
     },
     {
       "key": "die.width",
@@ -49,7 +57,9 @@
       "type": "number",
       "step": "die",
       "label": "芯片宽度",
-      "des_symbol": "Wd"
+      "des_symbol": "Wd",
+      "minimum": 0.2,
+      "maximum": 40
     },
     {
       "key": "die.thickness",
@@ -57,7 +67,9 @@
       "type": "number",
       "step": "die",
       "label": "芯片厚度",
-      "des_symbol": "td"
+      "des_symbol": "td",
+      "minimum": 0.03,
+      "maximum": 2
     },
     {
       "key": "die.power",
@@ -65,7 +77,9 @@
       "type": "number",
       "step": "die",
       "label": "芯片功率",
-      "des_symbol": "P"
+      "des_symbol": "P",
+      "minimum": 0,
+      "maximum": 1000
     },
     {
       "key": "bumps.total",
@@ -75,7 +89,16 @@
       "visible_when": {
         "bumps.array_type": "non_regular"
       },
-      "des_symbol": "MNC4"
+      "des_symbol": "MNC4",
+      "minimum": 1,
+      "maximum": 10000,
+      "active_when": {
+        "all": [
+          {
+            "bumps.array_type": "non_regular"
+          }
+        ]
+      }
     },
     {
       "key": "bumps.diameter",
@@ -83,7 +106,9 @@
       "type": "number",
       "step": "flip_chip_bumps",
       "label": "凸点直径",
-      "des_symbol": "bC4"
+      "des_symbol": "bC4",
+      "minimum": 0.01,
+      "maximum": 0.5
     },
     {
       "key": "bumps.height",
@@ -91,7 +116,9 @@
       "type": "number",
       "step": "flip_chip_bumps",
       "label": "凸点高度",
-      "des_symbol": "tC4"
+      "des_symbol": "tC4",
+      "minimum": 0.01,
+      "maximum": 0.5
     },
     {
       "key": "bumps.modeling",
@@ -111,14 +138,18 @@
       "type": "integer",
       "step": "solder_balls",
       "label": "X 方向列数",
-      "des_symbol": "MD"
+      "des_symbol": "MD",
+      "minimum": 1,
+      "maximum": 300
     },
     {
       "key": "bga.rows",
       "type": "integer",
       "step": "solder_balls",
       "label": "Y 方向行数",
-      "des_symbol": "ME"
+      "des_symbol": "ME",
+      "minimum": 1,
+      "maximum": 300
     },
     {
       "key": "bga.pitch",
@@ -126,7 +157,9 @@
       "type": "number",
       "step": "solder_balls",
       "label": "间距",
-      "des_symbol": "e"
+      "des_symbol": "e",
+      "minimum": 0.2,
+      "maximum": 2
     },
     {
       "key": "bga.diameter",
@@ -134,7 +167,9 @@
       "type": "number",
       "step": "solder_balls",
       "label": "球径",
-      "des_symbol": "b"
+      "des_symbol": "b",
+      "minimum": 0.05,
+      "maximum": 1.5
     },
     {
       "key": "bga.height",
@@ -142,7 +177,9 @@
       "type": "number",
       "step": "solder_balls",
       "label": "离板高度",
-      "des_symbol": "A1"
+      "des_symbol": "A1",
+      "minimum": 0.05,
+      "maximum": 1.5
     },
     {
       "key": "cover.type",
@@ -179,7 +216,16 @@
       "visible_when": {
         "cover.type": "encapsulant"
       },
-      "des_symbol": "Le"
+      "des_symbol": "Le",
+      "minimum": 0.2,
+      "maximum": 50,
+      "active_when": {
+        "all": [
+          {
+            "cover.type": "encapsulant"
+          }
+        ]
+      }
     },
     {
       "key": "cover.width",
@@ -190,7 +236,16 @@
       "visible_when": {
         "cover.type": "encapsulant"
       },
-      "des_symbol": "We"
+      "des_symbol": "We",
+      "minimum": 0.2,
+      "maximum": 50,
+      "active_when": {
+        "all": [
+          {
+            "cover.type": "encapsulant"
+          }
+        ]
+      }
     },
     {
       "key": "cover.thickness",
@@ -201,7 +256,16 @@
       "visible_when": {
         "cover.type": "encapsulant"
       },
-      "des_symbol": "te"
+      "des_symbol": "te",
+      "minimum": 0.05,
+      "maximum": 5,
+      "active_when": {
+        "all": [
+          {
+            "cover.type": "encapsulant"
+          }
+        ]
+      }
     },
     {
       "key": "lid.length",
@@ -212,7 +276,16 @@
       "visible_when": {
         "cover.type": "lid"
       },
-      "des_symbol": "Lc"
+      "des_symbol": "Lc",
+      "minimum": 0.2,
+      "maximum": 50,
+      "active_when": {
+        "all": [
+          {
+            "cover.type": "lid"
+          }
+        ]
+      }
     },
     {
       "key": "lid.width",
@@ -223,7 +296,16 @@
       "visible_when": {
         "cover.type": "lid"
       },
-      "des_symbol": "Wc"
+      "des_symbol": "Wc",
+      "minimum": 0.2,
+      "maximum": 50,
+      "active_when": {
+        "all": [
+          {
+            "cover.type": "lid"
+          }
+        ]
+      }
     },
     {
       "key": "lid.thickness",
@@ -234,7 +316,16 @@
       "visible_when": {
         "cover.type": "lid"
       },
-      "des_symbol": "tc"
+      "des_symbol": "tc",
+      "minimum": 0.05,
+      "maximum": 5,
+      "active_when": {
+        "all": [
+          {
+            "cover.type": "lid"
+          }
+        ]
+      }
     },
     {
       "key": "lid.base_thickness",
@@ -245,7 +336,16 @@
       "visible_when": {
         "cover.type": "lid"
       },
-      "des_symbol": "tcb"
+      "des_symbol": "tcb",
+      "minimum": 0.05,
+      "maximum": 10,
+      "active_when": {
+        "all": [
+          {
+            "cover.type": "lid"
+          }
+        ]
+      }
     },
     {
       "key": "lid.die_attach",
@@ -256,7 +356,16 @@
       "visible_when": {
         "cover.type": "lid"
       },
-      "des_symbol": "tda"
+      "des_symbol": "tda",
+      "minimum": 0.005,
+      "maximum": 1,
+      "active_when": {
+        "all": [
+          {
+            "cover.type": "lid"
+          }
+        ]
+      }
     },
     {
       "key": "lid.adhesive",
@@ -267,7 +376,16 @@
       "visible_when": {
         "cover.type": "lid"
       },
-      "des_symbol": "tcadh"
+      "des_symbol": "tcadh",
+      "minimum": 0.005,
+      "maximum": 1,
+      "active_when": {
+        "all": [
+          {
+            "cover.type": "lid"
+          }
+        ]
+      }
     },
     {
       "key": "plate.length",
@@ -278,7 +396,16 @@
       "visible_when": {
         "cover.type": "plate"
       },
-      "des_symbol": "Lc"
+      "des_symbol": "Lc",
+      "minimum": 0.2,
+      "maximum": 50,
+      "active_when": {
+        "all": [
+          {
+            "cover.type": "plate"
+          }
+        ]
+      }
     },
     {
       "key": "plate.width",
@@ -289,7 +416,16 @@
       "visible_when": {
         "cover.type": "plate"
       },
-      "des_symbol": "Wc"
+      "des_symbol": "Wc",
+      "minimum": 0.2,
+      "maximum": 50,
+      "active_when": {
+        "all": [
+          {
+            "cover.type": "plate"
+          }
+        ]
+      }
     },
     {
       "key": "plate.thickness",
@@ -300,7 +436,16 @@
       "visible_when": {
         "cover.type": "plate"
       },
-      "des_symbol": "tc"
+      "des_symbol": "tc",
+      "minimum": 0.05,
+      "maximum": 5,
+      "active_when": {
+        "all": [
+          {
+            "cover.type": "plate"
+          }
+        ]
+      }
     },
     {
       "key": "plate.die_attach",
@@ -311,7 +456,16 @@
       "visible_when": {
         "cover.type": "plate"
       },
-      "des_symbol": "tda"
+      "des_symbol": "tda",
+      "minimum": 0.005,
+      "maximum": 1,
+      "active_when": {
+        "all": [
+          {
+            "cover.type": "plate"
+          }
+        ]
+      }
     },
     {
       "key": "grid.enabled",
@@ -341,7 +495,14 @@
       "visible_when": {
         "grid.enabled": true
       },
-      "placement": "footer"
+      "placement": "footer",
+      "active_when": {
+        "all": [
+          {
+            "grid.enabled": true
+          }
+        ]
+      }
     },
     {
       "key": "bumps.array_type",
@@ -367,7 +528,14 @@
       "visible_when": {
         "bumps.array_type": "regular"
       },
-      "des_symbol": "MDC4"
+      "des_symbol": "MDC4",
+      "active_when": {
+        "all": [
+          {
+            "bumps.array_type": "regular"
+          }
+        ]
+      }
     },
     {
       "key": "bumps.rows",
@@ -378,7 +546,14 @@
       "visible_when": {
         "bumps.array_type": "regular"
       },
-      "des_symbol": "MEC4"
+      "des_symbol": "MEC4",
+      "active_when": {
+        "all": [
+          {
+            "bumps.array_type": "regular"
+          }
+        ]
+      }
     },
     {
       "key": "bumps.underfill",
@@ -396,6 +571,13 @@
       "step": "top_cover",
       "visible_when": {
         "cover.type": "encapsulant"
+      },
+      "active_when": {
+        "all": [
+          {
+            "cover.type": "encapsulant"
+          }
+        ]
       }
     },
     {
@@ -407,7 +589,14 @@
       "visible_when": {
         "cover.type": "lid"
       },
-      "schematic": true
+      "schematic": true,
+      "active_when": {
+        "all": [
+          {
+            "cover.type": "lid"
+          }
+        ]
+      }
     },
     {
       "key": "stiffener.length",
@@ -420,7 +609,15 @@
         "cover.type": "lid",
         "stiffener.enabled": true
       },
-      "des_symbol": "Ls"
+      "des_symbol": "Ls",
+      "active_when": {
+        "all": [
+          {
+            "cover.type": "lid",
+            "stiffener.enabled": true
+          }
+        ]
+      }
     },
     {
       "key": "stiffener.width",
@@ -433,7 +630,15 @@
         "cover.type": "lid",
         "stiffener.enabled": true
       },
-      "des_symbol": "Ws"
+      "des_symbol": "Ws",
+      "active_when": {
+        "all": [
+          {
+            "cover.type": "lid",
+            "stiffener.enabled": true
+          }
+        ]
+      }
     },
     {
       "key": "stiffener.cavity_length",
@@ -446,7 +651,15 @@
         "cover.type": "lid",
         "stiffener.enabled": true
       },
-      "des_symbol": "Lsc"
+      "des_symbol": "Lsc",
+      "active_when": {
+        "all": [
+          {
+            "cover.type": "lid",
+            "stiffener.enabled": true
+          }
+        ]
+      }
     },
     {
       "key": "stiffener.cavity_width",
@@ -459,7 +672,15 @@
         "cover.type": "lid",
         "stiffener.enabled": true
       },
-      "des_symbol": "Wsc"
+      "des_symbol": "Wsc",
+      "active_when": {
+        "all": [
+          {
+            "cover.type": "lid",
+            "stiffener.enabled": true
+          }
+        ]
+      }
     },
     {
       "key": "stiffener.adhesive",
@@ -472,7 +693,15 @@
         "cover.type": "lid",
         "stiffener.enabled": true
       },
-      "des_symbol": "tsadh"
+      "des_symbol": "tsadh",
+      "active_when": {
+        "all": [
+          {
+            "cover.type": "lid",
+            "stiffener.enabled": true
+          }
+        ]
+      }
     },
     {
       "key": "slug.enabled",
@@ -484,7 +713,14 @@
         "cover.type": "encapsulant"
       },
       "help_text": "顶部结构选择“塑封体（Encapsulant）”时可用。",
-      "schematic": true
+      "schematic": true,
+      "active_when": {
+        "all": [
+          {
+            "cover.type": "encapsulant"
+          }
+        ]
+      }
     },
     {
       "key": "slug.length",
@@ -497,7 +733,15 @@
         "cover.type": "encapsulant",
         "slug.enabled": true
       },
-      "des_symbol": "L_sl"
+      "des_symbol": "L_sl",
+      "active_when": {
+        "all": [
+          {
+            "cover.type": "encapsulant",
+            "slug.enabled": true
+          }
+        ]
+      }
     },
     {
       "key": "slug.width",
@@ -510,7 +754,15 @@
         "cover.type": "encapsulant",
         "slug.enabled": true
       },
-      "des_symbol": "W_sl"
+      "des_symbol": "W_sl",
+      "active_when": {
+        "all": [
+          {
+            "cover.type": "encapsulant",
+            "slug.enabled": true
+          }
+        ]
+      }
     },
     {
       "key": "slug.thickness",
@@ -523,7 +775,15 @@
         "cover.type": "encapsulant",
         "slug.enabled": true
       },
-      "des_symbol": "t_sl"
+      "des_symbol": "t_sl",
+      "active_when": {
+        "all": [
+          {
+            "cover.type": "encapsulant",
+            "slug.enabled": true
+          }
+        ]
+      }
     },
     {
       "key": "slug.diameter",
@@ -536,7 +796,15 @@
         "cover.type": "encapsulant",
         "slug.enabled": true
       },
-      "des_symbol": "dsl"
+      "des_symbol": "dsl",
+      "active_when": {
+        "all": [
+          {
+            "cover.type": "encapsulant",
+            "slug.enabled": true
+          }
+        ]
+      }
     },
     {
       "key": "slug.foot_length",
@@ -549,7 +817,15 @@
         "cover.type": "encapsulant",
         "slug.enabled": true
       },
-      "des_symbol": "L_slf"
+      "des_symbol": "L_slf",
+      "active_when": {
+        "all": [
+          {
+            "cover.type": "encapsulant",
+            "slug.enabled": true
+          }
+        ]
+      }
     },
     {
       "key": "slug.foot_width",
@@ -562,7 +838,15 @@
         "cover.type": "encapsulant",
         "slug.enabled": true
       },
-      "des_symbol": "W_slf"
+      "des_symbol": "W_slf",
+      "active_when": {
+        "all": [
+          {
+            "cover.type": "encapsulant",
+            "slug.enabled": true
+          }
+        ]
+      }
     },
     {
       "key": "slug.offset",
@@ -575,7 +859,15 @@
         "cover.type": "encapsulant",
         "slug.enabled": true
       },
-      "des_symbol": "gsl"
+      "des_symbol": "gsl",
+      "active_when": {
+        "all": [
+          {
+            "cover.type": "encapsulant",
+            "slug.enabled": true
+          }
+        ]
+      }
     },
     {
       "key": "slug.clearance",
@@ -588,7 +880,15 @@
         "cover.type": "encapsulant",
         "slug.enabled": true
       },
-      "des_symbol": "g_slf"
+      "des_symbol": "g_slf",
+      "active_when": {
+        "all": [
+          {
+            "cover.type": "encapsulant",
+            "slug.enabled": true
+          }
+        ]
+      }
     },
     {
       "key": "slug.adhesive_enabled",
@@ -600,7 +900,15 @@
         "cover.type": "encapsulant",
         "slug.enabled": true
       },
-      "schematic": true
+      "schematic": true,
+      "active_when": {
+        "all": [
+          {
+            "cover.type": "encapsulant",
+            "slug.enabled": true
+          }
+        ]
+      }
     },
     {
       "key": "vias.enabled",
@@ -619,7 +927,14 @@
       "visible_when": {
         "vias.enabled": true
       },
-      "des_symbol": "NVx"
+      "des_symbol": "NVx",
+      "active_when": {
+        "all": [
+          {
+            "vias.enabled": true
+          }
+        ]
+      }
     },
     {
       "key": "vias.rows",
@@ -630,7 +945,14 @@
       "visible_when": {
         "vias.enabled": true
       },
-      "des_symbol": "NVy"
+      "des_symbol": "NVy",
+      "active_when": {
+        "all": [
+          {
+            "vias.enabled": true
+          }
+        ]
+      }
     },
     {
       "key": "vias.pitch",
@@ -642,7 +964,14 @@
       "visible_when": {
         "vias.enabled": true
       },
-      "des_symbol": "ev"
+      "des_symbol": "ev",
+      "active_when": {
+        "all": [
+          {
+            "vias.enabled": true
+          }
+        ]
+      }
     },
     {
       "key": "vias.diameter",
@@ -654,7 +983,14 @@
       "visible_when": {
         "vias.enabled": true
       },
-      "des_symbol": "dv"
+      "des_symbol": "dv",
+      "active_when": {
+        "all": [
+          {
+            "vias.enabled": true
+          }
+        ]
+      }
     },
     {
       "key": "vias.plating",
@@ -666,7 +1002,14 @@
       "visible_when": {
         "vias.enabled": true
       },
-      "des_symbol": "tpl"
+      "des_symbol": "tpl",
+      "active_when": {
+        "all": [
+          {
+            "vias.enabled": true
+          }
+        ]
+      }
     },
     {
       "key": "vias.modeling",
@@ -684,6 +1027,13 @@
       "step": "modeling",
       "visible_when": {
         "vias.enabled": true
+      },
+      "active_when": {
+        "all": [
+          {
+            "vias.enabled": true
+          }
+        ]
       }
     },
     {
@@ -694,17 +1044,21 @@
         {
           "key": "depth",
           "type": "number",
-          "label": "层深 zn (mm)"
+          "label": "层深 zn (mm)",
+          "minimum": 0
         },
         {
           "key": "thickness",
           "type": "number",
-          "label": "层厚 tzn (mm)"
+          "label": "层厚 tzn (mm)",
+          "exclusive_minimum": 0
         },
         {
           "key": "coverage",
           "type": "number",
-          "label": "覆盖率 %"
+          "label": "覆盖率 %",
+          "minimum": 0,
+          "maximum": 100
         },
         {
           "key": "disconnect",
@@ -714,7 +1068,9 @@
       ],
       "label": "芯层金属层表（Depth / Thickness / Coverage）",
       "step": "metal_layers",
-      "schematic": true
+      "schematic": true,
+      "min_rows": 0,
+      "max_rows": 10
     },
     {
       "key": "upper.enabled",
@@ -733,7 +1089,14 @@
       "visible_when": {
         "upper.enabled": true
       },
-      "des_symbol": "A2b1"
+      "des_symbol": "A2b1",
+      "active_when": {
+        "all": [
+          {
+            "upper.enabled": true
+          }
+        ]
+      }
     },
     {
       "key": "upper.count",
@@ -744,7 +1107,15 @@
       "visible_when": {
         "upper.enabled": true
       },
-      "des_symbol": "Nb1"
+      "des_symbol": "Nb1",
+      "active_when": {
+        "all": [
+          {
+            "upper.enabled": true
+          }
+        ]
+      },
+      "required": false
     },
     {
       "key": "upper.diameter",
@@ -756,7 +1127,17 @@
       "visible_when": {
         "upper.enabled": true
       },
-      "des_symbol": "dv_b1"
+      "des_symbol": "dv_b1",
+      "active_when": {
+        "all": [
+          {
+            "upper.enabled": true
+          }
+        ]
+      },
+      "requires_numeric": [
+        "upper.count"
+      ]
     },
     {
       "key": "upper.plating",
@@ -768,7 +1149,18 @@
       "visible_when": {
         "upper.enabled": true
       },
-      "des_symbol": "tpl_b1"
+      "des_symbol": "tpl_b1",
+      "active_when": {
+        "all": [
+          {
+            "upper.enabled": true
+          }
+        ]
+      },
+      "required": false,
+      "requires_numeric": [
+        "upper.count"
+      ]
     },
     {
       "key": "upper.filled",
@@ -778,7 +1170,17 @@
       "step": "upper_built_up",
       "visible_when": {
         "upper.enabled": true
-      }
+      },
+      "active_when": {
+        "all": [
+          {
+            "upper.enabled": true
+          }
+        ]
+      },
+      "requires_numeric": [
+        "upper.count"
+      ]
     },
     {
       "key": "upper.layers",
@@ -810,6 +1212,13 @@
       "step": "upper_built_up",
       "visible_when": {
         "upper.enabled": true
+      },
+      "active_when": {
+        "all": [
+          {
+            "upper.enabled": true
+          }
+        ]
       }
     },
     {
@@ -829,7 +1238,14 @@
       "visible_when": {
         "lower.enabled": true
       },
-      "des_symbol": "A2b2"
+      "des_symbol": "A2b2",
+      "active_when": {
+        "all": [
+          {
+            "lower.enabled": true
+          }
+        ]
+      }
     },
     {
       "key": "lower.count",
@@ -840,7 +1256,15 @@
       "visible_when": {
         "lower.enabled": true
       },
-      "des_symbol": "Nb2"
+      "des_symbol": "Nb2",
+      "active_when": {
+        "all": [
+          {
+            "lower.enabled": true
+          }
+        ]
+      },
+      "required": false
     },
     {
       "key": "lower.diameter",
@@ -852,7 +1276,17 @@
       "visible_when": {
         "lower.enabled": true
       },
-      "des_symbol": "dv_b2"
+      "des_symbol": "dv_b2",
+      "active_when": {
+        "all": [
+          {
+            "lower.enabled": true
+          }
+        ]
+      },
+      "requires_numeric": [
+        "lower.count"
+      ]
     },
     {
       "key": "lower.plating",
@@ -864,7 +1298,18 @@
       "visible_when": {
         "lower.enabled": true
       },
-      "des_symbol": "tpl_b2"
+      "des_symbol": "tpl_b2",
+      "active_when": {
+        "all": [
+          {
+            "lower.enabled": true
+          }
+        ]
+      },
+      "required": false,
+      "requires_numeric": [
+        "lower.count"
+      ]
     },
     {
       "key": "lower.filled",
@@ -874,7 +1319,17 @@
       "step": "lower_built_up",
       "visible_when": {
         "lower.enabled": true
-      }
+      },
+      "active_when": {
+        "all": [
+          {
+            "lower.enabled": true
+          }
+        ]
+      },
+      "requires_numeric": [
+        "lower.count"
+      ]
     },
     {
       "key": "lower.layers",
@@ -906,6 +1361,13 @@
       "step": "lower_built_up",
       "visible_when": {
         "lower.enabled": true
+      },
+      "active_when": {
+        "all": [
+          {
+            "lower.enabled": true
+          }
+        ]
       }
     },
     {
@@ -922,7 +1384,17 @@
       "type": "integer",
       "label": "外围满布行数",
       "step": "solder_removal",
-      "des_symbol": "MEp"
+      "des_symbol": "MEp",
+      "minimum": 0,
+      "required": false,
+      "active_when": {
+        "all": [
+          {
+            "bga.solder_removal_enabled": true,
+            "bga.ball_map_enabled": false
+          }
+        ]
+      }
     },
     {
       "key": "bga.populated_columns",
@@ -930,17 +1402,45 @@
       "type": "integer",
       "label": "外围满布列数",
       "step": "solder_removal",
-      "des_symbol": "MDp"
+      "des_symbol": "MDp",
+      "minimum": 0,
+      "required": false,
+      "active_when": {
+        "all": [
+          {
+            "bga.solder_removal_enabled": true,
+            "bga.ball_map_enabled": false
+          }
+        ]
+      }
     },
     {
       "key": "bga.removal_rows",
       "default": null,
-      "type": "integer"
+      "type": "integer",
+      "required": false,
+      "active_when": {
+        "all": [
+          {
+            "bga.solder_removal_enabled": true,
+            "bga.ball_map_enabled": false
+          }
+        ]
+      }
     },
     {
       "key": "bga.removal_columns",
       "default": null,
-      "type": "integer"
+      "type": "integer",
+      "required": false,
+      "active_when": {
+        "all": [
+          {
+            "bga.solder_removal_enabled": true,
+            "bga.ball_map_enabled": false
+          }
+        ]
+      }
     },
     {
       "key": "bga.omitted_cells",
@@ -965,7 +1465,16 @@
       "type": "integer",
       "label": "中央焊球行数",
       "step": "central_solder_balls",
-      "des_symbol": "MEc"
+      "des_symbol": "MEc",
+      "minimum": 0,
+      "active_when": {
+        "all": [
+          {
+            "bga.center_solder_enabled": true,
+            "bga.ball_map_enabled": false
+          }
+        ]
+      }
     },
     {
       "key": "bga.center_solder_columns",
@@ -973,7 +1482,16 @@
       "type": "integer",
       "label": "中央焊球列数",
       "step": "central_solder_balls",
-      "des_symbol": "MDc"
+      "des_symbol": "MDc",
+      "minimum": 0,
+      "active_when": {
+        "all": [
+          {
+            "bga.center_solder_enabled": true,
+            "bga.ball_map_enabled": false
+          }
+        ]
+      }
     },
     {
       "key": "bga.center_staggered",
@@ -1067,6 +1585,14 @@
           "label": "中央去除行数",
           "visible_when": {
             "removal_enabled": true
+          },
+          "minimum": 0,
+          "active_when": {
+            "all": [
+              {
+                "removal_enabled": true
+              }
+            ]
           }
         },
         {
@@ -1075,6 +1601,14 @@
           "label": "中央去除列数",
           "visible_when": {
             "removal_enabled": true
+          },
+          "minimum": 0,
+          "active_when": {
+            "all": [
+              {
+                "removal_enabled": true
+              }
+            ]
           }
         },
         {
@@ -1085,9 +1619,23 @@
           "label": "显式去孔",
           "visible_when": {
             "removal_enabled": true
+          },
+          "active_when": {
+            "all": [
+              {
+                "removal_enabled": true
+              }
+            ]
           }
         }
-      ]
+      ],
+      "active_when": {
+        "all": [
+          {
+            "vias.enabled": true
+          }
+        ]
+      }
     }
   ],
   "materials": [

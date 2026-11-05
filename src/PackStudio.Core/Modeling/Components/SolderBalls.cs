@@ -33,7 +33,7 @@ public static class SolderBalls
         return nr * nc - (nr - rp) * (nc - cp);
     }
 
-    static int Required(JObject b, string key) => b[key]?.Type is JTokenType.Integer ? b[key]!.Value<int>() : throw new ArgumentException("generation.bga.required") { Data = { ["detail"] = key } };
+    static int Required(JObject b, string key) => b[key]?.Type is JTokenType.Integer ? b[key]!.Value<int>() : throw new ModelGenerationException("generation.bga.required", $"焊球阵列缺少 {key}。");
     static (int, int) Populated(JObject b, int nr, int nc)
     {
         int rp = b["bga.populated_rows"]?.Type is JTokenType.Integer ? Required(b, "bga.populated_rows") : nr - Required(b, "bga.removal_rows");
@@ -93,7 +93,7 @@ public static class SolderBalls
             else
             {
                 if (Math.Min(Math.Min(tx, ty), Math.Min(lx - 2 * tx, ly - 2 * ty)) <= 0)
-                    throw new ArgumentException("generation.bga.border");
+                    throw new ModelGenerationException("generation.bga.border", "等效焊球边框尺寸必须为正。");
                 Block(id + "-left", -(lx - tx) / 2, 0, tx, ly, mat.Id, center);
                 Block(id + "-right", (lx - tx) / 2, 0, tx, ly, mat.Id, center);
                 Block(id + "-lower", 0, -(ly - ty) / 2, lx - 2 * tx, ty, mat.Id, center);

@@ -6,7 +6,7 @@ public static class MetalLayers
     public static JArray Parse(BuildContext c, string key)
     {
         if (c.Values[key] is not JArray source)
-            throw new ArgumentException("generation.layers");
+            throw new ModelGenerationException("generation.layers", "金属层表必须为 JSON 数组。");
         var rows = (JArray)source.DeepClone();
 
         return rows;

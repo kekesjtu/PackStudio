@@ -7,8 +7,7 @@
 | 路径 | 内容 |
 | --- | --- |
 | `families.json` | 家族显示名、分组、描述、默认选择、图标与示意图样式 |
-| `definitions/<family>.json` | `keys` 定义参数、选项与展示信息；`materials` 定义材料槽位；`steps` 定义向导栏目和示意图 |
-| `validation/common.json`、`validation/<family>.json` | 字段及业务检查声明、数值范围、生效条件、严重度和消息；共用声明通过 families 限定适用家族 |
+| `definitions/<family>.json` | `keys` 定义参数、选项、字段约束与展示信息；`materials` 定义材料槽位；`steps` 定义向导栏目和示意图 |
 | `model_groups.json` | 领域模型、模型树与导出共用的分组显示名称及父子关系 |
 | `presets/<来源目录>/<预设名>.json` | 342 个可直接导入的完整方案预设 |
 | `presets/<family>/four_layer.json` | Chip Array、Wirebond PBGA 的四层初始化小契约 |
@@ -33,7 +32,7 @@ Bare Die 没有原生预设，使用参数定义中的基线。
 - 对象的子参数放在嵌套 `keys` 中，表格列放在 `columns` 中。`schematic: true` 标记影响示意图结构的参数，用于场景更新。
 - `steps` 保存栏目顺序、名称及示意图类型。参数标签、单位、符号和显隐条件均随对应 `key` 存放。
 
-`validation/` 统一提供校验声明、严重度及消息模板。`InputValidator` 执行字段和跨字段检查，`ModelValidator` 执行模型检查；复杂公式保留在相应校验算法中。字段可通过 `severity` 和 `messages` 设置诊断，`exclusive_minimum` 表达严格下限，`min_rows`、`max_rows` 表达表格行数限制。计算前提保护仅返回规则编号，由统一生成入口使用相同规则目录生成诊断。
+字段约束直接随 definition 的参数键声明：`required` 控制必填，`minimum`、`maximum` 为闭区间上下限，`exclusive_minimum` 为严格下限，`min_rows`、`max_rows` 为表格行数限制。`active_when`、`inactive_when`、`requires_numeric`、`requires_positive` 表达业务生效条件，与 UI 显隐条件分别维护。跨字段关系、家族与组件规则、模型有效性和诊断由 C# 定义；输入检查按家族组合共用组件检查，生成后检查模型，严重度与消息不由运行数据配置。计算前提失败由生成器携带问题编号和消息返回。
 
 字段的 `des_symbol` 是 DES 键字符串、包含 `selector` 与 `cases` 的选择映射，或无直接符号时的 null。
 它负责界面符号显示，不承担原生属性寻址或数据转换。没有 DES 键的内部字段仍保留完整定义。

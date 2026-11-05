@@ -9,7 +9,9 @@
       "type": "number",
       "step": "die",
       "label": "芯片长度",
-      "des_symbol": "Ld"
+      "des_symbol": "Ld",
+      "minimum": 0.2,
+      "maximum": 50
     },
     {
       "key": "die.width",
@@ -18,7 +20,9 @@
       "type": "number",
       "step": "die",
       "label": "宽度",
-      "des_symbol": "Wd"
+      "des_symbol": "Wd",
+      "minimum": 0.2,
+      "maximum": 50
     },
     {
       "key": "die.thickness",
@@ -27,7 +31,9 @@
       "type": "number",
       "step": "die",
       "label": "厚度",
-      "des_symbol": "td"
+      "des_symbol": "td",
+      "minimum": 0.03,
+      "maximum": 2
     },
     {
       "key": "die.power",
@@ -36,7 +42,9 @@
       "type": "number",
       "step": "die",
       "label": "芯片功率",
-      "des_symbol": "P"
+      "des_symbol": "P",
+      "minimum": 0,
+      "maximum": 1000
     },
     {
       "key": "die.flipped",
@@ -63,7 +71,16 @@
       "visible_when": {
         "bumps.enabled": true
       },
-      "des_symbol": "nballs"
+      "des_symbol": "nballs",
+      "minimum": 1,
+      "maximum": 10000,
+      "active_when": {
+        "all": [
+          {
+            "bumps.enabled": true
+          }
+        ]
+      }
     },
     {
       "key": "bumps.diameter",
@@ -75,7 +92,16 @@
       "visible_when": {
         "bumps.enabled": true
       },
-      "des_symbol": "b"
+      "des_symbol": "b",
+      "minimum": 0.01,
+      "maximum": 0.5,
+      "active_when": {
+        "all": [
+          {
+            "bumps.enabled": true
+          }
+        ]
+      }
     },
     {
       "key": "bumps.height",
@@ -87,7 +113,16 @@
       "visible_when": {
         "bumps.enabled": true
       },
-      "des_symbol": "tsd"
+      "des_symbol": "tsd",
+      "minimum": 0.01,
+      "maximum": 0.5,
+      "active_when": {
+        "all": [
+          {
+            "bumps.enabled": true
+          }
+        ]
+      }
     },
     {
       "key": "bumps.modeling",
@@ -103,6 +138,13 @@
       "label": "凸点建模方式",
       "visible_when": {
         "bumps.enabled": true
+      },
+      "active_when": {
+        "all": [
+          {
+            "bumps.enabled": true
+          }
+        ]
       }
     },
     {
@@ -133,7 +175,14 @@
       "visible_when": {
         "grid.enabled": true
       },
-      "placement": "footer"
+      "placement": "footer",
+      "active_when": {
+        "all": [
+          {
+            "grid.enabled": true
+          }
+        ]
+      }
     }
   ],
   "materials": [

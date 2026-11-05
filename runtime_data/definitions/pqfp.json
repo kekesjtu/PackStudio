@@ -36,7 +36,9 @@
       "type": "number",
       "step": "overall_package",
       "label": "封装长度",
-      "des_symbol": "D"
+      "des_symbol": "D",
+      "minimum": 3,
+      "maximum": 50
     },
     {
       "key": "package.width",
@@ -44,7 +46,9 @@
       "type": "number",
       "step": "overall_package",
       "label": "封装宽度",
-      "des_symbol": "E"
+      "des_symbol": "E",
+      "minimum": 3,
+      "maximum": 50
     },
     {
       "key": "package.standoff",
@@ -52,7 +56,9 @@
       "type": "number",
       "step": "overall_package",
       "label": "离板高度",
-      "des_symbol": "A1"
+      "des_symbol": "A1",
+      "minimum": 0,
+      "maximum": 1
     },
     {
       "key": "body.length",
@@ -60,7 +66,9 @@
       "type": "number",
       "step": "encapsulant",
       "label": "塑封长度",
-      "des_symbol": "D1"
+      "des_symbol": "D1",
+      "minimum": 2,
+      "maximum": 45
     },
     {
       "key": "body.width",
@@ -68,7 +76,9 @@
       "type": "number",
       "step": "encapsulant",
       "label": "塑封宽度",
-      "des_symbol": "E1"
+      "des_symbol": "E1",
+      "minimum": 2,
+      "maximum": 45
     },
     {
       "key": "body.thickness",
@@ -76,7 +86,9 @@
       "type": "number",
       "step": "encapsulant",
       "label": "塑封厚度",
-      "des_symbol": "A2"
+      "des_symbol": "A2",
+      "minimum": 0.3,
+      "maximum": 6
     },
     {
       "key": "die.length",
@@ -84,7 +96,9 @@
       "type": "number",
       "step": "die",
       "label": "芯片长度",
-      "des_symbol": "Ld"
+      "des_symbol": "Ld",
+      "minimum": 0.2,
+      "maximum": 30
     },
     {
       "key": "die.width",
@@ -92,7 +106,9 @@
       "type": "number",
       "step": "die",
       "label": "芯片宽度",
-      "des_symbol": "Wd"
+      "des_symbol": "Wd",
+      "minimum": 0.2,
+      "maximum": 30
     },
     {
       "key": "die.thickness",
@@ -100,7 +116,9 @@
       "type": "number",
       "step": "die",
       "label": "芯片厚度",
-      "des_symbol": "td"
+      "des_symbol": "td",
+      "minimum": 0.03,
+      "maximum": 2
     },
     {
       "key": "die.attach",
@@ -108,7 +126,9 @@
       "type": "number",
       "step": "die",
       "label": "粘接层",
-      "des_symbol": "tda"
+      "des_symbol": "tda",
+      "minimum": 0.005,
+      "maximum": 0.3
     },
     {
       "key": "die.power",
@@ -116,7 +136,9 @@
       "type": "number",
       "step": "die",
       "label": "芯片功率",
-      "des_symbol": "P"
+      "des_symbol": "P",
+      "minimum": 0,
+      "maximum": 1000
     },
     {
       "key": "flag.length",
@@ -124,7 +146,9 @@
       "type": "number",
       "step": "die_flag_tie_bars",
       "label": "承载台长度",
-      "des_symbol": "Lf"
+      "des_symbol": "Lf",
+      "minimum": 0.5,
+      "maximum": 35
     },
     {
       "key": "flag.width",
@@ -132,7 +156,9 @@
       "type": "number",
       "step": "die_flag_tie_bars",
       "label": "承载台宽度",
-      "des_symbol": "Wf"
+      "des_symbol": "Wf",
+      "minimum": 0.5,
+      "maximum": 35
     },
     {
       "key": "flag.coverage",
@@ -140,7 +166,9 @@
       "type": "number",
       "step": "die_flag_tie_bars",
       "label": "承载台金属覆盖率",
-      "des_symbol": "cf"
+      "des_symbol": "cf",
+      "minimum": 1,
+      "maximum": 100
     },
     {
       "key": "flag.downset",
@@ -148,7 +176,9 @@
       "type": "number",
       "step": "die_flag_tie_bars",
       "label": "承载台下沉量",
-      "des_symbol": "ddf"
+      "des_symbol": "ddf",
+      "minimum": 0,
+      "maximum": 2
     },
     {
       "key": "tie_bar.width",
@@ -156,21 +186,27 @@
       "type": "number",
       "step": "die_flag_tie_bars",
       "label": "连接筋宽度",
-      "des_symbol": "wtb"
+      "des_symbol": "wtb",
+      "minimum": 0.05,
+      "maximum": 2
     },
     {
       "key": "leads.count_x",
       "type": "integer",
       "step": "leadframe",
       "label": "上下侧引脚数",
-      "des_symbol": "MD"
+      "des_symbol": "MD",
+      "minimum": 1,
+      "maximum": 100
     },
     {
       "key": "leads.count_y",
       "type": "integer",
       "step": "leadframe",
       "label": "左右侧引脚数",
-      "des_symbol": "ME"
+      "des_symbol": "ME",
+      "minimum": 1,
+      "maximum": 100
     },
     {
       "key": "leads.pitch",
@@ -178,7 +214,9 @@
       "type": "number",
       "step": "leadframe",
       "label": "节距",
-      "des_symbol": "e"
+      "des_symbol": "e",
+      "minimum": 0.1,
+      "maximum": 3
     },
     {
       "key": "leads.width",
@@ -186,7 +224,9 @@
       "type": "number",
       "step": "leadframe",
       "label": "线宽",
-      "des_symbol": "b"
+      "des_symbol": "b",
+      "minimum": 0.03,
+      "maximum": 1.5
     },
     {
       "key": "leads.thickness",
@@ -194,7 +234,9 @@
       "type": "number",
       "step": "leadframe",
       "label": "引脚厚度",
-      "des_symbol": "tl"
+      "des_symbol": "tl",
+      "minimum": 0.03,
+      "maximum": 1
     },
     {
       "key": "leads.height",
@@ -202,7 +244,9 @@
       "type": "number",
       "step": "leadframe",
       "label": "引脚高度",
-      "des_symbol": "hl"
+      "des_symbol": "hl",
+      "minimum": 0.05,
+      "maximum": 3
     },
     {
       "key": "leads.foot_length",
@@ -210,7 +254,9 @@
       "type": "number",
       "step": "leadframe",
       "label": "引脚足长",
-      "des_symbol": "wl"
+      "des_symbol": "wl",
+      "minimum": 0.05,
+      "maximum": 3
     },
     {
       "key": "leads.gap_x",
@@ -218,7 +264,9 @@
       "type": "number",
       "step": "leadframe",
       "label": "框架间隙",
-      "des_symbol": "g1"
+      "des_symbol": "g1",
+      "minimum": 0.01,
+      "maximum": 3
     },
     {
       "key": "leads.gap_y",
@@ -226,7 +274,9 @@
       "type": "number",
       "step": "leadframe",
       "label": "Y 方向框架间隙",
-      "des_symbol": "g2"
+      "des_symbol": "g2",
+      "minimum": 0.01,
+      "maximum": 3
     },
     {
       "key": "bond_wire.length_x",
@@ -234,7 +284,9 @@
       "type": "number",
       "step": "bond_wires",
       "label": "线阵列长度",
-      "des_symbol": "lbwx"
+      "des_symbol": "lbwx",
+      "minimum": 0.1,
+      "maximum": 20
     },
     {
       "key": "bond_wire.length_y",
@@ -242,14 +294,18 @@
       "type": "number",
       "step": "bond_wires",
       "label": "线阵列宽度",
-      "des_symbol": "lbwy"
+      "des_symbol": "lbwy",
+      "minimum": 0.1,
+      "maximum": 20
     },
     {
       "key": "bond_wire.count",
       "type": "integer",
       "step": "bond_wires",
       "label": "键合线数量",
-      "des_symbol": "N"
+      "des_symbol": "N",
+      "minimum": 0,
+      "maximum": 500
     },
     {
       "key": "bond_wire.diameter",
@@ -257,7 +313,9 @@
       "type": "number",
       "step": "bond_wires",
       "label": "线径",
-      "des_symbol": "dbw"
+      "des_symbol": "dbw",
+      "minimum": 0.01,
+      "maximum": 0.2
     },
     {
       "key": "thermal_land.enabled",
@@ -275,7 +333,16 @@
       "visible_when": {
         "thermal_land.enabled": true
       },
-      "des_symbol": "ts"
+      "des_symbol": "ts",
+      "minimum": 0.001,
+      "maximum": 1,
+      "active_when": {
+        "all": [
+          {
+            "thermal_land.enabled": true
+          }
+        ]
+      }
     },
     {
       "key": "grid.enabled",
@@ -305,7 +372,14 @@
       "visible_when": {
         "grid.enabled": true
       },
-      "placement": "footer"
+      "placement": "footer",
+      "active_when": {
+        "all": [
+          {
+            "grid.enabled": true
+          }
+        ]
+      }
     },
     {
       "key": "bond_wire.modeling",
@@ -347,7 +421,16 @@
       "visible_when": {
         "leads.custom_coverage": true
       },
-      "des_symbol": "cl"
+      "des_symbol": "cl",
+      "minimum": 0,
+      "maximum": 100,
+      "active_when": {
+        "all": [
+          {
+            "leads.custom_coverage": true
+          }
+        ]
+      }
     },
     {
       "key": "leads.modeling",

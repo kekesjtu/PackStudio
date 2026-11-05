@@ -20,7 +20,7 @@ sealed class TestSuite(string root, HashSet<string> suites)
     }
 
     public GenerationResult GenerateResult(ProjectDocument document) => ModelBuilder.Generate(document,
-        Catalog.Load(document.TemplateId), Catalog.Materials, Catalog.LoadValidation(document.TemplateId), Catalog.Groups);
+        Catalog.Load(document.TemplateId), Catalog.Materials, Catalog.Groups);
 
     public PackageModel Generate(ProjectDocument document)
     {
@@ -30,7 +30,7 @@ sealed class TestSuite(string root, HashSet<string> suites)
         return result.Model;
     }
 
-    public GenerationResult Result(PackageModel model) => new(model, ModelValidator.Validate(model, Catalog.LoadValidation(model.TemplateId)));
+    public GenerationResult Result(PackageModel model) => new(model, ModelValidator.Validate(model));
     public XDocument Export(PackageModel model) => ModelXmlExporter.Export(Result(model));
 
     public void Case(string suite, string name, Action run)

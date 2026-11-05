@@ -10,18 +10,15 @@ public sealed class RuntimeDataCatalog
     public MaterialCatalog Materials { get; }
     public IReadOnlyDictionary<string, ModelGroup> Groups { get; }
     readonly string root;
-    readonly JObject commonRules;
     readonly JObject index;
     readonly ConcurrentDictionary<string, PackageDefinition> definitions = new();
-    readonly ConcurrentDictionary<string, ValidationRules> rules = new();
     readonly ConcurrentDictionary<string, FourLayerConfiguration> fourLayer = new();
     readonly ConcurrentDictionary<string, JObject> exposedPad = new();
 
     public RuntimeDataCatalog(string root)
     {
         this.root = Path.GetFullPath(root);
-        commonRules = JsonData.Read(Path.Combine(this.root, "validation", "common.json"));
-        Materials = new MaterialCatalogReader().Read(this.root, new ValidationRules(commonRules));
+        Materials = new MaterialCatalogReader().Read(this.root);
         Groups = JsonData.Read(Path.Combine(this.root, "model_groups.json")).ToObject<Dictionary<string, ModelGroup>>()!;
         Families = JArray.Parse(File.ReadAllText(Path.Combine(this.root, "families.json"))).ToObject<List<TemplateInfo>>()!;
         var data = JsonData.Read(Path.Combine(this.root, "presets", "index.json"));
@@ -58,11 +55,10 @@ public sealed class RuntimeDataCatalog
             presets.Add(document);
         }
         var definition = new PackageDefinition(info, data, presets);
-        var materialRules = new ValidationRules(commonRules);
         foreach (var preset in presets)
         {
             var issues = new List<ValidationIssue>();
-            InputValidator.ValidateMaterials(preset, definition, Materials, materialRules, issues);
+            InputValidator.ValidateMaterials(preset, definition, Materials, issues);
             if (issues.Any(i => i.Severity == IssueSeverity.Error))
                 throw new InvalidDataException($"预设 {preset.Name}：{string.Join(" ", issues.Select(i => i.Message))}");
         }
@@ -94,15 +90,6 @@ public sealed class RuntimeDataCatalog
             !double.IsFinite(values["thermal_land.thickness"]!.Value<double>()))
             throw new InvalidDataException($"{family} 露出焊盘创建配置版本、家族或字段无效。");
         return (JObject)data.DeepClone();
-    });
-
-    public ValidationRules LoadValidation(string id) => rules.GetOrAdd(id, family =>
-    {
-        var familyRules = JsonData.Read(Path.Combine(root, "validation", family + ".json"));
-        CheckDocument(familyRules, "packstudio.validation/v1", family);
-        var loaded = new ValidationRules(commonRules, familyRules);
-        loaded.CheckReferences(Load(family));
-        return loaded;
     });
 
     static void CheckDocument(JObject data, string version, string id)

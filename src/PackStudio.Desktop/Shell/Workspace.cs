@@ -82,8 +82,7 @@ public sealed partial class Workspace : ObservableObject
         try
         {
             var definition = Template;
-            var rules = Catalog.LoadValidation(snapshot.TemplateId);
-            var result = await Task.Run(() => ModelBuilder.Generate(snapshot, definition, Catalog.Materials, rules, Catalog.Groups));
+            var result = await Task.Run(() => ModelBuilder.Generate(snapshot, definition, Catalog.Materials, Catalog.Groups));
             if (revision != Revision)
             {
                 Status = "生成期间参数有修改，请重新生成。";

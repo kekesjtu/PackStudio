@@ -21,7 +21,7 @@ public static class Vias
     public static Material Hollow(Material metal, double shell, string id, bool zAxis = false)
     {
         if (shell <= 0 || shell > 1)
-            throw new ArgumentException("generation.via.shell");
+            throw new ModelGenerationException("generation.via.shell", "通孔镀层厚度必须大于零且不超过孔半径。");
         double k = shell * (zAxis ? metal.EffectiveConductivity.Z : metal.EffectiveConductivity.X);
         return metal with
         {
@@ -40,7 +40,7 @@ public static class Vias
     public static void Grid(BuildContext c, string id, int rows, int cols, double pitch, double side, double z, double height, string material)
     {
         if (side > pitch || rows < 1 || cols < 1)
-            throw new ArgumentException("generation.via.grid");
+            throw new ModelGenerationException("generation.via.grid", "通孔直径或阵列无效。");
         var omitted = Omissions(c, rows, cols);
         for (int r = 0; r < rows; r++)
             for (int col = 0; col < cols; col++)
@@ -52,7 +52,7 @@ public static class Vias
     {
         double diameter = c.N("vias.diameter"), plating = c.N("vias.plating"), pitch = c.N("vias.pitch");
         if (plating <= 0 || plating > diameter / 2 || diameter > pitch || height <= 0)
-            throw new ArgumentException("generation.via.geometry");
+            throw new ModelGenerationException("generation.via.geometry", "通孔尺寸或镀层无效。");
         var via = Hollow(metal, 1 - Math.Pow((diameter - 2 * plating) / diameter, 2), id, fc);
         int nr = c.I("vias.rows"), nc = c.I("vias.columns");
         string mode = c.T("vias.modeling");

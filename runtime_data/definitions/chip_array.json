@@ -17,7 +17,9 @@
       "type": "number",
       "step": "overall_package",
       "label": "封装长度",
-      "des_symbol": "D"
+      "des_symbol": "D",
+      "minimum": 2,
+      "maximum": 30
     },
     {
       "key": "package.width",
@@ -25,7 +27,9 @@
       "type": "number",
       "step": "overall_package",
       "label": "封装宽度",
-      "des_symbol": "E"
+      "des_symbol": "E",
+      "minimum": 2,
+      "maximum": 30
     },
     {
       "key": "substrate.thickness",
@@ -33,7 +37,9 @@
       "type": "number",
       "step": "overall_package",
       "label": "基板厚度",
-      "des_symbol": "A2"
+      "des_symbol": "A2",
+      "minimum": 0.1,
+      "maximum": 3
     },
     {
       "key": "trace.top_thickness",
@@ -49,7 +55,9 @@
           "2-Layer": "tza1",
           "4-Layer": "tz1"
         }
-      }
+      },
+      "minimum": 0.001,
+      "maximum": 0.2
     },
     {
       "key": "trace.bottom_thickness",
@@ -65,7 +73,9 @@
           "2-Layer": "tza2",
           "4-Layer": "tz4"
         }
-      }
+      },
+      "minimum": 0.001,
+      "maximum": 0.2
     },
     {
       "key": "die.length",
@@ -73,7 +83,9 @@
       "type": "number",
       "step": "die",
       "label": "芯片长度",
-      "des_symbol": "Ld"
+      "des_symbol": "Ld",
+      "minimum": 0.2,
+      "maximum": 20
     },
     {
       "key": "die.width",
@@ -81,7 +93,9 @@
       "type": "number",
       "step": "die",
       "label": "芯片宽度",
-      "des_symbol": "Wd"
+      "des_symbol": "Wd",
+      "minimum": 0.2,
+      "maximum": 20
     },
     {
       "key": "die.thickness",
@@ -89,7 +103,9 @@
       "type": "number",
       "step": "die",
       "label": "芯片厚度",
-      "des_symbol": "td"
+      "des_symbol": "td",
+      "minimum": 0.03,
+      "maximum": 1.5
     },
     {
       "key": "die.attach",
@@ -97,7 +113,9 @@
       "type": "number",
       "step": "die",
       "label": "粘接层",
-      "des_symbol": "tda"
+      "des_symbol": "tda",
+      "minimum": 0.005,
+      "maximum": 0.3
     },
     {
       "key": "die.power",
@@ -105,7 +123,9 @@
       "type": "number",
       "step": "die",
       "label": "芯片功率",
-      "des_symbol": "P"
+      "des_symbol": "P",
+      "minimum": 0,
+      "maximum": 1000
     },
     {
       "key": "encapsulant.thickness",
@@ -113,7 +133,9 @@
       "type": "number",
       "step": "encapsulant",
       "label": "塑封厚度",
-      "des_symbol": "te"
+      "des_symbol": "te",
+      "minimum": 0.1,
+      "maximum": 5
     },
     {
       "key": "solder_mask.thickness",
@@ -121,7 +143,9 @@
       "type": "number",
       "step": "encapsulant",
       "label": "阻焊层厚度",
-      "des_symbol": "tsm"
+      "des_symbol": "tsm",
+      "minimum": 0.005,
+      "maximum": 0.3
     },
     {
       "key": "bond_wire.extent_length",
@@ -129,7 +153,9 @@
       "type": "number",
       "step": "bond_wires",
       "label": "线阵列长度",
-      "des_symbol": "Lw"
+      "des_symbol": "Lw",
+      "minimum": 0.3,
+      "maximum": 20
     },
     {
       "key": "bond_wire.extent_width",
@@ -137,7 +163,9 @@
       "type": "number",
       "step": "bond_wires",
       "label": "线阵列宽度",
-      "des_symbol": "Ww"
+      "des_symbol": "Ww",
+      "minimum": 0.3,
+      "maximum": 20
     },
     {
       "key": "bond_wire.diameter",
@@ -145,7 +173,9 @@
       "type": "number",
       "step": "bond_wires",
       "label": "线径",
-      "des_symbol": "dw"
+      "des_symbol": "dw",
+      "minimum": 0.01,
+      "maximum": 0.2
     },
     {
       "key": "vias.enabled",
@@ -163,7 +193,16 @@
       "visible_when": {
         "vias.enabled": true
       },
-      "des_symbol": "dv"
+      "des_symbol": "dv",
+      "minimum": 0.02,
+      "maximum": 1,
+      "active_when": {
+        "all": [
+          {
+            "vias.enabled": true
+          }
+        ]
+      }
     },
     {
       "key": "vias.plating",
@@ -175,7 +214,18 @@
         "vias.enabled": true,
         "vias.filled": false
       },
-      "des_symbol": "tpl"
+      "des_symbol": "tpl",
+      "minimum": 0.001,
+      "maximum": 0.2,
+      "active_when": {
+        "all": [
+          {
+            "vias.enabled": true,
+            "vias.filled": false
+          }
+        ]
+      },
+      "required": false
     },
     {
       "key": "vias.offset_x",
@@ -186,7 +236,19 @@
       "visible_when": {
         "vias.enabled": true
       },
-      "des_symbol": "vxoff"
+      "des_symbol": "vxoff",
+      "minimum": -3,
+      "maximum": 3,
+      "active_when": {
+        "all": [
+          {
+            "vias.enabled": true
+          }
+        ]
+      },
+      "inactive_when": {
+        "vias.modeling": "approximate"
+      }
     },
     {
       "key": "vias.offset_y",
@@ -197,21 +259,37 @@
       "visible_when": {
         "vias.enabled": true
       },
-      "des_symbol": "vyoff"
+      "des_symbol": "vyoff",
+      "minimum": -3,
+      "maximum": 3,
+      "active_when": {
+        "all": [
+          {
+            "vias.enabled": true
+          }
+        ]
+      },
+      "inactive_when": {
+        "vias.modeling": "approximate"
+      }
     },
     {
       "key": "bga.columns",
       "type": "integer",
       "step": "solder_balls",
       "label": "X 方向列数",
-      "des_symbol": "MD"
+      "des_symbol": "MD",
+      "minimum": 1,
+      "maximum": 300
     },
     {
       "key": "bga.rows",
       "type": "integer",
       "step": "solder_balls",
       "label": "Y 方向行数",
-      "des_symbol": "ME"
+      "des_symbol": "ME",
+      "minimum": 1,
+      "maximum": 300
     },
     {
       "key": "bga.pitch",
@@ -219,7 +297,9 @@
       "type": "number",
       "step": "solder_balls",
       "label": "间距",
-      "des_symbol": "e"
+      "des_symbol": "e",
+      "minimum": 0.2,
+      "maximum": 2
     },
     {
       "key": "bga.diameter",
@@ -227,7 +307,9 @@
       "type": "number",
       "step": "solder_balls",
       "label": "球径",
-      "des_symbol": "b"
+      "des_symbol": "b",
+      "minimum": 0.05,
+      "maximum": 1.5
     },
     {
       "key": "bga.height",
@@ -235,7 +317,9 @@
       "type": "number",
       "step": "solder_balls",
       "label": "离板高度",
-      "des_symbol": "A1"
+      "des_symbol": "A1",
+      "minimum": 0.05,
+      "maximum": 1.5
     },
     {
       "key": "grid.enabled",
@@ -265,7 +349,14 @@
       "visible_when": {
         "grid.enabled": true
       },
-      "placement": "footer"
+      "placement": "footer",
+      "active_when": {
+        "all": [
+          {
+            "grid.enabled": true
+          }
+        ]
+      }
     },
     {
       "key": "substrate.layers",
@@ -300,7 +391,14 @@
       "visible_when": {
         "bond_wire.auto_count": false
       },
-      "des_symbol": "Nw"
+      "des_symbol": "Nw",
+      "active_when": {
+        "all": [
+          {
+            "bond_wire.auto_count": false
+          }
+        ]
+      }
     },
     {
       "key": "bond_wire.include",
@@ -318,7 +416,14 @@
       "visible_when": {
         "vias.enabled": true
       },
-      "schematic": true
+      "schematic": true,
+      "active_when": {
+        "all": [
+          {
+            "vias.enabled": true
+          }
+        ]
+      }
     },
     {
       "key": "vias.modeling",
@@ -336,6 +441,13 @@
       "step": "modeling",
       "visible_when": {
         "vias.enabled": true
+      },
+      "active_when": {
+        "all": [
+          {
+            "vias.enabled": true
+          }
+        ]
       }
     },
     {
@@ -346,17 +458,21 @@
         {
           "key": "depth",
           "type": "number",
-          "label": "层深 zn (mm)"
+          "label": "层深 zn (mm)",
+          "minimum": 0
         },
         {
           "key": "thickness",
           "type": "number",
-          "label": "层厚 tzn (mm)"
+          "label": "层厚 tzn (mm)",
+          "exclusive_minimum": 0
         },
         {
           "key": "coverage",
           "type": "number",
-          "label": "覆盖率 %"
+          "label": "覆盖率 %",
+          "minimum": 0,
+          "maximum": 100
         },
         {
           "key": "disconnect",
@@ -366,7 +482,9 @@
       ],
       "label": "金属层表（Depth / Thickness / Coverage）",
       "step": "metal_layers",
-      "schematic": true
+      "schematic": true,
+      "min_rows": 2,
+      "max_rows": 10
     },
     {
       "key": "metal.hole_length",
@@ -375,7 +493,8 @@
       "type": "number",
       "label": "顶层开孔长度",
       "step": "metal_layers",
-      "des_symbol": "Lml"
+      "des_symbol": "Lml",
+      "required": false
     },
     {
       "key": "metal.hole_width",
@@ -384,7 +503,8 @@
       "type": "number",
       "label": "孔宽",
       "step": "metal_layers",
-      "des_symbol": "Wml"
+      "des_symbol": "Wml",
+      "required": false
     },
     {
       "key": "bga.solder_removal_enabled",
@@ -400,7 +520,17 @@
       "type": "integer",
       "label": "外围满布行数",
       "step": "solder_removal",
-      "des_symbol": "MEp"
+      "des_symbol": "MEp",
+      "minimum": 0,
+      "required": false,
+      "active_when": {
+        "all": [
+          {
+            "bga.solder_removal_enabled": true,
+            "bga.ball_map_enabled": false
+          }
+        ]
+      }
     },
     {
       "key": "bga.populated_columns",
@@ -408,17 +538,45 @@
       "type": "integer",
       "label": "外围满布列数",
       "step": "solder_removal",
-      "des_symbol": "MDp"
+      "des_symbol": "MDp",
+      "minimum": 0,
+      "required": false,
+      "active_when": {
+        "all": [
+          {
+            "bga.solder_removal_enabled": true,
+            "bga.ball_map_enabled": false
+          }
+        ]
+      }
     },
     {
       "key": "bga.removal_rows",
       "default": null,
-      "type": "integer"
+      "type": "integer",
+      "required": false,
+      "active_when": {
+        "all": [
+          {
+            "bga.solder_removal_enabled": true,
+            "bga.ball_map_enabled": false
+          }
+        ]
+      }
     },
     {
       "key": "bga.removal_columns",
       "default": null,
-      "type": "integer"
+      "type": "integer",
+      "required": false,
+      "active_when": {
+        "all": [
+          {
+            "bga.solder_removal_enabled": true,
+            "bga.ball_map_enabled": false
+          }
+        ]
+      }
     },
     {
       "key": "bga.omitted_cells",
@@ -443,7 +601,16 @@
       "type": "integer",
       "label": "中央焊球行数",
       "step": "central_solder_balls",
-      "des_symbol": "MEc"
+      "des_symbol": "MEc",
+      "minimum": 0,
+      "active_when": {
+        "all": [
+          {
+            "bga.center_solder_enabled": true,
+            "bga.ball_map_enabled": false
+          }
+        ]
+      }
     },
     {
       "key": "bga.center_solder_columns",
@@ -451,7 +618,16 @@
       "type": "integer",
       "label": "中央焊球列数",
       "step": "central_solder_balls",
-      "des_symbol": "MDc"
+      "des_symbol": "MDc",
+      "minimum": 0,
+      "active_when": {
+        "all": [
+          {
+            "bga.center_solder_enabled": true,
+            "bga.ball_map_enabled": false
+          }
+        ]
+      }
     },
     {
       "key": "bga.center_staggered",
@@ -525,6 +701,14 @@
       "step": "package_setup",
       "visible_when": {
         "substrate.layers": "4-Layer"
+      },
+      "minimum": 0.001,
+      "active_when": {
+        "all": [
+          {
+            "substrate.layers": "4-Layer"
+          }
+        ]
       }
     }
   ],

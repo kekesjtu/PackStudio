@@ -2,25 +2,38 @@ using Newtonsoft.Json.Linq;
 
 namespace PackStudio.Core;
 
-public static partial class InputValidator
+public static class InputValidator
 {
-    public static IReadOnlyList<ValidationIssue> Validate(ProjectDocument document, PackageDefinition definition, MaterialCatalog materials, ValidationRules rules)
+    public static IReadOnlyList<ValidationIssue> Validate(ProjectDocument document, PackageDefinition definition, MaterialCatalog materials)
     {
         var issues = new List<ValidationIssue>();
-        void Error(string code, params string[] paths) => issues.Add(rules.Create(code, ValidationStage.Input, paths));
         if (string.IsNullOrWhiteSpace(document.Name) || document.Name.Length > 160)
-            Error("input.name", "Name");
-        if (document.TemplateId != definition.Info.Id) Error("input.template", "TemplateId");
-        ValidateFields(rules.Fields, definition.Fields, document.Values, "", document.TemplateId, rules, issues);
-        ValidateMaterials(document, definition, materials, rules, issues);
-        ValidateRelations(document, rules, issues);
-        issues.AddRange(ValidatePackageRelations(document, rules, issues));
+            issues.Add(ValidationIssue.Error("input.name", ValidationStage.Input, "设计名称不能为空且最多 160 个字符。", "Name"));
+        if (document.TemplateId != definition.Info.Id)
+        {
+            issues.Add(ValidationIssue.Error("input.template", ValidationStage.Input, "方案与封装定义不匹配。", "TemplateId"));
+            return issues.AsReadOnly();
+        }
+        ValidateFields(definition.Fields, document.Values, "", issues);
+        ValidateMaterials(document, definition, materials, issues);
+        var checks = new InputChecks(document.Values, issues);
+        switch (document.TemplateId)
+        {
+            case "bare_die": BareDieInputRules.Validate(checks); break;
+            case "cbga_fc": CbgaFcInputRules.Validate(checks); break;
+            case "pbga_fc": PbgaFcInputRules.Validate(checks); break;
+            case "pbga_wb": PbgaWbInputRules.Validate(checks); break;
+            case "chip_array": ChipArrayInputRules.Validate(checks); break;
+            case "qfn": QfnInputRules.Validate(checks); break;
+            case "pqfp": PqfpInputRules.Validate(checks); break;
+            case "sop": SopInputRules.Validate(checks); break;
+        }
         return issues.AsReadOnly();
     }
 
     static bool Active(JToken field, JObject values)
     {
-        bool Numeric(string key) => values[key]?.Type is JTokenType.Integer or JTokenType.Float && double.IsFinite(values[key]!.Value<double>());
+        bool Numeric(string key) => double.IsFinite(InputChecks.Number(values[key]));
         if ((field["requires_numeric"] as JArray ?? []).Any(k => !Numeric(k.Text()))) return false;
         if ((field["requires_positive"] as JArray ?? []).Any(k => !Numeric(k.Text()) || values[k.Text()]!.Value<double>() <= 0)) return false;
         if (field["inactive_when"] is JObject inactive && JsonData.Matches(inactive, values)) return false;
@@ -29,147 +42,87 @@ public static partial class InputValidator
         return JsonData.Matches(conditions, values);
     }
 
-    static void ValidateFields(JArray fields, JArray definitions, JObject values, string prefix, string templateId, ValidationRules rules, List<ValidationIssue> issues)
+    static void ValidateFields(JArray fields, JObject values, string prefix, List<ValidationIssue> issues)
     {
         foreach (var field in fields)
         {
             string key = field["key"].Text(), path = prefix + key;
-            var definition = definitions.FirstOrDefault(f => f["key"].Text() == key);
-            if (definition == null) throw new InvalidDataException($"校验规则引用未知参数 {path}。");
-            if (definition["creation_only"].Flag() || !Active(field, values)) continue;
-            string type = definition["type"].Text();
+            if (field["creation_only"].Flag() || !Active(field, values)) continue;
+            string type = field["type"].Text();
             var value = values[key];
-            void Error(string code) => issues.Add(rules.Create(code, ValidationStage.Input, [path], field: field));
+            void Error(string code, string message) => issues.Add(ValidationIssue.Error(code, ValidationStage.Input, $"{path}：{message}", path));
             if (value?.Type is null or JTokenType.Null)
             {
                 if (field["required"]?.Value<bool>() != false && type is ("number" or "integer" or "checkbox" or "object" or "table" or "removal_matrix" or "combobox" or "text"))
-                    Error("input.required");
+                    Error("input.required", "需要填写参数。");
                 continue;
             }
             if (type is "number" or "integer")
             {
-                if (value.Type is not (JTokenType.Float or JTokenType.Integer)) { Error("input.type.number"); continue; }
+                if (value.Type is not (JTokenType.Float or JTokenType.Integer))
+                { Error("input.type.number", "必须为数值。"); continue; }
                 double number = value.Value<double>();
                 if (!double.IsFinite(number) || type == "integer" && (number != Math.Truncate(number) || number < int.MinValue || number > int.MaxValue))
-                { Error("input.number"); continue; }
-                double minimum = field["minimum"]?.Type is JTokenType.Integer or JTokenType.Float ? field["minimum"]!.Value<double>() : double.NegativeInfinity;
-                if (number < minimum || field["exclusive_minimum"]?.Type is JTokenType.Integer or JTokenType.Float && number <= field["exclusive_minimum"]!.Value<double>() || field["maximum"]?.Type is JTokenType.Integer or JTokenType.Float && number > field["maximum"]!.Value<double>())
-                    Error("input.range");
+                { Error("input.number", "必须为有限数值，整数参数须为有效整数。"); continue; }
+                if (field["minimum"]?.Type is JTokenType.Integer or JTokenType.Float && number < field["minimum"]!.Value<double>() ||
+                    field["exclusive_minimum"]?.Type is JTokenType.Integer or JTokenType.Float && number <= field["exclusive_minimum"]!.Value<double>() ||
+                    field["maximum"]?.Type is JTokenType.Integer or JTokenType.Float && number > field["maximum"]!.Value<double>())
+                    Error("input.range", "超出允许范围。");
             }
-            else if (type == "checkbox" && value.Type != JTokenType.Boolean) Error("input.type.boolean");
+            else if (type == "checkbox" && value.Type != JTokenType.Boolean)
+            { Error("input.type.boolean", "必须为布尔值。"); continue; }
             else if (type is "combobox" or "text" && value.Type != JTokenType.String)
-            { Error("input.type.string"); continue; }
+            { Error("input.type.string", "必须为字符串选项。"); continue; }
             else if (type == "object")
             {
-                if (value is not JObject nested) Error("input.type.object");
-                else ValidateFields(field["fields"] as JArray ?? [], definition?["keys"] as JArray ?? [], nested, path + ".", templateId, rules, issues);
+                if (value is not JObject nested) Error("input.type.object", "必须为对象。");
+                else ValidateFields(field["keys"] as JArray ?? [], nested, path + ".", issues);
             }
             else if (type is "table" or "removal_matrix")
             {
-                if (value is not JArray rows) Error("input.type.array");
-                else ValidateRows(field, definition, rows, path, rules, issues);
+                if (value is not JArray rows) Error("input.type.array", "必须为数组。");
+                else ValidateRows(field, rows, path, issues);
             }
-            if (definition != null && PackageDefinition.OptionValues(definition) is { Count: > 0 } options && !options.Any(o => JToken.DeepEquals(o, value)))
-                Error("input.option");
+            if (PackageDefinition.OptionValues(field) is { Count: > 0 } options && !options.Any(o => JToken.DeepEquals(o, value)))
+                Error("input.option", "选项无效。");
         }
     }
 
-    static void ValidateRows(JToken field, JToken? definition, JArray rows, string path, ValidationRules rules, List<ValidationIssue> issues)
+    static void ValidateRows(JToken field, JArray rows, string path, List<ValidationIssue> issues)
     {
-        var definitions = definition?["columns"] as JArray;
-        var columns = field["columns"] as JArray ?? definitions;
-        if (columns == null || definitions == null) return;
+        if (field["columns"] is not JArray columns) return;
         if (field["min_rows"] is JToken min && rows.Count < min.Value<int>() || field["max_rows"] is JToken max && rows.Count > max.Value<int>())
-            issues.Add(rules.Create("input.rows", ValidationStage.Input, [path], field: field));
+            issues.Add(ValidationIssue.Error("input.rows", ValidationStage.Input, $"{path} 行数超出允许范围。", path));
         for (int i = 0; i < rows.Count; i++)
         {
             if (rows[i] is not JObject row)
-            { issues.Add(rules.Create("input.row", ValidationStage.Input, [$"{path}[{i}]"])); continue; }
-            if (row.Properties().Any(p => !definitions.Any(c => c["key"].Text() == p.Name)))
-                issues.Add(rules.Create("input.row.columns", ValidationStage.Input, [$"{path}[{i}]"], field: field));
-            ValidateFields(columns, definitions, row, $"{path}[{i}].", "", rules, issues);
+            { issues.Add(ValidationIssue.Error("input.row", ValidationStage.Input, $"{path}[{i}]：必须为对象。", $"{path}[{i}]")); continue; }
+            if (row.Properties().Any(p => !columns.Any(c => c["key"].Text() == p.Name)))
+                issues.Add(ValidationIssue.Error("input.row.columns", ValidationStage.Input, $"{path}[{i}] 包含未知列。", $"{path}[{i}]"));
+            ValidateFields(columns, row, $"{path}[{i}].", issues);
         }
     }
 
-    internal static void ValidateMaterials(ProjectDocument document, PackageDefinition definition, MaterialCatalog catalog, ValidationRules rules, List<ValidationIssue> issues)
+    internal static void ValidateMaterials(ProjectDocument document, PackageDefinition definition, MaterialCatalog catalog, List<ValidationIssue> issues)
     {
         var materials = catalog.Items.ToDictionary(p => p.Key, p => p.Value);
         foreach (var material in document.CustomMaterials)
         {
             materials[material.Id] = material;
-            foreach (string error in FieldRules.MaterialErrors(material, rules))
-                issues.Add(rules.Create("input.material", ValidationStage.Input, ["CustomMaterials." + material.Id], detail: material.Name, reason: error));
+            foreach (string error in FieldRules.MaterialErrors(material))
+                issues.Add(ValidationIssue.Error("input.material", ValidationStage.Input, $"材料 {material.Name}：{error}", "CustomMaterials." + material.Id));
         }
         foreach (var duplicate in document.CustomMaterials.GroupBy(m => m.Id).Where(g => g.Count() > 1))
-            issues.Add(rules.Create("input.material.duplicate", ValidationStage.Input, ["CustomMaterials." + duplicate.Key], detail: duplicate.Key));
+            issues.Add(ValidationIssue.Error("input.material.duplicate", ValidationStage.Input, $"重复自定义材料 {duplicate.Key}。", "CustomMaterials." + duplicate.Key));
         foreach (var selection in definition.MaterialSelections)
         {
             string group = selection["key"].Text(), path = "MaterialAssignments." + group;
             if (!document.MaterialAssignments.TryGetValue(group, out var id))
-                issues.Add(rules.Create("input.material.missing", ValidationStage.Input, [path], detail: group));
+                issues.Add(ValidationIssue.Error("input.material.missing", ValidationStage.Input, $"缺少材料组 {group} 的选择。", path));
             else if (!MaterialSelection.Allows(selection, id) || id.Length > 0 && !materials.ContainsKey(id))
-                issues.Add(rules.Create("input.material.reference", ValidationStage.Input, [path], detail: id));
+                issues.Add(ValidationIssue.Error("input.material.reference", ValidationStage.Input, $"材料选择无效：{path} → {id}。", path));
         }
         foreach (string group in document.MaterialAssignments.Keys.Except(definition.MaterialSelections.Select(s => s["key"].Text())))
-            issues.Add(rules.Create("input.material.group", ValidationStage.Input, ["MaterialAssignments." + group], detail: group));
-    }
-
-    static void ValidateRelations(ProjectDocument document, ValidationRules rules, List<ValidationIssue> issues)
-    {
-        var values = document.Values;
-        bool Number(string key, out double number)
-        {
-            number = 0;
-            return !issues.Any(i => i.ParameterPaths.Contains(key)) && values[key]?.Type is JTokenType.Integer or JTokenType.Float && double.IsFinite(number = values[key]!.Value<double>());
-        }
-        foreach (var rule in rules.Checks.Where(r => r["stage"].Text() == "input"))
-        {
-            void Add(params string[] paths) => issues.Add(rules.Create(rule["id"].Text(), ValidationStage.Input, paths));
-            switch (rule["check"].Text())
-            {
-                case "solder_ball_pitch":
-                    if (Number("bga.diameter", out double diameter) && Number("bga.pitch", out double pitch) && diameter > pitch)
-                        Add("bga.diameter", "bga.pitch");
-                    break;
-                case "via_pitch":
-                    if (!values["vias.enabled"].Flag()) break;
-                    if (Number("vias.diameter", out double vd) && Number("vias.pitch", out double vp) && vd > vp)
-                        Add("vias.diameter", "vias.pitch");
-                    break;
-                case "via_plating":
-                    if (!values["vias.enabled"].Flag()) break;
-                    if (!(document.TemplateId == "chip_array" && values["vias.filled"].Flag()) &&
-                        !issues.Any(i => i.ParameterPaths.Contains("vias.filled")) &&
-                        Number("vias.plating", out double plating) && Number("vias.diameter", out double viaDiameter) && (plating <= 0 || plating > viaDiameter / 2))
-                        Add("vias.plating", "vias.diameter");
-                    break;
-                case "sop_lead_count":
-                    if (document.TemplateId == "sop" && Number("leads.total", out double count) && count % 2 != 0)
-                        Add("leads.total");
-                    break;
-                case "metal_layers":
-                    ValidateMetalLayers(values, rule, rules, issues);
-                    break;
-                case "array_layout":
-                    if (!issues.Any(i => i.ParameterPaths.Contains("bga.representation")) && values["bga.representation"] is { Type: JTokenType.String } representation && representation.Value<string>() != "discrete" &&
-                        (values["bga.ball_map_enabled"].Flag() || values["bga.omitted_cells"] is JArray { Count: > 0 }))
-                        Add("bga.representation", "bga.omitted_cells", "bga.ball_map");
-                    break;
-            }
-        }
-    }
-
-    static void ValidateMetalLayers(JObject values, JToken rule, ValidationRules rules, List<ValidationIssue> issues)
-    {
-        if (values["metal.layers"] is not JArray rows) return;
-        double height = values["substrate.thickness"]?.Type is JTokenType.Integer or JTokenType.Float ? values["substrate.thickness"]!.Value<double>() : double.NaN;
-        for (int i = 0; i < rows.Count; i++)
-        {
-            string path = $"metal.layers[{i}]";
-            if (rows[i] is not JObject row) continue;
-            if (row["depth"]?.Type is JTokenType.Integer or JTokenType.Float && row["thickness"]?.Type is JTokenType.Integer or JTokenType.Float &&
-                row["depth"]!.Value<double>() + row["thickness"]!.Value<double>() > height + 1e-10)
-                issues.Add(rules.Create(rule["id"].Text(), ValidationStage.Input, [path + ".depth", path + ".thickness", "substrate.thickness"]));
-        }
+            issues.Add(ValidationIssue.Error("input.material.group", ValidationStage.Input, $"未知材料组 {group}。", "MaterialAssignments." + group));
     }
 }

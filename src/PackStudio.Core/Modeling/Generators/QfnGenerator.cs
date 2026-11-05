@@ -125,7 +125,7 @@ public static class QfnGenerator
             double extent = (count - 1) * c.N("leads.pitch_" + transverseAxis) + c.N("leads.width");
             double end = c.N(axis == "x" ? "package.length" : "package.width") / 2 - c.N("leads.length") - c.N("leads.etch"), span = end - die / 2;
             if (span <= 0)
-                throw new ArgumentException("generation.qfn.wire");
+                throw new ModelGenerationException("generation.qfn.wire", "QFN 键合线焊盘必须位于芯片外。");
             void Pair(string id, double start, double radial, double transverse, double z, double height, string mat)
             {
                 foreach (int sign in new[]

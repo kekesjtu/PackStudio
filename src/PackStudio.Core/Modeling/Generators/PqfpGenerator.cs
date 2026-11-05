@@ -86,7 +86,7 @@ public static class PqfpGenerator
             }
         c.Derived(MaterialMixer.Mix("pqfp-die-flag", c.Component("group-lead-frame", "leadframe-c194"), mold, c.N("flag.coverage") / 100, "xyz", false));
         double a = (c.N("body.length") - c.N("flag.length")) / 2, b = (c.N("body.width") - c.N("flag.width")) / 2;
-        if (a <= 0 || b <= 0) throw new ArgumentException("generation.tie_bar");
+        if (a <= 0 || b <= 0) throw new ModelGenerationException("generation.tie_bar", "连接筋跨度必须大于零。");
         double factor = Math.Sqrt(a * a + b * b) * (1 / a + 1 / b);
         c.Derived(metal with { Id = "pqfp-tie-bar", ConductType = 2, ConductivityCoefficient = null, ReferenceTemperature = null, StoredScalarConductivity = null, StoredDirectionalConductivity = null, Conductivity = new(metal.EffectiveConductivity.X / factor, metal.EffectiveConductivity.Y / factor, mold.EffectiveConductivity.Z) });
     }
