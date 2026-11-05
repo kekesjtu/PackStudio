@@ -46,6 +46,39 @@ static class ExportChecks
                 Assert(document.Values.Property("grid.enabled") != null && document.Values.Property("grid.density") != null, "internal grid fields removed");
             });
 
+        tests.Case("export", "significant digits remove floating tails and preserve tiny dimensions", () =>
+        {
+            var original = tests.Generate(tests.Create(tests.Catalog.Load("bare_die")));
+            var block = original.Blocks.Single() with
+            {
+                Origin = new(-4.9000000000000004, -0.0, -0.1 - 0.2),
+                Size = new(4.9000000000000004, 1.234567890123456, 1e-15)
+            };
+            var material = original.Materials[block.MaterialId] with
+            {
+                ConductType = 1, Conductivity = new(0.1 + 0.2, 0.1 + 0.2, 0.1 + 0.2),
+                Density = 2330.0000000000005, SpecificHeat = 700.0000000000001,
+                ConductivityCoefficient = -0.42000000000000004, ReferenceTemperature = 100
+            };
+            var model = new PackageModel(original.TemplateId, original.Name, original.Metadata, original.Groups,
+                [block], new Dictionary<string, Material> { [material.Id] = material }, [new(block.Id, 0.1 + 0.2)]);
+            var root = tests.Export(model).Root!;
+            var exported = root.Element("group")!.Element("block")!;
+            Assert((string?)exported.Attribute("x") == "-0.0049" && (string?)exported.Attribute("dx") == "0.0049", "floating coordinate tails retained");
+            Assert((string?)exported.Attribute("y") == "0" && (string?)exported.Attribute("z") == "-0.0003", "zero or negative coordinate formatting");
+            foreach (var (axis, expected) in new[] { ("dy", block.Size.Y * 0.001), ("dz", block.Size.Z * 0.001) })
+            {
+                double actual = (double)exported.Attribute(axis)!;
+                Assert(actual > 0 && Math.Abs(actual / expected - 1) <= 5e-12, axis + " lost significant digits or became zero");
+            }
+            var definition = root.Element("materials")!.Element("material")!;
+            Assert(definition.Element("density")!.Value == "2330" && definition.Element("specific_heat")!.Value == "700", "material floating tails retained");
+            Assert(definition.Element("conductivity")!.Attributes().All(a => a.Value == "0.3"), "conductivity floating tails retained");
+            Assert(definition.Element("coefficient")!.Value == "-0.42" && definition.Element("reference_temperature")!.Value == "373.15", "temperature property formatting");
+            Assert((string?)root.Element("sources")!.Element("source")!.Attribute("power") == "0.3", "power floating tail retained");
+            Assert(block.Size.Z == 1e-15 && material.Conductivity.X == 0.1 + 0.2, "export changed internal precision");
+        });
+
         tests.Case("export", "multiple heat contributions share one block source", () =>
         {
             var model = tests.Generate(tests.Create(tests.Catalog.Load("bare_die")));

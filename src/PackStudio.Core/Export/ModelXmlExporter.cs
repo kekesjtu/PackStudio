@@ -8,7 +8,7 @@ namespace PackStudio.Core;
 public static class ModelXmlExporter
 {
     static string F(double value) => double.IsFinite(value)
-        ? value.ToString("G17", CultureInfo.InvariantCulture)
+        ? value == 0 ? "0" : value.ToString("G12", CultureInfo.InvariantCulture)
         : throw new ArgumentException("模型 XML 需要有限数值。");
     static XAttribute Number(string name, double value) => new(name, F(value));
 
