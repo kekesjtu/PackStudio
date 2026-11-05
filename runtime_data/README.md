@@ -7,7 +7,7 @@
 | 路径 | 内容 |
 | --- | --- |
 | `families.json` | 家族显示名、分组、描述、默认选择、图标与示意图样式 |
-| `definitions/<family>.json` | 参数键、类型、单位、枚举、创建属性、层栈映射、Bare Die 基线及材料槽位 |
+| `definitions/<family>.json` | 参数键、类型、单位、枚举、创建属性、Bare Die 基线及材料槽位 |
 | `templates/<family>.json` | 标签、控件、栏目、示意图、DES 符号、格式与显示条件 |
 | `validation/common.json`、`validation/<family>.json` | 字段及业务检查声明、数值范围、生效条件、严重度和消息；共用声明通过 families 限定适用家族 |
 | `model_groups.json` | 领域模型、模型树与导出共用的分组显示名称及父子关系 |

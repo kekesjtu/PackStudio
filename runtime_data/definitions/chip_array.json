@@ -371,22 +371,6 @@
     }
   ],
   "origin": "Reviewed PackStudio model specification; mapped source values explicitly referenced",
-  "layer_stack": {
-    "when": {
-      "substrate.layers": "4-Layer"
-    },
-    "table": "metal.layers",
-    "height": "substrate.thickness",
-    "inner_thickness": "trace.solid_thickness",
-    "top_thickness": "trace.top_thickness",
-    "bottom_thickness": "trace.bottom_thickness"
-  },
-  "surface_layers": {
-    "table": "metal.layers",
-    "height": "substrate.thickness",
-    "top_thickness": "trace.top_thickness",
-    "bottom_thickness": "trace.bottom_thickness"
-  },
   "material_selections": [
     {
       "group_id": "group-substrate",

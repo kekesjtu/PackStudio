@@ -6,18 +6,19 @@ public static class LayerStackInitializer
 {
     public static void Apply(PackageDefinition definition, JObject values, JObject? overrides = null)
     {
-        string tableKey = definition.Data["surface_layers"]?["table"].Text() ?? "";
-        if (tableKey.Length > 0 && overrides?.Properties().Any(p => p.Name == tableKey || p.Name.StartsWith(tableKey + "/", StringComparison.Ordinal)) == true)
+        if (definition.Info.Id is not ("chip_array" or "pbga_wb")) return;
+        const string tableKey = "metal.layers";
+        if (overrides?.Properties().Any(p => p.Name == tableKey || p.Name.StartsWith(tableKey + "/", StringComparison.Ordinal)) == true)
             return;
-        if (definition.Data["surface_layers"] is JObject surfaces && values[surfaces["table"].Text()] is JArray { Count: >= 2 } surfaceRows && surfaceRows.All(r => r is JObject))
+        if (values[tableKey] is JArray { Count: >= 2 } surfaceRows && surfaceRows.All(r => r is JObject))
         {
-            surfaceRows[0]!["thickness"] = Value(values, surfaces["top_thickness"].Text());
-            surfaceRows[surfaceRows.Count - 1]!["thickness"] = Value(values, surfaces["bottom_thickness"].Text());
+            surfaceRows[0]!["thickness"] = Value(values, "trace.top_thickness");
+            surfaceRows[surfaceRows.Count - 1]!["thickness"] = Value(values, "trace.bottom_thickness");
         }
-        if (definition.Data["layer_stack"] is not JObject stack || !JsonData.Matches(stack["when"] as JObject, values)) return;
-        if (values[stack["table"].Text()] is not JArray { Count: 4 } rows || rows.Any(r => r is not JObject)) return;
-        double? height = Number(values, stack["height"].Text()), top = Number(values, stack["top_thickness"].Text()),
-            bottom = Number(values, stack["bottom_thickness"].Text()), solid = Number(values, stack["inner_thickness"].Text());
+        if (values["substrate.layers"] is not { Type: JTokenType.String } layers || layers.Value<string>() != "4-Layer") return;
+        if (values[tableKey] is not JArray { Count: 4 } rows || rows.Any(r => r is not JObject)) return;
+        double? height = Number(values, "substrate.thickness"), top = Number(values, "trace.top_thickness"),
+            bottom = Number(values, "trace.bottom_thickness"), solid = Number(values, "trace.solid_thickness");
         double? gap = (height - top - bottom - 2 * solid) / 3;
         rows[0]!["thickness"] = Token(top);
         rows[1]!["depth"] = Token(top + gap);
