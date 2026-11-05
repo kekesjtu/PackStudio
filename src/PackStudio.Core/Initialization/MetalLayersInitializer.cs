@@ -2,7 +2,7 @@ using Newtonsoft.Json.Linq;
 
 namespace PackStudio.Core;
 
-public static class LayerStackInitializer
+public static class MetalLayersInitializer
 {
     public static void Apply(PackageDefinition definition, JObject values, JObject? overrides = null)
     {

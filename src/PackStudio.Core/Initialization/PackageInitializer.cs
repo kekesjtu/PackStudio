@@ -14,14 +14,9 @@ public static class PackageInitializer
         Overlay(selection, overrides);
         if (definition.Info.Id is "chip_array" or "pbga_wb" && selection["substrate.layers"] is { Type: JTokenType.String } layers && layers.Value<string>() == "4-Layer")
             (fourLayer ?? throw new InvalidDataException($"缺少 {definition.Info.Id} 四层创建配置。")).Apply(values, presetName);
-        if (definition.Info.Id is "sop" or "pqfp" && selection["package.exposed_pad"].Flag())
-        {
-            if (exposedPad == null) throw new InvalidDataException($"缺少 {definition.Info.Id} 露出焊盘创建配置。");
-            Overlay(values, (JObject)exposedPad["values"]!);
-            values["flag.downset"] = selection[exposedPad["flag_downset_source"].Text()]?.DeepClone() ?? JValue.CreateNull();
-        }
+        ExposedPadInitializer.Apply(definition, values, selection, exposedPad);
         Overlay(values, overrides);
-        LayerStackInitializer.Apply(definition, values, overrides);
+        MetalLayersInitializer.Apply(definition, values, overrides);
         values.Remove("footprint.size");
         return new ProjectDocument
         {
