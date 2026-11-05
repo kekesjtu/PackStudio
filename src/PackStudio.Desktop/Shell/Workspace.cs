@@ -35,7 +35,9 @@ public sealed partial class Workspace : ObservableObject
     {
         Template = Catalog.Load(id);
         string preset = presetId ?? Template.DefaultPreset;
-        Document = PackageInitializer.Create(Template, preset);
+        var exposedPad = id is "sop" or "pqfp" && Template.DisplayDefaults(preset)["package.exposed_pad"].Flag()
+            ? Catalog.LoadExposedPad(id) : null;
+        Document = PackageInitializer.Create(Template, preset, exposedPad: exposedPad);
         Result = null;
         Dirty();
         DocumentChanged?.Invoke();

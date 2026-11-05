@@ -5,7 +5,7 @@ namespace PackStudio.Core;
 public static class PackageInitializer
 {
     public static ProjectDocument Create(PackageDefinition definition, string? presetId = null, string? name = null,
-        JObject? overrides = null, FourLayerConfiguration? fourLayer = null)
+        JObject? overrides = null, FourLayerConfiguration? fourLayer = null, JObject? exposedPad = null)
     {
         string presetName = presetId ?? definition.DefaultPreset;
         var preset = definition.Presets.FirstOrDefault(p => p.Name == presetName);
@@ -14,13 +14,11 @@ public static class PackageInitializer
         Overlay(selection, overrides);
         if (definition.Info.Id is "chip_array" or "pbga_wb" && selection["substrate.layers"] is { Type: JTokenType.String } layers && layers.Value<string>() == "4-Layer")
             (fourLayer ?? throw new InvalidDataException($"缺少 {definition.Info.Id} 四层创建配置。")).Apply(values, presetName);
-        foreach (var rule in definition.Data["initialization"] as JArray ?? [])
+        if (definition.Info.Id is "sop" or "pqfp" && selection["package.exposed_pad"].Flag())
         {
-            if (!JsonData.Matches(rule["when"] as JObject, selection)) continue;
-            Overlay(values, rule["set"] as JObject);
-            if (rule["copy"] is JObject copies)
-                foreach (var copy in copies.Properties())
-                    values[copy.Name] = selection[copy.Value.Text()]?.DeepClone() ?? JValue.CreateNull();
+            if (exposedPad == null) throw new InvalidDataException($"缺少 {definition.Info.Id} 露出焊盘创建配置。");
+            Overlay(values, (JObject)exposedPad["values"]!);
+            values["flag.downset"] = selection[exposedPad["flag_downset_source"].Text()]?.DeepClone() ?? JValue.CreateNull();
         }
         Overlay(values, overrides);
         LayerStackInitializer.Apply(definition, values, overrides);

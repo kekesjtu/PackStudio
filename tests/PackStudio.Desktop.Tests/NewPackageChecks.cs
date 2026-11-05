@@ -55,6 +55,12 @@ static class NewPackageChecks
             if (presets.Items.Count > 1)
                 presets.SelectedIndex = presets.Items.Count - 1;
             string expectedPreset = presets.SelectedValue as string ?? "";
+            if (family is "sop" or "pqfp")
+            {
+                var options = Control<StackPanel>(dialog, "CreationOptions");
+                var exposedPad = Descendants<CheckBox>(options).Single(c => c.DataContext is ParameterField { Key: "package.exposed_pad" });
+                exposedPad.IsChecked = true;
+            }
             if (family == "chip_array")
             {
                 var options = Control<StackPanel>(dialog, "CreationOptions");
@@ -76,6 +82,9 @@ static class NewPackageChecks
                 throw new Exception("created project differs from selection");
             if (result.Values.Property("footprint.size") != null)
                 throw new Exception("creation preset leaked into project values");
+            if (family is "sop" or "pqfp" && (!result.Values["thermal_land.enabled"].Flag() ||
+                Math.Abs(result.Values["flag.downset"].Number() - result.Values["leads.height"].Number()) > 1e-10))
+                throw new Exception("exposed pad creation configuration was not applied");
             if (family == "chip_array" && result.Values["substrate.layers"].Text() != "4-Layer")
                 throw new Exception("substrate initialization was discarded");
             if (family == "chip_array")

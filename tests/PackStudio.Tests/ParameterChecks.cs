@@ -73,12 +73,38 @@ static class ParameterChecks
             });
         }
         foreach (string family in new[] { "sop", "pqfp" })
+        {
             tests.Case("parameters", family + " exposed pad creation", () =>
             {
                 var document = tests.Create(tests.Catalog.Load(family), options: new JObject { ["package.exposed_pad"] = true });
                 Near(document.Values["flag.downset"].Number(), document.Values["leads.height"].Number(), "exposed flag position");
                 Assert(tests.Generate(document).Blocks.Any(b => b.GroupId == "group-thermal-land"), "exposed thermal land missing");
+                var configuration = (JObject)tests.Catalog.LoadExposedPad(family).DeepClone();
+                configuration["flag_downset_source"] = "leads.thickness";
+                var alternate = PackageInitializer.Create(tests.Catalog.Load(family),
+                    overrides: new JObject { ["package.exposed_pad"] = true }, exposedPad: configuration);
+                Near(alternate.Values["flag.downset"].Number(), alternate.Values["leads.thickness"].Number(), "downset source ignored the small contract");
             });
+            tests.Case("parameters", family + " exposed pad configuration is required only for the final selected branch", () =>
+            {
+                var definition = tests.Catalog.Load(family);
+                var options = new JObject { ["package.exposed_pad"] = false };
+                PackageInitializer.Create(definition, overrides: options);
+                options["package.exposed_pad"] = true;
+                bool missingConfiguration = false;
+                try { PackageInitializer.Create(definition, overrides: options); }
+                catch (InvalidDataException) { missingConfiguration = true; }
+                Assert(missingConfiguration, "exposed pad creation silently skipped its configuration");
+                options["flag.downset"] = 0;
+                options["thermal_land.thickness"] = -0.12;
+                var document = tests.Create(definition, options: options);
+                Near(document.Values["flag.downset"].Number(), 0, "explicit downset overwritten by exposed pad initialization");
+                Near(document.Values["thermal_land.thickness"].Number(), -0.12, "creation validated or replaced explicit pad thickness");
+                var result = tests.GenerateResult(document);
+                Assert(result.Model == null && result.Issues.Any(i => i.ParameterPaths.Contains("thermal_land.thickness")), "invalid pad thickness bypassed generation validation");
+                Near(document.Values["thermal_land.thickness"].Number(), -0.12, "generation reapplied exposed pad initialization");
+            });
+        }
         tests.Case("parameters", "SOP derived display agrees with modeled wire path", () =>
         {
             var document = tests.Create(tests.Catalog.Load("sop"));

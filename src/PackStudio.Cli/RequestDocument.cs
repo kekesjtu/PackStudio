@@ -27,7 +27,9 @@ public static class RequestDocument
         }
         var selection = parameters["substrate.layers"] ?? template.DisplayDefaults(preset)["substrate.layers"];
         var fourLayer = id is "chip_array" or "pbga_wb" && selection is { Type: JTokenType.String } && selection.Value<string>() == "4-Layer" ? catalog.LoadFourLayer(id) : null;
-        var document = PackageInitializer.Create(template, preset, input["design_name"].Text(template.Info.Name), parameters, fourLayer);
+        var padSelection = parameters["package.exposed_pad"] ?? template.DisplayDefaults(preset)["package.exposed_pad"];
+        var exposedPad = id is "sop" or "pqfp" && padSelection.Flag() ? catalog.LoadExposedPad(id) : null;
+        var document = PackageInitializer.Create(template, preset, input["design_name"].Text(template.Info.Name), parameters, fourLayer, exposedPad);
         foreach (var pair in input["material_assignments"]?.ToObject<Dictionary<string, string>>() ?? [])
             document.MaterialAssignments[pair.Key] = pair.Value;
         foreach (var source in input["custom_materials"] as JArray ?? [])

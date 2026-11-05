@@ -7,12 +7,13 @@
 | 路径 | 内容 |
 | --- | --- |
 | `families.json` | 家族显示名、分组、描述、默认选择、图标与示意图样式 |
-| `definitions/<family>.json` | 参数键、类型、单位、枚举、创建属性、初始化声明、Bare Die 基线及材料槽位 |
+| `definitions/<family>.json` | 参数键、类型、单位、枚举、创建属性、层栈映射、Bare Die 基线及材料槽位 |
 | `templates/<family>.json` | 标签、控件、栏目、示意图、DES 符号、格式与显示条件 |
 | `validation/common.json`、`validation/<family>.json` | 字段及业务检查声明、数值范围、生效条件、严重度和消息；共用声明通过 families 限定适用家族 |
 | `model_groups.json` | 领域模型、模型树与导出共用的分组显示名称及父子关系 |
 | `presets/<来源目录>/<预设名>.json` | 342 个可直接导入的完整方案预设 |
 | `presets/<family>/four_layer.json` | Chip Array、Wirebond PBGA 的四层初始化小契约 |
+| `presets/tsop_conv/exposed_pad.json`、`presets/pqfp/exposed_pad.json` | SOP、PQFP 的露出焊盘初始化小契约 |
 | `presets/index.json` | 内部家族 ID、完整方案预设文件路径 |
 | `materials/<分类>/<文件>.json` | PACK 内置材料记录 |
 | `materials/index.json` | 材料名称、分类、路径 |
@@ -45,6 +46,8 @@ Bare Die 没有原生预设，使用参数定义中的基线。
 正文不保存 PresetId、footprint.size、预设分支或原生来源字段。材料库记录仍通过材料 ID 引用。
 
 四层初始化独立使用 `packstudio.four-layer/v1`：`schema_version`、`family` 标识契约，`values` 保存共用设置，`preset_values` 以预设 Name 为键保存散热片尺寸差异。它不是完整方案，不进入普通预设索引。完成创建时，根据最终四层选择按需读取。
+
+SOP、PQFP 的露出焊盘初始化使用 `packstudio.exposed-pad/v1`：`schema_version`、`family` 标识契约，`values` 保存 `thermal_land.enabled` 与 `thermal_land.thickness`，`flag_downset_source` 指定 `flag.downset` 的来源参数键 `leads.height`。SOP 文件位于其预设来源目录 `tsop_conv/`，PQFP 位于 `pqfp/`。仅在完成创建且最终选择 `package.exposed_pad = true` 时读取；初始化按引用复制下沉量，再应用用户提交的覆盖值。小契约不进入普通预设索引，不作为完整方案导入，导入与生成方案时不读取或重新应用。
 
 值以已核实的原生向导初始化及计算结果为依据。单位、枚举、材料 ID、派生层深度与保留球位补集在提取阶段处理。
 预设不包含原生 DLL 类型、属性路径、序列化字符串或完整 DES 源文本。

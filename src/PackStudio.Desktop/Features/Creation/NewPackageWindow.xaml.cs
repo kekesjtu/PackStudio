@@ -152,7 +152,9 @@ public partial class NewPackageWindow : Window
         {
             var fourLayer = template.Info.Id is "chip_array" or "pbga_wb" && Draft.Values["substrate.layers"] is { Type: JTokenType.String } layers && layers.Value<string>() == "4-Layer"
                 ? catalog.LoadFourLayer(template.Info.Id) : null;
-            CreatedDocument = PackageInitializer.Create(template, Draft.PresetId, Draft.Name, Draft.Overrides, fourLayer);
+            var exposedPad = template.Info.Id is "sop" or "pqfp" && Draft.Values["package.exposed_pad"].Flag()
+                ? catalog.LoadExposedPad(template.Info.Id) : null;
+            CreatedDocument = PackageInitializer.Create(template, Draft.PresetId, Draft.Name, Draft.Overrides, fourLayer, exposedPad);
             return true;
         }
         catch (Exception ex)

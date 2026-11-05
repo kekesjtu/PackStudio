@@ -15,6 +15,7 @@ public sealed class RuntimeDataCatalog
     readonly ConcurrentDictionary<string, PackageDefinition> definitions = new();
     readonly ConcurrentDictionary<string, ValidationRules> rules = new();
     readonly ConcurrentDictionary<string, FourLayerConfiguration> fourLayer = new();
+    readonly ConcurrentDictionary<string, JObject> exposedPad = new();
 
     public RuntimeDataCatalog(string root)
     {
@@ -71,6 +72,27 @@ public sealed class RuntimeDataCatalog
         if (id is not ("chip_array" or "pbga_wb")) throw new InvalidDataException($"{id} 不使用四层创建配置。");
         return fourLayer.GetOrAdd(id, family => FourLayerConfiguration.Load(Path.Combine(root, "presets", family, "four_layer.json"), family));
     }
+
+    public JObject LoadExposedPad(string id) => exposedPad.GetOrAdd(id, family =>
+    {
+        string directory = family switch
+        {
+            "sop" => "tsop_conv",
+            "pqfp" => "pqfp",
+            _ => throw new InvalidDataException($"{family} 不使用露出焊盘创建配置。")
+        };
+        var data = JsonData.Read(Path.Combine(root, "presets", directory, "exposed_pad.json"));
+        if (data["schema_version"].Text() != "packstudio.exposed-pad/v1" || data["family"].Text() != family ||
+            data.Properties().Any(p => p.Name is not ("schema_version" or "family" or "flag_downset_source" or "values")) ||
+            data["flag_downset_source"]?.Type != JTokenType.String ||
+            !Load(family).Fields.Any(f => f["key"].Text() == data["flag_downset_source"].Text() && f["type"].Text() == "number") ||
+            data["values"] is not JObject values || values.Count != 2 ||
+            values["thermal_land.enabled"]?.Type != JTokenType.Boolean ||
+            values["thermal_land.thickness"]?.Type is not (JTokenType.Integer or JTokenType.Float) ||
+            !double.IsFinite(values["thermal_land.thickness"]!.Value<double>()))
+            throw new InvalidDataException($"{family} 露出焊盘创建配置版本、家族或字段无效。");
+        return (JObject)data.DeepClone();
+    });
 
     public ValidationRules LoadValidation(string id) => rules.GetOrAdd(id, family =>
     {

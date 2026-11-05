@@ -14,7 +14,9 @@ sealed class TestSuite(string root, HashSet<string> suites)
         var selection = definition.DisplayDefaults(preset);
         string layers = options?.Property("substrate.layers") is { } submitted ? submitted.Value.Text() : selection["substrate.layers"].Text();
         var fourLayer = definition.Info.Id is "chip_array" or "pbga_wb" && layers == "4-Layer" ? Catalog.LoadFourLayer(definition.Info.Id) : null;
-        return PackageInitializer.Create(definition, preset, name, options, fourLayer);
+        var padSelection = options?["package.exposed_pad"] ?? selection["package.exposed_pad"];
+        var exposedPad = definition.Info.Id is "sop" or "pqfp" && padSelection.Flag() ? Catalog.LoadExposedPad(definition.Info.Id) : null;
+        return PackageInitializer.Create(definition, preset, name, options, fourLayer, exposedPad);
     }
 
     public GenerationResult GenerateResult(ProjectDocument document) => ModelBuilder.Generate(document,
