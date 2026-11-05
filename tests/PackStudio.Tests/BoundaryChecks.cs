@@ -40,14 +40,6 @@ static class BoundaryChecks
             Near(dropdown.Items.Single(m => m.Name == custom.Name).Density, 1234, "custom properties did not override model/library");
             Assert(dropdown.Items.Single(m => m.Name == custom.Name) == library.Single(m => m.Name == custom.Name), "dropdown and library disagree");
         });
-        tests.Case("catalog", "surface annotation survives block rename", () =>
-        {
-            var model = tests.Generate(tests.Create(tests.Catalog.Load("cbga_fc")));
-            var blocks = model.Blocks.Select(b => b.GroupId == "group-substrate" ? b with { Id = "renamed-board", Name = "Board" } : b);
-            model = new(model.TemplateId, model.Name, model.Metadata, model.Groups, blocks, model.Materials, model.Sources, model.Auxiliary);
-            var cuboid = tests.Export(model).Descendants("cuboid").Single(b => (string?)b.Element("name") == "renamed-board");
-            Assert(cuboid.Element("all_surface") != null && cuboid.Element("all_radiation") != null, "surface depended on ID text");
-        });
         tests.Case("projects", "v2 migration stays at file boundary and preserves saved geometry", () =>
         {
             string directory = Path.Combine(tests.Root, "tmp", DateTime.Now.ToString("yyyy-MM-dd") + "-core-tests");

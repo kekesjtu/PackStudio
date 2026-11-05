@@ -32,6 +32,8 @@ static class ProjectMigration
     {
         foreach (var material in (data["CustomMaterials"] as JArray ?? []).OfType<JObject>())
         {
+            // Discard the obsolete field at the file boundary without retaining its value.
+            material.Remove("Emissivity");
             if (material.Property("ConductType") != null) continue;
             if (material["Conductivity"] is not JObject conductivity) continue;
             bool isotropic = JToken.DeepEquals(conductivity["X"], conductivity["Y"]) &&

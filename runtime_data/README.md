@@ -76,7 +76,7 @@ depth 从全基板顶面计量；空槽不生成行。模板基线、预设、�
 完成创建时由 Core 根据厚度参数计算层栈，不因输入不合理阻断创建；无法参与运算的派生值留空。显式提供的层表具有优先级。保存方案的层表按输入参与生成。
 
 材料温度依赖参数保留在材料定义及 FloXML 中；组分混合使用参考值。
-材料记录使用扁平字段 `name`、`group`、`density_kg_m3`、`specific_heat_j_kg_k`、`emissivity`、`conductivity_w_m_k`、`conductivity_coefficient`、`conductivity_reference_temperature`、`kx_w_m_k`、`ky_w_m_k`、`kz_w_m_k`、`conduct_type` 和 `source`；参考温度单位为 °C。
+材料记录使用扁平字段 `name`、`group`、`density_kg_m3`、`specific_heat_j_kg_k`、`conductivity_w_m_k`、`conductivity_coefficient`、`conductivity_reference_temperature`、`kx_w_m_k`、`ky_w_m_k`、`kz_w_m_k`、`conduct_type` 和 `source`；参考温度单位为 °C。
 `conduct_type` 为 0 时使用常数标量导热率，为 1 时使用标量导热率、温度系数与参考温度，为 2 时使用三个方向的导热率；其余存储值不参与该类型计算。导热率、密度和比热要求有限且非负，温度系数与参考温度允许负值。
 Bumps 使用有厚度的各向同性等效算法，见 [BGA 与 Bumps](../docs/decisions/BGA与Bumps建模表达.md)。
 

@@ -9,7 +9,7 @@ public record Vector(double X, double Y, double Z)
     public IEnumerable<double> Components => [X, Y, Z];
 }
 
-public record Block(string Id, string Name, string StructureType, Vector Origin, Vector Size, string MaterialId, string GroupId, string GroupName, bool ExposedSurface = false)
+public record Block(string Id, string Name, string StructureType, Vector Origin, Vector Size, string MaterialId, string GroupId, string GroupName)
 {
     public Vector Maximum => Origin + Size;
 }

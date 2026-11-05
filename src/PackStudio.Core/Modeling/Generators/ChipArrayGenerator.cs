@@ -13,7 +13,7 @@ public static class ChipArrayGenerator
         rows[rows.Count - 1]!["depth"] = height - bottomTrace;
         double mask = c.N("solder_mask.thickness"), dl = c.N("die.length"), dw = c.N("die.width"), dh = c.N("die.thickness"), attach = c.N("die.attach"), dz = top + mask;
         double ml = l, mw = w;
-        c.Center("encapsulant", "encapsulant", ml, mw, c.N("encapsulant.thickness"), top, "epoxy-mold", "encapsulant", exposedSurface: true);
+        c.Center("encapsulant", "encapsulant", ml, mw, c.N("encapsulant.thickness"), top, "epoxy-mold", "encapsulant");
         c.Center("die", "die", dl, dw, dh, dz, "silicon", "die");
         c.Center("dielectric", "substrate", l, w, height, baseZ, "bt", "substrate");
         c.Center("die-attach", "die_attach", dl, dw, attach, dz, "qmi-595", "die-attach");

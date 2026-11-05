@@ -66,7 +66,7 @@ public sealed class MaterialCatalogReader
         return new(id, record["name"].Text(), active, Required("density_kg_m3"), Required("specific_heat_j_kg_k"),
             Category: record["group"].Text(), ConductivityCoefficient: Optional(record, "conductivity_coefficient"),
             ReferenceTemperature: Optional(record, "conductivity_reference_temperature"), Source: record["source"]?.ToString() ?? "",
-            ConductType: type, StoredScalarConductivity: scalar, StoredDirectionalConductivity: directional, Emissivity: Optional(record, "emissivity"));
+            ConductType: type, StoredScalarConductivity: scalar, StoredDirectionalConductivity: directional);
     }
 
     static double? Optional(JToken value, string key) => value[key]?.Type switch

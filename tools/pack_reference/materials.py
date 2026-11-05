@@ -45,7 +45,6 @@ def read_builtin_materials(native) -> list[dict]:
             for field, getter in (
                 ("density_kg_m3", "getDensity"),
                 ("specific_heat_j_kg_k", "getSpecificHeat"),
-                ("emissivity", "getEmissivity"),
                 ("conductivity_w_m_k", "getConductivity"),
                 ("conductivity_coefficient", "getConductivityCoefficient"),
                 ("conductivity_reference_temperature", "getConductivityRefTemp"),

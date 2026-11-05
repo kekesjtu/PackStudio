@@ -48,14 +48,14 @@ public sealed class BuildContext
     public Material M(string id) => Materials.TryGetValue(id, out var m) ? m : throw new ArgumentException("generation.material") { Data = { ["detail"] = id } };
     public Material Component(string group, string fallback) => M(assignments.GetValueOrDefault(group, fallback));
     public void Derived(Material m) => Materials[m.Id] = customOverrides.GetValueOrDefault(m.Id, m);
-    public void Add(string id, string type, double x, double y, double z, double sx, double sy, double sz, string material, string group, string? label = null, bool derived = false, bool exposedSurface = false)
+    public void Add(string id, string type, double x, double y, double z, double sx, double sy, double sz, string material, string group, string? label = null, bool derived = false)
     {
         string g = group.StartsWith("group-") ? group : "group-" + group;
         string assigned = derived ? material : assignments.GetValueOrDefault(g, material);
-        Blocks.Add(new(id + "-part-1", label ?? id, type, new(x, y, z), new(sx, sy, sz), assigned, g, catalogGroups.TryGetValue(g, out var groupInfo) ? groupInfo.Name : throw new InvalidDataException($"缺少模型分组名称 {g}。"), exposedSurface));
+        Blocks.Add(new(id + "-part-1", label ?? id, type, new(x, y, z), new(sx, sy, sz), assigned, g, catalogGroups.TryGetValue(g, out var groupInfo) ? groupInfo.Name : throw new InvalidDataException($"缺少模型分组名称 {g}。")));
     }
 
-    public void Center(string id, string type, double sx, double sy, double sz, double z, string material, string group, string? label = null, bool derived = false, double cx = 0, double cy = 0, bool exposedSurface = false) => Add(id, type, cx - sx / 2, cy - sy / 2, z, sx, sy, sz, material, group, label, derived, exposedSurface);
+    public void Center(string id, string type, double sx, double sy, double sz, double z, string material, string group, string? label = null, bool derived = false, double cx = 0, double cy = 0) => Add(id, type, cx - sx / 2, cy - sy / 2, z, sx, sy, sz, material, group, label, derived);
     public void Ring(string id, string type, double lx, double ly, double ix, double iy, double z, double h, string mat, string group, bool derived = false)
     {
         if (ix >= lx || iy >= ly || ix < 0 || iy < 0)
@@ -81,7 +81,7 @@ public sealed class BuildContext
         var materials = Materials.Where(p => used.Contains(p.Key)).ToDictionary(p => p.Key, p => p.Value);
         var metadata = new ModelMetadata(geometry)
         {
-            GridEnabled = B("grid.enabled"), GridDensity = T("grid.density"), SurfaceRadiation = Template.Info.SurfaceRadiation,
+            GridEnabled = B("grid.enabled"), GridDensity = T("grid.density"),
             SolderBallCount = SolderBallCount, SolderBallRepresentation = SolderBallRepresentation, FlipChipBumpCount = FlipChipBumpCount
         };
         return new(TemplateId, Name, metadata, catalogGroups, Blocks, materials, Sources,

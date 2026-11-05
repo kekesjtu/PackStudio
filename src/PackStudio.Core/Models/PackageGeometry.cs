@@ -22,8 +22,6 @@ public sealed record ModelMetadata([property: Newtonsoft.Json.JsonIgnore] Packag
     public string DieType => "actual_type";
     [Newtonsoft.Json.JsonProperty("native_grid_enabled")]
     public bool GridEnabled { get; init; }
-    [Newtonsoft.Json.JsonIgnore]
-    public bool SurfaceRadiation { get; init; }
     [Newtonsoft.Json.JsonProperty("native_grid_density")]
     public string GridDensity { get; init; } = "fine";
     [Newtonsoft.Json.JsonProperty("solder_ball_count")]

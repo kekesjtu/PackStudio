@@ -127,12 +127,14 @@ static class ProjectChecks
                 ];
                 var data = JObject.FromObject(document);
                 foreach (var material in ((JArray)data["CustomMaterials"]!).Take(3).Cast<JObject>()) material.Remove("ConductType");
+                foreach (var material in ((JArray)data["CustomMaterials"]!).Cast<JObject>()) material["Emissivity"] = 0.8;
                 File.WriteAllText(path, data.ToString());
                 var loaded = ProjectStore.Load(path, tests.Catalog);
                 Assert(loaded.CustomMaterials.Select(m => m.ConductType).SequenceEqual(new[] { 0, 1, 2, 0 }), "legacy material mapping or explicit type precedence changed");
                 Assert(loaded.CustomMaterials[1].ConductivityCoefficient == 0 && loaded.CustomMaterials[1].ReferenceTemperature == -20, "legacy temperature data lost");
                 ProjectStore.Save(loaded, path);
                 Assert(((JArray)JsonData.Read(path)["CustomMaterials"]!).All(m => m["ConductType"]?.Type == JTokenType.Integer), "save omitted explicit conductivity types");
+                Assert(((JArray)JsonData.Read(path)["CustomMaterials"]!).All(m => m["Emissivity"] == null), "obsolete emissivity persisted in saved materials");
                 foreach (JToken malformed in new JToken[] { JValue.CreateNull(), new JObject { ["Conductivity"] = JValue.CreateNull() } })
                 {
                     data["CustomMaterials"] = new JArray(malformed);

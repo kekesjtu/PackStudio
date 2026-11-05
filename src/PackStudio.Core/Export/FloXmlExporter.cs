@@ -46,12 +46,7 @@ public static class FloXmlExporter
         attributes.Add(sources);
         foreach (var s in model.Sources)
             sources.Add(new XElement("source_att", E("name", "power-" + s.BlockId), E("type", "total"), Number("power", s.Power)));
-        bool surface = model.Metadata.SurfaceRadiation;
-        if (surface)
-        {
-            attributes.Add(new XElement("surfaces", new XElement("surface_att", E("name", model.Name), Number("emissivity", 0.8))));
-            attributes.Add(new XElement("radiations", new XElement("radiation_att", E("name", model.TemplateId), E("surface", "subdivided_radiating"), Number("subdivided_surface_tolerance", model.Geometry.Grid.Length * 0.0001))));
-        }
+        attributes.Add(new XElement("surfaces"), new XElement("radiations"));
 
         var root = new XElement("xml_case", E("name", model.Name), attributes);
         var geometry = new XElement("geometry");
@@ -68,8 +63,6 @@ public static class FloXmlExporter
             foreach (var b in group)
             {
                 var item = new XElement("cuboid", E("name", b.Id), Vec("size", b.Size, 0.001), Vec("position", b.Origin, 0.001), E("material", b.MaterialId));
-                if (surface && b.ExposedSurface)
-                    item.Add(E("all_surface", model.Name), E("all_radiation", model.TemplateId));
                 item.Add(E("notes", JsonConvert.SerializeObject(new { name = b.Name, structure_type = b.StructureType })));
                 members.Add(item);
                 foreach (var s in model.Sources.Where(s => s.BlockId == b.Id))

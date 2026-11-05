@@ -6,7 +6,7 @@ public static class PbgaFcGenerator
     {
         double l = c.N("substrate.length"), w = c.N("substrate.width"), h = c.N("substrate.thickness"), baseZ = c.N("bga.height"), top = baseZ + h;
         double dl = c.N("die.length"), dw = c.N("die.width"), dz = top + c.N("bumps.height");
-        c.Center("substrate", "substrate", l, w, h, baseZ, "pbga-substrate", "substrate", exposedSurface: true);
+        c.Center("substrate", "substrate", l, w, h, baseZ, "pbga-substrate", "substrate");
         FlipChipBumps.Build(c, dl, dw, top);
         c.Center("die", "die", dl, dw, c.N("die.thickness"), dz, "silicon", "die");
         Covers.Build(c, dl, dw, top, dz + c.N("die.thickness"));

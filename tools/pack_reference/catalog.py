@@ -42,7 +42,6 @@ def material_record(raw: dict) -> dict:
         "group": raw["group"],
         "density_kg_m3": raw["density_kg_m3"],
         "specific_heat_j_kg_k": raw["specific_heat_j_kg_k"],
-        "emissivity": raw["emissivity"],
         "conductivity_w_m_k": raw["conductivity_w_m_k"],
         "conductivity_coefficient": raw["conductivity_coefficient"],
         "conductivity_reference_temperature": raw["conductivity_reference_temperature"],

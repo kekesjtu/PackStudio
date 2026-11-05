@@ -14,10 +14,10 @@ public static class Covers
         switch (c.T("cover.type"))
         {
             case "encapsulant":
-                c.Center("encapsulant", "encapsulant", c.N("cover.length"), c.N("cover.width"), c.B("cover.flush") ? dieTop - substrateTop : c.N("cover.thickness"), substrateTop, "epoxy-mold", "encapsulant", exposedSurface: true);
+                c.Center("encapsulant", "encapsulant", c.N("cover.length"), c.N("cover.width"), c.B("cover.flush") ? dieTop - substrateTop : c.N("cover.thickness"), substrateTop, "epoxy-mold", "encapsulant");
                 break;
             case "plate":
-                c.Center("thermal-plate", "heat_slug", c.N("plate.length"), c.N("plate.width"), c.N("plate.thickness"), dieTop, "aluminum", "plate", exposedSurface: true);
+                c.Center("thermal-plate", "heat_slug", c.N("plate.length"), c.N("plate.width"), c.N("plate.thickness"), dieTop, "aluminum", "plate");
                 c.Center("plate-die-attach", "thermal_interface", dl, dw, c.N("plate.die_attach"), dieTop, "flip-cap-grease", "plate-die-attach");
                 break;
             case "lid":
@@ -31,7 +31,7 @@ public static class Covers
                     iw = c.N("stiffener.cavity_width");
                 }
 
-                c.Center("lid", "lid", c.N("lid.length"), c.N("lid.width"), c.N("lid.thickness"), dieTop, "aluminum", "lid", exposedSurface: true);
+                c.Center("lid", "lid", c.N("lid.length"), c.N("lid.width"), c.N("lid.thickness"), dieTop, "aluminum", "lid");
                 c.Ring(stiff ? "stiffener" : "lid-wall", "lid", l, w, il, iw, substrateTop, dieTop - substrateTop, "aluminum", stiff ? "stiffener" : "lid");
                 c.Ring("lid-adhesive", "die_attach", l, w, il, iw, stiff ? dieTop : substrateTop, c.N("lid.adhesive"), "stiffener-adhesive", "lid-adhesive");
                 c.Center("lid-die-attach", "thermal_interface", dl, dw, c.N("lid.die_attach"), dieTop, "flip-cap-grease", "lid-die-attach");
