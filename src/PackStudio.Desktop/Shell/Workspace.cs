@@ -23,8 +23,14 @@ public sealed partial class Workspace : ObservableObject
     public HashSet<string> Hidden { get; } = [];
     public HashSet<string> Selected { get; } = [];
 
-    public string DesignName => Document.Name;
-    public void Rename(string value) { Document.Name = value; OnPropertyChanged(nameof(DesignName)); Dirty(); }
+    public string DesignName { get => Document.Name; set => Rename(value); }
+    public void Rename(string value)
+    {
+        if (Document.Name == value) return;
+        Document.Name = value;
+        OnPropertyChanged(nameof(DesignName));
+        Dirty();
+    }
 
     public event Action? ModelChanged;
     public event Action? DocumentChanged;

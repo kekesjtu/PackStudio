@@ -42,7 +42,7 @@ public static partial class InputValidator
             void Error(string code) => issues.Add(rules.Create(code, ValidationStage.Input, [path], field: field));
             if (value?.Type is null or JTokenType.Null)
             {
-                if (field["required"]?.Value<bool>() != false && type is ("number" or "integer" or "integer_spinbox" or "checkbox" or "object" or "table" or "removal_matrix" or "combobox" or "select" or "text"))
+                if (field["required"]?.Value<bool>() != false && type is ("number" or "integer" or "integer_spinbox" or "checkbox" or "object" or "table" or "removal_matrix" or "combobox" or "text"))
                     Error("input.required");
                 continue;
             }
@@ -57,7 +57,7 @@ public static partial class InputValidator
                     Error("input.range");
             }
             else if (type == "checkbox" && value.Type != JTokenType.Boolean) Error("input.type.boolean");
-            else if (type is "combobox" or "select" or "text" && value.Type != JTokenType.String)
+            else if (type is "combobox" or "text" && value.Type != JTokenType.String)
             { Error("input.type.string"); continue; }
             else if (type == "object")
             {

@@ -50,8 +50,7 @@ public sealed partial class ParameterPanel
     {
         if (path == "Name")
         {
-            var name = FieldsPanel.Children.OfType<FrameworkElement>().FirstOrDefault(v => v.DataContext is SummaryField { Editable: true });
-            if (name != null) Descendants(name).OfType<TextBox>().FirstOrDefault()?.Focus();
+            Descendants(FieldsPanel).OfType<TextBox>().FirstOrDefault()?.Focus();
             return;
         }
         if (Find(path) is not { } field) return;

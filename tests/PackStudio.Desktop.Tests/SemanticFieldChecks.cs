@@ -26,24 +26,19 @@ static class SemanticFieldChecks
         steps.SelectedValue = "summary";
         window.UpdateLayout();
         var rows = panel.Children.OfType<Grid>().Where(r => r.Visibility == Visibility.Visible).ToList();
-        if (rows.Any(r => r.DataContext is not SummaryField)) throw new Exception("summary bypasses declared fields");
-        var name = rows.Single(r => r.DataContext is SummaryField { Editable: true }).Children.OfType<TextBox>().Single();
+        if (rows.Count != 2 || !rows.Select(r => r.Children.OfType<TextBlock>().First().Text).SequenceEqual(new[] { "设计名称", "封装类型" }))
+            throw new Exception("summary must show only design name and package type");
+        var name = rows[0].Children.OfType<TextBox>().Single();
+        if (name.Text != workspace.DesignName || name.MaxLength != 160)
+            throw new Exception("summary name or length limit is incorrect");
+        if (rows[1].Children.OfType<TextBlock>().Last().Text != workspace.Template.Info.Name)
+            throw new Exception("summary package type is incorrect");
         string original = workspace.DesignName;
+        long revision = workspace.Revision;
         name.Text = "概要编辑名称";
-        if (workspace.DesignName != name.Text) throw new Exception("summary name binding did not update document");
-        name.Text = original;
-
-        var definitions = workspace.Template.Steps.Single(s => s["key"].Text() == "summary")["fields"]!;
-        var powerDefinition = definitions.Single(f => f["parameter"].Text() == "die.power");
-        var powerSummary = new SummaryField(workspace, form, powerDefinition);
-        var power = form.Fields.Single(f => f.Key == "die.power");
-        string saved = power.TextValue;
-        int changes = 0;
-        powerSummary.PropertyChanged += (_, e) => { if (e.PropertyName == nameof(SummaryField.Text)) changes++; };
-        power.TextValue = "7.25";
-        if (powerSummary.Text != "7.25 W" || changes == 0) throw new Exception("summary format or source binding failed");
-        power.TextValue = saved;
-        var layers = rows.Select(r => (SummaryField)r.DataContext).Any(f => f.Label == "基板层数");
-        if (layers != workspace.Document.Values.ContainsKey("substrate.layers")) throw new Exception("summary empty-source visibility failed");
+        if (workspace.DesignName != name.Text || workspace.Revision != revision + 1 || !window.Title.StartsWith(name.Text))
+            throw new Exception("summary name edit did not update document and title once");
+        workspace.Rename(original);
+        if (name.Text != original) throw new Exception("summary name did not follow document rename");
     }
 }
