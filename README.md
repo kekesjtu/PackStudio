@@ -43,7 +43,7 @@ dotnet publish src/PackStudio.Desktop -c Release -r win-x64 --self-contained -o 
 
 ## 文档
 
-[产品需求](docs/requirements.md) · [原生桌面架构](docs/decisions/PTA技术栈与原生桌面架构.md) · [开发与研究工具](tools/README.md) · [运行数据](runtime_data/README.md) · [模型 XML 契约](output_format/packstudio/README.md) · [FloSCRIPT](FLOSCRIPT.md) · [PACK 扫参](tools/pack_sweep/README.md)
+[产品需求](docs/requirements.md) · [数据流与架构](docs/architecture.md) · [原生桌面架构](docs/decisions/PTA技术栈与原生桌面架构.md) · [开发与研究工具](tools/README.md) · [运行数据](runtime_data/README.md) · [模型 XML 契约](output_format/packstudio/README.md) · [FloSCRIPT](FLOSCRIPT.md) · [PACK 扫参](tools/pack_sweep/README.md)
 
 | 决策 | 范围 |
 | --- | --- |
