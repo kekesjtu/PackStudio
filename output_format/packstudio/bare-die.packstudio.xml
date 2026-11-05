@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<model version="1" name="Bare Die">
+  <materials>
+    <material id="m1" name="Silicon (Pure)" type="temperature_dependent">
+      <density>2330</density>
+      <specific_heat>700</specific_heat>
+      <conductivity x="117.5" y="117.5" z="117.5"/>
+      <coefficient>-0.42</coefficient>
+      <reference_temperature>373.15</reference_temperature>
+    </material>
+  </materials>
+  <sources>
+    <source block="die-part-1" power="2"/>
+  </sources>
+  <group id="g1" name="Die">
+    <block id="die-part-1" name="die" x="-0.00245" y="-0.00245" z="0" dx="0.0049" dy="0.0049" dz="0.00022"/>
+    <material>m1</material>
+  </group>
+</model>

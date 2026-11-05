@@ -118,7 +118,7 @@ public static class Program
                     vm.ChangeVisibility(vm.Model.Blocks.Select(b => b.Id), false);
                     if (viewport.Children.Count != 1)
                         throw new Exception("hidden blocks remain in preview");
-                    if (FloXmlExporter.Export(vm.Result!).Descendants("cuboid").Count() != vm.Model.Blocks.Count)
+                    if (ModelXmlExporter.Export(vm.Result!).Descendants("block").Count() != vm.Model.Blocks.Count)
                         throw new Exception("visibility changed export");
                     vm.ChangeVisibility(vm.Model.Blocks.Select(b => b.Id), true);
                     var materials = new MaterialWindow(vm)

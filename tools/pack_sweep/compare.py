@@ -3,7 +3,7 @@
 from math import isclose
 from xml.etree import ElementTree as ET
 
-from tools.dotnet_core import export_floxml
+from tools.dotnet_core import export_model
 from tools.pack_sweep.decisions import decision_geometry
 from tools.pack_sweep.geometry import geometry_index
 
@@ -21,7 +21,7 @@ def compare_model(native_path, request):
 def compare_native(native, request):
     family = request["template_id"]
     native = decision_geometry(native, family)
-    actual = ET.fromstring(export_floxml(request))
+    actual = ET.fromstring(export_model(request))
     expected_shapes, actual_shapes = geometry_index(native), geometry_index(actual)
     if expected_shapes.keys() != actual_shapes.keys():
         raise ValueError(
@@ -55,26 +55,17 @@ def compare_native(native, request):
             remaining.remove(match)
         if remaining:
             raise ValueError(f"{family}: cuboid multiplicity differs at {shape}")
-    for tag in ("region", "monitor_point", "grid_constraint_att"):
-        expected = {e.findtext("name"): e for e in native.findall(".//" + tag)}
-        generated = {e.findtext("name"): e for e in actual.findall(".//" + tag)}
-        if expected.keys() != generated.keys():
-            raise ValueError(f"{family}: {tag} names differ")
-        for name, old in expected.items():
-            for left, right in zip(old.iter(), generated[name].iter(), strict=True):
-                if left.tag != right.tag:
-                    raise ValueError(f"{family}: {tag} structure differs")
-                if left.text and left.text.strip():
-                    try:
-                        equal = isclose(float(left.text), float(right.text), abs_tol=1e-12)
-                    except ValueError:
-                        equal = left.text == right.text
-                    if not equal:
-                        raise ValueError(f"{family}: {tag} {name}/{left.tag} differs")
-    if native.findtext("localized_grid") != actual.findtext("localized_grid"):
-        raise ValueError(f"{family}: localized grid differs")
-
     def laws(root):
+        if root.tag == "model":
+            return sorted(
+                (
+                    float(e.find("conductivity").attrib["x"]),
+                    float(e.findtext("coefficient")),
+                    float(e.findtext("reference_temperature")),
+                )
+                for e in root.findall("materials/material")
+                if e.attrib["type"] == "temperature_dependent"
+            )
         return sorted(
             tuple(float(e.findtext(k)) for k in ("conductivity", "coeff", "tref"))
             for e in root.findall("attributes/materials/temperature_dependant_material_att")
@@ -87,16 +78,15 @@ def compare_native(native, request):
     power = sum(float(s.findtext("power")) for s in native.findall("attributes/sources/source_att"))
     if not isclose(
         power,
-        sum(float(s.findtext("power")) for s in actual.findall("attributes/sources/source_att")),
+        sum(float(s.attrib["power"]) for s in actual.findall("sources/source")),
         abs_tol=1e-10,
     ):
         raise ValueError(f"{family}: total power differs")
     return {
         "geometry": "passed",
         "materials": "passed",
-        "auxiliary": "passed",
         "power": "passed",
-        "blocks": len(actual.findall(".//cuboid")),
+        "blocks": len(actual.findall("group/block")),
         "decision_policy": family,
         "material_exceptions": sorted(exceptions),
     }

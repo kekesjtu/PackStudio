@@ -8,6 +8,7 @@ import pytest
 
 from tools.pack_sweep.archive import archive_tree
 from tools.pack_sweep.catalog import Point, initial_points
+from tools.pack_sweep.compare import compare_native
 from tools.pack_sweep.publish import publish
 from tools.pack_sweep.rebuild import execute_points
 from tools.pack_sweep.screenshots import preserve_screenshots
@@ -30,6 +31,41 @@ def test_factory_emits_unique_points_and_flat_layout_overrides():
                 key.startswith(point.template + ".")
                 for key in point.request.get("overrides", {})
             )
+
+
+def test_comparison_matches_product_physics_without_native_controls(monkeypatch):
+    native = ET.fromstring("""<xml_case><attributes><materials>
+      <temperature_dependant_material_att><name>native-silicon</name>
+        <density>2330</density><specific_heat>700</specific_heat><conductivity>117.5</conductivity>
+        <coeff>-0.42</coeff><tref>373.15</tref>
+      </temperature_dependant_material_att></materials><sources><source_att>
+        <name>heat</name><power>2</power></source_att></sources>
+      <grid_constraints><grid_constraint_att><name>grid</name></grid_constraint_att></grid_constraints>
+      </attributes><geometry><cuboid><name>die</name><material>native-silicon</material>
+        <position><x>-0.001</x><y>-0.002</y><z>0</z></position>
+        <size><x>0.002</x><y>0.004</y><z>0.0002</z></size></cuboid>
+        <monitor_point><name>junction</name></monitor_point></geometry></xml_case>""")
+    product = """<model version="1"><materials>
+      <material id="m1" type="temperature_dependent"><density>2330</density>
+        <specific_heat>700</specific_heat><conductivity x="117.5" y="117.5" z="117.5"/>
+        <coefficient>-0.42</coefficient><reference_temperature>373.15</reference_temperature>
+      </material></materials><sources><source block="b1" power="2"/></sources>
+      <group><block id="b1" x="-0.001" y="-0.002" z="0" dx="0.002" dy="0.004" dz="0.0002"/>
+        <material>m1</material></group></model>"""
+    monkeypatch.setattr("tools.pack_sweep.compare.export_model", lambda request: product)
+    result = compare_native(native, {"template_id": "bare_die"})
+    assert result["blocks"] == 1
+    assert result["geometry"] == result["materials"] == result["power"] == "passed"
+    assert "auxiliary" not in result
+    for old, new in [
+        ('dx="0.002"', 'dx="0.003"'), ('power="2"', 'power="3"'), ('x="117.5"', 'x="120"'),
+    ]:
+        monkeypatch.setattr(
+            "tools.pack_sweep.compare.export_model",
+            lambda request, a=old, b=new: product.replace(a, b),
+        )
+        with pytest.raises(ValueError, match="differs|mismatch"):
+            compare_native(native, {"template_id": "bare_die"})
 
 
 @pytest.mark.parametrize("identifier", ["../escape", "/absolute", "..", "a/b", "a\\b"])

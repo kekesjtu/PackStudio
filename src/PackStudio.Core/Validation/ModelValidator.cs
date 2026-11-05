@@ -29,9 +29,6 @@ public static class ModelValidator
                 Error("model.source", source.BlockId);
         if (expectedPower.HasValue && Math.Abs(model.Sources.Sum(s => s.Power) - expectedPower.Value) > 1e-8 * Math.Max(1, Math.Abs(expectedPower.Value)))
             Error("model.power");
-        foreach (var auxiliary in model.Auxiliary)
-            if (auxiliary.Origin.Components.Any(v => !double.IsFinite(v)) || auxiliary.Size?.Components.Any(v => !double.IsFinite(v) || v <= 0) == true)
-                Error("model.auxiliary", auxiliary.Name);
         if (!issues.Any(i => i.Code is "model.geometry" or "model.id" or "model.empty"))
         {
             var overlapRule = rules.Checks.FirstOrDefault(c => c["stage"].Text() == "model" && c["check"].Text() == "overlap");

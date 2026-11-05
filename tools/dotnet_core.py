@@ -27,7 +27,7 @@ def invoke(command, request):
     directory.mkdir(parents=True, exist_ok=True)
     with tempfile.TemporaryDirectory(dir=directory) as temporary:
         work = Path(temporary)
-        source, output = work / "request.json", work / "model.floxml"
+        source, output = work / "request.json", work / "model.packstudio.xml"
         source.write_text(json.dumps(request, ensure_ascii=False), encoding="utf-8")
         try:
             result = subprocess.run(
@@ -46,7 +46,7 @@ def invoke(command, request):
         return output.read_bytes() if command == "generate" else json.loads(result.stdout)
 
 
-def export_floxml(request):
+def export_model(request):
     return invoke("generate", request)
 
 

@@ -138,15 +138,15 @@ public partial class MainWindow : Window
             return;
         var dialog = new SaveFileDialog
         {
-            Filter = "FloTHERM FloXML|*.floxml",
-            FileName = SafeName(workspace.Document.Name) + ".floxml"
+            Filter = "PackStudio XML|*.packstudio.xml",
+            FileName = SafeName(workspace.Document.Name) + ".packstudio.xml"
         };
         if (dialog.ShowDialog(this) != true)
             return;
         try
         {
-            FloXmlExporter.Save(workspace.Result, dialog.FileName, System.IO.Path.Combine(AppContext.BaseDirectory, "schemas", "xmlSchema.xsd"));
-            workspace.Status = "FloXML 已导出：" + dialog.FileName;
+            ModelXmlExporter.Save(workspace.Result, dialog.FileName);
+            workspace.Status = "模型 XML 已导出：" + dialog.FileName;
         }
         catch (Exception ex)
         {

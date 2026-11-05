@@ -1,9 +1,11 @@
-"""Index FloXML cuboids by geometry and physical material properties."""
+"""Index native FloXML and PackStudio XML by geometry and material properties."""
 
 from collections import defaultdict
 
 
 def geometry_index(root):
+    if root.tag == "model":
+        return model_geometry_index(root)
     materials = {}
     for item in root.findall("attributes/materials/*"):
         scalar = item.findtext("conductivity")
@@ -39,4 +41,27 @@ def geometry_index(root):
                 groups[key].append((item.findtext("name"), materials.get(material)))
 
     visit(root.find("geometry"))
+    return groups
+
+
+def model_geometry_index(root):
+    if root.attrib.get("version") != "1":
+        raise ValueError("unsupported PackStudio XML version")
+    materials = {
+        item.attrib["id"]: (
+            *(float(item.find("conductivity").attrib[axis]) for axis in "xyz"),
+            float(item.findtext("density")),
+            float(item.findtext("specific_heat")),
+        )
+        for item in root.findall("materials/material")
+    }
+    groups = defaultdict(list)
+    for group in root.findall("group"):
+        material = materials[group.findtext("material")]
+        for block in group.findall("block"):
+            key = tuple(
+                round(float(block.attrib[key]) * 1000, 8)
+                for key in ("x", "y", "z", "dx", "dy", "dz")
+            )
+            groups[key].append((block.attrib["id"], material))
     return groups

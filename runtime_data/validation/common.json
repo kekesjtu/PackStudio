@@ -212,13 +212,6 @@
       "message": "模型总功率与输入功率不一致。"
     },
     {
-      "id": "model.auxiliary",
-      "stage": "model",
-      "check": "builtin",
-      "severity": "error",
-      "message": "辅助实体 {entity} 的位置或尺寸无效。"
-    },
-    {
       "id": "input.via.pitch",
       "stage": "input",
       "check": "via_pitch",

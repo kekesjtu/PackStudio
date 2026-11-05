@@ -1,15 +1,8 @@
 # 输出格式
 
-PackStudio 输出 FloXML。格式契约、五份厂商 XSD 与 Bare Die 示例均在
-[floxml/](floxml/README.md)。
+产品输出使用 [PackStudio XML](packstudio/README.md)，文件扩展名为 `.packstudio.xml`。
+格式只包含轴对齐长方体块、已计算材料物性和按块关联的体热源。
 
-```text
-output_format/
-├── README.md
-└── floxml/
-    ├── README.md
-    ├── bare-die.floxml
-    └── *.xsd
-```
+输出范围见 [PackStudio XML 输出决策](../docs/decisions/仅保留PackStudioXML输出.md)。
 
-输出范围决策见 [FloXML 输出决策](../docs/decisions/仅保留FloXML输出.md)。
+[floxml/](floxml/README.md)中的厂商 XSD 和示例只供原生 PACK 研究工具使用，不随产品分发。

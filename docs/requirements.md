@@ -41,7 +41,7 @@
 
 ## 4. 输出格式
 
-输出格式为 FloXML。
+输出使用自定义 PackStudio XML，仅包含轴对齐长方体块、已计算材料物性和按块关联的体热源。内部网格参数保留，输出不包含网格、辐射、非物理区域或监视点。格式契约见 [PackStudio XML](../output_format/packstudio/README.md)。
 
 ## 5. 用户操作流程
 

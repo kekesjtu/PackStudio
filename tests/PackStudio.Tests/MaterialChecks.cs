@@ -118,13 +118,21 @@ static class MaterialChecks
                 Assert(orthotropic.Category == "Test", "material group not mapped");
                 var blocks = library.Items.Values.Select((material, index) => new Block(material.Id, material.Name, "die", new(index * 2, 0, 0), new(1, 1, 1), material.Id, "group-die", "Die"));
                 var model = new PackageModel("bare_die", "test", new ModelMetadata(new PackageGeometry(new(1, 1), new(1, 1), new(1, 1), new(1, 1), 1, false)), tests.Catalog.Groups,
-                    blocks, library.Items, [], []);
+                    blocks, library.Items, []);
                 var exported = tests.Export(model);
-                Assert(exported.Descendants("isotropic_material_att").Single().Element("name")!.Value == constant.Id, "constant material exported as temperature dependent");
-                var temperatureXml = exported.Descendants("temperature_dependant_material_att").Single();
-                Near(double.Parse(temperatureXml.Element("coeff")!.Value, System.Globalization.CultureInfo.InvariantCulture), -0.42, "signed temperature coefficient");
-                Near(double.Parse(temperatureXml.Element("tref")!.Value, System.Globalization.CultureInfo.InvariantCulture), 253.15, "reference temperature conversion");
-                Assert(exported.Descendants("orthotropic_material_att").Single().Element("name")!.Value == orthotropic.Id, "orthotropic material export lost");
+                var definitions = exported.Root!.Element("materials")!.Elements("material").ToArray();
+                Assert((string?)definitions.Single(m => (string?)m.Attribute("name") == constant.Name).Attribute("type") == "isotropic", "constant material exported as temperature dependent");
+                var temperatureXml = definitions.Single(m => (string?)m.Attribute("type") == "temperature_dependent");
+                Near((double)temperatureXml.Element("coefficient")!, -0.42, "signed temperature coefficient");
+                Near((double)temperatureXml.Element("reference_temperature")!, 253.15, "reference temperature conversion");
+                Assert((string?)definitions.Single(m => (string?)m.Attribute("name") == orthotropic.Name).Attribute("type") == "orthotropic", "orthotropic material export lost");
+                Assert(exported.Root.Elements("group").Count() == 3, "mixed-material internal group was not split");
+                foreach (var group in exported.Root.Elements("group"))
+                {
+                    var block = group.Element("block")!;
+                    var definition = definitions.Single(m => (string?)m.Attribute("id") == group.Element("material")!.Value);
+                    Assert((string?)definition.Attribute("name") == (string?)block.Attribute("name"), "split group referenced the wrong material");
+                }
             }
             finally { Directory.Delete(directory, true); }
         });

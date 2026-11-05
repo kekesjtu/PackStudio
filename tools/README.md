@@ -14,10 +14,10 @@ dotnet run --project tests/PackStudio.Desktop.Tests -c Release --no-build -- con
 ```powershell
 .\build.ps1 -Target Cli
 dotnet src/PackStudio.Cli/bin/Release/net10.0/PackStudio.Cli.dll catalog
-dotnet src/PackStudio.Cli/bin/Release/net10.0/PackStudio.Cli.dll generate request.json model.floxml
+dotnet src/PackStudio.Cli/bin/Release/net10.0/PackStudio.Cli.dll generate request.json model.packstudio.xml
 ```
 
-请求可使用保存的 `.packstudio.json` 方案，或包含 `template_id`、`overrides` 与 `material_assignments` 的扫参输入；布局覆盖使用 `overrides["<family>.bga.<字段>"]`。输出通过 FloXML XSD 验证。请求协议由 CLI 适配器解释，Core 接收规范化领域参数；对象字段以完整 JSON 对象覆盖，不支持点号展开的嵌套叶路径。
+请求可使用保存的 `.packstudio.json` 方案，或包含 `template_id`、`overrides` 与 `material_assignments` 的扫参输入；布局覆盖使用 `overrides["<family>.bga.<字段>"]`。输出使用自包含的 [PackStudio XML](../output_format/packstudio/README.md)，仅含矩形块、材料和热源；原生 FloXML XSD 只供独立研究工具使用。请求协议由 CLI 适配器解释，Core 接收规范化领域参数；对象字段以完整 JSON 对象覆盖，不支持点号展开的嵌套叶路径。
 
 ## 独立研究工具
 

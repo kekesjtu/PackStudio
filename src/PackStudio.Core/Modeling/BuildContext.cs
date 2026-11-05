@@ -84,7 +84,6 @@ public sealed class BuildContext
             GridEnabled = B("grid.enabled"), GridDensity = T("grid.density"),
             SolderBallCount = SolderBallCount, SolderBallRepresentation = SolderBallRepresentation, FlipChipBumpCount = FlipChipBumpCount
         };
-        return new(TemplateId, Name, metadata, catalogGroups, Blocks, materials, Sources,
-            AuxiliaryGeometry.Build(TemplateId, Blocks, geometry));
+        return new(TemplateId, Name, metadata, catalogGroups, Blocks, materials, Sources);
     }
 }

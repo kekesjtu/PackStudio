@@ -31,7 +31,7 @@ sealed class TestSuite(string root, HashSet<string> suites)
     }
 
     public GenerationResult Result(PackageModel model) => new(model, ModelValidator.Validate(model, Catalog.LoadValidation(model.TemplateId)));
-    public XDocument Export(PackageModel model) => FloXmlExporter.Export(Result(model));
+    public XDocument Export(PackageModel model) => ModelXmlExporter.Export(Result(model));
 
     public void Case(string suite, string name, Action run)
     {

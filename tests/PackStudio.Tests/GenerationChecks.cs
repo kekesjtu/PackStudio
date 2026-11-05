@@ -100,7 +100,7 @@ static class GenerationChecks
             var result = tests.Result(model);
             Assert(result.HasErrors && result.CanPreview && !result.CanExport, "source error did not preserve safe geometry preview");
             Assert(result.Issues.Any(i => i.Code == "model.source" && i.EntityIds.Contains("a")), "source issue has no entity target");
-            Reject(() => FloXmlExporter.Export(result));
+            Reject(() => ModelXmlExporter.Export(result));
             Assert(model.Sources.Single().Power == -1, "model validation repaired a source");
         });
 
@@ -140,7 +140,7 @@ static class GenerationChecks
             Assert(overlap.Stage == ValidationStage.Model && overlap.Severity == IssueSeverity.Warning &&
                 overlap.EntityIds.ToHashSet().SetEquals(new[] { "a", "b" }), "overlap did not identify the block pair");
             Assert(first.CanPreview && first.CanExport && !first.HasErrors, "overlap warning blocked output");
-            Assert(FloXmlExporter.Export(first).Descendants("cuboid").Count() == 2, "warning model did not export");
+            Assert(ModelXmlExporter.Export(first).Descendants("block").Count() == 2, "warning model did not export");
             Assert(second.Issues.Count == first.Issues.Count && model.Blocks.SequenceEqual(blocks), "validation changed model state or accumulated issues");
             blocks.Clear();
             Assert(model.Blocks.Count == 2, "published model retained a mutable construction collection");
@@ -159,9 +159,8 @@ static class GenerationChecks
                 ConductivityCoefficient: double.PositiveInfinity, ReferenceTemperature: double.NaN, ConductType: 2));
             var result = tests.GenerateResult(document);
             Assert(result.CanExport, string.Join(" ", result.Issues.Select(i => i.Message)));
-            var xml = FloXmlExporter.Export(result);
-            Assert(xml.Descendants("orthotropic_material_att").Single().Element("name")!.Value == "silicon", "equal axes overrode the explicit orthotropic type");
-            Assert(!xml.Descendants("isotropic_material_att").Any(), "orthotropic material was inferred as isotropic");
+            var xml = ModelXmlExporter.Export(result);
+            Assert((string?)xml.Root!.Element("materials")!.Element("material")!.Attribute("type") == "orthotropic", "equal axes overrode the explicit orthotropic type");
         });
 
         tests.Case("generation", "isotropic modeling ignores inactive directional storage", () =>
@@ -189,5 +188,5 @@ static class GenerationChecks
 
     static PackageModel Model(TestSuite tests, IEnumerable<Block>? blocks = null, IEnumerable<HeatSource>? sources = null)
         => new("bare_die", "validation", new(new(new(2, 2), new(2, 2), new(2, 2), new(2, 2), 1, false)), tests.Catalog.Groups,
-            blocks ?? [Cube("a", new(0, 0, 0))], new Dictionary<string, Material> { ["silicon"] = tests.Catalog.Materials.Items["silicon"] }, sources ?? [], []);
+            blocks ?? [Cube("a", new(0, 0, 0))], new Dictionary<string, Material> { ["silicon"] = tests.Catalog.Materials.Items["silicon"] }, sources ?? []);
 }

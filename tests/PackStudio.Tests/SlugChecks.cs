@@ -36,22 +36,22 @@ static class SlugChecks
                 }
             });
 
-            tests.Case("slug", family + " FloXML substrate-to-foot contact", () =>
+            tests.Case("slug", family + " XML substrate-to-foot contact", () =>
             {
                 var xml = tests.Export(tests.Generate(Create(tests, family)));
-                var blocks = xml.Descendants("cuboid").ToDictionary(b => (string)b.Element("name")!);
+                var blocks = xml.Descendants("block").ToDictionary(b => (string)b.Attribute("id")!);
                 foreach (string side in new[] { "left", "right", "upper", "lower" })
                 {
                     var glue = blocks[$"slug-adhesive-{side}-part-1"];
                     var foot = blocks[$"slug-foot-{side}-part-1"];
                     var wall = blocks[$"slug-v-{side}-part-1"];
-                    double bottom = (double)glue.Element("position")!.Element("z")! * 1000;
-                    double height = (double)glue.Element("size")!.Element("z")! * 1000;
+                    double bottom = (double)glue.Attribute("z")! * 1000;
+                    double height = (double)glue.Attribute("dz")! * 1000;
                     Near(bottom, 1.55, "exported adhesive bottom");
                     Near(height, 0.1, "exported adhesive thickness");
-                    Near((double)foot.Element("position")!.Element("z")! * 1000, bottom + height, "exported foot contact");
-                    Near((double)wall.Element("position")!.Element("z")! * 1000, bottom + height, "exported wall bottom");
-                    Near((double)wall.Element("size")!.Element("z")! * 1000, 0.6, "exported wall height");
+                    Near((double)foot.Attribute("z")! * 1000, bottom + height, "exported foot contact");
+                    Near((double)wall.Attribute("z")! * 1000, bottom + height, "exported wall bottom");
+                    Near((double)wall.Attribute("dz")! * 1000, 0.6, "exported wall height");
                 }
             });
         }

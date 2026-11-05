@@ -55,4 +55,4 @@ DES 回读、FloSCRIPT、FloXML、版本、哈希和 XSD 检查结果。
 - 改变 Depth 时，该层及其断开区等量平移。
 - 每个勾选 Disconnect to Via 的内层，铜层和断开区的上下表面均对齐。
 - 离散、正交及各向同性通孔表达使用相同的内层铜定位规则。
-- 默认 $t_n=2t_{\rm top}$ 案例符合相同公式，FloXML 坐标与生成模型一致。
+- 默认 $t_n=2t_{\rm top}$ 案例符合相同公式，PackStudio XML 坐标与生成模型一致。

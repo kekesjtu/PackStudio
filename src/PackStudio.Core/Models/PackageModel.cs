@@ -18,14 +18,13 @@ public record HeatSource(string BlockId, double Power);
 
 public sealed class PackageModel(string templateId, string name, ModelMetadata metadata,
     IReadOnlyDictionary<string, ModelGroup> groups, IEnumerable<Block> blocks,
-    IReadOnlyDictionary<string, Material> materials, IEnumerable<HeatSource> sources, IEnumerable<Auxiliary> auxiliary)
+    IReadOnlyDictionary<string, Material> materials, IEnumerable<HeatSource> sources)
 {
     public string TemplateId { get; } = templateId;
     public string Name { get; } = name;
     public IReadOnlyList<Block> Blocks { get; } = Array.AsReadOnly(blocks.ToArray());
     public IReadOnlyDictionary<string, Material> Materials { get; } = new ReadOnlyDictionary<string, Material>(new Dictionary<string, Material>(materials));
     public IReadOnlyList<HeatSource> Sources { get; } = Array.AsReadOnly(sources.ToArray());
-    public IReadOnlyList<Auxiliary> Auxiliary { get; } = Array.AsReadOnly(auxiliary.ToArray());
     public ModelMetadata Metadata { get; } = metadata;
     public IReadOnlyDictionary<string, ModelGroup> Groups { get; } = new ReadOnlyDictionary<string, ModelGroup>(new Dictionary<string, ModelGroup>(groups));
     public PackageGeometry Geometry => Metadata.Geometry;

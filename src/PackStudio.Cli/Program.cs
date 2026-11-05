@@ -8,7 +8,7 @@ try
     string root = Directory.GetCurrentDirectory();
     var catalog = new RuntimeDataCatalog(Path.Combine(root, "runtime_data"));
     if (args.Length == 0)
-        throw new ArgumentException("用法：catalog | values request.json | generate request.json output.floxml");
+        throw new ArgumentException("用法：catalog | values request.json | generate request.json output.packstudio.xml");
     if (args[0] == "catalog")
     {
         Console.WriteLine(JsonConvert.SerializeObject(catalog.Families.Select(f => new { id = f.Id, name = f.Name, presets = catalog.Load(f.Id).Presets.Select(p => p.Name) })));
@@ -32,7 +32,7 @@ try
         warnings = result.Issues.Where(i => i.Severity == IssueSeverity.Warning).Select(i => i.Message), can_preview = result.CanPreview, can_export = result.CanExport },
         new Newtonsoft.Json.Converters.StringEnumConverter()));
     if (!result.CanExport) return 2;
-    FloXmlExporter.Save(result, args[2], Path.Combine(root, "output_format/floxml/xmlSchema.xsd"));
+    ModelXmlExporter.Save(result, args[2]);
     return 0;
 }
 catch (Exception ex)

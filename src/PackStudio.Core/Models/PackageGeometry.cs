@@ -1,6 +1,5 @@
 namespace PackStudio.Core;
 
-public sealed record Auxiliary(string Kind, string Name, Vector Origin, Vector? Size = null);
 public sealed record Footprint(double Length, double Width);
 public sealed record PackageGeometry(Footprint Outline, Footprint Grid, Footprint Bottom, Footprint Top, double Height, bool FlippedDie);
 

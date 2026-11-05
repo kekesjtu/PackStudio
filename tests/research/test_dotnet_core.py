@@ -93,7 +93,7 @@ def test_footprint_override_selects_preset(cli):
 
 
 def test_batch_request_initializes_four_layer_geometry(cli):
-    model = cli.export_floxml({
+    model = cli.export_model({
         "template_id": "chip_array",
         "overrides": {
             "chip_array.trace.solid_thickness": 0.05,
@@ -101,7 +101,7 @@ def test_batch_request_initializes_four_layer_geometry(cli):
             "chip_array.substrate.layers": "4-Layer",
         },
     })
-    assert ET.fromstring(model).find("geometry") is not None
+    assert ET.fromstring(model).find("group/block") is not None
 
 
 def test_creation_preserves_invalid_input_until_generation(cli):
@@ -118,7 +118,7 @@ def test_creation_preserves_invalid_input_until_generation(cli):
     assert values["die.width"] == 0
     assert values["bumps.enabled"] is False
     with pytest.raises(RuntimeError, match="input.required"):
-        cli.export_floxml(request)
+        cli.export_model(request)
 
 
 def test_material_request_migrates_legacy_type_and_respects_explicit_type(cli):
@@ -127,19 +127,24 @@ def test_material_request_migrates_legacy_type_and_respects_explicit_type(cli):
         "conductivity": {"x": 12, "y": 12, "z": 12},
         "density": 2000, "specific_heat": 700,
     }
-    for conductivity_type, expected_tag in [
-        (None, "isotropic_material_att"),
-        (2, "orthotropic_material_att"),
-        (1, "temperature_dependant_material_att"),
+    for conductivity_type, expected_type in [
+        (None, "isotropic"),
+        (2, "orthotropic"),
+        (1, "temperature_dependent"),
     ]:
         submitted = dict(material)
         if conductivity_type is not None:
             submitted["conduct_type"] = conductivity_type
         if conductivity_type == 1:
             submitted.update(conductivity_coefficient=0, conductivity_reference_temperature_c=-20)
-        model = cli.export_floxml({"template_id": "bare_die", "custom_materials": [submitted]})
-        assert ET.fromstring(model).find(f"attributes/materials/{expected_tag}/name").text == "silicon"
+        model = cli.export_model({"template_id": "bare_die", "custom_materials": [submitted]})
+        definition = ET.fromstring(model).find("materials/material")
+        assert definition.attrib["type"] == expected_type
+        assert definition.attrib["name"] == "Custom silicon"
+        assert definition.attrib["id"] != "silicon"
     with pytest.raises(RuntimeError, match="conduct_type"):
-        cli.export_floxml({"template_id": "bare_die", "custom_materials": [dict(material, conduct_type=0.5)]})
+        cli.export_model({
+            "template_id": "bare_die", "custom_materials": [dict(material, conduct_type=0.5)],
+        })
     with pytest.raises(RuntimeError, match="material_assignments"):
         cli.resolve_values({"template_id": "bare_die", "material_assignments": {"group-die": None}})
