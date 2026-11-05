@@ -1,11 +1,614 @@
 {
   "schema_version": "packstudio.validation/v1",
   "checks": [
-    { "id": "input.bga.pitch", "stage": "input", "check": "solder_ball_pitch", "severity": "error", "message": "焊球直径不能大于节距。" },
-    { "id": "input.via.dimensions", "stage": "input", "check": "via_dimensions", "severity": "error" },
-    { "id": "input.metal.layers", "stage": "input", "check": "metal_layers", "severity": "error", "message": "金属层必须位于基板内。" },
-    { "id": "input.sop.leads", "stage": "input", "check": "sop_lead_count", "severity": "error", "message": "SOP 引脚数量必须为偶数。" },
-    { "id": "input.bga.layout", "stage": "input", "check": "array_layout", "severity": "error", "message": "显式去球及 Ball Map 需要离散建模。" },
-    { "id": "model.overlap", "stage": "model", "check": "overlap", "severity": "warning", "message": "矩形块存在正体积重叠。" }
-  ]
+    {
+      "id": "input.bga.pitch",
+      "stage": "input",
+      "check": "solder_ball_pitch",
+      "severity": "error",
+      "message": "焊球直径不能大于节距。"
+    },
+    {
+      "id": "input.metal.layers",
+      "stage": "input",
+      "check": "metal_layers",
+      "severity": "error",
+      "message": "金属层必须位于基板内。"
+    },
+    {
+      "id": "input.bga.layout",
+      "stage": "input",
+      "check": "array_layout",
+      "severity": "error",
+      "message": "显式去球及 Ball Map 需要离散建模。"
+    },
+    {
+      "id": "model.overlap",
+      "stage": "model",
+      "check": "overlap",
+      "severity": "warning",
+      "message": "矩形块存在正体积重叠。"
+    },
+    {
+      "id": "input.name",
+      "stage": "input",
+      "check": "builtin",
+      "severity": "error",
+      "message": "设计名称不能为空且最多 160 个字符。"
+    },
+    {
+      "id": "input.template",
+      "stage": "input",
+      "check": "builtin",
+      "severity": "error",
+      "message": "方案与封装定义不匹配。"
+    },
+    {
+      "id": "input.required",
+      "stage": "input",
+      "check": "builtin",
+      "severity": "error",
+      "message": "{path}：需要填写参数。"
+    },
+    {
+      "id": "input.type.number",
+      "stage": "input",
+      "check": "builtin",
+      "severity": "error",
+      "message": "{path}：必须为数值。"
+    },
+    {
+      "id": "input.number",
+      "stage": "input",
+      "check": "builtin",
+      "severity": "error",
+      "message": "{path}：必须为有限数值，整数参数须为有效整数。"
+    },
+    {
+      "id": "input.range",
+      "stage": "input",
+      "check": "builtin",
+      "severity": "error",
+      "message": "{path}：超出允许范围。"
+    },
+    {
+      "id": "input.type.boolean",
+      "stage": "input",
+      "check": "builtin",
+      "severity": "error",
+      "message": "{path}：必须为布尔值。"
+    },
+    {
+      "id": "input.type.string",
+      "stage": "input",
+      "check": "builtin",
+      "severity": "error",
+      "message": "{path}：必须为字符串选项。"
+    },
+    {
+      "id": "input.type.object",
+      "stage": "input",
+      "check": "builtin",
+      "severity": "error",
+      "message": "{path}：必须为对象。"
+    },
+    {
+      "id": "input.type.array",
+      "stage": "input",
+      "check": "builtin",
+      "severity": "error",
+      "message": "{path}：必须为数组。"
+    },
+    {
+      "id": "input.option",
+      "stage": "input",
+      "check": "builtin",
+      "severity": "error",
+      "message": "{path}：选项无效。"
+    },
+    {
+      "id": "input.row",
+      "stage": "input",
+      "check": "builtin",
+      "severity": "error",
+      "message": "{path}：必须为对象。"
+    },
+    {
+      "id": "input.material",
+      "stage": "input",
+      "check": "builtin",
+      "severity": "error",
+      "message": "材料 {detail}：{reason}"
+    },
+    {
+      "id": "input.material.duplicate",
+      "stage": "input",
+      "check": "builtin",
+      "severity": "error",
+      "message": "重复自定义材料 {detail}。"
+    },
+    {
+      "id": "input.material.missing",
+      "stage": "input",
+      "check": "builtin",
+      "severity": "error",
+      "message": "缺少材料组 {detail} 的选择。"
+    },
+    {
+      "id": "input.material.reference",
+      "stage": "input",
+      "check": "builtin",
+      "severity": "error",
+      "message": "材料选择无效：{path} → {detail}。"
+    },
+    {
+      "id": "input.material.group",
+      "stage": "input",
+      "check": "builtin",
+      "severity": "error",
+      "message": "未知材料组 {detail}。"
+    },
+    {
+      "id": "model.empty",
+      "stage": "model",
+      "check": "builtin",
+      "severity": "error",
+      "message": "模型不包含几何块。"
+    },
+    {
+      "id": "model.id",
+      "stage": "model",
+      "check": "builtin",
+      "severity": "error",
+      "message": "重复几何 ID {entity}。"
+    },
+    {
+      "id": "model.geometry",
+      "stage": "model",
+      "check": "builtin",
+      "severity": "error",
+      "message": "{entity} 的位置或尺寸无效。"
+    },
+    {
+      "id": "model.material.reference",
+      "stage": "model",
+      "check": "builtin",
+      "severity": "error",
+      "message": "{entity} 引用了未知材料。"
+    },
+    {
+      "id": "model.group.reference",
+      "stage": "model",
+      "check": "builtin",
+      "severity": "error",
+      "message": "{entity} 引用了未知模型组。"
+    },
+    {
+      "id": "model.material",
+      "stage": "model",
+      "check": "builtin",
+      "severity": "error",
+      "message": "材料 {detail}：{reason}"
+    },
+    {
+      "id": "model.metadata",
+      "stage": "model",
+      "check": "builtin",
+      "severity": "error",
+      "message": "模型包围尺寸和总高必须为有限正数。"
+    },
+    {
+      "id": "model.source",
+      "stage": "model",
+      "check": "builtin",
+      "severity": "error",
+      "message": "热源功率或目标无效。"
+    },
+    {
+      "id": "model.power",
+      "stage": "model",
+      "check": "builtin",
+      "severity": "error",
+      "message": "模型总功率与输入功率不一致。"
+    },
+    {
+      "id": "model.auxiliary",
+      "stage": "model",
+      "check": "builtin",
+      "severity": "error",
+      "message": "辅助实体 {entity} 的位置或尺寸无效。"
+    },
+    {
+      "id": "input.via.pitch",
+      "stage": "input",
+      "check": "via_pitch",
+      "severity": "error",
+      "message": "通孔直径不能大于节距。"
+    },
+    {
+      "id": "input.via.plating",
+      "stage": "input",
+      "check": "via_plating",
+      "severity": "error",
+      "message": "通孔镀层厚度必须大于零且不超过孔半径。"
+    },
+    {
+      "id": "input.rows",
+      "stage": "input",
+      "check": "builtin",
+      "severity": "error",
+      "message": "{path} 行数超出允许范围。"
+    },
+    {
+      "id": "input.row.columns",
+      "stage": "input",
+      "check": "builtin",
+      "severity": "error",
+      "message": "{path} 包含未知列。"
+    },
+    {
+      "id": "generation.wire.geometry",
+      "stage": "generation",
+      "check": "prerequisite",
+      "severity": "error",
+      "message": "键合线端点或高度无效。"
+    },
+    {
+      "id": "generation.die",
+      "stage": "generation",
+      "check": "prerequisite",
+      "severity": "error",
+      "message": "模型必须包含芯片。"
+    },
+    {
+      "id": "generation.bga.required",
+      "stage": "generation",
+      "check": "prerequisite",
+      "severity": "error",
+      "message": "焊球阵列缺少 {detail}。"
+    },
+    {
+      "id": "generation.template",
+      "stage": "generation",
+      "check": "prerequisite",
+      "severity": "error",
+      "message": "未知封装类型 {detail}。"
+    },
+    {
+      "id": "generation.via.shell",
+      "stage": "generation",
+      "check": "prerequisite",
+      "severity": "error",
+      "message": "通孔镀层厚度必须大于零且不超过孔半径。"
+    },
+    {
+      "id": "generation.tie_bar",
+      "stage": "generation",
+      "check": "prerequisite",
+      "severity": "error",
+      "message": "连接筋跨度必须大于零。"
+    },
+    {
+      "id": "generation.material",
+      "stage": "generation",
+      "check": "prerequisite",
+      "severity": "error",
+      "message": "未知材料 {detail}。"
+    },
+    {
+      "id": "generation.qfn.wire",
+      "stage": "generation",
+      "check": "prerequisite",
+      "severity": "error",
+      "message": "QFN 键合线焊盘必须位于芯片外。"
+    },
+    {
+      "id": "generation.via.geometry",
+      "stage": "generation",
+      "check": "prerequisite",
+      "severity": "error",
+      "message": "通孔尺寸或镀层无效。"
+    },
+    {
+      "id": "generation.bga.border",
+      "stage": "generation",
+      "check": "prerequisite",
+      "severity": "error",
+      "message": "等效焊球边框尺寸必须为正。"
+    },
+    {
+      "id": "generation.parameter",
+      "stage": "generation",
+      "check": "prerequisite",
+      "severity": "error",
+      "message": "{detail} 需要数值。"
+    },
+    {
+      "id": "generation.layers",
+      "stage": "generation",
+      "check": "prerequisite",
+      "severity": "error",
+      "message": "金属层表必须为 JSON 数组。"
+    },
+    {
+      "id": "generation.integer",
+      "stage": "generation",
+      "check": "prerequisite",
+      "severity": "error",
+      "message": "{detail} 必须为整数。"
+    },
+    {
+      "id": "generation.material.fraction",
+      "stage": "generation",
+      "check": "prerequisite",
+      "severity": "error",
+      "message": "{detail} 的体积分数不在允许范围。"
+    },
+    {
+      "id": "generation.cavity",
+      "stage": "generation",
+      "check": "prerequisite",
+      "severity": "error",
+      "message": "{detail} 内孔必须位于外轮廓内。"
+    },
+    {
+      "id": "generation.via.grid",
+      "stage": "generation",
+      "check": "prerequisite",
+      "severity": "error",
+      "message": "通孔直径或阵列无效。"
+    },
+    {
+      "id": "input.package.fit",
+      "stage": "input",
+      "check": "relation",
+      "severity": "error",
+      "message": "部件尺寸必须位于外轮廓内。",
+      "families": [
+        "cbga_fc",
+        "chip_array",
+        "pbga_fc",
+        "pbga_wb",
+        "pqfp",
+        "qfn",
+        "sop"
+      ]
+    },
+    {
+      "id": "input.via.removal.required",
+      "stage": "input",
+      "check": "relation",
+      "severity": "error",
+      "message": "通孔去除需要行数和列数。",
+      "families": [
+        "cbga_fc",
+        "pbga_fc",
+        "pbga_wb",
+        "chip_array",
+        "qfn"
+      ]
+    },
+    {
+      "id": "input.via.removal",
+      "stage": "input",
+      "check": "relation",
+      "severity": "error",
+      "message": "通孔去除区域无效。",
+      "families": [
+        "cbga_fc",
+        "pbga_fc",
+        "pbga_wb",
+        "chip_array",
+        "qfn"
+      ]
+    },
+    {
+      "id": "input.bumps.fraction",
+      "stage": "input",
+      "check": "relation",
+      "severity": "error",
+      "message": "凸点总体积比例不能超过芯片覆盖区域。",
+      "families": [
+        "bare_die",
+        "cbga_fc",
+        "pbga_fc"
+      ]
+    },
+    {
+      "id": "input.cavity",
+      "stage": "input",
+      "check": "relation",
+      "severity": "error",
+      "message": "内孔必须位于外轮廓内。",
+      "families": [
+        "cbga_fc",
+        "pbga_fc",
+        "pbga_wb"
+      ]
+    },
+    {
+      "id": "input.bga.map",
+      "stage": "input",
+      "check": "relation",
+      "severity": "error",
+      "message": "Ball Map 行必须为对象。",
+      "families": [
+        "cbga_fc",
+        "chip_array",
+        "pbga_fc",
+        "pbga_wb"
+      ]
+    },
+    {
+      "id": "input.bga.map.id",
+      "stage": "input",
+      "check": "relation",
+      "severity": "error",
+      "message": "Ball Map ID 必须唯一。",
+      "families": [
+        "cbga_fc",
+        "chip_array",
+        "pbga_fc",
+        "pbga_wb"
+      ]
+    },
+    {
+      "id": "input.bga.map.coordinate",
+      "stage": "input",
+      "check": "relation",
+      "severity": "error",
+      "message": "Ball Map 坐标必须为有限数值。",
+      "families": [
+        "cbga_fc",
+        "chip_array",
+        "pbga_fc",
+        "pbga_wb"
+      ]
+    },
+    {
+      "id": "input.bga.removal.required",
+      "stage": "input",
+      "check": "relation",
+      "severity": "error",
+      "message": "请填写外围满布数量或去球数量。",
+      "families": [
+        "cbga_fc",
+        "chip_array",
+        "pbga_fc",
+        "pbga_wb"
+      ]
+    },
+    {
+      "id": "input.bga.removal",
+      "stage": "input",
+      "check": "relation",
+      "severity": "error",
+      "message": "外围满布行列数超出阵列。",
+      "families": [
+        "cbga_fc",
+        "chip_array",
+        "pbga_fc",
+        "pbga_wb"
+      ]
+    },
+    {
+      "id": "input.bga.center",
+      "stage": "input",
+      "check": "relation",
+      "severity": "error",
+      "message": "中央焊球行列数必须为正整数。",
+      "families": [
+        "cbga_fc",
+        "chip_array",
+        "pbga_fc",
+        "pbga_wb"
+      ]
+    },
+    {
+      "id": "input.bga.representation",
+      "stage": "input",
+      "check": "relation",
+      "severity": "error",
+      "message": "当前封装不支持所选焊球建模方式。",
+      "families": [
+        "cbga_fc",
+        "chip_array",
+        "pbga_fc",
+        "pbga_wb"
+      ]
+    },
+    {
+      "id": "input.lid.wall",
+      "stage": "input",
+      "check": "relation",
+      "severity": "error",
+      "message": "盖板侧壁必须保留正的内部开口。",
+      "families": [
+        "cbga_fc",
+        "pbga_fc"
+      ]
+    },
+    {
+      "id": "input.array.cell",
+      "stage": "input",
+      "check": "relation",
+      "severity": "error",
+      "message": "阵列单元必须为对象。",
+      "families": [
+        "cbga_fc",
+        "pbga_fc",
+        "pbga_wb",
+        "chip_array",
+        "qfn"
+      ]
+    },
+    {
+      "id": "input.array.bounds",
+      "stage": "input",
+      "check": "relation",
+      "severity": "error",
+      "message": "去除单元必须为阵列范围内的整数行列。",
+      "families": [
+        "cbga_fc",
+        "pbga_fc",
+        "pbga_wb",
+        "chip_array",
+        "qfn"
+      ]
+    },
+    {
+      "id": "input.layer.surfaces",
+      "stage": "input",
+      "check": "relation",
+      "severity": "error",
+      "message": "表面金属层总厚度必须小于基板厚度。",
+      "families": [
+        "chip_array",
+        "pbga_wb"
+      ]
+    },
+    {
+      "id": "input.wire.endpoint",
+      "stage": "input",
+      "check": "relation",
+      "severity": "error",
+      "message": "键合线端点必须位于芯片外。",
+      "families": [
+        "chip_array",
+        "pbga_wb",
+        "pqfp",
+        "sop"
+      ]
+    },
+    {
+      "id": "input.leadframe.stack",
+      "stage": "input",
+      "check": "relation",
+      "severity": "error",
+      "message": "芯片堆叠必须位于塑封内。",
+      "families": [
+        "pqfp",
+        "sop"
+      ]
+    },
+    {
+      "id": "input.thermal_land",
+      "stage": "input",
+      "check": "relation",
+      "severity": "error",
+      "message": "散热焊盘焊料需要正的离地高度。",
+      "families": [
+        "pqfp",
+        "sop"
+      ]
+    }
+  ],
+  "material_messages": {
+    "type": "导热类型必须为 0、1 或 2。",
+    "conductivity": "生效导热率必须为有限非负数。",
+    "density": "密度必须为有限非负数。",
+    "specific_heat": "比热必须为有限非负数。",
+    "coefficient": "温度系数必须为有限数值。",
+    "temperature": "参考温度必须为有限数值。"
+  }
 }

@@ -9,27 +9,9 @@ public static class MaterialSelection
     public static Dictionary<string, string> Defaults(PackageDefinition template) =>
         template.MaterialSelections.ToDictionary(s => s["group_id"].Text(), s => s["default"].Text());
 
-    public static Dictionary<string, string> Resolve(PackageDefinition template, IReadOnlyDictionary<string, string> assignments)
-    {
-        var result = new Dictionary<string, string>(assignments);
-        foreach (var selection in template.MaterialSelections)
-            if (!result.ContainsKey(selection["group_id"].Text()))
-                throw new ArgumentException($"缺少材料组 {selection["group_id"]} 的选择。");
-        foreach (var pair in assignments)
-        {
-            var selection = template.MaterialSelections.SingleOrDefault(s => s["group_id"].Text() == pair.Key)
-                ?? throw new ArgumentException($"未知材料组 {pair.Key}");
-            if (!((JArray)selection["options"]!).Any(o => o.Text() == "*" || o.Text() == pair.Value))
-                throw new ArgumentException($"材料 {pair.Value} 不适用于 {pair.Key}");
-            result[pair.Key] = pair.Value;
-        }
-        return result;
-    }
-
     public static IReadOnlyList<Material> Available(MaterialCatalog catalog, PackageDefinition template, ProjectDocument document, PackageModel? model = null)
     {
         var materials = catalog.Items.Values.ToDictionary(m => m.Id);
-        foreach (var material in template.BaselineMaterials) materials[material.Id] = material;
         IReadOnlyDictionary<string, Material> modeled = model?.TemplateId == document.TemplateId ? model.Materials : new Dictionary<string, Material>();
         foreach (var m in modeled.Values) materials[m.Id] = m;
         foreach (var m in document.CustomMaterials) materials[m.Id] = m;
@@ -47,7 +29,7 @@ public static class MaterialSelection
         string id = document.MaterialAssignments.GetValueOrDefault(selection["group_id"].Text(), "");
         var options = (JArray)selection["options"]!;
         var representatives = Available(catalog, template, document, model);
-        var candidates = catalog.Items.Values.Concat(template.BaselineMaterials).Concat(document.CustomMaterials)
+        var candidates = catalog.Items.Values.Concat(document.CustomMaterials)
             .Concat(model?.Materials.Values ?? []);
         var allowedNames = candidates.Where(m => options.Any(o => o.Text() == "*" || o.Text() == m.Id) || m.Id == id).Select(m => m.Name).ToHashSet();
         var selected = document.CustomMaterials.FirstOrDefault(m => m.Id == id)

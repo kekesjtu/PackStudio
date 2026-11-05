@@ -171,12 +171,12 @@
     {
       "key": "bga.columns",
       "minimum": 1,
-      "maximum": 50
+      "maximum": 300
     },
     {
       "key": "bga.rows",
       "minimum": 1,
-      "maximum": 50
+      "maximum": 300
     },
     {
       "key": "bga.pitch",
@@ -284,18 +284,24 @@
       "key": "metal.layers",
       "columns": [
         {
-          "key": "depth"
+          "key": "depth",
+          "minimum": 0
         },
         {
-          "key": "thickness"
+          "key": "thickness",
+          "exclusive_minimum": 0
         },
         {
-          "key": "coverage"
+          "key": "coverage",
+          "minimum": 0,
+          "maximum": 100
         },
         {
           "key": "disconnect"
         }
-      ]
+      ],
+      "min_rows": 2,
+      "max_rows": 6
     },
     {
       "key": "vias.modeling",

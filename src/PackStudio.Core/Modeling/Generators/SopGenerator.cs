@@ -9,10 +9,6 @@ public static class SopGenerator
         double dl = c.N("die.length"), dw = c.N("die.width"), dh = c.N("die.thickness"), attach = c.N("die.attach");
         var stack = LeadframeStack.Evaluate(c.Values, true);
         double z = stack.LeadBottom, fz = stack.FlagBottom, az = stack.AttachBottom, dz = stack.DieBottom, top = stack.DieTop;
-        if (bl > pl || bw > pw || Math.Max(fl, dl) > bl || Math.Max(fw, dw) > bw || top > s + c.N("body.thickness"))
-            throw new ArgumentException("芯片、承载台和塑封尺寸不兼容。");
-        if (c.I("leads.total") % 2 != 0)
-            throw new ArgumentException("SOP 引脚总数必须为偶数。");
         c.Center("encapsulant", "encapsulant", bl, bw, c.N("body.thickness"), s, "epoxy-mold", "encapsulant");
         c.Center("die", "die", dl, dw, dh, dz, "silicon", "die");
         c.Center("die-attach", "die_attach", dl, dw, attach, az, "dieattach-84-1lmis", "die-attach");
@@ -38,8 +34,6 @@ public static class SopGenerator
 
         if (c.B("thermal_land.enabled"))
         {
-            if (s <= 0)
-                throw new ArgumentException("散热焊盘焊料需要正的离地高度。");
             double th = c.N("thermal_land.thickness");
             c.Center("thermal-land", "exposed_pad", fl, fw, th, -th, "leadframe-c194", "thermal-land");
             c.Center("thermal-solder", "solder", fl, fw, s, 0, "solder-sn63", "thermal-solder");

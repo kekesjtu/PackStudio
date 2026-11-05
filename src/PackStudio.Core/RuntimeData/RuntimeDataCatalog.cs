@@ -10,6 +10,7 @@ public sealed class RuntimeDataCatalog
     public MaterialCatalog Materials { get; }
     public IReadOnlyDictionary<string, ModelGroup> Groups { get; }
     readonly string root;
+    readonly JObject commonRules;
     readonly JObject index;
     readonly ConcurrentDictionary<string, PackageDefinition> definitions = new();
     readonly ConcurrentDictionary<string, ValidationRules> rules = new();
@@ -18,7 +19,8 @@ public sealed class RuntimeDataCatalog
     public RuntimeDataCatalog(string root)
     {
         this.root = Path.GetFullPath(root);
-        Materials = new MaterialCatalogReader().Read(this.root);
+        commonRules = JsonData.Read(Path.Combine(this.root, "validation", "common.json"));
+        Materials = new MaterialCatalogReader().Read(this.root, new ValidationRules(commonRules));
         Groups = JsonData.Read(Path.Combine(this.root, "model_groups.json")).ToObject<Dictionary<string, ModelGroup>>()!;
         Families = JArray.Parse(File.ReadAllText(Path.Combine(this.root, "families.json"))).ToObject<List<TemplateInfo>>()!;
         var data = JsonData.Read(Path.Combine(this.root, "presets", "index.json"));
@@ -37,7 +39,7 @@ public sealed class RuntimeDataCatalog
         CheckDocument(data, "packstudio.definition/v1", id);
         CheckDocument(ui, "packstudio.ui-template/v1", id);
         if (data["fields"] is not JArray fields || data["material_selections"] is not JArray ||
-            data["baseline_materials"] is not JArray baseline || ui["fields"] is not JArray ||
+            ui["fields"] is not JArray ||
             ui["steps"] is not JArray || ui["material_selections"] is not JArray)
             throw new InvalidDataException($"{id} 参数定义或 UI 模板结构无效。");
         CheckFields(fields);
@@ -52,14 +54,15 @@ public sealed class RuntimeDataCatalog
                     throw new InvalidDataException($"预设 {entry.Name} 缺少参数 {field["key"]}。");
             presets.Add(document);
         }
-        var baselineMaterials = baseline.Select(MaterialCatalogReader.Parse).ToArray();
-        foreach (var material in baselineMaterials)
+        var definition = new PackageDefinition(info, data, presets, new UiTemplate(ui, data));
+        var materialRules = new ValidationRules(commonRules);
+        foreach (var preset in presets)
         {
-            string[] errors = FieldRules.MaterialErrors(material).ToArray();
-            if (errors.Length > 0) throw new InvalidDataException($"基线材料 {material.Id}：{string.Join(" ", errors)}");
+            var issues = new List<ValidationIssue>();
+            InputValidator.ValidateMaterials(preset, definition, Materials, materialRules, issues);
+            if (issues.Any(i => i.Severity == IssueSeverity.Error))
+                throw new InvalidDataException($"预设 {preset.Name}：{string.Join(" ", issues.Select(i => i.Message))}");
         }
-        var definition = new PackageDefinition(info, data, presets, new UiTemplate(ui, data), baselineMaterials);
-        foreach (var preset in presets) MaterialSelection.Resolve(definition, preset.MaterialAssignments);
         return definition;
     }
 
@@ -71,10 +74,9 @@ public sealed class RuntimeDataCatalog
 
     public ValidationRules LoadValidation(string id) => rules.GetOrAdd(id, family =>
     {
-        var common = JsonData.Read(Path.Combine(root, "validation", "common.json"));
         var familyRules = JsonData.Read(Path.Combine(root, "validation", family + ".json"));
         CheckDocument(familyRules, "packstudio.validation/v1", family);
-        var loaded = new ValidationRules(common, familyRules);
+        var loaded = new ValidationRules(commonRules, familyRules);
         loaded.CheckReferences(Load(family));
         return loaded;
     });

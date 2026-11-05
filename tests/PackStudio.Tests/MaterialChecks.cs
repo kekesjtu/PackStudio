@@ -61,7 +61,7 @@ static class MaterialChecks
                 }
                 File.WriteAllText(Path.Combine(materials, "index.json"), new JObject { ["materials"] = index }.ToString());
                 File.WriteAllText(Path.Combine(materials, "runtime.json"), new JObject { ["aliases"] = new JObject(), ["project_materials"] = new JArray() }.ToString());
-                var library = new MaterialCatalogReader().Read(directory);
+                var library = new MaterialCatalogReader().Read(directory, tests.Catalog.LoadValidation("bare_die"));
                 var constant = library.Items["material-0"];
                 var temperature = library.Items["material-1"];
                 var orthotropic = library.Items["material-2"];

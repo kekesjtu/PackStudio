@@ -16,7 +16,7 @@ public static class Wires
                 continue;
             double radial = end - die / 2;
             if (radial <= 0 || vh < 0)
-                throw new ArgumentException("键合线端点或高度无效。");
+                throw new ArgumentException("generation.wire.geometry");
             foreach (int sign in new[]
             {
                 -1,

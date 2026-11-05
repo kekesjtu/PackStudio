@@ -12,8 +12,6 @@ public static class SolderBalls
         if (c.B("bga.ball_map_enabled"))
         {
             var points = (JArray)c.Values["bga.ball_map"]!;
-            if (points.Select(p => p["id"].Text()).Distinct().Count() != points.Count)
-                throw new ArgumentException("Ball Map ID 必须唯一。");
             for (int i = 0; i < points.Count; i++)
                 yield return ($"solder-map-{i + 1}", points[i]["x"].Number(), points[i]["y"].Number());
             yield break;
@@ -35,23 +33,17 @@ public static class SolderBalls
         return nr * nc - (nr - rp) * (nc - cp);
     }
 
-    static int Required(JObject b, string key) => b[key]?.Type is JTokenType.Integer ? b[key]!.Value<int>() : throw new ArgumentException($"焊球阵列缺少 {key}");
+    static int Required(JObject b, string key) => b[key]?.Type is JTokenType.Integer ? b[key]!.Value<int>() : throw new ArgumentException("generation.bga.required") { Data = { ["detail"] = key } };
     static (int, int) Populated(JObject b, int nr, int nc)
     {
         int rp = b["bga.populated_rows"]?.Type is JTokenType.Integer ? Required(b, "bga.populated_rows") : nr - Required(b, "bga.removal_rows");
         int cp = b["bga.populated_columns"]?.Type is JTokenType.Integer ? Required(b, "bga.populated_columns") : nc - Required(b, "bga.removal_columns");
-        if (rp < 0 || rp > nr || cp < 0 || cp > nc)
-            throw new ArgumentException("外围满布行列数超出阵列。");
         return (rp, cp);
     }
 
     static List<(int r, int col)> Cells(JObject b, int nr, int nc)
     {
-        if (nr < 1 || nc < 1 || nr > 300 || nc > 300)
-            throw new ArgumentException("焊球阵列行列数无效。");
         var omitted = (b["bga.omitted_cells"] as JArray ?? []).Select(x => (r: Required((JObject)x, "row"), col: Required((JObject)x, "column"))).ToHashSet();
-        if (omitted.Any(p => p.r < 0 || p.r >= nr || p.col < 0 || p.col >= nc))
-            throw new ArgumentException("显式去球单元超出主阵列。");
         bool removal = b["bga.solder_removal_enabled"].Flag(), explicitCells = removal && omitted.Count > 0;
         var(rp, cp) = removal && !explicitCells ? Populated(b, nr, nc) : (nr, nc);
         var list = new List<(int, int)>();
@@ -66,17 +58,11 @@ public static class SolderBalls
     {
         var b = c.Values;
         string representation = b["bga.representation"].Text("discrete");
-        if (representation is not ("discrete" or "equivalent" or "isotropic") || representation == "isotropic" && c.Template.Info.Id != "pbga_wb" || c.Template.Info.Id == "chip_array" && representation != "discrete")
-            throw new ArgumentException("当前封装不支持所选焊球建模方式。");
         double pitch = c.N("bga.pitch"), diameter = c.N("bga.diameter"), h = c.N("bga.height");
-        if (diameter > pitch)
-            throw new ArgumentException("焊球直径不能大于节距。");
         var solder = c.Component("group-bga-solder", "solder-sn63");
         var air = c.M("static-air");
         bool equivalent = representation != "discrete";
         int count = 0;
-        if (equivalent && (b["bga.ball_map_enabled"].Flag() || (b["bga.omitted_cells"] as JArray)?.Count > 0))
-            throw new ArgumentException("显式去球及 Ball Map 需要离散建模。");
         void Block(string id, double x, double y, double lx, double ly, string mat, bool center = false) => c.Center(id, "solder_ball", lx, ly, h, 0, mat, center ? "center-solder-ball" : "solder-ball", derived: true, cx: x, cy: y);
         void Region(string id, int nr, int nc, bool staggered, bool center = false)
         {
@@ -107,7 +93,7 @@ public static class SolderBalls
             else
             {
                 if (Math.Min(Math.Min(tx, ty), Math.Min(lx - 2 * tx, ly - 2 * ty)) <= 0)
-                    throw new ArgumentException("等效焊球边框尺寸必须为正。");
+                    throw new ArgumentException("generation.bga.border");
                 Block(id + "-left", -(lx - tx) / 2, 0, tx, ly, mat.Id, center);
                 Block(id + "-right", (lx - tx) / 2, 0, tx, ly, mat.Id, center);
                 Block(id + "-lower", 0, -(ly - ty) / 2, lx - 2 * tx, ty, mat.Id, center);

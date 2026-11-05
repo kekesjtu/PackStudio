@@ -4,7 +4,7 @@ namespace PackStudio.Core;
 
 public sealed class MaterialCatalogReader
 {
-    public MaterialCatalog Read(string root)
+    public MaterialCatalog Read(string root, ValidationRules rules)
     {
         string directory = Path.Combine(root, "materials");
         var runtime = JsonData.Read(Path.Combine(directory, "runtime.json"));
@@ -13,7 +13,7 @@ public sealed class MaterialCatalogReader
         foreach (var entry in index.Properties())
         {
             var material = ParseRecord(Path.GetFileNameWithoutExtension(entry.Value["file"]!.ToString()), JsonData.CatalogEntry(directory, entry.Value));
-            items.Add(material.Id, Checked(material));
+            items.Add(material.Id, Checked(material, rules));
         }
         foreach (var alias in ((JObject)runtime["aliases"]!).Properties())
         {
@@ -23,15 +23,15 @@ public sealed class MaterialCatalogReader
         }
         foreach (var item in (JArray)runtime["project_materials"]!)
         {
-            var material = Checked(Parse(item));
+            var material = Checked(Parse(item), rules);
             items.Add(material.Id, material);
         }
         return new(items.Values);
     }
 
-    static Material Checked(Material material)
+    static Material Checked(Material material, ValidationRules rules)
     {
-        string[] errors = FieldRules.MaterialErrors(material).ToArray();
+        string[] errors = FieldRules.MaterialErrors(material, rules).ToArray();
         if (errors.Length > 0) throw new InvalidDataException($"材料 {material.Name}：{string.Join(" ", errors)}");
         return material;
     }

@@ -9,7 +9,7 @@
 | `families.json` | 家族显示名、分组、描述、默认选择、图标与示意图样式 |
 | `definitions/<family>.json` | 参数键、类型、单位、枚举、创建属性、初始化声明、Bare Die 基线及材料槽位 |
 | `templates/<family>.json` | 标签、控件、栏目、示意图、DES 符号、格式与显示条件 |
-| `validation/common.json`、`validation/<family>.json` | 前后检查声明、数值范围、业务生效条件、严重度与消息 |
+| `validation/common.json`、`validation/<family>.json` | 字段及业务检查声明、数值范围、生效条件、严重度和消息；共用声明通过 families 限定适用家族 |
 | `model_groups.json` | 领域模型、模型树与导出共用的分组显示名称及父子关系 |
 | `presets/<来源目录>/<预设名>.json` | 342 个可直接导入的完整方案预设 |
 | `presets/<family>/four_layer.json` | Chip Array、Wirebond PBGA 的四层初始化小契约 |
@@ -21,6 +21,10 @@
 八类模板为 `bare_die`、`cbga_fc`、`pbga_fc`、`pbga_wb`、`chip_array`、`qfn`、`pqfp`、`sop`。
 QFN、tsop_conv 等来源目录名用于追溯；预设正文的 TemplateId 及索引中的 family 使用内部 ID。
 Bare Die 没有原生预设，使用参数定义中的基线。
+
+参数定义中的材料内容仅为槽位、候选及默认材料 ID。固定物性来自 `materials/`，等效物性由生成器按当前参数计算，用户物性覆盖保存在方案的 `CustomMaterials`；参数定义不存储等效材料数值。
+
+`validation/` 统一提供校验声明、严重度及消息模板。`InputValidator` 执行字段和跨字段检查，`ModelValidator` 执行模型检查；复杂公式保留在相应校验算法中。字段可通过 `severity` 和 `messages` 设置诊断，`exclusive_minimum` 表达严格下限，`min_rows`、`max_rows` 表达表格行数限制。计算前提保护仅返回规则编号，由统一生成入口使用相同规则目录生成诊断。
 
 字段的 `des_symbol` 是 DES 键字符串、包含 `selector` 与 `cases` 的选择映射，或无直接符号时的 null。
 它负责界面符号显示，不承担原生属性寻址或数据转换。没有 DES 键的内部字段仍保留完整定义。

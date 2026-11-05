@@ -6,6 +6,58 @@ static class GenerationChecks
 {
     public static void Run(TestSuite tests)
     {
+        ValidationRules Rules(string family) => new(
+            JsonData.Read(Path.Combine(tests.Root, "runtime_data", "validation", "common.json")),
+            JsonData.Read(Path.Combine(tests.Root, "runtime_data", "validation", family + ".json")));
+
+        tests.Case("generation", "family relation severity and message come from declarations", () =>
+        {
+            var definition = tests.Catalog.Load("qfn");
+            var document = tests.Create(definition);
+            document.Values["die.length"] = document.Values["package.length"]!.Value<double>() + 0.01;
+            var rules = Rules("qfn");
+            var rule = rules.Checks.Single(r => r["id"].Text() == "input.package.fit");
+            rule["severity"] = "warning";
+            rule["message"] = "请检查 {path}";
+            var issues = InputValidator.Validate(document, definition, tests.Catalog.Materials, rules);
+            var fit = issues.Single(i => i.Code == "input.package.fit");
+            Assert(fit.Severity == IssueSeverity.Warning && fit.Message == "请检查 die.length", "family relation ignored configured severity or message");
+            rule.Remove();
+            Assert(!InputValidator.Validate(document, definition, tests.Catalog.Materials, rules).Any(i => i.Code == "input.package.fit"), "undeclared family relation still executed");
+        });
+
+        tests.Case("generation", "field diagnostics use configured severity and message", () =>
+        {
+            var definition = tests.Catalog.Load("bare_die");
+            var document = tests.Create(definition);
+            document.Values["die.power"] = -1;
+            var rules = Rules("bare_die");
+            var field = rules.Fields.Single(f => f["key"].Text() == "die.power");
+            field["severity"] = "warning";
+            field["messages"] = new JObject { ["input.range"] = "功率范围提示：{path}" };
+            var issue = InputValidator.Validate(document, definition, tests.Catalog.Materials, rules).Single(i => i.Code == "input.range");
+            Assert(issue.Severity == IssueSeverity.Warning && issue.Message == "功率范围提示：die.power", "field rule ignored configured diagnostics");
+        });
+
+        tests.Case("generation", "SOP odd lead count is reported once before modeling", () =>
+        {
+            var document = tests.Create(tests.Catalog.Load("sop"));
+            document.Values["leads.total"] = 21;
+            var result = tests.GenerateResult(document);
+            Assert(result.Model == null && result.Issues.Count(i => i.ParameterPaths.Contains("leads.total")) == 1, "lead count was validated more than once");
+            Assert(result.Issues.Single(i => i.ParameterPaths.Contains("leads.total")).Code == "input.sop.leads", "lead count bypassed the declared rule");
+        });
+
+        tests.Case("generation", "model diagnostics use configured severity and message", () =>
+        {
+            var rules = Rules("bare_die");
+            var rule = rules.Checks.Single(r => r["id"].Text() == "model.source");
+            rule["severity"] = "warning";
+            rule["message"] = "检查热源 {entity}";
+            var issue = ModelValidator.Validate(Model(tests, sources: [new("a", -1)]), rules).Single(i => i.Code == "model.source");
+            Assert(issue.Severity == IssueSeverity.Warning && issue.Message == "检查热源 a", "model check ignored configured diagnostics");
+        });
+
         tests.Case("generation", "independent input errors retain paths without changing submitted values", () =>
         {
             var definition = tests.Catalog.Load("bare_die");

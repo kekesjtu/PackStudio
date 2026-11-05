@@ -24,13 +24,14 @@ public static class ModelBuilder
                 "qfn" => QfnGenerator.Generate(context),
                 "pqfp" => PqfpGenerator.Generate(context),
                 "sop" => SopGenerator.Generate(context),
-                _ => throw new ArgumentException($"未知封装类型 {snapshot.TemplateId}。")
+                _ => throw new ArgumentException("generation.template") { Data = { ["detail"] = snapshot.TemplateId } }
             };
             model = context.Complete(geometry);
         }
         catch (ArgumentException error)
         {
-            issues.Add(ValidationIssue.Error("generation.prerequisite", ValidationStage.Generation, error.Message));
+            if (!rules.Contains(error.Message)) throw;
+            issues.Add(rules.Create(error.Message, ValidationStage.Generation, [], detail: error.Data["detail"]?.ToString() ?? ""));
             return new(null, issues);
         }
         issues.AddRange(ModelValidator.Validate(model, rules, snapshot.Values["die.power"]!.Value<double>()));

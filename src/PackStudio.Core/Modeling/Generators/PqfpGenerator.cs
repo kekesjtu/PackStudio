@@ -9,8 +9,6 @@ public static class PqfpGenerator
         double dl = c.N("die.length"), dw = c.N("die.width"), dh = c.N("die.thickness"), attach = c.N("die.attach");
         var stack = LeadframeStack.Evaluate(c.Values, false);
         double z = stack.LeadBottom, fz = stack.FlagBottom, az = stack.AttachBottom, dz = stack.DieBottom, top = stack.DieTop;
-        if (bl > pl || bw > pw || Math.Max(fl, dl) > bl || Math.Max(fw, dw) > bw || top > s + c.N("body.thickness"))
-            throw new ArgumentException("芯片、承载台和塑封尺寸不兼容。");
         c.Center("encapsulant", "encapsulant", bl, bw, c.N("body.thickness"), s, "epoxy-mold", "encapsulant");
         c.Center("die", "die", dl, dw, dh, dz, "silicon", "die");
         c.Center("die-attach", "die_attach", dl, dw, attach, az, "dieattach-84-1lmis", "die-attach");
@@ -23,8 +21,6 @@ public static class PqfpGenerator
         void Lead(string id, double x, double y, double zz, double sx, double sy, double sz, string mat) => c.Add(id, "lead_frame", x, y, zz, sx, sy, sz, mat, "lead-frame", derived: true);
 
         double sx = (c.I("leads.count_x") - 1) * pitch + lw, sy = (c.I("leads.count_y") - 1) * pitch + lw, footWidth = foot - h;
-        if (footWidth <= 0)
-            throw new ArgumentException("PQFP 引脚脚长必须大于引脚厚度。");
         void Sides(string id, double ix, double iy, double ox, double oy, string kind)
         {
             Lead(id + "-right", ix, -sy / 2, z, ox - ix, sy, h, $"pqfp-leadframe-{kind}-x");
@@ -54,8 +50,6 @@ public static class PqfpGenerator
 
         if (c.B("thermal_land.enabled"))
         {
-            if (s <= 0)
-                throw new ArgumentException("散热焊盘焊料需要正的离地高度。");
             double th = c.N("thermal_land.thickness");
             c.Center("thermal-land", "exposed_pad", fl, fw, th, -th, "leadframe-c194", "thermal-land");
             c.Center("thermal-solder", "solder", fl, fw, s, 0, "solder-sn63", "thermal-solder");
@@ -92,7 +86,7 @@ public static class PqfpGenerator
             }
         c.Derived(MaterialMixer.Mix("pqfp-die-flag", c.Component("group-lead-frame", "leadframe-c194"), mold, c.N("flag.coverage") / 100, "xyz", false));
         double a = (c.N("body.length") - c.N("flag.length")) / 2, b = (c.N("body.width") - c.N("flag.width")) / 2;
-        if (a <= 0 || b <= 0) throw new ArgumentException("连接筋跨度必须大于零。");
+        if (a <= 0 || b <= 0) throw new ArgumentException("generation.tie_bar");
         double factor = Math.Sqrt(a * a + b * b) * (1 / a + 1 / b);
         c.Derived(metal with { Id = "pqfp-tie-bar", ConductType = 2, ConductivityCoefficient = null, ReferenceTemperature = null, StoredScalarConductivity = null, StoredDirectionalConductivity = null, Conductivity = new(metal.EffectiveConductivity.X / factor, metal.EffectiveConductivity.Y / factor, mold.EffectiveConductivity.Z) });
     }

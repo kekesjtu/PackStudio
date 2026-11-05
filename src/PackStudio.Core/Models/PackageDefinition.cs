@@ -8,7 +8,6 @@ public sealed class PackageDefinition
     public JObject Data { get; }
     public JArray Fields => (JArray)Data["fields"]!;
     public JArray MaterialSelections => (JArray)Data["material_selections"]!;
-    public IReadOnlyList<Material> BaselineMaterials { get; }
     public IReadOnlyList<ProjectDocument> Presets { get; }
     public UiTemplate Ui { get; }
     public string DefaultPreset => Fields.FirstOrDefault(f => f["type"].Text() == "footprint")?["default"].Text() ?? "";
@@ -16,13 +15,12 @@ public sealed class PackageDefinition
     public IEnumerable<JToken> CreationFields => Ui.Fields.Where(f => f["creation_option"].Flag());
 
     public PackageDefinition(TemplateInfo info, JObject data, IReadOnlyList<ProjectDocument> presets,
-        UiTemplate ui, IReadOnlyList<Material> baselineMaterials)
+        UiTemplate ui)
     {
         Info = info;
         Data = data;
         Presets = presets;
         Ui = ui;
-        BaselineMaterials = baselineMaterials;
     }
 
     public JArray OptionsFor(JToken field) => field["options_source"].Text() switch

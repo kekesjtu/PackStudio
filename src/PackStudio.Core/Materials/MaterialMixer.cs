@@ -5,7 +5,7 @@ public static class MaterialMixer
     public static Material Mix(string id, Material metal, Material matrix, double fraction, string parallel = "xyz", bool includeMatrix = true, bool allowOverfilled = false)
     {
         if (!double.IsFinite(fraction) || fraction < 0 || fraction > 1 && !allowOverfilled)
-            throw new ArgumentException($"{id} 体积分数 {fraction:G6} 不在 0–1 范围。");
+            throw new ArgumentException("generation.material.fraction") { Data = { ["detail"] = id } };
         double f = fraction, g = 1 - f, rho = f * metal.Density + g * matrix.Density;
         double K(double a, double b, char axis) => parallel.Contains(axis) ? f * a + (includeMatrix ? g * b : 0) : b;
         return metal with

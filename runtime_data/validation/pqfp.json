@@ -206,5 +206,13 @@
       "key": "leads.modeling"
     }
   ],
-  "checks": []
+  "checks": [
+    {
+      "id": "input.pqfp.foot",
+      "stage": "input",
+      "check": "relation",
+      "severity": "error",
+      "message": "PQFP 引脚脚长必须大于引脚厚度。"
+    }
+  ]
 }

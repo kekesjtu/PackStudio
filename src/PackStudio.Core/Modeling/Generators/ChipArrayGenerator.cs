@@ -8,17 +8,11 @@ public static class ChipArrayGenerator
     {
         double l = c.N("package.length"), w = c.N("package.width"), baseZ = c.N("bga.height"), height = c.N("substrate.thickness"), top = baseZ + height;
         var rows = MetalLayers.Parse(c, "metal.layers");
-        if (rows.Count < 2 || rows.Count > 10)
-            throw new ArgumentException("金属层表需要 2–10 层。");
         double topTrace = rows[0]!["thickness"].Number(), bottomTrace = rows[rows.Count - 1]!["thickness"].Number();
         rows[0]!["depth"] = 0;
         rows[rows.Count - 1]!["depth"] = height - bottomTrace;
-        if (topTrace + bottomTrace >= height || rows.Any(r => r["depth"].Number() + r["thickness"].Number() > height + 1e-12))
-            throw new ArgumentException("金属层必须位于基板内。");
         double mask = c.N("solder_mask.thickness"), dl = c.N("die.length"), dw = c.N("die.width"), dh = c.N("die.thickness"), attach = c.N("die.attach"), dz = top + mask;
         double ml = l, mw = w;
-        if (dl > ml || dw > mw || ml > l || mw > w)
-            throw new ArgumentException("芯片、塑封和基板尺寸不兼容。");
         c.Center("encapsulant", "encapsulant", ml, mw, c.N("encapsulant.thickness"), top, "epoxy-mold", "encapsulant", exposedSurface: true);
         c.Center("die", "die", dl, dw, dh, dz, "silicon", "die");
         c.Center("dielectric", "substrate", l, w, height, baseZ, "bt", "substrate");

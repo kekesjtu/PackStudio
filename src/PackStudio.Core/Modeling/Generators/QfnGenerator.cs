@@ -8,8 +8,6 @@ public static class QfnGenerator
         double dl = c.N("die.length"), dw = c.N("die.width"), attach = c.N("die.attach"), dh = c.N("die.thickness");
         int nx = c.I("leads.count_x"), ny = (int)c.N("leads.count_y", 0);
         double px = c.N("leads.pitch_x"), py = ny > 0 ? c.N("leads.pitch_y") : 0;
-        if (nx + ny == 0 || Math.Max(dl, pl) > l || Math.Max(dw, pw) > w || eh >= h || (nx - 1) * px + c.N("leads.width") > l || ny > 0 && (ny - 1) * py + c.N("leads.width") > w)
-            throw new ArgumentException("QFN 芯片、焊盘或引脚尺寸不兼容。");
         c.Center("encapsulant", "encapsulant", l, w, c.N("encapsulant.thickness"), s, "eme-7730lf", "encapsulant");
         c.Center("dap-upper", "exposed_pad", pl, pw, h - eh, s + eh, "leadframe-c194", "exposed-pad");
         c.Center("dap-exposed", "exposed_pad", el, ew, eh, s, "leadframe-c194", "exposed-pad");
@@ -127,7 +125,7 @@ public static class QfnGenerator
             double extent = (count - 1) * c.N("leads.pitch_" + transverseAxis) + c.N("leads.width");
             double end = c.N(axis == "x" ? "package.length" : "package.width") / 2 - c.N("leads.length") - c.N("leads.etch"), span = end - die / 2;
             if (span <= 0)
-                throw new ArgumentException("QFN 键合线焊盘必须位于芯片外。");
+                throw new ArgumentException("generation.qfn.wire");
             void Pair(string id, double start, double radial, double transverse, double z, double height, string mat)
             {
                 foreach (int sign in new[]
@@ -161,8 +159,6 @@ public static class QfnGenerator
     {
         if (!c.B("vias.enabled"))
             return;
-        if ((c.I("vias.columns") - 1) * c.N("vias.pitch") + c.N("vias.diameter") > c.N("pad.exposed_length") || (c.I("vias.rows") - 1) * c.N("vias.pitch") + c.N("vias.diameter") > c.N("pad.exposed_width"))
-            throw new ArgumentException("QFN 通孔必须位于露出焊盘内。");
         var matrix = c.M("static-air")with
         {
             Conductivity = new(0.32, 0.32, 0.32),

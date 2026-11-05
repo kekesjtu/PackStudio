@@ -89,7 +89,10 @@
     {
       "key": "leads.pitch_y",
       "minimum": 0.1,
-      "maximum": 2
+      "maximum": 2,
+      "requires_positive": [
+        "leads.count_y"
+      ]
     },
     {
       "key": "leads.width",
@@ -300,5 +303,41 @@
       ]
     }
   ],
-  "checks": []
+  "checks": [
+    {
+      "id": "input.qfn.lead_height",
+      "stage": "input",
+      "check": "relation",
+      "severity": "error",
+      "message": "露出引脚厚度必须小于引脚总厚度。"
+    },
+    {
+      "id": "input.qfn.lead_count",
+      "stage": "input",
+      "check": "relation",
+      "severity": "error",
+      "message": "QFN 至少需要一组引脚。"
+    },
+    {
+      "id": "input.qfn.lead_span",
+      "stage": "input",
+      "check": "relation",
+      "severity": "error",
+      "message": "QFN 引脚跨度必须位于封装内。"
+    },
+    {
+      "id": "input.qfn.wire_endpoint",
+      "stage": "input",
+      "check": "relation",
+      "severity": "error",
+      "message": "QFN 键合线焊盘必须位于芯片外。"
+    },
+    {
+      "id": "input.qfn.via_span",
+      "stage": "input",
+      "check": "relation",
+      "severity": "error",
+      "message": "QFN 通孔必须位于露出焊盘内。"
+    }
+  ]
 }

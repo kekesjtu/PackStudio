@@ -195,5 +195,13 @@
       "key": "derived.wire_path_y"
     }
   ],
-  "checks": []
+  "checks": [
+    {
+      "id": "input.sop.leads",
+      "stage": "input",
+      "check": "sop_lead_count",
+      "severity": "error",
+      "message": "SOP 引脚数量必须为偶数。"
+    }
+  ]
 }
