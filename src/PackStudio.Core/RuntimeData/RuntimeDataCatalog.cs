@@ -36,13 +36,14 @@ public sealed class RuntimeDataCatalog
     {
         var info = Families.SingleOrDefault(f => f.Id == id) ?? throw new InvalidDataException($"未知封装类型 {id}。");
         var data = JsonData.Read(Path.Combine(root, "definitions", id + ".json"));
-        CheckDocument(data, "packstudio.definition/v2", id);
-        if (data["keys"] is not JArray keys || data["steps"] is not JArray steps)
-            throw new InvalidDataException($"{id} 参数定义缺少 keys 或 steps。");
+        CheckDocument(data, "packstudio.definition/v3", id);
+        if (data["keys"] is not JArray keys || data["materials"] is not JArray materials || data["steps"] is not JArray steps)
+            throw new InvalidDataException($"{id} 参数定义缺少 keys、materials 或 steps。");
         CheckFields(keys);
+        CheckFields(materials, "combobox");
         if (steps.Select(s => s["key"].Text()).Distinct().Count() != steps.Count)
             throw new InvalidDataException($"{id} 包含重复步骤。");
-        foreach (var key in keys.Where(k => k["step"] != null))
+        foreach (var key in keys.Concat(materials).Where(k => k["step"] != null))
             if (!steps.Any(s => s["key"].Text() == key["step"].Text()) && !key["creation_option"].Flag() && key["type"].Text() != "footprint")
                 throw new InvalidDataException($"字段 {key["key"]} 引用未知步骤 {key["step"]}。");
         var presets = new List<ProjectDocument>();
@@ -51,7 +52,7 @@ public sealed class RuntimeDataCatalog
             var document = ProjectStore.ReadCurrent(JsonData.CatalogEntry(Path.Combine(root, "presets"), entry.Value));
             if (document.Name != entry.Name || document.TemplateId != id)
                 throw new InvalidDataException($"预设标识无效：{entry.Name}");
-            foreach (var field in keys.Where(f => !f["creation_only"].Flag() && f["type"].Text() is not ("footprint" or "material")))
+            foreach (var field in keys.Where(f => !f["creation_only"].Flag() && f["type"].Text() != "footprint"))
                 if (document.Values.Property(field["key"].Text()) == null)
                     throw new InvalidDataException($"预设 {entry.Name} 缺少参数 {field["key"]}。");
             presets.Add(document);
@@ -110,13 +111,13 @@ public sealed class RuntimeDataCatalog
             throw new InvalidDataException($"{id} 运行数据标识或版本无效。");
     }
 
-    static void CheckFields(JArray fields)
+    static void CheckFields(JArray fields, string defaultType = "")
     {
         if (fields.Select(f => f["key"].Text()).Distinct().Count() != fields.Count)
             throw new InvalidDataException("参数定义包含重复键。");
         foreach (var field in fields)
         {
-            if (field["key"].Text().Length == 0 || field["type"].Text().Length == 0)
+            if (field["key"].Text().Length == 0 || field["type"].Text(defaultType).Length == 0)
                 throw new InvalidDataException("参数定义缺少键或数据类型。");
             if (field["type"].Text() == "object")
             {

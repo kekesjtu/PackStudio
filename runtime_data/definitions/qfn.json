@@ -1,11 +1,10 @@
 {
-  "schema_version": "packstudio.definition/v2",
+  "schema_version": "packstudio.definition/v3",
   "template_id": "qfn",
   "keys": [
     {
       "key": "footprint.size",
       "default": "QFN_12X12_100",
-      "unit": null,
       "options_source": "presets",
       "creation_only": true,
       "type": "footprint",
@@ -118,16 +117,14 @@
     },
     {
       "key": "leads.count_x",
-      "unit": null,
-      "type": "integer_spinbox",
+      "type": "integer",
       "step": "lead_solder_interconnect",
       "label": "上下侧引脚数",
       "des_symbol": "MD"
     },
     {
       "key": "leads.count_y",
-      "unit": null,
-      "type": "integer_spinbox",
+      "type": "integer",
       "step": "lead_solder_interconnect",
       "label": "左右侧引脚数",
       "des_symbol": "ME"
@@ -214,7 +211,6 @@
     },
     {
       "key": "thermal_land.enabled",
-      "unit": null,
       "type": "checkbox",
       "step": "thermal_land",
       "label": "包含散热焊盘",
@@ -233,7 +229,6 @@
     },
     {
       "key": "vias.enabled",
-      "unit": null,
       "type": "checkbox",
       "step": "thermal_vias",
       "label": "启用热通孔",
@@ -285,8 +280,7 @@
     },
     {
       "key": "vias.columns",
-      "unit": null,
-      "type": "integer_spinbox",
+      "type": "integer",
       "step": "thermal_vias",
       "label": "通孔 X 方向数量",
       "visible_when": {
@@ -296,8 +290,7 @@
     },
     {
       "key": "vias.rows",
-      "unit": null,
-      "type": "integer_spinbox",
+      "type": "integer",
       "step": "thermal_vias",
       "label": "通孔 Y 方向数量",
       "visible_when": {
@@ -308,7 +301,6 @@
     {
       "key": "grid.enabled",
       "default": true,
-      "unit": null,
       "type": "checkbox",
       "label": "局部网格",
       "step": "modeling",
@@ -317,7 +309,6 @@
     {
       "key": "grid.density",
       "default": "fine",
-      "unit": null,
       "options": [
         {
           "value": "coarse"
@@ -340,7 +331,6 @@
     {
       "key": "leads.modeling",
       "default": "discreteLeads",
-      "unit": null,
       "options": [
         {
           "value": "discreteLeads"
@@ -356,8 +346,7 @@
     {
       "key": "bond_wire.steps",
       "default": 1,
-      "unit": null,
-      "type": "integer_spinbox",
+      "type": "integer",
       "label": "键合线离散分段数量",
       "step": "modeling",
       "des_symbol": "nsteps"
@@ -365,7 +354,6 @@
     {
       "key": "vias.modeling",
       "default": "discrete",
-      "unit": null,
       "options": [
         {
           "value": "discrete"
@@ -429,18 +417,14 @@
           }
         }
       ]
-    },
+    }
+  ],
+  "materials": [
     {
       "default": "eme-7730lf",
-      "options": [
-        {
-          "value": "*"
-        }
-      ],
       "step": "overall_package",
       "label": "塑封材料",
-      "key": "group-encapsulant",
-      "type": "material"
+      "key": "group-encapsulant"
     },
     {
       "default": "silicon",
@@ -451,83 +435,46 @@
       ],
       "step": "die",
       "label": "芯片材料",
-      "key": "group-die",
-      "type": "material"
+      "key": "group-die"
     },
     {
       "default": "dieattach-2600bt",
-      "options": [
-        {
-          "value": "*"
-        }
-      ],
       "step": "die",
       "label": "芯片粘接材料",
-      "key": "group-die-attach",
-      "type": "material"
+      "key": "group-die-attach"
     },
     {
       "default": "leadframe-c194",
-      "options": [
-        {
-          "value": "*"
-        }
-      ],
       "step": "dap",
       "label": "DAP 材料",
-      "key": "group-exposed-pad",
-      "type": "material"
+      "key": "group-exposed-pad"
     },
     {
       "default": "leadframe-c194",
-      "options": [
-        {
-          "value": "*"
-        }
-      ],
       "step": "lead_solder_interconnect",
       "label": "引线框材料",
-      "key": "group-lead-frame",
-      "type": "material"
+      "key": "group-lead-frame"
     },
     {
       "default": "gold",
-      "options": [
-        {
-          "value": "*"
-        }
-      ],
       "step": "bond_wires",
       "label": "键合线材料",
-      "key": "group-bond-wires",
-      "type": "material"
+      "key": "group-bond-wires"
     },
     {
       "default": "solder-sn63",
-      "options": [
-        {
-          "value": "*"
-        }
-      ],
       "step": "lead_solder_interconnect",
       "label": "焊料材料",
-      "key": "group-solder",
-      "type": "material"
+      "key": "group-solder"
     },
     {
       "default": "copper",
-      "options": [
-        {
-          "value": "*"
-        }
-      ],
       "step": "thermal_land",
       "label": "散热焊盘材料",
       "visible_when": {
         "thermal_land.enabled": true
       },
-      "key": "group-thermal-land",
-      "type": "material"
+      "key": "group-thermal-land"
     }
   ],
   "steps": [

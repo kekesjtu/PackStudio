@@ -67,7 +67,7 @@ public sealed class ParameterForm
         {
             var definition = (JObject)s.DeepClone();
             definition["key"] = "$material:" + s["key"].Text();
-            definition["type"] = "material";
+            definition["type"] = "combobox";
             return new ParameterField(this, definition, null);
         }).ToList();
         foreach (var field in Fields.Concat(Materials))

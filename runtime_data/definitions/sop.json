@@ -1,10 +1,9 @@
 {
-  "schema_version": "packstudio.definition/v2",
+  "schema_version": "packstudio.definition/v3",
   "template_id": "sop",
   "keys": [
     {
       "key": "package.type",
-      "unit": null,
       "options": [
         {
           "value": "soic/sop/so",
@@ -29,7 +28,6 @@
     {
       "key": "footprint.size",
       "default": "SOP_8_3_81x4_93",
-      "unit": null,
       "options_source": "presets",
       "creation_only": true,
       "type": "footprint",
@@ -174,8 +172,7 @@
     },
     {
       "key": "leads.total",
-      "unit": null,
-      "type": "integer_spinbox",
+      "type": "integer",
       "step": "leadframe",
       "label": "引脚总数",
       "des_symbol": "MT"
@@ -230,8 +227,7 @@
     },
     {
       "key": "bond_wire.count",
-      "unit": null,
-      "type": "integer_spinbox",
+      "type": "integer",
       "step": "bond_wires",
       "label": "键合线数量",
       "des_symbol": "N"
@@ -246,7 +242,6 @@
     },
     {
       "key": "thermal_land.enabled",
-      "unit": null,
       "type": "checkbox",
       "step": "thermal_land_solder",
       "label": "包含散热焊盘与焊料",
@@ -266,7 +261,6 @@
     {
       "key": "grid.enabled",
       "default": true,
-      "unit": null,
       "type": "checkbox",
       "label": "局部网格",
       "step": "modeling",
@@ -275,7 +269,6 @@
     {
       "key": "grid.density",
       "default": "fine",
-      "unit": null,
       "options": [
         {
           "value": "coarse"
@@ -298,7 +291,6 @@
     {
       "key": "bond_wire.modeling",
       "default": "orthotropicCuboid",
-      "unit": null,
       "options": [
         {
           "value": "isotropicCuboid"
@@ -314,7 +306,6 @@
     {
       "key": "package.exposed_pad",
       "default": false,
-      "unit": null,
       "creation_option": true,
       "type": "checkbox",
       "label": "裸露焊盘初始化",
@@ -323,7 +314,6 @@
     {
       "key": "leads.custom_coverage",
       "default": false,
-      "unit": null,
       "type": "checkbox",
       "label": "自定义引线框覆盖率",
       "step": "leadframe"
@@ -339,18 +329,14 @@
         "leads.custom_coverage": true
       },
       "des_symbol": "cl"
-    },
+    }
+  ],
+  "materials": [
     {
       "default": "epoxy-mold",
-      "options": [
-        {
-          "value": "*"
-        }
-      ],
       "step": "encapsulant",
       "label": "塑封材料",
-      "key": "group-encapsulant",
-      "type": "material"
+      "key": "group-encapsulant"
     },
     {
       "default": "silicon",
@@ -361,86 +347,49 @@
       ],
       "step": "die",
       "label": "芯片材料",
-      "key": "group-die",
-      "type": "material"
+      "key": "group-die"
     },
     {
       "default": "dieattach-84-1lmis",
-      "options": [
-        {
-          "value": "*"
-        }
-      ],
       "step": "die",
       "label": "芯片粘接材料",
-      "key": "group-die-attach",
-      "type": "material"
+      "key": "group-die-attach"
     },
     {
       "default": "leadframe-c194",
-      "options": [
-        {
-          "value": "*"
-        }
-      ],
       "step": "leadframe",
       "label": "引线框材料",
-      "key": "group-lead-frame",
-      "type": "material"
+      "key": "group-lead-frame"
     },
     {
       "default": "gold",
-      "options": [
-        {
-          "value": "*"
-        }
-      ],
       "step": "bond_wires",
       "label": "键合线材料",
-      "key": "group-bond-wires",
-      "type": "material"
+      "key": "group-bond-wires"
     },
     {
       "default": "copper",
-      "options": [
-        {
-          "value": "*"
-        }
-      ],
       "step": "thermal_land_solder",
       "label": "散热焊盘材料",
       "visible_when": {
         "thermal_land.enabled": true
       },
-      "key": "group-thermal-land",
-      "type": "material"
+      "key": "group-thermal-land"
     },
     {
       "default": "solder-sn63",
-      "options": [
-        {
-          "value": "*"
-        }
-      ],
       "step": "thermal_land_solder",
       "label": "焊料材料",
       "visible_when": {
         "thermal_land.enabled": true
       },
-      "key": "group-thermal-solder",
-      "type": "material"
+      "key": "group-thermal-solder"
     },
     {
       "default": "leadframe-c194",
-      "options": [
-        {
-          "value": "*"
-        }
-      ],
       "step": "die_flag_tie_bars",
       "label": "芯片承载台材料",
-      "key": "group-die-flag",
-      "type": "material"
+      "key": "group-die-flag"
     }
   ],
   "steps": [

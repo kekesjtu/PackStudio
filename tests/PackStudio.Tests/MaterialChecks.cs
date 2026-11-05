@@ -6,6 +6,53 @@ static class MaterialChecks
 {
     public static void Run(TestSuite tests)
     {
+        tests.Case("materials", "omitted options offer library and custom materials with matching validation", () =>
+        {
+            var original = tests.Catalog.Load("bare_die");
+            var data = (JObject)original.Data.DeepClone();
+            var slot = (JObject)data["materials"]!.Single(s => s["key"].Text() == "group-bump-solder");
+            slot.Remove("options");
+            var template = new PackageDefinition(original.Info, data, original.Presets);
+            var document = tests.Create(template);
+            var custom = tests.Catalog.Materials.Items["copper"] with { Id = "custom-test", Name = "Custom test material" };
+            document.CustomMaterials.Add(custom);
+            bool Rejected() => InputValidator.Validate(document, template, tests.Catalog.Materials, tests.Catalog.LoadValidation("bare_die"))
+                .Any(i => i.Code == "input.material.reference" && i.ParameterPaths.Contains("MaterialAssignments.group-bump-solder"));
+            foreach (string id in new[] { "copper", custom.Id })
+            {
+                document.MaterialAssignments["group-bump-solder"] = id;
+                var choices = MaterialSelection.Choices(tests.Catalog.Materials, template, document, slot);
+                Assert(choices.SelectedId == id && choices.Items.Any(m => m.Id == id) && !Rejected(), "default material candidates disagree with validation");
+            }
+            foreach (string id in new[] { "", "unknown-material" })
+            {
+                document.MaterialAssignments["group-bump-solder"] = id;
+                Assert(Rejected(), "default candidates accepted an empty or unknown material");
+            }
+        });
+        tests.Case("materials", "explicit options restrict choices and control empty assignments", () =>
+        {
+            var original = tests.Catalog.Load("bare_die");
+            var data = (JObject)original.Data.DeepClone();
+            var slot = data["materials"]!.Single(s => s["key"].Text() == "group-bump-solder");
+            slot["options"] = new JArray(new JObject { ["value"] = "solder-pb90" });
+            var template = new PackageDefinition(original.Info, data, original.Presets);
+            var document = tests.Create(template);
+            var choices = MaterialSelection.Choices(tests.Catalog.Materials, template, document, slot);
+            Assert(choices.Items.Any(m => m.Id == "solder-pb90") && !choices.Items.Any(m => m.Id == "copper"), "explicit options did not restrict choices");
+            bool Rejected() => InputValidator.Validate(document, template, tests.Catalog.Materials, tests.Catalog.LoadValidation("bare_die"))
+                .Any(i => i.Code == "input.material.reference" && i.ParameterPaths.Contains("MaterialAssignments.group-bump-solder"));
+            document.MaterialAssignments["group-bump-solder"] = "copper";
+            Assert(Rejected(), "explicit material restrictions were ignored");
+            document.MaterialAssignments["group-bump-solder"] = "";
+            Assert(Rejected(), "empty material accepted without an explicit option");
+            slot["options"] = new JArray(new JObject { ["value"] = "" }, new JObject { ["value"] = "*" });
+            Assert(!Rejected(), "explicit empty material option was ignored");
+            document.MaterialAssignments["group-bump-solder"] = "copper";
+            Assert(!Rejected(), "wildcard did not allow a library material");
+            slot["options"] = new JArray();
+            Assert(Rejected(), "an empty option list acted like omitted options");
+        });
         tests.Case("materials", "user material assignment wins", () =>
         {
             var document = tests.Create(tests.Catalog.Load("cbga_fc"));

@@ -57,10 +57,10 @@ public static partial class FieldView
                 var columns = ((JArray)f["columns"]!).Select(c => (c["key"].Text(), c["label"].Text(), c["type"].Text() switch { "checkbox" => typeof(bool), "text" => typeof(string), _ => typeof(double) })).ToArray();
                 editors.Children.Add(Table(field.Value is JArray table ? (JArray)table.DeepClone() : [], columns, field.Set));
             }
-            else if (control is "number" or "integer" or "integer_spinbox")
+            else if (control is "number" or "integer")
             {
                 editors.Children.Add(new NumericEditor(field));
-                string hintText = control.StartsWith("integer") ? "整数" : "";
+                string hintText = control == "integer" ? "整数" : "";
                 var hint = new TextBlock { Text = hintText, FontSize = 10, Foreground = Brushes.SlateGray, VerticalAlignment = VerticalAlignment.Center, Margin = new(6, 0, 0, 0), TextTrimming = TextTrimming.CharacterEllipsis };
                 Grid.SetColumn(hint, 2); host.Children.Add(hint);
             }

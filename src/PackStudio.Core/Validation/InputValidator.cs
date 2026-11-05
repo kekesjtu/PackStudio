@@ -42,15 +42,15 @@ public static partial class InputValidator
             void Error(string code) => issues.Add(rules.Create(code, ValidationStage.Input, [path], field: field));
             if (value?.Type is null or JTokenType.Null)
             {
-                if (field["required"]?.Value<bool>() != false && type is ("number" or "integer" or "integer_spinbox" or "checkbox" or "object" or "table" or "removal_matrix" or "combobox" or "text"))
+                if (field["required"]?.Value<bool>() != false && type is ("number" or "integer" or "checkbox" or "object" or "table" or "removal_matrix" or "combobox" or "text"))
                     Error("input.required");
                 continue;
             }
-            if (type is "number" or "integer" or "integer_spinbox")
+            if (type is "number" or "integer")
             {
                 if (value.Type is not (JTokenType.Float or JTokenType.Integer)) { Error("input.type.number"); continue; }
                 double number = value.Value<double>();
-                if (!double.IsFinite(number) || type.StartsWith("integer") && (number != Math.Truncate(number) || number < int.MinValue || number > int.MaxValue))
+                if (!double.IsFinite(number) || type == "integer" && (number != Math.Truncate(number) || number < int.MinValue || number > int.MaxValue))
                 { Error("input.number"); continue; }
                 double minimum = field["minimum"]?.Type is JTokenType.Integer or JTokenType.Float ? field["minimum"]!.Value<double>() : double.NegativeInfinity;
                 if (number < minimum || field["exclusive_minimum"]?.Type is JTokenType.Integer or JTokenType.Float && number <= field["exclusive_minimum"]!.Value<double>() || field["maximum"]?.Type is JTokenType.Integer or JTokenType.Float && number > field["maximum"]!.Value<double>())
@@ -107,8 +107,7 @@ public static partial class InputValidator
             string group = selection["key"].Text(), path = "MaterialAssignments." + group;
             if (!document.MaterialAssignments.TryGetValue(group, out var id))
                 issues.Add(rules.Create("input.material.missing", ValidationStage.Input, [path], detail: group));
-            else if (id.Length == 0 ? !(PackageDefinition.OptionValues(selection)).Any(o => o.Text() == "") :
-                !materials.ContainsKey(id) || !(PackageDefinition.OptionValues(selection)).Any(o => o.Text() == "*" || o.Text() == id))
+            else if (!MaterialSelection.Allows(selection, id) || id.Length > 0 && !materials.ContainsKey(id))
                 issues.Add(rules.Create("input.material.reference", ValidationStage.Input, [path], detail: id));
         }
         foreach (string group in document.MaterialAssignments.Keys.Except(definition.MaterialSelections.Select(s => s["key"].Text())))

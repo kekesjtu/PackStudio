@@ -6,7 +6,6 @@ public sealed class PackageDefinition
 {
     public TemplateInfo Info { get; }
     public JObject Data { get; }
-    public JArray Keys => (JArray)Data["keys"]!;
     public JArray Fields { get; }
     public JArray DisplayFields { get; }
     public JArray MaterialSelections { get; }
@@ -21,9 +20,9 @@ public sealed class PackageDefinition
         Info = info;
         Data = data;
         Presets = presets;
-        Fields = new(Keys.Where(f => f["type"].Text() != "material"));
+        Fields = (JArray)data["keys"]!;
         DisplayFields = new(Fields.Where(f => f["step"]?.Type == JTokenType.String));
-        MaterialSelections = new(Keys.Where(f => f["type"].Text() == "material"));
+        MaterialSelections = (JArray)data["materials"]!;
     }
 
     public JArray OptionsFor(JToken field) => field["options_source"].Text() switch

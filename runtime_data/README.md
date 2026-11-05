@@ -7,7 +7,7 @@
 | 路径 | 内容 |
 | --- | --- |
 | `families.json` | 家族显示名、分组、描述、默认选择、图标与示意图样式 |
-| `definitions/<family>.json` | `keys` 统一定义参数、选项、材料选择与展示信息；`steps` 定义向导栏目和示意图 |
+| `definitions/<family>.json` | `keys` 定义参数、选项与展示信息；`materials` 定义材料槽位；`steps` 定义向导栏目和示意图 |
 | `validation/common.json`、`validation/<family>.json` | 字段及业务检查声明、数值范围、生效条件、严重度和消息；共用声明通过 families 限定适用家族 |
 | `model_groups.json` | 领域模型、模型树与导出共用的分组显示名称及父子关系 |
 | `presets/<来源目录>/<预设名>.json` | 342 个可直接导入的完整方案预设 |
@@ -24,11 +24,12 @@ Bare Die 没有原生预设，使用参数定义中的基线。
 
 参数定义中的材料内容仅为槽位、候选及默认材料 ID。固定物性来自 `materials/`，等效物性由生成器按当前参数计算，用户物性覆盖保存在方案的 `CustomMaterials`；参数定义不存储等效材料数值。
 
-封装定义采用 `packstudio.definition/v2`，文件头的 `schema_version`、`template_id` 标识版本和家族，正文为 `keys` 与 `steps`：
+封装定义采用 `packstudio.definition/v3`，文件头的 `schema_version`、`template_id` 标识版本和家族，正文为 `keys`、`materials` 与 `steps`：
 
 - `keys` 中每个条目以 `key` 标识参数；`type` 同时用于数据解析、校验和控件选择。包含 `step` 的参数进入对应向导栏目；内部参数只保存必要定义，不声明栏目，不设置隐藏控件。
+- 整数类型统一为 `integer`；`unit` 仅用于 `number`，表格中的数值列按各列类型声明单位。
 - `options` 为包含 `value` 和可选 `label` 的选项记录。方案保存和校验使用 `value`，下拉框显示 `label`，省略名称时直接显示值。`options_source: "presets"` 按预设生成同样结构的候选。
-- `type: "material"` 的条目定义材料槽位，`key` 即组件材料组 ID。其 `default` 和选项中的 `value` 均为材料 ID，`*` 表示已有材料候选。方案仍通过独立的 `MaterialAssignments` 保存选择。
+- `materials` 的条目定义材料槽位，`key` 即组件材料组 ID，默认采用下拉框，无需声明 `type`。其 `default` 和选项中的 `value` 均为材料 ID；省略 `options` 时提供全部可用材料，显式选项用于限制候选，`*` 表示全部材料，空字符串选项允许 No Attachment。方案仍通过独立的 `MaterialAssignments` 保存选择。
 - 对象的子参数放在嵌套 `keys` 中，表格列放在 `columns` 中。`schematic: true` 标记影响示意图结构的参数，用于场景更新。
 - `steps` 保存栏目顺序、名称及示意图类型。参数标签、单位、符号和显隐条件均随对应 `key` 存放。
 

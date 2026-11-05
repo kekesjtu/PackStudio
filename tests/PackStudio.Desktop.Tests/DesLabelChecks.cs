@@ -25,7 +25,7 @@ static partial class DesLabelChecks
         foreach (var family in catalog.Families)
         {
             var template = catalog.Load(family.Id);
-            foreach (var field in template.DisplayFields.OfType<JObject>().Where(f => !f["creation_option"].Flag() && f["type"].Text() is "number" or "integer" or "integer_spinbox"))
+            foreach (var field in template.DisplayFields.OfType<JObject>().Where(f => !f["creation_option"].Flag() && f["type"].Text() is "number" or "integer"))
             {
                 var entry = field["des_symbol"];
                 bool covered = entry is JObject choices ? ((JObject)choices["cases"]!).Properties().All(p => p.Value.Text().Length > 0) : entry.Text().Length > 0;

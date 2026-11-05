@@ -33,7 +33,7 @@ public sealed class NumericEditor : Border
         {
             if (e.DataObject.GetData(DataFormats.UnicodeText) is not string input || !NumericText(input)) e.CancelCommand();
         });
-        if (field.Type.StartsWith("integer"))
+        if (field.Type == "integer")
         {
             var arrows = new Grid { Width = 22 };
             arrows.RowDefinitions.Add(new()); arrows.RowDefinitions.Add(new());

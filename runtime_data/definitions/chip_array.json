@@ -1,11 +1,10 @@
 {
-  "schema_version": "packstudio.definition/v2",
+  "schema_version": "packstudio.definition/v3",
   "template_id": "chip_array",
   "keys": [
     {
       "key": "footprint.size",
       "default": "ChipArray_24_4X4mm_0_8",
-      "unit": null,
       "options_source": "presets",
       "creation_only": true,
       "type": "footprint",
@@ -150,7 +149,6 @@
     },
     {
       "key": "vias.enabled",
-      "unit": null,
       "type": "checkbox",
       "step": "thermal_vias",
       "label": "包含热通孔",
@@ -203,16 +201,14 @@
     },
     {
       "key": "bga.columns",
-      "unit": null,
-      "type": "integer_spinbox",
+      "type": "integer",
       "step": "solder_balls",
       "label": "X 方向列数",
       "des_symbol": "MD"
     },
     {
       "key": "bga.rows",
-      "unit": null,
-      "type": "integer_spinbox",
+      "type": "integer",
       "step": "solder_balls",
       "label": "Y 方向行数",
       "des_symbol": "ME"
@@ -244,7 +240,6 @@
     {
       "key": "grid.enabled",
       "default": true,
-      "unit": null,
       "type": "checkbox",
       "label": "局部网格",
       "step": "modeling",
@@ -253,7 +248,6 @@
     {
       "key": "grid.density",
       "default": "fine",
-      "unit": null,
       "options": [
         {
           "value": "coarse"
@@ -276,7 +270,6 @@
     {
       "key": "substrate.layers",
       "default": "2-Layer",
-      "unit": null,
       "options": [
         {
           "value": "2-Layer"
@@ -294,7 +287,6 @@
     {
       "key": "bond_wire.auto_count",
       "default": true,
-      "unit": null,
       "type": "checkbox",
       "label": "键合线数量等于焊球",
       "step": "bond_wires"
@@ -302,7 +294,6 @@
     {
       "key": "bond_wire.total",
       "default": null,
-      "unit": null,
       "type": "integer",
       "label": "键合线总数",
       "step": "bond_wires",
@@ -314,7 +305,6 @@
     {
       "key": "bond_wire.include",
       "default": true,
-      "unit": null,
       "type": "checkbox",
       "label": "包含键合线",
       "step": "modeling"
@@ -322,7 +312,6 @@
     {
       "key": "vias.filled",
       "default": false,
-      "unit": null,
       "type": "checkbox",
       "label": "填充通孔",
       "step": "thermal_vias",
@@ -334,7 +323,6 @@
     {
       "key": "vias.modeling",
       "default": "accurate",
-      "unit": null,
       "options": [
         {
           "value": "accurate"
@@ -353,7 +341,6 @@
     {
       "key": "metal.layers",
       "default": [],
-      "unit": null,
       "type": "table",
       "columns": [
         {
@@ -493,7 +480,6 @@
     {
       "key": "bga.ball_map",
       "default": [],
-      "unit": "mm",
       "type": "table",
       "columns": [
         {
@@ -540,18 +526,14 @@
       "visible_when": {
         "substrate.layers": "4-Layer"
       }
-    },
+    }
+  ],
+  "materials": [
     {
       "default": "bt",
-      "options": [
-        {
-          "value": "*"
-        }
-      ],
       "step": "overall_package",
       "label": "基板材料",
-      "key": "group-substrate",
-      "type": "material"
+      "key": "group-substrate"
     },
     {
       "default": "silicon",
@@ -562,92 +544,49 @@
       ],
       "step": "die",
       "label": "芯片材料",
-      "key": "group-die",
-      "type": "material"
+      "key": "group-die"
     },
     {
       "default": "qmi-595",
-      "options": [
-        {
-          "value": "*"
-        }
-      ],
       "step": "die",
       "label": "芯片粘接材料",
-      "key": "group-die-attach",
-      "type": "material"
+      "key": "group-die-attach"
     },
     {
       "default": "epoxy-mold",
-      "options": [
-        {
-          "value": "*"
-        }
-      ],
       "step": "encapsulant",
       "label": "塑封材料",
-      "key": "group-encapsulant",
-      "type": "material"
+      "key": "group-encapsulant"
     },
     {
       "default": "gold",
-      "options": [
-        {
-          "value": "*"
-        }
-      ],
       "step": "bond_wires",
       "label": "键合线材料",
-      "key": "group-bond-wires",
-      "type": "material"
+      "key": "group-bond-wires"
     },
     {
       "default": "solder-mask",
-      "options": [
-        {
-          "value": "*"
-        }
-      ],
       "step": "encapsulant",
       "label": "阻焊层材料",
-      "key": "group-solder-mask",
-      "type": "material"
+      "key": "group-solder-mask"
     },
     {
       "default": "solder-sn63",
-      "options": [
-        {
-          "value": "*"
-        }
-      ],
       "step": "solder_balls",
       "label": "BGA 焊球材料",
-      "key": "group-bga-solder",
-      "type": "material"
+      "key": "group-bga-solder"
     },
     {
       "default": "copper",
-      "options": [
-        {
-          "value": "*"
-        }
-      ],
       "label": "金属材料",
       "step": "metal_layers",
-      "key": "group-metal",
-      "type": "material"
+      "key": "group-metal"
     },
     {
       "default": "alloy_42_8021e087",
-      "options": [
-        {
-          "value": "*"
-        }
-      ],
       "label": "顶层中央区域材料",
       "step": "metal_layers",
-      "key": "group-trace-hole",
-      "type": "material"
+      "key": "group-trace-hole"
     }
   ],
   "steps": [
