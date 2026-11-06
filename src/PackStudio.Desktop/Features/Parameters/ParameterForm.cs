@@ -29,9 +29,17 @@ public sealed class ParameterForm
             target = nested;
         }
         if (JToken.DeepEquals(target[keys[^1]], value)) return new HashSet<string>();
+        bool clearSlug = path == "cover.type" && target["cover.type"].Text() == "encapsulant" &&
+            value.Text() != "encapsulant" && target["slug.enabled"].Flag();
         target[keys[^1]] = value.DeepClone();
+        HashSet<string> changed = [path];
+        if (clearSlug)
+        {
+            target["slug.enabled"] = false;
+            changed.Add("slug.enabled");
+        }
         workspace.Dirty();
-        return new HashSet<string> { path };
+        return changed;
     })
     {
         issues = () => workspace.Issues;

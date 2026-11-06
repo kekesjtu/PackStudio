@@ -3,6 +3,7 @@ using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Media;
+using Newtonsoft.Json.Linq;
 using PackStudio.Core;
 using PackStudio.Desktop;
 
@@ -39,6 +40,37 @@ static class ParameterFormChecks
             throw new Exception("field dependency propagation touched unrelated input");
         enabled.BooleanValue = original;
         power.TextValue = savedPower;
+        if (workspace.Document.TemplateId is "cbga_fc" or "pbga_fc")
+            CheckSlugCoverSwitch(form);
+    }
+
+    static void CheckSlugCoverSwitch(ParameterForm form)
+    {
+        var cover = form.Fields.Single(f => f.Key == "cover.type");
+        var slug = form.Fields.Single(f => f.Key == "slug.enabled");
+        var length = form.Fields.Single(f => f.Key == "slug.length");
+        var originalCover = cover.Value!.DeepClone();
+        var originalLength = length.Value?.DeepClone() ?? JValue.CreateNull();
+        bool originalSlug = slug.BooleanValue;
+        var box = Descendants<CheckBox>(FieldView.Create(slug)).Single();
+
+        cover.ChoiceValue = new JValue("encapsulant");
+        box.IsChecked = true;
+        length.Set(new JValue(3.5));
+        cover.ChoiceValue = new JValue("lid");
+        if (box.IsChecked != false || box.IsEnabled || slug.BooleanValue || length.Visible)
+            throw new Exception("leaving encapsulant did not clear and disable the slug checkbox");
+
+        cover.ChoiceValue = new JValue("encapsulant");
+        if (box.IsChecked != false || !box.IsEnabled || length.Visible)
+            throw new Exception("returning to encapsulant did not leave the slug off and available");
+        box.IsChecked = true;
+        if (!length.Visible || length.Value.Number() != 3.5)
+            throw new Exception("re-enabling slug did not restore its edited parameters");
+
+        cover.ChoiceValue = originalCover;
+        slug.BooleanValue = originalSlug;
+        length.Set(originalLength);
     }
 
     public static async Task ValidationAsync(MainWindow window, Workspace workspace)
