@@ -14,13 +14,13 @@
   "request": {
     "template_id": "pbga_fc",
     "overrides": {
-      "pbga_fc.vias.enabled": true,
-      "pbga_fc.vias.columns": 3,
-      "pbga_fc.vias.rows": 4,
-      "pbga_fc.vias.diameter": 0.2,
-      "pbga_fc.vias.pitch": 0.5,
-      "pbga_fc.vias.plating": 0.025,
-      "pbga_fc.vias.modeling": "equivalent"
+      "vias.enabled": true,
+      "vias.columns": 3,
+      "vias.rows": 4,
+      "vias.diameter": 0.2,
+      "vias.pitch": 0.5,
+      "vias.plating": 0.025,
+      "vias.modeling": "equivalent"
     },
     "material_assignments": {}
   },

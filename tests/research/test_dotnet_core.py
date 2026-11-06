@@ -55,9 +55,9 @@ def test_request_preserves_false_null_and_object_overrides(cli):
     values = cli.resolve_values({
         "template_id": "pbga_wb",
         "overrides": {
-            "pbga_wb.bga.center_solder_enabled": False,
-            "pbga_wb.bga.center_solder_rows": None,
-            "pbga_wb.vias.configuration": {
+            "bga.center_solder_enabled": False,
+            "bga.center_solder_rows": None,
+            "vias.configuration": {
                 "removal_enabled": True, "removal_rows": 1, "removal_columns": 2,
             },
         },
@@ -73,15 +73,19 @@ def test_request_rejects_unknown_protocol_fields_and_nested_leaf_paths(cli):
     with pytest.raises(RuntimeError, match="vias.configuration.removal_enabled"):
         cli.resolve_values({
             "template_id": "pbga_wb",
-            "overrides": {"pbga_wb.vias.configuration.removal_enabled": True},
+            "overrides": {"vias.configuration.removal_enabled": True},
         })
+    with pytest.raises(RuntimeError, match=r"pbga_wb\.die\.power"):
+        cli.resolve_values({"template_id": "pbga_wb", "overrides": {"pbga_wb.die.power": 2.5}})
+    with pytest.raises(RuntimeError, match=r"footprint\.size"):
+        cli.resolve_values({"template_id": "pbga_wb", "overrides": {"footprint.size": "PBGA_121_15X15mm"}})
 
 
 def test_footprint_override_selects_preset(cli):
     family = next(f for f in cli.invoke("catalog", {}) if f["id"] == "chip_array")
     preset = family["presets"][-1]
     values = cli.resolve_values({
-        "template_id": "chip_array", "overrides": {"chip_array.footprint.size": preset},
+        "template_id": "chip_array", "footprint.size": preset,
     })
     index_path = cli.ROOT / "runtime_data/presets/index.json"
     index = json.loads(index_path.read_text(encoding="utf-8"))
@@ -96,9 +100,9 @@ def test_batch_request_initializes_four_layer_geometry(cli):
     model = cli.export_model({
         "template_id": "chip_array",
         "overrides": {
-            "chip_array.trace.solid_thickness": 0.05,
-            "chip_array.substrate.thickness": 0.75,
-            "chip_array.substrate.layers": "4-Layer",
+            "trace.solid_thickness": 0.05,
+            "substrate.thickness": 0.75,
+            "substrate.layers": "4-Layer",
         },
     })
     assert ET.fromstring(model).find("group/block") is not None
@@ -108,9 +112,9 @@ def test_creation_preserves_invalid_input_until_generation(cli):
     request = {
         "template_id": "bare_die",
         "overrides": {
-            "bare_die.die.length": None,
-            "bare_die.die.width": 0,
-            "bare_die.bumps.enabled": False,
+            "die.length": None,
+            "die.width": 0,
+            "bumps.enabled": False,
         },
     }
     values = cli.resolve_values(request)

@@ -27,10 +27,11 @@ def test_factory_emits_unique_points_and_flat_layout_overrides():
         )
         if point.request:
             assert "bga" not in point.request
-            assert all(
-                key.startswith(point.template + ".")
-                for key in point.request.get("overrides", {})
-            )
+            overrides = point.request.get("overrides", {})
+            assert "footprint.size" not in overrides
+            assert all(not key.startswith(point.template + ".") for key in overrides)
+            if point.id.startswith("preset-"):
+                assert point.request["footprint.size"]
 
 
 def test_comparison_matches_product_physics_without_native_controls(monkeypatch):

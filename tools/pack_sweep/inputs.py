@@ -18,11 +18,11 @@ FOOTPRINTS = {
 def case_adder(result):
     def add(
         identifier, family, changes=(), overrides=None, ball_layout=None,
-        material_assignments=None, wizard=None
+        material_assignments=None, wizard=None, *, footprint=None
     ):
         defaults = {"designName": family}
         if family != "bare_die":
-            defaults.update(outlineType="standardOutline", jedecFootprint=FOOTPRINTS[family])
+            defaults.update(outlineType="standardOutline", jedecFootprint=footprint or FOOTPRINTS[family])
         if family in {"cbga_fc", "pbga_fc"}:
             defaults["topCover"] = "bareDie"
         if family in {"chip_array", "pbga_wb"}:
@@ -39,10 +39,10 @@ def case_adder(result):
             )
         defaults.update(wizard or {})
         if family in {"pqfp", "sop"}:
-            footprint = defaults.pop("jedecFootprint")
+            native_footprint = defaults.pop("jedecFootprint")
             subtype = defaults["pqfpPackageType" if family == "pqfp" else "sopPackageType"]
             defaults[("sop" if subtype == "soic/sop/so" else subtype) + "JedecFootprint"] = (
-                footprint
+                native_footprint
             )
         native = {"bare_die": "Die", "qfn": "QFN", "sop": "tsop_conv"}.get(family, family)
         commands = [ET.tostring(new_package_element(native, defaults), encoding="unicode")]
@@ -51,12 +51,13 @@ def case_adder(result):
         ]
         request = {
             "template_id": family,
-            "overrides": {family + "." + k: v for k, v in (overrides or {}).items()},
+            **({"footprint.size": footprint} if footprint is not None else {}),
+            "overrides": dict(overrides or {}),
             "material_assignments": material_assignments or {},
         }
         if ball_layout is not None:
             request["overrides"].update(
-                {family + ".bga." + key: value for key, value in ball_layout.items()}
+                {"bga." + key: value for key, value in ball_layout.items()}
             )
         result.append({"id": identifier, "commands": commands, "request": request})
 

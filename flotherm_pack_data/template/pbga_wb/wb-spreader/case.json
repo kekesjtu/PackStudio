@@ -15,12 +15,12 @@
   "request": {
     "template_id": "pbga_wb",
     "overrides": {
-      "pbga_wb.spreader.enabled": true,
-      "pbga_wb.spreader.length": 3,
-      "pbga_wb.spreader.width": 2.5,
-      "pbga_wb.spreader.thickness": 0.1,
-      "pbga_wb.spreader.hole_length": 3.5,
-      "pbga_wb.spreader.hole_width": 3
+      "spreader.enabled": true,
+      "spreader.length": 3,
+      "spreader.width": 2.5,
+      "spreader.thickness": 0.1,
+      "spreader.hole_length": 3.5,
+      "spreader.hole_width": 3
     },
     "material_assignments": {
       "group-backside-spreader": "copper"

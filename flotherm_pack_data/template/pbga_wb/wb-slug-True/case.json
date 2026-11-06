@@ -20,16 +20,16 @@
   "request": {
     "template_id": "pbga_wb",
     "overrides": {
-      "pbga_wb.slug.enabled": true,
-      "pbga_wb.slug.length": 11,
-      "pbga_wb.slug.width": 10,
-      "pbga_wb.slug.thickness": 0.15,
-      "pbga_wb.slug.diameter": 5,
-      "pbga_wb.slug.foot_length": 12,
-      "pbga_wb.slug.foot_width": 11.5,
-      "pbga_wb.slug.offset": 0.1,
-      "pbga_wb.slug.clearance": 0.2,
-      "pbga_wb.slug.adhesive_enabled": true
+      "slug.enabled": true,
+      "slug.length": 11,
+      "slug.width": 10,
+      "slug.thickness": 0.15,
+      "slug.diameter": 5,
+      "slug.foot_length": 12,
+      "slug.foot_width": 11.5,
+      "slug.offset": 0.1,
+      "slug.clearance": 0.2,
+      "slug.adhesive_enabled": true
     },
     "material_assignments": {
       "group-slug": "copper",

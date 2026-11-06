@@ -20,17 +20,17 @@
   "request": {
     "template_id": "cbga_fc",
     "overrides": {
-      "cbga_fc.cover.type": "encapsulant",
-      "cbga_fc.slug.enabled": true,
-      "cbga_fc.slug.length": 4,
-      "cbga_fc.slug.width": 3.8,
-      "cbga_fc.slug.thickness": 0.4,
-      "cbga_fc.slug.diameter": 2,
-      "cbga_fc.slug.foot_length": 4.5,
-      "cbga_fc.slug.foot_width": 4.4,
-      "cbga_fc.slug.offset": 0.15,
-      "cbga_fc.slug.clearance": 0.2,
-      "cbga_fc.slug.adhesive_enabled": false
+      "cover.type": "encapsulant",
+      "slug.enabled": true,
+      "slug.length": 4,
+      "slug.width": 3.8,
+      "slug.thickness": 0.4,
+      "slug.diameter": 2,
+      "slug.foot_length": 4.5,
+      "slug.foot_width": 4.4,
+      "slug.offset": 0.15,
+      "slug.clearance": 0.2,
+      "slug.adhesive_enabled": false
     },
     "material_assignments": {
       "group-slug": "copper"

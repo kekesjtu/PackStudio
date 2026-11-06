@@ -15,14 +15,14 @@
   "request": {
     "template_id": "qfn",
     "overrides": {
-      "qfn.vias.enabled": true,
-      "qfn.vias.modeling": "lumped",
-      "qfn.vias.columns": 3,
-      "qfn.vias.rows": 4,
-      "qfn.vias.diameter": 0.2,
-      "qfn.vias.pitch": 0.5,
-      "qfn.vias.plating": 0.025,
-      "qfn.vias.length": 1.2
+      "vias.enabled": true,
+      "vias.modeling": "lumped",
+      "vias.columns": 3,
+      "vias.rows": 4,
+      "vias.diameter": 0.2,
+      "vias.pitch": 0.5,
+      "vias.plating": 0.025,
+      "vias.length": 1.2
     },
     "material_assignments": {}
   },

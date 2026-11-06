@@ -23,12 +23,12 @@ def cases(baseline, inputs):
         )
         path = inputs / (identifier + ".des")
         write_des(path, data)
-        payload = {"template_id": "pbga_wb", "overrides": {"pbga_wb.substrate.layers": "4-Layer"}}
+        payload = {"template_id": "pbga_wb", "overrides": {"substrate.layers": "4-Layer"}}
         rows = resolve_values(payload)["metal.layers"]
         rows[0]["thickness"] = top
         rows[1].update(thickness=inner, depth=depth, disconnect=True)
         rows[2]["disconnect"] = False
-        payload["overrides"]["pbga_wb.metal.layers"] = rows
+        payload["overrides"]["metal.layers"] = rows
         result.append(
             {
                 "id": identifier,

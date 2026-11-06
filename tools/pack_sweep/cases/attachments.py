@@ -50,14 +50,14 @@ def cases(baselines: Path, inputs: Path, *, families=None):
                 changes,
                 {
                     "overrides": {
-                        family + ".bga.rows": 5,
-                        family + ".bga.columns": 5,
-                        family + ".bga.representation": "discrete",
-                        family + ".bga.solder_removal_enabled": True,
-                        family + ".bga.populated_rows": 2,
-                        family + ".bga.populated_columns": 2,
-                        family + ".bga.staggered": True,
-                        family + ".bga.omitted_cells": [{"row": 0, "column": 0}],
+                        "bga.rows": 5,
+                        "bga.columns": 5,
+                        "bga.representation": "discrete",
+                        "bga.solder_removal_enabled": True,
+                        "bga.populated_rows": 2,
+                        "bga.populated_columns": 2,
+                        "bga.staggered": True,
+                        "bga.omitted_cells": [{"row": 0, "column": 0}],
                     },
                 },
             )
@@ -82,13 +82,13 @@ def cases(baselines: Path, inputs: Path, *, families=None):
                 ),
                 {
                     "overrides": {
-                        family + ".bga.representation": "discrete",
-                        family + ".bga.ball_map_enabled": True,
-                        family + ".bga.ball_map": points,
-                        family + ".bga.staggered": True,
-                        family + ".bga.center_solder_enabled": True,
-                        family + ".bga.center_solder_rows": 2,
-                        family + ".bga.center_solder_columns": 2,
+                        "bga.representation": "discrete",
+                        "bga.ball_map_enabled": True,
+                        "bga.ball_map": points,
+                        "bga.staggered": True,
+                        "bga.center_solder_enabled": True,
+                        "bga.center_solder_rows": 2,
+                        "bga.center_solder_columns": 2,
                     }
                 },
                 "\n".join(f"{p['id']},{p['x']},{p['y']}" for p in points),
@@ -99,10 +99,10 @@ def cases(baselines: Path, inputs: Path, *, families=None):
             dict(MD="5", ME="4", staggered_matrix="CHECKED", radio_BGA_modeling="3"),
             {
                 "overrides": {
-                    family + ".bga.rows": 4,
-                    family + ".bga.columns": 5,
-                    family + ".bga.representation": "discrete",
-                    family + ".bga.staggered": True,
+                    "bga.rows": 4,
+                    "bga.columns": 5,
+                    "bga.representation": "discrete",
+                    "bga.staggered": True,
                 },
             },
         )
@@ -124,14 +124,14 @@ def cases(baselines: Path, inputs: Path, *, families=None):
                 ),
                 {
                     "overrides": {
-                        "pbga_fc.vias.enabled": True,
-                        "pbga_fc.vias.columns": 3,
-                        "pbga_fc.vias.rows": 4,
-                        "pbga_fc.vias.diameter": 0.2,
-                        "pbga_fc.vias.pitch": 0.5,
-                        "pbga_fc.vias.plating": 0.025,
-                        "pbga_fc.vias.modeling": mode,
-                        "pbga_fc.vias.configuration": {
+                        "vias.enabled": True,
+                        "vias.columns": 3,
+                        "vias.rows": 4,
+                        "vias.diameter": 0.2,
+                        "vias.pitch": 0.5,
+                        "vias.plating": 0.025,
+                        "vias.modeling": mode,
+                        "vias.configuration": {
                             "removal_enabled": True,
                             "removal_rows": 0,
                             "removal_columns": 0,

@@ -1,24 +1,20 @@
 """Native standard-outline initialization for every retained wirebond footprint."""
 
-from tools.data_library.preset_catalog import PresetCatalog
+from tools.data_library.runtime_data import read_defaults
 
 
 def append_presets(add):
-    catalog = PresetCatalog()
-    for family, native in [
-        ("pqfp", "pqfp"),
-        ("sop", "sop"),
-        ("qfn", "qfn"),
-        ("pbga_wb", "pbga_wb"),
-    ]:
-        for index, identifier in enumerate(catalog.list_ids(native)):
-            branch = catalog.read_branch(identifier)
-            wizard = {"jedecFootprint": identifier}
+    entries = read_defaults("presets/index.json", "packstudio.preset-index/v4")["presets"]
+    for family in ("pqfp", "sop", "qfn", "pbga_wb"):
+        presets = ((name, entry) for name, entry in entries.items() if entry["family"] == family)
+        for index, (identifier, entry) in enumerate(presets):
+            wizard = {}
             if family in {"pqfp", "sop"}:
-                wizard[family + "PackageType"] = branch["values"]["package.type"]
+                preset = read_defaults(f"presets/{entry['file']}", None)
+                wizard[family + "PackageType"] = preset["Values"]["package.type"]
             add(
                 f"preset-{family}-{index}",
                 family,
-                overrides={"footprint.size": identifier},
+                footprint=identifier,
                 wizard=wizard,
             )

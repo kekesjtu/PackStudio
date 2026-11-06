@@ -10,9 +10,9 @@
   "request": {
     "template_id": "pbga_wb",
     "overrides": {
-      "pbga_wb.substrate.layers": "2-Layer",
-      "pbga_wb.trace.top_thickness": 0.01,
-      "pbga_wb.trace.bottom_thickness": 0.04
+      "substrate.layers": "2-Layer",
+      "trace.top_thickness": 0.01,
+      "trace.bottom_thickness": 0.04
     },
     "material_assignments": {}
   },

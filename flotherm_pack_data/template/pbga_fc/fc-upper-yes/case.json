@@ -20,13 +20,13 @@
   "request": {
     "template_id": "pbga_fc",
     "overrides": {
-      "pbga_fc.upper.enabled": true,
-      "pbga_fc.upper.thickness": 0.1,
-      "pbga_fc.upper.count": 49,
-      "pbga_fc.upper.diameter": 0.1,
-      "pbga_fc.upper.filled": true,
-      "pbga_fc.upper.plating": 0.025,
-      "pbga_fc.upper.layers": "[{\"depth\": 0.01, \"thickness\": 0.018, \"coverage\": 20}, {\"depth\": 0.060000000000000005, \"thickness\": 0.018, \"coverage\": 90}]"
+      "upper.enabled": true,
+      "upper.thickness": 0.1,
+      "upper.count": 49,
+      "upper.diameter": 0.1,
+      "upper.filled": true,
+      "upper.plating": 0.025,
+      "upper.layers": "[{\"depth\": 0.01, \"thickness\": 0.018, \"coverage\": 20}, {\"depth\": 0.060000000000000005, \"thickness\": 0.018, \"coverage\": 90}]"
     },
     "material_assignments": {
       "group-upper": "bt"
