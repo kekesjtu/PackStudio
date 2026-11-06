@@ -82,8 +82,7 @@ def test_request_rejects_unknown_protocol_fields_and_nested_leaf_paths(cli):
 
 
 def test_footprint_override_selects_preset(cli):
-    family = next(f for f in cli.invoke("catalog", {}) if f["id"] == "chip_array")
-    preset = family["presets"][-1]
+    preset = cli.query("--presets", "chip_array")[-1]
     values = cli.resolve_values({
         "template_id": "chip_array", "footprint.size": preset,
     })
@@ -94,6 +93,29 @@ def test_footprint_override_selects_preset(cli):
     assert "footprint.size" not in values
     assert values["die.length"] == document["Values"]["die.length"]
     assert values["package.length"] == document["Values"]["package.length"]
+
+
+def test_cli_catalog_and_presets_are_separate_queries(cli):
+    assert set(cli.query("catalog")) == {
+        "bare_die", "cbga_fc", "chip_array", "pbga_fc", "pbga_wb", "pqfp", "qfn", "sop",
+    }
+    assert "QFN_12X12_100" in cli.query("--presets", "qfn")
+    assert cli.query("--presets", "bare_die") == []
+    for command in ("--help", "--presets"):
+        with pytest.raises(RuntimeError, match="unknown_family"):
+            cli.query(command, "unknown_family")
+
+
+def test_parameter_help_maps_symbols_choices_and_nested_fields(cli):
+    fields = cli.query("--help", "chip_array")
+    assert fields["die.length"] == {"label": "芯片长度", "des_symbol": "Ld"}
+    assert fields["trace.top_thickness"]["des_symbol"] == {
+        "selector": "substrate.layers", "cases": {"2-Layer": "tza1", "4-Layer": "tz1"},
+    }
+    assert any(option["value"] == "4-Layer" and option["label"] for option in fields["substrate.layers"]["options"])
+    assert fields["metal.layers"]["columns"]["depth"]["label"]
+    wirebond_fields = cli.query("--help", "pbga_wb")
+    assert wirebond_fields["vias.configuration"]["keys"]["removal_enabled"]["label"]
 
 
 def test_batch_request_initializes_four_layer_geometry(cli):

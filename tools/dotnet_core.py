@@ -21,6 +21,27 @@ def _binary():
     return binary
 
 
+def _run(binary, command, *arguments):
+    try:
+        return subprocess.run(
+            ["dotnet", str(binary), command, *map(str, arguments)],
+            cwd=ROOT,
+            check=True,
+            capture_output=True,
+            text=True,
+            encoding="utf-8",
+        ).stdout
+    except subprocess.CalledProcessError as error:
+        diagnostic = "\n".join(part.strip() for part in (error.stdout, error.stderr) if part)
+        raise RuntimeError(
+            f"C# CLI {command} failed ({error.returncode}):\n{diagnostic}"
+        ) from error
+
+
+def query(command, *arguments):
+    return json.loads(_run(_binary(), command, *arguments))
+
+
 def invoke(command, request):
     binary = _binary()
     directory = ROOT / "tmp" / f"{date.today().isoformat()}-native-cli"
@@ -29,21 +50,10 @@ def invoke(command, request):
         work = Path(temporary)
         source, output = work / "request.json", work / "model.packstudio.xml"
         source.write_text(json.dumps(request, ensure_ascii=False), encoding="utf-8")
-        try:
-            result = subprocess.run(
-                ["dotnet", str(binary), command, str(source), str(output)],
-                cwd=ROOT,
-                check=True,
-                capture_output=True,
-                text=True,
-                encoding="utf-8",
-            )
-        except subprocess.CalledProcessError as error:
-            diagnostic = "\n".join(part.strip() for part in (error.stdout, error.stderr) if part)
-            raise RuntimeError(
-                f"C# CLI {command} failed ({error.returncode}):\n{diagnostic}"
-            ) from error
-        return output.read_bytes() if command == "generate" else json.loads(result.stdout)
+        if command == "generate":
+            _run(binary, command, source, output)
+            return output.read_bytes()
+        return json.loads(_run(binary, command, source))
 
 
 def export_model(request):

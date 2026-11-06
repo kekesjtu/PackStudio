@@ -14,8 +14,13 @@ dotnet run --project tests/PackStudio.Desktop.Tests -c Release --no-build -- con
 ```powershell
 .\build.ps1 -Target Cli
 dotnet src/PackStudio.Cli/bin/Release/net10.0/PackStudio.Cli.dll catalog
+dotnet src/PackStudio.Cli/bin/Release/net10.0/PackStudio.Cli.dll --presets pbga_wb
+dotnet src/PackStudio.Cli/bin/Release/net10.0/PackStudio.Cli.dll --help pbga_wb
 dotnet src/PackStudio.Cli/bin/Release/net10.0/PackStudio.Cli.dll generate request.json model.packstudio.xml
 ```
+
+`catalog` 返回家族 ID 数组，`--presets <template_id>` 返回该家族的预设名称数组。两者均输出 JSON。
+`--help <template_id>` 输出以内部参数键索引的 JSON，包含 UI 标签 `label` 和 `des_symbol`。条件符号列出选择字段与各分支。枚举选项、对象子字段和表格列分别列在 `options`、`keys` 和 `columns` 下。
 
 请求可使用保存的 `.packstudio.json` 方案，或使用以下格式。省略顶层 `footprint.size` 时选用家族的默认预设。
 
