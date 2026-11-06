@@ -133,6 +133,7 @@ public static class Program
                 }
 
                 TableEditorChecks.Verify();
+                FieldLayoutChecks.Verify();
 
                 await NewPackageChecks.FinishCreatesProject(window, vm);
                 await ParameterFormChecks.ValidationAsync(window, vm);

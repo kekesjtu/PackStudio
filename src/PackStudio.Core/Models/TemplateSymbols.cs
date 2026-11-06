@@ -1,8 +1,6 @@
 using Newtonsoft.Json.Linq;
 
-using PackStudio.Core;
-
-namespace PackStudio.Desktop;
+namespace PackStudio.Core;
 
 public static class TemplateSymbols
 {

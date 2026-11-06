@@ -9,6 +9,7 @@ public partial class MainWindow : Window
     readonly Workspace workspace = new();
     readonly ParameterPanel parameters;
     readonly ModelPresenter models;
+    readonly IssuePresenter issues;
     bool loading;
     string? projectPath;
     MaterialWindow? materialWindow;
@@ -17,7 +18,8 @@ public partial class MainWindow : Window
         InitializeComponent();
         models = new(workspace, ModelTree, Viewport, Inspector);
         parameters = new(workspace, FieldsPanel);
-        _ = new IssuePresenter(workspace, IssuesList, WarningsText);
+        issues = new(workspace, IssuesList, WarningsText, IssuesChevron);
+        IssuesToggle.Click += (_, _) => issues.Toggle();
         workspace.ParameterRequested += path =>
         {
             if (path.StartsWith("CustomMaterials."))
@@ -79,7 +81,7 @@ public partial class MainWindow : Window
             Schematic.Update(workspace.Template, workspace.Document, step, SectionTitle.Text);
     }
 
-    void New_Click(object sender, RoutedEventArgs e)
+    async void New_Click(object sender, RoutedEventArgs e)
     {
         var dialog = new NewPackageWindow(workspace.Catalog, workspace.Document.TemplateId)
         {
@@ -89,6 +91,7 @@ public partial class MainWindow : Window
             return;
         workspace.Load(dialog.CreatedDocument);
         projectPath = null;
+        await workspace.GenerateAsync();
     }
 
     void Open_Click(object sender, RoutedEventArgs e)

@@ -2,7 +2,7 @@ using Newtonsoft.Json.Linq;
 
 namespace PackStudio.Core;
 
-internal sealed class InputChecks(JObject values, List<ValidationIssue> issues)
+internal sealed class InputChecks(PackageDefinition definition, JObject values, List<ValidationIssue> issues)
 {
     // Only field errors suppress dependent relations; independent relations still run.
     readonly string[] invalidPaths = issues.Where(i => i.Severity == IssueSeverity.Error).SelectMany(i => i.ParameterPaths).ToArray();
@@ -19,7 +19,10 @@ internal sealed class InputChecks(JObject values, List<ValidationIssue> issues)
     public void Check(bool failed, string code, string message, params string[] paths)
     {
         if (failed && !paths.Any(Invalid))
-            issues.Add(ValidationIssue.Error(code, ValidationStage.Input, message, paths));
+        {
+            string parameters = string.Join("、", paths.Select(p => definition.ParameterDisplayName(p, Values)).Distinct());
+            issues.Add(ValidationIssue.Error(code, ValidationStage.Input, parameters.Length > 0 ? $"{parameters}：{message}" : message, paths));
+        }
     }
 
     public void Fits(string inner, string outer) => Check(N(inner) > N(outer), "input.package.fit", "部件尺寸必须位于外轮廓内。", inner, outer);

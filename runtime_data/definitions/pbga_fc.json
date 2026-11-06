@@ -727,6 +727,7 @@
       "default": null,
       "unit": "mm",
       "type": "number",
+      "minimum": 0,
       "label": "散热块长度",
       "step": "slug",
       "visible_when": {
@@ -748,6 +749,7 @@
       "default": null,
       "unit": "mm",
       "type": "number",
+      "minimum": 0,
       "label": "宽度",
       "step": "slug",
       "visible_when": {
@@ -769,6 +771,7 @@
       "default": null,
       "unit": "mm",
       "type": "number",
+      "minimum": 0,
       "label": "厚度",
       "step": "slug",
       "visible_when": {
@@ -790,6 +793,7 @@
       "default": null,
       "unit": "mm",
       "type": "number",
+      "minimum": 0,
       "label": "顶部直径",
       "step": "slug",
       "visible_when": {
@@ -811,6 +815,7 @@
       "default": null,
       "unit": "mm",
       "type": "number",
+      "minimum": 0,
       "label": "外轮廓长度",
       "step": "slug",
       "visible_when": {
@@ -832,6 +837,7 @@
       "default": null,
       "unit": "mm",
       "type": "number",
+      "minimum": 0,
       "label": "外轮廓宽度",
       "step": "slug",
       "visible_when": {
@@ -853,6 +859,7 @@
       "default": null,
       "unit": "mm",
       "type": "number",
+      "minimum": 0,
       "label": "顶部台阶高度",
       "step": "slug",
       "visible_when": {
@@ -874,6 +881,7 @@
       "default": null,
       "unit": "mm",
       "type": "number",
+      "minimum": 0,
       "label": "支脚间隙",
       "step": "slug",
       "visible_when": {
@@ -922,6 +930,8 @@
       "key": "vias.columns",
       "default": null,
       "type": "integer",
+      "minimum": 1,
+      "maximum": 30,
       "label": "X 向孔数",
       "step": "thermal_vias",
       "visible_when": {
@@ -940,6 +950,8 @@
       "key": "vias.rows",
       "default": null,
       "type": "integer",
+      "minimum": 1,
+      "maximum": 30,
       "label": "Y 向孔数",
       "step": "thermal_vias",
       "visible_when": {
@@ -959,6 +971,8 @@
       "default": null,
       "unit": "mm",
       "type": "number",
+      "minimum": 0.1,
+      "maximum": 3,
       "label": "孔间距",
       "step": "thermal_vias",
       "visible_when": {
@@ -978,6 +992,8 @@
       "default": null,
       "unit": "mm",
       "type": "number",
+      "minimum": 0.02,
+      "maximum": 1,
       "label": "孔径",
       "step": "thermal_vias",
       "visible_when": {
@@ -997,6 +1013,8 @@
       "default": null,
       "unit": "mm",
       "type": "number",
+      "minimum": 0.001,
+      "maximum": 0.2,
       "label": "镀层厚度",
       "step": "thermal_vias",
       "visible_when": {
@@ -1102,6 +1120,7 @@
       "key": "upper.count",
       "default": null,
       "type": "integer",
+      "minimum": 0,
       "label": "微通孔总数",
       "step": "upper_built_up",
       "visible_when": {
@@ -1122,6 +1141,8 @@
       "default": null,
       "unit": "mm",
       "type": "number",
+      "minimum": 0.02,
+      "maximum": 1,
       "label": "微通孔外径",
       "step": "upper_built_up",
       "visible_when": {
@@ -1144,6 +1165,8 @@
       "default": null,
       "unit": "mm",
       "type": "number",
+      "minimum": 0.001,
+      "maximum": 0.2,
       "label": "微通孔镀层厚度",
       "step": "upper_built_up",
       "visible_when": {
@@ -1251,6 +1274,7 @@
       "key": "lower.count",
       "default": null,
       "type": "integer",
+      "minimum": 0,
       "label": "微通孔总数",
       "step": "lower_built_up",
       "visible_when": {
@@ -1271,6 +1295,8 @@
       "default": null,
       "unit": "mm",
       "type": "number",
+      "minimum": 0.02,
+      "maximum": 1,
       "label": "微通孔外径",
       "step": "lower_built_up",
       "visible_when": {
@@ -1293,6 +1319,8 @@
       "default": null,
       "unit": "mm",
       "type": "number",
+      "minimum": 0.001,
+      "maximum": 0.2,
       "label": "微通孔镀层厚度",
       "step": "lower_built_up",
       "visible_when": {

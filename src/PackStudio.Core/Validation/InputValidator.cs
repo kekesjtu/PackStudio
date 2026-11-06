@@ -14,9 +14,9 @@ public static class InputValidator
             issues.Add(ValidationIssue.Error("input.template", ValidationStage.Input, "方案与封装定义不匹配。", "TemplateId"));
             return issues.AsReadOnly();
         }
-        ValidateFields(definition.Fields, document.Values, "", issues);
+        ValidateFields(path => definition.ParameterDisplayName(path, document.Values), definition.Fields, document.Values, "", issues);
         ValidateMaterials(document, definition, materials, issues);
-        var checks = new InputChecks(document.Values, issues);
+        var checks = new InputChecks(definition, document.Values, issues);
         switch (document.TemplateId)
         {
             case "bare_die": BareDieInputRules.Validate(checks); break;
@@ -42,7 +42,7 @@ public static class InputValidator
         return JsonData.Matches(conditions, values);
     }
 
-    static void ValidateFields(JArray fields, JObject values, string prefix, List<ValidationIssue> issues)
+    static void ValidateFields(Func<string, string> displayName, JArray fields, JObject values, string prefix, List<ValidationIssue> issues)
     {
         foreach (var field in fields)
         {
@@ -50,7 +50,7 @@ public static class InputValidator
             if (field["creation_only"].Flag() || !Active(field, values)) continue;
             string type = field["type"].Text();
             var value = values[key];
-            void Error(string code, string message) => issues.Add(ValidationIssue.Error(code, ValidationStage.Input, $"{path}：{message}", path));
+            void Error(string code, string message) => issues.Add(ValidationIssue.Error(code, ValidationStage.Input, $"{displayName(path)}：{message}", path));
             if (value?.Type is null or JTokenType.Null)
             {
                 if (field["required"]?.Value<bool>() != false && type is ("number" or "integer" or "checkbox" or "object" or "table" or "removal_matrix" or "combobox" or "text"))
@@ -76,30 +76,30 @@ public static class InputValidator
             else if (type == "object")
             {
                 if (value is not JObject nested) Error("input.type.object", "必须为对象。");
-                else ValidateFields(field["keys"] as JArray ?? [], nested, path + ".", issues);
+                else ValidateFields(displayName, field["keys"] as JArray ?? [], nested, path + ".", issues);
             }
             else if (type is "table" or "removal_matrix")
             {
                 if (value is not JArray rows) Error("input.type.array", "必须为数组。");
-                else ValidateRows(field, rows, path, issues);
+                else ValidateRows(displayName, field, rows, path, issues);
             }
             if (PackageDefinition.OptionValues(field) is { Count: > 0 } options && !options.Any(o => JToken.DeepEquals(o, value)))
                 Error("input.option", "选项无效。");
         }
     }
 
-    static void ValidateRows(JToken field, JArray rows, string path, List<ValidationIssue> issues)
+    static void ValidateRows(Func<string, string> displayName, JToken field, JArray rows, string path, List<ValidationIssue> issues)
     {
         if (field["columns"] is not JArray columns) return;
         if (field["min_rows"] is JToken min && rows.Count < min.Value<int>() || field["max_rows"] is JToken max && rows.Count > max.Value<int>())
-            issues.Add(ValidationIssue.Error("input.rows", ValidationStage.Input, $"{path} 行数超出允许范围。", path));
+            issues.Add(ValidationIssue.Error("input.rows", ValidationStage.Input, $"{displayName(path)}行数超出允许范围。", path));
         for (int i = 0; i < rows.Count; i++)
         {
             if (rows[i] is not JObject row)
-            { issues.Add(ValidationIssue.Error("input.row", ValidationStage.Input, $"{path}[{i}]：必须为对象。", $"{path}[{i}]")); continue; }
+            { issues.Add(ValidationIssue.Error("input.row", ValidationStage.Input, $"{displayName($"{path}[{i}]")}：必须为对象。", $"{path}[{i}]")); continue; }
             if (row.Properties().Any(p => !columns.Any(c => c["key"].Text() == p.Name)))
-                issues.Add(ValidationIssue.Error("input.row.columns", ValidationStage.Input, $"{path}[{i}] 包含未知列。", $"{path}[{i}]"));
-            ValidateFields(columns, row, $"{path}[{i}].", issues);
+                issues.Add(ValidationIssue.Error("input.row.columns", ValidationStage.Input, $"{displayName($"{path}[{i}]")}包含未知列。", $"{path}[{i}]"));
+            ValidateFields(displayName, columns, row, $"{path}[{i}].", issues);
         }
     }
 
@@ -113,16 +113,17 @@ public static class InputValidator
                 issues.Add(ValidationIssue.Error("input.material", ValidationStage.Input, $"材料 {material.Name}：{error}", "CustomMaterials." + material.Id));
         }
         foreach (var duplicate in document.CustomMaterials.GroupBy(m => m.Id).Where(g => g.Count() > 1))
-            issues.Add(ValidationIssue.Error("input.material.duplicate", ValidationStage.Input, $"重复自定义材料 {duplicate.Key}。", "CustomMaterials." + duplicate.Key));
+            issues.Add(ValidationIssue.Error("input.material.duplicate", ValidationStage.Input, $"重复自定义材料 {duplicate.First().Name}。", "CustomMaterials." + duplicate.Key));
         foreach (var selection in definition.MaterialSelections)
         {
             string group = selection["key"].Text(), path = "MaterialAssignments." + group;
+            string label = selection["label"].Text("材料");
             if (!document.MaterialAssignments.TryGetValue(group, out var id))
-                issues.Add(ValidationIssue.Error("input.material.missing", ValidationStage.Input, $"缺少材料组 {group} 的选择。", path));
+                issues.Add(ValidationIssue.Error("input.material.missing", ValidationStage.Input, $"{label}：请选择材料。", path));
             else if (!MaterialSelection.Allows(selection, id) || id.Length > 0 && !materials.ContainsKey(id))
-                issues.Add(ValidationIssue.Error("input.material.reference", ValidationStage.Input, $"材料选择无效：{path} → {id}。", path));
+                issues.Add(ValidationIssue.Error("input.material.reference", ValidationStage.Input, $"{label}：所选材料不存在或不适用于此处。", path));
         }
         foreach (string group in document.MaterialAssignments.Keys.Except(definition.MaterialSelections.Select(s => s["key"].Text())))
-            issues.Add(ValidationIssue.Error("input.material.group", ValidationStage.Input, $"未知材料组 {group}。", "MaterialAssignments." + group));
+            issues.Add(ValidationIssue.Error("input.material.group", ValidationStage.Input, "存在未定义的材料选择。", "MaterialAssignments." + group));
     }
 }

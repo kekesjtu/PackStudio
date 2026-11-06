@@ -41,5 +41,23 @@ internal static class SolderBallInputRules
         if (!c.B("bga.ball_map_enabled") && c.B("bga.center_solder_enabled"))
             foreach (string dimension in new[] { "rows", "columns" })
                 c.Check(c.N("bga.center_solder_" + dimension) < 1, "input.bga.center", "中央焊球行列数必须为正整数。", "bga.center_solder_" + dimension);
+        if (c.T("bga.representation") != "discrete" && c.B("bga.solder_removal_enabled") && !c.B("bga.ball_map_enabled") &&
+            c.Values["bga.omitted_cells"] is not JArray { Count: > 0 } &&
+            double.IsFinite(c.N("bga.rows")) && double.IsFinite(c.N("bga.columns")) &&
+            (double.IsFinite(c.N("bga.populated_rows")) || double.IsFinite(c.N("bga.removal_rows"))) &&
+            (double.IsFinite(c.N("bga.populated_columns")) || double.IsFinite(c.N("bga.removal_columns"))))
+        {
+            var(rp, cp) = SolderBalls.Populated(c.Values, (int)rows, (int)columns);
+            if (rp != rows && cp != columns)
+            {
+                double pitch = c.N("bga.pitch"), diameter = c.N("bga.diameter");
+                double lx = (columns - 1) * pitch + diameter, ly = (rows - 1) * pitch + diameter;
+                double tx = (cp / 2.0 - 1) * pitch + diameter, ty = (rp / 2.0 - 1) * pitch + diameter;
+                c.Check(Math.Min(Math.Min(tx, ty), Math.Min(lx - 2 * tx, ly - 2 * ty)) <= 0,
+                    "input.bga.border", "等效焊球边框尺寸必须为正。",
+                    "bga.rows", "bga.columns", "bga.pitch", "bga.diameter",
+                    "bga.removal_rows", "bga.removal_columns", "bga.populated_rows", "bga.populated_columns");
+            }
+        }
     }
 }

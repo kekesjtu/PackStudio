@@ -111,9 +111,8 @@ public partial class NewPackageWindow : Window
         creationForm = new(draft);
         CreationError.Text = "";
         CreationOptions.Children.Clear();
-        Grid.SetIsSharedSizeScope(CreationOptions, true);
         foreach (var field in creationForm.Fields.Where(f => f.Definition["creation_option"].Flag()))
-            CreationOptions.Children.Add(FieldView.Create(field));
+            CreationOptions.Children.Add(FieldView.Create(field, checkboxInEditor: true));
     }
 
     async void Next_Click(object sender, RoutedEventArgs e)

@@ -121,8 +121,6 @@ static class ParameterChecks
             var context = new BuildContext(template, values, "layers", tests.Catalog.Materials, tests.Catalog.Groups, MaterialSelection.Defaults(template));
             MetalLayers.Parse(context, "metal.layers")[0]!["depth"] = 0.3;
             Near(values["metal.layers"]![0]!["depth"].Number(), 0.1, "table input mutated");
-            context.Values["metal.layers"] = "[]";
-            Reject(() => MetalLayers.Parse(context, "metal.layers"));
         });
     }
 }

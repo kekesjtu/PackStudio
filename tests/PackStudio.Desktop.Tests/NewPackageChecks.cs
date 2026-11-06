@@ -76,6 +76,8 @@ static class NewPackageChecks
             await OpenCustomize(dialog);
             if (!JToken.DeepEquals(values, dialog.Draft!.Values) || name.Text != "测试方案 " + family)
                 throw new Exception("back/next discarded draft inputs");
+            dialog.UpdateLayout();
+            CheckAlignment(dialog, Control<TextBox>(dialog, "DesignNameBox"));
             if (!dialog.TryCreate() || dialog.CreatedDocument is not ProjectDocument result)
                 throw new Exception(family + " could not finish: " + Control<TextBlock>(dialog, "CreationError").Text);
             if (result.TemplateId != family || dialog.Draft.PresetId != expectedPreset || result.Name != name.Text)
@@ -93,8 +95,13 @@ static class NewPackageChecks
                 if (Math.Abs(layers[1]!["thickness"].Number() - 0.05) > 1e-10 || Math.Abs(layers[2]!["thickness"].Number() - 0.05) > 1e-10)
                     throw new Exception("solid plane thickness was not applied to both inner layers");
             }
-            if (family == "qfn")
-                Capture(dialog, "new-package-customize.png");
+            if (family is "qfn" or "sop" or "chip_array")
+                Capture(dialog, family switch
+                {
+                    "qfn" => "new-package-customize.png",
+                    "sop" => "new-package-exposed-pad.png",
+                    _ => "new-package-four-layer.png"
+                });
             return result;
         }
         finally
@@ -136,10 +143,9 @@ static class NewPackageChecks
         Control<Fluent.Button>(window, "NewPackageButton").RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
         while (workspace.IsBusy)
             await Task.Delay(20);
-        if (workspace.Document.TemplateId != "qfn" || workspace.Document.Name != "QFN — 布局验证" || workspace.IsCurrent)
-            throw new Exception("finishing New Package did not retain the chosen project for editing");
-        await workspace.GenerateAsync();
-        if (!workspace.CanExport) throw new Exception("created project could not generate after editing");
+        if (workspace.Document.TemplateId != "qfn" || workspace.Document.Name != "QFN — 布局验证" || !workspace.IsCurrent)
+            throw new Exception("finishing New Package did not generate the created project");
+        if (!workspace.CanExport) throw new Exception("created project could not generate after creation");
         var steps = Control<ListBox>(window, "StepList");
         Control<HelixToolkit.Wpf.HelixViewport3D>(window, "Viewport").ZoomExtents(0);
         steps.SelectedValue = "overall_package";
@@ -147,6 +153,21 @@ static class NewPackageChecks
         steps.SelectedValue = "summary";
         Capture(window, "sidebar-summary.png");
         Console.WriteLine("PASS finish New Package and visible sidebar navigation");
+    }
+
+    // 创建选项与表单字段共用同一列网格，编辑框左边缘必须一致。
+    static void CheckAlignment(NewPackageWindow dialog, FrameworkElement reference)
+    {
+        var options = Control<StackPanel>(dialog, "CreationOptions");
+        if (options.Children.Count == 0) return;
+        double expected = reference.TransformToAncestor(dialog).Transform(new Point()).X;
+        foreach (var row in options.Children.OfType<Grid>().Where(r => r.IsVisible))
+        {
+            if (row.Children.OfType<FrameworkElement>().FirstOrDefault(c => Grid.GetColumn(c) == 1) is not { } editor) continue;
+            double actual = editor.TransformToAncestor(dialog).Transform(new Point()).X;
+            if (Math.Abs(actual - expected) > 0.5)
+                throw new Exception($"creation option editor starts at {actual}, form fields start at {expected}");
+        }
     }
 
     internal static void Capture(Window window, string name)

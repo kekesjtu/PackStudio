@@ -71,19 +71,22 @@
         </ListBox.ItemTemplate>
       </ListBox>
       <ScrollViewer x:Name="CustomizePage" Visibility="Collapsed" VerticalScrollBarVisibility="Auto">
-        <StackPanel Margin="0,8,0,0">
+        <StackPanel Margin="0,8,0,0" Grid.IsSharedSizeScope="True">
           <Grid>
-            <Grid.ColumnDefinitions><ColumnDefinition Width="130"/><ColumnDefinition Width="*"/></Grid.ColumnDefinitions>
+            <Grid.ColumnDefinitions><ColumnDefinition Width="Auto" MinWidth="64" SharedSizeGroup="ParameterLabels"/><ColumnDefinition Width="*"/><ColumnDefinition Width="72"/></Grid.ColumnDefinitions>
             <Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/></Grid.RowDefinitions>
-            <TextBlock Text="设计名称" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,12,10"/>
-            <TextBox x:Name="DesignNameBox" Grid.Column="1" Margin="0,0,0,10"/>
-            <TextBlock x:Name="VariantLabel" Grid.Row="1" Text="封装子类型" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,12,10"/>
-            <ComboBox x:Name="VariantBox" Grid.Row="1" Grid.Column="1" SelectionChanged="Variant_Changed" Margin="0,0,0,10"/>
-            <TextBlock x:Name="FootprintLabel" Grid.Row="2" Text="JEDEC Footprint" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,12,10"/>
-            <ComboBox x:Name="FootprintBox" Grid.Row="2" Grid.Column="1" DisplayMemberPath="Name" SelectedValuePath="Name" IsTextSearchEnabled="True" SelectionChanged="Footprint_Changed" Margin="0,0,0,10"/>
+            <TextBlock Text="设计名称" VerticalAlignment="Center" Margin="0,0,10,7"/>
+            <TextBox x:Name="DesignNameBox" Grid.Column="1" Margin="0,0,0,7"/>
+            <TextBlock x:Name="VariantLabel" Grid.Row="1" Text="封装子类型" VerticalAlignment="Center" Margin="0,0,10,7"/>
+            <ComboBox x:Name="VariantBox" Grid.Row="1" Grid.Column="1" SelectionChanged="Variant_Changed" Margin="0,0,0,7"/>
+            <TextBlock x:Name="FootprintLabel" Grid.Row="2" Text="JEDEC Footprint" VerticalAlignment="Center" Margin="0,0,10,7"/>
+            <ComboBox x:Name="FootprintBox" Grid.Row="2" Grid.Column="1" DisplayMemberPath="Name" SelectedValuePath="Name" IsTextSearchEnabled="True" SelectionChanged="Footprint_Changed" Margin="0,0,0,7"/>
           </Grid>
           <StackPanel x:Name="CreationOptions"/>
-          <TextBlock x:Name="CreationError" Foreground="#B42318" TextWrapping="Wrap" Margin="130,12,0,0"/>
+          <Grid Margin="0,5,0,0">
+            <Grid.ColumnDefinitions><ColumnDefinition Width="Auto" MinWidth="64" SharedSizeGroup="ParameterLabels"/><ColumnDefinition Width="*"/></Grid.ColumnDefinitions>
+            <TextBlock x:Name="CreationError" Grid.Column="1" Foreground="#B42318" TextWrapping="Wrap"/>
+          </Grid>
         </StackPanel>
       </ScrollViewer>
     </Grid>

@@ -68,6 +68,42 @@ static class SlugChecks
                 CheckContact(model, substrateTop + mask, 0.1, substrateTop + 1.2, true);
             }
         });
+
+        // 字段下限为 0，几何关系在输入阶段报告并定位到相关参数。
+        foreach (string family in new[] { "cbga_fc", "pbga_fc" })
+            tests.Case("slug", family + " definition bounds and linked checks", () =>
+            {
+                Expect(tests, family, "input.range", "slug.clearance", d => d.Values["slug.clearance"] = -0.01);
+                Expect(tests, family, "input.slug.size", "slug.thickness", d => d.Values["slug.thickness"] = 0);
+                Expect(tests, family, "input.slug.foot", "slug.foot_length", d => d.Values["slug.foot_length"] = d.Values["slug.length"]!.DeepClone());
+                Expect(tests, family, "input.slug.plate", "slug.diameter", d => d.Values["slug.diameter"] = 5);
+                Expect(tests, family, "input.slug.wall", "slug.thickness", d => d.Values["slug.thickness"] = 2);
+                Expect(tests, family, "input.slug.die", "die.length", d => d.Values["die.length"] = d.Values["slug.length"]!.DeepClone());
+                Expect(tests, family, "input.slug.height", "slug.offset", d => d.Values["slug.offset"] = 2);
+                Expect(tests, family, "input.slug.adhesive", "slug.clearance", d => d.Values["slug.clearance"] = 0);
+                tests.Generate(Create(tests, family));
+            });
+
+        tests.Case("slug", "wirebond vertical space excludes the solder mask", () =>
+        {
+            var document = Create(tests, "pbga_wb");
+            document.Values["encapsulant.thickness"] = 0.6;
+            var issue = InputValidator.Validate(document, tests.Catalog.Load("pbga_wb"), tests.Catalog.Materials)
+                .SingleOrDefault(i => i.Code == "input.slug.height") ?? throw new Exception("wirebond slug height check missing");
+            Assert(issue.ParameterPaths.Contains("encapsulant.thickness") && issue.ParameterPaths.Contains("solder_mask.thickness"),
+                "wirebond height check lost its source parameters");
+            Assert(tests.GenerateResult(document).Model == null, "wirebond slug height issue did not block generation");
+        });
+    }
+
+    static void Expect(TestSuite tests, string family, string code, string path, Action<ProjectDocument> change)
+    {
+        var document = Create(tests, family);
+        change(document);
+        var issue = InputValidator.Validate(document, tests.Catalog.Load(family), tests.Catalog.Materials)
+            .SingleOrDefault(i => i.Code == code) ?? throw new Exception($"{family}: 缺少 {code}");
+        Assert(issue.ParameterPaths.Contains(path), $"{family}: {code} 未定位到 {path}");
+        Assert(tests.GenerateResult(document).Model == null, $"{family}: {code} 未阻止生成");
     }
 
     static ProjectDocument Create(TestSuite tests, string family)
@@ -80,6 +116,7 @@ static class SlugChecks
         values["slug.thickness"] = 0.4;
         values["slug.diameter"] = 2;
         values["slug.offset"] = values["slug.clearance"] = 0.1;
+        values["die.length"] = values["die.width"] = 2.5;
         if (family != "pbga_wb")
         {
             values["cover.type"] = "encapsulant";

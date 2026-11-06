@@ -12,8 +12,14 @@ internal static class LeadframeInputRules
         c.Check(c.N("leads.height") - c.N("flag.downset") + flagHeight + c.N("die.attach") + c.N("die.thickness") > c.N("body.thickness"),
             "input.leadframe.stack", "芯片堆叠必须位于塑封内。", "leads.height", "flag.downset", flagThickness, "die.attach", "die.thickness", "body.thickness");
         if (c.B("thermal_land.enabled")) c.Check(c.N("package.standoff") <= 0, "input.thermal_land", "散热焊盘焊料需要正的离地高度。", "package.standoff");
+        c.Check(c.N("leads.width") > c.N("leads.pitch"), "input.leadframe.pitch", "引脚宽度不能大于节距。", "leads.width", "leads.pitch");
         foreach (var (dimension, axis) in new[] { ("length", "x"), ("width", "y") })
-            c.Check(c.N("flag." + dimension) + 2 * c.N(axis == "x" ? gapX : gapY) <= c.N("die." + dimension),
-                "input.wire.endpoint", "键合线端点必须位于芯片外。", "flag." + dimension, axis == "x" ? gapX : gapY, "die." + dimension);
+        {
+            string gap = axis == "x" ? gapX : gapY;
+            c.Check(c.N("flag." + dimension) + 2 * c.N(gap) <= c.N("die." + dimension),
+                "input.wire.endpoint", "键合线端点必须位于芯片外。", "flag." + dimension, gap, "die." + dimension);
+            c.Check(c.N("body." + dimension) - c.N("flag." + dimension) - 2 * c.N(gap) <= 0,
+                "input.leadframe.gap", "引脚内端必须位于塑封体内。", "body." + dimension, "flag." + dimension, gap);
+        }
     }
 }

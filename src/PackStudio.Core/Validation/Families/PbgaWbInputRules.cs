@@ -7,6 +7,7 @@ internal static class PbgaWbInputRules
         SolderBallInputRules.Validate(c);
         ViaInputRules.Validate(c);
         MetalLayerInputRules.Validate(c, checkSurfaces: true);
+        SlugInputRules.Validate(c, wirebond: true);
         c.Fits("die.length", "encapsulant.length");
         c.Fits("die.width", "encapsulant.width");
         c.Fits("encapsulant.length", "package.length");
@@ -21,5 +22,10 @@ internal static class PbgaWbInputRules
             c.Ring("package.length", "package.width", "spreader.hole_length", "spreader.hole_width");
         }
         WireInputRules.ValidateExtent(c);
+        WireInputRules.Equivalent(c, c.N("bond_wire.total"), "bond_wire.total");
+        c.Check(c.N("solder_mask.thickness") + c.N("die.attach") + c.N("die.thickness") - c.N("bond_wire.diameter") <= 0,
+            "input.wire.height", "键合线纵向高度必须为正。", "solder_mask.thickness", "die.attach", "die.thickness", "bond_wire.diameter");
+        c.Check(c.N("bond_wire.extent_length") + 0.1 >= c.N("package.length") || c.N("bond_wire.extent_width") + 0.1 >= c.N("package.width"),
+            "input.wire.mask", "阻焊层开口必须位于封装内。", "bond_wire.extent_length", "bond_wire.extent_width", "package.length", "package.width");
     }
 }

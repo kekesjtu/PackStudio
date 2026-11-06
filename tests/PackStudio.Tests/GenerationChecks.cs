@@ -6,6 +6,84 @@ static class GenerationChecks
 {
     public static void Run(TestSuite tests)
     {
+        tests.Case("generation", "field diagnostics use DES symbols and preserve internal paths", () =>
+        {
+            var original = tests.Catalog.Load("bare_die");
+            var data = (JObject)original.Data.DeepClone();
+            var field = data["keys"]!.Single(f => f["key"].Text() == "die.length");
+            field["label"] = "芯片整体长度";
+            field["des_symbol"] = "Ld_test";
+            var definition = new PackageDefinition(original.Info, data, original.Presets);
+            var document = tests.Create(definition);
+            foreach (var (value, code) in new (JToken, string)[]
+            {
+                (new JValue("invalid"), "input.type.number"),
+                (JValue.CreateNull(), "input.required"),
+                (new JValue(-1), "input.range")
+            })
+            {
+                document.Values["die.length"] = value;
+                var issue = InputValidator.Validate(document, definition, tests.Catalog.Materials).Single(i => i.Code == code);
+                Assert(issue.Message.StartsWith("Ld_test：") && !issue.Message.Contains("die.length") && !issue.Message.Contains("芯片整体长度"),
+                    "diagnostic did not prefer the DES symbol");
+                Assert(issue.ParameterPaths.SequenceEqual(new[] { "die.length" }), "display labels changed the navigation path");
+            }
+        });
+
+        tests.Case("generation", "diagnostics resolve DES symbol branches and fall back without exposing keys", () =>
+        {
+            var original = tests.Catalog.Load("bare_die");
+            var data = (JObject)original.Data.DeepClone();
+            var field = data["keys"]!.Single(f => f["key"].Text() == "die.length");
+            field["label"] = "芯片长度";
+            field["des_symbol"] = new JObject { ["selector"] = "variant", ["cases"] = new JObject { ["A"] = "La", ["B"] = "Lb" } };
+            var definition = new PackageDefinition(original.Info, data, original.Presets);
+            var document = tests.Create(definition);
+            document.Values["die.length"] = -1;
+            foreach (var (variant, expected) in new (JToken, string)[] { (new JValue("A"), "La"), (new JValue("B"), "Lb"), (new JArray("B"), "芯片长度") })
+            {
+                document.Values["variant"] = variant;
+                var issue = InputValidator.Validate(document, definition, tests.Catalog.Materials).Single(i => i.Code == "input.range");
+                Assert(issue.Message.StartsWith(expected + "：") && !issue.Message.Contains("die.length"), "symbol branch or fallback was incorrect");
+            }
+        });
+
+        tests.Case("generation", "nested diagnostics use parent context and child DES symbols", () =>
+        {
+            var original = tests.Catalog.Load("pbga_wb");
+            var data = (JObject)original.Data.DeepClone();
+            var field = data["keys"]!.Single(f => f["key"].Text() == "vias.configuration");
+            field["label"] = "通孔配置";
+            var child = field["keys"]!.Single(f => f["key"].Text() == "removal_rows");
+            child["label"] = "去除行数";
+            child["des_symbol"] = "Rv";
+            var definition = new PackageDefinition(original.Info, data, original.Presets);
+            var document = tests.Create(definition);
+            document.Values["vias.enabled"] = true;
+            document.Values["vias.configuration"]!["removal_enabled"] = true;
+            document.Values["vias.configuration"]!["removal_rows"] = "invalid";
+            var issue = InputValidator.Validate(document, definition, tests.Catalog.Materials)
+                .Single(i => i.Code == "input.type.number" && i.ParameterPaths.Contains("vias.configuration.removal_rows"));
+            Assert(issue.Message == "通孔配置 · Rv：必须为数值。", "nested diagnostic did not resolve its symbol");
+        });
+
+        tests.Case("generation", "table structural diagnostics show labels and human row numbers", () =>
+        {
+            var definition = tests.Catalog.Load("chip_array");
+            var document = tests.Create(definition);
+            document.Values["metal.layers"] = new JArray(new JValue(0), new JObject { ["unknown"] = 1 });
+            var issues = InputValidator.Validate(document, definition, tests.Catalog.Materials);
+            foreach (string code in new[] { "input.row", "input.row.columns" })
+            {
+                var issue = issues.Single(i => i.Code == code);
+                Assert(!issue.Message.Contains("metal.layers") && issue.Message.Contains(code == "input.row" ? "第 1 行" : "第 2 行"),
+                    "table structure error exposed a machine path or zero-based row number");
+            }
+            document.Values["metal.layers"] = new JArray();
+            var count = InputValidator.Validate(document, definition, tests.Catalog.Materials).Single(i => i.Code == "input.rows");
+            Assert(!count.Message.Contains("metal.layers") && count.Message.Contains("行数"), "table count error exposed its key");
+        });
+
         tests.Case("generation", "family relations are blocking C# checks with field paths", () =>
         {
             var definition = tests.Catalog.Load("qfn");
@@ -17,6 +95,8 @@ static class GenerationChecks
                 "invalid family relation entered modeling");
             Assert(fit.ParameterPaths.Contains("die.length") && fit.ParameterPaths.Contains("package.length") && !string.IsNullOrWhiteSpace(fit.Message),
                 "family relation lost diagnostics");
+            Assert(fit.Message.StartsWith("Ld、D：") && !fit.Message.Contains("die.length") && !fit.Message.Contains("package.length"),
+                "relation diagnostics did not identify the participating DES symbols");
         });
 
         tests.Case("generation", "field bounds are read from the parameter definition", () =>
@@ -45,15 +125,40 @@ static class GenerationChecks
             Assert(result.Issues.Single(i => i.ParameterPaths.Contains("leads.total")).Code == "input.sop.leads", "lead count bypassed the family check");
         });
 
-        tests.Case("generation", "known generation failures carry their own diagnostics", () =>
+        tests.Case("generation", "derived geometry relations are input errors with field paths", () =>
         {
-            var document = tests.Create(tests.Catalog.Load("pqfp"));
-            document.Values["flag.length"] = document.Values["body.length"]!.DeepClone();
-            var result = tests.GenerateResult(document);
-            var issue = result.Issues.Single(i => i.Code == "generation.tie_bar");
-            Assert(result.Model == null && issue.Stage == ValidationStage.Generation && issue.Severity == IssueSeverity.Error,
-                "known generation failure escaped structured diagnostics");
-            Assert(!string.IsNullOrWhiteSpace(issue.Message) && issue.Message != issue.Code, "generation diagnostic has no message");
+            var pqfp = tests.Create(tests.Catalog.Load("pqfp"));
+            pqfp.Values["flag.length"] = pqfp.Values["body.length"]!.DeepClone();
+            var tieBar = tests.GenerateResult(pqfp);
+            var issue = tieBar.Issues.Single(i => i.Code == "input.leadframe.gap");
+            Assert(tieBar.Model == null && issue.Stage == ValidationStage.Input && issue.ParameterPaths.Contains("flag.length") && issue.ParameterPaths.Contains("body.length"),
+                "tie bar relation entered modeling");
+
+            var bga = tests.Create(tests.Catalog.Load("cbga_fc"));
+            bga.Values["bga.solder_removal_enabled"] = true;
+            bga.Values["bga.removal_rows"] = 6;
+            bga.Values["bga.removal_columns"] = 6;
+            bga.Values["bga.diameter"] = 0.3;
+            var border = tests.GenerateResult(bga);
+            Assert(border.Model == null && border.Issues.Single(i => i.Code == "input.bga.border").ParameterPaths.Contains("bga.removal_rows"),
+                "equivalent solder ball border reached modeling");
+
+            var sop = tests.Create(tests.Catalog.Load("sop"));
+            sop.Values["die.length"] = sop.Values["die.width"] = 0.2;
+            sop.Values["bond_wire.count"] = 200;
+            var wire = tests.GenerateResult(sop);
+            Assert(wire.Model == null && wire.Issues.Single(i => i.Code == "input.wire.fraction").ParameterPaths.Contains("bond_wire.count"),
+                "bond wire volume fraction reached modeling");
+
+            var array = tests.Create(tests.Catalog.Load("chip_array"));
+            array.Values["vias.enabled"] = true;
+            array.Values["vias.filled"] = true;
+            array.Values["vias.modeling"] = "approximate";
+            array.Values["vias.diameter"] = 0.8;
+            array.Values["vias.pitch"] = 1.0;
+            var via = tests.GenerateResult(array);
+            Assert(via.Model == null && via.Issues.Single(i => i.Code == "input.chip_array.via").ParameterPaths.Contains("vias.diameter"),
+                "approximate via fraction reached modeling");
         });
 
         foreach (string family in new[] { "pbga_fc", "pbga_wb", "chip_array" })
@@ -68,6 +173,9 @@ static class GenerationChecks
                 Assert(result.Model == null && result.Issues.Any(i => i.Code == "input.range" &&
                     i.Stage == ValidationStage.Input && i.ParameterPaths.Contains("metal.layers[0].thickness")),
                     "strictly positive table constraint did not locate the invalid cell");
+                var issue = result.Issues.Single(i => i.Code == "input.range" && i.ParameterPaths.Contains("metal.layers[0].thickness"));
+                Assert(issue.Message.Contains("第 1 行") && issue.Message.Contains("层厚") && !issue.Message.Contains("metal.layers"),
+                    "table cell error lost its row/column label");
             });
 
         tests.Case("generation", "invalid model sources always block export", () =>
@@ -124,6 +232,9 @@ static class GenerationChecks
             Assert(result.Issues.Any(i => i.Stage == ValidationStage.Input && i.ParameterPaths.Contains("die.length")), "missing type error path");
             Assert(result.Issues.Any(i => i.Stage == ValidationStage.Input && i.ParameterPaths.Contains("die.power")), "independent power error was not reported");
             Assert(result.Issues.Any(i => i.Stage == ValidationStage.Input && i.ParameterPaths.Contains("MaterialAssignments.group-die")), "empty required material did not produce an input issue");
+            var materialIssue = result.Issues.Single(i => i.ParameterPaths.Contains("MaterialAssignments.group-die"));
+            Assert(materialIssue.Message.Contains("芯片材料") && !materialIssue.Message.Contains("group-die") && !materialIssue.Message.Contains("MaterialAssignments"),
+                "material choice error exposed its internal path");
             Assert(JToken.DeepEquals(submitted, document.Values), "validation or generation changed submitted input");
         });
 

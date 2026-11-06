@@ -33,19 +33,13 @@ public sealed class BuildContext
         }
     }
 
-    public double N(string key) => Values[key]?.Type is JTokenType.Integer or JTokenType.Float ? Values[key]!.Value<double>() : throw new ModelGenerationException("generation.parameter", $"{key} 需要数值。");
+    public double N(string key) => Values[key]!.Value<double>();
     public double N(string key, double fallback) => Values[key] == null || Values[key]!.Type == JTokenType.Null ? fallback : N(key);
-    public int I(string key)
-    {
-        double n = N(key);
-        if (n != Math.Truncate(n))
-            throw new ModelGenerationException("generation.integer", $"{key} 必须为整数。");
-        return checked((int)n);
-    }
+    public int I(string key) => checked((int)N(key));
 
     public bool B(string key) => Values[key].Flag();
     public string T(string key) => Values[key].Text();
-    public Material M(string id) => Materials.TryGetValue(id, out var m) ? m : throw new ModelGenerationException("generation.material", $"未知材料 {id}。");
+    public Material M(string id) => Materials[id];
     public Material Component(string group, string fallback) => M(assignments.GetValueOrDefault(group, fallback));
     public void Derived(Material m) => Materials[m.Id] = customOverrides.GetValueOrDefault(m.Id, m);
     public void Add(string id, string type, double x, double y, double z, double sx, double sy, double sz, string material, string group, string? label = null, bool derived = false)
@@ -58,8 +52,6 @@ public sealed class BuildContext
     public void Center(string id, string type, double sx, double sy, double sz, double z, string material, string group, string? label = null, bool derived = false, double cx = 0, double cy = 0) => Add(id, type, cx - sx / 2, cy - sy / 2, z, sx, sy, sz, material, group, label, derived);
     public void Ring(string id, string type, double lx, double ly, double ix, double iy, double z, double h, string mat, string group, bool derived = false)
     {
-        if (ix >= lx || iy >= ly || ix < 0 || iy < 0)
-            throw new ModelGenerationException("generation.cavity", $"{id} 内孔必须位于外轮廓内。");
         double a = (lx - ix) / 2, b = (ly - iy) / 2;
         Add(id + "-left", type, -lx / 2, -ly / 2, z, a, ly, h, mat, group, derived: derived);
         Add(id + "-right", type, ix / 2, -ly / 2, z, a, ly, h, mat, group, derived: derived);

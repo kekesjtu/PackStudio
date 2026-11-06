@@ -11,7 +11,8 @@ namespace PackStudio.Desktop;
 public static partial class FieldView
 {
     static readonly BooleanToVisibilityConverter VisibilityConverter = new();
-    public static FrameworkElement Create(ParameterField field)
+    // checkboxInEditor: 勾选框放在编辑列，标签留在标签列，用于创建选项这类表单式布局。
+    public static FrameworkElement Create(ParameterField field, bool checkboxInEditor = false)
     {
         var f = field.Definition;
         string control = field.Type;
@@ -37,6 +38,12 @@ public static partial class FieldView
                 var box = new CheckBox { Content = field.Label, ToolTip = field.Label };
                 Bind(box, CheckBox.IsCheckedProperty, field, nameof(ParameterField.BooleanValue));
                 if (f["standalone"].Flag()) view = box;
+                else if (checkboxInEditor)
+                {
+                    box.Content = null;
+                    box.VerticalAlignment = VerticalAlignment.Center;
+                    editors.Children.Add(box);
+                }
                 else
                 {
                     host.Children.RemoveAt(0); Grid.SetColumn(editors, 0); Grid.SetColumnSpan(editors, 3);
@@ -54,14 +61,14 @@ public static partial class FieldView
                 host.RowDefinitions.Add(new() { Height = GridLength.Auto }); host.RowDefinitions.Add(new() { Height = GridLength.Auto });
                 Grid.SetColumnSpan(host.Children[0], 3); Grid.SetColumn(editors, 0); Grid.SetColumnSpan(editors, 3); Grid.SetRow(editors, 1);
                 editors.Margin = new(0, 6, 0, 0);
-                var columns = ((JArray)f["columns"]!).Select(c => (c["key"].Text(), c["label"].Text(), c["type"].Text() switch { "checkbox" => typeof(bool), "text" => typeof(string), _ => typeof(double) })).ToArray();
-                editors.Children.Add(Table(field.Value is JArray table ? (JArray)table.DeepClone() : [], columns, field.Set));
+                var columns = ((JArray)f["columns"]!).Select(c => (c["key"].Text(), c["label"].Text(), c["type"].Text() switch { "checkbox" => typeof(bool), "text" => typeof(string), _ => typeof(double) }, ParameterField.Bounds(c))).ToArray();
+                editors.Children.Add(Table(field, field.Value is JArray table ? (JArray)table.DeepClone() : [], columns));
             }
             else if (control is "number" or "integer")
             {
                 editors.Children.Add(new NumericEditor(field));
-                string hintText = control == "integer" ? "整数" : "";
-                var hint = new TextBlock { Text = hintText, FontSize = 10, Foreground = Brushes.SlateGray, VerticalAlignment = VerticalAlignment.Center, Margin = new(6, 0, 0, 0), TextTrimming = TextTrimming.CharacterEllipsis };
+                var hint = new TextBlock { FontSize = 10, Foreground = Brushes.SlateGray, VerticalAlignment = VerticalAlignment.Center, Margin = new(6, 0, 0, 0), TextTrimming = TextTrimming.CharacterEllipsis };
+                Bind(hint, TextBlock.TextProperty, field, nameof(ParameterField.Range), BindingMode.OneWay);
                 Grid.SetColumn(hint, 2); host.Children.Add(hint);
             }
             else

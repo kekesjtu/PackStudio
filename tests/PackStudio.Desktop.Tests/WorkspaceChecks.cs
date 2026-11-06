@@ -28,6 +28,7 @@ static class WorkspaceChecks
             "left drag must rotate without modifiers");
         Require(viewport.PanGesture.MouseAction == MouseAction.RightClick && viewport.PanGesture.Modifiers == ModifierKeys.None,
             "right drag must pan without modifiers");
+        Require(!viewport.IsInertiaEnabled, "viewport rotation must stop with the pointer");
         Require(viewport.IsZoomEnabled && viewport.ShowCoordinateSystem && !viewport.ShowViewCube &&
             viewport.CoordinateSystemHorizontalPosition == HorizontalAlignment.Right &&
             viewport.CoordinateSystemVerticalPosition == VerticalAlignment.Bottom, "viewport controls and orientation");
@@ -44,6 +45,17 @@ static class WorkspaceChecks
         text.Text = savedText;
         window.UpdateLayout();
         Require(savedText.Length > 0 && warning.Visibility == Visibility.Visible, "overlap warning disappeared");
+        NewPackageChecks.Capture(window, "warnings-expanded.png");
+        var toggle = Find<Button>(window, "IssuesToggle");
+        var issues = Find<ListBox>(window, "IssuesList");
+        toggle.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
+        window.UpdateLayout();
+        Require(issues.Visibility == Visibility.Collapsed && text.Text.Contains("点击展开"),
+            "collapsed warnings still show the issue list");
+        NewPackageChecks.Capture(window, "warnings-collapsed.png");
+        toggle.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
+        window.UpdateLayout();
+        Require(issues.Visibility == Visibility.Visible && text.Text.Contains("点击定位"), "warnings did not expand again");
         Require(Find<StatusBar>(window, "OperationStatusBar").Items.Count == 1, "units legend remains");
 
         var grid = Find<Grid>(window, "WorkspaceGrid");

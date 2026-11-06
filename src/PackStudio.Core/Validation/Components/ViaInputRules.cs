@@ -10,7 +10,7 @@ internal static class ViaInputRules
         c.Check(c.N("vias.diameter") > c.N("vias.pitch"), "input.via.pitch", "通孔直径不能大于节距。", "vias.diameter", "vias.pitch");
         if (!filled)
             c.Check(c.N("vias.plating") <= 0 || c.N("vias.plating") > c.N("vias.diameter") / 2,
-                "input.via.plating", "通孔镀层厚度必须大于零且不超过孔半径。", "vias.plating", "vias.diameter");
+                "input.via.plating", "通孔镀层厚度不超过孔半径。", "vias.plating", "vias.diameter");
         if (c.Values["vias.configuration"] is not JObject config || !config["removal_enabled"].Flag()) return;
         double rows = c.N("vias.rows"), columns = c.N("vias.columns");
         double removedRows = InputChecks.Number(config["removal_rows"]), removedColumns = InputChecks.Number(config["removal_columns"]);

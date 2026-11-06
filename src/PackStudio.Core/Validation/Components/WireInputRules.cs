@@ -12,4 +12,11 @@ internal static class WireInputRules
             c.Check(c.N(path) - clearance <= c.N("die." + dimension), "input.wire.endpoint", "键合线端点必须位于芯片外。", paths);
         }
     }
+
+    public static void Equivalent(InputChecks c, double count, params string[] countPaths)
+    {
+        double fraction = count * Math.PI * c.N("bond_wire.diameter") / (8 * (c.N("die.length") + c.N("die.width")));
+        c.Check(fraction > 1, "input.wire.fraction", "键合线等效体积分数不能超过塑封空间。",
+            ["bond_wire.diameter", "die.length", "die.width", .. countPaths]);
+    }
 }

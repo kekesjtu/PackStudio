@@ -55,7 +55,7 @@
   <GridSplitter x:Name="LeftColumnSplitter" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
                 Background="#D7DFE6" ResizeDirection="Columns" ResizeBehavior="PreviousAndNext" ShowsPreview="False"/>
   <ad:DockingManager Grid.Column="2"><layout:LayoutRoot><layout:LayoutPanel><layout:LayoutDocumentPane><layout:LayoutDocument x:Name="ModelDocument" Title="三维模型" CanClose="False" CanFloat="False"><Grid Background="#EDF1F5">
-<helix:HelixViewport3D x:Name="Viewport" SizeChanged="UpdateViewportScale" ShowCoordinateSystem="True" ShowViewCube="False" CoordinateSystemHorizontalPosition="Right" CoordinateSystemVerticalPosition="Bottom" ModelUpDirection="0,0,1" PanGesture="RightClick" PanGesture2="{x:Null}" RotateGesture="LeftClick" RotateGesture2="{x:Null}" ZoomExtentsWhenLoaded="True" Background="#EDF1F5"   ><helix:HelixViewport3D.Camera><PerspectiveCamera Position="20,-28,22" LookDirection="-20,28,-20" UpDirection="0,0,1" FieldOfView="40"/></helix:HelixViewport3D.Camera><helix:DefaultLights/></helix:HelixViewport3D>
+<helix:HelixViewport3D x:Name="Viewport" SizeChanged="UpdateViewportScale" ShowCoordinateSystem="True" ShowViewCube="False" CoordinateSystemHorizontalPosition="Right" CoordinateSystemVerticalPosition="Bottom" ModelUpDirection="0,0,1" PanGesture="RightClick" PanGesture2="{x:Null}" RotateGesture="LeftClick" RotateGesture2="{x:Null}" ZoomExtentsWhenLoaded="True" Background="#EDF1F5" IsInertiaEnabled="False"><helix:HelixViewport3D.Camera><PerspectiveCamera Position="20,-28,22" LookDirection="-20,28,-20" UpDirection="0,0,1" FieldOfView="40"/></helix:HelixViewport3D.Camera><helix:DefaultLights/></helix:HelixViewport3D>
 
 <Border x:Name="ViewportScaleOverlay" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="18" Padding="12,8" Background="#EEFFFFFF" CornerRadius="4" IsHitTestVisible="False" Visibility="Collapsed" Loaded="UpdateViewportScale">
   <StackPanel>
@@ -66,12 +66,22 @@
       <Line X1="120" Y1="1" X2="120" Y2="9" Stroke="#344255" StrokeThickness="1.5"/>
     </Canvas>
   </StackPanel>
-</Border><Border x:Name="WarningsPanel" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="12" Padding="10,8" MaxWidth="360"
+</Border><Border x:Name="WarningsPanel" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="12" Padding="0" MaxWidth="360"
         Background="#FFFFF4D6" BorderBrush="#E3C37B" BorderThickness="1" CornerRadius="4">
   <Border.Style><Style TargetType="Border"><Style.Triggers>
     <DataTrigger Binding="{Binding Text, ElementName=WarningsText}" Value=""><Setter Property="Visibility" Value="Collapsed"/></DataTrigger>
   </Style.Triggers></Style></Border.Style>
-  <StackPanel><TextBlock x:Name="WarningsText" TextWrapping="Wrap" Foreground="#845700" FontSize="11"/><ListBox x:Name="IssuesList" MaxHeight="220" Margin="0,6,0,0" BorderThickness="0" Background="Transparent" ScrollViewer.HorizontalScrollBarVisibility="Disabled"><ListBox.ItemTemplate><DataTemplate><TextBlock Text="{Binding Message}" TextWrapping="Wrap" ToolTip="{Binding Code}"/></DataTemplate></ListBox.ItemTemplate></ListBox></StackPanel>
+  <StackPanel>
+    <Button x:Name="IssuesToggle" Cursor="Hand" Focusable="False" HorizontalContentAlignment="Stretch" ToolTip="点击展开或收起问题列表">
+      <Button.Template><ControlTemplate TargetType="Button"><Border Background="Transparent" Padding="10,8"><ContentPresenter/></Border></ControlTemplate></Button.Template>
+      <DockPanel>
+        <TextBlock x:Name="IssuesChevron" DockPanel.Dock="Right" Margin="10,1,0,0" VerticalAlignment="Top"
+                   FontFamily="Segoe MDL2 Assets" FontSize="10" Foreground="#845700"/>
+        <TextBlock x:Name="WarningsText" TextWrapping="Wrap" Foreground="#845700" FontSize="11"/>
+      </DockPanel>
+    </Button>
+    <ListBox x:Name="IssuesList" MaxHeight="220" Margin="10,0,10,8" BorderThickness="0" Background="Transparent" ScrollViewer.HorizontalScrollBarVisibility="Disabled"><ListBox.ItemTemplate><DataTemplate><TextBlock Text="{Binding Message}" TextWrapping="Wrap" ToolTip="{Binding Code}"/></DataTemplate></ListBox.ItemTemplate></ListBox>
+  </StackPanel>
 </Border>
 </Grid></layout:LayoutDocument>
 <layout:LayoutDocument x:Name="SchematicDocument" Title="示意图" CanClose="False" CanFloat="False">

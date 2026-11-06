@@ -18,34 +18,35 @@ public static class SolderBalls
         }
         int rows = c.I("bga.rows"), columns = c.I("bga.columns");
         double pitch = c.N("bga.pitch");
-        foreach (var (row, column) in Cells(c.Values, rows, columns))
+        foreach (var (row, column) in Cells(c, rows, columns))
             yield return ($"solder-ball-r{row + 1}-c{column + 1}", (column - (columns - 1) / 2.0) * pitch, (row - (rows - 1) / 2.0) * pitch);
     }
 
-    public static int WireCount(BuildContext c)
+    public static int WireCount(BuildContext c) => Count(c.Values);
+
+    internal static int Count(JObject values)
     {
-        if (c.Values["bga.ball_map_enabled"].Flag())
-            return ((JArray)c.Values["bga.ball_map"]!).Count;
-        int nr = c.I("bga.rows"), nc = c.I("bga.columns");
-        if (!c.Values["bga.solder_removal_enabled"].Flag())
+        if (values["bga.ball_map_enabled"].Flag())
+            return ((JArray)values["bga.ball_map"]!).Count;
+        int nr = values["bga.rows"]!.Value<int>(), nc = values["bga.columns"]!.Value<int>();
+        if (!values["bga.solder_removal_enabled"].Flag())
             return nr * nc;
-        var(rp, cp) = Populated(c.Values, nr, nc);
+        if (values["bga.omitted_cells"] is JArray { Count: > 0 } omitted)
+            return nr * nc - omitted.Count;
+        var(rp, cp) = Populated(values, nr, nc);
         return nr * nc - (nr - rp) * (nc - cp);
     }
 
-    static int Required(JObject b, string key) => b[key]?.Type is JTokenType.Integer ? b[key]!.Value<int>() : throw new ModelGenerationException("generation.bga.required", $"焊球阵列缺少 {key}。");
-    static (int, int) Populated(JObject b, int nr, int nc)
-    {
-        int rp = b["bga.populated_rows"]?.Type is JTokenType.Integer ? Required(b, "bga.populated_rows") : nr - Required(b, "bga.removal_rows");
-        int cp = b["bga.populated_columns"]?.Type is JTokenType.Integer ? Required(b, "bga.populated_columns") : nc - Required(b, "bga.removal_columns");
-        return (rp, cp);
-    }
+    internal static (int Rows, int Columns) Populated(JObject values, int nr, int nc) => (
+        values["bga.populated_rows"]?.Type is JTokenType.Integer ? values["bga.populated_rows"]!.Value<int>() : nr - values["bga.removal_rows"]!.Value<int>(),
+        values["bga.populated_columns"]?.Type is JTokenType.Integer ? values["bga.populated_columns"]!.Value<int>() : nc - values["bga.removal_columns"]!.Value<int>());
 
-    static List<(int r, int col)> Cells(JObject b, int nr, int nc)
+    static List<(int r, int col)> Cells(BuildContext c, int nr, int nc)
     {
-        var omitted = (b["bga.omitted_cells"] as JArray ?? []).Select(x => (r: Required((JObject)x, "row"), col: Required((JObject)x, "column"))).ToHashSet();
+        var b = c.Values;
+        var omitted = (b["bga.omitted_cells"] as JArray ?? []).Select(x => (r: ((JObject)x)["row"]!.Value<int>(), col: ((JObject)x)["column"]!.Value<int>())).ToHashSet();
         bool removal = b["bga.solder_removal_enabled"].Flag(), explicitCells = removal && omitted.Count > 0;
-        var(rp, cp) = removal && !explicitCells ? Populated(b, nr, nc) : (nr, nc);
+        var(rp, cp) = removal && !explicitCells ? Populated(c.Values, nr, nc) : (nr, nc);
         var list = new List<(int, int)>();
         for (int r = 0; r < nr; r++)
             for (int col = 0; col < nc; col++)
@@ -70,7 +71,7 @@ public static class SolderBalls
             var cells = center ? (
                 from r in Enumerable.Range(0, nr)from col in Enumerable.Range(0, nc)
                 where !staggered || (r + col) % 2 == 0
-                select (r, col)).ToList() : Cells(b, nr, nc);
+                select (r, col)).ToList() : Cells(c, nr, nc);
             count += cells.Count;
             if (!equivalent)
             {
@@ -81,19 +82,17 @@ public static class SolderBalls
             }
 
             bool depop = b["bga.solder_removal_enabled"].Flag() && !center;
-            var(rp, cp) = depop ? Populated(b, nr, nc) : (nr, nc);
+            var(rp, cp) = depop ? Populated(c.Values, nr, nc) : (nr, nc);
             double tx = (cp / 2.0 - 1) * pitch + diameter, ty = (rp / 2.0 - 1) * pitch + diameter;
             double area = depop ? lx * ly - (lx - 2 * tx) * (ly - 2 * ty) : lx * ly;
             double n = depop ? nr * nc - (nr - rp) * (nc - cp) : nr * nc;
             double fraction = n * Math.PI * diameter * diameter / (4 * area) * (staggered ? 0.5 : 1);
-            var mat = MaterialMixer.Mix(center ? "solder-ball-center-equivalent" : "solder-ball-equivalent", solder, air, fraction, representation == "isotropic" ? "xyz" : "z", allowOverfilled: true);
+            var mat = MaterialMixer.Mix(center ? "solder-ball-center-equivalent" : "solder-ball-equivalent", solder, air, fraction, representation == "isotropic" ? "xyz" : "z");
             c.Derived(mat);
             if (!depop || rp == nr || cp == nc)
                 Block(id, 0, 0, lx, ly, mat.Id, center);
             else
             {
-                if (Math.Min(Math.Min(tx, ty), Math.Min(lx - 2 * tx, ly - 2 * ty)) <= 0)
-                    throw new ModelGenerationException("generation.bga.border", "等效焊球边框尺寸必须为正。");
                 Block(id + "-left", -(lx - tx) / 2, 0, tx, ly, mat.Id, center);
                 Block(id + "-right", (lx - tx) / 2, 0, tx, ly, mat.Id, center);
                 Block(id + "-lower", 0, -(ly - ty) / 2, lx - 2 * tx, ty, mat.Id, center);
@@ -114,7 +113,7 @@ public static class SolderBalls
         {
             Region("solder-ball", c.I("bga.rows"), c.I("bga.columns"), b["bga.staggered"].Flag());
             if (b["bga.center_solder_enabled"].Flag())
-                Region("center-solder-ball", Required(b, "bga.center_solder_rows"), Required(b, "bga.center_solder_columns"), b["bga.center_staggered"].Flag(), true);
+                Region("center-solder-ball", b["bga.center_solder_rows"]!.Value<int>(), b["bga.center_solder_columns"]!.Value<int>(), b["bga.center_staggered"].Flag(), true);
         }
 
         c.SolderBallCount = count;

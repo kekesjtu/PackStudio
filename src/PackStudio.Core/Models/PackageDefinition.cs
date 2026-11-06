@@ -35,6 +35,34 @@ public sealed class PackageDefinition
     public static JArray OptionValues(JToken field) => new((field["options"] as JArray ?? [])
         .Select(option => option["value"]?.DeepClone() ?? throw new InvalidDataException($"参数 {field["key"]} 的选项缺少 value。")));
 
+    public string ParameterDisplayName(string path, JObject values) => ResolveDisplayName(Fields, path, values);
+
+    static string ResolveDisplayName(JArray fields, string path, JObject values)
+    {
+        // Parameter keys can contain dots; match the complete key before descending.
+        var field = fields.OrderByDescending(f => f["key"].Text().Length).FirstOrDefault(f =>
+        {
+            string key = f["key"].Text();
+            return path == key || path.StartsWith(key + "[") || path.StartsWith(key + ".") || path.StartsWith(key + "/");
+        });
+        if (field == null) return "参数";
+        string label = TemplateSymbols.Resolve(field, values);
+        if (string.IsNullOrWhiteSpace(label)) label = field["label"].Text();
+        if (string.IsNullOrWhiteSpace(label)) label = "参数";
+        string remaining = path[field["key"].Text().Length..];
+        var children = field["keys"] as JArray;
+        if (remaining.StartsWith('['))
+        {
+            int end = remaining.IndexOf(']');
+            if (end < 0 || !int.TryParse(remaining[1..end], out int row) || row < 0) return label;
+            label += $"第 {row + 1} 行";
+            remaining = remaining[(end + 1)..];
+            children = field["columns"] as JArray;
+        }
+        return children != null && remaining.Length > 1 && remaining[0] is '.' or '/'
+            ? label + " · " + ResolveDisplayName(children, remaining[1..], values) : label;
+    }
+
     /// <summary>Display values only; does not apply creation branches or derive a layer stack.</summary>
     public JObject DisplayDefaults(string presetId)
     {

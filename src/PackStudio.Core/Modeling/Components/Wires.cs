@@ -15,8 +15,6 @@ public static class Wires
             if (!enabled)
                 continue;
             double radial = end - die / 2;
-            if (radial <= 0 || vh < 0)
-                throw new ModelGenerationException("generation.wire.geometry", "键合线端点或高度无效。");
             foreach (int sign in new[]
             {
                 -1,

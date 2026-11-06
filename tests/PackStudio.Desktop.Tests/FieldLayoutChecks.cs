@@ -7,6 +7,7 @@ using PackStudio.Desktop;
 namespace PackStudio.Desktop.Tests;
 static class FieldLayoutChecks
 {
+    static int hinted;
     // 数值输入框（含整数上下调节按钮）与下拉框高度一致，避免同列控件参差不齐。
     public static void Run(MainWindow window, ListBox steps, StackPanel fields, Workspace workspace)
     {
@@ -28,6 +29,30 @@ static class FieldLayoutChecks
 
         if (!compared)
             throw new Exception(family + ": 未找到同时包含数值输入框与下拉框的栏目");
+
+        // 定义中的取值范围显示在输入框右侧；整数框以箭头区分类型，不再重复标注“整数”。
+        foreach (var step in steps.Items.Cast<WizardStep>())
+        {
+            steps.SelectedValue = step.Key;
+            window.UpdateLayout();
+            foreach (var row in fields.Children.OfType<Grid>().Where(row => row.Visibility == Visibility.Visible))
+            {
+                if (row.DataContext is not ParameterField { Type: "number" or "integer" } field) continue;
+                var hint = row.Children.OfType<TextBlock>().SingleOrDefault(text => Grid.GetColumn(text) == 2)
+                    ?? throw new Exception($"{family}/{field.Path}: 数值框右侧缺少范围提示");
+                if (hint.Text != field.Range)
+                    throw new Exception($"{family}/{field.Path}: 范围提示“{hint.Text}”与定义“{field.Range}”不一致");
+                if (hint.Text.Contains("整数"))
+                    throw new Exception($"{family}/{field.Path}: 整数框不再标注整数");
+                if (hint.Text.Length > 0) hinted++;
+            }
+        }
+    }
+
+    public static void Verify()
+    {
+        if (hinted == 0)
+            throw new Exception("没有任何字段显示定义中的取值范围");
     }
 
     static IEnumerable<T> Descendants<T>(DependencyObject root)

@@ -9,8 +9,9 @@ using PackStudio.Core;
 namespace PackStudio.Desktop;
 public static partial class FieldView
 {
-    static FrameworkElement Table(JArray rows, (string Key, string Label, Type Type)[] columns, Action<JArray> changed)
+    static FrameworkElement Table(ParameterField field, JArray rows, (string Key, string Label, Type Type, string Bounds)[] columns)
     {
+        var changed = field.Set;
         var table = new DataTable();
         foreach (var col in columns)
             table.Columns.Add(col.Key, typeof(object));
@@ -53,7 +54,7 @@ public static partial class FieldView
                 column = new DataGridTemplateColumn { CellTemplate = template };
             }
             else column = new DataGridTextColumn { Binding = binding };
-            column.Header = col.Label;
+            column.Header = col.Bounds.Length == 0 ? col.Label : col.Label + " " + col.Bounds;
             column.SortMemberPath = col.Key;
             column.Width = new DataGridLength(1, DataGridLengthUnitType.Star);
             grid.Columns.Add(column);
@@ -111,6 +112,9 @@ public static partial class FieldView
         grid.SelectionChanged += (_, _) => remove.IsEnabled = grid.SelectedItems.Count > 0;
         buttons.Children.Add(add);
         buttons.Children.Add(remove);
+        var rowRange = new TextBlock { FontSize = 10, Foreground = Brushes.SlateGray, VerticalAlignment = VerticalAlignment.Center, Margin = new(10, 0, 0, 0), TextTrimming = TextTrimming.CharacterEllipsis };
+        rowRange.SetBinding(TextBlock.TextProperty, new System.Windows.Data.Binding(nameof(ParameterField.RowsRange)) { Source = field });
+        buttons.Children.Add(rowRange);
         panel.Children.Add(buttons);
         return panel;
     }

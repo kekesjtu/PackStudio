@@ -386,6 +386,7 @@
       "key": "bond_wire.total",
       "default": null,
       "type": "integer",
+      "minimum": 0,
       "label": "键合线总数",
       "step": "bond_wires",
       "visible_when": {

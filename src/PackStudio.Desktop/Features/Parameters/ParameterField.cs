@@ -1,3 +1,4 @@
+using System.Globalization;
 using CommunityToolkit.Mvvm.ComponentModel;
 using Newtonsoft.Json.Linq;
 using PackStudio.Core;
@@ -33,6 +34,8 @@ public sealed class ParameterField : ObservableObject
     public bool Visible => (parent?.Visible ?? true) && JsonData.Matches(Definition["visible_when"] as JObject, Scope);
     public bool Enabled => (parent?.Enabled ?? true) && JsonData.Matches(Definition["enabled_when"] as JObject, Scope);
     public string Symbol => TemplateSymbols.Resolve(Definition, form.Values);
+    public string Range => Bounds(Definition);
+    public string RowsRange => Rows(Definition);
     public JArray Options => form.Template.OptionsFor(Definition);
     public string? Error => form.Error(Path);
     public bool HasError => Error != null;
@@ -64,4 +67,21 @@ public sealed class ParameterField : ObservableObject
             SetProperty(ref text, Display(Value), nameof(TextValue));
     }
     static string Display(JToken? value) => value?.Type is null or JTokenType.Null ? "" : value.ToString();
+    internal static string Bounds(JToken definition)
+    {
+        static string? Format(JToken? token) => token?.Type is JTokenType.Integer or JTokenType.Float
+            ? token.Value<double>().ToString("0.################", CultureInfo.InvariantCulture) : null;
+        string? min = Format(definition["minimum"]), exclusive = Format(definition["exclusive_minimum"]), max = Format(definition["maximum"]);
+        if (exclusive != null) return max == null ? ">" + exclusive : ">" + exclusive + "~" + max;
+        if (min != null) return max == null ? "≥" + min : min + "~" + max;
+        return max == null ? "" : "≤" + max;
+    }
+    static string Rows(JToken definition)
+    {
+        static string? Format(JToken? token) => token?.Type is JTokenType.Integer ? token.Value<int>().ToString(CultureInfo.InvariantCulture) : null;
+        string? min = Format(definition["min_rows"]), max = Format(definition["max_rows"]);
+        if (min == null && max == null) return "";
+        if (max == null) return "行数 ≥" + min;
+        return min == null ? "行数 ≤" + max : "行数 " + min + "~" + max;
+    }
 }

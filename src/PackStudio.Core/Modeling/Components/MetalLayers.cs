@@ -3,14 +3,7 @@ using Newtonsoft.Json.Linq;
 namespace PackStudio.Core;
 public static class MetalLayers
 {
-    public static JArray Parse(BuildContext c, string key)
-    {
-        if (c.Values[key] is not JArray source)
-            throw new ModelGenerationException("generation.layers", "金属层表必须为 JSON 数组。");
-        var rows = (JArray)source.DeepClone();
-
-        return rows;
-    }
+    public static JArray Parse(BuildContext c, string key) => c.Values[key] is JArray rows ? (JArray)rows.DeepClone() : [];
 
     public static void Append(BuildContext c, JArray rows, double lx, double ly, double top, Material metal, Material matrix, string prefix = "trace", bool skipZero = false)
     {
