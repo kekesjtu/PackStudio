@@ -10,6 +10,8 @@ internal sealed partial class SchematicDrawing(PackageDefinition template, Proje
 {
     internal const double Width = 700, Height = 580;
     const double SectionY = 230;
+    const double PlanTop = 370, PlanBottom = 570, PlanCenterY = (PlanTop + PlanBottom) / 2;
+    const double PlanLengthDimensionY = PlanBottom + 29;
     const double FlipBumpRadius = 7.5;
     static readonly Brush Ink = Brushes.Black, Muted = Brush("#555555");
     static readonly Brush Die = Brush("#FF1744"), Substrate = Brush("#00C83F"), Metal = Brush("#FFA000");
@@ -53,7 +55,7 @@ internal sealed partial class SchematicDrawing(PackageDefinition template, Proje
         {
             PackageSection();
             Plan();
-            Axes(70, 554);
+            Axes(70, PlanBottom + 4);
             PackageLegend();
         }
         scene.Freeze();
@@ -160,7 +162,7 @@ internal sealed partial class SchematicDrawing(PackageDefinition template, Proje
             var row = entries.Skip(start).Take(3).ToArray();
             var labels = row.Select(e => FormatText(e.Label, 12, Muted)).ToArray();
             double total = labels.Sum(label => swatchWidth + labelGap + label.Width) + itemGap * (row.Length - 1);
-            double x = (Width - total) / 2, y = 620 + start / 3 * 22;
+            double x = (Width - total) / 2, y = 630 + start / 3 * 22;
             for (int i = 0; i < row.Length; i++)
             {
                 Rect(row[i].Color, x, y + (labels[i].Height - 10) / 2, swatchWidth, 10, false);

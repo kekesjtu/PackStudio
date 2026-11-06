@@ -18,18 +18,18 @@ internal sealed partial class SchematicDrawing
         DimV(125, 153, 465, 565, Dimension("厚度\n", "slug.thickness"));
         DimV(224, 230, 490, 600, Dimension("支脚间隙\n", "slug.clearance"));
 
-        Rect(Board, 200, 390, 300, 160);
-        Rect(Mold, 210, 400, 280, 140);
-        Rect(Metal, 215, 425, 270, 90);
-        Rect(Metal, 235, 405, 230, 130);
-        Rect(Metal, 235, 410, 230, 120);
-        Ellipse(Metal, 350, 470, 35, 35);
-        DimH(315, 385, 470, 335, Dimension("顶部直径", "slug.diameter"));
-        DimH(215, 485, 405, 365, Dimension("外轮廓长度", "slug.foot_length"));
-        DimV(405, 535, 215, 155, Dimension("外轮廓宽度\n", "slug.foot_width"), true);
-        DimH(235, 465, 530, 579, Dimension("散热块长度", "slug.length"));
-        DimV(410, 530, 465, 550, Dimension("宽度\n", "slug.width"));
-        Axes(70, 554);
+        Rect(Board, 200, PlanTop, 300, PlanBottom - PlanTop);
+        Rect(Mold, 210, 382, 280, 176);
+        Rect(Metal, 215, 414, 270, 112);
+        Rect(Metal, 235, 389, 230, 162);
+        Rect(Metal, 235, 395, 230, 150);
+        Ellipse(Metal, 350, PlanCenterY, 35, 35);
+        DimH(315, 385, PlanCenterY, 325, Dimension("顶部直径", "slug.diameter"));
+        DimH(215, 485, 389, 355, Dimension("外轮廓长度", "slug.foot_length"));
+        DimV(389, 551, 215, 155, Dimension("外轮廓宽度\n", "slug.foot_width"), true);
+        DimH(235, 465, 545, PlanLengthDimensionY, Dimension("散热块长度", "slug.length"));
+        DimV(395, 545, 465, 550, Dimension("宽度\n", "slug.width"));
+        Axes(70, PlanBottom + 4);
         Legend((Mold, "塑封"), (Metal, "散热块 / Slug"), (Board, "基板"), (Attach, "支脚粘接层"));
     }
 }

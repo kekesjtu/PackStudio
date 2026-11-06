@@ -4,42 +4,46 @@ namespace PackStudio.Desktop;
 
 internal sealed partial class SchematicDrawing
 {
+    const double BallRowPitch = 38;
+    const double FirstBallRow = PlanCenterY - 2 * BallRowPitch, LastBallRow = PlanCenterY + 2 * BallRowPitch;
+
     void BallArray()
     {
         bool removed = step == "solder_removal", central = step == "central_solder_balls";
         PackageSection(removeCentralBalls: removed);
-        Rect(Board, 200, 390, 300, 160);
+        Rect(Board, 200, PlanTop, 300, PlanBottom - PlanTop);
         for (int row = 0; row < 5; row++)
             for (int col = 0; col < 9; col++)
             {
                 bool middle = row is >= 1 and <= 3 && col is >= 3 and <= 5;
-                double x = Centered(col, 9, 31), y = Centered(row, 5, 31, 470);
+                double x = Centered(col, 9, 31), y = Centered(row, 5, BallRowPitch, PlanCenterY);
                 if (!removed || !middle) Ellipse(Solder, x, y, 8, 8);
             }
         if (central)
         {
+            double firstRow = PlanCenterY - BallRowPitch / 2, lastRow = PlanCenterY + BallRowPitch / 2;
             for (int row = 0; row < 2; row++)
                 for (int col = 0; col < 2; col++)
-                    Ellipse(Metal, Centered(col, 2, 31), Centered(row, 2, 31, 470), 8, 8);
+                    Ellipse(Metal, Centered(col, 2, 31), Centered(row, 2, BallRowPitch, PlanCenterY), 8, 8);
             Text("中央焊球", 545, 400);
-            Line(545, 422, 520, 422); Line(520, 422, 520, 454.5); Line(520, 454.5, 365.5, 454.5);
-            dc.DrawEllipse(Ink, null, new(365.5, 454.5), 2, 2);
-            DimH(334.5, 365.5, 454.5, 340, Dimension("中央焊球列数", "bga.center_solder_columns"));
-            DimV(454.5, 485.5, 365.5, 550, Dimension("中央焊球行数\n", "bga.center_solder_rows"));
+            Line(545, 422, 520, 422); Line(520, 422, 520, firstRow); Line(520, firstRow, 365.5, firstRow);
+            dc.DrawEllipse(Ink, null, new(365.5, firstRow), 2, 2);
+            DimH(334.5, 365.5, firstRow, 340, Dimension("中央焊球列数", "bga.center_solder_columns"));
+            DimV(firstRow, lastRow, 365.5, 550, Dimension("中央焊球行数\n", "bga.center_solder_rows"));
         }
         if (removed)
         {
             Outline(294, 260, 112, 24);
-            Outline(303.5, 423.5, 93, 93);
+            Outline(303.5, PlanCenterY - 1.5 * BallRowPitch, 93, 3 * BallRowPitch);
             PopulatedBandDimensions();
         }
         DimV(260, 282, 550, 580, Dimension("离板高度\n", "bga.height"));
         DimH(155, 177, 271, 310, Dimension("球径", "bga.diameter"));
-        DimH(226, 474, 550, 579, Dimension("X 方向列数", "bga.columns"));
-        DimV(408, 532, central ? 200 : 500, central ? 155 : 550,
+        DimH(226, 474, PlanBottom, PlanLengthDimensionY, Dimension("X 方向列数", "bga.columns"));
+        DimV(FirstBallRow, LastBallRow, central ? 200 : 500, central ? 155 : 550,
             Dimension("Y 方向行数\n", "bga.rows"), central);
-        if (!central && !removed) DimH(226, 257, 408, 365, Dimension("间距", "bga.pitch"));
-        Axes(70, 554);
+        if (!central && !removed) DimH(226, 257, FirstBallRow, 355, Dimension("间距", "bga.pitch"));
+        Axes(70, PlanBottom + 4);
         Legend((Board, "基板"), (Solder, "BGA 焊球"), (Metal, "中央焊球"));
     }
 
@@ -47,19 +51,21 @@ internal sealed partial class SchematicDrawing
     {
         foreach (var (left, right) in new[] { (210.5, 303.5), (396.5, 489.5) })
         {
-            Line(left, 390, left, 345); Line(right, 390, right, 345);
+            Line(left, PlanTop, left, 345); Line(right, PlanTop, right, 345);
             Line(left, 350, right, 350); Arrow(left, 350, 1, 0); Arrow(right, 350, -1, 0);
             Line((left + right) / 2, 350, (left + right) / 2, 330);
         }
         Line(257, 330, 443, 330);
         Text(Dimension("外围满布列数", "bga.populated_columns"), 350, 305, align: System.Windows.TextAlignment.Center);
-        foreach (var (top, bottom) in new[] { (392.5, 423.5), (516.5, 547.5) })
+        double halfPitch = BallRowPitch / 2;
+        foreach (double y in new[] { FirstBallRow, LastBallRow })
         {
+            double top = y - halfPitch, bottom = y + halfPitch;
             Line(200, top, 150, top); Line(200, bottom, 150, bottom);
             Line(155, top, 155, bottom); Arrow(155, top, 0, 1); Arrow(155, bottom, 0, -1);
-            Line(155, (top + bottom) / 2, 115, (top + bottom) / 2);
+            Line(155, y, 115, y);
         }
-        Line(115, 408, 115, 532);
+        Line(115, FirstBallRow, 115, LastBallRow);
         Text(Dimension("外围满布行数\n", "bga.populated_rows"), 105, 453, align: System.Windows.TextAlignment.Right);
     }
 

@@ -4,6 +4,8 @@ namespace PackStudio.Desktop;
 
 internal sealed partial class SchematicDrawing
 {
+    double PlanLeadPitch => Qfn ? 27 : 32;
+
     void Section(double y, bool drawMold = true, double wireEnd = 226, bool removeCentralBalls = false)
     {
         if (Bare)
@@ -79,65 +81,66 @@ internal sealed partial class SchematicDrawing
 
     void Plan()
     {
-        Rect(Bare ? Die : Bga ? Board : Mold, 200, 390, 300, 160);
+        Rect(Bare ? Die : Bga ? Board : Mold, 200, PlanTop, 300, PlanBottom - PlanTop);
         if (Bare) return;
         if (!Bga)
         {
             for (int i = 0; i < 6; i++)
             {
-                double y = Centered(i, 6, 26, 470) - 5;
+                double y = Centered(i, 6, PlanLeadPitch, PlanCenterY) - 5;
                 Rect(Metal, Qfn ? 200 : 180, y, Qfn ? 30 : 50, 10);
                 Rect(Metal, 470, y, Qfn ? 30 : 50, 10);
                 if (!Sop)
                 {
                     double x = Centered(i, 6, 48) - 5;
                     double height = Qfn ? 25 : 20;
-                    Rect(Metal, x, Qfn ? 390 : 370, 10, height);
-                    Rect(Metal, x, Qfn ? 525 : 550, 10, height);
+                    Rect(Metal, x, Qfn ? PlanTop : PlanTop - height, 10, height);
+                    Rect(Metal, x, Qfn ? PlanBottom - height : PlanBottom, 10, height);
                 }
             }
         }
         else if (!Flip)
-            Rect(Mold, ChipArray ? 200 : 225, ChipArray ? 390 : 405,
-                ChipArray ? 300 : 250, ChipArray ? 160 : 130);
+            Rect(Mold, ChipArray ? 200 : 225, ChipArray ? PlanTop : 390,
+                ChipArray ? 300 : 250, ChipArray ? PlanBottom - PlanTop : 160);
         PlanAccessories();
         if (!Flip)
         {
-            if (ChipArray) Rect(Attach, 280, 430, 140, 80);
-            else Rect(Metal, 265, 420, 170, 100);
+            if (ChipArray) Rect(Attach, 280, 420, 140, 100);
+            else Rect(Metal, 265, 408, 170, 124);
             if (!Qfn && !Bga)
-                foreach (var (x, y) in new[] { (200d, 390d), (500d, 390d), (200d, 550d), (500d, 550d) })
-                    Line(x, y, x < 350 ? 265 : 435, y < 470 ? 420 : 520, Metal, 8);
+                foreach (var (x, y) in new[] { (200d, PlanTop), (500d, PlanTop), (200d, PlanBottom), (500d, PlanBottom) })
+                    Line(x, y, x < 350 ? 265 : 435, y < PlanCenterY ? 408 : 532, Metal, 8);
         }
-        Rect(Die, 285, 435, 130, 70);
+        Rect(Die, 285, 426, 130, 88);
         if (!Bga && !Qfn)
             for (int i = 0; i < 6; i++)
             {
-                double outer = Centered(i, 6, 26, 470), inner = Centered(i, 6, 17, 470);
+                double outer = Centered(i, 6, PlanLeadPitch, PlanCenterY), inner = Centered(i, 6, 21, PlanCenterY);
                 Line(230, outer, 245, inner, Metal, 3); Line(470, outer, 455, inner, Metal, 3);
                 if (!Sop)
                 {
                     double pin = Centered(i, 6, 48), finger = Centered(i, 6, 24);
-                    Line(pin, 390, finger, 400, Metal, 3); Line(pin, 550, finger, 540, Metal, 3);
+                    Line(pin, PlanTop, finger, 384, Metal, 3); Line(pin, PlanBottom, finger, 556, Metal, 3);
                 }
             }
         if (!Flip)
             for (int i = 0; i < 6; i++)
             {
-                double source = Centered(i, 6, 10), end = Centered(i, 6, 17, 470);
-                Line(285, 470 + source - 350, Bga ? 235 : 245, end, WireColor, 1.6);
-                Line(415, 470 + source - 350, Bga ? 465 : 455, end, WireColor, 1.6);
+                double source = Centered(i, 6, 10), dieY = Centered(i, 6, 12, PlanCenterY);
+                double end = Centered(i, 6, 21, PlanCenterY);
+                Line(285, dieY, Bga ? 235 : 245, end, WireColor, 1.6);
+                Line(415, dieY, Bga ? 465 : 455, end, WireColor, 1.6);
                 if (!Sop)
                 {
                     double pin = Centered(i, 6, 24);
-                    Line(source, 435, pin, Bga ? 410 : 400, WireColor, 1.6);
-                    Line(source, 505, pin, Bga ? 530 : 540, WireColor, 1.6);
+                    Line(source, 426, pin, Bga ? 395 : 384, WireColor, 1.6);
+                    Line(source, 514, pin, Bga ? 545 : 556, WireColor, 1.6);
                 }
             }
         else
             for (int row = 0; row < 3; row++)
                 for (int col = 0; col < 6; col++)
-                    Ellipse(Bump, Centered(col, 6, 20), Centered(row, 3, 20, 470), 3.5, 3.5);
+                    Ellipse(Bump, Centered(col, 6, 20), Centered(row, 3, 20, PlanCenterY), 3.5, 3.5);
     }
 
     void PackageSection(bool removeCentralBalls = false)

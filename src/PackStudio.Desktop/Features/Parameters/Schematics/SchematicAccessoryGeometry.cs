@@ -39,13 +39,13 @@ internal sealed partial class SchematicDrawing
     void PlanAccessories()
     {
         if (Flip && Value("cover.type") is "lid" or "plate" or "encapsulant")
-            Rect(Value("cover.type") == "encapsulant" ? Mold : Cover, 225, 405, 250, 130);
+            Rect(Value("cover.type") == "encapsulant" ? Mold : Cover, 225, 390, 250, 160);
         if (SlugVisible)
         {
-            Rect(Metal, 235, 410, 230, 120);
-            Ellipse(Metal, 350, 470, 45, 45);
+            Rect(Metal, 235, 395, 230, 150);
+            Ellipse(Metal, 350, PlanCenterY, 45, 45);
         }
-        if (Wirebond && Enabled("spreader.enabled")) Rect(Metal, 240, 415, 220, 110);
-        if (!Bga && Enabled("thermal_land.enabled")) Rect(Solder, 255, 410, 190, 120);
+        if (Wirebond && Enabled("spreader.enabled")) Rect(Metal, 240, 402, 220, 136);
+        if (!Bga && Enabled("thermal_land.enabled")) Rect(Solder, 255, 395, 190, 150);
     }
 }
