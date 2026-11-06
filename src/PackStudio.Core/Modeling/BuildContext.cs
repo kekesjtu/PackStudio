@@ -17,6 +17,8 @@ public sealed class BuildContext
     readonly IReadOnlyDictionary<string, ModelGroup> catalogGroups;
     readonly Dictionary<string, string> assignments;
     readonly Dictionary<string, Material> customOverrides = [];
+    readonly HashSet<string> derivedMaterialIds = [];
+    internal IReadOnlySet<string> DerivedMaterialIds => derivedMaterialIds;
     public BuildContext(PackageDefinition template, JObject values, string name, MaterialCatalog materials,
         IReadOnlyDictionary<string, ModelGroup> groups, Dictionary<string, string> materialAssignments, IEnumerable<Material>? custom = null)
     {
@@ -41,7 +43,16 @@ public sealed class BuildContext
     public string T(string key) => Values[key].Text();
     public Material M(string id) => Materials[id];
     public Material Component(string group, string fallback) => M(assignments.GetValueOrDefault(group, fallback));
-    public void Derived(Material m) => Materials[m.Id] = customOverrides.GetValueOrDefault(m.Id, m);
+    public void Derived(Material m)
+    {
+        if (customOverrides.TryGetValue(m.Id, out var custom))
+            Materials[m.Id] = custom;
+        else
+        {
+            Materials[m.Id] = m;
+            derivedMaterialIds.Add(m.Id);
+        }
+    }
     public void Add(string id, string type, double x, double y, double z, double sx, double sy, double sz, string material, string group, string? label = null, bool derived = false)
     {
         string g = group.StartsWith("group-") ? group : "group-" + group;

@@ -6,7 +6,7 @@ internal static class ChipArrayInputRules
 {
     public static void Validate(InputChecks c)
     {
-        SolderBallInputRules.Validate(c);
+        SolderBallInputRules.Validate(c, "package");
         c.Check(c.T("bga.representation") != "discrete", "input.bga.representation", "当前封装不支持所选焊球建模方式。", "bga.representation");
         ViaInputRules.Validate(c, c.B("vias.filled"));
         if (c.T("vias.modeling") == "approximate")
@@ -25,6 +25,9 @@ internal static class ChipArrayInputRules
         if (c.B("bga.ball_map_enabled")) return c.Values["bga.ball_map"] is JArray map ? map.Count : double.NaN;
         if (!double.IsFinite(c.N("bga.rows")) || !double.IsFinite(c.N("bga.columns"))) return double.NaN;
         if (!c.B("bga.solder_removal_enabled")) return c.N("bga.rows") * c.N("bga.columns");
+        if (c.Values["bga.omitted_cells"] is JArray { Count: > 0 }) return SolderBalls.Count(c.Values);
+        if (new[] { "bga.populated_rows", "bga.populated_columns", "bga.removal_rows", "bga.removal_columns" }.Any(c.Invalid))
+            return double.NaN;
         if (!double.IsFinite(c.N("bga.populated_rows")) && !double.IsFinite(c.N("bga.removal_rows"))) return double.NaN;
         if (!double.IsFinite(c.N("bga.populated_columns")) && !double.IsFinite(c.N("bga.removal_columns"))) return double.NaN;
         return SolderBalls.Count(c.Values);

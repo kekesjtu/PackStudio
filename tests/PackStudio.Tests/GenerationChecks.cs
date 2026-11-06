@@ -125,6 +125,61 @@ static class GenerationChecks
             Assert(result.Issues.Single(i => i.ParameterPaths.Contains("leads.total")).Code == "input.sop.leads", "lead count bypassed the family check");
         });
 
+        tests.Case("generation", "SOP lead row leaves positive inner lead length", () =>
+        {
+            var document = tests.Create(tests.Catalog.Load("sop"));
+            document.Values["leads.total"] = 2;
+            var result = tests.GenerateResult(document);
+            Assert(result.Model == null && result.Issues.Any(i => i.Code == "input.sop.lead_span" &&
+                i.ParameterPaths.Contains("leads.total")), "short lead row escaped input validation");
+        });
+
+        tests.Case("generation", "WB PBGA mold covers the die stack and wire ends", () =>
+        {
+            var document = tests.Create(tests.Catalog.Load("pbga_wb"));
+            var values = document.Values;
+            double stack = values["solder_mask.thickness"].Number() + values["die.attach"].Number() + values["die.thickness"].Number();
+            values["encapsulant.thickness"] = stack;
+            values["encapsulant.length"] = values["bond_wire.extent_length"]!.DeepClone();
+            tests.Generate(document);
+            values["encapsulant.thickness"] = stack - 0.01;
+            values["encapsulant.length"] = values["bond_wire.extent_length"].Number() - 0.01;
+            var result = tests.GenerateResult(document);
+            Assert(result.Model == null && result.Issues.Any(i => i.Code == "input.encapsulant.stack" && i.ParameterPaths.Contains("die.attach")),
+                "short mold escaped vertical input validation");
+            Assert(result.Issues.Any(i => i.Code == "input.package.fit" && i.ParameterPaths.Contains("bond_wire.extent_length")),
+                "wire ends escaped lateral input validation");
+        });
+
+        tests.Case("generation", "FC PBGA metal layers fit their own build-up region", () =>
+        {
+            var document = tests.Create(tests.Catalog.Load("pbga_fc"));
+            var values = document.Values;
+            double board = values["substrate.thickness"].Number();
+            foreach (string region in new[] { "upper", "lower" })
+            {
+                values[region + ".enabled"] = true;
+                values[region + ".thickness"] = 0.2;
+                var row = new JObject { ["depth"] = region == "upper" ? 0.1 : board - 0.2,
+                    ["thickness"] = 0.1, ["coverage"] = 50, ["disconnect"] = false };
+                values[region + ".layers"] = new JArray(row);
+                tests.Generate(document);
+                row["thickness"] = -0.01;
+                CheckLayer("input.range", "thickness");
+                row["thickness"] = 0.1;
+                row["depth"] = region == "upper" ? 0.15 : board - 0.25;
+                CheckLayer("input.metal.build_up", "depth");
+                values[region + ".enabled"] = false;
+
+                void CheckLayer(string code, string column)
+                {
+                    var result = tests.GenerateResult(document);
+                    Assert(result.Model == null && result.Issues.Any(i => i.Code == code && i.Stage == ValidationStage.Input &&
+                        i.ParameterPaths.Contains(region + ".layers[0]." + column)), region + " layer issue lost its cell");
+                }
+            }
+        });
+
         tests.Case("generation", "derived geometry relations are input errors with field paths", () =>
         {
             var pqfp = tests.Create(tests.Catalog.Load("pqfp"));
@@ -193,6 +248,20 @@ static class GenerationChecks
             Assert(!ModelValidator.Validate(model, expectedPower: 2).Any(i => i.Code == "model.power"), "matching power was rejected");
             Assert(ModelValidator.Validate(model, expectedPower: 4).Any(i => i.Code == "model.power" && i.Severity == IssueSeverity.Error),
                 "lost power was accepted");
+        });
+
+        tests.Case("generation", "generated material validation follows the final material source", () =>
+        {
+            var document = tests.Create(tests.Catalog.Load("cbga_fc"));
+            var catalog = tests.Catalog.Materials.Items;
+            var solder = catalog[document.MaterialAssignments["group-bga-solder"]];
+            document.CustomMaterials.Add(solder with { Density = 0 });
+            document.CustomMaterials.Add(catalog["static-air"] with { Density = 0 });
+            var invalid = tests.GenerateResult(document);
+            Assert(!invalid.CanExport && invalid.Issues.Any(i => i.Code == "model.material" && i.EntityIds.Contains("solder-ball-part-1")),
+                "invalid calculated material was not checked");
+            document.CustomMaterials.Add(solder with { Id = "solder-ball-equivalent" });
+            Assert(tests.GenerateResult(document).CanExport, "valid custom override did not replace the calculated material");
         });
 
         foreach (string family in new[] { "cbga_fc", "pbga_fc", "pbga_wb", "chip_array" })

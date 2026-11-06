@@ -13,7 +13,7 @@ public sealed class MaterialCatalogReader
         foreach (var entry in index.Properties())
         {
             var material = ParseRecord(Path.GetFileNameWithoutExtension(entry.Value["file"]!.ToString()), JsonData.CatalogEntry(directory, entry.Value));
-            items.Add(material.Id, Checked(material));
+            items.Add(material.Id, material);
         }
         foreach (var alias in ((JObject)runtime["aliases"]!).Properties())
         {
@@ -23,17 +23,10 @@ public sealed class MaterialCatalogReader
         }
         foreach (var item in (JArray)runtime["project_materials"]!)
         {
-            var material = Checked(Parse(item));
+            var material = Parse(item);
             items.Add(material.Id, material);
         }
         return new(items.Values);
-    }
-
-    static Material Checked(Material material)
-    {
-        string[] errors = FieldRules.MaterialErrors(material).ToArray();
-        if (errors.Length > 0) throw new InvalidDataException($"材料 {material.Name}：{string.Join(" ", errors)}");
-        return material;
     }
 
     // Legacy internal records use a tensor. Their format mapping is confined to this boundary.

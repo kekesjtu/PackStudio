@@ -5,7 +5,7 @@ internal static class SlugInputRules
 {
     public static void Validate(InputChecks c, bool wirebond)
     {
-        if (!c.B("slug.enabled")) return;
+        if (!c.B("slug.enabled") || !wirebond && c.T("cover.type") != "encapsulant") return;
         double length = c.N("slug.length"), width = c.N("slug.width"), thickness = c.N("slug.thickness"),
             diameter = c.N("slug.diameter"), footLength = c.N("slug.foot_length"), footWidth = c.N("slug.foot_width");
         c.Check(length <= 0 || width <= 0 || thickness <= 0 || diameter <= 0,

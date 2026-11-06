@@ -7,6 +7,17 @@ static class SlugChecks
     {
         foreach (string family in new[] { "cbga_fc", "pbga_fc" })
         {
+            tests.Case("slug", family + " ignores slug values when the cover does not use a slug", () =>
+            {
+                var document = Create(tests, family);
+                document.Values["cover.type"] = "bare_die";
+                document.Values["slug.length"] = 0;
+                Assert(tests.Generate(document).Blocks.All(b => b.GroupId != "group-slug"), "inactive slug was generated");
+                document.Values["cover.type"] = "encapsulant";
+                var result = tests.GenerateResult(document);
+                Assert(result.Model == null && result.Issues.Any(i => i.Code == "input.slug.size"), "reactivated slug escaped validation");
+            });
+
             foreach (bool flush in new[] { false, true })
             foreach (bool adhesive in new[] { false, true })
                 tests.Case("slug", $"{family} contact flush={flush} adhesive={adhesive}", () =>

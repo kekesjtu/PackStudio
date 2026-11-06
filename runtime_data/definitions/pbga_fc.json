@@ -1102,6 +1102,7 @@
       "default": null,
       "unit": "mm",
       "type": "number",
+      "exclusive_minimum": 0,
       "label": "增层厚度",
       "step": "upper_built_up",
       "visible_when": {
@@ -1218,7 +1219,8 @@
         {
           "key": "thickness",
           "type": "number",
-          "label": "层厚 tzn (mm)"
+          "label": "层厚 tzn (mm)",
+          "exclusive_minimum": 0
         },
         {
           "key": "coverage",
@@ -1256,6 +1258,7 @@
       "default": null,
       "unit": "mm",
       "type": "number",
+      "exclusive_minimum": 0,
       "label": "增层厚度",
       "step": "lower_built_up",
       "visible_when": {
@@ -1372,7 +1375,8 @@
         {
           "key": "thickness",
           "type": "number",
-          "label": "层厚 tzn (mm)"
+          "label": "层厚 tzn (mm)",
+          "exclusive_minimum": 0
         },
         {
           "key": "coverage",

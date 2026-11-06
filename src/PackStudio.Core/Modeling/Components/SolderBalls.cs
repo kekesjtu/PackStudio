@@ -4,8 +4,12 @@ namespace PackStudio.Core;
 public static class SolderBalls
 {
     public static Footprint Footprint(BuildContext c) => new(
-        (c.I("bga.columns") - 1) * c.N("bga.pitch") + c.N("bga.diameter"),
-        (c.I("bga.rows") - 1) * c.N("bga.pitch") + c.N("bga.diameter"));
+        Span(c.I("bga.columns"), c.N("bga.pitch"), c.N("bga.diameter")),
+        Span(c.I("bga.rows"), c.N("bga.pitch"), c.N("bga.diameter")));
+
+    internal static double Span(double count, double pitch, double ballWidth) => (count - 1) * pitch + ballWidth;
+    internal static double BlockSide(double diameter) => Math.Sqrt(Math.PI) * diameter / 2;
+    internal static double Position(int index, int count, double pitch) => (index - (count - 1) / 2.0) * pitch;
 
     internal static IEnumerable<(string Id, double X, double Y)> MainPositions(BuildContext c)
     {
@@ -19,7 +23,7 @@ public static class SolderBalls
         int rows = c.I("bga.rows"), columns = c.I("bga.columns");
         double pitch = c.N("bga.pitch");
         foreach (var (row, column) in Cells(c, rows, columns))
-            yield return ($"solder-ball-r{row + 1}-c{column + 1}", (column - (columns - 1) / 2.0) * pitch, (row - (rows - 1) / 2.0) * pitch);
+            yield return ($"solder-ball-r{row + 1}-c{column + 1}", Position(column, columns, pitch), Position(row, rows, pitch));
     }
 
     public static int WireCount(BuildContext c) => Count(c.Values);
@@ -37,22 +41,32 @@ public static class SolderBalls
         return nr * nc - (nr - rp) * (nc - cp);
     }
 
-    internal static (int Rows, int Columns) Populated(JObject values, int nr, int nc) => (
-        values["bga.populated_rows"]?.Type is JTokenType.Integer ? values["bga.populated_rows"]!.Value<int>() : nr - values["bga.removal_rows"]!.Value<int>(),
-        values["bga.populated_columns"]?.Type is JTokenType.Integer ? values["bga.populated_columns"]!.Value<int>() : nc - values["bga.removal_columns"]!.Value<int>());
+    internal static double PopulatedCount(double total, double populated, double removed) =>
+        double.IsNaN(populated) ? total - removed : populated;
 
-    static List<(int r, int col)> Cells(BuildContext c, int nr, int nc)
+    static (int Rows, int Columns) Populated(JObject values, int nr, int nc)
     {
-        var b = c.Values;
-        var omitted = (b["bga.omitted_cells"] as JArray ?? []).Select(x => (r: ((JObject)x)["row"]!.Value<int>(), col: ((JObject)x)["column"]!.Value<int>())).ToHashSet();
-        bool removal = b["bga.solder_removal_enabled"].Flag(), explicitCells = removal && omitted.Count > 0;
-        var(rp, cp) = removal && !explicitCells ? Populated(c.Values, nr, nc) : (nr, nc);
-        var list = new List<(int, int)>();
+        double Count(string axis, int total) => PopulatedCount(total, values["bga.populated_" + axis].Number(double.NaN),
+            values["bga.removal_" + axis].Number(double.NaN));
+        return ((int)Count("rows", nr), (int)Count("columns", nc));
+    }
+
+    static IEnumerable<(int Row, int Column)> Cells(BuildContext c, int nr, int nc)
+    {
+        bool removal = c.B("bga.solder_removal_enabled");
+        var omissions = removal ? c.Values["bga.omitted_cells"] as JArray : null;
+        var (rp, cp) = removal && omissions is not { Count: > 0 } ? Populated(c.Values, nr, nc) : (nr, nc);
+        return Cells(nr, nc, rp, cp, c.B("bga.staggered"), omissions);
+    }
+
+    internal static IEnumerable<(int Row, int Column)> Cells(int nr, int nc, int rp, int cp, bool staggered, JArray? omissions = null)
+    {
+        var omitted = (omissions ?? []).Select(x => (x["row"]!.Value<int>(), x["column"]!.Value<int>())).ToHashSet();
         for (int r = 0; r < nr; r++)
             for (int col = 0; col < nc; col++)
-                if (explicitCells ? !omitted.Contains((nr - 1 - r, col)) : (!b["bga.staggered"].Flag() || (r + col) % 2 == 0) && (rp == nr || cp == nc || r < rp / 2 || r >= nr - rp / 2 || col < cp / 2 || col >= nc - cp / 2))
-                    list.Add((r, col));
-        return list;
+                if (omitted.Count > 0 ? !omitted.Contains((nr - 1 - r, col)) :
+                    (!staggered || (r + col) % 2 == 0) && (rp == nr || cp == nc || r < rp / 2 || r >= nr - rp / 2 || col < cp / 2 || col >= nc - cp / 2))
+                    yield return (r, col);
     }
 
     public static void Build(BuildContext c)
@@ -67,17 +81,14 @@ public static class SolderBalls
         void Block(string id, double x, double y, double lx, double ly, string mat, bool center = false) => c.Center(id, "solder_ball", lx, ly, h, 0, mat, center ? "center-solder-ball" : "solder-ball", derived: true, cx: x, cy: y);
         void Region(string id, int nr, int nc, bool staggered, bool center = false)
         {
-            double lx = (nc - 1) * pitch + diameter, ly = (nr - 1) * pitch + diameter;
-            var cells = center ? (
-                from r in Enumerable.Range(0, nr)from col in Enumerable.Range(0, nc)
-                where !staggered || (r + col) % 2 == 0
-                select (r, col)).ToList() : Cells(c, nr, nc);
+            double lx = Span(nc, pitch, diameter), ly = Span(nr, pitch, diameter);
+            var cells = (center ? Cells(nr, nc, nr, nc, staggered) : Cells(c, nr, nc)).ToList();
             count += cells.Count;
             if (!equivalent)
             {
-                double side = Math.Sqrt(Math.PI) * diameter / 2;
+                double side = BlockSide(diameter);
                 foreach (var(r, col)in cells)
-                    Block($"{id}-r{r + 1}-c{col + 1}", (col - (nc - 1) / 2.0) * pitch, (r - (nr - 1) / 2.0) * pitch, side, side, solder.Id, center);
+                    Block($"{id}-r{r + 1}-c{col + 1}", Position(col, nc, pitch), Position(r, nr, pitch), side, side, solder.Id, center);
                 return;
             }
 
@@ -102,7 +113,7 @@ public static class SolderBalls
 
         if (b["bga.ball_map_enabled"].Flag())
         {
-            double side = Math.Sqrt(Math.PI) * diameter / 2;
+            double side = BlockSide(diameter);
             foreach (var position in MainPositions(c))
             {
                 Block(position.Id, position.X, position.Y, side, side, solder.Id);

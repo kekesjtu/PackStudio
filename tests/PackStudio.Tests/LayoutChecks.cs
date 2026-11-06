@@ -38,6 +38,55 @@ static class LayoutChecks
                 Near(ball.Origin.Y + ball.Size.Y / 2, 0.2, "map y");
             });
         }
+        tests.Case("layout", "integral JSON floats work as populated row and column counts", () =>
+        {
+            var document = tests.Create(tests.Catalog.Load("cbga_fc"));
+            var values = document.Values;
+            values["bga.solder_removal_enabled"] = true;
+            values["bga.populated_rows"] = values["bga.populated_columns"] = 4.0;
+            values["bga.removal_rows"] = values["bga.removal_columns"] = JValue.CreateNull();
+            var model = tests.Generate(document);
+            Assert(model.Blocks.Count(b => b.StructureType == "solder_ball") == 4, "equivalent border was not generated");
+            values["bga.representation"] = "discrete";
+            Assert(tests.Generate(document).Metadata.SolderBallCount == 40, "discrete border did not use the same counts");
+        });
+
+        tests.Case("layout", "BGA bounds follow equivalent regions, retained cells and Ball Map edges", () =>
+        {
+            var document = tests.Create(tests.Catalog.Load("cbga_fc"));
+            var values = document.Values;
+            values["bga.columns"] = 9;
+            CheckFit("bga.columns");
+            values["bga.representation"] = "discrete";
+            values["bga.solder_removal_enabled"] = true;
+            var omitted = new JArray();
+            values["bga.omitted_cells"] = omitted;
+            for (int row = 0; row < 7; row++)
+            foreach (int column in new[] { 0, 8 })
+                omitted.Add(new JObject { ["row"] = row, ["column"] = column });
+            tests.Generate(document);
+
+            values["bga.center_solder_enabled"] = true;
+            values["bga.center_solder_rows"] = 1;
+            values["bga.center_solder_columns"] = 9;
+            CheckFit("bga.center_solder_columns");
+
+            values["bga.ball_map_enabled"] = true;
+            double edge = values["substrate.length"]!.Value<double>() / 2 - Math.Sqrt(Math.PI) * values["bga.diameter"]!.Value<double>() / 4;
+            var point = new JObject { ["id"] = "A1", ["x"] = -edge, ["y"] = 0 };
+            values["bga.ball_map"] = new JArray(point);
+            tests.Generate(document);
+            point["x"] = -edge - 0.01;
+            CheckFit("bga.ball_map[0].x");
+
+            void CheckFit(string path)
+            {
+                var result = tests.GenerateResult(document);
+                Assert(result.Model == null && result.Issues.Any(i => i.Stage == ValidationStage.Input &&
+                    i.Code == "input.bga.fit" && i.ParameterPaths.Contains(path)), "missing solder ball footprint issue for " + path);
+            }
+        });
+
         tests.Case("layout", "via removal in unified values", () =>
         {
             var template = tests.Catalog.Load("pbga_wb");

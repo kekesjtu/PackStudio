@@ -3,6 +3,9 @@ namespace PackStudio.Core;
 public static class ModelValidator
 {
     public static IReadOnlyList<ValidationIssue> Validate(PackageModel model, double? expectedPower = null)
+        => Validate(model, expectedPower, null);
+
+    internal static IReadOnlyList<ValidationIssue> Validate(PackageModel model, double? expectedPower, IReadOnlySet<string>? unvalidatedMaterialIds)
     {
         var issues = new List<ValidationIssue>();
         void Error(string code, string message, params string[] entities) =>
@@ -17,7 +20,7 @@ public static class ModelValidator
             if (!model.Materials.ContainsKey(block.MaterialId)) Error("model.material.reference", $"{block.Id} 引用了未知材料。", block.Id);
             if (!model.Groups.ContainsKey(block.GroupId)) Error("model.group.reference", $"{block.Id} 引用了未知模型组。", block.Id);
         }
-        foreach (var material in model.Materials.Values)
+        foreach (var material in model.Materials.Values.Where(m => unvalidatedMaterialIds == null || unvalidatedMaterialIds.Contains(m.Id)))
             foreach (string message in FieldRules.MaterialErrors(material))
                 Error("model.material", $"材料 {material.Name}：{message}", model.Blocks.Where(b => b.MaterialId == material.Id).Select(b => b.Id).ToArray());
         var geometry = model.Geometry;

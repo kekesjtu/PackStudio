@@ -4,7 +4,7 @@ internal static class PbgaFcInputRules
 {
     public static void Validate(InputChecks c)
     {
-        SolderBallInputRules.Validate(c);
+        SolderBallInputRules.Validate(c, "substrate");
         c.Check(c.T("bga.representation") == "isotropic", "input.bga.representation", "当前封装不支持所选焊球建模方式。", "bga.representation");
         BumpInputRules.Validate(c);
         CoverInputRules.Validate(c);
@@ -17,6 +17,7 @@ internal static class PbgaFcInputRules
         foreach (string region in new[] { "upper", "lower" })
         {
             if (!c.B(region + ".enabled")) continue;
+            MetalLayerInputRules.ValidateBuildUp(c, region);
             double diameter = c.N(region + ".diameter"), plating = c.N(region + ".plating");
             if (!c.B(region + ".filled"))
                 c.Check(diameter <= 0 || !double.IsFinite(plating) || plating <= 0 || plating > diameter / 2,
