@@ -13,8 +13,8 @@ internal sealed partial class SchematicDrawing
         Callout("支脚粘接层", 55, 205, 225, 227);
         Line(190, SlugSectionTop, 145, SlugSectionTop);
         Line(150, SlugSectionTop, 150, SlugShoulderTop);
-        Arrow(150, SlugSectionTop, 0, 1, length: 4);
-        Arrow(150, SlugShoulderTop, 0, -1, length: 4);
+        Arrow(150, SlugSectionTop, 0, 1);
+        Arrow(150, SlugShoulderTop, 0, -1);
         Text(Dimension("顶部台阶高度", "slug.offset"), 140, 106, align: TextAlignment.Right);
         DimV(SlugShoulderTop, SlugWallTop, 235, 150, Dimension("台肩厚度", "slug.thickness"), true);
         DimV(SlugSectionTop, SlugSectionTop + SlugDrawnThickness, 400, 560, Dimension("顶部厚度", "slug.thickness"));
