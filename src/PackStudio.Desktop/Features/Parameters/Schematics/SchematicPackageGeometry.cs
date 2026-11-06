@@ -146,7 +146,7 @@ internal sealed partial class SchematicDrawing
     void PackageSection(bool removeCentralBalls = false)
     {
         bool slug = SlugVisible;
-        if (slug) Rect(Mold, 190, SectionY - 125, 320, 125);
+        if (slug) Rect(Mold, 190, SlugSectionTop, 320, SectionY - SlugSectionTop);
         else if (Flip && Value("cover.type") == "encapsulant") Rect(Mold, 195, SectionY - 100, 310, 100);
         Section(SectionY, drawMold: !slug, wireEnd: slug ? 265 : 226, removeCentralBalls: removeCentralBalls);
         CoverSection();

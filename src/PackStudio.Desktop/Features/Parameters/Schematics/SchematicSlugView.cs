@@ -6,17 +6,26 @@ internal sealed partial class SchematicDrawing
 {
     void SlugDiagram()
     {
-        Rect(Mold, 190, SectionY - 125, 320, 125);
+        Rect(Mold, 190, SlugSectionTop, 320, SectionY - SlugSectionTop);
         Section(SectionY, drawMold: false, wireEnd: 265);
         SlugSection(includeAdhesive: true);
         Callout("散热块 / Slug", 55, 160, 245, 180);
-        Callout("支脚", 530, 190, 480, 218);
         Callout("支脚粘接层", 55, 205, 225, 227);
-        Line(235, 105, 145, 105); Line(235, 125, 145, 125); Line(150, 105, 150, 125);
-        Arrow(150, 105, 0, 1, length: 4); Arrow(150, 125, 0, -1, length: 4);
-        Text(Dimension("顶部台阶高度\n", "slug.offset"), 140, 98, align: TextAlignment.Right);
-        DimV(125, 153, 465, 565, Dimension("厚度\n", "slug.thickness"));
-        DimV(224, 230, 490, 600, Dimension("支脚间隙\n", "slug.clearance"));
+        Line(190, SlugSectionTop, 145, SlugSectionTop);
+        Line(150, SlugSectionTop, 150, SlugShoulderTop);
+        Arrow(150, SlugSectionTop, 0, 1, length: 4);
+        Arrow(150, SlugShoulderTop, 0, -1, length: 4);
+        Text(Dimension("顶部台阶高度", "slug.offset"), 140, 106, align: TextAlignment.Right);
+        DimV(SlugShoulderTop, SlugWallTop, 235, 150, Dimension("台肩厚度", "slug.thickness"), true);
+        DimV(SlugSectionTop, SlugSectionTop + SlugDrawnThickness, 400, 560, Dimension("顶部厚度", "slug.thickness"));
+
+        const double wallDimensionY = 176;
+        Line(SlugRightWallLeft, wallDimensionY, 535, wallDimensionY);
+        Arrow(SlugRightWallLeft, wallDimensionY, 1, 0);
+        Arrow(SlugShoulderRight, wallDimensionY, -1, 0);
+        Text(Dimension("侧壁厚度", "slug.thickness"), 545, wallDimensionY - 9);
+        DimV(SlugFootTop, SlugFootBottom, 490, 530, Dimension("支脚厚度", "slug.thickness"));
+        DimV(SlugFootBottom, SectionY, 490, 632, Dimension("支脚间隙\n", "slug.clearance"));
 
         Rect(Board, 200, PlanTop, 300, PlanBottom - PlanTop);
         Rect(Mold, 210, 382, 280, 176);

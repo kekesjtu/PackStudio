@@ -2,6 +2,15 @@ namespace PackStudio.Desktop;
 
 internal sealed partial class SchematicDrawing
 {
+    const double SlugSectionTop = SectionY - 125;
+    const double SlugShoulderTop = SlugSectionTop + 20;
+    const double SlugDrawnThickness = 24;
+    const double SlugWallTop = SlugShoulderTop + SlugDrawnThickness;
+    const double SlugFootBottom = SectionY - 6;
+    const double SlugFootTop = SlugFootBottom - SlugDrawnThickness;
+    const double SlugShoulderRight = 465;
+    const double SlugRightWallLeft = SlugShoulderRight - SlugDrawnThickness;
+
     bool SlugVisible => Enabled("slug.enabled") && (Wirebond || Flip && Value("cover.type") == "encapsulant");
     double CapBottom => FlipDieTop(SectionY) - 12;
     double CapTop => CapBottom - 25;
@@ -25,14 +34,18 @@ internal sealed partial class SchematicDrawing
 
     void SlugSection(bool includeAdhesive = false)
     {
-        double y = SectionY;
-        Rect(Metal, 300, y - 125, 100, 28);
-        Rect(Metal, 235, y - 105, 65, 28); Rect(Metal, 400, y - 105, 65, 28);
-        Rect(Metal, 235, y - 77, 20, 59); Rect(Metal, 445, y - 77, 20, 59);
-        Rect(Metal, 210, y - 18, 45, 12); Rect(Metal, 445, y - 18, 45, 12);
+        Rect(Metal, 300, SlugSectionTop, 100, SlugDrawnThickness);
+        Rect(Metal, 235, SlugShoulderTop, 65, SlugDrawnThickness);
+        Rect(Metal, 400, SlugShoulderTop, SlugShoulderRight - 400, SlugDrawnThickness);
+        Rect(Metal, 235, SlugWallTop, SlugDrawnThickness, SlugFootTop - SlugWallTop);
+        Rect(Metal, SlugRightWallLeft, SlugWallTop, SlugDrawnThickness, SlugFootTop - SlugWallTop);
+        double footWidth = 490 - SlugRightWallLeft;
+        Rect(Metal, 210, SlugFootTop, footWidth, SlugDrawnThickness);
+        Rect(Metal, SlugRightWallLeft, SlugFootTop, footWidth, SlugDrawnThickness);
         if (includeAdhesive || Enabled("slug.adhesive_enabled"))
         {
-            Rect(Attach, 210, y - 6, 45, 6); Rect(Attach, 445, y - 6, 45, 6);
+            Rect(Attach, 210, SlugFootBottom, footWidth, SectionY - SlugFootBottom);
+            Rect(Attach, SlugRightWallLeft, SlugFootBottom, footWidth, SectionY - SlugFootBottom);
         }
     }
 
