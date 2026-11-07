@@ -55,7 +55,7 @@ Bare Die 使用项目内置的单一预设 [Bare Die](presets/bare_die/Bare_Die.
 
 SOP、PQFP 的露出焊盘初始化使用 `packstudio.exposed-pad/v1`：`schema_version`、`family` 标识契约，`values` 保存 `thermal_land.enabled` 与 `thermal_land.thickness`，`flag_downset_source` 指定 `flag.downset` 的来源参数键 `leads.height`。SOP 文件位于其预设来源目录 `tsop_conv/`，PQFP 位于 `pqfp/`。仅在完成创建且最终选择 `package.exposed_pad = true` 时读取；初始化按引用复制下沉量，再应用用户提交的覆盖值。小契约不进入普通预设索引，不作为完整方案导入，导入与生成方案时不读取或重新应用。
 
-值以已核实的原生向导初始化及计算结果为依据。单位、枚举、材料 ID、派生层深度与保留球位补集在提取阶段处理。
+值以已核实的原生向导初始化及计算结果为依据。单位、枚举、原生开关状态、材料 ID、派生层深度与保留球位补集在提取阶段处理。
 预设不包含原生 DLL 类型、属性路径、序列化字符串或完整 DES 源文本。
 原生组件及 FloSCRIPT 属性的人工核对入口为 [字段对照表](../docs/DES字段与内部参数对应表.md)及其 [JSON](../docs/DES字段与内部参数对应表.json)。
 
@@ -65,7 +65,7 @@ Chip Array 与 Wirebond PBGA 的四层配置应用共用设置和具体封装差
 
 未指定和没有数值的不适用项保存 null，界面显示空白；原生保留的数值不因分支禁用而清空。
 null、0、false 与缺少字段不互相替代。启用结构缺少必需参数时提示填写。
-选材空字符串表示 No Attachment；材料库分类、`*` 选项及缺省材料见 [材料决策](../docs/decisions/材料组与默认材料.md)。
+选材空字符串表示 No Attachment；材料库分类、`*` 选项及缺省材料见 [材料决策](../docs/decisions/materials/材料组与默认材料.md)。
 
 金属层使用真实 JSON 数组，行包含 `depth`、`thickness`、`coverage`、`disconnect`，单位分别为 mm、mm、%、布尔值。
 depth 从全基板顶面计量，空槽省略。预设、方案保存、表格编辑和生成器统一使用数组。
@@ -75,7 +75,7 @@ depth 从全基板顶面计量，空槽省略。预设、方案保存、表格�
 材料温度依赖参数保留在材料定义及 PackStudio XML 中；组分混合使用参考值。
 材料记录使用扁平字段 `name`、`group`、`density_kg_m3`、`specific_heat_j_kg_k`、`conductivity_w_m_k`、`conductivity_coefficient`、`conductivity_reference_temperature`、`kx_w_m_k`、`ky_w_m_k`、`kz_w_m_k`、`conduct_type` 和 `source`；参考温度单位为 °C。
 `conduct_type` 为 0 时使用常数标量导热率，为 1 时使用标量导热率、温度系数与参考温度，为 2 时使用三个方向的导热率；其余存储值不参与该类型计算。导热率、密度和比热要求有限且非负，温度系数与参考温度允许负值。
-Bumps 使用有厚度的各向同性等效算法，见 [BGA 与 Bumps](../docs/decisions/BGA与Bumps建模表达.md)。
+Bumps 使用有厚度的各向同性等效算法，见 [BGA 与 Bumps](../docs/decisions/modeling/BGA与Bumps建模表达.md)。
 
 ## 验证与研究
 
