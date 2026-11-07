@@ -177,7 +177,7 @@
         },
         "pack_script": {}
       },
-      "PresetId": {
+      "SchemaVersion": {
         "DES": {
           "keys": []
         },
@@ -233,7 +233,7 @@
     }
   },
   "cbga_fc": {
-    "Values": {
+    "CreationOptions": {
       "footprint.size": {
         "DES": {
           "keys": []
@@ -242,7 +242,9 @@
           "name": null,
           "property_name": "jedecFootprint"
         }
-      },
+      }
+    },
+    "Values": {
       "substrate.length": {
         "DES": {
           "keys": [
@@ -1208,7 +1210,7 @@
         },
         "pack_script": {}
       },
-      "PresetId": {
+      "SchemaVersion": {
         "DES": {
           "keys": []
         },
@@ -1423,7 +1425,7 @@
     }
   },
   "chip_array": {
-    "Values": {
+    "CreationOptions": {
       "footprint.size": {
         "DES": {
           "keys": []
@@ -1432,7 +1434,9 @@
           "name": null,
           "property_name": "jedecFootprint"
         }
-      },
+      }
+    },
+    "Values": {
       "package.length": {
         "DES": {
           "keys": [
@@ -2110,7 +2114,7 @@
         },
         "pack_script": {}
       },
-      "PresetId": {
+      "SchemaVersion": {
         "DES": {
           "keys": []
         },
@@ -2221,7 +2225,7 @@
     }
   },
   "pbga_fc": {
-    "Values": {
+    "CreationOptions": {
       "footprint.size": {
         "DES": {
           "keys": []
@@ -2230,7 +2234,9 @@
           "name": null,
           "property_name": "jedecFootprint"
         }
-      },
+      }
+    },
+    "Values": {
       "substrate.length": {
         "DES": {
           "keys": [
@@ -3555,7 +3561,7 @@
         },
         "pack_script": {}
       },
-      "PresetId": {
+      "SchemaVersion": {
         "DES": {
           "keys": []
         },
@@ -3809,7 +3815,7 @@
     }
   },
   "pbga_wb": {
-    "Values": {
+    "CreationOptions": {
       "footprint.size": {
         "DES": {
           "keys": []
@@ -3818,7 +3824,9 @@
           "name": null,
           "property_name": "jedecFootprint"
         }
-      },
+      }
+    },
+    "Values": {
       "package.length": {
         "DES": {
           "keys": [
@@ -4750,7 +4758,7 @@
         },
         "pack_script": {}
       },
-      "PresetId": {
+      "SchemaVersion": {
         "DES": {
           "keys": []
         },
@@ -4893,6 +4901,17 @@
     }
   },
   "pqfp": {
+    "CreationOptions": {
+      "footprint.size": {
+        "DES": {
+          "keys": []
+        },
+        "pack_script": {
+          "name": null,
+          "property_name": "tqfpJedecFootprint"
+        }
+      }
+    },
     "Values": {
       "package.type": {
         "DES": {
@@ -4901,15 +4920,6 @@
         "pack_script": {
           "name": null,
           "property_name": "pqfpPackageType"
-        }
-      },
-      "footprint.size": {
-        "DES": {
-          "keys": []
-        },
-        "pack_script": {
-          "name": null,
-          "property_name": "tqfpJedecFootprint"
         }
       },
       "package.length": {
@@ -5389,7 +5399,7 @@
         },
         "pack_script": {}
       },
-      "PresetId": {
+      "SchemaVersion": {
         "DES": {
           "keys": []
         },
@@ -5484,7 +5494,7 @@
     }
   },
   "qfn": {
-    "Values": {
+    "CreationOptions": {
       "footprint.size": {
         "DES": {
           "keys": []
@@ -5493,7 +5503,9 @@
           "name": null,
           "property_name": "jedecFootprint"
         }
-      },
+      }
+    },
+    "Values": {
       "package.length": {
         "DES": {
           "keys": [
@@ -6038,7 +6050,7 @@
         },
         "pack_script": {}
       },
-      "PresetId": {
+      "SchemaVersion": {
         "DES": {
           "keys": []
         },
@@ -6141,6 +6153,17 @@
     }
   },
   "sop": {
+    "CreationOptions": {
+      "footprint.size": {
+        "DES": {
+          "keys": []
+        },
+        "pack_script": {
+          "name": null,
+          "property_name": "tssopJedecFootprint"
+        }
+      }
+    },
     "Values": {
       "package.type": {
         "DES": {
@@ -6149,15 +6172,6 @@
         "pack_script": {
           "name": null,
           "property_name": "sopPackageType"
-        }
-      },
-      "footprint.size": {
-        "DES": {
-          "keys": []
-        },
-        "pack_script": {
-          "name": null,
-          "property_name": "tssopJedecFootprint"
         }
       },
       "package.length": {
@@ -6591,7 +6605,7 @@
         },
         "pack_script": {}
       },
-      "PresetId": {
+      "SchemaVersion": {
         "DES": {
           "keys": []
         },

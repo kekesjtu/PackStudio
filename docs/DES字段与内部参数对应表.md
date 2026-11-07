@@ -1,5 +1,7 @@
 # PackStudio 内部字段—DES—pack_script
 
+每个家族按方案参数（`Values`）、材料选择（`MaterialAssignments`）和其他方案字段（`ProjectDocument`）列出映射。`CreationOptions` 单列仅用于选择预设的 `footprint.size`，该选项不写入方案。
+
 ## bare_die
 
 ### Values
@@ -33,16 +35,21 @@
 | --- | --- | --- |
 | `TemplateId` | `package` | — |
 | `Name` | `design` | — |
-| `PresetId` | — | — |
+| `SchemaVersion` | — | — |
 | `CustomMaterials` | — | — |
 
 ## cbga_fc
+
+### CreationOptions
+
+| PackStudio 内部字段 | des | pack script 的字段 |
+| --- | --- | --- |
+| `footprint.size` | — | `name=null`; `property_name="jedecFootprint"` |
 
 ### Values
 
 | PackStudio 内部字段 | des | pack script 的字段 |
 | --- | --- | --- |
-| `footprint.size` | — | `name=null`; `property_name="jedecFootprint"` |
 | `substrate.length` | `D` (mm) | `name="packageSubstrate"`; `property_name="substrateLengthD"` |
 | `substrate.width` | `E` (mm) | `name="packageSubstrate"`; `property_name="substrateWidthE"` |
 | `substrate.thickness` | `A2` (mm) | `name="packageSubstrate"`; `property_name="substrateThicknessA2"` |
@@ -137,16 +144,21 @@
 | --- | --- | --- |
 | `TemplateId` | `package` | — |
 | `Name` | `design` | — |
-| `PresetId` | — | — |
+| `SchemaVersion` | — | — |
 | `CustomMaterials` | — | — |
 
 ## chip_array
+
+### CreationOptions
+
+| PackStudio 内部字段 | des | pack script 的字段 |
+| --- | --- | --- |
+| `footprint.size` | — | `name=null`; `property_name="jedecFootprint"` |
 
 ### Values
 
 | PackStudio 内部字段 | des | pack script 的字段 |
 | --- | --- | --- |
-| `footprint.size` | — | `name=null`; `property_name="jedecFootprint"` |
 | `package.length` | `D` (mm) | `name="overallPackage"`; `property_name="lengthD"` |
 | `package.width` | `E` (mm) | `name="overallPackage"`; `property_name="widthE"` |
 | `substrate.thickness` | `A2` (mm) | `name="overallPackage"`; `property_name="substrateThicknessA2"` |
@@ -218,16 +230,21 @@
 | --- | --- | --- |
 | `TemplateId` | `package` | — |
 | `Name` | `design` | — |
-| `PresetId` | — | — |
+| `SchemaVersion` | — | — |
 | `CustomMaterials` | — | — |
 
 ## pbga_fc
+
+### CreationOptions
+
+| PackStudio 内部字段 | des | pack script 的字段 |
+| --- | --- | --- |
+| `footprint.size` | — | `name=null`; `property_name="jedecFootprint"` |
 
 ### Values
 
 | PackStudio 内部字段 | des | pack script 的字段 |
 | --- | --- | --- |
-| `footprint.size` | — | `name=null`; `property_name="jedecFootprint"` |
 | `substrate.length` | `D` (mm) | `name="packageSubstrate"`; `property_name="substrateLengthD"` |
 | `substrate.width` | `E` (mm) | `name="packageSubstrate"`; `property_name="substrateWidthE"` |
 | `substrate.thickness` | `A2` (mm) | `name="packageSubstrate"`; `property_name="substrateThicknessA2"` |
@@ -351,16 +368,21 @@
 | --- | --- | --- |
 | `TemplateId` | `package` | — |
 | `Name` | `design` | — |
-| `PresetId` | — | — |
+| `SchemaVersion` | — | — |
 | `CustomMaterials` | — | — |
 
 ## pbga_wb
+
+### CreationOptions
+
+| PackStudio 内部字段 | des | pack script 的字段 |
+| --- | --- | --- |
+| `footprint.size` | — | `name=null`; `property_name="jedecFootprint"` |
 
 ### Values
 
 | PackStudio 内部字段 | des | pack script 的字段 |
 | --- | --- | --- |
-| `footprint.size` | — | `name=null`; `property_name="jedecFootprint"` |
 | `package.length` | `D` (mm) | `name="packageSubstrate"`; `property_name="substrateLengthD"` |
 | `package.width` | `E` (mm) | `name="packageSubstrate"`; `property_name="substrateWidthE"` |
 | `substrate.thickness` | `A2` (mm) | `name="packageSubstrate"`; `property_name="substrateThicknessA2"` |
@@ -456,17 +478,22 @@
 | --- | --- | --- |
 | `TemplateId` | `package` | — |
 | `Name` | `design` | — |
-| `PresetId` | — | — |
+| `SchemaVersion` | — | — |
 | `CustomMaterials` | — | — |
 
 ## pqfp
+
+### CreationOptions
+
+| PackStudio 内部字段 | des | pack script 的字段 |
+| --- | --- | --- |
+| `footprint.size` | — | `name=null`; `property_name="tqfpJedecFootprint"` |
 
 ### Values
 
 | PackStudio 内部字段 | des | pack script 的字段 |
 | --- | --- | --- |
 | `package.type` | — | `name=null`; `property_name="pqfpPackageType"` |
-| `footprint.size` | — | `name=null`; `property_name="tqfpJedecFootprint"` |
 | `package.length` | `D` (mm) | `name="overallPackage"`; `property_name="lengthD"` |
 | `package.width` | `E` (mm) | `name="overallPackage"`; `property_name="widthE"` |
 | `package.standoff` | `A1` (mm) | `name="overallPackage"`; `property_name="standoffA1"` |
@@ -524,16 +551,21 @@
 | --- | --- | --- |
 | `TemplateId` | `package` | — |
 | `Name` | `design` | — |
-| `PresetId` | — | — |
+| `SchemaVersion` | — | — |
 | `CustomMaterials` | — | — |
 
 ## qfn
+
+### CreationOptions
+
+| PackStudio 内部字段 | des | pack script 的字段 |
+| --- | --- | --- |
+| `footprint.size` | — | `name=null`; `property_name="jedecFootprint"` |
 
 ### Values
 
 | PackStudio 内部字段 | des | pack script 的字段 |
 | --- | --- | --- |
-| `footprint.size` | — | `name=null`; `property_name="jedecFootprint"` |
 | `package.length` | `D` (mm) | `name="overallPackage"`; `property_name="lengthD"` |
 | `package.width` | `E` (mm) | `name="overallPackage"`; `property_name="widthE"` |
 | `package.standoff` | `A1` (mm) | `name="overallPackage"`; `property_name="standoffA1"` |
@@ -597,17 +629,22 @@
 | --- | --- | --- |
 | `TemplateId` | `package` | — |
 | `Name` | `design` | — |
-| `PresetId` | — | — |
+| `SchemaVersion` | — | — |
 | `CustomMaterials` | — | — |
 
 ## sop
+
+### CreationOptions
+
+| PackStudio 内部字段 | des | pack script 的字段 |
+| --- | --- | --- |
+| `footprint.size` | — | `name=null`; `property_name="tssopJedecFootprint"` |
 
 ### Values
 
 | PackStudio 内部字段 | des | pack script 的字段 |
 | --- | --- | --- |
 | `package.type` | — | `name=null`; `property_name="sopPackageType"` |
-| `footprint.size` | — | `name=null`; `property_name="tssopJedecFootprint"` |
 | `package.length` | `D` (mm) | `name="overallPackage"`; `property_name="lengthD"` |
 | `package.width` | `E` (mm) | `name="overallPackage"`; `property_name="widthE"` |
 | `package.standoff` | `A1` (mm) | `name="overallPackage"`; `property_name="standoffA1"` |
@@ -662,5 +699,5 @@
 | --- | --- | --- |
 | `TemplateId` | `package` | — |
 | `Name` | `design` | — |
-| `PresetId` | — | — |
+| `SchemaVersion` | — | — |
 | `CustomMaterials` | — | — |
