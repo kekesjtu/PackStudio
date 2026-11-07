@@ -476,7 +476,6 @@
     },
     {
       "key": "grid.enabled",
-      "default": true,
       "type": "checkbox",
       "label": "局部网格",
       "step": "modeling",
@@ -484,7 +483,6 @@
     },
     {
       "key": "grid.density",
-      "default": "fine",
       "options": [
         {
           "value": "coarse"
@@ -513,7 +511,6 @@
     },
     {
       "key": "bond_wire.modeling",
-      "default": "orthotropicCuboid",
       "options": [
         {
           "value": "isotropicCuboid"
@@ -528,7 +525,6 @@
     },
     {
       "key": "substrate.layers",
-      "default": "2-Layer",
       "options": [
         {
           "value": "2-Layer"
@@ -545,7 +541,6 @@
     },
     {
       "key": "flag.coverage",
-      "default": null,
       "unit": "%",
       "type": "number",
       "label": "承载台金属覆盖率",
@@ -556,7 +551,6 @@
     },
     {
       "key": "metal.layers",
-      "default": null,
       "type": "table",
       "columns": [
         {
@@ -592,7 +586,6 @@
     },
     {
       "key": "vias.modeling",
-      "default": "discreteCuboids",
       "options": [
         {
           "value": "discreteCuboids"
@@ -620,7 +613,6 @@
     },
     {
       "key": "slug.enabled",
-      "default": false,
       "type": "checkbox",
       "label": "包含嵌入式散热块",
       "step": "slug",
@@ -628,7 +620,6 @@
     },
     {
       "key": "slug.length",
-      "default": null,
       "unit": "mm",
       "type": "number",
       "minimum": 0,
@@ -648,7 +639,6 @@
     },
     {
       "key": "slug.width",
-      "default": null,
       "unit": "mm",
       "type": "number",
       "minimum": 0,
@@ -668,7 +658,6 @@
     },
     {
       "key": "slug.thickness",
-      "default": null,
       "unit": "mm",
       "type": "number",
       "minimum": 0,
@@ -688,7 +677,6 @@
     },
     {
       "key": "slug.diameter",
-      "default": null,
       "unit": "mm",
       "type": "number",
       "minimum": 0,
@@ -708,7 +696,6 @@
     },
     {
       "key": "slug.foot_length",
-      "default": null,
       "unit": "mm",
       "type": "number",
       "minimum": 0,
@@ -728,7 +715,6 @@
     },
     {
       "key": "slug.foot_width",
-      "default": null,
       "unit": "mm",
       "type": "number",
       "minimum": 0,
@@ -748,7 +734,6 @@
     },
     {
       "key": "slug.offset",
-      "default": null,
       "unit": "mm",
       "type": "number",
       "minimum": 0,
@@ -768,7 +753,6 @@
     },
     {
       "key": "slug.clearance",
-      "default": null,
       "unit": "mm",
       "type": "number",
       "minimum": 0,
@@ -788,7 +772,6 @@
     },
     {
       "key": "slug.adhesive_enabled",
-      "default": false,
       "type": "checkbox",
       "label": "支脚下包含粘接层",
       "step": "slug",
@@ -806,7 +789,6 @@
     },
     {
       "key": "bga.solder_removal_enabled",
-      "default": false,
       "type": "checkbox",
       "label": "主阵列中心去球",
       "step": "solder_removal",
@@ -814,7 +796,6 @@
     },
     {
       "key": "bga.populated_rows",
-      "default": null,
       "type": "integer",
       "label": "外围满布行数",
       "step": "solder_removal",
@@ -832,7 +813,6 @@
     },
     {
       "key": "bga.populated_columns",
-      "default": null,
       "type": "integer",
       "label": "外围满布列数",
       "step": "solder_removal",
@@ -850,7 +830,6 @@
     },
     {
       "key": "bga.removal_rows",
-      "default": null,
       "type": "integer",
       "required": false,
       "active_when": {
@@ -864,7 +843,6 @@
     },
     {
       "key": "bga.removal_columns",
-      "default": null,
       "type": "integer",
       "required": false,
       "active_when": {
@@ -878,7 +856,6 @@
     },
     {
       "key": "bga.omitted_cells",
-      "default": [],
       "rows_key": "bga.rows",
       "columns_key": "bga.columns",
       "type": "removal_matrix",
@@ -887,7 +864,6 @@
     },
     {
       "key": "bga.center_solder_enabled",
-      "default": false,
       "type": "checkbox",
       "label": "包含中央焊球",
       "step": "central_solder_balls",
@@ -895,7 +871,6 @@
     },
     {
       "key": "bga.center_solder_rows",
-      "default": null,
       "type": "integer",
       "label": "中央焊球行数",
       "step": "central_solder_balls",
@@ -912,7 +887,6 @@
     },
     {
       "key": "bga.center_solder_columns",
-      "default": null,
       "type": "integer",
       "label": "中央焊球列数",
       "step": "central_solder_balls",
@@ -929,7 +903,6 @@
     },
     {
       "key": "bga.center_staggered",
-      "default": false,
       "type": "checkbox",
       "label": "中央焊球交错",
       "step": "central_solder_balls",
@@ -937,7 +910,6 @@
     },
     {
       "key": "bga.staggered",
-      "default": false,
       "type": "checkbox",
       "label": "交错主阵列",
       "step": "solder_balls",
@@ -945,7 +917,6 @@
     },
     {
       "key": "bga.ball_map_enabled",
-      "default": false,
       "type": "checkbox",
       "label": "使用焊球坐标表",
       "step": "solder_balls",
@@ -953,7 +924,6 @@
     },
     {
       "key": "bga.ball_map",
-      "default": [],
       "type": "table",
       "columns": [
         {
@@ -977,7 +947,6 @@
     },
     {
       "key": "bga.representation",
-      "default": "equivalent",
       "options": [
         {
           "value": "discrete",
@@ -1075,7 +1044,6 @@
     },
     {
       "key": "trace.solid_thickness",
-      "default": 0.036,
       "unit": "mm",
       "creation_option": true,
       "creation_only": true,
@@ -1097,13 +1065,11 @@
   ],
   "materials": [
     {
-      "default": "bt",
       "step": "package_substrate",
       "label": "基板材料",
       "key": "group-substrate"
     },
     {
-      "default": "silicon",
       "options": [
         {
           "value": "silicon"
@@ -1114,37 +1080,31 @@
       "key": "group-die"
     },
     {
-      "default": "ablestik-8510aa",
       "step": "die",
       "label": "芯片粘接材料",
       "key": "group-die-attach"
     },
     {
-      "default": "epoxy-mold",
       "step": "encapsulant",
       "label": "塑封材料",
       "key": "group-encapsulant"
     },
     {
-      "default": "gold",
       "step": "die",
       "label": "键合线材料",
       "key": "group-bond-wires"
     },
     {
-      "default": "solder-mask",
       "step": "die_flag_solder_mask",
       "label": "阻焊层材料",
       "key": "group-solder-mask"
     },
     {
-      "default": "solder-sn63",
       "step": "solder_balls",
       "label": "BGA 焊球材料",
       "key": "group-bga-solder"
     },
     {
-      "default": "copper",
       "step": "backside_spreader",
       "label": "扩散片材料",
       "visible_when": {
@@ -1153,13 +1113,11 @@
       "key": "group-backside-spreader"
     },
     {
-      "default": "copper",
       "step": "metal_layers",
       "label": "金属层材料",
       "key": "group-traces"
     },
     {
-      "default": "copper",
       "label": "散热块材料",
       "step": "slug",
       "visible_when": {
@@ -1168,7 +1126,6 @@
       "key": "group-slug"
     },
     {
-      "default": "stiffener-adhesive",
       "label": "支脚粘接材料",
       "step": "slug",
       "visible_when": {

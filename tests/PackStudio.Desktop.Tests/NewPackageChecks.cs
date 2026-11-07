@@ -52,6 +52,8 @@ static class NewPackageChecks
             if (variants.Items.Count > 1)
                 variants.SelectedIndex = variants.Items.Count - 1;
             var presets = Control<ComboBox>(dialog, "FootprintBox");
+            if (family == "bare_die" && (presets.Visibility != Visibility.Collapsed || presets.SelectedValue is not string))
+                throw new Exception("Bare Die must select its single preset without a footprint control");
             if (presets.Items.Count > 1)
                 presets.SelectedIndex = presets.Items.Count - 1;
             string expectedPreset = presets.SelectedValue as string ?? "";

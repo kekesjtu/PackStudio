@@ -103,8 +103,7 @@ public partial class NewPackageWindow : Window
 
     void ApplyPreset()
     {
-        string id = FootprintBox.SelectedValue as string ?? "";
-        if (template.Presets.Count > 0 && id.Length == 0)
+        if (FootprintBox.SelectedValue is not string id)
             return;
         var draft = new NewPackageViewModel(template, id) { Name = DesignNameBox.Text };
         Draft = draft;

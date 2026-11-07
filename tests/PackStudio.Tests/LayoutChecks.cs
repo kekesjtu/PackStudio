@@ -90,14 +90,15 @@ static class LayoutChecks
         tests.Case("layout", "via removal combines central and explicit cells", () =>
         {
             var template = tests.Catalog.Load("pbga_wb");
-            var values = tests.Create(template).Values;
+            var document = tests.Create(template);
+            var values = document.Values;
             values["vias.removal_enabled"] = true;
             values["vias.removal_rows"] = 2;
             values["vias.removal_columns"] = 2;
             values["vias.omitted_cells"] = new JArray(
                 new JObject { ["row"] = 0, ["column"] = 0 },
                 new JObject { ["row"] = 1, ["column"] = 1 });
-            var context = new BuildContext(template, values, "vias", tests.Catalog.Materials, tests.Catalog.Groups, MaterialSelection.Defaults(template));
+            var context = new BuildContext(template, values, "vias", tests.Catalog.Materials, tests.Catalog.Groups, document.MaterialAssignments);
             Assert(Vias.Omissions(context, 5, 5).SetEquals([(0, 0), (1, 1), (1, 2), (2, 1), (2, 2)]), "via removal did not use the union");
         });
     }

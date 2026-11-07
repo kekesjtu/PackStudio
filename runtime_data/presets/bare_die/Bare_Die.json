@@ -1,0 +1,25 @@
+{
+  "SchemaVersion": "packstudio.project/v4",
+  "TemplateId": "bare_die",
+  "Name": "Bare Die",
+  "Values": {
+    "die.length": 4.9,
+    "die.width": 4.9,
+    "die.thickness": 0.22,
+    "die.power": 2,
+    "die.flipped": false,
+    "bumps.enabled": false,
+    "bumps.total": 100,
+    "bumps.diameter": 0.12,
+    "bumps.height": 0.1,
+    "bumps.modeling": "isotropicCuboid",
+    "grid.enabled": true,
+    "grid.density": "fine"
+  },
+  "MaterialAssignments": {
+    "group-die": "silicon",
+    "group-bump-solder": "solder-pb90",
+    "group-underfill": "underfill"
+  },
+  "CustomMaterials": []
+}

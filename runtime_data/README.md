@@ -19,16 +19,17 @@
 
 八类模板为 `bare_die`、`cbga_fc`、`pbga_fc`、`pbga_wb`、`chip_array`、`qfn`、`pqfp`、`sop`。
 QFN、tsop_conv 等来源目录名用于追溯；预设正文的 TemplateId 及索引中的 family 使用内部 ID。
-Bare Die 没有原生预设，使用参数定义中的基线。
+Bare Die 使用项目内置的单一预设 [Bare Die](presets/bare_die/Bare_Die.json)。
 
-参数定义中的材料内容仅为槽位、候选及默认材料 ID。固定物性来自 `materials/`，等效物性由生成器按当前参数计算，用户物性覆盖保存在方案的 `CustomMaterials`；参数定义不存储等效材料数值。
+参数定义声明材料槽位和候选。初始选材来自预设，固定物性来自 `materials/`，等效物性由生成器按当前参数计算，用户物性覆盖保存在方案的 `CustomMaterials`。
 
 封装定义采用 `packstudio.definition/v3`，文件头的 `schema_version`、`template_id` 标识版本和家族，正文为 `keys`、`materials` 与 `steps`：
 
 - `keys` 中每个条目以 `key` 标识参数；`type` 同时用于数据解析、校验和控件选择。包含 `step` 的参数进入对应向导栏目；内部参数只保存必要定义，不声明栏目，不设置隐藏控件。
 - 整数类型统一为 `integer`；`unit` 仅用于 `number`，表格中的数值列按各列类型声明单位。
 - `options` 为包含 `value` 和可选 `label` 的选项记录。方案保存和校验使用 `value`，下拉框显示 `label`，省略名称时直接显示值。`options_source: "presets"` 按预设生成同样结构的候选。
-- `materials` 的条目定义材料槽位，`key` 即组件材料组 ID，默认采用下拉框，无需声明 `type`。其 `default` 和选项中的 `value` 均为材料 ID；省略 `options` 时提供全部可用材料，显式选项用于限制候选，`*` 表示全部材料，空字符串选项允许 No Attachment。方案仍通过独立的 `MaterialAssignments` 保存选择。
+- `footprint.size` 的 `default` 指定创建时初选的预设名称。无 Footprint 的家族自动使用唯一预设。
+- `materials` 的条目定义材料槽位，`key` 即组件材料组 ID，默认采用下拉框，无需声明 `type`。选项中的 `value` 是材料 ID，`*` 表示全部材料，空字符串选项允许 No Attachment。省略 `options` 时提供全部可用材料。方案通过独立的 `MaterialAssignments` 保存选择。
 - 表格列放在 `columns` 中。`schematic: true` 标记影响示意图结构的参数，用于场景更新。
 - `steps` 保存栏目顺序、名称及示意图类型。参数标签、单位、符号和显隐条件均随对应 `key` 存放。
 
@@ -58,7 +59,7 @@ SOP、PQFP 的露出焊盘初始化使用 `packstudio.exposed-pad/v1`：`schema_
 预设不包含原生 DLL 类型、属性路径、序列化字符串或完整 DES 源文本。
 原生组件及 FloSCRIPT 属性的人工核对入口为 [字段对照表](../docs/DES字段与内部参数对应表.md)及其 [JSON](../docs/DES字段与内部参数对应表.json)。
 
-参数定义中的基线提供 Bare Die 建模设置；选择普通预设时复制其完整方案参数与材料选择，用户输入具有优先级。
+创建时复制预设的完整参数与材料选择，用户输入具有优先级。
 Chip Array 与 Wirebond PBGA 的四层配置应用共用设置和具体封装差异；显式覆盖值最后合成，包括 null、0、false 与恰好等于默认值的输入。导入和生成保存方案不触发四层读取或初始化回填。
 基板层栈初始化不改变 `bga.*` 布局配置。生成时直接使用方案 MaterialAssignments，不叠加预设材料；材料显式等效物性具有最终优先级。
 
@@ -67,7 +68,7 @@ null、0、false 与缺少字段不互相替代。启用结构缺少必需参数
 选材空字符串表示 No Attachment；材料库分类、`*` 选项及缺省材料见 [材料决策](../docs/decisions/材料组与默认材料.md)。
 
 金属层使用真实 JSON 数组，行包含 `depth`、`thickness`、`coverage`、`disconnect`，单位分别为 mm、mm、%、布尔值。
-depth 从全基板顶面计量；空槽不生成行。模板基线、预设、方案保存、表格编辑和生成器统一使用数组。
+depth 从全基板顶面计量，空槽省略。预设、方案保存、表格编辑和生成器统一使用数组。
 方案与生成请求中的未知顶层字段会返回错误。功率通过 `Values["die.power"]` 或请求的 `overrides["die.power"]` 设置。
 完成创建时由 Core 根据厚度参数计算层栈，不因输入不合理阻断创建；无法参与运算的派生值留空。显式提供的层表具有优先级。保存方案的层表按输入参与生成。
 

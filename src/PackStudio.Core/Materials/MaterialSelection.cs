@@ -6,9 +6,6 @@ public sealed record MaterialChoices(string SelectedId, IReadOnlyList<Material> 
 
 public static class MaterialSelection
 {
-    public static Dictionary<string, string> Defaults(PackageDefinition template) =>
-        template.MaterialSelections.ToDictionary(s => s["key"].Text(), s => s["default"].Text());
-
     public static bool Allows(JToken selection, string id) => selection["options"] == null
         ? id.Length > 0
         : PackageDefinition.OptionValues(selection).Any(o => o.Text() == id || id.Length > 0 && o.Text() == "*");

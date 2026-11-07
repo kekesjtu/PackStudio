@@ -417,7 +417,6 @@
     },
     {
       "key": "grid.enabled",
-      "default": true,
       "type": "checkbox",
       "label": "局部网格",
       "step": "modeling",
@@ -425,7 +424,6 @@
     },
     {
       "key": "grid.density",
-      "default": "fine",
       "options": [
         {
           "value": "coarse"
@@ -454,7 +452,6 @@
     },
     {
       "key": "leads.modeling",
-      "default": "discreteLeads",
       "options": [
         {
           "value": "discreteLeads"
@@ -469,7 +466,6 @@
     },
     {
       "key": "bond_wire.steps",
-      "default": 1,
       "type": "integer",
       "label": "键合线离散分段数量",
       "step": "modeling",
@@ -479,7 +475,6 @@
     },
     {
       "key": "vias.modeling",
-      "default": "discrete",
       "options": [
         {
           "value": "discrete"
@@ -582,13 +577,11 @@
   ],
   "materials": [
     {
-      "default": "eme-7730lf",
       "step": "overall_package",
       "label": "塑封材料",
       "key": "group-encapsulant"
     },
     {
-      "default": "silicon",
       "options": [
         {
           "value": "silicon"
@@ -599,37 +592,31 @@
       "key": "group-die"
     },
     {
-      "default": "dieattach-2600bt",
       "step": "die",
       "label": "芯片粘接材料",
       "key": "group-die-attach"
     },
     {
-      "default": "leadframe-c194",
       "step": "dap",
       "label": "DAP 材料",
       "key": "group-exposed-pad"
     },
     {
-      "default": "leadframe-c194",
       "step": "lead_solder_interconnect",
       "label": "引线框材料",
       "key": "group-lead-frame"
     },
     {
-      "default": "gold",
       "step": "bond_wires",
       "label": "键合线材料",
       "key": "group-bond-wires"
     },
     {
-      "default": "solder-sn63",
       "step": "lead_solder_interconnect",
       "label": "焊料材料",
       "key": "group-solder"
     },
     {
-      "default": "copper",
       "step": "thermal_land",
       "label": "散热焊盘材料",
       "visible_when": {

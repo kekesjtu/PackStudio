@@ -11,7 +11,7 @@ public sealed class PackageDefinition
     public JArray MaterialSelections { get; }
     public JArray Steps => (JArray)Data["steps"]!;
     public IReadOnlyList<ProjectDocument> Presets { get; }
-    public string DefaultPreset => Fields.FirstOrDefault(f => f["type"].Text() == "footprint")?["default"].Text() ?? "";
+    public string DefaultPreset => Fields.FirstOrDefault(f => f["type"].Text() == "footprint")?["default"].Text() ?? Presets.Single().Name;
     public bool HasFootprint => Fields.Any(f => f["type"].Text() == "footprint");
     public IEnumerable<JToken> CreationFields => Fields.Where(f => f["creation_option"].Flag());
 
@@ -62,15 +62,13 @@ public sealed class PackageDefinition
         return label;
     }
 
+    internal ProjectDocument GetPreset(string presetId) => Presets.FirstOrDefault(p => p.Name == presetId)
+        ?? throw new ArgumentException($"未知外形预设 {presetId}");
+
     /// <summary>Display values only; does not apply creation branches or derive a layer stack.</summary>
     public JObject DisplayDefaults(string presetId)
     {
-        var preset = Presets.FirstOrDefault(p => p.Name == presetId);
-        if (Presets.Count > 0 && preset == null)
-            throw new ArgumentException($"未知外形预设 {presetId}");
-        var values = preset == null
-            ? new JObject(Fields.Select(f => new JProperty(f["key"].Text(), f["default"]?.DeepClone() ?? JValue.CreateNull())))
-            : (JObject)preset.Values.DeepClone();
+        var values = (JObject)GetPreset(presetId).Values.DeepClone();
         var footprint = Fields.FirstOrDefault(f => f["type"].Text() == "footprint");
         if (footprint != null) values[footprint["key"].Text()] = presetId;
         return values;

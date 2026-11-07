@@ -128,7 +128,6 @@
           "label": "Isotropic Cuboid"
         }
       ],
-      "default": "isotropicCuboid",
       "type": "combobox",
       "step": "modeling",
       "label": "凸点建模方式"
@@ -469,7 +468,6 @@
     },
     {
       "key": "grid.enabled",
-      "default": true,
       "type": "checkbox",
       "label": "局部网格",
       "step": "modeling",
@@ -477,7 +475,6 @@
     },
     {
       "key": "grid.density",
-      "default": "fine",
       "options": [
         {
           "value": "coarse"
@@ -506,7 +503,6 @@
     },
     {
       "key": "bumps.array_type",
-      "default": "non_regular",
       "options": [
         {
           "value": "non_regular"
@@ -521,7 +517,6 @@
     },
     {
       "key": "bumps.columns",
-      "default": null,
       "type": "integer",
       "label": "X 向凸点数",
       "step": "flip_chip_bumps",
@@ -539,7 +534,6 @@
     },
     {
       "key": "bumps.rows",
-      "default": null,
       "type": "integer",
       "label": "Y 向凸点数",
       "step": "flip_chip_bumps",
@@ -557,7 +551,6 @@
     },
     {
       "key": "bumps.underfill",
-      "default": true,
       "type": "checkbox",
       "label": "包含底填充",
       "step": "flip_chip_bumps",
@@ -565,7 +558,6 @@
     },
     {
       "key": "cover.flush",
-      "default": false,
       "type": "checkbox",
       "label": "芯片顶面齐平",
       "step": "top_cover",
@@ -582,7 +574,6 @@
     },
     {
       "key": "stiffener.enabled",
-      "default": false,
       "type": "checkbox",
       "label": "加强环",
       "step": "top_cover",
@@ -600,7 +591,6 @@
     },
     {
       "key": "stiffener.length",
-      "default": null,
       "unit": "mm",
       "type": "number",
       "label": "外框长度",
@@ -621,7 +611,6 @@
     },
     {
       "key": "stiffener.width",
-      "default": null,
       "unit": "mm",
       "type": "number",
       "label": "外框宽度",
@@ -642,7 +631,6 @@
     },
     {
       "key": "stiffener.cavity_length",
-      "default": null,
       "unit": "mm",
       "type": "number",
       "label": "内腔长度",
@@ -663,7 +651,6 @@
     },
     {
       "key": "stiffener.cavity_width",
-      "default": null,
       "unit": "mm",
       "type": "number",
       "label": "内腔宽度",
@@ -684,7 +671,6 @@
     },
     {
       "key": "stiffener.adhesive",
-      "default": null,
       "unit": "mm",
       "type": "number",
       "label": "加强环粘接厚度",
@@ -705,7 +691,6 @@
     },
     {
       "key": "slug.enabled",
-      "default": false,
       "type": "checkbox",
       "label": "包含嵌入式散热块",
       "step": "slug",
@@ -724,7 +709,6 @@
     },
     {
       "key": "slug.length",
-      "default": null,
       "unit": "mm",
       "type": "number",
       "minimum": 0,
@@ -746,7 +730,6 @@
     },
     {
       "key": "slug.width",
-      "default": null,
       "unit": "mm",
       "type": "number",
       "minimum": 0,
@@ -768,7 +751,6 @@
     },
     {
       "key": "slug.thickness",
-      "default": null,
       "unit": "mm",
       "type": "number",
       "minimum": 0,
@@ -790,7 +772,6 @@
     },
     {
       "key": "slug.diameter",
-      "default": null,
       "unit": "mm",
       "type": "number",
       "minimum": 0,
@@ -812,7 +793,6 @@
     },
     {
       "key": "slug.foot_length",
-      "default": null,
       "unit": "mm",
       "type": "number",
       "minimum": 0,
@@ -834,7 +814,6 @@
     },
     {
       "key": "slug.foot_width",
-      "default": null,
       "unit": "mm",
       "type": "number",
       "minimum": 0,
@@ -856,7 +835,6 @@
     },
     {
       "key": "slug.offset",
-      "default": null,
       "unit": "mm",
       "type": "number",
       "minimum": 0,
@@ -878,7 +856,6 @@
     },
     {
       "key": "slug.clearance",
-      "default": null,
       "unit": "mm",
       "type": "number",
       "minimum": 0,
@@ -900,7 +877,6 @@
     },
     {
       "key": "slug.adhesive_enabled",
-      "default": false,
       "type": "checkbox",
       "label": "支脚下包含粘接层",
       "step": "slug",
@@ -920,7 +896,6 @@
     },
     {
       "key": "vias.enabled",
-      "default": false,
       "type": "checkbox",
       "label": "芯层通孔",
       "step": "thermal_vias",
@@ -928,7 +903,6 @@
     },
     {
       "key": "vias.columns",
-      "default": null,
       "type": "integer",
       "minimum": 1,
       "maximum": 30,
@@ -948,7 +922,6 @@
     },
     {
       "key": "vias.rows",
-      "default": null,
       "type": "integer",
       "minimum": 1,
       "maximum": 30,
@@ -968,7 +941,6 @@
     },
     {
       "key": "vias.pitch",
-      "default": null,
       "unit": "mm",
       "type": "number",
       "minimum": 0.1,
@@ -989,7 +961,6 @@
     },
     {
       "key": "vias.diameter",
-      "default": null,
       "unit": "mm",
       "type": "number",
       "minimum": 0.02,
@@ -1010,7 +981,6 @@
     },
     {
       "key": "vias.plating",
-      "default": null,
       "unit": "mm",
       "type": "number",
       "minimum": 0.001,
@@ -1031,7 +1001,6 @@
     },
     {
       "key": "vias.modeling",
-      "default": "discrete",
       "options": [
         {
           "value": "discrete"
@@ -1056,7 +1025,6 @@
     },
     {
       "key": "metal.layers",
-      "default": [],
       "type": "table",
       "columns": [
         {
@@ -1092,14 +1060,12 @@
     },
     {
       "key": "upper.enabled",
-      "default": false,
       "type": "checkbox",
       "label": "启用增层区域",
       "step": "upper_built_up"
     },
     {
       "key": "upper.thickness",
-      "default": null,
       "unit": "mm",
       "type": "number",
       "exclusive_minimum": 0,
@@ -1119,7 +1085,6 @@
     },
     {
       "key": "upper.count",
-      "default": null,
       "type": "integer",
       "minimum": 0,
       "label": "微通孔总数",
@@ -1139,7 +1104,6 @@
     },
     {
       "key": "upper.diameter",
-      "default": null,
       "unit": "mm",
       "type": "number",
       "minimum": 0.02,
@@ -1163,7 +1127,6 @@
     },
     {
       "key": "upper.plating",
-      "default": null,
       "unit": "mm",
       "type": "number",
       "minimum": 0.001,
@@ -1188,7 +1151,6 @@
     },
     {
       "key": "upper.filled",
-      "default": true,
       "type": "checkbox",
       "label": "填充微通孔",
       "step": "upper_built_up",
@@ -1208,7 +1170,6 @@
     },
     {
       "key": "upper.layers",
-      "default": [],
       "type": "table",
       "columns": [
         {
@@ -1248,14 +1209,12 @@
     },
     {
       "key": "lower.enabled",
-      "default": false,
       "type": "checkbox",
       "label": "启用增层区域",
       "step": "lower_built_up"
     },
     {
       "key": "lower.thickness",
-      "default": null,
       "unit": "mm",
       "type": "number",
       "exclusive_minimum": 0,
@@ -1275,7 +1234,6 @@
     },
     {
       "key": "lower.count",
-      "default": null,
       "type": "integer",
       "minimum": 0,
       "label": "微通孔总数",
@@ -1295,7 +1253,6 @@
     },
     {
       "key": "lower.diameter",
-      "default": null,
       "unit": "mm",
       "type": "number",
       "minimum": 0.02,
@@ -1319,7 +1276,6 @@
     },
     {
       "key": "lower.plating",
-      "default": null,
       "unit": "mm",
       "type": "number",
       "minimum": 0.001,
@@ -1344,7 +1300,6 @@
     },
     {
       "key": "lower.filled",
-      "default": true,
       "type": "checkbox",
       "label": "填充微通孔",
       "step": "lower_built_up",
@@ -1364,7 +1319,6 @@
     },
     {
       "key": "lower.layers",
-      "default": [],
       "type": "table",
       "columns": [
         {
@@ -1404,7 +1358,6 @@
     },
     {
       "key": "bga.solder_removal_enabled",
-      "default": false,
       "type": "checkbox",
       "label": "主阵列中心去球",
       "step": "solder_removal",
@@ -1412,7 +1365,6 @@
     },
     {
       "key": "bga.populated_rows",
-      "default": null,
       "type": "integer",
       "label": "外围满布行数",
       "step": "solder_removal",
@@ -1430,7 +1382,6 @@
     },
     {
       "key": "bga.populated_columns",
-      "default": null,
       "type": "integer",
       "label": "外围满布列数",
       "step": "solder_removal",
@@ -1448,7 +1399,6 @@
     },
     {
       "key": "bga.removal_rows",
-      "default": null,
       "type": "integer",
       "required": false,
       "active_when": {
@@ -1462,7 +1412,6 @@
     },
     {
       "key": "bga.removal_columns",
-      "default": null,
       "type": "integer",
       "required": false,
       "active_when": {
@@ -1476,7 +1425,6 @@
     },
     {
       "key": "bga.omitted_cells",
-      "default": [],
       "rows_key": "bga.rows",
       "columns_key": "bga.columns",
       "type": "removal_matrix",
@@ -1485,7 +1433,6 @@
     },
     {
       "key": "bga.center_solder_enabled",
-      "default": false,
       "type": "checkbox",
       "label": "包含中央焊球",
       "step": "central_solder_balls",
@@ -1493,7 +1440,6 @@
     },
     {
       "key": "bga.center_solder_rows",
-      "default": null,
       "type": "integer",
       "label": "中央焊球行数",
       "step": "central_solder_balls",
@@ -1510,7 +1456,6 @@
     },
     {
       "key": "bga.center_solder_columns",
-      "default": null,
       "type": "integer",
       "label": "中央焊球列数",
       "step": "central_solder_balls",
@@ -1527,7 +1472,6 @@
     },
     {
       "key": "bga.center_staggered",
-      "default": false,
       "type": "checkbox",
       "label": "中央焊球交错",
       "step": "central_solder_balls",
@@ -1535,7 +1479,6 @@
     },
     {
       "key": "bga.staggered",
-      "default": false,
       "type": "checkbox",
       "label": "交错主阵列",
       "step": "solder_balls",
@@ -1543,7 +1486,6 @@
     },
     {
       "key": "bga.ball_map_enabled",
-      "default": false,
       "type": "checkbox",
       "label": "使用焊球坐标表",
       "step": "solder_balls",
@@ -1551,7 +1493,6 @@
     },
     {
       "key": "bga.ball_map",
-      "default": [],
       "type": "table",
       "columns": [
         {
@@ -1575,7 +1516,6 @@
     },
     {
       "key": "bga.representation",
-      "default": "equivalent",
       "options": [
         {
           "value": "discrete",
@@ -1670,13 +1610,11 @@
   ],
   "materials": [
     {
-      "default": "pbga-substrate",
       "step": "package_substrate",
       "label": "有机基板材料",
       "key": "group-substrate"
     },
     {
-      "default": "silicon",
       "options": [
         {
           "value": "silicon"
@@ -1687,7 +1625,6 @@
       "key": "group-die"
     },
     {
-      "default": "epoxy-mold",
       "step": "top_cover",
       "label": "塑封材料",
       "visible_when": {
@@ -1696,7 +1633,6 @@
       "key": "group-encapsulant"
     },
     {
-      "default": "aluminum",
       "step": "top_cover",
       "label": "顶盖材料",
       "visible_when": {
@@ -1705,7 +1641,6 @@
       "key": "group-lid"
     },
     {
-      "default": "stiffener-adhesive",
       "step": "top_cover",
       "label": "顶盖侧壁粘接材料",
       "visible_when": {
@@ -1714,7 +1649,6 @@
       "key": "group-lid-adhesive"
     },
     {
-      "default": "flip-cap-grease",
       "step": "top_cover",
       "label": "顶盖芯片连接材料",
       "visible_when": {
@@ -1723,7 +1657,6 @@
       "key": "group-lid-die-attach"
     },
     {
-      "default": "aluminum",
       "step": "top_cover",
       "label": "热板材料",
       "visible_when": {
@@ -1732,7 +1665,6 @@
       "key": "group-plate"
     },
     {
-      "default": "flip-cap-grease",
       "step": "top_cover",
       "label": "热板芯片连接材料",
       "visible_when": {
@@ -1741,13 +1673,11 @@
       "key": "group-plate-die-attach"
     },
     {
-      "default": "solder-pb90",
       "step": "flip_chip_bumps",
       "label": "凸点焊料",
       "key": "group-bump-solder"
     },
     {
-      "default": "underfill",
       "step": "flip_chip_bumps",
       "label": "底部填充材料",
       "visible_when": {
@@ -1756,13 +1686,11 @@
       "key": "group-underfill"
     },
     {
-      "default": "solder-sn63",
       "step": "solder_balls",
       "label": "BGA 焊球材料",
       "key": "group-bga-solder"
     },
     {
-      "default": "steel_stainless_302_cr18_ni8_38fdf21b",
       "label": "加强环材料",
       "step": "top_cover",
       "visible_when": {
@@ -1772,7 +1700,6 @@
       "key": "group-stiffener"
     },
     {
-      "default": "stiffener-adhesive",
       "label": "加强环粘接材料",
       "step": "top_cover",
       "visible_when": {
@@ -1782,7 +1709,6 @@
       "key": "group-stiffener-adhesive"
     },
     {
-      "default": "copper",
       "options": [
         {
           "value": ""
@@ -1800,7 +1726,6 @@
       "key": "group-slug"
     },
     {
-      "default": "stiffener-adhesive",
       "options": [
         {
           "value": ""
@@ -1819,13 +1744,11 @@
       "key": "group-slug-adhesive"
     },
     {
-      "default": "copper",
       "label": "金属材料",
       "step": "metal_layers",
       "key": "group-metal"
     },
     {
-      "default": "bt",
       "options": [
         {
           "value": ""
@@ -1842,7 +1765,6 @@
       "key": "group-upper"
     },
     {
-      "default": "bt",
       "options": [
         {
           "value": ""

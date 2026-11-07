@@ -8,8 +8,8 @@ public static class PackageInitializer
         JObject? overrides = null, FourLayerConfiguration? fourLayer = null, JObject? exposedPad = null)
     {
         string presetName = presetId ?? definition.DefaultPreset;
-        var preset = definition.Presets.FirstOrDefault(p => p.Name == presetName);
-        var values = definition.DisplayDefaults(presetName);
+        var preset = definition.GetPreset(presetName);
+        var values = (JObject)preset.Values.DeepClone();
         var selection = (JObject)values.DeepClone();
         Overlay(selection, overrides);
         if (definition.Info.Id is "chip_array" or "pbga_wb" && selection["substrate.layers"] is { Type: JTokenType.String } layers && layers.Value<string>() == "4-Layer")
@@ -21,10 +21,10 @@ public static class PackageInitializer
         return new ProjectDocument
         {
             TemplateId = definition.Info.Id,
-            Name = name ?? preset?.Name ?? definition.Info.Name,
+            Name = name ?? preset.Name,
             Values = values,
-            MaterialAssignments = preset == null ? MaterialSelection.Defaults(definition) : new(preset.MaterialAssignments),
-            CustomMaterials = preset == null ? [] : [.. preset.CustomMaterials]
+            MaterialAssignments = new(preset.MaterialAssignments),
+            CustomMaterials = [.. preset.CustomMaterials]
         };
     }
 

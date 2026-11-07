@@ -116,9 +116,10 @@ static class ParameterChecks
         tests.Case("parameters", "metal layer edits do not mutate document", () =>
         {
             var template = tests.Catalog.Load("pbga_fc");
-            var values = tests.Create(template).Values;
+            var document = tests.Create(template);
+            var values = document.Values;
             values["metal.layers"] = new JArray(new JObject { ["depth"] = 0.1, ["thickness"] = 0.018, ["coverage"] = 30 });
-            var context = new BuildContext(template, values, "layers", tests.Catalog.Materials, tests.Catalog.Groups, MaterialSelection.Defaults(template));
+            var context = new BuildContext(template, values, "layers", tests.Catalog.Materials, tests.Catalog.Groups, document.MaterialAssignments);
             MetalLayers.Parse(context, "metal.layers")[0]!["depth"] = 0.3;
             Near(values["metal.layers"]![0]!["depth"].Number(), 0.1, "table input mutated");
         });

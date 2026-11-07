@@ -97,7 +97,7 @@ def test_cli_catalog_and_presets_are_separate_queries(cli):
         "bare_die", "cbga_fc", "chip_array", "pbga_fc", "pbga_wb", "pqfp", "qfn", "sop",
     }
     assert "QFN_12X12_100" in cli.query("--presets", "qfn")
-    assert cli.query("--presets", "bare_die") == []
+    assert cli.query("--presets", "bare_die") == ["Bare Die"]
     for command in ("--help", "--presets"):
         with pytest.raises(RuntimeError, match="unknown_family"):
             cli.query(command, "unknown_family")
