@@ -1,0 +1,20 @@
+{
+  "template": "pbga_wb",
+  "id": "packages/pbga_wb/options/default/creation/include_slug/false",
+  "origin": "resweep",
+  "commands": [
+    "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "boolean_option",
+    "target": {
+      "component": "new_package",
+      "property": "includeSlug",
+      "label": "Include Slug",
+      "baseline": false,
+      "value": false
+    },
+    "comparison_baseline": "packages/pbga_wb/baselines/default"
+  }
+}

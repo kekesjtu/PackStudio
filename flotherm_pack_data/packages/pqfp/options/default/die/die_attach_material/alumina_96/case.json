@@ -1,0 +1,24 @@
+{
+  "template": "pqfp",
+  "id": "packages/pqfp/options/default/die/die_attach_material/alumina_96",
+  "origin": "resweep",
+  "commands": [
+    "<new_package package_type=\"pqfp\">\n        <new_value new_value=\"PQFP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"lqfp\" property_name=\"pqfpPackageType\" />\n        <new_value new_value=\"LQFP_32_7X7mm\" property_name=\"lqfpJedecFootprint\" />\n    </new_package>",
+    "<modify_component name=\"die\" new_value=\"Alumina (96%)\" property_name=\"dieAttachMaterial\" />"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "material_option",
+    "target": {
+      "component": "die",
+      "property": "dieAttachMaterial",
+      "baseline": "DieAttach-84-1LMIS",
+      "value": "Alumina (96%)"
+    },
+    "comparison_baseline": "packages/pqfp/baselines/default",
+    "des_key": "k_da",
+    "expected_des": {
+      "k_da": "Alumina (96%)"
+    }
+  }
+}

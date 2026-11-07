@@ -1,0 +1,21 @@
+{
+  "template": "bare_die",
+  "id": "packages/bare_die/options/default/die/flipped_die/false",
+  "origin": "resweep",
+  "commands": [
+    "<new_package package_type=\"Die\">\n        <new_value new_value=\"Die\" property_name=\"designName\" />\n    </new_package>",
+    "<modify_component name=\"die\" new_value=\"false\" property_name=\"flippedDie\" />"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "boolean_option",
+    "target": {
+      "component": "die",
+      "property": "flippedDie",
+      "label": "Flipped Die",
+      "baseline": false,
+      "value": false
+    },
+    "comparison_baseline": "packages/bare_die/baselines/default"
+  }
+}

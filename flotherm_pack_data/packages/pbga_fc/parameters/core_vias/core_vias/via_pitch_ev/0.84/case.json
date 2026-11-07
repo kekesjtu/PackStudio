@@ -1,0 +1,29 @@
+{
+  "template": "pbga_fc",
+  "id": "packages/pbga_fc/parameters/core_vias/core_vias/via_pitch_ev/0.84",
+  "origin": "resweep",
+  "commands": [
+    "<new_package package_type=\"pbga_fc\">\n        <new_value new_value=\"Flip Chip PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+    "<modify_component name=\"coreVias\" new_value=\"5\" property_name=\"numberOfThermalViasInXNVx\" />",
+    "<modify_component name=\"coreVias\" new_value=\"5\" property_name=\"numberOfThermalViasInYNVy\" />",
+    "<modify_component name=\"coreVias\" new_value=\"0.2\" property_name=\"viaDiameterDv\" />",
+    "<modify_component name=\"coreVias\" new_value=\"0.025\" property_name=\"platingThicknessTpl\" />",
+    "<modify_component name=\"coreVias\" new_value=\"0.84\" property_name=\"viaPitchEv\" />"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "numeric_parameter",
+    "target": {
+      "component": "coreVias",
+      "property": "viaPitchEv",
+      "label": "Via Pitch",
+      "baseline": 0.8,
+      "value": 0.84,
+      "unit": "mm"
+    },
+    "comparison_baseline": "packages/pbga_fc/baselines/core_vias",
+    "expected_des": {
+      "ev": "0.84"
+    }
+  }
+}

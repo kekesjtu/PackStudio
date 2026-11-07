@@ -1,0 +1,21 @@
+{
+  "template": "cbga_fc",
+  "id": "packages/cbga_fc/options/default/solder_balls/staggered_matrix/false",
+  "origin": "resweep",
+  "commands": [
+    "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+    "<modify_component name=\"solderBalls\" new_value=\"false\" property_name=\"staggeredMatrix\" />"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "boolean_option",
+    "target": {
+      "component": "solderBalls",
+      "property": "staggeredMatrix",
+      "label": "Staggered Matrix",
+      "baseline": false,
+      "value": false
+    },
+    "comparison_baseline": "packages/cbga_fc/baselines/default"
+  }
+}

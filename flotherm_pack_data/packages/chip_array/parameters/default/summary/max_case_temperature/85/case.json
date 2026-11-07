@@ -1,0 +1,24 @@
+{
+  "template": "chip_array",
+  "id": "packages/chip_array/parameters/default/summary/max_case_temperature/85",
+  "origin": "resweep",
+  "commands": [
+    "<new_package package_type=\"chip_array\">\n        <new_value new_value=\"Chip Array\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"ChipArray_24_4X4mm_0_8\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n    </new_package>",
+    "<modify_component name=\"summary\" new_value=\"85\" property_name=\"maxCaseTemperature\" />"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "numeric_parameter",
+    "target": {
+      "component": "summary",
+      "property": "maxCaseTemperature",
+      "baseline": null,
+      "value": 85,
+      "unit": "degC"
+    },
+    "comparison_baseline": "packages/chip_array/baselines/default",
+    "expected_des": {
+      "SummaryMaxCaseTemp": "85"
+    }
+  }
+}

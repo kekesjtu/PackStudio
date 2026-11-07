@@ -1,0 +1,34 @@
+{
+  "template": "pbga_fc",
+  "id": "packages/pbga_fc/options/encapsulant/top_cover/encapsulant_material/cookson_amc_2_f1",
+  "origin": "resweep",
+  "commands": [
+    "<new_package package_type=\"pbga_fc\">\n        <new_value new_value=\"Flip Chip PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+    "<modify_component name=\"topCover\" new_value=\"encapsulant\" property_name=\"topCover\" />",
+    "<modify_component name=\"dropInSlug\" new_value=\"4\" property_name=\"slugLengthLsl\" />",
+    "<modify_component name=\"dropInSlug\" new_value=\"4\" property_name=\"slugWidthWsl\" />",
+    "<modify_component name=\"dropInSlug\" new_value=\"0.4\" property_name=\"slugThicknessTsl\" />",
+    "<modify_component name=\"dropInSlug\" new_value=\"2\" property_name=\"slugDiameterDs\" />",
+    "<modify_component name=\"dropInSlug\" new_value=\"4.5\" property_name=\"slugFootExtendLengthLsf\" />",
+    "<modify_component name=\"dropInSlug\" new_value=\"4.5\" property_name=\"slugFootExtendWidthWsf\" />",
+    "<modify_component name=\"dropInSlug\" new_value=\"0.1\" property_name=\"slugOffsetGs\" />",
+    "<modify_component name=\"dropInSlug\" new_value=\"0.1\" property_name=\"slugFootClearanceGsf\" />",
+    "<modify_component name=\"dropInSlug\" new_value=\"false\" property_name=\"includeSlug\" />",
+    "<modify_component name=\"topCover\" new_value=\"Cookson-AMC-2F1\" property_name=\"encapsulantMaterial\" />"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "material_option",
+    "target": {
+      "component": "topCover",
+      "property": "encapsulantMaterial",
+      "baseline": "Epoxy Overmold (Typical)",
+      "value": "Cookson-AMC-2F1"
+    },
+    "comparison_baseline": "packages/pbga_fc/baselines/encapsulant",
+    "des_key": "k_encap",
+    "expected_des": {
+      "k_encap": "Cookson-AMC-2F1"
+    }
+  }
+}

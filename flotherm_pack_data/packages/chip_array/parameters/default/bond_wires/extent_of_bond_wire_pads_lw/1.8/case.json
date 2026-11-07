@@ -1,0 +1,26 @@
+{
+  "template": "chip_array",
+  "id": "packages/chip_array/parameters/default/bond_wires/extent_of_bond_wire_pads_lw/1.8",
+  "origin": "resweep",
+  "commands": [
+    "<new_package package_type=\"chip_array\">\n        <new_value new_value=\"Chip Array\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"ChipArray_24_4X4mm_0_8\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n    </new_package>",
+    "<modify_component name=\"bondWires\" new_value=\"1.8\" property_name=\"extentOfBondWirePadsLw\" />"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "numeric_parameter",
+    "target": {
+      "component": "bondWires",
+      "property": "extentOfBondWirePadsLw",
+      "label": "Extent of Bond Wire Pads Lw",
+      "baseline": 2,
+      "value": 1.8,
+      "unit": "mm"
+    },
+    "comparison_baseline": "packages/chip_array/baselines/default",
+    "expected_outcome": "semantic_change",
+    "expected_des": {
+      "Lw": "1.8"
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "template": "pqfp",
+  "id": "packages/pqfp/options/thermal_land_materials/thermal_land_and_solder/land_material/nitto_mp8000_ch4",
+  "origin": "resweep",
+  "commands": [
+    "<new_package package_type=\"pqfp\">\n        <new_value new_value=\"PQFP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"lqfp\" property_name=\"pqfpPackageType\" />\n        <new_value new_value=\"LQFP_32_7X7mm\" property_name=\"lqfpJedecFootprint\" />\n    </new_package>",
+    "<modify_component name=\"thermalLandAndSolder\" new_value=\"true\" property_name=\"includeThermalLandAndSolder\" />",
+    "<modify_component name=\"thermalLandAndSolder\" new_value=\"0.05\" property_name=\"landThickness\" />",
+    "<modify_component name=\"thermalLandAndSolder\" new_value=\"Nitto-MP8000CH4\" property_name=\"landMaterial\" />",
+    "<modify_component name=\"thermalLandAndSolder\" new_value=\"Solder (Sn63/Pb37)\" property_name=\"solderMaterial\" />"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "material_option",
+    "target": {
+      "component": "thermalLandAndSolder",
+      "property": "landMaterial",
+      "baseline": "Copper (Pure)",
+      "value": "Nitto-MP8000CH4"
+    },
+    "comparison_baseline": "packages/pqfp/baselines/thermal_land_materials",
+    "des_key": "k_land",
+    "expected_des": {
+      "k_land": "Nitto-MP8000CH4"
+    }
+  }
+}

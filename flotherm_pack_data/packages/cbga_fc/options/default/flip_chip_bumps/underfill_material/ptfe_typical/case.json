@@ -1,0 +1,24 @@
+{
+  "template": "cbga_fc",
+  "id": "packages/cbga_fc/options/default/flip_chip_bumps/underfill_material/ptfe_typical",
+  "origin": "resweep",
+  "commands": [
+    "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+    "<modify_component name=\"flipChipBumps\" new_value=\"PTFE (Typical)\" property_name=\"underfillMaterial\" />"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "material_option",
+    "target": {
+      "component": "flipChipBumps",
+      "property": "underfillMaterial",
+      "baseline": "Flip-Chip Underfill (Typical)",
+      "value": "PTFE (Typical)"
+    },
+    "comparison_baseline": "packages/cbga_fc/baselines/default",
+    "des_key": "k_underfill",
+    "expected_des": {
+      "k_underfill": "PTFE (Typical)"
+    }
+  }
+}

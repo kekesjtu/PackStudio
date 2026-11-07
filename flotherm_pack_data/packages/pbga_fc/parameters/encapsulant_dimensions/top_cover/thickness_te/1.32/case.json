@@ -1,0 +1,27 @@
+{
+  "template": "pbga_fc",
+  "id": "packages/pbga_fc/parameters/encapsulant_dimensions/top_cover/thickness_te/1.32",
+  "origin": "resweep",
+  "commands": [
+    "<new_package package_type=\"pbga_fc\">\n        <new_value new_value=\"Flip Chip PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+    "<modify_component name=\"topCover\" new_value=\"encapsulant\" property_name=\"topCover\" />",
+    "<modify_component name=\"topCover\" new_value=\"1.32\" property_name=\"thicknessTe\" />"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "numeric_parameter",
+    "target": {
+      "component": "topCover",
+      "property": "thicknessTe",
+      "label": "Encapsulant Thickness Te",
+      "baseline": 1.2,
+      "value": 1.32,
+      "unit": "mm"
+    },
+    "comparison_baseline": "packages/pbga_fc/baselines/encapsulant_dimensions",
+    "expected_outcome": "semantic_change",
+    "expected_des": {
+      "te": "1.32"
+    }
+  }
+}

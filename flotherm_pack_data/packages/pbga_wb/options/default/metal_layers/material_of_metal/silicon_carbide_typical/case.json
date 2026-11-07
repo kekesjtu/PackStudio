@@ -1,0 +1,24 @@
+{
+  "template": "pbga_wb",
+  "id": "packages/pbga_wb/options/default/metal_layers/material_of_metal/silicon_carbide_typical",
+  "origin": "resweep",
+  "commands": [
+    "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>",
+    "<modify_component name=\"metalLayers\" new_value=\"Silicon Carbide (Typical)\" property_name=\"materialOfMetal\" />"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "material_option",
+    "target": {
+      "component": "metalLayers",
+      "property": "materialOfMetal",
+      "baseline": "Copper (Pure)",
+      "value": "Silicon Carbide (Typical)"
+    },
+    "comparison_baseline": "packages/pbga_wb/baselines/default",
+    "des_key": "k_metal",
+    "expected_des": {
+      "k_metal": "Silicon Carbide (Typical)"
+    }
+  }
+}

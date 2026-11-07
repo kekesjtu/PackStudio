@@ -1,0 +1,31 @@
+{
+  "template": "bare_die",
+  "id": "packages/bare_die/parameters/bumped_die/bumped_die/ball_diameterb/0.132",
+  "origin": "resweep",
+  "commands": [
+    "<new_package package_type=\"Die\"><new_value new_value=\"bare_die\" property_name=\"designName\" /></new_package>",
+    "<modify_component name=\"die\" new_value=\"true\" property_name=\"flippedDie\" />",
+    "<modify_component name=\"bumpedDie\" new_value=\"true\" property_name=\"bumpedDie\" />",
+    "<modify_component name=\"bumpedDie\" new_value=\"100\" property_name=\"numberOfSolderBalls\" />",
+    "<modify_component name=\"bumpedDie\" new_value=\"0.132\" property_name=\"ballDiameterb\" />",
+    "<modify_component name=\"bumpedDie\" new_value=\"0.1\" property_name=\"ballHeight\" />",
+    "<modify_component name=\"bumpedDie\" new_value=\"Solder (Pb90/Sn10)\" property_name=\"solderConductivity\" />",
+    "<modify_component name=\"bumpedDie\" new_value=\"Flip-Chip Underfill (Typical)\" property_name=\"underfillConductivity\" />"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "numeric_parameter",
+    "target": {
+      "component": "bumpedDie",
+      "property": "ballDiameterb",
+      "baseline": 0.12,
+      "value": 0.132,
+      "unit": "mm"
+    },
+    "comparison_baseline": "packages/bare_die/baselines/bumped_die",
+    "des_key": "b",
+    "expected_des": {
+      "b": "0.132"
+    }
+  }
+}

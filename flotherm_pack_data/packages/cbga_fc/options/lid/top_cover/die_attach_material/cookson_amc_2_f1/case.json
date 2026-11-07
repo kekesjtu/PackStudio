@@ -1,0 +1,31 @@
+{
+  "template": "cbga_fc",
+  "id": "packages/cbga_fc/options/lid/top_cover/die_attach_material/cookson_amc_2_f1",
+  "origin": "resweep",
+  "commands": [
+    "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+    "<modify_component name=\"topCover\" new_value=\"lid\" property_name=\"topCover\" />",
+    "<modify_component name=\"topCover\" new_value=\"6\" property_name=\"stiffenerLengthLs\" />",
+    "<modify_component name=\"topCover\" new_value=\"6\" property_name=\"stiffenerWidthWs\" />",
+    "<modify_component name=\"topCover\" new_value=\"3\" property_name=\"stiffenerCavityLengthLsc\" />",
+    "<modify_component name=\"topCover\" new_value=\"3\" property_name=\"stiffenerCavityWidthWsc\" />",
+    "<modify_component name=\"topCover\" new_value=\"0.1\" property_name=\"stiffenerAdhesiveThickness\" />",
+    "<modify_component name=\"topCover\" new_value=\"no\" property_name=\"stiffener\" />",
+    "<modify_component name=\"topCover\" new_value=\"Cookson-AMC-2F1\" property_name=\"dieAttachMaterial\" />"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "material_option",
+    "target": {
+      "component": "topCover",
+      "property": "dieAttachMaterial",
+      "baseline": "Flip-Chip Cap Grease (Typical)",
+      "value": "Cookson-AMC-2F1"
+    },
+    "comparison_baseline": "packages/cbga_fc/baselines/lid",
+    "des_key": "kda",
+    "expected_des": {
+      "kda": "Cookson-AMC-2F1"
+    }
+  }
+}

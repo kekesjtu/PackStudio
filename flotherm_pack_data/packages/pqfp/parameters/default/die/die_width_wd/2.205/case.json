@@ -1,0 +1,25 @@
+{
+  "template": "pqfp",
+  "id": "packages/pqfp/parameters/default/die/die_width_wd/2.205",
+  "origin": "resweep",
+  "commands": [
+    "<new_package package_type=\"pqfp\">\n        <new_value new_value=\"PQFP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"lqfp\" property_name=\"pqfpPackageType\" />\n        <new_value new_value=\"LQFP_32_7X7mm\" property_name=\"lqfpJedecFootprint\" />\n    </new_package>",
+    "<modify_component name=\"die\" new_value=\"2.205\" property_name=\"dieWidthWd\" />"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "numeric_parameter",
+    "target": {
+      "component": "die",
+      "property": "dieWidthWd",
+      "label": "Die Width Wd",
+      "baseline": 2.1,
+      "value": 2.205,
+      "unit": "mm"
+    },
+    "comparison_baseline": "packages/pqfp/baselines/default",
+    "expected_des": {
+      "Wd": "2.205"
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "template": "chip_array",
+  "id": "packages/chip_array/options/default/overall_package/dielectric_material/fr4_30_fibre",
+  "origin": "resweep",
+  "commands": [
+    "<new_package package_type=\"chip_array\">\n        <new_value new_value=\"Chip Array\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"ChipArray_24_4X4mm_0_8\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n    </new_package>",
+    "<modify_component name=\"overallPackage\" new_value=\"FR4 (30% Fibre)\" property_name=\"dielectricMaterial\" />"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "material_option",
+    "target": {
+      "component": "overallPackage",
+      "property": "dielectricMaterial",
+      "baseline": "BT",
+      "value": "FR4 (30% Fibre)"
+    },
+    "comparison_baseline": "packages/chip_array/baselines/default",
+    "des_key": "k_substr",
+    "expected_des": {
+      "k_substr": "FR4 (30% Fibre)"
+    }
+  }
+}

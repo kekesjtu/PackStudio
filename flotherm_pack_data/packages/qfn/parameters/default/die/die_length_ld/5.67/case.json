@@ -1,0 +1,25 @@
+{
+  "template": "qfn",
+  "id": "packages/qfn/parameters/default/die/die_length_ld/5.67",
+  "origin": "resweep",
+  "commands": [
+    "<new_package package_type=\"QFN\">\n        <new_value new_value=\"QFN\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"QFN_12X12_100\" property_name=\"jedecFootprint\" />\n    </new_package>",
+    "<modify_component name=\"die\" new_value=\"5.67\" property_name=\"dieLengthLd\" />"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "numeric_parameter",
+    "target": {
+      "component": "die",
+      "property": "dieLengthLd",
+      "label": "Die Length Ld",
+      "baseline": 5.4,
+      "value": 5.67,
+      "unit": "mm"
+    },
+    "comparison_baseline": "packages/qfn/baselines/default",
+    "expected_des": {
+      "Ld": "5.67"
+    }
+  }
+}

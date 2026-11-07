@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='utf-8'?>
+<flopack_xml_log_file version="1.0">
+    <new_package package_type="pqfp">
+        <new_value new_value="PQFP" property_name="designName" />
+        <new_value new_value="standardOutline" property_name="outlineType" />
+        <new_value new_value="actualDie" property_name="dieType" />
+        <new_value new_value="false" property_name="exposedPad" />
+        <new_value new_value="lqfp" property_name="pqfpPackageType" />
+        <new_value new_value="LQFP_32_7X7mm" property_name="lqfpJedecFootprint" />
+    </new_package>
+    <modify_component name="encapsulant" new_value="7.35" property_name="lengthD1" />
+    <save_des filename="model.des" />
+    <export_floxml filename="model.xml" />
+    <quit />
+</flopack_xml_log_file>

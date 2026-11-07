@@ -1,0 +1,31 @@
+{
+  "template": "pbga_fc",
+  "id": "packages/pbga_fc/options/lid_with_stiffener/top_cover/stiffener_material/solder_au88_ge12",
+  "origin": "resweep",
+  "commands": [
+    "<new_package package_type=\"pbga_fc\">\n        <new_value new_value=\"Flip Chip PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+    "<modify_component name=\"topCover\" new_value=\"lid\" property_name=\"topCover\" />",
+    "<modify_component name=\"topCover\" new_value=\"yes\" property_name=\"stiffener\" />",
+    "<modify_component name=\"topCover\" new_value=\"6\" property_name=\"stiffenerWidthWs\" />",
+    "<modify_component name=\"topCover\" new_value=\"3\" property_name=\"stiffenerCavityLengthLsc\" />",
+    "<modify_component name=\"topCover\" new_value=\"3\" property_name=\"stiffenerCavityWidthWsc\" />",
+    "<modify_component name=\"topCover\" new_value=\"0.1\" property_name=\"stiffenerAdhesiveThickness\" />",
+    "<modify_component name=\"topCover\" new_value=\"6\" property_name=\"stiffenerLengthLs\" />",
+    "<modify_component name=\"topCover\" new_value=\"Solder (Au88/Ge12)\" property_name=\"stiffenerMaterial\" />"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "material_option",
+    "target": {
+      "component": "topCover",
+      "property": "stiffenerMaterial",
+      "baseline": "Steel Stainless-302 (Cr18/Ni8)",
+      "value": "Solder (Au88/Ge12)"
+    },
+    "comparison_baseline": "packages/pbga_fc/baselines/lid_with_stiffener",
+    "des_key": "k_stiff",
+    "expected_des": {
+      "k_stiff": "Solder (Au88/Ge12)"
+    }
+  }
+}

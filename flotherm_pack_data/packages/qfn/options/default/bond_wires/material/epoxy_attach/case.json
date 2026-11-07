@@ -1,0 +1,24 @@
+{
+  "template": "qfn",
+  "id": "packages/qfn/options/default/bond_wires/material/epoxy_attach",
+  "origin": "resweep",
+  "commands": [
+    "<new_package package_type=\"QFN\">\n        <new_value new_value=\"QFN\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"QFN_12X12_100\" property_name=\"jedecFootprint\" />\n    </new_package>",
+    "<modify_component name=\"bondWires\" new_value=\"Epoxy Attach\" property_name=\"material\" />"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "material_option",
+    "target": {
+      "component": "bondWires",
+      "property": "material",
+      "baseline": "Gold (Pure)",
+      "value": "Epoxy Attach"
+    },
+    "comparison_baseline": "packages/qfn/baselines/default",
+    "des_key": "k_bw",
+    "expected_des": {
+      "k_bw": "Epoxy Attach"
+    }
+  }
+}

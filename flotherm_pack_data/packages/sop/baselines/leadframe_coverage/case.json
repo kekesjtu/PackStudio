@@ -1,0 +1,14 @@
+{
+  "template": "sop",
+  "id": "packages/sop/baselines/leadframe_coverage",
+  "origin": "resweep",
+  "commands": [
+    "<new_package package_type=\"tsop_conv\">\n        <new_value new_value=\"SOP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"soic/sop/so\" property_name=\"sopPackageType\" />\n        <new_value new_value=\"SOP_8_3_81x4_93\" property_name=\"sopJedecFootprint\" />\n    </new_package>",
+    "<modify_component name=\"leadFrame\" new_value=\"40\" property_name=\"leadframeCoveragePercentage\" />",
+    "<modify_component name=\"leadFrame\" new_value=\"noDefaultIsBe\" property_name=\"userDefinedLeadframeCoverage\" />"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "baseline"
+  }
+}

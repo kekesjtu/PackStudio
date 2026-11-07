@@ -1,0 +1,24 @@
+{
+  "template": "qfn",
+  "id": "packages/qfn/options/default/overall_package/encapsulant_material/glass_lid_seal_typical",
+  "origin": "resweep",
+  "commands": [
+    "<new_package package_type=\"QFN\">\n        <new_value new_value=\"QFN\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"QFN_12X12_100\" property_name=\"jedecFootprint\" />\n    </new_package>",
+    "<modify_component name=\"overallPackage\" new_value=\"Glass Lid Seal (Typical)\" property_name=\"encapsulantMaterial\" />"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "material_option",
+    "target": {
+      "component": "overallPackage",
+      "property": "encapsulantMaterial",
+      "baseline": "EME-7730LF",
+      "value": "Glass Lid Seal (Typical)"
+    },
+    "comparison_baseline": "packages/qfn/baselines/default",
+    "des_key": "k_encap",
+    "expected_des": {
+      "k_encap": "Glass Lid Seal (Typical)"
+    }
+  }
+}

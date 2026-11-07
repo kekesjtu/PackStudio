@@ -1,0 +1,26 @@
+{
+  "template": "cbga_fc",
+  "id": "packages/cbga_fc/parameters/default/flip_chip_bumps/bump_height_tc4/0.11",
+  "origin": "resweep",
+  "commands": [
+    "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+    "<modify_component name=\"flipChipBumps\" new_value=\"0.11\" property_name=\"bumpHeightTC4\" />"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "numeric_parameter",
+    "target": {
+      "component": "flipChipBumps",
+      "property": "bumpHeightTC4",
+      "label": "Bump Height",
+      "baseline": 0.1,
+      "value": 0.11,
+      "unit": "mm"
+    },
+    "comparison_baseline": "packages/cbga_fc/baselines/default",
+    "expected_outcome": "semantic_change",
+    "expected_des": {
+      "tC4": "0.11"
+    }
+  }
+}

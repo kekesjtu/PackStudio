@@ -1,0 +1,24 @@
+{
+  "template": "cbga_fc",
+  "id": "packages/cbga_fc/options/plate/top_cover/plate_adhesive/false",
+  "origin": "resweep",
+  "commands": [
+    "<load_des filename=\"input.des\" />"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "boolean_option",
+    "comparison_baseline": "packages/cbga_fc/baselines/plate",
+    "des_key": "p_adhessive",
+    "des_value": "UNCHECKED",
+    "target": {
+      "component": "topCover",
+      "property": "plateAdhesive",
+      "baseline": false,
+      "value": false
+    },
+    "expected_des": {
+      "p_adhessive": "UNCHECKED"
+    }
+  }
+}

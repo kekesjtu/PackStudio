@@ -1,0 +1,27 @@
+{
+  "template": "cbga_fc",
+  "id": "packages/cbga_fc/parameters/plate/top_cover/plate_thickness_tc/1.1",
+  "origin": "resweep",
+  "commands": [
+    "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+    "<modify_component name=\"topCover\" new_value=\"plate\" property_name=\"topCover\" />",
+    "<modify_component name=\"topCover\" new_value=\"1.1\" property_name=\"plateThicknessTc\" />"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "numeric_parameter",
+    "target": {
+      "component": "topCover",
+      "property": "plateThicknessTc",
+      "label": "Plate Thickness Tc",
+      "baseline": 1,
+      "value": 1.1,
+      "unit": "mm"
+    },
+    "comparison_baseline": "packages/cbga_fc/baselines/plate",
+    "expected_outcome": "semantic_change",
+    "expected_des": {
+      "tc": "1.1"
+    }
+  }
+}

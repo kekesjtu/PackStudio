@@ -1,0 +1,30 @@
+{
+  "template": "pbga_fc",
+  "id": "packages/pbga_fc/options/core_metal_layers/metal_layers/material_of_metal/epoxy_attach",
+  "origin": "resweep",
+  "commands": [
+    "<new_package package_type=\"pbga_fc\"><new_value new_value=\"pbga_fc\" property_name=\"designName\" /><new_value new_value=\"standardOutline\" property_name=\"outlineType\" /><new_value new_value=\"PBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" /><new_value new_value=\"bareDie\" property_name=\"topCover\" /></new_package>",
+    "<modify_component_table_row name=\"metalLayers\" property_name=\"metalLayersTable\" row=\"0\" column=\"0\" new_value=\"0.1\" />",
+    "<modify_component_table_row name=\"metalLayers\" property_name=\"metalLayersTable\" row=\"0\" column=\"1\" new_value=\"0.018\" />",
+    "<modify_component_table_row name=\"metalLayers\" property_name=\"metalLayersTable\" row=\"0\" column=\"2\" new_value=\"30\" />",
+    "<modify_component_table_row name=\"metalLayers\" property_name=\"metalLayersTable\" row=\"1\" column=\"0\" new_value=\"0.4\" />",
+    "<modify_component_table_row name=\"metalLayers\" property_name=\"metalLayersTable\" row=\"1\" column=\"1\" new_value=\"0.025\" />",
+    "<modify_component_table_row name=\"metalLayers\" property_name=\"metalLayersTable\" row=\"1\" column=\"2\" new_value=\"65\" />",
+    "<modify_component name=\"metalLayers\" new_value=\"Epoxy Attach\" property_name=\"materialOfMetal\" />"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "material_option",
+    "target": {
+      "component": "metalLayers",
+      "property": "materialOfMetal",
+      "baseline": "Copper (Pure)",
+      "value": "Epoxy Attach"
+    },
+    "comparison_baseline": "packages/pbga_fc/baselines/core_metal_layers",
+    "des_key": "k_metal",
+    "expected_des": {
+      "k_metal": "Epoxy Attach"
+    }
+  }
+}

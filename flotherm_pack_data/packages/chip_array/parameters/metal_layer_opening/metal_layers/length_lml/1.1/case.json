@@ -1,0 +1,27 @@
+{
+  "template": "chip_array",
+  "id": "packages/chip_array/parameters/metal_layer_opening/metal_layers/length_lml/1.1",
+  "origin": "resweep",
+  "commands": [
+    "<new_package package_type=\"chip_array\">\n        <new_value new_value=\"Chip Array\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"ChipArray_24_4X4mm_0_8\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n    </new_package>",
+    "<modify_component name=\"metalLayers\" new_value=\"1\" property_name=\"widthWml\" />",
+    "<modify_component name=\"metalLayers\" new_value=\"1.1\" property_name=\"lengthLml\" />"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "numeric_parameter",
+    "target": {
+      "component": "metalLayers",
+      "property": "lengthLml",
+      "label": "Top Metal Layer Hole Length Lml",
+      "baseline": 1,
+      "value": 1.1,
+      "unit": "mm"
+    },
+    "comparison_baseline": "packages/chip_array/baselines/metal_layer_opening",
+    "expected_outcome": "semantic_change",
+    "expected_des": {
+      "Lml": "1.1"
+    }
+  }
+}

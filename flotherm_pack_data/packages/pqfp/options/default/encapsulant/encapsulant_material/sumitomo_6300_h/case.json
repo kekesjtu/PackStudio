@@ -1,0 +1,24 @@
+{
+  "template": "pqfp",
+  "id": "packages/pqfp/options/default/encapsulant/encapsulant_material/sumitomo_6300_h",
+  "origin": "resweep",
+  "commands": [
+    "<new_package package_type=\"pqfp\">\n        <new_value new_value=\"PQFP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"lqfp\" property_name=\"pqfpPackageType\" />\n        <new_value new_value=\"LQFP_32_7X7mm\" property_name=\"lqfpJedecFootprint\" />\n    </new_package>",
+    "<modify_component name=\"encapsulant\" new_value=\"Sumitomo-6300H\" property_name=\"encapsulantMaterial\" />"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "material_option",
+    "target": {
+      "component": "encapsulant",
+      "property": "encapsulantMaterial",
+      "baseline": "Epoxy Overmold (Typical)",
+      "value": "Sumitomo-6300H"
+    },
+    "comparison_baseline": "packages/pqfp/baselines/default",
+    "des_key": "k_encap",
+    "expected_des": {
+      "k_encap": "Sumitomo-6300H"
+    }
+  }
+}

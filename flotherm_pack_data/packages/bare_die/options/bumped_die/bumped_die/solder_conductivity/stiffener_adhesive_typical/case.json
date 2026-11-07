@@ -1,0 +1,30 @@
+{
+  "template": "bare_die",
+  "id": "packages/bare_die/options/bumped_die/bumped_die/solder_conductivity/stiffener_adhesive_typical",
+  "origin": "resweep",
+  "commands": [
+    "<new_package package_type=\"Die\"><new_value new_value=\"bare_die\" property_name=\"designName\" /></new_package>",
+    "<modify_component name=\"die\" new_value=\"true\" property_name=\"flippedDie\" />",
+    "<modify_component name=\"bumpedDie\" new_value=\"true\" property_name=\"bumpedDie\" />",
+    "<modify_component name=\"bumpedDie\" new_value=\"100\" property_name=\"numberOfSolderBalls\" />",
+    "<modify_component name=\"bumpedDie\" new_value=\"0.12\" property_name=\"ballDiameterb\" />",
+    "<modify_component name=\"bumpedDie\" new_value=\"0.1\" property_name=\"ballHeight\" />",
+    "<modify_component name=\"bumpedDie\" new_value=\"Stiffener Adhesive (Typical)\" property_name=\"solderConductivity\" />",
+    "<modify_component name=\"bumpedDie\" new_value=\"Flip-Chip Underfill (Typical)\" property_name=\"underfillConductivity\" />"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "material_option",
+    "target": {
+      "component": "bumpedDie",
+      "property": "solderConductivity",
+      "baseline": "Solder (Pb90/Sn10)",
+      "value": "Stiffener Adhesive (Typical)"
+    },
+    "comparison_baseline": "packages/bare_die/baselines/bumped_die",
+    "des_key": "k_solder",
+    "expected_des": {
+      "k_solder": "Stiffener Adhesive (Typical)"
+    }
+  }
+}

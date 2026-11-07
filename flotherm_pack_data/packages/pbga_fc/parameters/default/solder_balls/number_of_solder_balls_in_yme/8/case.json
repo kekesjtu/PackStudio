@@ -1,0 +1,26 @@
+{
+  "template": "pbga_fc",
+  "id": "packages/pbga_fc/parameters/default/solder_balls/number_of_solder_balls_in_yme/8",
+  "origin": "resweep",
+  "commands": [
+    "<new_package package_type=\"pbga_fc\">\n        <new_value new_value=\"Flip Chip PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+    "<modify_component name=\"solderBalls\" new_value=\"8\" property_name=\"numberOfSolderBallsInYME\" />"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "numeric_parameter",
+    "target": {
+      "component": "solderBalls",
+      "property": "numberOfSolderBallsInYME",
+      "label": "Number in Y ME",
+      "baseline": 7,
+      "value": 8,
+      "unit": "count"
+    },
+    "comparison_baseline": "packages/pbga_fc/baselines/default",
+    "expected_outcome": "semantic_change",
+    "expected_des": {
+      "ME": "8"
+    }
+  }
+}

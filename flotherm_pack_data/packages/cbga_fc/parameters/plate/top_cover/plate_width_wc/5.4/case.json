@@ -1,0 +1,27 @@
+{
+  "template": "cbga_fc",
+  "id": "packages/cbga_fc/parameters/plate/top_cover/plate_width_wc/5.4",
+  "origin": "resweep",
+  "commands": [
+    "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+    "<modify_component name=\"topCover\" new_value=\"plate\" property_name=\"topCover\" />",
+    "<modify_component name=\"topCover\" new_value=\"5.4\" property_name=\"plateWidthWc\" />"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "numeric_parameter",
+    "target": {
+      "component": "topCover",
+      "property": "plateWidthWc",
+      "label": "Plate Width Wc",
+      "baseline": 6,
+      "value": 5.4,
+      "unit": "mm"
+    },
+    "comparison_baseline": "packages/cbga_fc/baselines/plate",
+    "expected_outcome": "semantic_change",
+    "expected_des": {
+      "Wc": "5.4"
+    }
+  }
+}

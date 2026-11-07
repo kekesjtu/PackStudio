@@ -1,0 +1,23 @@
+{
+  "template": "cbga_fc",
+  "id": "packages/cbga_fc/options/plate_with_adhesive/top_cover/plate_adhesive_material/silver_pure",
+  "origin": "resweep",
+  "commands": [
+    "<load_des filename=\"input.des\" />"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "material_option",
+    "des_key": "k_adhessive",
+    "comparison_baseline": "packages/cbga_fc/baselines/plate_with_adhesive",
+    "target": {
+      "component": "topCover",
+      "property": "plateAdhesiveMaterial",
+      "baseline": "QMI 595",
+      "value": "Silver (Pure)"
+    },
+    "expected_des": {
+      "k_adhessive": "Silver (Pure)"
+    }
+  }
+}

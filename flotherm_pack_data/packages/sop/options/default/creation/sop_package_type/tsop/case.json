@@ -1,0 +1,21 @@
+{
+  "template": "sop",
+  "id": "packages/sop/options/default/creation/sop_package_type/tsop",
+  "origin": "resweep",
+  "commands": [
+    "<new_package package_type=\"tsop_conv\">\n        <new_value new_value=\"SOP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"tsop\" property_name=\"sopPackageType\" />\n        <new_value new_value=\"TSOP_20_7_6x17_1\" property_name=\"tsopJedecFootprint\" />\n    </new_package>"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "enum_option",
+    "target": {
+      "component": "new_package",
+      "property": "sopPackageType",
+      "label": "SOP Package Type",
+      "baseline": "soic/sop/so",
+      "value": "tsop"
+    },
+    "comparison_baseline": "packages/sop/baselines/default",
+    "expected_outcome": "semantic_change"
+  }
+}

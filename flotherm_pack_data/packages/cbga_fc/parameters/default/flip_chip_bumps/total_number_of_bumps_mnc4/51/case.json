@@ -1,0 +1,25 @@
+{
+  "template": "cbga_fc",
+  "id": "packages/cbga_fc/parameters/default/flip_chip_bumps/total_number_of_bumps_mnc4/51",
+  "origin": "resweep",
+  "commands": [
+    "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+    "<modify_component name=\"flipChipBumps\" new_value=\"51\" property_name=\"totalNumberOfBumpsMNC4\" />"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "numeric_parameter",
+    "target": {
+      "component": "flipChipBumps",
+      "property": "totalNumberOfBumpsMNC4",
+      "label": "Total Number of Bumps MNC4",
+      "baseline": 49,
+      "value": 51,
+      "unit": "count"
+    },
+    "comparison_baseline": "packages/cbga_fc/baselines/default",
+    "expected_des": {
+      "MNC4": "51"
+    }
+  }
+}

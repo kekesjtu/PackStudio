@@ -1,0 +1,35 @@
+{
+  "template": "cbga_fc",
+  "id": "packages/cbga_fc/options/encapsulant_with_slug/drop_in_slug/slug_material/flip_chip_cap_grease_typical",
+  "origin": "resweep",
+  "commands": [
+    "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+    "<modify_component name=\"topCover\" new_value=\"encapsulant\" property_name=\"topCover\" />",
+    "<modify_component name=\"dropInSlug\" new_value=\"true\" property_name=\"includeSlug\" />",
+    "<modify_component name=\"dropInSlug\" new_value=\"4\" property_name=\"slugLengthLsl\" />",
+    "<modify_component name=\"dropInSlug\" new_value=\"4\" property_name=\"slugWidthWsl\" />",
+    "<modify_component name=\"dropInSlug\" new_value=\"0.4\" property_name=\"slugThicknessTsl\" />",
+    "<modify_component name=\"dropInSlug\" new_value=\"2\" property_name=\"slugDiameterDs\" />",
+    "<modify_component name=\"dropInSlug\" new_value=\"4.5\" property_name=\"slugFootExtendLengthLsf\" />",
+    "<modify_component name=\"dropInSlug\" new_value=\"4.5\" property_name=\"slugFootExtendWidthWsf\" />",
+    "<modify_component name=\"dropInSlug\" new_value=\"0.1\" property_name=\"slugOffsetGs\" />",
+    "<modify_component name=\"dropInSlug\" new_value=\"0.1\" property_name=\"slugFootClearanceGsf\" />",
+    "<modify_component name=\"dropInSlug\" new_value=\"false\" property_name=\"adhesivePresentUnderSlugFoot\" />",
+    "<modify_component name=\"dropInSlug\" new_value=\"Flip-Chip Cap Grease (Typical)\" property_name=\"slugMaterial\" />"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "material_option",
+    "target": {
+      "component": "dropInSlug",
+      "property": "slugMaterial",
+      "baseline": "",
+      "value": "Flip-Chip Cap Grease (Typical)"
+    },
+    "comparison_baseline": "packages/cbga_fc/baselines/encapsulant_with_slug",
+    "des_key": "k_sl",
+    "expected_des": {
+      "k_sl": "Flip-Chip Cap Grease (Typical)"
+    }
+  }
+}

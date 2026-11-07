@@ -1,0 +1,25 @@
+{
+  "template": "pqfp",
+  "id": "packages/pqfp/parameters/default/encapsulant/thickness_a2/1.47",
+  "origin": "resweep",
+  "commands": [
+    "<new_package package_type=\"pqfp\">\n        <new_value new_value=\"PQFP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"lqfp\" property_name=\"pqfpPackageType\" />\n        <new_value new_value=\"LQFP_32_7X7mm\" property_name=\"lqfpJedecFootprint\" />\n    </new_package>",
+    "<modify_component name=\"encapsulant\" new_value=\"1.47\" property_name=\"thicknessA2\" />"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "numeric_parameter",
+    "target": {
+      "component": "encapsulant",
+      "property": "thicknessA2",
+      "label": "Thickness A2",
+      "baseline": 1.4,
+      "value": 1.47,
+      "unit": "mm"
+    },
+    "comparison_baseline": "packages/pqfp/baselines/default",
+    "expected_des": {
+      "A2": "1.47"
+    }
+  }
+}

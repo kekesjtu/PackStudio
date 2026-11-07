@@ -1,0 +1,26 @@
+{
+  "template": "cbga_fc",
+  "id": "packages/cbga_fc/parameters/default/solder_balls/ball_diameter_b/0.45",
+  "origin": "resweep",
+  "commands": [
+    "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+    "<modify_component name=\"solderBalls\" new_value=\"0.45\" property_name=\"ballDiameterB\" />"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "numeric_parameter",
+    "target": {
+      "component": "solderBalls",
+      "property": "ballDiameterB",
+      "label": "Ball Diameter",
+      "baseline": 0.5,
+      "value": 0.45,
+      "unit": "mm"
+    },
+    "comparison_baseline": "packages/cbga_fc/baselines/default",
+    "expected_outcome": "semantic_change",
+    "expected_des": {
+      "b": "0.45"
+    }
+  }
+}

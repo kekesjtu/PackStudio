@@ -1,0 +1,24 @@
+{
+  "template": "qfn",
+  "id": "packages/qfn/parameters/default/summary/max_operating_junction_temperature/125",
+  "origin": "resweep",
+  "commands": [
+    "<new_package package_type=\"QFN\">\n        <new_value new_value=\"QFN\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"QFN_12X12_100\" property_name=\"jedecFootprint\" />\n    </new_package>",
+    "<modify_component name=\"summary\" new_value=\"125\" property_name=\"maxOperatingJunctionTemperature\" />"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "numeric_parameter",
+    "target": {
+      "component": "summary",
+      "property": "maxOperatingJunctionTemperature",
+      "baseline": null,
+      "value": 125,
+      "unit": "degC"
+    },
+    "comparison_baseline": "packages/qfn/baselines/default",
+    "expected_des": {
+      "SummaryMaxOperatingJuncTemp": "125"
+    }
+  }
+}

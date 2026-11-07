@@ -1,0 +1,21 @@
+{
+  "template": "chip_array",
+  "id": "packages/chip_array/options/default/modeling_options/bond_wire_modeling/include",
+  "origin": "resweep",
+  "commands": [
+    "<new_package package_type=\"chip_array\">\n        <new_value new_value=\"Chip Array\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"ChipArray_24_4X4mm_0_8\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n    </new_package>",
+    "<modify_component name=\"modelingOptions\" new_value=\"include\" property_name=\"bondWireModeling\" />"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "enum_option",
+    "target": {
+      "component": "modelingOptions",
+      "property": "bondWireModeling",
+      "label": "Bond Wire Modeling",
+      "baseline": "include",
+      "value": "include"
+    },
+    "comparison_baseline": "packages/chip_array/baselines/default"
+  }
+}

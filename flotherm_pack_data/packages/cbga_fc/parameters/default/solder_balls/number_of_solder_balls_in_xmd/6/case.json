@@ -1,0 +1,26 @@
+{
+  "template": "cbga_fc",
+  "id": "packages/cbga_fc/parameters/default/solder_balls/number_of_solder_balls_in_xmd/6",
+  "origin": "resweep",
+  "commands": [
+    "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+    "<modify_component name=\"solderBalls\" new_value=\"6\" property_name=\"numberOfSolderBallsInXMD\" />"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "numeric_parameter",
+    "target": {
+      "component": "solderBalls",
+      "property": "numberOfSolderBallsInXMD",
+      "label": "Number in X MD",
+      "baseline": 7,
+      "value": 6,
+      "unit": "count"
+    },
+    "comparison_baseline": "packages/cbga_fc/baselines/default",
+    "expected_outcome": "semantic_change",
+    "expected_des": {
+      "MD": "6"
+    }
+  }
+}

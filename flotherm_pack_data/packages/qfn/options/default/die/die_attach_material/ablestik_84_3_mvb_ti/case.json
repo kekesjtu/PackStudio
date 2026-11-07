@@ -1,0 +1,24 @@
+{
+  "template": "qfn",
+  "id": "packages/qfn/options/default/die/die_attach_material/ablestik_84_3_mvb_ti",
+  "origin": "resweep",
+  "commands": [
+    "<new_package package_type=\"QFN\">\n        <new_value new_value=\"QFN\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"QFN_12X12_100\" property_name=\"jedecFootprint\" />\n    </new_package>",
+    "<modify_component name=\"die\" new_value=\"Ablestik 84-3-MVB-TI\" property_name=\"dieAttachMaterial\" />"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "material_option",
+    "target": {
+      "component": "die",
+      "property": "dieAttachMaterial",
+      "baseline": "DieAttach-2600BT",
+      "value": "Ablestik 84-3-MVB-TI"
+    },
+    "comparison_baseline": "packages/qfn/baselines/default",
+    "des_key": "k_da",
+    "expected_des": {
+      "k_da": "Ablestik 84-3-MVB-TI"
+    }
+  }
+}

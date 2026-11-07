@@ -1,0 +1,27 @@
+{
+  "template": "sop",
+  "id": "packages/sop/options/thermal_land_materials/thermal_land_and_solder/land_material/silicone_no_filler",
+  "origin": "resweep",
+  "commands": [
+    "<new_package package_type=\"tsop_conv\">\n        <new_value new_value=\"SOP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"soic/sop/so\" property_name=\"sopPackageType\" />\n        <new_value new_value=\"SOP_8_3_81x4_93\" property_name=\"sopJedecFootprint\" />\n    </new_package>",
+    "<modify_component name=\"thermalLandAndSolder\" new_value=\"true\" property_name=\"includeThermalLandAndSolder\" />",
+    "<modify_component name=\"thermalLandAndSolder\" new_value=\"0.05\" property_name=\"landThickness\" />",
+    "<modify_component name=\"thermalLandAndSolder\" new_value=\"Silicone (No Filler)\" property_name=\"landMaterial\" />",
+    "<modify_component name=\"thermalLandAndSolder\" new_value=\"Solder (Sn63/Pb37)\" property_name=\"solderMaterial\" />"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "material_option",
+    "target": {
+      "component": "thermalLandAndSolder",
+      "property": "landMaterial",
+      "baseline": "Copper (Pure)",
+      "value": "Silicone (No Filler)"
+    },
+    "comparison_baseline": "packages/sop/baselines/thermal_land_materials",
+    "des_key": "k_land",
+    "expected_des": {
+      "k_land": "Silicone (No Filler)"
+    }
+  }
+}

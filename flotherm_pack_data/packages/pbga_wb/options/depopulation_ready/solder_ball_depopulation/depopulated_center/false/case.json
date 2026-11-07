@@ -1,0 +1,23 @@
+{
+  "template": "pbga_wb",
+  "id": "packages/pbga_wb/options/depopulation_ready/solder_ball_depopulation/depopulated_center/false",
+  "origin": "resweep",
+  "commands": [
+    "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>",
+    "<modify_component name=\"solderBallDepopulation\" new_value=\"2\" property_name=\"numberFullyPopulatedRowsMDp\" />",
+    "<modify_component name=\"solderBallDepopulation\" new_value=\"2\" property_name=\"numberFullyPopulatedRowsMEp\" />",
+    "<modify_component name=\"solderBallDepopulation\" new_value=\"false\" property_name=\"depopulatedCenter\" />"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "boolean_option",
+    "target": {
+      "component": "solderBallDepopulation",
+      "property": "depopulatedCenter",
+      "label": "Depopulated Center",
+      "baseline": false,
+      "value": false
+    },
+    "comparison_baseline": "packages/pbga_wb/baselines/depopulation_ready"
+  }
+}

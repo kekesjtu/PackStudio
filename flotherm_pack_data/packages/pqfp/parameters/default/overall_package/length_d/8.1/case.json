@@ -1,0 +1,26 @@
+{
+  "template": "pqfp",
+  "id": "packages/pqfp/parameters/default/overall_package/length_d/8.1",
+  "origin": "resweep",
+  "commands": [
+    "<new_package package_type=\"pqfp\">\n        <new_value new_value=\"PQFP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"lqfp\" property_name=\"pqfpPackageType\" />\n        <new_value new_value=\"LQFP_32_7X7mm\" property_name=\"lqfpJedecFootprint\" />\n    </new_package>",
+    "<modify_component name=\"overallPackage\" new_value=\"8.1\" property_name=\"lengthD\" />"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "numeric_parameter",
+    "target": {
+      "component": "overallPackage",
+      "property": "lengthD",
+      "label": "Length D",
+      "baseline": 9,
+      "value": 8.1,
+      "unit": "mm"
+    },
+    "comparison_baseline": "packages/pqfp/baselines/default",
+    "expected_outcome": "semantic_change",
+    "expected_des": {
+      "D": "8.1"
+    }
+  }
+}

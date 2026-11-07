@@ -1,0 +1,25 @@
+{
+  "template": "qfn",
+  "id": "packages/qfn/parameters/default/die/die_attach_thickness_tda/0.02625",
+  "origin": "resweep",
+  "commands": [
+    "<new_package package_type=\"QFN\">\n        <new_value new_value=\"QFN\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"QFN_12X12_100\" property_name=\"jedecFootprint\" />\n    </new_package>",
+    "<modify_component name=\"die\" new_value=\"0.02625\" property_name=\"dieAttachThicknessTda\" />"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "numeric_parameter",
+    "target": {
+      "component": "die",
+      "property": "dieAttachThicknessTda",
+      "label": "Die Attach Thickness tda",
+      "baseline": 0.025,
+      "value": 0.02625,
+      "unit": "mm"
+    },
+    "comparison_baseline": "packages/qfn/baselines/default",
+    "expected_des": {
+      "tda": "0.02625"
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "template": "pqfp",
+  "id": "packages/pqfp/options/default/bond_wires/material/sumitomo_eme6710",
+  "origin": "resweep",
+  "commands": [
+    "<new_package package_type=\"pqfp\">\n        <new_value new_value=\"PQFP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"lqfp\" property_name=\"pqfpPackageType\" />\n        <new_value new_value=\"LQFP_32_7X7mm\" property_name=\"lqfpJedecFootprint\" />\n    </new_package>",
+    "<modify_component name=\"bondWires\" new_value=\"Sumitomo-EME6710\" property_name=\"material\" />"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "material_option",
+    "target": {
+      "component": "bondWires",
+      "property": "material",
+      "baseline": "Gold (Pure)",
+      "value": "Sumitomo-EME6710"
+    },
+    "comparison_baseline": "packages/pqfp/baselines/default",
+    "des_key": "k_bw",
+    "expected_des": {
+      "k_bw": "Sumitomo-EME6710"
+    }
+  }
+}

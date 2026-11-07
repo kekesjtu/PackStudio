@@ -1,0 +1,21 @@
+{
+  "template": "bare_die",
+  "id": "packages/bare_die/options/default/die/die_material/si",
+  "origin": "resweep",
+  "commands": [
+    "<new_package package_type=\"Die\">\n        <new_value new_value=\"Die\" property_name=\"designName\" />\n    </new_package>",
+    "<modify_component name=\"die\" new_value=\"Si\" property_name=\"dieMaterial\" />"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "enum_option",
+    "target": {
+      "component": "die",
+      "property": "dieMaterial",
+      "baseline": "Si",
+      "value": "Si"
+    },
+    "comparison_baseline": "packages/bare_die/baselines/default",
+    "des_key": "radio_die"
+  }
+}

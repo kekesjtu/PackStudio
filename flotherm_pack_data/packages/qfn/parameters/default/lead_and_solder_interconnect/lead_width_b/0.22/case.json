@@ -1,0 +1,26 @@
+{
+  "template": "qfn",
+  "id": "packages/qfn/parameters/default/lead_and_solder_interconnect/lead_width_b/0.22",
+  "origin": "resweep",
+  "commands": [
+    "<new_package package_type=\"QFN\">\n        <new_value new_value=\"QFN\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"QFN_12X12_100\" property_name=\"jedecFootprint\" />\n    </new_package>",
+    "<modify_component name=\"leadAndSolderInterconnect\" new_value=\"0.22\" property_name=\"leadWidthB\" />"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "numeric_parameter",
+    "target": {
+      "component": "leadAndSolderInterconnect",
+      "property": "leadWidthB",
+      "label": "Lead Width b",
+      "baseline": 0.2,
+      "value": 0.22,
+      "unit": "mm"
+    },
+    "comparison_baseline": "packages/qfn/baselines/default",
+    "expected_outcome": "semantic_change",
+    "expected_des": {
+      "wf": "0.22"
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "template": "qfn",
+  "id": "packages/qfn/parameters/vias_vias_length_lv/vias/number_of_vias_in_xvd/6",
+  "origin": "resweep",
+  "commands": [
+    "<new_package package_type=\"QFN\">\n        <new_value new_value=\"QFN\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"QFN_12X12_100\" property_name=\"jedecFootprint\" />\n    </new_package>",
+    "<modify_component name=\"vias\" new_value=\"discrete\" property_name=\"modelViasAs\" />",
+    "<modify_component name=\"vias\" new_value=\"0.85\" property_name=\"viasLengthLv\" />",
+    "<modify_component name=\"vias\" new_value=\"0.2\" property_name=\"viasDiameterDv\" />",
+    "<modify_component name=\"vias\" new_value=\"0.02\" property_name=\"platingThicknessTpl\" />",
+    "<modify_component name=\"vias\" new_value=\"0.5\" property_name=\"viasPitchEv\" />",
+    "<modify_component name=\"vias\" new_value=\"5\" property_name=\"numberOfViasInYVE\" />",
+    "<modify_component name=\"vias\" new_value=\"6\" property_name=\"numberOfViasInXVD\" />"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "numeric_parameter",
+    "target": {
+      "component": "vias",
+      "property": "numberOfViasInXVD",
+      "label": "Number of Vias in X VD",
+      "baseline": 5,
+      "value": 6,
+      "unit": "count"
+    },
+    "comparison_baseline": "packages/qfn/baselines/vias_vias_length_lv",
+    "expected_outcome": "semantic_change",
+    "expected_des": {
+      "VD": "6"
+    }
+  }
+}

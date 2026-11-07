@@ -1,0 +1,24 @@
+{
+  "template": "cbga_fc",
+  "id": "packages/cbga_fc/options/default/solder_balls/solder_material/sumitomo_eme7351_ls",
+  "origin": "resweep",
+  "commands": [
+    "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+    "<modify_component name=\"solderBalls\" new_value=\"Sumitomo-EME7351LS\" property_name=\"solderMaterial\" />"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "material_option",
+    "target": {
+      "component": "solderBalls",
+      "property": "solderMaterial",
+      "baseline": "Solder (Sn63/Pb37)",
+      "value": "Sumitomo-EME7351LS"
+    },
+    "comparison_baseline": "packages/cbga_fc/baselines/default",
+    "des_key": "k_solder",
+    "expected_des": {
+      "k_solder": "Sumitomo-EME7351LS"
+    }
+  }
+}

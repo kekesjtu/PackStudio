@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='utf-8'?>
+<flopack_xml_log_file version="1.0">
+    <new_package package_type="tsop_conv">
+        <new_value new_value="SOP" property_name="designName" />
+        <new_value new_value="standardOutline" property_name="outlineType" />
+        <new_value new_value="actualDie" property_name="dieType" />
+        <new_value new_value="false" property_name="exposedPad" />
+        <new_value new_value="soic/sop/so" property_name="sopPackageType" />
+        <new_value new_value="SOP_8_3_81x4_93" property_name="sopJedecFootprint" />
+    </new_package>
+    <modify_component name="bondWires" new_value="Cu-EFTEC-3" property_name="material" />
+    <save_des filename="model.des" />
+    <export_floxml filename="model.xml" />
+    <quit />
+</flopack_xml_log_file>

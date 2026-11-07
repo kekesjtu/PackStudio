@@ -1,0 +1,25 @@
+{
+  "template": "sop",
+  "id": "packages/sop/parameters/default/overall_package/width_e/6.3",
+  "origin": "resweep",
+  "commands": [
+    "<new_package package_type=\"tsop_conv\">\n        <new_value new_value=\"SOP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"soic/sop/so\" property_name=\"sopPackageType\" />\n        <new_value new_value=\"SOP_8_3_81x4_93\" property_name=\"sopJedecFootprint\" />\n    </new_package>",
+    "<modify_component name=\"overallPackage\" new_value=\"6.3\" property_name=\"widthE\" />"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "numeric_parameter",
+    "target": {
+      "component": "overallPackage",
+      "property": "widthE",
+      "label": "Width E",
+      "baseline": 6,
+      "value": 6.3,
+      "unit": "mm"
+    },
+    "comparison_baseline": "packages/sop/baselines/default",
+    "expected_des": {
+      "E": "6.3"
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "template": "cbga_fc",
+  "id": "packages/cbga_fc/parameters/regular_bumps/flip_chip_bumps/number_of_bumps_in_xmdc4/7",
+  "origin": "resweep",
+  "commands": [
+    "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+    "<modify_component name=\"flipChipBumps\" new_value=\"regularArray\" property_name=\"arrayType\" />",
+    "<modify_component name=\"flipChipBumps\" new_value=\"6\" property_name=\"numberOfBumpsInYMEC4\" />",
+    "<modify_component name=\"flipChipBumps\" new_value=\"7\" property_name=\"numberOfBumpsInXMDC4\" />"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "numeric_parameter",
+    "target": {
+      "component": "flipChipBumps",
+      "property": "numberOfBumpsInXMDC4",
+      "label": "Number of Bumps in X MDC4",
+      "baseline": 6,
+      "value": 7,
+      "unit": "count"
+    },
+    "comparison_baseline": "packages/cbga_fc/baselines/regular_bumps",
+    "expected_outcome": "semantic_change",
+    "expected_des": {
+      "MDC4": "7"
+    }
+  }
+}

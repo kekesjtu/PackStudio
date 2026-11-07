@@ -1,91 +1,108 @@
-"""Batch native replay, resumable validation and verified reference publication."""
+"""Replay the indexed native inputs and publish the verified package library."""
 
 import json
 import shutil
-from pathlib import Path
 from xml.etree import ElementTree as ET
 
 from tools.floscript.runner import replay
-from tools.pack_sweep.artifacts import dump, write_indexes, write_point
-from tools.pack_sweep.cases.attachments import cases as attachment_cases
-from tools.pack_sweep.cases.metal_depth import cases as metal_cases
-from tools.pack_sweep.catalog import Point, initial_points
+from tools.pack_sweep.artifacts import dump, point_payload, write_indexes, write_point
+from tools.pack_sweep.catalog import Point
 from tools.pack_sweep.publish import publish
 from tools.pack_sweep.screenshots import preserve_screenshots
 from tools.pack_sweep.validate import validate_point, validate_tree
 
 
-def dependent_points(stage, work, templates):
-    baselines = work / "baselines"
-    baselines.mkdir(exist_ok=True)
-    attachment_families = {"chip_array", "cbga_fc", "pbga_fc"}
-    # The attachment factory also defines PBGA FC core via-list cases.
-    selected = attachment_families & templates
-    if selected:
-        for family in attachment_families:
-            source = stage / "template" / family / (family + "-baseline") / "model.des"
-            if family in selected:
-                shutil.copy2(source, baselines / (family + "-baseline.des"))
-        rows = attachment_cases(baselines, work / "attachment-inputs", families=selected)
-    else:
-        rows = []
-    if "pbga_wb" in templates:
-        rows += metal_cases(
-            stage / "template/pbga_wb/wb-four-layer/model.des", work / "metal-inputs"
-        )
-    return [
-        Point(
-            row["request"]["template_id"],
-            row["id"],
-            row["commands"],
-            row["request"],
-            input_des=Path(ET.fromstring(row["commands"][0]).get("filename")),
-        )
-        for row in rows
-    ]
+def indexed_samples(source, packages):
+    index = json.loads((source / "index.json").read_text(encoding="utf-8"))
+    families = set(index["packages"])
+    if packages:
+        if set(packages) - families:
+            raise ValueError("unknown package selection")
+        families = set(packages)
+    samples = []
+    for relative in index["points"]:
+        parts = relative.split("/")
+        if (
+            len(parts) < 4 or parts[0] != "packages" or parts[1] not in index["packages"]
+            or any(part in {"", ".", ".."} for part in parts)
+        ):
+            raise ValueError(f"invalid sample path: {relative}")
+        if parts[1] not in families:
+            continue
+        directory = (source / relative).resolve()
+        if not directory.is_relative_to(source / "packages" / parts[1]):
+            raise ValueError(f"sample path escapes package: {relative}")
+        case = json.loads((directory / "case.json").read_text(encoding="utf-8"))
+        if case["id"] != relative or case["template"] != parts[1]:
+            raise ValueError(f"indexed sample identity differs: {relative}")
+        commands = []
+        input_des = None
+        for command in case["commands"]:
+            node = ET.fromstring(command)
+            if node.tag == "load_des":
+                if node.get("filename") != "input.des":
+                    raise ValueError(f"DES input must be local to its sample: {relative}")
+                input_des = (directory / "input.des").resolve(strict=True)
+                if input_des.parent != directory:
+                    raise ValueError(f"DES input escapes sample: {relative}")
+                node.set("filename", str(input_des))
+            commands.append(ET.tostring(node, encoding="unicode"))
+        samples.append((relative, Point(
+            case["template"], "native", commands, case["request"], case["origin"],
+            case["metadata"], input_des,
+        )))
+    if not samples or len({relative for relative, _ in samples}) != len(samples):
+        raise ValueError("expected a nonempty index with unique sample paths")
+    return samples, families
 
 
-def reusable(point, directory, installation):
+def reusable(relative, point, directory, installation):
     if not directory.exists():
         return False
     existing = json.loads((directory / "case.json").read_text(encoding="utf-8"))
-    if (existing["template"], existing["id"]) != (point.template, point.id):
-        raise ValueError(f"staged point identity differs: {point.key}")
+    if existing != point_payload(point, relative):
+        raise ValueError(f"staged sample input differs: {relative}")
     report = validate_point(directory, installation)
     dump(directory / "verification.json", report)
     return True
 
 
-def execute_points(points, stage, work, installation, batch_size, timeout):
-    pending = [p for p in points if not reusable(p, stage / "template" / p.key, installation)]
+def execute_points(samples, stage, work, installation, batch_size, timeout):
+    pending = [
+        (relative, point) for relative, point in samples
+        if not reusable(relative, point, stage / relative, installation)
+    ]
     runs = work / "runs"
     runs.mkdir(exist_ok=True)
     for start in range(0, len(pending), batch_size):
         batch = pending[start : start + batch_size]
         number = len(list(runs.iterdir())) + 1
         runtime = runs / f"batch-{number:04d}"
-        cases = [{"id": f"p{i:06d}", "commands": p.commands} for i, p in enumerate(batch)]
+        cases = [
+            {"id": f"p{i:06d}", "commands": point.commands}
+            for i, (_, point) in enumerate(batch)
+        ]
         print(f"Native batch {number}: {len(batch)} points ({start}/{len(pending)})", flush=True)
         run = replay(installation, cases, runtime, timeout=timeout)
         if run["status"] != "success":
             raise RuntimeError(f"native batch failed: {runtime}: {run['errors']}")
-        for point, case in zip(batch, cases, strict=True):
-            destination = stage / "template" / point.key
-            write_point(point, destination, runtime, case["id"], run, installation)
-            try:
-                report = validate_point(destination, installation)
-            except Exception as error:
-                raise ValueError(f"validation failed: {point.key}: {error}") from error
+        for (relative, point), case in zip(batch, cases, strict=True):
+            destination = stage / relative
+            write_point(
+                point, destination, runtime, case["id"], run, installation, sample_id=relative,
+            )
+            report = validate_point(destination, installation)
             dump(destination / "verification.json", report)
         print(f"Validated {start + len(batch)}/{len(pending)} pending points", flush=True)
 
 
-def rebuild(output, work, installation, templates=None, batch_size=64, timeout=180):
+def rebuild(source, output, work, installation, packages=None, batch_size=64, timeout=180):
     if batch_size < 1:
         raise ValueError("batch size must be positive")
-    output, work = output.resolve(), work.resolve()
+    source, output, work = source.resolve(), output.resolve(), work.resolve()
     if output.is_relative_to(work) or work.is_relative_to(output):
         raise ValueError("output and work directories must be separate")
+    samples, families = indexed_samples(source, packages)
     work.mkdir(parents=True, exist_ok=True)
     if (work / "previous-data").exists():
         raise FileExistsError("publication completed; use a new work directory")
@@ -93,38 +110,26 @@ def rebuild(output, work, installation, templates=None, batch_size=64, timeout=1
     if stage.is_symlink() or stage.is_junction():
         raise ValueError("staging directory cannot redirect to another directory")
     stage.mkdir(exist_ok=True)
-    points = initial_points()
-    families = {p.template for p in points}
-    if templates:
-        if set(templates) - families:
-            raise ValueError("unknown template selection")
-        points = [p for p in points if p.template in templates]
-        families = set(templates)
     configuration = {
-        "output": str(output),
-        "installation": str(installation),
-        "templates": sorted(families),
+        "source": str(source), "output": str(output),
+        "installation": str(installation), "packages": sorted(families),
     }
     state = work / "rebuild.json"
     if state.exists() and json.loads(state.read_text(encoding="utf-8")) != configuration:
         raise ValueError("rebuild configuration changed; use a new work directory")
     dump(state, configuration)
-    execute_points(points, stage, work, installation, batch_size, timeout)
-    extra = dependent_points(stage, work, families)
-    if len({p.key for p in points + extra}) != len(points + extra):
-        raise ValueError("duplicate dependent point")
-    execute_points(extra, stage, work, installation, batch_size, timeout)
-    points += extra
-    screenshots = preserve_screenshots(output, stage, families)
+    execute_points(samples, stage, work, installation, batch_size, timeout)
+    screenshots = preserve_screenshots(source, stage, families)
     dump(stage / "screenshots.json", screenshots)
-    write_indexes(stage, points)
+    shutil.copy2(source / "README.md", stage / "README.md")
+    write_indexes(stage, samples)
     report = validate_tree(stage, installation)
     dump(stage / "verification.json", report)
+    if report["status"] != "passed":
+        raise ValueError(f"parameter coverage is incomplete: {stage / 'verification.json'}")
     backup = publish(stage, output, work)
     return {
-        "status": report["status"],
-        "point_count": len(points),
-        "screenshots": len(screenshots),
-        "output": str(output),
+        "status": report["status"], "point_count": len(samples),
+        "screenshots": len(screenshots), "output": str(output),
         "backup": str(backup) if backup else None,
     }

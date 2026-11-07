@@ -1,0 +1,21 @@
+{
+  "template": "pqfp",
+  "id": "packages/pqfp/options/default/creation/pqfp_package_type/tqfp",
+  "origin": "resweep",
+  "commands": [
+    "<new_package package_type=\"pqfp\">\n        <new_value new_value=\"PQFP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"tqfp\" property_name=\"pqfpPackageType\" />\n        <new_value new_value=\"TQFP_32_7X7mm\" property_name=\"tqfpJedecFootprint\" />\n    </new_package>"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "enum_option",
+    "target": {
+      "component": "new_package",
+      "property": "pqfpPackageType",
+      "label": "PQFP Package Type",
+      "baseline": "lqfp",
+      "value": "tqfp"
+    },
+    "comparison_baseline": "packages/pqfp/baselines/default",
+    "expected_outcome": "semantic_change"
+  }
+}

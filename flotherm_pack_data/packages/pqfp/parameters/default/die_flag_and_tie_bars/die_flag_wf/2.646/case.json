@@ -1,0 +1,26 @@
+{
+  "template": "pqfp",
+  "id": "packages/pqfp/parameters/default/die_flag_and_tie_bars/die_flag_wf/2.646",
+  "origin": "resweep",
+  "commands": [
+    "<new_package package_type=\"pqfp\">\n        <new_value new_value=\"PQFP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"lqfp\" property_name=\"pqfpPackageType\" />\n        <new_value new_value=\"LQFP_32_7X7mm\" property_name=\"lqfpJedecFootprint\" />\n    </new_package>",
+    "<modify_component name=\"dieFlagAndTieBars\" new_value=\"2.646\" property_name=\"dieFlagWf\" />"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "numeric_parameter",
+    "target": {
+      "component": "dieFlagAndTieBars",
+      "property": "dieFlagWf",
+      "label": "Die Flag Wf",
+      "baseline": 2.94,
+      "value": 2.646,
+      "unit": "mm"
+    },
+    "comparison_baseline": "packages/pqfp/baselines/default",
+    "expected_outcome": "semantic_change",
+    "expected_des": {
+      "Wf": "2.646"
+    }
+  }
+}

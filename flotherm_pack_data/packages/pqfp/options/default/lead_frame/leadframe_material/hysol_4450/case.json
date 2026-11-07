@@ -1,0 +1,24 @@
+{
+  "template": "pqfp",
+  "id": "packages/pqfp/options/default/lead_frame/leadframe_material/hysol_4450",
+  "origin": "resweep",
+  "commands": [
+    "<new_package package_type=\"pqfp\">\n        <new_value new_value=\"PQFP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"lqfp\" property_name=\"pqfpPackageType\" />\n        <new_value new_value=\"LQFP_32_7X7mm\" property_name=\"lqfpJedecFootprint\" />\n    </new_package>",
+    "<modify_component name=\"leadFrame\" new_value=\"Hysol 4450\" property_name=\"leadframeMaterial\" />"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "material_option",
+    "target": {
+      "component": "leadFrame",
+      "property": "leadframeMaterial",
+      "baseline": "Cu-EFTEC-64T",
+      "value": "Hysol 4450"
+    },
+    "comparison_baseline": "packages/pqfp/baselines/default",
+    "des_key": "k_metal",
+    "expected_des": {
+      "k_metal": "Hysol 4450"
+    }
+  }
+}

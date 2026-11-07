@@ -1,0 +1,25 @@
+{
+  "template": "qfn",
+  "id": "packages/qfn/parameters/default/lead_and_solder_interconnect/lead_etch/0.0525",
+  "origin": "resweep",
+  "commands": [
+    "<new_package package_type=\"QFN\">\n        <new_value new_value=\"QFN\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"QFN_12X12_100\" property_name=\"jedecFootprint\" />\n    </new_package>",
+    "<modify_component name=\"leadAndSolderInterconnect\" new_value=\"0.0525\" property_name=\"leadEtch\" />"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "numeric_parameter",
+    "target": {
+      "component": "leadAndSolderInterconnect",
+      "property": "leadEtch",
+      "label": "Lead Etch",
+      "baseline": 0.05,
+      "value": 0.0525,
+      "unit": "mm"
+    },
+    "comparison_baseline": "packages/qfn/baselines/default",
+    "expected_des": {
+      "ldent": "0.0525"
+    }
+  }
+}

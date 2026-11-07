@@ -1,0 +1,26 @@
+{
+  "template": "sop",
+  "id": "packages/sop/parameters/default/die_flag_and_tie_bars/die_flag_thickness_tf/0.22",
+  "origin": "resweep",
+  "commands": [
+    "<new_package package_type=\"tsop_conv\">\n        <new_value new_value=\"SOP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"soic/sop/so\" property_name=\"sopPackageType\" />\n        <new_value new_value=\"SOP_8_3_81x4_93\" property_name=\"sopJedecFootprint\" />\n    </new_package>",
+    "<modify_component name=\"dieFlagAndTieBars\" new_value=\"0.22\" property_name=\"dieFlagThicknessTf\" />"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "numeric_parameter",
+    "target": {
+      "component": "dieFlagAndTieBars",
+      "property": "dieFlagThicknessTf",
+      "label": "Die Flag Thickness tf",
+      "baseline": 0.2,
+      "value": 0.22,
+      "unit": "mm"
+    },
+    "comparison_baseline": "packages/sop/baselines/default",
+    "expected_outcome": "semantic_change",
+    "expected_des": {
+      "tf": "0.22"
+    }
+  }
+}

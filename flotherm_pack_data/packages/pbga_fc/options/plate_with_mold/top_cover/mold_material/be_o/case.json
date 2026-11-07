@@ -1,0 +1,23 @@
+{
+  "template": "pbga_fc",
+  "id": "packages/pbga_fc/options/plate_with_mold/top_cover/mold_material/be_o",
+  "origin": "resweep",
+  "commands": [
+    "<load_des filename=\"input.des\" />"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "material_option",
+    "des_key": "k_mold",
+    "comparison_baseline": "packages/pbga_fc/baselines/plate_with_mold",
+    "target": {
+      "component": "topCover",
+      "property": "moldMaterial",
+      "baseline": "Epoxy Overmold (Typical)",
+      "value": "BeO"
+    },
+    "expected_des": {
+      "k_mold": "BeO"
+    }
+  }
+}

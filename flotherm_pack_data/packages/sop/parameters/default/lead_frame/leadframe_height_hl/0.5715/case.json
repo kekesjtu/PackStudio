@@ -1,0 +1,26 @@
+{
+  "template": "sop",
+  "id": "packages/sop/parameters/default/lead_frame/leadframe_height_hl/0.5715",
+  "origin": "resweep",
+  "commands": [
+    "<new_package package_type=\"tsop_conv\">\n        <new_value new_value=\"SOP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"soic/sop/so\" property_name=\"sopPackageType\" />\n        <new_value new_value=\"SOP_8_3_81x4_93\" property_name=\"sopJedecFootprint\" />\n    </new_package>",
+    "<modify_component name=\"leadFrame\" new_value=\"0.5715\" property_name=\"leadframeHeightHl\" />"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "numeric_parameter",
+    "target": {
+      "component": "leadFrame",
+      "property": "leadframeHeightHl",
+      "label": "Lead Frame Height h1",
+      "baseline": 0.635,
+      "value": 0.5715,
+      "unit": "mm"
+    },
+    "comparison_baseline": "packages/sop/baselines/default",
+    "expected_outcome": "semantic_change",
+    "expected_des": {
+      "hl": "0.5715"
+    }
+  }
+}

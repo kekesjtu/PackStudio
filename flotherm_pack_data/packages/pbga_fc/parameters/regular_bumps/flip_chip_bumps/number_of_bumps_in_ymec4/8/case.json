@@ -1,0 +1,27 @@
+{
+  "template": "pbga_fc",
+  "id": "packages/pbga_fc/parameters/regular_bumps/flip_chip_bumps/number_of_bumps_in_ymec4/8",
+  "origin": "resweep",
+  "commands": [
+    "<new_package package_type=\"pbga_fc\">\n        <new_value new_value=\"Flip Chip PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+    "<modify_component name=\"flipChipBumps\" new_value=\"regularArray\" property_name=\"arrayType\" />",
+    "<modify_component name=\"flipChipBumps\" new_value=\"6\" property_name=\"numberOfBumpsInXMDC4\" />",
+    "<modify_component name=\"flipChipBumps\" new_value=\"8\" property_name=\"numberOfBumpsInYMEC4\" />"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "numeric_parameter",
+    "target": {
+      "component": "flipChipBumps",
+      "property": "numberOfBumpsInYMEC4",
+      "label": "Number of Bumps in Y MEC4",
+      "baseline": 6,
+      "value": 8,
+      "unit": "count"
+    },
+    "comparison_baseline": "packages/pbga_fc/baselines/regular_bumps",
+    "expected_des": {
+      "MEC4": "8"
+    }
+  }
+}

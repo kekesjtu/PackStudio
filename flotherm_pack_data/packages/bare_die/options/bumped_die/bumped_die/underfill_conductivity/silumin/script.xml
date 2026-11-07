@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='utf-8'?>
+<flopack_xml_log_file version="1.0">
+    <new_package package_type="Die">
+        <new_value new_value="bare_die" property_name="designName" />
+    </new_package>
+    <modify_component name="die" new_value="true" property_name="flippedDie" />
+    <modify_component name="bumpedDie" new_value="true" property_name="bumpedDie" />
+    <modify_component name="bumpedDie" new_value="100" property_name="numberOfSolderBalls" />
+    <modify_component name="bumpedDie" new_value="0.12" property_name="ballDiameterb" />
+    <modify_component name="bumpedDie" new_value="0.1" property_name="ballHeight" />
+    <modify_component name="bumpedDie" new_value="Solder (Pb90/Sn10)" property_name="solderConductivity" />
+    <modify_component name="bumpedDie" new_value="Silumin" property_name="underfillConductivity" />
+    <save_des filename="model.des" />
+    <export_floxml filename="model.xml" />
+    <quit />
+</flopack_xml_log_file>

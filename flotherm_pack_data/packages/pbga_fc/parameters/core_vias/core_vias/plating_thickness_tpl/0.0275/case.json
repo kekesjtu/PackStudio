@@ -1,0 +1,30 @@
+{
+  "template": "pbga_fc",
+  "id": "packages/pbga_fc/parameters/core_vias/core_vias/plating_thickness_tpl/0.0275",
+  "origin": "resweep",
+  "commands": [
+    "<new_package package_type=\"pbga_fc\">\n        <new_value new_value=\"Flip Chip PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+    "<modify_component name=\"coreVias\" new_value=\"5\" property_name=\"numberOfThermalViasInXNVx\" />",
+    "<modify_component name=\"coreVias\" new_value=\"5\" property_name=\"numberOfThermalViasInYNVy\" />",
+    "<modify_component name=\"coreVias\" new_value=\"0.2\" property_name=\"viaDiameterDv\" />",
+    "<modify_component name=\"coreVias\" new_value=\"0.8\" property_name=\"viaPitchEv\" />",
+    "<modify_component name=\"coreVias\" new_value=\"0.0275\" property_name=\"platingThicknessTpl\" />"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "numeric_parameter",
+    "target": {
+      "component": "coreVias",
+      "property": "platingThicknessTpl",
+      "label": "Via Plating Thickness",
+      "baseline": 0.025,
+      "value": 0.0275,
+      "unit": "mm"
+    },
+    "comparison_baseline": "packages/pbga_fc/baselines/core_vias",
+    "expected_outcome": "semantic_change",
+    "expected_des": {
+      "tpl": "0.0275"
+    }
+  }
+}

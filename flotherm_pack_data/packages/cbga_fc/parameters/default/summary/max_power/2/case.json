@@ -1,0 +1,24 @@
+{
+  "template": "cbga_fc",
+  "id": "packages/cbga_fc/parameters/default/summary/max_power/2",
+  "origin": "resweep",
+  "commands": [
+    "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+    "<modify_component name=\"summary\" new_value=\"2\" property_name=\"maxPower\" />"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "numeric_parameter",
+    "target": {
+      "component": "summary",
+      "property": "maxPower",
+      "baseline": null,
+      "value": 2,
+      "unit": "W"
+    },
+    "comparison_baseline": "packages/cbga_fc/baselines/default",
+    "expected_des": {
+      "SummaryMaxPower": "2"
+    }
+  }
+}

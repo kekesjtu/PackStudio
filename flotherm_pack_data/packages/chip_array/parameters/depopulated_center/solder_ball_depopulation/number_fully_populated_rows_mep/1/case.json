@@ -1,0 +1,28 @@
+{
+  "template": "chip_array",
+  "id": "packages/chip_array/parameters/depopulated_center/solder_ball_depopulation/number_fully_populated_rows_mep/1",
+  "origin": "resweep",
+  "commands": [
+    "<new_package package_type=\"chip_array\">\n        <new_value new_value=\"Chip Array\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"ChipArray_24_4X4mm_0_8\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n    </new_package>",
+    "<modify_component name=\"solderBallDepopulation\" new_value=\"true\" property_name=\"depopulatedCenter\" />",
+    "<modify_component name=\"solderBallDepopulation\" new_value=\"2\" property_name=\"numberFullyPopulatedRowsMDp\" />",
+    "<modify_component name=\"solderBallDepopulation\" new_value=\"1\" property_name=\"numberFullyPopulatedRowsMEp\" />"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "numeric_parameter",
+    "target": {
+      "component": "solderBallDepopulation",
+      "property": "numberFullyPopulatedRowsMEp",
+      "label": "Number of Fully Populated Rows MEp",
+      "baseline": 2,
+      "value": 1,
+      "unit": "count"
+    },
+    "comparison_baseline": "packages/chip_array/baselines/depopulated_center",
+    "expected_outcome": "semantic_change",
+    "expected_des": {
+      "MEp": "1"
+    }
+  }
+}

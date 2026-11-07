@@ -1,0 +1,21 @@
+{
+  "template": "pqfp",
+  "id": "packages/pqfp/options/default/modeling_options/model_tie_bars_as/accurate",
+  "origin": "resweep",
+  "commands": [
+    "<new_package package_type=\"pqfp\">\n        <new_value new_value=\"PQFP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"lqfp\" property_name=\"pqfpPackageType\" />\n        <new_value new_value=\"LQFP_32_7X7mm\" property_name=\"lqfpJedecFootprint\" />\n    </new_package>",
+    "<modify_component name=\"modelingOptions\" new_value=\"accurate\" property_name=\"modelTieBarsAs\" />"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "enum_option",
+    "target": {
+      "component": "modelingOptions",
+      "property": "modelTieBarsAs",
+      "label": "Model Tie Bars As",
+      "baseline": "accurate",
+      "value": "accurate"
+    },
+    "comparison_baseline": "packages/pqfp/baselines/default"
+  }
+}

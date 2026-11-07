@@ -1,0 +1,24 @@
+{
+  "template": "cbga_fc",
+  "id": "packages/cbga_fc/options/default/flip_chip_bumps/c4_solder_material/kovar_ni29_co17",
+  "origin": "resweep",
+  "commands": [
+    "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+    "<modify_component name=\"flipChipBumps\" new_value=\"Kovar (Ni29/Co17)\" property_name=\"c4SolderMaterial\" />"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "material_option",
+    "target": {
+      "component": "flipChipBumps",
+      "property": "c4SolderMaterial",
+      "baseline": "Solder (Pb90/Sn10)",
+      "value": "Kovar (Ni29/Co17)"
+    },
+    "comparison_baseline": "packages/cbga_fc/baselines/default",
+    "des_key": "k_C4",
+    "expected_des": {
+      "k_C4": "Kovar (Ni29/Co17)"
+    }
+  }
+}

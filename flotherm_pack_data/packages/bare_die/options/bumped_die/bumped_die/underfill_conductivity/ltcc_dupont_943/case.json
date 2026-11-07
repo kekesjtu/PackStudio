@@ -1,0 +1,30 @@
+{
+  "template": "bare_die",
+  "id": "packages/bare_die/options/bumped_die/bumped_die/underfill_conductivity/ltcc_dupont_943",
+  "origin": "resweep",
+  "commands": [
+    "<new_package package_type=\"Die\"><new_value new_value=\"bare_die\" property_name=\"designName\" /></new_package>",
+    "<modify_component name=\"die\" new_value=\"true\" property_name=\"flippedDie\" />",
+    "<modify_component name=\"bumpedDie\" new_value=\"true\" property_name=\"bumpedDie\" />",
+    "<modify_component name=\"bumpedDie\" new_value=\"100\" property_name=\"numberOfSolderBalls\" />",
+    "<modify_component name=\"bumpedDie\" new_value=\"0.12\" property_name=\"ballDiameterb\" />",
+    "<modify_component name=\"bumpedDie\" new_value=\"0.1\" property_name=\"ballHeight\" />",
+    "<modify_component name=\"bumpedDie\" new_value=\"Solder (Pb90/Sn10)\" property_name=\"solderConductivity\" />",
+    "<modify_component name=\"bumpedDie\" new_value=\"LTCC (Dupont 943)\" property_name=\"underfillConductivity\" />"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "material_option",
+    "target": {
+      "component": "bumpedDie",
+      "property": "underfillConductivity",
+      "baseline": "Flip-Chip Underfill (Typical)",
+      "value": "LTCC (Dupont 943)"
+    },
+    "comparison_baseline": "packages/bare_die/baselines/bumped_die",
+    "des_key": "k_fill",
+    "expected_des": {
+      "k_fill": "LTCC (Dupont 943)"
+    }
+  }
+}

@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<flopack_xml_log_file version="1.0">
+    <new_package package_type="cbga_fc">
+        <new_value new_value="Flip Chip CBGA" property_name="designName" />
+        <new_value new_value="standardOutline" property_name="outlineType" />
+        <new_value new_value="CBGAFC_49_6X6mm" property_name="jedecFootprint" />
+        <new_value new_value="bareDie" property_name="topCover" />
+    </new_package>
+    <modify_component name="topCover" new_value="lid" property_name="topCover" />
+    <modify_component name="topCover" new_value="yes" property_name="stiffener" />
+    <modify_component name="topCover" new_value="6" property_name="stiffenerWidthWs" />
+    <modify_component name="topCover" new_value="3" property_name="stiffenerCavityLengthLsc" />
+    <modify_component name="topCover" new_value="3" property_name="stiffenerCavityWidthWsc" />
+    <modify_component name="topCover" new_value="0.1" property_name="stiffenerAdhesiveThickness" />
+    <modify_component name="topCover" new_value="6" property_name="stiffenerLengthLs" />
+    <modify_component name="topCover" new_value="Solder (Sn63/Pb37)" property_name="stiffenerAdhesiveMaterial" />
+    <save_des filename="model.des" />
+    <export_floxml filename="model.xml" />
+    <quit />
+</flopack_xml_log_file>

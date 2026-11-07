@@ -1,0 +1,23 @@
+{
+  "template": "pbga_fc",
+  "id": "packages/pbga_fc/options/plate_with_adhesive/top_cover/plate_adhesive_material/alumina_96",
+  "origin": "resweep",
+  "commands": [
+    "<load_des filename=\"input.des\" />"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "material_option",
+    "des_key": "k_adhessive",
+    "comparison_baseline": "packages/pbga_fc/baselines/plate_with_adhesive",
+    "target": {
+      "component": "topCover",
+      "property": "plateAdhesiveMaterial",
+      "baseline": "",
+      "value": "Alumina (96%)"
+    },
+    "expected_des": {
+      "k_adhessive": "Alumina (96%)"
+    }
+  }
+}

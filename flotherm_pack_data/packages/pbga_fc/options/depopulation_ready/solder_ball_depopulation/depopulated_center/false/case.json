@@ -1,0 +1,23 @@
+{
+  "template": "pbga_fc",
+  "id": "packages/pbga_fc/options/depopulation_ready/solder_ball_depopulation/depopulated_center/false",
+  "origin": "resweep",
+  "commands": [
+    "<new_package package_type=\"pbga_fc\">\n        <new_value new_value=\"Flip Chip PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+    "<modify_component name=\"solderBallDepopulation\" new_value=\"2\" property_name=\"numberFullyPopulatedRowsMDp\" />",
+    "<modify_component name=\"solderBallDepopulation\" new_value=\"2\" property_name=\"numberFullyPopulatedRowsMEp\" />",
+    "<modify_component name=\"solderBallDepopulation\" new_value=\"false\" property_name=\"depopulatedCenter\" />"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "boolean_option",
+    "target": {
+      "component": "solderBallDepopulation",
+      "property": "depopulatedCenter",
+      "label": "Depopulated Center",
+      "baseline": false,
+      "value": false
+    },
+    "comparison_baseline": "packages/pbga_fc/baselines/depopulation_ready"
+  }
+}

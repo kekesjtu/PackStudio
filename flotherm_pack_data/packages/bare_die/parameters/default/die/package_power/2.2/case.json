@@ -1,0 +1,26 @@
+{
+  "template": "bare_die",
+  "id": "packages/bare_die/parameters/default/die/package_power/2.2",
+  "origin": "resweep",
+  "commands": [
+    "<new_package package_type=\"Die\">\n        <new_value new_value=\"Die\" property_name=\"designName\" />\n    </new_package>",
+    "<modify_component name=\"die\" new_value=\"2.2\" property_name=\"packagePower\" />"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "numeric_parameter",
+    "target": {
+      "component": "die",
+      "property": "packagePower",
+      "label": "Package Power",
+      "baseline": 2,
+      "value": 2.2,
+      "unit": "W"
+    },
+    "comparison_baseline": "packages/bare_die/baselines/default",
+    "expected_outcome": "semantic_change",
+    "expected_des": {
+      "P": "2.2"
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "template": "qfn",
+  "id": "packages/qfn/parameters/default/overall_package/standoff_a1/0.045",
+  "origin": "resweep",
+  "commands": [
+    "<new_package package_type=\"QFN\">\n        <new_value new_value=\"QFN\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"QFN_12X12_100\" property_name=\"jedecFootprint\" />\n    </new_package>",
+    "<modify_component name=\"overallPackage\" new_value=\"0.045\" property_name=\"standoffA1\" />"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "numeric_parameter",
+    "target": {
+      "component": "overallPackage",
+      "property": "standoffA1",
+      "label": "Standoff A1",
+      "baseline": 0.05,
+      "value": 0.045,
+      "unit": "mm"
+    },
+    "comparison_baseline": "packages/qfn/baselines/default",
+    "expected_outcome": "semantic_change",
+    "expected_des": {
+      "A1": "0.045"
+    }
+  }
+}

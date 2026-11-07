@@ -1,0 +1,27 @@
+{
+  "template": "pqfp",
+  "id": "packages/pqfp/parameters/leadframe_coverage_leadframe_coverage_percentage/lead_frame/leadframe_coverage_percentage/36",
+  "origin": "resweep",
+  "commands": [
+    "<new_package package_type=\"pqfp\">\n        <new_value new_value=\"PQFP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"lqfp\" property_name=\"pqfpPackageType\" />\n        <new_value new_value=\"LQFP_32_7X7mm\" property_name=\"lqfpJedecFootprint\" />\n    </new_package>",
+    "<modify_component name=\"leadFrame\" new_value=\"yes\" property_name=\"userDefinedLeadframeCoverage\" />",
+    "<modify_component name=\"leadFrame\" new_value=\"36\" property_name=\"leadframeCoveragePercentage\" />"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "numeric_parameter",
+    "target": {
+      "component": "leadFrame",
+      "property": "leadframeCoveragePercentage",
+      "label": "Leadframe Coverage",
+      "baseline": 40,
+      "value": 36.0,
+      "unit": "%"
+    },
+    "comparison_baseline": "packages/pqfp/baselines/leadframe_coverage_leadframe_coverage_percentage",
+    "expected_outcome": "semantic_change",
+    "expected_des": {
+      "cl": "36"
+    }
+  }
+}

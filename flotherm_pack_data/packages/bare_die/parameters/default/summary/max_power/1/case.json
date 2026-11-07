@@ -1,0 +1,24 @@
+{
+  "template": "bare_die",
+  "id": "packages/bare_die/parameters/default/summary/max_power/1",
+  "origin": "resweep",
+  "commands": [
+    "<new_package package_type=\"Die\">\n        <new_value new_value=\"Die\" property_name=\"designName\" />\n    </new_package>",
+    "<modify_component name=\"summary\" new_value=\"1\" property_name=\"maxPower\" />"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "numeric_parameter",
+    "target": {
+      "component": "summary",
+      "property": "maxPower",
+      "baseline": null,
+      "value": 1,
+      "unit": "W"
+    },
+    "comparison_baseline": "packages/bare_die/baselines/default",
+    "expected_des": {
+      "SummaryMaxPower": "1"
+    }
+  }
+}

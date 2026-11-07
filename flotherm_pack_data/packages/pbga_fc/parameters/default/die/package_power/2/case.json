@@ -1,0 +1,26 @@
+{
+  "template": "pbga_fc",
+  "id": "packages/pbga_fc/parameters/default/die/package_power/2",
+  "origin": "resweep",
+  "commands": [
+    "<new_package package_type=\"pbga_fc\">\n        <new_value new_value=\"Flip Chip PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+    "<modify_component name=\"die\" new_value=\"2\" property_name=\"packagePower\" />"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "numeric_parameter",
+    "target": {
+      "component": "die",
+      "property": "packagePower",
+      "label": "Package Power",
+      "baseline": 0,
+      "value": 2.0,
+      "unit": "W"
+    },
+    "comparison_baseline": "packages/pbga_fc/baselines/default",
+    "expected_outcome": "semantic_change",
+    "expected_des": {
+      "P": "2"
+    }
+  }
+}

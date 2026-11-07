@@ -1,0 +1,25 @@
+{
+  "template": "cbga_fc",
+  "id": "packages/cbga_fc/parameters/default/package_substrate/substrate_length_d/6.3",
+  "origin": "resweep",
+  "commands": [
+    "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+    "<modify_component name=\"packageSubstrate\" new_value=\"6.3\" property_name=\"substrateLengthD\" />"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "numeric_parameter",
+    "target": {
+      "component": "packageSubstrate",
+      "property": "substrateLengthD",
+      "label": "Length D",
+      "baseline": 6,
+      "value": 6.3,
+      "unit": "mm"
+    },
+    "comparison_baseline": "packages/cbga_fc/baselines/default",
+    "expected_des": {
+      "D": "6.3"
+    }
+  }
+}

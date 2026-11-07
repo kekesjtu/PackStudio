@@ -1,0 +1,24 @@
+{
+  "template": "qfn",
+  "id": "packages/qfn/options/default/lead_and_solder_interconnect/leadframe_material/cookson_amc_2_f1",
+  "origin": "resweep",
+  "commands": [
+    "<new_package package_type=\"QFN\">\n        <new_value new_value=\"QFN\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"QFN_12X12_100\" property_name=\"jedecFootprint\" />\n    </new_package>",
+    "<modify_component name=\"leadAndSolderInterconnect\" new_value=\"Cookson-AMC-2F1\" property_name=\"leadframeMaterial\" />"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "material_option",
+    "target": {
+      "component": "leadAndSolderInterconnect",
+      "property": "leadframeMaterial",
+      "baseline": "Cu-C19400",
+      "value": "Cookson-AMC-2F1"
+    },
+    "comparison_baseline": "packages/qfn/baselines/default",
+    "des_key": "k_lead",
+    "expected_des": {
+      "k_lead": "Cookson-AMC-2F1"
+    }
+  }
+}

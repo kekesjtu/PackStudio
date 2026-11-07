@@ -1,0 +1,21 @@
+{
+  "template": "pqfp",
+  "id": "packages/pqfp/options/default/die/non_uniform_die_heat/false",
+  "origin": "resweep",
+  "commands": [
+    "<new_package package_type=\"pqfp\">\n        <new_value new_value=\"PQFP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"lqfp\" property_name=\"pqfpPackageType\" />\n        <new_value new_value=\"LQFP_32_7X7mm\" property_name=\"lqfpJedecFootprint\" />\n    </new_package>",
+    "<modify_component name=\"die\" new_value=\"false\" property_name=\"nonUniformDieHeat\" />"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "boolean_option",
+    "target": {
+      "component": "die",
+      "property": "nonUniformDieHeat",
+      "label": "Non-uniform Die Heat",
+      "baseline": false,
+      "value": false
+    },
+    "comparison_baseline": "packages/pqfp/baselines/default"
+  }
+}

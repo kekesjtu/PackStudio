@@ -1,0 +1,26 @@
+{
+  "template": "bare_die",
+  "id": "packages/bare_die/parameters/default/die/die_width_wd/5.39",
+  "origin": "resweep",
+  "commands": [
+    "<new_package package_type=\"Die\">\n        <new_value new_value=\"Die\" property_name=\"designName\" />\n    </new_package>",
+    "<modify_component name=\"die\" new_value=\"5.39\" property_name=\"dieWidthWd\" />"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "numeric_parameter",
+    "target": {
+      "component": "die",
+      "property": "dieWidthWd",
+      "label": "Die Width Wd",
+      "baseline": 4.9,
+      "value": 5.39,
+      "unit": "mm"
+    },
+    "comparison_baseline": "packages/bare_die/baselines/default",
+    "expected_outcome": "semantic_change",
+    "expected_des": {
+      "Wd": "5.39"
+    }
+  }
+}

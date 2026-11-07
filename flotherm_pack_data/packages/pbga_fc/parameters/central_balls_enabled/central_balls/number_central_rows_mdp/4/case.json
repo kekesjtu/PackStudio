@@ -1,0 +1,27 @@
+{
+  "template": "pbga_fc",
+  "id": "packages/pbga_fc/parameters/central_balls_enabled/central_balls/number_central_rows_mdp/4",
+  "origin": "resweep",
+  "commands": [
+    "<new_package package_type=\"pbga_fc\">\n        <new_value new_value=\"Flip Chip PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+    "<modify_component name=\"centralBalls\" new_value=\"true\" property_name=\"centralBalls\" />",
+    "<modify_component name=\"centralBalls\" new_value=\"2\" property_name=\"numberCentralRowsMEp\" />",
+    "<modify_component name=\"centralBalls\" new_value=\"4\" property_name=\"numberCentralRowsMDp\" />"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "numeric_parameter",
+    "target": {
+      "component": "centralBalls",
+      "property": "numberCentralRowsMDp",
+      "label": "Number Central Rows MDc",
+      "baseline": 2,
+      "value": 4,
+      "unit": "count"
+    },
+    "comparison_baseline": "packages/pbga_fc/baselines/central_balls_enabled",
+    "expected_des": {
+      "MDc": "4"
+    }
+  }
+}

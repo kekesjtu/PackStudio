@@ -1,0 +1,24 @@
+{
+  "template": "chip_array",
+  "id": "packages/chip_array/parameters/four_layer/creation/solid_plane_thickness/0.0396",
+  "origin": "resweep",
+  "commands": [
+    "<new_package package_type=\"chip_array\">\n        <new_value new_value=\"Chip Array\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"ChipArray_24_4X4mm_0_8\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"4-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n    <new_value property_name=\"solidPlaneThickness\" new_value=\"0.0396\" /></new_package>"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "numeric_parameter",
+    "comparison_baseline": "packages/chip_array/baselines/four_layer",
+    "target": {
+      "component": "new_package",
+      "property": "solidPlaneThickness",
+      "baseline": 0.036,
+      "value": 0.0396,
+      "unit": "mm"
+    },
+    "expected_des": {
+      "tz2": "0.0396",
+      "tz3": "0.0396"
+    }
+  }
+}

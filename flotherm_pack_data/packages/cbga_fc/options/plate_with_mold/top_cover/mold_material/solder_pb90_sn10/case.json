@@ -1,0 +1,23 @@
+{
+  "template": "cbga_fc",
+  "id": "packages/cbga_fc/options/plate_with_mold/top_cover/mold_material/solder_pb90_sn10",
+  "origin": "resweep",
+  "commands": [
+    "<load_des filename=\"input.des\" />"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "material_option",
+    "des_key": "k_mold",
+    "comparison_baseline": "packages/cbga_fc/baselines/plate_with_mold",
+    "target": {
+      "component": "topCover",
+      "property": "moldMaterial",
+      "baseline": "Epoxy Overmold (Typical)",
+      "value": "Solder (Pb90/Sn10)"
+    },
+    "expected_des": {
+      "k_mold": "Solder (Pb90/Sn10)"
+    }
+  }
+}

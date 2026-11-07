@@ -1,0 +1,26 @@
+{
+  "template": "bare_die",
+  "id": "packages/bare_die/parameters/default/die/die_thickness_td/0.242",
+  "origin": "resweep",
+  "commands": [
+    "<new_package package_type=\"Die\">\n        <new_value new_value=\"Die\" property_name=\"designName\" />\n    </new_package>",
+    "<modify_component name=\"die\" new_value=\"0.242\" property_name=\"dieThicknessTd\" />"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "numeric_parameter",
+    "target": {
+      "component": "die",
+      "property": "dieThicknessTd",
+      "label": "Die Thickness td",
+      "baseline": 0.22,
+      "value": 0.242,
+      "unit": "mm"
+    },
+    "comparison_baseline": "packages/bare_die/baselines/default",
+    "expected_outcome": "semantic_change",
+    "expected_des": {
+      "td": "0.242"
+    }
+  }
+}

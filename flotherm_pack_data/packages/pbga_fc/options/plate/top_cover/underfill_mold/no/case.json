@@ -1,0 +1,24 @@
+{
+  "template": "pbga_fc",
+  "id": "packages/pbga_fc/options/plate/top_cover/underfill_mold/no",
+  "origin": "resweep",
+  "commands": [
+    "<load_des filename=\"input.des\" />"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "enum_option",
+    "comparison_baseline": "packages/pbga_fc/baselines/plate",
+    "des_key": "radio_mold",
+    "des_value": "2",
+    "target": {
+      "component": "topCover",
+      "property": "underfillMold",
+      "baseline": "no",
+      "value": "no"
+    },
+    "expected_des": {
+      "radio_mold": "2"
+    }
+  }
+}

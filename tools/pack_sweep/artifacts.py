@@ -13,7 +13,7 @@ def dump(path, payload):
     path.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
 
-def point_payload(point):
+def point_payload(point, sample_id):
     commands = []
     for text in point.commands:
         element = ET.fromstring(text)
@@ -24,7 +24,7 @@ def point_payload(point):
         commands.append(ET.tostring(element, encoding="unicode"))
     payload = {
         "template": point.template,
-        "id": point.id,
+        "id": sample_id,
         "origin": point.origin,
         "commands": commands,
         "request": point.request,
@@ -33,9 +33,9 @@ def point_payload(point):
     return payload
 
 
-def write_point(point, destination, runtime, token, run, installation=INSTALLATION):
+def write_point(point, destination, runtime, token, run, installation=INSTALLATION, *, sample_id):
     destination.mkdir(parents=True, exist_ok=True)
-    payload = point_payload(point)
+    payload = point_payload(point, sample_id)
     dump(destination / "case.json", payload)
     root = ET.Element("flopack_xml_log_file", version="1.0")
     root.extend(ET.fromstring(c) for c in payload["commands"])
@@ -69,33 +69,23 @@ def write_point(point, destination, runtime, token, run, installation=INSTALLATI
     dump(destination / "native_run.json", provenance)
 
 
-def write_indexes(root, points):
-    families = sorted({p.template for p in points})
+def write_indexes(root, samples):
+    families = sorted({point.template for _, point in samples})
     dump(
         root / "index.json",
         {
             "schema": "packstudio.reference-tree/v1",
-            "templates": families,
-            "points": ["template/" + p.key for p in points],
+            "packages": families,
+            "points": [path for path, _ in samples],
         },
     )
     for family in families:
-        members = [p for p in points if p.template == family]
-        variations = [
-            {
-                "variation_id": p.id,
-                **p.metadata,
-                "artifacts": {"model": p.id + "/model.xml", "script": p.id + "/script.xml"},
-            }
-            for p in members
-            if "kind" in p.metadata
-        ]
+        members = [path for path, point in samples if point.template == family]
         dump(
-            root / "template" / family / "index.json",
+            root / "packages" / family / "index.json",
             {
-                "template_id": family,
-                "baseline": {"model": "baseline/model.xml"},
-                "points": [p.id for p in members],
-                "variations": variations,
+                "package": family,
+                "baselines": [path for path in members if "/baselines/" in path],
+                "points": members,
             },
         )

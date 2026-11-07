@@ -1,0 +1,26 @@
+{
+  "template": "pbga_fc",
+  "id": "packages/pbga_fc/parameters/encapsulant_dimensions/top_cover/length_le/4.2",
+  "origin": "resweep",
+  "commands": [
+    "<new_package package_type=\"pbga_fc\">\n        <new_value new_value=\"Flip Chip PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+    "<modify_component name=\"topCover\" new_value=\"encapsulant\" property_name=\"topCover\" />",
+    "<modify_component name=\"topCover\" new_value=\"4.2\" property_name=\"lengthLe\" />"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "numeric_parameter",
+    "target": {
+      "component": "topCover",
+      "property": "lengthLe",
+      "label": "Encapsulant Length Le",
+      "baseline": 4,
+      "value": 4.2,
+      "unit": "mm"
+    },
+    "comparison_baseline": "packages/pbga_fc/baselines/encapsulant_dimensions",
+    "expected_des": {
+      "Le": "4.2"
+    }
+  }
+}

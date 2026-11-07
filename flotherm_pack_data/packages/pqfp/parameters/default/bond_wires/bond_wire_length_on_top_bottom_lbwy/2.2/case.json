@@ -1,0 +1,26 @@
+{
+  "template": "pqfp",
+  "id": "packages/pqfp/parameters/default/bond_wires/bond_wire_length_on_top_bottom_lbwy/2.2",
+  "origin": "resweep",
+  "commands": [
+    "<new_package package_type=\"pqfp\">\n        <new_value new_value=\"PQFP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"lqfp\" property_name=\"pqfpPackageType\" />\n        <new_value new_value=\"LQFP_32_7X7mm\" property_name=\"lqfpJedecFootprint\" />\n    </new_package>",
+    "<modify_component name=\"bondWires\" new_value=\"2.2\" property_name=\"bondWireLengthOnTopBottomLbwy\" />"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "numeric_parameter",
+    "target": {
+      "component": "bondWires",
+      "property": "bondWireLengthOnTopBottomLbwy",
+      "label": "Bond Wire Length On Top/Bottom Lbwy",
+      "baseline": 2,
+      "value": 2.2,
+      "unit": "mm"
+    },
+    "comparison_baseline": "packages/pqfp/baselines/default",
+    "expected_outcome": "semantic_change",
+    "expected_des": {
+      "lbwy": "2.2"
+    }
+  }
+}

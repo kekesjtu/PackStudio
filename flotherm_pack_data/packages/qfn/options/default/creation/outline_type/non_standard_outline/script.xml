@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='utf-8'?>
+<flopack_xml_log_file version="1.0">
+    <new_package package_type="QFN">
+        <new_value new_value="QFN" property_name="designName" />
+        <new_value new_value="nonStandardOutline" property_name="outlineType" />
+        <new_value new_value="QFN_12X12_100" property_name="jedecFootprint" />
+    </new_package>
+    <modify_component name="overallPackage" new_value="12" property_name="lengthD" />
+    <modify_component name="overallPackage" new_value="12" property_name="widthE" />
+    <modify_component name="overallPackage" new_value="0.05" property_name="standoffA1" />
+    <modify_component name="overallPackage" new_value="0.85" property_name="encapsulantThicknessA2" />
+    <modify_component name="die" new_value="5.4" property_name="dieLengthLd" />
+    <modify_component name="die" new_value="5.4" property_name="dieWidthWd" />
+    <modify_component name="die" new_value="0.25" property_name="dieThicknessTd" />
+    <modify_component name="die" new_value="0.025" property_name="dieAttachThicknessTda" />
+    <modify_component name="die" new_value="0" property_name="packagePower" />
+    <modify_component name="dap" new_value="10.8" property_name="dapLengthLp" />
+    <modify_component name="dap" new_value="10.8" property_name="dapWidthWp" />
+    <modify_component name="dap" new_value="10.55" property_name="exposedPADLength" />
+    <modify_component name="dap" new_value="10.55" property_name="exposedPADWidth" />
+    <modify_component name="leadAndSolderInterconnect" new_value="25" property_name="numberOfLeadsOnTopBottomMD" />
+    <modify_component name="leadAndSolderInterconnect" new_value="25" property_name="numberOfLeadsOnLeftRightME" />
+    <modify_component name="leadAndSolderInterconnect" new_value="0.4" property_name="pitchInXDirectionEx" />
+    <modify_component name="leadAndSolderInterconnect" new_value="0.4" property_name="pitchInYDirectionEy" />
+    <modify_component name="leadAndSolderInterconnect" new_value="0.2" property_name="leadWidthB" />
+    <modify_component name="leadAndSolderInterconnect" new_value="0.5" property_name="exposedLeadLengthL" />
+    <modify_component name="leadAndSolderInterconnect" new_value="0.1" property_name="exposedLeadThickness" />
+    <modify_component name="leadAndSolderInterconnect" new_value="0.2" property_name="leadThicknessA3" />
+    <modify_component name="leadAndSolderInterconnect" new_value="0.05" property_name="leadEtch" />
+    <modify_component name="bondWires" new_value="2.75" property_name="bondWireLengthOnLeftRightLbwx" />
+    <modify_component name="bondWires" new_value="2.75" property_name="bondWireLengthOnTopBottomLbwy" />
+    <modify_component name="bondWires" new_value="0.03" property_name="bondWireDiameterDbw" />
+    <modify_component name="thermalLand" new_value="false" property_name="includeLand" />
+    <modify_component name="modelingOptions" new_value="true" property_name="localizeGrid" />
+    <modify_component name="overallPackage" new_value="EME-7730LF" property_name="encapsulantMaterial" />
+    <modify_component name="die" new_value="DieAttach-2600BT" property_name="dieAttachMaterial" />
+    <modify_component name="dap" new_value="Cu-C19400" property_name="material" />
+    <modify_component name="leadAndSolderInterconnect" new_value="Cu-C19400" property_name="leadframeMaterial" />
+    <modify_component name="bondWires" new_value="Gold (Pure)" property_name="material" />
+    <modify_component name="leadAndSolderInterconnect" new_value="Solder (Sn63/Pb37)" property_name="solderMaterial" />
+    <modify_component name="modelingOptions" new_value="discreteLeads" property_name="modelLeadAndSolderInterconnectAs" />
+    <modify_component name="modelingOptions" new_value="fine" property_name="gridDensity" />
+    <save_des filename="model.des" />
+    <export_floxml filename="model.xml" />
+    <quit />
+</flopack_xml_log_file>

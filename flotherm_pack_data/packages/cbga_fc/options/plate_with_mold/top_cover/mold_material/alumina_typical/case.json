@@ -1,0 +1,23 @@
+{
+  "template": "cbga_fc",
+  "id": "packages/cbga_fc/options/plate_with_mold/top_cover/mold_material/alumina_typical",
+  "origin": "resweep",
+  "commands": [
+    "<load_des filename=\"input.des\" />"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "material_option",
+    "des_key": "k_mold",
+    "comparison_baseline": "packages/cbga_fc/baselines/plate_with_mold",
+    "target": {
+      "component": "topCover",
+      "property": "moldMaterial",
+      "baseline": "Epoxy Overmold (Typical)",
+      "value": "Alumina (Typical)"
+    },
+    "expected_des": {
+      "k_mold": "Alumina (Typical)"
+    }
+  }
+}

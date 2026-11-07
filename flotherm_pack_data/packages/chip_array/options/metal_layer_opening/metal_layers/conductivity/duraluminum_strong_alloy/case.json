@@ -1,0 +1,26 @@
+{
+  "template": "chip_array",
+  "id": "packages/chip_array/options/metal_layer_opening/metal_layers/conductivity/duraluminum_strong_alloy",
+  "origin": "resweep",
+  "commands": [
+    "<new_package package_type=\"chip_array\">\n        <new_value new_value=\"Chip Array\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"ChipArray_24_4X4mm_0_8\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n    </new_package>",
+    "<modify_component name=\"metalLayers\" new_value=\"1\" property_name=\"widthWml\" />",
+    "<modify_component name=\"metalLayers\" new_value=\"1\" property_name=\"lengthLml\" />",
+    "<modify_component name=\"metalLayers\" new_value=\"Duraluminum (Strong alloy)\" property_name=\"conductivity\" />"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "material_option",
+    "target": {
+      "component": "metalLayers",
+      "property": "conductivity",
+      "baseline": "Alloy-42",
+      "value": "Duraluminum (Strong alloy)"
+    },
+    "comparison_baseline": "packages/chip_array/baselines/metal_layer_opening",
+    "des_key": "k_ml",
+    "expected_des": {
+      "k_ml": "Duraluminum (Strong alloy)"
+    }
+  }
+}

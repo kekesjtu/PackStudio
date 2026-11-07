@@ -1,0 +1,35 @@
+{
+  "template": "pbga_wb",
+  "id": "packages/pbga_wb/options/drop_in_slug/drop_in_slug/slug_material/nitto_mp8000_ch4",
+  "origin": "resweep",
+  "commands": [
+    "<new_package package_type=\"pbga_wb\"><new_value new_value=\"pbga_wb\" property_name=\"designName\" /><new_value new_value=\"standardOutline\" property_name=\"outlineType\" /><new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" /><new_value new_value=\"actualDie\" property_name=\"dieType\" /><new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" /><new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" /><new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" /></new_package>",
+    "<modify_component name=\"dropInSlug\" new_value=\"true\" property_name=\"includeSlug\" />",
+    "<modify_component name=\"dropInSlug\" new_value=\"11\" property_name=\"slugLengthLsl\" />",
+    "<modify_component name=\"dropInSlug\" new_value=\"10\" property_name=\"slugWidthWsl\" />",
+    "<modify_component name=\"dropInSlug\" new_value=\"0.15\" property_name=\"slugThicknessTsl\" />",
+    "<modify_component name=\"dropInSlug\" new_value=\"5\" property_name=\"slugDiameterDs\" />",
+    "<modify_component name=\"dropInSlug\" new_value=\"12\" property_name=\"slugFootExtendLengthLsf\" />",
+    "<modify_component name=\"dropInSlug\" new_value=\"11.5\" property_name=\"slugFootExtendWidthWsf\" />",
+    "<modify_component name=\"dropInSlug\" new_value=\"0.1\" property_name=\"slugOffsetGs\" />",
+    "<modify_component name=\"dropInSlug\" new_value=\"0.2\" property_name=\"slugFootClearanceGsf\" />",
+    "<modify_component name=\"dropInSlug\" new_value=\"Nitto-MP8000CH4\" property_name=\"slugMaterial\" />",
+    "<modify_component name=\"dropInSlug\" new_value=\"false\" property_name=\"adhesivePresentUnderSlugFoot\" />",
+    "<modify_component name=\"dropInSlug\" new_value=\"QMI 595\" property_name=\"slugAdhesiveMaterial\" />"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "material_option",
+    "target": {
+      "component": "dropInSlug",
+      "property": "slugMaterial",
+      "baseline": "Copper (Pure)",
+      "value": "Nitto-MP8000CH4"
+    },
+    "comparison_baseline": "packages/pbga_wb/baselines/drop_in_slug",
+    "des_key": "k_sl",
+    "expected_des": {
+      "k_sl": "Nitto-MP8000CH4"
+    }
+  }
+}

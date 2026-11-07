@@ -1,0 +1,25 @@
+{
+  "template": "pqfp",
+  "id": "packages/pqfp/parameters/default/lead_frame/leadframe_flag_gap_g2/0.441",
+  "origin": "resweep",
+  "commands": [
+    "<new_package package_type=\"pqfp\">\n        <new_value new_value=\"PQFP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"lqfp\" property_name=\"pqfpPackageType\" />\n        <new_value new_value=\"LQFP_32_7X7mm\" property_name=\"lqfpJedecFootprint\" />\n    </new_package>",
+    "<modify_component name=\"leadFrame\" new_value=\"0.441\" property_name=\"leadframeFlagGapG2\" />"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "numeric_parameter",
+    "target": {
+      "component": "leadFrame",
+      "property": "leadframeFlagGapG2",
+      "label": "Leadframe-Flag Gap g2",
+      "baseline": 0.42,
+      "value": 0.441,
+      "unit": "mm"
+    },
+    "comparison_baseline": "packages/pqfp/baselines/default",
+    "expected_des": {
+      "g2": "0.441"
+    }
+  }
+}

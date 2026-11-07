@@ -1,0 +1,25 @@
+{
+  "template": "qfn",
+  "id": "packages/qfn/parameters/default/dap/dap_width_wp/11.34",
+  "origin": "resweep",
+  "commands": [
+    "<new_package package_type=\"QFN\">\n        <new_value new_value=\"QFN\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"QFN_12X12_100\" property_name=\"jedecFootprint\" />\n    </new_package>",
+    "<modify_component name=\"dap\" new_value=\"11.34\" property_name=\"dapWidthWp\" />"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "numeric_parameter",
+    "target": {
+      "component": "dap",
+      "property": "dapWidthWp",
+      "label": "DAP Width Wp",
+      "baseline": 10.8,
+      "value": 11.34,
+      "unit": "mm"
+    },
+    "comparison_baseline": "packages/qfn/baselines/default",
+    "expected_des": {
+      "Wp": "11.34"
+    }
+  }
+}

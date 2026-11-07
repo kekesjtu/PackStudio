@@ -1,0 +1,22 @@
+{
+  "template": "bare_die",
+  "id": "packages/bare_die/options/default/modeling_options/grid_density/coarse",
+  "origin": "resweep",
+  "commands": [
+    "<new_package package_type=\"Die\">\n        <new_value new_value=\"Die\" property_name=\"designName\" />\n    </new_package>",
+    "<modify_component name=\"modelingOptions\" new_value=\"coarse\" property_name=\"gridDensity\" />"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "enum_option",
+    "target": {
+      "component": "modelingOptions",
+      "property": "gridDensity",
+      "label": "Grid Density",
+      "baseline": "fine",
+      "value": "coarse"
+    },
+    "comparison_baseline": "packages/bare_die/baselines/default",
+    "expected_outcome": "semantic_change"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "template": "bare_die",
+  "id": "packages/bare_die/parameters/default/summary/max_case_temperature/85",
+  "origin": "resweep",
+  "commands": [
+    "<new_package package_type=\"Die\">\n        <new_value new_value=\"Die\" property_name=\"designName\" />\n    </new_package>",
+    "<modify_component name=\"summary\" new_value=\"85\" property_name=\"maxCaseTemperature\" />"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "numeric_parameter",
+    "target": {
+      "component": "summary",
+      "property": "maxCaseTemperature",
+      "baseline": null,
+      "value": 85,
+      "unit": "degC"
+    },
+    "comparison_baseline": "packages/bare_die/baselines/default",
+    "expected_des": {
+      "SummaryMaxCaseTemp": "85"
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "template": "sop",
+  "id": "packages/sop/options/default/creation/exposed_pad/true",
+  "origin": "resweep",
+  "commands": [
+    "<new_package package_type=\"tsop_conv\">\n        <new_value new_value=\"SOP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"true\" property_name=\"exposedPad\" />\n        <new_value new_value=\"soic/sop/so\" property_name=\"sopPackageType\" />\n        <new_value new_value=\"SOP_8_3_81x4_93\" property_name=\"sopJedecFootprint\" />\n    </new_package>"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "boolean_option",
+    "target": {
+      "component": "new_package",
+      "property": "exposedPad",
+      "label": "Exposed Pad",
+      "baseline": false,
+      "value": true
+    },
+    "comparison_baseline": "packages/sop/baselines/default",
+    "expected_outcome": "semantic_change"
+  }
+}

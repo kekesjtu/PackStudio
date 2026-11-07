@@ -1,0 +1,25 @@
+{
+  "template": "qfn",
+  "id": "packages/qfn/parameters/default/lead_and_solder_interconnect/lead_thickness_a3/0.21",
+  "origin": "resweep",
+  "commands": [
+    "<new_package package_type=\"QFN\">\n        <new_value new_value=\"QFN\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"QFN_12X12_100\" property_name=\"jedecFootprint\" />\n    </new_package>",
+    "<modify_component name=\"leadAndSolderInterconnect\" new_value=\"0.21\" property_name=\"leadThicknessA3\" />"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "numeric_parameter",
+    "target": {
+      "component": "leadAndSolderInterconnect",
+      "property": "leadThicknessA3",
+      "label": "Lead Thickness A3",
+      "baseline": 0.2,
+      "value": 0.21,
+      "unit": "mm"
+    },
+    "comparison_baseline": "packages/qfn/baselines/default",
+    "expected_des": {
+      "tf": "0.21"
+    }
+  }
+}

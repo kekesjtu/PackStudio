@@ -1,0 +1,28 @@
+{
+  "template": "pbga_wb",
+  "id": "packages/pbga_wb/parameters/central_balls_enabled/central_balls/number_central_rows_mdp/1",
+  "origin": "resweep",
+  "commands": [
+    "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>",
+    "<modify_component name=\"centralBalls\" new_value=\"true\" property_name=\"centralBalls\" />",
+    "<modify_component name=\"centralBalls\" new_value=\"2\" property_name=\"numberCentralRowsMEp\" />",
+    "<modify_component name=\"centralBalls\" new_value=\"1\" property_name=\"numberCentralRowsMDp\" />"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "numeric_parameter",
+    "target": {
+      "component": "centralBalls",
+      "property": "numberCentralRowsMDp",
+      "label": "Number of Central Rows MDc",
+      "baseline": 2,
+      "value": 1,
+      "unit": "count"
+    },
+    "comparison_baseline": "packages/pbga_wb/baselines/central_balls_enabled",
+    "expected_outcome": "semantic_change",
+    "expected_des": {
+      "MDc": "1"
+    }
+  }
+}

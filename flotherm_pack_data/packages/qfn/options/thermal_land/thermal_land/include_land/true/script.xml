@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='utf-8'?>
+<flopack_xml_log_file version="1.0">
+    <new_package package_type="QFN">
+        <new_value new_value="QFN" property_name="designName" />
+        <new_value new_value="standardOutline" property_name="outlineType" />
+        <new_value new_value="QFN_12X12_100" property_name="jedecFootprint" />
+    </new_package>
+    <modify_component name="thermalLand" new_value="true" property_name="includeLand" />
+    <modify_component name="thermalLand" new_value="Copper (Pure)" property_name="material" />
+    <modify_component name="thermalLand" new_value="0.05" property_name="landThickness" />
+    <save_des filename="model.des" />
+    <export_floxml filename="model.xml" />
+    <quit />
+</flopack_xml_log_file>

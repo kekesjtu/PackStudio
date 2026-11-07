@@ -1,0 +1,34 @@
+{
+  "template": "cbga_fc",
+  "id": "packages/cbga_fc/options/encapsulant/top_cover/encapsulant_material/aluminum_5052",
+  "origin": "resweep",
+  "commands": [
+    "<new_package package_type=\"cbga_fc\">\n        <new_value new_value=\"Flip Chip CBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"CBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+    "<modify_component name=\"topCover\" new_value=\"encapsulant\" property_name=\"topCover\" />",
+    "<modify_component name=\"dropInSlug\" new_value=\"4\" property_name=\"slugLengthLsl\" />",
+    "<modify_component name=\"dropInSlug\" new_value=\"4\" property_name=\"slugWidthWsl\" />",
+    "<modify_component name=\"dropInSlug\" new_value=\"0.4\" property_name=\"slugThicknessTsl\" />",
+    "<modify_component name=\"dropInSlug\" new_value=\"2\" property_name=\"slugDiameterDs\" />",
+    "<modify_component name=\"dropInSlug\" new_value=\"4.5\" property_name=\"slugFootExtendLengthLsf\" />",
+    "<modify_component name=\"dropInSlug\" new_value=\"4.5\" property_name=\"slugFootExtendWidthWsf\" />",
+    "<modify_component name=\"dropInSlug\" new_value=\"0.1\" property_name=\"slugOffsetGs\" />",
+    "<modify_component name=\"dropInSlug\" new_value=\"0.1\" property_name=\"slugFootClearanceGsf\" />",
+    "<modify_component name=\"dropInSlug\" new_value=\"false\" property_name=\"includeSlug\" />",
+    "<modify_component name=\"topCover\" new_value=\"Aluminum-5052\" property_name=\"encapsulantMaterial\" />"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "material_option",
+    "target": {
+      "component": "topCover",
+      "property": "encapsulantMaterial",
+      "baseline": "Epoxy Overmold (Typical)",
+      "value": "Aluminum-5052"
+    },
+    "comparison_baseline": "packages/cbga_fc/baselines/encapsulant",
+    "des_key": "k_encap",
+    "expected_des": {
+      "k_encap": "Aluminum-5052"
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "template": "pbga_fc",
+  "id": "packages/pbga_fc/options/default/creation/top_cover/encapsulant",
+  "origin": "resweep",
+  "commands": [
+    "<new_package package_type=\"pbga_fc\">\n        <new_value new_value=\"Flip Chip PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"encapsulant\" property_name=\"topCover\" />\n    </new_package>"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "enum_option",
+    "target": {
+      "component": "new_package",
+      "property": "topCover",
+      "label": "Top Cover",
+      "baseline": "bareDie",
+      "value": "encapsulant"
+    },
+    "comparison_baseline": "packages/pbga_fc/baselines/default",
+    "expected_outcome": "semantic_change"
+  }
+}

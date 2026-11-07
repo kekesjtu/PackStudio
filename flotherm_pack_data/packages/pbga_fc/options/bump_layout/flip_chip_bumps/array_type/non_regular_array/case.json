@@ -1,0 +1,23 @@
+{
+  "template": "pbga_fc",
+  "id": "packages/pbga_fc/options/bump_layout/flip_chip_bumps/array_type/non_regular_array",
+  "origin": "resweep",
+  "commands": [
+    "<new_package package_type=\"pbga_fc\">\n        <new_value new_value=\"Flip Chip PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGAFC_49_6X6mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"bareDie\" property_name=\"topCover\" />\n    </new_package>",
+    "<modify_component name=\"flipChipBumps\" new_value=\"6\" property_name=\"numberOfBumpsInXMDC4\" />",
+    "<modify_component name=\"flipChipBumps\" new_value=\"6\" property_name=\"numberOfBumpsInYMEC4\" />",
+    "<modify_component name=\"flipChipBumps\" new_value=\"nonRegularArray\" property_name=\"arrayType\" />"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "enum_option",
+    "target": {
+      "component": "flipChipBumps",
+      "property": "arrayType",
+      "label": "Array Type",
+      "baseline": "nonRegularArray",
+      "value": "nonRegularArray"
+    },
+    "comparison_baseline": "packages/pbga_fc/baselines/bump_layout"
+  }
+}

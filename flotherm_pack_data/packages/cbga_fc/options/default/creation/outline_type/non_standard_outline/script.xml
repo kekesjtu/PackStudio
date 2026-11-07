@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='utf-8'?>
+<flopack_xml_log_file version="1.0">
+    <new_package package_type="cbga_fc">
+        <new_value new_value="Flip Chip CBGA" property_name="designName" />
+        <new_value new_value="nonStandardOutline" property_name="outlineType" />
+        <new_value new_value="CBGAFC_49_6X6mm" property_name="jedecFootprint" />
+        <new_value new_value="bareDie" property_name="topCover" />
+    </new_package>
+    <modify_component name="packageSubstrate" new_value="6" property_name="substrateLengthD" />
+    <modify_component name="packageSubstrate" new_value="6" property_name="substrateWidthE" />
+    <modify_component name="packageSubstrate" new_value="1.15" property_name="substrateThicknessA2" />
+    <modify_component name="die" new_value="1.8" property_name="dieLengthLd" />
+    <modify_component name="die" new_value="1.8" property_name="dieWidthWd" />
+    <modify_component name="die" new_value="0.61" property_name="dieThicknessTd" />
+    <modify_component name="die" new_value="0" property_name="packagePower" />
+    <modify_component name="flipChipBumps" new_value="49" property_name="totalNumberOfBumpsMNC4" />
+    <modify_component name="flipChipBumps" new_value="0.12" property_name="bumpDiameterBC4" />
+    <modify_component name="flipChipBumps" new_value="0.1" property_name="bumpHeightTC4" />
+    <modify_component name="solderBalls" new_value="7" property_name="numberOfSolderBallsInXMD" />
+    <modify_component name="solderBalls" new_value="7" property_name="numberOfSolderBallsInYME" />
+    <modify_component name="solderBalls" new_value="0.8" property_name="ballPitchE" />
+    <modify_component name="solderBalls" new_value="0.5" property_name="ballDiameterB" />
+    <modify_component name="solderBalls" new_value="0.4" property_name="substrateStandoffA1" />
+    <modify_component name="topCover" new_value="4" property_name="lengthLe" />
+    <modify_component name="topCover" new_value="4" property_name="widthWe" />
+    <modify_component name="topCover" new_value="1.2" property_name="thicknessTe" />
+    <modify_component name="topCover" new_value="6" property_name="lidLengthLc" />
+    <modify_component name="topCover" new_value="6" property_name="lidWidthWc" />
+    <modify_component name="topCover" new_value="1" property_name="lidThicknessTc" />
+    <modify_component name="topCover" new_value="2.5" property_name="lidBaseThicknessTcb" />
+    <modify_component name="topCover" new_value="0.05" property_name="dieAttachThicknessTda" />
+    <modify_component name="topCover" new_value="0.2" property_name="lidAdhesiveThickness" />
+    <modify_component name="topCover" new_value="6" property_name="plateLengthLc" />
+    <modify_component name="topCover" new_value="6" property_name="plateWidthWc" />
+    <modify_component name="topCover" new_value="1" property_name="plateThicknessTc" />
+    <modify_component name="modelingOptions" new_value="true" property_name="localizeGrid" />
+    <modify_component name="flipChipBumps" new_value="true" property_name="underfill" />
+    <modify_component name="topCover" new_value="false" property_name="enableDieFlush" />
+    <modify_component name="solderBallDepopulation" new_value="false" property_name="depopulatedCenter" />
+    <modify_component name="centralBalls" new_value="false" property_name="centralBalls" />
+    <modify_component name="solderBalls" new_value="false" property_name="staggeredMatrix" />
+    <modify_component name="centralBalls" new_value="false" property_name="staggeredMatrix" />
+    <modify_component name="solderBalls" new_value="false" property_name="solderBallMapDialog" />
+    <modify_component name="packageSubstrate" new_value="Alumina (Typical)" property_name="dielectricMaterial" />
+    <modify_component name="topCover" new_value="Epoxy Overmold (Typical)" property_name="encapsulantMaterial" />
+    <modify_component name="topCover" new_value="Aluminum (Pure)" property_name="lidMaterial" />
+    <modify_component name="topCover" new_value="Stiffener Adhesive (Typical)" property_name="lidAdhesiveMaterial" />
+    <modify_component name="topCover" new_value="Flip-Chip Cap Grease (Typical)" property_name="dieAttachMaterial" />
+    <modify_component name="topCover" new_value="Aluminum (Pure)" property_name="plateMaterial" />
+    <modify_component name="flipChipBumps" new_value="Solder (Pb90/Sn10)" property_name="c4SolderMaterial" />
+    <modify_component name="flipChipBumps" new_value="Flip-Chip Underfill (Typical)" property_name="underfillMaterial" />
+    <modify_component name="solderBalls" new_value="Solder (Sn63/Pb37)" property_name="solderMaterial" />
+    <modify_component name="topCover" new_value="Steel Stainless-302 (Cr18/Ni8)" property_name="stiffenerMaterial" />
+    <modify_component name="topCover" new_value="Stiffener Adhesive (Typical)" property_name="stiffenerAdhesiveMaterial" />
+    <modify_component name="modelingOptions" new_value="orthotropicCuboid" property_name="modelSolderBallArrayAs" />
+    <modify_component name="modelingOptions" new_value="isotropicCuboid" property_name="modelFlipChipBumpsAs" />
+    <modify_component name="modelingOptions" new_value="fine" property_name="gridDensity" />
+    <save_des filename="model.des" />
+    <export_floxml filename="model.xml" />
+    <quit />
+</flopack_xml_log_file>

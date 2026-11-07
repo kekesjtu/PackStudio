@@ -1,0 +1,26 @@
+{
+  "template": "qfn",
+  "id": "packages/qfn/parameters/default/overall_package/length_d/13.2",
+  "origin": "resweep",
+  "commands": [
+    "<new_package package_type=\"QFN\">\n        <new_value new_value=\"QFN\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"QFN_12X12_100\" property_name=\"jedecFootprint\" />\n    </new_package>",
+    "<modify_component name=\"overallPackage\" new_value=\"13.2\" property_name=\"lengthD\" />"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "numeric_parameter",
+    "target": {
+      "component": "overallPackage",
+      "property": "lengthD",
+      "label": "Length D",
+      "baseline": 12,
+      "value": 13.2,
+      "unit": "mm"
+    },
+    "comparison_baseline": "packages/qfn/baselines/default",
+    "expected_outcome": "semantic_change",
+    "expected_des": {
+      "D": "13.2"
+    }
+  }
+}

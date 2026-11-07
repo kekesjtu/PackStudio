@@ -66,7 +66,7 @@ def audit(root, work, installation=INSTALLATION):
     native = ActivationProbe(installation)
     snapshots = []
     for scenario in SCENARIOS:
-        relative = f"template/pbga_fc/field-{scenario}"
+        relative = f"packages/pbga_fc/cases/field_{scenario.replace('-', '_')}"
         source = root / relative
         copied = inputs / (scenario + ".des")
         with ZipFile(source / "model.des") as archive:

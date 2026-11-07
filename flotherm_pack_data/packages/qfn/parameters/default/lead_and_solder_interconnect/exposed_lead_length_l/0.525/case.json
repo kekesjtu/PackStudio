@@ -1,0 +1,25 @@
+{
+  "template": "qfn",
+  "id": "packages/qfn/parameters/default/lead_and_solder_interconnect/exposed_lead_length_l/0.525",
+  "origin": "resweep",
+  "commands": [
+    "<new_package package_type=\"QFN\">\n        <new_value new_value=\"QFN\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"QFN_12X12_100\" property_name=\"jedecFootprint\" />\n    </new_package>",
+    "<modify_component name=\"leadAndSolderInterconnect\" new_value=\"0.525\" property_name=\"exposedLeadLengthL\" />"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "numeric_parameter",
+    "target": {
+      "component": "leadAndSolderInterconnect",
+      "property": "exposedLeadLengthL",
+      "label": "Exposed Lead Length L",
+      "baseline": 0.5,
+      "value": 0.525,
+      "unit": "mm"
+    },
+    "comparison_baseline": "packages/qfn/baselines/default",
+    "expected_des": {
+      "lf": "0.525"
+    }
+  }
+}

@@ -1,23 +1,25 @@
 """Copy screenshots from the current reference tree into staged output."""
 
+import json
 import shutil
 from pathlib import Path
 
 
-def preserve_screenshots(source: Path, destination: Path, templates):
+def preserve_screenshots(source: Path, destination: Path, packages):
     records = []
-    for family in sorted(templates):
-        directory = source / "template" / family / "screenshots"
-        if not directory.is_dir():
+    entries = json.loads((source / "screenshots.json").read_text(encoding="utf-8"))
+    for record in entries:
+        relative = Path(record["path"])
+        parts = relative.parts
+        if len(parts) < 4 or parts[0] != "packages" or parts[2] != "screenshots":
+            raise ValueError(f"invalid screenshot path: {relative}")
+        if parts[1] not in packages:
             continue
-        for image in sorted(directory.rglob("*")):
-            if not image.is_file() or image.suffix.lower() not in {".png", ".jpg", ".jpeg", ".bmp"}:
-                continue
-            if not image.resolve().is_relative_to(source.resolve()):
-                raise ValueError("screenshot path escapes reference root")
-            relative = image.relative_to(source)
-            target = destination / relative
-            target.parent.mkdir(parents=True, exist_ok=True)
-            shutil.copy2(image, target)
-            records.append({"path": relative.as_posix()})
+        image = (source / relative).resolve()
+        if not image.is_relative_to(source.resolve() / "packages" / parts[1] / "screenshots"):
+            raise ValueError("screenshot path escapes its package")
+        target = destination / relative
+        target.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(image, target)
+        records.append(record)
     return records

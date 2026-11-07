@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='utf-8'?>
+<flopack_xml_log_file version="1.0">
+    <new_package package_type="chip_array">
+        <new_value new_value="Chip Array" property_name="designName" />
+        <new_value new_value="nonStandardOutline" property_name="outlineType" />
+        <new_value new_value="ChipArray_24_4X4mm_0_8" property_name="jedecFootprint" />
+        <new_value new_value="actualDie" property_name="dieType" />
+        <new_value new_value="2-Layer" property_name="substrateLayer" />
+        <new_value new_value="0.018" property_name="topSignalLayerThickness" />
+        <new_value new_value="0.018" property_name="bottomSignalLayerThickness" />
+    </new_package>
+    <modify_component name="overallPackage" new_value="4" property_name="lengthD" />
+    <modify_component name="overallPackage" new_value="4" property_name="widthE" />
+    <modify_component name="overallPackage" new_value="0.36" property_name="substrateThicknessA2" />
+    <modify_component name="die" new_value="1.2" property_name="dieLengthLd" />
+    <modify_component name="die" new_value="1.2" property_name="dieWidthWd" />
+    <modify_component name="die" new_value="0.3" property_name="dieThicknessTd" />
+    <modify_component name="die" new_value="0.025" property_name="dieAttachThicknessTda" />
+    <modify_component name="die" new_value="0" property_name="packagePower" />
+    <modify_component name="encapsulant" new_value="0.65" property_name="thicknessTe" />
+    <modify_component name="encapsulant" new_value="0.05" property_name="solderMaskThicknessTsm" />
+    <modify_component name="bondWires" new_value="2" property_name="extentOfBondWirePadsLw" />
+    <modify_component name="bondWires" new_value="2" property_name="extentOfBondWirePadsWw" />
+    <modify_component name="bondWires" new_value="0.025" property_name="bondWireDiameterDw" />
+    <modify_component name="vias" new_value="0.2" property_name="viaDiameterDv" />
+    <modify_component name="vias" new_value="0.025" property_name="platingThicknessTpl" />
+    <modify_component name="modelingOptions" new_value="0.4" property_name="viaOffsetInX" />
+    <modify_component name="modelingOptions" new_value="0.4" property_name="viaOffsetInY" />
+    <modify_component name="solderBalls" new_value="5" property_name="numberOfSolderBallsInXMD" />
+    <modify_component name="solderBalls" new_value="5" property_name="numberOfSolderBallsInYME" />
+    <modify_component name="solderBalls" new_value="0.8" property_name="ballPitchE" />
+    <modify_component name="solderBalls" new_value="0.46" property_name="ballDiameterB" />
+    <modify_component name="solderBalls" new_value="0.4" property_name="substrateStandoffA1" />
+    <modify_component name="modelingOptions" new_value="true" property_name="localizeGrid" />
+    <modify_component name="metalLayers" new_value="2-Layer" property_name="substrateLayer" />
+    <modify_component name="solderBallDepopulation" new_value="false" property_name="depopulatedCenter" />
+    <modify_component name="centralBalls" new_value="false" property_name="centralBalls" />
+    <modify_component name="solderBalls" new_value="false" property_name="staggeredMatrix" />
+    <modify_component name="centralBalls" new_value="false" property_name="staggeredMatrix" />
+    <modify_component name="solderBalls" new_value="false" property_name="solderBallMapDialog" />
+    <modify_component name="overallPackage" new_value="BT" property_name="dielectricMaterial" />
+    <modify_component name="die" new_value="QMI 595" property_name="dieAttachMaterial" />
+    <modify_component name="encapsulant" new_value="Epoxy Overmold (Typical)" property_name="encapsulantMaterial" />
+    <modify_component name="bondWires" new_value="Gold (Pure)" property_name="bondWireMaterial" />
+    <modify_component name="encapsulant" new_value="Solder Mask Material" property_name="solderMaskMaterial" />
+    <modify_component name="solderBalls" new_value="Solder (Sn63/Pb37)" property_name="solderMaterial" />
+    <modify_component name="metalLayers" new_value="Copper (Pure)" property_name="materialOfMetal" />
+    <modify_component name="metalLayers" new_value="Alloy-42" property_name="conductivity" />
+    <modify_component name="bondWires" new_value="yes" property_name="numberBondWiresEqualsSolderBalls" />
+    <modify_component name="vias" new_value="no" property_name="filledVias" />
+    <modify_component name="modelingOptions" new_value="accurate" property_name="viaModeling" />
+    <modify_component name="modelingOptions" new_value="include" property_name="bondWireModeling" />
+    <modify_component name="modelingOptions" new_value="fine" property_name="gridDensity" />
+    <modify_component_table_row name="metalLayers" property_name="twoLayerMetalLayersTable" row="0" column="1" new_value="0.018" />
+    <modify_component_table_row name="metalLayers" property_name="twoLayerMetalLayersTable" row="0" column="2" new_value="20" />
+    <modify_component_table_row name="metalLayers" property_name="twoLayerMetalLayersTable" row="1" column="1" new_value="0.018" />
+    <modify_component_table_row name="metalLayers" property_name="twoLayerMetalLayersTable" row="1" column="2" new_value="10" />
+    <save_des filename="model.des" />
+    <export_floxml filename="model.xml" />
+    <quit />
+</flopack_xml_log_file>

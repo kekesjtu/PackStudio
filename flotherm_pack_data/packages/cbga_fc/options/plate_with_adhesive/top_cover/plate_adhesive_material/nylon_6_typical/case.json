@@ -1,0 +1,23 @@
+{
+  "template": "cbga_fc",
+  "id": "packages/cbga_fc/options/plate_with_adhesive/top_cover/plate_adhesive_material/nylon_6_typical",
+  "origin": "resweep",
+  "commands": [
+    "<load_des filename=\"input.des\" />"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "material_option",
+    "des_key": "k_adhessive",
+    "comparison_baseline": "packages/cbga_fc/baselines/plate_with_adhesive",
+    "target": {
+      "component": "topCover",
+      "property": "plateAdhesiveMaterial",
+      "baseline": "QMI 595",
+      "value": "Nylon-6 (Typical)"
+    },
+    "expected_des": {
+      "k_adhessive": "Nylon-6 (Typical)"
+    }
+  }
+}

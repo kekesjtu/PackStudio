@@ -1,5 +1,6 @@
 """Behavior of generated requests and failed native execution."""
 
+import json
 from pathlib import Path
 from xml.etree import ElementTree as ET
 from zipfile import ZipFile
@@ -86,20 +87,26 @@ def test_failed_native_process_cannot_produce_reference_points(tmp_path, monkeyp
     )
     point = Point("bare_die", "baseline", ["<new_package/>"])
     with pytest.raises(RuntimeError, match="native batch failed"):
-        execute_points([point], tmp_path / "stage", tmp_path, Path(__file__).parents[2], 1, 60)
+        execute_points(
+            [("packages/bare_die/baselines/default", point)],
+            tmp_path / "stage", tmp_path, Path(__file__).parents[2], 1, 60,
+        )
     assert not (tmp_path / "stage").exists()
 
 
 def test_archive_and_screenshot_copy_keep_directory_layout(tmp_path):
     source = tmp_path / "source"
-    image = source / "template/bare_die/screenshots/page.png"
+    image = source / "packages/bare_die/screenshots/page.png"
     image.parent.mkdir(parents=True)
     image.write_bytes(b"image")
+    (source / "screenshots.json").write_text(
+        json.dumps([{"path": image.relative_to(source).as_posix()}]), encoding="utf-8",
+    )
     (source / "empty").mkdir()
     archive = tmp_path / "backup.zip"
     archive_tree(source, archive)
     with ZipFile(archive) as container:
-        assert "source/template/bare_die/screenshots/page.png" in container.namelist()
+        assert "source/packages/bare_die/screenshots/page.png" in container.namelist()
         assert "source/empty/" in container.namelist()
     target = tmp_path / "staging"
     records = preserve_screenshots(source, target, {"bare_die"})

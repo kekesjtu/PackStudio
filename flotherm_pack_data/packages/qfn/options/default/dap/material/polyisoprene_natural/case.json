@@ -1,0 +1,24 @@
+{
+  "template": "qfn",
+  "id": "packages/qfn/options/default/dap/material/polyisoprene_natural",
+  "origin": "resweep",
+  "commands": [
+    "<new_package package_type=\"QFN\">\n        <new_value new_value=\"QFN\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"QFN_12X12_100\" property_name=\"jedecFootprint\" />\n    </new_package>",
+    "<modify_component name=\"dap\" new_value=\"Polyisoprene (Natural)\" property_name=\"material\" />"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "material_option",
+    "target": {
+      "component": "dap",
+      "property": "material",
+      "baseline": "Cu-C19400",
+      "value": "Polyisoprene (Natural)"
+    },
+    "comparison_baseline": "packages/qfn/baselines/default",
+    "des_key": "k_dap",
+    "expected_des": {
+      "k_dap": "Polyisoprene (Natural)"
+    }
+  }
+}

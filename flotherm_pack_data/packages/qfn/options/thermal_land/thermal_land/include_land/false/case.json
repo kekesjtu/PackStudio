@@ -1,0 +1,23 @@
+{
+  "template": "qfn",
+  "id": "packages/qfn/options/thermal_land/thermal_land/include_land/false",
+  "origin": "resweep",
+  "commands": [
+    "<new_package package_type=\"QFN\">\n        <new_value new_value=\"QFN\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"QFN_12X12_100\" property_name=\"jedecFootprint\" />\n    </new_package>",
+    "<modify_component name=\"thermalLand\" new_value=\"false\" property_name=\"includeLand\" />",
+    "<modify_component name=\"thermalLand\" new_value=\"Copper (Pure)\" property_name=\"material\" />",
+    "<modify_component name=\"thermalLand\" new_value=\"0.05\" property_name=\"landThickness\" />"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "boolean_option",
+    "target": {
+      "component": "thermalLand",
+      "property": "includeLand",
+      "baseline": true,
+      "value": false
+    },
+    "comparison_baseline": "packages/qfn/baselines/thermal_land",
+    "des_key": "isLand"
+  }
+}

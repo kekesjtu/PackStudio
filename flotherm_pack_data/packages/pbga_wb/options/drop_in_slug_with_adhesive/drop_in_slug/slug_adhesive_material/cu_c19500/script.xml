@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<flopack_xml_log_file version="1.0">
+    <new_package package_type="pbga_wb">
+        <new_value new_value="pbga_wb" property_name="designName" />
+        <new_value new_value="standardOutline" property_name="outlineType" />
+        <new_value new_value="PBGA_121_15X15mm" property_name="jedecFootprint" />
+        <new_value new_value="actualDie" property_name="dieType" />
+        <new_value new_value="2-Layer" property_name="substrateLayer" />
+        <new_value new_value="0.018" property_name="topSignalLayerThickness" />
+        <new_value new_value="0.018" property_name="bottomSignalLayerThickness" />
+    </new_package>
+    <modify_component name="dropInSlug" new_value="true" property_name="includeSlug" />
+    <modify_component name="dropInSlug" new_value="11" property_name="slugLengthLsl" />
+    <modify_component name="dropInSlug" new_value="10" property_name="slugWidthWsl" />
+    <modify_component name="dropInSlug" new_value="0.15" property_name="slugThicknessTsl" />
+    <modify_component name="dropInSlug" new_value="5" property_name="slugDiameterDs" />
+    <modify_component name="dropInSlug" new_value="12" property_name="slugFootExtendLengthLsf" />
+    <modify_component name="dropInSlug" new_value="11.5" property_name="slugFootExtendWidthWsf" />
+    <modify_component name="dropInSlug" new_value="0.1" property_name="slugOffsetGs" />
+    <modify_component name="dropInSlug" new_value="0.2" property_name="slugFootClearanceGsf" />
+    <modify_component name="dropInSlug" new_value="Copper (Pure)" property_name="slugMaterial" />
+    <modify_component name="dropInSlug" new_value="true" property_name="adhesivePresentUnderSlugFoot" />
+    <modify_component name="dropInSlug" new_value="Cu-C19500" property_name="slugAdhesiveMaterial" />
+    <save_des filename="model.des" />
+    <export_floxml filename="model.xml" />
+    <quit />
+</flopack_xml_log_file>

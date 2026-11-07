@@ -1,0 +1,26 @@
+{
+  "template": "qfn",
+  "id": "packages/qfn/parameters/default/lead_and_solder_interconnect/exposed_lead_thickness/0.11",
+  "origin": "resweep",
+  "commands": [
+    "<new_package package_type=\"QFN\">\n        <new_value new_value=\"QFN\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"QFN_12X12_100\" property_name=\"jedecFootprint\" />\n    </new_package>",
+    "<modify_component name=\"leadAndSolderInterconnect\" new_value=\"0.11\" property_name=\"exposedLeadThickness\" />"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "numeric_parameter",
+    "target": {
+      "component": "leadAndSolderInterconnect",
+      "property": "exposedLeadThickness",
+      "label": "Exposed Lead Thickness",
+      "baseline": 0.1,
+      "value": 0.11,
+      "unit": "mm"
+    },
+    "comparison_baseline": "packages/qfn/baselines/default",
+    "expected_outcome": "semantic_change",
+    "expected_des": {
+      "hf": "0.11"
+    }
+  }
+}

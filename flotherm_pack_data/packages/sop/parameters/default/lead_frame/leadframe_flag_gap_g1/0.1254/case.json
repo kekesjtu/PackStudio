@@ -1,0 +1,26 @@
+{
+  "template": "sop",
+  "id": "packages/sop/parameters/default/lead_frame/leadframe_flag_gap_g1/0.1254",
+  "origin": "resweep",
+  "commands": [
+    "<new_package package_type=\"tsop_conv\">\n        <new_value new_value=\"SOP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"soic/sop/so\" property_name=\"sopPackageType\" />\n        <new_value new_value=\"SOP_8_3_81x4_93\" property_name=\"sopJedecFootprint\" />\n    </new_package>",
+    "<modify_component name=\"leadFrame\" new_value=\"0.1254\" property_name=\"leadframeFlagGapG1\" />"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "numeric_parameter",
+    "target": {
+      "component": "leadFrame",
+      "property": "leadframeFlagGapG1",
+      "label": "Leadframe-Flag Gap g1",
+      "baseline": 0.114,
+      "value": 0.1254,
+      "unit": "mm"
+    },
+    "comparison_baseline": "packages/sop/baselines/default",
+    "expected_outcome": "semantic_change",
+    "expected_des": {
+      "g1": "0.1254"
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "template": "qfn",
+  "id": "packages/qfn/options/thermal_land/thermal_land/material/hysol_4450",
+  "origin": "resweep",
+  "commands": [
+    "<new_package package_type=\"QFN\">\n        <new_value new_value=\"QFN\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"QFN_12X12_100\" property_name=\"jedecFootprint\" />\n    </new_package>",
+    "<modify_component name=\"thermalLand\" new_value=\"true\" property_name=\"includeLand\" />",
+    "<modify_component name=\"thermalLand\" new_value=\"Hysol 4450\" property_name=\"material\" />",
+    "<modify_component name=\"thermalLand\" new_value=\"0.05\" property_name=\"landThickness\" />"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "material_option",
+    "target": {
+      "component": "thermalLand",
+      "property": "material",
+      "baseline": "Copper (Pure)",
+      "value": "Hysol 4450"
+    },
+    "comparison_baseline": "packages/qfn/baselines/thermal_land",
+    "des_key": "k_land",
+    "expected_des": {
+      "k_land": "Hysol 4450"
+    }
+  }
+}

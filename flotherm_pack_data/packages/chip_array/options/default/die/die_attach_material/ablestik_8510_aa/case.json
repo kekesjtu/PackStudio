@@ -1,0 +1,24 @@
+{
+  "template": "chip_array",
+  "id": "packages/chip_array/options/default/die/die_attach_material/ablestik_8510_aa",
+  "origin": "resweep",
+  "commands": [
+    "<new_package package_type=\"chip_array\">\n        <new_value new_value=\"Chip Array\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"ChipArray_24_4X4mm_0_8\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n    </new_package>",
+    "<modify_component name=\"die\" new_value=\"Ablestik 8510AA\" property_name=\"dieAttachMaterial\" />"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "material_option",
+    "target": {
+      "component": "die",
+      "property": "dieAttachMaterial",
+      "baseline": "QMI 595",
+      "value": "Ablestik 8510AA"
+    },
+    "comparison_baseline": "packages/chip_array/baselines/default",
+    "des_key": "k_da",
+    "expected_des": {
+      "k_da": "Ablestik 8510AA"
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "template": "bare_die",
+  "id": "packages/bare_die/options/default/modeling_options/localize_grid/false",
+  "origin": "resweep",
+  "commands": [
+    "<new_package package_type=\"Die\">\n        <new_value new_value=\"Die\" property_name=\"designName\" />\n    </new_package>",
+    "<modify_component name=\"modelingOptions\" new_value=\"false\" property_name=\"localizeGrid\" />"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "boolean_option",
+    "target": {
+      "component": "modelingOptions",
+      "property": "localizeGrid",
+      "label": "Localize Grid",
+      "baseline": true,
+      "value": false
+    },
+    "comparison_baseline": "packages/bare_die/baselines/default",
+    "expected_outcome": "semantic_change"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "template": "pqfp",
+  "id": "packages/pqfp/parameters/default/summary/max_operating_junction_temperature/100",
+  "origin": "resweep",
+  "commands": [
+    "<new_package package_type=\"pqfp\">\n        <new_value new_value=\"PQFP\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"false\" property_name=\"exposedPad\" />\n        <new_value new_value=\"lqfp\" property_name=\"pqfpPackageType\" />\n        <new_value new_value=\"LQFP_32_7X7mm\" property_name=\"lqfpJedecFootprint\" />\n    </new_package>",
+    "<modify_component name=\"summary\" new_value=\"100\" property_name=\"maxOperatingJunctionTemperature\" />"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "numeric_parameter",
+    "target": {
+      "component": "summary",
+      "property": "maxOperatingJunctionTemperature",
+      "baseline": null,
+      "value": 100,
+      "unit": "degC"
+    },
+    "comparison_baseline": "packages/pqfp/baselines/default",
+    "expected_des": {
+      "SummaryMaxOperatingJuncTemp": "100"
+    }
+  }
+}

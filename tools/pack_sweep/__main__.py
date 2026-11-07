@@ -27,13 +27,14 @@ def main(argv=None):
     archive.add_argument("--source", type=Path, default=REPOSITORY / "flotherm_pack_data")
     archive.add_argument("--archive", type=Path, required=True)
     build = commands.add_parser("rebuild", help="replay native inputs and publish verified data")
+    build.add_argument("--source", type=Path, default=REPOSITORY / "flotherm_pack_data")
     build.add_argument("--output", type=Path, default=REPOSITORY / "flotherm_pack_data")
     build.add_argument(
         "--work",
         type=Path,
         default=REPOSITORY / "tmp" / (datetime.now().strftime("%Y-%m-%d") + "-pack-sweep"),
     )
-    build.add_argument("--template", action="append", dest="templates")
+    build.add_argument("--package", action="append", dest="packages")
     build.add_argument("--batch-size", type=int, default=64)
     build.add_argument("--timeout", type=int, default=180)
     build.add_argument("--installation", type=Path, default=INSTALLATION)
@@ -53,24 +54,29 @@ def main(argv=None):
             raise ValueError("--output must be flotherm_pack_data or a directory under tmp/")
         if not work.is_relative_to(REPOSITORY / "tmp") or work == REPOSITORY / "tmp":
             raise ValueError("--work must be a task directory under tmp/")
+        if args.packages and output == REPOSITORY / "flotherm_pack_data":
+            raise ValueError("selected packages require a separate --output under tmp/")
         result = rebuild(
+            args.source,
             output,
             work,
             args.installation.resolve(),
-            args.templates,
+            args.packages,
             args.batch_size,
             args.timeout,
         )
     else:
-        result = (
-            validate_point(args.point.resolve(), args.installation)
-            if args.point
-            else validate_tree(args.root.resolve(), args.installation)
-        )
-        if not args.point:
+        if args.point:
+            point = args.point.resolve()
+            packages = next((path for path in point.parents if path.name == "packages"), None)
+            result = validate_point(
+                point, args.installation, reference_root=packages.parent if packages else None,
+            )
+        else:
+            result = validate_tree(args.root.resolve(), args.installation)
             result = {k: v for k, v in result.items() if k != "points"}
     print(json.dumps(result, ensure_ascii=False, indent=2))
-    return 0
+    return int(result.get("status") == "incomplete")
 
 
 if __name__ == "__main__":

@@ -1,0 +1,24 @@
+{
+  "template": "pbga_wb",
+  "id": "packages/pbga_wb/options/default/encapsulant/encapsulant_material/silicone",
+  "origin": "resweep",
+  "commands": [
+    "<new_package package_type=\"pbga_wb\">\n        <new_value new_value=\"Wirebond PBGA\" property_name=\"designName\" />\n        <new_value new_value=\"standardOutline\" property_name=\"outlineType\" />\n        <new_value new_value=\"PBGA_121_15X15mm\" property_name=\"jedecFootprint\" />\n        <new_value new_value=\"actualDie\" property_name=\"dieType\" />\n        <new_value new_value=\"2-Layer\" property_name=\"substrateLayer\" />\n        <new_value new_value=\"0.018\" property_name=\"topSignalLayerThickness\" />\n        <new_value new_value=\"0.018\" property_name=\"bottomSignalLayerThickness\" />\n        <new_value new_value=\"false\" property_name=\"includeSlug\" />\n    </new_package>",
+    "<modify_component name=\"encapsulant\" new_value=\"Silicone\" property_name=\"encapsulantMaterial\" />"
+  ],
+  "request": null,
+  "metadata": {
+    "kind": "material_option",
+    "target": {
+      "component": "encapsulant",
+      "property": "encapsulantMaterial",
+      "baseline": "Epoxy Overmold (Typical)",
+      "value": "Silicone"
+    },
+    "comparison_baseline": "packages/pbga_wb/baselines/default",
+    "des_key": "k_encap",
+    "expected_des": {
+      "k_encap": "Silicone"
+    }
+  }
+}
