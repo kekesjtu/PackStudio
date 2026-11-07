@@ -9,7 +9,7 @@
 | `families.json` | 家族显示名、分组、描述、默认选择、图标与示意图样式 |
 | `definitions/<family>.json` | `keys` 定义参数、选项、字段约束与展示信息；`materials` 定义材料槽位；`steps` 定义向导栏目和示意图 |
 | `model_groups.json` | 领域模型、模型树与导出共用的分组显示名称及父子关系 |
-| `presets/<来源目录>/<预设名>.json` | 342 个可直接导入的完整方案预设 |
+| `presets/<来源目录>/<预设名>.json` | 343 个可直接导入的完整方案预设 |
 | `presets/<family>/four_layer.json` | Chip Array、Wirebond PBGA 的四层初始化小契约 |
 | `presets/tsop_conv/exposed_pad.json`、`presets/pqfp/exposed_pad.json` | SOP、PQFP 的露出焊盘初始化小契约 |
 | `presets/index.json` | 内部家族 ID、完整方案预设文件路径 |

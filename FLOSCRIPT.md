@@ -11,7 +11,7 @@ FloSCRIPT 并导出原生 FloXML。命令在项目根目录运行，Python 使�
 
 | 用途 | 路径 |
 | --- | --- |
-| 项目 | `E:\Users\mydearlong\Desktop\PackStudio` |
+| 项目 | 当前仓库根目录，由工具按自身位置向上解析 |
 | PACK 安装根目录 | `E:\Program Files\Siemens\SimcenterFlotherm\2504` |
 | PACK 程序 | 安装根目录下 `WinXP\bin\flopack.exe` |
 | 本机程序版本 | `2025.13.1.1142` |
@@ -19,7 +19,7 @@ FloSCRIPT 并导出原生 FloXML。命令在项目根目录运行，Python 使�
 | FloSCRIPT Schema | 安装根目录下 `examples\FloSCRIPT\Schema\FlopackFloSCRIPTSchema.xsd` |
 | FloXML Schema | 安装根目录下 `WinXP\PlugIns\XML_PLUGIN_SCHEMA\xmlSchema.xsd` |
 
-这些本机路径集中定义在 `tools/floscript/environment.py`。
+PACK 安装路径与 PowerShell 宿主集中定义在 `tools/floscript/environment.py`；工程根目录不写入常量，由脚本按自身位置解析。
 工具固定调用上述 PowerShell 7，以隐藏窗口方式启动 PACK。
 程序实际文件版本及二进制哈希写入每次运行记录。
 
