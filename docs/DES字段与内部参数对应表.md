@@ -110,7 +110,6 @@
 | `bga.removal_columns` | — | — |
 | `bga.ball_map_enabled` | `csvBGA` | `name="solderBalls"`; `property_name="solderBallMap"` |
 | `bga.ball_map` | `csvBGA` | `name="solderBalls"`; `property_name="solderBallMapDialog"` |
-| `vias.configuration` | — | — |
 
 ### MaterialAssignments
 
@@ -198,7 +197,6 @@
 | `bga.removal_columns` | — | — |
 | `bga.ball_map_enabled` | `csvBGA` | `name="solderBalls"`; `property_name="solderBallMap"` |
 | `bga.ball_map` | `csvBGA` | `name="solderBalls"`; `property_name="solderBallMapDialog"` |
-| `vias.configuration` | — | — |
 
 ### MaterialAssignments
 
@@ -319,7 +317,10 @@
 | `bga.removal_columns` | — | — |
 | `bga.ball_map_enabled` | `csvBGA` | `name="solderBalls"`; `property_name="solderBallMap"` |
 | `bga.ball_map` | `csvBGA` | `name="solderBalls"`; `property_name="solderBallMapDialog"` |
-| `vias.configuration` | — | — |
+| `vias.removal_enabled` | — | — |
+| `vias.removal_rows` | — | — |
+| `vias.removal_columns` | — | — |
+| `vias.omitted_cells` | — | — |
 
 ### MaterialAssignments
 
@@ -428,7 +429,10 @@
 | `bga.removal_columns` | — | — |
 | `bga.ball_map_enabled` | `csvBGA` | `name="solderBalls"`; `property_name="solderBallMap"` |
 | `bga.ball_map` | `csvBGA` | `name="solderBalls"`; `property_name="solderBallMapDialog"` |
-| `vias.configuration` | — | — |
+| `vias.removal_enabled` | — | — |
+| `vias.removal_rows` | — | — |
+| `vias.removal_columns` | — | — |
+| `vias.omitted_cells` | — | — |
 
 ### MaterialAssignments
 
@@ -569,6 +573,10 @@
 | `leads.modeling` | `radio_LeadFram_modeling` | `name="modelingOptions"`; `property_name="modelLeadAndSolderInterconnectAs"` |
 | `bond_wire.steps` | `nsteps` | `name="modelingOptions"`; `property_name="numberOfDiscreteBondwireSteps"` |
 | `vias.modeling` | `radio_via_modeling` | `name="vias"`; `property_name="modelViasAs"` |
+| `vias.removal_enabled` | — | — |
+| `vias.removal_rows` | — | — |
+| `vias.removal_columns` | — | — |
+| `vias.omitted_cells` | — | — |
 
 ### MaterialAssignments
 

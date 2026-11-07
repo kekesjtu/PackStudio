@@ -106,12 +106,6 @@ public sealed class RuntimeDataCatalog
         {
             if (field["key"].Text().Length == 0 || field["type"].Text(defaultType).Length == 0)
                 throw new InvalidDataException("参数定义缺少键或数据类型。");
-            if (field["type"].Text() == "object")
-            {
-                if (field["keys"] is not JArray children || field["default"] is not JObject)
-                    throw new InvalidDataException($"对象参数 {field["key"]} 缺少子字段或基线。");
-                CheckFields(children);
-            }
             if (field["columns"] is JArray columns) CheckFields(columns);
             foreach (var option in field["options"] as JArray ?? [])
                 if (option is not JObject record || record["value"] is not JValue ||

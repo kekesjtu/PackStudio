@@ -5,12 +5,11 @@ public static class Vias
 {
     public static HashSet<(int row, int col)> Omissions(BuildContext c, int rows, int cols)
     {
-        var config = c.Values["vias.configuration"] as JObject ?? new();
         var cells = new HashSet<(int, int)>();
-        if (!config["removal_enabled"].Flag())
+        if (!c.B("vias.removal_enabled"))
             return cells;
-        int nr = (int)config["removal_rows"]!, nc = (int)config["removal_columns"]!;
-        foreach (var p in config["omitted_cells"] as JArray ?? [])
+        int nr = c.I("vias.removal_rows"), nc = c.I("vias.removal_columns");
+        foreach (var p in (JArray)c.Values["vias.omitted_cells"]!)
             cells.Add(((int)p["row"]!, (int)p["column"]!));
         for (int r = (rows - nr) / 2; r < (rows - nr) / 2 + nr; r++)
             for (int col = (cols - nc) / 2; col < (cols - nc) / 2 + nc; col++)

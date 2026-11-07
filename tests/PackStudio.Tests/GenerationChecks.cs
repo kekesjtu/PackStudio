@@ -48,23 +48,20 @@ static class GenerationChecks
             }
         });
 
-        tests.Case("generation", "nested diagnostics use parent context and child DES symbols", () =>
+        tests.Case("generation", "via removal diagnostics use the flat key and field symbol", () =>
         {
             var original = tests.Catalog.Load("pbga_wb");
             var data = (JObject)original.Data.DeepClone();
-            var field = data["keys"]!.Single(f => f["key"].Text() == "vias.configuration");
-            field["label"] = "通孔配置";
-            var child = field["keys"]!.Single(f => f["key"].Text() == "removal_rows");
-            child["label"] = "去除行数";
-            child["des_symbol"] = "Rv";
+            var field = data["keys"]!.Single(f => f["key"].Text() == "vias.removal_rows");
+            field["des_symbol"] = "Rv";
             var definition = new PackageDefinition(original.Info, data, original.Presets);
             var document = tests.Create(definition);
             document.Values["vias.enabled"] = true;
-            document.Values["vias.configuration"]!["removal_enabled"] = true;
-            document.Values["vias.configuration"]!["removal_rows"] = "invalid";
+            document.Values["vias.removal_enabled"] = true;
+            document.Values["vias.removal_rows"] = "invalid";
             var issue = InputValidator.Validate(document, definition, tests.Catalog.Materials)
-                .Single(i => i.Code == "input.type.number" && i.ParameterPaths.Contains("vias.configuration.removal_rows"));
-            Assert(issue.Message == "通孔配置 · Rv：必须为数值。", "nested diagnostic did not resolve its symbol");
+                .Single(i => i.Code == "input.type.number" && i.ParameterPaths.Contains("vias.removal_rows"));
+            Assert(issue.Message == "Rv：必须为数值。", "via removal diagnostic did not resolve its symbol");
         });
 
         tests.Case("generation", "table structural diagnostics show labels and human row numbers", () =>

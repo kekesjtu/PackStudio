@@ -6,7 +6,7 @@ static class BoundaryChecks
 {
     public static void Run(TestSuite tests)
     {
-        tests.Case("parameters", "creation preserves explicit tables and nested input", () =>
+        tests.Case("parameters", "creation preserves explicit tables", () =>
         {
             var template = tests.Catalog.Load("chip_array");
             double explicitHeight = template.DisplayDefaults(template.DefaultPreset)["substrate.thickness"].Number();
@@ -17,11 +17,9 @@ static class BoundaryChecks
             table[0]!["thickness"] = 0.03;
             options["metal.layers"] = table;
             options["trace.solid_thickness"] = 0.05;
-            options["vias.configuration/removal_enabled"] = false;
             var document = tests.Create(template, name: "explicit table", options: options);
             Near(document.Values["metal.layers"]![0]!["thickness"].Number(), 0.03, "finalization replaced explicit table");
             Near(document.Values["metal.layers"]![1]!["thickness"].Number(), table[1]!["thickness"].Number(), "finalization recomputed explicit inner layers");
-            Assert(document.Values["vias.configuration"]!["removal_enabled"]?.Type == JTokenType.Boolean, "nested override path was not applied");
             tests.Generate(document);
         });
         tests.Case("materials", "all material views use the same representative", () =>
@@ -39,33 +37,6 @@ static class BoundaryChecks
             Assert(dropdown.SelectedId == custom.Id, "assigned material representative did not win");
             Near(dropdown.Items.Single(m => m.Name == custom.Name).Density, 1234, "custom properties did not override model/library");
             Assert(dropdown.Items.Single(m => m.Name == custom.Name) == library.Single(m => m.Name == custom.Name), "dropdown and library disagree");
-        });
-        tests.Case("projects", "v2 migration stays at file boundary and preserves saved geometry", () =>
-        {
-            string directory = Path.Combine(tests.Root, "tmp", DateTime.Now.ToString("yyyy-MM-dd") + "-core-tests");
-            Directory.CreateDirectory(directory);
-            string path = Path.Combine(directory, "legacy-project.packstudio.json");
-            try
-            {
-                var template = tests.Catalog.Load("pbga_wb");
-                var document = tests.Create(template);
-                document.Values["metal.layers"]![0]!["thickness"] = 0.03;
-                var data = JObject.FromObject(document);
-                data["SchemaVersion"] = "packstudio.project/v2";
-                data["PresetId"] = template.DefaultPreset;
-                data["MaterialAssignments"] = new JObject { ["group-encapsulant"] = "copper" };
-                var values = (JObject)data["Values"]!;
-                values["footprint.size"] = template.DefaultPreset;
-                values["bga.via_configuration"] = new JObject { ["removal_enabled"] = true, ["removal_rows"] = 1, ["removal_columns"] = 1 };
-                values.Property("vias.configuration")!.Remove();
-                File.WriteAllText(path, data.ToString());
-                var migrated = ProjectStore.Load(path, tests.Catalog);
-                Assert(migrated.SchemaVersion == ProjectDocument.CurrentVersion && migrated.Values["bga.via_configuration"] == null, "legacy format leaked into current document");
-                Assert(migrated.Values["vias.configuration"]!["removal_enabled"].Flag(), "legacy via configuration lost");
-                Near(migrated.Values["metal.layers"]![0]!["thickness"].Number(), 0.03, "migration reinitialized saved geometry");
-                Assert(migrated.MaterialAssignments.Count == template.MaterialSelections.Count && migrated.MaterialAssignments["group-encapsulant"] == "copper", "legacy material choices not materialized");
-            }
-            finally { if (File.Exists(path)) File.Delete(path); }
         });
     }
 }

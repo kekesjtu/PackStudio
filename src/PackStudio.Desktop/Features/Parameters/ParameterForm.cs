@@ -9,7 +9,6 @@ public sealed class ParameterForm
 {
     readonly Func<JObject> values;
     readonly Func<string, JToken, IReadOnlySet<string>> update;
-    readonly bool forCreation;
     Func<IReadOnlyList<ValidationIssue>> issues = () => [];
     HashSet<string> previousIssuePaths = [];
     readonly Dictionary<string, HashSet<(ParameterField Field, string Property)>> dependencies = [];
@@ -21,17 +20,11 @@ public sealed class ParameterForm
 
     public ParameterForm(Workspace workspace) : this(workspace.Template, () => workspace.Document.Values, (path, value) =>
     {
-        var keys = path.Split('/');
         var target = workspace.Document.Values;
-        foreach (string key in keys[..^1])
-        {
-            if (target[key] is not JObject nested) target[key] = nested = new();
-            target = nested;
-        }
-        if (JToken.DeepEquals(target[keys[^1]], value)) return new HashSet<string>();
+        if (JToken.DeepEquals(target[path], value)) return new HashSet<string>();
         bool clearSlug = path == "cover.type" && target["cover.type"].Text() == "encapsulant" &&
             value.Text() != "encapsulant" && target["slug.enabled"].Flag();
-        target[keys[^1]] = value.DeepClone();
+        target[path] = value.DeepClone();
         HashSet<string> changed = [path];
         if (clearSlug)
         {
@@ -54,7 +47,7 @@ public sealed class ParameterForm
         var current = issues().SelectMany(i => i.ParameterPaths).ToHashSet();
         var affected = previousIssuePaths.Union(current).ToList();
         previousIssuePaths = current;
-        foreach (var field in Fields.Where(f => affected.Any(p => ParameterField.MatchesPath(f.Path, p))))
+        foreach (var field in Fields.Where(f => affected.Any(p => ParameterField.MatchesPath(f.Key, p))))
         {
             field.Notify(nameof(ParameterField.Error));
             field.Notify(nameof(ParameterField.HasError));
@@ -67,37 +60,25 @@ public sealed class ParameterForm
     ParameterForm(PackageDefinition template, Func<JObject> values, Func<string, JToken, IReadOnlySet<string>> update, bool forCreation = false)
     {
         Template = template;
-        this.forCreation = forCreation;
         this.values = values;
         this.update = update;
-        Fields = Expand(forCreation ? new JArray(template.CreationFields) : template.DisplayFields, null).ToList();
+        var definitions = forCreation ? template.CreationFields : template.DisplayFields.Where(f => !f["creation_only"].Flag());
+        Fields = definitions.Select(f => new ParameterField(this, f)).ToList();
         Materials = template.MaterialSelections.Select(s =>
         {
             var definition = (JObject)s.DeepClone();
             definition["key"] = "$material:" + s["key"].Text();
             definition["type"] = "combobox";
-            return new ParameterField(this, definition, null);
+            return new ParameterField(this, definition);
         }).ToList();
         foreach (var field in Fields.Concat(Materials))
         {
-            Watch(field, nameof(ParameterField.Value), [field.Path]);
+            Watch(field, nameof(ParameterField.Value), [field.Key]);
             Watch(field, nameof(ParameterField.Visible), field.RuleDependencies("visible_when"));
             Watch(field, nameof(ParameterField.Enabled), field.RuleDependencies("enabled_when"));
             Watch(field, nameof(ParameterField.Symbol), TemplateSymbols.Dependencies(field.Definition));
             Watch(field, nameof(ParameterField.MatrixRows), [field.Definition["rows_key"].Text()]);
             Watch(field, nameof(ParameterField.MatrixColumns), [field.Definition["columns_key"].Text()]);
-        }
-    }
-
-    IEnumerable<ParameterField> Expand(JArray definitions, ParameterField? parent)
-    {
-        foreach (var definition in definitions)
-        {
-            if (!forCreation && definition["creation_only"].Flag()) continue;
-            var field = new ParameterField(this, definition, parent);
-            if (field.Type == "object")
-                foreach (var child in Expand((JArray)definition["keys"]!, field)) yield return child;
-            else yield return field;
         }
     }
 
@@ -110,16 +91,9 @@ public sealed class ParameterForm
         }
     }
 
-    internal JToken? Get(string path)
-    {
-        JToken? token = Values;
-        foreach (string key in path.Split('/')) token = token is JObject scope ? scope[key] : null;
-        return token;
-    }
-
     public void Set(ParameterField field, JToken value)
     {
-        var changed = update(field.Path, value);
+        var changed = update(field.Key, value);
         if (changed.Count == 0) return;
         var affected = changed.Where(dependencies.ContainsKey).SelectMany(key => dependencies[key]).Distinct().ToList();
         foreach (var (target, property) in affected) target.Notify(property);

@@ -92,12 +92,10 @@
     "bga.ball_map_enabled": false,
     "bga.ball_map": [],
     "bga.representation": "equivalent",
-    "vias.configuration": {
-      "removal_enabled": false,
-      "removal_rows": 0,
-      "removal_columns": 0,
-      "omitted_cells": []
-    }
+    "vias.removal_enabled": false,
+    "vias.removal_rows": 0,
+    "vias.removal_columns": 0,
+    "vias.omitted_cells": []
   },
   "MaterialAssignments": {
     "group-substrate": "pbga-substrate",

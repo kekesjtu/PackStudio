@@ -1591,76 +1591,14 @@
       "step": "modeling"
     },
     {
-      "key": "vias.configuration",
-      "default": {
-        "removal_enabled": false,
-        "removal_rows": 0,
-        "removal_columns": 0,
-        "omitted_cells": []
-      },
-      "type": "object",
-      "label": "通孔去除配置",
+      "key": "vias.removal_enabled",
+      "type": "checkbox",
+      "label": "启用通孔去除",
+      "standalone": true,
       "step": "thermal_vias",
       "visible_when": {
         "vias.enabled": true
       },
-      "keys": [
-        {
-          "key": "removal_enabled",
-          "type": "checkbox",
-          "label": "启用通孔去除",
-          "standalone": true
-        },
-        {
-          "key": "removal_rows",
-          "type": "integer",
-          "label": "中央去除行数",
-          "visible_when": {
-            "removal_enabled": true
-          },
-          "minimum": 0,
-          "active_when": {
-            "all": [
-              {
-                "removal_enabled": true
-              }
-            ]
-          }
-        },
-        {
-          "key": "removal_columns",
-          "type": "integer",
-          "label": "中央去除列数",
-          "visible_when": {
-            "removal_enabled": true
-          },
-          "minimum": 0,
-          "active_when": {
-            "all": [
-              {
-                "removal_enabled": true
-              }
-            ]
-          }
-        },
-        {
-          "key": "omitted_cells",
-          "rows_key": "vias.rows",
-          "columns_key": "vias.columns",
-          "type": "removal_matrix",
-          "label": "显式去孔",
-          "visible_when": {
-            "removal_enabled": true
-          },
-          "active_when": {
-            "all": [
-              {
-                "removal_enabled": true
-              }
-            ]
-          }
-        }
-      ],
       "active_when": {
         "all": [
           {
@@ -1668,6 +1606,66 @@
           }
         ]
       }
+    },
+    {
+      "key": "vias.removal_rows",
+      "des_symbol": null,
+      "type": "integer",
+      "label": "中央去除行数",
+      "visible_when": {
+        "vias.enabled": true,
+        "vias.removal_enabled": true
+      },
+      "minimum": 0,
+      "active_when": {
+        "all": [
+          {
+            "vias.enabled": true,
+            "vias.removal_enabled": true
+          }
+        ]
+      },
+      "step": "thermal_vias"
+    },
+    {
+      "key": "vias.removal_columns",
+      "des_symbol": null,
+      "type": "integer",
+      "label": "中央去除列数",
+      "visible_when": {
+        "vias.enabled": true,
+        "vias.removal_enabled": true
+      },
+      "minimum": 0,
+      "active_when": {
+        "all": [
+          {
+            "vias.enabled": true,
+            "vias.removal_enabled": true
+          }
+        ]
+      },
+      "step": "thermal_vias"
+    },
+    {
+      "key": "vias.omitted_cells",
+      "rows_key": "vias.rows",
+      "columns_key": "vias.columns",
+      "type": "removal_matrix",
+      "label": "显式去孔",
+      "visible_when": {
+        "vias.enabled": true,
+        "vias.removal_enabled": true
+      },
+      "active_when": {
+        "all": [
+          {
+            "vias.enabled": true,
+            "vias.removal_enabled": true
+          }
+        ]
+      },
+      "step": "thermal_vias"
     }
   ],
   "materials": [

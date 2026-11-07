@@ -8,36 +8,28 @@ namespace PackStudio.Desktop;
 public sealed class ParameterField : ObservableObject
 {
     readonly ParameterForm form;
-    readonly ParameterField? parent;
     bool expanded;
     string text;
     public JToken Definition { get; }
-    public ParameterField(ParameterForm form, JToken definition, ParameterField? parent)
+    public ParameterField(ParameterForm form, JToken definition)
     {
-        this.form = form; this.parent = parent; Definition = definition;
+        this.form = form; Definition = definition;
         text = Display(Value);
         expanded = Value is JArray { Count: > 0 };
     }
     public string Key => Definition["key"].Text();
-    public string Path => parent == null ? Key : parent.Path + "/" + Key;
-    internal static bool MatchesPath(string field, string issue)
-    {
-        string dotted = field.Replace('/', '.');
-        return issue == field || issue == dotted || issue.StartsWith(field + "/") || issue.StartsWith(dotted + "[") ||
-            issue.StartsWith(dotted + ".") || dotted.StartsWith(issue + ".");
-    }
+    internal static bool MatchesPath(string field, string issue) => issue == field || issue.StartsWith(field + "[");
     public string Label => Definition["label"].Text();
     public string Type => Definition["type"].Text();
-    public string Step => parent?.Step ?? Definition["step"].Text();
-    public JToken? Value => form.Get(Path);
-    JObject Scope => parent?.Value as JObject ?? form.Values;
-    public bool Visible => (parent?.Visible ?? true) && JsonData.Matches(Definition["visible_when"] as JObject, Scope);
-    public bool Enabled => (parent?.Enabled ?? true) && JsonData.Matches(Definition["enabled_when"] as JObject, Scope);
+    public string Step => Definition["step"].Text();
+    public JToken? Value => form.Values[Key];
+    public bool Visible => JsonData.Matches(Definition["visible_when"] as JObject, form.Values);
+    public bool Enabled => JsonData.Matches(Definition["enabled_when"] as JObject, form.Values);
     public string Symbol => TemplateSymbols.Resolve(Definition, form.Values);
     public string Range => Bounds(Definition);
     public string RowsRange => Rows(Definition);
     public JArray Options => form.Template.OptionsFor(Definition);
-    public string? Error => form.Error(Path);
+    public string? Error => form.Error(Key);
     public bool HasError => Error != null;
     public bool Expanded { get => expanded; set => SetProperty(ref expanded, value); }
     public int MatrixRows => Count(Definition["rows_key"].Text());
@@ -53,8 +45,7 @@ public sealed class ParameterField : ObservableObject
     }
     public void Set(JToken value) => form.Set(this, value);
     internal IEnumerable<string> RuleDependencies(string rule) =>
-        (parent?.RuleDependencies(rule) ?? []).Concat((Definition[rule] as JObject ?? new()).Properties()
-            .Select(p => parent == null ? p.Name : parent.Path + "/" + p.Name));
+        (Definition[rule] as JObject ?? new()).Properties().Select(p => p.Name);
     internal void Notify(string property)
     {
         OnPropertyChanged(property);

@@ -39,11 +39,11 @@ static class FieldLayoutChecks
             {
                 if (row.DataContext is not ParameterField { Type: "number" or "integer" } field) continue;
                 var hint = row.Children.OfType<TextBlock>().SingleOrDefault(text => Grid.GetColumn(text) == 2)
-                    ?? throw new Exception($"{family}/{field.Path}: 数值框右侧缺少范围提示");
+                    ?? throw new Exception($"{family}/{field.Key}: 数值框右侧缺少范围提示");
                 if (hint.Text != field.Range)
-                    throw new Exception($"{family}/{field.Path}: 范围提示“{hint.Text}”与定义“{field.Range}”不一致");
+                    throw new Exception($"{family}/{field.Key}: 范围提示“{hint.Text}”与定义“{field.Range}”不一致");
                 if (hint.Text.Contains("整数"))
-                    throw new Exception($"{family}/{field.Path}: 整数框不再标注整数");
+                    throw new Exception($"{family}/{field.Key}: 整数框不再标注整数");
                 if (hint.Text.Length > 0) hinted++;
             }
         }

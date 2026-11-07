@@ -110,31 +110,26 @@ static class ProjectChecks
             }
             finally { File.Delete(path); }
         });
-        tests.Case("projects", "legacy custom conductivity type is migrated at the read boundary", () =>
+        tests.Case("projects", "custom conductivity types survive a round trip", () =>
         {
             string directory = Path.Combine(tests.Root, "tmp", DateTime.Now.ToString("yyyy-MM-dd") + "-core-tests");
             Directory.CreateDirectory(directory);
-            string path = Path.Combine(directory, "legacy-materials.packstudio.json");
+            string path = Path.Combine(directory, "custom-materials.packstudio.json");
             try
             {
                 var document = tests.Create(tests.Catalog.Load("bare_die"));
                 document.CustomMaterials =
                 [
-                    new("constant", "constant", new(3, 3, 3), 1, 1),
-                    new("temperature", "temperature", new(3, 3, 3), 1, 1, ConductivityCoefficient: 0, ReferenceTemperature: -20),
+                    new("constant", "constant", new(3, 3, 3), 1, 1, ConductType: 0),
+                    new("temperature", "temperature", new(3, 3, 3), 1, 1, ConductivityCoefficient: 0, ReferenceTemperature: -20, ConductType: 1),
                     new("directional", "directional", new(1, 2, 3), 1, 1),
                     new("explicit", "explicit", new(3, 3, 3), 1, 1, ConductivityCoefficient: -0.4, ConductType: 0)
                 ];
                 var data = JObject.FromObject(document);
-                foreach (var material in ((JArray)data["CustomMaterials"]!).Take(3).Cast<JObject>()) material.Remove("ConductType");
-                foreach (var material in ((JArray)data["CustomMaterials"]!).Cast<JObject>()) material["Emissivity"] = 0.8;
-                File.WriteAllText(path, data.ToString());
+                ProjectStore.Save(document, path);
                 var loaded = ProjectStore.Load(path, tests.Catalog);
-                Assert(loaded.CustomMaterials.Select(m => m.ConductType).SequenceEqual(new[] { 0, 1, 2, 0 }), "legacy material mapping or explicit type precedence changed");
-                Assert(loaded.CustomMaterials[1].ConductivityCoefficient == 0 && loaded.CustomMaterials[1].ReferenceTemperature == -20, "legacy temperature data lost");
-                ProjectStore.Save(loaded, path);
-                Assert(((JArray)JsonData.Read(path)["CustomMaterials"]!).All(m => m["ConductType"]?.Type == JTokenType.Integer), "save omitted explicit conductivity types");
-                Assert(((JArray)JsonData.Read(path)["CustomMaterials"]!).All(m => m["Emissivity"] == null), "obsolete emissivity persisted in saved materials");
+                Assert(loaded.CustomMaterials.Select(m => m.ConductType).SequenceEqual(new[] { 0, 1, 2, 0 }), "conductivity types changed");
+                Assert(loaded.CustomMaterials[1].ConductivityCoefficient == 0 && loaded.CustomMaterials[1].ReferenceTemperature == -20, "temperature data lost");
                 foreach (JToken malformed in new JToken[] { JValue.CreateNull(), new JObject { ["Conductivity"] = JValue.CreateNull() } })
                 {
                     data["CustomMaterials"] = new JArray(malformed);

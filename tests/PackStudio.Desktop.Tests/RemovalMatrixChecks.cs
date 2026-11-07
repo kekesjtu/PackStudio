@@ -87,7 +87,7 @@ static class RemovalMatrixChecks
         if (viaMatrix == null || viaMatrix.Children.OfType<Border>().Count(cell => cell.Tag != null) != 3 * viaColumns)
             throw new Exception("去孔矩阵未随阵列行列数重建");
         Click(viaMatrix.Children.OfType<Border>().First(cell => cell.Tag != null));
-        if ((workspace.Document.Values["vias.configuration"]?["omitted_cells"] as JArray ?? []).Count != 1)
+        if ((workspace.Document.Values["vias.omitted_cells"] as JArray ?? []).Count != 1)
             throw new Exception("去孔单元未写回文档");
         Reset(fields)!.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
         rowCount.Text = original;

@@ -43,7 +43,7 @@ public sealed partial class ParameterPanel
 
     ParameterField? Find(string path) => path.StartsWith("MaterialAssignments.")
         ? form.Materials.FirstOrDefault(f => f.Key == "$material:" + path["MaterialAssignments.".Length..])
-        : form.Fields.OrderByDescending(f => f.Path.Length).FirstOrDefault(f => ParameterField.MatchesPath(f.Path, path));
+        : form.Fields.FirstOrDefault(f => ParameterField.MatchesPath(f.Key, path));
     public string? StepFor(string path) => path == "Name" ? "summary" : Find(path)?.Step;
 
     public void Focus(string path)
@@ -60,7 +60,7 @@ public sealed partial class ParameterPanel
         var children = Descendants(view).ToList();
         if (children.OfType<DataGrid>().FirstOrDefault() is { } table)
         {
-            var parts = path[field.Path.Length..].Replace("].", "/").Replace("[", "/").Replace("]", "").Trim('/').Split('/');
+            var parts = path[field.Key.Length..].Replace("].", "/").Replace("[", "/").Replace("]", "").Trim('/').Split('/');
             if (parts.Length > 0 && int.TryParse(parts[0], out int index) && index >= 0 && index < table.Items.Count)
             {
                 table.SelectedIndex = index;

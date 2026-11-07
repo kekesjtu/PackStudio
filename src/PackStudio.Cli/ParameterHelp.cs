@@ -21,7 +21,6 @@ internal static class ParameterHelp
                     ["value"] = option["value"]!.DeepClone(),
                     ["label"] = option["label"].Text(option["value"]!.ToString())
                 }));
-            if (field["keys"] is JArray keys) entry["keys"] = Describe(keys);
             if (field["columns"] is JArray columns) entry["columns"] = Describe(columns);
             result.Add(field["key"].Text(), entry);
         }

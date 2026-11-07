@@ -9,7 +9,7 @@ public static class ProjectStore
     {
         if (new FileInfo(path).Length > 16 * 1024 * 1024)
             throw new InvalidDataException("方案文件超过 16 MB。");
-        var document = ReadCurrent(ProjectMigration.Read(JsonData.Read(path), catalog));
+        var document = ReadCurrent(JsonData.Read(path));
         if (!catalog.Families.Any(f => f.Id == document.TemplateId))
             throw new InvalidDataException("未知封装类型。");
         return document;

@@ -31,15 +31,6 @@ public static class PackageInitializer
     static void Overlay(JObject target, JObject? source)
     {
         foreach (var property in source?.Properties() ?? [])
-        {
-            string[] path = property.Name.Split('/');
-            var scope = target;
-            foreach (string segment in path[..^1])
-            {
-                if (scope[segment] is not JObject nested) scope[segment] = nested = new JObject();
-                scope = nested;
-            }
-            scope[path[^1]] = property.Value.DeepClone();
-        }
+            target[property.Name] = property.Value.DeepClone();
     }
 }

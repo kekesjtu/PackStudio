@@ -39,28 +39,27 @@ public sealed class PackageDefinition
 
     static string ResolveDisplayName(JArray fields, string path, JObject values)
     {
-        // Parameter keys can contain dots; match the complete key before descending.
+        // Parameter keys can contain dots; match the complete key before resolving table columns.
         var field = fields.OrderByDescending(f => f["key"].Text().Length).FirstOrDefault(f =>
         {
             string key = f["key"].Text();
-            return path == key || path.StartsWith(key + "[") || path.StartsWith(key + ".") || path.StartsWith(key + "/");
+            return path == key || path.StartsWith(key + "[");
         });
         if (field == null) return "参数";
         string label = TemplateSymbols.Resolve(field, values);
         if (string.IsNullOrWhiteSpace(label)) label = field["label"].Text();
         if (string.IsNullOrWhiteSpace(label)) label = "参数";
         string remaining = path[field["key"].Text().Length..];
-        var children = field["keys"] as JArray;
         if (remaining.StartsWith('['))
         {
             int end = remaining.IndexOf(']');
             if (end < 0 || !int.TryParse(remaining[1..end], out int row) || row < 0) return label;
             label += $"第 {row + 1} 行";
             remaining = remaining[(end + 1)..];
-            children = field["columns"] as JArray;
+            if (field["columns"] is JArray columns && remaining.StartsWith('.') && remaining.Length > 1)
+                label += " · " + ResolveDisplayName(columns, remaining[1..], values);
         }
-        return children != null && remaining.Length > 1 && remaining[0] is '.' or '/'
-            ? label + " · " + ResolveDisplayName(children, remaining[1..], values) : label;
+        return label;
     }
 
     /// <summary>Display values only; does not apply creation branches or derive a layer stack.</summary>

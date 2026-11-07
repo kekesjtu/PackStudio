@@ -51,30 +51,27 @@ def cli():
     return dotnet_core
 
 
-def test_request_preserves_false_null_and_object_overrides(cli):
+def test_request_overrides_flat_fields_and_preserves_preset_values(cli):
     values = cli.resolve_values({
         "template_id": "pbga_wb",
         "overrides": {
             "bga.center_solder_enabled": False,
             "bga.center_solder_rows": None,
-            "vias.configuration": {
-                "removal_enabled": True, "removal_rows": 1, "removal_columns": 2,
-            },
+            "vias.removal_enabled": True,
+            "vias.removal_columns": 2,
         },
     })
     assert values["bga.center_solder_enabled"] is False
     assert values["bga.center_solder_rows"] is None
-    assert values["vias.configuration"]["removal_columns"] == 2
+    assert values["vias.removal_enabled"] is True
+    assert values["vias.removal_columns"] == 2
+    assert values["vias.removal_rows"] == 0
+    assert values["vias.omitted_cells"] == []
 
 
-def test_request_rejects_unknown_protocol_fields_and_nested_leaf_paths(cli):
+def test_request_rejects_unknown_protocol_fields_and_parameter_keys(cli):
     with pytest.raises(RuntimeError, match="extra"):
         cli.resolve_values({"template_id": "bare_die", "extra": True})
-    with pytest.raises(RuntimeError, match="vias.configuration.removal_enabled"):
-        cli.resolve_values({
-            "template_id": "pbga_wb",
-            "overrides": {"vias.configuration.removal_enabled": True},
-        })
     with pytest.raises(RuntimeError, match=r"pbga_wb\.die\.power"):
         cli.resolve_values({"template_id": "pbga_wb", "overrides": {"pbga_wb.die.power": 2.5}})
     with pytest.raises(RuntimeError, match=r"footprint\.size"):
@@ -106,7 +103,7 @@ def test_cli_catalog_and_presets_are_separate_queries(cli):
             cli.query(command, "unknown_family")
 
 
-def test_parameter_help_maps_symbols_choices_and_nested_fields(cli):
+def test_parameter_help_maps_symbols_choices_and_table_columns(cli):
     fields = cli.query("--help", "chip_array")
     assert fields["die.length"] == {"label": "芯片长度", "des_symbol": "Ld"}
     assert fields["trace.top_thickness"]["des_symbol"] == {
@@ -115,7 +112,7 @@ def test_parameter_help_maps_symbols_choices_and_nested_fields(cli):
     assert any(option["value"] == "4-Layer" and option["label"] for option in fields["substrate.layers"]["options"])
     assert fields["metal.layers"]["columns"]["depth"]["label"]
     wirebond_fields = cli.query("--help", "pbga_wb")
-    assert wirebond_fields["vias.configuration"]["keys"]["removal_enabled"]["label"]
+    assert wirebond_fields["vias.removal_enabled"]["label"]
 
 
 def test_batch_request_initializes_four_layer_geometry(cli):

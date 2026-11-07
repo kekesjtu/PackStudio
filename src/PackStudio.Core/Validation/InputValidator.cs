@@ -53,7 +53,7 @@ public static class InputValidator
             void Error(string code, string message) => issues.Add(ValidationIssue.Error(code, ValidationStage.Input, $"{displayName(path)}：{message}", path));
             if (value?.Type is null or JTokenType.Null)
             {
-                if (field["required"]?.Value<bool>() != false && type is ("number" or "integer" or "checkbox" or "object" or "table" or "removal_matrix" or "combobox" or "text"))
+                if (field["required"]?.Value<bool>() != false && type is ("number" or "integer" or "checkbox" or "table" or "removal_matrix" or "combobox" or "text"))
                     Error("input.required", "需要填写参数。");
                 continue;
             }
@@ -73,11 +73,6 @@ public static class InputValidator
             { Error("input.type.boolean", "必须为布尔值。"); continue; }
             else if (type is "combobox" or "text" && value.Type != JTokenType.String)
             { Error("input.type.string", "必须为字符串选项。"); continue; }
-            else if (type == "object")
-            {
-                if (value is not JObject nested) Error("input.type.object", "必须为对象。");
-                else ValidateFields(displayName, field["keys"] as JArray ?? [], nested, path + ".", issues);
-            }
             else if (type is "table" or "removal_matrix")
             {
                 if (value is not JArray rows) Error("input.type.array", "必须为数组。");

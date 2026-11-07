@@ -29,7 +29,7 @@ Bare Die 没有原生预设，使用参数定义中的基线。
 - 整数类型统一为 `integer`；`unit` 仅用于 `number`，表格中的数值列按各列类型声明单位。
 - `options` 为包含 `value` 和可选 `label` 的选项记录。方案保存和校验使用 `value`，下拉框显示 `label`，省略名称时直接显示值。`options_source: "presets"` 按预设生成同样结构的候选。
 - `materials` 的条目定义材料槽位，`key` 即组件材料组 ID，默认采用下拉框，无需声明 `type`。其 `default` 和选项中的 `value` 均为材料 ID；省略 `options` 时提供全部可用材料，显式选项用于限制候选，`*` 表示全部材料，空字符串选项允许 No Attachment。方案仍通过独立的 `MaterialAssignments` 保存选择。
-- 对象的子参数放在嵌套 `keys` 中，表格列放在 `columns` 中。`schematic: true` 标记影响示意图结构的参数，用于场景更新。
+- 表格列放在 `columns` 中。`schematic: true` 标记影响示意图结构的参数，用于场景更新。
 - `steps` 保存栏目顺序、名称及示意图类型。参数标签、单位、符号和显隐条件均随对应 `key` 存放。
 
 字段约束直接随 definition 的参数键声明：`required` 控制必填，`minimum`、`maximum` 为闭区间上下限，`exclusive_minimum` 为严格下限，`min_rows`、`max_rows` 为表格行数限制。`active_when`、`inactive_when`、`requires_numeric`、`requires_positive` 表达业务生效条件，与 UI 显隐条件分别维护。跨字段关系、家族与组件规则、模型有效性和诊断由 C# 定义；输入检查按家族组合共用组件检查，生成后检查模型，严重度与消息不由运行数据配置。计算前提失败由生成器携带问题编号和消息返回。
@@ -39,14 +39,12 @@ Bare Die 没有原生预设，使用参数定义中的基线。
 
 `creation_option` 声明创建窗口展示的选项；`creation_only` 声明仅参与创建初始化的输入，不作为保存方案生成时的有效输入。创建后的金属厚度以层表为准。`options_source: "presets"` 从预设目录查询候选，不改写参数定义中的 options。创建时保留用户输入，生成前统一执行业务校验。
 
-对象字段的参数定义声明默认对象和子参数 keys；方案原始值按提交保留，生成前根据业务分支检查对象与子字段。
-
 ## 完整方案与四层配置
 
 预设与用户保存的方案统一使用 `packstudio.project/v4`，通过相同入口导入；索引版本为 `packstudio.preset-index/v4`。预设 Name 与索引键相同。完整方案包含：
 
 - `SchemaVersion`、`TemplateId`、`Name`：契约版本、家族与方案名称。
-- `Values`：以内部字段名为键的方案参数；焊球及阵列配置统一使用 `bga.*`，通孔去除位于 `vias.configuration`。
+- `Values`：以内部字段名为键的方案参数。焊球及阵列配置使用 `bga.*`，通孔去除使用 `vias.removal_enabled`、`vias.removal_rows`、`vias.removal_columns` 和 `vias.omitted_cells`，初始值来自预设。
 - `MaterialAssignments`：每个组件材料组到材料 ID 的完整选择，缺少材料组会报错。
 - `CustomMaterials`：方案自定义物性及用户明确编辑的等效材料物性。
 
@@ -70,7 +68,6 @@ null、0、false 与缺少字段不互相替代。启用结构缺少必需参数
 
 金属层使用真实 JSON 数组，行包含 `depth`、`thickness`、`coverage`、`disconnect`，单位分别为 mm、mm、%、布尔值。
 depth 从全基板顶面计量；空槽不生成行。模板基线、预设、方案保存、表格编辑和生成器统一使用数组。
-兼容 v2、v3 方案在读取边界进行显式迁移，恢复其有效材料选择；内存中的方案及保存输出统一使用 v4。布局字段使用 `Values` 中的 `bga.*`，层表直接使用 JSON 数组。
 方案与生成请求中的未知顶层字段会返回错误。功率通过 `Values["die.power"]` 或请求的 `overrides["die.power"]` 设置。
 完成创建时由 Core 根据厚度参数计算层栈，不因输入不合理阻断创建；无法参与运算的派生值留空。显式提供的层表具有优先级。保存方案的层表按输入参与生成。
 

@@ -29,7 +29,7 @@ static partial class DesLabelChecks
             {
                 var entry = field["des_symbol"];
                 bool covered = entry is JObject choices ? ((JObject)choices["cases"]!).Properties().All(p => p.Value.Text().Length > 0) : entry.Text().Length > 0;
-                if (!covered)
+                if (!covered && entry?.Type != JTokenType.Null)
                     missing.Add(family.Id + "." + field["key"].Text());
                 if (TrailingSymbol().IsMatch(field["label"].Text()))
                     duplicated.Add(family.Id + "." + field["key"].Text() + "=" + field["label"].Text());
@@ -40,6 +40,6 @@ static partial class DesLabelChecks
             throw new Exception("DES 符号缺失：" + string.Join("、", missing));
         if (duplicated.Count > 0)
             throw new Exception("标签内重复标注 DES 符号：" + string.Join("、", duplicated));
-        Console.WriteLine("PASS DES symbols cover every numeric wizard field and labels carry no duplicated symbol");
+        Console.WriteLine("PASS numeric wizard fields declare their DES symbols or null, and labels carry no duplicated symbol");
     }
 }

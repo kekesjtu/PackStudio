@@ -131,17 +131,13 @@ def cases(baselines: Path, inputs: Path, *, families=None):
                         "vias.pitch": 0.5,
                         "vias.plating": 0.025,
                         "vias.modeling": mode,
-                        "vias.configuration": {
-                            "removal_enabled": True,
-                            "removal_rows": 0,
-                            "removal_columns": 0,
-                            "omitted_cells": [
-                                {"row": r, "column": c}
-                                for r in range(4)
-                                for c in range(3)
-                                if (r, c) != (0, 0)
-                            ],
-                        },
+                        "vias.removal_enabled": True,
+                        "vias.omitted_cells": [
+                            {"row": r, "column": c}
+                            for r in range(4)
+                            for c in range(3)
+                            if (r, c) != (0, 0)
+                        ],
                     },
                     "material_assignments": {"group-substrate": "bt"} if isotropic else {},
                 },
