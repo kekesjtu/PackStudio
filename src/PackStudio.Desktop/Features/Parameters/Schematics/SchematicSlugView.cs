@@ -27,17 +27,29 @@ internal sealed partial class SchematicDrawing
         DimV(SlugFootTop, SlugFootBottom, 490, 530, Dimension("支脚厚度", "slug.thickness"));
         DimV(SlugFootBottom, SectionY, 490, 632, Dimension("支脚间隙\n", "slug.clearance"));
 
+        const double slugLength = 230, slugWidth = 150;
+        const double footStep = 19, footLength = 6, footWidth = 6;
+        double slugLeft = 350 - slugLength / 2, slugTop = PlanCenterY - slugWidth / 2;
+        double slugRight = slugLeft + slugLength, slugBottom = slugTop + slugWidth;
+        double outerLeft = slugLeft - footLength, outerRight = slugRight + footLength;
+        double outerTop = slugTop - footWidth, outerBottom = slugBottom + footWidth;
         Rect(Board, 200, PlanTop, 300, PlanBottom - PlanTop);
         Rect(Mold, 210, 382, 280, 176);
-        Rect(Metal, 215, 414, 270, 112);
-        Rect(Metal, 235, 389, 230, 162);
-        Rect(Metal, 235, 395, 230, 150);
+        foreach (var (x, y, w, h) in new[]
+        {
+            (outerLeft, slugTop + footStep, footLength, slugWidth - 2 * footStep),
+            (slugRight, slugTop + footStep, footLength, slugWidth - 2 * footStep),
+            (slugLeft + footStep, outerTop, slugLength - 2 * footStep, footWidth),
+            (slugLeft + footStep, slugBottom, slugLength - 2 * footStep, footWidth)
+        })
+            Rect(Metal, x, y, w, h);
+        Rect(Metal, slugLeft, slugTop, slugLength, slugWidth);
         Ellipse(Metal, 350, PlanCenterY, 35, 35);
         DimH(315, 385, PlanCenterY, 325, Dimension("顶部直径", "slug.diameter"));
-        DimH(215, 485, 389, 355, Dimension("外轮廓长度", "slug.foot_length"));
-        DimV(389, 551, 215, 155, Dimension("外轮廓宽度\n", "slug.foot_width"), true);
-        DimH(235, 465, 545, PlanLengthDimensionY, Dimension("散热块长度", "slug.length"));
-        DimV(395, 545, 465, 550, Dimension("宽度\n", "slug.width"));
+        DimH(outerLeft, outerRight, outerTop, 355, Dimension("外轮廓长度", "slug.foot_length"));
+        DimV(outerTop, outerBottom, outerLeft, 155, Dimension("外轮廓宽度\n", "slug.foot_width"), true);
+        DimH(slugLeft, slugRight, slugBottom, PlanLengthDimensionY, Dimension("散热块长度", "slug.length"));
+        DimV(slugTop, slugBottom, slugRight, 550, Dimension("宽度\n", "slug.width"));
         Axes(70, PlanBottom + 4);
         Legend((Mold, "塑封"), (Metal, "散热块 / Slug"), (Board, "基板"), (Attach, "支脚粘接层"));
     }
