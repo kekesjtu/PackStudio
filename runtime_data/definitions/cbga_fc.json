@@ -898,8 +898,7 @@
       "key": "bga.solder_removal_enabled",
       "type": "checkbox",
       "label": "主阵列中心去球",
-      "step": "solder_removal",
-      "standalone": true
+      "step": "solder_removal"
     },
     {
       "key": "bga.populated_rows",
@@ -973,8 +972,7 @@
       "key": "bga.center_solder_enabled",
       "type": "checkbox",
       "label": "包含中央焊球",
-      "step": "central_solder_balls",
-      "standalone": true
+      "step": "central_solder_balls"
     },
     {
       "key": "bga.center_solder_rows",
@@ -1012,22 +1010,19 @@
       "key": "bga.center_staggered",
       "type": "checkbox",
       "label": "中央焊球交错",
-      "step": "central_solder_balls",
-      "standalone": true
+      "step": "central_solder_balls"
     },
     {
       "key": "bga.staggered",
       "type": "checkbox",
       "label": "交错主阵列",
-      "step": "solder_balls",
-      "standalone": true
+      "step": "solder_balls"
     },
     {
       "key": "bga.ball_map_enabled",
       "type": "checkbox",
       "label": "使用焊球坐标表",
-      "step": "solder_balls",
-      "standalone": true
+      "step": "solder_balls"
     },
     {
       "key": "bga.ball_map",

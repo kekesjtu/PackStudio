@@ -54,15 +54,15 @@ public static class Program
                         if (keys[index + 1] != "central_solder_balls" || keys[index + 2] != "solder_removal")
                             throw new Exception("BGA columns are not grouped in order");
                         steps.SelectedValue = "central_solder_balls";
-                        var center = fields.Children.OfType<CheckBox>().Single(c => c.Content?.ToString() == "包含中央焊球");
+                        var center = Boxes(fields).Single(c => c.Content?.ToString() == "包含中央焊球");
                         bool initial = center.IsChecked == true;
                         center.IsChecked = !initial;
                         steps.SelectedValue = "solder_removal";
-                        if (fields.Children.OfType<CheckBox>().Any(c => c.Content?.ToString() == "包含中央焊球") ||
-                            !fields.Children.OfType<CheckBox>().Any(c => c.Content?.ToString() == "主阵列中心去球"))
+                        if (Boxes(fields).Any(c => c.Content?.ToString() == "包含中央焊球") ||
+                            !Boxes(fields).Any(c => c.Content?.ToString() == "主阵列中心去球"))
                             throw new Exception("solder removal controls are misplaced");
                         steps.SelectedValue = "central_solder_balls";
-                        center = fields.Children.OfType<CheckBox>().Single(c => c.Content?.ToString() == "包含中央焊球");
+                        center = Boxes(fields).Single(c => c.Content?.ToString() == "包含中央焊球");
                         if (center.IsChecked != !initial) throw new Exception("BGA settings lost on navigation");
                         center.IsChecked = initial;
                     }
@@ -94,7 +94,7 @@ public static class Program
                     if (family.Id == "bare_die")
                     {
                         steps.SelectedValue = "bumped_die";
-                        var check = fields.Children.OfType<Grid>().SelectMany(row => row.Children.OfType<StackPanel>()).SelectMany(panel => panel.Children.OfType<CheckBox>()).First();
+                        var check = Boxes(fields).First();
                         if (check.Content?.ToString() != "包含凸点与底填充" || Grid.GetColumnSpan((StackPanel)check.Parent) != 3)
                             throw new Exception("checkbox label is not displayed on one row");
                     }
@@ -155,4 +155,7 @@ public static class Program
         };
         return application.Run(window);
     }
+
+    static IEnumerable<CheckBox> Boxes(StackPanel fields) =>
+        fields.Children.OfType<Grid>().SelectMany(row => row.Children.OfType<StackPanel>()).SelectMany(panel => panel.Children.OfType<CheckBox>());
 }

@@ -54,8 +54,6 @@ static class ModelingStepChecks
 
     static string? Label(object child)
     {
-        if (child is CheckBox direct)
-            return direct.Content?.ToString();
         if (child is not Grid row || row.Children.Count == 0)
             return null;
         object first = row.Children[0];

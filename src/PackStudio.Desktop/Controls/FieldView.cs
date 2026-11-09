@@ -35,15 +35,10 @@ public static partial class FieldView
             view = host;
             if (control == "checkbox")
             {
-                var box = new CheckBox { Content = field.Label, ToolTip = field.Label };
+                var box = new CheckBox { Content = checkboxInEditor ? null : field.Label, ToolTip = field.Label,
+                    VerticalAlignment = VerticalAlignment.Center };
                 Bind(box, CheckBox.IsCheckedProperty, field, nameof(ParameterField.BooleanValue));
-                if (f["standalone"].Flag()) view = box;
-                else if (checkboxInEditor)
-                {
-                    box.Content = null;
-                    box.VerticalAlignment = VerticalAlignment.Center;
-                    editors.Children.Add(box);
-                }
+                if (checkboxInEditor) editors.Children.Add(box);
                 else
                 {
                     host.Children.RemoveAt(0); Grid.SetColumn(editors, 0); Grid.SetColumnSpan(editors, 3);
