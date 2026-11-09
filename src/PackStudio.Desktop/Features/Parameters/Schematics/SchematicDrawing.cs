@@ -12,6 +12,7 @@ internal sealed partial class SchematicDrawing(PackageDefinition template, Proje
     const double SectionY = 230;
     const double PlanTop = 370, PlanBottom = 570, PlanCenterY = (PlanTop + PlanBottom) / 2;
     const double PlanLengthDimensionY = PlanBottom + 29;
+    const double PlanLeadSpacing = 30, PlanLeadInner = 20, PlanLeadOuter = 20;
     const double FlipBumpRadius = 7.5;
     static readonly Brush Ink = Brushes.Black, Muted = Brush("#555555");
     static readonly Brush Die = Brush("#FF1744"), Substrate = Brush("#00C83F"), Metal = Brush("#FFA000");
@@ -146,8 +147,18 @@ internal sealed partial class SchematicDrawing(PackageDefinition template, Proje
         Line(x, y + 22, targetX, targetY);
         dc.DrawEllipse(Ink, null, new(targetX, targetY), 2, 2);
     }
-    void Outline(double x, double y, double w, double h) =>
-        dc.DrawRectangle(null, new Pen(Accent, 2) { DashStyle = DashStyles.Dash }, new(x, y, w, h));
+    void BracketH(double x1, double x2, double y, string label)
+    {
+        Line(x1, y, x2, y);
+        Line(x1, y - 5, x1, y + 5); Line(x2, y - 5, x2, y + 5);
+        Text(label, (x1 + x2) / 2, y + 8, 13, align: TextAlignment.Center);
+    }
+    void BracketV(double x, double y1, double y2, string label, double labelY)
+    {
+        Line(x, y1, x, y2);
+        Line(x - 5, y1, x + 5, y1); Line(x - 5, y2, x + 5, y2);
+        Text(label, x - 8, labelY, 13, align: TextAlignment.Right);
+    }
     void Axes(double x, double y, string vertical = "Y")
     {
         Line(x, y, x + 34, y, Muted); Arrow(x + 34, y, -1, 0, Muted);

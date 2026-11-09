@@ -31,12 +31,7 @@ internal sealed partial class SchematicDrawing
             DimH(334.5, 365.5, firstRow, 340, Dimension("中央焊球列数", "bga.center_solder_columns"));
             DimV(firstRow, lastRow, 365.5, 550, Dimension("中央焊球行数\n", "bga.center_solder_rows"));
         }
-        if (removed)
-        {
-            Outline(294, 260, 112, 24);
-            Outline(303.5, PlanCenterY - 1.5 * BallRowPitch, 93, 3 * BallRowPitch);
-            PopulatedBandDimensions();
-        }
+        if (removed) PopulatedBandDimensions();
         DimV(260, 282, 550, 580, Dimension("离板高度\n", "bga.height"));
         DimH(155, 177, 271, 310, Dimension("球径", "bga.diameter"));
         DimH(226, 474, PlanBottom, PlanLengthDimensionY, Dimension("X 方向列数", "bga.columns"));
@@ -85,7 +80,6 @@ internal sealed partial class SchematicDrawing
         {
             bool upper = step == "upper_built_up";
             double y = upper ? 230 : 254;
-            Outline(146, y - 4, 408, 14);
             DimV(y, y + 6, 550, 590, Dimension("增层厚度\n", upper ? "upper.thickness" : "lower.thickness"));
         }
         else DimV(230, 260, 550, 590, Dimension("基板厚度\n", "substrate.thickness"));

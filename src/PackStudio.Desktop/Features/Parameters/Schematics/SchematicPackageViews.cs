@@ -37,7 +37,6 @@ internal sealed partial class SchematicDrawing
                         Dimension(Flip ? "芯片厚度\n" : "芯片厚度", "die.thickness"));
                     if (!Flip) DimV(y + 23, y + 28, 415, 610, Dimension("粘接层\n", "die.attach"));
                 }
-                Outline(281, 431, 138, 78);
                 break;
             case "encapsulant":
                 DimV(Bga ? 163 : 164, Bga ? 230 : 244, Bga ? 505 : 515, 580,
@@ -47,7 +46,6 @@ internal sealed partial class SchematicDrawing
                 DimV(164, 244, 515, 580, Dimension("塑封厚度\n", Qfn ? "encapsulant.thickness" : "body.thickness"));
                 break;
             case "die_flag_solder_mask" or "die_flag_tie_bars" or "dap":
-                Outline(261, 416, 178, 108);
                 Callout(Qfn ? "芯片承载焊盘 / DAP" : "承载台 / Die Flag", 350, 290, 350, 228);
                 break;
             case "thermal_land" or "thermal_land_solder":
@@ -69,12 +67,16 @@ internal sealed partial class SchematicDrawing
     void PackagePlanDimensions()
     {
         string length = Bare ? "die.length" : Flip ? "substrate.length" : "package.length";
-        double left = !Bga && !Bare && !Qfn ? 180 : 200;
-        double top = !Bga && !Bare && !Qfn && !Sop ? PlanTop - 20 : PlanTop;
-        double bottom = 2 * PlanCenterY - top;
-        DimH(left, 700 - left, bottom, PlanLengthDimensionY, Dimension(Bare ? "芯片长度" : "封装长度", length));
-        if (step is not ("leadframe" or "lead_solder_interconnect"))
+        bool overview = step == "overall_package" ||
+            step == "summary" && template.Steps.All(s => s["key"]?.ToString() != "overall_package");
+        if (overview)
+        {
+            double left = !Bga && !Bare && !Qfn ? 200 - PlanLeadOuter : 200;
+            double top = !Bga && !Bare && !Qfn && !Sop ? PlanTop - PlanLeadOuter : PlanTop;
+            double bottom = 2 * PlanCenterY - top;
+            DimH(left, 700 - left, bottom, PlanLengthDimensionY, Dimension(Bare ? "芯片长度" : "封装长度", length));
             DimV(top, bottom, left, 155, Dimension(Bare ? "宽度\n" : "封装宽度\n", length.Replace("length", "width")), true);
+        }
         if (Bare || step is "bond_wires" or "leadframe" or "lead_solder_interconnect" or "top_cover" or "slug" or "backside_spreader") return;
         string key = FlagStep ? Qfn ? "pad.length" : "flag.length" : step == "encapsulant" ? ChipArray ? "package.length" : Bga ? "encapsulant.length" : "body.length" : "die.length";
         double x1 = FlagStep ? 265 : step == "encapsulant" ? Bga && !ChipArray ? 225 : 200 : 285;
@@ -89,12 +91,10 @@ internal sealed partial class SchematicDrawing
         if (!Bga && !Sop)
             DimH(409, 470, 230, 310, Dimension("键合线长度", "bond_wire.length_x"));
         Callout(Dimension("线径", "bond_wire.diameter"), 80, 155, 253, 185);
-        double left = Bga ? 235 : 245, right = 700 - left;
-        Outline(left - 4, 380, right - left + 8, 180);
+        double left = Bga ? 235 : 200 + PlanLeadInner, right = 700 - left, top = Bga ? 395 : PlanTop + PlanLeadInner;
         if (!Sop)
         {
-            double top = Bga ? 395 : 384;
-            DimH(left, right, top, 352, Dimension("线阵列长度", "bond_wire.extent_length", "lbwx"));
+            DimH(left, right, 2 * PlanCenterY - top, PlanLengthDimensionY, Dimension("线阵列长度", "bond_wire.extent_length", "lbwx"));
             DimV(top, 2 * PlanCenterY - top, right, 565, Dimension("线阵列宽度\n", "bond_wire.extent_width", "lbwy"));
         }
     }
@@ -105,21 +105,30 @@ internal sealed partial class SchematicDrawing
         {
             DimV(223, 235, 515, 562, Dimension("引脚厚度\n", "leads.thickness"));
             DimH(455, 515, 235, 291, Dimension("外露长度", "leads.length"));
-            DimH(200, 230, Centered(1, 6, PlanLeadPitch, PlanCenterY), 345, Dimension("外露长度", "leads.length"));
+            DimH(200, 230, Centered(1, 6, PlanLeadSpacing, PlanCenterY), 345, Dimension("外露长度", "leads.length"));
         }
         else
         {
             DimV(229, 264, 550, 595, Dimension("引脚高度\n", "leads.height"));
             DimH(550, 580, 264, 302, Dimension("引脚足长", "leads.foot_length"));
-            Line(245, 470, 265, 470);
-            Arrow(245, 470, 1, 0, length: 4); Arrow(265, 470, -1, 0, length: 4);
-            Callout(Dimension("框架间隙", "leads.gap", "g1"), 170, 448, 255, 470, right: true);
+            Line(200 + PlanLeadInner, 470, 265, 470);
+            Arrow(200 + PlanLeadInner, 470, 1, 0, length: 4); Arrow(265, 470, -1, 0, length: 4);
+            Callout(Dimension("框架间隙", "leads.gap", "g1"), 155, 440, 255, 470, right: true);
         }
-        double firstLead = Centered(0, 6, PlanLeadPitch, PlanCenterY);
-        double thirdLead = Centered(2, 6, PlanLeadPitch, PlanCenterY);
+        double firstLead = Centered(0, 6, PlanLeadSpacing, PlanCenterY);
+        double thirdLead = Centered(2, 6, PlanLeadSpacing, PlanCenterY);
         double leadEdge = Qfn ? 500 : 520;
-        DimV(firstLead, firstLead + PlanLeadPitch, leadEdge, 558, Dimension("节距\n", Qfn ? "leads.pitch_y" : "leads.pitch"));
+        DimV(firstLead, firstLead + PlanLeadSpacing, leadEdge, 558, Dimension("节距\n", Qfn ? "leads.pitch_y" : "leads.pitch"));
         DimV(thirdLead - 5, thirdLead + 5, leadEdge, 594, Dimension("线宽\n", "leads.width"));
+        double columnTop = Centered(0, 6, PlanLeadSpacing, PlanCenterY) - 5;
+        double columnBottom = Centered(5, 6, PlanLeadSpacing, PlanCenterY) + 5;
+        string columns = Symbol("leads.count_y").Length > 0
+            ? Dimension("左右侧引脚数", "leads.count_y")
+            : Dimension("引脚总数", "leads.total");
+        BracketV(165, columnTop, columnBottom, columns, 372);
+        if (Symbol("leads.count_x").Length > 0)
+            BracketH(Centered(0, 6, PlanLeadSpacing) - 5, Centered(5, 6, PlanLeadSpacing) + 5,
+                PlanBottom + 26, Dimension("上下侧引脚数", "leads.count_x"));
     }
 
     void Bumps()
