@@ -86,6 +86,8 @@ static class ParameterFormChecks
             throw new Exception("invalid input did not produce a structured blocking field issue");
         var issues = (ListBox)window.FindName("IssuesList");
         if (!issues.IsHitTestVisible) throw new Exception("issue list cannot receive clicks");
+        window.UpdateLayout();
+        if (issues.Visibility != Visibility.Visible) throw new Exception("errors did not expand the issue list");
         issues.SelectedItem = issue;
         var steps = (ListBox)window.FindName("StepList");
         if (steps.SelectedValue?.ToString() != length.Step || length.TextValue != "-1")
