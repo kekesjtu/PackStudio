@@ -200,8 +200,9 @@ static class SchematicChecks
         workspace.Document.Values["vias.removal_enabled"] = false;
         schematic.Update(workspace.Template, workspace.Document, "thermal_vias", "热通孔");
         string viaLabels = LabelText(schematic);
-        Require(viaLabels.Contains("通孔阵列局部俯视") && viaLabels.Contains("中央去除行数"),
-            "关闭通孔时仍应显示局部图和相关标注");
+        Require(viaLabels.Contains("通孔阵列局部俯视") &&
+            !viaLabels.Contains("中央去除行数") && !viaLabels.Contains("中央去除列数"),
+            "QFN 通孔局部图应保留，且不标注中央去除行列数");
         workspace.Select("cbga_fc");
         steps.SelectedValue = "die";
         diagramTab.IsSelected = true;

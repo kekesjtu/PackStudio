@@ -137,18 +137,19 @@ internal sealed partial class SchematicDrawing(PackageDefinition template, Proje
         Arrow(x1, y, narrow ? -1 : 1, 0); Arrow(x2, y, narrow ? 1 : -1, 0);
         Text(label, (x1 + x2) / 2, y + (y > objectY ? 10 : -25), align: TextAlignment.Center);
     }
-    void DimV(double y1, double y2, double objectX, double x, string key, bool left = false, string? name = null)
+    void DimV(double y1, double y2, double objectX, double x, string key, bool left = false, string? name = null,
+        double labelOffsetY = 0)
     {
-        if (Dimension(key, name, "\n") is { } label) DrawDimV(y1, y2, objectX, x, label, left);
+        if (Dimension(key, name, "\n") is { } label) DrawDimV(y1, y2, objectX, x, label, left, labelOffsetY);
     }
-    void DrawDimV(double y1, double y2, double objectX, double x, string label, bool left = false)
+    void DrawDimV(double y1, double y2, double objectX, double x, string label, bool left = false, double labelOffsetY = 0)
     {
         double end = x + (x > objectX ? 5 : -5);
         Line(objectX, y1, end, y1); Line(objectX, y2, end, y2);
         bool narrow = y2 - y1 < 22;
         Line(x, y1 - (narrow ? 12 : 0), x, y2 + (narrow ? 12 : 0));
         Arrow(x, y1, 0, narrow ? -1 : 1); Arrow(x, y2, 0, narrow ? 1 : -1);
-        Text(label, x + (left ? -10 : 10), (y1 + y2) / 2 - (label.Contains('\n') ? 17 : 9), 13,
+        Text(label, x + (left ? -10 : 10), (y1 + y2) / 2 - (label.Contains('\n') ? 17 : 9) + labelOffsetY, 13,
             align: left ? TextAlignment.Right : TextAlignment.Left);
     }
     void Callout(string label, double x, double y, double targetX, double targetY, bool arrow = false)

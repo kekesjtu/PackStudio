@@ -38,6 +38,7 @@ internal sealed partial class SchematicDrawing
                 FlagDimensions();
                 break;
             case "thermal_land" or "thermal_land_solder":
+                Callout("散热焊料", 324, 283, 350, 239, arrow: true);
                 DimV(235, 244, 435, 555, "thermal_land.thickness");
                 break;
             case "bond_wires": Wires(); break;
@@ -141,10 +142,10 @@ internal sealed partial class SchematicDrawing
             DimV(229, 264, 550, 600, "leads.height");
             DimV(225.5, 232.5, 155, 122, "leads.thickness", left: true);
             DimH(550, 580, 264, 302, "leads.foot_length");
-            DimH(200 + PlanLeadInner, 265, PlanCenterY, PlanBottom - 12,
+            DimH(200 + PlanLeadInner, 265, PlanCenterY, 325,
                 Sop ? "leads.gap" : "leads.gap_x");
             DimV(PlanTop + PlanLeadInner, 408, 350, 545, "leads.gap_y");
-            DimensionText("leads.coverage", 350, 306, System.Windows.TextAlignment.Center);
+
         }
         double firstLead = Centered(0, 6, PlanLeadSpacing, PlanCenterY);
         double pitchStart = Sop || Qfn ? firstLead : firstLead + PlanLeadSpacing;

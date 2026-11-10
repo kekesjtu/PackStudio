@@ -109,8 +109,11 @@ internal sealed partial class SchematicDrawing
         BracketH(189, 369, 566, "vias.columns");
         BracketV(148, 416, 528, "vias.rows", 393);
         DashedRect(234, 430, 90, 84);
-        BracketH(234, 324, 524, "vias.removal_columns");
-        BracketV(400, 430, 514, "vias.removal_rows", 370);
+        if (!Qfn)
+        {
+            BracketH(234, 324, 524, "vias.removal_columns");
+            BracketV(400, 430, 514, "vias.removal_rows", 370);
+        }
         Ellipse(null, 369, 416, 11, 11);
         Line(380, 416, 466, 435, Muted);
         ViaInset(514, 454, "vias");
