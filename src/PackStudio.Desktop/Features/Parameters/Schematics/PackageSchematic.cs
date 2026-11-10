@@ -1,7 +1,7 @@
 using System.Windows;
 using System.Windows.Media;
 using PackStudio.Core;
-using Newtonsoft.Json.Linq;
+
 
 namespace PackStudio.Desktop;
 
@@ -10,7 +10,7 @@ public sealed class PackageSchematic : FrameworkElement
 {
     DrawingGroup? drawing;
     DrawingGroup? packageScene;
-    JArray? sceneValues;
+    string sceneCoverType = "";
     string sceneTemplate = "";
     public string TemplateId { get; private set; } = "";
     public string StepKey { get; private set; } = "";
@@ -31,12 +31,10 @@ public sealed class PackageSchematic : FrameworkElement
                 scene = renderer.CreatePackageScene();
             else
             {
-                var configuration = new JArray(template.Fields.Where(f => f["schematic"].Flag() && f["type"].Text() != "checkbox")
-                    .Select(f => document.Values[f["key"].Text()]?.DeepClone() ?? JValue.CreateNull()));
-                if (packageScene == null || sceneTemplate != TemplateId || !JToken.DeepEquals(sceneValues, configuration))
+                if (packageScene == null || sceneTemplate != TemplateId || sceneCoverType != renderer.CoverType)
                 {
                     packageScene = renderer.CreatePackageScene();
-                    sceneValues = configuration;
+                    sceneCoverType = renderer.CoverType;
                     sceneTemplate = TemplateId;
                 }
                 scene = packageScene;

@@ -218,8 +218,7 @@
       "key": "vias.enabled",
       "type": "checkbox",
       "step": "thermal_vias",
-      "label": "包含热通孔",
-      "schematic": true
+      "label": "包含热通孔"
     },
     {
       "key": "vias.columns",
@@ -371,8 +370,7 @@
       "key": "spreader.enabled",
       "type": "checkbox",
       "step": "backside_spreader",
-      "label": "启用背面扩散片",
-      "schematic": true
+      "label": "启用背面扩散片"
     },
     {
       "key": "spreader.length",
@@ -536,8 +534,7 @@
       "creation_option": true,
       "type": "combobox",
       "label": "基板层数",
-      "step": "package_setup",
-      "schematic": true
+      "step": "package_setup"
     },
     {
       "key": "flag.coverage",
@@ -580,7 +577,6 @@
       ],
       "label": "金属层表",
       "step": "metal_layers",
-      "schematic": true,
       "min_rows": 2,
       "max_rows": 6
     },
@@ -615,8 +611,7 @@
       "key": "slug.enabled",
       "type": "checkbox",
       "label": "包含嵌入式散热块",
-      "step": "slug",
-      "schematic": true
+      "step": "slug"
     },
     {
       "key": "slug.length",
@@ -778,7 +773,6 @@
       "visible_when": {
         "slug.enabled": true
       },
-      "schematic": true,
       "active_when": {
         "all": [
           {

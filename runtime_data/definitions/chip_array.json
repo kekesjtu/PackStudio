@@ -181,8 +181,7 @@
       "key": "vias.enabled",
       "type": "checkbox",
       "step": "thermal_vias",
-      "label": "包含热通孔",
-      "schematic": true
+      "label": "包含热通孔"
     },
     {
       "key": "vias.diameter",
@@ -369,8 +368,7 @@
       "creation_option": true,
       "type": "combobox",
       "label": "基板层数",
-      "step": "package_setup",
-      "schematic": true
+      "step": "package_setup"
     },
     {
       "key": "bond_wire.auto_count",
@@ -410,7 +408,6 @@
       "visible_when": {
         "vias.enabled": true
       },
-      "schematic": true,
       "active_when": {
         "all": [
           {
@@ -474,7 +471,6 @@
       ],
       "label": "金属层表（Depth / Thickness / Coverage）",
       "step": "metal_layers",
-      "schematic": true,
       "min_rows": 2,
       "max_rows": 10
     },

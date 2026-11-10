@@ -1,5 +1,6 @@
 using System.Windows;
 using System.Windows.Media;
+using PackStudio.Core;
 
 namespace PackStudio.Desktop;
 
@@ -10,8 +11,8 @@ internal sealed partial class SchematicDrawing
 
     void BallArray()
     {
-        bool removed = Checked("bga.solder_removal_enabled"), central = Checked("bga.center_solder_enabled");
-        bool staggered = Checked("bga.staggered");
+        bool removed = step == "solder_removal", central = step == "central_solder_balls";
+        bool staggered = step == "solder_balls" && document.Values["bga.staggered"].Flag();
         PackageSection(removeCentralBalls: removed);
         Rect(Board, 200, PlanTop, 300, PlanBottom - PlanTop);
         for (int row = 0; row < 5; row++)
@@ -24,7 +25,7 @@ internal sealed partial class SchematicDrawing
         if (central)
         {
             double firstRow = PlanCenterY - BallRowPitch / 2, lastRow = PlanCenterY + BallRowPitch / 2;
-            bool centerStaggered = Checked("bga.center_staggered");
+            bool centerStaggered = document.Values["bga.center_staggered"].Flag();
             for (int row = 0; row < 2; row++)
                 for (int col = 0; col < 2; col++)
                     if (!centerStaggered || row == col)
@@ -74,34 +75,31 @@ internal sealed partial class SchematicDrawing
         PackageSection();
         switch (step)
         {
-            case "thermal_vias" when Checked("vias.enabled"):
+            case "thermal_vias":
                 ViaDetails();
                 break;
             case "metal_layers":
-                MetalStack("metal.layers", 285, 403);
+                DetailLink(335, 245, 19, 335, 366, "金属层局部剖面");
+                MetalStack(285, 410);
                 Legend((Board, "介电层"), (Metal, "金属层"));
                 break;
-            case "upper_built_up" when Checked("upper.enabled"):
+            case "upper_built_up":
                 BuiltUp("upper", 230);
                 break;
-            case "lower_built_up" when Checked("lower.enabled"):
+            case "lower_built_up":
                 BuiltUp("lower", 254);
                 break;
-            default:
-                Plan();
-                Axes(70, PlanBottom + 4);
-                PackageLegend();
-                break;
+
         }
     }
 
     void ViaDetails()
     {
-        bool remove = Checked("vias.removal_enabled");
+        DetailLink(ViaX(2), 245, 17, 279, 320, "通孔阵列局部俯视");
         Rect(Board, 165, 390, 228, 164);
         for (int row = 0; row < 5; row++)
             for (int col = 0; col < 7; col++)
-                if (!remove || row is 0 or 4 || col is < 2 or > 4)
+                if (row is 0 or 4 || col is < 2 or > 4)
                 {
                     double x = Centered(col, 7, 30, 279), y = Centered(row, 5, 28, 472);
                     Ellipse(Metal, x, y, 6, 6);
@@ -110,13 +108,12 @@ internal sealed partial class SchematicDrawing
         DimH(189, 219, 416, 375, "vias.pitch");
         BracketH(189, 369, 566, "vias.columns");
         BracketV(148, 416, 528, "vias.rows", 393);
-        if (remove)
-        {
-            DashedRect(234, 430, 90, 84);
-            BracketH(234, 324, 524, "vias.removal_columns");
-            BracketV(400, 430, 514, "vias.removal_rows", 370);
-        }
-        ViaInset(514, 454, "vias", filled: false);
+        DashedRect(234, 430, 90, 84);
+        BracketH(234, 324, 524, "vias.removal_columns");
+        BracketV(400, 430, 514, "vias.removal_rows", 370);
+        Ellipse(null, 369, 416, 11, 11);
+        Line(380, 416, 466, 435, Muted);
+        ViaInset(514, 454, "vias");
         if (Qfn)
         {
             Rect(Metal, 521, 550, 22, 54);
@@ -130,29 +127,32 @@ internal sealed partial class SchematicDrawing
     void BuiltUp(string prefix, double top)
     {
         Rect(Board, 150, top, 400, 6);
+        const double firstViaX = 384, viaPitch = 24;
+        for (int i = 0; i < 5; i++)
+            Rect(Metal, firstViaX + i * viaPitch - 2, top, 4, 6);
         DimV(top, top + 6, 550, 590, prefix + ".thickness");
-        MetalStack(prefix + ".layers", 192, 403);
-        ViaInset(499, 462, prefix, Checked(prefix + ".filled"));
-        DimensionText(prefix + ".count", 499, 581, TextAlignment.Center);
+        DimensionCallout(prefix + ".count", 518, 302, firstViaX + 4 * viaPitch, top + 3, arrow: true);
+        DetailLink(255, top + 3, 14, 242, 366, "增层金属局部剖面");
+        DetailLink(firstViaX + viaPitch, top + 3, 13, 499, 333, "微通孔局部俯视");
+        MetalStack(192, 410);
+        ViaInset(499, 462, prefix);
         Legend((Board, "介电层"), (Metal, "金属层 / 镀层"));
     }
 
-    void ViaInset(double x, double y, string prefix, bool filled)
+    void ViaInset(double x, double y, string prefix)
     {
         Rect(Board, x - 48, y - 45, 96, 90);
         Ellipse(Metal, x, y, 27, 27);
-        Ellipse(filled ? Attach : Brushes.White, x, y, 17, 17);
+        Ellipse(Brushes.White, x, y, 17, 17);
         DimH(x - 27, x + 27, y, y - 66, prefix + ".diameter");
         DimH(x + 17, x + 27, y, y + 65, prefix + ".plating");
     }
 
-    void MetalStack(string key, double x, double y)
+    void MetalStack(double x, double y)
     {
-        if (Field(key) == null) return;
         Rect(Board, x, y, 100, 142);
-        int layers = LayerCount(key);
-        double pitch = 136.0 / (layers - 1);
-        for (int i = 0; i < layers; i++) Rect(Metal, x, y + i * pitch, 100, 6, false);
+        const double pitch = 136.0 / (IllustratedLayers - 1);
+        for (int i = 0; i < IllustratedLayers; i++) Rect(Metal, x, y + i * pitch, 100, 6, false);
         DrawDimV(y, y + pitch, x, x - 30, "层深\nzn", left: true);
         Callout("层厚  tzn", x + 110, y + 62, x + 98, y + 3);
     }

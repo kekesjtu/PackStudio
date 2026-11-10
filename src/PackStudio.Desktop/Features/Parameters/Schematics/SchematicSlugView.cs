@@ -8,8 +8,8 @@ internal sealed partial class SchematicDrawing
         Section(SectionY, drawMold: false, wireEnd: 265);
         SlugSection();
         Callout("散热块 / Slug", 55, 160, 245, 180);
-        if (Checked("slug.adhesive_enabled")) Callout("支脚粘接层", 55, 205, 225, 227);
-        DimV(SlugSectionTop, SlugShoulderTop, 300, 150, "slug.offset", left: true);
+        Callout("支脚粘接层", 55, 205, 225, 227);
+        DimV(SlugSectionTop, SlugShoulderTop, 300, 120, "slug.offset", left: true);
         DimV(SlugShoulderTop, SlugWallTop, 235, 188, "slug.thickness", left: true, name: "台肩厚度");
         DimV(SlugSectionTop, SlugSectionTop + SlugDrawnThickness, 400, 560, "slug.thickness", name: "顶部厚度");
         DimH(SlugRightWallLeft, SlugShoulderRight, 176, 166, "slug.thickness", "侧壁厚度");
@@ -34,14 +34,12 @@ internal sealed partial class SchematicDrawing
             Rect(Metal, x, y, w, h);
         Rect(Metal, slugLeft, slugTop, slugLength, slugWidth);
         Ellipse(Metal, 350, PlanCenterY, 35, 35);
-        DimH(315, 385, PlanCenterY, 325, "slug.diameter");
+        DimH(315, 385, PlanCenterY, 425, "slug.diameter");
         DimH(outerLeft, outerRight, outerTop, 355, "slug.foot_length");
         DimV(outerTop, outerBottom, outerLeft, 155, "slug.foot_width", left: true);
         DimH(slugLeft, slugRight, slugBottom, PlanLengthDimensionY, "slug.length");
         DimV(slugTop, slugBottom, slugRight, 550, "slug.width");
         Axes(70, PlanBottom + 4);
-        if (Checked("slug.adhesive_enabled"))
-            Legend((Mold, "塑封"), (Metal, "散热块 / Slug"), (Board, "基板"), (Attach, "支脚粘接层"));
-        else Legend((Mold, "塑封"), (Metal, "散热块 / Slug"), (Board, "基板"));
+        Legend((Mold, "塑封"), (Metal, "散热块 / Slug"), (Board, "基板"), (Attach, "支脚粘接层"));
     }
 }

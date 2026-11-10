@@ -30,20 +30,19 @@ internal sealed partial class SchematicDrawing(PackageDefinition template, Proje
     bool ChipArray => Profile.ChipArray;
 
     bool CeramicBoard => Profile.Ceramic;
-    int LayerCount(string key = "metal.layers") => Math.Clamp((document.Values[key] as JArray)?.Count ?? 2, 2, 6);
+    const int IllustratedLayers = 3;
     Brush Board => CeramicBoard ? Ceramic : Substrate;
     static double FlipDieTop(double substrateTop) => substrateTop - 2 * FlipBumpRadius - 23;
     static double Centered(int index, int count, double pitch, double center = 350) =>
         center + (index - (count - 1) / 2.0) * pitch;
-    bool Checked(string key) => Field(key) is { } field && document.Values[key].Flag() &&
-        JsonData.Matches(field["enabled_when"] as JObject, document.Values);
-    bool IrregularBumps => step == "flip_chip_bumps" && Value("bumps.array_type") == "non_regular";
-    internal bool HasLocalPackageScene => IrregularBumps || template.DisplayFields.Any(f =>
-        f["schematic"].Flag() && f["type"].Text() == "checkbox" && Checked(f["key"].Text()));
-    string Value(string key) => document.Values[key] is JValue value ? value.Text() : "";
+    bool BumpedDie => step == "bumped_die";
+    bool ThermalLand => step is "thermal_land" or "thermal_land_solder";
+    bool SpreaderSection => step == "backside_spreader";
+    bool StiffenedLid => step == "top_cover" && CoverType == "lid" && document.Values["stiffener.enabled"].Flag();
+    internal bool HasLocalPackageScene => BumpedDie || ThermalLand || SpreaderSection || StiffenedLid;
+    internal string CoverType => Flip ? document.Values["cover.type"].Text() : "";
     JToken? Field(string key) => template.DisplayFields.FirstOrDefault(f =>
-        f["key"].Text() == key && f["step"].Text() == step && !f["creation_only"].Flag() &&
-        JsonData.Matches(f["visible_when"] as JObject, document.Values));
+        f["key"].Text() == key && f["step"].Text() == step && !f["creation_only"].Flag());
 
     string? Dimension(string key, string? name = null, string separator = "  ")
     {
@@ -136,7 +135,7 @@ internal sealed partial class SchematicDrawing(PackageDefinition template, Proje
         bool narrow = x2 - x1 < 22;
         Line(x1 - (narrow ? 12 : 0), y, x2 + (narrow ? 12 : 0), y);
         Arrow(x1, y, narrow ? -1 : 1, 0); Arrow(x2, y, narrow ? 1 : -1, 0);
-        Text(label, (x1 + x2) / 2, y + (y > objectY ? 9 : -23), 13, align: TextAlignment.Center);
+        Text(label, (x1 + x2) / 2, y + (y > objectY ? 10 : -25), align: TextAlignment.Center);
     }
     void DimV(double y1, double y2, double objectX, double x, string key, bool left = false, string? name = null)
     {
@@ -152,15 +151,37 @@ internal sealed partial class SchematicDrawing(PackageDefinition template, Proje
         Text(label, x + (left ? -10 : 10), (y1 + y2) / 2 - (label.Contains('\n') ? 17 : 9), 13,
             align: left ? TextAlignment.Right : TextAlignment.Left);
     }
-    void Callout(string label, double x, double y, double targetX, double targetY, bool right = false)
+    void Callout(string label, double x, double y, double targetX, double targetY, bool arrow = false)
     {
-        Text(label, x, y, 13, align: right ? TextAlignment.Right : TextAlignment.Left);
-        Line(x, y + 22, targetX, targetY);
-        dc.DrawEllipse(Ink, null, new(targetX, targetY), 2, 2);
+        var text = FormatText(label, 13, Ink);
+        dc.DrawText(text, new(x, y));
+        const double gap = 7;
+        double right = x + text.Width, bottom = y + text.Height;
+        double startX = Math.Clamp(targetX, x, right);
+        double startY = targetY < y ? y - gap : bottom + gap;
+        if (targetY >= y && targetY <= bottom)
+        {
+            startX = targetX < x ? x - gap : right + gap;
+            startY = y + text.Height / 2;
+        }
+        Line(startX, startY, targetX, targetY);
+        if (arrow) Arrow(targetX, targetY, startX - targetX, startY - targetY);
+        else dc.DrawEllipse(Ink, null, new(targetX, targetY), 2, 2);
     }
-    void DimensionCallout(string key, double x, double y, double targetX, double targetY)
+    void DimensionCallout(string key, double x, double y, double targetX, double targetY, bool arrow = false)
     {
-        if (Dimension(key) is { } label) Callout(label, x, y, targetX, targetY);
+        if (Dimension(key) is { } label) Callout(label, x, y, targetX, targetY, arrow);
+    }
+
+    void DetailLink(double x, double y, double radius, double detailX, double detailY, string label)
+    {
+        Ellipse(null, x, y, radius, radius);
+        var pen = new Pen(Muted, 1) { DashStyle = DashStyles.Dash };
+        double elbowY = (y + radius + detailY) / 2;
+        dc.DrawLine(pen, new(x, y + radius), new(x, elbowY));
+        dc.DrawLine(pen, new(x, elbowY), new(detailX, elbowY));
+        dc.DrawLine(pen, new(detailX, elbowY), new(detailX, detailY));
+        Text(label, detailX, detailY + 7, color: Muted, align: TextAlignment.Center);
     }
     void DimensionText(string key, double x, double y, TextAlignment align = TextAlignment.Left, string separator = "  ")
     {

@@ -6,16 +6,14 @@ internal sealed partial class SchematicDrawing
     {
         if (Bare)
         {
-            bool flipped = Checked("die.flipped") || Checked("bumps.enabled");
-            Callout("有源面", 150, flipped ? 287 : 145, 240, flipped ? 244 : 210);
+            Callout("有源面", 150, BumpedDie ? 287 : 145, 240, BumpedDie ? 244 : 210);
         }
         else
         {
-            Callout("芯片", 305, 127, 330, Flip ? FlipDieTop(SectionY) + 10 : Bga ? 207 : 205);
+            Callout("芯片", 305, CoverType == "encapsulant" ? 105 : 127, 330, Flip ? FlipDieTop(SectionY) + 10 : Bga ? 207 : 205);
             if (Flip)
             {
-                if (!Checked("stiffener.enabled"))
-                    Callout("倒装凸点", 80, 160, 400, SectionY - FlipBumpRadius);
+                if (!StiffenedLid) Callout("倒装凸点", 80, 160, 400, SectionY - FlipBumpRadius);
             }
             else
             {
@@ -92,14 +90,14 @@ internal sealed partial class SchematicDrawing
 
     void FlagDimensions()
     {
-        Callout(Qfn ? "芯片承载焊盘 / DAP" : "承载台 / Die Flag", 350, 290, 350, 228);
+        Callout(Qfn ? "芯片承载焊盘 / DAP" : "承载台 / Die Flag", 420, 290, 374, 228);
         string prefix = Qfn ? "pad" : "flag";
         DimH(265, 435, 408, 345, prefix + ".length");
         DimV(408, 532, 435, 548, prefix + ".width");
-        DimensionText("flag.coverage", 350, 585, System.Windows.TextAlignment.Center);
+        DimensionText("flag.coverage", 350, 603, System.Windows.TextAlignment.Center);
         DimV(223, 235, 435, 560, "flag.thickness");
         DimV(217, 223, 265, 126, "flag.downset", left: true);
-        DimensionCallout("tie_bar.width", 78, 398, 229, 388);
+        DimensionCallout("tie_bar.width", 65, 368, 229, 388);
         SolderMaskDimension();
         if (Qfn)
         {
@@ -118,9 +116,10 @@ internal sealed partial class SchematicDrawing
 
     void Wires()
     {
-        DimensionCallout("bond_wire.diameter", 474, 149, 444, 187);
-        DimensionText(Bga ? "bond_wire.total" : "bond_wire.count", 350, 306, System.Windows.TextAlignment.Center);
+        DimensionCallout("bond_wire.diameter", 474, 123, 444, 187);
         double left = Bga ? 235 : 200 + PlanLeadInner, right = 700 - left;
+        double wireY = Centered(2, 6, Bga ? 21 : PlanLeadSpacing, PlanCenterY);
+        DimensionCallout(Bga ? "bond_wire.total" : "bond_wire.count", 58, 316, left, wireY, arrow: true);
         double top = Bga ? 395 : PlanTop + PlanLeadInner, bottom = 2 * PlanCenterY - top;
         string length = Bga ? "bond_wire.extent_length" : "bond_wire.length_x";
         string width = Bga ? "bond_wire.extent_width" : "bond_wire.length_y";
@@ -154,8 +153,9 @@ internal sealed partial class SchematicDrawing
         DimV(pitchStart, pitchStart + PlanLeadSpacing, leadEdge, 550, Qfn ? "leads.pitch_y" : "leads.pitch");
         DimV(widthCenter - 5, widthCenter + 5, leadEdge, 570, "leads.width");
         DimH(Centered(0, 6, PlanLeadSpacing), Centered(1, 6, PlanLeadSpacing), PlanTop, 345, "leads.pitch_x");
-        BracketV(165, firstLead - 5, Centered(5, 6, PlanLeadSpacing, PlanCenterY) + 5,
-            Sop ? "leads.total" : "leads.count_y", 372);
+        double lastLead = Centered(5, 6, PlanLeadSpacing, PlanCenterY);
+        if (Sop) DimV(firstLead - 5, lastLead + 5, 180, 165, "leads.total", left: true);
+        else BracketV(165, firstLead - 5, lastLead + 5, "leads.count_y", 372);
         BracketH(Centered(0, 6, PlanLeadSpacing) - 5, Centered(5, 6, PlanLeadSpacing) + 5,
             PlanBottom + 26, "leads.count_x");
     }
@@ -165,14 +165,15 @@ internal sealed partial class SchematicDrawing
         if (Bare)
         {
             DimV(244, 267, 460, 530, "bumps.height");
-            DimH(244, 267, 255.5, 305, "bumps.diameter");
-            BracketH(244, 456, 339, "bumps.total");
+            DimH(244, 267, 255.5, 300, "bumps.diameter");
+            DimensionCallout("bumps.total", 520, 282, 456, 256, arrow: true);
             return;
         }
         DimV(215, 230, 415, 555, "bumps.height");
         DimH(292.5, 307.5, 222.5, 305, "bumps.diameter");
-        BracketH(300, 400, 554, "bumps.columns");
-        BracketV(254, PlanCenterY - 20, PlanCenterY + 20, "bumps.rows", 444);
-        DimensionText("bumps.total", 350, 550, System.Windows.TextAlignment.Center);
+        BracketH(300, 400, PlanBottom + 15, "bumps.columns");
+        BracketV(184, PlanCenterY - 20, PlanCenterY + 20, "bumps.rows", 444);
+        DashedRect(291, PlanCenterY - 28, 118, 56);
+        DimensionCallout("bumps.total", 526, 490, 409, PlanCenterY + 18, arrow: true);
     }
 }

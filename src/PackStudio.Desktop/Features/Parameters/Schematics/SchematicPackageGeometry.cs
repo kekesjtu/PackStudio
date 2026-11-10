@@ -10,13 +10,13 @@ internal sealed partial class SchematicDrawing
         if (Bare)
         {
             Rect(Die, 240, y - 20, 220, 34);
-            double activeY = y + (Checked("die.flipped") || Checked("bumps.enabled") ? 14 : -20);
-            Line(240, activeY, 460, activeY, Accent, 3);
-            if (Checked("bumps.enabled"))
+            double activeY = y + (BumpedDie ? 14 : -20);
+            if (BumpedDie)
             {
                 Rect(Attach, 240, y + 14, 220, 23);
                 for (int i = 0; i < 8; i++) Ellipse(Bump, Centered(i, 8, 27), y + 25.5, 11.5, 11.5);
             }
+            Line(240, activeY, 460, activeY, Accent, 3);
             return;
         }
         if (Bga)
@@ -25,24 +25,17 @@ internal sealed partial class SchematicDrawing
             Rect(Board, 150, y, 400, 30);
             if (!CeramicBoard)
             {
-                int layers = LayerCount();
-                for (int layer = 0; layer < layers; layer++)
-                    Rect(Metal, 150, y + 2 + layer * 22.0 / (layers - 1), 400, 3, false);
+                for (int layer = 0; layer < IllustratedLayers; layer++)
+                    Rect(Metal, 150, y + 2 + layer * 22.0 / (IllustratedLayers - 1), 400, 3, false);
             }
-            if (Checked("vias.enabled"))
-                for (int i = 0; i < 4; i++)
-                {
-                    double x = ChipArray ? Centered(2 + i * 2, 11, 36.8) + 18 : Centered(i, 4, 32);
-                    Rect(Metal, x - 3, y + 5, 6, 19);
-                    if (!Checked("vias.filled")) Rect(Brushes.White, x - 1, y + 5, 2, 19, false);
-                }
+            if (step == "thermal_vias") ViaSection(y + 5, 19);
             for (int i = 0; i < 11; i++)
                 if (!removeCentralBalls || i is < 4 or > 6)
                     Ellipse(Solder, Centered(i, 11, 36.8), y + 41, 11, 11);
             if (Flip)
             {
                 Rect(Die, 285, FlipDieTop(y), 130, 23);
-                if (Checked("bumps.underfill")) Rect(Attach, 285, y - 2 * FlipBumpRadius, 130, 2 * FlipBumpRadius);
+                Rect(Attach, 285, y - 2 * FlipBumpRadius, 130, 2 * FlipBumpRadius);
                 for (int i = 0; i < 6; i++) Ellipse(Bump, Centered(i, 6, 20), y - FlipBumpRadius, FlipBumpRadius, FlipBumpRadius);
             }
             else
@@ -75,8 +68,21 @@ internal sealed partial class SchematicDrawing
                     Line(edge, y + 34, left ? 120 : 580, y + 34, Metal, 7);
                 }
             }
-            if (Checked("thermal_land.enabled"))
+            if (Qfn && step == "thermal_vias") ViaSection(y + 5, 21);
+            if (ThermalLand)
                 Rect(Solder, 265, y + 5, 170, 9);
+        }
+    }
+
+    double ViaX(int index) => ChipArray ? Centered(2 + index * 2, 11, 36.8) + 18 : Centered(index, 4, 32);
+
+    void ViaSection(double top, double height)
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            double x = ViaX(i);
+            Rect(Metal, x - 3, top, 6, height);
+            Rect(Brushes.White, x - 1, top, 2, height, false);
         }
     }
 
@@ -84,7 +90,7 @@ internal sealed partial class SchematicDrawing
     {
         Rect(Bare ? Die : Bga ? Board : Mold, 200, PlanTop, 300, PlanBottom - PlanTop);
         if (Bare) return;
-        if (Checked("spreader.enabled"))
+        if (SpreaderSection)
         {
             Rect(Metal, 240, 402, 220, 136);
             Rect(Board, 305, 441, 90, 58);
@@ -138,21 +144,17 @@ internal sealed partial class SchematicDrawing
                 }
             }
         else
-        {
-
             for (int row = 0; row < 3; row++)
                 for (int col = 0; col < 6; col++)
-                    if (!IrregularBumps || row != 1 || col is 0 or 5)
-                        Ellipse(Bump, Centered(col, 6, 20), Centered(row, 3, 20, PlanCenterY), 3.5, 3.5);
-        }
+                    Ellipse(Bump, Centered(col, 6, 20), Centered(row, 3, 20, PlanCenterY), 3.5, 3.5);
     }
 
     void PackageSection(bool removeCentralBalls = false)
     {
-        if (Flip && Value("cover.type") == "encapsulant") Rect(Mold, 195, EncapsulantTop, 310, SectionY - EncapsulantTop);
+        if (CoverType == "encapsulant") Rect(Mold, 195, EncapsulantTop, 310, SectionY - EncapsulantTop);
         Section(SectionY, removeCentralBalls: removeCentralBalls);
         CoverSection();
-        if (Checked("spreader.enabled"))
+        if (SpreaderSection)
         {
             Rect(Metal, 195, SectionY + 21, 110, 9);
             Rect(Metal, 395, SectionY + 21, 110, 9);
@@ -163,7 +165,7 @@ internal sealed partial class SchematicDrawing
     {
         if (Bare)
         {
-            if (Checked("bumps.enabled")) Legend((Die, "芯片"), (Accent, "有源面"), (Bump, "凸点"), (Attach, "底填充"));
+            if (BumpedDie) Legend((Die, "芯片"), (Accent, "有源面"), (Bump, "凸点"), (Attach, "底填充"));
             else Legend((Die, "芯片"), (Accent, "有源面"));
             return;
         }

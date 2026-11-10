@@ -1,10 +1,12 @@
+using System.Windows;
+
 namespace PackStudio.Desktop;
 
 internal sealed partial class SchematicDrawing
 {
     void TopCover()
     {
-        string type = Value("cover.type");
+        string type = CoverType;
         if (type is not ("lid" or "plate" or "encapsulant")) return;
         bool encapsulant = type == "encapsulant";
         string prefix = encapsulant ? "cover" : type;
@@ -14,28 +16,25 @@ internal sealed partial class SchematicDrawing
         if (encapsulant) return;
         DimV(CapBottom, CapBottom + 12, 415, 590, prefix + ".die_attach", name: "芯片连接层厚度");
         if (type != "lid") return;
-        bool stiff = Checked("stiffener.enabled");
-        double wall = stiff ? 470 : 505;
-        if (stiff)
+        if (StiffenedLid)
         {
             DimH(StiffenerLeft, 700 - StiffenerLeft, 2 * PlanCenterY - StiffenerTop, PlanLengthDimensionY, "stiffener.length");
             DimV(StiffenerTop, 2 * PlanCenterY - StiffenerTop, StiffenerLeft, 152, "stiffener.width", left: true);
             DimH(StiffenerInnerLeft, 700 - StiffenerInnerLeft, StiffenerInnerTop, 375, "stiffener.cavity_length");
             DimV(StiffenerInnerTop, 2 * PlanCenterY - StiffenerInnerTop, 700 - StiffenerInnerLeft, 635, "stiffener.cavity_width");
             DimV(CapBottom, CapBottom + 6, StiffenerLeft, 125, "lid.adhesive", left: true, name: "顶盖粘接厚度");
-            DimV(SectionY - 6, SectionY, wall, 545, "stiffener.adhesive");
+            DimV(SectionY - 6, SectionY, 470, 545, "stiffener.adhesive");
         }
         else
         {
             DimH(483, 505, CapTop, 120, "lid.base_thickness");
-            DimV(SectionY - 6, SectionY, wall, 545, "lid.adhesive");
+            DimV(SectionY - 6, SectionY, 505, 545, "lid.adhesive");
         }
     }
 
     void Spreader()
     {
-        if (!Checked("spreader.enabled")) return;
-        Text("底视图", 350, 295, align: System.Windows.TextAlignment.Center);
+        Text("底视图", 350, 295, align: TextAlignment.Center);
         DimV(SectionY + 21, SectionY + 30, 505, 560, "spreader.thickness");
         DimH(240, 460, 402, 345, "spreader.length");
         DimV(402, 538, 460, 548, "spreader.width", name: "扩散片宽度");

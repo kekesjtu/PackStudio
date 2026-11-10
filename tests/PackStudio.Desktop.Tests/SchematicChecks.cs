@@ -87,12 +87,17 @@ static class SchematicChecks
                         var labels = EditorLabels(fields).ToList();
                         string diagramText = LabelText(schematic);
                         string[] symbols = central ? ["MEc", "MDc"] : ["MEp", "MDp"];
-                        Require(symbols.All(symbol => diagramText.Contains(symbol) == enabled) && !diagramText.Contains("离板高度"),
+                        Require(symbols.All(diagramText.Contains) && !diagramText.Contains("离板高度"),
                             $"焊球示意图标注与栏目不符：{family.Id}/{item.Key}");
+                        if (family.Id == "cbga_fc")
+                        {
+                            var color = central ? Color.FromRgb(0xFF, 0xA0, 0) : Color.FromRgb(0x65, 0x3F, 0xFF);
+                            Require(ColoredCircles(DrawingOf(schematic), color) == (central ? 4 : 44),
+                                "中央焊球和去球图形应独立于启用开关");
+                        }
                         Require(expected.All(label => labels.Contains(label) == enabled),
                             $"行列数未跟随「{option}」选项显示或隐藏：{family.Id}");
-                        if (enabled && family.Id == "cbga_fc")
-                            Preview(workspace, item.Key, item.Label, family.Id + "-" + item.Key + "-enabled");
+
                     }
                 }
                 if (schematic.DiagramKey == "package")
@@ -129,12 +134,43 @@ static class SchematicChecks
             }
         }
         workspace.Select("cbga_fc");
+        foreach (string arrayType in new[] { "regular", "non_regular" })
+        {
+            workspace.Document.Values["bumps.array_type"] = arrayType;
+            schematic.Update(workspace.Template, workspace.Document, "flip_chip_bumps", "凸点");
+            Require(ColoredCircles(DrawingOf(schematic), Color.FromRgb(0x94, 0x77, 0xFF)) == 24 &&
+                LabelText(schematic).Contains("MNC4"), "凸点图应始终显示满阵列和总数");
+        }
+        foreach (bool underfill in new[] { false, true })
+        {
+            workspace.Document.Values["bumps.underfill"] = underfill;
+            schematic.Update(workspace.Template, workspace.Document, "flip_chip_bumps", "凸点");
+            Require(HasUnderfill(DrawingOf(schematic)), "倒装凸点剖面应始终显示底填充");
+        }
+        foreach (bool staggered in new[] { false, true })
+        {
+            workspace.Document.Values["bga.staggered"] = staggered;
+            schematic.Update(workspace.Template, workspace.Document, "solder_balls", "BGA 焊球");
+            Require(ColoredCircles(DrawingOf(schematic), Color.FromRgb(0x65, 0x3F, 0xFF)) == (staggered ? 34 : 56),
+                "交错主阵列未切换示意图");
+        }
+
         steps.SelectedValue = "top_cover";
         foreach (string type in new[] { "bare_die", "encapsulant", "lid", "plate" })
         {
             workspace.Document.Values["cover.type"] = type;
             Preview(workspace, "top_cover", "顶部结构", "cbga_fc-cover-" + type);
         }
+        workspace.Document.Values["cover.type"] = "lid";
+        foreach (bool stiffened in new[] { false, true })
+        {
+            workspace.Document.Values["stiffener.enabled"] = stiffened;
+            schematic.Update(workspace.Template, workspace.Document, "top_cover", "顶部结构");
+            string labels = LabelText(schematic);
+            Require(labels.Contains("Lsc") == stiffened && labels.Contains("tcb") != stiffened,
+                "顶盖图应随加强环切换为相应结构");
+        }
+        Preview(workspace, "top_cover", "顶部结构", "cbga_fc-cover-stiffener");
         workspace.Document.Values["cover.type"] = "encapsulant";
         workspace.Document.Values["slug.enabled"] = false;
         schematic.Update(workspace.Template, workspace.Document, "top_cover", "顶部结构");
@@ -144,39 +180,28 @@ static class SchematicChecks
         schematic.Update(workspace.Template, workspace.Document, "top_cover", "顶部结构");
         Require(ReferenceEquals(coverWithoutSlug, coverScene.GetValue(schematic)), "Slug 开关改动了顶部结构底图");
         Require(!LabelText(schematic).Contains("L_sl"), "顶部结构图混入了 Slug 尺寸");
-        schematic.Update(workspace.Template, workspace.Document, "slug", "嵌入式散热块");
-        Require(LabelText(schematic).Contains("L_sl"), "启用后 Slug 栏目未显示尺寸");
+        workspace.Document.Values["slug.enabled"] = false;
         workspace.Document.Values["cover.type"] = "lid";
-        workspace.Document.Values["stiffener.enabled"] = true;
-        Preview(workspace, "top_cover", "顶部结构", "cbga_fc-cover-stiffener");
-        foreach (string family in new[] { "cbga_fc", "pbga_wb" })
-        {
-            workspace.Select(family);
-            if (family == "cbga_fc") workspace.Document.Values["cover.type"] = "encapsulant";
-            workspace.Document.Values["slug.enabled"] = true;
-            workspace.Document.Values["slug.adhesive_enabled"] = true;
-            Preview(workspace, "slug", "嵌入式散热块", family + "-slug-adhesive");
-        }
-        workspace.Select("bare_die");
-        workspace.Document.Values["bumps.enabled"] = true;
-        Preview(workspace, "bumped_die", "凸点", "bare_die-bumps-enabled");
+        schematic.Update(workspace.Template, workspace.Document, "slug", "嵌入式散热块");
+        Require(LabelText(schematic).Contains("L_sl") && LabelText(schematic).Contains("支脚粘接层"),
+            "Slug 结构图应固定显示尺寸和粘接层");
         workspace.Select("pbga_fc");
         foreach (var (step, prefix, symbol) in new[] { ("upper_built_up", "upper", "dv_b1"), ("lower_built_up", "lower", "dv_b2") })
         {
-            workspace.Document.Values[prefix + ".enabled"] = true;
+            workspace.Document.Values[prefix + ".enabled"] = false;
             schematic.Update(workspace.Template, workspace.Document, step, "增层");
             string labels = LabelText(schematic);
             Require(labels.Contains(symbol) && labels.Contains("tzn") && !labels.Contains("基板厚度"),
                 "增层图缺少微通孔和层表尺寸，或混入基板厚度");
-            Preview(workspace, step, "增层", "pbga_fc-" + prefix + "-enabled");
+
         }
-        workspace.Select("pbga_wb");
-        workspace.Document.Values["spreader.enabled"] = true;
-        Preview(workspace, "backside_spreader", "背面扩散片", "pbga_wb-spreader-enabled");
         workspace.Select("qfn");
-        workspace.Document.Values["vias.enabled"] = true;
-        workspace.Document.Values["vias.removal_enabled"] = true;
-        Preview(workspace, "thermal_vias", "热通孔", "qfn-vias-removal-enabled");
+        workspace.Document.Values["vias.enabled"] = false;
+        workspace.Document.Values["vias.removal_enabled"] = false;
+        schematic.Update(workspace.Template, workspace.Document, "thermal_vias", "热通孔");
+        string viaLabels = LabelText(schematic);
+        Require(viaLabels.Contains("通孔阵列局部俯视") && viaLabels.Contains("中央去除行数"),
+            "关闭通孔时仍应显示局部图和相关标注");
         workspace.Select("cbga_fc");
         steps.SelectedValue = "die";
         diagramTab.IsSelected = true;
@@ -184,11 +209,25 @@ static class SchematicChecks
         Console.WriteLine($"PASS {count} wizard schematics, {modelingCount} modeling sections without diagrams, shared diagrams and model tab switching");
     }
 
-    static string LabelText(PackageSchematic schematic)
+    static DrawingGroup DrawingOf(PackageSchematic schematic) =>
+        (DrawingGroup)typeof(PackageSchematic).GetField("drawing", BindingFlags.Instance | BindingFlags.NonPublic)!.GetValue(schematic)!;
+
+    static string LabelText(PackageSchematic schematic) => string.Join(" ", Glyphs(DrawingOf(schematic)));
+
+    static int ColoredCircles(Drawing drawing, Color color) => drawing switch
     {
-        var drawing = (DrawingGroup)typeof(PackageSchematic).GetField("drawing", BindingFlags.Instance | BindingFlags.NonPublic)!.GetValue(schematic)!;
-        return string.Join(" ", Glyphs(drawing));
-    }
+        DrawingGroup group => group.Children.Sum(child => ColoredCircles(child, color)),
+        GeometryDrawing { Geometry: EllipseGeometry, Brush: SolidColorBrush brush } when brush.Color == color => 1,
+        _ => 0
+    };
+
+    static bool HasUnderfill(Drawing drawing) => drawing switch
+    {
+        DrawingGroup group => group.Children.Any(HasUnderfill),
+        GeometryDrawing { Geometry: RectangleGeometry rectangle, Brush: SolidColorBrush brush } =>
+            brush.Color == Color.FromRgb(0x7A, 0x24, 0) && rectangle.Rect == new Rect(285, 215, 130, 15),
+        _ => false
+    };
 
     static IEnumerable<string> Glyphs(Drawing drawing) => drawing switch
     {
