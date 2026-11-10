@@ -110,6 +110,9 @@ public static class Program
                     var viewport = (HelixViewport3D)window.FindName("Viewport");
                     if (viewport.Children.Count != vm.Model.Blocks.Count + 1)
                         throw new Exception("preview block count");
+                    if (viewport.Children.OfType<BoxVisual3D>().Count(box =>
+                        box.Children.OfType<BoundingBoxWireFrameVisual3D>().SingleOrDefault()?.Points.Count == 24) != vm.Model.Blocks.Count)
+                        throw new Exception("each preview block must outline all twelve edges");
                     if (!configurationOnly)
                     {
                         WorkspaceChecks.CheckModelRoot(window);

@@ -101,6 +101,13 @@ public sealed partial class ModelPresenter
                 Material = fill,
                 BackMaterial = fill
             };
+            box.Children.Add(new BoundingBoxWireFrameVisual3D
+            {
+                BoundingBox = new(b.Origin.X, b.Origin.Y, b.Origin.Z, b.Size.X, b.Size.Y, b.Size.Z),
+                Color = Color.FromRgb(51, 65, 85),
+                Thickness = 1,
+                DepthOffset = 0.00001
+            });
             Viewport.Children.Add(box);
             hitTargets[box] = b.Id;
         }
