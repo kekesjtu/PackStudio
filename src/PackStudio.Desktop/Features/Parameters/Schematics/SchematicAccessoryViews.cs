@@ -6,28 +6,40 @@ internal sealed partial class SchematicDrawing
     {
         string type = Value("cover.type");
         if (type is not ("lid" or "plate" or "encapsulant")) return;
-        string prefix = type == "encapsulant" ? "cover" : type;
-        DimV(type == "encapsulant" ? SectionY - 100 : CapTop, type == "encapsulant" ? SectionY : CapBottom,
-            505, 545, Dimension("顶部厚度", prefix + ".thickness"));
-        DimH(225, 475, 390, 345, Dimension("顶部长度", prefix + ".length"));
-        DimV(390, 550, 475, 548, Dimension("顶部宽度\n", prefix + ".width"));
-        if (type == "encapsulant") return;
-        bool stiff = type == "lid" && Enabled("stiffener.enabled");
-        if (!stiff)
-            DimV(CapBottom, CapBottom + 12, 415, 545, Dimension("连接层厚度", prefix + ".die_attach"));
+        bool encapsulant = type == "encapsulant";
+        string prefix = encapsulant ? "cover" : type;
+        DimV(encapsulant ? EncapsulantTop : CapTop, encapsulant ? SectionY : CapBottom, 505, 545, prefix + ".thickness");
+        DimH(225, 475, 390, 345, prefix + ".length");
+        DimV(390, 550, 475, 548, prefix + ".width");
+        if (encapsulant) return;
+        DimV(CapBottom, CapBottom + 12, 415, 590, prefix + ".die_attach", name: "芯片连接层厚度");
         if (type != "lid") return;
-        double wall = stiff ? 458 : 494;
-        if (stiff) DimV(CapBottom, CapBottom + 6, wall, 545, Dimension("顶盖粘接厚度", "lid.adhesive"));
-        else DimH(483, 505, CapTop, 120, Dimension("侧壁宽度", "lid.base_thickness"));
-        DimV(SectionY - 6, SectionY, wall, 545,
-            Dimension(stiff ? "加强环粘接厚度" : "侧壁粘接厚度", stiff ? "stiffener.adhesive" : "lid.adhesive"));
+        bool stiff = Checked("stiffener.enabled");
+        double wall = stiff ? 470 : 505;
+        if (stiff)
+        {
+            DimH(StiffenerLeft, 700 - StiffenerLeft, 2 * PlanCenterY - StiffenerTop, PlanLengthDimensionY, "stiffener.length");
+            DimV(StiffenerTop, 2 * PlanCenterY - StiffenerTop, StiffenerLeft, 152, "stiffener.width", left: true);
+            DimH(StiffenerInnerLeft, 700 - StiffenerInnerLeft, StiffenerInnerTop, 375, "stiffener.cavity_length");
+            DimV(StiffenerInnerTop, 2 * PlanCenterY - StiffenerInnerTop, 700 - StiffenerInnerLeft, 635, "stiffener.cavity_width");
+            DimV(CapBottom, CapBottom + 6, StiffenerLeft, 125, "lid.adhesive", left: true, name: "顶盖粘接厚度");
+            DimV(SectionY - 6, SectionY, wall, 545, "stiffener.adhesive");
+        }
+        else
+        {
+            DimH(483, 505, CapTop, 120, "lid.base_thickness");
+            DimV(SectionY - 6, SectionY, wall, 545, "lid.adhesive");
+        }
     }
 
     void Spreader()
     {
-        if (!Enabled("spreader.enabled")) return;
-        DimV(SectionY + 21, SectionY + 30, 505, 560, Dimension("扩散片厚度\n", "spreader.thickness"));
-        DimH(240, 460, 402, 345, Dimension("扩散片长度", "spreader.length"));
-        DimV(402, 538, 460, 548, Dimension("宽度\n", "spreader.width"));
+        if (!Checked("spreader.enabled")) return;
+        Text("底视图", 350, 295, align: System.Windows.TextAlignment.Center);
+        DimV(SectionY + 21, SectionY + 30, 505, 560, "spreader.thickness");
+        DimH(240, 460, 402, 345, "spreader.length");
+        DimV(402, 538, 460, 548, "spreader.width", name: "扩散片宽度");
+        DimH(305, 395, 499, PlanLengthDimensionY, "spreader.hole_length");
+        DimV(441, 499, 305, 152, "spreader.hole_width", left: true);
     }
 }

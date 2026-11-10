@@ -17,7 +17,7 @@ internal sealed partial class SchematicDrawing(PackageDefinition template, Proje
     static readonly Brush Ink = Brushes.Black, Muted = Brush("#555555");
     static readonly Brush Die = Brush("#FF1744"), Substrate = Brush("#00C83F"), Metal = Brush("#FFA000");
     static readonly Brush Mold = Brush("#3996FF"), Solder = Brush("#653FFF"), Attach = Brush("#7A2400");
-    static readonly Brush Bump = Brush("#E600C7"), Ceramic = Brush("#00A043");
+    static readonly Brush Bump = Brush("#9477FF"), Ceramic = Brush("#00A043");
     static readonly Brush WireColor = Brush("#D600C7");
     static readonly Brush Cover = Brush("#00B8D9"), Accent = Brush("#0057D9");
     DrawingContext dc = null!;
@@ -28,25 +28,28 @@ internal sealed partial class SchematicDrawing(PackageDefinition template, Proje
     bool Qfn => Profile.Qfn;
     bool Sop => Profile.Sop;
     bool ChipArray => Profile.ChipArray;
-    bool Wirebond => Profile.Wirebond;
+
     bool CeramicBoard => Profile.Ceramic;
-    bool FlagStep => step is "die_flag_solder_mask" or "die_flag_tie_bars" or "dap";
-    int LayerCount => Math.Clamp((document.Values["metal.layers"] as Newtonsoft.Json.Linq.JArray)?.Count ?? 2, 2, 6);
+    int LayerCount(string key = "metal.layers") => Math.Clamp((document.Values[key] as JArray)?.Count ?? 2, 2, 6);
     Brush Board => CeramicBoard ? Ceramic : Substrate;
     static double FlipDieTop(double substrateTop) => substrateTop - 2 * FlipBumpRadius - 23;
     static double Centered(int index, int count, double pitch, double center = 350) =>
         center + (index - (count - 1) / 2.0) * pitch;
-    bool Enabled(string key) => document.Values[key].Flag();
+    bool Checked(string key) => Field(key) is { } field && document.Values[key].Flag() &&
+        JsonData.Matches(field["enabled_when"] as JObject, document.Values);
+    bool IrregularBumps => step == "flip_chip_bumps" && Value("bumps.array_type") == "non_regular";
+    internal bool HasLocalPackageScene => IrregularBumps || template.DisplayFields.Any(f =>
+        f["schematic"].Flag() && f["type"].Text() == "checkbox" && Checked(f["key"].Text()));
     string Value(string key) => document.Values[key] is JValue value ? value.Text() : "";
-    string Symbol(string key, string fallback = "")
+    JToken? Field(string key) => template.DisplayFields.FirstOrDefault(f =>
+        f["key"].Text() == key && f["step"].Text() == step && !f["creation_only"].Flag() &&
+        JsonData.Matches(f["visible_when"] as JObject, document.Values));
+
+    string? Dimension(string key, string? name = null, string separator = "  ")
     {
-        var field = template.DisplayFields.FirstOrDefault(f => f["key"].Text() == key);
-        return field == null ? fallback : TemplateSymbols.Resolve(field, document.Values);
-    }
-    string Dimension(string name, string key, string fallback = "")
-    {
-        string symbol = Symbol(key, fallback);
-        return name + (symbol.Length == 0 ? "" : "  " + symbol);
+        if (Field(key) is not { } field) return null;
+        string symbol = TemplateSymbols.Resolve(field, document.Values);
+        return (name ?? field["label"].Text()) + (symbol.Length == 0 ? "" : separator + symbol);
     }
 
     internal DrawingGroup CreatePackageScene()
@@ -122,7 +125,11 @@ internal sealed partial class SchematicDrawing(PackageDefinition template, Proje
         }
         dc.DrawGeometry(color ?? Ink, null, geometry);
     }
-    void DimH(double x1, double x2, double objectY, double y, string label)
+    void DimH(double x1, double x2, double objectY, double y, string key, string? name = null)
+    {
+        if (Dimension(key, name) is { } label) DrawDimH(x1, x2, objectY, y, label);
+    }
+    void DrawDimH(double x1, double x2, double objectY, double y, string label)
     {
         double end = y + (y > objectY ? 5 : -5);
         Line(x1, objectY, x1, end); Line(x2, objectY, x2, end);
@@ -131,7 +138,11 @@ internal sealed partial class SchematicDrawing(PackageDefinition template, Proje
         Arrow(x1, y, narrow ? -1 : 1, 0); Arrow(x2, y, narrow ? 1 : -1, 0);
         Text(label, (x1 + x2) / 2, y + (y > objectY ? 9 : -23), 13, align: TextAlignment.Center);
     }
-    void DimV(double y1, double y2, double objectX, double x, string label, bool left = false)
+    void DimV(double y1, double y2, double objectX, double x, string key, bool left = false, string? name = null)
+    {
+        if (Dimension(key, name, "\n") is { } label) DrawDimV(y1, y2, objectX, x, label, left);
+    }
+    void DrawDimV(double y1, double y2, double objectX, double x, string label, bool left = false)
     {
         double end = x + (x > objectX ? 5 : -5);
         Line(objectX, y1, end, y1); Line(objectX, y2, end, y2);
@@ -147,14 +158,24 @@ internal sealed partial class SchematicDrawing(PackageDefinition template, Proje
         Line(x, y + 22, targetX, targetY);
         dc.DrawEllipse(Ink, null, new(targetX, targetY), 2, 2);
     }
-    void BracketH(double x1, double x2, double y, string label)
+    void DimensionCallout(string key, double x, double y, double targetX, double targetY)
     {
+        if (Dimension(key) is { } label) Callout(label, x, y, targetX, targetY);
+    }
+    void DimensionText(string key, double x, double y, TextAlignment align = TextAlignment.Left, string separator = "  ")
+    {
+        if (Dimension(key, separator: separator) is { } label) Text(label, x, y, align: align);
+    }
+    void BracketH(double x1, double x2, double y, string key)
+    {
+        if (Dimension(key) is not { } label) return;
         Line(x1, y, x2, y);
         Line(x1, y - 5, x1, y + 5); Line(x2, y - 5, x2, y + 5);
         Text(label, (x1 + x2) / 2, y + 8, 13, align: TextAlignment.Center);
     }
-    void BracketV(double x, double y1, double y2, string label, double labelY)
+    void BracketV(double x, double y1, double y2, string key, double labelY)
     {
+        if (Dimension(key) is not { } label) return;
         Line(x, y1, x, y2);
         Line(x - 5, y1, x + 5, y1); Line(x - 5, y2, x + 5, y2);
         Text(label, x - 8, labelY, 13, align: TextAlignment.Right);

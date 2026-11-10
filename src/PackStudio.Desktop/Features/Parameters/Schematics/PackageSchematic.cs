@@ -24,14 +24,25 @@ public sealed class PackageSchematic : FrameworkElement
         DiagramKey = template.Steps.Single(s => s["key"].Text() == step)["diagram"].Text();
         ToolTip = HasDiagram ? $"{template.Info.Name} · {label}" : null;
         var renderer = new SchematicDrawing(template, document, step);
-        var configuration = new JArray(template.Fields.Where(f => f["schematic"].Flag()).Select(f => document.Values[f["key"].Text()]?.DeepClone() ?? JValue.CreateNull()));
-        if (DiagramKey == "package" && (packageScene == null || sceneTemplate != TemplateId || !JToken.DeepEquals(sceneValues, configuration)))
+        DrawingGroup? scene = null;
+        if (DiagramKey == "package")
         {
-            packageScene = renderer.CreatePackageScene();
-            sceneValues = configuration;
-            sceneTemplate = TemplateId;
+            if (renderer.HasLocalPackageScene)
+                scene = renderer.CreatePackageScene();
+            else
+            {
+                var configuration = new JArray(template.Fields.Where(f => f["schematic"].Flag() && f["type"].Text() != "checkbox")
+                    .Select(f => document.Values[f["key"].Text()]?.DeepClone() ?? JValue.CreateNull()));
+                if (packageScene == null || sceneTemplate != TemplateId || !JToken.DeepEquals(sceneValues, configuration))
+                {
+                    packageScene = renderer.CreatePackageScene();
+                    sceneValues = configuration;
+                    sceneTemplate = TemplateId;
+                }
+                scene = packageScene;
+            }
         }
-        drawing = HasDiagram ? renderer.Create(DiagramKey, packageScene) : null;
+        drawing = HasDiagram ? renderer.Create(DiagramKey, scene) : null;
         InvalidateVisual();
     }
 

@@ -85,8 +85,14 @@ static class SchematicChecks
                         checkbox.IsChecked = enabled;
                         window.UpdateLayout();
                         var labels = EditorLabels(fields).ToList();
+                        string diagramText = LabelText(schematic);
+                        string[] symbols = central ? ["MEc", "MDc"] : ["MEp", "MDp"];
+                        Require(symbols.All(symbol => diagramText.Contains(symbol) == enabled) && !diagramText.Contains("离板高度"),
+                            $"焊球示意图标注与栏目不符：{family.Id}/{item.Key}");
                         Require(expected.All(label => labels.Contains(label) == enabled),
                             $"行列数未跟随「{option}」选项显示或隐藏：{family.Id}");
+                        if (enabled && family.Id == "cbga_fc")
+                            Preview(workspace, item.Key, item.Label, family.Id + "-" + item.Key + "-enabled");
                     }
                 }
                 if (schematic.DiagramKey == "package")
@@ -114,7 +120,12 @@ static class SchematicChecks
                 var originalScene = sceneField.GetValue(schematic);
                 workspace.Document.Values["bumps.enabled"] = true;
                 steps.SelectedValue = "summary";
-                Require(!ReferenceEquals(originalScene, sceneField.GetValue(schematic)), "启用组件后基础图形未更新");
+                Require(ReferenceEquals(originalScene, sceneField.GetValue(schematic)), "裸芯片凸点开关改动了概要底图");
+                steps.SelectedValue = "bumped_die";
+                Require(LabelText(schematic).Contains("nballs"), "裸芯片凸点总数未随栏目显示");
+                steps.SelectedValue = "die";
+                var labels = LabelText(schematic);
+                Require(labels.Contains("Wd") && !labels.Contains("nballs"), "裸芯片宽度或凸点标注未按栏目显示");
             }
         }
         workspace.Select("cbga_fc");
@@ -124,24 +135,67 @@ static class SchematicChecks
             workspace.Document.Values["cover.type"] = type;
             Preview(workspace, "top_cover", "顶部结构", "cbga_fc-cover-" + type);
         }
+        workspace.Document.Values["cover.type"] = "encapsulant";
+        workspace.Document.Values["slug.enabled"] = false;
+        schematic.Update(workspace.Template, workspace.Document, "top_cover", "顶部结构");
+        var coverScene = typeof(PackageSchematic).GetField("packageScene", BindingFlags.Instance | BindingFlags.NonPublic)!;
+        var coverWithoutSlug = coverScene.GetValue(schematic);
+        workspace.Document.Values["slug.enabled"] = true;
+        schematic.Update(workspace.Template, workspace.Document, "top_cover", "顶部结构");
+        Require(ReferenceEquals(coverWithoutSlug, coverScene.GetValue(schematic)), "Slug 开关改动了顶部结构底图");
+        Require(!LabelText(schematic).Contains("L_sl"), "顶部结构图混入了 Slug 尺寸");
+        schematic.Update(workspace.Template, workspace.Document, "slug", "嵌入式散热块");
+        Require(LabelText(schematic).Contains("L_sl"), "启用后 Slug 栏目未显示尺寸");
         workspace.Document.Values["cover.type"] = "lid";
         workspace.Document.Values["stiffener.enabled"] = true;
         Preview(workspace, "top_cover", "顶部结构", "cbga_fc-cover-stiffener");
         foreach (string family in new[] { "cbga_fc", "pbga_wb" })
         {
             workspace.Select(family);
+            if (family == "cbga_fc") workspace.Document.Values["cover.type"] = "encapsulant";
+            workspace.Document.Values["slug.enabled"] = true;
             workspace.Document.Values["slug.adhesive_enabled"] = true;
             Preview(workspace, "slug", "嵌入式散热块", family + "-slug-adhesive");
         }
         workspace.Select("bare_die");
         workspace.Document.Values["bumps.enabled"] = true;
-        Preview(workspace, "die", "芯片", "bare_die-die-bumped");
+        Preview(workspace, "bumped_die", "凸点", "bare_die-bumps-enabled");
+        workspace.Select("pbga_fc");
+        foreach (var (step, prefix, symbol) in new[] { ("upper_built_up", "upper", "dv_b1"), ("lower_built_up", "lower", "dv_b2") })
+        {
+            workspace.Document.Values[prefix + ".enabled"] = true;
+            schematic.Update(workspace.Template, workspace.Document, step, "增层");
+            string labels = LabelText(schematic);
+            Require(labels.Contains(symbol) && labels.Contains("tzn") && !labels.Contains("基板厚度"),
+                "增层图缺少微通孔和层表尺寸，或混入基板厚度");
+            Preview(workspace, step, "增层", "pbga_fc-" + prefix + "-enabled");
+        }
+        workspace.Select("pbga_wb");
+        workspace.Document.Values["spreader.enabled"] = true;
+        Preview(workspace, "backside_spreader", "背面扩散片", "pbga_wb-spreader-enabled");
+        workspace.Select("qfn");
+        workspace.Document.Values["vias.enabled"] = true;
+        workspace.Document.Values["vias.removal_enabled"] = true;
+        Preview(workspace, "thermal_vias", "热通孔", "qfn-vias-removal-enabled");
         workspace.Select("cbga_fc");
         steps.SelectedValue = "die";
         diagramTab.IsSelected = true;
         NewPackageChecks.Capture(window, "schematic-workspace.png");
         Console.WriteLine($"PASS {count} wizard schematics, {modelingCount} modeling sections without diagrams, shared diagrams and model tab switching");
     }
+
+    static string LabelText(PackageSchematic schematic)
+    {
+        var drawing = (DrawingGroup)typeof(PackageSchematic).GetField("drawing", BindingFlags.Instance | BindingFlags.NonPublic)!.GetValue(schematic)!;
+        return string.Join(" ", Glyphs(drawing));
+    }
+
+    static IEnumerable<string> Glyphs(Drawing drawing) => drawing switch
+    {
+        DrawingGroup group => group.Children.SelectMany(Glyphs),
+        GlyphRunDrawing glyph when glyph.GlyphRun.Characters is { } characters => [string.Concat(characters)],
+        _ => []
+    };
 
     static void Preview(Workspace workspace, string step, string label, string name)
     {

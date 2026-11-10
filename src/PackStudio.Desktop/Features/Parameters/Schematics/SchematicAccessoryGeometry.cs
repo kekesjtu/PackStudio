@@ -11,7 +11,9 @@ internal sealed partial class SchematicDrawing
     const double SlugShoulderRight = 465;
     const double SlugRightWallLeft = SlugShoulderRight - SlugDrawnThickness;
 
-    bool SlugVisible => Enabled("slug.enabled") && (Wirebond || Flip && Value("cover.type") == "encapsulant");
+    double EncapsulantTop => Checked("cover.flush") ? FlipDieTop(SectionY) : SectionY - 100;
+    const double StiffenerLeft = 230, StiffenerInnerLeft = 254;
+    const double StiffenerTop = 398, StiffenerInnerTop = 420;
     double CapBottom => FlipDieTop(SectionY) - 12;
     double CapTop => CapBottom - 25;
 
@@ -21,8 +23,8 @@ internal sealed partial class SchematicDrawing
         Rect(Attach, 285, CapBottom, 130, 12);
         Rect(Cover, 195, CapTop, 310, 25);
         if (Value("cover.type") != "lid") return;
-        bool stiff = Enabled("stiffener.enabled");
-        double left = stiff ? 230 : 195, width = stiff ? 24 : 22;
+        bool stiff = Checked("stiffener.enabled");
+        double left = stiff ? StiffenerLeft : 195, width = stiff ? StiffenerInnerLeft - StiffenerLeft : 22;
         foreach (double x in new[] { left, 700 - left - width })
         {
             double top = CapBottom + (stiff ? 6 : 0);
@@ -32,7 +34,7 @@ internal sealed partial class SchematicDrawing
         }
     }
 
-    void SlugSection(bool includeAdhesive = false)
+    void SlugSection()
     {
         Rect(Metal, 300, SlugSectionTop, 100, SlugDrawnThickness);
         Rect(Metal, 235, SlugShoulderTop, 65, SlugDrawnThickness);
@@ -42,7 +44,7 @@ internal sealed partial class SchematicDrawing
         double footWidth = 490 - SlugRightWallLeft;
         Rect(Metal, 210, SlugFootTop, footWidth, SlugDrawnThickness);
         Rect(Metal, SlugRightWallLeft, SlugFootTop, footWidth, SlugDrawnThickness);
-        if (includeAdhesive || Enabled("slug.adhesive_enabled"))
+        if (Checked("slug.adhesive_enabled"))
         {
             Rect(Attach, 210, SlugFootBottom, footWidth, SectionY - SlugFootBottom);
             Rect(Attach, SlugRightWallLeft, SlugFootBottom, footWidth, SectionY - SlugFootBottom);
@@ -53,12 +55,11 @@ internal sealed partial class SchematicDrawing
     {
         if (Flip && Value("cover.type") is "lid" or "plate" or "encapsulant")
             Rect(Value("cover.type") == "encapsulant" ? Mold : Cover, 225, 390, 250, 160);
-        if (SlugVisible)
+        if (Checked("stiffener.enabled"))
         {
-            Rect(Metal, 235, 395, 230, 150);
-            Ellipse(Metal, 350, PlanCenterY, 45, 45);
+            Rect(Metal, StiffenerLeft, StiffenerTop, 700 - 2 * StiffenerLeft, 2 * (PlanCenterY - StiffenerTop));
+            Rect(Cover, StiffenerInnerLeft, StiffenerInnerTop, 700 - 2 * StiffenerInnerLeft, 2 * (PlanCenterY - StiffenerInnerTop));
         }
-        if (Wirebond && Enabled("spreader.enabled")) Rect(Metal, 240, 402, 220, 136);
-        if (!Bga && Enabled("thermal_land.enabled")) Rect(Solder, 255, 395, 190, 150);
+        if (Checked("thermal_land.enabled")) Rect(Solder, 255, 395, 190, 150);
     }
 }
