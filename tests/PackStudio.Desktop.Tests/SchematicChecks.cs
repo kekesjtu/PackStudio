@@ -71,25 +71,22 @@ static class SchematicChecks
                     Require(expected.All(labels.Contains), "编辑区字段名称或符号与示意图不一致：" + item.Key);
                     NewPackageChecks.Capture(window, "chip_array-" + item.Key + "-editor.png");
                 }
-                if (item.Key == "central_solder_balls")
+                if (item.Key is "central_solder_balls" or "solder_removal")
                 {
-                    var labels = EditorLabels((StackPanel)window.FindName("FieldsPanel")).ToList();
-                    string[] expected = ["中央焊球行数 MEc", "中央焊球列数 MDc"];
-                    Require(expected.All(labels.Contains), "模板配置字段的名称或符号未正确显示：" + family.Id + "/" + item.Key);
-                }
-                if (item.Key == "solder_removal")
-                {
+                    bool central = item.Key == "central_solder_balls";
+                    string option = central ? "包含中央焊球" : "主阵列中心去球";
+                    string[] expected = central ? ["中央焊球行数 MEc", "中央焊球列数 MDc"] : ["外围满布行数 MEp", "外围满布列数 MDp"];
                     var fields = (StackPanel)window.FindName("FieldsPanel");
-                    var removal = fields.Children.OfType<Grid>().SelectMany(row => row.Children.OfType<StackPanel>())
-                        .SelectMany(panel => panel.Children.OfType<CheckBox>()).Single(box => Equals(box.Content, "主阵列中心去球"));
-                    bool initial = removal.IsChecked == true;
+                    var checkbox = fields.Children.OfType<Grid>().SelectMany(row => row.Children.OfType<StackPanel>())
+                        .SelectMany(panel => panel.Children.OfType<CheckBox>()).Single(box => Equals(box.Content, option));
+                    bool initial = checkbox.IsChecked == true;
                     foreach (bool enabled in new[] { initial, !initial, initial })
                     {
-                        removal.IsChecked = enabled;
+                        checkbox.IsChecked = enabled;
                         window.UpdateLayout();
                         var labels = EditorLabels(fields).ToList();
-                        Require(labels.Contains("外围满布行数 MEp") == enabled && labels.Contains("外围满布列数 MDp") == enabled,
-                            "外围满布行列数未跟随主阵列中心去球选项显示或隐藏：" + family.Id);
+                        Require(expected.All(label => labels.Contains(label) == enabled),
+                            $"行列数未跟随「{option}」选项显示或隐藏：{family.Id}");
                     }
                 }
                 if (schematic.DiagramKey == "package")

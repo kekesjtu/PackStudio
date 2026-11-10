@@ -1449,6 +1449,9 @@
       "step": "central_solder_balls",
       "des_symbol": "MEc",
       "minimum": 0,
+      "visible_when": {
+        "bga.center_solder_enabled": true
+      },
       "active_when": {
         "all": [
           {
@@ -1465,6 +1468,9 @@
       "step": "central_solder_balls",
       "des_symbol": "MDc",
       "minimum": 0,
+      "visible_when": {
+        "bga.center_solder_enabled": true
+      },
       "active_when": {
         "all": [
           {
