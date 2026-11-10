@@ -7,6 +7,7 @@ ExportChecks.Run(tests);
 ParameterChecks.Run(tests);
 FourLayerChecks.Run(tests);
 LayoutChecks.Run(tests);
+CoverChecks.Run(tests);
 SlugChecks.Run(tests);
 MaterialChecks.Run(tests);
 ProjectChecks.Run(tests);

@@ -17,8 +17,9 @@ public static class Covers
                 c.Center("encapsulant", "encapsulant", c.N("cover.length"), c.N("cover.width"), c.B("cover.flush") ? dieTop - substrateTop : c.N("cover.thickness"), substrateTop, "epoxy-mold", "encapsulant");
                 break;
             case "plate":
-                c.Center("thermal-plate", "heat_slug", c.N("plate.length"), c.N("plate.width"), c.N("plate.thickness"), dieTop, "aluminum", "plate");
-                c.Center("plate-die-attach", "thermal_interface", dl, dw, c.N("plate.die_attach"), dieTop, "flip-cap-grease", "plate-die-attach");
+                double plateAttach = c.N("plate.die_attach");
+                c.Center("thermal-plate", "heat_slug", c.N("plate.length"), c.N("plate.width"), c.N("plate.thickness"), dieTop + plateAttach, "aluminum", "plate");
+                c.Center("plate-die-attach", "thermal_interface", dl, dw, plateAttach, dieTop, "flip-cap-grease", "plate-die-attach");
                 break;
             case "lid":
                 double l = c.N("lid.length"), w = c.N("lid.width"), il = l - 2 * c.N("lid.base_thickness"), iw = w - 2 * c.N("lid.base_thickness");
@@ -31,12 +32,19 @@ public static class Covers
                     iw = c.N("stiffener.cavity_width");
                 }
 
-                c.Center("lid", "lid", c.N("lid.length"), c.N("lid.width"), c.N("lid.thickness"), dieTop, "aluminum", "lid");
-                c.Ring(stiff ? "stiffener" : "lid-wall", "lid", l, w, il, iw, substrateTop, dieTop - substrateTop, "aluminum", stiff ? "stiffener" : "lid");
-                c.Ring("lid-adhesive", "die_attach", l, w, il, iw, stiff ? dieTop : substrateTop, c.N("lid.adhesive"), "stiffener-adhesive", "lid-adhesive");
-                c.Center("lid-die-attach", "thermal_interface", dl, dw, c.N("lid.die_attach"), dieTop, "flip-cap-grease", "lid-die-attach");
+                double lidAttach = c.N("lid.die_attach"), lidAdhesive = c.N("lid.adhesive");
+                double capBottom = dieTop + lidAttach;
+                double stiffenerAdhesive = stiff ? c.N("stiffener.adhesive") : 0;
+                double adhesiveBottom = stiff ? capBottom - lidAdhesive : substrateTop;
+                double wallBottom = substrateTop + (stiff ? stiffenerAdhesive : lidAdhesive);
+                double wallTop = stiff ? adhesiveBottom : capBottom;
+
+                c.Center("lid", "lid", c.N("lid.length"), c.N("lid.width"), c.N("lid.thickness"), capBottom, "aluminum", "lid");
+                c.Ring(stiff ? "stiffener" : "lid-wall", "lid", l, w, il, iw, wallBottom, wallTop - wallBottom, "aluminum", stiff ? "stiffener" : "lid");
+                c.Ring("lid-adhesive", "die_attach", l, w, il, iw, adhesiveBottom, lidAdhesive, "stiffener-adhesive", "lid-adhesive");
+                c.Center("lid-die-attach", "thermal_interface", dl, dw, lidAttach, dieTop, "flip-cap-grease", "lid-die-attach");
                 if (stiff)
-                    c.Ring("stiffener-adhesive", "die_attach", l, w, il, iw, substrateTop, c.N("stiffener.adhesive"), "stiffener-adhesive", "stiffener-adhesive");
+                    c.Ring("stiffener-adhesive", "die_attach", l, w, il, iw, substrateTop, stiffenerAdhesive, "stiffener-adhesive", "stiffener-adhesive");
                 break;
         }
     }
