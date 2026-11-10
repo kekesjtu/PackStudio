@@ -801,6 +801,9 @@
       "des_symbol": "MEp",
       "minimum": 0,
       "required": false,
+      "visible_when": {
+        "bga.solder_removal_enabled": true
+      },
       "active_when": {
         "all": [
           {
@@ -818,6 +821,9 @@
       "des_symbol": "MDp",
       "minimum": 0,
       "required": false,
+      "visible_when": {
+        "bga.solder_removal_enabled": true
+      },
       "active_when": {
         "all": [
           {
