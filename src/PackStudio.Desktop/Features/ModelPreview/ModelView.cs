@@ -85,8 +85,8 @@ public sealed partial class ModelPresenter
         Viewport.Children.Add(new DefaultLights());
         foreach (var b in model.Blocks.Where(b => !workspace.Hidden.Contains(b.Id)).OrderBy(b => b.StructureType == "encapsulant" ? 1 : 0))
         {
-            var material = model.Materials[b.MaterialId];
-            var color = workspace.Selected.Contains(b.Id) ? Color.FromRgb(61, 158, 255) : MaterialPresentation.Swatch(material);
+            var color = workspace.Selected.Contains(b.Id) ? Color.FromRgb(61, 158, 255)
+                : PackageColors.ForGroup(b.GroupId, workspace.Template.Info.Schematic.Ceramic);
             color.A = b.StructureType == "encapsulant" && !workspace.Selected.Contains(b.Id) ? (byte)65 : (byte)240;
             var brush = new SolidColorBrush(color);
             brush.Freeze();

@@ -14,12 +14,12 @@ internal sealed partial class SchematicDrawing(PackageDefinition template, Proje
     const double PlanLengthDimensionY = PlanBottom + 29;
     const double PlanLeadSpacing = 30, PlanLeadInner = 20, PlanLeadOuter = 20;
     const double FlipBumpRadius = 7.5;
-    static readonly Brush Ink = Brushes.Black, Muted = Brush("#555555");
-    static readonly Brush Die = Brush("#FF1744"), Substrate = Brush("#00C83F"), Metal = Brush("#FFA000");
-    static readonly Brush Mold = Brush("#3996FF"), Solder = Brush("#653FFF"), Attach = Brush("#7A2400");
-    static readonly Brush Bump = Brush("#9477FF"), Ceramic = Brush("#00A043");
-    static readonly Brush WireColor = Brush("#D600C7");
-    static readonly Brush Cover = Brush("#00B8D9"), Accent = Brush("#0057D9");
+    static readonly Brush Ink = Brushes.Black, Muted = Brush(Color.FromRgb(85, 85, 85));
+    static readonly Brush Die = Brush(PackageColors.Die), Substrate = Brush(PackageColors.Substrate), Metal = Brush(PackageColors.Metal);
+    static readonly Brush Mold = Brush(PackageColors.Mold), Solder = Brush(PackageColors.Solder), Attach = Brush(PackageColors.Attach);
+    static readonly Brush Bump = Brush(PackageColors.Bump), Ceramic = Brush(PackageColors.Ceramic);
+    static readonly Brush WireColor = Brush(PackageColors.Wire);
+    static readonly Brush Cover = Brush(PackageColors.Cover), Accent = Brush(PackageColors.Accent);
     DrawingContext dc = null!;
     SchematicProfile Profile => template.Info.Schematic;
     bool Bga => Profile.Bga;
@@ -87,9 +87,9 @@ internal sealed partial class SchematicDrawing(PackageDefinition template, Proje
         return group;
     }
 
-    static SolidColorBrush Brush(string color)
+    static SolidColorBrush Brush(Color color)
     {
-        var result = new SolidColorBrush((Color)ColorConverter.ConvertFromString(color));
+        var result = new SolidColorBrush(color);
         result.Freeze();
         return result;
     }
