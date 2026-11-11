@@ -104,7 +104,6 @@ internal sealed partial class SchematicDrawing
         if (Qfn)
         {
             Callout("露出焊盘 / Exposed Pad", 115, 285, 320, QfnLeadStep + 2.5);
-            DashedRect(QfnExposedPadLeft, 432, QfnExposedPadWidth, 76);
             DimH(QfnExposedPadLeft, QfnExposedPadLeft + QfnExposedPadWidth, 508, PlanLengthDimensionY, "pad.exposed_length");
             DimV(432, 508, QfnExposedPadLeft, 153, "pad.exposed_width", left: true);
         }

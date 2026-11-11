@@ -41,8 +41,9 @@ internal sealed partial class SchematicDrawing(PackageDefinition template, Proje
     double LandSolderTop => SectionY + (Qfn ? 5 : 14);
     double LandTop => LandSolderTop + 9;
     bool SpreaderSection => step == "backside_spreader";
+    bool QfnBottomView => Qfn && step == "dap";
     bool StiffenedLid => step == "top_cover" && CoverType == "lid" && document.Values["stiffener.enabled"].Flag();
-    internal bool HasLocalPackageScene => BumpedDie || ThermalLand || SpreaderSection || StiffenedLid;
+    internal bool HasLocalPackageScene => BumpedDie || ThermalLand || SpreaderSection || StiffenedLid || QfnBottomView;
     internal string CoverType => Flip ? document.Values["cover.type"].Text() : "";
     JToken? Field(string key) => template.DisplayFields.FirstOrDefault(f =>
         f["key"].Text() == key && f["step"].Text() == step && !f["creation_only"].Flag());
@@ -62,7 +63,7 @@ internal sealed partial class SchematicDrawing(PackageDefinition template, Proje
         {
             PackageSection();
             Plan();
-            Axes(70, PlanBottom + 4);
+            Axes(70, PlanBottom + 4, bottomView: QfnBottomView);
             PackageLegend();
         }
         scene.Freeze();
@@ -216,11 +217,13 @@ internal sealed partial class SchematicDrawing(PackageDefinition template, Proje
         Line(x - 5, y1, x + 5, y1); Line(x - 5, y2, x + 5, y2);
         Text(label, x - 8, labelY, 13, align: TextAlignment.Right);
     }
-    void Axes(double x, double y, string vertical = "Y")
+    void Axes(double x, double y, string vertical = "Y", bool bottomView = false)
     {
         Line(x, y, x + 34, y, Muted); Arrow(x + 34, y, -1, 0, Muted);
-        Line(x, y, x, y - 32, Muted); Arrow(x, y - 32, 0, 1, Muted);
-        Text("X", x + 40, y - 10, 11, Muted); Text(vertical, x - 5, y - 51, 11, Muted);
+        double endY = y + (bottomView ? 32 : -32);
+        Line(x, y, x, endY, Muted); Arrow(x, endY, 0, bottomView ? -1 : 1, Muted);
+        Text("X", x + 40, y - 10, 11, Muted);
+        Text(vertical, x - 5, y + (bottomView ? 37 : -51), 11, Muted);
     }
     void Legend(params (Brush Color, string Label)[] entries)
     {

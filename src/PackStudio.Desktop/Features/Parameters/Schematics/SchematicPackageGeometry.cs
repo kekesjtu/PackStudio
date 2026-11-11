@@ -105,6 +105,11 @@ internal sealed partial class SchematicDrawing
 
     void Plan()
     {
+        if (QfnBottomView)
+        {
+            QfnBottomPlan();
+            return;
+        }
         Rect(Bare ? Die : Bga ? Board : Mold, 200, PlanTop, 300, PlanBottom - PlanTop);
         if (Bare) return;
         if (SpreaderSection)
@@ -164,6 +169,23 @@ internal sealed partial class SchematicDrawing
             for (int row = 0; row < 3; row++)
                 for (int col = 0; col < 6; col++)
                     Ellipse(Bump, Centered(col, 6, 20), Centered(row, 3, 20, PlanCenterY), 3.5, 3.5);
+    }
+
+    void QfnBottomPlan()
+    {
+        Text("底视图", 80, 350);
+        Rect(Mold, 200, PlanTop, 300, PlanBottom - PlanTop);
+        for (int i = 0; i < 6; i++)
+        {
+            double row = Centered(i, 6, PlanLeadSpacing, PlanCenterY) - 5;
+            Rect(Metal, 200, row, 30, 10);
+            Rect(Metal, 470, row, 30, 10);
+            double pin = Centered(i, 6, PlanLeadSpacing) - 5;
+            Rect(Metal, pin, PlanTop, 10, 25);
+            Rect(Metal, pin, PlanBottom - 25, 10, 25);
+        }
+        Rect(Metal, QfnExposedPadLeft, 432, QfnExposedPadWidth, 76);
+        DashedRect(265, 408, 170, 124);
     }
 
     void PackageSection(bool removeCentralBalls = false)
