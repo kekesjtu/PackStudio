@@ -105,7 +105,7 @@ internal sealed partial class SchematicDrawing
                     Ellipse(Metal, x, y, 6, 6);
                     Ellipse(Brushes.White, x, y, 3, 3);
                 }
-        DimV(416, 444, 189, 100, "vias.pitch", left: true);
+        DimV(472, 500, 189, 100, "vias.pitch", left: true);
         BracketH(189, 369, 566, "vias.columns");
         BracketV(148, 416, 528, "vias.rows", 393);
         DashedRect(234, 430, 90, 84);
