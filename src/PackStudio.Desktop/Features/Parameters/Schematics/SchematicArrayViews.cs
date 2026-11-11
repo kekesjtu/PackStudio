@@ -105,7 +105,7 @@ internal sealed partial class SchematicDrawing
                     Ellipse(Metal, x, y, 6, 6);
                     Ellipse(Brushes.White, x, y, 3, 3);
                 }
-        DimH(189, 219, 416, 375, "vias.pitch");
+        DimV(416, 444, 189, 100, "vias.pitch", left: true);
         BracketH(189, 369, 566, "vias.columns");
         BracketV(148, 416, 528, "vias.rows", 393);
         DashedRect(234, 430, 90, 84);
@@ -119,9 +119,7 @@ internal sealed partial class SchematicDrawing
         ViaInset(514, 454, "vias");
         if (Qfn)
         {
-            Rect(Metal, 521, 550, 22, 54);
-            Rect(Brushes.White, 526, 550, 12, 54);
-            DimV(550, 604, 543, 580, "vias.length");
+            DimV(SectionY + 5, SectionY + 26, ViaX(3) + 3, 565, "vias.length");
         }
         Axes(70, PlanBottom + 4);
         Legend((Board, "基材"), (Metal, "通孔镀层"));
