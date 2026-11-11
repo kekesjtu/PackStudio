@@ -172,7 +172,11 @@ internal sealed partial class SchematicDrawing
         }
         DimV(215, 230, 415, 555, "bumps.height");
         DimH(292.5, 307.5, 222.5, 305, "bumps.diameter");
+        Line(300, PlanCenterY + 25, 300, PlanBottom + 20);
+        Line(400, PlanCenterY + 25, 400, PlanBottom + 20);
         BracketH(300, 400, PlanBottom + 15, "bumps.columns");
+        Line(295, PlanCenterY - 20, 179, PlanCenterY - 20);
+        Line(295, PlanCenterY + 20, 179, PlanCenterY + 20);
         BracketV(184, PlanCenterY - 20, PlanCenterY + 20, "bumps.rows", 444);
         DashedRect(291, PlanCenterY - 28, 118, 56);
         DimensionCallout("bumps.total", 526, 490, 409, PlanCenterY + 18, arrow: true);
