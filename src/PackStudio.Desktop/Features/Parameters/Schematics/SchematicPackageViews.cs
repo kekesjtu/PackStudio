@@ -76,7 +76,7 @@ internal sealed partial class SchematicDrawing
         }
         double top = Flip ? FlipDieTop(SectionY) : Bga ? 197 : 195;
         DimV(top, top + 23, 415, 555, "die.thickness");
-        DimV(top + 23, ChipArray ? SectionY : top + 28, 285, 115, "die.attach", left: true);
+        DimV(top + 23, ChipArray || Bga && !Flip ? SectionY : top + 28, 285, 115, "die.attach", left: true);
         DimH(285, 415, 426, 345, "die.length");
         DimV(426, 514, 415, 548, "die.width");
         if (Bga && !Flip && !ChipArray) Wires();

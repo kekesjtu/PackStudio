@@ -134,7 +134,7 @@ static class GenerationChecks
         {
             var document = tests.Create(tests.Catalog.Load("pbga_wb"));
             var values = document.Values;
-            double stack = values["solder_mask.thickness"].Number() + values["die.attach"].Number() + values["die.thickness"].Number();
+            double stack = values["die.attach"].Number() + values["die.thickness"].Number();
             values["encapsulant.thickness"] = stack;
             values["encapsulant.length"] = values["bond_wire.extent_length"]!.DeepClone();
             tests.Generate(document);
@@ -145,6 +145,17 @@ static class GenerationChecks
                 "short mold escaped vertical input validation");
             Assert(result.Issues.Any(i => i.Code == "input.package.fit" && i.ParameterPaths.Contains("bond_wire.extent_length")),
                 "wire ends escaped lateral input validation");
+        });
+
+        tests.Case("generation", "WB PBGA solder mask stays off the die flag", () =>
+        {
+            var model = tests.Generate(tests.Create(tests.Catalog.Load("pbga_wb")));
+            var flag = model.Blocks.Single(b => b.Id == "die-flag-part-1");
+            Near(model.Blocks.Single(b => b.Id == "die-attach-part-1").Origin.Z, flag.Maximum.Z, "die attach rests on the die flag");
+            Assert(model.Blocks.Where(b => b.GroupId == "group-solder-mask").All(b =>
+                    b.Maximum.X <= flag.Origin.X || b.Origin.X >= flag.Maximum.X ||
+                    b.Maximum.Y <= flag.Origin.Y || b.Origin.Y >= flag.Maximum.Y),
+                "solder mask covered the die flag");
         });
 
         tests.Case("generation", "FC PBGA metal layers fit their own build-up region", () =>

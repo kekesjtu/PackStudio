@@ -33,7 +33,15 @@ internal sealed partial class SchematicDrawing
                     Rect(Metal, 150, y + 2 + layer * 22.0 / (IllustratedLayers - 1), 400, 3, false);
             }
             if (step == "thermal_vias") ViaSection(y + 5, 19);
-            if (HasSolderMask) Rect(SolderMask, 150, y - 4, 400, 4);
+            if (HasSolderMask)
+            {
+                if (ChipArray) Rect(SolderMask, 285, y - 4, 130, 4);
+                else
+                {
+                    Rect(SolderMask, 150, y - 4, 115, 4);
+                    Rect(SolderMask, 435, y - 4, 115, 4);
+                }
+            }
             for (int i = 0; i < 11; i++)
                 if (!removeCentralBalls || i is < 4 or > 6)
                     Ellipse(Solder, Centered(i, 11, 36.8), y + 41, 11, 11);
@@ -46,7 +54,7 @@ internal sealed partial class SchematicDrawing
             else
             {
                 if (!ChipArray) Rect(Metal, 265, y, 170, 3);
-                Rect(Attach, 285, y - 10, 130, 6);
+                Rect(Attach, 285, y - 10, 130, ChipArray ? 6 : 10);
                 Rect(Die, 285, y - 33, 130, 23);
                 Wire(291, y - 33, wireEnd, y, 44); Wire(409, y - 33, 700 - wireEnd, y, 44);
             }
