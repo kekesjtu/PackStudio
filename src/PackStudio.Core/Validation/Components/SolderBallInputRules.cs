@@ -20,7 +20,7 @@ internal static class SolderBallInputRules
 
         double rows = c.N("bga.rows"), columns = c.N("bga.columns");
         double populatedRows = rows, populatedColumns = columns;
-        var omissions = c.B("bga.solder_removal_enabled") ? c.Values["bga.omitted_cells"] as JArray : null;
+        var omissions = c.Values["bga.omitted_cells"] as JArray;
         bool explicitCells = omissions is { Count: > 0 };
         bool validCells = !explicitCells || ArrayInputRules.ValidateCells(c, "bga.omitted_cells", omissions, rows, columns);
         if (explicitCells)

@@ -63,7 +63,7 @@ static class FieldLayoutChecks
             throw new Exception("没有任何字段显示定义中的取值范围");
         if (matrices == 0 || checkboxes == 0)
             throw new Exception("没有覆盖矩阵头部或正方形勾选框");
-        Console.WriteLine("PASS field spacing, square checkboxes and UI-only matrix expansion");
+        Console.WriteLine("PASS field spacing, square checkboxes and matrix expansion with discrete switching");
     }
 
     static void CheckRows(StackPanel fields, string context)
@@ -115,6 +115,8 @@ static class FieldLayoutChecks
             bool original = field.Expanded;
             long revision = workspace.Revision;
             var values = workspace.Document.Values.DeepClone();
+            bool switchesRepresentation = field.Key == "bga.omitted_cells" && values["bga.representation"].Text() != "discrete";
+            if (switchesRepresentation) values["bga.representation"] = "discrete";
             box.IsChecked = false;
             window.UpdateLayout();
             double collapsedHeight = row.ActualHeight;
@@ -130,8 +132,8 @@ static class FieldLayoutChecks
                 NewPackageChecks.Capture(window, "field-layout-matrix-expanded.png");
             box.IsChecked = original;
             window.UpdateLayout();
-            if (workspace.Revision != revision || !JToken.DeepEquals(values, workspace.Document.Values))
-                throw new Exception("矩阵展开收起修改了方案或去除名单");
+            if (workspace.Revision != revision + (switchesRepresentation ? 1 : 0) || !JToken.DeepEquals(values, workspace.Document.Values))
+                throw new Exception("矩阵展开收起未按需切换离散建模，或修改了去除名单");
             matrices++;
         }
     }

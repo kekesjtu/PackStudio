@@ -10,22 +10,29 @@ static class LayoutChecks
         {
             tests.Case("layout", family + " explicit removals and central balls", () =>
             {
-                var document = tests.Create(tests.Catalog.Load(family));
+                var template = tests.Catalog.Load(family);
+                var document = tests.Create(template);
                 var values = document.Values;
                 values["bga.rows"] = values["bga.columns"] = 5;
                 values["bga.representation"] = "discrete";
                 values["bga.staggered"] = false;
-                values["bga.solder_removal_enabled"] = true;
+                values["bga.solder_removal_enabled"] = false;
                 values["bga.populated_rows"] = values["bga.populated_columns"] = 5;
                 values["bga.center_solder_enabled"] = false;
                 values["bga.omitted_cells"] = new JArray(new JObject { ["row"] = 0, ["column"] = 0 });
                 var model = tests.Generate(document);
                 Assert(model.Blocks.Count(b => b.StructureType == "solder_ball") == 24, "explicit removal not applied");
                 Assert(model.Blocks.All(b => b.Id != "solder-ball-r5-c1-part-1"), "removal row orientation changed");
+                Assert(model.Metadata.SolderBallCount == 24 && SolderBalls.WireCount(new BuildContext(template, values,
+                    "balls", tests.Catalog.Materials, tests.Catalog.Groups, document.MaterialAssignments)) == 24,
+                    "explicit removal did not independently control ball and wire counts");
                 values["bga.center_solder_enabled"] = true;
                 values["bga.center_solder_rows"] = values["bga.center_solder_columns"] = 2;
                 values["bga.center_staggered"] = false;
                 Assert(tests.Generate(document).Blocks.Count(b => b.StructureType == "solder_ball") == 28, "central array missing");
+                values["bga.omitted_cells"]![0]!["row"] = 5;
+                Assert(tests.GenerateResult(document).Issues.Any(i => i.Stage == ValidationStage.Input &&
+                    i.ParameterPaths.Any(path => path.StartsWith("bga.omitted_cells"))), "independent removal bypassed cell validation");
             });
             tests.Case("layout", family + " coordinate map", () =>
             {
@@ -36,7 +43,20 @@ static class LayoutChecks
                 var ball = tests.Generate(document).Blocks.Single(b => b.StructureType == "solder_ball");
                 Near(ball.Origin.X + ball.Size.X / 2, -0.1, "map x");
                 Near(ball.Origin.Y + ball.Size.Y / 2, 0.2, "map y");
+                document.Values["bga.ball_map_enabled"] = false;
+                document.Values["bga.ball_map"] = new JArray(new JObject { ["id"] = "invalid", ["x"] = "unused", ["y"] = "unused" });
+                tests.Generate(document);
             });
+            if (family != "chip_array")
+                tests.Case("layout", family + " independent removals require discrete representation", () =>
+                {
+                    var document = tests.Create(tests.Catalog.Load(family));
+                    document.Values["bga.solder_removal_enabled"] = false;
+                    document.Values["bga.omitted_cells"] = new JArray(new JObject { ["row"] = 0, ["column"] = 0 });
+                    var result = tests.GenerateResult(document);
+                    Assert(result.Model == null && result.Issues.Any(i => i.Code == "input.bga.layout"),
+                        "equivalent modeling silently ignored independent removals");
+                });
         }
         tests.Case("layout", "integral JSON floats work as populated row and column counts", () =>
         {

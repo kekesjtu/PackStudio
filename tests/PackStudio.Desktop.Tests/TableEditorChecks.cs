@@ -17,7 +17,7 @@ static class TableEditorChecks
         {
             steps.SelectedValue = step.Key;
             window.UpdateLayout();
-            var grid = Descendants<DataGrid>(fields).FirstOrDefault();
+            var grid = Descendants<DataGrid>(fields).FirstOrDefault(table => table.IsVisible);
             if (grid == null)
                 continue;
             var boxes = FieldLayoutChecks.CheckBoxes(grid);

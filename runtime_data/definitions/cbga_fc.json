@@ -1052,7 +1052,13 @@
         }
       ],
       "label": "焊球坐标表",
-      "step": "solder_balls"
+      "step": "solder_balls",
+      "visible_when": {
+        "bga.ball_map_enabled": true
+      },
+      "active_when": {
+        "bga.ball_map_enabled": true
+      }
     },
     {
       "key": "bga.representation",

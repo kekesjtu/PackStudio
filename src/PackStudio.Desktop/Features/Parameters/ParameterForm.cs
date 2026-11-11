@@ -7,8 +7,10 @@ namespace PackStudio.Desktop;
 
 public sealed class ParameterForm
 {
+    const string DiscreteNotice = "显式去球或焊球坐标表需要离散建模，BGA 焊球建模方式已自动切换为 Discrete Cuboids（discrete）。";
     readonly Func<JObject> values;
     readonly Func<string, JToken, IReadOnlySet<string>> update;
+    readonly Action<string>? notice;
     Func<IReadOnlyList<ValidationIssue>> issues = () => [];
     HashSet<string> previousIssuePaths = [];
     readonly Dictionary<string, HashSet<(ParameterField Field, string Property)>> dependencies = [];
@@ -31,10 +33,19 @@ public sealed class ParameterForm
             target["slug.enabled"] = false;
             changed.Add("slug.enabled");
         }
+        bool forceDiscrete = (path == "bga.ball_map_enabled" && value.Flag() ||
+            path == "bga.omitted_cells" && value is JArray { Count: > 0 }) && target["bga.representation"].Text() != "discrete";
+        if (forceDiscrete)
+        {
+            target["bga.representation"] = "discrete";
+            changed.Add("bga.representation");
+        }
         workspace.Dirty();
+        if (forceDiscrete) workspace.Status = DiscreteNotice;
         return changed;
     })
     {
+        notice = message => workspace.Status = message;
         issues = () => workspace.Issues;
         previousIssuePaths = issues().SelectMany(i => i.ParameterPaths).ToHashSet();
         PropertyChangedEventManager.AddHandler(workspace, OnIssuesChanged, nameof(Workspace.Issues));
@@ -98,5 +109,13 @@ public sealed class ParameterForm
         var affected = changed.Where(dependencies.ContainsKey).SelectMany(key => dependencies[key]).Distinct().ToList();
         foreach (var (target, property) in affected) target.Notify(property);
         Changed?.Invoke();
+    }
+
+    internal void UseDiscreteBalls()
+    {
+        var representation = Fields.First(f => f.Key == "bga.representation");
+        if (representation.Value.Text() == "discrete") return;
+        Set(representation, new JValue("discrete"));
+        notice?.Invoke(DiscreteNotice);
     }
 }

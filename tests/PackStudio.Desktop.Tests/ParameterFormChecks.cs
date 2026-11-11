@@ -42,6 +42,66 @@ static class ParameterFormChecks
         power.TextValue = savedPower;
         if (workspace.Document.TemplateId is "cbga_fc" or "pbga_fc")
             CheckSlugCoverSwitch(form);
+        if (form.Fields.Any(f => f.Key == "bga.ball_map_enabled"))
+            CheckBgaLayout(window, workspace, steps, panel);
+    }
+
+    static void CheckBgaLayout(MainWindow window, Workspace workspace, ListBox steps, StackPanel panel)
+    {
+        steps.SelectedValue = "modeling";
+        window.UpdateLayout();
+        var representation = (ParameterField)Descendants<ComboBox>(panel).Single(box => box.DataContext is ParameterField { Key: "bga.representation" }).DataContext;
+        var originalRepresentation = representation.Value!.DeepClone();
+        var equivalent = representation.Options.FirstOrDefault(option => option["value"].Text() != "discrete")?["value"] ?? new JValue("discrete");
+        steps.SelectedValue = "solder_balls";
+        window.UpdateLayout();
+        var mapToggle = Descendants<CheckBox>(panel).Single(box => box.DataContext is ParameterField { Key: "bga.ball_map_enabled" });
+        bool originalMapEnabled = mapToggle.IsChecked == true;
+        mapToggle.IsChecked = false;
+        var mapView = panel.Children.OfType<FrameworkElement>().Single(view => view.DataContext is ParameterField { Key: "bga.ball_map" });
+        var mapField = (ParameterField)mapView.DataContext;
+        var originalMap = mapField.Value!.DeepClone();
+        window.UpdateLayout();
+        if (mapView.Visibility != Visibility.Collapsed) throw new Exception("unchecked Ball Map table is still displayed");
+        representation.ChoiceValue = equivalent;
+        mapToggle.IsChecked = true;
+        window.UpdateLayout();
+        if (!mapView.IsVisible || representation.Value.Text() != "discrete" ||
+            equivalent.Text() != "discrete" && !workspace.Status.Contains("discrete"))
+            throw new Exception("enabling Ball Map did not display its table, switch representation and notify the user");
+        if (workspace.Document.TemplateId == "pbga_fc") NewPackageChecks.Capture(window, "bga-ball-map-enabled.png");
+        mapField.Set(new JArray(new JObject { ["id"] = "A1", ["x"] = 0, ["y"] = 0 }));
+        mapToggle.IsChecked = false;
+        mapToggle.IsChecked = true;
+        if (mapField.Value![0]!["id"].Text() != "A1") throw new Exception("Ball Map toggle discarded coordinates");
+        mapToggle.IsChecked = false;
+        mapField.Set(originalMap);
+
+        steps.SelectedValue = "solder_removal";
+        window.UpdateLayout();
+        var center = Descendants<CheckBox>(panel).Single(box => box.DataContext is ParameterField { Key: "bga.solder_removal_enabled" });
+        var explicitToggle = Descendants<CheckBox>(panel).Single(box => box.DataContext is ParameterField { Key: "bga.omitted_cells" });
+        var explicitField = (ParameterField)explicitToggle.DataContext;
+        bool originalCenter = center.IsChecked == true, originalExpanded = explicitField.Expanded;
+        center.IsChecked = false;
+        explicitToggle.IsChecked = false;
+        representation.ChoiceValue = equivalent;
+        var originalCells = explicitField.Value!.DeepClone();
+        explicitToggle.IsChecked = true;
+        window.UpdateLayout();
+        if (center.IsChecked != false || representation.Value.Text() != "discrete" ||
+            equivalent.Text() != "discrete" && !workspace.Status.Contains("discrete"))
+            throw new Exception("explicit removal did not independently switch representation and notify the user");
+        if (workspace.Document.TemplateId == "pbga_fc") NewPackageChecks.Capture(window, "bga-explicit-discrete.png");
+        long revision = workspace.Revision;
+        explicitToggle.IsChecked = false;
+        if (workspace.Revision != revision || !JToken.DeepEquals(originalCells, explicitField.Value))
+            throw new Exception("collapsing explicit removal modified the project or selection");
+        explicitToggle.IsChecked = originalExpanded;
+        center.IsChecked = originalCenter;
+        mapToggle.IsChecked = originalMapEnabled;
+        representation.ChoiceValue = originalRepresentation;
+        Console.WriteLine("PASS " + workspace.Document.TemplateId + " BGA discrete switching and Ball Map visibility");
     }
 
     static void CheckSlugCoverSwitch(ParameterForm form)

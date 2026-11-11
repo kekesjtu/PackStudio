@@ -31,7 +31,15 @@ public sealed class ParameterField : ObservableObject
     public JArray Options => form.Template.OptionsFor(Definition);
     public string? Error => form.Error(Key);
     public bool HasError => Error != null;
-    public bool Expanded { get => expanded; set => SetProperty(ref expanded, value); }
+    public bool Expanded
+    {
+        get => expanded;
+        set
+        {
+            if (SetProperty(ref expanded, value) && value && Key == "bga.omitted_cells")
+                form.UseDiscreteBalls();
+        }
+    }
     public int MatrixRows => Count(Definition["rows_key"].Text());
     public int MatrixColumns => Count(Definition["columns_key"].Text());
     int Count(string key) => form.Values[key]?.Type is JTokenType.Integer or JTokenType.Float &&
