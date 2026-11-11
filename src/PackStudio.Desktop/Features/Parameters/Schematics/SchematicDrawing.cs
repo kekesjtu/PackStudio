@@ -21,6 +21,7 @@ internal sealed partial class SchematicDrawing(PackageDefinition template, Proje
     static readonly Brush WireColor = Brush(PackageColors.Wire);
     static readonly Brush Cover = Brush(PackageColors.Cover), Accent = Brush(PackageColors.Accent);
     DrawingContext dc = null!;
+    readonly HashSet<Brush> componentBrushes = [];
     SchematicProfile Profile => template.Info.Schematic;
     bool Bga => Profile.Bga;
     bool Flip => Profile.Flip;
@@ -53,6 +54,7 @@ internal sealed partial class SchematicDrawing(PackageDefinition template, Proje
 
     internal DrawingGroup CreatePackageScene()
     {
+        componentBrushes.Clear();
         var scene = new DrawingGroup();
         using (dc = scene.Open())
         {
@@ -67,6 +69,7 @@ internal sealed partial class SchematicDrawing(PackageDefinition template, Proje
 
     internal DrawingGroup Create(string diagram, DrawingGroup? scene = null)
     {
+        componentBrushes.Clear();
         var group = new DrawingGroup();
         using (dc = group.Open())
         {
@@ -93,12 +96,21 @@ internal sealed partial class SchematicDrawing(PackageDefinition template, Proje
         result.Freeze();
         return result;
     }
-    void Rect(Brush? fill, double x, double y, double w, double h, bool edge = true) =>
+    void Rect(Brush? fill, double x, double y, double w, double h, bool edge = true)
+    {
+        if (fill != null) componentBrushes.Add(fill);
         dc.DrawRectangle(fill, edge ? new Pen(Ink, 1.1) : null, new(x, y, w, h));
-    void Line(double x1, double y1, double x2, double y2, Brush? color = null, double thickness = 1) =>
+    }
+    void Line(double x1, double y1, double x2, double y2, Brush? color = null, double thickness = 1)
+    {
+        if (color != null) componentBrushes.Add(color);
         dc.DrawLine(new Pen(color ?? Ink, thickness), new(x1, y1), new(x2, y2));
-    void Ellipse(Brush? fill, double x, double y, double rx, double ry) =>
+    }
+    void Ellipse(Brush? fill, double x, double y, double rx, double ry)
+    {
+        if (fill != null) componentBrushes.Add(fill);
         dc.DrawEllipse(fill, new Pen(Ink, 1), new(x, y), rx, ry);
+    }
     void Text(string text, double x, double y, double size = 13, Brush? color = null,
         TextAlignment align = TextAlignment.Left, bool bold = false)
     {
@@ -210,6 +222,7 @@ internal sealed partial class SchematicDrawing(PackageDefinition template, Proje
     }
     void Legend(params (Brush Color, string Label)[] entries)
     {
+        entries = entries.Where(entry => componentBrushes.Contains(entry.Color)).ToArray();
         const double swatchWidth = 14, labelGap = 8, itemGap = 32;
         for (int start = 0; start < entries.Length; start += 3)
         {
@@ -227,6 +240,7 @@ internal sealed partial class SchematicDrawing(PackageDefinition template, Proje
     }
     void Wire(double x1, double y1, double x2, double y2, double rise = 50)
     {
+        componentBrushes.Add(WireColor);
         var path = new StreamGeometry();
         using (var c = path.Open())
         {

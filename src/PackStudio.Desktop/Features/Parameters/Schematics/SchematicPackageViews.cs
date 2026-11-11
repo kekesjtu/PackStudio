@@ -98,7 +98,7 @@ internal sealed partial class SchematicDrawing
         DimensionText("flag.coverage", 350, 603, System.Windows.TextAlignment.Center);
         DimV(223, 235, 435, 560, "flag.thickness");
         DimV(217, 223, 265, 126, "flag.downset", left: true);
-        DimensionCallout("tie_bar.width", 65, 368, 229, 388);
+        DimensionCallout("tie_bar.width", 65, 328, 229, 388);
         SolderMaskDimension();
         if (Qfn)
         {
@@ -119,8 +119,21 @@ internal sealed partial class SchematicDrawing
     {
         DimensionCallout("bond_wire.diameter", 474, 123, 444, 187);
         double left = Bga ? 235 : 200 + PlanLeadInner, right = 700 - left;
-        double wireY = Centered(2, 6, Bga ? 21 : PlanLeadSpacing, PlanCenterY);
-        DimensionCallout(Bga ? "bond_wire.total" : "bond_wire.count", 58, 316, left, wireY, arrow: true);
+        if (Dimension(Bga ? "bond_wire.total" : "bond_wire.count") is { } count)
+        {
+            double first = Centered(0, 6, Bga ? 21 : PlanLeadSpacing, PlanCenterY) - 7;
+            double last = Centered(5, 6, Bga ? 21 : PlanLeadSpacing, PlanCenterY) + 7;
+            double boxLeft = left + 5, boxRight = right - 5;
+            DashedRect(boxLeft, first, 285 - boxLeft, last - first);
+            DashedRect(415, first, boxRight - 415, last - first);
+            Text(count, 350, 310, align: System.Windows.TextAlignment.Center);
+            Line(350, 331, 350, 345);
+            double leftTarget = (boxLeft + 285) / 2, rightTarget = (415 + boxRight) / 2;
+            Line(350, 345, leftTarget, first);
+            Line(350, 345, rightTarget, first);
+            Arrow(leftTarget, first, 350 - leftTarget, 345 - first);
+            Arrow(rightTarget, first, 350 - rightTarget, 345 - first);
+        }
         double top = Bga ? 395 : PlanTop + PlanLeadInner, bottom = 2 * PlanCenterY - top;
         string length = Bga ? "bond_wire.extent_length" : "bond_wire.length_x";
         string width = Bga ? "bond_wire.extent_width" : "bond_wire.length_y";

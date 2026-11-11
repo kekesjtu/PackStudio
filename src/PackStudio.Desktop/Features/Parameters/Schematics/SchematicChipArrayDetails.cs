@@ -9,6 +9,7 @@ internal sealed partial class SchematicDrawing
         PackageSection();
         DetailLink(ViaX(2), 245, 16, 350, 307, "通孔与焊球局部俯视");
         Rect(Board, 200, PlanTop, 300, PlanBottom - PlanTop);
+        componentBrushes.Add(Solder);
         const double dx = 18, dy = -12;
 
         for (int row = 0; row < 5; row++)
