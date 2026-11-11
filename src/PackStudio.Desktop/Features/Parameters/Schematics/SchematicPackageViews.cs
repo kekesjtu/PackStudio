@@ -38,8 +38,8 @@ internal sealed partial class SchematicDrawing
                 FlagDimensions();
                 break;
             case "thermal_land" or "thermal_land_solder":
-                Callout("焊料", 470, 277, 430, LandSolderTop + 4.5, arrow: true);
-                Callout("散热焊盘", 290, 292, 350, LandTop + 4.5, arrow: true);
+                Callout("焊料", 470, 277, 430, LandSolderTop + 4.5);
+                Callout("散热焊盘", 290, 292, 350, LandTop + 4.5);
                 DimV(LandTop, LandTop + 9, 435, 575, "thermal_land.thickness");
                 break;
             case "bond_wires": Wires(); break;
