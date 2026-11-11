@@ -26,6 +26,7 @@ static class SemanticChecks
             var template = tests.Catalog.Load("pbga_wb");
             var document = tests.Create(template);
             document.Values["vias.enabled"] = false;
+            document.Values["vias.removal_enabled"] = true;
             document.Values["vias.omitted_cells"] = JValue.CreateNull();
             tests.Generate(document);
             Assert(document.Values["vias.omitted_cells"]!.Type == JTokenType.Null, "inactive null was backfilled");

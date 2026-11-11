@@ -987,6 +987,14 @@
       }
     },
     {
+      "key": "vias.removal_enabled",
+      "type": "checkbox",
+      "label": "通孔去除",
+      "active_when": {
+        "vias.enabled": true
+      }
+    },
+    {
       "key": "vias.omitted_cells",
       "rows_key": "vias.rows",
       "columns_key": "vias.columns",
@@ -996,9 +1004,11 @@
         "vias.enabled": true
       },
       "active_when": {
-        "vias.enabled": true
+        "vias.enabled": true,
+        "vias.removal_enabled": true
       },
-      "step": "thermal_vias"
+      "step": "thermal_vias",
+      "enabled_key": "vias.removal_enabled"
     },
     {
       "key": "trace.solid_thickness",

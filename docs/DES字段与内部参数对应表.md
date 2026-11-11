@@ -334,6 +334,7 @@
 | `bga.removal_columns` | — | — |
 | `bga.ball_map_enabled` | `csvBGA` | `name="solderBalls"`; `property_name="solderBallMap"` |
 | `bga.ball_map` | `csvBGA` | `name="solderBalls"`; `property_name="solderBallMapDialog"` |
+| `vias.removal_enabled` | — | 内部去孔启用开关，控制矩阵显示与名单生效 |
 | `vias.omitted_cells` | `.var3` 附件（保留孔位，与内部去除名单互为补集，转换行方向） | 原生 `viaDepopulation` 编辑入口及 `depopulationDialog`；经 DES 附件传递，不假定脚本可直接赋值 |
 
 ### MaterialAssignments
@@ -448,6 +449,7 @@
 | `bga.removal_columns` | — | — |
 | `bga.ball_map_enabled` | `csvBGA` | `name="solderBalls"`; `property_name="solderBallMap"` |
 | `bga.ball_map` | `csvBGA` | `name="solderBalls"`; `property_name="solderBallMapDialog"` |
+| `vias.removal_enabled` | — | 内部去孔启用开关，控制矩阵显示与名单生效 |
 | `vias.omitted_cells` | `.var3` 附件（保留孔位，与内部去除名单互为补集，转换行方向） | 原生 `viaDepopulation` 编辑入口及 `depopulationDialog`；经 DES 附件传递，不假定脚本可直接赋值 |
 
 ### MaterialAssignments

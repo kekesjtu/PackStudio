@@ -131,6 +131,7 @@ static class LayoutChecks
                 var template = tests.Catalog.Load(family);
                 var document = tests.Create(template);
                 document.Values["vias.enabled"] = true;
+                document.Values["vias.removal_enabled"] = true;
                 document.Values["vias.omitted_cells"] = new JArray(new JObject { ["row"] = 0, ["column"] = 0 });
                 var context = new BuildContext(template, document.Values, "vias", tests.Catalog.Materials, tests.Catalog.Groups, document.MaterialAssignments);
                 Assert(Vias.Omissions(context).SetEquals([(0, 0)]), "via removal did not follow selected cells");
@@ -140,6 +141,9 @@ static class LayoutChecks
                 document.Values["vias.plating"] = 0.025;
                 document.Values["vias.modeling"] = family == "pbga_wb" ? "discreteCuboids" : "discrete";
                 Assert(tests.Generate(document).Blocks.Count(b => b.GroupId == "group-vias") == 24, "selected via was not removed from generated geometry");
+                document.Values["vias.removal_enabled"] = false;
+                Assert(tests.Generate(document).Blocks.Count(b => b.GroupId == "group-vias") == 25, "disabled via removal changed geometry");
+                document.Values["vias.removal_enabled"] = true;
                 document.Values["vias.omitted_cells"] = new JArray();
                 Assert(tests.Generate(document).Blocks.Count(b => b.GroupId == "group-vias") == 25, "empty via selection did not restore the full array");
                 document.Values["vias.omitted_cells"] = new JValue("invalid");

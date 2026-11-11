@@ -3529,6 +3529,13 @@
           "property_name": "depopulationDialog"
         },
         "comment": "原生数据集提供 viaDepopulation 编辑入口；孔位数据通过 DES 附件回读，脚本直接赋值能力不作假定。"
+      },
+      "vias.removal_enabled": {
+        "DES": {
+          "keys": []
+        },
+        "pack_script": {},
+        "comment": "界面与业务启用开关；控制去孔矩阵显示及内部去除名单生效，无原生独立字段。"
       }
     },
     "ProjectDocument": {
@@ -4713,6 +4720,13 @@
           "property_name": "depopulationDialog"
         },
         "comment": "原生数据集提供 viaDepopulation 编辑入口；孔位数据通过 DES 附件回读，脚本直接赋值能力不作假定。"
+      },
+      "vias.removal_enabled": {
+        "DES": {
+          "keys": []
+        },
+        "pack_script": {},
+        "comment": "界面与业务启用开关；控制去孔矩阵显示及内部去除名单生效，无原生独立字段。"
       }
     },
     "ProjectDocument": {

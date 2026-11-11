@@ -6,7 +6,7 @@ public static class Vias
     public static HashSet<(int row, int col)> Omissions(BuildContext c)
     {
         var cells = new HashSet<(int, int)>();
-        if (c.TemplateId is not ("pbga_fc" or "pbga_wb"))
+        if (c.TemplateId is not ("pbga_fc" or "pbga_wb") || !c.B("vias.removal_enabled"))
             return cells;
         foreach (var p in (JArray)c.Values["vias.omitted_cells"]!)
             cells.Add(((int)p["row"]!, (int)p["column"]!));

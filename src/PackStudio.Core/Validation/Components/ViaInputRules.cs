@@ -11,7 +11,7 @@ internal static class ViaInputRules
         if (!filled)
             c.Check(c.N("vias.plating") <= 0 || c.N("vias.plating") > c.N("vias.diameter") / 2,
                 "input.via.plating", "通孔镀层厚度不超过孔半径。", "vias.plating", "vias.diameter");
-        if (removal)
+        if (removal && c.B("vias.removal_enabled"))
             ArrayInputRules.ValidateCells(c, "vias.omitted_cells", c.Values["vias.omitted_cells"] as JArray, c.N("vias.rows"), c.N("vias.columns"));
     }
 }
