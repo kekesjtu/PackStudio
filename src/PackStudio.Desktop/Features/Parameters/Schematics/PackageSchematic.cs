@@ -12,6 +12,8 @@ public sealed class PackageSchematic : FrameworkElement
     DrawingGroup? packageScene;
     string sceneCoverType = "";
     string sceneTemplate = "";
+    Palette scenePalette = Palettes.Classic;
+    public Palette Palette { get; set; } = Palettes.Classic;
     public string TemplateId { get; private set; } = "";
     public string StepKey { get; private set; } = "";
     public string DiagramKey { get; private set; } = "";
@@ -23,7 +25,7 @@ public sealed class PackageSchematic : FrameworkElement
         StepKey = step;
         DiagramKey = template.Steps.Single(s => s["key"].Text() == step)["diagram"].Text();
         ToolTip = HasDiagram ? $"{template.Info.Name} · {label}" : null;
-        var renderer = new SchematicDrawing(template, document, step);
+        var renderer = new SchematicDrawing(template, document, step, Palette);
         DrawingGroup? scene = null;
         if (DiagramKey == "package")
         {
@@ -31,11 +33,13 @@ public sealed class PackageSchematic : FrameworkElement
                 scene = renderer.CreatePackageScene();
             else
             {
-                if (packageScene == null || sceneTemplate != TemplateId || sceneCoverType != renderer.CoverType)
+                if (packageScene == null || sceneTemplate != TemplateId || sceneCoverType != renderer.CoverType ||
+                    !ReferenceEquals(scenePalette, Palette))
                 {
                     packageScene = renderer.CreatePackageScene();
                     sceneCoverType = renderer.CoverType;
                     sceneTemplate = TemplateId;
+                    scenePalette = Palette;
                 }
                 scene = packageScene;
             }

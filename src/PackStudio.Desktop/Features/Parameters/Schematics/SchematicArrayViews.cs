@@ -95,7 +95,7 @@ internal sealed partial class SchematicDrawing
 
     void ViaDetails()
     {
-        DetailLink(ViaX(2), 245, 17, 279, 320, "通孔阵列局部俯视");
+        DetailLink(ViaX(2), 245, 17, 279, 350, "通孔阵列局部俯视");
         Rect(Board, 165, 390, 228, 164);
         for (int row = 0; row < 5; row++)
             for (int col = 0; col < 7; col++)

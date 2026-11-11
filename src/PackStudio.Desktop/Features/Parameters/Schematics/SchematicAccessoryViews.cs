@@ -34,8 +34,7 @@ internal sealed partial class SchematicDrawing
 
     void Spreader()
     {
-        Text("底视图", 350, 295, align: TextAlignment.Center);
-        DimV(SectionY + 21, SectionY + 30, 430, 560, "spreader.thickness");
+        DimV(SectionY + 21, SectionY + 30, 430, 590, "spreader.thickness");
         DimH(270, 430, 422, 345, "spreader.length");
         DimV(422, 518, 430, 548, "spreader.width", name: "扩散片宽度");
         DimH(240, 460, 538, PlanLengthDimensionY, "spreader.hole_length");

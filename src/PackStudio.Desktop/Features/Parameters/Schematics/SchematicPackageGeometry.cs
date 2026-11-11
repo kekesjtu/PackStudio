@@ -68,7 +68,7 @@ internal sealed partial class SchematicDrawing
                 Rect(Metal, QfnExposedPadLeft, y, QfnExposedPadWidth, 5);
             }
             else
-                Rect(Metal, 265, y - 7, 170, ThermalLand ? 21 : 12);
+                Rect(Metal, 265, y - 7, 170, 12);
             Rect(Attach, 285, y - 12, 130, 5);
             Rect(Die, 285, y - 35, 130, 23);
             foreach (bool left in new[] { true, false })
@@ -89,13 +89,14 @@ internal sealed partial class SchematicDrawing
                 {
                     double edge = left ? 150 : 550;
                     Line(left ? 200 : 500, y - 1, edge, y - 1, Metal, 7);
-                    Line(edge, y - 1, edge, y + 34, Metal, 7);
-                    Line(edge, y + 34, left ? 120 : 580, y + 34, Metal, 7);
+                    const double footCenterOffset = 30.5;
+                    Line(edge, y - 1, edge, y + footCenterOffset, Metal, 7);
+                    Line(edge, y + footCenterOffset, left ? 120 : 580, y + footCenterOffset, Metal, 7);
                 }
             }
             if (Qfn && step == "thermal_vias") ViaSection(LandTop, QfnViaHeight);
             if (Qfn || ThermalLand)
-                Rect(Solder, Qfn ? QfnExposedPadLeft : 265, LandSolderTop, Qfn ? QfnExposedPadWidth : 170, 9);
+                Rect(Solder, Qfn ? QfnExposedPadLeft : 265, LandSolderTop, Qfn ? QfnExposedPadWidth : 170, LandSolderHeight);
             if (ThermalLand)
                 Rect(Metal, Qfn ? QfnExposedPadLeft : 265, LandTop, Qfn ? QfnExposedPadWidth : 170, 9);
         }

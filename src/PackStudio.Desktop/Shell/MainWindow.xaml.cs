@@ -1,5 +1,6 @@
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 using Microsoft.Win32;
 using PackStudio.Core;
 
@@ -33,8 +34,10 @@ public partial class MainWindow : Window
             parameters.Focus(path);
         };
         parameters.Changed += UpdateSchematic;
+        workspace.AppearanceChanged += RefreshAppearance;
         workspace.PropertyChanged += (_, e) => { if (e.PropertyName == nameof(Workspace.DesignName)) Title = workspace.DesignName + " — PackStudio"; };
         InitializeViewportScale();
+        BuildPaletteMenu();
         DataContext = workspace;
         workspace.DocumentChanged += RefreshDocument;
         workspace.ModelChanged += models.RefreshModel;
@@ -78,8 +81,50 @@ public partial class MainWindow : Window
     void UpdateSchematic()
     {
         if (StepList.SelectedValue is string step)
+        {
+            Schematic.Palette = workspace.Palette;
             Schematic.Update(workspace.Template, workspace.Document, step, SectionTitle.Text);
+        }
     }
+
+    void RefreshAppearance()
+    {
+        models.RefreshModel();
+        UpdateSchematic();
+    }
+
+    void BuildPaletteMenu()
+    {
+        foreach (var palette in Palettes.All)
+        {
+            var chips = new StackPanel { Orientation = Orientation.Horizontal, Margin = new Thickness(0, 0, 8, 0) };
+            foreach (var color in palette.Sample)
+                chips.Children.Add(new Border { Width = 10, Height = 14, Margin = new Thickness(0, 0, 1, 0),
+                    Background = new SolidColorBrush(color) });
+            var header = new StackPanel { Orientation = Orientation.Horizontal };
+            header.Children.Add(chips);
+            header.Children.Add(new TextBlock { Text = palette.Name, VerticalAlignment = VerticalAlignment.Center });
+            var item = new Fluent.MenuItem
+            {
+                Header = header,
+                IsCheckable = true,
+                IsChecked = ReferenceEquals(palette, workspace.Palette),
+                Tag = palette
+            };
+            item.Click += (_, _) => SelectPalette(palette);
+            PaletteButton.Items.Add(item);
+        }
+    }
+
+    void SelectPalette(Palette palette)
+    {
+        foreach (Fluent.MenuItem item in PaletteButton.Items)
+            item.IsChecked = ReferenceEquals(item.Tag, palette);
+        workspace.Palette = palette;
+    }
+
+    void MaterialColors_Click(object sender, RoutedEventArgs e) =>
+        workspace.MaterialColors = MaterialColorsButton.IsChecked == true;
 
     async void New_Click(object sender, RoutedEventArgs e)
     {

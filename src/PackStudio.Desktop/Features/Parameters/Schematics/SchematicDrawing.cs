@@ -6,7 +6,8 @@ using PackStudio.Core;
 
 namespace PackStudio.Desktop;
 
-internal sealed partial class SchematicDrawing(PackageDefinition template, ProjectDocument document, string step)
+internal sealed partial class SchematicDrawing(PackageDefinition template, ProjectDocument document, string step,
+    Palette palette)
 {
     internal const double Width = 700, Height = 580;
     const double SectionY = 230;
@@ -15,12 +16,12 @@ internal sealed partial class SchematicDrawing(PackageDefinition template, Proje
     const double PlanLeadSpacing = 30, PlanLeadInner = 20, PlanLeadOuter = 20;
     const double FlipBumpRadius = 7.5;
     static readonly Brush Ink = Brushes.Black, Muted = Brush(Color.FromRgb(85, 85, 85));
-    static readonly Brush Die = Brush(PackageColors.Die), Substrate = Brush(PackageColors.Substrate), Metal = Brush(PackageColors.Metal);
-    static readonly Brush Mold = Brush(PackageColors.Mold), Solder = Brush(PackageColors.Solder), Attach = Brush(PackageColors.Attach);
-    static readonly Brush Bump = Brush(PackageColors.Bump), Ceramic = Brush(PackageColors.Ceramic);
-    static readonly Brush WireColor = Brush(PackageColors.Wire);
-    static readonly Brush SolderMask = Brush(PackageColors.SolderMask);
-    static readonly Brush Cover = Brush(PackageColors.Cover), Accent = Brush(PackageColors.Accent);
+    readonly Brush Die = Brush(palette.Die), Substrate = Brush(palette.Substrate), Metal = Brush(palette.Metal);
+    readonly Brush Mold = Brush(palette.Mold), Solder = Brush(palette.Solder), Attach = Brush(palette.Attach);
+    readonly Brush Bump = Brush(palette.Bump), Ceramic = Brush(palette.Ceramic);
+    readonly Brush WireColor = Brush(palette.Wire);
+    readonly Brush SolderMask = Brush(palette.SolderMask);
+    readonly Brush Cover = Brush(palette.Cover), Accent = Brush(palette.Accent);
     DrawingContext dc = null!;
     readonly HashSet<Brush> componentBrushes = [];
     SchematicProfile Profile => template.Info.Schematic;
@@ -41,7 +42,8 @@ internal sealed partial class SchematicDrawing(PackageDefinition template, Proje
     bool BumpedDie => step == "bumped_die";
     bool ThermalLand => step is "thermal_land" or "thermal_land_solder";
     double LandSolderTop => SectionY + (Qfn ? 5 : 14);
-    double LandTop => LandSolderTop + 9;
+    double LandSolderHeight => Qfn ? 9 : 20;
+    double LandTop => LandSolderTop + LandSolderHeight;
     bool SpreaderSection => step == "backside_spreader";
     bool QfnBottomView => Qfn && step == "dap";
     bool StiffenedLid => step == "top_cover" && CoverType == "lid" && document.Values["stiffener.enabled"].Flag();

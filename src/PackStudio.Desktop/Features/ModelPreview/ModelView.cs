@@ -85,8 +85,7 @@ public sealed partial class ModelPresenter
         Viewport.Children.Add(new DefaultLights());
         foreach (var b in model.Blocks.Where(b => !workspace.Hidden.Contains(b.Id)).OrderBy(b => b.StructureType == "encapsulant" ? 1 : 0))
         {
-            var color = workspace.Selected.Contains(b.Id) ? Color.FromRgb(61, 158, 255)
-                : PackageColors.ForGroup(b.GroupId, workspace.Template.Info.Schematic.Ceramic);
+            var color = workspace.Selected.Contains(b.Id) ? Color.FromRgb(61, 158, 255) : BlockColor(model, b);
             color.A = b.StructureType == "encapsulant" && !workspace.Selected.Contains(b.Id) ? (byte)65 : (byte)240;
             var brush = new SolidColorBrush(color);
             brush.Freeze();
@@ -116,6 +115,11 @@ public sealed partial class ModelPresenter
         if (fresh)
             Viewport.Dispatcher.BeginInvoke(() => Viewport.ZoomExtents());
     }
+
+    Color BlockColor(PackageModel model, Block block) =>
+        workspace.MaterialColors && model.Materials.TryGetValue(block.MaterialId, out var material)
+            ? MaterialPresentation.Swatch(material)
+            : workspace.Palette.ForGroup(block.GroupId, workspace.Template.Info.Schematic.Ceramic);
 
     TreeViewItem TreeItem(ModelNode node)
     {

@@ -38,8 +38,10 @@ internal sealed partial class SchematicDrawing
                 FlagDimensions();
                 break;
             case "thermal_land" or "thermal_land_solder":
-                Callout("焊料", 470, 277, Qfn ? QfnExposedPadLeft + QfnExposedPadWidth - 5 : 430, LandSolderTop + 4.5);
-                Callout("散热焊盘", 290, 292, 350, LandTop + 4.5);
+                Callout("焊料", 470, 299, Qfn ? QfnExposedPadLeft + QfnExposedPadWidth - 5 : 430, LandSolderTop + LandSolderHeight / 2);
+                Callout("散热焊盘", 290, 310, 350, LandTop + 4.5);
+                DrawDimV(LandSolderTop, LandTop, Qfn ? QfnExposedPadLeft : 265, 105,
+                    "焊料高度\n= 塑封离板高度\nA1", left: true, labelOffsetY: 20);
                 DimV(LandTop, LandTop + 9, Qfn ? QfnExposedPadLeft + QfnExposedPadWidth : 435, 575, "thermal_land.thickness");
                 break;
             case "bond_wires": Wires(); break;
@@ -79,7 +81,7 @@ internal sealed partial class SchematicDrawing
         DimV(top + 23, ChipArray || Bga && !Flip ? SectionY : top + 28, 285, 115, "die.attach", left: true);
         DimH(285, 415, 426, 345, "die.length");
         DimV(426, 514, 415, 548, "die.width");
-        if (Bga && !Flip && !ChipArray) Wires();
+        if (Bga && !Flip && !ChipArray) Wires(showCount: false);
     }
 
     void EncapsulantDimensions()
@@ -118,11 +120,11 @@ internal sealed partial class SchematicDrawing
         DimV(SectionY - 4, SectionY, 150, 120, "solder_mask.thickness", left: true);
     }
 
-    void Wires()
+    void Wires(bool showCount = true)
     {
         DimensionCallout("bond_wire.diameter", 474, 123, 444, 187);
         double left = Bga ? 235 : 200 + PlanLeadInner, right = 700 - left;
-        if (Dimension(Bga ? "bond_wire.total" : "bond_wire.count") is { } count)
+        if (showCount && Dimension(Bga ? "bond_wire.total" : "bond_wire.count") is { } count)
         {
             double first = Centered(0, 6, Bga ? 21 : PlanLeadSpacing, PlanCenterY) - 7;
             double last = Centered(5, 6, Bga ? 21 : PlanLeadSpacing, PlanCenterY) + 7;
