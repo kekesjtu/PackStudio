@@ -59,8 +59,10 @@ internal sealed partial class SchematicDrawing
         DimH(left, 700 - left, bottom, PlanLengthDimensionY, prefix + ".length");
         DimV(top, bottom, left, 155, prefix + ".width", left: true);
         DimV(230, 260, 550, 590, "substrate.thickness");
-        DimV(164, 244, 515, 580, "encapsulant.thickness");
-        DimV(Qfn ? 235 : 244, Qfn ? 244 : 264, Qfn ? 515 : 580, Qfn ? 580 : 610, "package.standoff");
+        DimV(Bga ? 163 : 164, Bga ? SectionY : Qfn ? QfnLeadBottom : 244,
+            Bga ? 505 : 515, Qfn ? 560 : 580, "encapsulant.thickness");
+        DimV(Qfn ? QfnLeadBottom : 244, Qfn ? LandSolderTop + 9 : 264,
+            Qfn ? 515 : 580, 610, "package.standoff");
     }
 
     void DieDimensions()
