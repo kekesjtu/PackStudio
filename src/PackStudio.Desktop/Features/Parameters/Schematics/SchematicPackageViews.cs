@@ -94,7 +94,8 @@ internal sealed partial class SchematicDrawing
 
     void FlagDimensions()
     {
-        Callout(Qfn ? "芯片承载焊盘 / DAP" : "承载台 / Die Flag", 420, 290, Qfn ? 420 : 374, Qfn ? QfnLeadTop + 3 : 228);
+        Callout(Qfn ? "芯片承载焊盘 / DAP" : "承载台 / Die Flag", 420, 290, Qfn ? 420 : 374,
+            Qfn ? QfnLeadTop + 3 : Bga ? SectionY + 1.5 : 228);
         string prefix = Qfn ? "pad" : "flag";
         DimH(265, 435, 408, 345, prefix + ".length");
         DimV(408, 532, 435, 548, prefix + ".width");
@@ -114,8 +115,7 @@ internal sealed partial class SchematicDrawing
     void SolderMaskDimension()
     {
         if (Field("solder_mask.thickness") == null) return;
-        Rect(Mold, 150, 230, 65, 4);
-        DimV(230, 234, 150, 120, "solder_mask.thickness", left: true);
+        DimV(SectionY - 4, SectionY, 150, 120, "solder_mask.thickness", left: true);
     }
 
     void Wires()

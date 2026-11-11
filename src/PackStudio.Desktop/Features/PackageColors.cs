@@ -6,6 +6,7 @@ internal static class PackageColors
 {
     internal static readonly Color Die = Color.FromRgb(0xFF, 0x17, 0x44);
     internal static readonly Color Substrate = Color.FromRgb(0x00, 0xC8, 0x3F);
+    internal static readonly Color SolderMask = Color.FromRgb(0x00, 0x6B, 0x32);
     internal static readonly Color Metal = Color.FromRgb(0xFF, 0xA0, 0x00);
     internal static readonly Color Mold = Color.FromRgb(0x39, 0x96, 0xFF);
     internal static readonly Color Solder = Color.FromRgb(0x65, 0x3F, 0xFF);
@@ -20,8 +21,9 @@ internal static class PackageColors
     {
         "group-die" => Die,
         "group-encapsulant" => Mold,
-        "group-substrate" or "group-upper" or "group-lower" or "group-solder-mask" =>
+        "group-substrate" or "group-upper" or "group-lower" =>
             ceramicBoard ? Ceramic : Substrate,
+        "group-solder-mask" => SolderMask,
         "group-die-attach" or "group-lid-adhesive" or "group-stiffener-adhesive" or
             "group-slug-adhesive" or "group-plate-die-attach" or "group-lid-die-attach" => Attach,
         "group-solder-ball" or "group-thermal-solder" or "group-solder" => Solder,

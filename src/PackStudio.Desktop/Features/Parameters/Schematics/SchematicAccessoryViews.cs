@@ -35,10 +35,10 @@ internal sealed partial class SchematicDrawing
     void Spreader()
     {
         Text("底视图", 350, 295, align: TextAlignment.Center);
-        DimV(SectionY + 21, SectionY + 30, 505, 560, "spreader.thickness");
-        DimH(240, 460, 402, 345, "spreader.length");
-        DimV(402, 538, 460, 548, "spreader.width", name: "扩散片宽度");
-        DimH(305, 395, 499, PlanLengthDimensionY, "spreader.hole_length");
-        DimV(441, 499, 305, 152, "spreader.hole_width", left: true);
+        DimV(SectionY + 21, SectionY + 30, 430, 560, "spreader.thickness");
+        DimH(270, 430, 422, 345, "spreader.length");
+        DimV(422, 518, 430, 548, "spreader.width", name: "扩散片宽度");
+        DimH(240, 460, 538, PlanLengthDimensionY, "spreader.hole_length");
+        DimV(402, 538, 240, 152, "spreader.hole_width", left: true);
     }
 }

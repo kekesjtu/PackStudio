@@ -19,6 +19,7 @@ internal sealed partial class SchematicDrawing(PackageDefinition template, Proje
     static readonly Brush Mold = Brush(PackageColors.Mold), Solder = Brush(PackageColors.Solder), Attach = Brush(PackageColors.Attach);
     static readonly Brush Bump = Brush(PackageColors.Bump), Ceramic = Brush(PackageColors.Ceramic);
     static readonly Brush WireColor = Brush(PackageColors.Wire);
+    static readonly Brush SolderMask = Brush(PackageColors.SolderMask);
     static readonly Brush Cover = Brush(PackageColors.Cover), Accent = Brush(PackageColors.Accent);
     DrawingContext dc = null!;
     readonly HashSet<Brush> componentBrushes = [];
@@ -31,6 +32,7 @@ internal sealed partial class SchematicDrawing(PackageDefinition template, Proje
     bool ChipArray => Profile.ChipArray;
 
     bool CeramicBoard => Profile.Ceramic;
+    bool HasSolderMask => Bga && !Flip;
     const int IllustratedLayers = 3;
     Brush Board => CeramicBoard ? Ceramic : Substrate;
     static double FlipDieTop(double substrateTop) => substrateTop - 2 * FlipBumpRadius - 23;
@@ -227,12 +229,13 @@ internal sealed partial class SchematicDrawing(PackageDefinition template, Proje
     {
         entries = entries.Where(entry => componentBrushes.Contains(entry.Color)).ToArray();
         const double swatchWidth = 14, labelGap = 8, itemGap = 32;
-        for (int start = 0; start < entries.Length; start += 3)
+        int columns = entries.Length > 6 ? 4 : 3;
+        for (int start = 0; start < entries.Length; start += columns)
         {
-            var row = entries.Skip(start).Take(3).ToArray();
+            var row = entries.Skip(start).Take(columns).ToArray();
             var labels = row.Select(e => FormatText(e.Label, 12, Muted)).ToArray();
             double total = labels.Sum(label => swatchWidth + labelGap + label.Width) + itemGap * (row.Length - 1);
-            double x = (Width - total) / 2, y = 630 + start / 3 * 22;
+            double x = (Width - total) / 2, y = 630 + start / columns * 22;
             for (int i = 0; i < row.Length; i++)
             {
                 Rect(row[i].Color, x, y + (labels[i].Height - 10) / 2, swatchWidth, 10, false);

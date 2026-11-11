@@ -33,6 +33,7 @@ internal sealed partial class SchematicDrawing
                     Rect(Metal, 150, y + 2 + layer * 22.0 / (IllustratedLayers - 1), 400, 3, false);
             }
             if (step == "thermal_vias") ViaSection(y + 5, 19);
+            if (HasSolderMask) Rect(SolderMask, 150, y - 4, 400, 4);
             for (int i = 0; i < 11; i++)
                 if (!removeCentralBalls || i is < 4 or > 6)
                     Ellipse(Solder, Centered(i, 11, 36.8), y + 41, 11, 11);
@@ -44,8 +45,8 @@ internal sealed partial class SchematicDrawing
             }
             else
             {
-                if (!ChipArray) Rect(Metal, 265, y - 5, 170, 5);
-                Rect(Attach, 285, y - 10, 130, ChipArray ? 10 : 5);
+                if (!ChipArray) Rect(Metal, 265, y, 170, 3);
+                Rect(Attach, 285, y - 10, 130, 6);
                 Rect(Die, 285, y - 33, 130, 23);
                 Wire(291, y - 33, wireEnd, y, 44); Wire(409, y - 33, 700 - wireEnd, y, 44);
             }
@@ -115,8 +116,9 @@ internal sealed partial class SchematicDrawing
         if (Bare) return;
         if (SpreaderSection)
         {
-            Rect(Metal, 240, 402, 220, 136);
-            Rect(Board, 305, 441, 90, 58);
+            Rect(Metal, 200, PlanTop, 300, PlanBottom - PlanTop);
+            Rect(Board, 240, 402, 220, 136);
+            Rect(Metal, 270, 422, 160, 96);
             return;
         }
         if (!Bga)
@@ -195,8 +197,8 @@ internal sealed partial class SchematicDrawing
         CoverSection();
         if (SpreaderSection)
         {
-            Rect(Metal, 195, SectionY + 21, 110, 9);
-            Rect(Metal, 395, SectionY + 21, 110, 9);
+            Rect(Board, 240, SectionY + 24, 220, 6, false);
+            Rect(Metal, 270, SectionY + 21, 160, 9);
         }
     }
 
@@ -216,6 +218,7 @@ internal sealed partial class SchematicDrawing
         };
         if (Flip) entries.Add((Bump, "倒装凸点"));
         else entries.Add((WireColor, "键合线"));
+        if (HasSolderMask) entries.Add((SolderMask, "阻焊层"));
         Legend([.. entries]);
     }
 }
