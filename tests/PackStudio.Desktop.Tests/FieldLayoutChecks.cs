@@ -110,6 +110,13 @@ static class FieldLayoutChecks
         foreach (var row in fields.Children.OfType<Grid>().Where(row => row.IsVisible && row.DataContext is ParameterField { Type: "removal_matrix" }).ToList())
         {
             var field = (ParameterField)row.DataContext;
+            if (field.Definition["enabled_key"] == null)
+            {
+                if (!row.Children.OfType<RemovalMatrixEditor>().Single().IsVisible || Descendants<CheckBox>(row).Any())
+                    throw new Exception("直接孔位矩阵不应带启用开关");
+                matrices++;
+                continue;
+            }
             var box = Descendants<CheckBox>(row).Single();
             var editor = row.Children.OfType<RemovalMatrixEditor>().Single();
             bool original = field.MatrixEnabled;

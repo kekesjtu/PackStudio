@@ -57,6 +57,6 @@ internal sealed partial class SchematicDrawing
             Rect(Metal, StiffenerLeft, StiffenerTop, 700 - 2 * StiffenerLeft, 2 * (PlanCenterY - StiffenerTop));
             Rect(Cover, StiffenerInnerLeft, StiffenerInnerTop, 700 - 2 * StiffenerInnerLeft, 2 * (PlanCenterY - StiffenerInnerTop));
         }
-        if (ThermalLand) Rect(Solder, 255, 395, 190, 150);
+        if (ThermalLand) Rect(Metal, 255, 395, 190, 150);
     }
 }

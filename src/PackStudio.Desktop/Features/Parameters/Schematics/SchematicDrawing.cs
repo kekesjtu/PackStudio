@@ -6,7 +6,8 @@ using PackStudio.Core;
 
 namespace PackStudio.Desktop;
 
-internal sealed partial class SchematicDrawing(PackageDefinition template, ProjectDocument document, string step)
+internal sealed partial class SchematicDrawing(PackageDefinition template, ProjectDocument document, string step,
+    Palette palette)
 {
     internal const double Width = 700, Height = 580;
     const double SectionY = 230;
@@ -14,13 +15,15 @@ internal sealed partial class SchematicDrawing(PackageDefinition template, Proje
     const double PlanLengthDimensionY = PlanBottom + 29;
     const double PlanLeadSpacing = 30, PlanLeadInner = 20, PlanLeadOuter = 20;
     const double FlipBumpRadius = 7.5;
-    static readonly Brush Ink = Brushes.Black, Muted = Brush("#555555");
-    static readonly Brush Die = Brush("#FF1744"), Substrate = Brush("#00C83F"), Metal = Brush("#FFA000");
-    static readonly Brush Mold = Brush("#3996FF"), Solder = Brush("#653FFF"), Attach = Brush("#7A2400");
-    static readonly Brush Bump = Brush("#9477FF"), Ceramic = Brush("#00A043");
-    static readonly Brush WireColor = Brush("#D600C7");
-    static readonly Brush Cover = Brush("#00B8D9"), Accent = Brush("#0057D9");
+    static readonly Brush Ink = Brushes.Black, Muted = Brush(Color.FromRgb(85, 85, 85));
+    readonly Brush Die = Brush(palette.Die), Substrate = Brush(palette.Substrate), Metal = Brush(palette.Metal);
+    readonly Brush Mold = Brush(palette.Mold), Solder = Brush(palette.Solder), Attach = Brush(palette.Attach);
+    readonly Brush Bump = Brush(palette.Bump), Ceramic = Brush(palette.Ceramic);
+    readonly Brush WireColor = Brush(palette.Wire);
+    readonly Brush SolderMask = Brush(palette.SolderMask);
+    readonly Brush Cover = Brush(palette.Cover), Accent = Brush(palette.Accent);
     DrawingContext dc = null!;
+    readonly HashSet<Brush> componentBrushes = [];
     SchematicProfile Profile => template.Info.Schematic;
     bool Bga => Profile.Bga;
     bool Flip => Profile.Flip;
@@ -30,6 +33,7 @@ internal sealed partial class SchematicDrawing(PackageDefinition template, Proje
     bool ChipArray => Profile.ChipArray;
 
     bool CeramicBoard => Profile.Ceramic;
+    bool HasSolderMask => Bga && !Flip;
     const int IllustratedLayers = 3;
     Brush Board => CeramicBoard ? Ceramic : Substrate;
     static double FlipDieTop(double substrateTop) => substrateTop - 2 * FlipBumpRadius - 23;
@@ -37,9 +41,13 @@ internal sealed partial class SchematicDrawing(PackageDefinition template, Proje
         center + (index - (count - 1) / 2.0) * pitch;
     bool BumpedDie => step == "bumped_die";
     bool ThermalLand => step is "thermal_land" or "thermal_land_solder";
+    double LandSolderTop => SectionY + (Qfn ? 5 : 14);
+    double LandSolderHeight => Qfn ? 9 : 20;
+    double LandTop => LandSolderTop + LandSolderHeight;
     bool SpreaderSection => step == "backside_spreader";
+    bool QfnBottomView => Qfn && step == "dap";
     bool StiffenedLid => step == "top_cover" && CoverType == "lid" && document.Values["stiffener.enabled"].Flag();
-    internal bool HasLocalPackageScene => BumpedDie || ThermalLand || SpreaderSection || StiffenedLid;
+    internal bool HasLocalPackageScene => BumpedDie || ThermalLand || SpreaderSection || StiffenedLid || QfnBottomView;
     internal string CoverType => Flip ? document.Values["cover.type"].Text() : "";
     JToken? Field(string key) => template.DisplayFields.FirstOrDefault(f =>
         f["key"].Text() == key && f["step"].Text() == step && !f["creation_only"].Flag());
@@ -53,6 +61,7 @@ internal sealed partial class SchematicDrawing(PackageDefinition template, Proje
 
     internal DrawingGroup CreatePackageScene()
     {
+        componentBrushes.Clear();
         var scene = new DrawingGroup();
         using (dc = scene.Open())
         {
@@ -67,6 +76,7 @@ internal sealed partial class SchematicDrawing(PackageDefinition template, Proje
 
     internal DrawingGroup Create(string diagram, DrawingGroup? scene = null)
     {
+        componentBrushes.Clear();
         var group = new DrawingGroup();
         using (dc = group.Open())
         {
@@ -87,18 +97,27 @@ internal sealed partial class SchematicDrawing(PackageDefinition template, Proje
         return group;
     }
 
-    static SolidColorBrush Brush(string color)
+    static SolidColorBrush Brush(Color color)
     {
-        var result = new SolidColorBrush((Color)ColorConverter.ConvertFromString(color));
+        var result = new SolidColorBrush(color);
         result.Freeze();
         return result;
     }
-    void Rect(Brush? fill, double x, double y, double w, double h, bool edge = true) =>
+    void Rect(Brush? fill, double x, double y, double w, double h, bool edge = true)
+    {
+        if (fill != null) componentBrushes.Add(fill);
         dc.DrawRectangle(fill, edge ? new Pen(Ink, 1.1) : null, new(x, y, w, h));
-    void Line(double x1, double y1, double x2, double y2, Brush? color = null, double thickness = 1) =>
+    }
+    void Line(double x1, double y1, double x2, double y2, Brush? color = null, double thickness = 1)
+    {
+        if (color != null) componentBrushes.Add(color);
         dc.DrawLine(new Pen(color ?? Ink, thickness), new(x1, y1), new(x2, y2));
-    void Ellipse(Brush? fill, double x, double y, double rx, double ry) =>
+    }
+    void Ellipse(Brush? fill, double x, double y, double rx, double ry)
+    {
+        if (fill != null) componentBrushes.Add(fill);
         dc.DrawEllipse(fill, new Pen(Ink, 1), new(x, y), rx, ry);
+    }
     void Text(string text, double x, double y, double size = 13, Brush? color = null,
         TextAlignment align = TextAlignment.Left, bool bold = false)
     {
@@ -210,13 +229,15 @@ internal sealed partial class SchematicDrawing(PackageDefinition template, Proje
     }
     void Legend(params (Brush Color, string Label)[] entries)
     {
+        entries = entries.Where(entry => componentBrushes.Contains(entry.Color)).ToArray();
         const double swatchWidth = 14, labelGap = 8, itemGap = 32;
-        for (int start = 0; start < entries.Length; start += 3)
+        int columns = entries.Length > 6 ? 4 : 3;
+        for (int start = 0; start < entries.Length; start += columns)
         {
-            var row = entries.Skip(start).Take(3).ToArray();
+            var row = entries.Skip(start).Take(columns).ToArray();
             var labels = row.Select(e => FormatText(e.Label, 12, Muted)).ToArray();
             double total = labels.Sum(label => swatchWidth + labelGap + label.Width) + itemGap * (row.Length - 1);
-            double x = (Width - total) / 2, y = 630 + start / 3 * 22;
+            double x = (Width - total) / 2, y = 630 + start / columns * 22;
             for (int i = 0; i < row.Length; i++)
             {
                 Rect(row[i].Color, x, y + (labels[i].Height - 10) / 2, swatchWidth, 10, false);
@@ -227,6 +248,7 @@ internal sealed partial class SchematicDrawing(PackageDefinition template, Proje
     }
     void Wire(double x1, double y1, double x2, double y2, double rise = 50)
     {
+        componentBrushes.Add(WireColor);
         var path = new StreamGeometry();
         using (var c = path.Open())
         {

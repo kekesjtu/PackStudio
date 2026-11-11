@@ -15,6 +15,10 @@ public sealed partial class Workspace : ObservableObject
     bool isBusy;
     [ObservableProperty]
     bool isCurrent;
+    [ObservableProperty]
+    Palette palette = Palettes.Classic;
+    [ObservableProperty]
+    bool materialColors;
     public GenerationResult? Result { get; private set; }
     public PackageModel? Model => Result is { CanPreview: true } ? Result.Model : null;
     public bool CanExport => IsCurrent && Result is { CanExport: true };
@@ -35,6 +39,7 @@ public sealed partial class Workspace : ObservableObject
     public event Action? ModelChanged;
     public event Action? DocumentChanged;
     public event Action? IssuesChanged;
+    public event Action? AppearanceChanged;
     public event Action<string>? ParameterRequested;
     public Workspace() => Select(Catalog.DefaultFamily.Id, null);
     public void Select(string id, string? presetId = null)
@@ -71,6 +76,8 @@ public sealed partial class Workspace : ObservableObject
     }
 
     partial void OnIsBusyChanged(bool value) => GenerateCommand.NotifyCanExecuteChanged();
+    partial void OnPaletteChanged(Palette value) => AppearanceChanged?.Invoke();
+    partial void OnMaterialColorsChanged(bool value) => AppearanceChanged?.Invoke();
     bool CanGenerate() => !IsBusy;
     [RelayCommand(CanExecute = nameof(CanGenerate))]
     public async Task GenerateAsync()

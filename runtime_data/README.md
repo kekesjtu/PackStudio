@@ -45,7 +45,7 @@ Bare Die 使用项目内置的单一预设 [Bare Die](presets/bare_die/Bare_Die.
 预设与用户保存的方案统一使用 `packstudio.project/v4`，通过相同入口导入；索引版本为 `packstudio.preset-index/v4`。预设 Name 与索引键相同。完整方案包含：
 
 - `SchemaVersion`、`TemplateId`、`Name`：契约版本、家族与方案名称。
-- `Values`：以内部字段名为键的方案参数。焊球及阵列配置使用 `bga.*`，显式去球开关为 `bga.explicit_removal_enabled`；通孔去除使用 `vias.removal_enabled`、`vias.removal_rows`、`vias.removal_columns`、`vias.explicit_removal_enabled` 和 `vias.omitted_cells`，初始值来自预设。显式去除关闭时保留名单但不应用名单。
+- `Values`：以内部字段名为键的方案参数。焊球及阵列配置使用 `bga.*`，显式去球开关为 `bga.explicit_removal_enabled`；PBGA 通孔去除由 `vias.removal_enabled` 控制，启用后应用 `vias.omitted_cells`，空名单表示完整阵列，去孔或通孔关闭时名单保留但不参与生成与校验。QFN 不提供去孔参数。显式去球关闭时保留名单但不应用名单。
 - `MaterialAssignments`：每个组件材料组到材料 ID 的完整选择，缺少材料组会报错。
 - `CustomMaterials`：方案自定义物性及用户明确编辑的等效材料物性。
 

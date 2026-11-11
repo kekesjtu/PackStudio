@@ -125,38 +125,41 @@ static class LayoutChecks
             }
         });
 
-        tests.Case("layout", "via removal combines central and explicit cells", () =>
-        {
-            var template = tests.Catalog.Load("pbga_wb");
-            var document = tests.Create(template);
-            var values = document.Values;
-            values["vias.removal_enabled"] = true;
-            values["vias.explicit_removal_enabled"] = true;
-            values["vias.removal_rows"] = 2;
-            values["vias.removal_columns"] = 2;
-            values["vias.omitted_cells"] = new JArray(
-                new JObject { ["row"] = 0, ["column"] = 0 },
-                new JObject { ["row"] = 1, ["column"] = 1 });
-            var context = new BuildContext(template, values, "vias", tests.Catalog.Materials, tests.Catalog.Groups, document.MaterialAssignments);
-            Assert(Vias.Omissions(context, 5, 5).SetEquals([(0, 0), (1, 1), (1, 2), (2, 1), (2, 2)]), "via removal did not use the union");
-            context.Values["vias.explicit_removal_enabled"] = false;
-            Assert(Vias.Omissions(context, 5, 5).SetEquals([(1, 1), (1, 2), (2, 1), (2, 2)]), "disabled explicit vias still affected central removal");
-        });
-        foreach (string family in new[] { "pbga_fc", "pbga_wb", "qfn" })
-            tests.Case("layout", family + " explicit via validation follows its enable switch", () =>
+        foreach (string family in new[] { "pbga_fc", "pbga_wb" })
+            tests.Case("layout", family + " via removal uses selected cells directly", () =>
             {
                 var template = tests.Catalog.Load(family);
                 var document = tests.Create(template);
                 document.Values["vias.enabled"] = true;
                 document.Values["vias.removal_enabled"] = true;
-                document.Values["vias.removal_rows"] = document.Values["vias.removal_columns"] = 0;
-                document.Values["vias.explicit_removal_enabled"] = false;
-                document.Values["vias.omitted_cells"] = new JValue("retained invalid input");
-                Assert(!InputValidator.Validate(document, template, tests.Catalog.Materials).Any(issue => issue.ParameterPaths.Contains("vias.omitted_cells")),
-                    "disabled explicit via data was validated");
-                document.Values["vias.explicit_removal_enabled"] = true;
-                Assert(InputValidator.Validate(document, template, tests.Catalog.Materials).Any(issue => issue.ParameterPaths.Contains("vias.omitted_cells")),
-                    "enabled explicit via data was not validated");
+                document.Values["vias.omitted_cells"] = new JArray(new JObject { ["row"] = 0, ["column"] = 0 });
+                var context = new BuildContext(template, document.Values, "vias", tests.Catalog.Materials, tests.Catalog.Groups, document.MaterialAssignments);
+                Assert(Vias.Omissions(context).SetEquals([(0, 0)]), "via removal did not follow selected cells");
+                document.Values["vias.rows"] = document.Values["vias.columns"] = 5;
+                document.Values["vias.pitch"] = 0.5;
+                document.Values["vias.diameter"] = 0.2;
+                document.Values["vias.plating"] = 0.025;
+                document.Values["vias.modeling"] = family == "pbga_wb" ? "discreteCuboids" : "discrete";
+                Assert(tests.Generate(document).Blocks.Count(b => b.GroupId == "group-vias") == 24, "selected via was not removed from generated geometry");
+                document.Values["vias.removal_enabled"] = false;
+                Assert(tests.Generate(document).Blocks.Count(b => b.GroupId == "group-vias") == 25, "disabled via removal changed geometry");
+                document.Values["vias.removal_enabled"] = true;
+                document.Values["vias.omitted_cells"] = new JArray();
+                Assert(tests.Generate(document).Blocks.Count(b => b.GroupId == "group-vias") == 25, "empty via selection did not restore the full array");
+                document.Values["vias.omitted_cells"] = new JValue("invalid");
+                Assert(InputValidator.Validate(document, template, tests.Catalog.Materials).Any(i => i.ParameterPaths.Contains("vias.omitted_cells")), "invalid via list accepted");
             });
+        tests.Case("layout", "QFN vias form a full rectangular array", () =>
+        {
+            var document = tests.Create(tests.Catalog.Load("qfn"));
+            document.Values["vias.enabled"] = true;
+            document.Values["vias.rows"] = document.Values["vias.columns"] = 5;
+            document.Values["vias.pitch"] = 0.5;
+            document.Values["vias.diameter"] = 0.2;
+            document.Values["vias.plating"] = 0.02;
+            document.Values["vias.length"] = 0.85;
+            document.Values["vias.modeling"] = "discrete";
+            Assert(tests.Generate(document).Blocks.Count(b => b.GroupId == "group-vias") == 25, "QFN array has missing vias");
+        });
     }
 }

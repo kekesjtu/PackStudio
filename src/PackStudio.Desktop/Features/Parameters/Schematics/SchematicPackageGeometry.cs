@@ -5,6 +5,10 @@ namespace PackStudio.Desktop;
 
 internal sealed partial class SchematicDrawing
 {
+    const double QfnLeadTop = SectionY - 7, QfnLeadStep = SectionY, QfnLeadBottom = SectionY + 5;
+    const double QfnLeadEtch = 12, QfnExposedPadLeft = 300, QfnExposedPadWidth = 100;
+    const double QfnViaHeight = 30;
+
     void Section(double y, bool drawMold = true, double wireEnd = 226, bool removeCentralBalls = false)
     {
         if (Bare)
@@ -29,6 +33,15 @@ internal sealed partial class SchematicDrawing
                     Rect(Metal, 150, y + 2 + layer * 22.0 / (IllustratedLayers - 1), 400, 3, false);
             }
             if (step == "thermal_vias") ViaSection(y + 5, 19);
+            if (HasSolderMask)
+            {
+                if (ChipArray) Rect(SolderMask, 285, y - 4, 130, 4);
+                else
+                {
+                    Rect(SolderMask, 150, y - 4, 115, 4);
+                    Rect(SolderMask, 435, y - 4, 115, 4);
+                }
+            }
             for (int i = 0; i < 11; i++)
                 if (!removeCentralBalls || i is < 4 or > 6)
                     Ellipse(Solder, Centered(i, 11, 36.8), y + 41, 11, 11);
@@ -40,37 +53,52 @@ internal sealed partial class SchematicDrawing
             }
             else
             {
-                if (!ChipArray) Rect(Metal, 265, y - 5, 170, 5);
-                Rect(Attach, 285, y - 10, 130, ChipArray ? 10 : 5);
+                if (!ChipArray) Rect(Metal, 265, y, 170, 3);
+                Rect(Attach, 285, y - 10, 130, ChipArray ? 6 : 10);
                 Rect(Die, 285, y - 33, 130, 23);
                 Wire(291, y - 33, wireEnd, y, 44); Wire(409, y - 33, 700 - wireEnd, y, 44);
             }
         }
         else
         {
-            if (drawMold) Rect(Mold, 185, y - 66, 330, 80);
-            Rect(Metal, 265, y - 7, 170, 12);
+            if (drawMold) Rect(Mold, 185, y - 66, 330, Qfn ? 71 : 80);
+            if (Qfn)
+            {
+                Rect(Metal, 265, y - 7, 170, 7);
+                Rect(Metal, QfnExposedPadLeft, y, QfnExposedPadWidth, 5);
+            }
+            else
+                Rect(Metal, 265, y - 7, 170, 12);
             Rect(Attach, 285, y - 12, 130, 5);
             Rect(Die, 285, y - 35, 130, 23);
             foreach (bool left in new[] { true, false })
             {
                 double x = left ? 185 : 455;
                 double leadTop = y - (Qfn ? 7 : 13);
-                Rect(Metal, x, leadTop, 60, 12);
+                if (Qfn)
+                {
+                    Rect(Metal, x, leadTop, 60, 7);
+                    Rect(Metal, x + (left ? 0 : QfnLeadEtch), y, 60 - QfnLeadEtch, 5);
+                }
+                else
+                    Rect(Metal, x, leadTop, 60, 12);
                 Wire(left ? 291 : 409, y - 35, left ? 230 : 470, leadTop, 38);
                 if (Qfn)
-                    Rect(Solder, x, y + 5, 60, 9);
+                    Rect(Solder, x + (left ? 0 : QfnLeadEtch), y + 5, 60 - QfnLeadEtch, 9);
                 else
                 {
                     double edge = left ? 150 : 550;
                     Line(left ? 200 : 500, y - 1, edge, y - 1, Metal, 7);
-                    Line(edge, y - 1, edge, y + 34, Metal, 7);
-                    Line(edge, y + 34, left ? 120 : 580, y + 34, Metal, 7);
+                    const double footCenterOffset = 30.5;
+                    Line(edge, y - 1, edge, y + footCenterOffset, Metal, 7);
+                    Line(edge, y + footCenterOffset, left ? 120 : 580, y + footCenterOffset, Metal, 7);
                 }
             }
-            if (Qfn && step == "thermal_vias") ViaSection(y + 5, 21);
+            if (Qfn && step == "thermal_vias") ViaSection(LandTop, QfnViaHeight);
+            if (Qfn || ThermalLand)
+                Rect(Solder, Qfn ? QfnExposedPadLeft : 265, LandSolderTop, Qfn ? QfnExposedPadWidth : 170, LandSolderHeight);
             if (ThermalLand)
-                Rect(Solder, 265, y + 5, 170, 9);
+                Rect(Metal, Qfn ? QfnExposedPadLeft : 265, LandTop, Qfn ? QfnExposedPadWidth : 170, 9);
         }
     }
 
@@ -88,12 +116,18 @@ internal sealed partial class SchematicDrawing
 
     void Plan()
     {
+        if (QfnBottomView)
+        {
+            QfnBottomPlan();
+            return;
+        }
         Rect(Bare ? Die : Bga ? Board : Mold, 200, PlanTop, 300, PlanBottom - PlanTop);
         if (Bare) return;
         if (SpreaderSection)
         {
-            Rect(Metal, 240, 402, 220, 136);
-            Rect(Board, 305, 441, 90, 58);
+            Rect(Metal, 200, PlanTop, 300, PlanBottom - PlanTop);
+            Rect(Board, 240, 402, 220, 136);
+            Rect(Metal, 270, 422, 160, 96);
             return;
         }
         if (!Bga)
@@ -149,6 +183,22 @@ internal sealed partial class SchematicDrawing
                     Ellipse(Bump, Centered(col, 6, 20), Centered(row, 3, 20, PlanCenterY), 3.5, 3.5);
     }
 
+    void QfnBottomPlan()
+    {
+        Rect(Mold, 200, PlanTop, 300, PlanBottom - PlanTop);
+        for (int i = 0; i < 6; i++)
+        {
+            double row = Centered(i, 6, PlanLeadSpacing, PlanCenterY) - 5;
+            Rect(Metal, 200, row, 30, 10);
+            Rect(Metal, 470, row, 30, 10);
+            double pin = Centered(i, 6, PlanLeadSpacing) - 5;
+            Rect(Metal, pin, PlanTop, 10, 25);
+            Rect(Metal, pin, PlanBottom - 25, 10, 25);
+        }
+        Rect(Metal, 265, 408, 170, 124);
+        Rect(Metal, QfnExposedPadLeft, 432, QfnExposedPadWidth, 76);
+    }
+
     void PackageSection(bool removeCentralBalls = false)
     {
         if (CoverType == "encapsulant") Rect(Mold, 195, EncapsulantTop, 310, SectionY - EncapsulantTop);
@@ -156,8 +206,8 @@ internal sealed partial class SchematicDrawing
         CoverSection();
         if (SpreaderSection)
         {
-            Rect(Metal, 195, SectionY + 21, 110, 9);
-            Rect(Metal, 395, SectionY + 21, 110, 9);
+            Rect(Board, 240, SectionY + 24, 220, 6, false);
+            Rect(Metal, 270, SectionY + 21, 160, 9);
         }
     }
 
@@ -177,6 +227,7 @@ internal sealed partial class SchematicDrawing
         };
         if (Flip) entries.Add((Bump, "倒装凸点"));
         else entries.Add((WireColor, "键合线"));
+        if (HasSolderMask) entries.Add((SolderMask, "阻焊层"));
         Legend([.. entries]);
     }
 }

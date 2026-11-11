@@ -38,8 +38,11 @@ internal sealed partial class SchematicDrawing
                 FlagDimensions();
                 break;
             case "thermal_land" or "thermal_land_solder":
-                Callout("散热焊料", 324, 283, 350, 239, arrow: true);
-                DimV(235, 244, 435, 555, "thermal_land.thickness");
+                Callout("焊料", 470, 299, Qfn ? QfnExposedPadLeft + QfnExposedPadWidth - 5 : 430, LandSolderTop + LandSolderHeight / 2);
+                Callout("散热焊盘", 290, 310, 350, LandTop + 4.5);
+                DrawDimV(LandSolderTop, LandTop, Qfn ? QfnExposedPadLeft : 265, 105,
+                    "焊料高度\n= 塑封离板高度\nA1", left: true, labelOffsetY: 20);
+                DimV(LandTop, LandTop + 9, Qfn ? QfnExposedPadLeft + QfnExposedPadWidth : 435, 575, "thermal_land.thickness");
                 break;
             case "bond_wires": Wires(); break;
             case "leadframe" or "lead_solder_interconnect": Leads(); break;
@@ -58,8 +61,10 @@ internal sealed partial class SchematicDrawing
         DimH(left, 700 - left, bottom, PlanLengthDimensionY, prefix + ".length");
         DimV(top, bottom, left, 155, prefix + ".width", left: true);
         DimV(230, 260, 550, 590, "substrate.thickness");
-        DimV(164, 244, 515, 580, "encapsulant.thickness");
-        DimV(Qfn ? 235 : 244, Qfn ? 244 : 264, Qfn ? 515 : 580, Qfn ? 580 : 610, "package.standoff");
+        DimV(Bga ? 163 : 164, Bga ? SectionY : Qfn ? QfnLeadBottom : 244,
+            Bga ? 505 : 515, Qfn ? 560 : 580, "encapsulant.thickness");
+        DimV(Qfn ? QfnLeadBottom : 244, Qfn ? LandSolderTop + 9 : 264,
+            Qfn ? 515 : 580, 610, "package.standoff");
     }
 
     void DieDimensions()
@@ -73,15 +78,15 @@ internal sealed partial class SchematicDrawing
         }
         double top = Flip ? FlipDieTop(SectionY) : Bga ? 197 : 195;
         DimV(top, top + 23, 415, 555, "die.thickness");
-        DimV(top + 23, ChipArray ? SectionY : top + 28, 285, 115, "die.attach", left: true);
+        DimV(top + 23, ChipArray || Bga && !Flip ? SectionY : top + 28, 285, 115, "die.attach", left: true);
         DimH(285, 415, 426, 345, "die.length");
         DimV(426, 514, 415, 548, "die.width");
-        if (Bga && !Flip && !ChipArray) Wires();
+        if (Bga && !Flip && !ChipArray) Wires(showCount: false);
     }
 
     void EncapsulantDimensions()
     {
-        DimV(Bga ? 163 : 164, Bga ? 230 : 244, Bga ? 505 : 515, 580, Bga ? "encapsulant.thickness" : "body.thickness");
+        DimV(Bga ? 163 : 164, Bga ? 230 : Qfn ? 235 : 244, Bga ? 505 : 515, 580, Bga || Qfn ? "encapsulant.thickness" : "body.thickness");
         double left = Bga ? 225 : 200, top = Bga ? 390 : PlanTop, bottom = 2 * PlanCenterY - top;
         string prefix = Bga ? "encapsulant" : "body";
         DimH(left, 700 - left, bottom, PlanLengthDimensionY, prefix + ".length");
@@ -91,36 +96,50 @@ internal sealed partial class SchematicDrawing
 
     void FlagDimensions()
     {
-        Callout(Qfn ? "芯片承载焊盘 / DAP" : "承载台 / Die Flag", 420, 290, 374, 228);
+        Callout(Qfn ? "芯片承载焊盘 / DAP" : "承载台 / Die Flag", 420, 290, Qfn ? 420 : 374,
+            Qfn ? QfnLeadTop + 3 : Bga ? SectionY + 1.5 : 228);
         string prefix = Qfn ? "pad" : "flag";
         DimH(265, 435, 408, 345, prefix + ".length");
         DimV(408, 532, 435, 548, prefix + ".width");
         DimensionText("flag.coverage", 350, 603, System.Windows.TextAlignment.Center);
         DimV(223, 235, 435, 560, "flag.thickness");
         DimV(217, 223, 265, 126, "flag.downset", left: true);
-        DimensionCallout("tie_bar.width", 65, 368, 229, 388);
+        DimensionCallout("tie_bar.width", 65, 328, 229, 388);
         SolderMaskDimension();
         if (Qfn)
         {
-            DashedRect(312, 432, 76, 76);
-            DimH(312, 388, 508, PlanLengthDimensionY, "pad.exposed_length");
-            DimV(432, 508, 312, 153, "pad.exposed_width", left: true);
+            Callout("露出焊盘 / Exposed Pad", 115, 285, 320, QfnLeadStep + 2.5);
+            DimH(QfnExposedPadLeft, QfnExposedPadLeft + QfnExposedPadWidth, 508, PlanLengthDimensionY, "pad.exposed_length");
+            DimV(432, 508, QfnExposedPadLeft, 153, "pad.exposed_width", left: true);
         }
     }
 
     void SolderMaskDimension()
     {
         if (Field("solder_mask.thickness") == null) return;
-        Rect(Mold, 150, 230, 65, 4);
-        DimV(230, 234, 150, 120, "solder_mask.thickness", left: true);
+        DimV(SectionY - 4, SectionY, 150, 120, "solder_mask.thickness", left: true);
     }
 
-    void Wires()
+    void Wires(bool showCount = true)
     {
         DimensionCallout("bond_wire.diameter", 474, 123, 444, 187);
         double left = Bga ? 235 : 200 + PlanLeadInner, right = 700 - left;
-        double wireY = Centered(2, 6, Bga ? 21 : PlanLeadSpacing, PlanCenterY);
-        DimensionCallout(Bga ? "bond_wire.total" : "bond_wire.count", 58, 316, left, wireY, arrow: true);
+        if (showCount && Dimension(Bga ? "bond_wire.total" : "bond_wire.count") is { } count)
+        {
+            double first = Centered(0, 6, Bga ? 21 : PlanLeadSpacing, PlanCenterY) - 7;
+            double last = Centered(5, 6, Bga ? 21 : PlanLeadSpacing, PlanCenterY) + 7;
+            double boxLeft = left + 5, boxRight = right - 5;
+            DashedRect(boxLeft, first, 285 - boxLeft, last - first);
+            DashedRect(415, first, boxRight - 415, last - first);
+            Text(count, 350, 310, align: System.Windows.TextAlignment.Center);
+            Line(350, 331, 350, 345);
+            double leftTarget = (boxLeft + 285) / 2, rightTarget = (415 + boxRight) / 2;
+            Line(leftTarget, 345, rightTarget, 345);
+            Line(leftTarget, 345, leftTarget, first);
+            Line(rightTarget, 345, rightTarget, first);
+            Arrow(leftTarget, first, 0, -1);
+            Arrow(rightTarget, first, 0, -1);
+        }
         double top = Bga ? 395 : PlanTop + PlanLeadInner, bottom = 2 * PlanCenterY - top;
         string length = Bga ? "bond_wire.extent_length" : "bond_wire.length_x";
         string width = Bga ? "bond_wire.extent_width" : "bond_wire.length_y";
@@ -132,10 +151,10 @@ internal sealed partial class SchematicDrawing
     {
         if (Qfn)
         {
-            DimV(223, 235, 185, 140, "leads.thickness", left: true);
-            DimV(235, 244, 515, 590, "leads.exposed_thickness");
-            DimH(455, 515, 235, 291, "leads.length");
-            DimensionCallout("leads.etch", 67, 273, 187, 235);
+            DimV(QfnLeadTop, QfnLeadBottom, 185, 140, "leads.thickness", left: true);
+            DimV(QfnLeadStep, QfnLeadBottom, 515, 590, "leads.exposed_thickness");
+            DimH(455 + QfnLeadEtch, 515, QfnLeadBottom, 291, "leads.length");
+            DimH(245 - QfnLeadEtch, 245, QfnLeadStep, 278, "leads.etch");
         }
         else
         {

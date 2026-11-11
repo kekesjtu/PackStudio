@@ -989,66 +989,9 @@
     {
       "key": "vias.removal_enabled",
       "type": "checkbox",
-      "label": "启用通孔去除",
-      "step": "thermal_vias",
-      "visible_when": {
+      "label": "通孔去除",
+      "active_when": {
         "vias.enabled": true
-      },
-      "active_when": {
-        "all": [
-          {
-            "vias.enabled": true
-          }
-        ]
-      }
-    },
-    {
-      "key": "vias.removal_rows",
-      "des_symbol": null,
-      "type": "integer",
-      "label": "中央去除行数",
-      "visible_when": {
-        "vias.enabled": true,
-        "vias.removal_enabled": true
-      },
-      "minimum": 0,
-      "active_when": {
-        "all": [
-          {
-            "vias.enabled": true,
-            "vias.removal_enabled": true
-          }
-        ]
-      },
-      "step": "thermal_vias"
-    },
-    {
-      "key": "vias.removal_columns",
-      "des_symbol": null,
-      "type": "integer",
-      "label": "中央去除列数",
-      "visible_when": {
-        "vias.enabled": true,
-        "vias.removal_enabled": true
-      },
-      "minimum": 0,
-      "active_when": {
-        "all": [
-          {
-            "vias.enabled": true,
-            "vias.removal_enabled": true
-          }
-        ]
-      },
-      "step": "thermal_vias"
-    },
-    {
-      "key": "vias.explicit_removal_enabled",
-      "type": "checkbox",
-      "label": "显式去孔",
-      "active_when": {
-        "vias.enabled": true,
-        "vias.removal_enabled": true
       }
     },
     {
@@ -1056,18 +999,16 @@
       "rows_key": "vias.rows",
       "columns_key": "vias.columns",
       "type": "removal_matrix",
-      "label": "显式去孔",
+      "label": "通孔去除",
       "visible_when": {
-        "vias.enabled": true,
-        "vias.removal_enabled": true
+        "vias.enabled": true
       },
       "active_when": {
         "vias.enabled": true,
-        "vias.removal_enabled": true,
-        "vias.explicit_removal_enabled": true
+        "vias.removal_enabled": true
       },
       "step": "thermal_vias",
-      "enabled_key": "vias.explicit_removal_enabled"
+      "enabled_key": "vias.removal_enabled"
     },
     {
       "key": "trace.solid_thickness",

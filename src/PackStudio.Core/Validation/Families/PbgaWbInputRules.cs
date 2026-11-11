@@ -5,7 +5,7 @@ internal static class PbgaWbInputRules
     public static void Validate(InputChecks c)
     {
         SolderBallInputRules.Validate(c, "package");
-        ViaInputRules.Validate(c);
+        ViaInputRules.Validate(c, removal: true);
         MetalLayerInputRules.Validate(c, checkSurfaces: true);
         SlugInputRules.Validate(c, wirebond: true);
         c.Fits("die.length", "encapsulant.length");
@@ -16,9 +16,9 @@ internal static class PbgaWbInputRules
         c.Fits("flag.width", "encapsulant.width");
         c.Fits("bond_wire.extent_length", "encapsulant.length");
         c.Fits("bond_wire.extent_width", "encapsulant.width");
-        double stack = c.N("solder_mask.thickness") + c.N("die.attach") + c.N("die.thickness");
+        double stack = c.N("die.attach") + c.N("die.thickness");
         c.Check(stack > c.N("encapsulant.thickness") + 1e-10, "input.encapsulant.stack",
-            "塑封厚度必须覆盖阻焊层、粘接层和芯片。", "encapsulant.thickness", "solder_mask.thickness", "die.attach", "die.thickness");
+            "塑封厚度必须覆盖粘接层和芯片。", "encapsulant.thickness", "die.attach", "die.thickness");
         if (c.B("spreader.enabled"))
         {
             c.Fits("spreader.length", "package.length");
@@ -29,7 +29,7 @@ internal static class PbgaWbInputRules
         WireInputRules.ValidateExtent(c);
         WireInputRules.Equivalent(c, c.N("bond_wire.total"), "bond_wire.total");
         c.Check(stack - c.N("bond_wire.diameter") <= 0,
-            "input.wire.height", "键合线纵向高度必须为正。", "solder_mask.thickness", "die.attach", "die.thickness", "bond_wire.diameter");
+            "input.wire.height", "键合线纵向高度必须为正。", "die.attach", "die.thickness", "bond_wire.diameter");
         c.Check(c.N("bond_wire.extent_length") + 0.1 >= c.N("package.length") || c.N("bond_wire.extent_width") + 0.1 >= c.N("package.width"),
             "input.wire.mask", "阻焊层开口必须位于封装内。", "bond_wire.extent_length", "bond_wire.extent_width", "package.length", "package.width");
     }

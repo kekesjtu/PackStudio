@@ -27,12 +27,12 @@ static class SemanticChecks
             var document = tests.Create(template);
             document.Values["vias.enabled"] = false;
             document.Values["vias.removal_enabled"] = true;
-            document.Values["vias.removal_rows"] = JValue.CreateNull();
+            document.Values["vias.omitted_cells"] = JValue.CreateNull();
             tests.Generate(document);
-            Assert(document.Values["vias.removal_rows"]!.Type == JTokenType.Null, "inactive null was backfilled");
+            Assert(document.Values["vias.omitted_cells"]!.Type == JTokenType.Null, "inactive null was backfilled");
             document.Values["vias.enabled"] = true;
             var result = tests.GenerateResult(document);
-            Assert(result.Model == null && result.Issues.Any(i => i.ParameterPaths.Contains("vias.removal_rows")), "active null was not located");
+            Assert(result.Model == null && result.Issues.Any(i => i.ParameterPaths.Contains("vias.omitted_cells")), "active null was not located");
         });
         tests.Case("catalog", "preset options are derived without changing field definitions", () =>
         {

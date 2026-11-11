@@ -74,20 +74,19 @@ static class RemovalMatrixChecks
         window.UpdateLayout();
         if (NumericBox(fields, "通孔 Y 方向数量") == null)
             return;
-        var removal = RemovalBox(fields) ?? throw new Exception("热通孔缺少启用通孔去除选项");
-        if (removal.IsChecked == true || Reset(fields) != null)
-            throw new Exception("通孔去除默认未勾选且不展开参数");
+        if (workspace.Document.TemplateId == "qfn")
+        {
+            if (Reset(fields) != null) throw new Exception("QFN must not offer via removal");
+            return;
+        }
+        var removal = RemovalBox(fields) ?? throw new Exception("PBGA missing via removal toggle");
+        if (Reset(fields) != null) throw new Exception("disabled via matrix is visible");
         removal.IsChecked = true;
         Pump(window);
         int viaColumns = (int)workspace.Document.Values["vias.columns"].Number();
         int viaRows = (int)workspace.Document.Values["vias.rows"].Number();
-        if (Matrix(fields, viaRows, viaColumns) != null || Reset(fields) != null)
-            throw new Exception("去孔矩阵默认收起");
-        var holes = Box(fields, "显式去孔") ?? throw new Exception("缺少显式去孔勾选框");
-        holes.IsChecked = true;
-        Pump(window);
         if (Matrix(fields, viaRows, viaColumns) == null || Reset(fields) == null)
-            throw new Exception("勾选去孔后未展开去通孔单元");
+            throw new Exception("PBGA via selection matrix must be directly available");
         var rowCount = NumericBox(fields, "通孔 Y 方向数量") ?? throw new Exception("去通孔单元缺少通孔行数字段");
         string original = rowCount.Text;
         rowCount.Text = "3";
@@ -101,11 +100,9 @@ static class RemovalMatrixChecks
         Reset(fields)!.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
         rowCount.Text = original;
         window.UpdateLayout();
-        RemovalBox(fields)!.IsChecked = false;
+        removal.IsChecked = false;
         Pump(window);
-        if (Reset(fields) != null)
-            throw new Exception("取消启用通孔去除后仍展示去通孔单元");
-
+        if (Reset(fields) != null) throw new Exception("disabled via matrix remains visible");
         var enabled = Descendants<CheckBox>(fields).Single(box => box.Content?.ToString()?.Contains("热通孔") == true);
         enabled.IsChecked = false;
         Pump(window);
@@ -115,7 +112,7 @@ static class RemovalMatrixChecks
         Pump(window);
     }
 
-    static CheckBox? RemovalBox(StackPanel fields) => Box(fields, "启用通孔去除");
+    static CheckBox? RemovalBox(StackPanel fields) => Box(fields, "通孔去除");
 
     static CheckBox? Box(StackPanel fields, string label) => Descendants<CheckBox>(fields).SingleOrDefault(box => box.Content?.ToString() == label);
 

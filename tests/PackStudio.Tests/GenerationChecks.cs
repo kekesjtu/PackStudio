@@ -48,19 +48,18 @@ static class GenerationChecks
             }
         });
 
-        tests.Case("generation", "via removal diagnostics use the flat key and field symbol", () =>
+        tests.Case("generation", "via count diagnostics use the flat key and field symbol", () =>
         {
             var original = tests.Catalog.Load("pbga_wb");
             var data = (JObject)original.Data.DeepClone();
-            var field = data["keys"]!.Single(f => f["key"].Text() == "vias.removal_rows");
+            var field = data["keys"]!.Single(f => f["key"].Text() == "vias.rows");
             field["des_symbol"] = "Rv";
             var definition = new PackageDefinition(original.Info, data, original.Presets);
             var document = tests.Create(definition);
             document.Values["vias.enabled"] = true;
-            document.Values["vias.removal_enabled"] = true;
-            document.Values["vias.removal_rows"] = "invalid";
+            document.Values["vias.rows"] = "invalid";
             var issue = InputValidator.Validate(document, definition, tests.Catalog.Materials)
-                .Single(i => i.Code == "input.type.number" && i.ParameterPaths.Contains("vias.removal_rows"));
+                .Single(i => i.Code == "input.type.number" && i.ParameterPaths.Contains("vias.rows"));
             Assert(issue.Message == "Rv：必须为数值。", "via removal diagnostic did not resolve its symbol");
         });
 
@@ -135,7 +134,7 @@ static class GenerationChecks
         {
             var document = tests.Create(tests.Catalog.Load("pbga_wb"));
             var values = document.Values;
-            double stack = values["solder_mask.thickness"].Number() + values["die.attach"].Number() + values["die.thickness"].Number();
+            double stack = values["die.attach"].Number() + values["die.thickness"].Number();
             values["encapsulant.thickness"] = stack;
             values["encapsulant.length"] = values["bond_wire.extent_length"]!.DeepClone();
             tests.Generate(document);
@@ -146,6 +145,17 @@ static class GenerationChecks
                 "short mold escaped vertical input validation");
             Assert(result.Issues.Any(i => i.Code == "input.package.fit" && i.ParameterPaths.Contains("bond_wire.extent_length")),
                 "wire ends escaped lateral input validation");
+        });
+
+        tests.Case("generation", "WB PBGA solder mask stays off the die flag", () =>
+        {
+            var model = tests.Generate(tests.Create(tests.Catalog.Load("pbga_wb")));
+            var flag = model.Blocks.Single(b => b.Id == "die-flag-part-1");
+            Near(model.Blocks.Single(b => b.Id == "die-attach-part-1").Origin.Z, flag.Maximum.Z, "die attach rests on the die flag");
+            Assert(model.Blocks.Where(b => b.GroupId == "group-solder-mask").All(b =>
+                    b.Maximum.X <= flag.Origin.X || b.Origin.X >= flag.Maximum.X ||
+                    b.Maximum.Y <= flag.Origin.Y || b.Origin.Y >= flag.Maximum.Y),
+                "solder mask covered the die flag");
         });
 
         tests.Case("generation", "FC PBGA metal layers fit their own build-up region", () =>

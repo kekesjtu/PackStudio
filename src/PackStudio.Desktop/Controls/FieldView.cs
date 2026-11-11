@@ -21,10 +21,11 @@ public static partial class FieldView
         if (control == "removal_matrix")
         {
             var header = new StackPanel();
-            header.Children.Add(BooleanEditor(field, nameof(ParameterField.MatrixEnabled), field.Label));
+            bool toggle = f["enabled_key"] != null;
+            header.Children.Add(toggle ? BooleanEditor(field, nameof(ParameterField.MatrixEnabled), field.Label) : Label(field.Label));
             AddHelp(header, field);
             var matrix = new RemovalMatrixEditor(field);
-            VisibilityBinding(matrix, field, nameof(ParameterField.MatrixEnabled));
+            if (toggle) VisibilityBinding(matrix, field, nameof(ParameterField.MatrixEnabled));
             view = HeaderBodyRow(header, matrix);
         }
         else if (control == "checkbox")

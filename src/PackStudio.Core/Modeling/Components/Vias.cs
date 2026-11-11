@@ -3,18 +3,13 @@ using Newtonsoft.Json.Linq;
 namespace PackStudio.Core;
 public static class Vias
 {
-    public static HashSet<(int row, int col)> Omissions(BuildContext c, int rows, int cols)
+    public static HashSet<(int row, int col)> Omissions(BuildContext c)
     {
         var cells = new HashSet<(int, int)>();
-        if (!c.B("vias.removal_enabled"))
+        if (c.TemplateId is not ("pbga_fc" or "pbga_wb") || !c.B("vias.removal_enabled"))
             return cells;
-        int nr = c.I("vias.removal_rows"), nc = c.I("vias.removal_columns");
-        if (c.B("vias.explicit_removal_enabled"))
-            foreach (var p in (JArray)c.Values["vias.omitted_cells"]!)
-                cells.Add(((int)p["row"]!, (int)p["column"]!));
-        for (int r = (rows - nr) / 2; r < (rows - nr) / 2 + nr; r++)
-            for (int col = (cols - nc) / 2; col < (cols - nc) / 2 + nc; col++)
-                cells.Add((r, col));
+        foreach (var p in (JArray)c.Values["vias.omitted_cells"]!)
+            cells.Add(((int)p["row"]!, (int)p["column"]!));
         return cells;
     }
 
@@ -37,7 +32,7 @@ public static class Vias
 
     public static void Grid(BuildContext c, string id, int rows, int cols, double pitch, double side, double z, double height, string material)
     {
-        var omitted = Omissions(c, rows, cols);
+        var omitted = Omissions(c);
         for (int r = 0; r < rows; r++)
             for (int col = 0; col < cols; col++)
                 if (!omitted.Contains((r, col)))
@@ -58,7 +53,7 @@ public static class Vias
         }
 
         double lx = (nc - 1) * pitch + diameter, ly = (nr - 1) * pitch + diameter;
-        double f = (nr * nc - Omissions(c, nr, nc).Count) * Math.PI * diameter * diameter / (4 * lx * ly);
+        double f = (nr * nc - Omissions(c).Count) * Math.PI * diameter * diameter / (4 * lx * ly);
         c.Derived(MaterialMixer.Mix(id, via, matrix, f, mode == "isotropicCuboid" ? "xyz" : "z"));
         c.Center(fc ? "core-vias" : "thermal-via-equivalent", "via", lx, ly, height, z, id, "vias", derived: true);
     }

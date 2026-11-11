@@ -11,12 +11,12 @@ public static class PbgaWbGenerator
         double topTrace = rows[0]!["thickness"].Number(), bottomTrace = rows[rows.Count - 1]!["thickness"].Number();
         rows[0]!["depth"] = 0;
         rows[rows.Count - 1]!["depth"] = height - bottomTrace;
-        double mask = c.N("solder_mask.thickness"), dl = c.N("die.length"), dw = c.N("die.width"), dh = c.N("die.thickness"), attach = c.N("die.attach"), dz = top + mask + attach;
+        double dl = c.N("die.length"), dw = c.N("die.width"), dh = c.N("die.thickness"), attach = c.N("die.attach"), dz = top + attach;
         double ml = c.N("encapsulant.length"), mw = c.N("encapsulant.width");
         c.Center("encapsulant", "encapsulant", ml, mw, c.N("encapsulant.thickness"), top, "epoxy-mold", "encapsulant");
         c.Center("die", "die", dl, dw, dh, dz, "silicon", "die");
         c.Center("dielectric", "substrate", l, w, height, baseZ, "bt", "substrate");
-        c.Center("die-attach", "die_attach", dl, dw, attach, top + mask, "ablestik-8510aa", "die-attach");
+        c.Center("die-attach", "die_attach", dl, dw, attach, top, "ablestik-8510aa", "die-attach");
         double extentX = c.N("bond_wire.extent_length"), extentY = c.N("bond_wire.extent_width"), d = c.N("bond_wire.diameter");
             Wires.FourSides(c, dl, dw, extentX / 2, extentY / 2, extentX / 2 - d, extentY / 2 - d, dz + dh - d, top, dz + dh - top - d, "wirebond-bondwire-x", "wirebond-bondwire-y");
         WirebondDetails(c, rows, l, w, baseZ, height, extentX, extentY, d);
@@ -67,7 +67,6 @@ public static class PbgaWbGenerator
         }
 
         c.Center("die-flag", "lead_frame", fl, fw, tt, top - tt, "wirebond-die-flag", "die-flag", derived: true);
-        c.Center("solder-mask-center", "solder_mask", fl, fw, mask, top, "solder-mask", "solder-mask");
         c.Ring("solder-mask-outer", "solder_mask", l, w, extentX + 0.1, extentY + 0.1, top, mask, "solder-mask", "solder-mask");
         Covers.Slug(c, top, true);
     }
