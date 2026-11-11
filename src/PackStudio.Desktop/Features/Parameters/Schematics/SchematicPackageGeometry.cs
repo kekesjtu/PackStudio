@@ -5,6 +5,9 @@ namespace PackStudio.Desktop;
 
 internal sealed partial class SchematicDrawing
 {
+    const double QfnLeadTop = SectionY - 7, QfnLeadStep = SectionY, QfnLeadBottom = SectionY + 5;
+    const double QfnLeadEtch = 12, QfnExposedPadLeft = 300, QfnExposedPadWidth = 100;
+
     void Section(double y, bool drawMold = true, double wireEnd = 226, bool removeCentralBalls = false)
     {
         if (Bare)
@@ -49,17 +52,29 @@ internal sealed partial class SchematicDrawing
         else
         {
             if (drawMold) Rect(Mold, 185, y - 66, 330, Qfn ? 71 : 80);
-            Rect(Metal, 265, y - 7, 170, ThermalLand && !Qfn ? 21 : 12);
+            if (Qfn)
+            {
+                Rect(Metal, 265, y - 7, 170, 7);
+                Rect(Metal, QfnExposedPadLeft, y, QfnExposedPadWidth, 5);
+            }
+            else
+                Rect(Metal, 265, y - 7, 170, ThermalLand ? 21 : 12);
             Rect(Attach, 285, y - 12, 130, 5);
             Rect(Die, 285, y - 35, 130, 23);
             foreach (bool left in new[] { true, false })
             {
                 double x = left ? 185 : 455;
                 double leadTop = y - (Qfn ? 7 : 13);
-                Rect(Metal, x, leadTop, 60, 12);
+                if (Qfn)
+                {
+                    Rect(Metal, x, leadTop, 60, 7);
+                    Rect(Metal, x + (left ? 0 : QfnLeadEtch), y, 60 - QfnLeadEtch, 5);
+                }
+                else
+                    Rect(Metal, x, leadTop, 60, 12);
                 Wire(left ? 291 : 409, y - 35, left ? 230 : 470, leadTop, 38);
                 if (Qfn)
-                    Rect(Solder, x, y + 5, 60, 9);
+                    Rect(Solder, x + (left ? 0 : QfnLeadEtch), y + 5, 60 - QfnLeadEtch, 9);
                 else
                 {
                     double edge = left ? 150 : 550;
@@ -70,9 +85,9 @@ internal sealed partial class SchematicDrawing
             }
             if (Qfn && step == "thermal_vias") ViaSection(y + 5, 21);
             if (Qfn || ThermalLand)
-                Rect(Solder, 265, LandSolderTop, 170, 9);
+                Rect(Solder, Qfn ? QfnExposedPadLeft : 265, LandSolderTop, Qfn ? QfnExposedPadWidth : 170, 9);
             if (ThermalLand)
-                Rect(Metal, 265, LandTop, 170, 9);
+                Rect(Metal, Qfn ? QfnExposedPadLeft : 265, LandTop, Qfn ? QfnExposedPadWidth : 170, 9);
         }
     }
 

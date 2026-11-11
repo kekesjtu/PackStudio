@@ -38,9 +38,9 @@ internal sealed partial class SchematicDrawing
                 FlagDimensions();
                 break;
             case "thermal_land" or "thermal_land_solder":
-                Callout("焊料", 470, 277, 430, LandSolderTop + 4.5);
+                Callout("焊料", 470, 277, Qfn ? QfnExposedPadLeft + QfnExposedPadWidth - 5 : 430, LandSolderTop + 4.5);
                 Callout("散热焊盘", 290, 292, 350, LandTop + 4.5);
-                DimV(LandTop, LandTop + 9, 435, 575, "thermal_land.thickness");
+                DimV(LandTop, LandTop + 9, Qfn ? QfnExposedPadLeft + QfnExposedPadWidth : 435, 575, "thermal_land.thickness");
                 break;
             case "bond_wires": Wires(); break;
             case "leadframe" or "lead_solder_interconnect": Leads(); break;
@@ -92,7 +92,7 @@ internal sealed partial class SchematicDrawing
 
     void FlagDimensions()
     {
-        Callout(Qfn ? "芯片承载焊盘 / DAP" : "承载台 / Die Flag", 420, 290, 374, 228);
+        Callout(Qfn ? "芯片承载焊盘 / DAP" : "承载台 / Die Flag", 420, 290, Qfn ? 420 : 374, Qfn ? QfnLeadTop + 3 : 228);
         string prefix = Qfn ? "pad" : "flag";
         DimH(265, 435, 408, 345, prefix + ".length");
         DimV(408, 532, 435, 548, prefix + ".width");
@@ -103,9 +103,10 @@ internal sealed partial class SchematicDrawing
         SolderMaskDimension();
         if (Qfn)
         {
-            DashedRect(312, 432, 76, 76);
-            DimH(312, 388, 508, PlanLengthDimensionY, "pad.exposed_length");
-            DimV(432, 508, 312, 153, "pad.exposed_width", left: true);
+            Callout("露出焊盘 / Exposed Pad", 115, 285, 320, QfnLeadStep + 2.5);
+            DashedRect(QfnExposedPadLeft, 432, QfnExposedPadWidth, 76);
+            DimH(QfnExposedPadLeft, QfnExposedPadLeft + QfnExposedPadWidth, 508, PlanLengthDimensionY, "pad.exposed_length");
+            DimV(432, 508, QfnExposedPadLeft, 153, "pad.exposed_width", left: true);
         }
     }
 
@@ -147,10 +148,10 @@ internal sealed partial class SchematicDrawing
     {
         if (Qfn)
         {
-            DimV(223, 235, 185, 140, "leads.thickness", left: true);
-            DimV(230, 235, 515, 590, "leads.exposed_thickness");
-            DimH(455, 515, 235, 291, "leads.length");
-            DimensionCallout("leads.etch", 67, 273, 187, 235);
+            DimV(QfnLeadTop, QfnLeadBottom, 185, 140, "leads.thickness", left: true);
+            DimV(QfnLeadStep, QfnLeadBottom, 515, 590, "leads.exposed_thickness");
+            DimH(455 + QfnLeadEtch, 515, QfnLeadBottom, 291, "leads.length");
+            DimH(245 - QfnLeadEtch, 245, QfnLeadStep, 278, "leads.etch");
         }
         else
         {
