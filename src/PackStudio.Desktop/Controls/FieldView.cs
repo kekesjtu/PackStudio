@@ -8,56 +8,49 @@ using static PackStudio.Desktop.FieldLayout;
 
 namespace PackStudio.Desktop;
 
+public enum CheckBoxPlacement { FullRow, EditorColumn }
+
 public static partial class FieldView
 {
     static readonly BooleanToVisibilityConverter VisibilityConverter = new();
-    // checkboxInEditor: 勾选框放在编辑列，标签留在标签列，用于创建选项这类表单式布局。
-    public static FrameworkElement Create(ParameterField field, bool checkboxInEditor = false)
+    public static FrameworkElement Create(ParameterField field, CheckBoxPlacement checkBoxPlacement = CheckBoxPlacement.FullRow)
     {
         var f = field.Definition;
         string control = field.Type;
         FrameworkElement view;
         if (control == "removal_matrix")
         {
-            var panel = new StackPanel();
-            var box = new CheckBox { Content = field.Label, Margin = new(0, 10, 0, 5) };
-            Bind(box, CheckBox.IsCheckedProperty, field, nameof(ParameterField.Expanded));
-            panel.Children.Add(box);
+            var box = BooleanEditor(field, nameof(ParameterField.Expanded), field.Label);
             var matrix = new RemovalMatrixEditor(field);
             VisibilityBinding(matrix, field, nameof(ParameterField.Expanded));
-            panel.Children.Add(matrix);
-            view = panel;
+            view = HeaderBodyRow(box, matrix);
+        }
+        else if (control == "checkbox")
+        {
+            bool inEditor = checkBoxPlacement == CheckBoxPlacement.EditorColumn;
+            var editors = new StackPanel();
+            editors.Children.Add(BooleanEditor(field, nameof(ParameterField.BooleanValue), inEditor ? null : field.Label));
+            AddHelp(editors, field);
+            view = inEditor ? FieldRow(field.Label, editors) : FullWidthRow(editors);
+        }
+        else if (control == "table")
+        {
+            var editors = new StackPanel();
+            var columns = ((JArray)f["columns"]!).Select(c => (c["key"].Text(), c["label"].Text(), c["type"].Text() switch { "checkbox" => typeof(bool), "text" => typeof(string), _ => typeof(double) }, ParameterField.Bounds(c))).ToArray();
+            editors.Children.Add(Table(field, field.Value is JArray table ? (JArray)table.DeepClone() : [], columns));
+            AddHelp(editors, field);
+            view = HeaderBodyRow(Label(field.Label), editors);
         }
         else
         {
             var editors = new StackPanel();
             var host = FieldRow(field.Label, editors, new Binding(nameof(ParameterField.Symbol)) { Source = field });
             view = host;
-            if (control == "checkbox")
-            {
-                var box = new CheckBox { Content = checkboxInEditor ? null : field.Label, ToolTip = field.Label,
-                    VerticalAlignment = VerticalAlignment.Center };
-                Bind(box, CheckBox.IsCheckedProperty, field, nameof(ParameterField.BooleanValue));
-                if (checkboxInEditor) editors.Children.Add(box);
-                else
-                {
-                    host.Children.RemoveAt(0); Grid.SetColumn(editors, 0); Grid.SetColumnSpan(editors, 3);
-                    editors.Children.Add(box);
-                }
-            }
-            else if (field.Options is { Count: > 0 } options)
+            if (field.Options is { Count: > 0 } options)
             {
                 var box = new ComboBox { ItemsSource = options.Select(o => new { Value = o["value"]!.DeepClone(), Label = o["label"].Text(o["value"]!.ToString()) }).ToList(), DisplayMemberPath = "Label", SelectedValuePath = "Value" };
                 Bind(box, ComboBox.SelectedValueProperty, field, nameof(ParameterField.ChoiceValue));
                 editors.Children.Add(box);
-            }
-            else if (control == "table")
-            {
-                host.RowDefinitions.Add(new() { Height = GridLength.Auto }); host.RowDefinitions.Add(new() { Height = GridLength.Auto });
-                Grid.SetColumnSpan(host.Children[0], 3); Grid.SetColumn(editors, 0); Grid.SetColumnSpan(editors, 3); Grid.SetRow(editors, 1);
-                editors.Margin = new(0, 6, 0, 0);
-                var columns = ((JArray)f["columns"]!).Select(c => (c["key"].Text(), c["label"].Text(), c["type"].Text() switch { "checkbox" => typeof(bool), "text" => typeof(string), _ => typeof(double) }, ParameterField.Bounds(c))).ToArray();
-                editors.Children.Add(Table(field, field.Value is JArray table ? (JArray)table.DeepClone() : [], columns));
             }
             else if (control is "number" or "integer")
             {
@@ -72,12 +65,26 @@ public static partial class FieldView
                 Bind(text, TextBox.TextProperty, field, nameof(ParameterField.TextValue), BindingMode.TwoWay);
                 editors.Children.Add(text);
             }
-            if (f["help_text"].Text() is string help && help.Length > 0) editors.Children.Add(new TextBlock { Text = help, TextWrapping = TextWrapping.Wrap, Foreground = Brushes.SlateGray, FontSize = 11 });
+            AddHelp(editors, field);
         }
         view.DataContext = field;
         Bind(view, UIElement.IsEnabledProperty, field, nameof(ParameterField.Enabled), BindingMode.OneWay);
         VisibilityBinding(view, field);
         return view;
+    }
+
+    static CheckBox BooleanEditor(ParameterField field, string property, string? label)
+    {
+        var box = new CheckBox { Content = label, ToolTip = field.Label };
+        box.SetResourceReference(FrameworkElement.StyleProperty, "FormCheckBox");
+        Bind(box, CheckBox.IsCheckedProperty, field, property);
+        return box;
+    }
+
+    static void AddHelp(StackPanel editors, ParameterField field)
+    {
+        if (field.Definition["help_text"].Text() is string help && help.Length > 0)
+            editors.Children.Add(new TextBlock { Text = help, TextWrapping = TextWrapping.Wrap, Foreground = Brushes.SlateGray, FontSize = 11 });
     }
 
     public static void VisibilityBinding(FrameworkElement view, ParameterField field, string property = nameof(ParameterField.Visible)) =>

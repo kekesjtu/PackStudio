@@ -80,6 +80,7 @@ static class NewPackageChecks
                 throw new Exception("back/next discarded draft inputs");
             dialog.UpdateLayout();
             CheckAlignment(dialog, Control<TextBox>(dialog, "DesignNameBox"));
+            FieldLayoutChecks.CheckBoxes(dialog);
             if (!dialog.TryCreate() || dialog.CreatedDocument is not ProjectDocument result)
                 throw new Exception(family + " could not finish: " + Control<TextBlock>(dialog, "CreationError").Text);
             if (result.TemplateId != family || dialog.Draft.PresetId != expectedPreset || result.Name != name.Text)

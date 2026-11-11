@@ -189,7 +189,6 @@ public static class RemovalMatrix
         Repaint();
         return new RemovalMatrixView(source => { ReadCells(source); Repaint(); Report(); })
         {
-            Margin = new(0, 2, 0, 0),
             Children =
             {
                 head,

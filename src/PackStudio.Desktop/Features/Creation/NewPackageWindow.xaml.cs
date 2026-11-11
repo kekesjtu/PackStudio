@@ -111,7 +111,7 @@ public partial class NewPackageWindow : Window
         CreationError.Text = "";
         CreationOptions.Children.Clear();
         foreach (var field in creationForm.Fields.Where(f => f.Definition["creation_option"].Flag()))
-            CreationOptions.Children.Add(FieldView.Create(field, checkboxInEditor: true));
+            CreationOptions.Children.Add(FieldView.Create(field, CheckBoxPlacement.EditorColumn));
     }
 
     async void Next_Click(object sender, RoutedEventArgs e)

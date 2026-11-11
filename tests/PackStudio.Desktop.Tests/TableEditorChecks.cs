@@ -8,6 +8,7 @@ static class TableEditorChecks
 {
     static int covered;
     static bool issueCovered;
+    static bool checkboxCovered;
 
     // 表格编辑器：没有选中行时删除按钮禁用，添加与删除都要写回数据。
     public static async Task Run(MainWindow window, ListBox steps, StackPanel fields, Workspace workspace)
@@ -19,6 +20,22 @@ static class TableEditorChecks
             var grid = Descendants<DataGrid>(fields).FirstOrDefault();
             if (grid == null)
                 continue;
+            var boxes = FieldLayoutChecks.CheckBoxes(grid);
+            if (boxes.Count > 0 && grid.DataContext is ParameterField booleanTable)
+            {
+                var box = boxes[0];
+                var column = grid.Columns.OfType<DataGridTemplateColumn>().First();
+                bool originalChecked = box.IsChecked == true;
+                box.IsChecked = !originalChecked;
+                await Task.Delay(30);
+                if (booleanTable.Value![0]![column.SortMemberPath]!.Value<bool>() != !originalChecked)
+                    throw new Exception("table checkbox did not write its toggled value");
+                box.IsChecked = originalChecked;
+                await Task.Delay(30);
+                if (booleanTable.Value![0]![column.SortMemberPath]!.Value<bool>() != originalChecked)
+                    throw new Exception("table checkbox did not restore its original value");
+                checkboxCovered = true;
+            }
             var remove = Descendants<Button>(fields).FirstOrDefault(button => button.Content?.ToString() == "删除选中行")
                 ?? throw new Exception(step.Key + ": 表格缺少删除按钮");
             var add = Descendants<Button>(fields).First(button => button.Content?.ToString() == "+ 添加一行");
@@ -65,6 +82,7 @@ static class TableEditorChecks
         if (covered == 0)
             throw new Exception("没有任何模板覆盖表格的添加与删除");
         if (!issueCovered) throw new Exception("no metal layer cell issue was located");
+        if (!checkboxCovered) throw new Exception("no table checkbox edit was checked");
     }
 
     // 表格既可能写入向导字段（金属层、层表），也可能写入 BGA 配置（焊球坐标表）。

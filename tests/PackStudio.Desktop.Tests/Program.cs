@@ -95,7 +95,8 @@ public static class Program
                     {
                         steps.SelectedValue = "bumped_die";
                         var check = Boxes(fields).First();
-                        if (check.Content?.ToString() != "包含凸点与底填充" || Grid.GetColumnSpan((StackPanel)check.Parent) != 3)
+                        if (check.Content?.ToString() != "包含凸点与底填充" ||
+                            check.TransformToAncestor(fields).Transform(new Point()).X > 0.5)
                             throw new Exception("checkbox label is not displayed on one row");
                     }
                     if (family.Id == "pbga_wb")
