@@ -119,7 +119,7 @@ internal sealed partial class SchematicDrawing
         ViaInset(514, 454, "vias");
         if (Qfn)
         {
-            DimV(SectionY + 5, SectionY + 26, ViaX(3) + 3, 565, "vias.length");
+            DimV(LandTop, LandTop + QfnViaHeight, ViaX(3) + 3, 565, "vias.length");
         }
         Axes(70, PlanBottom + 4);
         Legend((Board, "基材"), (Metal, "通孔镀层"));

@@ -7,6 +7,7 @@ internal sealed partial class SchematicDrawing
 {
     const double QfnLeadTop = SectionY - 7, QfnLeadStep = SectionY, QfnLeadBottom = SectionY + 5;
     const double QfnLeadEtch = 12, QfnExposedPadLeft = 300, QfnExposedPadWidth = 100;
+    const double QfnViaHeight = 30;
 
     void Section(double y, bool drawMold = true, double wireEnd = 226, bool removeCentralBalls = false)
     {
@@ -83,7 +84,7 @@ internal sealed partial class SchematicDrawing
                     Line(edge, y + 34, left ? 120 : 580, y + 34, Metal, 7);
                 }
             }
-            if (Qfn && step == "thermal_vias") ViaSection(y + 5, 21);
+            if (Qfn && step == "thermal_vias") ViaSection(LandTop, QfnViaHeight);
             if (Qfn || ThermalLand)
                 Rect(Solder, Qfn ? QfnExposedPadLeft : 265, LandSolderTop, Qfn ? QfnExposedPadWidth : 170, 9);
             if (ThermalLand)
