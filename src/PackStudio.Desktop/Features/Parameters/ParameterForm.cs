@@ -10,7 +10,6 @@ public sealed class ParameterForm
     const string DiscreteNotice = "显式去球或焊球坐标表需要离散建模，BGA 焊球建模方式已自动切换为 Discrete Cuboids（discrete）。";
     readonly Func<JObject> values;
     readonly Func<string, JToken, IReadOnlySet<string>> update;
-    readonly Action<string>? notice;
     Func<IReadOnlyList<ValidationIssue>> issues = () => [];
     HashSet<string> previousIssuePaths = [];
     readonly Dictionary<string, HashSet<(ParameterField Field, string Property)>> dependencies = [];
@@ -23,6 +22,11 @@ public sealed class ParameterForm
     public ParameterForm(Workspace workspace) : this(workspace.Template, () => workspace.Document.Values, (path, value) =>
     {
         var target = workspace.Document.Values;
+        if (path == "bga.representation" && value.Text() != "discrete" && SolderBalls.RequiresDiscrete(target))
+        {
+            workspace.Status = "请先关闭显式去球和焊球坐标表，再选择其他 BGA 焊球建模方式。";
+            return new HashSet<string>();
+        }
         if (JToken.DeepEquals(target[path], value)) return new HashSet<string>();
         bool clearSlug = path == "cover.type" && target["cover.type"].Text() == "encapsulant" &&
             value.Text() != "encapsulant" && target["slug.enabled"].Flag();
@@ -33,8 +37,7 @@ public sealed class ParameterForm
             target["slug.enabled"] = false;
             changed.Add("slug.enabled");
         }
-        bool forceDiscrete = (path == "bga.ball_map_enabled" && value.Flag() ||
-            path == "bga.omitted_cells" && value is JArray { Count: > 0 }) && target["bga.representation"].Text() != "discrete";
+        bool forceDiscrete = SolderBalls.RequiresDiscrete(target) && target["bga.representation"].Text() != "discrete";
         if (forceDiscrete)
         {
             target["bga.representation"] = "discrete";
@@ -45,10 +48,14 @@ public sealed class ParameterForm
         return changed;
     })
     {
-        notice = message => workspace.Status = message;
         issues = () => workspace.Issues;
         previousIssuePaths = issues().SelectMany(i => i.ParameterPaths).ToHashSet();
         PropertyChangedEventManager.AddHandler(workspace, OnIssuesChanged, nameof(Workspace.Issues));
+        if (SolderBalls.RequiresDiscrete(Values) && Values["bga.representation"].Text() != "discrete")
+        {
+            Set("bga.representation", new JValue("discrete"));
+            workspace.Status = DiscreteNotice;
+        }
     }
 
     public ParameterForm(NewPackageViewModel draft) : this(draft.Template, () => draft.Values, draft.Set, forCreation: true) { }
@@ -58,7 +65,7 @@ public sealed class ParameterForm
         var current = issues().SelectMany(i => i.ParameterPaths).ToHashSet();
         var affected = previousIssuePaths.Union(current).ToList();
         previousIssuePaths = current;
-        foreach (var field in Fields.Where(f => affected.Any(p => ParameterField.MatchesPath(f.Key, p))))
+        foreach (var field in Fields.Where(f => affected.Any(fieldPath => f.ContainsPath(fieldPath))))
         {
             field.Notify(nameof(ParameterField.Error));
             field.Notify(nameof(ParameterField.HasError));
@@ -90,6 +97,9 @@ public sealed class ParameterForm
             Watch(field, nameof(ParameterField.Symbol), TemplateSymbols.Dependencies(field.Definition));
             Watch(field, nameof(ParameterField.MatrixRows), [field.Definition["rows_key"].Text()]);
             Watch(field, nameof(ParameterField.MatrixColumns), [field.Definition["columns_key"].Text()]);
+            Watch(field, nameof(ParameterField.MatrixEnabled), [field.Definition["enabled_key"].Text()]);
+            if (field.Key is "bga.omitted_cells" or "bga.ball_map_enabled" or "bga.representation")
+                Watch(field, nameof(ParameterField.Notice), ["bga.explicit_removal_enabled", "bga.ball_map_enabled"]);
         }
     }
 
@@ -102,20 +112,16 @@ public sealed class ParameterForm
         }
     }
 
-    public void Set(ParameterField field, JToken value)
+    public void Set(string key, JToken value)
     {
-        var changed = update(field.Key, value);
-        if (changed.Count == 0) return;
+        var changed = update(key, value);
+        if (changed.Count == 0)
+        {
+            Fields.FirstOrDefault(field => field.Key == key)?.Notify(nameof(ParameterField.Value));
+            return;
+        }
         var affected = changed.Where(dependencies.ContainsKey).SelectMany(key => dependencies[key]).Distinct().ToList();
         foreach (var (target, property) in affected) target.Notify(property);
         Changed?.Invoke();
-    }
-
-    internal void UseDiscreteBalls()
-    {
-        var representation = Fields.First(f => f.Key == "bga.representation");
-        if (representation.Value.Text() == "discrete") return;
-        Set(representation, new JValue("discrete"));
-        notice?.Invoke(DiscreteNotice);
     }
 }

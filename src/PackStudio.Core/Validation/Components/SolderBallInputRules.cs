@@ -11,21 +11,21 @@ internal static class SolderBallInputRules
         double pitch = c.N("bga.pitch"), diameter = c.N("bga.diameter");
         c.Check(diameter > pitch, "input.bga.pitch", "焊球直径不能大于节距。", "bga.diameter", "bga.pitch");
         bool discrete = c.T("bga.representation") == "discrete";
+        if (c.B("bga.ball_map_enabled") || c.B("bga.explicit_removal_enabled"))
+            c.Check(!discrete, "input.bga.layout", "启用显式去球或焊球坐标表时，焊球建模方式必须为 Discrete Cuboids（离散建模）。",
+                "bga.representation", c.B("bga.ball_map_enabled") ? "bga.ball_map_enabled" : "bga.explicit_removal_enabled");
         if (c.B("bga.ball_map_enabled"))
         {
-            c.Check(!discrete, "input.bga.layout", "Ball Map 需要离散建模。", "bga.representation", "bga.ball_map_enabled");
             ValidateMap(c, board, SolderBalls.BlockSide(diameter));
             return;
         }
 
         double rows = c.N("bga.rows"), columns = c.N("bga.columns");
         double populatedRows = rows, populatedColumns = columns;
-        var omissions = c.Values["bga.omitted_cells"] as JArray;
+        var omissions = c.B("bga.explicit_removal_enabled") ? c.Values["bga.omitted_cells"] as JArray : null;
         bool explicitCells = omissions is { Count: > 0 };
         bool validCells = !explicitCells || ArrayInputRules.ValidateCells(c, "bga.omitted_cells", omissions, rows, columns);
-        if (explicitCells)
-            c.Check(!discrete, "input.bga.layout", "显式去球需要离散建模。", "bga.representation", "bga.omitted_cells");
-        else if (c.B("bga.solder_removal_enabled"))
+        if (!explicitCells && c.B("bga.solder_removal_enabled"))
         {
             populatedRows = ReadPopulated(c, "rows", rows);
             populatedColumns = ReadPopulated(c, "columns", columns);

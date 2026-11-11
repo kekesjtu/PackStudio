@@ -30,7 +30,7 @@ Bare Die 使用项目内置的单一预设 [Bare Die](presets/bare_die/Bare_Die.
 - `options` 为包含 `value` 和可选 `label` 的选项记录。方案保存和校验使用 `value`，下拉框显示 `label`，省略名称时直接显示值。`options_source: "presets"` 按预设生成同样结构的候选。
 - `footprint.size` 的 `default` 指定创建时初选的预设名称。无 Footprint 的家族自动使用唯一预设。
 - `materials` 的条目定义材料槽位，`key` 即组件材料组 ID，默认采用下拉框，无需声明 `type`。选项中的 `value` 是材料 ID，`*` 表示全部材料，空字符串选项允许 No Attachment。省略 `options` 时提供全部可用材料。方案通过独立的 `MaterialAssignments` 保存选择。
-- 表格列放在 `columns` 中。`schematic: true` 标记影响示意图结构的参数，用于场景更新。
+- 表格列放在 `columns` 中。矩阵字段的 `enabled_key` 引用独立的布尔业务参数，勾选状态与名单分别保存；名单的 `active_when` 声明相同的启用条件。`schematic: true` 标记影响示意图结构的参数，用于场景更新。
 - `steps` 保存栏目顺序、名称及示意图类型。参数标签、单位、符号和显隐条件均随对应 `key` 存放。
 
 字段约束直接随 definition 的参数键声明：`required` 控制必填，`minimum`、`maximum` 为闭区间上下限，`exclusive_minimum` 为严格下限，`min_rows`、`max_rows` 为表格行数限制。`active_when`、`inactive_when`、`requires_numeric`、`requires_positive` 表达业务生效条件，与 UI 显隐条件分别维护。跨字段关系、家族与组件规则、模型有效性和诊断由 C# 定义；输入检查按家族组合共用组件检查，生成后检查模型，严重度与消息不由运行数据配置。计算前提失败由生成器携带问题编号和消息返回。
@@ -45,7 +45,7 @@ Bare Die 使用项目内置的单一预设 [Bare Die](presets/bare_die/Bare_Die.
 预设与用户保存的方案统一使用 `packstudio.project/v4`，通过相同入口导入；索引版本为 `packstudio.preset-index/v4`。预设 Name 与索引键相同。完整方案包含：
 
 - `SchemaVersion`、`TemplateId`、`Name`：契约版本、家族与方案名称。
-- `Values`：以内部字段名为键的方案参数。焊球及阵列配置使用 `bga.*`，通孔去除使用 `vias.removal_enabled`、`vias.removal_rows`、`vias.removal_columns` 和 `vias.omitted_cells`，初始值来自预设。
+- `Values`：以内部字段名为键的方案参数。焊球及阵列配置使用 `bga.*`，显式去球开关为 `bga.explicit_removal_enabled`；通孔去除使用 `vias.removal_enabled`、`vias.removal_rows`、`vias.removal_columns`、`vias.explicit_removal_enabled` 和 `vias.omitted_cells`，初始值来自预设。显式去除关闭时保留名单但不应用名单。
 - `MaterialAssignments`：每个组件材料组到材料 ID 的完整选择，缺少材料组会报错。
 - `CustomMaterials`：方案自定义物性及用户明确编辑的等效材料物性。
 

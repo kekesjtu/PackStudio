@@ -57,11 +57,11 @@ static class RemovalMatrixChecks
         var selection = bga["bga.omitted_cells"]!.DeepClone();
         balls.IsChecked = false;
         Pump(window);
-        if (Reset(fields) != null) throw new Exception("收起显式去球后矩阵仍可见");
+        if (Reset(fields) != null || bga["bga.explicit_removal_enabled"].Flag()) throw new Exception("关闭显式去球后矩阵仍可见或开关仍生效");
         balls.IsChecked = true;
         Pump(window);
-        if (Reset(fields) == null || workspace.Revision != revision || !JToken.DeepEquals(selection, bga["bga.omitted_cells"]))
-            throw new Exception("显式去球展开收起未保留已有去除单元或修改了方案");
+        if (Reset(fields) == null || workspace.Revision != revision + 2 || !JToken.DeepEquals(selection, bga["bga.omitted_cells"]))
+            throw new Exception("显式去球启用关闭未保存开关状态或未保留去除单元");
         var reset = Descendants<Button>(fields).SingleOrDefault(button => button.Content?.ToString() == "重置为空")
             ?? throw new Exception("去球矩阵缺少重置按钮");
         reset.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));

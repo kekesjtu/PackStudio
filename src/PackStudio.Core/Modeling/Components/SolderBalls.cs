@@ -3,6 +3,8 @@ using Newtonsoft.Json.Linq;
 namespace PackStudio.Core;
 public static class SolderBalls
 {
+    public static bool RequiresDiscrete(JObject values) => values["bga.explicit_removal_enabled"].Flag() || values["bga.ball_map_enabled"].Flag();
+
     public static Footprint Footprint(BuildContext c) => new(
         Span(c.I("bga.columns"), c.N("bga.pitch"), c.N("bga.diameter")),
         Span(c.I("bga.rows"), c.N("bga.pitch"), c.N("bga.diameter")));
@@ -33,7 +35,7 @@ public static class SolderBalls
         if (values["bga.ball_map_enabled"].Flag())
             return ((JArray)values["bga.ball_map"]!).Count;
         int nr = values["bga.rows"]!.Value<int>(), nc = values["bga.columns"]!.Value<int>();
-        if (values["bga.omitted_cells"] is JArray { Count: > 0 } omitted)
+        if (values["bga.explicit_removal_enabled"].Flag() && values["bga.omitted_cells"] is JArray { Count: > 0 } omitted)
             return nr * nc - omitted.Count;
         if (!values["bga.solder_removal_enabled"].Flag())
             return nr * nc;
@@ -54,7 +56,7 @@ public static class SolderBalls
     static IEnumerable<(int Row, int Column)> Cells(BuildContext c, int nr, int nc)
     {
         bool removal = c.B("bga.solder_removal_enabled");
-        var omissions = c.Values["bga.omitted_cells"] as JArray;
+        var omissions = c.B("bga.explicit_removal_enabled") ? c.Values["bga.omitted_cells"] as JArray : null;
         var (rp, cp) = removal && omissions is not { Count: > 0 } ? Populated(c.Values, nr, nc) : (nr, nc);
         return Cells(nr, nc, rp, cp, c.B("bga.staggered"), omissions);
     }

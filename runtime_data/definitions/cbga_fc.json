@@ -962,12 +962,22 @@
       }
     },
     {
+      "key": "bga.explicit_removal_enabled",
+      "type": "checkbox",
+      "label": "显式去球"
+    },
+    {
       "key": "bga.omitted_cells",
       "rows_key": "bga.rows",
       "columns_key": "bga.columns",
       "type": "removal_matrix",
       "label": "显式去球",
-      "step": "solder_removal"
+      "step": "solder_removal",
+      "active_when": {
+        "bga.explicit_removal_enabled": true,
+        "bga.ball_map_enabled": false
+      },
+      "enabled_key": "bga.explicit_removal_enabled"
     },
     {
       "key": "bga.center_solder_enabled",
@@ -1074,7 +1084,11 @@
       ],
       "type": "combobox",
       "label": "焊球建模方式",
-      "step": "modeling"
+      "step": "modeling",
+      "enabled_when": {
+        "bga.explicit_removal_enabled": false,
+        "bga.ball_map_enabled": false
+      }
     }
   ],
   "materials": [

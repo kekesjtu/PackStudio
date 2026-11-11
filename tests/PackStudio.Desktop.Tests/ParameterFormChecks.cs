@@ -66,9 +66,12 @@ static class ParameterFormChecks
         representation.ChoiceValue = equivalent;
         mapToggle.IsChecked = true;
         window.UpdateLayout();
-        if (!mapView.IsVisible || representation.Value.Text() != "discrete" ||
+        if (!mapView.IsVisible || representation.Value.Text() != "discrete" || representation.Enabled ||
             equivalent.Text() != "discrete" && !workspace.Status.Contains("discrete"))
             throw new Exception("enabling Ball Map did not display its table, switch representation and notify the user");
+        representation.ChoiceValue = equivalent;
+        if (representation.Value.Text() != "discrete" || string.IsNullOrEmpty(((ParameterField)mapToggle.DataContext).Notice))
+            throw new Exception("active Ball Map allowed equivalent modeling or lost its persistent notice");
         if (workspace.Document.TemplateId == "pbga_fc") NewPackageChecks.Capture(window, "bga-ball-map-enabled.png");
         mapField.Set(new JArray(new JObject { ["id"] = "A1", ["x"] = 0, ["y"] = 0 }));
         mapToggle.IsChecked = false;
@@ -82,26 +85,44 @@ static class ParameterFormChecks
         var center = Descendants<CheckBox>(panel).Single(box => box.DataContext is ParameterField { Key: "bga.solder_removal_enabled" });
         var explicitToggle = Descendants<CheckBox>(panel).Single(box => box.DataContext is ParameterField { Key: "bga.omitted_cells" });
         var explicitField = (ParameterField)explicitToggle.DataContext;
-        bool originalCenter = center.IsChecked == true, originalExpanded = explicitField.Expanded;
+        bool originalCenter = center.IsChecked == true, originalEnabled = explicitField.MatrixEnabled;
         center.IsChecked = false;
         explicitToggle.IsChecked = false;
         representation.ChoiceValue = equivalent;
         var originalCells = explicitField.Value!.DeepClone();
         explicitToggle.IsChecked = true;
         window.UpdateLayout();
-        if (center.IsChecked != false || representation.Value.Text() != "discrete" ||
+        if (center.IsChecked != false || representation.Value.Text() != "discrete" || representation.Enabled || explicitField.Notice.Length == 0 ||
             equivalent.Text() != "discrete" && !workspace.Status.Contains("discrete"))
             throw new Exception("explicit removal did not independently switch representation and notify the user");
         if (workspace.Document.TemplateId == "pbga_fc") NewPackageChecks.Capture(window, "bga-explicit-discrete.png");
         long revision = workspace.Revision;
         explicitToggle.IsChecked = false;
-        if (workspace.Revision != revision || !JToken.DeepEquals(originalCells, explicitField.Value))
-            throw new Exception("collapsing explicit removal modified the project or selection");
-        explicitToggle.IsChecked = originalExpanded;
+        if (workspace.Revision != revision + 1 || !JToken.DeepEquals(originalCells, explicitField.Value) ||
+            workspace.Document.Values["bga.explicit_removal_enabled"].Flag() || !representation.Enabled)
+            throw new Exception("disabling explicit removal did not persist its state, preserve selection and unlock representation");
+        explicitToggle.IsChecked = true;
+        mapToggle.IsChecked = true;
+        explicitToggle.IsChecked = false;
+        if (representation.Enabled) throw new Exception("representation unlocked while Ball Map was still active");
+        mapToggle.IsChecked = false;
+        if (!representation.Enabled) throw new Exception("representation remained locked after both features were disabled");
+        explicitToggle.IsChecked = originalEnabled;
         center.IsChecked = originalCenter;
         mapToggle.IsChecked = originalMapEnabled;
         representation.ChoiceValue = originalRepresentation;
-        Console.WriteLine("PASS " + workspace.Document.TemplateId + " BGA discrete switching and Ball Map visibility");
+        var imported = workspace.Document.Clone();
+        imported.Values["bga.explicit_removal_enabled"] = true;
+        imported.Values["bga.representation"] = equivalent.DeepClone();
+        var importedWorkspace = new Workspace();
+        importedWorkspace.Load(imported);
+        var importedForm = new ParameterForm(importedWorkspace);
+        if (importedWorkspace.Document.Values["bga.representation"].Text() != "discrete" ||
+            importedForm.Fields.Single(field => field.Key == "bga.representation").Enabled)
+            throw new Exception("opening enabled explicit removal did not normalize and lock its representation");
+        if (equivalent.Text() != "discrete" && !importedWorkspace.Status.Contains("discrete"))
+            throw new Exception("opening conflicting BGA settings silently changed representation");
+        Console.WriteLine("PASS " + workspace.Document.TemplateId + " BGA enable switches, discrete lock and persistent notice");
     }
 
     static void CheckSlugCoverSwitch(ParameterForm form)

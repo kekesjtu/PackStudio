@@ -70,7 +70,7 @@ static class FieldLayoutChecks
     {
         var visible = fields.Children.OfType<FrameworkElement>().Where(row => row.Visibility == Visibility.Visible).ToList();
         var lines = visible.OfType<Grid>().Where(row => row.DataContext is ParameterField field &&
-            field.Type is not ("table" or "removal_matrix") && field.Definition["help_text"] == null).ToList();
+            field.Type is not ("table" or "removal_matrix") && field.Definition["help_text"] == null && field.Notice.Length == 0).ToList();
         if (lines.Any(row => row.ActualHeight < 25.5) ||
             lines.Count > 1 && lines.Max(row => row.ActualHeight) - lines.Min(row => row.ActualHeight) > 0.6)
             throw new Exception(context + ": 单行字段高度不统一: " + string.Join(", ", lines.Select(row => $"{((ParameterField)row.DataContext).Key}={row.ActualHeight:F1}")));
@@ -112,7 +112,7 @@ static class FieldLayoutChecks
             var field = (ParameterField)row.DataContext;
             var box = Descendants<CheckBox>(row).Single();
             var editor = row.Children.OfType<RemovalMatrixEditor>().Single();
-            bool original = field.Expanded;
+            bool original = field.MatrixEnabled;
             long revision = workspace.Revision;
             var values = workspace.Document.Values.DeepClone();
             bool switchesRepresentation = field.Key == "bga.omitted_cells" && values["bga.representation"].Text() != "discrete";
@@ -120,19 +120,20 @@ static class FieldLayoutChecks
             box.IsChecked = false;
             window.UpdateLayout();
             double collapsedHeight = row.ActualHeight;
-            if (field.Expanded || editor.Visibility != Visibility.Collapsed || Math.Abs(collapsedHeight - box.ActualHeight) > 0.6)
+            if (field.MatrixEnabled || editor.Visibility != Visibility.Collapsed || Math.Abs(collapsedHeight - box.ActualHeight) > 0.6)
                 throw new Exception("收起矩阵仍占用附属内容空间");
             box.IsChecked = true;
             window.UpdateLayout();
-            if (!field.Expanded || !editor.IsVisible || row.ActualHeight <= collapsedHeight ||
-                Math.Abs(editor.TranslatePoint(new Point(), row).Y - box.ActualHeight - 6) > 0.6)
+            var header = row.Children.OfType<FrameworkElement>().Single(child => Grid.GetRow(child) == 0);
+            if (!field.MatrixEnabled || !editor.IsVisible || row.ActualHeight <= collapsedHeight ||
+                Math.Abs(editor.TranslatePoint(new Point(), row).Y - header.ActualHeight - 6) > 0.6)
                 throw new Exception("矩阵展开后未使用统一的头部与内容间距");
             CheckBoxes(row);
             if (workspace.Document.TemplateId == "pbga_fc" && field.Key == "bga.omitted_cells")
                 NewPackageChecks.Capture(window, "field-layout-matrix-expanded.png");
             box.IsChecked = original;
             window.UpdateLayout();
-            if (workspace.Revision != revision + (switchesRepresentation ? 1 : 0) || !JToken.DeepEquals(values, workspace.Document.Values))
+            if (workspace.Revision != revision + 2 || !JToken.DeepEquals(values, workspace.Document.Values))
                 throw new Exception("矩阵展开收起未按需切换离散建模，或修改了去除名单");
             matrices++;
         }

@@ -24,7 +24,7 @@ internal static class ChipArrayInputRules
         if (!c.B("bond_wire.auto_count")) return c.N("bond_wire.total");
         if (c.B("bga.ball_map_enabled")) return c.Values["bga.ball_map"] is JArray map ? map.Count : double.NaN;
         if (!double.IsFinite(c.N("bga.rows")) || !double.IsFinite(c.N("bga.columns"))) return double.NaN;
-        if (c.Values["bga.omitted_cells"] is JArray { Count: > 0 }) return SolderBalls.Count(c.Values);
+        if (c.B("bga.explicit_removal_enabled") && c.Values["bga.omitted_cells"] is JArray { Count: > 0 }) return SolderBalls.Count(c.Values);
         if (!c.B("bga.solder_removal_enabled")) return c.N("bga.rows") * c.N("bga.columns");
         if (new[] { "bga.populated_rows", "bga.populated_columns", "bga.removal_rows", "bga.removal_columns" }.Any(c.Invalid))
             return double.NaN;

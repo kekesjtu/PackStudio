@@ -9,8 +9,9 @@ public static class Vias
         if (!c.B("vias.removal_enabled"))
             return cells;
         int nr = c.I("vias.removal_rows"), nc = c.I("vias.removal_columns");
-        foreach (var p in (JArray)c.Values["vias.omitted_cells"]!)
-            cells.Add(((int)p["row"]!, (int)p["column"]!));
+        if (c.B("vias.explicit_removal_enabled"))
+            foreach (var p in (JArray)c.Values["vias.omitted_cells"]!)
+                cells.Add(((int)p["row"]!, (int)p["column"]!));
         for (int r = (rows - nr) / 2; r < (rows - nr) / 2 + nr; r++)
             for (int col = (cols - nc) / 2; col < (cols - nc) / 2 + nc; col++)
                 cells.Add((r, col));

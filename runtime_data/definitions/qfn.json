@@ -552,6 +552,15 @@
       "step": "thermal_vias"
     },
     {
+      "key": "vias.explicit_removal_enabled",
+      "type": "checkbox",
+      "label": "显式去孔",
+      "active_when": {
+        "vias.enabled": true,
+        "vias.removal_enabled": true
+      }
+    },
+    {
       "key": "vias.omitted_cells",
       "rows_key": "vias.rows",
       "columns_key": "vias.columns",
@@ -562,14 +571,12 @@
         "vias.removal_enabled": true
       },
       "active_when": {
-        "all": [
-          {
-            "vias.enabled": true,
-            "vias.removal_enabled": true
-          }
-        ]
+        "vias.enabled": true,
+        "vias.removal_enabled": true,
+        "vias.explicit_removal_enabled": true
       },
-      "step": "thermal_vias"
+      "step": "thermal_vias",
+      "enabled_key": "vias.explicit_removal_enabled"
     }
   ],
   "materials": [

@@ -37,6 +37,9 @@ public sealed class RuntimeDataCatalog
         if (data["keys"] is not JArray keys || data["materials"] is not JArray materials || data["steps"] is not JArray steps)
             throw new InvalidDataException($"{id} 参数定义缺少 keys、materials 或 steps。");
         CheckFields(keys);
+        foreach (var matrix in keys.Where(field => field["type"].Text() == "removal_matrix"))
+            if (!keys.Any(field => field["key"].Text() == matrix["enabled_key"].Text() && field["type"].Text() == "checkbox"))
+                throw new InvalidDataException($"矩阵 {matrix["key"]} 缺少有效的启用开关。");
         CheckFields(materials, "combobox");
         if (steps.Select(s => s["key"].Text()).Distinct().Count() != steps.Count)
             throw new InvalidDataException($"{id} 包含重复步骤。");

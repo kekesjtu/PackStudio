@@ -17,6 +17,7 @@ static class LayoutChecks
                 values["bga.representation"] = "discrete";
                 values["bga.staggered"] = false;
                 values["bga.solder_removal_enabled"] = false;
+                values["bga.explicit_removal_enabled"] = true;
                 values["bga.populated_rows"] = values["bga.populated_columns"] = 5;
                 values["bga.center_solder_enabled"] = false;
                 values["bga.omitted_cells"] = new JArray(new JObject { ["row"] = 0, ["column"] = 0 });
@@ -26,6 +27,16 @@ static class LayoutChecks
                 Assert(model.Metadata.SolderBallCount == 24 && SolderBalls.WireCount(new BuildContext(template, values,
                     "balls", tests.Catalog.Materials, tests.Catalog.Groups, document.MaterialAssignments)) == 24,
                     "explicit removal did not independently control ball and wire counts");
+                values["bga.explicit_removal_enabled"] = false;
+                Assert(tests.Generate(document).Metadata.SolderBallCount == 25 && SolderBalls.WireCount(new BuildContext(template, values,
+                    "balls", tests.Catalog.Materials, tests.Catalog.Groups, document.MaterialAssignments)) == 25,
+                    "disabled explicit removal still changed geometry or wire counts");
+                values["bga.omitted_cells"]![0]!["row"] = 5;
+                tests.Generate(document);
+                values["bga.explicit_removal_enabled"] = true;
+                Assert(tests.GenerateResult(document).Issues.Any(i => i.ParameterPaths.Any(path => path.StartsWith("bga.omitted_cells"))),
+                    "enabling a retained invalid selection did not validate it");
+                values["bga.omitted_cells"]![0]!["row"] = 0;
                 values["bga.center_solder_enabled"] = true;
                 values["bga.center_solder_rows"] = values["bga.center_solder_columns"] = 2;
                 values["bga.center_staggered"] = false;
@@ -52,10 +63,16 @@ static class LayoutChecks
                 {
                     var document = tests.Create(tests.Catalog.Load(family));
                     document.Values["bga.solder_removal_enabled"] = false;
+                    document.Values["bga.explicit_removal_enabled"] = true;
                     document.Values["bga.omitted_cells"] = new JArray(new JObject { ["row"] = 0, ["column"] = 0 });
                     var result = tests.GenerateResult(document);
                     Assert(result.Model == null && result.Issues.Any(i => i.Code == "input.bga.layout"),
                         "equivalent modeling silently ignored independent removals");
+                    document.Values["bga.omitted_cells"] = new JArray();
+                    Assert(tests.GenerateResult(document).Issues.Any(i => i.Code == "input.bga.layout"),
+                        "empty enabled explicit removal bypassed the discrete requirement");
+                    document.Values["bga.explicit_removal_enabled"] = false;
+                    tests.Generate(document);
                 });
         }
         tests.Case("layout", "integral JSON floats work as populated row and column counts", () =>
@@ -80,6 +97,7 @@ static class LayoutChecks
             values["bga.representation"] = "discrete";
             values["bga.solder_removal_enabled"] = true;
             var omitted = new JArray();
+            values["bga.explicit_removal_enabled"] = true;
             values["bga.omitted_cells"] = omitted;
             for (int row = 0; row < 7; row++)
             foreach (int column in new[] { 0, 8 })
@@ -113,6 +131,7 @@ static class LayoutChecks
             var document = tests.Create(template);
             var values = document.Values;
             values["vias.removal_enabled"] = true;
+            values["vias.explicit_removal_enabled"] = true;
             values["vias.removal_rows"] = 2;
             values["vias.removal_columns"] = 2;
             values["vias.omitted_cells"] = new JArray(
@@ -120,6 +139,24 @@ static class LayoutChecks
                 new JObject { ["row"] = 1, ["column"] = 1 });
             var context = new BuildContext(template, values, "vias", tests.Catalog.Materials, tests.Catalog.Groups, document.MaterialAssignments);
             Assert(Vias.Omissions(context, 5, 5).SetEquals([(0, 0), (1, 1), (1, 2), (2, 1), (2, 2)]), "via removal did not use the union");
+            context.Values["vias.explicit_removal_enabled"] = false;
+            Assert(Vias.Omissions(context, 5, 5).SetEquals([(1, 1), (1, 2), (2, 1), (2, 2)]), "disabled explicit vias still affected central removal");
         });
+        foreach (string family in new[] { "pbga_fc", "pbga_wb", "qfn" })
+            tests.Case("layout", family + " explicit via validation follows its enable switch", () =>
+            {
+                var template = tests.Catalog.Load(family);
+                var document = tests.Create(template);
+                document.Values["vias.enabled"] = true;
+                document.Values["vias.removal_enabled"] = true;
+                document.Values["vias.removal_rows"] = document.Values["vias.removal_columns"] = 0;
+                document.Values["vias.explicit_removal_enabled"] = false;
+                document.Values["vias.omitted_cells"] = new JValue("retained invalid input");
+                Assert(!InputValidator.Validate(document, template, tests.Catalog.Materials).Any(issue => issue.ParameterPaths.Contains("vias.omitted_cells")),
+                    "disabled explicit via data was validated");
+                document.Values["vias.explicit_removal_enabled"] = true;
+                Assert(InputValidator.Validate(document, template, tests.Catalog.Materials).Any(issue => issue.ParameterPaths.Contains("vias.omitted_cells")),
+                    "enabled explicit via data was not validated");
+            });
     }
 }

@@ -43,7 +43,7 @@ public sealed partial class ParameterPanel
 
     ParameterField? Find(string path) => path.StartsWith("MaterialAssignments.")
         ? form.Materials.FirstOrDefault(f => f.Key == "$material:" + path["MaterialAssignments.".Length..])
-        : form.Fields.FirstOrDefault(f => ParameterField.MatchesPath(f.Key, path));
+        : form.Fields.FirstOrDefault(f => f.ContainsPath(path));
     public string? StepFor(string path) => path == "Name" ? "summary" : Find(path)?.Step;
 
     public void Focus(string path)

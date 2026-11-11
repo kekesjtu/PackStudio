@@ -8,17 +8,16 @@ namespace PackStudio.Desktop;
 public sealed class ParameterField : ObservableObject
 {
     readonly ParameterForm form;
-    bool expanded;
     string text;
     public JToken Definition { get; }
     public ParameterField(ParameterForm form, JToken definition)
     {
         this.form = form; Definition = definition;
         text = Display(Value);
-        expanded = Value is JArray { Count: > 0 };
     }
     public string Key => Definition["key"].Text();
     internal static bool MatchesPath(string field, string issue) => issue == field || issue.StartsWith(field + "[");
+    internal bool ContainsPath(string path) => MatchesPath(Key, path) || Definition["enabled_key"].Text() == path;
     public string Label => Definition["label"].Text();
     public string Type => Definition["type"].Text();
     public string Step => Definition["step"].Text();
@@ -29,17 +28,16 @@ public sealed class ParameterField : ObservableObject
     public string Range => Bounds(Definition);
     public string RowsRange => Rows(Definition);
     public JArray Options => form.Template.OptionsFor(Definition);
-    public string? Error => form.Error(Key);
+    public string? Error => form.Error(Key) ?? form.Error(Definition["enabled_key"].Text());
     public bool HasError => Error != null;
-    public bool Expanded
+    public bool MatrixEnabled
     {
-        get => expanded;
-        set
-        {
-            if (SetProperty(ref expanded, value) && value && Key == "bga.omitted_cells")
-                form.UseDiscreteBalls();
-        }
+        get => form.Values[Definition["enabled_key"].Text()].Flag();
+        set => form.Set(Definition["enabled_key"].Text(), new JValue(value));
     }
+    public string Notice => (Key == "bga.omitted_cells" && MatrixEnabled ||
+        Key == "bga.ball_map_enabled" && BooleanValue || Key == "bga.representation" && SolderBalls.RequiresDiscrete(form.Values))
+        ? "已启用显式去球或焊球坐标表，BGA 焊球固定使用 Discrete Cuboids（离散建模）。关闭这两项后可选择其他建模方式。" : "";
     public int MatrixRows => Count(Definition["rows_key"].Text());
     public int MatrixColumns => Count(Definition["columns_key"].Text());
     int Count(string key) => form.Values[key]?.Type is JTokenType.Integer or JTokenType.Float &&
@@ -51,7 +49,7 @@ public sealed class ParameterField : ObservableObject
         get => text;
         set { SetProperty(ref text, value); Set(FieldValues.Parse(Definition, value)); }
     }
-    public void Set(JToken value) => form.Set(this, value);
+    public void Set(JToken value) => form.Set(Key, value);
     internal IEnumerable<string> RuleDependencies(string rule) =>
         (Definition[rule] as JObject ?? new()).Properties().Select(p => p.Name);
     internal void Notify(string property)

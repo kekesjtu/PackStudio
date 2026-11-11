@@ -31,6 +31,9 @@ static class ProjectChecks
                 document.MaterialAssignments["group-substrate"] = "copper";
                 document.Values["bga.center_solder_enabled"] = false;
                 document.Values["bga.center_solder_rows"] = JValue.CreateNull();
+                document.Values["bga.explicit_removal_enabled"] = true;
+                document.Values["bga.representation"] = "discrete";
+                document.Values["bga.omitted_cells"] = new JArray(new JObject { ["row"] = 0, ["column"] = 0 });
                 document.CustomMaterials.Add(new Material("custom", "自定义材料", new(1, 2, 3), 1000, 500));
                 ProjectStore.Save(document, path);
                 var saved = JsonData.Read(path);
@@ -38,6 +41,12 @@ static class ProjectChecks
                 var loaded = ProjectStore.Load(path, tests.Catalog);
                 Assert(loaded.Name == document.Name && loaded.MaterialAssignments["group-substrate"] == "copper", "current project roundtrip");
                 Assert(!loaded.Values["bga.center_solder_enabled"].Flag() && loaded.Values["bga.center_solder_rows"]!.Type == JTokenType.Null, "layout false/null roundtrip");
+                Assert(loaded.Values["bga.explicit_removal_enabled"].Flag(), "explicit removal enable state was not saved");
+                loaded.Values["bga.explicit_removal_enabled"] = false;
+                ProjectStore.Save(loaded, path);
+                var disabled = ProjectStore.Load(path, tests.Catalog);
+                Assert(!disabled.Values["bga.explicit_removal_enabled"].Flag() && ((JArray)disabled.Values["bga.omitted_cells"]!).Count == 1,
+                    "disabled explicit removal did not preserve its state and selection through save/load");
                 Near(loaded.CustomMaterials.Single().Conductivity.Y, 2, "custom material roundtrip");
                 var input = JsonData.Read(path);
                 input["extra"] = true;

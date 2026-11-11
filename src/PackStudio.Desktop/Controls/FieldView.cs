@@ -20,10 +20,12 @@ public static partial class FieldView
         FrameworkElement view;
         if (control == "removal_matrix")
         {
-            var box = BooleanEditor(field, nameof(ParameterField.Expanded), field.Label);
+            var header = new StackPanel();
+            header.Children.Add(BooleanEditor(field, nameof(ParameterField.MatrixEnabled), field.Label));
+            AddHelp(header, field);
             var matrix = new RemovalMatrixEditor(field);
-            VisibilityBinding(matrix, field, nameof(ParameterField.Expanded));
-            view = HeaderBodyRow(box, matrix);
+            VisibilityBinding(matrix, field, nameof(ParameterField.MatrixEnabled));
+            view = HeaderBodyRow(header, matrix);
         }
         else if (control == "checkbox")
         {
@@ -85,6 +87,15 @@ public static partial class FieldView
     {
         if (field.Definition["help_text"].Text() is string help && help.Length > 0)
             editors.Children.Add(new TextBlock { Text = help, TextWrapping = TextWrapping.Wrap, Foreground = Brushes.SlateGray, FontSize = 11 });
+        if (field.Key is not ("bga.omitted_cells" or "bga.ball_map_enabled" or "bga.representation")) return;
+        var notice = new TextBlock { TextWrapping = TextWrapping.Wrap, Foreground = Brushes.DarkSlateBlue, FontSize = 11 };
+        Bind(notice, TextBlock.TextProperty, field, nameof(ParameterField.Notice), BindingMode.OneWay);
+        var style = new Style(typeof(TextBlock));
+        style.Setters.Add(new Setter(FrameworkElement.MarginProperty, Application.Current.FindResource("FieldBodySpacing")));
+        style.Triggers.Add(new DataTrigger { Binding = new Binding(nameof(ParameterField.Notice)) { Source = field }, Value = "",
+            Setters = { new Setter(UIElement.VisibilityProperty, Visibility.Collapsed) } });
+        notice.Style = style;
+        editors.Children.Add(notice);
     }
 
     public static void VisibilityBinding(FrameworkElement view, ParameterField field, string property = nameof(ParameterField.Visible)) =>

@@ -16,6 +16,7 @@ internal static class ViaInputRules
         double removedRows = c.N("vias.removal_rows"), removedColumns = c.N("vias.removal_columns");
         c.Check(removedRows > rows || removedColumns > columns || (removedRows == 0) != (removedColumns == 0),
             "input.via.removal", "通孔去除区域无效。", "vias.removal_rows", "vias.removal_columns", "vias.rows", "vias.columns");
-        ArrayInputRules.ValidateCells(c, "vias.omitted_cells", c.Values["vias.omitted_cells"] as JArray, rows, columns);
+        if (c.B("vias.explicit_removal_enabled"))
+            ArrayInputRules.ValidateCells(c, "vias.omitted_cells", c.Values["vias.omitted_cells"] as JArray, rows, columns);
     }
 }
