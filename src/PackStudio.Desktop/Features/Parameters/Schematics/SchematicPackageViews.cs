@@ -129,10 +129,11 @@ internal sealed partial class SchematicDrawing
             Text(count, 350, 310, align: System.Windows.TextAlignment.Center);
             Line(350, 331, 350, 345);
             double leftTarget = (boxLeft + 285) / 2, rightTarget = (415 + boxRight) / 2;
-            Line(350, 345, leftTarget, first);
-            Line(350, 345, rightTarget, first);
-            Arrow(leftTarget, first, 350 - leftTarget, 345 - first);
-            Arrow(rightTarget, first, 350 - rightTarget, 345 - first);
+            Line(leftTarget, 345, rightTarget, 345);
+            Line(leftTarget, 345, leftTarget, first);
+            Line(rightTarget, 345, rightTarget, first);
+            Arrow(leftTarget, first, 0, -1);
+            Arrow(rightTarget, first, 0, -1);
         }
         double top = Bga ? 395 : PlanTop + PlanLeadInner, bottom = 2 * PlanCenterY - top;
         string length = Bga ? "bond_wire.extent_length" : "bond_wire.length_x";
