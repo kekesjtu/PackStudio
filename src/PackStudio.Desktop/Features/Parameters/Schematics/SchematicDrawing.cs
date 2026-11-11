@@ -63,7 +63,7 @@ internal sealed partial class SchematicDrawing(PackageDefinition template, Proje
         {
             PackageSection();
             Plan();
-            Axes(70, PlanBottom + 4, bottomView: QfnBottomView);
+            Axes(70, PlanBottom + 4);
             PackageLegend();
         }
         scene.Freeze();
@@ -217,13 +217,11 @@ internal sealed partial class SchematicDrawing(PackageDefinition template, Proje
         Line(x - 5, y1, x + 5, y1); Line(x - 5, y2, x + 5, y2);
         Text(label, x - 8, labelY, 13, align: TextAlignment.Right);
     }
-    void Axes(double x, double y, string vertical = "Y", bool bottomView = false)
+    void Axes(double x, double y, string vertical = "Y")
     {
         Line(x, y, x + 34, y, Muted); Arrow(x + 34, y, -1, 0, Muted);
-        double endY = y + (bottomView ? 32 : -32);
-        Line(x, y, x, endY, Muted); Arrow(x, endY, 0, bottomView ? -1 : 1, Muted);
-        Text("X", x + 40, y - 10, 11, Muted);
-        Text(vertical, x - 5, y + (bottomView ? 37 : -51), 11, Muted);
+        Line(x, y, x, y - 32, Muted); Arrow(x, y - 32, 0, 1, Muted);
+        Text("X", x + 40, y - 10, 11, Muted); Text(vertical, x - 5, y - 51, 11, Muted);
     }
     void Legend(params (Brush Color, string Label)[] entries)
     {

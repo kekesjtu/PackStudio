@@ -173,7 +173,6 @@ internal sealed partial class SchematicDrawing
 
     void QfnBottomPlan()
     {
-        Text("底视图", 80, 350);
         Rect(Mold, 200, PlanTop, 300, PlanBottom - PlanTop);
         for (int i = 0; i < 6; i++)
         {
@@ -184,8 +183,8 @@ internal sealed partial class SchematicDrawing
             Rect(Metal, pin, PlanTop, 10, 25);
             Rect(Metal, pin, PlanBottom - 25, 10, 25);
         }
+        Rect(Metal, 265, 408, 170, 124);
         Rect(Metal, QfnExposedPadLeft, 432, QfnExposedPadWidth, 76);
-        DashedRect(265, 408, 170, 124);
     }
 
     void PackageSection(bool removeCentralBalls = false)
