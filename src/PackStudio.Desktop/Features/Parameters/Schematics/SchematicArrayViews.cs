@@ -136,7 +136,7 @@ internal sealed partial class SchematicDrawing
         DimV(top, top + 6, 550, 590, prefix + ".thickness");
         DimensionCallout(prefix + ".count", 518, 302, firstViaX + 4 * viaPitch, top + 3, arrow: true);
         DetailLink(255, top + 3, 14, 242, 366, "增层金属局部剖面");
-        DetailLink(firstViaX + viaPitch, top + 3, 13, 499, 333, "微通孔局部俯视");
+        DetailLink(firstViaX + viaPitch, top + 3, 13, 499, 377, "微通孔局部俯视");
         MetalStack(192, 410);
         ViaInset(499, 462, prefix);
         Legend((Board, "介电层"), (Metal, "金属层 / 镀层"));
@@ -147,8 +147,12 @@ internal sealed partial class SchematicDrawing
         Rect(Board, x - 48, y - 45, 96, 90);
         Ellipse(Metal, x, y, 27, 27);
         Ellipse(Brushes.White, x, y, 17, 17);
-        DimH(x - 27, x + 27, y, y - 66, prefix + ".diameter");
-        DimH(x + 17, x + 27, y, y + 65, prefix + ".plating");
+        bool microvia = prefix is "upper" or "lower";
+        DimH(x - 27, x + 27, y, y + (microvia ? 65 : -66), prefix + ".diameter");
+        if (microvia)
+            DimensionCallout(prefix + ".plating", x + 62, y - 10, x + 22, y, arrow: true);
+        else
+            DimH(x + 17, x + 27, y, y + 65, prefix + ".plating");
     }
 
     void MetalStack(double x, double y)
