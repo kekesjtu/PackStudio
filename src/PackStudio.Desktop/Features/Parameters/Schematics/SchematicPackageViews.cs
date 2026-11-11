@@ -38,8 +38,9 @@ internal sealed partial class SchematicDrawing
                 FlagDimensions();
                 break;
             case "thermal_land" or "thermal_land_solder":
-                Callout("散热焊料", 324, 283, 350, 239, arrow: true);
-                DimV(235, 244, 435, 555, "thermal_land.thickness");
+                Callout("焊料", 470, 277, 430, LandSolderTop + 4.5, arrow: true);
+                Callout("散热焊盘", 290, 292, 350, LandTop + 4.5, arrow: true);
+                DimV(LandTop, LandTop + 9, 435, 575, "thermal_land.thickness");
                 break;
             case "bond_wires": Wires(); break;
             case "leadframe" or "lead_solder_interconnect": Leads(); break;
@@ -81,7 +82,7 @@ internal sealed partial class SchematicDrawing
 
     void EncapsulantDimensions()
     {
-        DimV(Bga ? 163 : 164, Bga ? 230 : 244, Bga ? 505 : 515, 580, Bga ? "encapsulant.thickness" : "body.thickness");
+        DimV(Bga ? 163 : 164, Bga ? 230 : Qfn ? 235 : 244, Bga ? 505 : 515, 580, Bga || Qfn ? "encapsulant.thickness" : "body.thickness");
         double left = Bga ? 225 : 200, top = Bga ? 390 : PlanTop, bottom = 2 * PlanCenterY - top;
         string prefix = Bga ? "encapsulant" : "body";
         DimH(left, 700 - left, bottom, PlanLengthDimensionY, prefix + ".length");
@@ -147,7 +148,7 @@ internal sealed partial class SchematicDrawing
         if (Qfn)
         {
             DimV(223, 235, 185, 140, "leads.thickness", left: true);
-            DimV(235, 244, 515, 590, "leads.exposed_thickness");
+            DimV(230, 235, 515, 590, "leads.exposed_thickness");
             DimH(455, 515, 235, 291, "leads.length");
             DimensionCallout("leads.etch", 67, 273, 187, 235);
         }

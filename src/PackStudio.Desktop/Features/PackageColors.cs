@@ -24,13 +24,13 @@ internal static class PackageColors
             ceramicBoard ? Ceramic : Substrate,
         "group-die-attach" or "group-lid-adhesive" or "group-stiffener-adhesive" or
             "group-slug-adhesive" or "group-plate-die-attach" or "group-lid-die-attach" => Attach,
-        "group-solder-ball" or "group-thermal-land" or "group-thermal-solder" or "group-solder" => Solder,
+        "group-solder-ball" or "group-thermal-solder" or "group-solder" => Solder,
         "group-flip-chip-bumps" => Bump,
         "group-bond-wires" => Wire,
         "group-lid" or "group-plate" => Cover,
         "group-center-solder-ball" or "group-lead-frame" or "group-die-flag" or "group-tie-bars" or
             "group-vias" or "group-traces" or "group-stiffener" or "group-backside-spreader" or
-            "group-slug" or "group-exposed-pad" => Metal,
+            "group-slug" or "group-exposed-pad" or "group-thermal-land" => Metal,
         "group-via-disconnect" => Colors.White,
         _ => Colors.LightSlateGray
     };

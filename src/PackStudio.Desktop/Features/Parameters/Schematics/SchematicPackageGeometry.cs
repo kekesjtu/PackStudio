@@ -48,8 +48,8 @@ internal sealed partial class SchematicDrawing
         }
         else
         {
-            if (drawMold) Rect(Mold, 185, y - 66, 330, 80);
-            Rect(Metal, 265, y - 7, 170, 12);
+            if (drawMold) Rect(Mold, 185, y - 66, 330, Qfn ? 71 : 80);
+            Rect(Metal, 265, y - 7, 170, ThermalLand && !Qfn ? 21 : 12);
             Rect(Attach, 285, y - 12, 130, 5);
             Rect(Die, 285, y - 35, 130, 23);
             foreach (bool left in new[] { true, false })
@@ -69,8 +69,10 @@ internal sealed partial class SchematicDrawing
                 }
             }
             if (Qfn && step == "thermal_vias") ViaSection(y + 5, 21);
+            if (Qfn || ThermalLand)
+                Rect(Solder, 265, LandSolderTop, 170, 9);
             if (ThermalLand)
-                Rect(Solder, 265, y + 5, 170, 9);
+                Rect(Metal, 265, LandTop, 170, 9);
         }
     }
 

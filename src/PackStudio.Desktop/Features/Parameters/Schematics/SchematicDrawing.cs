@@ -38,6 +38,8 @@ internal sealed partial class SchematicDrawing(PackageDefinition template, Proje
         center + (index - (count - 1) / 2.0) * pitch;
     bool BumpedDie => step == "bumped_die";
     bool ThermalLand => step is "thermal_land" or "thermal_land_solder";
+    double LandSolderTop => SectionY + (Qfn ? 5 : 14);
+    double LandTop => LandSolderTop + 9;
     bool SpreaderSection => step == "backside_spreader";
     bool StiffenedLid => step == "top_cover" && CoverType == "lid" && document.Values["stiffener.enabled"].Flag();
     internal bool HasLocalPackageScene => BumpedDie || ThermalLand || SpreaderSection || StiffenedLid;
