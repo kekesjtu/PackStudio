@@ -197,7 +197,6 @@ static class SchematicChecks
         }
         workspace.Select("qfn");
         workspace.Document.Values["vias.enabled"] = false;
-        workspace.Document.Values["vias.removal_enabled"] = false;
         schematic.Update(workspace.Template, workspace.Document, "thermal_vias", "热通孔");
         string viaLabels = LabelText(schematic);
         Require(viaLabels.Contains("通孔阵列局部俯视") &&

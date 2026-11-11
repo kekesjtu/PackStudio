@@ -131,7 +131,6 @@ def cases(baselines: Path, inputs: Path, *, families=None):
                         "vias.pitch": 0.5,
                         "vias.plating": 0.025,
                         "vias.modeling": mode,
-                        "vias.removal_enabled": True,
                         "vias.omitted_cells": [
                             {"row": r, "column": c}
                             for r in range(4)

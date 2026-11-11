@@ -48,19 +48,18 @@ static class GenerationChecks
             }
         });
 
-        tests.Case("generation", "via removal diagnostics use the flat key and field symbol", () =>
+        tests.Case("generation", "via count diagnostics use the flat key and field symbol", () =>
         {
             var original = tests.Catalog.Load("pbga_wb");
             var data = (JObject)original.Data.DeepClone();
-            var field = data["keys"]!.Single(f => f["key"].Text() == "vias.removal_rows");
+            var field = data["keys"]!.Single(f => f["key"].Text() == "vias.rows");
             field["des_symbol"] = "Rv";
             var definition = new PackageDefinition(original.Info, data, original.Presets);
             var document = tests.Create(definition);
             document.Values["vias.enabled"] = true;
-            document.Values["vias.removal_enabled"] = true;
-            document.Values["vias.removal_rows"] = "invalid";
+            document.Values["vias.rows"] = "invalid";
             var issue = InputValidator.Validate(document, definition, tests.Catalog.Materials)
-                .Single(i => i.Code == "input.type.number" && i.ParameterPaths.Contains("vias.removal_rows"));
+                .Single(i => i.Code == "input.type.number" && i.ParameterPaths.Contains("vias.rows"));
             Assert(issue.Message == "Rv：必须为数值。", "via removal diagnostic did not resolve its symbol");
         });
 

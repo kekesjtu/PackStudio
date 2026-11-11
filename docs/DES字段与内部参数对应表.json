@@ -3519,29 +3519,16 @@
           "property_name": "solderBallMapDialog"
         }
       },
-      "vias.removal_enabled": {
-        "DES": {
-          "keys": []
-        },
-        "pack_script": {}
-      },
-      "vias.removal_rows": {
-        "DES": {
-          "keys": []
-        },
-        "pack_script": {}
-      },
-      "vias.removal_columns": {
-        "DES": {
-          "keys": []
-        },
-        "pack_script": {}
-      },
       "vias.omitted_cells": {
         "DES": {
-          "keys": []
+          "attachment": ".var3",
+          "comment": "原生记录保留孔位；内部记录去除孔位，取补集并转换行方向"
         },
-        "pack_script": {}
+        "pack_script": {
+          "name": "coreVias",
+          "property_name": "depopulationDialog"
+        },
+        "comment": "原生数据集提供 viaDepopulation 编辑入口；孔位数据通过 DES 附件回读，脚本直接赋值能力不作假定。"
       }
     },
     "ProjectDocument": {
@@ -4716,29 +4703,16 @@
           "property_name": "solderBallMapDialog"
         }
       },
-      "vias.removal_enabled": {
-        "DES": {
-          "keys": []
-        },
-        "pack_script": {}
-      },
-      "vias.removal_rows": {
-        "DES": {
-          "keys": []
-        },
-        "pack_script": {}
-      },
-      "vias.removal_columns": {
-        "DES": {
-          "keys": []
-        },
-        "pack_script": {}
-      },
       "vias.omitted_cells": {
         "DES": {
-          "keys": []
+          "attachment": ".var3",
+          "comment": "原生记录保留孔位；内部记录去除孔位，取补集并转换行方向"
         },
-        "pack_script": {}
+        "pack_script": {
+          "name": "thermalVias",
+          "property_name": "depopulationDialog"
+        },
+        "comment": "原生数据集提供 viaDepopulation 编辑入口；孔位数据通过 DES 附件回读，脚本直接赋值能力不作假定。"
       }
     },
     "ProjectDocument": {
@@ -6007,30 +5981,6 @@
           "name": "vias",
           "property_name": "modelViasAs"
         }
-      },
-      "vias.removal_enabled": {
-        "DES": {
-          "keys": []
-        },
-        "pack_script": {}
-      },
-      "vias.removal_rows": {
-        "DES": {
-          "keys": []
-        },
-        "pack_script": {}
-      },
-      "vias.removal_columns": {
-        "DES": {
-          "keys": []
-        },
-        "pack_script": {}
-      },
-      "vias.omitted_cells": {
-        "DES": {
-          "keys": []
-        },
-        "pack_script": {}
       }
     },
     "ProjectDocument": {

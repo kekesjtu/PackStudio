@@ -334,10 +334,7 @@
 | `bga.removal_columns` | — | — |
 | `bga.ball_map_enabled` | `csvBGA` | `name="solderBalls"`; `property_name="solderBallMap"` |
 | `bga.ball_map` | `csvBGA` | `name="solderBalls"`; `property_name="solderBallMapDialog"` |
-| `vias.removal_enabled` | — | — |
-| `vias.removal_rows` | — | — |
-| `vias.removal_columns` | — | — |
-| `vias.omitted_cells` | — | — |
+| `vias.omitted_cells` | `.var3` 附件（保留孔位，与内部去除名单互为补集，转换行方向） | 原生 `viaDepopulation` 编辑入口及 `depopulationDialog`；经 DES 附件传递，不假定脚本可直接赋值 |
 
 ### MaterialAssignments
 
@@ -451,10 +448,7 @@
 | `bga.removal_columns` | — | — |
 | `bga.ball_map_enabled` | `csvBGA` | `name="solderBalls"`; `property_name="solderBallMap"` |
 | `bga.ball_map` | `csvBGA` | `name="solderBalls"`; `property_name="solderBallMapDialog"` |
-| `vias.removal_enabled` | — | — |
-| `vias.removal_rows` | — | — |
-| `vias.removal_columns` | — | — |
-| `vias.omitted_cells` | — | — |
+| `vias.omitted_cells` | `.var3` 附件（保留孔位，与内部去除名单互为补集，转换行方向） | 原生 `viaDepopulation` 编辑入口及 `depopulationDialog`；经 DES 附件传递，不假定脚本可直接赋值 |
 
 ### MaterialAssignments
 
@@ -605,10 +599,6 @@
 | `leads.modeling` | `radio_LeadFram_modeling` | `name="modelingOptions"`; `property_name="modelLeadAndSolderInterconnectAs"` |
 | `bond_wire.steps` | `nsteps` | `name="modelingOptions"`; `property_name="numberOfDiscreteBondwireSteps"` |
 | `vias.modeling` | `radio_via_modeling` | `name="vias"`; `property_name="modelViasAs"` |
-| `vias.removal_enabled` | — | — |
-| `vias.removal_rows` | — | — |
-| `vias.removal_columns` | — | — |
-| `vias.omitted_cells` | — | — |
 
 ### MaterialAssignments
 

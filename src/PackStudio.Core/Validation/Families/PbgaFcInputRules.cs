@@ -9,7 +9,7 @@ internal static class PbgaFcInputRules
         BumpInputRules.Validate(c);
         CoverInputRules.Validate(c);
         SlugInputRules.Validate(c, wirebond: false);
-        ViaInputRules.Validate(c);
+        ViaInputRules.Validate(c, removal: true);
         MetalLayerInputRules.Validate(c);
         c.Fits("die.length", "substrate.length"); c.Fits("die.width", "substrate.width");
         c.Check((c.B("upper.enabled") ? c.N("upper.thickness") : 0) + (c.B("lower.enabled") ? c.N("lower.thickness") : 0) >= c.N("substrate.thickness") && c.B("vias.enabled"),

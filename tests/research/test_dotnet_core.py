@@ -57,16 +57,12 @@ def test_request_overrides_flat_fields_and_preserves_preset_values(cli):
         "overrides": {
             "bga.center_solder_enabled": False,
             "bga.center_solder_rows": None,
-            "vias.removal_enabled": True,
-            "vias.removal_columns": 2,
+            "vias.omitted_cells": [{"row": 0, "column": 0}],
         },
     })
     assert values["bga.center_solder_enabled"] is False
     assert values["bga.center_solder_rows"] is None
-    assert values["vias.removal_enabled"] is True
-    assert values["vias.removal_columns"] == 2
-    assert values["vias.removal_rows"] == 0
-    assert values["vias.omitted_cells"] == []
+    assert values["vias.omitted_cells"] == [{"row": 0, "column": 0}]
 
 
 def test_request_rejects_unknown_protocol_fields_and_parameter_keys(cli):
@@ -112,7 +108,7 @@ def test_parameter_help_maps_symbols_choices_and_table_columns(cli):
     assert any(option["value"] == "4-Layer" and option["label"] for option in fields["substrate.layers"]["options"])
     assert fields["metal.layers"]["columns"]["depth"]["label"]
     wirebond_fields = cli.query("--help", "pbga_wb")
-    assert wirebond_fields["vias.removal_enabled"]["label"]
+    assert wirebond_fields["vias.omitted_cells"]["label"]
 
 
 def test_batch_request_initializes_four_layer_geometry(cli):

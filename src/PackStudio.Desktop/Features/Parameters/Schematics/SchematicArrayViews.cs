@@ -1,3 +1,4 @@
+using Newtonsoft.Json.Linq;
 using System.Windows;
 using System.Windows.Media;
 using PackStudio.Core;
@@ -97,23 +98,22 @@ internal sealed partial class SchematicDrawing
     {
         DetailLink(ViaX(2), 245, 17, 279, 320, "通孔阵列局部俯视");
         Rect(Board, 165, 390, 228, 164);
-        for (int row = 0; row < 5; row++)
-            for (int col = 0; col < 7; col++)
-                if (row is 0 or 4 || col is < 2 or > 4)
-                {
-                    double x = Centered(col, 7, 30, 279), y = Centered(row, 5, 28, 472);
-                    Ellipse(Metal, x, y, 6, 6);
-                    Ellipse(Brushes.White, x, y, 3, 3);
-                }
-        DimV(472, 500, 189, 100, "vias.pitch", left: true);
+        int rows = Qfn ? 5 : Math.Max(1, (int)document.Values["vias.rows"].Number(5));
+        int columns = Qfn ? 7 : Math.Max(1, (int)document.Values["vias.columns"].Number(7));
+        double dx = 180.0 / Math.Max(1, columns - 1), dy = 112.0 / Math.Max(1, rows - 1);
+        for (int row = 0; row < rows; row++)
+            for (int col = 0; col < columns; col++)
+            {
+                if (!Qfn && document.Values["vias.omitted_cells"] is JArray cells &&
+                    cells.Any(cell => cell["row"].Number() == row && cell["column"].Number() == col)) continue;
+                double x = Centered(col, columns, dx, 279), y = Centered(row, rows, dy, 472);
+                Ellipse(Metal, x, y, 6, 6);
+                Ellipse(Brushes.White, x, y, 3, 3);
+            }
+        double pitchStart = Centered((rows - 1) / 2, rows, dy, 472);
+        DimV(pitchStart, pitchStart + dy, 189, 100, "vias.pitch", left: true);
         BracketH(189, 369, 566, "vias.columns");
         BracketV(148, 416, 528, "vias.rows", 393);
-        DashedRect(234, 430, 90, 84);
-        if (!Qfn)
-        {
-            BracketH(234, 324, 524, "vias.removal_columns");
-            BracketV(400, 430, 514, "vias.removal_rows", 370);
-        }
         Ellipse(null, 369, 416, 11, 11);
         Line(380, 416, 466, 435, Muted);
         ViaInset(514, 454, "vias");

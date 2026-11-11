@@ -5,7 +5,7 @@ internal static class PbgaWbInputRules
     public static void Validate(InputChecks c)
     {
         SolderBallInputRules.Validate(c, "package");
-        ViaInputRules.Validate(c);
+        ViaInputRules.Validate(c, removal: true);
         MetalLayerInputRules.Validate(c, checkSurfaces: true);
         SlugInputRules.Validate(c, wirebond: true);
         c.Fits("die.length", "encapsulant.length");
