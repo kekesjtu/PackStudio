@@ -128,7 +128,7 @@ internal sealed partial class SchematicDrawing
         DimensionCallout(prefix + ".count", 518, 302, firstViaX + 4 * viaPitch, top + 3, arrow: true);
         DetailLink(255, top + 3, 14, 242, 366, "增层金属局部剖面");
         DetailLink(firstViaX + viaPitch, top + 3, 13, 499, 377, "微通孔局部俯视");
-        MetalStack(192, 410);
+        MetalStack(192, 410, lowerBuiltUp: prefix == "lower");
         ViaInset(499, 462, prefix);
         Legend((Board, "介电层"), (Metal, "金属层 / 镀层"));
     }
@@ -146,13 +146,20 @@ internal sealed partial class SchematicDrawing
             DimH(x + 17, x + 27, y, y + 65, prefix + ".plating");
     }
 
-    void MetalStack(double x, double y)
+    void MetalStack(double x, double y, bool lowerBuiltUp = false)
     {
-        Rect(Board, x, y, 100, 142);
-        const double pitch = 136.0 / (IllustratedLayers - 1);
-        for (int i = 0; i < IllustratedLayers; i++) Rect(Metal, x, y + i * pitch, 100, 6, false);
-        DrawDimV(y, y + pitch, x, x - 30, "层深  zn", left: true);
-        Callout("层厚  tzn", x + 110, y + 62, x + 98, y + 3);
+        const double width = 100, height = 142, layerThickness = 6;
+        double pitch = lowerBuiltUp ? 18 : (height - layerThickness) / (IllustratedLayers - 1);
+        double firstLayerTop = y + height - layerThickness - (IllustratedLayers - 1) * pitch;
+        Rect(Board, x, y, width, height);
+        for (int i = 0; i < IllustratedLayers; i++)
+            Rect(Metal, x, firstLayerTop + i * pitch, width, layerThickness, false);
+
+        double measuredLayerTop = firstLayerTop + pitch;
+        DrawDimV(y, measuredLayerTop, x, x - 30, "层深  zn", left: true);
+        DrawDimV(measuredLayerTop, measuredLayerTop + layerThickness, x + width, x + width + 25, "层厚  tzn");
+        if (lowerBuiltUp)
+            Callout("基板顶面", x + width + 30, y - 9, x + width, y);
     }
 
     void DashedRect(double x, double y, double width, double height) =>

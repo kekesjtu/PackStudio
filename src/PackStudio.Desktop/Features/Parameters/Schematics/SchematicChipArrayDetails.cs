@@ -31,14 +31,29 @@ internal sealed partial class SchematicDrawing
 
     void ChipArrayMetal()
     {
+        const double lengthFraction = 0.275, widthFraction = 0.25;
+        const double planLeft = 412, planTop = 425, planSize = 152;
+        double boardCenter = BgaBoardLeft + BgaBoardWidth / 2;
+        double sectionOpeningLength = BgaBoardWidth * lengthFraction;
+        var openingMaterial = Brush(Colors.LightSlateGray);
+
         PackageSection();
-        DetailLink(215, 245, 19, 215, 379, "金属层局部剖面");
-        DetailLink(485, 234, 14, 485, 340, "顶层开孔局部俯视");
-        MetalStack(165, 425);
-        Rect(Metal, 410, 425, 150, 125);
-        Rect(Board, 450, 455, 70, 65);
-        DimH(450, 520, 455, 395, "metal.hole_length");
-        DimV(455, 520, 520, 590, "metal.hole_width");
-        Legend((Board, "介电层"), (Metal, "金属层"));
+        Rect(openingMaterial, boardCenter - sectionOpeningLength / 2, SectionY,
+            sectionOpeningLength, SectionMetalThickness, false);
+        DetailLink(215, 245, 19, 200, 342, "金属层局部剖面");
+        // Offset the leader within the central region so it clears the solder ball on the centerline.
+        DetailLink(boardCenter - 18, SectionY + SectionMetalThickness / 2, 9,
+            planLeft + planSize / 2, 342, "顶层开孔俯视");
+        MetalStack(150, 425);
+
+        double openingLength = planSize * lengthFraction, openingWidth = planSize * widthFraction;
+        double openingLeft = planLeft + (planSize - openingLength) / 2;
+        double openingTop = planTop + (planSize - openingWidth) / 2;
+        double openingRight = openingLeft + openingLength;
+        Rect(Metal, planLeft, planTop, planSize, planSize);
+        Rect(openingMaterial, openingLeft, openingTop, openingLength, openingWidth);
+        DimH(openingLeft, openingRight, openingTop, 400, "metal.hole_length");
+        DimV(openingTop, openingTop + openingWidth, openingRight, 610, "metal.hole_width");
+        Legend((Board, "介电层"), (Metal, "金属层"), (openingMaterial, "顶层中央区域"));
     }
 }

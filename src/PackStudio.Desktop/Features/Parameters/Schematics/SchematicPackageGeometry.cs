@@ -8,6 +8,7 @@ internal sealed partial class SchematicDrawing
     const double QfnLeadTop = SectionY - 7, QfnLeadStep = SectionY, QfnLeadBottom = SectionY + 5;
     const double QfnLeadEtch = 12, QfnExposedPadLeft = 300, QfnExposedPadWidth = 100;
     const double QfnViaHeight = 30;
+    const double BgaBoardLeft = 150, BgaBoardWidth = 400, SectionMetalThickness = 3;
 
     void Section(double y, bool drawMold = true, double wireEnd = 226, bool removeCentralBalls = false)
     {
@@ -26,11 +27,14 @@ internal sealed partial class SchematicDrawing
         if (Bga)
         {
             if (!Flip && drawMold) Rect(Mold, ChipArray ? 150 : 195, y - 67, ChipArray ? 400 : 310, 67);
-            Rect(Board, 150, y, 400, 30);
+            Rect(Board, BgaBoardLeft, y, BgaBoardWidth, 30);
             if (!CeramicBoard)
             {
                 for (int layer = 0; layer < IllustratedLayers; layer++)
-                    Rect(Metal, 150, y + 2 + layer * 22.0 / (IllustratedLayers - 1), 400, 3, false);
+                {
+                    double layerTop = ChipArray && layer == 0 ? y : y + 2 + layer * 22.0 / (IllustratedLayers - 1);
+                    Rect(Metal, BgaBoardLeft, layerTop, BgaBoardWidth, SectionMetalThickness, false);
+                }
             }
             if (step == "thermal_vias") ViaSection(y + 5, 19);
             if (HasSolderMask)
