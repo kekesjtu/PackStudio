@@ -125,23 +125,34 @@ internal sealed partial class SchematicDrawing
     {
         DimensionCallout("bond_wire.diameter", 474, 123, 444, 187);
         double left = Bga ? 235 : 200 + PlanLeadInner, right = 700 - left;
+        double top = Bga ? 395 : PlanTop + PlanLeadInner, bottom = 2 * PlanCenterY - top;
         if (showCount && Dimension(Bga ? "bond_wire.total" : "bond_wire.count") is { } count)
         {
-            double first = Centered(0, 6, Bga ? 21 : PlanLeadSpacing, PlanCenterY) - 7;
-            double last = Centered(5, 6, Bga ? 21 : PlanLeadSpacing, PlanCenterY) + 7;
-            double boxLeft = left + 5, boxRight = right - 5;
-            DashedRect(boxLeft, first, 285 - boxLeft, last - first);
-            DashedRect(415, first, boxRight - 415, last - first);
             Text(count, 350, 310, align: System.Windows.TextAlignment.Center);
-            Line(350, 331, 350, 345);
-            double leftTarget = (boxLeft + 285) / 2, rightTarget = (415 + boxRight) / 2;
-            Line(leftTarget, 345, rightTarget, 345);
-            Line(leftTarget, 345, leftTarget, first);
-            Line(rightTarget, 345, rightTarget, first);
-            Arrow(leftTarget, first, 0, -1);
-            Arrow(rightTarget, first, 0, -1);
+            if (template.Info.Id == "pqfp")
+            {
+                const double padding = 7;
+                double boxTop = top - padding;
+                DashedRect(left - padding, boxTop, right - left + 2 * padding, bottom - top + 2 * padding);
+                Line(350, 331, 350, boxTop);
+                Arrow(350, boxTop, 0, -1);
+            }
+            else
+            {
+                double first = Centered(0, 6, Bga ? 21 : PlanLeadSpacing, PlanCenterY) - 7;
+                double last = Centered(5, 6, Bga ? 21 : PlanLeadSpacing, PlanCenterY) + 7;
+                double boxLeft = left + 5, boxRight = right - 5;
+                DashedRect(boxLeft, first, 285 - boxLeft, last - first);
+                DashedRect(415, first, boxRight - 415, last - first);
+                Line(350, 331, 350, 345);
+                double leftTarget = (boxLeft + 285) / 2, rightTarget = (415 + boxRight) / 2;
+                Line(leftTarget, 345, rightTarget, 345);
+                Line(leftTarget, 345, leftTarget, first);
+                Line(rightTarget, 345, rightTarget, first);
+                Arrow(leftTarget, first, 0, -1);
+                Arrow(rightTarget, first, 0, -1);
+            }
         }
-        double top = Bga ? 395 : PlanTop + PlanLeadInner, bottom = 2 * PlanCenterY - top;
         string length = Bga ? "bond_wire.extent_length" : "bond_wire.length_x";
         string width = Bga ? "bond_wire.extent_width" : "bond_wire.length_y";
         DimH(left, right, bottom, PlanLengthDimensionY, length);
