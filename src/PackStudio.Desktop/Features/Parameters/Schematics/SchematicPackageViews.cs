@@ -13,7 +13,7 @@ internal sealed partial class SchematicDrawing
             Callout("芯片", 305, CoverType == "encapsulant" ? 105 : 127, 330, Flip ? FlipDieTop(SectionY) + 10 : Bga ? 207 : 205);
             if (Flip)
             {
-                if (!StiffenedLid) Callout("倒装凸点", 80, 160, 400, SectionY - FlipBumpRadius);
+                if (!StiffenedLid) Callout("倒装凸点", 80, CoverType == "lid" ? 178 : 198, 300, SectionY - FlipBumpRadius);
             }
             else
             {
@@ -40,9 +40,10 @@ internal sealed partial class SchematicDrawing
             case "thermal_land" or "thermal_land_solder":
                 Callout("焊料", 470, 299, Qfn ? QfnExposedPadLeft + QfnExposedPadWidth - 5 : 430, LandSolderTop + LandSolderHeight / 2);
                 Callout("散热焊盘", 290, 310, 350, LandTop + 4.5);
-                DrawDimV(LandSolderTop, LandTop, Qfn ? QfnExposedPadLeft : 265, 105,
-                    "焊料高度\n= 塑封离板高度\nA1", left: true, labelOffsetY: 20);
-                DimV(LandTop, LandTop + 9, Qfn ? QfnExposedPadLeft + QfnExposedPadWidth : 435, 575, "thermal_land.thickness");
+                DrawDimV(LandSolderTop, LandTop, Qfn ? QfnExposedPadLeft : 265, Qfn ? 259 : 235,
+                    "焊料高度 = 塑封离板高度  A1", left: true, labelOffsetY: 35);
+                DimV(LandTop, LandTop + 9, Qfn ? QfnExposedPadLeft + QfnExposedPadWidth : 435,
+                    Qfn ? 570 : 515, "thermal_land.thickness", labelOffsetY: Qfn ? 0 : 15);
                 break;
             case "bond_wires": Wires(); break;
             case "leadframe" or "lead_solder_interconnect": Leads(); break;
@@ -64,7 +65,7 @@ internal sealed partial class SchematicDrawing
         DimV(Bga ? 163 : 164, Bga ? SectionY : Qfn ? QfnLeadBottom : 244,
             Bga ? 505 : 515, Qfn ? 560 : 580, "encapsulant.thickness");
         DimV(Qfn ? QfnLeadBottom : 244, Qfn ? LandSolderTop + 9 : 264,
-            Qfn ? 515 : 580, 610, "package.standoff");
+            Qfn ? 515 : 580, 600, "package.standoff", labelOffsetY: Qfn ? 9 : 0);
     }
 
     void DieDimensions()
@@ -78,7 +79,7 @@ internal sealed partial class SchematicDrawing
         }
         double top = Flip ? FlipDieTop(SectionY) : Bga ? 197 : 195;
         DimV(top, top + 23, 415, 555, "die.thickness");
-        DimV(top + 23, ChipArray || Bga && !Flip ? SectionY : top + 28, 285, 115, "die.attach", left: true);
+        DimV(top + 23, ChipArray || Bga && !Flip ? SectionY : top + 28, 285, 120, "die.attach", left: true);
         DimH(285, 415, 426, 345, "die.length");
         DimV(426, 514, 415, 548, "die.width");
         if (Bga && !Flip && !ChipArray) Wires(showCount: false);
@@ -103,7 +104,7 @@ internal sealed partial class SchematicDrawing
         DimV(408, 532, 435, 548, prefix + ".width");
         DimensionText("flag.coverage", 350, 603, System.Windows.TextAlignment.Center);
         DimV(223, 235, 435, 560, "flag.thickness");
-        DimV(217, 223, 265, 126, "flag.downset", left: true);
+        DimV(217, 223, 265, 142, "flag.downset", left: true);
         DimensionCallout("tie_bar.width", 65, 328, 229, 388);
         SolderMaskDimension();
         if (Qfn)
@@ -117,7 +118,7 @@ internal sealed partial class SchematicDrawing
     void SolderMaskDimension()
     {
         if (Field("solder_mask.thickness") == null) return;
-        DimV(SectionY - 4, SectionY, 150, 120, "solder_mask.thickness", left: true);
+        DimV(SectionY - 4, SectionY, 150, 128, "solder_mask.thickness", left: true);
     }
 
     void Wires(bool showCount = true)
@@ -143,8 +144,11 @@ internal sealed partial class SchematicDrawing
         double top = Bga ? 395 : PlanTop + PlanLeadInner, bottom = 2 * PlanCenterY - top;
         string length = Bga ? "bond_wire.extent_length" : "bond_wire.length_x";
         string width = Bga ? "bond_wire.extent_width" : "bond_wire.length_y";
-        DimH(left, right, bottom, Bga && !ChipArray ? 570 : PlanLengthDimensionY, length);
-        DimV(top, bottom, right, Bga && !ChipArray ? 620 : 565, width);
+        DimH(left, right, bottom, PlanLengthDimensionY, length);
+        if (Bga && !ChipArray)
+            DimV(top, bottom, left, 155, width, left: true);
+        else
+            DimV(top, bottom, right, 565, width);
     }
 
     void Leads()
@@ -152,26 +156,25 @@ internal sealed partial class SchematicDrawing
         if (Qfn)
         {
             DimV(QfnLeadTop, QfnLeadBottom, 185, 140, "leads.thickness", left: true);
-            DimV(QfnLeadStep, QfnLeadBottom, 515, 590, "leads.exposed_thickness");
+            DimV(QfnLeadStep, QfnLeadBottom, 515, 565, "leads.exposed_thickness");
             DimH(455 + QfnLeadEtch, 515, QfnLeadBottom, 291, "leads.length");
             DimH(245 - QfnLeadEtch, 245, QfnLeadStep, 278, "leads.etch");
         }
         else
         {
-            DimV(229, 264, 550, 600, "leads.height");
-            DimV(225.5, 232.5, 155, 122, "leads.thickness", left: true);
+            DimV(229, 264, 550, 593, "leads.height");
+            DimV(225.5, 232.5, 155, 120, "leads.thickness", left: true);
             DimH(550, 580, 264, 302, "leads.foot_length");
             DimH(200 + PlanLeadInner, 265, PlanCenterY, 325,
                 Sop ? "leads.gap" : "leads.gap_x");
-            DimV(PlanTop + PlanLeadInner, 408, 350, 545, "leads.gap_y");
-
+            DimV(PlanTop + PlanLeadInner, 408, 350, 550, "leads.gap_y");
         }
         double firstLead = Centered(0, 6, PlanLeadSpacing, PlanCenterY);
-        double pitchStart = Sop || Qfn ? firstLead : firstLead + PlanLeadSpacing;
+        double pitchStart = Sop || Qfn ? firstLead : firstLead + 2 * PlanLeadSpacing;
         double widthCenter = Centered(Sop || Qfn ? 2 : 4, 6, PlanLeadSpacing, PlanCenterY);
         double leadEdge = Qfn ? 500 : 520;
         DimV(pitchStart, pitchStart + PlanLeadSpacing, leadEdge, 550, Qfn ? "leads.pitch_y" : "leads.pitch");
-        DimV(widthCenter - 5, widthCenter + 5, leadEdge, 570, "leads.width");
+        DimV(widthCenter - 5, widthCenter + 5, leadEdge, 550, "leads.width");
         DimH(Centered(0, 6, PlanLeadSpacing), Centered(1, 6, PlanLeadSpacing), PlanTop, 345, "leads.pitch_x");
         double lastLead = Centered(5, 6, PlanLeadSpacing, PlanCenterY);
         if (Sop) DimV(firstLead - 5, lastLead + 5, 180, 165, "leads.total", left: true);
@@ -186,7 +189,7 @@ internal sealed partial class SchematicDrawing
         {
             DimV(244, 267, 460, 530, "bumps.height");
             DimH(244, 267, 255.5, 300, "bumps.diameter");
-            DimensionCallout("bumps.total", 520, 282, 456, 256, arrow: true);
+            DimensionCallout("bumps.total", 490, 294, 447, 260, arrow: true);
             return;
         }
         DimV(215, 230, 415, 555, "bumps.height");

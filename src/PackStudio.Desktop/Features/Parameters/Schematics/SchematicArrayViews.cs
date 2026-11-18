@@ -31,7 +31,7 @@ internal sealed partial class SchematicDrawing
                     if (!centerStaggered || row == col)
                         Ellipse(Metal, Centered(col, 2, 31), Centered(row, 2, BallRowPitch, PlanCenterY), 8, 8);
             DimH(334.5, 365.5, firstRow, 340, "bga.center_solder_columns");
-            DimV(firstRow, lastRow, 365.5, 550, "bga.center_solder_rows");
+            DimV(firstRow, lastRow, 365.5, 540, "bga.center_solder_rows");
         }
         if (removed)
         {
@@ -62,12 +62,12 @@ internal sealed partial class SchematicDrawing
         foreach (double y in new[] { FirstBallRow, LastBallRow })
         {
             double top = y - halfPitch, bottom = y + halfPitch;
-            Line(200, top, 150, top); Line(200, bottom, 150, bottom);
-            Line(155, top, 155, bottom); Arrow(155, top, 0, 1); Arrow(155, bottom, 0, -1);
-            Line(155, y, 115, y);
+            Line(200, top, 166, top); Line(200, bottom, 166, bottom);
+            Line(171, top, 171, bottom); Arrow(171, top, 0, 1); Arrow(171, bottom, 0, -1);
+            Line(171, y, 145, y);
         }
-        Line(115, FirstBallRow, 115, LastBallRow);
-        DimensionText("bga.populated_rows", 105, 453, TextAlignment.Right, "\n");
+        Line(145, FirstBallRow, 145, LastBallRow);
+        DimensionText("bga.populated_rows", 133, PlanCenterY - 9, TextAlignment.Right);
     }
 
     void SubstrateDetail()
@@ -104,7 +104,7 @@ internal sealed partial class SchematicDrawing
                 Ellipse(Metal, x, y, 6, 6);
                 Ellipse(Brushes.White, x, y, 3, 3);
             }
-        DimV(472, 500, 189, 100, "vias.pitch", left: true);
+        DimV(472, 500, 189, 109, "vias.pitch", left: true);
         BracketH(189, 369, 566, "vias.columns");
         BracketV(148, 416, 528, "vias.rows", 393);
         Ellipse(null, 369, 416, 11, 11);
@@ -151,7 +151,7 @@ internal sealed partial class SchematicDrawing
         Rect(Board, x, y, 100, 142);
         const double pitch = 136.0 / (IllustratedLayers - 1);
         for (int i = 0; i < IllustratedLayers; i++) Rect(Metal, x, y + i * pitch, 100, 6, false);
-        DrawDimV(y, y + pitch, x, x - 30, "层深\nzn", left: true);
+        DrawDimV(y, y + pitch, x, x - 30, "层深  zn", left: true);
         Callout("层厚  tzn", x + 110, y + 62, x + 98, y + 3);
     }
 

@@ -52,11 +52,11 @@ internal sealed partial class SchematicDrawing(PackageDefinition template, Proje
     JToken? Field(string key) => template.DisplayFields.FirstOrDefault(f =>
         f["key"].Text() == key && f["step"].Text() == step && !f["creation_only"].Flag());
 
-    string? Dimension(string key, string? name = null, string separator = "  ")
+    string? Dimension(string key, string? name = null)
     {
         if (Field(key) is not { } field) return null;
         string symbol = TemplateSymbols.Resolve(field, document.Values);
-        return (name ?? field["label"].Text()) + (symbol.Length == 0 ? "" : separator + symbol);
+        return (name ?? field["label"].Text()) + (symbol.Length == 0 ? "" : "  " + symbol);
     }
 
     internal DrawingGroup CreatePackageScene()
@@ -159,7 +159,7 @@ internal sealed partial class SchematicDrawing(PackageDefinition template, Proje
     void DimV(double y1, double y2, double objectX, double x, string key, bool left = false, string? name = null,
         double labelOffsetY = 0)
     {
-        if (Dimension(key, name, "\n") is { } label) DrawDimV(y1, y2, objectX, x, label, left, labelOffsetY);
+        if (Dimension(key, name) is { } label) DrawDimV(y1, y2, objectX, x, label, left, labelOffsetY);
     }
     void DrawDimV(double y1, double y2, double objectX, double x, string label, bool left = false, double labelOffsetY = 0)
     {
@@ -168,8 +168,9 @@ internal sealed partial class SchematicDrawing(PackageDefinition template, Proje
         bool narrow = y2 - y1 < 22;
         Line(x, y1 - (narrow ? 12 : 0), x, y2 + (narrow ? 12 : 0));
         Arrow(x, y1, 0, narrow ? -1 : 1); Arrow(x, y2, 0, narrow ? 1 : -1);
-        Text(label, x + (left ? -10 : 10), (y1 + y2) / 2 - (label.Contains('\n') ? 17 : 9) + labelOffsetY, 13,
-            align: left ? TextAlignment.Right : TextAlignment.Left);
+        var text = FormatText(label, 13, Ink);
+        dc.DrawText(text, new(x + (left ? -12 - text.Width : 12),
+            (y1 + y2 - text.Height) / 2 + labelOffsetY));
     }
     void Callout(string label, double x, double y, double targetX, double targetY, bool arrow = false)
     {
@@ -203,9 +204,9 @@ internal sealed partial class SchematicDrawing(PackageDefinition template, Proje
         dc.DrawLine(pen, new(detailX, elbowY), new(detailX, detailY));
         Text(label, detailX, detailY + 7, color: Muted, align: TextAlignment.Center);
     }
-    void DimensionText(string key, double x, double y, TextAlignment align = TextAlignment.Left, string separator = "  ")
+    void DimensionText(string key, double x, double y, TextAlignment align = TextAlignment.Left)
     {
-        if (Dimension(key, separator: separator) is { } label) Text(label, x, y, align: align);
+        if (Dimension(key) is { } label) Text(label, x, y, align: align);
     }
     void BracketH(double x1, double x2, double y, string key)
     {
@@ -237,7 +238,7 @@ internal sealed partial class SchematicDrawing(PackageDefinition template, Proje
             var row = entries.Skip(start).Take(columns).ToArray();
             var labels = row.Select(e => FormatText(e.Label, 12, Muted)).ToArray();
             double total = labels.Sum(label => swatchWidth + labelGap + label.Width) + itemGap * (row.Length - 1);
-            double x = (Width - total) / 2, y = 630 + start / columns * 22;
+            double x = (Width - total) / 2, y = 635 + start / columns * 21;
             for (int i = 0; i < row.Length; i++)
             {
                 Rect(row[i].Color, x, y + (labels[i].Height - 10) / 2, swatchWidth, 10, false);
