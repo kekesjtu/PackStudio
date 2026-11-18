@@ -5,6 +5,22 @@
     <ResourceDictionary Source="pack://application:,,,/Fluent;component/Themes/Generic.xaml"/>
     <ResourceDictionary Source="TreeResources.xaml"/>
   </ResourceDictionary.MergedDictionaries>
+  <SolidColorBrush x:Key="RibbonIconBrush" Color="#395D87"/>
+  <Style x:Key="RibbonIconGlyph" TargetType="TextBlock">
+    <Setter Property="FontFamily" Value="Segoe MDL2 Assets"/>
+    <Setter Property="FontSize" Value="24"/>
+    <Setter Property="Foreground" Value="{StaticResource RibbonIconBrush}"/>
+    <Setter Property="HorizontalAlignment" Value="Center"/>
+    <Setter Property="VerticalAlignment" Value="Center"/>
+    <Setter Property="TextAlignment" Value="Center"/>
+  </Style>
+  <Style x:Key="RibbonIconStroke" TargetType="Path">
+    <Setter Property="Stroke" Value="{StaticResource RibbonIconBrush}"/>
+    <Setter Property="StrokeThickness" Value="1.6"/>
+    <Setter Property="StrokeLineJoin" Value="Round"/>
+    <Setter Property="StrokeStartLineCap" Value="Round"/>
+    <Setter Property="StrokeEndLineCap" Value="Round"/>
+  </Style>
   <sys:Double x:Key="FieldLineHeight">26</sys:Double>
   <Thickness x:Key="FieldSpacing">0,0,0,7</Thickness>
   <Thickness x:Key="FieldBodySpacing">0,6,0,0</Thickness>
