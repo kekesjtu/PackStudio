@@ -164,6 +164,8 @@ static class InputRelationChecks
         tests.Case("relations", "native 4 mm chip array locates and recovers from outboard vias", () =>
         {
             var doc = tests.Create(tests.Catalog.Load("chip_array"), "ChipArray_24_4X4mm_0_8");
+            tests.Generate(doc);
+            doc.Values["vias.offset_x"] = doc.Values["vias.offset_y"] = 0.4;
             Check(doc, "input.via.fit", true, "vias.offset_x");
             Check(doc, "input.via.fit", true, "vias.offset_y");
             doc.Values["vias.offset_x"] = doc.Values["vias.offset_y"] = 0.3;
