@@ -20,14 +20,14 @@ public static class SopGenerator
         double pitch = c.N("leads.pitch"), lw = c.N("leads.width"), foot = c.N("leads.foot_length");
         void Lead(string id, double x, double y, double zz, double sx, double sy, double sz, string mat) => c.Add(id, "lead_frame", x, y, zz, sx, sy, sz, mat, "lead-frame", derived: true);
 
-        double span = (c.I("leads.total") / 2 - 1) * pitch + lw, ox = span / 2, ix = fl / 2 + gx, iy = fw / 2 + gy, by = bw / 2, oy = pw / 2 - foot + h, bend = pw / 2 - foot;
+        double span = (c.I("leads.total") / 2 - 1) * pitch + lw, ox = span / 2, ix = fl / 2 + gx, iy = fw / 2 + gy, by = bw / 2, oy = by + OuterLeadGeometry.HorizontalLength(pw, bw, foot, h), bend = pw / 2 - foot;
         foreach (int sign in new[] { -1, 1 })
         {
             string side = sign == 1 ? "upper" : "lower", xs = sign == 1 ? "right" : "left";
             Lead("sop-inner-" + xs, sign == 1 ? ix : -ox, -iy, z, ox - ix, 2 * iy, h, "sop-leadframe-inner");
             Lead("sop-inner-" + side, -ox, sign == 1 ? iy : -by, z, span, by - iy, h, "sop-leadframe-inner");
             Lead("sop-outer-" + side, -ox, sign == 1 ? by : -oy, z, span, oy - by, h, "sop-leadframe-outer");
-            Lead("sop-bend-" + side, -ox, sign == 1 ? bend : -bend - h, h, span, h, z - h, "sop-leadframe-outer");
+            Lead("sop-bend-" + side, -ox, sign == 1 ? bend : -bend - h, h, span, h, OuterLeadGeometry.SopBendHeight(z, h), "sop-leadframe-outer");
             Lead("sop-foot-" + side, -ox, sign == 1 ? bend : -pw / 2, 0, span, foot, h, "sop-leadframe-outer");
             c.Add("tie-bar-" + xs, "lead_frame", sign == 1 ? fl / 2 : -bl / 2, -c.N("tie_bar.width") / 2, fz, (bl - fl) / 2, c.N("tie_bar.width"), fh, "sop-die-flag", "tie-bars", derived: true);
         }

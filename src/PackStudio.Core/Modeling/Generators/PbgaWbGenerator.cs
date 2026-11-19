@@ -1,5 +1,3 @@
-using Newtonsoft.Json.Linq;
-
 namespace PackStudio.Core;
 
 public static class PbgaWbGenerator
@@ -7,10 +5,7 @@ public static class PbgaWbGenerator
     public static PackageGeometry Generate(BuildContext c)
     {
         double l = c.N("package.length"), w = c.N("package.width"), baseZ = c.N("bga.height"), height = c.N("substrate.thickness"), top = baseZ + height;
-        var rows = MetalLayers.Parse(c, "metal.layers");
-        double topTrace = rows[0]!["thickness"].Number(), bottomTrace = rows[rows.Count - 1]!["thickness"].Number();
-        rows[0]!["depth"] = 0;
-        rows[rows.Count - 1]!["depth"] = height - bottomTrace;
+        var rows = MetalLayerStack.Read(c.Values, "metal.layers", height, surfaceLayers: true);
         double dl = c.N("die.length"), dw = c.N("die.width"), dh = c.N("die.thickness"), attach = c.N("die.attach"), dz = top + attach;
         double ml = c.N("encapsulant.length"), mw = c.N("encapsulant.width");
         c.Center("encapsulant", "encapsulant", ml, mw, c.N("encapsulant.thickness"), top, "epoxy-mold", "encapsulant");
@@ -18,7 +13,7 @@ public static class PbgaWbGenerator
         c.Center("dielectric", "substrate", l, w, height, baseZ, "bt", "substrate");
         c.Center("die-attach", "die_attach", dl, dw, attach, top, "ablestik-8510aa", "die-attach");
         double extentX = c.N("bond_wire.extent_length"), extentY = c.N("bond_wire.extent_width"), d = c.N("bond_wire.diameter");
-            Wires.FourSides(c, dl, dw, extentX / 2, extentY / 2, extentX / 2 - d, extentY / 2 - d, dz + dh - d, top, dz + dh - top - d, "wirebond-bondwire-x", "wirebond-bondwire-y");
+        Wires.FourSides(c, dl, dw, extentX / 2, extentY / 2, extentX / 2 - d, extentY / 2 - d, dz + dh - d, top, dz + dh - top - d, "wirebond-bondwire-x", "wirebond-bondwire-y");
         WirebondDetails(c, rows, l, w, baseZ, height, extentX, extentY, d);
         Wires.Equivalent(c, "wirebond", c.I("bond_wire.total"), c.T("bond_wire.modeling") == "isotropicCuboid");
         SolderBalls.Build(c);
@@ -29,14 +24,14 @@ public static class PbgaWbGenerator
         return new(outline, grid, SolderBalls.Footprint(c), cover, c.Blocks.Max(b => b.Maximum.Z), false);
     }
 
-    static void WirebondDetails(BuildContext c, JArray rows, double l, double w, double baseZ, double height, double extentX, double extentY, double d)
+    static void WirebondDetails(BuildContext c, List<MetalLayer> rows, double l, double w, double baseZ, double height, double extentX, double extentY, double d)
     {
-        double top = baseZ + height, tt = rows[0]!["thickness"].Number(), bt = rows[rows.Count - 1]!["thickness"].Number(), fl = c.N("flag.length"), fw = c.N("flag.width"), mask = c.N("solder_mask.thickness");
+        double top = baseZ + height, tt = rows[0].Thickness, bt = rows[^1].Thickness, fl = c.N("flag.length"), fw = c.N("flag.width"), mask = c.N("solder_mask.thickness");
         var metal = c.Component("group-traces", "copper");
         var matrix = c.Component("group-substrate", "bt");
         void Mix(string id, double coverage) => c.Derived(MaterialMixer.Mix(id, metal, matrix, coverage / 100));
-        Mix("wirebond-trace-top", rows[0]!["coverage"].Number());
-        Mix("wirebond-trace-bottom", rows[rows.Count - 1]!["coverage"].Number());
+        Mix("wirebond-trace-top", rows[0].Row["coverage"].Number());
+        Mix("wirebond-trace-bottom", rows[^1].Row["coverage"].Number());
         Mix("wirebond-die-flag", c.N("flag.coverage"));
         c.Ring("top-trace", "trace", l, w, extentX - 2 * d, extentY - 2 * d, top - tt, tt, "wirebond-trace-top", "traces", true);
         if (!c.B("spreader.enabled"))
@@ -50,17 +45,17 @@ public static class PbgaWbGenerator
         for (int i = 1; i < rows.Count - 1; i++)
         {
             string id = $"wirebond-trace-{i}";
-            Mix(id, rows[i]["coverage"].Number());
-            c.Center($"trace-{i}", "trace", l, w, rows[i]["thickness"].Number(), top - rows[i]["depth"].Number() - rows[i]["thickness"].Number(), id, "traces", derived: true);
+            Mix(id, rows[i].Row["coverage"].Number());
+            c.Center($"trace-{i}", "trace", l, w, rows[i].Thickness, top - rows[i].End, id, "traces", derived: true);
         }
 
         if (c.B("vias.enabled"))
         {
             for (int i = 0; i < rows.Count; i++)
-                if (rows[i]["disconnect"].Flag())
+                if (rows[i].Row["disconnect"].Flag())
                 {
                     double lx = (c.I("vias.columns") - 1) * c.N("vias.pitch") + 3 * c.N("vias.diameter"), ly = (c.I("vias.rows") - 1) * c.N("vias.pitch") + 3 * c.N("vias.diameter");
-                    c.Center($"disconnect-{i}", "substrate", lx, ly, rows[i]["thickness"].Number(), top - rows[i]["depth"].Number() - rows[i]["thickness"].Number(), matrix.Id, "via-disconnect");
+                    c.Center($"disconnect-{i}", "substrate", lx, ly, rows[i].Thickness, top - rows[i].End, matrix.Id, "via-disconnect");
                 }
 
             Vias.Build(c, metal, matrix, "wirebond-via", baseZ + bt, height - tt - bt);

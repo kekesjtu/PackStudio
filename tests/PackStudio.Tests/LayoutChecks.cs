@@ -11,7 +11,7 @@ static class LayoutChecks
             tests.Case("layout", family + " explicit removals and central balls", () =>
             {
                 var template = tests.Catalog.Load(family);
-                var document = tests.Create(template);
+                var document = tests.CreateForGeneration(template);
                 var values = document.Values;
                 values["bga.rows"] = values["bga.columns"] = 5;
                 values["bga.representation"] = "discrete";
@@ -47,7 +47,7 @@ static class LayoutChecks
             });
             tests.Case("layout", family + " coordinate map", () =>
             {
-                var document = tests.Create(tests.Catalog.Load(family));
+                var document = tests.CreateForGeneration(tests.Catalog.Load(family));
                 document.Values["bga.representation"] = "discrete";
                 document.Values["bga.ball_map_enabled"] = true;
                 document.Values["bga.ball_map"] = new JArray(new JObject { ["id"] = "A1", ["x"] = -0.1, ["y"] = 0.2 });
@@ -133,14 +133,13 @@ static class LayoutChecks
                 document.Values["vias.enabled"] = true;
                 document.Values["vias.removal_enabled"] = true;
                 document.Values["vias.omitted_cells"] = new JArray(new JObject { ["row"] = 0, ["column"] = 0 });
-                var context = new BuildContext(template, document.Values, "vias", tests.Catalog.Materials, tests.Catalog.Groups, document.MaterialAssignments);
-                Assert(Vias.Omissions(context).SetEquals([(0, 0)]), "via removal did not follow selected cells");
                 document.Values["vias.rows"] = document.Values["vias.columns"] = 5;
                 document.Values["vias.pitch"] = 0.5;
                 document.Values["vias.diameter"] = 0.2;
                 document.Values["vias.plating"] = 0.025;
                 document.Values["vias.modeling"] = family == "pbga_wb" ? "discreteCuboids" : "discrete";
-                Assert(tests.Generate(document).Blocks.Count(b => b.GroupId == "group-vias") == 24, "selected via was not removed from generated geometry");
+                var retained = tests.Generate(document).Blocks.Where(b => b.GroupId == "group-vias").ToList();
+                Assert(retained.Count == 24 && retained.All(b => !b.Id.Contains("-r1-c1-")), "selected via was not removed from generated geometry");
                 document.Values["vias.removal_enabled"] = false;
                 Assert(tests.Generate(document).Blocks.Count(b => b.GroupId == "group-vias") == 25, "disabled via removal changed geometry");
                 document.Values["vias.removal_enabled"] = true;

@@ -6,16 +6,15 @@ public static class QfnGenerator
         double l = c.N("package.length"), w = c.N("package.width"), s = c.N("package.standoff"), h = c.N("leads.thickness"), eh = c.N("leads.exposed_thickness");
         double pl = c.N("pad.length"), pw = c.N("pad.width"), el = c.N("pad.exposed_length"), ew = c.N("pad.exposed_width");
         double dl = c.N("die.length"), dw = c.N("die.width"), attach = c.N("die.attach"), dh = c.N("die.thickness");
-        int nx = c.I("leads.count_x"), ny = (int)c.N("leads.count_y", 0);
-        double px = c.N("leads.pitch_x"), py = ny > 0 ? c.N("leads.pitch_y") : 0;
+        var rows = QfnLeadLayout.Rows(key => c.N(key, double.NaN)).ToArray();
         c.Center("encapsulant", "encapsulant", l, w, c.N("encapsulant.thickness"), s, "eme-7730lf", "encapsulant");
         c.Center("dap-upper", "exposed_pad", pl, pw, h - eh, s + eh, "leadframe-c194", "exposed-pad");
         c.Center("dap-exposed", "exposed_pad", el, ew, eh, s, "leadframe-c194", "exposed-pad");
         c.Center("center-solder", "solder", el, ew, s, 0, "solder-sn63", "solder");
         c.Center("die-attach", "die_attach", dl, dw, attach, s + h, "dieattach-2600bt", "die-attach");
         c.Center("die", "die", dl, dw, dh, s + h + attach, "silicon", "die");
-        BondWires(c, s + h + attach + dh, s + h);
-        Leads(c, l, w, nx, ny, px, py, s, h, eh);
+        BondWires(c, rows, s + h + attach + dh, s + h);
+        Leads(c, rows, s, h, eh);
         if (c.B("thermal_land.enabled"))
         {
             double th = c.N("thermal_land.thickness");
@@ -29,18 +28,12 @@ public static class QfnGenerator
         return new(outline, grid, outline, outline, c.Blocks.Max(b => b.Maximum.Z), false);
     }
 
-    static void Leads(BuildContext c, double l, double w, int nx, int ny, double px, double py, double s, double h, double eh)
+    static void Leads(BuildContext c, QfnLeadLayout[] rows, double s, double h, double eh)
     {
         int first = c.Blocks.Count;
         double width = c.N("leads.width"), length = c.N("leads.length"), etch = c.N("leads.etch");
-        foreach (var(axis, count, pitch, body)in new[]
-        {
-            ("y", nx, px, w),
-            ("x", ny, py, l)
-        }
-
-        )
-            for (int i = 0; i < count; i++)
+        foreach (var row in rows)
+            for (int i = 0; i < row.Count; i++)
                 foreach (int sign in new[]
                 {
                     -1,
@@ -49,7 +42,9 @@ public static class QfnGenerator
 
                 )
                 {
-                    double transverse = (i - (count - 1) / 2.0) * pitch - width / 2, radial = sign == 1 ? body / 2 - length : -body / 2, upper = sign == 1 ? radial - etch : radial;
+                    string axis = row.RadialAxis;
+                    double body = row.Body;
+                    double transverse = (i - (row.Count - 1) / 2.0) * row.Pitch - width / 2, radial = sign == 1 ? body / 2 - length : -body / 2, upper = sign == 1 ? radial - etch : radial;
                     string side = axis == "x" ? (sign == 1 ? "right" : "left") : (sign == 1 ? "upper" : "lower");
                     void Add(string level, double start, double len, double z, double height, string type, string mat, string group) => c.Add($"{level}-{side}-{i + 1}", type, axis == "x" ? start : transverse, axis == "x" ? transverse : start, z, axis == "x" ? len : width, axis == "x" ? width : len, height, mat, group);
                     Add("solder", radial, length, 0, s, "solder", "solder-sn63", "solder");
@@ -61,17 +56,11 @@ public static class QfnGenerator
             return;
         var drafts = c.Blocks.Skip(first).ToList();
         c.Blocks.RemoveRange(first, drafts.Count);
-        foreach (var(axis, count, pitch, sides)in new[]
+        foreach (var row in rows.Reverse())
         {
-            ("x", ny, py, new[] { "left", "right" }),
-            ("y", nx, px, new[] { "lower", "upper" })
-        }
-
-        )
-        {
-            if (count == 0)
-                continue;
-            double f = count * width / ((count - 1) * pitch + width);
+            string axis = row.RadialAxis;
+            string[] sides = axis == "x" ? ["left", "right"] : ["lower", "upper"];
+            double f = row.Count * width / row.Extent;
             foreach (string kind in new[]
             {
                 "lead",
@@ -104,26 +93,17 @@ public static class QfnGenerator
             }
         }
     }
-    static void BondWires(BuildContext c, double dieTop, double leadTop)
+    static void BondWires(BuildContext c, QfnLeadLayout[] rows, double dieTop, double leadTop)
     {
         double d = c.N("bond_wire.diameter");
         int steps = c.I("bond_wire.steps");
         var wire = c.Component("group-bond-wires", "gold");
         var matrix = c.Component("group-encapsulant", "eme-7730lf");
-        foreach (var(axis, transverseAxis)in new[]
+        foreach (var row in rows.Reverse())
         {
-            ("x", "y"),
-            ("y", "x")
-        }
-
-        )
-        {
-            int count = (int)c.N("leads.count_" + transverseAxis, 0);
-            if (count == 0)
-                continue;
-            double die = c.N(axis == "x" ? "die.length" : "die.width"), dt = c.N(axis == "x" ? "die.width" : "die.length");
-            double extent = (count - 1) * c.N("leads.pitch_" + transverseAxis) + c.N("leads.width");
-            double end = c.N(axis == "x" ? "package.length" : "package.width") / 2 - c.N("leads.length") - c.N("leads.etch"), span = end - die / 2;
+            string axis = row.RadialAxis;
+            int count = row.Count;
+            double die = row.Die, dt = row.TransverseDie, extent = row.Extent, end = row.End, span = row.WireSpan;
             void Pair(string id, double start, double radial, double transverse, double z, double height, string mat)
             {
                 foreach (int sign in new[]

@@ -8,25 +8,23 @@ internal static class QfnInputRules
         c.Fits("die.length", "package.length"); c.Fits("die.width", "package.width"); c.Fits("pad.length", "package.length"); c.Fits("pad.width", "package.width");
         c.Check(c.N("leads.exposed_thickness") >= c.N("leads.thickness"), "input.qfn.lead_height", "露出引脚厚度必须小于引脚总厚度。", "leads.exposed_thickness", "leads.thickness");
         c.Check(c.N("leads.count_x") + (double.IsFinite(c.N("leads.count_y")) ? c.N("leads.count_y") : 0) == 0, "input.qfn.lead_count", "QFN 至少需要一组引脚。", "leads.count_x", "leads.count_y");
-        foreach (var (axis, dimension) in new[] { ("x", "length"), ("y", "width") })
-        {
-            if (axis == "y" && !(c.N("leads.count_y") > 0)) continue;
-            c.Check((c.N("leads.count_" + axis) - 1) * c.N("leads.pitch_" + axis) + c.N("leads.width") > c.N("package." + dimension),
-                "input.qfn.lead_span", "QFN 引脚跨度必须位于封装内。", "leads.count_" + axis, "leads.pitch_" + axis, "leads.width", "package." + dimension);
-            c.Check(c.N("package." + dimension) - 2 * c.N("leads.length") - 2 * c.N("leads.etch") <= c.N("die." + dimension),
-                "input.qfn.wire_endpoint", "QFN 键合线焊盘必须位于芯片外。", "package." + dimension, "leads.length", "leads.etch", "die." + dimension);
-        }
+        c.Check(c.N("leads.thickness") + c.N("die.attach") + c.N("die.thickness") > c.N("encapsulant.thickness") + 1e-10,
+            "input.encapsulant.stack", "塑封必须覆盖载片台、粘接层和芯片。", "leads.thickness", "die.attach", "die.thickness", "encapsulant.thickness");
         double wire = c.N("bond_wire.diameter"), steps = c.N("bond_wire.steps");
-        foreach (var (axis, transverse) in new[] { ("x", "y"), ("y", "x") })
+        foreach (var row in QfnLeadLayout.Rows(c.N))
         {
-            double count = c.N("leads.count_" + transverse);
-            if (!(count > 0)) continue;
-            double die = c.N(axis == "x" ? "die.length" : "die.width"), dt = c.N(axis == "x" ? "die.width" : "die.length");
-            double extent = (count - 1) * c.N("leads.pitch_" + transverse) + c.N("leads.width");
-            double span = c.N(axis == "x" ? "package.length" : "package.width") / 2 - c.N("leads.length") - c.N("leads.etch") - die / 2;
-            double fraction = count * Math.PI * wire * c.N("bond_wire.length_" + axis) / (4 * span * (steps > 1 ? Math.Min(extent, dt) : extent));
+            string countKey = "leads.count_" + row.RowAxis, pitchKey = "leads.pitch_" + row.RowAxis;
+            c.Check(row.Count > 1 && c.N("leads.width") > row.Pitch, "input.qfn.pitch", "同排引脚宽度不能大于节距。", countKey, pitchKey, "leads.width");
+            c.Check(row.Extent > c.N("package." + row.RowDimension), "input.qfn.lead_span", "QFN 引脚跨度必须位于封装内。",
+                countKey, pitchKey, "leads.width", "package." + row.RowDimension);
+            c.Check(row.WireSpan <= 0, "input.qfn.wire_endpoint", "QFN 键合线焊盘必须位于芯片外。",
+                countKey, "package." + row.RadialDimension, "leads.length", "leads.etch", "die." + row.RadialDimension);
+            string wireLength = "bond_wire.length_" + row.RadialAxis;
+            double transverseWidth = steps > 1 ? Math.Min(row.Extent, row.TransverseDie) : row.Extent;
+            double fraction = row.Count * Math.PI * wire * c.N(wireLength) / (4 * row.WireSpan * transverseWidth);
             c.Check(fraction > 1, "input.qfn.wire_fraction", "键合线等效体积分数不能超过塑封空间。",
-                "bond_wire.diameter", "bond_wire.length_" + axis, "leads.count_" + transverse, "leads.pitch_" + transverse, "leads.width", "die.length", "die.width");
+                "bond_wire.diameter", wireLength, countKey, pitchKey, "leads.width", "die.length", "die.width",
+                "package." + row.RadialDimension, "leads.length", "leads.etch", "bond_wire.steps");
         }
         if (c.B("vias.enabled"))
             foreach (var (dimension, count) in new[] { ("length", "columns"), ("width", "rows") })

@@ -4,6 +4,9 @@ internal static class SopInputRules
 {
     public static void Validate(InputChecks c)
     {
+        c.Check(OuterLeadGeometry.SopBendHeight(LeadframeStack.Evaluate(c.Values, true).LeadBottom, c.N("leads.thickness")) <= 1e-10,
+            "input.sop.bend", "引脚折弯竖段必须有正高度。", "package.standoff", "leads.height", "leads.thickness");
+        LeadframeInputRules.OuterLead(c, "width");
         LeadframeInputRules.Validate(c, "flag.thickness", "leads.gap", "leads.gap");
         double count = c.N("leads.total");
         c.Check(count % 2 != 0, "input.sop.leads", "SOP 引脚数量必须为偶数。", "leads.total");

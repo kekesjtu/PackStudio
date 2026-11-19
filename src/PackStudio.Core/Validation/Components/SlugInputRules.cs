@@ -31,15 +31,11 @@ internal static class SlugInputRules
             height = ["encapsulant.thickness", "solder_mask.thickness"];
             available = c.N("encapsulant.thickness") - c.N("solder_mask.thickness");
         }
-        else if (c.B("cover.flush"))
-        {
-            height = ["bumps.height", "die.thickness"];
-            available = c.N("bumps.height") + c.N("die.thickness");
-        }
         else
         {
-            height = ["cover.thickness"];
-            available = c.N("cover.thickness");
+            bool flush = c.B("cover.flush");
+            height = flush ? ["bumps.height", "die.thickness"] : ["cover.thickness"];
+            available = Covers.EncapsulantHeight(flush, c.N);
         }
         c.Check(thickness + c.N("slug.offset") + c.N("slug.clearance") >= available,
             "input.slug.height", "厚度、顶部台阶与支脚间隙之和必须小于塑封高度。",

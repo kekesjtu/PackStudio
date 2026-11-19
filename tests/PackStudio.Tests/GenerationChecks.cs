@@ -344,7 +344,7 @@ static class GenerationChecks
 
         tests.Case("generation", "filled vias ignore plating and missing removal counts are input issues", () =>
         {
-            var document = tests.Create(tests.Catalog.Load("chip_array"));
+            var document = tests.CreateForGeneration(tests.Catalog.Load("chip_array"));
             document.Values["vias.enabled"] = true;
             document.Values["vias.filled"] = true;
             foreach (JToken plating in new JToken[] { new JValue(-1), new JArray() })

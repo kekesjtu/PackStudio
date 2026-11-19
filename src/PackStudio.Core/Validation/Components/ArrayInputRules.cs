@@ -7,6 +7,7 @@ internal static class ArrayInputRules
     public static bool ValidateCells(InputChecks c, string path, JArray? cells, double rows, double columns)
     {
         if (cells == null || c.Invalid(path) || !double.IsFinite(rows) || !double.IsFinite(columns)) return false;
+        var seen = new HashSet<(int, int)>();
         bool valid = true;
         for (int i = 0; i < cells.Count; i++)
         {
@@ -14,7 +15,9 @@ internal static class ArrayInputRules
             { c.Check(true, "input.array.cell", "阵列单元必须为对象。", $"{path}[{i}]"); valid = false; continue; }
             double row = InputChecks.Number(cell["row"]), column = InputChecks.Number(cell["column"]);
             bool invalid = !double.IsFinite(row) || !double.IsFinite(column) || row != Math.Truncate(row) || column != Math.Truncate(column) || row < 0 || row >= rows || column < 0 || column >= columns;
-            valid &= !invalid;
+            bool duplicate = !invalid && !seen.Add(((int)row, (int)column));
+            valid &= !invalid && !duplicate;
+            c.Check(duplicate, "input.array.duplicate", "同一阵列单元只能去除一次。", $"{path}[{i}].row", $"{path}[{i}].column");
             c.Check(invalid,
                 "input.array.bounds", "去除单元必须为阵列范围内的整数行列。", $"{path}[{i}].row", $"{path}[{i}].column");
         }

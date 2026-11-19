@@ -19,6 +19,10 @@ sealed class TestSuite(string root, HashSet<string> suites)
         return PackageInitializer.Create(definition, preset, name, options, fourLayer, exposedPad);
     }
 
+    // 生成与导出测试使用通孔外缘位于板内的原生 Chip Array 预设。
+    public ProjectDocument CreateForGeneration(PackageDefinition definition, JObject? options = null, string? name = null)
+        => Create(definition, definition.Info.Id == "chip_array" ? "ChipArray_100_11X11mm_1" : definition.DefaultPreset, name, options);
+
     public GenerationResult GenerateResult(ProjectDocument document) => ModelBuilder.Generate(document,
         Catalog.Load(document.TemplateId), Catalog.Materials, Catalog.Groups);
 

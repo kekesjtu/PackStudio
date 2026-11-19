@@ -6,7 +6,8 @@ internal static class SolderBallInputRules
 {
     const double FitTolerance = 1e-10;
 
-    public static void Validate(InputChecks c, string board)
+    // 返回主阵列的位置参数是否就绪，供按焊球位置生成通孔的家族使用。
+    public static bool Validate(InputChecks c, string board)
     {
         double pitch = c.N("bga.pitch"), diameter = c.N("bga.diameter");
         c.Check(diameter > pitch, "input.bga.pitch", "焊球直径不能大于节距。", "bga.diameter", "bga.pitch");
@@ -17,7 +18,7 @@ internal static class SolderBallInputRules
         if (c.B("bga.ball_map_enabled"))
         {
             ValidateMap(c, board, SolderBalls.BlockSide(diameter));
-            return;
+            return !c.Invalid("bga.ball_map") && c.Values["bga.ball_map"] is JArray;
         }
 
         double rows = c.N("bga.rows"), columns = c.N("bga.columns");
@@ -42,11 +43,14 @@ internal static class SolderBallInputRules
 
         if (validCells && (!explicitCells || discrete))
             ValidateRegion(c, board, "bga.", rows, columns, populatedRows, populatedColumns, discrete, "bga.staggered", omissions);
-        if (!c.B("bga.center_solder_enabled")) return;
+        bool validPositions = validCells && double.IsFinite(rows) && double.IsFinite(columns) && double.IsFinite(pitch)
+            && double.IsFinite(populatedRows) && double.IsFinite(populatedColumns);
+        if (!c.B("bga.center_solder_enabled")) return validPositions;
         double centerRows = c.N("bga.center_solder_rows"), centerColumns = c.N("bga.center_solder_columns");
         foreach (string dimension in new[] { "rows", "columns" })
             c.Check(c.N("bga.center_solder_" + dimension) < 1, "input.bga.center", "中央焊球行列数必须为正整数。", "bga.center_solder_" + dimension);
         ValidateRegion(c, board, "bga.center_solder_", centerRows, centerColumns, centerRows, centerColumns, discrete, "bga.center_staggered");
+        return validPositions;
     }
 
     static double ReadPopulated(InputChecks c, string axis, double total)

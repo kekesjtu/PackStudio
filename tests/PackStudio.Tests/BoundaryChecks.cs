@@ -9,15 +9,15 @@ static class BoundaryChecks
         tests.Case("parameters", "creation preserves explicit tables", () =>
         {
             var template = tests.Catalog.Load("chip_array");
-            double explicitHeight = template.DisplayDefaults(template.DefaultPreset)["substrate.thickness"].Number();
+            double explicitHeight = tests.CreateForGeneration(template).Values["substrate.thickness"].Number();
             var options = new JObject { ["substrate.thickness"] = explicitHeight, ["substrate.layers"] = "4-Layer" };
-            var baseline = tests.Create(template, options: options);
+            var baseline = tests.CreateForGeneration(template, options: options);
             Near(baseline.Values["substrate.thickness"].Number(), explicitHeight, "equal-to-default user input lost during branch selection");
             var table = (JArray)baseline.Values["metal.layers"]!.DeepClone();
             table[0]!["thickness"] = 0.03;
             options["metal.layers"] = table;
             options["trace.solid_thickness"] = 0.05;
-            var document = tests.Create(template, name: "explicit table", options: options);
+            var document = tests.CreateForGeneration(template, name: "explicit table", options: options);
             Near(document.Values["metal.layers"]![0]!["thickness"].Number(), 0.03, "finalization replaced explicit table");
             Near(document.Values["metal.layers"]![1]!["thickness"].Number(), table[1]!["thickness"].Number(), "finalization recomputed explicit inner layers");
             tests.Generate(document);

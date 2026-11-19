@@ -7,10 +7,7 @@ public static class ChipArrayGenerator
     public static PackageGeometry Generate(BuildContext c)
     {
         double l = c.N("package.length"), w = c.N("package.width"), baseZ = c.N("bga.height"), height = c.N("substrate.thickness"), top = baseZ + height;
-        var rows = MetalLayers.Parse(c, "metal.layers");
-        double topTrace = rows[0]!["thickness"].Number(), bottomTrace = rows[rows.Count - 1]!["thickness"].Number();
-        rows[0]!["depth"] = 0;
-        rows[rows.Count - 1]!["depth"] = height - bottomTrace;
+        var rows = MetalLayerStack.Read(c.Values, "metal.layers", height, surfaceLayers: true);
         double mask = c.N("solder_mask.thickness"), dl = c.N("die.length"), dw = c.N("die.width"), dh = c.N("die.thickness"), attach = c.N("die.attach"), dz = top + mask;
         double ml = l, mw = w;
         c.Center("encapsulant", "encapsulant", ml, mw, c.N("encapsulant.thickness"), top, "epoxy-mold", "encapsulant");
@@ -30,11 +27,11 @@ public static class ChipArrayGenerator
         return new(outline, outline, SolderBalls.Footprint(c), outline, c.Blocks.Max(b => b.Maximum.Z), false);
     }
 
-    static void ChipDetails(BuildContext c, JArray rows, double l, double w, double baseZ, double height)
+    static void ChipDetails(BuildContext c, List<MetalLayer> rows, double l, double w, double baseZ, double height)
     {
         var metal = c.Component("group-metal", "copper");
         var matrix = c.Component("group-substrate", "bt");
-        double tt = rows[0]!["thickness"].Number(), bt = rows[rows.Count - 1]!["thickness"].Number();
+        double tt = rows[0].Thickness, bt = rows[^1].Thickness;
         MetalLayers.Append(c, rows, l, w, baseZ + height, metal, matrix);
         if (c.Values["metal.hole_length"]?.Type is JTokenType.Integer or JTokenType.Float && c.Values["metal.hole_width"]?.Type is JTokenType.Integer or JTokenType.Float)
             c.Center("trace-hole", "trace", c.N("metal.hole_length"), c.N("metal.hole_width"), tt, baseZ + height - tt, c.Component("group-trace-hole", "bt").Id, "traces", derived: true);
@@ -47,9 +44,8 @@ public static class ChipArrayGenerator
         if (approximate)
             single = MaterialMixer.Mix(single.Id, single, matrix, diameter * diameter / (b * b));
         c.Derived(single);
-        double side = Math.Sqrt(Math.PI) * b / 2, dx = approximate ? 0 : c.N("vias.offset_x"), dy = approximate ? 0 : c.N("vias.offset_y");
-        foreach (var position in SolderBalls.MainPositions(c))
-            c.Center(position.Id.Replace("solder-ball", "thermal-via").Replace("solder-map", "thermal-via-map"), "via", side, side, height - tt - bt, baseZ + bt, single.Id, "vias", derived: true, cx: position.X + dx, cy: position.Y + dy);
+        foreach (var p in Vias.ChipArrayPlacements(c.Values, approximate, c.N))
+            c.Center(p.Id, "via", p.Side, p.Side, height - tt - bt, baseZ + bt, single.Id, "vias", derived: true, cx: p.X, cy: p.Y);
     }
 
 }

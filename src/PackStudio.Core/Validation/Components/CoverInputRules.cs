@@ -4,6 +4,15 @@ internal static class CoverInputRules
 {
     public static void Validate(InputChecks c)
     {
+        if (c.T("cover.type") == "encapsulant")
+        {
+            c.Fits("die.length", "cover.length");
+            c.Fits("die.width", "cover.width");
+            double stack = c.N("bumps.height") + c.N("die.thickness");
+            double height = Covers.EncapsulantHeight(c.B("cover.flush"), c.N);
+            c.Check(stack > height + 1e-10, "input.encapsulant.stack", "塑封必须覆盖凸点和芯片。",
+                "bumps.height", "die.thickness", "cover.thickness", "cover.flush");
+        }
         if (c.T("cover.type") != "lid") return;
 
         bool stiff = c.B("stiffener.enabled");

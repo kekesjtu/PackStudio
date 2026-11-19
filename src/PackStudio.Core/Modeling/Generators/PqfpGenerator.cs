@@ -30,7 +30,8 @@ public static class PqfpGenerator
         }
 
         Sides("pqfp-inner", endX, endY, bl / 2, bw / 2, "inner");
-        Sides("pqfp-outer", bl / 2, bw / 2, pl / 2 - footWidth, pw / 2 - footWidth, "outer");
+        Sides("pqfp-outer", bl / 2, bw / 2, bl / 2 + OuterLeadGeometry.HorizontalLength(pl, bl, foot, h),
+            bw / 2 + OuterLeadGeometry.HorizontalLength(pw, bw, foot, h), "outer");
         foreach (int sign in new[] { -1, 1 })
         {
             Lead("pqfp-" + (sign == 1 ? "right" : "left"), sign == 1 ? pl / 2 - foot : -pl / 2 + foot - h, -sy / 2, 0, h, sy, z, "pqfp-leadframe-outer-x");

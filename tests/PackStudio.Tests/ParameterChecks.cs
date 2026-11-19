@@ -47,14 +47,14 @@ static class ParameterChecks
             tests.Case("parameters", family + " explicit values and tables survive creation and generation", () =>
             {
                 var template = tests.Catalog.Load(family);
-                double original = tests.Create(template).Values["substrate.thickness"].Number();
+                double original = tests.CreateForGeneration(template).Values["substrate.thickness"].Number();
                 var options = new JObject { ["substrate.layers"] = "4-Layer", ["substrate.thickness"] = original };
-                var document = tests.Create(template, options: options);
+                var document = tests.CreateForGeneration(template, options: options);
                 Near(document.Values["substrate.thickness"].Number(), original, "explicit value equal to default lost");
                 var table = (JArray)document.Values["metal.layers"]!.DeepClone();
                 table[0]!["thickness"] = 0.03;
                 options["metal.layers"] = table;
-                document = tests.Create(template, options: options);
+                document = tests.CreateForGeneration(template, options: options);
                 Near(document.Values["metal.layers"]![0]!["thickness"].Number(), 0.03, "explicit layer overwritten during creation");
                 var model = tests.Generate(document);
                 Assert(model.Blocks.Any(b => b.GroupId == "group-traces" && Math.Abs(b.Size.Z - 0.03) < 1e-10), "edited table ignored by generation");
@@ -115,13 +115,13 @@ static class ParameterChecks
         });
         tests.Case("parameters", "metal layer edits do not mutate document", () =>
         {
-            var template = tests.Catalog.Load("pbga_fc");
-            var document = tests.Create(template);
-            var values = document.Values;
-            values["metal.layers"] = new JArray(new JObject { ["depth"] = 0.1, ["thickness"] = 0.018, ["coverage"] = 30 });
-            var context = new BuildContext(template, values, "layers", tests.Catalog.Materials, tests.Catalog.Groups, document.MaterialAssignments);
-            MetalLayers.Parse(context, "metal.layers")[0]!["depth"] = 0.3;
-            Near(values["metal.layers"]![0]!["depth"].Number(), 0.1, "table input mutated");
+            var document = tests.Create(tests.Catalog.Load("pbga_wb"));
+            var bottom = ((JArray)document.Values["metal.layers"]!).Last!;
+            bottom["depth"] = 0.1;
+            var model = tests.Generate(document);
+            Near(bottom["depth"].Number(), 0.1, "generation mutated the saved surface depth");
+            Near(model.Blocks.Single(b => b.Id == "bottom-trace-part-1").Origin.Z,
+                document.Values["bga.height"].Number(), "bottom trace did not follow the substrate surface");
         });
     }
 }

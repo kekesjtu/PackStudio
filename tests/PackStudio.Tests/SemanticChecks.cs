@@ -10,14 +10,14 @@ static class SemanticChecks
             tests.Case("parameters", family + " creation-only input does not invalidate saved geometry", () =>
             {
                 var template = tests.Catalog.Load(family);
-                var document = tests.Create(template);
+                var document = tests.CreateForGeneration(template);
                 document.Values["trace.top_thickness"] = "unused";
                 document.Values["trace.bottom_thickness"] = -1;
                 document.Values["trace.solid_thickness"] = "unused";
                 document.Values["metal.layers"]![0]!["thickness"] = 0.03;
                 var model = tests.Generate(document);
                 Assert(model.Blocks.Any(b => b.GroupId == "group-traces" && Math.Abs(b.Size.Z - 0.03) < 1e-10), "saved table did not control geometry");
-                var created = tests.Create(template, options: new JObject { ["trace.top_thickness"] = "invalid" });
+                var created = tests.CreateForGeneration(template, options: new JObject { ["trace.top_thickness"] = "invalid" });
                 Assert(created.Values["trace.top_thickness"].Text() == "invalid", "creation discarded invalid original input");
                 Assert(tests.GenerateResult(created).HasErrors, "invalid derived layer input was accepted for modeling");
             });
@@ -60,8 +60,8 @@ static class SemanticChecks
         {
             var template = tests.Catalog.Load("chip_array");
             var options = new JObject { ["trace.solid_thickness"] = 0.05, ["substrate.thickness"] = 0.75, ["substrate.layers"] = "4-Layer" };
-            var first = tests.Create(template, options: options);
-            var second = tests.Create(template, options: new JObject(options.Properties().Reverse().Select(p => new JProperty(p.Name, p.Value.DeepClone()))));
+            var first = tests.CreateForGeneration(template, options: options);
+            var second = tests.CreateForGeneration(template, options: new JObject(options.Properties().Reverse().Select(p => new JProperty(p.Name, p.Value.DeepClone()))));
             foreach (var document in new[] { first, second })
             {
                 Near(document.Values["substrate.thickness"].Number(), 0.75, "batch override lost");

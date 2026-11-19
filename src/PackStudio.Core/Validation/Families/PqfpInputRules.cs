@@ -5,6 +5,8 @@ internal static class PqfpInputRules
     public static void Validate(InputChecks c)
     {
         c.Check(c.N("leads.foot_length") <= c.N("leads.thickness"), "input.pqfp.foot", "PQFP 引脚脚长必须大于引脚厚度。", "leads.foot_length", "leads.thickness");
+        LeadframeInputRules.OuterLead(c, "length");
+        LeadframeInputRules.OuterLead(c, "width");
         LeadframeInputRules.Validate(c, "leads.thickness", "leads.gap_x", "leads.gap_y");
         WireInputRules.Equivalent(c, c.N("bond_wire.count"), "bond_wire.count");
         double count = c.N("bond_wire.count"), d = c.N("bond_wire.diameter"), dl = c.N("die.length"), dw = c.N("die.width");

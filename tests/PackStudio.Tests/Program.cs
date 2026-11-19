@@ -12,6 +12,7 @@ SlugChecks.Run(tests);
 MaterialChecks.Run(tests);
 ProjectChecks.Run(tests);
 BoundaryChecks.Run(tests);
+InputRelationChecks.Run(tests);
 SemanticChecks.Run(tests);
 GenerationChecks.Run(tests);
 return tests.Finish();

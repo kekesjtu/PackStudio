@@ -1,20 +1,13 @@
-using Newtonsoft.Json.Linq;
-
 namespace PackStudio.Core;
 public static class MetalLayers
 {
-    public static JArray Parse(BuildContext c, string key) => c.Values[key] is JArray rows ? (JArray)rows.DeepClone() : [];
-
-    public static void Append(BuildContext c, JArray rows, double lx, double ly, double top, Material metal, Material matrix, string prefix = "trace", bool skipZero = false)
+    internal static void Append(BuildContext c, IEnumerable<MetalLayer> layers, double lx, double ly, double top, Material metal, Material matrix, string prefix = "trace")
     {
-        for (int i = 0; i < rows.Count; i++)
+        foreach (var layer in layers)
         {
-            var r = rows[i];
-            if (skipZero && r["depth"].Number() == 0)
-                continue;
-            string id = $"{prefix}-{i}";
-            c.Derived(MaterialMixer.Mix(id, metal, matrix, r["coverage"].Number() / 100));
-            c.Center(id, "trace", lx, ly, r["thickness"].Number(), top - r["depth"].Number() - r["thickness"].Number(), id, "traces", derived: true);
+            string id = $"{prefix}-{layer.Index}";
+            c.Derived(MaterialMixer.Mix(id, metal, matrix, layer.Row["coverage"].Number() / 100));
+            c.Center(id, "trace", lx, ly, layer.Thickness, top - layer.End, id, "traces", derived: true);
         }
     }
 }

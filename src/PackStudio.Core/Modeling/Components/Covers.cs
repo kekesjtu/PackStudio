@@ -1,6 +1,9 @@
 namespace PackStudio.Core;
 public static class Covers
 {
+    internal static double EncapsulantHeight(bool flush, Func<string, double> number)
+        => flush ? number("bumps.height") + number("die.thickness") : number("cover.thickness");
+
     public static Footprint TopFootprint(BuildContext c) => c.T("cover.type") switch
     {
         "lid" => new(c.N("lid.length"), c.N("lid.width")),
@@ -14,7 +17,7 @@ public static class Covers
         switch (c.T("cover.type"))
         {
             case "encapsulant":
-                c.Center("encapsulant", "encapsulant", c.N("cover.length"), c.N("cover.width"), c.B("cover.flush") ? dieTop - substrateTop : c.N("cover.thickness"), substrateTop, "epoxy-mold", "encapsulant");
+                c.Center("encapsulant", "encapsulant", c.N("cover.length"), c.N("cover.width"), EncapsulantHeight(c.B("cover.flush"), c.N), substrateTop, "epoxy-mold", "encapsulant");
                 break;
             case "plate":
                 double plateAttach = c.N("plate.die_attach");
@@ -54,7 +57,7 @@ public static class Covers
         if (!c.B("slug.enabled") || !wirebond && c.T("cover.type") != "encapsulant")
             return;
         double l = c.N("slug.length"), w = c.N("slug.width"), h = c.N("slug.thickness"), side = Math.Sqrt(Math.PI) * c.N("slug.diameter") / 2, clearance = c.N("slug.clearance");
-        double encap = !wirebond && c.B("cover.flush") ? c.N("bumps.height") + c.N("die.thickness") : c.N(wirebond ? "encapsulant.thickness" : "cover.thickness");
+        double encap = wirebond ? c.N("encapsulant.thickness") : EncapsulantHeight(c.B("cover.flush"), c.N);
         double supportTop = substrateTop + (wirebond ? c.N("solder_mask.thickness") : 0);
         double top = substrateTop + encap, hz = top - h - c.N("slug.offset"), fz = supportTop + clearance;
         c.Center("slug-top", "heat_slug", side, side, h, top - h, "aluminum", "slug");

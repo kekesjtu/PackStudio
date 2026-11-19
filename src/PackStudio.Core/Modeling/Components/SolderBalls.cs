@@ -13,18 +13,18 @@ public static class SolderBalls
     internal static double BlockSide(double diameter) => Math.Sqrt(Math.PI) * diameter / 2;
     internal static double Position(int index, int count, double pitch) => (index - (count - 1) / 2.0) * pitch;
 
-    internal static IEnumerable<(string Id, double X, double Y)> MainPositions(BuildContext c)
+    internal static IEnumerable<(string Id, double X, double Y)> MainPositions(JObject values)
     {
-        if (c.B("bga.ball_map_enabled"))
+        if (values["bga.ball_map_enabled"].Flag())
         {
-            var points = (JArray)c.Values["bga.ball_map"]!;
+            var points = (JArray)values["bga.ball_map"]!;
             for (int i = 0; i < points.Count; i++)
                 yield return ($"solder-map-{i + 1}", points[i]["x"].Number(), points[i]["y"].Number());
             yield break;
         }
-        int rows = c.I("bga.rows"), columns = c.I("bga.columns");
-        double pitch = c.N("bga.pitch");
-        foreach (var (row, column) in Cells(c, rows, columns))
+        int rows = values["bga.rows"]!.Value<int>(), columns = values["bga.columns"]!.Value<int>();
+        double pitch = values["bga.pitch"].Number();
+        foreach (var (row, column) in Cells(values, rows, columns))
             yield return ($"solder-ball-r{row + 1}-c{column + 1}", Position(column, columns, pitch), Position(row, rows, pitch));
     }
 
@@ -53,12 +53,12 @@ public static class SolderBalls
         return ((int)Count("rows", nr), (int)Count("columns", nc));
     }
 
-    static IEnumerable<(int Row, int Column)> Cells(BuildContext c, int nr, int nc)
+    static IEnumerable<(int Row, int Column)> Cells(JObject values, int nr, int nc)
     {
-        bool removal = c.B("bga.solder_removal_enabled");
-        var omissions = c.B("bga.explicit_removal_enabled") ? c.Values["bga.omitted_cells"] as JArray : null;
-        var (rp, cp) = removal && omissions is not { Count: > 0 } ? Populated(c.Values, nr, nc) : (nr, nc);
-        return Cells(nr, nc, rp, cp, c.B("bga.staggered"), omissions);
+        bool removal = values["bga.solder_removal_enabled"].Flag();
+        var omissions = values["bga.explicit_removal_enabled"].Flag() ? values["bga.omitted_cells"] as JArray : null;
+        var (rp, cp) = removal && omissions is not { Count: > 0 } ? Populated(values, nr, nc) : (nr, nc);
+        return Cells(nr, nc, rp, cp, values["bga.staggered"].Flag(), omissions);
     }
 
     internal static IEnumerable<(int Row, int Column)> Cells(int nr, int nc, int rp, int cp, bool staggered, JArray? omissions = null)
@@ -84,7 +84,7 @@ public static class SolderBalls
         void Region(string id, int nr, int nc, bool staggered, bool center = false)
         {
             double lx = Span(nc, pitch, diameter), ly = Span(nr, pitch, diameter);
-            var cells = (center ? Cells(nr, nc, nr, nc, staggered) : Cells(c, nr, nc)).ToList();
+            var cells = (center ? Cells(nr, nc, nr, nc, staggered) : Cells(c.Values, nr, nc)).ToList();
             count += cells.Count;
             if (!equivalent)
             {
@@ -116,7 +116,7 @@ public static class SolderBalls
         if (b["bga.ball_map_enabled"].Flag())
         {
             double side = BlockSide(diameter);
-            foreach (var position in MainPositions(c))
+            foreach (var position in MainPositions(c.Values))
             {
                 Block(position.Id, position.X, position.Y, side, side, solder.Id);
                 count++;

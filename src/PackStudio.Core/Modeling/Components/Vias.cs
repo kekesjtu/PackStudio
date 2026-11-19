@@ -3,14 +3,10 @@ using Newtonsoft.Json.Linq;
 namespace PackStudio.Core;
 public static class Vias
 {
-    public static HashSet<(int row, int col)> Omissions(BuildContext c)
+    internal static HashSet<(int row, int col)> Omissions(JObject values)
     {
-        var cells = new HashSet<(int, int)>();
-        if (c.TemplateId is not ("pbga_fc" or "pbga_wb") || !c.B("vias.removal_enabled"))
-            return cells;
-        foreach (var p in (JArray)c.Values["vias.omitted_cells"]!)
-            cells.Add(((int)p["row"]!, (int)p["column"]!));
-        return cells;
+        if (!values["vias.removal_enabled"].Flag() || values["vias.omitted_cells"] is not JArray cells) return [];
+        return cells.Select(p => (p["row"]!.Value<int>(), p["column"]!.Value<int>())).ToHashSet();
     }
 
     public static Material Hollow(Material metal, double shell, string id, bool zAxis = false)
@@ -30,13 +26,24 @@ public static class Vias
         };
     }
 
-    public static void Grid(BuildContext c, string id, int rows, int cols, double pitch, double side, double z, double height, string material)
+    internal static IEnumerable<(int Row, int Column, double X, double Y)> DiscretePositions(
+        int rows, int columns, double pitch, HashSet<(int, int)> omitted)
     {
-        var omitted = Omissions(c);
-        for (int r = 0; r < rows; r++)
-            for (int col = 0; col < cols; col++)
-                if (!omitted.Contains((r, col)))
-                    c.Center($"{id}-r{r + 1}-c{col + 1}", "via", side, side, height, z, material, "vias", derived: true, cx: (col - (cols - 1) / 2.0) * pitch, cy: ((rows - 1) / 2.0 - r) * pitch);
+        for (int row = 0; row < rows; row++)
+            for (int column = 0; column < columns; column++)
+                if (!omitted.Contains((row, column)))
+                    yield return (row, column, SolderBalls.Position(column, columns, pitch), -SolderBalls.Position(row, rows, pitch));
+    }
+
+    internal static Footprint EquivalentFootprint(int rows, int columns, double pitch, double diameter)
+        => new(SolderBalls.Span(columns, pitch, diameter), SolderBalls.Span(rows, pitch, diameter));
+
+    internal static IEnumerable<(string Id, double X, double Y, double Side)> ChipArrayPlacements(JObject values, bool approximate, Func<string, double> number)
+    {
+        double side = SolderBalls.BlockSide(number(approximate ? "bga.diameter" : "vias.diameter"));
+        double dx = approximate ? 0 : number("vias.offset_x"), dy = approximate ? 0 : number("vias.offset_y");
+        foreach (var p in SolderBalls.MainPositions(values))
+            yield return (p.Id.Replace("solder-ball", "thermal-via").Replace("solder-map", "thermal-via-map"), p.X + dx, p.Y + dy, side);
     }
 
     public static void Build(BuildContext c, Material metal, Material matrix, string id, double z, double height, bool fc = false)
@@ -45,15 +52,19 @@ public static class Vias
         var via = Hollow(metal, 1 - Math.Pow((diameter - 2 * plating) / diameter, 2), id, fc);
         int nr = c.I("vias.rows"), nc = c.I("vias.columns");
         string mode = c.T("vias.modeling");
+        var omitted = c.TemplateId == "qfn" ? [] : Omissions(c.Values);
         if (mode is "discrete" or "discreteCuboids")
         {
             c.Derived(via);
-            Grid(c, fc ? "core-via" : "thermal-via", nr, nc, pitch, Math.Sqrt(Math.PI) * diameter / 2, z, height, id);
+            string prefix = fc ? "core-via" : "thermal-via";
+            double side = SolderBalls.BlockSide(diameter);
+            foreach (var p in DiscretePositions(nr, nc, pitch, omitted))
+                c.Center($"{prefix}-r{p.Row + 1}-c{p.Column + 1}", "via", side, side, height, z, id, "vias", derived: true, cx: p.X, cy: p.Y);
             return;
         }
 
-        double lx = (nc - 1) * pitch + diameter, ly = (nr - 1) * pitch + diameter;
-        double f = (nr * nc - Omissions(c).Count) * Math.PI * diameter * diameter / (4 * lx * ly);
+        var (lx, ly) = EquivalentFootprint(nr, nc, pitch, diameter);
+        double f = (nr * nc - omitted.Count) * Math.PI * diameter * diameter / (4 * lx * ly);
         c.Derived(MaterialMixer.Mix(id, via, matrix, f, mode == "isotropicCuboid" ? "xyz" : "z"));
         c.Center(fc ? "core-vias" : "thermal-via-equivalent", "via", lx, ly, height, z, id, "vias", derived: true);
     }

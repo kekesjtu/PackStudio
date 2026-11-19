@@ -22,18 +22,8 @@ public static class PbgaFcGenerator
         double top = baseZ + height;
         var metal = c.Component("group-metal", "copper");
         var matrix = c.Component("group-substrate", "pbga-substrate");
-        MetalLayers.Append(c, MetalLayers.Parse(c, "metal.layers"), l, w, top, metal, matrix, skipZero: true);
-        var thickness = new Dictionary<string, double>
-        {
-            {
-                "upper",
-                0
-            },
-            {
-                "lower",
-                0
-            }
-        };
+        MetalLayers.Append(c, MetalLayerStack.Read(c.Values, "metal.layers", height, false), l, w, top, metal, matrix);
+        var stack = BuildUpStack.Read(c.B, c.N);
         foreach (string region in new[]
         {
             "upper",
@@ -45,10 +35,9 @@ public static class PbgaFcGenerator
             if (!c.B(region + ".enabled"))
                 continue;
             var dielectric = c.Component("group-" + region, "pbga-substrate");
-            double h = c.N(region + ".thickness"), z = region == "upper" ? top - h : baseZ;
-            thickness[region] = h;
+            double h = stack.Thickness(region), z = top - stack.StartDepth(region) - h;
             c.Center(region + "-region", "substrate", l, w, h, z, dielectric.Id, region);
-            MetalLayers.Append(c, MetalLayers.Parse(c, region + ".layers"), l, w, top, metal, dielectric, region + "trace", true);
+            MetalLayers.Append(c, MetalLayerStack.Read(c.Values, region + ".layers", height, false), l, w, top, metal, dielectric, region + "trace");
             if (c.Values[region + ".count"]?.Type is not (Newtonsoft.Json.Linq.JTokenType.Integer or Newtonsoft.Json.Linq.JTokenType.Float))
                 continue;
             double d = c.N(region + ".diameter"), p = c.N(region + ".plating", 0), shell = c.B(region + ".filled") ? 1 : 1 - Math.Pow((d - 2 * p) / d, 2);
@@ -60,6 +49,6 @@ public static class PbgaFcGenerator
         }
 
         if (c.B("vias.enabled"))
-            Vias.Build(c, metal, matrix, "fc-core-via", baseZ + thickness["lower"], height - thickness["upper"] - thickness["lower"], true);
+            Vias.Build(c, metal, matrix, "fc-core-via", baseZ + stack.Lower, stack.CoreThickness, true);
     }
 }

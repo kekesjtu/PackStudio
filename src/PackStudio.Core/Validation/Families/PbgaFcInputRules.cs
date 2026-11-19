@@ -9,15 +9,16 @@ internal static class PbgaFcInputRules
         BumpInputRules.Validate(c);
         CoverInputRules.Validate(c);
         SlugInputRules.Validate(c, wirebond: false);
-        ViaInputRules.Validate(c, removal: true);
+        ViaInputRules.Validate(c, board: "substrate");
         MetalLayerInputRules.Validate(c);
         c.Fits("die.length", "substrate.length"); c.Fits("die.width", "substrate.width");
-        c.Check((c.B("upper.enabled") ? c.N("upper.thickness") : 0) + (c.B("lower.enabled") ? c.N("lower.thickness") : 0) >= c.N("substrate.thickness") && c.B("vias.enabled"),
-            "input.substrate.core", "通孔核心厚度必须大于零。", "upper.thickness", "lower.thickness", "substrate.thickness");
+        var stack = BuildUpStack.Read(c.B, c.N);
+        c.Check(c.B("vias.enabled") ? stack.CoreThickness <= 1e-10 : stack.CoreThickness < -1e-10,
+            "input.substrate.core", c.B("vias.enabled") ? "通孔核心厚度必须大于零。" : "上下增层总厚度不能超过基板厚度。",
+            "upper.thickness", "lower.thickness", "substrate.thickness");
         foreach (string region in new[] { "upper", "lower" })
         {
             if (!c.B(region + ".enabled")) continue;
-            MetalLayerInputRules.ValidateBuildUp(c, region);
             double diameter = c.N(region + ".diameter"), plating = c.N(region + ".plating");
             if (!c.B(region + ".filled"))
                 c.Check(diameter <= 0 || !double.IsFinite(plating) || plating <= 0 || plating > diameter / 2,

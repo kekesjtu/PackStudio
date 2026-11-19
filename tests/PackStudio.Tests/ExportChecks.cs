@@ -8,7 +8,7 @@ static class ExportChecks
         foreach (var family in tests.Catalog.Families)
             tests.Case("export", family.Id + " self-contained XML", () =>
             {
-                var document = tests.Create(tests.Catalog.Load(family.Id));
+                var document = tests.CreateForGeneration(tests.Catalog.Load(family.Id));
                 var model = tests.Generate(document);
                 var root = tests.Export(model).Root!;
                 Assert(root.Name == "model" && (string?)root.Attribute("version") == "1", "missing format version");
