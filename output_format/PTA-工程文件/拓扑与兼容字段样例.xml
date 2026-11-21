@@ -1,0 +1,718 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Structure xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/ThermalSim.Models">
+  <AlphaDegree>10</AlphaDegree>
+  <AmbientTemperature>300</AmbientTemperature>
+  <BasicGeometries xmlns:d2p1="http://schemas.datacontract.org/2004/07/ThermalSim.Dialogs">
+    <d2p1:TopoBuildDisplayItem>
+      <d2p1:ActiveRegion>1</d2p1:ActiveRegion>
+      <d2p1:Boundary>
+        <BoundaryCategory>Mechanical</BoundaryCategory>
+        <FaceIds xmlns:d5p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+          <d5p1:int>0</d5p1:int>
+        </FaceIds>
+        <FaceKeys xmlns:d5p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+          <d5p1:string>X|E|1|1|2|0|1</d5p1:string>
+        </FaceKeys>
+        <Name>拓扑边界</Name>
+        <ThermalBoundary xmlns:d5p1="http://schemas.datacontract.org/2004/07/ThermalSim.Models.BoundaryConditions" i:type="d5p1:FirstTypeThermalBoundary">
+          <d5p1:Temperature>300</d5p1:Temperature>
+        </ThermalBoundary>
+      </d2p1:Boundary>
+      <d2p1:BoundaryName>拓扑边界</d2p1:BoundaryName>
+      <d2p1:Color xmlns:d4p1="http://schemas.datacontract.org/2004/07/System.Windows.Media">
+        <d4p1:Opacity>0.8</d4p1:Opacity>
+        <d4p1:RelativeTransform i:nil="true" />
+        <d4p1:Transform i:nil="true" />
+        <d4p1:Color>
+          <d4p1:A>255</d4p1:A>
+          <d4p1:B>80</d4p1:B>
+          <d4p1:G>127</d4p1:G>
+          <d4p1:R>255</d4p1:R>
+          <d4p1:ScA>1</d4p1:ScA>
+          <d4p1:ScB>0.08021983</d4p1:ScB>
+          <d4p1:ScG>0.21223076</d4p1:ScG>
+          <d4p1:ScR>1</d4p1:ScR>
+        </d4p1:Color>
+      </d2p1:Color>
+      <d2p1:CurrentColor xmlns:d4p1="http://schemas.datacontract.org/2004/07/System.Windows.Media">
+        <d4p1:A>255</d4p1:A>
+        <d4p1:B>80</d4p1:B>
+        <d4p1:G>127</d4p1:G>
+        <d4p1:R>255</d4p1:R>
+        <d4p1:ScA>1</d4p1:ScA>
+        <d4p1:ScB>0.08021983</d4p1:ScB>
+        <d4p1:ScG>0.21223076</d4p1:ScG>
+        <d4p1:ScR>1</d4p1:ScR>
+      </d2p1:CurrentColor>
+      <d2p1:Layer>
+        <Blocks>
+          <Block>
+            <AllRects>
+              <Rect>
+                <Add_sub>true</Add_sub>
+                <ArrayDisguise>false</ArrayDisguise>
+                <CreatedByArray>false</CreatedByArray>
+                <HeightExpression>1</HeightExpression>
+                <Name>正向矩形</Name>
+                <NotOccupiedByArray>true</NotOccupiedByArray>
+                <ParentRect i:nil="true" />
+                <WidthExpression>1</WidthExpression>
+                <XExpression>1</XExpression>
+                <XIntervalExpression>1</XIntervalExpression>
+                <XSizeExpression>1</XSizeExpression>
+                <YExpression>1</YExpression>
+                <YIntervalExpression>1</YIntervalExpression>
+                <YSizeExpression>1</YSizeExpression>
+              </Rect>
+            </AllRects>
+            <CanCreateArray>true</CanCreateArray>
+            <Color xmlns:d7p1="http://schemas.datacontract.org/2004/07/System.Windows.Media">
+              <d7p1:A>255</d7p1:A>
+              <d7p1:B>80</d7p1:B>
+              <d7p1:G>127</d7p1:G>
+              <d7p1:R>255</d7p1:R>
+              <d7p1:ScA>1</d7p1:ScA>
+              <d7p1:ScB>0.08021983</d7p1:ScB>
+              <d7p1:ScG>0.21223076</d7p1:ScG>
+              <d7p1:ScR>1</d7p1:ScR>
+            </Color>
+            <HasBeenChanged>true</HasBeenChanged>
+            <HeatSourceId i:nil="true" />
+            <Id>8fc0eb6a587d4ab18d1a1a1b0b220004</Id>
+            <InitialName>叉指电极</InitialName>
+            <InitialTemperature i:nil="true" />
+            <IsElectrode>true</IsElectrode>
+            <IsPML>false</IsPML>
+            <IsVisible>true</IsVisible>
+            <MaterialName>Copper</MaterialName>
+            <MeshSettingsId i:nil="true" />
+            <MeshSizeXExpression>0</MeshSizeXExpression>
+            <MeshSizeYExpression>0</MeshSizeYExpression>
+            <MeshSizeZExpression>0</MeshSizeZExpression>
+            <Name>叉指电极</Name>
+            <NetDonorConcentration>0</NetDonorConcentration>
+            <PMLType>左PML</PMLType>
+            <ParentBlock i:nil="true" />
+            <SelectedPMLType>左PML</SelectedPMLType>
+            <ThicknessExpression>1</ThicknessExpression>
+            <VolumetricHeatSource>0</VolumetricHeatSource>
+            <XOffsetExpression>0</XOffsetExpression>
+            <YOffsetExpression>0</YOffsetExpression>
+            <ZOffsetExpression>0</ZOffsetExpression>
+          </Block>
+          <Block>
+            <AllRects>
+              <Rect>
+                <Add_sub>true</Add_sub>
+                <ArrayDisguise>false</ArrayDisguise>
+                <CreatedByArray>false</CreatedByArray>
+                <HeightExpression>1</HeightExpression>
+                <Name>正向矩形</Name>
+                <NotOccupiedByArray>true</NotOccupiedByArray>
+                <ParentRect i:nil="true" />
+                <WidthExpression>1</WidthExpression>
+                <XExpression>1</XExpression>
+                <XIntervalExpression>1</XIntervalExpression>
+                <XSizeExpression>1</XSizeExpression>
+                <YExpression>1</YExpression>
+                <YIntervalExpression>1</YIntervalExpression>
+                <YSizeExpression>1</YSizeExpression>
+              </Rect>
+            </AllRects>
+            <CanCreateArray>true</CanCreateArray>
+            <Color xmlns:d7p1="http://schemas.datacontract.org/2004/07/System.Windows.Media">
+              <d7p1:A>255</d7p1:A>
+              <d7p1:B>80</d7p1:B>
+              <d7p1:G>127</d7p1:G>
+              <d7p1:R>255</d7p1:R>
+              <d7p1:ScA>1</d7p1:ScA>
+              <d7p1:ScB>0.08021983</d7p1:ScB>
+              <d7p1:ScG>0.21223076</d7p1:ScG>
+              <d7p1:ScR>1</d7p1:ScR>
+            </Color>
+            <HasBeenChanged>true</HasBeenChanged>
+            <HeatSourceId i:nil="true" />
+            <Id>8fc0eb6a587d4ab18d1a1a1b0b220005</Id>
+            <InitialName>匹配层</InitialName>
+            <InitialTemperature i:nil="true" />
+            <IsElectrode>false</IsElectrode>
+            <IsPML>true</IsPML>
+            <IsVisible>false</IsVisible>
+            <MaterialName>Copper</MaterialName>
+            <MeshSettingsId i:nil="true" />
+            <MeshSizeXExpression>0</MeshSizeXExpression>
+            <MeshSizeYExpression>0</MeshSizeYExpression>
+            <MeshSizeZExpression>0</MeshSizeZExpression>
+            <Name>匹配层</Name>
+            <NetDonorConcentration>0</NetDonorConcentration>
+            <PMLType>左PML</PMLType>
+            <ParentBlock i:nil="true" />
+            <SelectedPMLType>左PML</SelectedPMLType>
+            <ThicknessExpression>1</ThicknessExpression>
+            <VolumetricHeatSource>0</VolumetricHeatSource>
+            <XOffsetExpression>-10</XOffsetExpression>
+            <YOffsetExpression>0</YOffsetExpression>
+            <ZOffsetExpression>0</ZOffsetExpression>
+          </Block>
+        </Blocks>
+        <CreatedByTopLayer>false</CreatedByTopLayer>
+        <IsBasic>false</IsBasic>
+        <IsBottomPackaging>false</IsBottomPackaging>
+        <IsDie>false</IsDie>
+        <IsIDTSawModel>true</IsIDTSawModel>
+        <IsNotIDTSawModel>false</IsNotIDTSawModel>
+        <IsSubstrate>false</IsSubstrate>
+        <IsTIM>false</IsTIM>
+        <IsTopLayer>false</IsTopLayer>
+        <MeshSettingsId i:nil="true" />
+        <MeshSizeXExpression>0</MeshSizeXExpression>
+        <MeshSizeYExpression>0</MeshSizeYExpression>
+        <MeshSizeZExpression>0</MeshSizeZExpression>
+        <MetalConversionRate>0.5</MetalConversionRate>
+        <Name>拓扑子模型</Name>
+        <ThicknessExpression>1</ThicknessExpression>
+        <XOffsetExpression>0</XOffsetExpression>
+        <YOffsetExpression>0</YOffsetExpression>
+      </d2p1:Layer>
+      <d2p1:SubModelName>拓扑子模型</d2p1:SubModelName>
+      <d2p1:TopoName>区域一</d2p1:TopoName>
+    </d2p1:TopoBuildDisplayItem>
+  </BasicGeometries>
+  <BetaDegree>15</BetaDegree>
+  <Blocks />
+  <BottomThermalBoundary i:nil="true" />
+  <Boundaries>
+    <Boundary>
+      <BoundaryCategory>Mechanical</BoundaryCategory>
+      <FaceIds xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:int>0</d4p1:int>
+      </FaceIds>
+      <FaceKeys xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:string>X|E|1|1|2|0|1</d4p1:string>
+      </FaceKeys>
+      <Name>拓扑边界</Name>
+      <ThermalBoundary xmlns:d4p1="http://schemas.datacontract.org/2004/07/ThermalSim.Models.BoundaryConditions" i:type="d4p1:FirstTypeThermalBoundary">
+        <d4p1:Temperature>300</d4p1:Temperature>
+      </ThermalBoundary>
+    </Boundary>
+  </Boundaries>
+  <DieLayerNum>1</DieLayerNum>
+  <DieLayerSizeX>10</DieLayerSizeX>
+  <DieLayerSizeY>5</DieLayerSizeY>
+  <DieMaterialName>Silicon</DieMaterialName>
+  <DielectricLossFactor>0.001</DielectricLossFactor>
+  <Dimension>Dimension3D</Dimension>
+  <EnabledPhysics>HeatTransfer</EnabledPhysics>
+  <Functions xmlns:d2p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <GammaDegree>30</GammaDegree>
+  <GeneratedMesh xmlns:d2p1="http://schemas.datacontract.org/2004/07/ThermalSim.Models.Mesh" i:nil="true" />
+  <HeatSources />
+  <InitialTemperature>300</InitialTemperature>
+  <LayerPBResults xmlns:d2p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+    <d2p1:KeyValueOfdoubleArrayOfArrayOfdoublety7Ep6D1>
+      <d2p1:Key>1</d2p1:Key>
+      <d2p1:Value>
+        <d2p1:ArrayOfdouble>
+          <d2p1:double>300</d2p1:double>
+          <d2p1:double>302</d2p1:double>
+        </d2p1:ArrayOfdouble>
+      </d2p1:Value>
+    </d2p1:KeyValueOfdoubleArrayOfArrayOfdoublety7Ep6D1>
+  </LayerPBResults>
+  <Layers>
+    <Layer>
+      <Blocks>
+        <Block>
+          <AllRects>
+            <Rect>
+              <Add_sub>true</Add_sub>
+              <ArrayDisguise>false</ArrayDisguise>
+              <CreatedByArray>false</CreatedByArray>
+              <HeightExpression>1</HeightExpression>
+              <Name>正向矩形</Name>
+              <NotOccupiedByArray>true</NotOccupiedByArray>
+              <ParentRect i:nil="true" />
+              <WidthExpression>1</WidthExpression>
+              <XExpression>1</XExpression>
+              <XIntervalExpression>1</XIntervalExpression>
+              <XSizeExpression>1</XSizeExpression>
+              <YExpression>1</YExpression>
+              <YIntervalExpression>1</YIntervalExpression>
+              <YSizeExpression>1</YSizeExpression>
+            </Rect>
+          </AllRects>
+          <CanCreateArray>true</CanCreateArray>
+          <Color xmlns:d6p1="http://schemas.datacontract.org/2004/07/System.Windows.Media">
+            <d6p1:A>255</d6p1:A>
+            <d6p1:B>80</d6p1:B>
+            <d6p1:G>127</d6p1:G>
+            <d6p1:R>255</d6p1:R>
+            <d6p1:ScA>1</d6p1:ScA>
+            <d6p1:ScB>0.08021983</d6p1:ScB>
+            <d6p1:ScG>0.21223076</d6p1:ScG>
+            <d6p1:ScR>1</d6p1:ScR>
+          </Color>
+          <HasBeenChanged>true</HasBeenChanged>
+          <HeatSourceId i:nil="true" />
+          <Id>8fc0eb6a587d4ab18d1a1a1b0b220003</Id>
+          <InitialName>铜块</InitialName>
+          <InitialTemperature i:nil="true" />
+          <IsElectrode>false</IsElectrode>
+          <IsPML>false</IsPML>
+          <IsVisible>true</IsVisible>
+          <MaterialName>Silicon</MaterialName>
+          <MeshSettingsId i:nil="true" />
+          <MeshSizeXExpression>0</MeshSizeXExpression>
+          <MeshSizeYExpression>0</MeshSizeYExpression>
+          <MeshSizeZExpression>0</MeshSizeZExpression>
+          <Name>铜块</Name>
+          <NetDonorConcentration>1e20</NetDonorConcentration>
+          <PMLType></PMLType>
+          <ParentBlock i:nil="true" />
+          <SelectedPMLType></SelectedPMLType>
+          <ThicknessExpression>1</ThicknessExpression>
+          <VolumetricHeatSource>0</VolumetricHeatSource>
+          <XOffsetExpression>0</XOffsetExpression>
+          <YOffsetExpression>0</YOffsetExpression>
+          <ZOffsetExpression>0</ZOffsetExpression>
+        </Block>
+      </Blocks>
+      <CreatedByTopLayer>false</CreatedByTopLayer>
+      <IsBasic>false</IsBasic>
+      <IsBottomPackaging>false</IsBottomPackaging>
+      <IsDie>true</IsDie>
+      <IsIDTSawModel>false</IsIDTSawModel>
+      <IsNotIDTSawModel>false</IsNotIDTSawModel>
+      <IsSubstrate>false</IsSubstrate>
+      <IsTIM>false</IsTIM>
+      <IsTopLayer>true</IsTopLayer>
+      <MeshSettingsId i:nil="true" />
+      <MeshSizeXExpression>0</MeshSizeXExpression>
+      <MeshSizeYExpression>0</MeshSizeYExpression>
+      <MeshSizeZExpression>0</MeshSizeZExpression>
+      <MetalConversionRate>1</MetalConversionRate>
+      <Name>芯片层</Name>
+      <ThicknessExpression>1</ThicknessExpression>
+      <XOffsetExpression>0</XOffsetExpression>
+      <YOffsetExpression>0</YOffsetExpression>
+    </Layer>
+    <Layer>
+      <Blocks>
+        <Block>
+          <AllRects>
+            <Rect>
+              <Add_sub>true</Add_sub>
+              <ArrayDisguise>false</ArrayDisguise>
+              <CreatedByArray>false</CreatedByArray>
+              <HeightExpression>1</HeightExpression>
+              <Name>正向矩形</Name>
+              <NotOccupiedByArray>true</NotOccupiedByArray>
+              <ParentRect i:nil="true" />
+              <WidthExpression>1</WidthExpression>
+              <XExpression>1</XExpression>
+              <XIntervalExpression>1</XIntervalExpression>
+              <XSizeExpression>1</XSizeExpression>
+              <YExpression>1</YExpression>
+              <YIntervalExpression>1</YIntervalExpression>
+              <YSizeExpression>1</YSizeExpression>
+            </Rect>
+          </AllRects>
+          <CanCreateArray>true</CanCreateArray>
+          <Color xmlns:d6p1="http://schemas.datacontract.org/2004/07/System.Windows.Media">
+            <d6p1:A>255</d6p1:A>
+            <d6p1:B>80</d6p1:B>
+            <d6p1:G>127</d6p1:G>
+            <d6p1:R>255</d6p1:R>
+            <d6p1:ScA>1</d6p1:ScA>
+            <d6p1:ScB>0.08021983</d6p1:ScB>
+            <d6p1:ScG>0.21223076</d6p1:ScG>
+            <d6p1:ScR>1</d6p1:ScR>
+          </Color>
+          <HasBeenChanged>true</HasBeenChanged>
+          <HeatSourceId i:nil="true" />
+          <Id>8fc0eb6a587d4ab18d1a1a1b0b221002</Id>
+          <InitialName>铜块</InitialName>
+          <InitialTemperature i:nil="true" />
+          <IsElectrode>false</IsElectrode>
+          <IsPML>false</IsPML>
+          <IsVisible>true</IsVisible>
+          <MaterialName>ThermalPaste</MaterialName>
+          <MeshSettingsId i:nil="true" />
+          <MeshSizeXExpression>0</MeshSizeXExpression>
+          <MeshSizeYExpression>0</MeshSizeYExpression>
+          <MeshSizeZExpression>0</MeshSizeZExpression>
+          <Name>铜块</Name>
+          <NetDonorConcentration>0</NetDonorConcentration>
+          <PMLType></PMLType>
+          <ParentBlock i:nil="true" />
+          <SelectedPMLType></SelectedPMLType>
+          <ThicknessExpression>1</ThicknessExpression>
+          <VolumetricHeatSource>0</VolumetricHeatSource>
+          <XOffsetExpression>0</XOffsetExpression>
+          <YOffsetExpression>0</YOffsetExpression>
+          <ZOffsetExpression>0</ZOffsetExpression>
+        </Block>
+      </Blocks>
+      <CreatedByTopLayer>false</CreatedByTopLayer>
+      <IsBasic>false</IsBasic>
+      <IsBottomPackaging>false</IsBottomPackaging>
+      <IsDie>false</IsDie>
+      <IsIDTSawModel>false</IsIDTSawModel>
+      <IsNotIDTSawModel>false</IsNotIDTSawModel>
+      <IsSubstrate>false</IsSubstrate>
+      <IsTIM>true</IsTIM>
+      <IsTopLayer>false</IsTopLayer>
+      <MeshSettingsId i:nil="true" />
+      <MeshSizeXExpression>0</MeshSizeXExpression>
+      <MeshSizeYExpression>0</MeshSizeYExpression>
+      <MeshSizeZExpression>0</MeshSizeZExpression>
+      <MetalConversionRate>1</MetalConversionRate>
+      <Name>热界面层</Name>
+      <ThicknessExpression>1</ThicknessExpression>
+      <XOffsetExpression>0</XOffsetExpression>
+      <YOffsetExpression>0</YOffsetExpression>
+    </Layer>
+    <Layer>
+      <Blocks>
+        <Block>
+          <AllRects>
+            <Rect>
+              <Add_sub>true</Add_sub>
+              <ArrayDisguise>false</ArrayDisguise>
+              <CreatedByArray>false</CreatedByArray>
+              <HeightExpression>1</HeightExpression>
+              <Name>正向矩形</Name>
+              <NotOccupiedByArray>true</NotOccupiedByArray>
+              <ParentRect i:nil="true" />
+              <WidthExpression>1</WidthExpression>
+              <XExpression>1</XExpression>
+              <XIntervalExpression>1</XIntervalExpression>
+              <XSizeExpression>1</XSizeExpression>
+              <YExpression>1</YExpression>
+              <YIntervalExpression>1</YIntervalExpression>
+              <YSizeExpression>1</YSizeExpression>
+            </Rect>
+          </AllRects>
+          <CanCreateArray>true</CanCreateArray>
+          <Color xmlns:d6p1="http://schemas.datacontract.org/2004/07/System.Windows.Media">
+            <d6p1:A>255</d6p1:A>
+            <d6p1:B>80</d6p1:B>
+            <d6p1:G>127</d6p1:G>
+            <d6p1:R>255</d6p1:R>
+            <d6p1:ScA>1</d6p1:ScA>
+            <d6p1:ScB>0.08021983</d6p1:ScB>
+            <d6p1:ScG>0.21223076</d6p1:ScG>
+            <d6p1:ScR>1</d6p1:ScR>
+          </Color>
+          <HasBeenChanged>true</HasBeenChanged>
+          <HeatSourceId i:nil="true" />
+          <Id>8fc0eb6a587d4ab18d1a1a1b0b221003</Id>
+          <InitialName>铜块</InitialName>
+          <InitialTemperature i:nil="true" />
+          <IsElectrode>false</IsElectrode>
+          <IsPML>false</IsPML>
+          <IsVisible>true</IsVisible>
+          <MaterialName>Copper</MaterialName>
+          <MeshSettingsId i:nil="true" />
+          <MeshSizeXExpression>0</MeshSizeXExpression>
+          <MeshSizeYExpression>0</MeshSizeYExpression>
+          <MeshSizeZExpression>0</MeshSizeZExpression>
+          <Name>铜块</Name>
+          <NetDonorConcentration>0</NetDonorConcentration>
+          <PMLType></PMLType>
+          <ParentBlock i:nil="true" />
+          <SelectedPMLType></SelectedPMLType>
+          <ThicknessExpression>1</ThicknessExpression>
+          <VolumetricHeatSource>0</VolumetricHeatSource>
+          <XOffsetExpression>0</XOffsetExpression>
+          <YOffsetExpression>0</YOffsetExpression>
+          <ZOffsetExpression>0</ZOffsetExpression>
+        </Block>
+      </Blocks>
+      <CreatedByTopLayer>false</CreatedByTopLayer>
+      <IsBasic>true</IsBasic>
+      <IsBottomPackaging>true</IsBottomPackaging>
+      <IsDie>false</IsDie>
+      <IsIDTSawModel>false</IsIDTSawModel>
+      <IsNotIDTSawModel>false</IsNotIDTSawModel>
+      <IsSubstrate>true</IsSubstrate>
+      <IsTIM>false</IsTIM>
+      <IsTopLayer>false</IsTopLayer>
+      <MeshSettingsId i:nil="true" />
+      <MeshSizeXExpression>0</MeshSizeXExpression>
+      <MeshSizeYExpression>0</MeshSizeYExpression>
+      <MeshSizeZExpression>0</MeshSizeZExpression>
+      <MetalConversionRate>1</MetalConversionRate>
+      <Name>基础底部封装层</Name>
+      <ThicknessExpression>1</ThicknessExpression>
+      <XOffsetExpression>0</XOffsetExpression>
+      <YOffsetExpression>0</YOffsetExpression>
+    </Layer>
+  </Layers>
+  <LengthUnit>Mm</LengthUnit>
+  <Materials xmlns:d2p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+    <d2p1:KeyValueOfstringMaterialGyu7GfTz>
+      <d2p1:Key>Copper</d2p1:Key>
+      <d2p1:Value>
+        <Chi0 i:nil="true" />
+        <Density>8960</Density>
+        <DensityForSaw i:nil="true" />
+        <DynamicViscosity i:nil="true" />
+        <Eg0 i:nil="true" />
+        <Epsilon i:nil="true" />
+        <EpsilonForSaw i:nil="true" />
+        <FluidMaterial>false</FluidMaterial>
+        <MuN i:nil="true" />
+        <MuP i:nil="true" />
+        <Nc i:nil="true" />
+        <Nv i:nil="true" />
+        <SpecificHeatCapacity>385</SpecificHeatCapacity>
+        <ThermalConductivity>400</ThermalConductivity>
+      </d2p1:Value>
+    </d2p1:KeyValueOfstringMaterialGyu7GfTz>
+    <d2p1:KeyValueOfstringMaterialGyu7GfTz>
+      <d2p1:Key>Silicon</d2p1:Key>
+      <d2p1:Value>
+        <Chi0>4.05</Chi0>
+        <Density>2330</Density>
+        <DensityForSaw>2330</DensityForSaw>
+        <DynamicViscosity>0</DynamicViscosity>
+        <Eg0>1.12</Eg0>
+        <Epsilon>11.7</Epsilon>
+        <EpsilonForSaw>11.7</EpsilonForSaw>
+        <FluidMaterial>false</FluidMaterial>
+        <MuN>0.135</MuN>
+        <MuP>0.048</MuP>
+        <Nc>2.8e25</Nc>
+        <Nv>1.04e25</Nv>
+        <SpecificHeatCapacity>700</SpecificHeatCapacity>
+        <ThermalConductivity>148</ThermalConductivity>
+      </d2p1:Value>
+    </d2p1:KeyValueOfstringMaterialGyu7GfTz>
+    <d2p1:KeyValueOfstringMaterialGyu7GfTz>
+      <d2p1:Key>ThermalPaste</d2p1:Key>
+      <d2p1:Value>
+        <Chi0 i:nil="true" />
+        <Density>2100</Density>
+        <DensityForSaw i:nil="true" />
+        <DynamicViscosity i:nil="true" />
+        <Eg0 i:nil="true" />
+        <Epsilon i:nil="true" />
+        <EpsilonForSaw i:nil="true" />
+        <FluidMaterial>false</FluidMaterial>
+        <MuN i:nil="true" />
+        <MuP i:nil="true" />
+        <Nc i:nil="true" />
+        <Nv i:nil="true" />
+        <SpecificHeatCapacity>900</SpecificHeatCapacity>
+        <ThermalConductivity>3</ThermalConductivity>
+      </d2p1:Value>
+    </d2p1:KeyValueOfstringMaterialGyu7GfTz>
+  </Materials>
+  <MechanicalDampingFactor>0.01</MechanicalDampingFactor>
+  <MeshSettings />
+  <ObservePoints2D />
+  <ObservePoints3D />
+  <OtherThermalBondary i:nil="true" />
+  <PreviewRowNum>1</PreviewRowNum>
+  <Results xmlns:d2p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <SoftwareMode>PB</SoftwareMode>
+  <SolverType>Fem2</SolverType>
+  <StudyType>Steady</StudyType>
+  <TIMMaterialName>ThermalPaste</TIMMaterialName>
+  <ThermalMaskResults xmlns:d2p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+    <d2p1:KeyValueOfArrayOfdoubleArrayOfanyType0dMmj3_Sh>
+      <d2p1:Key>
+        <d2p1:double>0</d2p1:double>
+        <d2p1:double>1</d2p1:double>
+      </d2p1:Key>
+      <d2p1:Value>
+        <d2p1:anyType i:type="Result0D">
+          <PhysicsName>温度</PhysicsName>
+          <PointName>区域一</PointName>
+          <UnitName>K</UnitName>
+          <Value>301</Value>
+        </d2p1:anyType>
+      </d2p1:Value>
+    </d2p1:KeyValueOfArrayOfdoubleArrayOfanyType0dMmj3_Sh>
+  </ThermalMaskResults>
+  <TopLayerIndex>0</TopLayerIndex>
+  <TopThermalBoundary i:nil="true" />
+  <TopoGeometries>
+    <TopoGeometry>
+      <ActiveRegion>1</ActiveRegion>
+      <Color xmlns:d4p1="http://schemas.datacontract.org/2004/07/System.Windows.Media">
+        <d4p1:A>255</d4p1:A>
+        <d4p1:B>80</d4p1:B>
+        <d4p1:G>127</d4p1:G>
+        <d4p1:R>255</d4p1:R>
+        <d4p1:ScA>1</d4p1:ScA>
+        <d4p1:ScB>0.08021983</d4p1:ScB>
+        <d4p1:ScG>0.21223076</d4p1:ScG>
+        <d4p1:ScR>1</d4p1:ScR>
+      </Color>
+      <Name>区域一</Name>
+      <SelectedBoundary>拓扑边界</SelectedBoundary>
+      <SelectedSubModel>拓扑子模型</SelectedSubModel>
+    </TopoGeometry>
+  </TopoGeometries>
+  <TopoGeometryMaxNum>1</TopoGeometryMaxNum>
+  <TopoLayers>
+    <Layer>
+      <Blocks>
+        <Block>
+          <AllRects>
+            <Rect>
+              <Add_sub>true</Add_sub>
+              <ArrayDisguise>false</ArrayDisguise>
+              <CreatedByArray>false</CreatedByArray>
+              <HeightExpression>1</HeightExpression>
+              <Name>正向矩形</Name>
+              <NotOccupiedByArray>true</NotOccupiedByArray>
+              <ParentRect i:nil="true" />
+              <WidthExpression>1</WidthExpression>
+              <XExpression>1</XExpression>
+              <XIntervalExpression>1</XIntervalExpression>
+              <XSizeExpression>1</XSizeExpression>
+              <YExpression>1</YExpression>
+              <YIntervalExpression>1</YIntervalExpression>
+              <YSizeExpression>1</YSizeExpression>
+            </Rect>
+          </AllRects>
+          <CanCreateArray>true</CanCreateArray>
+          <Color xmlns:d6p1="http://schemas.datacontract.org/2004/07/System.Windows.Media">
+            <d6p1:A>255</d6p1:A>
+            <d6p1:B>80</d6p1:B>
+            <d6p1:G>127</d6p1:G>
+            <d6p1:R>255</d6p1:R>
+            <d6p1:ScA>1</d6p1:ScA>
+            <d6p1:ScB>0.08021983</d6p1:ScB>
+            <d6p1:ScG>0.21223076</d6p1:ScG>
+            <d6p1:ScR>1</d6p1:ScR>
+          </Color>
+          <HasBeenChanged>true</HasBeenChanged>
+          <HeatSourceId i:nil="true" />
+          <Id>8fc0eb6a587d4ab18d1a1a1b0b220004</Id>
+          <InitialName>叉指电极</InitialName>
+          <InitialTemperature i:nil="true" />
+          <IsElectrode>true</IsElectrode>
+          <IsPML>false</IsPML>
+          <IsVisible>true</IsVisible>
+          <MaterialName>Copper</MaterialName>
+          <MeshSettingsId i:nil="true" />
+          <MeshSizeXExpression>0</MeshSizeXExpression>
+          <MeshSizeYExpression>0</MeshSizeYExpression>
+          <MeshSizeZExpression>0</MeshSizeZExpression>
+          <Name>叉指电极</Name>
+          <NetDonorConcentration>0</NetDonorConcentration>
+          <PMLType>左PML</PMLType>
+          <ParentBlock i:nil="true" />
+          <SelectedPMLType>左PML</SelectedPMLType>
+          <ThicknessExpression>1</ThicknessExpression>
+          <VolumetricHeatSource>0</VolumetricHeatSource>
+          <XOffsetExpression>0</XOffsetExpression>
+          <YOffsetExpression>0</YOffsetExpression>
+          <ZOffsetExpression>0</ZOffsetExpression>
+        </Block>
+        <Block>
+          <AllRects>
+            <Rect>
+              <Add_sub>true</Add_sub>
+              <ArrayDisguise>false</ArrayDisguise>
+              <CreatedByArray>false</CreatedByArray>
+              <HeightExpression>1</HeightExpression>
+              <Name>正向矩形</Name>
+              <NotOccupiedByArray>true</NotOccupiedByArray>
+              <ParentRect i:nil="true" />
+              <WidthExpression>1</WidthExpression>
+              <XExpression>1</XExpression>
+              <XIntervalExpression>1</XIntervalExpression>
+              <XSizeExpression>1</XSizeExpression>
+              <YExpression>1</YExpression>
+              <YIntervalExpression>1</YIntervalExpression>
+              <YSizeExpression>1</YSizeExpression>
+            </Rect>
+          </AllRects>
+          <CanCreateArray>true</CanCreateArray>
+          <Color xmlns:d6p1="http://schemas.datacontract.org/2004/07/System.Windows.Media">
+            <d6p1:A>255</d6p1:A>
+            <d6p1:B>80</d6p1:B>
+            <d6p1:G>127</d6p1:G>
+            <d6p1:R>255</d6p1:R>
+            <d6p1:ScA>1</d6p1:ScA>
+            <d6p1:ScB>0.08021983</d6p1:ScB>
+            <d6p1:ScG>0.21223076</d6p1:ScG>
+            <d6p1:ScR>1</d6p1:ScR>
+          </Color>
+          <HasBeenChanged>true</HasBeenChanged>
+          <HeatSourceId i:nil="true" />
+          <Id>8fc0eb6a587d4ab18d1a1a1b0b220005</Id>
+          <InitialName>匹配层</InitialName>
+          <InitialTemperature i:nil="true" />
+          <IsElectrode>false</IsElectrode>
+          <IsPML>true</IsPML>
+          <IsVisible>false</IsVisible>
+          <MaterialName>Copper</MaterialName>
+          <MeshSettingsId i:nil="true" />
+          <MeshSizeXExpression>0</MeshSizeXExpression>
+          <MeshSizeYExpression>0</MeshSizeYExpression>
+          <MeshSizeZExpression>0</MeshSizeZExpression>
+          <Name>匹配层</Name>
+          <NetDonorConcentration>0</NetDonorConcentration>
+          <PMLType>左PML</PMLType>
+          <ParentBlock i:nil="true" />
+          <SelectedPMLType>左PML</SelectedPMLType>
+          <ThicknessExpression>1</ThicknessExpression>
+          <VolumetricHeatSource>0</VolumetricHeatSource>
+          <XOffsetExpression>-10</XOffsetExpression>
+          <YOffsetExpression>0</YOffsetExpression>
+          <ZOffsetExpression>0</ZOffsetExpression>
+        </Block>
+      </Blocks>
+      <CreatedByTopLayer>false</CreatedByTopLayer>
+      <IsBasic>false</IsBasic>
+      <IsBottomPackaging>false</IsBottomPackaging>
+      <IsDie>false</IsDie>
+      <IsIDTSawModel>true</IsIDTSawModel>
+      <IsNotIDTSawModel>false</IsNotIDTSawModel>
+      <IsSubstrate>false</IsSubstrate>
+      <IsTIM>false</IsTIM>
+      <IsTopLayer>false</IsTopLayer>
+      <MeshSettingsId i:nil="true" />
+      <MeshSizeXExpression>0</MeshSizeXExpression>
+      <MeshSizeYExpression>0</MeshSizeYExpression>
+      <MeshSizeZExpression>0</MeshSizeZExpression>
+      <MetalConversionRate>0.5</MetalConversionRate>
+      <Name>拓扑子模型</Name>
+      <ThicknessExpression>1</ThicknessExpression>
+      <XOffsetExpression>0</XOffsetExpression>
+      <YOffsetExpression>0</YOffsetExpression>
+    </Layer>
+    <Layer>
+      <Blocks />
+      <CreatedByTopLayer>false</CreatedByTopLayer>
+      <IsBasic>false</IsBasic>
+      <IsBottomPackaging>false</IsBottomPackaging>
+      <IsDie>false</IsDie>
+      <IsIDTSawModel>false</IsIDTSawModel>
+      <IsNotIDTSawModel>true</IsNotIDTSawModel>
+      <IsSubstrate>false</IsSubstrate>
+      <IsTIM>false</IsTIM>
+      <IsTopLayer>false</IsTopLayer>
+      <MeshSettingsId i:nil="true" />
+      <MeshSizeXExpression>0</MeshSizeXExpression>
+      <MeshSizeYExpression>0</MeshSizeYExpression>
+      <MeshSizeZExpression>0</MeshSizeZExpression>
+      <MetalConversionRate>1</MetalConversionRate>
+      <Name>无叉指子模型</Name>
+      <ThicknessExpression>1</ThicknessExpression>
+      <XOffsetExpression>0</XOffsetExpression>
+      <YOffsetExpression>0</YOffsetExpression>
+    </Layer>
+  </TopoLayers>
+  <TransientStudyDuration>0</TransientStudyDuration>
+  <TransientStudyTimeStep>1</TransientStudyTimeStep>
+  <TransientTimeUnit>S</TransientTimeUnit>
+  <UseBlockBuildMode>false</UseBlockBuildMode>
+  <Variables xmlns:d2p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+</Structure>

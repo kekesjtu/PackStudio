@@ -1,0 +1,544 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Structure xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/ThermalSim.Models">
+  <AlphaDegree>0</AlphaDegree>
+  <AmbientTemperature>300</AmbientTemperature>
+  <BasicGeometries xmlns:d2p1="http://schemas.datacontract.org/2004/07/ThermalSim.Dialogs" />
+  <BetaDegree>0</BetaDegree>
+  <Blocks />
+  <BottomThermalBoundary xmlns:d2p1="http://schemas.datacontract.org/2004/07/ThermalSim.Models.BoundaryConditions" i:type="d2p1:SecondTypeThermalBoundary">
+    <d2p1:HeatFlux>5</d2p1:HeatFlux>
+  </BottomThermalBoundary>
+  <Boundaries>
+    <Boundary>
+      <BoundaryCategory>Electrical</BoundaryCategory>
+      <FaceIds xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:int>0</d4p1:int>
+      </FaceIds>
+      <FaceKeys xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:string>X|E|1|1|2|0|1</d4p1:string>
+      </FaceKeys>
+      <Name>恒温</Name>
+      <ThermalBoundary xmlns:d4p1="http://schemas.datacontract.org/2004/07/ThermalSim.Models.BoundaryConditions" i:type="d4p1:FirstTypeThermalBoundary">
+        <d4p1:Temperature>300</d4p1:Temperature>
+      </ThermalBoundary>
+    </Boundary>
+    <Boundary>
+      <BoundaryCategory>Electrical</BoundaryCategory>
+      <FaceIds xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:int>1</d4p1:int>
+      </FaceIds>
+      <FaceKeys xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:string>X|E|2|1|2|0|1</d4p1:string>
+      </FaceKeys>
+      <Name>热流</Name>
+      <ThermalBoundary xmlns:d4p1="http://schemas.datacontract.org/2004/07/ThermalSim.Models.BoundaryConditions" i:type="d4p1:SecondTypeThermalBoundary">
+        <d4p1:HeatFlux>3</d4p1:HeatFlux>
+      </ThermalBoundary>
+    </Boundary>
+    <Boundary>
+      <BoundaryCategory>Electrical</BoundaryCategory>
+      <FaceIds xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:int>2</d4p1:int>
+      </FaceIds>
+      <FaceKeys xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:string>Y|E|1|1|2|0|1</d4p1:string>
+      </FaceKeys>
+      <Name>对流</Name>
+      <ThermalBoundary xmlns:d4p1="http://schemas.datacontract.org/2004/07/ThermalSim.Models.BoundaryConditions" i:type="d4p1:ThirdTypeThermalBoundary">
+        <d4p1:ConvectionCoefficient>5</d4p1:ConvectionCoefficient>
+        <d4p1:EnvironmentTemperature>300</d4p1:EnvironmentTemperature>
+      </ThermalBoundary>
+    </Boundary>
+    <Boundary>
+      <BoundaryCategory>Electrical</BoundaryCategory>
+      <FaceIds xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:int>3</d4p1:int>
+      </FaceIds>
+      <FaceKeys xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:string>Y|E|2|1|2|0|1</d4p1:string>
+      </FaceKeys>
+      <Name>压强入口</Name>
+      <ThermalBoundary xmlns:d4p1="http://schemas.datacontract.org/2004/07/ThermalSim.Models.BoundaryConditions" i:type="d4p1:PressureInletBoundary">
+        <d4p1:InletTemperature>300</d4p1:InletTemperature>
+        <d4p1:Pressure>101325</d4p1:Pressure>
+        <d4p1:PumpResistance>1</d4p1:PumpResistance>
+      </ThermalBoundary>
+    </Boundary>
+    <Boundary>
+      <BoundaryCategory>Electrical</BoundaryCategory>
+      <FaceIds xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:int>4</d4p1:int>
+      </FaceIds>
+      <FaceKeys xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:string>Z|E|0|1,2,1,2</d4p1:string>
+      </FaceKeys>
+      <Name>质量流量入口</Name>
+      <ThermalBoundary xmlns:d4p1="http://schemas.datacontract.org/2004/07/ThermalSim.Models.BoundaryConditions" i:type="d4p1:MassFlowInletBoundary">
+        <d4p1:InletTemperature>301</d4p1:InletTemperature>
+        <d4p1:MassFlowRate>0.001</d4p1:MassFlowRate>
+      </ThermalBoundary>
+    </Boundary>
+    <Boundary>
+      <BoundaryCategory>Electrical</BoundaryCategory>
+      <FaceIds xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:int>5</d4p1:int>
+      </FaceIds>
+      <FaceKeys xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <d4p1:string>Z|E|1|1,2,1,2</d4p1:string>
+      </FaceKeys>
+      <Name>压强出口</Name>
+      <ThermalBoundary xmlns:d4p1="http://schemas.datacontract.org/2004/07/ThermalSim.Models.BoundaryConditions" i:type="d4p1:OutletBoundary">
+        <d4p1:Pressure>101000</d4p1:Pressure>
+      </ThermalBoundary>
+    </Boundary>
+  </Boundaries>
+  <DieLayerNum>0</DieLayerNum>
+  <DieLayerSizeX>0</DieLayerSizeX>
+  <DieLayerSizeY>0</DieLayerSizeY>
+  <DieMaterialName></DieMaterialName>
+  <DielectricLossFactor>0</DielectricLossFactor>
+  <Dimension>Dimension3D</Dimension>
+  <EnabledPhysics>HeatTransfer</EnabledPhysics>
+  <Functions xmlns:d2p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+    <d2p1:KeyValueOfstringFunctionAdzryM2O>
+      <d2p1:Key>constant_power</d2p1:Key>
+      <d2p1:Value xmlns:d4p1="http://schemas.datacontract.org/2004/07/ThermalSim.Models.Functions" i:type="d4p1:ConstantFunction">
+        <d4p1:ArgumentKind>Time</d4p1:ArgumentKind>
+        <d4p1:DrawMaxX>5</d4p1:DrawMaxX>
+        <d4p1:DrawMinX>0</d4p1:DrawMinX>
+        <d4p1:Value>2000</d4p1:Value>
+      </d2p1:Value>
+    </d2p1:KeyValueOfstringFunctionAdzryM2O>
+    <d2p1:KeyValueOfstringFunctionAdzryM2O>
+      <d2p1:Key>double_exp</d2p1:Key>
+      <d2p1:Value xmlns:d4p1="http://schemas.datacontract.org/2004/07/ThermalSim.Models.Functions" i:type="d4p1:DoubleExponentialFunction">
+        <d4p1:ArgumentKind>Time</d4p1:ArgumentKind>
+        <d4p1:DrawMaxX>5</d4p1:DrawMaxX>
+        <d4p1:DrawMinX>0</d4p1:DrawMinX>
+        <d4p1:A>1000</d4p1:A>
+        <d4p1:Alpha>0.2</d4p1:Alpha>
+        <d4p1:Beta>0.5</d4p1:Beta>
+      </d2p1:Value>
+    </d2p1:KeyValueOfstringFunctionAdzryM2O>
+    <d2p1:KeyValueOfstringFunctionAdzryM2O>
+      <d2p1:Key>ramp_power</d2p1:Key>
+      <d2p1:Value xmlns:d4p1="http://schemas.datacontract.org/2004/07/ThermalSim.Models.Functions" i:type="d4p1:ExpressionFunction">
+        <d4p1:ArgumentKind>Time</d4p1:ArgumentKind>
+        <d4p1:DrawMaxX>5</d4p1:DrawMaxX>
+        <d4p1:DrawMinX>0</d4p1:DrawMinX>
+        <d4p1:Expression>1800+40*t</d4p1:Expression>
+      </d2p1:Value>
+    </d2p1:KeyValueOfstringFunctionAdzryM2O>
+    <d2p1:KeyValueOfstringFunctionAdzryM2O>
+      <d2p1:Key>gaussian</d2p1:Key>
+      <d2p1:Value xmlns:d4p1="http://schemas.datacontract.org/2004/07/ThermalSim.Models.Functions" i:type="d4p1:GaussFunction">
+        <d4p1:ArgumentKind>Distance</d4p1:ArgumentKind>
+        <d4p1:DrawMaxX>5</d4p1:DrawMaxX>
+        <d4p1:DrawMinX>0</d4p1:DrawMinX>
+        <d4p1:A>100</d4p1:A>
+        <d4p1:Tau>1</d4p1:Tau>
+        <d4p1:X0>2</d4p1:X0>
+      </d2p1:Value>
+    </d2p1:KeyValueOfstringFunctionAdzryM2O>
+    <d2p1:KeyValueOfstringFunctionAdzryM2O>
+      <d2p1:Key>piecewise</d2p1:Key>
+      <d2p1:Value xmlns:d4p1="http://schemas.datacontract.org/2004/07/ThermalSim.Models.Functions" i:type="d4p1:PieceWiseFunction">
+        <d4p1:ArgumentKind>Time</d4p1:ArgumentKind>
+        <d4p1:DrawMaxX>5</d4p1:DrawMaxX>
+        <d4p1:DrawMinX>0</d4p1:DrawMinX>
+        <d4p1:Points>
+          <d4p1:PieceWiseFunction.Point>
+            <d4p1:X>0</d4p1:X>
+            <d4p1:Y>295</d4p1:Y>
+          </d4p1:PieceWiseFunction.Point>
+          <d4p1:PieceWiseFunction.Point>
+            <d4p1:X>5</d4p1:X>
+            <d4p1:Y>305</d4p1:Y>
+          </d4p1:PieceWiseFunction.Point>
+        </d4p1:Points>
+      </d2p1:Value>
+    </d2p1:KeyValueOfstringFunctionAdzryM2O>
+    <d2p1:KeyValueOfstringFunctionAdzryM2O>
+      <d2p1:Key>polynomial</d2p1:Key>
+      <d2p1:Value xmlns:d4p1="http://schemas.datacontract.org/2004/07/ThermalSim.Models.Functions" i:type="d4p1:PolynomialFunction">
+        <d4p1:ArgumentKind>Temperature</d4p1:ArgumentKind>
+        <d4p1:DrawMaxX>5</d4p1:DrawMaxX>
+        <d4p1:DrawMinX>0</d4p1:DrawMinX>
+        <d4p1:A0>300</d4p1:A0>
+        <d4p1:A1>0.1</d4p1:A1>
+        <d4p1:A2>0.01</d4p1:A2>
+        <d4p1:A3>0.001</d4p1:A3>
+        <d4p1:A4>0.0001</d4p1:A4>
+      </d2p1:Value>
+    </d2p1:KeyValueOfstringFunctionAdzryM2O>
+    <d2p1:KeyValueOfstringFunctionAdzryM2O>
+      <d2p1:Key>sinusoid</d2p1:Key>
+      <d2p1:Value xmlns:d4p1="http://schemas.datacontract.org/2004/07/ThermalSim.Models.Functions" i:type="d4p1:SineFunction">
+        <d4p1:ArgumentKind>Time</d4p1:ArgumentKind>
+        <d4p1:DrawMaxX>5</d4p1:DrawMaxX>
+        <d4p1:DrawMinX>0</d4p1:DrawMinX>
+        <d4p1:A>10</d4p1:A>
+        <d4p1:Omega>1</d4p1:Omega>
+        <d4p1:Phi>0.5</d4p1:Phi>
+      </d2p1:Value>
+    </d2p1:KeyValueOfstringFunctionAdzryM2O>
+    <d2p1:KeyValueOfstringFunctionAdzryM2O>
+      <d2p1:Key>pulse_power</d2p1:Key>
+      <d2p1:Value xmlns:d4p1="http://schemas.datacontract.org/2004/07/ThermalSim.Models.Functions" i:type="d4p1:PeriodicPiecewiseConstantFunction">
+        <d4p1:ArgumentKind>Time</d4p1:ArgumentKind>
+        <d4p1:DrawMaxX>5</d4p1:DrawMaxX>
+        <d4p1:DrawMinX>0</d4p1:DrawMinX>
+        <d4p1:Interval>2.5</d4p1:Interval>
+        <d4p1:Values>
+          <d4p1:PeriodicPiecewiseConstantFunction.ValueItem>
+            <d4p1:Value>1000</d4p1:Value>
+          </d4p1:PeriodicPiecewiseConstantFunction.ValueItem>
+          <d4p1:PeriodicPiecewiseConstantFunction.ValueItem>
+            <d4p1:Value>2000</d4p1:Value>
+          </d4p1:PeriodicPiecewiseConstantFunction.ValueItem>
+        </d4p1:Values>
+      </d2p1:Value>
+    </d2p1:KeyValueOfstringFunctionAdzryM2O>
+  </Functions>
+  <GammaDegree>0</GammaDegree>
+  <GeneratedMesh xmlns:d2p1="http://schemas.datacontract.org/2004/07/ThermalSim.Models.Mesh">
+    <d2p1:XArray xmlns:d3p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+      <d3p1:double>1</d3p1:double>
+      <d3p1:double>1.1</d3p1:double>
+      <d3p1:double>1.2</d3p1:double>
+      <d3p1:double>1.3</d3p1:double>
+      <d3p1:double>1.4</d3p1:double>
+      <d3p1:double>1.5</d3p1:double>
+      <d3p1:double>1.6</d3p1:double>
+      <d3p1:double>1.7000000000000002</d3p1:double>
+      <d3p1:double>1.8</d3p1:double>
+      <d3p1:double>1.9</d3p1:double>
+      <d3p1:double>2</d3p1:double>
+    </d2p1:XArray>
+    <d2p1:YArray xmlns:d3p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+      <d3p1:double>1</d3p1:double>
+      <d3p1:double>1.1</d3p1:double>
+      <d3p1:double>1.2</d3p1:double>
+      <d3p1:double>1.3</d3p1:double>
+      <d3p1:double>1.4</d3p1:double>
+      <d3p1:double>1.5</d3p1:double>
+      <d3p1:double>1.6</d3p1:double>
+      <d3p1:double>1.7000000000000002</d3p1:double>
+      <d3p1:double>1.8</d3p1:double>
+      <d3p1:double>1.9</d3p1:double>
+      <d3p1:double>2</d3p1:double>
+    </d2p1:YArray>
+    <d2p1:ZArray xmlns:d3p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+      <d3p1:double>0</d3p1:double>
+      <d3p1:double>0.1</d3p1:double>
+      <d3p1:double>0.2</d3p1:double>
+      <d3p1:double>0.30000000000000004</d3p1:double>
+      <d3p1:double>0.4</d3p1:double>
+      <d3p1:double>0.5</d3p1:double>
+      <d3p1:double>0.6000000000000001</d3p1:double>
+      <d3p1:double>0.7000000000000001</d3p1:double>
+      <d3p1:double>0.8</d3p1:double>
+      <d3p1:double>0.9</d3p1:double>
+      <d3p1:double>1</d3p1:double>
+    </d2p1:ZArray>
+  </GeneratedMesh>
+  <HeatSources>
+    <HeatSource>
+      <Id>8fc0eb6a587d4ab18d1a1a1b0b220001</Id>
+      <Name>周期体热源</Name>
+      <PowerDensity>pulse_power(t)</PowerDensity>
+    </HeatSource>
+  </HeatSources>
+  <InitialTemperature>300</InitialTemperature>
+  <LayerPBResults xmlns:d2p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <Layers>
+    <Layer>
+      <Blocks>
+        <Block>
+          <AllRects>
+            <Rect>
+              <Add_sub>true</Add_sub>
+              <ArrayDisguise>false</ArrayDisguise>
+              <CreatedByArray>false</CreatedByArray>
+              <HeightExpression>1</HeightExpression>
+              <Name>正向矩形</Name>
+              <NotOccupiedByArray>true</NotOccupiedByArray>
+              <ParentRect i:nil="true" />
+              <WidthExpression>1</WidthExpression>
+              <XExpression>1</XExpression>
+              <XIntervalExpression>1</XIntervalExpression>
+              <XSizeExpression>1</XSizeExpression>
+              <YExpression>1</YExpression>
+              <YIntervalExpression>1</YIntervalExpression>
+              <YSizeExpression>1</YSizeExpression>
+            </Rect>
+          </AllRects>
+          <CanCreateArray>true</CanCreateArray>
+          <Color xmlns:d6p1="http://schemas.datacontract.org/2004/07/System.Windows.Media">
+            <d6p1:A>255</d6p1:A>
+            <d6p1:B>80</d6p1:B>
+            <d6p1:G>127</d6p1:G>
+            <d6p1:R>255</d6p1:R>
+            <d6p1:ScA>1</d6p1:ScA>
+            <d6p1:ScB>0.08021983</d6p1:ScB>
+            <d6p1:ScG>0.21223076</d6p1:ScG>
+            <d6p1:ScR>1</d6p1:ScR>
+          </Color>
+          <HasBeenChanged>true</HasBeenChanged>
+          <HeatSourceId>8fc0eb6a587d4ab18d1a1a1b0b220001</HeatSourceId>
+          <Id>8fc0eb6a587d4ab18d1a1a1b0b220003</Id>
+          <InitialName>铜块</InitialName>
+          <InitialTemperature>298</InitialTemperature>
+          <IsElectrode>false</IsElectrode>
+          <IsPML>false</IsPML>
+          <IsVisible>true</IsVisible>
+          <MaterialName>Copper</MaterialName>
+          <MeshSettingsId>8fc0eb6a587d4ab18d1a1a1b0b220002</MeshSettingsId>
+          <MeshSizeXExpression>2</MeshSizeXExpression>
+          <MeshSizeYExpression>1</MeshSizeYExpression>
+          <MeshSizeZExpression>0.5</MeshSizeZExpression>
+          <Name>铜块</Name>
+          <NetDonorConcentration>0</NetDonorConcentration>
+          <PMLType></PMLType>
+          <ParentBlock i:nil="true" />
+          <SelectedPMLType></SelectedPMLType>
+          <ThicknessExpression>1</ThicknessExpression>
+          <VolumetricHeatSource>pulse_power(t)</VolumetricHeatSource>
+          <XOffsetExpression>0</XOffsetExpression>
+          <YOffsetExpression>0</YOffsetExpression>
+          <ZOffsetExpression>0</ZOffsetExpression>
+        </Block>
+      </Blocks>
+      <CreatedByTopLayer>false</CreatedByTopLayer>
+      <IsBasic>false</IsBasic>
+      <IsBottomPackaging>false</IsBottomPackaging>
+      <IsDie>false</IsDie>
+      <IsIDTSawModel>false</IsIDTSawModel>
+      <IsNotIDTSawModel>false</IsNotIDTSawModel>
+      <IsSubstrate>false</IsSubstrate>
+      <IsTIM>false</IsTIM>
+      <IsTopLayer>true</IsTopLayer>
+      <MeshSettingsId>8fc0eb6a587d4ab18d1a1a1b0b220002</MeshSettingsId>
+      <MeshSizeXExpression>2</MeshSizeXExpression>
+      <MeshSizeYExpression>1</MeshSizeYExpression>
+      <MeshSizeZExpression>0.5</MeshSizeZExpression>
+      <MetalConversionRate>1</MetalConversionRate>
+      <Name>铜层</Name>
+      <ThicknessExpression>1</ThicknessExpression>
+      <XOffsetExpression>0</XOffsetExpression>
+      <YOffsetExpression>0</YOffsetExpression>
+    </Layer>
+  </Layers>
+  <LengthUnit>Mm</LengthUnit>
+  <Materials xmlns:d2p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+    <d2p1:KeyValueOfstringMaterialGyu7GfTz>
+      <d2p1:Key>Copper</d2p1:Key>
+      <d2p1:Value>
+        <Chi0 i:nil="true" />
+        <Density>8960</Density>
+        <DensityForSaw i:nil="true" />
+        <DynamicViscosity i:nil="true" />
+        <Eg0 i:nil="true" />
+        <Epsilon i:nil="true" />
+        <EpsilonForSaw i:nil="true" />
+        <FluidMaterial>false</FluidMaterial>
+        <MuN i:nil="true" />
+        <MuP i:nil="true" />
+        <Nc i:nil="true" />
+        <Nv i:nil="true" />
+        <SpecificHeatCapacity>385</SpecificHeatCapacity>
+        <ThermalConductivity>400</ThermalConductivity>
+      </d2p1:Value>
+    </d2p1:KeyValueOfstringMaterialGyu7GfTz>
+    <d2p1:KeyValueOfstringMaterialGyu7GfTz>
+      <d2p1:Key>Water</d2p1:Key>
+      <d2p1:Value>
+        <Chi0 i:nil="true" />
+        <Density>997</Density>
+        <DensityForSaw i:nil="true" />
+        <DynamicViscosity>0.001</DynamicViscosity>
+        <Eg0 i:nil="true" />
+        <Epsilon i:nil="true" />
+        <EpsilonForSaw i:nil="true" />
+        <FluidMaterial>true</FluidMaterial>
+        <MuN i:nil="true" />
+        <MuP i:nil="true" />
+        <Nc i:nil="true" />
+        <Nv i:nil="true" />
+        <SpecificHeatCapacity>4180</SpecificHeatCapacity>
+        <ThermalConductivity>0.6</ThermalConductivity>
+      </d2p1:Value>
+    </d2p1:KeyValueOfstringMaterialGyu7GfTz>
+  </Materials>
+  <MechanicalDampingFactor>0</MechanicalDampingFactor>
+  <MeshSettings>
+    <MeshSettingsGroup>
+      <Id>8fc0eb6a587d4ab18d1a1a1b0b220002</Id>
+      <IsFaceSetting>false</IsFaceSetting>
+      <Name>体网格</Name>
+      <X>2</X>
+      <Y>1</Y>
+      <Z>0.5</Z>
+    </MeshSettingsGroup>
+  </MeshSettings>
+  <ObservePoints2D />
+  <ObservePoints3D>
+    <ObservePoint3D>
+      <Name>内部观察点</Name>
+      <X>1</X>
+      <Y>1</Y>
+      <Z>0.5</Z>
+    </ObservePoint3D>
+  </ObservePoints3D>
+  <OtherThermalBondary xmlns:d2p1="http://schemas.datacontract.org/2004/07/ThermalSim.Models.BoundaryConditions" i:type="d2p1:ThirdTypeThermalBoundary">
+    <d2p1:ConvectionCoefficient>5</d2p1:ConvectionCoefficient>
+    <d2p1:EnvironmentTemperature>296</d2p1:EnvironmentTemperature>
+  </OtherThermalBondary>
+  <PreviewRowNum>0</PreviewRowNum>
+  <Results xmlns:d2p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+    <d2p1:anyType i:type="Result0D">
+      <PhysicsName>温度</PhysicsName>
+      <PointName>内部观察点</PointName>
+      <UnitName>K</UnitName>
+      <Value>300</Value>
+    </d2p1:anyType>
+    <d2p1:anyType i:type="Result0DTransient">
+      <PhysicsName>温度</PhysicsName>
+      <PointName>内部观察点</PointName>
+      <TimeUnit>S</TimeUnit>
+      <Times>
+        <d2p1:double>0</d2p1:double>
+        <d2p1:double>5</d2p1:double>
+      </Times>
+      <UnitName>K</UnitName>
+      <Values>
+        <d2p1:double>298</d2p1:double>
+        <d2p1:double>300</d2p1:double>
+      </Values>
+    </d2p1:anyType>
+    <d2p1:anyType i:type="Result3D">
+      <Mesh xmlns:d4p1="http://schemas.datacontract.org/2004/07/ThermalSim.Models.Mesh">
+        <d4p1:XArray>
+          <d2p1:double>0</d2p1:double>
+          <d2p1:double>10</d2p1:double>
+        </d4p1:XArray>
+        <d4p1:YArray>
+          <d2p1:double>0</d2p1:double>
+          <d2p1:double>5</d2p1:double>
+        </d4p1:YArray>
+        <d4p1:ZArray>
+          <d2p1:double>0</d2p1:double>
+          <d2p1:double>1</d2p1:double>
+        </d4p1:ZArray>
+      </Mesh>
+      <Name>温度</Name>
+      <Time>0</Time>
+      <Values>
+        <Data>
+          <d2p1:double>298</d2p1:double>
+          <d2p1:double>299</d2p1:double>
+          <d2p1:double>299</d2p1:double>
+          <d2p1:double>300</d2p1:double>
+          <d2p1:double>299</d2p1:double>
+          <d2p1:double>300</d2p1:double>
+          <d2p1:double>300</d2p1:double>
+          <d2p1:double>301</d2p1:double>
+        </Data>
+        <SizeX>2</SizeX>
+        <SizeY>2</SizeY>
+        <SizeZ>2</SizeZ>
+      </Values>
+    </d2p1:anyType>
+    <d2p1:anyType i:type="Result3D">
+      <Mesh xmlns:d4p1="http://schemas.datacontract.org/2004/07/ThermalSim.Models.Mesh">
+        <d4p1:XArray>
+          <d2p1:double>0</d2p1:double>
+          <d2p1:double>10</d2p1:double>
+        </d4p1:XArray>
+        <d4p1:YArray>
+          <d2p1:double>0</d2p1:double>
+          <d2p1:double>5</d2p1:double>
+        </d4p1:YArray>
+        <d4p1:ZArray>
+          <d2p1:double>0</d2p1:double>
+          <d2p1:double>1</d2p1:double>
+        </d4p1:ZArray>
+      </Mesh>
+      <Name>温度</Name>
+      <Time>5</Time>
+      <Values>
+        <Data>
+          <d2p1:double>299</d2p1:double>
+          <d2p1:double>300</d2p1:double>
+          <d2p1:double>300</d2p1:double>
+          <d2p1:double>301</d2p1:double>
+          <d2p1:double>300</d2p1:double>
+          <d2p1:double>301</d2p1:double>
+          <d2p1:double>301</d2p1:double>
+          <d2p1:double>302</d2p1:double>
+        </Data>
+        <SizeX>2</SizeX>
+        <SizeY>2</SizeY>
+        <SizeZ>2</SizeZ>
+      </Values>
+    </d2p1:anyType>
+    <d2p1:anyType i:type="BlockTemperatureResult">
+      <Average>
+        <d2p1:ArrayOfdouble>
+          <d2p1:double>299.5</d2p1:double>
+        </d2p1:ArrayOfdouble>
+        <d2p1:ArrayOfdouble>
+          <d2p1:double>300.5</d2p1:double>
+        </d2p1:ArrayOfdouble>
+      </Average>
+      <BlockNames>
+        <d2p1:string>铜块</d2p1:string>
+      </BlockNames>
+      <Error i:nil="true" />
+      <IsTransient>true</IsTransient>
+      <Max>
+        <d2p1:ArrayOfdouble>
+          <d2p1:double>301</d2p1:double>
+        </d2p1:ArrayOfdouble>
+        <d2p1:ArrayOfdouble>
+          <d2p1:double>302</d2p1:double>
+        </d2p1:ArrayOfdouble>
+      </Max>
+      <Min>
+        <d2p1:ArrayOfdouble>
+          <d2p1:double>298</d2p1:double>
+        </d2p1:ArrayOfdouble>
+        <d2p1:ArrayOfdouble>
+          <d2p1:double>299</d2p1:double>
+        </d2p1:ArrayOfdouble>
+      </Min>
+      <TimeUnit>S</TimeUnit>
+      <Times>
+        <d2p1:double>0</d2p1:double>
+        <d2p1:double>5</d2p1:double>
+      </Times>
+    </d2p1:anyType>
+  </Results>
+  <SoftwareMode>PTA</SoftwareMode>
+  <SolverType>FVM</SolverType>
+  <StudyType>Transient</StudyType>
+  <TIMMaterialName></TIMMaterialName>
+  <ThermalMaskResults xmlns:d2p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <TopLayerIndex>0</TopLayerIndex>
+  <TopThermalBoundary xmlns:d2p1="http://schemas.datacontract.org/2004/07/ThermalSim.Models.BoundaryConditions" i:type="d2p1:FirstTypeThermalBoundary">
+    <d2p1:Temperature>300</d2p1:Temperature>
+  </TopThermalBoundary>
+  <TopoGeometries />
+  <TopoGeometryMaxNum>0</TopoGeometryMaxNum>
+  <TopoLayers />
+  <TransientStudyDuration>5</TransientStudyDuration>
+  <TransientStudyTimeStep>5</TransientStudyTimeStep>
+  <TransientTimeUnit>S</TransientTimeUnit>
+  <UseBlockBuildMode>false</UseBlockBuildMode>
+  <Variables xmlns:d2p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+    <d2p1:KeyValueOfstringdouble>
+      <d2p1:Key>sample_rate</d2p1:Key>
+      <d2p1:Value>2000</d2p1:Value>
+    </d2p1:KeyValueOfstringdouble>
+  </Variables>
+</Structure>
