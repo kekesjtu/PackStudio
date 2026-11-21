@@ -1,16 +1,12 @@
 using System.Globalization;
-using System.Text;
-using System.Xml;
 using System.Xml.Linq;
+using static PackStudio.Core.XmlExport;
 
 namespace PackStudio.Core;
 
 public static class ModelXmlExporter
 {
-    static string F(double value) => double.IsFinite(value)
-        ? value == 0 ? "0" : value.ToString("G12", CultureInfo.InvariantCulture)
-        : throw new ArgumentException("模型 XML 需要有限数值。");
-    static XAttribute Number(string name, double value) => new(name, F(value));
+    static XAttribute Number(string name, double value) => new(name, Format(value));
 
     public static XDocument Export(GenerationResult result)
     {
@@ -26,11 +22,11 @@ public static class ModelXmlExporter
             var k = material.EffectiveConductivity;
             var definition = new XElement("material", new XAttribute("id", references[material.Id]), new XAttribute("name", material.Name),
                 new XAttribute("type", material.ConductType switch { 0 => "isotropic", 1 => "temperature_dependent", 2 => "orthotropic", _ => throw new ArgumentException("未知导热类型。") }),
-                new XElement("density", F(material.Density)), new XElement("specific_heat", F(material.SpecificHeat)),
+                new XElement("density", Format(material.Density)), new XElement("specific_heat", Format(material.SpecificHeat)),
                 new XElement("conductivity", Number("x", k.X), Number("y", k.Y), Number("z", k.Z)));
             if (material.ConductType == 1)
-                definition.Add(new XElement("coefficient", F(material.ConductivityCoefficient!.Value)),
-                    new XElement("reference_temperature", F((material.ReferenceTemperature ?? 0) + 273.15)));
+                definition.Add(new XElement("coefficient", Format(material.ConductivityCoefficient!.Value)),
+                    new XElement("reference_temperature", Format((material.ReferenceTemperature ?? 0) + 273.15)));
             definitions.Add(definition);
         }
 
@@ -53,19 +49,5 @@ public static class ModelXmlExporter
         return new(new XDeclaration("1.0", "utf-8", null), root);
     }
 
-    public static void Save(GenerationResult result, string path)
-    {
-        var document = Export(result);
-        string absolute = Path.GetFullPath(path), temporary = absolute + "." + Guid.NewGuid().ToString("N") + ".tmp";
-        try
-        {
-            using (var writer = XmlWriter.Create(temporary, new XmlWriterSettings { Indent = true, Encoding = new UTF8Encoding(false) }))
-                document.Save(writer);
-            File.Move(temporary, absolute, true);
-        }
-        finally
-        {
-            if (File.Exists(temporary)) File.Delete(temporary);
-        }
-    }
+    public static void Save(GenerationResult result, string path) => XmlExport.Save(Export(result), path);
 }

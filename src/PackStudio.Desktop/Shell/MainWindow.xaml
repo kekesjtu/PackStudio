@@ -10,7 +10,11 @@
 <fluent:RibbonGroupBox Header="模型">
   <fluent:Button Header="生成模型" Command="{Binding GenerateCommand}"><fluent:Button.LargeIcon><TextBlock Style="{StaticResource RibbonIconGlyph}" Text="&#xE768;"/></fluent:Button.LargeIcon></fluent:Button>
   <!-- 不换行空格：Fluent 会在空格处把大按钮标题拆成两行 -->
-  <fluent:Button x:Name="ExportButton" Header="导出&#xA0;XML" Click="Export_Click" IsEnabled="{Binding CanExport}" ToolTip="导出模型 XML"><fluent:Button.LargeIcon><Canvas Width="24" Height="24"><Path Style="{StaticResource RibbonIconStroke}" Data="M2,2 L12,2 L17,7 L17,13 M12,2 L12,7 L17,7 M2,2 L2,22 L10,22 M10,17 L22,17 M17,12 L22,17 L17,22"/></Canvas></fluent:Button.LargeIcon></fluent:Button>
+  <fluent:DropDownButton x:Name="ExportButton" Header="导出&#xA0;XML" IsEnabled="{Binding CanExport}" ToolTip="选择导出格式">
+    <fluent:DropDownButton.LargeIcon><Canvas Width="24" Height="24"><Path Style="{StaticResource RibbonIconStroke}" Data="M2,2 L12,2 L17,7 L17,13 M12,2 L12,7 L17,7 M2,2 L2,22 L10,22 M10,17 L22,17 M17,12 L22,17 L17,22"/></Canvas></fluent:DropDownButton.LargeIcon>
+    <fluent:MenuItem Header="PackStudio 模型 XML" Click="Export_Click"/>
+    <fluent:MenuItem Header="PTA 工程 XML" Click="ExportPta_Click"/>
+  </fluent:DropDownButton>
   <fluent:Button Header="材料库" Click="Materials_Click"><fluent:Button.LargeIcon><TextBlock Style="{StaticResource RibbonIconGlyph}" Text="&#xE8F1;"/></fluent:Button.LargeIcon></fluent:Button>
 </fluent:RibbonGroupBox>
 <fluent:RibbonGroupBox Header="视图">

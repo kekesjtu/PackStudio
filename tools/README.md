@@ -17,6 +17,7 @@ dotnet src/PackStudio.Cli/bin/Release/net10.0/PackStudio.Cli.dll catalog
 dotnet src/PackStudio.Cli/bin/Release/net10.0/PackStudio.Cli.dll --presets pbga_wb
 dotnet src/PackStudio.Cli/bin/Release/net10.0/PackStudio.Cli.dll --help pbga_wb
 dotnet src/PackStudio.Cli/bin/Release/net10.0/PackStudio.Cli.dll generate request.json model.packstudio.xml
+dotnet src/PackStudio.Cli/bin/Release/net10.0/PackStudio.Cli.dll generate request.json model.pta.xml
 ```
 
 `catalog` 返回家族 ID 数组，`--presets <template_id>` 返回该家族的预设名称数组。两者均输出 JSON。

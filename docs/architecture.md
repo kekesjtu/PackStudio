@@ -153,13 +153,13 @@ ModelValidator 检查模型非空、实体 ID 唯一、坐标有限、尺寸有�
 ```text
 当前方案与生成修订号
     → 确认结果未过期且 CanExport
-    → ModelXmlExporter 接收 GenerationResult
-    → 单位转换、局部材料编号与 XML 序列化
-    → .packstudio.xml
+    → 所选格式的导出器接收 GenerationResult
+    → 转换单位、关联材料与热源、序列化 XML
+    → .packstudio.xml 或 .pta.xml
     → 下游网格生成与数值求解
 ```
 
-导出采用 PackStudio XML，表达轴对齐长方体块、已计算材料物性和按块关联的体热源。模型携带自足的材料快照，输出不依赖外部材料库；内部网格参数、辐射字段、非物理区域和监视点不进入输出。
+PackStudio XML 与 PTA 工程共用模型中的轴对齐长方体块、材料快照与按块关联的体热源。PTA 工程使用独立块模式，网格与求解结果由 PTA 生成。
 
 Desktop 与 CLI 在导出前确认使用当前方案的生成结果；导出器检查结果是否允许导出，再按输出契约进行数值转换与序列化。导出不重新执行整套输入与模型校验，不修改模型或诊断。诊断保留在应用生成结果中，XML 内容以输出契约为准。
 
@@ -178,7 +178,7 @@ Desktop 与 CLI 在导出前确认使用当前方案的生成结果；导出器�
 | Validation | InputValidator、ModelValidator、基础数值判断和重叠算法；家族输入检查组合共用组件检查，直接返回问题列表。 |
 | RuntimeData | RuntimeDataCatalog 组织运行目录、定义与创建配置的读取和缓存；MaterialCatalogReader 处理材料格式映射，完整预设正文复用方案读取入口。 |
 | Projects | 完整方案读写，预设与用户方案共用契约。 |
-| Export | PackStudio XML 转换、序列化与文件输出。 |
+| Export | PackStudio XML 与 PTA 独立块工程的转换、序列化与文件输出。 |
 
 | 应用模块 | 职责与边界 |
 | --- | --- |

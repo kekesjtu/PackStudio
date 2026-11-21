@@ -3,7 +3,7 @@ using PackStudio.Core;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-const string Usage = "用法：catalog | --presets <template_id> | --help [template_id] | values request.json | generate request.json output.packstudio.xml";
+const string Usage = "用法：catalog | --presets <template_id> | --help [template_id] | values request.json | generate request.json <output.packstudio.xml 或 output.pta.xml>";
 
 try
 {
@@ -47,7 +47,10 @@ try
         warnings = result.Issues.Where(i => i.Severity == IssueSeverity.Warning).Select(i => i.Message), can_preview = result.CanPreview, can_export = result.CanExport },
         new Newtonsoft.Json.Converters.StringEnumConverter()));
     if (!result.CanExport) return 2;
-    ModelXmlExporter.Save(result, args[2]);
+    if (args[2].EndsWith(".pta.xml", StringComparison.OrdinalIgnoreCase))
+        PtaProjectExporter.Save(result, args[2]);
+    else
+        ModelXmlExporter.Save(result, args[2]);
     return 0;
 }
 catch (Exception ex)

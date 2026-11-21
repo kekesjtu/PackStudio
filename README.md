@@ -1,6 +1,6 @@
 # PackStudio
 
-参考 Flotherm PACK 的界面与建模逻辑，通过参数向导生成八类 IC 封装热分析模型，输出 PackStudio XML 给下游网格与求解软件。
+参考 Flotherm PACK 的界面与建模逻辑，通过参数向导生成八类 IC 封装热分析模型，可导出 PackStudio XML 或 PTA 独立块工程。
 
 ## 快速开始
 
@@ -29,10 +29,10 @@ dotnet publish src/PackStudio.Desktop -c Release -r win-x64 --self-contained -o 
 | 路径 | 职责 |
 | --- | --- |
 | `src/PackStudio.Desktop/` | WPF 参数向导、三维预览、模型树与材料编辑 |
-| `src/PackStudio.Core/` | 领域契约、创建初始化、八类封装生成、前后校验与 PackStudio XML 输出 |
+| `src/PackStudio.Core/` | 领域契约、创建初始化、八类封装生成、前后校验与模型导出 |
 | `src/PackStudio.Cli/` | 研究工具使用的 C# 命令行入口 |
 | `runtime_data/` | 封装定义（参数、字段约束与展示配置）、343 个完整方案预设与材料库 |
-| `output_format/packstudio/` | 自定义 XML 格式契约与示例 |
+| `output_format/` | 模型输出格式与示例 |
 | `tests/PackStudio.Tests/` | 几何、材料、功率、参数分支与输出契约回归 |
 | `tests/PackStudio.Desktop.Tests/` | 桌面创建、参数编辑、问题定位与模型展示回归 |
 | `tests/research/` | 原生研究工具测试 |
@@ -43,4 +43,4 @@ dotnet publish src/PackStudio.Desktop -c Release -r win-x64 --self-contained -o 
 
 需求、架构与决策见 [docs 文档路由](docs/README.md)。
 
-[运行数据](runtime_data/README.md) · [模型 XML 契约](output_format/packstudio/README.md) · [开发与研究工具](tools/README.md) · [PACK 扫参](tools/pack_sweep/README.md) · [FloSCRIPT](FLOSCRIPT.md)
+[运行数据](runtime_data/README.md) · [模型输出格式](output_format/README.md) · [开发与研究工具](tools/README.md) · [PACK 扫参](tools/pack_sweep/README.md) · [FloSCRIPT](FLOSCRIPT.md)

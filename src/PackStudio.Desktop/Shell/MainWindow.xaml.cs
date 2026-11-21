@@ -180,21 +180,25 @@ public partial class MainWindow : Window
         }
     }
 
-    void Export_Click(object sender, RoutedEventArgs e)
+    void Export_Click(object sender, RoutedEventArgs e) => ExportModel(pta: false);
+    void ExportPta_Click(object sender, RoutedEventArgs e) => ExportModel(pta: true);
+
+    void ExportModel(bool pta)
     {
         if (!workspace.CanExport || workspace.Result == null)
             return;
         var dialog = new SaveFileDialog
         {
-            Filter = "PackStudio XML|*.packstudio.xml",
-            FileName = SafeName(workspace.Document.Name) + ".packstudio.xml"
+            Filter = pta ? "PTA 工程 XML|*.xml" : "PackStudio XML|*.packstudio.xml",
+            FileName = SafeName(workspace.Document.Name) + (pta ? ".pta.xml" : ".packstudio.xml")
         };
         if (dialog.ShowDialog(this) != true)
             return;
         try
         {
-            ModelXmlExporter.Save(workspace.Result, dialog.FileName);
-            workspace.Status = "模型 XML 已导出：" + dialog.FileName;
+            if (pta) PtaProjectExporter.Save(workspace.Result, dialog.FileName);
+            else ModelXmlExporter.Save(workspace.Result, dialog.FileName);
+            workspace.Status = (pta ? "PTA 工程已导出：" : "模型 XML 已导出：") + dialog.FileName;
         }
         catch (Exception ex)
         {

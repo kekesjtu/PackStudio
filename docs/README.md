@@ -16,7 +16,7 @@
 | 主题 | 决策 |
 | --- | --- |
 | 预设与方案 | [预设来源与空值](decisions/projects/预设来源与空值.md) · [方案文件与模型输出](decisions/projects/方案文件与模型输出.md) · [方案创建与分支配置](decisions/projects/方案创建与分支配置.md) |
-| 产品范围与输出 | [封装与传热范围](decisions/projects/封装与传热范围.md) · [仅保留 PackStudio XML 输出](decisions/projects/仅保留PackStudioXML输出.md) |
+| 产品范围与输出 | [封装与传热范围](decisions/projects/封装与传热范围.md) · [模型 XML 输出](decisions/projects/模型XML输出.md) |
 | 封装建模 | [BGA 与 Bumps 建模表达](decisions/modeling/BGA与Bumps建模表达.md) · [FC 顶盖与均热板粘接层](decisions/modeling/FC顶盖与均热板粘接层.md) · [QFP 连接筋](decisions/modeling/QFP连接筋.md) · [重叠块与警告](decisions/modeling/重叠块与警告.md) |
 | 创建与参数编辑 | [新建封装与向导导航](decisions/desktop/新建封装与向导导航.md) · [数值输入框交互](decisions/desktop/数值输入框交互.md) · [去球与去孔矩阵选择](decisions/desktop/去球与去孔矩阵选择.md) · [封装示意图](decisions/desktop/封装示意图.md) |
 | 工作区与模型检查 | [工作区与三维操作](decisions/desktop/工作区与三维操作.md) · [模型树排序与显隐](decisions/desktop/模型树排序与显隐.md) |
