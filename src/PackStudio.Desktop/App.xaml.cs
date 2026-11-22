@@ -28,7 +28,7 @@ public partial class App : Application
         };
         try
         {
-            var window = new MainWindow();
+            var window = new MainWindow(PtaSession.Parse(e.Args));
             MainWindow = window;
             window.Show();
         }

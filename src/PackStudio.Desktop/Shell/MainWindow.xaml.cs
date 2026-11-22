@@ -11,12 +11,18 @@ public partial class MainWindow : Window
     readonly ParameterPanel parameters;
     readonly ModelPresenter models;
     readonly IssuePresenter issues;
+    readonly Guid? ptaSessionId;
     bool loading;
     string? projectPath;
     MaterialWindow? materialWindow;
-    public MainWindow()
+    public MainWindow() : this(null) { }
+
+    public MainWindow(Guid? ptaSessionId)
     {
+        this.ptaSessionId = ptaSessionId;
         InitializeComponent();
+        PtaButton.Header = ptaSessionId.HasValue ? "传回\u00A0PTA" : "在\u00A0PTA\u00A0中打开";
+        PtaButton.ToolTip = ptaSessionId.HasValue ? "将当前模型作为独立工程传回发起会话的 PTA" : "在本机 PTA 中打开当前模型的独立工程";
         models = new(workspace, ModelTree, Viewport, Inspector);
         parameters = new(workspace, FieldsPanel);
         issues = new(workspace, IssuesList, WarningsText, IssuesChevron);
@@ -38,7 +44,7 @@ public partial class MainWindow : Window
         workspace.PropertyChanged += (_, e) =>
         {
             if (e.PropertyName == nameof(Workspace.DesignName)) Title = workspace.DesignName + " — PackStudio";
-            if (e.PropertyName == nameof(Workspace.IsBusy)) OpenInPtaCommand.NotifyCanExecuteChanged();
+            if (e.PropertyName == nameof(Workspace.IsBusy)) SendToPtaCommand.NotifyCanExecuteChanged();
         };
         InitializeViewportScale();
         BuildPaletteMenu();

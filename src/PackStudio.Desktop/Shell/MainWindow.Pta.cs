@@ -6,17 +6,17 @@ namespace PackStudio.Desktop;
 
 public partial class MainWindow
 {
-    bool CanOpenInPta() => !workspace.IsBusy;
+    bool CanSendToPta() => !workspace.IsBusy;
 
-    [RelayCommand(CanExecute = nameof(CanOpenInPta))]
-    async Task OpenInPtaAsync()
+    [RelayCommand(CanExecute = nameof(CanSendToPta))]
+    async Task SendToPtaAsync()
     {
         string? exportedPath = null;
         try
         {
             if (!parameters.CommitTableEdits())
             {
-                workspace.Status = "请完成参数表格中的编辑后再打开 PTA。";
+                workspace.Status = "请完成参数表格中的编辑后再交接 PTA 工程。";
                 return;
             }
             // Apply the table's queued value update before capturing the workspace revision.
@@ -30,27 +30,40 @@ public partial class MainWindow
             if (workspace.Revision != revision || !workspace.CanExport || workspace.Result is not { } result)
                 return;
 
-            var executable = FindOrSelectPta();
-            if (executable == null || workspace.Revision != revision)
-                return;
+            string? executable = null;
+            if (!ptaSessionId.HasValue)
+            {
+                executable = FindOrSelectPta();
+                if (executable == null || workspace.Revision != revision)
+                    return;
+            }
 
             workspace.Status = "正在导出 PTA 工程…";
             exportedPath = await Task.Run(() => PtaHandoff.Export(result));
             if (workspace.Revision != revision)
             {
                 if (!workspace.IsBusy)
-                    workspace.Status = "导出期间方案有修改，请再次点击「在 PTA 中打开」。";
+                    workspace.Status = "导出期间方案有修改，请重新交接 PTA 工程。";
                 return;
             }
 
-            PtaHandoff.Open(executable, exportedPath);
-            workspace.Status = "已导出工程并请求 PTA 打开：" + exportedPath;
+            if (ptaSessionId is { } session)
+            {
+                workspace.Status = "等待 PTA 确认打开工程…";
+                await PtaSession.SendAsync(session, exportedPath);
+                workspace.Status = "已传回 PTA 并打开工程：" + exportedPath;
+            }
+            else
+            {
+                PtaHandoff.Open(executable!, exportedPath);
+                workspace.Status = "已导出工程并请求 PTA 打开：" + exportedPath;
+            }
         }
         catch (Exception ex)
         {
             ShowError(exportedPath == null
-                ? $"无法在 PTA 中打开工程。\n{ex.Message}"
-                : $"无法启动 PTA。\n{ex.Message}\n\n已导出的工程：\n{exportedPath}");
+                ? $"无法准备 PTA 工程。\n{ex.Message}"
+                : $"PTA 工程交接未完成。\n{ex.Message}\n\n已导出的工程：\n{exportedPath}");
         }
     }
 

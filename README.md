@@ -24,6 +24,14 @@ dotnet run --project tests/PackStudio.Desktop.Tests -c Release --no-build -- con
 dotnet publish src/PackStudio.Desktop -c Release -r win-x64 --self-contained -o release/PackStudio
 ```
 
+构建 Windows x64 安装包：
+
+```powershell
+.\tools\installer\build.ps1
+```
+
+脚本从当前源码发布桌面端和 CLI，生成 `release/PackStudio-Setup-x64.msi`。首次构建需要从 NuGet 获取 WiX 和发布运行时。可通过 `-Version 0.1.1` 指定安装版本。安装后从开始菜单打开 PackStudio，CLI 位于安装目录的 `cli/`，桌面端和 CLI 共用安装目录内的 `runtime_data/`。仅安装桌面端时使用 `msiexec /i .\release\PackStudio-Setup-x64.msi ADDLOCAL=Desktop`。
+
 ## 项目结构
 
 | 路径 | 职责 |

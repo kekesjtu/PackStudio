@@ -13,8 +13,10 @@ try
         return 0;
     }
 
-    string root = Directory.GetCurrentDirectory();
-    var catalog = new RuntimeDataCatalog(Path.Combine(root, "runtime_data"));
+    string dataRoot = Path.Combine(AppContext.BaseDirectory, "runtime_data");
+    if (!Directory.Exists(dataRoot))
+        dataRoot = Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, "..", "runtime_data"));
+    var catalog = new RuntimeDataCatalog(dataRoot);
     switch (args)
     {
         case ["catalog"]:

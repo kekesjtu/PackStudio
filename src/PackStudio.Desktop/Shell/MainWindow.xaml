@@ -15,7 +15,7 @@
     <fluent:MenuItem Header="PackStudio 模型 XML" Click="Export_Click"/>
     <fluent:MenuItem Header="PTA 工程 XML" Click="ExportPta_Click"/>
   </fluent:DropDownButton>
-  <fluent:Button x:Name="OpenInPtaButton" Header="在&#xA0;PTA&#xA0;中打开" Command="{Binding OpenInPtaCommand, RelativeSource={RelativeSource AncestorType={x:Type local:MainWindow}}}" ToolTip="生成并导出当前模型，在 PTA 中打开独立工程"><fluent:Button.LargeIcon><TextBlock Style="{StaticResource RibbonIconGlyph}" Text="&#xE8A7;"/></fluent:Button.LargeIcon></fluent:Button>
+  <fluent:Button x:Name="PtaButton" Command="{Binding SendToPtaCommand, RelativeSource={RelativeSource AncestorType={x:Type local:MainWindow}}}"><fluent:Button.LargeIcon><TextBlock Style="{StaticResource RibbonIconGlyph}" Text="&#xE8A7;"/></fluent:Button.LargeIcon></fluent:Button>
   <fluent:Button Header="材料库" Click="Materials_Click"><fluent:Button.LargeIcon><TextBlock Style="{StaticResource RibbonIconGlyph}" Text="&#xE8F1;"/></fluent:Button.LargeIcon></fluent:Button>
 </fluent:RibbonGroupBox>
 <fluent:RibbonGroupBox Header="视图">

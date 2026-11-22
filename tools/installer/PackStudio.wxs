@@ -1,0 +1,36 @@
+<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs">
+  <Package Name="PackStudio" Manufacturer="PackStudio" Version="$(Version)" Scope="perMachine"
+           UpgradeCode="B77CC148-A711-40FF-A23A-E010019E22D5">
+    <MajorUpgrade Schedule="afterInstallInitialize" AllowSameVersionUpgrades="yes"
+                  DowngradeErrorMessage="A newer version of PackStudio is already installed." />
+    <MediaTemplate EmbedCab="yes" />
+
+    <StandardDirectory Id="ProgramFiles64Folder">
+      <Directory Id="INSTALLFOLDER" Name="PackStudio">
+        <Directory Id="CLIFOLDER" Name="cli" />
+      </Directory>
+    </StandardDirectory>
+    <StandardDirectory Id="ProgramMenuFolder" />
+
+    <Feature Id="Desktop" Title="PackStudio Desktop" AllowAbsent="no" Level="1">
+      <Component Directory="INSTALLFOLDER">
+        <File Id="PackStudioExe" Source="$(DesktopPublish)\PackStudio.exe" KeyPath="yes">
+          <Shortcut Id="PackStudioStartMenu" Name="PackStudio" Directory="ProgramMenuFolder" WorkingDirectory="INSTALLFOLDER" Advertise="yes" />
+        </File>
+        <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\App Paths\PackStudio.exe"
+                       Type="string" Value="[#PackStudioExe]" />
+      </Component>
+      <Files Directory="INSTALLFOLDER" Include="$(DesktopPublish)\**">
+        <Exclude Files="$(DesktopPublish)\PackStudio.exe" />
+        <Exclude Files="$(DesktopPublish)\**\*.pdb" />
+      </Files>
+    </Feature>
+
+    <Feature Id="Cli" Title="PackStudio CLI" Level="1">
+      <Files Directory="CLIFOLDER" Include="$(CliPublish)\**">
+        <Exclude Files="$(CliPublish)\runtime_data\**" />
+        <Exclude Files="$(CliPublish)\**\*.pdb" />
+      </Files>
+    </Feature>
+  </Package>
+</Wix>

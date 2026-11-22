@@ -31,6 +31,7 @@ public static class Program
                 {
                     vm.Select("bare_die");
                     await ParameterFormChecks.ValidationAsync(window, vm);
+                    await PtaSessionChecks.Run(window);
                     return;
                 }
                 if (args.Contains("schematics", StringComparer.OrdinalIgnoreCase))
