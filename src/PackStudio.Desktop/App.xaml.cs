@@ -1,10 +1,12 @@
 using System.Windows;
+using System.IO;
 using NLog;
 
 namespace PackStudio.Desktop;
 public partial class App : Application
 {
-    public static string DataRoot => System.IO.Path.Combine(AppContext.BaseDirectory, "runtime_data");
+    public static string DataRoot => Path.Combine(AppContext.BaseDirectory, "runtime_data");
+    internal static string LocalDataRoot => Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "PackStudio");
 
     protected override void OnStartup(StartupEventArgs e)
     {
@@ -12,7 +14,7 @@ public partial class App : Application
         var config = new NLog.Config.LoggingConfiguration();
         var file = new NLog.Targets.FileTarget("file")
         {
-            FileName = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "PackStudio", "logs", "desktop.log"),
+            FileName = Path.Combine(LocalDataRoot, "logs", "desktop.log"),
             ArchiveAboveSize = 2 * 1024 * 1024,
             MaxArchiveFiles = 3
         };

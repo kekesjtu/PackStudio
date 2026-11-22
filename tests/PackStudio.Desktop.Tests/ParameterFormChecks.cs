@@ -161,7 +161,10 @@ static class ParameterFormChecks
         string original = length.TextValue;
         length.TextValue = "-1";
         if (length.HasError || workspace.CanExport) throw new Exception("editing validated input or allowed stale export");
-        await workspace.GenerateAsync();
+        var openInPta = (Fluent.Button)window.FindName("OpenInPtaButton");
+        if (!openInPta.IsEnabled || !ReferenceEquals(openInPta.Command, window.OpenInPtaCommand))
+            throw new Exception("PTA button must accept a model with pending parameter changes");
+        await window.OpenInPtaCommand.ExecuteAsync(null);
         var issue = workspace.Issues.FirstOrDefault(i => i.Severity == IssueSeverity.Error && i.ParameterPaths.Contains("die.length"));
         if (issue == null || workspace.Model != null || workspace.CanExport || !length.HasError)
             throw new Exception("invalid input did not produce a structured blocking field issue");

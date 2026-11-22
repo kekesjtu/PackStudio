@@ -35,7 +35,11 @@ public partial class MainWindow : Window
         };
         parameters.Changed += UpdateSchematic;
         workspace.AppearanceChanged += RefreshAppearance;
-        workspace.PropertyChanged += (_, e) => { if (e.PropertyName == nameof(Workspace.DesignName)) Title = workspace.DesignName + " — PackStudio"; };
+        workspace.PropertyChanged += (_, e) =>
+        {
+            if (e.PropertyName == nameof(Workspace.DesignName)) Title = workspace.DesignName + " — PackStudio";
+            if (e.PropertyName == nameof(Workspace.IsBusy)) OpenInPtaCommand.NotifyCanExecuteChanged();
+        };
         InitializeViewportScale();
         BuildPaletteMenu();
         DataContext = workspace;
@@ -228,10 +232,12 @@ public partial class MainWindow : Window
     }
 
     static string SafeName(string value) => string.Concat(value.Select(c => System.IO.Path.GetInvalidFileNameChars().Contains(c) ? '_' : c));
-    void Error(Exception e)
+    void Error(Exception e) => ShowError(e.Message);
+
+    void ShowError(string message)
     {
-        workspace.Status = e.Message;
-        MessageBox.Show(this, e.Message, "PackStudio", MessageBoxButton.OK, MessageBoxImage.Warning);
+        workspace.Status = message;
+        MessageBox.Show(this, message, "PackStudio", MessageBoxButton.OK, MessageBoxImage.Warning);
     }
 
     void Fit_Click(object sender, RoutedEventArgs e) => Viewport.ZoomExtents();

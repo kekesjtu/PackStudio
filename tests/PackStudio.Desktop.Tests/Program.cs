@@ -27,6 +27,12 @@ public static class Program
                 var vm = (Workspace)window.DataContext;
                 while (vm.IsBusy)
                     await Task.Delay(20);
+                if (args.Contains("pta", StringComparer.OrdinalIgnoreCase))
+                {
+                    vm.Select("bare_die");
+                    await ParameterFormChecks.ValidationAsync(window, vm);
+                    return;
+                }
                 if (args.Contains("schematics", StringComparer.OrdinalIgnoreCase))
                 {
                     SchematicChecks.Run(window, vm);

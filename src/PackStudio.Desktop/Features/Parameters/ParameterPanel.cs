@@ -46,6 +46,9 @@ public sealed partial class ParameterPanel
         : form.Fields.FirstOrDefault(f => f.ContainsPath(path));
     public string? StepFor(string path) => path == "Name" ? "summary" : Find(path)?.Step;
 
+    public bool CommitTableEdits() => Descendants(FieldsPanel).OfType<DataGrid>().Where(table => table.IsVisible)
+        .All(table => table.CommitEdit(DataGridEditingUnit.Cell, true) && table.CommitEdit(DataGridEditingUnit.Row, true));
+
     public void Focus(string path)
     {
         if (path == "Name")
