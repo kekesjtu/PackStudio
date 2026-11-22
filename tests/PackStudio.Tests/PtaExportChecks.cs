@@ -7,7 +7,6 @@ static class PtaExportChecks
 {
     static readonly XNamespace M = "http://schemas.datacontract.org/2004/07/ThermalSim.Models";
     static readonly XNamespace A = "http://schemas.microsoft.com/2003/10/Serialization/Arrays";
-    static readonly XNamespace F = M.NamespaceName + ".Functions";
 
     public static void Run(TestSuite tests)
     {
@@ -23,8 +22,7 @@ static class PtaExportChecks
                     Assert(!root.Descendants(M + node).Any(), "unexpected " + node);
                 var materials = root.Element(M + "Materials")!.Elements(A + "KeyValueOfstringMaterialGyu7GfTz")
                     .ToDictionary(e => e.Element(A + "Key")!.Value, e => e.Element(A + "Value")!);
-                var functions = root.Element(M + "Functions")!.Elements(A + "KeyValueOfstringFunctionAdzryM2O")
-                    .ToDictionary(e => e.Element(A + "Key")!.Value + "(T)", e => e.Element(A + "Value")!);
+                Assert(!root.Element(M + "Functions")!.HasElements, "unexpected PTA material functions");
                 var sources = root.Element(M + "HeatSources")!.Elements(M + "HeatSource").ToDictionary(e => e.Element(M + "Id")!.Value);
                 var blocks = root.Element(M + "Blocks")!.Elements(M + "Block").ToDictionary(e => e.Element(M + "Id")!.Value);
                 var solid = new List<Prism>();
@@ -58,21 +56,10 @@ static class PtaExportChecks
                     Near(Number(definition, "Density"), material.Density, "density");
                     Near(Number(definition, "SpecificHeatCapacity"), material.SpecificHeat, "specific heat");
                     string k = definition.Element(M + "ThermalConductivity")!.Value;
-                    if (material.ConductType == 1)
-                    {
-                        var function = functions[k];
-                        Assert((string?)function.Element(F + "ArgumentKind") == "Temperature", "temperature function argument");
-                        double slope = (double)function.Element(F + "A1")!, intercept = (double)function.Element(F + "A0")!;
-                        Near(slope, material.ConductivityCoefficient!.Value, "temperature slope");
-                        Near(intercept + slope * (material.ReferenceTemperature!.Value + 273.15), material.Conductivity.X, "reference conductivity");
-                    }
-                    else
-                    {
-                        var components = k.Split(',').Select(v => double.Parse(v, CultureInfo.InvariantCulture)).ToArray();
-                        double[] expected = material.ConductType == 2 ? [.. material.Conductivity.Components] : [material.Conductivity.X];
-                        Assert(components.Length == expected.Length, "conductivity component count");
-                        for (int i = 0; i < expected.Length; i++) Near(components[i], expected[i], "conductivity component");
-                    }
+                    var components = k.Split(',').Select(v => double.Parse(v, CultureInfo.InvariantCulture)).ToArray();
+                    double[] expected = material.ConductType == 2 ? [.. material.Conductivity.Components] : [material.Conductivity.X];
+                    Assert(components.Length == expected.Length, "conductivity component count");
+                    for (int i = 0; i < expected.Length; i++) Near(components[i], expected[i], "conductivity component");
                 }
                 VerifyOccupancy(model, solid, blocks, sources);
             });

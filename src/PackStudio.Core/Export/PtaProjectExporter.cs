@@ -7,7 +7,6 @@ namespace PackStudio.Core;
 public static class PtaProjectExporter
 {
     static readonly XNamespace Model = "http://schemas.datacontract.org/2004/07/ThermalSim.Models";
-    static readonly XNamespace Functions = Model.NamespaceName + ".Functions";
     static readonly XNamespace Arrays = "http://schemas.microsoft.com/2003/10/Serialization/Arrays";
     static readonly XNamespace Media = "http://schemas.datacontract.org/2004/07/System.Windows.Media";
     static readonly XNamespace Instance = "http://www.w3.org/2001/XMLSchema-instance";
@@ -20,7 +19,6 @@ public static class PtaProjectExporter
         var model = result.Model!;
         var slices = PtaGeometry.Partition(model).ToLookup(s => s.Owner.Id);
         var materials = new XElement(Model + "Materials");
-        var functions = new XElement(Model + "Functions");
         var materialNames = new Dictionary<string, string>();
         var usedNames = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
         foreach (var id in model.Blocks.Where(b => slices.Contains(b.Id)).Select(b => b.MaterialId).Distinct().Order(StringComparer.Ordinal))
@@ -37,7 +35,7 @@ public static class PtaProjectExporter
                     new XElement(Model + "Density", Format(material.Density)),
                     new XElement(Model + "FluidMaterial", false),
                     new XElement(Model + "SpecificHeatCapacity", Format(material.SpecificHeat)),
-                    new XElement(Model + "ThermalConductivity", Conductivity(material, functions, materialNames.Count)))));
+                    new XElement(Model + "ThermalConductivity", Conductivity(material)))));
         }
 
         var blocks = new XElement(Model + "Blocks");
@@ -99,12 +97,12 @@ public static class PtaProjectExporter
 
         // PTA's data contract reads fields in declaration order, including dictionary entries.
         var root = new XElement(Model + "Structure",
-            new XAttribute(XNamespace.Xmlns + "a", Arrays), new XAttribute(XNamespace.Xmlns + "f", Functions),
+            new XAttribute(XNamespace.Xmlns + "a", Arrays),
             new XAttribute(XNamespace.Xmlns + "i", Instance), new XAttribute(XNamespace.Xmlns + "w", Media),
             new XElement(Model + "AmbientTemperature", "300"), new XElement(Model + "BasicGeometries"),
             blocks, new XElement(Model + "Boundaries"),
             new XElement(Model + "Dimension", "Dimension3D"), new XElement(Model + "EnabledPhysics", "HeatTransfer"),
-            functions, sources, new XElement(Model + "InitialTemperature", 300),
+            new XElement(Model + "Functions"), sources, new XElement(Model + "InitialTemperature", 300),
             new XElement(Model + "Layers"), new XElement(Model + "LengthUnit", "Mm"), materials,
             new XElement(Model + "MeshSettings"), new XElement(Model + "ObservePoints2D"), new XElement(Model + "ObservePoints3D"),
             new XElement(Model + "SoftwareMode", "PTA"), new XElement(Model + "SolverType", "FDM"),
@@ -115,24 +113,9 @@ public static class PtaProjectExporter
         return new(new XDeclaration("1.0", "utf-8", null), root);
     }
 
-    static string Conductivity(Material material, XElement functions, int index)
-    {
-        var k = material.EffectiveConductivity;
-        if (material.ConductType == 2) return string.Join(",", k.Components.Select(Format));
-        if (material.ConductType == 0) return Format(k.X);
-
-        string name = "k" + index.ToString(CultureInfo.InvariantCulture);
-        // k(T) = k_ref + slope * (T - T_ref), with PTA temperatures in kelvin.
-        double slope = material.ConductivityCoefficient!.Value;
-        double referenceK = material.ReferenceTemperature!.Value + 273.15;
-        functions.Add(new XElement(Arrays + "KeyValueOfstringFunctionAdzryM2O", new XElement(Arrays + "Key", name),
-            new XElement(Arrays + "Value", new XAttribute(Instance + "type", "f:PolynomialFunction"),
-                new XElement(Functions + "ArgumentKind", "Temperature"),
-                new XElement(Functions + "DrawMaxX", 500), new XElement(Functions + "DrawMinX", 250),
-                new XElement(Functions + "A0", Format(k.X - slope * referenceK)),
-                new XElement(Functions + "A1", Format(slope)))));
-        return name + "(T)";
-    }
+    static string Conductivity(Material material) => material.ConductType == 2
+        ? string.Join(",", material.Conductivity.Components.Select(Format))
+        : Format(material.Conductivity.X);
 
     static XElement Rect(PtaRect face, PtaRect origin, string name, bool add, bool arrayMember = false) =>
         new(Model + "Rect", new XElement(Model + "Add_sub", add),

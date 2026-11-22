@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Structure xmlns:a="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:f="http://schemas.datacontract.org/2004/07/ThermalSim.Models.Functions" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns:w="http://schemas.datacontract.org/2004/07/System.Windows.Media" xmlns="http://schemas.datacontract.org/2004/07/ThermalSim.Models">
+<Structure xmlns:a="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns:w="http://schemas.datacontract.org/2004/07/System.Windows.Media" xmlns="http://schemas.datacontract.org/2004/07/ThermalSim.Models">
   <AmbientTemperature>300</AmbientTemperature>
   <BasicGeometries />
   <Blocks>
@@ -3543,18 +3543,7 @@
   <Boundaries />
   <Dimension>Dimension3D</Dimension>
   <EnabledPhysics>HeatTransfer</EnabledPhysics>
-  <Functions>
-    <a:KeyValueOfstringFunctionAdzryM2O>
-      <a:Key>k7</a:Key>
-      <a:Value i:type="f:PolynomialFunction">
-        <f:ArgumentKind>Temperature</f:ArgumentKind>
-        <f:DrawMaxX>500</f:DrawMaxX>
-        <f:DrawMinX>250</f:DrawMinX>
-        <f:A0>274.223</f:A0>
-        <f:A1>-0.42</f:A1>
-      </a:Value>
-    </a:KeyValueOfstringFunctionAdzryM2O>
-  </Functions>
+  <Functions />
   <HeatSources>
     <HeatSource>
       <Id>heat-die-part-1</Id>
@@ -3626,7 +3615,7 @@
         <Density>2330</Density>
         <FluidMaterial>false</FluidMaterial>
         <SpecificHeatCapacity>700</SpecificHeatCapacity>
-        <ThermalConductivity>k7(T)</ThermalConductivity>
+        <ThermalConductivity>117.5</ThermalConductivity>
       </a:Value>
     </a:KeyValueOfstringMaterialGyu7GfTz>
     <a:KeyValueOfstringMaterialGyu7GfTz>
