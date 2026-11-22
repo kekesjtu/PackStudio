@@ -1,35 +1,35 @@
 [CmdletBinding()]
 param(
-    [ValidatePattern('^\d{1,3}\.\d{1,3}\.\d{1,5}$')][string]$Version = '0.1.0',
-    [string]$WixPath
+    [ValidatePattern('^\d+\.\d+\.\d+$')][string]$Version = '0.1.1',
+    [string]$CompilerPath
 )
 
 $ErrorActionPreference = 'Stop'
 $packageVersion = [version]$Version
-if ($packageVersion.Major -gt 255 -or $packageVersion.Minor -gt 255 -or $packageVersion.Build -gt 65535) {
-    throw 'MSI versions must be in the range 0.0.0 to 255.255.65535.'
-}
 
 $repo = (Resolve-Path -LiteralPath (Join-Path $PSScriptRoot '..\..')).Path
 $release = Join-Path $repo 'release'
-$package = Join-Path $release 'PackStudio-Setup-x64.msi'
+$package = Join-Path $release 'PackStudio-Setup-x64.exe'
 $workRoot = Join-Path $repo ('tmp\{0:yyyy-MM-dd}-packstudio-installer' -f (Get-Date))
 $work = Join-Path $workRoot ([guid]::NewGuid().ToString('N'))
 
+if ($CompilerPath) {
+    $CompilerPath = (Resolve-Path -LiteralPath $CompilerPath).Path
+} else {
+    $programFiles = [Environment]::GetFolderPath([Environment+SpecialFolder]::ProgramFilesX86)
+    $localPrograms = [Environment]::GetFolderPath([Environment+SpecialFolder]::LocalApplicationData)
+    $compilerCandidates = @(
+        (Join-Path $release '.tools\inno-6.6.1\ISCC.exe')
+        (Join-Path $programFiles 'Inno Setup 6\ISCC.exe')
+        (Join-Path $localPrograms 'Programs\Inno Setup 6\ISCC.exe')
+        (Get-Command ISCC.exe -CommandType Application -ErrorAction SilentlyContinue | Select-Object -ExpandProperty Source -First 1)
+    )
+    $CompilerPath = $compilerCandidates | Where-Object { $_ -and (Test-Path -LiteralPath $_ -PathType Leaf) } | Select-Object -First 1
+}
+if (!$CompilerPath) { throw 'Install Inno Setup 6.6.1 or specify the path to ISCC.exe with -CompilerPath.' }
+
 Push-Location $repo
 try {
-    if ($WixPath) {
-        $WixPath = (Resolve-Path -LiteralPath $WixPath).Path
-    } else {
-        $wixVersion = '6.0.2'
-        $wixDirectory = Join-Path $release ".tools\wix-$wixVersion"
-        $WixPath = Join-Path $wixDirectory 'wix.exe'
-        if (!(Test-Path -LiteralPath $WixPath -PathType Leaf)) {
-            dotnet tool install wix --version $wixVersion --tool-path $wixDirectory
-            if ($LASTEXITCODE -ne 0) { throw 'WiX restore failed.' }
-        }
-    }
-
     New-Item -ItemType Directory -Path $work, $release -Force | Out-Null
     $desktop = Join-Path $work 'desktop'
     $cli = Join-Path $work 'cli'
@@ -43,11 +43,10 @@ try {
     dotnet publish src/PackStudio.Cli/PackStudio.Cli.csproj @publishArguments -o $cli
     if ($LASTEXITCODE -ne 0) { throw 'PackStudio CLI publish failed.' }
 
-    $stagedPackage = Join-Path $work 'PackStudio-Setup-x64.msi'
-    & $WixPath build -arch x64 -pdbtype none -intermediateFolder (Join-Path $work 'wix') `
-        -d "Version=$packageVersion" -d "DesktopPublish=$desktop" -d "CliPublish=$cli" `
-        -o $stagedPackage (Join-Path $PSScriptRoot 'PackStudio.wxs')
-    if ($LASTEXITCODE -ne 0) { throw 'PackStudio MSI build failed.' }
+    $stagedPackage = Join-Path $work ([IO.Path]::GetFileName($package))
+    & $CompilerPath /Qp "/O$work" "/DReleaseVersion=$packageVersion" "/DDesktopPublish=$desktop" "/DCliPublish=$cli" `
+        (Join-Path $PSScriptRoot 'PackStudio.iss')
+    if ($LASTEXITCODE -ne 0) { throw 'Inno Setup build failed.' }
 
     if ([IO.File]::Exists($package)) {
         [IO.File]::Replace($stagedPackage, $package, [NullString]::Value)

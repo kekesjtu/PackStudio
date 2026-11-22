@@ -15,7 +15,7 @@ PTA 工程采用三维稳态固体传热、FDM 和 300 K 环境温度与初始�
 
 PTA 为每次启动生成新的非空 GUID，按 `N` 格式传入 `PackStudio.exe --pta-session <id>`，并监听本地双向字节模式命名管道 `PackStudio.PTA.<id>`。管道名使用小写 GUID。两进程使用同一 Windows 用户及提升权限级别，服务端使用 `PipeOptions.CurrentUserOnly | PipeOptions.Asynchronous`。
 
-通过 MSI 安装时，PTA 可从 `HKLM\Software\Microsoft\Windows\CurrentVersion\App Paths\PackStudio.exe` 的默认值读取桌面程序路径。
+安装后，PTA 可从 `HKLM\Software\Microsoft\Windows\CurrentVersion\App Paths\PackStudio.exe` 的默认值读取桌面程序路径。
 
 PackStudio 显示「传回 PTA」并导出独立工程。每次传输用一个连接，双方使用 UTF-8、无 BOM、以换行结束的一行 JSON。请求包含协议版本和已写完的 `.pta.xml` 绝对路径。
 

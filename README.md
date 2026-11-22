@@ -30,7 +30,9 @@ dotnet publish src/PackStudio.Desktop -c Release -r win-x64 --self-contained -o 
 .\tools\installer\build.ps1
 ```
 
-脚本从当前源码发布桌面端和 CLI，生成 `release/PackStudio-Setup-x64.msi`。首次构建需要从 NuGet 获取 WiX 和发布运行时。可通过 `-Version 0.1.1` 指定安装版本。安装后从开始菜单打开 PackStudio，CLI 位于安装目录的 `cli/`，桌面端和 CLI 共用安装目录内的 `runtime_data/`。仅安装桌面端时使用 `msiexec /i .\release\PackStudio-Setup-x64.msi ADDLOCAL=Desktop`。
+脚本使用 [Inno Setup 6.6.1](https://github.com/jrsoftware/issrc/releases/tag/is-6_6_1)，从当前源码发布桌面端和 CLI，生成 `release/PackStudio-Setup-x64.exe`。首次发布需要从 NuGet 还原 Windows x64 运行时。可通过 `-CompilerPath` 指定 `ISCC.exe`，通过 `-Version 0.1.2` 指定安装版本。
+
+双击 EXE 启动安装向导，在目录页选择安装位置，在组件页选择是否安装 CLI。安装后从开始菜单打开 PackStudio，CLI 位于安装目录的 `cli/`，与桌面端共用安装目录内的 `runtime_data/`。
 
 ## 项目结构
 
