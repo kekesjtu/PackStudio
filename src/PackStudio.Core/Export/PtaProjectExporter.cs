@@ -18,11 +18,12 @@ public static class PtaProjectExporter
     {
         if (!result.CanExport) throw new ArgumentException("生成结果包含阻断问题，不能导出。");
         var model = result.Model!;
+        var slices = PtaGeometry.Partition(model).ToLookup(s => s.Owner.Id);
         var materials = new XElement(Model + "Materials");
         var functions = new XElement(Model + "Functions");
         var materialNames = new Dictionary<string, string>();
         var usedNames = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
-        foreach (var id in model.Blocks.Select(b => b.MaterialId).Distinct().Order(StringComparer.Ordinal))
+        foreach (var id in model.Blocks.Where(b => slices.Contains(b.Id)).Select(b => b.MaterialId).Distinct().Order(StringComparer.Ordinal))
         {
             var material = model.Materials[id];
             string name = string.IsNullOrWhiteSpace(material.Name) ? id : material.Name;
@@ -42,19 +43,58 @@ public static class PtaProjectExporter
         var blocks = new XElement(Model + "Blocks");
         var sources = new XElement(Model + "HeatSources");
         var powerByBlock = model.Sources.GroupBy(s => s.BlockId).ToDictionary(g => g.Key, g => g.Sum(s => s.Power));
+        var candidates = new List<PtaSlice>();
+        var allocated = model.Blocks.Select(b => b.Id).ToHashSet(StringComparer.Ordinal);
         foreach (var block in model.Blocks)
         {
+            var parts = slices[block.Id].ToArray();
+            if (parts.Length == 0)
+            {
+                if (powerByBlock.GetValueOrDefault(block.Id) > 0)
+                    throw new ArgumentException($"热源块 {block.Id} 被完全覆盖，无法保留其功率。");
+                continue;
+            }
             string? sourceId = null;
             if (powerByBlock.TryGetValue(block.Id, out double power))
             {
                 sourceId = "heat-" + block.Id;
-                double volumeM3 = block.Size.Volume * 1e-9;
+                double volumeM3 = parts.Sum(p => p.Volume) * 1e-9;
                 sources.Add(new XElement(Model + "HeatSource",
                     new XElement(Model + "Id", sourceId),
                     new XElement(Model + "Name", block.Name),
                     new XElement(Model + "PowerDensity", Format(power / volumeM3))));
             }
-            blocks.Add(WriteBlock(block, materialNames[block.MaterialId], model.Materials[block.MaterialId].Color, sourceId));
+            if (sourceId == null && parts.Length == 1 && parts[0].Holes.Length == 0)
+                candidates.Add(parts[0]);
+            else
+            {
+                int suffix = 2;
+                foreach (var part in parts)
+                {
+                    string id = block.Id;
+                    if (part != parts[0])
+                        do { id = FormattableString.Invariant($"{block.Id}-pta-{suffix++}"); } while (!allocated.Add(id));
+                    blocks.Add(WriteBlock(part, id, materialNames[block.MaterialId], model.Materials[block.MaterialId].Color, sourceId));
+                }
+            }
+        }
+        foreach (var array in PtaArrays.Layout(candidates))
+        {
+            var seed = array.Members[0];
+            var owner = seed.Owner;
+            var block = WriteBlock(seed, owner.Id, materialNames[owner.MaterialId], model.Materials[owner.MaterialId].Color, null);
+            if (array.Members.Length > 1)
+            {
+                var rects = block.Element(Model + "AllRects")!;
+                rects.Elements().First().Element(Model + "NotOccupiedByArray")!.Value = "false";
+                rects.Add(new XElement(Model + "Rect", new XElement(Model + "ArrayDisguise", true),
+                    new XElement(Model + "Name", "阵列"), new XElement(Model + "NotOccupiedByArray", true),
+                    new XElement(Model + "XIntervalExpression", array.PitchX), new XElement(Model + "XSizeExpression", array.Columns),
+                    new XElement(Model + "YIntervalExpression", array.PitchY), new XElement(Model + "YSizeExpression", array.Rows)));
+                foreach (var member in array.Members.Skip(1))
+                    rects.Add(Rect(member.Face, seed.Face, member.Owner.Name, true, true));
+            }
+            blocks.Add(block);
         }
 
         // PTA's data contract reads fields in declaration order, including dictionary entries.
@@ -94,23 +134,29 @@ public static class PtaProjectExporter
         return name + "(T)";
     }
 
-    static XElement WriteBlock(Block block, string material, string color, string? sourceId)
+    static XElement Rect(PtaRect face, PtaRect origin, string name, bool add, bool arrayMember = false) =>
+        new(Model + "Rect", new XElement(Model + "Add_sub", add),
+            arrayMember ? new XElement(Model + "CreatedByArray", true) : null,
+            new XElement(Model + "HeightExpression", face.Height), new XElement(Model + "Name", name),
+            new XElement(Model + "NotOccupiedByArray", true), new XElement(Model + "WidthExpression", face.Width),
+            new XElement(Model + "XExpression", face.Left - origin.Left),
+            new XElement(Model + "YExpression", face.Bottom - origin.Bottom));
+
+    static XElement WriteBlock(PtaSlice slice, string id, string material, string color, string? sourceId)
     {
-        // On ordinary rectangles PTA can alias array size/interval setters to width/position.
-        // Only serialize the geometry fields for this single positive rectangle.
-        var rect = new XElement(Model + "Rect", new XElement(Model + "Add_sub", true),
-            new XElement(Model + "HeightExpression", Format(block.Size.Y)), new XElement(Model + "Name", "正向矩形"),
-            new XElement(Model + "NotOccupiedByArray", true), new XElement(Model + "WidthExpression", Format(block.Size.X)),
-            new XElement(Model + "XExpression", "0"), new XElement(Model + "YExpression", "0"));
-        return new XElement(Model + "Block", new XElement(Model + "AllRects", rect),
+        var block = slice.Owner;
+        string name = id == block.Id ? block.Name : id;
+        var rects = new XElement(Model + "AllRects", Rect(slice.Face, slice.Face, block.Name, true),
+            slice.Holes.Select(h => Rect(h, slice.Face, "扣除矩形", false)));
+        return new XElement(Model + "Block", rects,
             new XElement(Model + "CanCreateArray", true), BlockColor(color),
             sourceId == null ? null : new XElement(Model + "HeatSourceId", sourceId),
-            new XElement(Model + "Id", block.Id), new XElement(Model + "InitialName", block.Name),
+            new XElement(Model + "Id", id), new XElement(Model + "InitialName", name),
             new XElement(Model + "IsVisible", true), new XElement(Model + "MaterialName", material),
-            new XElement(Model + "Name", block.Name), new XElement(Model + "ThicknessExpression", Format(block.Size.Z)),
-            new XElement(Model + "XOffsetExpression", Format(block.Origin.X)),
-            new XElement(Model + "YOffsetExpression", Format(block.Origin.Y)),
-            new XElement(Model + "ZOffsetExpression", Format(block.Origin.Z)));
+            new XElement(Model + "Name", name), new XElement(Model + "ThicknessExpression", slice.Top - slice.Bottom),
+            new XElement(Model + "XOffsetExpression", slice.Face.Left),
+            new XElement(Model + "YOffsetExpression", slice.Face.Bottom),
+            new XElement(Model + "ZOffsetExpression", slice.Bottom));
     }
 
     static XElement BlockColor(string color)
