@@ -11,6 +11,7 @@ PrivilegesRequired=admin
 ArchitecturesAllowed=x64compatible
 ArchitecturesInstallIn64BitMode=x64compatible
 WizardStyle=modern dynamic
+SetupIconFile=..\..\src\PackStudio.Desktop\Assets\PackStudio.ico
 UninstallDisplayIcon={app}\PackStudio.exe
 VersionInfoVersion={#ReleaseVersion}
 OutputBaseFilename=PackStudio-Setup-x64
